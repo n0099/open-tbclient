@@ -4,9 +4,9 @@ public class WeiboHttpException extends WeiboException {
     public static final long serialVersionUID = 1;
     public final int mStatusCode;
 
-    public WeiboHttpException(String str, int i) {
+    public WeiboHttpException(String str, int i2) {
         super(str);
-        this.mStatusCode = i;
+        this.mStatusCode = i2;
     }
 
     public int getStatusCode() {

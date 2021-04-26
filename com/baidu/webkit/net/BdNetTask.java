@@ -79,19 +79,19 @@ public class BdNetTask implements INoProGuard {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f26731a = 1;
+        public static final int f27542a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f26732b = 2;
+        public static final int f27543b = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f26733c = 3;
+        public static final int f27544c = 3;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int f26734d = 4;
+        public static final int f27545d = 4;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ int[] f26735e = {1, 2, 3, 4};
+        public static final /* synthetic */ int[] f27546e = {1, 2, 3, 4};
     }
 
     public BdNetTask() {
@@ -103,7 +103,7 @@ public class BdNetTask implements INoProGuard {
         this.mConnectionTimeOut = 0;
         this.mFollowRedirects = true;
         this.isUseCorenet = true;
-        this.mTaskPriority$77d0b2dd = b.f26732b;
+        this.mTaskPriority$77d0b2dd = b.f27543b;
     }
 
     private void clearForRecycle() {
@@ -275,7 +275,7 @@ public class BdNetTask implements INoProGuard {
     }
 
     public boolean isHigherPriority() {
-        return this.mTaskPriority$77d0b2dd == b.f26731a;
+        return this.mTaskPriority$77d0b2dd == b.f27542a;
     }
 
     public boolean isRedirect() {
@@ -301,8 +301,8 @@ public class BdNetTask implements INoProGuard {
         this.mConnection = httpURLConnection;
     }
 
-    public void setConnectionTimeOut(int i) {
-        this.mConnectionTimeOut = i;
+    public void setConnectionTimeOut(int i2) {
+        this.mConnectionTimeOut = i2;
     }
 
     public void setContent(byte[] bArr) {
@@ -335,8 +335,8 @@ public class BdNetTask implements INoProGuard {
         this.mNet = bdNet;
     }
 
-    public void setReadTimeOut(int i) {
-        this.mReadTimeOut = i;
+    public void setReadTimeOut(int i2) {
+        this.mReadTimeOut = i2;
     }
 
     public void setRedirect(boolean z) {
@@ -359,8 +359,8 @@ public class BdNetTask implements INoProGuard {
         this.mSetting = obj;
     }
 
-    public void setTaskPriority$31e7403e(int i) {
-        this.mTaskPriority$77d0b2dd = i;
+    public void setTaskPriority$31e7403e(int i2) {
+        this.mTaskPriority$77d0b2dd = i2;
     }
 
     public void setUrl(String str) {

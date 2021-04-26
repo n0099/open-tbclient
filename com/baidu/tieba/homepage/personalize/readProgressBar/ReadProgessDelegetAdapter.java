@@ -9,12 +9,12 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.c.j.e.n;
-import d.b.c.j.e.w;
-import d.b.j0.a1.g.l.b;
-import d.b.j0.x.t;
+import d.a.c.j.e.n;
+import d.a.c.j.e.w;
+import d.a.j0.a1.g.l.b;
+import d.a.j0.x.t;
 /* loaded from: classes4.dex */
-public class ReadProgessDelegetAdapter extends d.b.c.j.e.a<b, ViewHolder> {
+public class ReadProgessDelegetAdapter extends d.a.c.j.e.a<b, ViewHolder> {
     public final TbPageContext<?> m;
     public w n;
 
@@ -22,11 +22,11 @@ public class ReadProgessDelegetAdapter extends d.b.c.j.e.a<b, ViewHolder> {
     public static class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.j0.a1.g.l.a f16969a;
+        public d.a.j0.a1.g.l.a f17241a;
 
-        public ViewHolder(d.b.j0.a1.g.l.a aVar) {
-            super(aVar.m());
-            this.f16969a = aVar;
+        public ViewHolder(d.a.j0.a1.g.l.a aVar) {
+            super(aVar.l());
+            this.f17241a = aVar;
         }
     }
 
@@ -35,8 +35,8 @@ public class ReadProgessDelegetAdapter extends d.b.c.j.e.a<b, ViewHolder> {
         public a(ReadProgessDelegetAdapter readProgessDelegetAdapter) {
         }
 
-        @Override // d.b.c.j.e.w
-        public void f(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // d.a.c.j.e.w
+        public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             TiebaStatic.log(new StatisticItem("c11273"));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001384, 0));
         }
@@ -47,22 +47,22 @@ public class ReadProgessDelegetAdapter extends d.b.c.j.e.a<b, ViewHolder> {
         a aVar = new a(this);
         this.n = aVar;
         this.m = tbPageContext;
-        c0(aVar);
+        Z(aVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.c.j.e.a
-    /* renamed from: h0 */
-    public ViewHolder R(ViewGroup viewGroup) {
-        return new ViewHolder(new d.b.j0.a1.g.l.a(this.m, viewGroup));
+    @Override // d.a.c.j.e.a
+    /* renamed from: e0 */
+    public ViewHolder P(ViewGroup viewGroup) {
+        return new ViewHolder(new d.a.j0.a1.g.l.a(this.m, viewGroup));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.c.j.e.a
-    /* renamed from: i0 */
-    public View X(int i, View view, ViewGroup viewGroup, b bVar, ViewHolder viewHolder) {
+    @Override // d.a.c.j.e.a
+    /* renamed from: f0 */
+    public View W(int i2, View view, ViewGroup viewGroup, b bVar, ViewHolder viewHolder) {
         t.b().a(new StatisticItem("c11272"));
-        viewHolder.f16969a.n(bVar);
+        viewHolder.f17241a.m(bVar);
         return viewHolder.a();
     }
 }

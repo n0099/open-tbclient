@@ -3,19 +3,19 @@ package com.baidu.fsg.base.restnet.beans.business.core.utils;
 public class StringUtil {
     public static final char[] sNum = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    public static String arrayToString(byte[] bArr, int i, int i2) {
+    public static String arrayToString(byte[] bArr, int i2, int i3) {
         if (bArr == null) {
             return null;
         }
         StringBuffer stringBuffer = new StringBuffer();
-        i = (i < 0 || bArr.length < i) ? 0 : 0;
-        int i3 = i2 + i;
-        if (i3 > bArr.length) {
-            i3 = bArr.length;
+        i2 = (i2 < 0 || bArr.length < i2) ? 0 : 0;
+        int i4 = i3 + i2;
+        if (i4 > bArr.length) {
+            i4 = bArr.length;
         }
-        while (i < i3) {
-            stringBuffer.append(memToStr(bArr[i]));
-            i++;
+        while (i2 < i4) {
+            stringBuffer.append(memToStr(bArr[i2]));
+            i2++;
         }
         return stringBuffer.toString();
     }

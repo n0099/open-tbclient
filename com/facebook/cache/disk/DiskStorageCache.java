@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DiskStorageCache implements FileCache, DiskTrimmable {
     public static final String SHARED_PREFS_FILENAME_PREFIX = "disk_entries_list";
     public static final int START_OF_VERSIONING = 1;
@@ -59,7 +59,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     public static final long FILECACHE_SIZE_UPDATE_PERIOD_MS = TimeUnit.MINUTES.toMillis(30);
 
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class CacheStats {
         public boolean mInitialized = false;
         public long mSize = -1;
@@ -97,7 +97,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Params {
         public final long mCacheSizeLimitMinimum;
         public final long mDefaultCacheSizeLimit;
@@ -162,7 +162,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
             Collection<DiskStorage.Entry> sortedEntries = getSortedEntries(this.mStorage.getEntries());
             long size = this.mCacheStats.getSize();
             long j2 = size - j;
-            int i = 0;
+            int i2 = 0;
             long j3 = 0;
             for (DiskStorage.Entry entry : sortedEntries) {
                 if (j3 > j2) {
@@ -171,14 +171,14 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                 long remove = this.mStorage.remove(entry);
                 this.mResourceIndex.remove(entry.getId());
                 if (remove > 0) {
-                    i++;
+                    i2++;
                     j3 += remove;
                     SettableCacheEvent cacheLimit = SettableCacheEvent.obtain().setResourceId(entry.getId()).setEvictionReason(evictionReason).setItemSize(remove).setCacheSize(size - j3).setCacheLimit(j);
                     this.mCacheEventListener.onEviction(cacheLimit);
                     cacheLimit.recycle();
                 }
             }
-            this.mCacheStats.increment(-j3, -i);
+            this.mCacheStats.increment(-j3, -i2);
             this.mStorage.purgeUnexpectedResources();
         } catch (IOException e2) {
             CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
@@ -247,16 +247,16 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         try {
             long j3 = 0;
             long j4 = -1;
-            int i = 0;
-            boolean z = false;
             int i2 = 0;
+            boolean z = false;
             int i3 = 0;
+            int i4 = 0;
             for (DiskStorage.Entry entry : this.mStorage.getEntries()) {
-                i2++;
+                i3++;
                 j3 += entry.getSize();
                 if (entry.getTimestamp() > j2) {
-                    i3++;
-                    i = (int) (i + entry.getSize());
+                    i4++;
+                    i2 = (int) (i2 + entry.getSize());
                     j = j2;
                     j4 = Math.max(entry.getTimestamp() - now, j4);
                     z = true;
@@ -269,9 +269,9 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                 j2 = j;
             }
             if (z) {
-                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.READ_INVALID_ENTRY, TAG, "Future timestamp found in " + i3 + " files , with a total size of " + i + " bytes, and a maximum time delta of " + j4 + "ms", null);
+                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.READ_INVALID_ENTRY, TAG, "Future timestamp found in " + i4 + " files , with a total size of " + i2 + " bytes, and a maximum time delta of " + j4 + "ms", null);
             }
-            long j5 = i2;
+            long j5 = i3;
             if (this.mCacheStats.getCount() != j5 || this.mCacheStats.getSize() != j3) {
                 if (this.mIndexPopulateAtStartupEnabled && this.mResourceIndex != hashSet) {
                     this.mResourceIndex.clear();
@@ -352,7 +352,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                 long now = this.mClock.now();
                 Collection<DiskStorage.Entry> entries = this.mStorage.getEntries();
                 long size = this.mCacheStats.getSize();
-                int i = 0;
+                int i2 = 0;
                 long j4 = 0;
                 j3 = 0;
                 for (DiskStorage.Entry entry : entries) {
@@ -363,7 +363,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                             long remove = this.mStorage.remove(entry);
                             this.mResourceIndex.remove(entry.getId());
                             if (remove > 0) {
-                                i++;
+                                i2++;
                                 j4 += remove;
                                 SettableCacheEvent cacheSize = SettableCacheEvent.obtain().setResourceId(entry.getId()).setEvictionReason(CacheEventListener.EvictionReason.CONTENT_STALE).setItemSize(remove).setCacheSize(size - j4);
                                 this.mCacheEventListener.onEviction(cacheSize);
@@ -382,9 +382,9 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                     }
                 }
                 this.mStorage.purgeUnexpectedResources();
-                if (i > 0) {
+                if (i2 > 0) {
                     maybeUpdateFileCacheSize();
-                    this.mCacheStats.increment(-j4, -i);
+                    this.mCacheStats.increment(-j4, -i2);
                 }
             } catch (IOException e3) {
                 e = e3;
@@ -414,8 +414,8 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                 List<String> resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
                 String str = null;
                 binaryResource = null;
-                for (int i = 0; i < resourceIds.size(); i++) {
-                    str = resourceIds.get(i);
+                for (int i2 = 0; i2 < resourceIds.size(); i2++) {
+                    str = resourceIds.get(i2);
                     cacheKey2.setResourceId(str);
                     binaryResource = this.mStorage.getResource(str, cacheKey);
                     if (binaryResource != null) {
@@ -454,8 +454,8 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
             }
             try {
                 List<String> resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
-                for (int i = 0; i < resourceIds.size(); i++) {
-                    String str = resourceIds.get(i);
+                for (int i2 = 0; i2 < resourceIds.size(); i2++) {
+                    String str = resourceIds.get(i2);
                     if (this.mStorage.contains(str, cacheKey)) {
                         this.mResourceIndex.add(str);
                         return true;
@@ -472,8 +472,8 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     public boolean hasKeySync(CacheKey cacheKey) {
         synchronized (this.mLock) {
             List<String> resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
-            for (int i = 0; i < resourceIds.size(); i++) {
-                if (this.mResourceIndex.contains(resourceIds.get(i))) {
+            for (int i2 = 0; i2 < resourceIds.size(); i2++) {
+                if (this.mResourceIndex.contains(resourceIds.get(i2))) {
                     return true;
                 }
             }
@@ -534,14 +534,14 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                 synchronized (this.mLock) {
                     try {
                         List<String> resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
-                        int i = 0;
-                        while (i < resourceIds.size()) {
-                            String str3 = resourceIds.get(i);
+                        int i2 = 0;
+                        while (i2 < resourceIds.size()) {
+                            String str3 = resourceIds.get(i2);
                             if (this.mStorage.touch(str3, cacheKey)) {
                                 this.mResourceIndex.add(str3);
                                 return true;
                             }
-                            i++;
+                            i2++;
                             str2 = str3;
                         }
                         return false;
@@ -573,8 +573,8 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         synchronized (this.mLock) {
             try {
                 List<String> resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
-                for (int i = 0; i < resourceIds.size(); i++) {
-                    String str = resourceIds.get(i);
+                for (int i2 = 0; i2 < resourceIds.size(); i2++) {
+                    String str = resourceIds.get(i2);
                     this.mStorage.remove(str);
                     this.mResourceIndex.remove(str);
                 }

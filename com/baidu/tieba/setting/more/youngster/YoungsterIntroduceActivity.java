@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.more.youngster.view.YoungsterIntroduceView;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class YoungsterIntroduceActivity extends BaseActivity {
     public int mFrom;
     public NavigationBar mNavigationBar;
@@ -17,9 +17,9 @@ public class YoungsterIntroduceActivity extends BaseActivity {
     public View vBack;
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
         this.mYoungsterIntroduceView.b();
     }
 

@@ -4,9 +4,9 @@ import com.squareup.wire2.FieldEncoding;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.ProtoAdapter;
 import com.squareup.wire2.WireField;
-import d.o.a.c;
-import d.o.a.d;
-import d.o.a.h.a;
+import d.n.a.c;
+import d.n.a.d;
+import d.n.a.h.a;
 import java.io.IOException;
 import okio.ByteString;
 /* loaded from: classes6.dex */
@@ -161,8 +161,8 @@ public final class MovieParams extends Message<MovieParams, Builder> {
     }
 
     public int hashCode() {
-        int i = this.hashCode;
-        if (i == 0) {
+        int i2 = this.hashCode;
+        if (i2 == 0) {
             int hashCode = unknownFields().hashCode() * 37;
             Float f2 = this.viewBoxWidth;
             int hashCode2 = (hashCode + (f2 != null ? f2.hashCode() : 0)) * 37;
@@ -175,7 +175,7 @@ public final class MovieParams extends Message<MovieParams, Builder> {
             this.hashCode = hashCode5;
             return hashCode5;
         }
-        return i;
+        return i2;
     }
 
     @Override // com.squareup.wire2.Message

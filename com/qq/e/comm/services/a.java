@@ -31,13 +31,13 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f38771a = new a();
+    public static final a f36352a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile Boolean f38772b = Boolean.FALSE;
+    public volatile Boolean f36353b = Boolean.FALSE;
 
     public static a a() {
-        return f38771a;
+        return f36352a;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0005 */
@@ -111,11 +111,11 @@ public class a {
     }
 
     public final void a(Context context, SM sm, final PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j) {
-        if (this.f38772b.booleanValue()) {
+        if (this.f36353b.booleanValue()) {
             return;
         }
         synchronized (a.class) {
-            if (this.f38772b.booleanValue()) {
+            if (this.f36353b.booleanValue()) {
                 return;
             }
             String a2 = a(sm, pm, deviceStatus, aPPStatus, j);
@@ -126,7 +126,7 @@ public class a {
                 @Override // com.qq.e.comm.net.NetworkCallBack
                 public final void onException(Exception exc) {
                     GDTLogger.e("ActivateError", exc);
-                    RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", Config.LAUNCH, "", -1, (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1));
+                    RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", -1, (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1));
                 }
 
                 @Override // com.qq.e.comm.net.NetworkCallBack
@@ -140,12 +140,12 @@ public class a {
                             } catch (JSONException e2) {
                                 GDTLogger.e("Parse Active or launch response exception", e2);
                                 retCodeService = RetCodeService.getInstance();
-                                retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", Config.LAUNCH, "", response.getStatusCode(), (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1);
+                                retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1);
                             }
                         } catch (IOException e3) {
                             GDTLogger.e("ActivateError", e3);
                             retCodeService = RetCodeService.getInstance();
-                            retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", Config.LAUNCH, "", response.getStatusCode(), (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1);
+                            retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1);
                         }
                         if (response.getStatusCode() == 200) {
                             String stringContent = response.getStringContent();
@@ -153,12 +153,12 @@ public class a {
                             if (StringUtil.isEmpty(stringContent)) {
                                 GDTLogger.report("SDK Server response empty string,maybe zip or tea format error");
                                 retCodeService = RetCodeService.getInstance();
-                                retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", Config.LAUNCH, "", response.getStatusCode(), (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1);
+                                retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1);
                                 retCodeService.send(retCodeInfo);
                             }
                             JSONObject jSONObject = new JSONObject(stringContent);
-                            int i = jSONObject.has(Constants.KEYS.RET) ? jSONObject.getInt(Constants.KEYS.RET) : -1;
-                            if (i == 0) {
+                            int i2 = jSONObject.has(Constants.KEYS.RET) ? jSONObject.getInt(Constants.KEYS.RET) : -1;
+                            if (i2 == 0) {
                                 if (pm != null) {
                                     try {
                                         pm.getPOFactory().config(1, stringContent);
@@ -173,24 +173,24 @@ public class a {
                                     }
                                 }
                                 retCodeService = RetCodeService.getInstance();
-                                retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", Config.LAUNCH, "", response.getStatusCode(), (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1);
+                                retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1);
                                 retCodeService.send(retCodeInfo);
                             }
-                            str2 = "Response Error,retCode=" + i;
+                            str2 = "Response Error,retCode=" + i2;
                         } else {
                             str2 = "SDK server response code error while launch or activate,code:" + response.getStatusCode();
                         }
                         GDTLogger.e(str2);
                         retCodeService = RetCodeService.getInstance();
-                        retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", Config.LAUNCH, "", response.getStatusCode(), (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1);
+                        retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1);
                         retCodeService.send(retCodeInfo);
                     } catch (Throwable th) {
-                        RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", Config.LAUNCH, "", response.getStatusCode(), (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1));
+                        RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1));
                         throw th;
                     }
                 }
             });
-            this.f38772b = Boolean.TRUE;
+            this.f36353b = Boolean.TRUE;
         }
     }
 }

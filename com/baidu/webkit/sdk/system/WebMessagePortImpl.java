@@ -41,8 +41,8 @@ public final class WebMessagePortImpl extends WebMessagePort {
             return null;
         }
         android.webkit.WebMessagePort[] webMessagePortArr2 = new android.webkit.WebMessagePort[webMessagePortArr.length];
-        for (int i = 0; i < webMessagePortArr.length; i++) {
-            webMessagePortArr2[i] = ((WebMessagePortImpl) webMessagePortArr[i]).getImpl();
+        for (int i2 = 0; i2 < webMessagePortArr.length; i2++) {
+            webMessagePortArr2[i2] = ((WebMessagePortImpl) webMessagePortArr[i2]).getImpl();
         }
         return webMessagePortArr2;
     }
@@ -52,8 +52,8 @@ public final class WebMessagePortImpl extends WebMessagePort {
             return null;
         }
         com.baidu.webkit.sdk.WebMessagePort[] webMessagePortArr2 = new com.baidu.webkit.sdk.WebMessagePort[webMessagePortArr.length];
-        for (int i = 0; i < webMessagePortArr.length; i++) {
-            webMessagePortArr2[i] = from(webMessagePortArr[i]);
+        for (int i2 = 0; i2 < webMessagePortArr.length; i2++) {
+            webMessagePortArr2[i2] = from(webMessagePortArr[i2]);
         }
         return webMessagePortArr2;
     }

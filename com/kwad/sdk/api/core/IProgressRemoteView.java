@@ -14,7 +14,7 @@ public interface IProgressRemoteView {
 
     @KsAdSdkDynamicApi
     @Keep
-    void setIcon(@DrawableRes int i);
+    void setIcon(@DrawableRes int i2);
 
     @KsAdSdkDynamicApi
     @Keep
@@ -30,7 +30,7 @@ public interface IProgressRemoteView {
 
     @KsAdSdkDynamicApi
     @Keep
-    void setProgress(int i, int i2, boolean z);
+    void setProgress(int i2, int i3, boolean z);
 
     @KsAdSdkDynamicApi
     @Keep

@@ -8,8 +8,8 @@ public class SquareForumListActivityConfig extends IntentConfig {
     public static final int PAGE_TYPE_HOT = 1;
     public static final int PAGE_TYPE_NEW = 2;
 
-    public SquareForumListActivityConfig(Context context, int i) {
+    public SquareForumListActivityConfig(Context context, int i2) {
         super(context);
-        getIntent().putExtra(KEY_PAGE_TYPE, i);
+        getIntent().putExtra(KEY_PAGE_TYPE, i2);
     }
 }

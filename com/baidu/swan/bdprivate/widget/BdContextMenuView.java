@@ -9,20 +9,20 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
-import d.b.h0.a.k;
-import d.b.h0.b.c;
-import d.b.h0.b.d;
+import d.a.h0.a.k;
+import d.a.h0.b.c;
+import d.a.h0.b.d;
 /* loaded from: classes3.dex */
 public class BdContextMenuView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f12399e;
+    public b f12279e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f12400f;
+    public Context f12280f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ListView f12401g;
+    public ListView f12281g;
 
     /* loaded from: classes3.dex */
     public class a implements AdapterView.OnItemClickListener {
@@ -30,38 +30,38 @@ public class BdContextMenuView extends FrameLayout {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            BdContextMenuView.this.f12399e.a(i);
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+            BdContextMenuView.this.f12279e.a(i2);
         }
     }
 
     /* loaded from: classes3.dex */
     public class b extends BaseAdapter {
-        public abstract void a(int i);
+        public abstract void a(int i2);
     }
 
     static {
-        boolean z = k.f45772a;
+        boolean z = k.f43101a;
     }
 
     @SuppressLint({"NewApi"})
-    public BdContextMenuView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f12400f = context;
+    public BdContextMenuView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f12280f = context;
         b();
     }
 
     public final void b() {
         setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        setBackground(this.f12400f.getResources().getDrawable(d.aiapps_context_menu_bg));
-        ListView listView = new ListView(this.f12400f);
-        this.f12401g = listView;
+        setBackground(this.f12280f.getResources().getDrawable(d.aiapps_context_menu_bg));
+        ListView listView = new ListView(this.f12280f);
+        this.f12281g = listView;
         listView.setCacheColorHint(0);
-        this.f12401g.setDivider(getResources().getDrawable(c.aiapps_context_menu_divider_color));
-        this.f12401g.setDividerHeight(1);
-        this.f12401g.setSelector(new ColorDrawable(0));
-        addView(this.f12401g, new FrameLayout.LayoutParams(-1, -1));
-        this.f12401g.setOnItemClickListener(new a());
+        this.f12281g.setDivider(getResources().getDrawable(c.aiapps_context_menu_divider_color));
+        this.f12281g.setDividerHeight(1);
+        this.f12281g.setSelector(new ColorDrawable(0));
+        addView(this.f12281g, new FrameLayout.LayoutParams(-1, -1));
+        this.f12281g.setOnItemClickListener(new a());
     }
 
     public void setLayoutInCenter(boolean z) {
@@ -69,13 +69,13 @@ public class BdContextMenuView extends FrameLayout {
 
     public BdContextMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12400f = context;
+        this.f12280f = context;
         b();
     }
 
     public BdContextMenuView(Context context) {
         super(context);
-        this.f12400f = context;
+        this.f12280f = context;
         b();
     }
 }

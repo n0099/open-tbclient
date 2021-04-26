@@ -4,7 +4,7 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.text.TextUtils;
 import com.baidu.searchbox.v8engine.V8Engine;
-import d.b.x.h.g;
+import d.a.x.i.h;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -32,7 +32,7 @@ public class ResourcesHookUtil {
                         if (!new File(str).exists()) {
                             return false;
                         }
-                        g.c(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+                        h.c(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
                         if (set == null) {
                             set = new HashSet<>();
                             sAddedAssetsMap.put(str, set);
@@ -66,7 +66,7 @@ public class ResourcesHookUtil {
             if (set == null || !set.contains(Integer.valueOf(hashCode))) {
                 if (new File(str).exists()) {
                     try {
-                        g.c(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+                        h.c(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
                         if (set == null) {
                             set = new HashSet<>();
                             sAddedAssetsMap.put(str, set);
@@ -103,7 +103,7 @@ public class ResourcesHookUtil {
             if (set == null || !set.contains(Integer.valueOf(hashCode))) {
                 if (new File(str).exists()) {
                     try {
-                        g.c(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+                        h.c(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
                         if (set == null) {
                             set = new HashSet<>();
                             sAddedAssetsMap.put(str, set);

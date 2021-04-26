@@ -11,35 +11,35 @@ public class TbClipImageView extends TbImageView {
         this(context, null, 0);
     }
 
-    public final void f0(Context context, AttributeSet attributeSet, int i) {
+    public final void b0(Context context, AttributeSet attributeSet, int i2) {
         boolean z;
         boolean z2;
         String trim = Build.MODEL.trim();
         if (trim != null) {
             String[] strArr = {"M040", "M045"};
-            int i2 = 0;
+            int i3 = 0;
             while (true) {
-                if (i2 >= 2) {
+                if (i3 >= 2) {
                     z2 = false;
                     break;
-                } else if (strArr[i2].equalsIgnoreCase(trim)) {
+                } else if (strArr[i3].equalsIgnoreCase(trim)) {
                     z2 = true;
                     break;
                 } else {
-                    i2++;
+                    i3++;
                 }
             }
             String[] strArr2 = {"HTC T329D"};
-            int i3 = 0;
+            int i4 = 0;
             while (true) {
-                if (i3 >= 1) {
+                if (i4 >= 1) {
                     z = false;
                     break;
-                } else if (strArr2[i3].equalsIgnoreCase(trim)) {
+                } else if (strArr2[i4].equalsIgnoreCase(trim)) {
                     z = true;
                     break;
                 } else {
-                    i3++;
+                    i4++;
                 }
             }
         } else {
@@ -54,20 +54,20 @@ public class TbClipImageView extends TbImageView {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public void setDrawerType(int i) {
-        if (i == 0) {
-            super.setDrawerType(i);
-        } else if (i == 1) {
+    public void setDrawerType(int i2) {
+        if (i2 == 0) {
+            super.setDrawerType(i2);
+        } else if (i2 == 1) {
             super.setDrawerType(this.w0 ? 4 : 5);
         } else {
-            super.setDrawerType(i);
+            super.setDrawerType(i2);
         }
     }
 
-    public TbClipImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public TbClipImageView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.w0 = false;
-        f0(context, attributeSet, i);
+        b0(context, attributeSet, i2);
     }
 
     public TbClipImageView(Context context, AttributeSet attributeSet) {

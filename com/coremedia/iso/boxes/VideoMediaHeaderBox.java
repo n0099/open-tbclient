@@ -6,14 +6,14 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import g.a.a.a;
 import g.a.b.b.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class VideoMediaHeaderBox extends AbstractMediaHeaderBox {
     public static final String TYPE = "vmhd";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
     public int graphicsmode;
     public int[] opcolor;
 
@@ -42,8 +42,8 @@ public class VideoMediaHeaderBox extends AbstractMediaHeaderBox {
         parseVersionAndFlags(byteBuffer);
         this.graphicsmode = IsoTypeReader.readUInt16(byteBuffer);
         this.opcolor = new int[3];
-        for (int i = 0; i < 3; i++) {
-            this.opcolor[i] = IsoTypeReader.readUInt16(byteBuffer);
+        for (int i2 = 0; i2 < 3; i2++) {
+            this.opcolor[i2] = IsoTypeReader.readUInt16(byteBuffer);
         }
     }
 
@@ -51,8 +51,8 @@ public class VideoMediaHeaderBox extends AbstractMediaHeaderBox {
     public void getContent(ByteBuffer byteBuffer) {
         writeVersionAndFlags(byteBuffer);
         IsoTypeWriter.writeUInt16(byteBuffer, this.graphicsmode);
-        for (int i : this.opcolor) {
-            IsoTypeWriter.writeUInt16(byteBuffer, i);
+        for (int i2 : this.opcolor) {
+            IsoTypeWriter.writeUInt16(byteBuffer, i2);
         }
     }
 
@@ -71,9 +71,9 @@ public class VideoMediaHeaderBox extends AbstractMediaHeaderBox {
         return this.opcolor;
     }
 
-    public void setGraphicsmode(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_4, this, this, g.a.b.a.a.e(i)));
-        this.graphicsmode = i;
+    public void setGraphicsmode(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_4, this, this, g.a.b.a.a.e(i2)));
+        this.graphicsmode = i2;
     }
 
     public void setOpcolor(int[] iArr) {

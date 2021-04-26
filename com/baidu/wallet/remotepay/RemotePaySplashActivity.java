@@ -3,6 +3,7 @@ package com.baidu.wallet.remotepay;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.sapi2.SapiAccount;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.paysdk.PayCallBackManager;
 import com.baidu.wallet.paysdk.api.BaiduPay;
@@ -14,10 +15,10 @@ import com.baidu.wallet.statistics.api.StatisticManager;
 public class RemotePaySplashActivity extends PayBaseBeanActivity {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f26487a;
+    public int f27294a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PrecashierCreateOrderResponse f26488b;
+    public PrecashierCreateOrderResponse f27295b;
 
     public void getInstentDatas() {
         Intent intent = getIntent();
@@ -27,19 +28,19 @@ public class RemotePaySplashActivity extends PayBaseBeanActivity {
             finish();
             return;
         }
-        this.f26487a = intent.getIntExtra("fromType", 0);
-        this.f26488b = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
+        this.f27294a = intent.getIntExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, 0);
+        this.f27295b = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
     }
 
     public void initView() {
         setContentView(ResUtils.layout(getActivity(), "wallet_cashdesk_activity_for_remote_splash"));
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         StatisticManager.onEvent(StatServiceEvent.REMOTE_ENTER_SPLASH_ACTIVITY);
@@ -59,8 +60,8 @@ public class RemotePaySplashActivity extends PayBaseBeanActivity {
 
     public void startWelcomeActivity() {
         Intent intent = new Intent(this, WelcomeActivity.class);
-        intent.putExtra("fromType", this.f26487a);
-        PrecashierCreateOrderResponse precashierCreateOrderResponse = this.f26488b;
+        intent.putExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, this.f27294a);
+        PrecashierCreateOrderResponse precashierCreateOrderResponse = this.f27295b;
         if (precashierCreateOrderResponse != null) {
             intent.putExtra(BaiduPay.PRECASHIER_PAY_RESPONSE, precashierCreateOrderResponse);
         }

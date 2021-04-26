@@ -13,9 +13,9 @@ public class SoftKeyBoardListener implements NoProguard {
 
     /* loaded from: classes5.dex */
     public interface OnSoftKeyBoardChangeListener {
-        void keyBoardHide(int i);
+        void keyBoardHide(int i2);
 
-        void keyBoardShow(int i);
+        void keyBoardShow(int i2);
     }
 
     public SoftKeyBoardListener(Activity activity) {
@@ -28,17 +28,17 @@ public class SoftKeyBoardListener implements NoProguard {
                 SoftKeyBoardListener.this.rootView.getWindowVisibleDisplayFrame(rect);
                 int height = rect.height();
                 SoftKeyBoardListener softKeyBoardListener = SoftKeyBoardListener.this;
-                int i = softKeyBoardListener.rootViewVisibleHeight;
-                if (i == 0) {
+                int i2 = softKeyBoardListener.rootViewVisibleHeight;
+                if (i2 == 0) {
                     softKeyBoardListener.rootViewVisibleHeight = height;
-                } else if (i == height) {
+                } else if (i2 == height) {
                 } else {
-                    if (i - height > 200) {
+                    if (i2 - height > 200) {
                         if (softKeyBoardListener.onSoftKeyBoardChangeListener != null) {
                             SoftKeyBoardListener.this.onSoftKeyBoardChangeListener.keyBoardShow(SoftKeyBoardListener.this.rootViewVisibleHeight - height);
                         }
                         SoftKeyBoardListener.this.rootViewVisibleHeight = height;
-                    } else if (height - i > 200) {
+                    } else if (height - i2 > 200) {
                         if (softKeyBoardListener.onSoftKeyBoardChangeListener != null) {
                             SoftKeyBoardListener.this.onSoftKeyBoardChangeListener.keyBoardHide(height - SoftKeyBoardListener.this.rootViewVisibleHeight);
                         }

@@ -64,8 +64,8 @@ public class BceServiceException extends BceClientException {
         this.requestId = str;
     }
 
-    public void setStatusCode(int i) {
-        this.statusCode = i;
+    public void setStatusCode(int i2) {
+        this.statusCode = i2;
     }
 
     public BceServiceException(String str, Exception exc) {

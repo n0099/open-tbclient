@@ -45,7 +45,7 @@ public class ThemeStatic {
                     if (indexOf == -1) {
                         indexOf = substring.length();
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), d.b.c.e.m.b.f(substring.substring(0, indexOf), 0L))));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), d.a.c.e.m.b.f(substring.substring(0, indexOf), 0L))));
                     return 0;
                 } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardCategoryActivityConfig(tbPageContext.getPageActivity())));
@@ -67,8 +67,8 @@ public class ThemeStatic {
                     if (indexOf == -1) {
                         indexOf = substring.length();
                     }
-                    int d2 = d.b.c.e.m.b.d(substring.substring(0, indexOf), 0);
-                    d.b.i0.r.d0.b j = d.b.i0.r.d0.b.j();
+                    int d2 = d.a.c.e.m.b.d(substring.substring(0, indexOf), 0);
+                    d.a.i0.r.d0.b j = d.a.i0.r.d0.b.j();
                     StringBuilder sb = new StringBuilder();
                     sb.append("current_used_personal_background_");
                     sb.append(TbadkCoreApplication.getCurrentAccount());
@@ -139,8 +139,8 @@ public class ThemeStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardCategoryActivityConfig.class, PersonalCardCategoryActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardDetailActivityConfig.class, PersonalCardDetailActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AvatarPendantActivityConfig.class, AvatarPendantActivity.class);
-        d.b.j0.d3.d0.a.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-        d.b.j0.d3.d0.a.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+        d.a.j0.d3.d0.a.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+        d.a.j0.d3.d0.a.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
 
     public static void a() {

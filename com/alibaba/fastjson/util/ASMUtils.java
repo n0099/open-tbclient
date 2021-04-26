@@ -1,6 +1,5 @@
 package com.alibaba.fastjson.util;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.asm.ClassReader;
 import com.alibaba.fastjson.asm.TypeCollector;
@@ -24,8 +23,8 @@ public class ASMUtils {
     }
 
     public static boolean checkName(String str) {
-        for (int i = 0; i < str.length(); i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            char charAt = str.charAt(i2);
             if (charAt < 1 || charAt > 127 || charAt == '.') {
                 return false;
             }
@@ -58,7 +57,7 @@ public class ASMUtils {
             return "I";
         }
         if (Void.TYPE == cls) {
-            return ExifInterface.GPS_MEASUREMENT_INTERRUPTED;
+            return "V";
         }
         if (Boolean.TYPE == cls) {
             return "Z";
@@ -70,7 +69,7 @@ public class ASMUtils {
             return "B";
         }
         if (Short.TYPE == cls) {
-            return ExifInterface.LATITUDE_SOUTH;
+            return "S";
         }
         if (Float.TYPE == cls) {
             return "F";
@@ -131,12 +130,12 @@ public class ASMUtils {
             TypeCollector typeCollector = new TypeCollector(str, parameterTypes);
             classReader.accept(typeCollector);
             String[] parameterNamesForMethod = typeCollector.getParameterNamesForMethod();
-            for (int i = 0; i < parameterNamesForMethod.length; i++) {
-                Annotation[] annotationArr = parameterAnnotations[i];
+            for (int i2 = 0; i2 < parameterNamesForMethod.length; i2++) {
+                Annotation[] annotationArr = parameterAnnotations[i2];
                 if (annotationArr != null) {
-                    for (int i2 = 0; i2 < annotationArr.length; i2++) {
-                        if ((annotationArr[i2] instanceof JSONField) && (name = ((JSONField) annotationArr[i2]).name()) != null && name.length() > 0) {
-                            parameterNamesForMethod[i] = name;
+                    for (int i3 = 0; i3 < annotationArr.length; i3++) {
+                        if ((annotationArr[i3] instanceof JSONField) && (name = ((JSONField) annotationArr[i3]).name()) != null && name.length() > 0) {
+                            parameterNamesForMethod[i2] = name;
                         }
                     }
                 }

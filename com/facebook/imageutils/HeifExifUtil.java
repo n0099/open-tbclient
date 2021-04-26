@@ -15,7 +15,7 @@ public class HeifExifUtil {
         @RequiresApi(api = 24)
         public static int getOrientation(InputStream inputStream) {
             try {
-                return new ExifInterface(inputStream).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
+                return new ExifInterface(inputStream).getAttributeInt("Orientation", 1);
             } catch (IOException e2) {
                 FLog.d(HeifExifUtil.TAG, "Failed reading Heif Exif orientation -> ignoring", (Throwable) e2);
                 return 0;

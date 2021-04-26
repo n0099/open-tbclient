@@ -3,13 +3,13 @@ package com.bytedance.sdk.openadsdk.core.d;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f27849a;
+    public final String f28695a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f27850b;
+    public final l f28696b;
 
     public i(l lVar, String str) {
-        this.f27850b = lVar;
-        this.f27849a = str;
+        this.f28696b = lVar;
+        this.f28695a = str;
     }
 }

@@ -1,5 +1,6 @@
 package androidx.transition;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Matrix;
@@ -64,6 +65,7 @@ public class PatternPathMotion extends PathMotion {
         this.mOriginalPatternPath = path;
     }
 
+    @SuppressLint({"RestrictedApi"})
     public PatternPathMotion(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, Styleable.PATTERN_PATH_MOTION);
         try {

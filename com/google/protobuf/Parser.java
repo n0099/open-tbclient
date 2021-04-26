@@ -21,9 +21,9 @@ public interface Parser<MessageType> {
 
     MessageType parseFrom(byte[] bArr) throws InvalidProtocolBufferException;
 
-    MessageType parseFrom(byte[] bArr, int i, int i2) throws InvalidProtocolBufferException;
+    MessageType parseFrom(byte[] bArr, int i2, int i3) throws InvalidProtocolBufferException;
 
-    MessageType parseFrom(byte[] bArr, int i, int i2, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException;
+    MessageType parseFrom(byte[] bArr, int i2, int i3, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException;
 
     MessageType parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException;
 
@@ -45,9 +45,9 @@ public interface Parser<MessageType> {
 
     MessageType parsePartialFrom(byte[] bArr) throws InvalidProtocolBufferException;
 
-    MessageType parsePartialFrom(byte[] bArr, int i, int i2) throws InvalidProtocolBufferException;
+    MessageType parsePartialFrom(byte[] bArr, int i2, int i3) throws InvalidProtocolBufferException;
 
-    MessageType parsePartialFrom(byte[] bArr, int i, int i2, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException;
+    MessageType parsePartialFrom(byte[] bArr, int i2, int i3, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException;
 
     MessageType parsePartialFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException;
 }

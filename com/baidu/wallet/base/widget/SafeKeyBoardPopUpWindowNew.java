@@ -13,14 +13,14 @@ import com.baidu.apollon.utils.ResUtils;
 public class SafeKeyBoardPopUpWindowNew extends SafeKeyBoardPopupWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageButton f23620a;
+    public ImageButton f24353a;
     public Button btConfirm;
 
     public SafeKeyBoardPopUpWindowNew(Context context) {
         super(context);
         this.btConfirm = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "wallet_base_safekeyboard_confirm"));
         ImageButton imageButton = (ImageButton) this.contentView.findViewById(ResUtils.id(this.mContext, "wallet_base_safekeyboard_hide"));
-        this.f23620a = imageButton;
+        this.f24353a = imageButton;
         imageButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.SafeKeyBoardPopUpWindowNew.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -63,11 +63,11 @@ public class SafeKeyBoardPopUpWindowNew extends SafeKeyBoardPopupWindow {
             }
 
             @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             }
 
             @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                 if (TextUtils.isEmpty(charSequence)) {
                     return;
                 }

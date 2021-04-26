@@ -97,8 +97,8 @@ public class DownloadTask implements Serializable {
             return this.mIsPhotoAdDownloadRequest;
         }
 
-        public DownloadRequest setAllowedNetworkTypes(int i) {
-            this.mAllowedNetworkTypes = i;
+        public DownloadRequest setAllowedNetworkTypes(int i2) {
+            this.mAllowedNetworkTypes = i2;
             return this;
         }
 
@@ -121,8 +121,8 @@ public class DownloadTask implements Serializable {
             this.mIsPhotoAdDownloadRequest = true;
         }
 
-        public DownloadRequest setNotificationVisibility(int i) {
-            this.mNotificationVisibility = i;
+        public DownloadRequest setNotificationVisibility(int i2) {
+            this.mNotificationVisibility = i2;
             return this;
         }
 
@@ -160,6 +160,12 @@ public class DownloadTask implements Serializable {
 
     private void notifyDownloadCompleted(com.kwai.filedownloader.a aVar) {
         if ((this.mNotificationVisibility & 2) != 0) {
+            e.a().c(this);
+        }
+    }
+
+    private void notifyDownloadError(com.kwai.filedownloader.a aVar) {
+        if ((this.mNotificationVisibility & 1) != 0) {
             e.a().b(this);
         }
     }
@@ -219,9 +225,9 @@ public class DownloadTask implements Serializable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onConnected(com.kwai.filedownloader.a aVar, String str, boolean z, int i, int i2) {
+    public void onConnected(com.kwai.filedownloader.a aVar, String str, boolean z, int i2, int i3) {
         long j;
-        long j2 = i2;
+        long j2 = i3;
         try {
             j = com.ksad.download.d.a.a(new File(this.mDestinationDir).exists() ? this.mDestinationDir : Environment.getExternalStorageDirectory().getPath());
         } catch (Exception e2) {
@@ -237,7 +243,7 @@ public class DownloadTask implements Serializable {
         }
         try {
             for (c cVar : this.mDownloadListeners) {
-                cVar.a(this, str, z, i, i2);
+                cVar.a(this, str, z, i2, i3);
             }
             notifyDownloadProgress(aVar, false);
         } catch (Exception e3) {
@@ -246,10 +252,10 @@ public class DownloadTask implements Serializable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onDownloading(com.kwai.filedownloader.a aVar, int i, int i2) {
+    public void onDownloading(com.kwai.filedownloader.a aVar, int i2, int i3) {
         try {
             for (c cVar : this.mDownloadListeners) {
-                cVar.b(this, i, i2);
+                cVar.b(this, i2, i3);
             }
             notifyDownloadProgress(this.mBaseDownloadTask, false);
         } catch (Exception e2) {
@@ -263,7 +269,7 @@ public class DownloadTask implements Serializable {
             for (c cVar : this.mDownloadListeners) {
                 cVar.a(this, th);
             }
-            notifyDownloadProgress(aVar, true);
+            notifyDownloadError(aVar);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -280,10 +286,10 @@ public class DownloadTask implements Serializable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onPause(com.kwai.filedownloader.a aVar, int i, int i2) {
+    public void onPause(com.kwai.filedownloader.a aVar, int i2, int i3) {
         try {
             for (c cVar : this.mDownloadListeners) {
-                cVar.c(this, i, i2);
+                cVar.c(this, i2, i3);
             }
             notifyDownloadProgress(aVar, true);
         } catch (Exception e2) {
@@ -292,10 +298,10 @@ public class DownloadTask implements Serializable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onPending(com.kwai.filedownloader.a aVar, int i, int i2) {
+    public void onPending(com.kwai.filedownloader.a aVar, int i2, int i3) {
         try {
             for (c cVar : this.mDownloadListeners) {
-                cVar.a(this, i, i2);
+                cVar.a(this, i2, i3);
             }
             notifyDownloadPending(aVar);
         } catch (Exception e2) {
@@ -303,10 +309,10 @@ public class DownloadTask implements Serializable {
         }
     }
 
-    private void onResume(com.kwai.filedownloader.a aVar, int i, int i2) {
+    private void onResume(com.kwai.filedownloader.a aVar, int i2, int i3) {
         try {
             for (c cVar : this.mDownloadListeners) {
-                cVar.d(this, i, i2);
+                cVar.d(this, i2, i3);
             }
             notifyDownloadProgress(aVar, true);
         } catch (Exception e2) {
@@ -450,13 +456,13 @@ public class DownloadTask implements Serializable {
             }
 
             @Override // com.kwai.filedownloader.i
-            public void a(com.kwai.filedownloader.a aVar, int i, int i2) {
-                DownloadTask.this.onPending(aVar, i, i2);
+            public void a(com.kwai.filedownloader.a aVar, int i2, int i3) {
+                DownloadTask.this.onPending(aVar, i2, i3);
             }
 
             @Override // com.kwai.filedownloader.i
-            public void a(com.kwai.filedownloader.a aVar, String str, boolean z, int i, int i2) {
-                DownloadTask.this.onConnected(aVar, str, z, i, i2);
+            public void a(com.kwai.filedownloader.a aVar, String str, boolean z, int i2, int i3) {
+                DownloadTask.this.onConnected(aVar, str, z, i2, i3);
             }
 
             @Override // com.kwai.filedownloader.i
@@ -470,8 +476,8 @@ public class DownloadTask implements Serializable {
             }
 
             @Override // com.kwai.filedownloader.i
-            public void b(com.kwai.filedownloader.a aVar, int i, int i2) {
-                DownloadTask.this.onDownloading(aVar, i, i2);
+            public void b(com.kwai.filedownloader.a aVar, int i2, int i3) {
+                DownloadTask.this.onDownloading(aVar, i2, i3);
             }
 
             @Override // com.kwai.filedownloader.i
@@ -480,8 +486,8 @@ public class DownloadTask implements Serializable {
             }
 
             @Override // com.kwai.filedownloader.i
-            public void c(com.kwai.filedownloader.a aVar, int i, int i2) {
-                DownloadTask.this.onPause(aVar, i, i2);
+            public void c(com.kwai.filedownloader.a aVar, int i2, int i3) {
+                DownloadTask.this.onPause(aVar, i2, i3);
             }
 
             @Override // com.kwai.filedownloader.i
@@ -556,9 +562,9 @@ public class DownloadTask implements Serializable {
         }
     }
 
-    public void setAllowedNetworkTypes(int i) {
-        this.mAllowedNetworkTypes = i;
-        this.mBaseDownloadTask.b((i ^ 2) == 0);
+    public void setAllowedNetworkTypes(int i2) {
+        this.mAllowedNetworkTypes = i2;
+        this.mBaseDownloadTask.b((i2 ^ 2) == 0);
     }
 
     public void submit() {

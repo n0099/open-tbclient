@@ -63,8 +63,8 @@ public final class Log implements INoProGuard {
         return sDebugApk;
     }
 
-    public static boolean isLoggable(String str, int i) {
-        return i >= sMinLogLevel && android.util.Log.isLoggable(str, i);
+    public static boolean isLoggable(String str, int i2) {
+        return i2 >= sMinLogLevel && android.util.Log.isLoggable(str, i2);
     }
 
     public static int p(String str) {
@@ -79,8 +79,8 @@ public final class Log implements INoProGuard {
         return printLog(6, str, str2, th);
     }
 
-    public static int printLog(int i, String str, String str2, Throwable th) {
-        if (i < sMinLogLevel) {
+    public static int printLog(int i2, String str, String str2, Throwable th) {
+        if (i2 < sMinLogLevel) {
             return 0;
         }
         if (str == null) {
@@ -92,7 +92,7 @@ public final class Log implements INoProGuard {
         if (th != null) {
             str2 = str2 + '\n' + android.util.Log.getStackTraceString(th);
         }
-        switch (i) {
+        switch (i2) {
             case 2:
                 return android.util.Log.i(str, str2);
             case 3:
@@ -109,11 +109,11 @@ public final class Log implements INoProGuard {
         }
     }
 
-    public static int printLogVargs(int i, String str, String str2, Object... objArr) {
-        if (i < sMinLogLevel) {
+    public static int printLogVargs(int i2, String str, String str2, Object... objArr) {
+        if (i2 < sMinLogLevel) {
             return 0;
         }
-        return printLog(i, str, String.format(str2, objArr), null);
+        return printLog(i2, str, String.format(str2, objArr), null);
     }
 
     public static void printStackTrace(Throwable th) {
@@ -123,13 +123,13 @@ public final class Log implements INoProGuard {
         th.printStackTrace();
     }
 
-    public static void setMinLogLevel(int i, boolean z) {
+    public static void setMinLogLevel(int i2, boolean z) {
         String str = LOG_TAG;
-        android.util.Log.e(str, "ZeusSDK.ZeusMinLogLevel=" + i + ", sDebugApk=" + z);
-        if (i < 2 || i > 7) {
+        android.util.Log.e(str, "ZeusSDK.ZeusMinLogLevel=" + i2 + ", sDebugApk=" + z);
+        if (i2 < 2 || i2 > 7) {
             return;
         }
-        sMinLogLevel = i;
+        sMinLogLevel = i2;
         sDebugApk = z;
     }
 

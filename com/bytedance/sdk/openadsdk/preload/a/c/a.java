@@ -7,19 +7,19 @@ import java.lang.reflect.Type;
 public class a<T> {
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<? super T> f29774b;
+    public final Class<? super T> f30682b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Type f29775c;
+    public final Type f30683c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f29776d;
+    public final int f30684d;
 
     public a() {
         Type a2 = a(getClass());
-        this.f29775c = a2;
-        this.f29774b = (Class<? super T>) b.e(a2);
-        this.f29776d = this.f29775c.hashCode();
+        this.f30683c = a2;
+        this.f30682b = (Class<? super T>) b.e(a2);
+        this.f30684d = this.f30683c.hashCode();
     }
 
     public static Type a(Class<?> cls) {
@@ -31,19 +31,19 @@ public class a<T> {
     }
 
     public final Type b() {
-        return this.f29775c;
+        return this.f30683c;
     }
 
     public final boolean equals(Object obj) {
-        return (obj instanceof a) && b.a(this.f29775c, ((a) obj).f29775c);
+        return (obj instanceof a) && b.a(this.f30683c, ((a) obj).f30683c);
     }
 
     public final int hashCode() {
-        return this.f29776d;
+        return this.f30684d;
     }
 
     public final String toString() {
-        return b.f(this.f29775c);
+        return b.f(this.f30683c);
     }
 
     public static <T> a<T> b(Class<T> cls) {
@@ -52,13 +52,13 @@ public class a<T> {
 
     public a(Type type) {
         Type d2 = b.d((Type) com.bytedance.sdk.openadsdk.preload.a.b.a.a(type));
-        this.f29775c = d2;
-        this.f29774b = (Class<? super T>) b.e(d2);
-        this.f29776d = this.f29775c.hashCode();
+        this.f30683c = d2;
+        this.f30682b = (Class<? super T>) b.e(d2);
+        this.f30684d = this.f30683c.hashCode();
     }
 
     public final Class<? super T> a() {
-        return this.f29774b;
+        return this.f30682b;
     }
 
     public static a<?> a(Type type) {

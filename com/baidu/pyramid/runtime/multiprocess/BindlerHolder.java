@@ -20,8 +20,8 @@ public class BindlerHolder implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public BindlerHolder[] newArray(int i) {
-            return new BindlerHolder[i];
+        public BindlerHolder[] newArray(int i2) {
+            return new BindlerHolder[i2];
         }
     }
 
@@ -39,7 +39,7 @@ public class BindlerHolder implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeStrongBinder(this.mBinder);
     }
 

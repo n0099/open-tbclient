@@ -168,11 +168,11 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider, android.content.ComponentCallbacks2
-    public void onTrimMemory(int i) {
-        super.onTrimMemory(i);
+    public void onTrimMemory(int i2) {
+        super.onTrimMemory(i2);
         ContentProvider contentProvider = this.mProviderImpl;
         if (contentProvider != null) {
-            contentProvider.onTrimMemory(i);
+            contentProvider.onTrimMemory(i2);
         }
     }
 

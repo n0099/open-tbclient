@@ -14,7 +14,7 @@ import com.baidu.wallet.base.widget.dialog.model.ContentDialogModel;
 public class NoTitleContentDialogBinding extends BaseBinding<BaseDialogModel> {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f23745a;
+    public TextView f24483a;
     public View btnLayouts;
     public View btnLine;
     public Button negativeButton;
@@ -25,7 +25,7 @@ public class NoTitleContentDialogBinding extends BaseBinding<BaseDialogModel> {
         this.rootView = view;
         Context context = view.getContext();
         this.context = context;
-        this.f23745a = (TextView) view.findViewById(ResUtils.id(context, "dialog_text_content"));
+        this.f24483a = (TextView) view.findViewById(ResUtils.id(context, "dialog_text_content"));
         this.negativeButton = (Button) view.findViewById(ResUtils.id(this.context, "negative_btn"));
         this.positiveButton = (Button) view.findViewById(ResUtils.id(this.context, "positive_btn"));
         this.btnLayouts = view.findViewById(ResUtils.id(this.context, "dialog_btns"));
@@ -35,61 +35,61 @@ public class NoTitleContentDialogBinding extends BaseBinding<BaseDialogModel> {
     @Override // com.baidu.wallet.base.widget.dialog.binding.BaseBinding
     public void executeBindings() {
         ContentDialogModel contentDialogModel = (ContentDialogModel) getViewModel();
-        int i = 8;
+        int i2 = 8;
         if (contentDialogModel.hideMessage) {
-            this.f23745a.setVisibility(8);
+            this.f24483a.setVisibility(8);
             return;
         }
-        int i2 = contentDialogModel.messageId;
-        if (i2 != 0) {
-            this.f23745a.setText(i2);
-        } else if (!TextUtils.isEmpty(contentDialogModel.message)) {
-            this.f23745a.setText(contentDialogModel.message);
-        }
-        this.f23745a.setMovementMethod(LinkMovementMethod.getInstance());
-        int i3 = contentDialogModel.messageColor;
+        int i3 = contentDialogModel.messageId;
         if (i3 != 0) {
-            this.f23745a.setTextColor(i3);
+            this.f24483a.setText(i3);
+        } else if (!TextUtils.isEmpty(contentDialogModel.message)) {
+            this.f24483a.setText(contentDialogModel.message);
         }
-        int i4 = contentDialogModel.backgroundColor;
+        this.f24483a.setMovementMethod(LinkMovementMethod.getInstance());
+        int i4 = contentDialogModel.messageColor;
         if (i4 != 0) {
-            this.f23745a.setBackgroundColor(i4);
+            this.f24483a.setTextColor(i4);
         }
-        int i5 = contentDialogModel.messageSize;
+        int i5 = contentDialogModel.backgroundColor;
         if (i5 != 0) {
-            this.f23745a.setTextSize(i5);
+            this.f24483a.setBackgroundColor(i5);
         }
-        int i6 = contentDialogModel.dialogBackgound;
+        int i6 = contentDialogModel.messageSize;
         if (i6 != 0) {
-            this.rootView.setBackgroundColor(i6);
+            this.f24483a.setTextSize(i6);
         }
-        int i7 = contentDialogModel.positiveBtnTextId;
+        int i7 = contentDialogModel.dialogBackgound;
         if (i7 != 0) {
-            this.positiveButton.setText(i7);
+            this.rootView.setBackgroundColor(i7);
+        }
+        int i8 = contentDialogModel.positiveBtnTextId;
+        if (i8 != 0) {
+            this.positiveButton.setText(i8);
         } else if (!TextUtils.isEmpty(contentDialogModel.positiveBtnText)) {
             this.positiveButton.setText(contentDialogModel.positiveBtnText);
         }
-        int i8 = contentDialogModel.positiveBtnTextColor;
-        if (i8 != 0) {
-            this.positiveButton.setTextColor(i8);
-        }
-        int i9 = contentDialogModel.positiveBtnTextSize;
+        int i9 = contentDialogModel.positiveBtnTextColor;
         if (i9 != 0) {
-            this.positiveButton.setTextSize(i9);
+            this.positiveButton.setTextColor(i9);
         }
-        int i10 = contentDialogModel.negativeBtnTextId;
+        int i10 = contentDialogModel.positiveBtnTextSize;
         if (i10 != 0) {
-            this.negativeButton.setText(i10);
+            this.positiveButton.setTextSize(i10);
+        }
+        int i11 = contentDialogModel.negativeBtnTextId;
+        if (i11 != 0) {
+            this.negativeButton.setText(i11);
         } else if (!TextUtils.isEmpty(contentDialogModel.negativeBtnText)) {
             this.negativeButton.setText(contentDialogModel.negativeBtnText);
         }
-        int i11 = contentDialogModel.negativeBtnTextColor;
-        if (i11 != 0) {
-            this.positiveButton.setTextColor(i11);
-        }
-        int i12 = contentDialogModel.negativeBtnTextSize;
+        int i12 = contentDialogModel.negativeBtnTextColor;
         if (i12 != 0) {
-            this.positiveButton.setTextSize(i12);
+            this.positiveButton.setTextColor(i12);
+        }
+        int i13 = contentDialogModel.negativeBtnTextSize;
+        if (i13 != 0) {
+            this.positiveButton.setTextSize(i13);
         }
         this.positiveButton.setOnClickListener(contentDialogModel.defaultListener);
         this.negativeButton.setOnClickListener(contentDialogModel.defaultListener);
@@ -121,8 +121,8 @@ public class NoTitleContentDialogBinding extends BaseBinding<BaseDialogModel> {
         }
         View view = this.btnLine;
         if (!contentDialogModel.hideNegativeBtn && !contentDialogModel.hidePositiveBtn) {
-            i = 0;
+            i2 = 0;
         }
-        view.setVisibility(i);
+        view.setVisibility(i2);
     }
 }

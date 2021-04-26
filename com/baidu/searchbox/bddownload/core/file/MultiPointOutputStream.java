@@ -164,48 +164,49 @@ public class MultiPointOutputStream {
         });
     }
 
-    public void catchBlockConnectException(int i) {
-        this.noMoreStreamList.add(Integer.valueOf(i));
+    public void catchBlockConnectException(int i2) {
+        this.noMoreStreamList.add(Integer.valueOf(i2));
     }
 
-    public synchronized void close(int i) throws IOException {
-        DownloadOutputStream downloadOutputStream = this.outputStreamMap.get(i);
+    public synchronized void close(int i2) throws IOException {
+        DownloadOutputStream downloadOutputStream = this.outputStreamMap.get(i2);
         if (downloadOutputStream != null) {
             downloadOutputStream.close();
-            this.outputStreamMap.remove(i);
-            Util.d(TAG, "OutputStream close task[" + this.task.getId() + "] block[" + i + "]");
+            this.outputStreamMap.remove(i2);
+            this.noSyncLengthMap.remove(i2);
+            Util.d(TAG, "OutputStream close task[" + this.task.getId() + "] block[" + i2 + "]");
         }
     }
 
-    public void done(int i) throws IOException {
-        this.noMoreStreamList.add(Integer.valueOf(i));
+    public void done(int i2) throws IOException {
+        this.noMoreStreamList.add(Integer.valueOf(i2));
         try {
             if (this.syncException == null) {
                 if (this.syncFuture != null && !this.syncFuture.isDone()) {
-                    AtomicLong atomicLong = this.noSyncLengthMap.get(i);
+                    AtomicLong atomicLong = this.noSyncLengthMap.get(i2);
                     if (atomicLong != null && atomicLong.get() > 0) {
                         inspectStreamState(this.doneState);
-                        ensureSync(this.doneState.isNoMoreStream, i);
+                        ensureSync(this.doneState.isNoMoreStream, i2);
                     }
                 } else if (this.syncFuture == null) {
-                    Util.d(TAG, "OutputStream done but no need to ensure sync, because the sync job not run yet. task[" + this.task.getId() + "] block[" + i + "]");
+                    Util.d(TAG, "OutputStream done but no need to ensure sync, because the sync job not run yet. task[" + this.task.getId() + "] block[" + i2 + "]");
                 } else {
-                    Util.d(TAG, "OutputStream done but no need to ensure sync, because the syncFuture.isDone[" + this.syncFuture.isDone() + "] task[" + this.task.getId() + "] block[" + i + "]");
+                    Util.d(TAG, "OutputStream done but no need to ensure sync, because the syncFuture.isDone[" + this.syncFuture.isDone() + "] task[" + this.task.getId() + "] block[" + i2 + "]");
                 }
                 return;
             }
             throw this.syncException;
         } finally {
-            close(i);
+            close(i2);
         }
     }
 
-    public void ensureSync(boolean z, int i) {
+    public void ensureSync(boolean z, int i2) {
         if (this.syncFuture == null || this.syncFuture.isDone()) {
             return;
         }
         if (!z) {
-            this.parkedRunBlockThreadMap.put(i, Thread.currentThread());
+            this.parkedRunBlockThreadMap.put(i2, Thread.currentThread());
         }
         if (this.runSyncThread != null) {
             unparkThread(this.runSyncThread);
@@ -243,20 +244,20 @@ public class MultiPointOutputStream {
             size = this.noSyncLengthMap.size();
         }
         SparseArray sparseArray = new SparseArray(size);
-        int i = 0;
+        int i2 = 0;
         while (true) {
             long j = 0;
-            if (i >= size) {
+            if (i2 >= size) {
                 break;
             }
             try {
-                int keyAt = this.outputStreamMap.keyAt(i);
+                int keyAt = this.outputStreamMap.keyAt(i2);
                 long j2 = this.noSyncLengthMap.get(keyAt).get();
                 if (j2 > 0) {
                     sparseArray.put(keyAt, Long.valueOf(j2));
                     this.outputStreamMap.get(keyAt).flushAndSync();
                 }
-                i++;
+                i2++;
             } catch (IOException e2) {
                 Util.w(TAG, "OutputStream flush and sync data to filesystem failed " + e2);
                 z = false;
@@ -265,9 +266,9 @@ public class MultiPointOutputStream {
                 return;
             }
             int size2 = sparseArray.size();
-            for (int i2 = 0; i2 < size2; i2++) {
-                int keyAt2 = sparseArray.keyAt(i2);
-                long longValue = ((Long) sparseArray.valueAt(i2)).longValue();
+            for (int i3 = 0; i3 < size2; i3++) {
+                int keyAt2 = sparseArray.keyAt(i3);
+                long longValue = ((Long) sparseArray.valueAt(i3)).longValue();
                 this.store.onSyncToFilesystemSuccess(this.info, keyAt2, longValue);
                 j += longValue;
                 this.noSyncLengthMap.get(keyAt2).addAndGet(-longValue);
@@ -302,12 +303,12 @@ public class MultiPointOutputStream {
         throw iOException;
     }
 
-    public void inspectComplete(int i) throws IOException {
-        BlockInfo block = this.info.getBlock(i);
+    public void inspectComplete(int i2) throws IOException {
+        BlockInfo block = this.info.getBlock(i2);
         if (Util.isCorrectFull(block.getCurrentOffset(), block.getContentLength())) {
             return;
         }
-        throw new IOException("The current offset on block-info isn't update correct, " + block.getCurrentOffset() + " != " + block.getContentLength() + " on " + i);
+        throw new IOException("The current offset on block-info isn't update correct, " + block.getCurrentOffset() + " != " + block.getContentLength() + " on " + i2);
     }
 
     public void inspectFreeSpace(StatFs statFs, long j) throws PreAllocateException {
@@ -329,8 +330,8 @@ public class MultiPointOutputStream {
         }
         SparseArray<DownloadOutputStream> clone = this.outputStreamMap.clone();
         int size2 = clone.size();
-        for (int i = 0; i < size2; i++) {
-            int keyAt = clone.keyAt(i);
+        for (int i2 = 0; i2 < size2; i2++) {
+            int keyAt = clone.keyAt(i2);
             if (this.noMoreStreamList.contains(Integer.valueOf(keyAt)) && !streamsState.noMoreStreamBlockList.contains(Integer.valueOf(keyAt))) {
                 streamsState.noMoreStreamBlockList.add(Integer.valueOf(keyAt));
                 streamsState.newNoMoreStreamBlockList.add(Integer.valueOf(keyAt));
@@ -350,10 +351,10 @@ public class MultiPointOutputStream {
         return SystemClock.uptimeMillis();
     }
 
-    public synchronized DownloadOutputStream outputStream(int i) throws IOException {
+    public synchronized DownloadOutputStream outputStream(int i2) throws IOException {
         DownloadOutputStream downloadOutputStream;
         Uri uri;
-        downloadOutputStream = this.outputStreamMap.get(i);
+        downloadOutputStream = this.outputStreamMap.get(i2);
         if (downloadOutputStream == null) {
             boolean isUriFileScheme = Util.isUriFileScheme(this.task.getUri());
             if (isUriFileScheme) {
@@ -375,10 +376,10 @@ public class MultiPointOutputStream {
             }
             DownloadOutputStream create = BdDownload.with().outputStreamFactory().create(BdDownload.with().context(), uri, this.flushBufferSize);
             if (this.supportSeek) {
-                long rangeLeft = this.info.getBlock(i).getRangeLeft();
+                long rangeLeft = this.info.getBlock(i2).getRangeLeft();
                 if (rangeLeft > 0) {
                     create.seek(rangeLeft);
-                    Util.d(TAG, "Create output stream write from (" + this.task.getId() + ") block(" + i + ") " + rangeLeft);
+                    Util.d(TAG, "Create output stream write from (" + this.task.getId() + ") block(" + i2 + ") " + rangeLeft);
                 }
             }
             if (this.firstOutputStream) {
@@ -398,8 +399,8 @@ public class MultiPointOutputStream {
                 }
             }
             synchronized (this.noSyncLengthMap) {
-                this.outputStreamMap.put(i, create);
-                this.noSyncLengthMap.put(i, new AtomicLong());
+                this.outputStreamMap.put(i2, create);
+                this.noSyncLengthMap.put(i2, new AtomicLong());
             }
             this.firstOutputStream = false;
             downloadOutputStream = create;
@@ -412,7 +413,7 @@ public class MultiPointOutputStream {
     }
 
     public void runSync() throws IOException {
-        int i;
+        int i2;
         Util.d(TAG, "OutputStream start flush looper task[" + this.task.getId() + "] with syncBufferIntervalMills[" + this.syncBufferIntervalMills + "] syncBufferSize[" + this.syncBufferSize + "]");
         this.runSyncThread = Thread.currentThread();
         long j = (long) this.syncBufferIntervalMills;
@@ -437,20 +438,20 @@ public class MultiPointOutputStream {
                 }
             } else {
                 if (isNoNeedFlushForLength()) {
-                    i = this.syncBufferIntervalMills;
+                    i2 = this.syncBufferIntervalMills;
                 } else {
                     j = getNextParkMillisecond();
                     if (j <= 0) {
                         flushProcess();
-                        i = this.syncBufferIntervalMills;
+                        i2 = this.syncBufferIntervalMills;
                     }
                 }
-                j = i;
+                j = i2;
             }
         }
         int size = this.parkedRunBlockThreadMap.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            Thread valueAt = this.parkedRunBlockThreadMap.valueAt(i2);
+        for (int i3 = 0; i3 < size; i3++) {
+            Thread valueAt = this.parkedRunBlockThreadMap.valueAt(i3);
             if (valueAt != null) {
                 unparkThread(valueAt);
             }
@@ -476,14 +477,14 @@ public class MultiPointOutputStream {
         LockSupport.unpark(thread);
     }
 
-    public synchronized void write(int i, byte[] bArr, int i2) throws IOException {
+    public synchronized void write(int i2, byte[] bArr, int i3) throws IOException {
         if (this.canceled) {
             return;
         }
-        outputStream(i).write(bArr, 0, i2);
-        long j = i2;
+        outputStream(i2).write(bArr, 0, i3);
+        long j = i3;
         this.allNoSyncLength.addAndGet(j);
-        this.noSyncLengthMap.get(i).addAndGet(j);
+        this.noSyncLengthMap.get(i2).addAndGet(j);
         inspectAndPersist();
     }
 

@@ -14,7 +14,7 @@ import androidx.annotation.RestrictTo;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class KeyEventDispatcher {
     public static boolean sActionBarFieldsFetched = false;

@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Matrix;
@@ -59,12 +60,12 @@ public class ChangeTransform extends Transition {
 
     /* loaded from: classes.dex */
     public static class GhostListener extends TransitionListenerAdapter {
-        public GhostViewImpl mGhostView;
+        public GhostView mGhostView;
         public View mView;
 
-        public GhostListener(View view, GhostViewImpl ghostViewImpl) {
+        public GhostListener(View view, GhostView ghostView) {
             this.mView = view;
-            this.mGhostView = ghostViewImpl;
+            this.mGhostView = ghostView;
         }
 
         @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
@@ -215,7 +216,7 @@ public class ChangeTransform extends Transition {
         View view = transitionValues2.view;
         Matrix matrix = new Matrix((Matrix) transitionValues2.values.get(PROPNAME_PARENT_MATRIX));
         ViewUtils.transformMatrixToLocal(viewGroup, matrix);
-        GhostViewImpl addGhost = GhostViewUtils.addGhost(view, viewGroup, matrix);
+        GhostView addGhost = GhostViewUtils.addGhost(view, viewGroup, matrix);
         if (addGhost == null) {
             return;
         }
@@ -421,6 +422,7 @@ public class ChangeTransform extends Transition {
         this.mUseOverlay = z;
     }
 
+    @SuppressLint({"RestrictedApi"})
     public ChangeTransform(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mUseOverlay = true;

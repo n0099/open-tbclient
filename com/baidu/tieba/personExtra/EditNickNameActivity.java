@@ -19,18 +19,18 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.j;
-import d.b.c.e.p.k;
-import d.b.i0.d0.g;
-import d.b.i0.d0.h;
-import d.b.i0.r.s.a;
+import d.a.c.e.p.j;
+import d.a.c.e.p.k;
+import d.a.i0.d0.g;
+import d.a.i0.d0.h;
+import d.a.i0.r.s.a;
 import java.net.URL;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     public final String MODIFY_NICKNAME_URL = "https://tieba.baidu.com/n/interact/modifyname";
-    public d.b.i0.r.s.a mDialog;
+    public d.a.i0.r.s.a mDialog;
     public boolean mLoadSuccess;
     public g mLoadingView;
     public NavigationBar mNavigationBar;
@@ -41,7 +41,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     public String mUrl;
     public BaseWebView mWebView;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -52,7 +52,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -63,31 +63,31 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements a.e {
         public c() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             aVar.dismiss();
             EditNickNameActivity.this.onSaveClick();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements a.e {
         public d() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             aVar.dismiss();
             EditNickNameActivity.this.goBackOrFinish(null);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e extends WebViewClient {
         public e() {
         }
@@ -113,8 +113,8 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         }
 
         @Override // android.webkit.WebViewClient
-        public void onReceivedError(WebView webView, int i, String str, String str2) {
-            super.onReceivedError(webView, i, str, str2);
+        public void onReceivedError(WebView webView, int i2, String str, String str2) {
+            super.onReceivedError(webView, i2, str, str2);
             EditNickNameActivity.this.showNetRefreshView();
         }
 
@@ -225,7 +225,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
 
     private void showDialog() {
         if (this.mDialog == null) {
-            d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(getActivity());
+            d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getActivity());
             this.mDialog = aVar;
             aVar.setMessage(getPageContext().getResources().getString(R.string.modify_user_dialog_msg));
             this.mDialog.setPositiveButton(R.string.save, new c());
@@ -244,14 +244,14 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        if (i != 1 && i != 4) {
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        if (i2 != 1 && i2 != 4) {
             this.mWebView.loadUrl(this.mUrl);
         } else {
             this.mWebView.loadUrl(createUrlNightType(this.mUrl));
         }
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -267,16 +267,16 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         }
         setContentView(R.layout.edit_nickname_activity);
         initView();
-        d.b.i0.l.a.f(getApplicationContext());
+        d.a.i0.l.a.f(getApplicationContext());
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4) {
             onBackClick();
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     public void reloadPage() {

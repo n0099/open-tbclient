@@ -3,9 +3,9 @@ package com.google.zxing.datamatrix.encoder;
 import com.alibaba.fastjson.asm.Opcodes;
 /* loaded from: classes6.dex */
 public final class Base256Encoder implements Encoder {
-    public static char randomize255State(char c2, int i) {
-        int i2 = c2 + ((i * Opcodes.FCMPL) % 255) + 1;
-        return i2 <= 255 ? (char) i2 : (char) (i2 - 256);
+    public static char randomize255State(char c2, int i2) {
+        int i3 = c2 + ((i2 * Opcodes.FCMPL) % 255) + 1;
+        return i3 <= 255 ? (char) i3 : (char) (i3 - 256);
     }
 
     @Override // com.google.zxing.datamatrix.encoder.Encoder
@@ -39,8 +39,8 @@ public final class Base256Encoder implements Encoder {
             }
         }
         int length2 = sb.length();
-        for (int i = 0; i < length2; i++) {
-            encoderContext.writeCodeword(randomize255State(sb.charAt(i), encoderContext.getCodewordCount() + 1));
+        for (int i2 = 0; i2 < length2; i2++) {
+            encoderContext.writeCodeword(randomize255State(sb.charAt(i2), encoderContext.getCodewordCount() + 1));
         }
     }
 

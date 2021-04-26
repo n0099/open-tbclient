@@ -12,27 +12,27 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
-import d.b.i0.r.s.a;
-import d.b.i0.s.c.v;
+import d.a.i0.r.s.a;
+import d.a.i0.s.c.v;
 /* loaded from: classes3.dex */
 public class TailEditActivity extends BaseActivity<TailEditActivity> {
-    public d.b.j0.r1.h.b.a mModel;
-    public d.b.j0.r1.h.b.b mView;
-    public d.b.j0.r1.h.f.a<Integer> addTailCallBack = new a();
-    public d.b.j0.r1.h.f.a<Integer> updateTailCallBack = new b();
+    public d.a.j0.r1.h.b.a mModel;
+    public d.a.j0.r1.h.b.b mView;
+    public d.a.j0.r1.h.f.a<Integer> addTailCallBack = new a();
+    public d.a.j0.r1.h.f.a<Integer> updateTailCallBack = new b();
     public View.OnClickListener mSubmitButtonClickListener = new c();
     public View.OnClickListener mCancelButtonClickListener = new d();
     public View.OnTouchListener mTextOnTouchListener = new e();
     public TextWatcher mTextNumberWatcher = new f();
-    public d.b.i0.w.b mEditorListener = new g();
+    public d.a.i0.w.b mEditorListener = new g();
 
     /* loaded from: classes3.dex */
-    public class a implements d.b.j0.r1.h.f.a<Integer> {
+    public class a implements d.a.j0.r1.h.f.a<Integer> {
         public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.j0.r1.h.f.a
+        @Override // d.a.j0.r1.h.f.a
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             TailEditActivity.this.submitCallback(true, z, str, num);
@@ -40,12 +40,12 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements d.b.j0.r1.h.f.a<Integer> {
+    public class b implements d.a.j0.r1.h.f.a<Integer> {
         public b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.j0.r1.h.f.a
+        @Override // d.a.j0.r1.h.f.a
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             TailEditActivity.this.submitCallback(false, z, str, num);
@@ -111,31 +111,31 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         }
 
         @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
 
         @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             TailEditActivity.this.userInputChanged(charSequence.toString());
         }
     }
 
     /* loaded from: classes3.dex */
-    public class g implements d.b.i0.w.b {
+    public class g implements d.a.i0.w.b {
         public g() {
         }
 
-        @Override // d.b.i0.w.b
-        public void onAction(d.b.i0.w.a aVar) {
+        @Override // d.a.i0.w.b
+        public void onAction(d.a.i0.w.a aVar) {
             if (aVar == null) {
                 return;
             }
-            int i = aVar.f52278a;
-            if (i == 24) {
-                TailEditActivity.this.addEmotion(aVar.f52280c);
-            } else if (i == 26) {
-                TailEditActivity.this.changeColor(aVar.f52280c);
-            } else if (i == 3) {
+            int i2 = aVar.f49949a;
+            if (i2 == 24) {
+                TailEditActivity.this.addEmotion(aVar.f49951c);
+            } else if (i2 == 26) {
+                TailEditActivity.this.changeColor(aVar.f49951c);
+            } else if (i2 == 3) {
                 TailEditActivity.this.mView.e();
             }
         }
@@ -145,15 +145,15 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public class h implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.r.s.a f18688e;
+        public final /* synthetic */ d.a.i0.r.s.a f19113e;
 
-        public h(d.b.i0.r.s.a aVar) {
-            this.f18688e = aVar;
+        public h(d.a.i0.r.s.a aVar) {
+            this.f19113e = aVar;
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
-            this.f18688e.dismiss();
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
+            this.f19113e.dismiss();
         }
     }
 
@@ -161,15 +161,15 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public class i implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.r.s.a f18690e;
+        public final /* synthetic */ d.a.i0.r.s.a f19115e;
 
-        public i(d.b.i0.r.s.a aVar) {
-            this.f18690e = aVar;
+        public i(d.a.i0.r.s.a aVar) {
+            this.f19115e = aVar;
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
-            this.f18690e.dismiss();
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
+            this.f19115e.dismiss();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001348, null));
             TailEditActivity.this.finish();
         }
@@ -178,12 +178,12 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void addEmotion(Object obj) {
         this.mModel.i().setContent(this.mView.g());
-        d.b.j0.r1.h.b.a aVar = this.mModel;
+        d.a.j0.r1.h.b.a aVar = this.mModel;
         if (aVar.l(aVar.e(aVar.i().getContent()))) {
             showToast(R.string.over_limit_tip);
         } else if (obj == null || !(obj instanceof v)) {
         } else {
-            new d.b.j0.r1.h.f.b().b(this, this.mView.h(), (v) obj);
+            new d.a.j0.r1.h.f.b().b(this, this.mView.h(), (v) obj);
         }
     }
 
@@ -200,7 +200,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void confirmCancelEdit() {
-        d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(getActivity());
+        d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getActivity());
         aVar.setMessage(getResources().getString(R.string.tail_cancel_modified_toast));
         aVar.setNegativeButton(R.string.cancel, new h(aVar));
         aVar.setPositiveButton(R.string.confirm, new i(aVar));
@@ -249,9 +249,9 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             tailData.setId(num.intValue());
             tailData.setContent(this.mModel.i().getContent());
             tailData.setFontColor(this.mModel.g());
-            d.b.j0.r1.h.a.e eVar = new d.b.j0.r1.h.a.e(1, tailData);
+            d.a.j0.r1.h.a.e eVar = new d.a.j0.r1.h.a.e(1, tailData);
             if (!z) {
-                eVar.f61602a = 2;
+                eVar.f59755a = 2;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001348, null));
             finish();
@@ -288,8 +288,8 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         setContentView(R.layout.tail_edit_activity);
         setActivityBgTransparent();
         setSwipeBackEnabled(false);
-        this.mView = new d.b.j0.r1.h.b.b(this, this.mSubmitButtonClickListener, this.mCancelButtonClickListener);
-        this.mModel = new d.b.j0.r1.h.b.a(getPageContext());
+        this.mView = new d.a.j0.r1.h.b.b(this, this.mSubmitButtonClickListener, this.mCancelButtonClickListener);
+        this.mModel = new d.a.j0.r1.h.b.a(getPageContext());
         initListener();
         loadTailData();
         initEditor();

@@ -8,19 +8,19 @@ import java.util.List;
 public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Fragment> f14685a;
+    public List<Fragment> f14764a;
 
     public AlaGameFrsLiveListAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
     }
 
-    public void c(List<Fragment> list) {
-        this.f14685a = list;
+    public void b(List<Fragment> list) {
+        this.f14764a = list;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        List<Fragment> list = this.f14685a;
+        List<Fragment> list = this.f14764a;
         if (list != null) {
             return list.size();
         }
@@ -28,9 +28,9 @@ public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        if (this.f14685a.size() > i) {
-            return this.f14685a.get(i);
+    public Fragment getItem(int i2) {
+        if (this.f14764a.size() > i2) {
+            return this.f14764a.get(i2);
         }
         return null;
     }

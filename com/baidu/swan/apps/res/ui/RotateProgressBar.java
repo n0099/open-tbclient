@@ -11,30 +11,30 @@ import java.lang.reflect.Field;
 public class RotateProgressBar extends ProgressBar {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12139e;
+    public int f11989e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f12140f;
+    public Drawable f11990f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f12141g;
+    public long f11991g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12142h;
+    public int f11992h;
 
-    public RotateProgressBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f12139e = 0;
+    public RotateProgressBar(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f11989e = 0;
         a();
     }
 
     public final void a() {
-        this.f12142h = 200;
+        this.f11992h = 200;
         try {
             Field declaredField = ProgressBar.class.getDeclaredField("mDuration");
             if (declaredField != null) {
                 declaredField.setAccessible(true);
-                this.f12142h = (int) ((declaredField.getInt(this) / 12.0f) + 0.5f);
+                this.f11992h = (int) ((declaredField.getInt(this) / 12.0f) + 0.5f);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -47,21 +47,21 @@ public class RotateProgressBar extends ProgressBar {
 
     @Override // android.widget.ProgressBar, android.view.View
     public synchronized void onDraw(Canvas canvas) {
-        Drawable drawable = this.f12140f;
+        Drawable drawable = this.f11990f;
         if (drawable != null) {
             drawable.draw(canvas);
-            long uptimeMillis = SystemClock.uptimeMillis() - this.f12141g;
-            if (uptimeMillis < this.f12142h) {
-                postInvalidateDelayed(this.f12142h - uptimeMillis);
+            long uptimeMillis = SystemClock.uptimeMillis() - this.f11991g;
+            if (uptimeMillis < this.f11992h) {
+                postInvalidateDelayed(this.f11992h - uptimeMillis);
             } else {
-                this.f12141g = SystemClock.uptimeMillis();
-                int i = this.f12139e + 30;
-                this.f12139e = i;
-                if (i >= 360) {
-                    this.f12139e = 0;
+                this.f11991g = SystemClock.uptimeMillis();
+                int i2 = this.f11989e + 30;
+                this.f11989e = i2;
+                if (i2 >= 360) {
+                    this.f11989e = 0;
                 }
-                drawable.setLevel((int) ((this.f12139e * 10000) / 360.0f));
-                postInvalidateDelayed(this.f12142h);
+                drawable.setLevel((int) ((this.f11989e * 10000) / 360.0f));
+                postInvalidateDelayed(this.f11992h);
             }
         }
     }
@@ -70,7 +70,7 @@ public class RotateProgressBar extends ProgressBar {
     public synchronized void setIndeterminate(boolean z) {
         super.setIndeterminate(z);
         if (z) {
-            this.f12140f = getIndeterminateDrawable();
+            this.f11990f = getIndeterminateDrawable();
         }
     }
 
@@ -78,19 +78,19 @@ public class RotateProgressBar extends ProgressBar {
     public synchronized void setIndeterminateDrawable(Drawable drawable) {
         super.setIndeterminateDrawable(drawable);
         if (isIndeterminate()) {
-            this.f12140f = drawable;
+            this.f11990f = drawable;
         }
     }
 
     public RotateProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12139e = 0;
+        this.f11989e = 0;
         a();
     }
 
     public RotateProgressBar(Context context) {
         super(context);
-        this.f12139e = 0;
+        this.f11989e = 0;
         a();
     }
 }

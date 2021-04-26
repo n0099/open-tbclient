@@ -11,9 +11,9 @@ public class VideoActActivityConfig extends IntentConfig {
         super(context);
     }
 
-    public VideoActActivityConfig(Context context, int i, String str) {
+    public VideoActActivityConfig(Context context, int i2, String str) {
         super(context);
-        getIntent().putExtra(VIDEO_ACTVIE_ID, i);
+        getIntent().putExtra(VIDEO_ACTVIE_ID, i2);
         getIntent().putExtra(VIDEO_ACTVIE_NAME, str);
     }
 }

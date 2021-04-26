@@ -11,17 +11,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.PrivacyMarkActivityConfig;
 import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
-import d.b.c.e.p.j;
-import d.b.i0.r.d0.b;
-/* loaded from: classes4.dex */
+import d.a.c.e.p.j;
+import d.a.i0.r.d0.b;
+/* loaded from: classes5.dex */
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
-    public d.b.j0.v2.e.a privacyMarkView;
+    public d.a.j0.v2.e.a privacyMarkView;
     public HttpMessageListener setPrivateHttpListener = new a(CmdConfigHttp.SET_PRIVATE_CMD, true);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
-        public a(int i, boolean z) {
-            super(i, z);
+        public a(int i2, boolean z) {
+            super(i2, z);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,8 +54,8 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         this.privacyMarkView.l();
     }
 
@@ -70,9 +70,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
         if (intExtra2 != 1 && intExtra2 != 3) {
             intExtra2 = 1;
         }
-        d.b.j0.v2.e.a aVar = new d.b.j0.v2.e.a(getPageContext(), (intExtra << 2) | intExtra2);
+        d.a.j0.v2.e.a aVar = new d.a.j0.v2.e.a(getPageContext(), (intExtra << 2) | intExtra2);
         this.privacyMarkView = aVar;
-        setContentView(aVar.i());
+        setContentView(aVar.j());
         registerListener(this.setPrivateHttpListener);
     }
 }

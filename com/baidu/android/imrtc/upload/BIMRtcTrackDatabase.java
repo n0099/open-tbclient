@@ -28,8 +28,8 @@ public class BIMRtcTrackDatabase {
         public static final String SQL_TABLE_CREATE_REQUEST = "CREATE TABLE request (" + RequestEnum.id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + RequestEnum.method.name() + " TEXT, " + RequestEnum.requestId.name() + " TEXT, " + RequestEnum.timestamp.name() + " LONG, " + RequestEnum.responseTime.name() + " LONG, " + RequestEnum.errorCode.name() + " LONG, " + RequestEnum.ext.name() + " TEXT, " + RequestEnum.aliasId.name() + " LONG NOT NULL);";
         public Context context;
 
-        public DbOpenHelper(Context context, String str, int i, DatabaseErrorHandler databaseErrorHandler) {
-            super(context, str, null, i, databaseErrorHandler);
+        public DbOpenHelper(Context context, String str, int i2, DatabaseErrorHandler databaseErrorHandler) {
+            super(context, str, null, i2, databaseErrorHandler);
         }
 
         private void dropTables(SQLiteDatabase sQLiteDatabase) {
@@ -52,13 +52,13 @@ public class BIMRtcTrackDatabase {
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
             dropTables(sQLiteDatabase);
             onCreate(sQLiteDatabase);
         }
 
-        public DbOpenHelper(Context context, String str, int i) {
-            super(context, str, (SQLiteDatabase.CursorFactory) null, i);
+        public DbOpenHelper(Context context, String str, int i2) {
+            super(context, str, (SQLiteDatabase.CursorFactory) null, i2);
             this.context = context;
         }
     }

@@ -6,7 +6,7 @@ import h.j;
 public enum NeverObservableHolder implements d.a<Object> {
     INSTANCE;
     
-    public static final d<Object> NEVER = d.c(INSTANCE);
+    public static final d<Object> NEVER = d.b(INSTANCE);
 
     public static <T> d<T> instance() {
         return (d<T>) NEVER;

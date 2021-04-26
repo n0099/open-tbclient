@@ -40,24 +40,24 @@ public class BindCardPreCheckActivity extends PayBaseBeanActivity {
     public static final String PARAMS_KEY = "PARAMS_KEY";
 
     /* renamed from: a  reason: collision with root package name */
-    public UserInfoBean f25687a;
+    public UserInfoBean f26466a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DirectPayContentResponse f25688b;
+    public DirectPayContentResponse f26467b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25689c = false;
+    public boolean f26468c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25690d;
+    public String f26469d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LoginBackListenerProxy f25691e;
+    public LoginBackListenerProxy f26470e;
 
     private void d() {
         String str = null;
         try {
-            JSONObject jSONObject = new JSONObject(this.f25690d);
+            JSONObject jSONObject = new JSONObject(this.f26469d);
             if (jSONObject.optString(TableDefine.MessageColumns.COLUME_SERVICE_TYPE) != null) {
                 str = jSONObject.optString(TableDefine.MessageColumns.COLUME_SERVICE_TYPE);
             }
@@ -66,7 +66,7 @@ public class BindCardPreCheckActivity extends PayBaseBeanActivity {
         }
         PasswordController.getPassWordInstance().checkPwd(this.mAct, BeanConstants.FROM_BIND, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.ui.BindCardPreCheckActivity.4
             @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
-            public void onFail(int i, String str2) {
+            public void onFail(int i2, String str2) {
                 BindCardPreCheckActivity.this.a(2, "");
             }
 
@@ -75,7 +75,7 @@ public class BindCardPreCheckActivity extends PayBaseBeanActivity {
                 BindCardPreCheckActivity.this.e();
             }
         }, str);
-        this.f25689c = true;
+        this.f26468c = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -84,12 +84,12 @@ public class BindCardPreCheckActivity extends PayBaseBeanActivity {
         String str2;
         String str3;
         String str4 = null;
-        if (TextUtils.isEmpty(this.f25690d)) {
+        if (TextUtils.isEmpty(this.f26469d)) {
             str2 = null;
             str3 = null;
         } else {
             try {
-                JSONObject jSONObject = new JSONObject(this.f25690d);
+                JSONObject jSONObject = new JSONObject(this.f26469d);
                 str = jSONObject.getString(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID);
                 try {
                     str4 = jSONObject.getString(TableDefine.MessageColumns.COLUME_SERVICE_TYPE);
@@ -131,21 +131,21 @@ public class BindCardPreCheckActivity extends PayBaseBeanActivity {
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleFailure(int i, int i2, String str) {
-        if (i != 6) {
-            super.handleFailure(i, i2, str);
+    public void handleFailure(int i2, int i3, String str) {
+        if (i2 != 6) {
+            super.handleFailure(i2, i3, str);
             a(2, "");
-        } else if (i2 == 5003) {
+        } else if (i3 == 5003) {
             WalletLoginHelper.getInstance().handlerWalletError(5003);
             AccountManager.getInstance(this.mAct.getApplicationContext()).logout();
             WalletLoginHelper.getInstance().logout(false);
             GlobalUtils.toast(this.mAct, str);
             a(2, "");
-        } else if (i2 == 100035 || i2 == 100036) {
-            PassUtil.passNormalized(getActivity(), str, i2 != 100036 ? 1 : 2, new PassUtil.PassNormalize() { // from class: com.baidu.wallet.paysdk.ui.BindCardPreCheckActivity.2
+        } else if (i3 == 100035 || i3 == 100036) {
+            PassUtil.passNormalized(getActivity(), str, i3 != 100036 ? 1 : 2, new PassUtil.PassNormalize() { // from class: com.baidu.wallet.paysdk.ui.BindCardPreCheckActivity.2
                 @Override // com.baidu.wallet.core.utils.PassUtil.PassNormalize, com.baidu.wallet.core.utils.PassUtil.IPassNormalize
-                public boolean onNormalize(Context context, int i3, Map<String, String> map) {
-                    if (super.onNormalize(context, i3, map)) {
+                public boolean onNormalize(Context context, int i4, Map<String, String> map) {
+                    if (super.onNormalize(context, i4, map)) {
                         BindCardPreCheckActivity.this.b();
                         return false;
                     }
@@ -153,16 +153,16 @@ public class BindCardPreCheckActivity extends PayBaseBeanActivity {
                     return false;
                 }
             });
-        } else if (i2 != 5140 && i2 != 5139) {
+        } else if (i3 != 5140 && i3 != 5139) {
             a(2, "");
         } else {
             HashMap hashMap = new HashMap();
             hashMap.put("sdk_from", "4");
-            hashMap.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, i2 == 5140 ? HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9 : "0");
+            hashMap.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, i3 == 5140 ? HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9 : "0");
             BaiduPayDelegate.getInstance().doRNAuth(this.mAct, hashMap, new RNAuthCallBack() { // from class: com.baidu.wallet.paysdk.ui.BindCardPreCheckActivity.3
                 @Override // com.baidu.wallet.rnauth.RNAuthCallBack
-                public void onRNAuthResult(int i3, String str2) {
-                    if (i3 == 0) {
+                public void onRNAuthResult(int i4, String str2) {
+                    if (i4 == 0) {
                         BindCardPreCheckActivity.this.b();
                     } else {
                         BindCardPreCheckActivity.this.a(2, "");
@@ -173,64 +173,64 @@ public class BindCardPreCheckActivity extends PayBaseBeanActivity {
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
-        if (i == 6) {
+    public void handleResponse(int i2, Object obj, String str) {
+        if (i2 == 6) {
             WalletGlobalUtils.safeDismissDialog(this.mAct, -1);
             DirectPayContentResponse directPayContentResponse = (DirectPayContentResponse) obj;
-            this.f25688b = directPayContentResponse;
+            this.f26467b = directPayContentResponse;
             directPayContentResponse.user.decrypt();
-            this.f25688b.pay.easypay.decrypt();
-            this.f25688b.storeResponse(this.mAct);
+            this.f26467b.pay.easypay.decrypt();
+            this.f26467b.storeResponse(this.mAct);
             c();
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a();
         if (bundle == null) {
-            this.f25690d = getIntent().getStringExtra(PARAMS_KEY);
+            this.f26469d = getIntent().getStringExtra(PARAMS_KEY);
         } else {
-            this.f25690d = bundle.getString(PARAMS_KEY);
+            this.f26469d = bundle.getString(PARAMS_KEY);
         }
-        this.f25691e = new LoginBackListenerProxy(getActivity(), new ILoginBackListener() { // from class: com.baidu.wallet.paysdk.ui.BindCardPreCheckActivity.1
+        this.f26470e = new LoginBackListenerProxy(getActivity(), new ILoginBackListener() { // from class: com.baidu.wallet.paysdk.ui.BindCardPreCheckActivity.1
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str) {
-                if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(BindCardPreCheckActivity.this.f25691e);
+            public void onFail(int i2, String str) {
+                if (i2 == 603) {
+                    WalletLoginHelper.getInstance().onlyLogin(BindCardPreCheckActivity.this.f26470e);
                 } else {
                     BindCardPreCheckActivity.this.a(2, "");
                 }
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str) {
+            public void onSuccess(int i2, String str) {
                 BindCardPreCheckActivity.this.b();
             }
         });
-        WalletLoginHelper.getInstance().login(this.f25691e);
+        WalletLoginHelper.getInstance().login(this.f26470e);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.f25687a != null) {
-            BeanManager.getInstance().removeBean(this.f25687a);
+        if (this.f26466a != null) {
+            BeanManager.getInstance().removeBean(this.f26466a);
         }
-        if (this.f25689c) {
+        if (this.f26468c) {
             PasswordController.getPassWordInstance().clearCheckPwdListener();
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString(PARAMS_KEY, this.f25690d);
+        bundle.putString(PARAMS_KEY, this.f26469d);
     }
 
     public void setImmersiveActivityMargeinTop() {
@@ -245,17 +245,17 @@ public class BindCardPreCheckActivity extends PayBaseBeanActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (this.f25687a == null) {
-            this.f25687a = (UserInfoBean) PayBeanFactory.getInstance().getBean((Context) this.mAct, 6, "BindCardPreCheckActivity");
+        if (this.f26466a == null) {
+            this.f26466a = (UserInfoBean) PayBeanFactory.getInstance().getBean((Context) this.mAct, 6, "BindCardPreCheckActivity");
         }
-        this.f25687a.setResponseCallback(this);
-        this.f25687a.setCheckPrePassSign(1, "4");
-        this.f25687a.execBean();
+        this.f26466a.setResponseCallback(this);
+        this.f26466a.setCheckPrePassSign(1, "4");
+        this.f26466a.execBean();
     }
 
     private void c() {
-        if ("1".equals(this.f25688b.can_bind_card_flag)) {
-            if (this.f25688b.user.has_mobile_password == 1) {
+        if ("1".equals(this.f26467b.can_bind_card_flag)) {
+            if (this.f26467b.user.has_mobile_password == 1) {
                 d();
                 return;
             } else {
@@ -277,10 +277,10 @@ public class BindCardPreCheckActivity extends PayBaseBeanActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, String str) {
+    public void a(int i2, String str) {
         finishWithoutAnim();
         if (BaiduPay.getInstance().getBindCallbackExt() != null) {
-            BaiduPay.getInstance().getBindCallbackExt().onBindResult(i, str);
+            BaiduPay.getInstance().getBindCallbackExt().onBindResult(i2, str);
             BaiduPay.getInstance().clearBindCallbackExt();
         }
     }

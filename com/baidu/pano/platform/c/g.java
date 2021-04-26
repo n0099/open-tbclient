@@ -5,14 +5,14 @@ import android.util.Log;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f9011a = false;
+    public static boolean f9342a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f9012b = "PanoSDK2";
+    public static String f9343b = "PanoSDK2";
 
     public static void a(String str) {
-        if (f9011a) {
-            Log.d(f9012b, str);
+        if (f9342a) {
+            Log.d(f9343b, str);
         }
     }
 }

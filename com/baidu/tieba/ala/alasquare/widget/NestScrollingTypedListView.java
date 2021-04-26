@@ -33,9 +33,9 @@ public class NestScrollingTypedListView extends BdTypeListView {
         setNestedScrollingEnabled(true);
     }
 
-    public final boolean I(int i, int i2) {
-        if (i <= 0 || i2 >= 0) {
-            return i < 0 && i2 > 0;
+    public final boolean I(int i2, int i3) {
+        if (i2 <= 0 || i3 >= 0) {
+            return i2 < 0 && i3 > 0;
         }
         return true;
     }
@@ -62,13 +62,13 @@ public class NestScrollingTypedListView extends BdTypeListView {
     }
 
     @Override // android.view.View
-    public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2) {
-        return this.N.dispatchNestedPreScroll(i, i2, iArr, iArr2);
+    public boolean dispatchNestedPreScroll(int i2, int i3, int[] iArr, int[] iArr2) {
+        return this.N.dispatchNestedPreScroll(i2, i3, iArr, iArr2);
     }
 
     @Override // android.view.View
-    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr) {
-        return this.N.dispatchNestedScroll(i, i2, i3, i4, iArr);
+    public boolean dispatchNestedScroll(int i2, int i3, int i4, int i5, int[] iArr) {
+        return this.N.dispatchNestedScroll(i2, i3, i4, i5, iArr);
     }
 
     @Override // android.view.View
@@ -82,8 +82,8 @@ public class NestScrollingTypedListView extends BdTypeListView {
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
@@ -111,23 +111,23 @@ public class NestScrollingTypedListView extends BdTypeListView {
             }
             int x = (int) (MotionEventCompat.getX(motionEvent, findPointerIndex) + 0.5f);
             int y = (int) (MotionEventCompat.getY(motionEvent, findPointerIndex) + 0.5f);
-            int i = this.S - x;
-            int i2 = this.T - y;
+            int i2 = this.S - x;
+            int i3 = this.T - y;
             if (this.U) {
                 Log.i("pyt", "FIRST");
                 this.U = false;
                 J(motionEvent);
                 return true;
-            } else if (!I(this.V, i2)) {
-                this.V = i2;
-                Log.i("pyt", "move lastY" + this.T + ",y=" + y + ",dy=" + i2);
-                if (dispatchNestedPreScroll(i, i2, this.P, this.Q)) {
+            } else if (!I(this.V, i3)) {
+                this.V = i3;
+                Log.i("pyt", "move lastY" + this.T + ",y=" + y + ",dy=" + i3);
+                if (dispatchNestedPreScroll(i2, i3, this.P, this.Q)) {
                     int[] iArr3 = this.Q;
                     obtain.offsetLocation(iArr3[0], iArr3[1]);
                     int[] iArr4 = this.O;
-                    int i3 = iArr4[0];
+                    int i4 = iArr4[0];
                     int[] iArr5 = this.Q;
-                    iArr4[0] = i3 + iArr5[0];
+                    iArr4[0] = i4 + iArr5[0];
                     iArr4[1] = iArr4[1] + iArr5[1];
                 }
                 int[] iArr6 = this.Q;
@@ -149,8 +149,8 @@ public class NestScrollingTypedListView extends BdTypeListView {
     }
 
     @Override // android.view.View
-    public boolean startNestedScroll(int i) {
-        return this.N.startNestedScroll(i);
+    public boolean startNestedScroll(int i2) {
+        return this.N.startNestedScroll(i2);
     }
 
     @Override // android.view.View
@@ -167,8 +167,8 @@ public class NestScrollingTypedListView extends BdTypeListView {
         H();
     }
 
-    public NestScrollingTypedListView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public NestScrollingTypedListView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.O = new int[2];
         this.P = new int[2];
         this.Q = new int[2];

@@ -6,29 +6,31 @@ import kotlin.jvm.internal.ByteCompanionObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f1915a = 128;
+    public static final int f1866a = 128;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f1916b = 64;
+    public static final int f1867b = 64;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f1917c = 24;
+    public static final int f1868c = 24;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f1918d = 8;
+    public static final int f1869d = 8;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f1919e = 16;
+    public static final int f1870e = 16;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f1920f = 4;
+    public static final int f1871f = 4;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f1921g = -128;
+    public static final int f1872g = -128;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final char f1922h = '=';
-    public static final byte[] i = new byte[128];
+    public static final char f1873h = '=';
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final byte[] f1874i = new byte[128];
     public static final char[] j = new char[64];
 
     static {
@@ -36,10 +38,10 @@ public final class a {
         int i3;
         int i4 = 0;
         for (int i5 = 0; i5 < 128; i5++) {
-            i[i5] = -1;
+            f1874i[i5] = -1;
         }
         for (int i6 = 90; i6 >= 65; i6--) {
-            i[i6] = (byte) (i6 - 65);
+            f1874i[i6] = (byte) (i6 - 65);
         }
         int i7 = 122;
         while (true) {
@@ -47,7 +49,7 @@ public final class a {
             if (i7 < 97) {
                 break;
             }
-            i[i7] = (byte) ((i7 - 97) + 26);
+            f1874i[i7] = (byte) ((i7 - 97) + 26);
             i7--;
         }
         int i8 = 57;
@@ -56,10 +58,10 @@ public final class a {
             if (i8 < 48) {
                 break;
             }
-            i[i8] = (byte) ((i8 - 48) + 52);
+            f1874i[i8] = (byte) ((i8 - 48) + 52);
             i8--;
         }
-        byte[] bArr = i;
+        byte[] bArr = f1874i;
         bArr[43] = 62;
         bArr[47] = 63;
         for (int i9 = 0; i9 <= 25; i9++) {
@@ -142,8 +144,8 @@ public final class a {
             cArr[i6] = cArr3[(byte) i19];
             int i21 = i20 + 1;
             cArr[i20] = cArr3[b10 << 4];
-            cArr[i21] = f1922h;
-            cArr[i21 + 1] = f1922h;
+            cArr[i21] = f1873h;
+            cArr[i21 + 1] = f1873h;
         } else if (i2 == 16) {
             byte b11 = bArr[i5];
             byte b12 = bArr[i5 + 1];
@@ -166,7 +168,7 @@ public final class a {
             int i27 = i26 + 1;
             cArr[i26] = cArr4[((byte) i25) | (b14 << 4)];
             cArr[i27] = cArr4[b13 << 2];
-            cArr[i27 + 1] = f1922h;
+            cArr[i27 + 1] = f1873h;
         }
         return new String(cArr);
     }
@@ -180,7 +182,7 @@ public final class a {
     }
 
     public static boolean c(char c2) {
-        return c2 < 128 && i[c2] != -1;
+        return c2 < 128 && f1874i[c2] != -1;
     }
 
     public static byte[] a(String str) {
@@ -213,7 +215,7 @@ public final class a {
                         int i9 = i8 + 1;
                         char c5 = charArray[i8];
                         if (c(c5)) {
-                            byte[] bArr2 = i;
+                            byte[] bArr2 = f1874i;
                             byte b2 = bArr2[c2];
                             byte b3 = bArr2[c3];
                             byte b4 = bArr2[c4];
@@ -238,14 +240,14 @@ public final class a {
             int i13 = i12 + 1;
             char c7 = charArray[i12];
             if (c(c7)) {
-                byte[] bArr3 = i;
+                byte[] bArr3 = f1874i;
                 byte b6 = bArr3[c6];
                 byte b7 = bArr3[c7];
                 int i14 = i13 + 1;
                 char c8 = charArray[i13];
                 char c9 = charArray[i14];
                 if (c(c8) && c(c9)) {
-                    byte[] bArr4 = i;
+                    byte[] bArr4 = f1874i;
                     byte b8 = bArr4[c8];
                     byte b9 = bArr4[c9];
                     int i15 = i5 + 1;
@@ -265,7 +267,7 @@ public final class a {
                 } else if (b(c8) || !b(c9)) {
                     return null;
                 } else {
-                    byte b10 = i[c8];
+                    byte b10 = f1874i[c8];
                     if ((b10 & 3) != 0) {
                         return null;
                     }

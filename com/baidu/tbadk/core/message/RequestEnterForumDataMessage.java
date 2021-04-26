@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 public class RequestEnterForumDataMessage extends CustomResponsedMessage<Boolean> {
     public boolean isCache;
 
-    public RequestEnterForumDataMessage(int i, Boolean bool) {
+    public RequestEnterForumDataMessage(int i2, Boolean bool) {
         super(2001323, bool);
         this.isCache = bool.booleanValue();
     }

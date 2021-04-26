@@ -53,8 +53,8 @@ public class ImageRequestBuilder {
         return newBuilderWithSource(imageRequest.getSourceUri()).setImageDecodeOptions(imageRequest.getImageDecodeOptions()).setBytesRange(imageRequest.getBytesRange()).setCacheChoice(imageRequest.getCacheChoice()).setLocalThumbnailPreviewsEnabled(imageRequest.getLocalThumbnailPreviewsEnabled()).setLowestPermittedRequestLevel(imageRequest.getLowestPermittedRequestLevel()).setPostprocessor(imageRequest.getPostprocessor()).setProgressiveRenderingEnabled(imageRequest.getProgressiveRenderingEnabled()).setRequestPriority(imageRequest.getPriority()).setResizeOptions(imageRequest.getResizeOptions()).setRequestListener(imageRequest.getRequestListener()).setRotationOptions(imageRequest.getRotationOptions()).setShouldDecodePrefetches(imageRequest.shouldDecodePrefetches()).setNetRequestHeader(imageRequest.getNetRequestHeader()).setTag(imageRequest.mTag).setLogTag(imageRequest.mLogTag);
     }
 
-    public static ImageRequestBuilder newBuilderWithResourceId(int i) {
-        return newBuilderWithSource(UriUtil.getUriForResourceId(i));
+    public static ImageRequestBuilder newBuilderWithResourceId(int i2) {
+        return newBuilderWithSource(UriUtil.getUriForResourceId(i2));
     }
 
     public static ImageRequestBuilder newBuilderWithSource(Uri uri) {

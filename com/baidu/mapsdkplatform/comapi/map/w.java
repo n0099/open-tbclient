@@ -5,18 +5,18 @@ import android.os.Message;
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7714a = "w";
+    public static final String f7991a = "w";
 
     /* renamed from: b  reason: collision with root package name */
-    public v f7715b;
+    public v f7992b;
 
     public void a(Message message) {
         if (message.what != 65289) {
             return;
         }
-        int i = message.arg1;
-        if (i != 12 && i != 101 && i != 102) {
-            switch (i) {
+        int i2 = message.arg1;
+        if (i2 != 12 && i2 != 101 && i2 != 102) {
+            switch (i2) {
                 case -1:
                 case 0:
                 case 1:
@@ -34,17 +34,17 @@ public class w {
                     return;
             }
         }
-        v vVar = this.f7715b;
+        v vVar = this.f7992b;
         if (vVar != null) {
             vVar.a(message.arg1, message.arg2);
         }
     }
 
     public void a(v vVar) {
-        this.f7715b = vVar;
+        this.f7992b = vVar;
     }
 
     public void b(v vVar) {
-        this.f7715b = null;
+        this.f7992b = null;
     }
 }

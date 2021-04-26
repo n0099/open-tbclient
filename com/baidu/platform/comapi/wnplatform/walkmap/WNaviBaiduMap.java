@@ -12,13 +12,13 @@ import com.baidu.webkit.net.BdNetTask;
 public class WNaviBaiduMap {
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f9940b;
+    public static long f10308b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static WNaviBaiduMap f9941c;
+    public static WNaviBaiduMap f10309c;
 
     /* renamed from: a  reason: collision with root package name */
-    public JNIBaseMap f9942a = new JNIBaseMap();
+    public JNIBaseMap f10310a = new JNIBaseMap();
 
     public static void clearOverlay(Overlay overlay) {
         if (overlay instanceof Marker) {
@@ -30,22 +30,22 @@ public class WNaviBaiduMap {
     }
 
     public static long getId() {
-        return f9940b;
+        return f10308b;
     }
 
     public static synchronized WNaviBaiduMap getInstance() {
         WNaviBaiduMap wNaviBaiduMap;
         synchronized (WNaviBaiduMap.class) {
-            if (f9941c == null) {
-                f9941c = new WNaviBaiduMap();
+            if (f10309c == null) {
+                f10309c = new WNaviBaiduMap();
             }
-            wNaviBaiduMap = f9941c;
+            wNaviBaiduMap = f10309c;
         }
         return wNaviBaiduMap;
     }
 
-    public static int getScaleDis(int i) {
-        switch (i) {
+    public static int getScaleDis(int i2) {
+        switch (i2) {
             case 1:
                 return ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT;
             case 2:
@@ -101,18 +101,18 @@ public class WNaviBaiduMap {
     public static void showMapPoi(boolean z) {
     }
 
-    public void SetStyleMode(int i) {
+    public void SetStyleMode(int i2) {
     }
 
     public float getZoomLevel() {
         return 3.0f;
     }
 
-    public float getZoomToBound(Bundle bundle, int i, int i2) {
+    public float getZoomToBound(Bundle bundle, int i2, int i3) {
         bundle.putInt("hasHW", 1);
-        bundle.putInt("width", i);
-        bundle.putInt("height", i2);
-        return this.f9942a.GetZoomToBound(f9940b, bundle);
+        bundle.putInt("width", i2);
+        bundle.putInt("height", i3);
+        return this.f10310a.GetZoomToBound(f10308b, bundle);
     }
 
     public double getZoomUnitsInMeter() {
@@ -120,7 +120,7 @@ public class WNaviBaiduMap {
     }
 
     public void setId(long j) {
-        f9940b = j;
+        f10308b = j;
     }
 
     public void setSatellite(boolean z) {

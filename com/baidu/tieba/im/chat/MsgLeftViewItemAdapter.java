@@ -24,40 +24,40 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.b.c.j.e.a
-    public /* bridge */ /* synthetic */ View X(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        l0(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.a.c.j.e.a
+    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
+        h0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View l0(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgleftView> msgViewHolder) {
-        super.X(i, view, viewGroup, chatMessage, msgViewHolder);
+    public View h0(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgleftView> msgViewHolder) {
+        super.W(i2, view, viewGroup, chatMessage, msgViewHolder);
         MsgleftView b2 = msgViewHolder.b();
-        b2.w(this.s);
-        b2.q(this.t);
+        b2.t(this.s);
+        b2.o(this.t);
         chatMessage.getCacheData().setIs_left(1);
-        b2.r(this.n);
-        b2.s(this.o);
-        b2.u(i);
-        b2.k(this.p);
-        b2.o(chatMessage.getCacheData().getLastMsgTime());
-        b2.v(viewGroup, chatMessage);
-        b2.l(viewGroup, chatMessage);
+        b2.p(this.n);
+        b2.q(this.o);
+        b2.r(i2);
+        b2.j(this.p);
+        b2.n(chatMessage.getCacheData().getLastMsgTime());
+        b2.s(viewGroup, chatMessage);
+        b2.k(viewGroup, chatMessage);
         this.m.getLayoutMode().k(false);
         this.m.getLayoutMode().j(view);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.c.j.e.a
-    /* renamed from: r0 */
-    public MsgCommonItemAdapter.MsgViewHolder<MsgleftView> R(ViewGroup viewGroup) {
+    @Override // d.a.c.j.e.a
+    /* renamed from: q0 */
+    public MsgCommonItemAdapter.MsgViewHolder<MsgleftView> P(ViewGroup viewGroup) {
         MsgleftView msgleftView = new MsgleftView(this.m);
         return new a(this, msgleftView.e(), msgleftView);
     }
 
-    public void s0(boolean z) {
+    public void r0(boolean z) {
         this.t = z;
     }
 }

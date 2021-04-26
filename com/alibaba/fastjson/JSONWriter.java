@@ -3,7 +3,6 @@ package com.alibaba.fastjson;
 import com.alibaba.fastjson.serializer.JSONSerializer;
 import com.alibaba.fastjson.serializer.SerializeWriter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.baidu.android.imsdk.internal.Constants;
 import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
@@ -21,7 +20,7 @@ public class JSONWriter implements Closeable, Flushable {
     }
 
     private void afterWrite() {
-        int i;
+        int i2;
         JSONStreamContext jSONStreamContext = this.context;
         if (jSONStreamContext == null) {
             return;
@@ -29,20 +28,20 @@ public class JSONWriter implements Closeable, Flushable {
         switch (jSONStreamContext.state) {
             case 1001:
             case 1003:
-                i = 1002;
+                i2 = 1002;
                 break;
             case 1002:
-                i = 1003;
+                i2 = 1003;
                 break;
             case 1004:
-                i = 1005;
+                i2 = 1005;
                 break;
             default:
-                i = -1;
+                i2 = -1;
                 break;
         }
-        if (i != -1) {
-            this.context.state = i;
+        if (i2 != -1) {
+            this.context.state = i2;
         }
     }
 
@@ -51,20 +50,20 @@ public class JSONWriter implements Closeable, Flushable {
         if (jSONStreamContext == null) {
             return;
         }
-        int i = jSONStreamContext.state;
-        if (i == 1002) {
+        int i2 = jSONStreamContext.state;
+        if (i2 == 1002) {
             this.writer.write(58);
-        } else if (i == 1003) {
+        } else if (i2 == 1003) {
             this.writer.write(44);
-        } else if (i != 1005) {
+        } else if (i2 != 1005) {
         } else {
             this.writer.write(44);
         }
     }
 
     private void beginStructure() {
-        int i = this.context.state;
-        switch (i) {
+        int i2 = this.context.state;
+        switch (i2) {
             case 1001:
             case 1004:
                 return;
@@ -73,7 +72,7 @@ public class JSONWriter implements Closeable, Flushable {
                 return;
             case 1003:
             default:
-                throw new JSONException("illegal state : " + i);
+                throw new JSONException("illegal state : " + i2);
             case 1005:
                 this.writer.write(44);
                 return;
@@ -86,10 +85,10 @@ public class JSONWriter implements Closeable, Flushable {
         if (jSONStreamContext == null) {
             return;
         }
-        int i = jSONStreamContext.state;
-        int i2 = i != 1001 ? i != 1002 ? i != 1004 ? -1 : 1005 : 1003 : 1002;
-        if (i2 != -1) {
-            this.context.state = i2;
+        int i2 = jSONStreamContext.state;
+        int i3 = i2 != 1001 ? i2 != 1002 ? i2 != 1004 ? -1 : 1005 : 1003 : 1002;
+        if (i3 != -1) {
+            this.context.state = i3;
         }
     }
 
@@ -130,7 +129,7 @@ public class JSONWriter implements Closeable, Flushable {
             beginStructure();
         }
         this.context = new JSONStreamContext(this.context, 1001);
-        this.writer.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+        this.writer.write(123);
     }
 
     @Deprecated

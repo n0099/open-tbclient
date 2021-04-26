@@ -3,7 +3,7 @@ package com.baidu.tieba.person;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SetUserPicsResponse extends JsonHttpResponsedMessage {
     public int errCode;
 
@@ -12,7 +12,7 @@ public class SetUserPicsResponse extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         if (jSONObject != null) {
             this.errCode = jSONObject.optInt("error_code");
         }

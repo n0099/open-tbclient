@@ -167,7 +167,7 @@ public final class d {
         synchronized (d.class) {
             com.baidu.crabsdk.lite.b.a.f(str, "writeFile: " + str2);
             c.i(str, str2);
-            if (com.baidu.crabsdk.lite.a.i) {
+            if (com.baidu.crabsdk.lite.a.f4870i) {
                 try {
                     String b2 = com.baidu.crabsdk.lite.b.d.b(UUID.randomUUID().toString(), UUID.randomUUID().toString());
                     str3 = com.baidu.crabsdk.lite.b.d.d(str3, b2);

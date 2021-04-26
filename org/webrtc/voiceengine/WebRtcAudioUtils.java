@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes7.dex */
 public final class WebRtcAudioUtils {
     public static final int DEFAULT_SAMPLE_RATE_HZ = 16000;
@@ -25,8 +26,8 @@ public final class WebRtcAudioUtils {
         return Arrays.asList(BLACKLISTED_OPEN_SL_ES_MODELS).contains(Build.MODEL);
     }
 
-    public static String deviceTypeToString(int i) {
-        switch (i) {
+    public static String deviceTypeToString(int i2) {
+        switch (i2) {
             case 1:
                 return "TYPE_BUILTIN_EARPIECE";
             case 2:
@@ -85,11 +86,11 @@ public final class WebRtcAudioUtils {
     }
 
     public static int getDefaultSampleRateHz() {
-        int i;
+        int i2;
         synchronized (WebRtcAudioUtils.class) {
-            i = defaultSampleRateHz;
+            i2 = defaultSampleRateHz;
         }
-        return i;
+        return i2;
     }
 
     public static String getThreadInfo() {
@@ -164,7 +165,7 @@ public final class WebRtcAudioUtils {
 
     public static void logAudioState(String str) {
         logDeviceInfo(str);
-        AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService("audio");
+        AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         logAudioStateBasic(str, audioManager);
         logAudioStateVolume(str, audioManager);
         logAudioDeviceInfo(str, audioManager);
@@ -182,15 +183,15 @@ public final class WebRtcAudioUtils {
         if (isVolumeFixed) {
             return;
         }
-        for (int i = 0; i < 6; i++) {
-            int i2 = iArr[i];
+        for (int i2 = 0; i2 < 6; i2++) {
+            int i3 = iArr[i2];
             StringBuilder sb = new StringBuilder();
-            sb.append(GlideException.IndentedAppendable.INDENT + streamTypeToString(i2) + ": ");
+            sb.append(GlideException.IndentedAppendable.INDENT + streamTypeToString(i3) + ": ");
             sb.append("volume=");
-            sb.append(audioManager.getStreamVolume(i2));
+            sb.append(audioManager.getStreamVolume(i3));
             sb.append(", max=");
-            sb.append(audioManager.getStreamMaxVolume(i2));
-            logIsStreamMute(str, audioManager, i2, sb);
+            sb.append(audioManager.getStreamMaxVolume(i3));
+            logIsStreamMute(str, audioManager, i3, sb);
             Logging.d(str, sb.toString());
         }
     }
@@ -199,25 +200,25 @@ public final class WebRtcAudioUtils {
         Logging.d(str, "Android SDK: " + Build.VERSION.SDK_INT + ", Release: " + Build.VERSION.RELEASE + ", Brand: " + Build.BRAND + ", Device: " + Build.DEVICE + ", Id: " + Build.ID + ", Hardware: " + Build.HARDWARE + ", Manufacturer: " + Build.MANUFACTURER + ", Model: " + Build.MODEL + ", Product: " + Build.PRODUCT);
     }
 
-    public static void logIsStreamMute(String str, AudioManager audioManager, int i, StringBuilder sb) {
+    public static void logIsStreamMute(String str, AudioManager audioManager, int i2, StringBuilder sb) {
         if (Build.VERSION.SDK_INT >= 23) {
             sb.append(", muted=");
-            sb.append(audioManager.isStreamMute(i));
+            sb.append(audioManager.isStreamMute(i2));
         }
     }
 
-    public static String modeToString(int i) {
-        return i != 0 ? i != 1 ? i != 2 ? i != 3 ? "MODE_INVALID" : "MODE_IN_COMMUNICATION" : "MODE_IN_CALL" : "MODE_RINGTONE" : "MODE_NORMAL";
+    public static String modeToString(int i2) {
+        return i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? "MODE_INVALID" : "MODE_IN_COMMUNICATION" : "MODE_IN_CALL" : "MODE_RINGTONE" : "MODE_NORMAL";
     }
 
     public static boolean runningOnEmulator() {
         return Build.HARDWARE.equals("goldfish") && Build.BRAND.startsWith("generic_");
     }
 
-    public static void setDefaultSampleRateHz(int i) {
+    public static void setDefaultSampleRateHz(int i2) {
         synchronized (WebRtcAudioUtils.class) {
             isDefaultSampleRateOverridden = true;
-            defaultSampleRateHz = i;
+            defaultSampleRateHz = i2;
         }
     }
 
@@ -239,8 +240,8 @@ public final class WebRtcAudioUtils {
         }
     }
 
-    public static String streamTypeToString(int i) {
-        return i != 0 ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? "STREAM_INVALID" : "STREAM_NOTIFICATION" : "STREAM_ALARM" : "STREAM_MUSIC" : "STREAM_RING" : "STREAM_SYSTEM" : "STREAM_VOICE_CALL";
+    public static String streamTypeToString(int i2) {
+        return i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? "STREAM_INVALID" : "STREAM_NOTIFICATION" : "STREAM_ALARM" : "STREAM_MUSIC" : "STREAM_RING" : "STREAM_SYSTEM" : "STREAM_VOICE_CALL";
     }
 
     public static boolean useWebRtcBasedAcousticEchoCanceler() {

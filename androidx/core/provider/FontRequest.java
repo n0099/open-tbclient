@@ -35,7 +35,7 @@ public final class FontRequest {
         return this.mCertificatesArray;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public String getIdentifier() {
         return this.mIdentifier;
     }
@@ -58,12 +58,12 @@ public final class FontRequest {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("FontRequest {mProviderAuthority: " + this.mProviderAuthority + ", mProviderPackage: " + this.mProviderPackage + ", mQuery: " + this.mQuery + ", mCertificates:");
-        for (int i = 0; i < this.mCertificates.size(); i++) {
+        for (int i2 = 0; i2 < this.mCertificates.size(); i2++) {
             sb.append(" [");
-            List<byte[]> list = this.mCertificates.get(i);
-            for (int i2 = 0; i2 < list.size(); i2++) {
+            List<byte[]> list = this.mCertificates.get(i2);
+            for (int i3 = 0; i3 < list.size(); i3++) {
                 sb.append(" \"");
-                sb.append(Base64.encodeToString(list.get(i2), 0));
+                sb.append(Base64.encodeToString(list.get(i3), 0));
                 sb.append("\"");
             }
             sb.append(" ]");
@@ -73,13 +73,13 @@ public final class FontRequest {
         return sb.toString();
     }
 
-    public FontRequest(@NonNull String str, @NonNull String str2, @NonNull String str3, @ArrayRes int i) {
+    public FontRequest(@NonNull String str, @NonNull String str2, @NonNull String str3, @ArrayRes int i2) {
         this.mProviderAuthority = (String) Preconditions.checkNotNull(str);
         this.mProviderPackage = (String) Preconditions.checkNotNull(str2);
         this.mQuery = (String) Preconditions.checkNotNull(str3);
         this.mCertificates = null;
-        Preconditions.checkArgument(i != 0);
-        this.mCertificatesArray = i;
+        Preconditions.checkArgument(i2 != 0);
+        this.mCertificatesArray = i2;
         this.mIdentifier = this.mProviderAuthority + "-" + this.mProviderPackage + "-" + this.mQuery;
     }
 }

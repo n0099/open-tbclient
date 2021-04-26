@@ -15,9 +15,9 @@ public class DefaultConfig implements IIMConfig {
     public static final String TOKEN_SEPARATOR = ".";
     public boolean mRootComplete = true;
 
-    public static String[] getTokens(String str, int i) {
+    public static String[] getTokens(String str, int i2) {
         String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-        return (split == null || split.length != i) ? new String[0] : split;
+        return (split == null || split.length != i2) ? new String[0] : split;
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig
@@ -74,7 +74,7 @@ public class DefaultConfig implements IIMConfig {
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig
-    public boolean isMsgTypeSupported(int i) {
+    public boolean isMsgTypeSupported(int i2) {
         return true;
     }
 

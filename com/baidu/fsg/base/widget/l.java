@@ -5,44 +5,44 @@ import android.view.View;
 public class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardUtil f5555a;
+    public final /* synthetic */ SafeKeyBoardUtil f5704a;
 
     public l(SafeKeyBoardUtil safeKeyBoardUtil) {
-        this.f5555a = safeKeyBoardUtil;
+        this.f5704a = safeKeyBoardUtil;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         View view;
         View view2;
-        int i;
         int i2;
-        SafeKeyBoardEditText safeKeyBoardEditText;
         int i3;
-        SafeScrollView safeScrollView;
+        SafeKeyBoardEditText safeKeyBoardEditText;
         int i4;
-        SafeScrollView safeScrollView2;
+        SafeScrollView safeScrollView;
         int i5;
+        SafeScrollView safeScrollView2;
+        int i6;
         int[] iArr = new int[2];
-        view = this.f5555a.f5532f;
+        view = this.f5704a.f5679f;
         view.getLocationOnScreen(iArr);
-        SafeKeyBoardUtil safeKeyBoardUtil = this.f5555a;
-        int i6 = iArr[1];
-        view2 = safeKeyBoardUtil.f5532f;
-        int height = i6 + view2.getHeight();
-        i = this.f5555a.f5533g;
-        i2 = this.f5555a.j;
-        int i7 = height - (i - i2);
-        safeKeyBoardEditText = this.f5555a.f5529c;
-        safeKeyBoardUtil.i = i7 + safeKeyBoardEditText.getGap();
-        i3 = this.f5555a.i;
-        if (i3 > 0) {
-            safeScrollView2 = this.f5555a.f5531e;
-            i5 = this.f5555a.i;
-            safeScrollView2.smoothScrollBy(0, i5);
+        SafeKeyBoardUtil safeKeyBoardUtil = this.f5704a;
+        int i7 = iArr[1];
+        view2 = safeKeyBoardUtil.f5679f;
+        int height = i7 + view2.getHeight();
+        i2 = this.f5704a.f5680g;
+        i3 = this.f5704a.j;
+        int i8 = height - (i2 - i3);
+        safeKeyBoardEditText = this.f5704a.f5676c;
+        safeKeyBoardUtil.f5682i = i8 + safeKeyBoardEditText.getGap();
+        i4 = this.f5704a.f5682i;
+        if (i4 > 0) {
+            safeScrollView2 = this.f5704a.f5678e;
+            i6 = this.f5704a.f5682i;
+            safeScrollView2.smoothScrollBy(0, i6);
         }
-        safeScrollView = this.f5555a.f5531e;
-        i4 = this.f5555a.j;
-        safeScrollView.notifyShowKeyBoard(i4);
+        safeScrollView = this.f5704a.f5678e;
+        i5 = this.f5704a.j;
+        safeScrollView.notifyShowKeyBoard(i5);
     }
 }

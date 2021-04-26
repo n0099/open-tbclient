@@ -51,8 +51,8 @@ public final class WebBackForwardListImpl extends WebBackForwardList implements 
     }
 
     @Override // com.baidu.webkit.sdk.WebBackForwardList
-    public final WebHistoryItem getItemAtIndex(int i) {
-        return WebHistoryItemImpl.from(this.mList.getItemAtIndex(i));
+    public final WebHistoryItem getItemAtIndex(int i2) {
+        return WebHistoryItemImpl.from(this.mList.getItemAtIndex(i2));
     }
 
     @Override // com.baidu.webkit.sdk.WebBackForwardList

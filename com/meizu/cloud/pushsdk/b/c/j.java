@@ -34,9 +34,9 @@ public abstract class j {
     }
 
     public static j a(g gVar, String str) {
-        Charset charset = m.f37951c;
+        Charset charset = m.f35502c;
         if (gVar != null && (charset = gVar.b()) == null) {
-            charset = m.f37951c;
+            charset = m.f35502c;
             gVar = g.a(gVar + "; charset=utf-8");
         }
         return a(gVar, str.getBytes(charset));
@@ -46,9 +46,9 @@ public abstract class j {
         return a(gVar, bArr, 0, bArr.length);
     }
 
-    public static j a(final g gVar, final byte[] bArr, final int i, final int i2) {
+    public static j a(final g gVar, final byte[] bArr, final int i2, final int i3) {
         if (bArr != null) {
-            m.a(bArr.length, i, i2);
+            m.a(bArr.length, i2, i3);
             return new j() { // from class: com.meizu.cloud.pushsdk.b.c.j.1
                 @Override // com.meizu.cloud.pushsdk.b.c.j
                 public g a() {
@@ -57,12 +57,12 @@ public abstract class j {
 
                 @Override // com.meizu.cloud.pushsdk.b.c.j
                 public void a(com.meizu.cloud.pushsdk.b.g.c cVar) throws IOException {
-                    cVar.c(bArr, i, i2);
+                    cVar.c(bArr, i2, i3);
                 }
 
                 @Override // com.meizu.cloud.pushsdk.b.c.j
                 public long b() {
-                    return i2;
+                    return i3;
                 }
             };
         }

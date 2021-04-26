@@ -50,12 +50,12 @@ public class StreamGifDecoder implements ResourceDecoder<InputStream, GifDrawabl
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource<GifDrawable> decode(@NonNull InputStream inputStream, int i, int i2, @NonNull Options options) throws IOException {
+    public Resource<GifDrawable> decode(@NonNull InputStream inputStream, int i2, int i3, @NonNull Options options) throws IOException {
         byte[] inputStreamToBytes = inputStreamToBytes(inputStream);
         if (inputStreamToBytes == null) {
             return null;
         }
-        return this.byteBufferDecoder.decode(ByteBuffer.wrap(inputStreamToBytes), i, i2, options);
+        return this.byteBufferDecoder.decode(ByteBuffer.wrap(inputStreamToBytes), i2, i3, options);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

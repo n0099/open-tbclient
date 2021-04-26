@@ -22,8 +22,8 @@ public final class RoundedBitmapDrawableFactory {
         }
 
         @Override // androidx.core.graphics.drawable.RoundedBitmapDrawable
-        public void gravityCompatApply(int i, int i2, int i3, Rect rect, Rect rect2) {
-            GravityCompat.apply(i, i2, i3, rect, rect2, 0);
+        public void gravityCompatApply(int i2, int i3, int i4, Rect rect, Rect rect2) {
+            GravityCompat.apply(i2, i3, i4, rect, rect2, 0);
         }
 
         @Override // androidx.core.graphics.drawable.RoundedBitmapDrawable

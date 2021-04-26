@@ -3,53 +3,35 @@ package com.baidu.sapi2.utils.enums;
 import android.text.TextUtils;
 /* loaded from: classes2.dex */
 public enum FastLoginFeature {
-    TX_WEIXIN_SSO(a.f11063a),
-    SINA_WEIBO_SSO(a.f11064b),
+    TX_WEIXIN_SSO(SSOLoginType.WEIXIN),
+    SINA_WEIBO_SSO(SSOLoginType.SINA_SSO),
     SINA_WEIBO_WEBVIEW("tsina"),
-    TX_QQ_SSO(a.f11066d),
-    QR_LOGIN(a.f11067e),
-    HUAWEI_LOGIN(a.f11068f),
-    GLORY_LOGIN(a.f11069g),
-    MEIZU_SSO(a.f11070h),
-    XIAOMI_SSO(a.i),
-    YY_SSO(a.j);
+    TX_QQ_SSO(SSOLoginType.QQ),
+    QR_LOGIN(SSOLoginType.QR_APP_LOGIN),
+    HUAWEI_LOGIN(SSOLoginType.HUAWEI),
+    GLORY_LOGIN(SSOLoginType.HONOR),
+    MEIZU_SSO(SSOLoginType.MEIZU),
+    XIAOMI_SSO(SSOLoginType.XIAOMI),
+    YY_SSO(SSOLoginType.YY);
     
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f11062a;
+    public String mStrValue;
 
     /* loaded from: classes2.dex */
-    public interface a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final String f11063a = "tweixin_sso";
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final String f11064b = "tsina_sso";
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final String f11065c = "tsina";
-
-        /* renamed from: d  reason: collision with root package name */
-        public static final String f11066d = "qq_sso";
-
-        /* renamed from: e  reason: collision with root package name */
-        public static final String f11067e = "qr_app_login";
-
-        /* renamed from: f  reason: collision with root package name */
-        public static final String f11068f = "huawei_login";
-
-        /* renamed from: g  reason: collision with root package name */
-        public static final String f11069g = "glory_login";
-
-        /* renamed from: h  reason: collision with root package name */
-        public static final String f11070h = "meizu_sso";
-        public static final String i = "xiaomi_sso";
-        public static final String j = "yy";
+    public interface SSOLoginType {
+        public static final String HONOR = "glory_login";
+        public static final String HUAWEI = "huawei_login";
+        public static final String MEIZU = "meizu_sso";
+        public static final String QQ = "qq_sso";
+        public static final String QR_APP_LOGIN = "qr_app_login";
+        public static final String SINA_SSO = "tsina_sso";
+        public static final String SINA_WEB = "tsina";
+        public static final String WEIXIN = "tweixin_sso";
+        public static final String XIAOMI = "xiaomi_sso";
+        public static final String YY = "yy";
     }
 
     FastLoginFeature(String str) {
-        this.f11062a = str;
+        this.mStrValue = str;
     }
 
     public static FastLoginFeature getDefault() {
@@ -70,6 +52,6 @@ public enum FastLoginFeature {
     }
 
     public String getStrValue() {
-        return this.f11062a;
+        return this.mStrValue;
     }
 }

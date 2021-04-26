@@ -7,13 +7,13 @@ public interface FunAdCallback {
 
     void onAdLoad(String str, String str2, String str3, String str4);
 
-    void onAdLoadError(String str, String str2, String str3, String str4, int i, String str5);
+    void onAdLoadError(String str, String str2, String str3, String str4, int i2, String str5);
 
     void onAdLoaded(String str, String str2, String str3, String str4);
 
     void onAdShow(String str, String str2, String str3, String str4);
 
-    void onAdShowError(String str, String str2, String str3, String str4, int i, String str5);
+    void onAdShowError(String str, String str2, String str3, String str4, int i2, String str5);
 
     void onRewardedVideo(String str, String str2, String str3, String str4);
 }

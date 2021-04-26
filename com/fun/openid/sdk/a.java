@@ -8,25 +8,25 @@ public interface a extends IInterface {
 
     /* renamed from: com.fun.openid.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static abstract class AbstractBinderC0349a extends Binder implements a {
+    public static abstract class AbstractBinderC0342a extends Binder implements a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int f30596a = 0;
+        public static final /* synthetic */ int f31530a = 0;
 
         /* renamed from: com.fun.openid.sdk.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0350a implements a {
+        public static class C0343a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f30597a;
+            public IBinder f31531a;
 
-            public C0350a(IBinder iBinder) {
-                this.f30597a = iBinder;
+            public C0343a(IBinder iBinder) {
+                this.f31531a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f30597a;
+                return this.f31531a;
             }
         }
     }

@@ -8,8 +8,8 @@ import javax.annotation.concurrent.NotThreadSafe;
 public class OOMSoftReferenceBucket<V> extends Bucket<V> {
     public LinkedList<OOMSoftReference<V>> mSpareReferences;
 
-    public OOMSoftReferenceBucket(int i, int i2, int i3) {
-        super(i, i2, i3, false);
+    public OOMSoftReferenceBucket(int i2, int i3, int i4) {
+        super(i2, i3, i4, false);
         this.mSpareReferences = new LinkedList<>();
     }
 

@@ -6,33 +6,33 @@ import android.text.TextUtils;
 public class PushSettings {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2707a = -1;
+    public static int f2706a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f2708b = -1;
+    public static int f2707b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f2709c = -1;
+    public static int f2708c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f2710d = -1;
+    public static int f2709d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f2711e = -1;
+    public static int f2710e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f2712f = -1;
+    public static int f2711f = -1;
 
     public static String a(Context context) {
         String a2 = com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_id");
         return TextUtils.isEmpty(a2) ? com.baidu.android.pushservice.c.c.a(context, false) : a2;
     }
 
-    public static void a(Context context, int i) {
+    public static void a(Context context, int i2) {
         if (context == null) {
             return;
         }
-        com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.sd", i);
+        com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.sd", i2);
     }
 
     public static void a(Context context, String str) {
@@ -51,8 +51,8 @@ public class PushSettings {
         return TextUtils.isEmpty(a2) ? com.baidu.android.pushservice.c.c.a(context, true) : a2;
     }
 
-    public static void b(Context context, int i) {
-        com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.track.failcount", i);
+    public static void b(Context context, int i2) {
+        com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.track.failcount", i2);
     }
 
     public static void b(Context context, String str) {
@@ -72,11 +72,11 @@ public class PushSettings {
     }
 
     public static boolean e(Context context) {
-        return context != null && f2707a == 1;
+        return context != null && f2706a == 1;
     }
 
     public static void enableDebugMode(boolean z) {
-        f2707a = z ? 1 : 0;
+        f2706a = z ? 1 : 0;
     }
 
     public static boolean f(Context context) {
@@ -91,50 +91,50 @@ public class PushSettings {
         if (context == null) {
             return false;
         }
-        if (f2708b == -1) {
-            f2708b = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
+        if (f2707b == -1) {
+            f2707b = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
         }
-        return f2708b == 1;
+        return f2707b == 1;
     }
 
     public static boolean h(Context context) {
         if (context == null) {
             return false;
         }
-        if (f2710d == -1) {
-            f2710d = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", -1);
+        if (f2709d == -1) {
+            f2709d = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", -1);
         }
-        return f2710d == 1;
+        return f2709d == 1;
     }
 
     public static boolean i(Context context) {
         if (context == null) {
             return false;
         }
-        if (f2711e == -1) {
-            f2711e = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", -1);
+        if (f2710e == -1) {
+            f2710e = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", -1);
         }
-        return f2711e == 1;
+        return f2710e == 1;
     }
 
     public static boolean j(Context context) {
         if (context == null) {
             return false;
         }
-        if (f2712f == -1) {
-            f2712f = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", -1);
+        if (f2711f == -1) {
+            f2711f = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", -1);
         }
-        return f2712f == 1;
+        return f2711f == 1;
     }
 
     public static boolean k(Context context) {
         if (context == null) {
             return false;
         }
-        if (f2709c == -1) {
-            f2709c = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", -1);
+        if (f2708c == -1) {
+            f2708c = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", -1);
         }
-        return f2709c == 1;
+        return f2708c == 1;
     }
 
     public static void l(Context context) {

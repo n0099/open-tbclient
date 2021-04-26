@@ -32,13 +32,13 @@ public class FrameSequence implements Serializable {
             }
         }
 
-        public long getFrame(int i, Bitmap bitmap, int i2) {
+        public long getFrame(int i2, Bitmap bitmap, int i3) {
             if (bitmap == null || bitmap.getConfig() != Bitmap.Config.ARGB_8888) {
                 throw new IllegalArgumentException("Bitmap passed must be non-null and ARGB_8888");
             }
             long j = this.mNativeState;
             if (j != 0) {
-                return FrameSequence.nativeGetFrame(j, i, bitmap, i2);
+                return FrameSequence.nativeGetFrame(j, i2, bitmap, i3);
             }
             throw new IllegalStateException("attempted to draw destroyed FrameSequenceState");
         }
@@ -56,13 +56,13 @@ public class FrameSequence implements Serializable {
     public FrameSequence() {
     }
 
-    public FrameSequence(long j, int i, int i2, boolean z, int i3, int i4) {
+    public FrameSequence(long j, int i2, int i3, boolean z, int i4, int i5) {
         this.mNativeFrameSequence = j;
-        this.mWidth = i;
-        this.mHeight = i2;
+        this.mWidth = i2;
+        this.mHeight = i3;
         this.mOpaque = z;
-        this.mFrameCount = i3;
-        this.mDefaultLoopCount = i4;
+        this.mFrameCount = i4;
+        this.mDefaultLoopCount = i5;
     }
 
     @Nullable
@@ -74,13 +74,13 @@ public class FrameSequence implements Serializable {
     }
 
     @Nullable
-    public static FrameSequence decodeByteArray(byte[] bArr, int i, int i2) {
+    public static FrameSequence decodeByteArray(byte[] bArr, int i2, int i3) {
         if (ISLOADED.get()) {
             if (bArr != null) {
-                if (i < 0 || i2 < 0 || i + i2 > bArr.length) {
+                if (i2 < 0 || i3 < 0 || i2 + i3 > bArr.length) {
                     throw new IllegalArgumentException("invalid offset/length parameters");
                 }
-                return nativeDecodeByteArray(bArr, i, i2);
+                return nativeDecodeByteArray(bArr, i2, i3);
             }
             throw new IllegalArgumentException();
         }
@@ -121,9 +121,9 @@ public class FrameSequence implements Serializable {
 
     public static native long nativeCreateState(long j);
 
-    public static native FrameSequence nativeDecodeByteArray(byte[] bArr, int i, int i2);
+    public static native FrameSequence nativeDecodeByteArray(byte[] bArr, int i2, int i3);
 
-    public static native FrameSequence nativeDecodeByteBuffer(ByteBuffer byteBuffer, int i, int i2);
+    public static native FrameSequence nativeDecodeByteBuffer(ByteBuffer byteBuffer, int i2, int i3);
 
     public static native FrameSequence nativeDecodeStream(InputStream inputStream, byte[] bArr);
 
@@ -131,7 +131,7 @@ public class FrameSequence implements Serializable {
 
     public static native void nativeDestroyState(long j);
 
-    public static native long nativeGetFrame(long j, int i, Bitmap bitmap, int i2);
+    public static native long nativeGetFrame(long j, int i2, Bitmap bitmap, int i3);
 
     public State createState() {
         long j = this.mNativeFrameSequence;

@@ -8,24 +8,24 @@ import java.util.List;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<i> f1650a;
+    public static List<i> f1590a;
 
     static {
         ArrayList arrayList = new ArrayList();
-        f1650a = arrayList;
+        f1590a = arrayList;
         arrayList.add(new l());
-        f1650a.add(new d());
-        f1650a.add(new c());
-        f1650a.add(new h());
-        f1650a.add(new k());
-        f1650a.add(new b());
-        f1650a.add(new a());
-        f1650a.add(new g());
+        f1590a.add(new d());
+        f1590a.add(new c());
+        f1590a.add(new h());
+        f1590a.add(new k());
+        f1590a.add(new b());
+        f1590a.add(new a());
+        f1590a.add(new g());
     }
 
     public static final <T> T a(Object obj, Type type) {
         T t;
-        for (i iVar : f1650a) {
+        for (i iVar : f1590a) {
             if (iVar.a(com.alipay.a.b.a.a(type)) && (t = (T) iVar.a(obj, type)) != null) {
                 return t;
             }

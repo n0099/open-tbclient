@@ -86,14 +86,14 @@ public class AndroidNetworkLibrary {
     }
 
     @CalledByNative
-    public static boolean storeCertificate(Context context, int i, byte[] bArr) {
+    public static boolean storeCertificate(Context context, int i2, byte[] bArr) {
         try {
             Intent createInstallIntent = KeyChain.createInstallIntent();
             createInstallIntent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-            if (i == 1 || i == 2) {
+            if (i2 == 1 || i2 == 2) {
                 createInstallIntent.putExtra("CERT", bArr);
-            } else if (i != 3) {
-                Log.w("AndroidNetworkLibrary", "invalid certificate type: " + i);
+            } else if (i2 != 3) {
+                Log.w("AndroidNetworkLibrary", "invalid certificate type: " + i2);
                 return false;
             } else {
                 createInstallIntent.putExtra("PKCS12", bArr);
@@ -122,9 +122,9 @@ public class AndroidNetworkLibrary {
     }
 
     @CalledByNative
-    public static AndroidCertVerifyResult verifyServerCertificates(byte[][] bArr, String str, String str2, int i) {
+    public static AndroidCertVerifyResult verifyServerCertificates(byte[][] bArr, String str, String str2, int i2) {
         try {
-            return X509Util.n(bArr, str, str2, i);
+            return X509Util.n(bArr, str, str2, i2);
         } catch (IllegalArgumentException unused) {
             return new AndroidCertVerifyResult(-1);
         } catch (KeyStoreException unused2) {

@@ -2,7 +2,7 @@ package com.baidu.tieba.pbextra;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.PushThread.DataReq;
 import tbclient.PushThread.PushThreadReqIdl;
 /* loaded from: classes3.dex */
@@ -12,11 +12,11 @@ public class PbPushRequestMessage extends NetMessage {
     public long mThreadId;
     public long mUserId;
 
-    public PbPushRequestMessage(long j, long j2, int i, long j3) {
+    public PbPushRequestMessage(long j, long j2, int i2, long j3) {
         super(CmdConfigHttp.PB_PUSH_THREAD_HTTP_CMD, 309325);
         this.mForumId = j;
         this.mThreadId = j2;
-        this.mPushType = i;
+        this.mPushType = i2;
         this.mUserId = j3;
         setNetType(NetMessage.NetType.HTTP);
     }

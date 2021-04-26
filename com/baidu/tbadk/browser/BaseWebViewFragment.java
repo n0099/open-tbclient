@@ -13,28 +13,28 @@ import java.net.URL;
 public class BaseWebViewFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12760e;
+    public String f12673e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12761f;
+    public String f12674f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12762g;
+    public String f12675g;
 
     public ShareItem E0(String str, String str2, String str3, String str4) {
         ShareItem shareItem = new ShareItem();
-        if (StringUtils.isNull(this.f12762g, true)) {
+        if (StringUtils.isNull(this.f12675g, true)) {
             shareItem.r = getResources().getString(R.string.share_from_tieba);
         } else {
-            shareItem.r = this.f12762g;
+            shareItem.r = this.f12675g;
         }
-        shareItem.t = this.f12760e;
-        if (StringUtils.isNull(this.f12761f, true)) {
-            shareItem.s = this.f12760e;
+        shareItem.t = this.f12673e;
+        if (StringUtils.isNull(this.f12674f, true)) {
+            shareItem.s = this.f12673e;
         } else {
             String F0 = F0("<meta name=\"description\" content=\"", "\"");
             if (StringUtils.isNull(F0, true)) {
-                shareItem.s = this.f12760e;
+                shareItem.s = this.f12673e;
             } else {
                 shareItem.s = F0;
             }
@@ -64,11 +64,11 @@ public class BaseWebViewFragment extends BaseFragment {
 
     public final String F0(String str, String str2) {
         int indexOf;
-        if (StringUtils.isNull(str, true) || StringUtils.isNull(str2, true) || (indexOf = this.f12761f.indexOf(str)) < 0) {
+        if (StringUtils.isNull(str, true) || StringUtils.isNull(str2, true) || (indexOf = this.f12674f.indexOf(str)) < 0) {
             return null;
         }
         int length = indexOf + str.length();
-        String str3 = this.f12761f;
+        String str3 = this.f12674f;
         String substring = str3.substring(length, str3.length());
         int indexOf2 = substring.indexOf(str2);
         if (indexOf2 < 0) {
@@ -82,15 +82,15 @@ public class BaseWebViewFragment extends BaseFragment {
     }
 
     public boolean H0() {
-        return K0(this.f12760e, "nomenu");
+        return K0(this.f12673e, "nomenu");
     }
 
     public boolean I0() {
-        return K0(this.f12760e, "nonavigationbar");
+        return K0(this.f12673e, "nonavigationbar");
     }
 
     public boolean J0() {
-        return K0(this.f12760e, "noshare");
+        return K0(this.f12673e, "noshare");
     }
 
     public boolean K0(String str, String str2) {
@@ -124,13 +124,13 @@ public class BaseWebViewFragment extends BaseFragment {
 
     public void M0(String str) {
         if (!StringUtils.isNull(str) && str.startsWith(NewUrlSchemaHelper.Jump.JUMP_TO_TBWEBVIEW)) {
-            this.f12760e = str;
+            this.f12673e = str;
         } else {
-            this.f12760e = L0(str);
+            this.f12673e = L0(str);
         }
     }
 
     public void N0(String str) {
-        this.f12762g = str;
+        this.f12675g = str;
     }
 }

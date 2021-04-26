@@ -9,8 +9,8 @@ public class GroupMsgData extends CustomResponsedMessage<Object> {
     public boolean hasMore;
     public LinkedList<ChatMessage> listMessage;
 
-    public GroupMsgData(int i) {
-        super(i);
+    public GroupMsgData(int i2) {
+        super(i2);
         this.groupInfo = new GroupIdTypeData();
         this.listMessage = new LinkedList<>();
     }

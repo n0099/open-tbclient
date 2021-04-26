@@ -14,29 +14,31 @@ import com.bytedance.sdk.openadsdk.utils.al;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f28647a;
+    public View f29531a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f28648b;
+    public TextView f29532b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f28649c;
+    public Context f29533c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.video.nativevideo.d f28650d;
+    public com.bytedance.sdk.openadsdk.core.video.nativevideo.d f29534d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f28651e;
+    public b f29535e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28652f = false;
+    public boolean f29536f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public v f28653g;
+    public v f29537g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewStub f28654h;
-    public View i;
+    public ViewStub f29538h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public View f29539i;
 
     /* loaded from: classes5.dex */
     public enum a {
@@ -54,40 +56,40 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (this.f28649c == null) {
+        if (this.f29533c == null) {
             return;
         }
         d();
     }
 
     private void d() {
-        View view = this.f28647a;
+        View view = this.f29531a;
         if (view != null) {
             view.setVisibility(8);
         }
     }
 
     private void b() {
-        this.f28653g = null;
+        this.f29537g = null;
     }
 
     public void a(Context context, View view) {
         if (context == null || !(view instanceof ViewGroup)) {
             return;
         }
-        this.i = view;
-        this.f28649c = p.a().getApplicationContext();
-        this.f28654h = (ViewStub) LayoutInflater.from(context).inflate(ad.f(context, "tt_video_traffic_tip"), (ViewGroup) view, true).findViewById(ad.e(context, "tt_video_traffic_tip_layout_viewStub"));
+        this.f29539i = view;
+        this.f29533c = p.a().getApplicationContext();
+        this.f29538h = (ViewStub) LayoutInflater.from(context).inflate(ad.f(context, "tt_video_traffic_tip"), (ViewGroup) view, true).findViewById(ad.e(context, "tt_video_traffic_tip_layout_viewStub"));
     }
 
     private void a(Context context, View view, boolean z) {
         ViewStub viewStub;
-        if (context == null || view == null || (viewStub = this.f28654h) == null || viewStub.getParent() == null || this.f28647a != null) {
+        if (context == null || view == null || (viewStub = this.f29538h) == null || viewStub.getParent() == null || this.f29531a != null) {
             return;
         }
-        this.f28654h.inflate();
-        this.f28647a = view.findViewById(ad.e(context, "tt_video_traffic_tip_layout"));
-        this.f28648b = (TextView) view.findViewById(ad.e(context, "tt_video_traffic_tip_tv"));
+        this.f29538h.inflate();
+        this.f29531a = view.findViewById(ad.e(context, "tt_video_traffic_tip_layout"));
+        this.f29532b = (TextView) view.findViewById(ad.e(context, "tt_video_traffic_tip_tv"));
         View findViewById = view.findViewById(ad.e(context, "tt_video_traffic_continue_play_btn"));
         if (z) {
             findViewById.setClickable(true);
@@ -95,8 +97,8 @@ public class h {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     h.this.c();
-                    if (h.this.f28650d != null) {
-                        h.this.f28650d.a(a.START_VIDEO, (String) null);
+                    if (h.this.f29534d != null) {
+                        h.this.f29534d.a(a.START_VIDEO, (String) null);
                     }
                 }
             });
@@ -107,35 +109,35 @@ public class h {
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.d dVar, b bVar) {
-        this.f28651e = bVar;
-        this.f28650d = dVar;
+        this.f29535e = bVar;
+        this.f29534d = dVar;
     }
 
-    public boolean a(int i, v vVar, boolean z) {
-        Context context = this.f28649c;
+    public boolean a(int i2, v vVar, boolean z) {
+        Context context = this.f29533c;
         if (context == null || vVar == null) {
             return true;
         }
-        a(context, this.i, z);
-        this.f28653g = vVar;
-        if (i == 1 || i == 2) {
-            return a(i);
+        a(context, this.f29539i, z);
+        this.f29537g = vVar;
+        if (i2 == 1 || i2 == 2) {
+            return a(i2);
         }
         return true;
     }
 
-    private boolean a(int i) {
+    private boolean a(int i2) {
         b bVar;
-        if (a() || this.f28652f) {
+        if (a() || this.f29536f) {
             return true;
         }
-        if (this.f28650d != null && (bVar = this.f28651e) != null) {
+        if (this.f29534d != null && (bVar = this.f29535e) != null) {
             if (bVar.h()) {
-                this.f28650d.e(null, null);
+                this.f29534d.e(null, null);
             }
-            this.f28650d.a(a.PAUSE_VIDEO, (String) null);
+            this.f29534d.a(a.PAUSE_VIDEO, (String) null);
         }
-        a(this.f28653g, true);
+        a(this.f29537g, true);
         return false;
     }
 
@@ -147,7 +149,7 @@ public class h {
     }
 
     public boolean a() {
-        View view = this.f28647a;
+        View view = this.f29531a;
         return view != null && view.getVisibility() == 0;
     }
 
@@ -155,22 +157,22 @@ public class h {
         View view;
         String str;
         View view2;
-        if (vVar == null || (view = this.f28647a) == null || this.f28649c == null || view.getVisibility() == 0) {
+        if (vVar == null || (view = this.f29531a) == null || this.f29533c == null || view.getVisibility() == 0) {
             return;
         }
-        b bVar = this.f28651e;
+        b bVar = this.f29535e;
         if (bVar != null) {
             bVar.j();
         }
         int ceil = (int) Math.ceil((vVar.d() * 1.0d) / 1048576.0d);
         if (z) {
-            str = ad.a(this.f28649c, "tt_video_without_wifi_tips") + ceil + ad.a(this.f28649c, "tt_video_bytesize_MB") + ad.a(this.f28649c, "tt_video_bytesize");
+            str = ad.a(this.f29533c, "tt_video_without_wifi_tips") + ceil + ad.a(this.f29533c, "tt_video_bytesize_MB") + ad.a(this.f29533c, "tt_video_bytesize");
         } else {
-            str = ad.a(this.f28649c, "tt_video_without_wifi_tips") + ad.a(this.f28649c, "tt_video_bytesize");
+            str = ad.a(this.f29533c, "tt_video_without_wifi_tips") + ad.a(this.f29533c, "tt_video_bytesize");
         }
-        al.a(this.f28647a, 0);
-        al.a(this.f28648b, str);
-        if (!al.d(this.f28647a) || (view2 = this.f28647a) == null) {
+        al.a(this.f29531a, 0);
+        al.a(this.f29532b, str);
+        if (!al.d(this.f29531a) || (view2 = this.f29531a) == null) {
             return;
         }
         view2.bringToFront();

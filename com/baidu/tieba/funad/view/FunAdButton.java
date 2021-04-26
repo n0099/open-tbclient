@@ -12,22 +12,24 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes4.dex */
 public class FunAdButton extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16492e;
+    public int f16733e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16493f;
+    public int f16734f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16494g;
+    public int f16735g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f16495h;
-    public final int i;
+    public int f16736h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final int f16737i;
     public int j;
     public int k;
     public int l;
@@ -49,10 +51,10 @@ public class FunAdButton extends View {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f16496e;
+        public final /* synthetic */ String f16738e;
 
         public a(String str) {
-            this.f16496e = str;
+            this.f16738e = str;
         }
 
         @Override // java.lang.Runnable
@@ -60,7 +62,7 @@ public class FunAdButton extends View {
             if (FunAdButton.this.y) {
                 return;
             }
-            FunAdButton.this.setText(this.f16496e);
+            FunAdButton.this.setText(this.f16738e);
         }
     }
 
@@ -73,9 +75,9 @@ public class FunAdButton extends View {
             this.u = new RectF();
         }
         RectF rectF = this.u;
-        int i = this.w;
-        rectF.left = i;
-        rectF.top = i;
+        int i2 = this.w;
+        rectF.left = i2;
+        rectF.top = i2;
         rectF.right = getMeasuredWidth() - this.w;
         this.u.bottom = getMeasuredHeight() - this.w;
         float f2 = this.k / (this.s + 0.0f);
@@ -83,8 +85,8 @@ public class FunAdButton extends View {
         this.v = linearGradient;
         this.n.setShader(linearGradient);
         RectF rectF2 = this.u;
-        int i2 = this.t;
-        canvas.drawRoundRect(rectF2, i2, i2, this.n);
+        int i3 = this.t;
+        canvas.drawRoundRect(rectF2, i3, i3, this.n);
     }
 
     public final void c() {
@@ -117,19 +119,19 @@ public class FunAdButton extends View {
             textPaint.setAntiAlias(true);
             this.o.setTextSize(this.p);
         }
-        int i = this.k > 0 ? this.l : this.m;
-        if (i != this.o.getColor()) {
-            this.o.setColor(i);
+        int i2 = this.k > 0 ? this.l : this.m;
+        if (i2 != this.o.getColor()) {
+            this.o.setColor(i2);
         }
     }
 
-    public final int f(int i) {
-        View.MeasureSpec.getMode(i);
-        return View.MeasureSpec.getSize(i);
+    public final int f(int i2) {
+        View.MeasureSpec.getMode(i2);
+        return View.MeasureSpec.getSize(i2);
     }
 
-    public final int g(int i) {
-        return View.MeasureSpec.getMode(i) == Integer.MIN_VALUE ? Math.max((this.i * 2) + ((int) this.o.measureText(this.r)), this.j) : View.MeasureSpec.getSize(i);
+    public final int g(int i2) {
+        return View.MeasureSpec.getMode(i2) == Integer.MIN_VALUE ? Math.max((this.f16737i * 2) + ((int) this.o.measureText(this.r)), this.j) : View.MeasureSpec.getSize(i2);
     }
 
     public int getMax() {
@@ -141,10 +143,10 @@ public class FunAdButton extends View {
     }
 
     public void h() {
-        SkinManager.setBackgroundResource(this, this.f16495h);
-        this.l = SkinManager.getColor(this.f16492e);
-        this.m = SkinManager.getColor(this.f16493f);
-        this.q = SkinManager.getColor(this.f16494g);
+        SkinManager.setBackgroundResource(this, this.f16736h);
+        this.l = SkinManager.getColor(this.f16733e);
+        this.m = SkinManager.getColor(this.f16734f);
+        this.q = SkinManager.getColor(this.f16735g);
     }
 
     public void i() {
@@ -171,41 +173,41 @@ public class FunAdButton extends View {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        setMeasuredDimension(g(i), f(i2));
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        setMeasuredDimension(g(i2), f(i3));
     }
 
-    public void setBackgroundSkin(int i) {
-        this.f16495h = i;
+    public void setBackgroundSkin(int i2) {
+        this.f16736h = i2;
     }
 
-    public void setButtonTextColor(int i) {
-        this.m = i;
-        this.l = i;
+    public void setButtonTextColor(int i2) {
+        this.m = i2;
+        this.l = i2;
         postInvalidate();
     }
 
-    public void setButtonTextSize(int i) {
-        this.p = l.e(getContext(), i);
+    public void setButtonTextSize(int i2) {
+        this.p = l.e(getContext(), i2);
         postInvalidate();
     }
 
-    public void setForeground(int i) {
-        this.q = i;
+    public void setForeground(int i2) {
+        this.q = i2;
         postInvalidate();
     }
 
-    public void setMax(int i) {
-        this.s = i;
+    public void setMax(int i2) {
+        this.s = i2;
     }
 
-    public void setProgress(int i) {
+    public void setProgress(int i2) {
         this.y = true;
-        if (i > this.s) {
+        if (i2 > this.s) {
             return;
         }
-        this.k = i;
+        this.k = i2;
         this.r = this.k + "%";
         postInvalidate();
     }
@@ -217,8 +219,8 @@ public class FunAdButton extends View {
         postInvalidate();
     }
 
-    public void setTextColorInitSkin(int i) {
-        this.f16493f = i;
+    public void setTextColorInitSkin(int i2) {
+        this.f16734f = i2;
     }
 
     public void setTextDelay(String str, long j) {
@@ -236,19 +238,19 @@ public class FunAdButton extends View {
         this(context, attributeSet, 0);
     }
 
-    public FunAdButton(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f16492e = R.color.CAM_X0101;
-        this.f16493f = R.color.CAM_X0304;
-        this.f16494g = R.color.CAM_X0302;
-        this.f16495h = R.drawable.ad_download_progress_button_bg;
-        this.i = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
+    public FunAdButton(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f16733e = R.color.CAM_X0101;
+        this.f16734f = R.color.CAM_X0304;
+        this.f16735g = R.color.CAM_X0302;
+        this.f16736h = R.drawable.ad_download_progress_button_bg;
+        this.f16737i = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
         this.j = getResources().getDimensionPixelSize(R.dimen.tbds198);
         this.k = 0;
-        this.l = SkinManager.getColor(this.f16492e);
-        this.m = SkinManager.getColor(this.f16493f);
+        this.l = SkinManager.getColor(this.f16733e);
+        this.m = SkinManager.getColor(this.f16734f);
         this.p = 10.0f;
-        this.q = SkinManager.getColor(this.f16494g);
+        this.q = SkinManager.getColor(this.f16735g);
         this.s = 100;
         this.t = 0;
         this.w = 0;
@@ -256,17 +258,17 @@ public class FunAdButton extends View {
         c();
     }
 
-    public void setText(int i) {
+    public void setText(int i2) {
         this.y = true;
-        this.r = getContext().getString(i);
+        this.r = getContext().getString(i2);
         this.k = 0;
         postInvalidate();
     }
 
-    public void setText(String str, int i) {
+    public void setText(String str, int i2) {
         this.y = true;
         this.r = str;
-        this.k = i;
+        this.k = i2;
         postInvalidate();
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes.dex */
 public abstract class AbsTabActivity extends BaseFragmentActivity {
     public boolean isSupportNight = true;
@@ -21,30 +21,30 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
 
     /* loaded from: classes.dex */
     public static class CustomOnPageChangeListener {
-        public void onPageScrollStateChanged(int i) {
+        public void onPageScrollStateChanged(int i2) {
         }
 
-        public void onPageScrolled(int i, float f2, int i2, int i3) {
+        public void onPageScrolled(int i2, float f2, int i3, int i4) {
         }
 
-        public void onPageSelected(int i, int i2) {
+        public void onPageSelected(int i2, int i3) {
         }
     }
 
-    private void createAndAddTabSpec(Fragment fragment, int i, String str, boolean z) {
+    private void createAndAddTabSpec(Fragment fragment, int i2, String str, boolean z) {
         if (fragment == null) {
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this);
-        bVar.f12982c = fragment;
-        bVar.f12980a = i;
+        bVar.f12907c = fragment;
+        bVar.f12905a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.setTextColorResId(R.color.ala_sub_list_game_live_tab_txt_color);
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setIsSupportNight(this.isSupportNight);
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f12981b = fragmentTabIndicator;
+        bVar.f12906b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -54,10 +54,10 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
             return;
         }
         int count = adapter.getCount();
-        for (int i = 0; i < count; i++) {
-            Fragment item = adapter.getItem(i);
-            int pageType = adapter.getPageType(i);
-            String tabTitle = adapter.getTabTitle(i);
+        for (int i2 = 0; i2 < count; i2++) {
+            Fragment item = adapter.getItem(i2);
+            int pageType = adapter.getPageType(i2);
+            String tabTitle = adapter.getTabTitle(i2);
             if (item != null) {
                 createAndAddTabSpec(item, pageType, tabTitle, false);
             }
@@ -82,39 +82,39 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
         this.mTabHost.getFragmentTabWidget().setAbsoluteWeight(true);
         this.mTabHost.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.ala.widget.multicolumn.absView.AbsTabActivity.1
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageScrollStateChanged(int i) {
+            public void onPageScrollStateChanged(int i2) {
                 if (AbsTabActivity.this.mPageChangeListener != null) {
-                    AbsTabActivity.this.mPageChangeListener.onPageScrollStateChanged(i);
+                    AbsTabActivity.this.mPageChangeListener.onPageScrollStateChanged(i2);
                 }
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageScrolled(int i, float f2, int i2) {
+            public void onPageScrolled(int i2, float f2, int i3) {
                 if (AbsTabActivity.this.mPageChangeListener != null) {
-                    AbsTabActivity.this.mPageChangeListener.onPageScrolled(i, f2, i2, AbsTabActivity.this.getAdapter().getPageType(i));
+                    AbsTabActivity.this.mPageChangeListener.onPageScrolled(i2, f2, i3, AbsTabActivity.this.getAdapter().getPageType(i2));
                 }
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageSelected(int i) {
+            public void onPageSelected(int i2) {
                 if (AbsTabActivity.this.mPageChangeListener != null) {
-                    AbsTabActivity.this.mPageChangeListener.onPageSelected(i, AbsTabActivity.this.getAdapter().getPageType(i));
+                    AbsTabActivity.this.mPageChangeListener.onPageSelected(i2, AbsTabActivity.this.getAdapter().getPageType(i2));
                 }
             }
         });
         this.mTabHost.setOnTabSelectionListener(new FragmentTabHost.a() { // from class: com.baidu.ala.widget.multicolumn.absView.AbsTabActivity.2
             @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.a
-            public boolean onPreTabSelectionChange(int i, boolean z) {
+            public boolean onPreTabSelectionChange(int i2, boolean z) {
                 if (AbsTabActivity.this.onTabSelectionListener != null) {
-                    return AbsTabActivity.this.onTabSelectionListener.onPreTabSelectionChange(i, z);
+                    return AbsTabActivity.this.onTabSelectionListener.onPreTabSelectionChange(i2, z);
                 }
                 return true;
             }
 
             @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.a
-            public void onTabSelectionChanged(int i, boolean z) {
+            public void onTabSelectionChanged(int i2, boolean z) {
                 if (AbsTabActivity.this.onTabSelectionListener != null) {
-                    AbsTabActivity.this.onTabSelectionListener.onTabSelectionChanged(i, z);
+                    AbsTabActivity.this.onTabSelectionListener.onTabSelectionChanged(i2, z);
                 }
             }
         });
@@ -136,27 +136,27 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i2) {
         Resources resources;
-        int i2;
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        int i3;
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
         FragmentTabHost fragmentTabHost = this.mTabHost;
         if (fragmentTabHost != null) {
             fragmentTabHost.setNeedShowThemeStyle(false);
             FragmentTabWidget fragmentTabWidget = this.mTabHost.getFragmentTabWidget();
-            if (i == 1) {
+            if (i2 == 1) {
                 resources = getResources();
-                i2 = R.color.CAM_X0105_1;
+                i3 = R.color.CAM_X0105_1;
             } else {
                 resources = getResources();
-                i2 = R.color.CAM_X0105;
+                i3 = R.color.CAM_X0105;
             }
-            fragmentTabWidget.setDiverColor(resources.getColor(i2));
-            this.mTabHost.o(i);
+            fragmentTabWidget.setDiverColor(resources.getColor(i3));
+            this.mTabHost.o(i2);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.abs_act_tabs_layout);

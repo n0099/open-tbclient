@@ -43,9 +43,9 @@ public class DeviceUtils {
     public String mImei2 = "";
 
     public static /* synthetic */ int access$708(DeviceUtils deviceUtils) {
-        int i = deviceUtils.mImei2Count;
-        deviceUtils.mImei2Count = i + 1;
-        return i;
+        int i2 = deviceUtils.mImei2Count;
+        deviceUtils.mImei2Count = i2 + 1;
+        return i2;
     }
 
     public static DeviceUtils getInstance() {
@@ -301,15 +301,15 @@ public class DeviceUtils {
                             }
                             try {
                                 String[] strArr = applicationContext.getPackageManager().getPackageInfo(applicationContext.getPackageName(), 4096).requestedPermissions;
-                                int i = 0;
+                                int i2 = 0;
                                 while (true) {
-                                    if (i >= strArr.length) {
+                                    if (i2 >= strArr.length) {
                                         break;
-                                    } else if (strArr[i].contains("android.permission.READ_PHONE_STATE")) {
+                                    } else if (strArr[i2].contains("android.permission.READ_PHONE_STATE")) {
                                         break;
                                     } else {
                                         DeviceUtils.this.mHasPermission = "0";
-                                        i++;
+                                        i2++;
                                     }
                                 }
                             } catch (Throwable unused) {

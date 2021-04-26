@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class AlaLiveSdkStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, String> getCmdRouterMap() {
@@ -17,6 +17,7 @@ public final class AlaLiveSdkStaticAutoGenerateUrlCollectorImpl implements ICmdR
         hashMap.put("2921364", "com.baidu.tieba.livesdk.AlaLiveSdkStatic");
         hashMap.put("2001115", "com.baidu.tieba.livesdk.AlaLiveSdkStatic");
         hashMap.put("3001000", "com.baidu.tieba.livesdk.AlaLiveSdkStatic");
+        hashMap.put("2921545", "com.baidu.tieba.livesdk.AlaLiveSdkStatic");
         return hashMap;
     }
 

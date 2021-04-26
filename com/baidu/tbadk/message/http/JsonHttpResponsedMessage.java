@@ -6,20 +6,20 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import d.b.c.e.j.a.e;
+import d.a.c.e.j.a.e;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
-    public JsonHttpResponsedMessage(int i) {
-        super(i);
+    public JsonHttpResponsedMessage(int i2) {
+        super(i2);
     }
 
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, e eVar) {
-        super.logStatInBackground(i, eVar);
+    public void logStatInBackground(int i2, e eVar) {
+        super.logStatInBackground(i2, eVar);
         TiebaStatic.netJson(eVar, getError(), getErrorString());
     }
 
@@ -57,8 +57,8 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public final void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public final void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         String parseToString = parseToString(bArr);
-        decodeLogicInBackGround(i, !TextUtils.isEmpty(parseToString) ? parseServerResponsedData(parseToString) : null);
+        decodeLogicInBackGround(i2, !TextUtils.isEmpty(parseToString) ? parseServerResponsedData(parseToString) : null);
     }
 }

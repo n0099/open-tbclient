@@ -7,8 +7,8 @@ import com.baidu.apollon.utils.ResUtils;
 import com.baidu.wallet.base.widget.compromtion.CommonPromotionView;
 /* loaded from: classes5.dex */
 public class FastPayPromotionView extends CommonPromotionView {
-    public FastPayPromotionView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public FastPayPromotionView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 
     @Override // com.baidu.wallet.base.widget.compromtion.CommonPromotionView

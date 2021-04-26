@@ -16,10 +16,10 @@ public class EnterWalletDoInnerBindAction implements RouterAction {
             }
 
             @Override // com.baidu.android.pay.BindBack
-            public void onBindResult(int i, String str2) {
+            public void onBindResult(int i2, String str2) {
                 if (routerCallback != null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("statusCode", Integer.valueOf(i));
+                    hashMap.put("statusCode", Integer.valueOf(i2));
                     hashMap.put("params", str2);
                     routerCallback.onResult(0, hashMap);
                 }

@@ -15,7 +15,7 @@ public interface FunNativeAd {
         TYPE_BROWSE
     }
 
-    ChannelNativeAds_5 getChannelNativeAds_5();
+    ChannelNativeAds_6 getChannelNativeAds_6();
 
     String getDescription();
 

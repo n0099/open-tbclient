@@ -11,32 +11,32 @@ import java.util.HashMap;
 public class d implements ArBridge.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f9519a;
+    public Context f9876a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaiduArView f9520b;
+    public BaiduArView f9877b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.platform.comapi.walknavi.d.a.b.a f9521c;
+    public com.baidu.platform.comapi.walknavi.d.a.b.a f9878c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9522d = false;
+    public boolean f9879d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f9523e = false;
+    public boolean f9880e = false;
 
     public d(Context context, com.baidu.platform.comapi.walknavi.d.a.b.a aVar) {
-        this.f9519a = context.getApplicationContext();
-        this.f9521c = aVar;
+        this.f9876a = context.getApplicationContext();
+        this.f9878c = aVar;
     }
 
     private void g() {
-        if (this.f9521c != null) {
+        if (this.f9878c != null) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("case_id", -1);
             hashMap.put("succeeded", 0);
             com.baidu.platform.comapi.walknavi.d.a.g.a.a("aParams = " + hashMap);
-            this.f9521c.a(1, hashMap);
+            this.f9878c.a(1, hashMap);
         }
     }
 
@@ -50,34 +50,34 @@ public class d implements ArBridge.d {
     }
 
     public BaiduArView a() {
-        if (this.f9520b == null) {
-            this.f9520b = new BaiduArView(this.f9519a);
+        if (this.f9877b == null) {
+            this.f9877b = new BaiduArView(this.f9876a);
         }
-        return this.f9520b;
+        return this.f9877b;
     }
 
-    public void b(String str, int i, int i2) {
+    public void b(String str, int i2, int i3) {
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("switchCase");
-        this.f9523e = false;
+        this.f9880e = false;
         try {
-            ArBridge.getInstance().switchCase(str, new HashMap<>(), i, i2);
+            ArBridge.getInstance().switchCase(str, new HashMap<>(), i2, i3);
         } catch (Throwable th) {
             com.baidu.platform.comapi.walknavi.d.a.g.a.a("AR switchCase Throwable: " + th.getMessage());
             g();
-            this.f9523e = true;
+            this.f9880e = true;
         }
     }
 
     public void c() {
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("resumeByUser");
-        this.f9522d = false;
+        this.f9879d = false;
         ArBridge.getInstance().onResumeByUser();
     }
 
     public void d() {
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("pause");
-        this.f9522d = true;
-        BaiduArView baiduArView = this.f9520b;
+        this.f9879d = true;
+        BaiduArView baiduArView = this.f9877b;
         if (baiduArView != null) {
             baiduArView.onPause();
         }
@@ -85,14 +85,14 @@ public class d implements ArBridge.d {
 
     public void e() {
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("pauseByUser");
-        this.f9522d = true;
+        this.f9879d = true;
         ArBridge.getInstance().onPauseByUser();
     }
 
     public void f() {
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("destroy");
-        this.f9522d = true;
-        BaiduArView baiduArView = this.f9520b;
+        this.f9879d = true;
+        BaiduArView baiduArView = this.f9877b;
         if (baiduArView != null) {
             baiduArView.onPause();
         }
@@ -102,12 +102,12 @@ public class d implements ArBridge.d {
         new Thread(new e(this)).start();
     }
 
-    public void a(String str, int i, int i2) {
+    public void a(String str, int i2, int i3) {
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("create");
-        this.f9522d = false;
+        this.f9879d = false;
         h();
         try {
-            ArBridge.getInstance().createCase(str, new HashMap<>(), i, i2);
+            ArBridge.getInstance().createCase(str, new HashMap<>(), i2, i3);
         } catch (Throwable th) {
             com.baidu.platform.comapi.walknavi.d.a.g.a.a("AR createCase Throwable: " + th.getMessage());
             g();
@@ -115,14 +115,14 @@ public class d implements ArBridge.d {
         com.baidu.platform.comapi.walknavi.d.a.a.a aVar = new com.baidu.platform.comapi.walknavi.d.a.a.a();
         aVar.a(a(str));
         aVar.a(4);
-        com.baidu.platform.comapi.walknavi.d.a.e.a.a().a(this.f9519a, aVar);
+        com.baidu.platform.comapi.walknavi.d.a.e.a.a().a(this.f9876a, aVar);
         com.baidu.platform.comapi.walknavi.d.a.e.a.a().a("start_ar");
     }
 
     public void b() {
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("resume");
-        this.f9522d = false;
-        BaiduArView baiduArView = this.f9520b;
+        this.f9879d = false;
+        BaiduArView baiduArView = this.f9877b;
         if (baiduArView != null) {
             baiduArView.onResume();
         }
@@ -137,8 +137,8 @@ public class d implements ArBridge.d {
     }
 
     public void a(String str, String str2) {
-        com.baidu.platform.comapi.walknavi.d.a.g.a.a("runScript, mIsPaused=" + this.f9522d + ", mInitCompleted=" + this.f9523e);
-        if (this.f9522d || !this.f9523e) {
+        com.baidu.platform.comapi.walknavi.d.a.g.a.a("runScript, mIsPaused=" + this.f9879d + ", mInitCompleted=" + this.f9880e);
+        if (this.f9879d || !this.f9880e) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
@@ -150,16 +150,16 @@ public class d implements ArBridge.d {
     }
 
     public void a(float f2, float f3, float f4, String str) {
-        com.baidu.platform.comapi.walknavi.d.a.g.a.a("setEuler, mIsPaused=" + this.f9522d + ", mInitCompleted=" + this.f9523e);
-        if (this.f9522d || !this.f9523e) {
+        com.baidu.platform.comapi.walknavi.d.a.g.a.a("setEuler, mIsPaused=" + this.f9879d + ", mInitCompleted=" + this.f9880e);
+        if (this.f9879d || !this.f9880e) {
             return;
         }
         ArBridge.getInstance().setEuler(f2, f3, f4, str);
     }
 
     public void a(float f2) {
-        com.baidu.platform.comapi.walknavi.d.a.g.a.a("setFrustum, mIsPaused=" + this.f9522d + ", mInitCompleted=" + this.f9523e);
-        if (this.f9522d || !this.f9523e) {
+        com.baidu.platform.comapi.walknavi.d.a.g.a.a("setFrustum, mIsPaused=" + this.f9879d + ", mInitCompleted=" + this.f9880e);
+        if (this.f9879d || !this.f9880e) {
             return;
         }
         float f3 = 0.0f;
@@ -170,43 +170,43 @@ public class d implements ArBridge.d {
         ArBridge.getInstance().setFrustum(f2, f3);
     }
 
-    private void a(int i) {
-        ArBridge.getInstance().registerMessageHandler(i, this);
+    private void a(int i2) {
+        ArBridge.getInstance().registerMessageHandler(i2, this);
     }
 
     @Override // com.baidu.ar.npc.ArBridge.d
-    public void a(int i, int i2, HashMap<String, Object> hashMap) {
-        com.baidu.platform.comapi.walknavi.d.a.g.a.a("aMessageType = " + i + ", aParams = " + hashMap);
-        com.baidu.platform.comapi.walknavi.d.a.b.a aVar = this.f9521c;
+    public void a(int i2, int i3, HashMap<String, Object> hashMap) {
+        com.baidu.platform.comapi.walknavi.d.a.g.a.a("aMessageType = " + i2 + ", aParams = " + hashMap);
+        com.baidu.platform.comapi.walknavi.d.a.b.a aVar = this.f9878c;
         if (aVar == null) {
             com.baidu.platform.comapi.walknavi.d.a.g.a.a("ARCallback is null");
-        } else if (i == 9) {
+        } else if (i2 == 9) {
             if (hashMap != null) {
                 try {
                     if (Integer.parseInt(String.valueOf(hashMap.get("succeeded"))) == 1) {
-                        this.f9523e = true;
+                        this.f9880e = true;
                     }
                 } catch (Exception e2) {
                     com.baidu.platform.comapi.walknavi.d.a.g.a.a("MSG_CASE_INIT_COMPLETED error: " + e2.getMessage());
                 }
             }
-            this.f9521c.a(1, hashMap);
-        } else if (i == 1001) {
+            this.f9878c.a(1, hashMap);
+        } else if (i2 == 1001) {
             aVar.a(4, hashMap);
-        } else if (i == 1003) {
+        } else if (i2 == 1003) {
             aVar.a(5, hashMap);
-        } else if (i == 1005) {
+        } else if (i2 == 1005) {
             aVar.a(6, hashMap);
-        } else if (i == 1007) {
+        } else if (i2 == 1007) {
             aVar.a(7, hashMap);
-        } else if (i != 1901) {
+        } else if (i2 != 1901) {
         } else {
             if ("animation_end".equalsIgnoreCase(hashMap.get(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE).toString())) {
-                this.f9521c.a(2, hashMap);
+                this.f9878c.a(2, hashMap);
             } else if (PrefetchEvent.STATE_CLICK.equalsIgnoreCase(hashMap.get(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE).toString())) {
-                this.f9521c.a(3, hashMap);
+                this.f9878c.a(3, hashMap);
             } else if ("animation_failed".equalsIgnoreCase(hashMap.get(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE).toString())) {
-                this.f9521c.a(8, hashMap);
+                this.f9878c.a(8, hashMap);
             }
         }
     }

@@ -6,7 +6,7 @@ import android.os.IBinder;
 public interface i {
     IBinder a(Intent intent);
 
-    void a(Intent intent, int i, int i2);
+    void a(Intent intent, int i2, int i3);
 
     void d();
 }

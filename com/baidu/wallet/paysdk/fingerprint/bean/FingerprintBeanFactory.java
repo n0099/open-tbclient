@@ -13,11 +13,11 @@ public final class FingerprintBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static FingerprintBeanFactory f25331a = new FingerprintBeanFactory();
+        public static FingerprintBeanFactory f26102a = new FingerprintBeanFactory();
     }
 
     public static FingerprintBeanFactory getInstance() {
-        return a.f25331a;
+        return a.f26102a;
     }
 
     public FingerprintBeanFactory() {
@@ -29,12 +29,12 @@ public final class FingerprintBeanFactory implements IBeanFactory {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public BaseBean<?> getBean(Context context, int i, String str) {
+    public BaseBean<?> getBean(Context context, int i2, String str) {
         BaseBean<?> bVar;
         BaseBean<?> baseBean;
-        if (i == 772) {
+        if (i2 == 772) {
             bVar = new b(context);
-        } else if (i != 773) {
+        } else if (i2 != 773) {
             baseBean = null;
             if (baseBean != null) {
                 BeanManager.getInstance().addBean(str, baseBean);

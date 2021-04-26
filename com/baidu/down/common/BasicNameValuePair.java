@@ -1,5 +1,5 @@
 package com.baidu.down.common;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BasicNameValuePair implements NameValuePair, Cloneable {
     public static final int HASH_MULTIPLIER = 37;
     public static final int HASH_SEED = 17;
@@ -13,11 +13,11 @@ public class BasicNameValuePair implements NameValuePair, Cloneable {
         return false;
     }
 
-    private int hashCode(int i, int i2) {
+    private int hashCode(int i2, int i3) {
         return 0;
     }
 
-    private int hashCode(int i, Object obj) {
+    private int hashCode(int i2, Object obj) {
         return 0;
     }
 

@@ -9,10 +9,10 @@ import android.widget.Scroller;
 public class BlankView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f16092e;
+    public Scroller f16296e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f16093f;
+    public a f16297f;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -24,14 +24,14 @@ public class BlankView extends View {
     }
 
     public void a() {
-        if (this.f16092e == null) {
-            this.f16092e = new Scroller(getContext());
+        if (this.f16296e == null) {
+            this.f16296e = new Scroller(getContext());
         }
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams != null) {
-            Scroller scroller = this.f16092e;
-            int i = layoutParams.height;
-            scroller.startScroll(0, i, 0, 0 - i);
+            Scroller scroller = this.f16296e;
+            int i2 = layoutParams.height;
+            scroller.startScroll(0, i2, 0, 0 - i2);
             invalidate();
         }
     }
@@ -39,12 +39,12 @@ public class BlankView extends View {
     @Override // android.view.View
     public void computeScroll() {
         super.computeScroll();
-        Scroller scroller = this.f16092e;
+        Scroller scroller = this.f16296e;
         if (scroller == null) {
             return;
         }
         if (scroller.computeScrollOffset()) {
-            int currY = this.f16092e.getCurrY();
+            int currY = this.f16296e.getCurrY();
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = currY;
@@ -53,21 +53,21 @@ public class BlankView extends View {
             }
             return;
         }
-        a aVar = this.f16093f;
+        a aVar = this.f16297f;
         if (aVar != null) {
             aVar.a();
         }
     }
 
     public void setScrollCallBack(a aVar) {
-        this.f16093f = aVar;
+        this.f16297f = aVar;
     }
 
     public BlankView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 
-    public BlankView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BlankView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

@@ -21,28 +21,28 @@ public class DredgeManager implements Recordable {
     public volatile BaseDredgeExecutorCell mSecondDredgeExecutor;
 
     private void downgradeStrategy() {
-        int i = this.currentDredgeStrategy;
-        if (1 == i) {
+        int i2 = this.currentDredgeStrategy;
+        if (1 == i2) {
             getFirstDredgeExecutor().shutdown();
             this.currentDredgeStrategy = 0;
-        } else if (2 == i) {
+        } else if (2 == i2) {
             getSecondDredgeExecutor().shutdown();
             this.currentDredgeStrategy = 1;
-        } else if (3 == i) {
+        } else if (3 == i2) {
             getDisasterDredgeExecutor().shutdown();
             this.currentDredgeStrategy = 2;
         }
     }
 
     private void upgradeStrategy() {
-        int i = this.currentDredgeStrategy;
-        if (i == 0) {
+        int i2 = this.currentDredgeStrategy;
+        if (i2 == 0) {
             getFirstDredgeExecutor().open();
             this.currentDredgeStrategy = 1;
-        } else if (1 == i) {
+        } else if (1 == i2) {
             getSecondDredgeExecutor().open();
             this.currentDredgeStrategy = 2;
-        } else if (2 == i) {
+        } else if (2 == i2) {
             getDisasterDredgeExecutor().open();
             this.currentDredgeStrategy = 3;
         }
@@ -68,11 +68,11 @@ public class DredgeManager implements Recordable {
     }
 
     public boolean execute(ElasticTask elasticTask) {
-        int i = this.currentDredgeStrategy;
-        if (i == 0) {
+        int i2 = this.currentDredgeStrategy;
+        if (i2 == 0) {
             return false;
         }
-        return i == 1 ? getFirstDredgeExecutor().execute(elasticTask) : i == 2 ? getFirstDredgeExecutor().execute(elasticTask) || getSecondDredgeExecutor().execute(elasticTask) : i == 3 && (getFirstDredgeExecutor().execute(elasticTask) || getSecondDredgeExecutor().execute(elasticTask) || getDisasterDredgeExecutor().execute(elasticTask));
+        return i2 == 1 ? getFirstDredgeExecutor().execute(elasticTask) : i2 == 2 ? getFirstDredgeExecutor().execute(elasticTask) || getSecondDredgeExecutor().execute(elasticTask) : i2 == 3 && (getFirstDredgeExecutor().execute(elasticTask) || getSecondDredgeExecutor().execute(elasticTask) || getDisasterDredgeExecutor().execute(elasticTask));
     }
 
     public BaseDredgeExecutorCell getDisasterDredgeExecutor() {

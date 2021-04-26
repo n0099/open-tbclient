@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.tbadk.widget.DragImageView;
-import d.b.i0.b1.i.b.b;
+import d.a.i0.b1.i.b.b;
 /* loaded from: classes3.dex */
 public class LargeImageView extends DragImageView {
     public b s0;
@@ -68,8 +68,8 @@ public class LargeImageView extends DragImageView {
         this.s0 = new b(this);
     }
 
-    public LargeImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public LargeImageView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.s0 = new b(this);
     }
 }

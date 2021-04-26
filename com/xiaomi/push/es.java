@@ -18,7 +18,7 @@ public class es implements er.a {
     public PendingIntent f332a = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile long f40841a = 0;
+    public volatile long f38360a = 0;
 
     public es(Context context) {
         this.f333a = null;
@@ -47,24 +47,24 @@ public class es implements er.a {
             } catch (Throwable th) {
                 this.f332a = null;
                 com.xiaomi.channel.commonutils.logger.b.c("unregister timer");
-                this.f40841a = 0L;
+                this.f38360a = 0L;
                 throw th;
             }
             this.f332a = null;
             com.xiaomi.channel.commonutils.logger.b.c("unregister timer");
-            this.f40841a = 0L;
+            this.f38360a = 0L;
         }
-        this.f40841a = 0L;
+        this.f38360a = 0L;
     }
 
     public void a(Intent intent, long j) {
         AlarmManager alarmManager = (AlarmManager) this.f333a.getSystemService(NotificationCompat.CATEGORY_ALARM);
         PendingIntent broadcast = PendingIntent.getBroadcast(this.f333a, 0, intent, 0);
         this.f332a = broadcast;
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 23) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 23) {
             bh.a((Object) alarmManager, "setExactAndAllowWhileIdle", 0, Long.valueOf(j), this.f332a);
-        } else if (i >= 19) {
+        } else if (i2 >= 19) {
             a(alarmManager, j, broadcast);
         } else {
             alarmManager.set(0, j, broadcast);
@@ -73,7 +73,7 @@ public class es implements er.a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x002a, code lost:
-        if (r7.f40841a < java.lang.System.currentTimeMillis()) goto L16;
+        if (r7.f38360a < java.lang.System.currentTimeMillis()) goto L16;
      */
     @Override // com.xiaomi.push.er.a
     /*
@@ -81,24 +81,24 @@ public class es implements er.a {
     */
     public void a(boolean z) {
         long a2 = a();
-        if (z || this.f40841a != 0) {
+        if (z || this.f38360a != 0) {
             if (z) {
                 a();
             }
-            if (z || this.f40841a == 0) {
+            if (z || this.f38360a == 0) {
                 a2 -= SystemClock.elapsedRealtime() % a2;
             } else {
-                this.f40841a += a2;
+                this.f38360a += a2;
             }
-            this.f40841a = System.currentTimeMillis() + a2;
+            this.f38360a = System.currentTimeMillis() + a2;
             Intent intent = new Intent(com.xiaomi.push.service.az.o);
             intent.setPackage(this.f333a.getPackageName());
-            a(intent, this.f40841a);
+            a(intent, this.f38360a);
         }
     }
 
     @Override // com.xiaomi.push.er.a
     public boolean a() {
-        return this.f40841a != 0;
+        return this.f38360a != 0;
     }
 }

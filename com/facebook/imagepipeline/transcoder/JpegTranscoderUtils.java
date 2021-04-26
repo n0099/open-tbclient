@@ -20,17 +20,17 @@ public class JpegTranscoderUtils {
     public static final int SCALE_DENOMINATOR = 8;
 
     @VisibleForTesting
-    public static int calculateDownsampleNumerator(int i) {
-        return Math.max(1, 8 / i);
+    public static int calculateDownsampleNumerator(int i2) {
+        return Math.max(1, 8 / i2);
     }
 
     @VisibleForTesting
-    public static float determineResizeRatio(ResizeOptions resizeOptions, int i, int i2) {
+    public static float determineResizeRatio(ResizeOptions resizeOptions, int i2, int i3) {
         if (resizeOptions == null) {
             return 1.0f;
         }
-        float f2 = i;
-        float f3 = i2;
+        float f2 = i2;
+        float f3 = i3;
         float max = Math.max(resizeOptions.width / f2, resizeOptions.height / f3);
         float f4 = resizeOptions.maxBitmapSize;
         if (f2 * max > f4) {
@@ -99,17 +99,17 @@ public class JpegTranscoderUtils {
     }
 
     @Nullable
-    public static Matrix getTransformationMatrixFromInvertedExif(int i) {
+    public static Matrix getTransformationMatrixFromInvertedExif(int i2) {
         Matrix matrix = new Matrix();
-        if (i == 2) {
+        if (i2 == 2) {
             matrix.setScale(-1.0f, 1.0f);
-        } else if (i == 7) {
+        } else if (i2 == 7) {
             matrix.setRotate(-90.0f);
             matrix.postScale(-1.0f, 1.0f);
-        } else if (i == 4) {
+        } else if (i2 == 4) {
             matrix.setRotate(180.0f);
             matrix.postScale(-1.0f, 1.0f);
-        } else if (i != 5) {
+        } else if (i2 != 5) {
             return null;
         } else {
             matrix.setRotate(90.0f);
@@ -118,8 +118,8 @@ public class JpegTranscoderUtils {
         return matrix;
     }
 
-    public static boolean isExifOrientationAllowed(int i) {
-        switch (i) {
+    public static boolean isExifOrientationAllowed(int i2) {
+        switch (i2) {
             case 1:
             case 2:
             case 3:
@@ -134,8 +134,8 @@ public class JpegTranscoderUtils {
         }
     }
 
-    public static boolean isRotationAngleAllowed(int i) {
-        return i >= 0 && i <= 270 && i % 90 == 0;
+    public static boolean isRotationAngleAllowed(int i2) {
+        return i2 >= 0 && i2 <= 270 && i2 % 90 == 0;
     }
 
     @VisibleForTesting

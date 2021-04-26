@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.vivo.push.util.p;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ClientConfigManagerImpl implements e {
     public static final Object SLOCK = new Object();
     public static final String TAG = "ClientConfigManager";
@@ -154,7 +154,7 @@ public class ClientConfigManagerImpl implements e {
         return false;
     }
 
-    public boolean isDebug(int i) {
-        return a.a(i);
+    public boolean isDebug(int i2) {
+        return a.a(i2);
     }
 }

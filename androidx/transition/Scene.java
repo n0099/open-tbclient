@@ -22,28 +22,29 @@ public class Scene {
         this.mSceneRoot = viewGroup;
     }
 
-    public static Scene getCurrentScene(View view) {
-        return (Scene) view.getTag(R.id.transition_current_scene);
+    @Nullable
+    public static Scene getCurrentScene(@NonNull ViewGroup viewGroup) {
+        return (Scene) viewGroup.getTag(R.id.transition_current_scene);
     }
 
     @NonNull
-    public static Scene getSceneForLayout(@NonNull ViewGroup viewGroup, @LayoutRes int i, @NonNull Context context) {
+    public static Scene getSceneForLayout(@NonNull ViewGroup viewGroup, @LayoutRes int i2, @NonNull Context context) {
         SparseArray sparseArray = (SparseArray) viewGroup.getTag(R.id.transition_scene_layoutid_cache);
         if (sparseArray == null) {
             sparseArray = new SparseArray();
             viewGroup.setTag(R.id.transition_scene_layoutid_cache, sparseArray);
         }
-        Scene scene = (Scene) sparseArray.get(i);
+        Scene scene = (Scene) sparseArray.get(i2);
         if (scene != null) {
             return scene;
         }
-        Scene scene2 = new Scene(viewGroup, i, context);
-        sparseArray.put(i, scene2);
+        Scene scene2 = new Scene(viewGroup, i2, context);
+        sparseArray.put(i2, scene2);
         return scene2;
     }
 
-    public static void setCurrentScene(View view, Scene scene) {
-        view.setTag(R.id.transition_current_scene, scene);
+    public static void setCurrentScene(@NonNull ViewGroup viewGroup, @Nullable Scene scene) {
+        viewGroup.setTag(R.id.transition_current_scene, scene);
     }
 
     public void enter() {
@@ -87,11 +88,11 @@ public class Scene {
         this.mExitAction = runnable;
     }
 
-    public Scene(ViewGroup viewGroup, int i, Context context) {
+    public Scene(ViewGroup viewGroup, int i2, Context context) {
         this.mLayoutId = -1;
         this.mContext = context;
         this.mSceneRoot = viewGroup;
-        this.mLayoutId = i;
+        this.mLayoutId = i2;
     }
 
     public Scene(@NonNull ViewGroup viewGroup, @NonNull View view) {

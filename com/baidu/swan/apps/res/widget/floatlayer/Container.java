@@ -15,7 +15,7 @@ public class Container extends FrameLayout {
         super(context, attributeSet);
     }
 
-    public Container(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public Container(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

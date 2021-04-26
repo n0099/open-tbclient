@@ -3,23 +3,23 @@ package com.baidu.mobstat;
 public class ch extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f8750a;
+    public int f9063a;
 
-    public ch(int i) {
-        this.f8750a = i;
+    public ch(int i2) {
+        this.f9063a = i2;
     }
 
     public int a() {
-        return this.f8750a;
+        return this.f9063a;
     }
 
-    public ch(int i, String str) {
+    public ch(int i2, String str) {
         super(str);
-        this.f8750a = i;
+        this.f9063a = i2;
     }
 
-    public ch(int i, Throwable th) {
+    public ch(int i2, Throwable th) {
         super(th);
-        this.f8750a = i;
+        this.f9063a = i2;
     }
 }

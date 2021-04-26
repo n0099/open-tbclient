@@ -9,7 +9,7 @@ public interface g {
 
     void T();
 
-    void d(int i);
+    void d(int i2);
 
     void f(boolean z);
 }

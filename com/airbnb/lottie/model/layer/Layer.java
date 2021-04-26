@@ -1,59 +1,44 @@
 package com.airbnb.lottie.model.layer;
 
 import androidx.annotation.Nullable;
+import com.airbnb.lottie.LottieComposition;
+import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
+import com.airbnb.lottie.model.animatable.AnimatableTextFrame;
+import com.airbnb.lottie.model.animatable.AnimatableTextProperties;
+import com.airbnb.lottie.model.animatable.AnimatableTransform;
+import com.airbnb.lottie.model.content.ContentModel;
 import com.airbnb.lottie.model.content.Mask;
-import d.a.a.d;
-import d.a.a.u.i.j;
-import d.a.a.u.i.k;
-import d.a.a.u.i.l;
-import d.a.a.u.j.b;
-import d.a.a.y.a;
+import com.airbnb.lottie.value.Keyframe;
 import java.util.List;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class Layer {
-
-    /* renamed from: a  reason: collision with root package name */
-    public final List<b> f1618a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final d f1619b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final String f1620c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final long f1621d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final LayerType f1622e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final long f1623f;
+    public final LottieComposition composition;
+    public final boolean hidden;
+    public final List<Keyframe<Float>> inOutKeyframes;
+    public final long layerId;
+    public final String layerName;
+    public final LayerType layerType;
+    public final List<Mask> masks;
+    public final MatteType matteType;
+    public final long parentId;
+    public final int preCompHeight;
+    public final int preCompWidth;
     @Nullable
-
-    /* renamed from: g  reason: collision with root package name */
-    public final String f1624g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final List<Mask> f1625h;
-    public final l i;
-    public final int j;
-    public final int k;
-    public final int l;
-    public final float m;
-    public final float n;
-    public final int o;
-    public final int p;
+    public final String refId;
+    public final List<ContentModel> shapes;
+    public final int solidColor;
+    public final int solidHeight;
+    public final int solidWidth;
+    public final float startFrame;
     @Nullable
-    public final j q;
+    public final AnimatableTextFrame text;
     @Nullable
-    public final k r;
+    public final AnimatableTextProperties textProperties;
     @Nullable
-    public final d.a.a.u.i.b s;
-    public final List<a<Float>> t;
-    public final MatteType u;
-    public final boolean v;
+    public final AnimatableFloatValue timeRemapping;
+    public final float timeStretch;
+    public final AnimatableTransform transform;
 
     /* loaded from: classes.dex */
     public enum LayerType {
@@ -76,163 +61,163 @@ public class Layer {
         UNKNOWN
     }
 
-    public Layer(List<b> list, d dVar, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, l lVar, int i, int i2, int i3, float f2, float f3, int i4, int i5, @Nullable j jVar, @Nullable k kVar, List<a<Float>> list3, MatteType matteType, @Nullable d.a.a.u.i.b bVar, boolean z) {
-        this.f1618a = list;
-        this.f1619b = dVar;
-        this.f1620c = str;
-        this.f1621d = j;
-        this.f1622e = layerType;
-        this.f1623f = j2;
-        this.f1624g = str2;
-        this.f1625h = list2;
-        this.i = lVar;
-        this.j = i;
-        this.k = i2;
-        this.l = i3;
-        this.m = f2;
-        this.n = f3;
-        this.o = i4;
-        this.p = i5;
-        this.q = jVar;
-        this.r = kVar;
-        this.t = list3;
-        this.u = matteType;
-        this.s = bVar;
-        this.v = z;
+    public Layer(List<ContentModel> list, LottieComposition lottieComposition, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, AnimatableTransform animatableTransform, int i2, int i3, int i4, float f2, float f3, int i5, int i6, @Nullable AnimatableTextFrame animatableTextFrame, @Nullable AnimatableTextProperties animatableTextProperties, List<Keyframe<Float>> list3, MatteType matteType, @Nullable AnimatableFloatValue animatableFloatValue, boolean z) {
+        this.shapes = list;
+        this.composition = lottieComposition;
+        this.layerName = str;
+        this.layerId = j;
+        this.layerType = layerType;
+        this.parentId = j2;
+        this.refId = str2;
+        this.masks = list2;
+        this.transform = animatableTransform;
+        this.solidWidth = i2;
+        this.solidHeight = i3;
+        this.solidColor = i4;
+        this.timeStretch = f2;
+        this.startFrame = f3;
+        this.preCompWidth = i5;
+        this.preCompHeight = i6;
+        this.text = animatableTextFrame;
+        this.textProperties = animatableTextProperties;
+        this.inOutKeyframes = list3;
+        this.matteType = matteType;
+        this.timeRemapping = animatableFloatValue;
+        this.hidden = z;
     }
 
-    public d a() {
-        return this.f1619b;
+    public LottieComposition getComposition() {
+        return this.composition;
     }
 
-    public long b() {
-        return this.f1621d;
+    public long getId() {
+        return this.layerId;
     }
 
-    public List<a<Float>> c() {
-        return this.t;
+    public List<Keyframe<Float>> getInOutKeyframes() {
+        return this.inOutKeyframes;
     }
 
-    public LayerType d() {
-        return this.f1622e;
+    public LayerType getLayerType() {
+        return this.layerType;
     }
 
-    public List<Mask> e() {
-        return this.f1625h;
+    public List<Mask> getMasks() {
+        return this.masks;
     }
 
-    public MatteType f() {
-        return this.u;
+    public MatteType getMatteType() {
+        return this.matteType;
     }
 
-    public String g() {
-        return this.f1620c;
+    public String getName() {
+        return this.layerName;
     }
 
-    public long h() {
-        return this.f1623f;
+    public long getParentId() {
+        return this.parentId;
     }
 
-    public int i() {
-        return this.p;
+    public int getPreCompHeight() {
+        return this.preCompHeight;
     }
 
-    public int j() {
-        return this.o;
-    }
-
-    @Nullable
-    public String k() {
-        return this.f1624g;
-    }
-
-    public List<b> l() {
-        return this.f1618a;
-    }
-
-    public int m() {
-        return this.l;
-    }
-
-    public int n() {
-        return this.k;
-    }
-
-    public int o() {
-        return this.j;
-    }
-
-    public float p() {
-        return this.n / this.f1619b.e();
+    public int getPreCompWidth() {
+        return this.preCompWidth;
     }
 
     @Nullable
-    public j q() {
-        return this.q;
+    public String getRefId() {
+        return this.refId;
+    }
+
+    public List<ContentModel> getShapes() {
+        return this.shapes;
+    }
+
+    public int getSolidColor() {
+        return this.solidColor;
+    }
+
+    public int getSolidHeight() {
+        return this.solidHeight;
+    }
+
+    public int getSolidWidth() {
+        return this.solidWidth;
+    }
+
+    public float getStartProgress() {
+        return this.startFrame / this.composition.getDurationFrames();
     }
 
     @Nullable
-    public k r() {
-        return this.r;
+    public AnimatableTextFrame getText() {
+        return this.text;
     }
 
     @Nullable
-    public d.a.a.u.i.b s() {
-        return this.s;
+    public AnimatableTextProperties getTextProperties() {
+        return this.textProperties;
     }
 
-    public float t() {
-        return this.m;
+    @Nullable
+    public AnimatableFloatValue getTimeRemapping() {
+        return this.timeRemapping;
+    }
+
+    public float getTimeStretch() {
+        return this.timeStretch;
+    }
+
+    public AnimatableTransform getTransform() {
+        return this.transform;
+    }
+
+    public boolean isHidden() {
+        return this.hidden;
     }
 
     public String toString() {
-        return w("");
+        return toString("");
     }
 
-    public l u() {
-        return this.i;
-    }
-
-    public boolean v() {
-        return this.v;
-    }
-
-    public String w(String str) {
+    public String toString(String str) {
         StringBuilder sb = new StringBuilder();
         sb.append(str);
-        sb.append(g());
+        sb.append(getName());
         sb.append("\n");
-        Layer s = this.f1619b.s(h());
-        if (s != null) {
+        Layer layerModelForId = this.composition.layerModelForId(getParentId());
+        if (layerModelForId != null) {
             sb.append("\t\tParents: ");
-            sb.append(s.g());
-            Layer s2 = this.f1619b.s(s.h());
-            while (s2 != null) {
+            sb.append(layerModelForId.getName());
+            Layer layerModelForId2 = this.composition.layerModelForId(layerModelForId.getParentId());
+            while (layerModelForId2 != null) {
                 sb.append("->");
-                sb.append(s2.g());
-                s2 = this.f1619b.s(s2.h());
+                sb.append(layerModelForId2.getName());
+                layerModelForId2 = this.composition.layerModelForId(layerModelForId2.getParentId());
             }
             sb.append(str);
             sb.append("\n");
         }
-        if (!e().isEmpty()) {
+        if (!getMasks().isEmpty()) {
             sb.append(str);
             sb.append("\tMasks: ");
-            sb.append(e().size());
+            sb.append(getMasks().size());
             sb.append("\n");
         }
-        if (o() != 0 && n() != 0) {
+        if (getSolidWidth() != 0 && getSolidHeight() != 0) {
             sb.append(str);
             sb.append("\tBackground: ");
-            sb.append(String.format(Locale.US, "%dx%d %X\n", Integer.valueOf(o()), Integer.valueOf(n()), Integer.valueOf(m())));
+            sb.append(String.format(Locale.US, "%dx%d %X\n", Integer.valueOf(getSolidWidth()), Integer.valueOf(getSolidHeight()), Integer.valueOf(getSolidColor())));
         }
-        if (!this.f1618a.isEmpty()) {
+        if (!this.shapes.isEmpty()) {
             sb.append(str);
             sb.append("\tShapes:\n");
-            for (b bVar : this.f1618a) {
+            for (ContentModel contentModel : this.shapes) {
                 sb.append(str);
                 sb.append("\t\t");
-                sb.append(bVar);
+                sb.append(contentModel);
                 sb.append("\n");
             }
         }

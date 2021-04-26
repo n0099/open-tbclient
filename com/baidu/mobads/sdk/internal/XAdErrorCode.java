@@ -8,8 +8,8 @@ public enum XAdErrorCode {
     public int code;
     public String msg;
 
-    XAdErrorCode(int i, String str) {
-        this.code = i;
+    XAdErrorCode(int i2, String str) {
+        this.code = i2;
         this.msg = str;
     }
 

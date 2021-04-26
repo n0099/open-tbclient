@@ -12,21 +12,21 @@ public class e {
 
     /* loaded from: classes5.dex */
     public enum a {
-        HTML(SapiWebView.K),
+        HTML(SapiWebView.DATA_MIME_TYPE),
         CSS("text/css"),
         JS("application/x-javascript"),
         IMAGE(BdUploadHandler.IMAGE_MIME_TYPE);
         
 
         /* renamed from: e  reason: collision with root package name */
-        public String f28698e;
+        public String f29583e;
 
         a(String str) {
-            this.f28698e = str;
+            this.f29583e = str;
         }
 
         public String a() {
-            return this.f28698e;
+            return this.f29583e;
         }
     }
 

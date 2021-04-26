@@ -25,22 +25,22 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
     @Nullable
     public final WebpBitmapFactory mWebpBitmapFactory = WebpSupportStatus.loadWebpBitmapFactoryIfExists();
 
-    public static MemoryFile copyToMemoryFile(CloseableReference<PooledByteBuffer> closeableReference, int i, @Nullable byte[] bArr) throws IOException {
+    public static MemoryFile copyToMemoryFile(CloseableReference<PooledByteBuffer> closeableReference, int i2, @Nullable byte[] bArr) throws IOException {
         OutputStream outputStream;
         LimitedInputStream limitedInputStream;
         PooledByteBufferInputStream pooledByteBufferInputStream = null;
         OutputStream outputStream2 = null;
-        MemoryFile memoryFile = new MemoryFile(null, (bArr == null ? 0 : bArr.length) + i);
+        MemoryFile memoryFile = new MemoryFile(null, (bArr == null ? 0 : bArr.length) + i2);
         memoryFile.allowPurging(false);
         try {
             PooledByteBufferInputStream pooledByteBufferInputStream2 = new PooledByteBufferInputStream(closeableReference.get());
             try {
-                limitedInputStream = new LimitedInputStream(pooledByteBufferInputStream2, i);
+                limitedInputStream = new LimitedInputStream(pooledByteBufferInputStream2, i2);
                 try {
                     outputStream2 = memoryFile.getOutputStream();
                     ByteStreams.copy(limitedInputStream, outputStream2);
                     if (bArr != null) {
-                        memoryFile.writeBytes(bArr, 0, i, bArr.length);
+                        memoryFile.writeBytes(bArr, 0, i2, bArr.length);
                     }
                     CloseableReference.closeSafely(closeableReference);
                     Closeables.closeQuietly(pooledByteBufferInputStream2);
@@ -69,12 +69,12 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
         }
     }
 
-    private Bitmap decodeFileDescriptorAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i, byte[] bArr, BitmapFactory.Options options) {
+    private Bitmap decodeFileDescriptorAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i2, byte[] bArr, BitmapFactory.Options options) {
         MemoryFile copyToMemoryFile;
         MemoryFile memoryFile = null;
         try {
             try {
-                copyToMemoryFile = copyToMemoryFile(closeableReference, i, bArr);
+                copyToMemoryFile = copyToMemoryFile(closeableReference, i2, bArr);
             } catch (IOException e2) {
                 e = e2;
             }
@@ -130,7 +130,7 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
     }
 
     @Override // com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder
-    public Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i, BitmapFactory.Options options) {
-        return decodeFileDescriptorAsPurgeable(closeableReference, i, DalvikPurgeableDecoder.endsWithEOI(closeableReference, i) ? null : DalvikPurgeableDecoder.EOI, options);
+    public Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i2, BitmapFactory.Options options) {
+        return decodeFileDescriptorAsPurgeable(closeableReference, i2, DalvikPurgeableDecoder.endsWithEOI(closeableReference, i2) ? null : DalvikPurgeableDecoder.EOI, options);
     }
 }

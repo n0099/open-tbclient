@@ -313,16 +313,16 @@ public final class Constants {
         return IMSettings.isDebugMode();
     }
 
-    public static boolean setEnv(Context context, int i) {
+    public static boolean setEnv(Context context, int i2) {
         long appid = AccountManager.getAppid(context);
-        if (i != 0) {
-            if (i == 1) {
+        if (i2 != 0) {
+            if (i2 == 1) {
                 URL_SOCKET_SERVER = URL_SOCKET_SERVER_RD;
                 URL_SOCKET_PORT = 8100;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 URL_SOCKET_SERVER = URL_SOCKET_SERVER_QA;
                 URL_SOCKET_PORT = 8100;
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 if (dispatchToPimc2(appid)) {
                     URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
                     URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
@@ -338,9 +338,9 @@ public final class Constants {
             URL_SOCKET_SERVER = "pimc.baidu.com";
             URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
         }
-        IM_ENV = i;
-        if (i != getEnv(context)) {
-            Utility.writeIntData(context, KEY_ENV, i);
+        IM_ENV = i2;
+        if (i2 != getEnv(context)) {
+            Utility.writeIntData(context, KEY_ENV, i2);
         }
         return true;
     }

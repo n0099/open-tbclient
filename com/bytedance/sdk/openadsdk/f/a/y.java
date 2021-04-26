@@ -14,23 +14,25 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 public class y extends a {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final /* synthetic */ boolean f29076h = !y.class.desiredAssertionStatus();
-    public String i;
+    public static final /* synthetic */ boolean f29968h = !y.class.desiredAssertionStatus();
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f29969i;
     public WebView j;
 
     @Override // com.bytedance.sdk.openadsdk.f.a.a
     @SuppressLint({"JavascriptInterface", "AddJavascriptInterface"})
     public void b(j jVar) {
-        WebView webView = jVar.f29013a;
+        WebView webView = jVar.f29904a;
         this.j = webView;
-        this.i = jVar.f29015c;
+        this.f29969i = jVar.f29906c;
         if (Build.VERSION.SDK_INT < 17 || jVar.n) {
             return;
         }
-        if (!f29076h && webView == null) {
+        if (!f29968h && webView == null) {
             throw new AssertionError();
         }
-        this.j.addJavascriptInterface(this, this.i);
+        this.j.addJavascriptInterface(this, this.f29969i);
     }
 
     @Override // com.bytedance.sdk.openadsdk.f.a.a
@@ -42,11 +44,11 @@ public class y extends a {
     @Override // com.bytedance.sdk.openadsdk.f.a.a
     @NonNull
     public Context a(j jVar) {
-        Context context = jVar.f29017e;
+        Context context = jVar.f29908e;
         if (context != null) {
             return context;
         }
-        WebView webView = jVar.f29013a;
+        WebView webView = jVar.f29904a;
         if (webView != null) {
             return webView.getContext();
         }
@@ -60,8 +62,8 @@ public class y extends a {
 
     @Override // com.bytedance.sdk.openadsdk.f.a.a
     public void a(String str, @Nullable p pVar) {
-        if (pVar != null && !TextUtils.isEmpty(pVar.f29028h)) {
-            String str2 = pVar.f29028h;
+        if (pVar != null && !TextUtils.isEmpty(pVar.f29920h)) {
+            String str2 = pVar.f29920h;
             a(str, String.format("javascript:(function(){   const iframe = document.querySelector('iframe[src=\"%s\"');   if (iframe && iframe.contentWindow) {        iframe.contentWindow.postMessage(%s, '%s');   }})()", str2, str, str2));
             return;
         }
@@ -70,17 +72,17 @@ public class y extends a {
 
     @Override // com.bytedance.sdk.openadsdk.f.a.a
     public void a(String str) {
-        a(str, "javascript:" + this.i + "._handleMessageFromToutiao(" + str + SmallTailInfo.EMOTION_SUFFIX);
+        a(str, "javascript:" + this.f29969i + "._handleMessageFromToutiao(" + str + SmallTailInfo.EMOTION_SUFFIX);
     }
 
     private void a(String str, final String str2) {
-        if (this.f28982f || TextUtils.isEmpty(str2)) {
+        if (this.f29872f || TextUtils.isEmpty(str2)) {
             return;
         }
         Runnable runnable = new Runnable() { // from class: com.bytedance.sdk.openadsdk.f.a.y.1
             @Override // java.lang.Runnable
             public void run() {
-                if (y.this.f28982f) {
+                if (y.this.f29872f) {
                     return;
                 }
                 if (Build.VERSION.SDK_INT >= 19) {
@@ -94,7 +96,7 @@ public class y extends a {
         };
         if (Looper.myLooper() != Looper.getMainLooper()) {
             i.a("Received call on sub-thread, posting to main thread: " + str2);
-            this.f28980d.post(runnable);
+            this.f29870d.post(runnable);
             return;
         }
         runnable.run();

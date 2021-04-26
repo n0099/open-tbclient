@@ -5,33 +5,33 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.GestureDetectorCompat;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnItemTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public GestureDetectorCompat f12004a;
+    public GestureDetectorCompat f11842a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f12005b;
+    public RecyclerView f11843b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends GestureDetector.SimpleOnGestureListener {
         public b() {
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public void onLongPress(MotionEvent motionEvent) {
-            View findChildViewUnder = SwanAppThumbnailClickListener.this.f12005b.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
+            View findChildViewUnder = SwanAppThumbnailClickListener.this.f11843b.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
             if (findChildViewUnder != null) {
-                SwanAppThumbnailClickListener.this.c(SwanAppThumbnailClickListener.this.f12005b.getChildViewHolder(findChildViewUnder));
+                SwanAppThumbnailClickListener.this.c(SwanAppThumbnailClickListener.this.f11843b.getChildViewHolder(findChildViewUnder));
             }
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onSingleTapUp(MotionEvent motionEvent) {
-            View findChildViewUnder = SwanAppThumbnailClickListener.this.f12005b.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
+            View findChildViewUnder = SwanAppThumbnailClickListener.this.f11843b.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
             if (findChildViewUnder != null) {
-                SwanAppThumbnailClickListener.this.b(SwanAppThumbnailClickListener.this.f12005b.getChildViewHolder(findChildViewUnder));
+                SwanAppThumbnailClickListener.this.b(SwanAppThumbnailClickListener.this.f11843b.getChildViewHolder(findChildViewUnder));
                 return true;
             }
             return true;
@@ -39,8 +39,8 @@ public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnIt
     }
 
     public SwanAppThumbnailClickListener(RecyclerView recyclerView) {
-        this.f12005b = recyclerView;
-        this.f12004a = new GestureDetectorCompat(recyclerView.getContext(), new b());
+        this.f11843b = recyclerView;
+        this.f11842a = new GestureDetectorCompat(recyclerView.getContext(), new b());
     }
 
     public abstract void b(RecyclerView.ViewHolder viewHolder);
@@ -49,7 +49,7 @@ public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnIt
 
     @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
     public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
-        this.f12004a.onTouchEvent(motionEvent);
+        this.f11842a.onTouchEvent(motionEvent);
         return false;
     }
 
@@ -59,6 +59,6 @@ public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnIt
 
     @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
     public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
-        this.f12004a.onTouchEvent(motionEvent);
+        this.f11842a.onTouchEvent(motionEvent);
     }
 }

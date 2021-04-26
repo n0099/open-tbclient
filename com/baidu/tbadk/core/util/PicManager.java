@@ -7,8 +7,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.util.resourceLoader.IMImageSize;
-import d.b.c.j.d.a;
-import d.b.i0.a0.c;
+import d.a.c.j.d.a;
+import d.a.i0.a0.c;
 /* loaded from: classes3.dex */
 public class PicManager {
     public static PicManager instance;
@@ -72,59 +72,59 @@ public class PicManager {
         return bitmap;
     }
 
-    public IMImageSize getImageSize(int i, int i2, boolean z) {
-        int i3;
+    public IMImageSize getImageSize(int i2, int i3, boolean z) {
         int i4;
-        boolean z2;
         int i5;
+        boolean z2;
+        int i6;
         int msgSPicMaxSizeInt = LocalViewSize.getInstance().getMsgSPicMaxSizeInt();
         if (z) {
-            if (i / i2 >= 3) {
-                i4 = i / 2;
+            if (i2 / i3 >= 3) {
+                i5 = i2 / 2;
                 z2 = true;
-                i3 = i;
-            } else if (i2 / i >= 3) {
-                i3 = i2 / 2;
                 i4 = i2;
+            } else if (i3 / i2 >= 3) {
+                i4 = i3 / 2;
+                i5 = i3;
                 z2 = true;
             }
-            if (i3 <= i4 && i3 > msgSPicMaxSizeInt) {
-                i5 = (int) (i4 / (i3 / msgSPicMaxSizeInt));
-            } else if (i4 > i3 || i4 <= msgSPicMaxSizeInt) {
-                msgSPicMaxSizeInt = i3;
-                i5 = i4;
+            if (i4 <= i5 && i4 > msgSPicMaxSizeInt) {
+                i6 = (int) (i5 / (i4 / msgSPicMaxSizeInt));
+            } else if (i5 > i4 || i5 <= msgSPicMaxSizeInt) {
+                msgSPicMaxSizeInt = i4;
+                i6 = i5;
             } else {
-                msgSPicMaxSizeInt = (int) (i3 / (i4 / msgSPicMaxSizeInt));
-                i5 = msgSPicMaxSizeInt;
+                msgSPicMaxSizeInt = (int) (i4 / (i5 / msgSPicMaxSizeInt));
+                i6 = msgSPicMaxSizeInt;
             }
-            if (z2 && i <= msgSPicMaxSizeInt && i2 <= i5) {
-                i5 = (int) (i5 * 0.9d);
+            if (z2 && i2 <= msgSPicMaxSizeInt && i3 <= i6) {
+                i6 = (int) (i6 * 0.9d);
                 msgSPicMaxSizeInt = (int) (msgSPicMaxSizeInt * 0.9d);
             }
-            if (msgSPicMaxSizeInt < 70 && i5 < 70) {
-                i5 = 70;
+            if (msgSPicMaxSizeInt < 70 && i6 < 70) {
+                i6 = 70;
                 msgSPicMaxSizeInt = 70;
             }
-            return new IMImageSize(msgSPicMaxSizeInt, i5, z2);
+            return new IMImageSize(msgSPicMaxSizeInt, i6, z2);
         }
-        i3 = i;
         i4 = i2;
+        i5 = i3;
         z2 = false;
-        if (i3 <= i4) {
+        if (i4 <= i5) {
         }
-        if (i4 > i3) {
+        if (i5 > i4) {
         }
-        msgSPicMaxSizeInt = i3;
-        i5 = i4;
+        msgSPicMaxSizeInt = i4;
+        i6 = i5;
         if (z2) {
-            i5 = (int) (i5 * 0.9d);
+            i6 = (int) (i6 * 0.9d);
             msgSPicMaxSizeInt = (int) (msgSPicMaxSizeInt * 0.9d);
         }
         if (msgSPicMaxSizeInt < 70) {
-            i5 = 70;
+            i6 = 70;
             msgSPicMaxSizeInt = 70;
         }
-        return new IMImageSize(msgSPicMaxSizeInt, i5, z2);
+        return new IMImageSize(msgSPicMaxSizeInt, i6, z2);
     }
 
     public Bitmap getReSizeBitmap(Bitmap bitmap) {
@@ -173,12 +173,12 @@ public class PicManager {
     public Bitmap getReSizeBitmap(Bitmap bitmap, boolean z) {
         try {
             IMImageSize imageSize = getImageSize(bitmap.getWidth(), bitmap.getHeight(), z);
-            int i = imageSize.width;
-            int i2 = imageSize.height;
-            if (i == bitmap.getWidth() && i2 == bitmap.getHeight()) {
+            int i2 = imageSize.width;
+            int i3 = imageSize.height;
+            if (i2 == bitmap.getWidth() && i3 == bitmap.getHeight()) {
                 return bitmap;
             }
-            Bitmap resizedBitmap = BitmapHelper.getResizedBitmap(bitmap, i, i2);
+            Bitmap resizedBitmap = BitmapHelper.getResizedBitmap(bitmap, i2, i3);
             return resizedBitmap != null ? resizedBitmap : bitmap;
         } catch (Exception e2) {
             FieldBuilder fieldBuilder = new FieldBuilder();

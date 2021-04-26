@@ -5,9 +5,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.feedManager.PersonalizedReqIdl;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
-import d.b.c.e.p.j;
-import d.b.c.e.p.l;
-import d.b.i0.z0.w;
+import d.a.c.e.p.j;
+import d.a.c.e.p.l;
+import d.a.i0.z0.w;
 import tbclient.Personalized.DataReq;
 /* loaded from: classes3.dex */
 public class FeedRecRequest extends NetMessage {
@@ -59,41 +59,41 @@ public class FeedRecRequest extends NetMessage {
         return this.needForumlist;
     }
 
-    public void setLoadType(int i) {
-        this.loadType = i;
+    public void setLoadType(int i2) {
+        this.loadType = i2;
     }
 
-    public void setNeedForumlist(int i) {
-        if (i != 1) {
+    public void setNeedForumlist(int i2) {
+        if (i2 != 1) {
             this.needForumlist = 0;
         } else {
-            this.needForumlist = i;
+            this.needForumlist = i2;
         }
     }
 
-    public void setPn(int i) {
-        this.pn = i;
+    public void setPn(int i2) {
+        this.pn = i2;
     }
 
-    public void setPreAdThreadCount(int i) {
-        this.preAdThreadCount = i;
+    public void setPreAdThreadCount(int i2) {
+        this.preAdThreadCount = i2;
     }
 
-    public void setRequestTime(int i) {
-        this.requestTime = i;
+    public void setRequestTime(int i2) {
+        this.requestTime = i2;
     }
 
     public void setSourceFrom(String str) {
         this.sourceFrom = str;
     }
 
-    public void setSuggestCount(int i) {
-        this.suggestCount = i;
+    public void setSuggestCount(int i2) {
+        this.suggestCount = i2;
     }
 
-    public void setThreadCount(int i) {
-        if (i > 0) {
-            this.threadCount = i;
+    public void setThreadCount(int i2) {
+        if (i2 > 0) {
+            this.threadCount = i2;
         } else {
             this.threadCount = 0;
         }

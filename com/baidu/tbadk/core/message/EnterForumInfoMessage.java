@@ -6,7 +6,7 @@ import java.util.List;
 public class EnterForumInfoMessage extends CustomResponsedMessage<List<String>> {
     public List<String> likeForumData;
 
-    public EnterForumInfoMessage(int i, List<String> list) {
+    public EnterForumInfoMessage(int i2, List<String> list) {
         super(2001329, list);
         this.likeForumData = list;
     }

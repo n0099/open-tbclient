@@ -8,16 +8,16 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f1956a;
+    public a f1909a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1957b;
+    public String f1910b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String[] f1958c;
+    public String[] f1911c;
 
     public b(String str) {
-        this.f1957b = str;
+        this.f1910b = str;
     }
 
     public static void a(b bVar) {
@@ -39,16 +39,16 @@ public class b {
     }
 
     public String[] c() {
-        return this.f1958c;
+        return this.f1911c;
     }
 
     public b(String str, a aVar) {
-        this.f1957b = str;
-        this.f1956a = aVar;
+        this.f1910b = str;
+        this.f1909a = aVar;
     }
 
     public a b() {
-        return this.f1956a;
+        return this.f1909a;
     }
 
     public static List<b> a(JSONObject jSONObject) {
@@ -57,11 +57,11 @@ public class b {
             return arrayList;
         }
         String[] b2 = b(jSONObject.optString("name", ""));
-        for (int i = 0; i < b2.length; i++) {
-            a a2 = a.a(b2[i]);
+        for (int i2 = 0; i2 < b2.length; i2++) {
+            a a2 = a.a(b2[i2]);
             if (a2 != a.None) {
-                b bVar = new b(b2[i], a2);
-                bVar.f1958c = a(b2[i]);
+                b bVar = new b(b2[i2], a2);
+                bVar.f1911c = a(b2[i2]);
                 arrayList.add(bVar);
             }
         }
@@ -82,6 +82,6 @@ public class b {
     }
 
     public String a() {
-        return this.f1957b;
+        return this.f1910b;
     }
 }

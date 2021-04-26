@@ -22,26 +22,26 @@ public interface h extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof h)) {
                 return (h) queryLocalInterface;
             }
-            return new C0297a(iBinder);
+            return new C0290a(iBinder);
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
-            if (i == 1) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) {
+            if (i2 == 1) {
                 parcel.enforceInterface("com.samsung.android.deviceidservice.IDeviceIdService");
                 String a2 = a();
                 parcel2.writeNoException();
                 parcel2.writeString(a2);
                 return true;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 parcel.enforceInterface("com.samsung.android.deviceidservice.IDeviceIdService");
                 String a3 = a(parcel.readString());
                 parcel2.writeNoException();
                 parcel2.writeString(a3);
                 return true;
-            } else if (i != 3) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 3) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString("com.samsung.android.deviceidservice.IDeviceIdService");
                 return true;
@@ -56,13 +56,13 @@ public interface h extends IInterface {
 
         /* renamed from: com.bytedance.embedapplog.h$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0297a implements h {
+        public static class C0290a implements h {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f26851a;
+            public IBinder f27665a;
 
-            public C0297a(IBinder iBinder) {
-                this.f26851a = iBinder;
+            public C0290a(IBinder iBinder) {
+                this.f27665a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.h
@@ -71,7 +71,7 @@ public interface h extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
-                    this.f26851a.transact(1, obtain, obtain2, 0);
+                    this.f27665a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -82,7 +82,7 @@ public interface h extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f26851a;
+                return this.f27665a;
             }
 
             @Override // com.bytedance.embedapplog.h
@@ -92,7 +92,7 @@ public interface h extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                     obtain.writeString(str);
-                    this.f26851a.transact(3, obtain, obtain2, 0);
+                    this.f27665a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -108,7 +108,7 @@ public interface h extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                     obtain.writeString(str);
-                    this.f26851a.transact(2, obtain, obtain2, 0);
+                    this.f27665a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {

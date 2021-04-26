@@ -73,8 +73,8 @@ public class BDVideoPlayerUbcContent {
             return this;
         }
 
-        public Builder selectType(int i) {
-            this.selectType = i;
+        public Builder selectType(int i2) {
+            this.selectType = i2;
             return this;
         }
 

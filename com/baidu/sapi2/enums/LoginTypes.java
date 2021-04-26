@@ -4,23 +4,19 @@ public enum LoginTypes {
     ONE_KEY_LOGIN(1, "one_key_login"),
     SHARE(2, "share");
     
+    public String name;
+    public int type;
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f10801a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f10802b;
-
-    LoginTypes(int i, String str) {
-        this.f10801a = i;
-        this.f10802b = str;
+    LoginTypes(int i2, String str) {
+        this.type = i2;
+        this.name = str;
     }
 
     public String getName() {
-        return this.f10802b;
+        return this.name;
     }
 
     public int getType() {
-        return this.f10801a;
+        return this.type;
     }
 }

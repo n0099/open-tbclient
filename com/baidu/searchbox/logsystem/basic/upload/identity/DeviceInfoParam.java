@@ -44,9 +44,9 @@ public class DeviceInfoParam {
     private String initDeviceInfo() {
         String str = this.mModel;
         String str2 = this.mOSVersion;
-        int i = Build.VERSION.SDK_INT;
+        int i2 = Build.VERSION.SDK_INT;
         String str3 = this.mManufacturer;
-        return str + "_" + str2 + "_" + i + "_" + str3;
+        return str + "_" + str2 + "_" + i2 + "_" + str3;
     }
 
     private void initEnDeviceInfo() {

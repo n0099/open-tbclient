@@ -61,12 +61,12 @@ public class WebSettingsCompat {
     }
 
     @SuppressLint({"NewApi"})
-    public static void setDisabledActionModeMenuItems(WebSettings webSettings, int i) {
+    public static void setDisabledActionModeMenuItems(WebSettings webSettings, int i2) {
         WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("DISABLED_ACTION_MODE_MENU_ITEMS");
         if (feature.isSupportedByFramework()) {
-            webSettings.setDisabledActionModeMenuItems(i);
+            webSettings.setDisabledActionModeMenuItems(i2);
         } else if (feature.isSupportedByWebView()) {
-            getAdapter(webSettings).setDisabledActionModeMenuItems(i);
+            getAdapter(webSettings).setDisabledActionModeMenuItems(i2);
         } else {
             throw WebViewFeatureInternal.getUnsupportedOperationException();
         }

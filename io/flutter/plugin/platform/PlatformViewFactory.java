@@ -10,7 +10,7 @@ public abstract class PlatformViewFactory {
         this.createArgsCodec = messageCodec;
     }
 
-    public abstract PlatformView create(Context context, int i, Object obj);
+    public abstract PlatformView create(Context context, int i2, Object obj);
 
     public final MessageCodec<Object> getCreateArgsCodec() {
         return this.createArgsCodec;

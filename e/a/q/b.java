@@ -1,8 +1,8 @@
 package e.a.q;
 /* loaded from: classes7.dex */
 public class b {
-    public static void a(StringBuilder sb, int i) {
-        for (int i2 = 0; i2 < i; i2++) {
+    public static void a(StringBuilder sb, int i2) {
+        for (int i3 = 0; i3 < i2; i3++) {
             try {
                 sb.append('\t');
             } catch (Exception e2) {
@@ -17,12 +17,12 @@ public class b {
             try {
                 if (!"".equals(str)) {
                     StringBuilder sb = new StringBuilder();
-                    int i = 0;
+                    int i2 = 0;
                     char c2 = 0;
                     boolean z = false;
-                    int i2 = 0;
-                    while (i < str.length()) {
-                        char charAt = str.charAt(i);
+                    int i3 = 0;
+                    while (i2 < str.length()) {
+                        char charAt = str.charAt(i2);
                         if (charAt == '\"') {
                             if (c2 != '\\') {
                                 z = !z;
@@ -39,25 +39,25 @@ public class b {
                                 }
                                 if (!z) {
                                     sb.append('\n');
-                                    i2--;
-                                    a(sb, i2);
+                                    i3--;
+                                    a(sb, i3);
                                 }
                                 sb.append(charAt);
                             }
                             sb.append(charAt);
                             if (!z) {
                                 sb.append('\n');
-                                i2++;
-                                a(sb, i2);
+                                i3++;
+                                a(sb, i3);
                             }
                         } else {
                             sb.append(charAt);
                             if (c2 != '\\' && !z) {
                                 sb.append('\n');
-                                a(sb, i2);
+                                a(sb, i3);
                             }
                         }
-                        i++;
+                        i2++;
                         c2 = charAt;
                     }
                     return sb.toString();

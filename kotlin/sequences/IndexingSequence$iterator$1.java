@@ -39,18 +39,18 @@ public final class IndexingSequence$iterator$1 implements Iterator<IndexedValue<
         throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 
-    public final void setIndex(int i) {
-        this.index = i;
+    public final void setIndex(int i2) {
+        this.index = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
     public IndexedValue<T> next() {
-        int i = this.index;
-        this.index = i + 1;
-        if (i < 0) {
+        int i2 = this.index;
+        this.index = i2 + 1;
+        if (i2 < 0) {
             CollectionsKt__CollectionsKt.throwIndexOverflow();
         }
-        return new IndexedValue<>(i, this.iterator.next());
+        return new IndexedValue<>(i2, this.iterator.next());
     }
 }

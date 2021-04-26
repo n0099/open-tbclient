@@ -7,5 +7,5 @@ public interface SyncHttpImpl {
     public static final int GET = 0;
     public static final int POST = 1;
 
-    boolean send(Context context, int i, String str, Map<String, String> map);
+    boolean send(Context context, int i2, String str, Map<String, String> map);
 }

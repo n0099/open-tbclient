@@ -1,8 +1,8 @@
 package com.baidu.adp.lib.voice;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import d.b.c.e.p.h;
-import d.b.c.e.p.i;
+import d.a.c.e.p.h;
+import d.a.c.e.p.i;
 /* loaded from: classes.dex */
 public class Amrnb {
     public static boolean bLoadLibrary = false;
@@ -12,7 +12,7 @@ public class Amrnb {
 
     /* loaded from: classes.dex */
     public static class a extends i {
-        @Override // d.b.c.e.p.i
+        @Override // d.a.c.e.p.i
         public void a(boolean z) {
             Amrnb.bLoadLibrary = z;
             if (z) {
@@ -51,7 +51,7 @@ public class Amrnb {
 
     private native void _encoderDeinit();
 
-    private native int _encoderEncode(int i, short[] sArr, byte[] bArr);
+    private native int _encoderEncode(int i2, short[] sArr, byte[] bArr);
 
     private native void _encoderInit();
 
@@ -98,9 +98,9 @@ public class Amrnb {
         }
     }
 
-    public int encoderEncode(int i, short[] sArr, byte[] bArr) {
+    public int encoderEncode(int i2, short[] sArr, byte[] bArr) {
         if (bLoadLibrary) {
-            return _encoderEncode(i, sArr, bArr);
+            return _encoderEncode(i2, sArr, bArr);
         }
         return 0;
     }

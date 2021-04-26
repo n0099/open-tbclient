@@ -25,32 +25,32 @@ import java.util.Map;
 public class Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f7990a = "filecache-Utils";
+    public static String f8280a = "filecache-Utils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f7991b = 536870912;
+    public static int f8281b = 536870912;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f7992c = ".video_cache";
+    public static String f8282c = ".video_cache";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile int f7993d = -1;
+    public static volatile int f8283d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile int f7994e = -1;
+    public static volatile int f8284e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile int f7995f = -1;
+    public static volatile int f8285f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile String f7996g;
+    public static volatile String f8286g;
 
     public static long a() {
         try {
             if ("mounted".equals(Environment.getExternalStorageState())) {
                 String path = Environment.getExternalStorageDirectory().getPath();
                 if (path == null || path.length() <= 0) {
-                    CyberLog.w(f7990a, "External path is null, so SDCard no free space");
+                    CyberLog.w(f8280a, "External path is null, so SDCard no free space");
                     return -1L;
                 }
                 StatFs statFs = new StatFs(path);
@@ -58,7 +58,7 @@ public class Utils {
             }
             return -1L;
         } catch (Exception unused) {
-            CyberLog.d(f7990a, "SDCard no free space");
+            CyberLog.d(f8280a, "SDCard no free space");
             return -1L;
         }
     }
@@ -76,8 +76,8 @@ public class Utils {
         return str;
     }
 
-    public static void c(int i) {
-        nativeSetMaxConcurrentOperationCount(i);
+    public static void c(int i2) {
+        nativeSetMaxConcurrentOperationCount(i2);
     }
 
     public static void d(File file) {
@@ -91,7 +91,7 @@ public class Utils {
                 file.delete();
             }
         } catch (Exception e2) {
-            CyberLog.w(f7990a, e2.toString());
+            CyberLog.w(f8280a, e2.toString());
         }
     }
 
@@ -114,8 +114,8 @@ public class Utils {
         }
     }
 
-    public static void h(byte[] bArr, int i, byte[] bArr2) {
-        nativeKernelEncrypt(bArr, i, bArr2);
+    public static void h(byte[] bArr, int i2, byte[] bArr2) {
+        nativeKernelEncrypt(bArr, i2, bArr2);
     }
 
     public static String i() {
@@ -140,7 +140,7 @@ public class Utils {
             str = b2 + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
         }
         String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
-        CyberLog.i(f7990a, "Utils.getExternalStorageSpace():" + a());
+        CyberLog.i(f8280a, "Utils.getExternalStorageSpace():" + a());
         if (a() < Config.FULL_TRACE_LOG_LIMIT || str == null) {
             str = str2;
         }
@@ -148,7 +148,7 @@ public class Utils {
         if (!n(context)) {
             str = str + File.separator + "remote";
         }
-        CyberLog.i(f7990a, "getVideoStatisticsPath folder:" + str);
+        CyberLog.i(f8280a, "getVideoStatisticsPath folder:" + str);
         return str;
     }
 
@@ -179,27 +179,27 @@ public class Utils {
         if (context == null) {
             return false;
         }
-        if (f7993d < 0) {
+        if (f8283d < 0) {
             if (context.getPackageName().equals(r(context))) {
-                f7993d = 1;
+                f8283d = 1;
             } else {
-                f7993d = 0;
+                f8283d = 0;
             }
         }
-        return f7993d == 1;
+        return f8283d == 1;
     }
 
     public static native long nativeCaculateFolderSize();
 
     public static native void nativeCleanFilecache();
 
-    public static native void nativeKernelEncrypt(byte[] bArr, int i, byte[] bArr2);
+    public static native void nativeKernelEncrypt(byte[] bArr, int i2, byte[] bArr2);
 
     public static native void nativeMonitorInit(String str, String str2, boolean z);
 
     public static native void nativeSetFileacheWorkDirectory(String str);
 
-    public static native void nativeSetMaxConcurrentOperationCount(int i);
+    public static native void nativeSetMaxConcurrentOperationCount(int i2);
 
     public static native void nativeUpdateCfgOpts(String[] strArr, String[] strArr2);
 
@@ -222,14 +222,14 @@ public class Utils {
         if (context == null) {
             return false;
         }
-        if (f7994e < 0) {
+        if (f8284e < 0) {
             if ((context.getPackageName() + ":media").equals(r(context))) {
-                f7994e = 1;
+                f8284e = 1;
             } else {
-                f7994e = 0;
+                f8284e = 0;
             }
         }
-        return f7994e == 1;
+        return f8284e == 1;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: int */
@@ -237,21 +237,21 @@ public class Utils {
     /* JADX DEBUG: Multi-variable search result rejected for r0v13, resolved type: int */
     /* JADX WARN: Multi-variable type inference failed */
     public static String q() {
-        if (f7995f < 0) {
-            f7995f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
+        if (f8285f < 0) {
+            f8285f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
         }
-        return f7995f == 1 ? "arm64-v8a" : "armeabi-v7a";
+        return f8285f == 1 ? "arm64-v8a" : "armeabi-v7a";
     }
 
     public static String r(Context context) {
-        if (TextUtils.isEmpty(f7996g)) {
-            f7996g = t(context);
-            if (TextUtils.isEmpty(f7996g)) {
-                f7996g = s();
+        if (TextUtils.isEmpty(f8286g)) {
+            f8286g = t(context);
+            if (TextUtils.isEmpty(f8286g)) {
+                f8286g = s();
             }
-            return f7996g;
+            return f8286g;
         }
-        return f7996g;
+        return f8286g;
     }
 
     public static String s() {

@@ -8,29 +8,29 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static i f33817a;
+    public static i f32831a;
 
     public static i a() {
         i gVar;
-        i iVar = f33817a;
+        i iVar = f32831a;
         if (iVar != null) {
             return iVar;
         }
-        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_CLOSE_AES");
+        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_CLOSE_AES");
         if (a2 != null && ((Boolean) a2.getValue()).booleanValue()) {
             g gVar2 = new g();
-            f33817a = gVar2;
+            f32831a = gVar2;
             return gVar2;
         }
-        if (com.kwad.sdk.d.f34896a == 1) {
-            com.kwad.sdk.plugin.a aVar = (com.kwad.sdk.plugin.a) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.a.class);
-            gVar = (aVar == null || aVar.a() == null) ? new g() : aVar.a();
+        if (com.kwad.sdk.d.f33864a == 1) {
+            com.kwad.sdk.plugin.a aVar = (com.kwad.sdk.plugin.a) com.kwad.sdk.plugin.f.a(com.kwad.sdk.plugin.a.class);
+            gVar = (aVar == null || aVar.b() == null) ? new g() : aVar.b();
         } else {
-            com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.b.class);
-            gVar = (bVar == null || bVar.a() == null) ? new g() : bVar.a();
+            com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) com.kwad.sdk.plugin.f.a(com.kwad.sdk.plugin.b.class);
+            gVar = (bVar == null || bVar.b() == null) ? new g() : bVar.b();
         }
-        f33817a = gVar;
-        return f33817a;
+        f32831a = gVar;
+        return f32831a;
     }
 
     public static String a(String str) {
@@ -46,7 +46,7 @@ public class d {
     }
 
     public static String b(String str) {
-        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_HOST_ENCRYPT_DISABLE");
+        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_HOST_ENCRYPT_DISABLE");
         return (a2 == null || !((Boolean) a2.getValue()).booleanValue()) ? a().b(str) : str;
     }
 }

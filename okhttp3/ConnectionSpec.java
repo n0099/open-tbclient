@@ -173,8 +173,8 @@ public final class ConnectionSpec {
         public Builder cipherSuites(CipherSuite... cipherSuiteArr) {
             if (this.tls) {
                 String[] strArr = new String[cipherSuiteArr.length];
-                for (int i = 0; i < cipherSuiteArr.length; i++) {
-                    strArr[i] = cipherSuiteArr[i].javaName;
+                for (int i2 = 0; i2 < cipherSuiteArr.length; i2++) {
+                    strArr[i2] = cipherSuiteArr[i2].javaName;
                 }
                 return cipherSuites(strArr);
             }
@@ -192,8 +192,8 @@ public final class ConnectionSpec {
         public Builder tlsVersions(TlsVersion... tlsVersionArr) {
             if (this.tls) {
                 String[] strArr = new String[tlsVersionArr.length];
-                for (int i = 0; i < tlsVersionArr.length; i++) {
-                    strArr[i] = tlsVersionArr[i].javaName;
+                for (int i2 = 0; i2 < tlsVersionArr.length; i2++) {
+                    strArr[i2] = tlsVersionArr[i2].javaName;
                 }
                 return tlsVersions(strArr);
             }

@@ -12,7 +12,7 @@ public interface PluginRegistry {
 
     /* loaded from: classes7.dex */
     public interface ActivityResultListener {
-        boolean onActivityResult(int i, int i2, Intent intent);
+        boolean onActivityResult(int i2, int i3, Intent intent);
     }
 
     /* loaded from: classes7.dex */
@@ -60,7 +60,7 @@ public interface PluginRegistry {
 
     /* loaded from: classes7.dex */
     public interface RequestPermissionsResultListener {
-        boolean onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
+        boolean onRequestPermissionsResult(int i2, String[] strArr, int[] iArr);
     }
 
     /* loaded from: classes7.dex */

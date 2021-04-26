@@ -3,7 +3,10 @@ package com.baidu.searchbox.cloudcontrol.utils;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.http.ConnectManager;
+import com.baidu.searchbox.http.NetworkQuality;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,23 +23,34 @@ public class CloudStabilityUBCUtils {
     public static final String KEY_ERROR_CODE = "errorCode";
     public static final String KEY_ERROR_MSG = "errorMsg";
     public static final String KEY_EXT = "ext";
+    public static final String KEY_LENGTH = "length";
+    public static final String KEY_NETWORK = "network";
+    public static final String KEY_POST_LENGTH = "postLength";
     public static final String KEY_RESPONSE_CODE = "responseCode";
     public static final String KEY_SOURCE = "source";
     public static final String KEY_TRACE_ID = "traceid";
     public static final String KEY_TYPE = "type";
     public static final String KEY_VALUE = "value";
+    public static final String KEY_WEAK_QUALITY = "networkQuality";
     public static final String TAG = "CloudStabilityUBCUtils";
     public static final String UBC_CLOUD_STABILITY_REQUEST_ID = "1929";
     public static final String UBC_CLOUD_STABILITY_RESPONSE_ID = "1928";
     public static final String VALUE_TYPE = "stability";
 
-    public static void doRequestStatistics(String str, String str2) {
+    public static void doRequestStatistics(String str, String str2, long j) {
+        String networkInfo = ConnectManager.getNetworkInfo(AppRuntime.getAppContext());
+        int networkQuality = NetworkQuality.getNetworkQuality();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("type", VALUE_TYPE);
             jSONObject.put("source", str);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("traceid", str2);
+            jSONObject2.put("network", networkInfo);
+            jSONObject2.put(KEY_WEAK_QUALITY, String.valueOf(networkQuality));
+            if (j != -1) {
+                jSONObject2.put(KEY_LENGTH, String.valueOf(j));
+            }
             jSONObject.put("ext", jSONObject2);
             UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
             if (uBCManager != null) {
@@ -53,18 +67,28 @@ public class CloudStabilityUBCUtils {
         }
     }
 
-    public static void doResponseStatistics(String str, int i, String str2, int i2, int i3, String str3, long j) {
+    public static void doResponseStatistics(String str, int i2, String str2, int i3, int i4, String str3, long j, long j2, long j3) {
+        String networkInfo = ConnectManager.getNetworkInfo(AppRuntime.getAppContext());
+        int networkQuality = NetworkQuality.getNetworkQuality();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("type", VALUE_TYPE);
             jSONObject.put("source", str);
-            jSONObject.put("value", i);
+            jSONObject.put("value", i2);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("traceid", str2);
-            jSONObject2.put(KEY_RESPONSE_CODE, i2);
+            jSONObject2.put("network", networkInfo);
+            jSONObject2.put(KEY_WEAK_QUALITY, String.valueOf(networkQuality));
+            jSONObject2.put(KEY_RESPONSE_CODE, i3);
             jSONObject2.put("duration", j);
-            if (i3 != -100) {
-                jSONObject2.put("errorCode", i3);
+            if (j2 != 0) {
+                jSONObject2.put(KEY_LENGTH, String.valueOf(j2));
+            }
+            if (j3 != 0) {
+                jSONObject2.put(KEY_POST_LENGTH, String.valueOf(j3));
+            }
+            if (i4 != -100) {
+                jSONObject2.put("errorCode", i4);
             }
             if (!TextUtils.isEmpty(str3)) {
                 jSONObject2.put("errorMsg", str3);

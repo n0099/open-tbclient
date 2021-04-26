@@ -1,8 +1,8 @@
 package com.google.common.base;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.h.c.a.g;
-import d.h.c.a.k;
+import d.g.c.a.g;
+import d.g.c.a.k;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public class Functions$ConstantFunction<E> implements g<Object, E>, Serializable {
@@ -13,12 +13,12 @@ public class Functions$ConstantFunction<E> implements g<Object, E>, Serializable
         this.value = e2;
     }
 
-    @Override // d.h.c.a.g
+    @Override // d.g.c.a.g
     public E apply(Object obj) {
         return this.value;
     }
 
-    @Override // d.h.c.a.g
+    @Override // d.g.c.a.g
     public boolean equals(Object obj) {
         if (obj instanceof Functions$ConstantFunction) {
             return k.a(this.value, ((Functions$ConstantFunction) obj).value);

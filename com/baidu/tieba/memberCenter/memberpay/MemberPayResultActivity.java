@@ -3,7 +3,7 @@ package com.baidu.tieba.memberCenter.memberpay;
 import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.MemberPayResultActivityConfig;
-import d.b.j0.r1.f.g;
+import d.a.j0.r1.f.g;
 /* loaded from: classes3.dex */
 public class MemberPayResultActivity extends BaseActivity<MemberPayResultActivity> {
     public g memberPayResultView;
@@ -16,11 +16,11 @@ public class MemberPayResultActivity extends BaseActivity<MemberPayResultActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         g gVar = this.memberPayResultView;
         if (gVar != null) {
-            gVar.d(i);
+            gVar.d(i2);
         }
     }
 

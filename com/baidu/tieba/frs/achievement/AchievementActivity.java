@@ -5,10 +5,10 @@ import android.view.View;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import d.b.j0.q0.g1.c;
+import d.a.j0.q0.g1.c;
 /* loaded from: classes4.dex */
 public class AchievementActivity extends BaseActivity {
-    public d.b.j0.q0.g1.a inviteLetter;
+    public d.a.j0.q0.g1.a inviteLetter;
     public View.OnClickListener onShareClickListener = new a();
     public c thanksLetter;
 
@@ -35,10 +35,10 @@ public class AchievementActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.thanksLetter.g(i);
-        this.inviteLetter.g(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.thanksLetter.g(i2);
+        this.inviteLetter.g(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -50,7 +50,7 @@ public class AchievementActivity extends BaseActivity {
         this.thanksLetter = cVar;
         cVar.h(true);
         this.thanksLetter.j(this.onShareClickListener);
-        d.b.j0.q0.g1.a aVar = new d.b.j0.q0.g1.a(getPageContext(), findViewById(R.id.layout_invite_letter));
+        d.a.j0.q0.g1.a aVar = new d.a.j0.q0.g1.a(getPageContext(), findViewById(R.id.layout_invite_letter));
         this.inviteLetter = aVar;
         aVar.h(false);
     }

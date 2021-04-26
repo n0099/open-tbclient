@@ -63,16 +63,16 @@ public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
         return this.isMask != 1;
     }
 
-    public void setCallFrom(int i) {
-        this.call_from = i;
+    public void setCallFrom(int i2) {
+        this.call_from = i2;
     }
 
     public void setG_id(long j) {
         this.g_id = j;
     }
 
-    public void setIsMask(int i) {
-        this.isMask = i;
+    public void setIsMask(int i2) {
+        this.isMask = i2;
     }
 
     public void setList(String str) {
@@ -83,8 +83,8 @@ public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
         this.isMask = z ? 1 : 0;
     }
 
-    public void setMaskType(int i) {
-        this.maskType = i;
+    public void setMaskType(int i2) {
+        this.maskType = i2;
     }
 
     public void setSettingMask(boolean z) {

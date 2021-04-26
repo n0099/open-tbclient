@@ -14,12 +14,12 @@ public class EntryPackage extends URLPackage {
         this.entryPageSource = "unknown";
     }
 
-    public EntryPackage(@NonNull String str, int i) {
-        super(str, i);
+    public EntryPackage(@NonNull String str, int i2) {
+        super(str, i2);
         this.entryPageSource = "unknown";
     }
 
-    @Override // com.kwad.sdk.core.scene.URLPackage
+    @Override // com.kwad.sdk.core.response.a.a
     public void parseJson(@Nullable JSONObject jSONObject) {
         super.parseJson(jSONObject);
         if (jSONObject == null) {
@@ -29,7 +29,7 @@ public class EntryPackage extends URLPackage {
         this.entryId = jSONObject.optString("entryId");
     }
 
-    @Override // com.kwad.sdk.core.scene.URLPackage, com.kwad.sdk.core.b
+    @Override // com.kwad.sdk.core.response.a.a, com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject json = super.toJson();
         o.a(json, "entryPageSource", this.entryPageSource);

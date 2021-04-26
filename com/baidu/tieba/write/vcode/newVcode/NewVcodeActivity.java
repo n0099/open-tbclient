@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import d.b.i0.s.c.h0;
-import d.b.j0.v3.t.a.a.a;
-import d.b.j0.v3.t.a.a.b;
-import d.b.j0.v3.t.a.a.c;
+import d.a.i0.s.c.h0;
+import d.a.j0.v3.s.a.a.a;
+import d.a.j0.v3.s.a.a.b;
+import d.a.j0.v3.s.a.a.c;
 /* loaded from: classes5.dex */
 public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public boolean mNeedFeedBackButton;
@@ -44,7 +44,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 NewVcodeActivity.this.finish();
             } else if (h0Var == null || writeData == null) {
             } else {
-                NewVcodeActivity.this.mPageType = d.b.c.e.m.b.d("4", 0);
+                NewVcodeActivity.this.mPageType = d.a.c.e.m.b.d("4", 0);
                 NewVcodeActivity.this.mPresenter.d();
                 NewVcodeActivity.this.mPresenter.onDestroy();
                 NewVcodeActivity.this.mWriteData = writeData;
@@ -64,7 +64,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public b getVcodePresenterFromType() {
         b cVar;
-        if (this.mPageType == d.b.c.e.m.b.d("5", 0)) {
+        if (this.mPageType == d.a.c.e.m.b.d("5", 0)) {
             cVar = new a(this.mNewVcodeView, this.mWriteModel);
         } else {
             cVar = new c(this.mNewVcodeView, this.mWriteModel);
@@ -76,7 +76,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     private void gotoMainTab() {
         WriteData writeData = this.mWriteData;
         if (writeData != null && writeData.getType() == 3) {
-            d.b.i0.r.a0.b.g(getPageContext().getPageActivity(), 200, false);
+            d.a.i0.r.a0.b.g(getPageContext().getPageActivity(), 200, false);
         }
     }
 
@@ -91,13 +91,13 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i2 == -1) {
-            if (i == 12006) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i3 == -1) {
+            if (i2 == 12006) {
                 setResult(-1, intent);
             }
-        } else if (i2 == 0 && i == 12006) {
+        } else if (i3 == 0 && i2 == 12006) {
             setResult(0, intent);
         }
         finish();

@@ -19,17 +19,17 @@ public class eg implements ed {
     }
 
     private void b(Context context, dz dzVar) {
-        String m264a = dzVar.m264a();
+        String m267a = dzVar.m267a();
         String b2 = dzVar.b();
         String d2 = dzVar.d();
         int a2 = dzVar.a();
-        if (context == null || TextUtils.isEmpty(m264a) || TextUtils.isEmpty(b2) || TextUtils.isEmpty(d2)) {
+        if (context == null || TextUtils.isEmpty(m267a) || TextUtils.isEmpty(b2) || TextUtils.isEmpty(d2)) {
             if (TextUtils.isEmpty(d2)) {
                 dw.a(context, "service", 1008, "argument error");
             } else {
                 dw.a(context, d2, 1008, "argument error");
             }
-        } else if (!com.xiaomi.push.service.g.a(context, m264a, b2)) {
+        } else if (!com.xiaomi.push.service.g.a(context, m267a, b2)) {
             dw.a(context, d2, 1003, "B is not ready");
         } else {
             dw.a(context, d2, 1002, "B is ready");
@@ -37,9 +37,9 @@ public class eg implements ed {
             try {
                 Intent intent = new Intent();
                 intent.setAction(b2);
-                intent.setPackage(m264a);
+                intent.setPackage(m267a);
                 intent.putExtra("awake_info", dv.a(d2));
-                if (a2 == 1 && !ea.m267a(context)) {
+                if (a2 == 1 && !ea.m270a(context)) {
                     dw.a(context, d2, 1008, "A not in foreground");
                 } else if (context.startService(intent) == null) {
                     dw.a(context, d2, 1008, "A is fail to help B's service");

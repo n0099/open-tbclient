@@ -5,7 +5,7 @@ public interface IANRMonitor {
 
     void startANRMonitor();
 
-    void startANRMonitor(int i);
+    void startANRMonitor(int i2);
 
     void stopANRMonitor();
 }

@@ -2,8 +2,8 @@ package com.baidu.tbadk.game;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.core.util.GameCenterCoreUtils;
-import d.b.c.e.m.b;
-import d.b.i0.g0.b.a;
+import d.a.c.e.m.b;
+import d.a.i0.g0.b.a;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.GameInfo;
@@ -415,8 +415,8 @@ public class GameInfoData implements Serializable, a {
         this.bundle_id = str;
     }
 
-    public void setCategoryId(int i) {
-        this.category_id = i;
+    public void setCategoryId(int i2) {
+        this.category_id = i2;
     }
 
     public void setCategoryName(String str) {
@@ -435,8 +435,8 @@ public class GameInfoData implements Serializable, a {
         this.currentStatusUpSuccess = z;
     }
 
-    public void setDayDownloads(int i) {
-        this.day_downloads = i;
+    public void setDayDownloads(int i2) {
+        this.day_downloads = i2;
     }
 
     public void setDeadline(long j) {
@@ -471,12 +471,12 @@ public class GameInfoData implements Serializable, a {
         this.game_pic = list;
     }
 
-    public void setGameType(int i) {
-        this.game_type = i;
+    public void setGameType(int i2) {
+        this.game_type = i2;
     }
 
-    public void setGamestatus(int i) {
-        this.game_status = i;
+    public void setGamestatus(int i2) {
+        this.game_status = i2;
     }
 
     public void setGiftPackages(List<GiftPkgInfo> list) {
@@ -515,8 +515,8 @@ public class GameInfoData implements Serializable, a {
         this.launcherActivity = str;
     }
 
-    public void setMark(int i) {
-        this.mark = i;
+    public void setMark(int i2) {
+        this.mark = i2;
     }
 
     public void setOrderTime(long j) {
@@ -563,24 +563,24 @@ public class GameInfoData implements Serializable, a {
         this.server_name = str;
     }
 
-    public void setServerOpenTime(int i) {
-        this.server_open_time = i;
+    public void setServerOpenTime(int i2) {
+        this.server_open_time = i2;
     }
 
-    public void setServerType(int i) {
-        this.server_type = i;
+    public void setServerType(int i2) {
+        this.server_type = i2;
     }
 
-    public void setStar(int i) {
-        this.star = i;
+    public void setStar(int i2) {
+        this.star = i2;
     }
 
     public void setSuperscriptColor(String str) {
         this.superscript_color = str;
     }
 
-    public void setUpStatus(int i) {
-        this.upStatus = i;
+    public void setUpStatus(int i2) {
+        this.upStatus = i2;
     }
 
     public void setUserRecommendList(List<GameInfoData> list) {

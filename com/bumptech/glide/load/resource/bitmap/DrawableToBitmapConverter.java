@@ -21,7 +21,7 @@ public final class DrawableToBitmapConverter {
     public static final String TAG = "DrawableToBitmap";
 
     @Nullable
-    public static Resource<Bitmap> convert(BitmapPool bitmapPool, Drawable drawable, int i, int i2) {
+    public static Resource<Bitmap> convert(BitmapPool bitmapPool, Drawable drawable, int i2, int i3) {
         Bitmap bitmap;
         Drawable current = drawable.getCurrent();
         boolean z = false;
@@ -30,7 +30,7 @@ public final class DrawableToBitmapConverter {
         } else if (current instanceof Animatable) {
             bitmap = null;
         } else {
-            bitmap = drawToBitmap(bitmapPool, current, i, i2);
+            bitmap = drawToBitmap(bitmapPool, current, i2, i3);
             z = true;
         }
         if (!z) {
@@ -40,30 +40,30 @@ public final class DrawableToBitmapConverter {
     }
 
     @Nullable
-    public static Bitmap drawToBitmap(BitmapPool bitmapPool, Drawable drawable, int i, int i2) {
-        if (i == Integer.MIN_VALUE && drawable.getIntrinsicWidth() <= 0) {
+    public static Bitmap drawToBitmap(BitmapPool bitmapPool, Drawable drawable, int i2, int i3) {
+        if (i2 == Integer.MIN_VALUE && drawable.getIntrinsicWidth() <= 0) {
             if (Log.isLoggable(TAG, 5)) {
                 Log.w(TAG, "Unable to draw " + drawable + " to Bitmap with Target.SIZE_ORIGINAL because the Drawable has no intrinsic width");
             }
             return null;
-        } else if (i2 == Integer.MIN_VALUE && drawable.getIntrinsicHeight() <= 0) {
+        } else if (i3 == Integer.MIN_VALUE && drawable.getIntrinsicHeight() <= 0) {
             if (Log.isLoggable(TAG, 5)) {
                 Log.w(TAG, "Unable to draw " + drawable + " to Bitmap with Target.SIZE_ORIGINAL because the Drawable has no intrinsic height");
             }
             return null;
         } else {
             if (drawable.getIntrinsicWidth() > 0) {
-                i = drawable.getIntrinsicWidth();
+                i2 = drawable.getIntrinsicWidth();
             }
             if (drawable.getIntrinsicHeight() > 0) {
-                i2 = drawable.getIntrinsicHeight();
+                i3 = drawable.getIntrinsicHeight();
             }
             Lock bitmapDrawableLock = TransformationUtils.getBitmapDrawableLock();
             bitmapDrawableLock.lock();
-            Bitmap bitmap = bitmapPool.get(i, i2, Bitmap.Config.ARGB_8888);
+            Bitmap bitmap = bitmapPool.get(i2, i3, Bitmap.Config.ARGB_8888);
             try {
                 Canvas canvas = new Canvas(bitmap);
-                drawable.setBounds(0, 0, i, i2);
+                drawable.setBounds(0, 0, i2, i3);
                 drawable.draw(canvas);
                 canvas.setBitmap(null);
                 return bitmap;

@@ -37,7 +37,7 @@ public class MzPushMessage implements Serializable {
                 str = null;
             }
         }
-        d.k.a.a.a.b(TAG, "self json " + str);
+        d.j.a.a.a.b(TAG, "self json " + str);
         return str;
     }
 
@@ -69,12 +69,12 @@ public class MzPushMessage implements Serializable {
         this.content = str;
     }
 
-    public void setNotifyId(int i) {
-        this.notifyId = i;
+    public void setNotifyId(int i2) {
+        this.notifyId = i2;
     }
 
-    public void setPushType(int i) {
-        this.pushType = i;
+    public void setPushType(int i2) {
+        this.pushType = i2;
     }
 
     public void setSelfDefineContentString(String str) {

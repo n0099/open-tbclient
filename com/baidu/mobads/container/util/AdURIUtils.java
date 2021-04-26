@@ -123,19 +123,19 @@ public class AdURIUtils {
                     unmodifiableSet = Collections.emptySet();
                 } else {
                     LinkedHashSet linkedHashSet = new LinkedHashSet();
-                    int i = 0;
+                    int i2 = 0;
                     do {
-                        int indexOf = encodedQuery.indexOf(38, i);
+                        int indexOf = encodedQuery.indexOf(38, i2);
                         if (indexOf == -1) {
                             indexOf = encodedQuery.length();
                         }
-                        int indexOf2 = encodedQuery.indexOf(61, i);
+                        int indexOf2 = encodedQuery.indexOf(61, i2);
                         if (indexOf2 > indexOf || indexOf2 == -1) {
                             indexOf2 = indexOf;
                         }
-                        linkedHashSet.add(Uri.decode(encodedQuery.substring(i, indexOf2)));
-                        i = indexOf + 1;
-                    } while (i < encodedQuery.length());
+                        linkedHashSet.add(Uri.decode(encodedQuery.substring(i2, indexOf2)));
+                        i2 = indexOf + 1;
+                    } while (i2 < encodedQuery.length());
                     unmodifiableSet = Collections.unmodifiableSet(linkedHashSet);
                 }
             }
@@ -160,11 +160,11 @@ public class AdURIUtils {
         String sb;
         StringBuilder sb2 = new StringBuilder();
         if (hashMap != null) {
-            int i = 0;
+            int i2 = 0;
             for (String str2 : hashMap.keySet()) {
-                i++;
+                i2++;
                 String str3 = hashMap.get(str2);
-                if (i == 1) {
+                if (i2 == 1) {
                     sb2.append(str2);
                     sb2.append("=");
                     sb2.append(str3);

@@ -5,16 +5,16 @@ import android.os.Handler;
 public final class cn implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cm f22818a;
+    public final /* synthetic */ cm f23528a;
 
     public cn(cm cmVar) {
-        this.f22818a = cmVar;
+        this.f23528a = cmVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Handler handler;
-        handler = this.f22818a.f22817a.f22808a.aK;
+        handler = this.f23528a.f23527a.f23518a.aK;
         com.baidu.ufosdk.e.a.a(handler);
     }
 }

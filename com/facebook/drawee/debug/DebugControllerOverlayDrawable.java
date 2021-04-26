@@ -11,7 +11,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.debug.listener.ImageLoadingTimeListener;
 import com.facebook.drawee.drawable.ScalingUtils;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DebugControllerOverlayDrawable extends Drawable implements ImageLoadingTimeListener {
     public static final float IMAGE_SIZE_THRESHOLD_NOT_OK = 0.5f;
     public static final float IMAGE_SIZE_THRESHOLD_OK = 0.1f;
@@ -66,23 +66,23 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
         this.mCurrentTextYPx += this.mLineIncrementPx;
     }
 
-    private void prepareDebugTextParameters(Rect rect, int i, int i2) {
-        int min = Math.min(40, Math.max(10, Math.min(rect.width() / i2, rect.height() / i)));
+    private void prepareDebugTextParameters(Rect rect, int i2, int i3) {
+        int min = Math.min(40, Math.max(10, Math.min(rect.width() / i3, rect.height() / i2)));
         this.mPaint.setTextSize(min);
-        int i3 = min + 8;
-        this.mLineIncrementPx = i3;
+        int i4 = min + 8;
+        this.mLineIncrementPx = i4;
         if (this.mTextGravity == 80) {
-            this.mLineIncrementPx = i3 * (-1);
+            this.mLineIncrementPx = i4 * (-1);
         }
         this.mStartTextXPx = rect.left + 10;
         this.mStartTextYPx = this.mTextGravity == 80 ? rect.bottom - 10 : rect.top + 10 + 10;
     }
 
     @VisibleForTesting
-    public int determineOverlayColor(int i, int i2, @Nullable ScalingUtils.ScaleType scaleType) {
+    public int determineOverlayColor(int i2, int i3, @Nullable ScalingUtils.ScaleType scaleType) {
         int width = getBounds().width();
         int height = getBounds().height();
-        if (width > 0 && height > 0 && i > 0 && i2 > 0) {
+        if (width > 0 && height > 0 && i2 > 0 && i3 > 0) {
             if (scaleType != null) {
                 Rect rect = this.mRect;
                 rect.top = 0;
@@ -90,12 +90,12 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
                 rect.right = width;
                 rect.bottom = height;
                 this.mMatrix.reset();
-                scaleType.getTransform(this.mMatrix, this.mRect, i, i2, 0.0f, 0.0f);
+                scaleType.getTransform(this.mMatrix, this.mRect, i2, i3, 0.0f, 0.0f);
                 RectF rectF = this.mRectF;
                 rectF.top = 0.0f;
                 rectF.left = 0.0f;
-                rectF.right = i;
-                rectF.bottom = i2;
+                rectF.right = i2;
+                rectF.bottom = i3;
                 this.mMatrix.mapRect(rectF);
                 width = Math.min(width, (int) this.mRectF.width());
                 height = Math.min(height, (int) this.mRectF.height());
@@ -106,8 +106,8 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
             float f5 = height;
             float f6 = 0.1f * f5;
             float f7 = f5 * 0.5f;
-            int abs = Math.abs(i - width);
-            int abs2 = Math.abs(i2 - height);
+            int abs = Math.abs(i2 - width);
+            int abs2 = Math.abs(i3 - height);
             float f8 = abs;
             if (f8 < f3 && abs2 < f6) {
                 return OVERLAY_COLOR_IMAGE_OK;
@@ -147,9 +147,9 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
         if (str2 != null) {
             addDebugText(canvas, "i format: %s", str2);
         }
-        int i = this.mFrameCount;
-        if (i > 0) {
-            addDebugText(canvas, "anim: f %d, l %d", Integer.valueOf(i), Integer.valueOf(this.mLoopCount));
+        int i2 = this.mFrameCount;
+        if (i2 > 0) {
+            addDebugText(canvas, "anim: f %d, l %d", Integer.valueOf(i2), Integer.valueOf(this.mLoopCount));
         }
         ScalingUtils.ScaleType scaleType = this.mScaleType;
         if (scaleType != null) {
@@ -196,12 +196,12 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
+    public void setAlpha(int i2) {
     }
 
-    public void setAnimationInfo(int i, int i2) {
-        this.mFrameCount = i;
-        this.mLoopCount = i2;
+    public void setAnimationInfo(int i2, int i3) {
+        this.mFrameCount = i2;
+        this.mLoopCount = i3;
         invalidateSelf();
     }
 
@@ -217,9 +217,9 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
         invalidateSelf();
     }
 
-    public void setDimensions(int i, int i2) {
-        this.mWidthPx = i;
-        this.mHeightPx = i2;
+    public void setDimensions(int i2, int i3) {
+        this.mWidthPx = i2;
+        this.mHeightPx = i3;
         invalidateSelf();
     }
 
@@ -236,8 +236,8 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
         invalidateSelf();
     }
 
-    public void setImageSize(int i) {
-        this.mImageSizeBytes = i;
+    public void setImageSize(int i2) {
+        this.mImageSizeBytes = i2;
     }
 
     public void setOrigin(String str) {
@@ -249,8 +249,8 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
         this.mScaleType = scaleType;
     }
 
-    public void setTextGravity(int i) {
-        this.mTextGravity = i;
+    public void setTextGravity(int i2) {
+        this.mTextGravity = i2;
         invalidateSelf();
     }
 }

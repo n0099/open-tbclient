@@ -107,9 +107,9 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
     }
 
     @Override // android.widget.BaseAdapter, android.widget.SpinnerAdapter
-    public View getDropDownView(int i, View view, ViewGroup viewGroup) {
+    public View getDropDownView(int i2, View view, ViewGroup viewGroup) {
         if (this.mDataValid) {
-            this.mCursor.moveToPosition(i);
+            this.mCursor.moveToPosition(i2);
             if (view == null) {
                 view = newDropDownView(this.mContext, this.mCursor, viewGroup);
             }
@@ -132,35 +132,35 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public Object getItem(int i2) {
         Cursor cursor;
         if (!this.mDataValid || (cursor = this.mCursor) == null) {
             return null;
         }
-        cursor.moveToPosition(i);
+        cursor.moveToPosition(i2);
         return this.mCursor;
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public long getItemId(int i2) {
         Cursor cursor;
-        if (this.mDataValid && (cursor = this.mCursor) != null && cursor.moveToPosition(i)) {
+        if (this.mDataValid && (cursor = this.mCursor) != null && cursor.moveToPosition(i2)) {
             return this.mCursor.getLong(this.mRowIDColumn);
         }
         return 0L;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i2, View view, ViewGroup viewGroup) {
         if (this.mDataValid) {
-            if (this.mCursor.moveToPosition(i)) {
+            if (this.mCursor.moveToPosition(i2)) {
                 if (view == null) {
                     view = newView(this.mContext, this.mCursor, viewGroup);
                 }
                 bindView(view, this.mContext, this.mCursor);
                 return view;
             }
-            throw new IllegalStateException("couldn't move cursor to position " + i);
+            throw new IllegalStateException("couldn't move cursor to position " + i2);
         }
         throw new IllegalStateException("this should only be called when the cursor is valid");
     }
@@ -237,9 +237,9 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
         return cursor2;
     }
 
-    public void init(Context context, Cursor cursor, int i) {
-        if ((i & 1) == 1) {
-            i |= 2;
+    public void init(Context context, Cursor cursor, int i2) {
+        if ((i2 & 1) == 1) {
+            i2 |= 2;
             this.mAutoRequery = true;
         } else {
             this.mAutoRequery = false;
@@ -249,7 +249,7 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
         this.mDataValid = z;
         this.mContext = context;
         this.mRowIDColumn = z ? cursor.getColumnIndexOrThrow("_id") : -1;
-        if ((i & 2) == 2) {
+        if ((i2 & 2) == 2) {
             this.mChangeObserver = new ChangeObserver();
             this.mDataSetObserver = new MyDataSetObserver();
         } else {
@@ -272,7 +272,7 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
         init(context, cursor, z ? 1 : 2);
     }
 
-    public CursorAdapter(Context context, Cursor cursor, int i) {
-        init(context, cursor, i);
+    public CursorAdapter(Context context, Cursor cursor, int i2) {
+        init(context, cursor, i2);
     }
 }

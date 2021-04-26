@@ -79,33 +79,33 @@ public interface PayTypeContract {
                 return null;
             }
             if (bondCards != null && bondCards.length > 0) {
-                for (int i = 0; i < bondCards.length; i++) {
+                for (int i2 = 0; i2 < bondCards.length; i2++) {
                     PayTypeItemView.PayTypeItemViewData payTypeItemViewData = new PayTypeItemView.PayTypeItemViewData();
                     payTypeItemViewData.type = PayTypeItemView.ItemViewType.BANKCARD;
-                    payTypeItemViewData.hintMsg = bondCards[i].card_hint_msg;
-                    payTypeItemViewData.hintUrl = bondCards[i].card_hint_url;
-                    if ("1".equals(bondCards[i].card_state)) {
+                    payTypeItemViewData.hintMsg = bondCards[i2].card_hint_msg;
+                    payTypeItemViewData.hintUrl = bondCards[i2].card_hint_url;
+                    if ("1".equals(bondCards[i2].card_state)) {
                         if (!payPrice.easypayIsEnable) {
                             payTypeItemViewData.isAvaible = false;
                             payTypeItemViewData.tips = payPrice.easyTipFromCalc;
                         } else {
                             payTypeItemViewData.isAvaible = true;
-                            payTypeItemViewData.tips = !TextUtils.isEmpty(bondCards[i].bank_card_msg) ? bondCards[i].bank_card_msg : payPrice.easyTipFromCalc;
+                            payTypeItemViewData.tips = !TextUtils.isEmpty(bondCards[i2].bank_card_msg) ? bondCards[i2].bank_card_msg : payPrice.easyTipFromCalc;
                         }
                     } else {
                         payTypeItemViewData.isAvaible = false;
-                        payTypeItemViewData.tips = bondCards[i].bank_card_msg;
+                        payTypeItemViewData.tips = bondCards[i2].bank_card_msg;
                     }
-                    payTypeItemViewData.name = bondCards[i].getCardDesc(this.mContext, true);
-                    payTypeItemViewData.card = bondCards[i];
+                    payTypeItemViewData.name = bondCards[i2].getCardDesc(this.mContext, true);
+                    payTypeItemViewData.card = bondCards[i2];
                     CardData.BondCard bondCard = payRequest.mBondCard;
-                    if (bondCard != null && bondCard == bondCards[i]) {
+                    if (bondCard != null && bondCard == bondCards[i2]) {
                         payTypeItemViewData.isChecked = true;
                     } else {
                         payTypeItemViewData.isChecked = false;
                     }
-                    payTypeItemViewData.logoUrl = bondCards[i].bank_url;
-                    payTypeItemViewData.isRecommended = "1".equals(bondCards[i].is_recommended);
+                    payTypeItemViewData.logoUrl = bondCards[i2].bank_url;
+                    payTypeItemViewData.isRecommended = "1".equals(bondCards[i2].is_recommended);
                     arrayList.add(payTypeItemViewData);
                 }
             }
@@ -168,18 +168,18 @@ public interface PayTypeContract {
         }
 
         @Override // com.baidu.wallet.paysdk.presenter.NetWorkPresenter
-        public void handleFailure(int i, int i2, String str) {
+        public void handleFailure(int i2, int i3, String str) {
             this.mActivity.dismissLoading(0);
             GlobalUtils.toast(this.mActivity, str);
             this.mActivity.setPageClickable(true);
         }
 
         @Override // com.baidu.wallet.paysdk.presenter.NetWorkPresenter
-        public void handleResponse(int i, Object obj, String str) {
+        public void handleResponse(int i2, Object obj, String str) {
             PayTypeItemView.PayTypeItemViewData payTypeItemViewData;
             this.mActivity.dismissLoading(0);
             this.mActivity.setPageClickable(true);
-            if (i == 16) {
+            if (i2 == 16) {
                 PayStatisticsUtil.onEventEnd(StatServiceEvent.CALCU_COUPON, 0);
                 CalcPaymentResponse calcPaymentResponse = obj instanceof CalcPaymentResponse ? (CalcPaymentResponse) obj : null;
                 PayTypeItemView payTypeItemView = this.mActivity.mClickedItemView;
@@ -212,7 +212,7 @@ public interface PayTypeContract {
             _loadOriginalStrategy();
         }
 
-        public abstract void onActivityResult(int i, int i2, Intent intent);
+        public abstract void onActivityResult(int i2, int i3, Intent intent);
 
         public abstract void onBackPressed();
 
@@ -229,7 +229,7 @@ public interface PayTypeContract {
                 @Override // java.util.Comparator
                 public int compare(Object obj, Object obj2) {
                     PayTypeItemView.PayTypeItemViewData payTypeItemViewData;
-                    int i;
+                    int i2;
                     PayTypeItemView.PayTypeItemViewData payTypeItemViewData2 = null;
                     if ((obj instanceof PayTypeItemView.PayTypeItemViewData) && (obj2 instanceof PayTypeItemView.PayTypeItemViewData)) {
                         payTypeItemViewData2 = (PayTypeItemView.PayTypeItemViewData) obj;
@@ -240,32 +240,32 @@ public interface PayTypeContract {
                     if (payTypeItemViewData2 == null || payTypeItemViewData == null) {
                         return -1;
                     }
-                    int i2 = 1000;
+                    int i3 = 1000;
                     if (payTypeItemViewData2.type == PayTypeItemView.ItemViewType.ADD_NEWCARD) {
-                        i = 1000;
+                        i2 = 1000;
                     } else {
-                        i = payTypeItemViewData2.isAvaible ? 2000 : 0;
+                        i2 = payTypeItemViewData2.isAvaible ? 2000 : 0;
                     }
                     if (payTypeItemViewData.type != PayTypeItemView.ItemViewType.ADD_NEWCARD) {
-                        i2 = payTypeItemViewData.isAvaible ? 2000 : 0;
+                        i3 = payTypeItemViewData.isAvaible ? 2000 : 0;
                     }
                     PayTypeItemView.ItemViewType itemViewType = payTypeItemViewData2.type;
                     if (itemViewType == PayTypeItemView.ItemViewType.BALANCE) {
-                        i += 3;
+                        i2 += 3;
                     } else if (itemViewType == PayTypeItemView.ItemViewType.CREDIT) {
-                        i += 2;
+                        i2 += 2;
                     } else if (itemViewType == PayTypeItemView.ItemViewType.BANKCARD) {
-                        i++;
+                        i2++;
                     }
                     PayTypeItemView.ItemViewType itemViewType2 = payTypeItemViewData.type;
                     if (itemViewType2 == PayTypeItemView.ItemViewType.BALANCE) {
-                        i2 += 3;
+                        i3 += 3;
                     } else if (itemViewType2 == PayTypeItemView.ItemViewType.CREDIT) {
-                        i2 += 2;
+                        i3 += 2;
                     } else if (itemViewType2 == PayTypeItemView.ItemViewType.BANKCARD) {
-                        i2++;
+                        i3++;
                     }
-                    return -(i - i2);
+                    return -(i2 - i3);
                 }
             });
         }

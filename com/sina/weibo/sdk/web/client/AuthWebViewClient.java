@@ -171,12 +171,12 @@ public class AuthWebViewClient extends BaseWebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
-    public void onReceivedError(WebView webView, int i, String str, String str2) {
-        super.onReceivedError(webView, i, str, str2);
+    public void onReceivedError(WebView webView, int i2, String str, String str2) {
+        super.onReceivedError(webView, i2, str, str2);
         LogUtil.d(TAG, "onReceivedError");
         WebViewRequestCallback webViewRequestCallback = this.requestCallback;
         if (webViewRequestCallback != null) {
-            webViewRequestCallback.onReceivedErrorCallBack(webView, i, str, str2);
+            webViewRequestCallback.onReceivedErrorCallBack(webView, i2, str, str2);
         }
     }
 }

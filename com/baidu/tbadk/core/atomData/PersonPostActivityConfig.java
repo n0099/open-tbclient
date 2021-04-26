@@ -8,10 +8,10 @@ public class PersonPostActivityConfig extends IntentConfig {
     public static final String KEY_SEX = "key_sex";
     public static final String KEY_UID = "key_uid";
 
-    public PersonPostActivityConfig(Context context, String str, int i, String str2) {
+    public PersonPostActivityConfig(Context context, String str, int i2, String str2) {
         super(context);
         getIntent().putExtra("key_uid", str);
-        getIntent().putExtra("key_sex", i);
+        getIntent().putExtra("key_sex", i2);
         getIntent().putExtra(KEY_PORTRAIT_URL, str2);
     }
 }

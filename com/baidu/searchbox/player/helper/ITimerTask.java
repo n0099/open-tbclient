@@ -5,7 +5,7 @@ public interface ITimerTask {
 
     void doTask();
 
-    void setInterval(int i);
+    void setInterval(int i2);
 
     void start();
 }

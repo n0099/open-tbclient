@@ -17,9 +17,6 @@ public class DefaultConnectivityMonitorFactory implements ConnectivityMonitorFac
         if (Log.isLoggable("ConnectivityMonitor", 3)) {
             Log.d("ConnectivityMonitor", z ? "ACCESS_NETWORK_STATE permission granted, registering connectivity monitor" : "ACCESS_NETWORK_STATE permission missing, cannot register connectivity monitor");
         }
-        if (z) {
-            return new DefaultConnectivityMonitor(context, connectivityListener);
-        }
-        return new NullConnectivityMonitor();
+        return z ? new DefaultConnectivityMonitor(context, connectivityListener) : new NullConnectivityMonitor();
     }
 }

@@ -12,7 +12,7 @@ import android.widget.FrameLayout;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes4.dex */
 public class EmotionView extends TbImageView {
     public FrameLayout A0;
@@ -33,13 +33,13 @@ public class EmotionView extends TbImageView {
     public int z0;
 
     /* loaded from: classes4.dex */
-    public class a extends d.b.c.e.l.c<d.b.c.j.d.a> {
+    public class a extends d.a.c.e.l.c<d.a.c.j.d.a> {
         public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.c.e.l.c
-        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
+        @Override // d.a.c.e.l.c
+        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
             if (aVar != null) {
                 EmotionView.this.L = aVar.t();
                 View findViewWithTag = EmotionView.this.findViewWithTag(str);
@@ -91,28 +91,28 @@ public class EmotionView extends TbImageView {
 
     /* loaded from: classes4.dex */
     public interface c {
-        boolean a();
+        void b();
 
-        void c();
+        boolean c();
 
-        boolean d();
+        void d();
 
-        void f();
+        boolean e();
     }
 
     /* loaded from: classes4.dex */
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public long f15235e;
+        public long f15373e;
 
         public d(long j) {
-            this.f15235e = j;
+            this.f15373e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (EmotionView.this.C0 && this.f15235e == EmotionView.this.B0 && EmotionView.this.B0()) {
+            if (EmotionView.this.C0 && this.f15373e == EmotionView.this.B0 && EmotionView.this.B0()) {
                 EmotionView.this.E0();
             }
         }
@@ -144,13 +144,13 @@ public class EmotionView extends TbImageView {
         if (this.P0 == 20) {
             D0(this.w0);
         } else {
-            W(this.w0.getThumbUrl(), this.P0, false);
+            V(this.w0.getThumbUrl(), this.P0, false);
         }
     }
 
     public final void D0(EmotionImageData emotionImageData) {
-        Object k = d.b.c.e.l.d.h().k(emotionImageData.getThumbUrl(), 20, new a(), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
-        d.b.c.j.d.a aVar = (k == null || !(k instanceof d.b.c.j.d.a)) ? null : (d.b.c.j.d.a) k;
+        Object k = d.a.c.e.l.d.h().k(emotionImageData.getThumbUrl(), 20, new a(), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
+        d.a.c.j.d.a aVar = (k == null || !(k instanceof d.a.c.j.d.a)) ? null : (d.a.c.j.d.a) k;
         if (aVar != null) {
             aVar.h(this);
             setTag(null);
@@ -164,7 +164,7 @@ public class EmotionView extends TbImageView {
         }
         c cVar = this.Q0;
         if (cVar != null) {
-            cVar.f();
+            cVar.d();
         }
         int[] iArr = new int[2];
         getLocationOnScreen(iArr);
@@ -173,10 +173,10 @@ public class EmotionView extends TbImageView {
         }
         this.x0.e(this.w0.getPicUrl(), this.w0.getThumbUrl(), this.L, this.P0);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.y0, this.z0);
-        int i = iArr[0] - 60;
-        layoutParams.leftMargin = i;
+        int i2 = iArr[0] - 60;
+        layoutParams.leftMargin = i2;
         layoutParams.topMargin = iArr[1] - this.z0;
-        if (i < 0) {
+        if (i2 < 0) {
             layoutParams.leftMargin = 0;
         }
         if (layoutParams.leftMargin + this.y0 > l.k(getContext())) {
@@ -202,7 +202,7 @@ public class EmotionView extends TbImageView {
         }
         c cVar = this.Q0;
         if (cVar != null) {
-            cVar.c();
+            cVar.b();
         }
         if (this.x0.getParent() != null) {
             ViewParent parent = this.x0.getParent();
@@ -221,10 +221,10 @@ public class EmotionView extends TbImageView {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
-    public void S() {
+    public void Q() {
         this.w0 = null;
         setImageResource(0);
-        super.S();
+        super.Q();
     }
 
     public EmotionImageData getData() {
@@ -243,8 +243,8 @@ public class EmotionView extends TbImageView {
         this.Q0 = cVar;
     }
 
-    public void setLoadProcType(int i) {
-        this.P0 = i;
+    public void setLoadProcType(int i2) {
+        this.P0 = i2;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
@@ -254,12 +254,12 @@ public class EmotionView extends TbImageView {
 
     public final boolean y0() {
         c cVar = this.Q0;
-        return cVar == null || cVar.d();
+        return cVar == null || cVar.c();
     }
 
     public final boolean z0() {
         c cVar = this.Q0;
-        return cVar == null || cVar.a();
+        return cVar == null || cVar.e();
     }
 
     public EmotionView(Context context, AttributeSet attributeSet) {
@@ -268,8 +268,8 @@ public class EmotionView extends TbImageView {
         G();
     }
 
-    public EmotionView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public EmotionView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.P0 = 10;
         G();
     }

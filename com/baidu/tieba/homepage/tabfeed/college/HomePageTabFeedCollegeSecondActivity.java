@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
-import d.b.c.e.p.l;
-import d.b.i0.m.f;
+import d.a.c.e.p.l;
+import d.a.i0.m.f;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
@@ -32,15 +32,15 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
     public class a extends GridLayoutManager.SpanSizeLookup {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f16999a;
+        public final /* synthetic */ List f17275a;
 
         public a(List list) {
-            this.f16999a = list;
+            this.f17275a = list;
         }
 
         @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
-        public int getSpanSize(int i) {
-            return i == this.f16999a.size() ? 2 : 1;
+        public int getSpanSize(int i2) {
+            return i2 == this.f17275a.size() ? 2 : 1;
         }
     }
 
@@ -50,28 +50,28 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.m.f
+        @Override // d.a.i0.m.f
         /* renamed from: b */
-        public void c(View view, SpecialColumnItemData specialColumnItemData, int i, long j) {
+        public void c(View view, SpecialColumnItemData specialColumnItemData, int i2, long j) {
             if (specialColumnItemData == null) {
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.m.f
+        @Override // d.a.i0.m.f
         /* renamed from: d */
-        public void a(View view, SpecialColumnItemData specialColumnItemData, int i, long j) {
+        public void a(View view, SpecialColumnItemData specialColumnItemData, int i2, long j) {
             if (specialColumnItemData == null) {
                 return;
             }
-            int i2 = specialColumnItemData.specialType;
-            if (i2 != 1 && i2 != 2) {
-                if (i2 == 3) {
+            int i3 = specialColumnItemData.specialType;
+            if (i3 != 1 && i3 != 2) {
+                if (i3 == 3) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     alaLiveInfoCoreData.liveID = specialColumnItemData.liveId;
                     HomePageTabFeedCollegeSecondActivity.this.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(HomePageTabFeedCollegeSecondActivity.this, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
                     return;
-                } else if (i2 != 4) {
+                } else if (i3 != 4) {
                     return;
                 }
             }
@@ -80,9 +80,9 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void changeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+    public void changeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
         this.adapter.notifyDataSetChanged();
     }
 
@@ -100,10 +100,10 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
             this.mNavigationBar.setCenterTextTitle(specialColumnListData.B());
             List<SpecialColumnItemData> A = specialColumnListData.A();
             if (A != null && A.size() > 0) {
-                int i = A.get(0).specialType;
-                if (i == 1 || i == 2) {
+                int i2 = A.get(0).specialType;
+                if (i2 == 1 || i2 == 2) {
                     this.bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-                } else if (i == 3 || i == 4) {
+                } else if (i2 == 3 || i2 == 4) {
                     GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
                     gridLayoutManager.setSpanSizeLookup(new a(A));
                     this.bdRecyclerView.setLayoutManager(gridLayoutManager);

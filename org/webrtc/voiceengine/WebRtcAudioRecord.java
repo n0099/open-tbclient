@@ -158,8 +158,8 @@ public class WebRtcAudioRecord {
         }
     }
 
-    private int channelCountToConfiguration(int i) {
-        return i == 1 ? 16 : 12;
+    private int channelCountToConfiguration(int i2) {
+        return i2 == 1 ? 16 : 12;
     }
 
     private boolean enableBuiltInAEC(boolean z) {
@@ -186,19 +186,19 @@ public class WebRtcAudioRecord {
         return 7;
     }
 
-    private int initRecording(int i, int i2) {
-        Logging.d(TAG, "initRecording(sampleRate=" + i + ", channels=" + i2 + SmallTailInfo.EMOTION_SUFFIX);
+    private int initRecording(int i2, int i3) {
+        Logging.d(TAG, "initRecording(sampleRate=" + i2 + ", channels=" + i3 + SmallTailInfo.EMOTION_SUFFIX);
         if (this.audioRecord != null) {
             reportWebRtcAudioRecordInitError("InitRecording called twice without StopRecording.");
             return -1;
         }
-        int i3 = i / 100;
-        this.byteBuffer = ByteBuffer.allocateDirect(i2 * 2 * i3);
+        int i4 = i2 / 100;
+        this.byteBuffer = ByteBuffer.allocateDirect(i3 * 2 * i4);
         Logging.d(TAG, "byteBuffer.capacity: " + this.byteBuffer.capacity());
         this.emptyBytes = new byte[this.byteBuffer.capacity()];
         nativeCacheDirectBufferAddress(this.byteBuffer, this.nativeAudioRecord);
-        int channelCountToConfiguration = channelCountToConfiguration(i2);
-        int minBufferSize = AudioRecord.getMinBufferSize(i, channelCountToConfiguration, 2);
+        int channelCountToConfiguration = channelCountToConfiguration(i3);
+        int minBufferSize = AudioRecord.getMinBufferSize(i2, channelCountToConfiguration, 2);
         if (minBufferSize == -1 || minBufferSize == -2) {
             reportWebRtcAudioRecordInitError("AudioRecord.getMinBufferSize failed: " + minBufferSize);
             return -1;
@@ -207,7 +207,7 @@ public class WebRtcAudioRecord {
         int max = Math.max(minBufferSize * 2, this.byteBuffer.capacity());
         Logging.d(TAG, "bufferSizeInBytes: " + max);
         try {
-            AudioRecord audioRecord = new AudioRecord(audioSource, i, channelCountToConfiguration, 2, max);
+            AudioRecord audioRecord = new AudioRecord(audioSource, i2, channelCountToConfiguration, 2, max);
             this.audioRecord = audioRecord;
             if (audioRecord == null || audioRecord.getState() != 1) {
                 reportWebRtcAudioRecordInitError("Failed to create a new AudioRecord instance");
@@ -220,7 +220,7 @@ public class WebRtcAudioRecord {
             }
             logMainParameters();
             logMainParametersExtended();
-            return i3;
+            return i4;
         } catch (IllegalArgumentException e2) {
             reportWebRtcAudioRecordInitError("AudioRecord ctor error: " + e2.getMessage());
             releaseAudioResources();
@@ -241,7 +241,7 @@ public class WebRtcAudioRecord {
     private native void nativeCacheDirectBufferAddress(ByteBuffer byteBuffer, long j);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeDataIsRecorded(int i, long j);
+    public native void nativeDataIsRecorded(int i2, long j);
 
     private void releaseAudioResources() {
         Logging.d(TAG, "releaseAudioResources");
@@ -280,10 +280,10 @@ public class WebRtcAudioRecord {
         }
     }
 
-    public static void setAudioSource(int i) {
+    public static void setAudioSource(int i2) {
         synchronized (WebRtcAudioRecord.class) {
-            Logging.w(TAG, "Audio source is changed from: " + audioSource + " to " + i);
-            audioSource = i;
+            Logging.w(TAG, "Audio source is changed from: " + audioSource + " to " + i2);
+            audioSource = i2;
         }
     }
 

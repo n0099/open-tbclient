@@ -9,12 +9,14 @@ public class ViewOffsetHelper {
     public int offsetLeft;
     public int offsetTop;
     public final View view;
+    public boolean verticalOffsetEnabled = true;
+    public boolean horizontalOffsetEnabled = true;
 
     public ViewOffsetHelper(View view) {
         this.view = view;
     }
 
-    private void updateOffsets() {
+    public void applyOffsets() {
         View view = this.view;
         ViewCompat.offsetTopAndBottom(view, this.offsetTop - (view.getTop() - this.layoutTop));
         View view2 = this.view;
@@ -37,27 +39,42 @@ public class ViewOffsetHelper {
         return this.offsetTop;
     }
 
+    public boolean isHorizontalOffsetEnabled() {
+        return this.horizontalOffsetEnabled;
+    }
+
+    public boolean isVerticalOffsetEnabled() {
+        return this.verticalOffsetEnabled;
+    }
+
     public void onViewLayout() {
         this.layoutTop = this.view.getTop();
         this.layoutLeft = this.view.getLeft();
-        updateOffsets();
     }
 
-    public boolean setLeftAndRightOffset(int i) {
-        if (this.offsetLeft != i) {
-            this.offsetLeft = i;
-            updateOffsets();
-            return true;
-        }
-        return false;
+    public void setHorizontalOffsetEnabled(boolean z) {
+        this.horizontalOffsetEnabled = z;
     }
 
-    public boolean setTopAndBottomOffset(int i) {
-        if (this.offsetTop != i) {
-            this.offsetTop = i;
-            updateOffsets();
-            return true;
+    public boolean setLeftAndRightOffset(int i2) {
+        if (!this.horizontalOffsetEnabled || this.offsetLeft == i2) {
+            return false;
         }
-        return false;
+        this.offsetLeft = i2;
+        applyOffsets();
+        return true;
+    }
+
+    public boolean setTopAndBottomOffset(int i2) {
+        if (!this.verticalOffsetEnabled || this.offsetTop == i2) {
+            return false;
+        }
+        this.offsetTop = i2;
+        applyOffsets();
+        return true;
+    }
+
+    public void setVerticalOffsetEnabled(boolean z) {
+        this.verticalOffsetEnabled = z;
     }
 }

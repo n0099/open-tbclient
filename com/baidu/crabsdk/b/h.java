@@ -11,10 +11,10 @@ import java.security.NoSuchAlgorithmException;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4720a;
+    public static String f4832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f4721b;
+    public static Context f4833b;
 
     public static String a(String str) {
         byte b2;
@@ -39,12 +39,12 @@ public final class h {
         try {
             byte[] digest = messageDigest.digest();
             StringBuffer stringBuffer = new StringBuffer();
-            for (int i = 0; i < digest.length; i++) {
-                if (Integer.toHexString(digest[i] & 255).length() == 1) {
+            for (int i2 = 0; i2 < digest.length; i2++) {
+                if (Integer.toHexString(digest[i2] & 255).length() == 1) {
                     stringBuffer.append("0");
-                    b2 = digest[i];
+                    b2 = digest[i2];
                 } else {
-                    b2 = digest[i];
+                    b2 = digest[i2];
                 }
                 stringBuffer.append(Integer.toHexString(b2 & 255));
             }
@@ -55,22 +55,22 @@ public final class h {
     }
 
     public static void b(Context context) {
-        if (f4721b == null) {
-            f4721b = context;
+        if (f4833b == null) {
+            f4833b = context;
         }
     }
 
     public static String c() {
-        String str = f4720a;
+        String str = f4832a;
         if (str != null) {
             return str;
         }
         try {
-            f4720a = a(Settings.Secure.getString(f4721b.getContentResolver(), IAdRequestParam.ANDROID_ID));
+            f4832a = a(Settings.Secure.getString(f4833b.getContentResolver(), IAdRequestParam.ANDROID_ID));
         } catch (Exception e2) {
             com.baidu.crabsdk.c.a.a("getCUID failed!", e2);
-            f4720a = "N/A";
+            f4832a = "N/A";
         }
-        return f4720a;
+        return f4832a;
     }
 }

@@ -9,8 +9,9 @@ public final class ArrayFloatIterator extends FloatIterator {
     public final float[] array;
     public int index;
 
-    public ArrayFloatIterator(float[] fArr) {
-        this.array = fArr;
+    public ArrayFloatIterator(float[] array) {
+        Intrinsics.checkNotNullParameter(array, "array");
+        this.array = array;
     }
 
     @Override // java.util.Iterator
@@ -22,9 +23,9 @@ public final class ArrayFloatIterator extends FloatIterator {
     public float nextFloat() {
         try {
             float[] fArr = this.array;
-            int i = this.index;
-            this.index = i + 1;
-            return fArr[i];
+            int i2 = this.index;
+            this.index = i2 + 1;
+            return fArr[i2];
         } catch (ArrayIndexOutOfBoundsException e2) {
             this.index--;
             throw new NoSuchElementException(e2.getMessage());

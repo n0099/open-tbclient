@@ -3,12 +3,12 @@ package com.facebook.imagepipeline.cache;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.imagepipeline.cache.CountingMemoryCache;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NativeMemoryCacheTrimStrategy implements CountingMemoryCache.CacheTrimStrategy {
     public static final String TAG = "NativeMemoryCacheTrimStrategy";
 
     /* renamed from: com.facebook.imagepipeline.cache.NativeMemoryCacheTrimStrategy$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$memory$MemoryTrimType;
 
@@ -40,9 +40,9 @@ public class NativeMemoryCacheTrimStrategy implements CountingMemoryCache.CacheT
 
     @Override // com.facebook.imagepipeline.cache.CountingMemoryCache.CacheTrimStrategy
     public double getTrimRatio(MemoryTrimType memoryTrimType) {
-        int i = AnonymousClass1.$SwitchMap$com$facebook$common$memory$MemoryTrimType[memoryTrimType.ordinal()];
-        if (i != 1) {
-            if (i == 2 || i == 3 || i == 4 || i == 5) {
+        int i2 = AnonymousClass1.$SwitchMap$com$facebook$common$memory$MemoryTrimType[memoryTrimType.ordinal()];
+        if (i2 != 1) {
+            if (i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5) {
                 return 1.0d;
             }
             FLog.wtf(TAG, "unknown trim type: %s", memoryTrimType);

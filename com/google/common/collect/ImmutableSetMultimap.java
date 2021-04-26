@@ -4,13 +4,13 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
-import d.h.c.a.j;
-import d.h.c.a.n;
-import d.h.c.c.c1;
-import d.h.c.c.h0;
-import d.h.c.c.n0;
-import d.h.c.c.r0;
-import d.h.c.c.s0;
+import d.g.c.a.j;
+import d.g.c.a.n;
+import d.g.c.c.c1;
+import d.g.c.c.h0;
+import d.g.c.c.n0;
+import d.g.c.c.r0;
+import d.g.c.c.s0;
 import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
@@ -30,17 +30,17 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
     public static final class EntrySet<K, V> extends ImmutableSet<Map.Entry<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final transient ImmutableSetMultimap<K, V> f30926e;
+        public final transient ImmutableSetMultimap<K, V> f31887e;
 
         public EntrySet(ImmutableSetMultimap<K, V> immutableSetMultimap) {
-            this.f30926e = immutableSetMultimap;
+            this.f31887e = immutableSetMultimap;
         }
 
         @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
             if (obj instanceof Map.Entry) {
                 Map.Entry entry = (Map.Entry) obj;
-                return this.f30926e.containsEntry(entry.getKey(), entry.getValue());
+                return this.f31887e.containsEntry(entry.getKey(), entry.getValue());
             }
             return false;
         }
@@ -52,13 +52,13 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            return this.f30926e.size();
+            return this.f31887e.size();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.ImmutableSet, com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set, java.util.NavigableSet
         public c1<Map.Entry<K, V>> iterator() {
-            return this.f30926e.entryIterator();
+            return this.f31887e.entryIterator();
         }
     }
 
@@ -85,12 +85,12 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         }
 
         public ImmutableSetMultimap<K, V> f() {
-            Collection entrySet = this.f30906a.entrySet();
-            Comparator<? super K> comparator = this.f30907b;
+            Collection entrySet = this.f31865a.entrySet();
+            Comparator<? super K> comparator = this.f31866b;
             if (comparator != null) {
                 entrySet = Ordering.from(comparator).onKeys().immutableSortedCopy(entrySet);
             }
-            return ImmutableSetMultimap.fromMapEntries(entrySet, this.f30908c);
+            return ImmutableSetMultimap.fromMapEntries(entrySet, this.f31867c);
         }
 
         public a<K, V> g(K k, V v) {
@@ -113,11 +113,11 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final r0.b<ImmutableSetMultimap> f30927a = r0.a(ImmutableSetMultimap.class, "emptySet");
+        public static final r0.b<ImmutableSetMultimap> f31888a = r0.a(ImmutableSetMultimap.class, "emptySet");
     }
 
-    public ImmutableSetMultimap(ImmutableMap<K, ImmutableSet<V>> immutableMap, int i, Comparator<? super V> comparator) {
-        super(immutableMap, i);
+    public ImmutableSetMultimap(ImmutableMap<K, ImmutableSet<V>> immutableMap, int i2, Comparator<? super V> comparator) {
+        super(immutableMap, i2);
         this.emptySet = emptySet(comparator);
     }
 
@@ -141,16 +141,16 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
             return of();
         }
         ImmutableMap.b bVar = new ImmutableMap.b(collection.size());
-        int i = 0;
+        int i2 = 0;
         for (Map.Entry<? extends K, ? extends Collection<? extends V>> entry : collection) {
             K key = entry.getKey();
             ImmutableSet valueSet = valueSet(comparator, entry.getValue());
             if (!valueSet.isEmpty()) {
                 bVar.c(key, valueSet);
-                i += valueSet.size();
+                i2 += valueSet.size();
             }
         }
-        return new ImmutableSetMultimap<>(bVar.a(), i, comparator);
+        return new ImmutableSetMultimap<>(bVar.a(), i2, comparator);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.common.collect.ImmutableSetMultimap$a */
@@ -180,19 +180,19 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         int readInt = objectInputStream.readInt();
         if (readInt >= 0) {
             ImmutableMap.b builder = ImmutableMap.builder();
-            int i = 0;
-            for (int i2 = 0; i2 < readInt; i2++) {
+            int i2 = 0;
+            for (int i3 = 0; i3 < readInt; i3++) {
                 Object readObject = objectInputStream.readObject();
                 int readInt2 = objectInputStream.readInt();
                 if (readInt2 > 0) {
                     ImmutableSet.a valuesBuilder = valuesBuilder(comparator);
-                    for (int i3 = 0; i3 < readInt2; i3++) {
+                    for (int i4 = 0; i4 < readInt2; i4++) {
                         valuesBuilder.a(objectInputStream.readObject());
                     }
                     ImmutableSet l = valuesBuilder.l();
                     if (l.size() == readInt2) {
                         builder.c(readObject, l);
-                        i += readInt2;
+                        i2 += readInt2;
                     } else {
                         throw new InvalidObjectException("Duplicate key-value pairs exist for key " + readObject);
                     }
@@ -201,9 +201,9 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
                 }
             }
             try {
-                ImmutableMultimap.d.f30909a.b(this, builder.a());
-                ImmutableMultimap.d.f30910b.a(this, i);
-                b.f30927a.b(this, emptySet(comparator));
+                ImmutableMultimap.d.f31868a.b(this, builder.a());
+                ImmutableMultimap.d.f31869b.a(this, i2);
+                b.f31888a.b(this, emptySet(comparator));
                 return;
             } catch (IllegalArgumentException e2) {
                 throw ((InvalidObjectException) new InvalidObjectException(e2.getMessage()).initCause(e2));
@@ -231,14 +231,14 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, d.h.c.c.h0, d.h.c.c.g0
+    @Override // com.google.common.collect.ImmutableMultimap, d.g.c.c.h0, d.g.c.c.g0
     public /* bridge */ /* synthetic */ ImmutableCollection get(Object obj) {
         return get((ImmutableSetMultimap<K, V>) obj);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, d.h.c.c.c, d.h.c.c.h0, d.h.c.c.g0
+    @Override // com.google.common.collect.ImmutableMultimap, d.g.c.c.c, d.g.c.c.h0, d.g.c.c.g0
     @Deprecated
     public /* bridge */ /* synthetic */ ImmutableCollection replaceValues(Object obj, Iterable iterable) {
         return replaceValues((ImmutableSetMultimap<K, V>) obj, iterable);
@@ -274,7 +274,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, d.h.c.c.h0, d.h.c.c.g0
+    @Override // com.google.common.collect.ImmutableMultimap, d.g.c.c.h0, d.g.c.c.g0
     public /* bridge */ /* synthetic */ Collection get(Object obj) {
         return get((ImmutableSetMultimap<K, V>) obj);
     }
@@ -293,7 +293,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, d.h.c.c.c, d.h.c.c.h0, d.h.c.c.g0
+    @Override // com.google.common.collect.ImmutableMultimap, d.g.c.c.c, d.g.c.c.h0, d.g.c.c.g0
     @Deprecated
     public /* bridge */ /* synthetic */ Collection replaceValues(Object obj, Iterable iterable) {
         return replaceValues((ImmutableSetMultimap<K, V>) obj, iterable);
@@ -301,21 +301,21 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, d.h.c.c.h0, d.h.c.c.g0
+    @Override // com.google.common.collect.ImmutableMultimap, d.g.c.c.h0, d.g.c.c.g0
     public /* bridge */ /* synthetic */ Set get(Object obj) {
         return get((ImmutableSetMultimap<K, V>) obj);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, d.h.c.c.c, d.h.c.c.h0, d.h.c.c.g0
+    @Override // com.google.common.collect.ImmutableMultimap, d.g.c.c.c, d.g.c.c.h0, d.g.c.c.g0
     @Deprecated
     public /* bridge */ /* synthetic */ Set replaceValues(Object obj, Iterable iterable) {
         return replaceValues((ImmutableSetMultimap<K, V>) obj, iterable);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableMultimap, d.h.c.c.c, d.h.c.c.h0
+    @Override // com.google.common.collect.ImmutableMultimap, d.g.c.c.c, d.g.c.c.h0
     public ImmutableSet<Map.Entry<K, V>> entries() {
         ImmutableSet<Map.Entry<K, V>> immutableSet = this.entries;
         if (immutableSet == null) {
@@ -326,19 +326,19 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         return immutableSet;
     }
 
-    @Override // com.google.common.collect.ImmutableMultimap, d.h.c.c.h0, d.h.c.c.g0
+    @Override // com.google.common.collect.ImmutableMultimap, d.g.c.c.h0, d.g.c.c.g0
     public ImmutableSet<V> get(K k) {
         return (ImmutableSet) j.a((ImmutableSet) this.map.get(k), this.emptySet);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableMultimap, d.h.c.c.h0, d.h.c.c.g0
+    @Override // com.google.common.collect.ImmutableMultimap, d.g.c.c.h0, d.g.c.c.g0
     @Deprecated
     public ImmutableSet<V> removeAll(Object obj) {
         throw new UnsupportedOperationException();
     }
 
-    @Override // com.google.common.collect.ImmutableMultimap, d.h.c.c.c, d.h.c.c.h0, d.h.c.c.g0
+    @Override // com.google.common.collect.ImmutableMultimap, d.g.c.c.c, d.g.c.c.h0, d.g.c.c.g0
     @Deprecated
     public ImmutableSet<V> replaceValues(K k, Iterable<? extends V> iterable) {
         throw new UnsupportedOperationException();

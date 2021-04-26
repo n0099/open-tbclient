@@ -6,24 +6,24 @@ import java.util.Iterator;
 public class cu extends co {
 
     /* renamed from: a  reason: collision with root package name */
-    public co f40724a;
+    public co f38241a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ cs f205a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ co f40725b;
+    public final /* synthetic */ co f38242b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cu(cs csVar, String str, co coVar) {
         super(str);
         this.f205a = csVar;
-        this.f40725b = coVar;
-        co coVar2 = this.f40725b;
-        this.f40724a = coVar2;
+        this.f38242b = coVar;
+        co coVar2 = this.f38242b;
+        this.f38241a = coVar2;
         ((co) this).f191b = ((co) this).f191b;
         if (coVar2 != null) {
-            this.f40714f = coVar2.f40714f;
+            this.f38230f = coVar2.f38230f;
         }
     }
 
@@ -31,11 +31,11 @@ public class cu extends co {
     public synchronized ArrayList<String> a(boolean z) {
         ArrayList<String> arrayList;
         arrayList = new ArrayList<>();
-        if (this.f40724a != null) {
-            arrayList.addAll(this.f40724a.a(true));
+        if (this.f38241a != null) {
+            arrayList.addAll(this.f38241a.a(true));
         }
-        synchronized (cs.f40720b) {
-            co coVar = cs.f40720b.get(((co) this).f191b);
+        synchronized (cs.f38237b) {
+            co coVar = cs.f38237b.get(((co) this).f191b);
             if (coVar != null) {
                 Iterator<String> it = coVar.a(true).iterator();
                 while (it.hasNext()) {
@@ -53,8 +53,8 @@ public class cu extends co {
 
     @Override // com.xiaomi.push.co
     public synchronized void a(String str, cn cnVar) {
-        if (this.f40724a != null) {
-            this.f40724a.a(str, cnVar);
+        if (this.f38241a != null) {
+            this.f38241a.a(str, cnVar);
         }
     }
 

@@ -6,14 +6,14 @@ import com.baidu.platform.comapi.bikenavi.widget.CustomScrollView;
 public class d implements CustomScrollView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f9432a;
+    public final /* synthetic */ a f9786a;
 
     public d(a aVar) {
-        this.f9432a = aVar;
+        this.f9786a = aVar;
     }
 
     @Override // com.baidu.platform.comapi.bikenavi.widget.CustomScrollView.b
-    public void a(int i) {
+    public void a(int i2) {
     }
 
     @Override // com.baidu.platform.comapi.bikenavi.widget.CustomScrollView.b
@@ -25,20 +25,20 @@ public class d implements CustomScrollView.b {
         if (bVar == bVar2) {
             return;
         }
-        int i = e.f9433a[bVar2.ordinal()];
-        if (i == 1) {
-            imageView = this.f9432a.t;
+        int i2 = e.f9787a[bVar2.ordinal()];
+        if (i2 == 1) {
+            imageView = this.f9786a.t;
             imageView.setVisibility(8);
-            imageView2 = this.f9432a.u;
+            imageView2 = this.f9786a.u;
             imageView2.setVisibility(0);
-            this.f9432a.b(true);
-        } else if (i != 2) {
+            this.f9786a.b(true);
+        } else if (i2 != 2) {
         } else {
-            imageView3 = this.f9432a.t;
+            imageView3 = this.f9786a.t;
             imageView3.setVisibility(0);
-            imageView4 = this.f9432a.u;
+            imageView4 = this.f9786a.u;
             imageView4.setVisibility(8);
-            this.f9432a.b(false);
+            this.f9786a.b(false);
         }
     }
 }

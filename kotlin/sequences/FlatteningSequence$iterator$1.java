@@ -68,9 +68,7 @@ public final class FlatteningSequence$iterator$1 implements Iterator<E>, KMapped
     public E next() {
         if (ensureItemIterator()) {
             Iterator<? extends E> it = this.itemIterator;
-            if (it == 0) {
-                Intrinsics.throwNpe();
-            }
+            Intrinsics.checkNotNull(it);
             return it.next();
         }
         throw new NoSuchElementException();

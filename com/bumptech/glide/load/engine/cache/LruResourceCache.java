@@ -34,10 +34,10 @@ public class LruResourceCache extends LruCache<Key, Resource<?>> implements Memo
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
     @SuppressLint({"InlinedApi"})
-    public void trimMemory(int i) {
-        if (i >= 40) {
+    public void trimMemory(int i2) {
+        if (i2 >= 40) {
             clearMemory();
-        } else if (i >= 20 || i == 15) {
+        } else if (i2 >= 20 || i2 == 15) {
             trimToSize(getMaxSize() / 2);
         }
     }

@@ -5,11 +5,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import d.b.j0.o0.a.e;
-import d.b.j0.o0.a.f;
-import d.b.j0.o0.a.g;
-import d.b.j0.o0.a.i;
-import d.b.j0.o0.c.l;
+import d.a.j0.o0.a.e;
+import d.a.j0.o0.a.f;
+import d.a.j0.o0.a.g;
+import d.a.j0.o0.a.i;
+import d.a.j0.o0.c.l;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
@@ -24,8 +24,8 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         public a() {
         }
 
-        @Override // d.b.j0.o0.a.e.c
-        public void a(ArrayList<i> arrayList, l lVar, boolean z, int i, String str) {
+        @Override // d.a.j0.o0.a.e.c
+        public void a(ArrayList<i> arrayList, l lVar, boolean z, int i2, String str) {
             if (!z) {
                 if (arrayList != null && arrayList.size() > 0) {
                     BawuTeamInfoActivity bawuTeamInfoActivity = BawuTeamInfoActivity.this;
@@ -37,7 +37,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
             }
             BawuTeamInfoActivity bawuTeamInfoActivity2 = BawuTeamInfoActivity.this;
             bawuTeamInfoActivity2.hideLoadingView(bawuTeamInfoActivity2.mView.d());
-            if (i == 0) {
+            if (i2 == 0) {
                 BawuTeamInfoActivity.this.mView.k(arrayList, lVar, true);
                 return;
             }
@@ -83,9 +83,9 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mView.f(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mView.f(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -118,8 +118,8 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     }
 
     public void registerTask() {
-        d.b.j0.d3.d0.a.h(301007, BawuTeamSocketResponseMessage.class, false, false);
-        d.b.j0.d3.d0.a.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
-        d.b.j0.d3.d0.a.b(2003005, f.class);
+        d.a.j0.d3.d0.a.h(301007, BawuTeamSocketResponseMessage.class, false, false);
+        d.a.j0.d3.d0.a.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
+        d.a.j0.d3.d0.a.b(2003005, f.class);
     }
 }

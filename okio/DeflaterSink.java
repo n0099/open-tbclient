@@ -22,13 +22,13 @@ public final class DeflaterSink implements Sink {
             if (z) {
                 Deflater deflater = this.deflater;
                 byte[] bArr = writableSegment.data;
-                int i = writableSegment.limit;
-                deflate = deflater.deflate(bArr, i, 8192 - i, 2);
+                int i2 = writableSegment.limit;
+                deflate = deflater.deflate(bArr, i2, 8192 - i2, 2);
             } else {
                 Deflater deflater2 = this.deflater;
                 byte[] bArr2 = writableSegment.data;
-                int i2 = writableSegment.limit;
-                deflate = deflater2.deflate(bArr2, i2, 8192 - i2);
+                int i3 = writableSegment.limit;
+                deflate = deflater2.deflate(bArr2, i3, 8192 - i3);
             }
             if (deflate > 0) {
                 writableSegment.limit += deflate;
@@ -105,9 +105,9 @@ public final class DeflaterSink implements Sink {
             deflate(false);
             long j2 = min;
             buffer.size -= j2;
-            int i = segment.pos + min;
-            segment.pos = i;
-            if (i == segment.limit) {
+            int i2 = segment.pos + min;
+            segment.pos = i2;
+            if (i2 == segment.limit) {
                 buffer.head = segment.pop();
                 SegmentPool.recycle(segment);
             }

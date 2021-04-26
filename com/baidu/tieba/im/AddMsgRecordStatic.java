@@ -14,13 +14,13 @@ import com.baidu.tieba.im.model.AddMsgRecordSocketResponse;
 public class AddMsgRecordStatic {
 
     /* loaded from: classes4.dex */
-    public static class a extends d.b.c.c.g.a {
-        public a(int i, int i2) {
-            super(i, i2);
+    public static class a extends d.a.c.c.g.a {
+        public a(int i2, int i3) {
+            super(i2, i3);
         }
 
         /* JADX WARN: Removed duplicated region for block: B:17:0x0029  */
-        @Override // d.b.c.c.g.a
+        @Override // d.a.c.c.g.a
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -61,8 +61,8 @@ public class AddMsgRecordStatic {
     }
 
     static {
-        d.b.j0.d3.d0.a.f(309265, AddMsgRecordSocketResponse.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, d.b.j0.d3.d0.a.a(TbConfig.ADD_MSG_RECORD, 309265));
+        d.a.j0.d3.d0.a.f(309265, AddMsgRecordSocketResponse.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, d.a.j0.d3.d0.a.a(TbConfig.ADD_MSG_RECORD, 309265));
         tbHttpMessageTask.setResponsedClass(AddMsgRecordHttpProtoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         MessageManager.getInstance().registerListener(new a(CmdConfigHttp.CMD_ADD_MSG_RECORD, 309265));

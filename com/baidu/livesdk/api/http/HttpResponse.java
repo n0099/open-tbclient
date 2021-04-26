@@ -28,7 +28,7 @@ public class HttpResponse {
         this.headers = map;
     }
 
-    public void setResponseCode(int i) {
-        this.responseCode = i;
+    public void setResponseCode(int i2) {
+        this.responseCode = i2;
     }
 }

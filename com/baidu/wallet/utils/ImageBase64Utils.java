@@ -32,12 +32,12 @@ public class ImageBase64Utils {
         public boolean mPrecise;
         public int mQuality;
 
-        public ImageBase64AsyncTask(ImageBase64Listener imageBase64Listener, String str, int i, int i2) {
+        public ImageBase64AsyncTask(ImageBase64Listener imageBase64Listener, String str, int i2, int i3) {
             this.mPrecise = false;
             this.mListener = imageBase64Listener;
             this.mImagePath = str;
-            this.mFixedWidth = i;
-            this.mQuality = i2;
+            this.mFixedWidth = i2;
+            this.mQuality = i3;
             this.mParcelFileDescriptor = initFileDescriptorFromPath();
         }
 
@@ -45,7 +45,7 @@ public class ImageBase64Utils {
             Context context = this.mContext;
             if (context != null && this.mImageUri != null) {
                 try {
-                    return context.getContentResolver().openFileDescriptor(this.mImageUri, r.f7699a);
+                    return context.getContentResolver().openFileDescriptor(this.mImageUri, r.f7975a);
                 } catch (FileNotFoundException e2) {
                     e2.printStackTrace();
                 }
@@ -67,8 +67,8 @@ public class ImageBase64Utils {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
         public String doInBackground(String... strArr) {
-            int i = this.mFixedWidth;
-            return i <= 0 ? ImageBase64Utils.getOriginImageBase64(this.mParcelFileDescriptor, this.mQuality) : ImageBase64Utils.getImageBase64(this.mParcelFileDescriptor, i, this.mQuality);
+            int i2 = this.mFixedWidth;
+            return i2 <= 0 ? ImageBase64Utils.getOriginImageBase64(this.mParcelFileDescriptor, this.mQuality) : ImageBase64Utils.getImageBase64(this.mParcelFileDescriptor, i2, this.mQuality);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,12 +81,12 @@ public class ImageBase64Utils {
             }
         }
 
-        public ImageBase64AsyncTask(ImageBase64Listener imageBase64Listener, Context context, Uri uri, int i, int i2) {
+        public ImageBase64AsyncTask(ImageBase64Listener imageBase64Listener, Context context, Uri uri, int i2, int i3) {
             this.mPrecise = false;
             this.mListener = imageBase64Listener;
             this.mImageUri = uri;
-            this.mFixedWidth = i;
-            this.mQuality = i2;
+            this.mFixedWidth = i2;
+            this.mQuality = i3;
             this.mContext = context;
             this.mParcelFileDescriptor = initFileDescriptonFromUri();
         }
@@ -106,7 +106,7 @@ public class ImageBase64Utils {
         return SingletonHolder.sInstance;
     }
 
-    public static String getOriginImageBase64(ParcelFileDescriptor parcelFileDescriptor, int i) {
+    public static String getOriginImageBase64(ParcelFileDescriptor parcelFileDescriptor, int i2) {
         if (parcelFileDescriptor != null) {
             try {
                 BitmapFactory.Options options = new BitmapFactory.Options();
@@ -114,7 +114,7 @@ public class ImageBase64Utils {
                 Bitmap decodeFileDescriptor = BitmapFactory.decodeFileDescriptor(parcelFileDescriptor.getFileDescriptor(), null, options);
                 if (decodeFileDescriptor != null) {
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    decodeFileDescriptor.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
+                    decodeFileDescriptor.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
                     LogUtil.d("ImageBase64Utils", "compress size:\t" + byteArray.length + "\t\twidth" + decodeFileDescriptor.getWidth());
                     decodeFileDescriptor.recycle();
@@ -139,37 +139,37 @@ public class ImageBase64Utils {
         return "";
     }
 
-    public void getImageBase64(String str, int i, ImageBase64Listener imageBase64Listener) {
-        new ImageBase64AsyncTask(imageBase64Listener, str, i, JPEG_QUALITY).execute("");
+    public void getImageBase64(String str, int i2, ImageBase64Listener imageBase64Listener) {
+        new ImageBase64AsyncTask(imageBase64Listener, str, i2, JPEG_QUALITY).execute("");
     }
 
     public ImageBase64Utils() {
     }
 
-    public void getImageBase64(Context context, Uri uri, int i, ImageBase64Listener imageBase64Listener) {
-        new ImageBase64AsyncTask(imageBase64Listener, context, uri, i, JPEG_QUALITY).execute("");
+    public void getImageBase64(Context context, Uri uri, int i2, ImageBase64Listener imageBase64Listener) {
+        new ImageBase64AsyncTask(imageBase64Listener, context, uri, i2, JPEG_QUALITY).execute("");
     }
 
-    public void getImageBase64(String str, int i, int i2, ImageBase64Listener imageBase64Listener) {
-        new ImageBase64AsyncTask(imageBase64Listener, str, i, i2).execute("");
+    public void getImageBase64(String str, int i2, int i3, ImageBase64Listener imageBase64Listener) {
+        new ImageBase64AsyncTask(imageBase64Listener, str, i2, i3).execute("");
     }
 
-    public void getImageBase64(Context context, Uri uri, int i, int i2, ImageBase64Listener imageBase64Listener) {
-        new ImageBase64AsyncTask(imageBase64Listener, context, uri, i, i2).execute("");
+    public void getImageBase64(Context context, Uri uri, int i2, int i3, ImageBase64Listener imageBase64Listener) {
+        new ImageBase64AsyncTask(imageBase64Listener, context, uri, i2, i3).execute("");
     }
 
-    public static String getImageBase64(ParcelFileDescriptor parcelFileDescriptor, int i, int i2) {
+    public static String getImageBase64(ParcelFileDescriptor parcelFileDescriptor, int i2, int i3) {
         if (parcelFileDescriptor != null) {
             try {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                int a2 = ImageProcessor.a(options, i, -1);
+                int a2 = ImageProcessor.a(options, i2, -1);
                 options.inSampleSize = a2;
                 options.inJustDecodeBounds = false;
                 Bitmap decodeFileDescriptor = BitmapFactory.decodeFileDescriptor(parcelFileDescriptor.getFileDescriptor(), null, options);
                 if (decodeFileDescriptor != null) {
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    decodeFileDescriptor.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
+                    decodeFileDescriptor.compress(Bitmap.CompressFormat.JPEG, i3, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
                     LogUtil.d("ImageBase64Utils", "compress size:\t" + byteArray.length + "\tsampleSize" + a2 + "\twidth" + decodeFileDescriptor.getWidth());
                     decodeFileDescriptor.recycle();

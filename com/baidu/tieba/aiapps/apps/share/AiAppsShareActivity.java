@@ -18,8 +18,8 @@ public class AiAppsShareActivity extends Activity {
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -31,9 +31,9 @@ public class AiAppsShareActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921366, Boolean.valueOf(i2 == -1)));
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921366, Boolean.valueOf(i3 == -1)));
         finish();
     }
 
@@ -50,9 +50,9 @@ public class AiAppsShareActivity extends Activity {
             finish();
             return;
         }
-        d.b.j0.s.b.m.a aVar = new d.b.j0.s.b.m.a();
+        d.a.j0.s.b.m.a aVar = new d.a.j0.s.b.m.a();
         try {
-            aVar.n(new JSONObject(stringExtra));
+            aVar.p(new JSONObject(stringExtra));
             MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this, aVar, false)));
             MessageManager.getInstance().registerListener(this.listener);
         } catch (JSONException unused) {

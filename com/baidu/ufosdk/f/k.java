@@ -2,7 +2,6 @@ package com.baidu.ufosdk.f;
 
 import android.annotation.SuppressLint;
 import android.util.Base64;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.security.Key;
 import java.security.MessageDigest;
@@ -17,7 +16,7 @@ public final class k {
     public static String a() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(a(ExifInterface.LONGITUDE_WEST, false));
+        stringBuffer.append(a("W", false));
         stringBuffer.append(a(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, true));
         stringBuffer.append(random.nextInt(1) + 1);
         stringBuffer.append(a("Y", true));
@@ -61,8 +60,8 @@ public final class k {
 
     public static String b() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 1; i < 9; i++) {
-            sb.append(String.valueOf(i));
+        for (int i2 = 1; i2 < 9; i2++) {
+            sb.append(String.valueOf(i2));
         }
         sb.append((CharSequence) sb);
         return sb.toString();

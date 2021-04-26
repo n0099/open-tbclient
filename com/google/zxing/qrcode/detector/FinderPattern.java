@@ -19,11 +19,11 @@ public final class FinderPattern extends ResultPoint {
     }
 
     public FinderPattern combineEstimate(float f2, float f3, float f4) {
-        int i = this.count;
-        int i2 = i + 1;
-        float x = (i * getX()) + f3;
-        float f5 = i2;
-        return new FinderPattern(x / f5, ((this.count * getY()) + f2) / f5, ((this.count * this.estimatedModuleSize) + f4) / f5, i2);
+        int i2 = this.count;
+        int i3 = i2 + 1;
+        float x = (i2 * getX()) + f3;
+        float f5 = i3;
+        return new FinderPattern(x / f5, ((this.count * getY()) + f2) / f5, ((this.count * this.estimatedModuleSize) + f4) / f5, i3);
     }
 
     public int getCount() {
@@ -34,9 +34,9 @@ public final class FinderPattern extends ResultPoint {
         return this.estimatedModuleSize;
     }
 
-    public FinderPattern(float f2, float f3, float f4, int i) {
+    public FinderPattern(float f2, float f3, float f4, int i2) {
         super(f2, f3);
         this.estimatedModuleSize = f4;
-        this.count = i;
+        this.count = i2;
     }
 }

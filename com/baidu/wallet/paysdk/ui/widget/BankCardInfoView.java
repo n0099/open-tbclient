@@ -28,35 +28,37 @@ import java.util.HashMap;
 public class BankCardInfoView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f26038a;
+    public TextView f26832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DivisionEditText f26039b;
+    public DivisionEditText f26833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f26040c;
+    public boolean f26834c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f26041d;
+    public TextView f26835d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f26042e;
+    public View f26836e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f26043f;
+    public ImageView f26837f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f26044g;
+    public View f26838g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f26045h;
-    public boolean i;
+    public String f26839h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f26840i;
 
     public BankCardInfoView(Context context) {
         super(context);
-        this.f26040c = true;
-        this.f26045h = null;
-        this.i = false;
+        this.f26834c = true;
+        this.f26839h = null;
+        this.f26840i = false;
         a();
     }
 
@@ -66,62 +68,62 @@ public class BankCardInfoView extends LinearLayout {
     }
 
     public void configDetectCardNum(boolean z) {
-        this.f26040c = z;
-        this.f26043f.setImageResource(ResUtils.drawable(getContext(), z ? "wallet_base_camera_scan_btn_selector" : "wallet_base_delete"));
+        this.f26834c = z;
+        this.f26837f.setImageResource(ResUtils.drawable(getContext(), z ? "wallet_base_camera_scan_btn_selector" : "wallet_base_delete"));
     }
 
     public DivisionEditText getCardNoView() {
-        return this.f26039b;
+        return this.f26833b;
     }
 
     public View getClearView() {
-        return this.f26043f;
+        return this.f26837f;
     }
 
     public String getScanCardNum() {
-        return this.f26045h;
+        return this.f26839h;
     }
 
     public View getTrueNameView() {
-        return this.f26042e;
+        return this.f26836e;
     }
 
     public void resetScanCardNum() {
-        this.f26045h = null;
+        this.f26839h = null;
     }
 
     public void setBindcardTip(CharSequence charSequence) {
-        if (this.f26038a != null) {
+        if (this.f26832a != null) {
             if (TextUtils.isEmpty(charSequence)) {
-                this.f26038a.setVisibility(8);
+                this.f26832a.setVisibility(8);
                 return;
             }
-            this.f26038a.setVisibility(0);
-            this.f26038a.setText(charSequence);
+            this.f26832a.setVisibility(0);
+            this.f26832a.setText(charSequence);
         }
     }
 
     public void setTipClick(View.OnClickListener onClickListener) {
-        this.f26044g.setOnClickListener(onClickListener);
+        this.f26838g.setOnClickListener(onClickListener);
     }
 
     public void setTipDel() {
-        this.i = true;
-        this.f26043f.setImageResource(ResUtils.drawable(getContext(), "wallet_base_delete"));
-        AccessibilityUtils.setContentDescription(this.f26043f, "清除");
+        this.f26840i = true;
+        this.f26837f.setImageResource(ResUtils.drawable(getContext(), "wallet_base_delete"));
+        AccessibilityUtils.setContentDescription(this.f26837f, "清除");
     }
 
     public void setTipScan() {
-        this.i = false;
-        this.f26043f.setVisibility(0);
-        if (this.f26040c) {
-            this.f26043f.setImageResource(ResUtils.drawable(getContext(), "wallet_base_camera_scan_btn_selector"));
-        } else if (!TextUtils.isEmpty(this.f26039b.getRealText())) {
-            this.f26043f.setImageResource(ResUtils.drawable(getContext(), "wallet_base_delete"));
+        this.f26840i = false;
+        this.f26837f.setVisibility(0);
+        if (this.f26834c) {
+            this.f26837f.setImageResource(ResUtils.drawable(getContext(), "wallet_base_camera_scan_btn_selector"));
+        } else if (!TextUtils.isEmpty(this.f26833b.getRealText())) {
+            this.f26837f.setImageResource(ResUtils.drawable(getContext(), "wallet_base_delete"));
         } else {
-            this.f26043f.setVisibility(4);
+            this.f26837f.setVisibility(4);
         }
-        AccessibilityUtils.setContentDescription(this.f26043f, "扫描银行卡");
+        AccessibilityUtils.setContentDescription(this.f26837f, "扫描银行卡");
     }
 
     public void setTrueName(String str) {
@@ -129,7 +131,7 @@ public class BankCardInfoView extends LinearLayout {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f26041d.setText(str);
+        this.f26835d.setText(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -144,51 +146,51 @@ public class BankCardInfoView extends LinearLayout {
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_cashdesk_bind_cardinfo_view"), this);
-        this.f26038a = (TextView) findViewById(ResUtils.id(getContext(), "wallet_bindcard_tip"));
+        this.f26832a = (TextView) findViewById(ResUtils.id(getContext(), "wallet_bindcard_tip"));
         ImageView imageView = (ImageView) findViewById(ResUtils.id(getContext(), "card_clear"));
-        this.f26043f = imageView;
+        this.f26837f = imageView;
         AccessibilityUtils.setContentDescription(imageView, "扫描银行卡");
-        this.f26042e = findViewById(ResUtils.id(getContext(), "card_true_name_area"));
-        this.f26041d = (TextView) findViewById(ResUtils.id(getContext(), "card_true_name"));
-        this.f26044g = findViewById(ResUtils.id(getContext(), "card_name_tip_img"));
+        this.f26836e = findViewById(ResUtils.id(getContext(), "card_true_name_area"));
+        this.f26835d = (TextView) findViewById(ResUtils.id(getContext(), "card_true_name"));
+        this.f26838g = findViewById(ResUtils.id(getContext(), "card_name_tip_img"));
         View findViewById = findViewById(ResUtils.id(getContext(), "card_area"));
         DivisionEditText divisionEditText = (DivisionEditText) findViewById.findViewById(ResUtils.id(getContext(), "ebpay_card_no_id"));
-        this.f26039b = divisionEditText;
+        this.f26833b = divisionEditText;
         divisionEditText.setUseSafeKeyBoard(true);
-        this.f26039b.setViewType(25);
-        this.f26039b.setTag(findViewById.findViewWithTag(ResUtils.getString(getContext(), "wallet_base_string_bindcard_item_line_tag")));
-        this.f26045h = null;
-        ImageView imageView2 = this.f26043f;
+        this.f26833b.setViewType(25);
+        this.f26833b.setTag(findViewById.findViewWithTag(ResUtils.getString(getContext(), "wallet_base_string_bindcard_item_line_tag")));
+        this.f26839h = null;
+        ImageView imageView2 = this.f26837f;
         if (imageView2 != null) {
             imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.widget.BankCardInfoView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (BankCardInfoView.this.i) {
-                        BankCardInfoView.this.f26039b.setText("");
-                    } else if (LocalRouter.getInstance(BankCardInfoView.this.getContext()).isProviderExisted("bankdetection") && BankCardInfoView.this.f26040c && !BankCardInfoView.this.b()) {
+                    if (BankCardInfoView.this.f26840i) {
+                        BankCardInfoView.this.f26833b.setText("");
+                    } else if (LocalRouter.getInstance(BankCardInfoView.this.getContext()).isProviderExisted("bankdetection") && BankCardInfoView.this.f26834c && !BankCardInfoView.this.b()) {
                         LocalRouter.getInstance(BankCardInfoView.this.getContext()).route(BankCardInfoView.this.getContext(), new RouterRequest().provider("bankdetection").action("bankcarddetction"), new RouterCallback() { // from class: com.baidu.wallet.paysdk.ui.widget.BankCardInfoView.1.1
                             @Override // com.baidu.wallet.router.RouterCallback
-                            public void onResult(int i, HashMap hashMap) {
-                                if (i != 0) {
-                                    if (i == 5) {
+                            public void onResult(int i2, HashMap hashMap) {
+                                if (i2 != 0) {
+                                    if (i2 == 5) {
                                         HashMap hashMap2 = new HashMap();
                                         hashMap2.put("provider", "bankdetection");
                                         hashMap2.put("action", "bankcarddetction");
-                                        StatisticManager.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap2.values());
+                                        StatisticManager.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
                                     }
                                 } else if (hashMap == null || TextUtils.isEmpty((String) hashMap.get("card_num"))) {
                                 } else {
-                                    BankCardInfoView.this.f26045h = (String) hashMap.get("card_num");
-                                    if (BankCardInfoView.this.f26045h.equals(BankCardInfoView.this.f26039b.getRealText())) {
+                                    BankCardInfoView.this.f26839h = (String) hashMap.get("card_num");
+                                    if (BankCardInfoView.this.f26839h.equals(BankCardInfoView.this.f26833b.getRealText())) {
                                         return;
                                     }
                                     if (BankCardInfoView.this.getContext() instanceof BindCardImplActivity) {
                                         ((BindCardImplActivity) BankCardInfoView.this.getContext()).resetCardInfoState();
                                     }
-                                    BankCardInfoView.this.f26039b.setText(BankCardInfoView.this.f26045h);
+                                    BankCardInfoView.this.f26833b.setText(BankCardInfoView.this.f26839h);
                                     try {
-                                        BankCardInfoView.this.f26039b.setSelection(BankCardInfoView.this.f26039b.getText().toString().length());
-                                        BankCardInfoView.this.f26039b.requestFocus();
+                                        BankCardInfoView.this.f26833b.setSelection(BankCardInfoView.this.f26833b.getText().toString().length());
+                                        BankCardInfoView.this.f26833b.requestFocus();
                                     } catch (Exception unused) {
                                     }
                                 }
@@ -202,21 +204,21 @@ public class BankCardInfoView extends LinearLayout {
 
     public BankCardInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f26040c = true;
-        this.f26045h = null;
-        this.i = false;
+        this.f26834c = true;
+        this.f26839h = null;
+        this.f26840i = false;
         a();
     }
 
-    public BankCardInfoView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f26040c = true;
-        this.f26045h = null;
-        this.i = false;
+    public BankCardInfoView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f26834c = true;
+        this.f26839h = null;
+        this.f26840i = false;
         a();
     }
 
     private void a(boolean z) {
-        this.f26042e.setVisibility(!z ? 8 : 0);
+        this.f26836e.setVisibility(!z ? 8 : 0);
     }
 }

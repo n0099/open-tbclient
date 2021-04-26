@@ -13,7 +13,7 @@ public class GetLevelInfoReadCacheResponsedMessage extends CustomResponsedMessag
         super(2003007);
     }
 
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         DataRes dataRes;
         GetLevelInfoResIdl getLevelInfoResIdl = (GetLevelInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetLevelInfoResIdl.class);
         Error error = getLevelInfoResIdl.error;

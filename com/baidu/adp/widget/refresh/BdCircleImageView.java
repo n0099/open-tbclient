@@ -16,30 +16,30 @@ import androidx.swiperefreshlayout.widget.CircleImageView;
 public class BdCircleImageView extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Animation.AnimationListener f2474e;
+    public Animation.AnimationListener f2465e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f2475f;
+    public int f2466f;
 
     /* loaded from: classes.dex */
     public class a extends OvalShape {
 
         /* renamed from: e  reason: collision with root package name */
-        public RadialGradient f2476e;
+        public RadialGradient f2467e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Paint f2477f = new Paint();
+        public Paint f2468f = new Paint();
 
-        public a(int i) {
-            BdCircleImageView.this.f2475f = i;
+        public a(int i2) {
+            BdCircleImageView.this.f2466f = i2;
             a((int) rect().width());
         }
 
-        public final void a(int i) {
-            float f2 = i / 2;
-            RadialGradient radialGradient = new RadialGradient(f2, f2, BdCircleImageView.this.f2475f, new int[]{CircleImageView.FILL_SHADOW_COLOR, 0}, (float[]) null, Shader.TileMode.CLAMP);
-            this.f2476e = radialGradient;
-            this.f2477f.setShader(radialGradient);
+        public final void a(int i2) {
+            float f2 = i2 / 2;
+            RadialGradient radialGradient = new RadialGradient(f2, f2, BdCircleImageView.this.f2466f, new int[]{CircleImageView.FILL_SHADOW_COLOR, 0}, (float[]) null, Shader.TileMode.CLAMP);
+            this.f2467e = radialGradient;
+            this.f2468f.setShader(radialGradient);
         }
 
         @Override // android.graphics.drawable.shapes.OvalShape, android.graphics.drawable.shapes.RectShape, android.graphics.drawable.shapes.Shape
@@ -47,8 +47,8 @@ public class BdCircleImageView extends ImageView {
             int width;
             float width2 = BdCircleImageView.this.getWidth() / 2;
             float height = BdCircleImageView.this.getHeight() / 2;
-            canvas.drawCircle(width2, height, width2, this.f2477f);
-            canvas.drawCircle(width2, height, width - BdCircleImageView.this.f2475f, paint);
+            canvas.drawCircle(width2, height, width2, this.f2468f);
+            canvas.drawCircle(width2, height, width - BdCircleImageView.this.f2466f, paint);
         }
 
         @Override // android.graphics.drawable.shapes.RectShape, android.graphics.drawable.shapes.Shape
@@ -58,25 +58,25 @@ public class BdCircleImageView extends ImageView {
         }
     }
 
-    public BdCircleImageView(Context context, int i) {
+    public BdCircleImageView(Context context, int i2) {
         super(context);
         ShapeDrawable shapeDrawable;
         float f2 = getContext().getResources().getDisplayMetrics().density;
-        int i2 = (int) (1.75f * f2);
-        int i3 = (int) (0.0f * f2);
-        this.f2475f = (int) (3.5f * f2);
+        int i3 = (int) (1.75f * f2);
+        int i4 = (int) (0.0f * f2);
+        this.f2466f = (int) (3.5f * f2);
         if (a()) {
             shapeDrawable = new ShapeDrawable(new OvalShape());
             ViewCompat.setElevation(this, f2 * 4.0f);
         } else {
-            ShapeDrawable shapeDrawable2 = new ShapeDrawable(new a(this.f2475f));
+            ShapeDrawable shapeDrawable2 = new ShapeDrawable(new a(this.f2466f));
             ViewCompat.setLayerType(this, 1, shapeDrawable2.getPaint());
-            shapeDrawable2.getPaint().setShadowLayer(this.f2475f, i3, i2, CircleImageView.KEY_SHADOW_COLOR);
-            int i4 = this.f2475f;
-            setPadding(i4, i4, i4, i4);
+            shapeDrawable2.getPaint().setShadowLayer(this.f2466f, i4, i3, CircleImageView.KEY_SHADOW_COLOR);
+            int i5 = this.f2466f;
+            setPadding(i5, i5, i5, i5);
             shapeDrawable = shapeDrawable2;
         }
-        shapeDrawable.getPaint().setColor(i);
+        shapeDrawable.getPaint().setColor(i2);
         setBackgroundDrawable(shapeDrawable);
     }
 
@@ -87,7 +87,7 @@ public class BdCircleImageView extends ImageView {
     @Override // android.view.View
     public void onAnimationEnd() {
         super.onAnimationEnd();
-        Animation.AnimationListener animationListener = this.f2474e;
+        Animation.AnimationListener animationListener = this.f2465e;
         if (animationListener != null) {
             animationListener.onAnimationEnd(getAnimation());
         }
@@ -96,33 +96,33 @@ public class BdCircleImageView extends ImageView {
     @Override // android.view.View
     public void onAnimationStart() {
         super.onAnimationStart();
-        Animation.AnimationListener animationListener = this.f2474e;
+        Animation.AnimationListener animationListener = this.f2465e;
         if (animationListener != null) {
             animationListener.onAnimationStart(getAnimation());
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
         if (a()) {
             return;
         }
-        setMeasuredDimension(getMeasuredWidth() + (this.f2475f * 2), getMeasuredHeight() + (this.f2475f * 2));
+        setMeasuredDimension(getMeasuredWidth() + (this.f2466f * 2), getMeasuredHeight() + (this.f2466f * 2));
     }
 
     public void setAnimationListener(Animation.AnimationListener animationListener) {
-        this.f2474e = animationListener;
+        this.f2465e = animationListener;
     }
 
     @Override // android.view.View
-    public void setBackgroundColor(int i) {
+    public void setBackgroundColor(int i2) {
         if (getBackground() instanceof ShapeDrawable) {
-            ((ShapeDrawable) getBackground()).getPaint().setColor(i);
+            ((ShapeDrawable) getBackground()).getPaint().setColor(i2);
         }
     }
 
-    public void setBackgroundColorRes(int i) {
-        setBackgroundColor(getContext().getResources().getColor(i));
+    public void setBackgroundColorRes(int i2) {
+        setBackgroundColor(getContext().getResources().getColor(i2));
     }
 }

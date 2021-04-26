@@ -15,13 +15,13 @@ public final class EmptySequence implements Sequence, DropTakeSequence {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.sequences.DropTakeSequence
-    public EmptySequence drop(int i) {
+    public EmptySequence drop(int i2) {
         return INSTANCE;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.sequences.DropTakeSequence
-    public EmptySequence take(int i) {
+    public EmptySequence take(int i2) {
         return INSTANCE;
     }
 }

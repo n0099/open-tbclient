@@ -84,7 +84,7 @@ public final class FilteringSequence$iterator$1 implements Iterator<T>, KMappedM
         this.nextItem = t;
     }
 
-    public final void setNextState(int i) {
-        this.nextState = i;
+    public final void setNextState(int i2) {
+        this.nextState = i2;
     }
 }

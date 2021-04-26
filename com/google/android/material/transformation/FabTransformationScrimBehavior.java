@@ -15,6 +15,7 @@ import com.google.android.material.animation.MotionTiming;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
+@Deprecated
 /* loaded from: classes6.dex */
 public class FabTransformationScrimBehavior extends ExpandableTransformationBehavior {
     public static final long COLLAPSE_DELAY = 0;
@@ -29,7 +30,7 @@ public class FabTransformationScrimBehavior extends ExpandableTransformationBeha
         this.collapseTiming = new MotionTiming(0L, 150L);
     }
 
-    private void createScrimAnimation(View view, boolean z, boolean z2, List<Animator> list, List<Animator.AnimatorListener> list2) {
+    private void createScrimAnimation(@NonNull View view, boolean z, boolean z2, @NonNull List<Animator> list, List<Animator.AnimatorListener> list2) {
         ObjectAnimator ofFloat;
         MotionTiming motionTiming = z ? this.expandTiming : this.collapseTiming;
         if (z) {
@@ -51,7 +52,7 @@ public class FabTransformationScrimBehavior extends ExpandableTransformationBeha
 
     @Override // com.google.android.material.transformation.ExpandableTransformationBehavior
     @NonNull
-    public AnimatorSet onCreateExpandedStateChangeAnimation(View view, final View view2, final boolean z, boolean z2) {
+    public AnimatorSet onCreateExpandedStateChangeAnimation(@NonNull View view, @NonNull final View view2, final boolean z, boolean z2) {
         ArrayList arrayList = new ArrayList();
         createScrimAnimation(view2, z, z2, arrayList, new ArrayList());
         AnimatorSet animatorSet = new AnimatorSet();
@@ -76,7 +77,7 @@ public class FabTransformationScrimBehavior extends ExpandableTransformationBeha
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onTouchEvent(CoordinatorLayout coordinatorLayout, View view, MotionEvent motionEvent) {
+    public boolean onTouchEvent(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view, @NonNull MotionEvent motionEvent) {
         return super.onTouchEvent(coordinatorLayout, view, motionEvent);
     }
 

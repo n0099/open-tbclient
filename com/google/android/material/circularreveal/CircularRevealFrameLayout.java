@@ -7,13 +7,15 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.google.android.material.circularreveal.CircularRevealWidget;
 /* loaded from: classes6.dex */
 public class CircularRevealFrameLayout extends FrameLayout implements CircularRevealWidget {
+    @NonNull
     public final CircularRevealHelper helper;
 
-    public CircularRevealFrameLayout(Context context) {
+    public CircularRevealFrameLayout(@NonNull Context context) {
         this(context, null);
     }
 
@@ -39,7 +41,7 @@ public class CircularRevealFrameLayout extends FrameLayout implements CircularRe
 
     @Override // android.view.View, com.google.android.material.circularreveal.CircularRevealWidget
     @SuppressLint({"MissingSuperCall"})
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         CircularRevealHelper circularRevealHelper = this.helper;
         if (circularRevealHelper != null) {
             circularRevealHelper.draw(canvas);
@@ -80,8 +82,8 @@ public class CircularRevealFrameLayout extends FrameLayout implements CircularRe
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
-    public void setCircularRevealScrimColor(@ColorInt int i) {
-        this.helper.setCircularRevealScrimColor(i);
+    public void setCircularRevealScrimColor(@ColorInt int i2) {
+        this.helper.setCircularRevealScrimColor(i2);
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
@@ -89,7 +91,7 @@ public class CircularRevealFrameLayout extends FrameLayout implements CircularRe
         this.helper.setRevealInfo(revealInfo);
     }
 
-    public CircularRevealFrameLayout(Context context, AttributeSet attributeSet) {
+    public CircularRevealFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.helper = new CircularRevealHelper(this);
     }

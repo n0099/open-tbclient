@@ -18,7 +18,7 @@ public class BdLightAppActionBar extends BdActionBar {
         super(context, attributeSet);
     }
 
-    public BdLightAppActionBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BdLightAppActionBar(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

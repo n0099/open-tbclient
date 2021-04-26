@@ -18,27 +18,27 @@ public class ChatMsgFactory {
         return chatMsgFactory;
     }
 
-    public ChatMsg newChatMsg(Context context, int i, int i2, int i3) {
-        if (i != 0 && i != 1) {
-            if (i == 2 || i == 3) {
-                return newMsgInstanceByCmd(context, i3);
+    public ChatMsg newChatMsg(Context context, int i2, int i3, int i4) {
+        if (i2 != 0 && i2 != 1) {
+            if (i2 == 2 || i2 == 3) {
+                return newMsgInstanceByCmd(context, i4);
             }
-            if (i != 4 && i != 6) {
+            if (i2 != 4 && i2 != 6) {
                 return null;
             }
         }
-        return newMsgInstanceByType(context, i2);
+        return newMsgInstanceByType(context, i3);
     }
 
-    public ChatMsg newMsgInstanceByCmd(Context context, int i) {
+    public ChatMsg newMsgInstanceByCmd(Context context, int i2) {
         NotifyCustomerMsg notifyCustomerMsg;
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 50) {
-                    if (i == 60) {
+        if (i2 != 0) {
+            if (i2 != 1) {
+                if (i2 != 50) {
+                    if (i2 == 60) {
                         notifyCustomerMsg = new NotifyCustomerMsg(60);
-                    } else if (i != 62) {
-                        switch (i) {
+                    } else if (i2 != 62) {
+                        switch (i2) {
                             case 20:
                                 return new PaSync();
                             case 21:
@@ -62,26 +62,26 @@ public class ChatMsgFactory {
         return new AddFriendMsg();
     }
 
-    public ChatMsg newMsgInstanceByType(Context context, int i) {
-        if (IMConfigInternal.getInstance().getIMConfig(context).isMsgTypeSupported(i)) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 12) {
-                                if (i != 13) {
-                                    if (i != 16) {
-                                        if (i != 18) {
-                                            if (i != 80) {
-                                                if (i != 2001) {
-                                                    if (i != 2010) {
-                                                        if (i != 2012) {
-                                                            if (i != 2014) {
-                                                                if (i != 32) {
-                                                                    if (i != 33) {
-                                                                        if (i != 100) {
-                                                                            if (i != 101) {
-                                                                                switch (i) {
+    public ChatMsg newMsgInstanceByType(Context context, int i2) {
+        if (IMConfigInternal.getInstance().getIMConfig(context).isMsgTypeSupported(i2)) {
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 != 12) {
+                                if (i2 != 13) {
+                                    if (i2 != 16) {
+                                        if (i2 != 18) {
+                                            if (i2 != 80) {
+                                                if (i2 != 2001) {
+                                                    if (i2 != 2010) {
+                                                        if (i2 != 2012) {
+                                                            if (i2 != 2014) {
+                                                                if (i2 != 32) {
+                                                                    if (i2 != 33) {
+                                                                        if (i2 != 100) {
+                                                                            if (i2 != 101) {
+                                                                                switch (i2) {
                                                                                     case 5:
                                                                                         return new RealTimeAudioMsg();
                                                                                     case 6:
@@ -93,7 +93,7 @@ public class ChatMsgFactory {
                                                                                     case 9:
                                                                                         return new MultiGraphicTextMsg();
                                                                                     default:
-                                                                                        switch (i) {
+                                                                                        switch (i2) {
                                                                                             case 20:
                                                                                                 return new ConfigMsg();
                                                                                             case 21:
@@ -101,7 +101,7 @@ public class ChatMsgFactory {
                                                                                             case 22:
                                                                                                 return new SchemaMsg();
                                                                                             default:
-                                                                                                switch (i) {
+                                                                                                switch (i2) {
                                                                                                     case 24:
                                                                                                         return new InterActiveMsg();
                                                                                                     case 25:
@@ -117,7 +117,7 @@ public class ChatMsgFactory {
                                                                                                     case 30:
                                                                                                         return new BonusMsg();
                                                                                                     default:
-                                                                                                        switch (i) {
+                                                                                                        switch (i2) {
                                                                                                             case 1001:
                                                                                                                 return new GroupMemberAddMsg();
                                                                                                             case 1002:

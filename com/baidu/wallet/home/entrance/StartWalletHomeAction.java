@@ -32,9 +32,9 @@ public class StartWalletHomeAction implements RouterAction {
         intent.putExtra("with_anim", z);
         WalletLoginHelper.getInstance().verifyPassLogin(true, new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.home.entrance.StartWalletHomeAction.1
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str) {
+            public void onFail(int i2, String str) {
                 Context context2;
-                if (i == 603 && (context2 = context) != null) {
+                if (i2 == 603 && (context2 = context) != null) {
                     GlobalUtils.toast(context2, ResUtils.getString(context2, "wallet_home_login_invalid_dialog_tips"));
                 }
                 context.startActivity(intent);
@@ -49,7 +49,7 @@ public class StartWalletHomeAction implements RouterAction {
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str) {
+            public void onSuccess(int i2, String str) {
                 context.startActivity(intent);
                 Context context2 = context;
                 if (context2 instanceof Activity) {

@@ -1,20 +1,25 @@
 package com.google.android.material.shape;
 
-import com.google.android.material.internal.Experimental;
-@Experimental("The shapes API is currently experimental and subject to change")
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public class CutCornerTreatment extends CornerTreatment {
-    public final float size;
+    public float size;
 
-    public CutCornerTreatment(float f2) {
-        this.size = f2;
+    public CutCornerTreatment() {
+        this.size = -1.0f;
     }
 
     @Override // com.google.android.material.shape.CornerTreatment
-    public void getCornerPath(float f2, float f3, ShapePath shapePath) {
-        shapePath.reset(0.0f, this.size * f3);
-        double d2 = f2;
+    public void getCornerPath(@NonNull ShapePath shapePath, float f2, float f3, float f4) {
+        shapePath.reset(0.0f, f4 * f3, 180.0f, 180.0f - f2);
+        double d2 = f4;
         double d3 = f3;
-        shapePath.lineTo((float) (Math.sin(d2) * this.size * d3), (float) (Math.cos(d2) * this.size * d3));
+        shapePath.lineTo((float) (Math.sin(Math.toRadians(f2)) * d2 * d3), (float) (Math.sin(Math.toRadians(90.0f - f2)) * d2 * d3));
+    }
+
+    @Deprecated
+    public CutCornerTreatment(float f2) {
+        this.size = -1.0f;
+        this.size = f2;
     }
 }

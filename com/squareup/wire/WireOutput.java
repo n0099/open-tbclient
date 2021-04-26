@@ -3,21 +3,22 @@ package com.squareup.wire;
 import com.alibaba.fastjson.asm.Label;
 import com.alipay.sdk.encrypt.a;
 import java.io.IOException;
+import kotlinx.coroutines.scheduling.CoroutineScheduler;
 /* loaded from: classes6.dex */
 public final class WireOutput {
     public final byte[] buffer;
     public final int limit;
     public int position;
 
-    public WireOutput(byte[] bArr, int i, int i2) {
+    public WireOutput(byte[] bArr, int i2, int i3) {
         this.buffer = bArr;
-        this.position = i;
-        this.limit = i + i2;
+        this.position = i2;
+        this.limit = i2 + i3;
     }
 
-    public static int int32Size(int i) {
-        if (i >= 0) {
-            return varint32Size(i);
+    public static int int32Size(int i2) {
+        if (i2 >= 0) {
+            return varint32Size(i2);
         }
         return 10;
     }
@@ -29,37 +30,37 @@ public final class WireOutput {
         return 10;
     }
 
-    public static int makeTag(int i, WireType wireType) {
-        return (i << 3) | wireType.value();
+    public static int makeTag(int i2, WireType wireType) {
+        return (i2 << 3) | wireType.value();
     }
 
-    public static int messageHeaderSize(int i, int i2) {
-        return tagSize(i, WireType.LENGTH_DELIMITED) + int32Size(i2);
+    public static int messageHeaderSize(int i2, int i3) {
+        return tagSize(i2, WireType.LENGTH_DELIMITED) + int32Size(i3);
     }
 
-    public static int messageSize(int i, int i2) {
-        return tagSize(i, WireType.LENGTH_DELIMITED) + int32Size(i2) + i2;
+    public static int messageSize(int i2, int i3) {
+        return tagSize(i2, WireType.LENGTH_DELIMITED) + int32Size(i3) + i3;
     }
 
     public static WireOutput newInstance(byte[] bArr) {
         return newInstance(bArr, 0, bArr.length);
     }
 
-    public static int tagSize(int i, WireType wireType) {
-        return int32Size(makeTag(i, wireType));
+    public static int tagSize(int i2, WireType wireType) {
+        return int32Size(makeTag(i2, wireType));
     }
 
-    public static int varint32Size(int i) {
-        if ((i & a.f1921g) == 0) {
+    public static int varint32Size(int i2) {
+        if ((i2 & a.f1872g) == 0) {
             return 1;
         }
-        if ((i & (-16384)) == 0) {
+        if ((i2 & (-16384)) == 0) {
             return 2;
         }
-        if (((-2097152) & i) == 0) {
+        if (((-2097152) & i2) == 0) {
             return 3;
         }
-        return (i & Label.FORWARD_REFERENCE_TYPE_MASK) == 0 ? 4 : 5;
+        return (i2 & Label.FORWARD_REFERENCE_TYPE_MASK) == 0 ? 4 : 5;
     }
 
     public static int varint64Size(long j) {
@@ -69,7 +70,7 @@ public final class WireOutput {
         if (((-16384) & j) == 0) {
             return 2;
         }
-        if (((-2097152) & j) == 0) {
+        if ((CoroutineScheduler.PARKED_VERSION_MASK & j) == 0) {
             return 3;
         }
         if (((-268435456) & j) == 0) {
@@ -90,43 +91,43 @@ public final class WireOutput {
         return (j & Long.MIN_VALUE) == 0 ? 9 : 10;
     }
 
-    public static int varintTagSize(int i) {
-        return varint32Size(makeTag(i, WireType.VARINT));
+    public static int varintTagSize(int i2) {
+        return varint32Size(makeTag(i2, WireType.VARINT));
     }
 
-    public static int writeMessageHeader(int i, byte[] bArr, int i2, int i3) {
-        int writeTag = writeTag(i, WireType.LENGTH_DELIMITED, bArr, i2) + i2;
-        return (writeTag + writeVarint(i3, bArr, writeTag)) - i2;
+    public static int writeMessageHeader(int i2, byte[] bArr, int i3, int i4) {
+        int writeTag = writeTag(i2, WireType.LENGTH_DELIMITED, bArr, i3) + i3;
+        return (writeTag + writeVarint(i4, bArr, writeTag)) - i3;
     }
 
-    public static int writeTag(int i, WireType wireType, byte[] bArr, int i2) {
-        return writeVarint(makeTag(i, wireType), bArr, i2);
+    public static int writeTag(int i2, WireType wireType, byte[] bArr, int i3) {
+        return writeVarint(makeTag(i2, wireType), bArr, i3);
     }
 
-    public static int writeVarint(long j, byte[] bArr, int i) {
-        int i2 = i;
+    public static int writeVarint(long j, byte[] bArr, int i2) {
+        int i3 = i2;
         while (((-128) & j) != 0) {
-            bArr[i2] = (byte) ((127 & j) | 128);
+            bArr[i3] = (byte) ((127 & j) | 128);
             j >>>= 7;
-            i2++;
+            i3++;
         }
-        bArr[i2] = (byte) j;
-        return (i2 + 1) - i;
+        bArr[i3] = (byte) j;
+        return (i3 + 1) - i2;
     }
 
-    public static int zigZag32(int i) {
-        return (i >> 31) ^ (i << 1);
+    public static int zigZag32(int i2) {
+        return (i2 >> 31) ^ (i2 << 1);
     }
 
     public static long zigZag64(long j) {
         return (j >> 63) ^ (j << 1);
     }
 
-    public void writeFixed32(int i) throws IOException {
-        writeRawByte(i & 255);
-        writeRawByte((i >> 8) & 255);
-        writeRawByte((i >> 16) & 255);
-        writeRawByte((i >> 24) & 255);
+    public void writeFixed32(int i2) throws IOException {
+        writeRawByte(i2 & 255);
+        writeRawByte((i2 >> 8) & 255);
+        writeRawByte((i2 >> 16) & 255);
+        writeRawByte((i2 >> 24) & 255);
     }
 
     public void writeFixed64(long j) throws IOException {
@@ -141,11 +142,11 @@ public final class WireOutput {
     }
 
     public void writeRawByte(byte b2) throws IOException {
-        int i = this.position;
-        if (i != this.limit) {
+        int i2 = this.position;
+        if (i2 != this.limit) {
             byte[] bArr = this.buffer;
-            this.position = i + 1;
-            bArr[i] = b2;
+            this.position = i2 + 1;
+            bArr[i2] = b2;
             return;
         }
         throw new IOException("Out of space: position=" + this.position + ", limit=" + this.limit);
@@ -155,20 +156,20 @@ public final class WireOutput {
         writeRawBytes(bArr, 0, bArr.length);
     }
 
-    public void writeSignedVarint32(int i) throws IOException {
-        if (i >= 0) {
-            writeVarint32(i);
+    public void writeSignedVarint32(int i2) throws IOException {
+        if (i2 >= 0) {
+            writeVarint32(i2);
         } else {
-            writeVarint64(i);
+            writeVarint64(i2);
         }
     }
 
-    public void writeVarint32(int i) throws IOException {
-        while ((i & a.f1921g) != 0) {
-            writeRawByte((i & 127) | 128);
-            i >>>= 7;
+    public void writeVarint32(int i2) throws IOException {
+        while ((i2 & a.f1872g) != 0) {
+            writeRawByte((i2 & 127) | 128);
+            i2 >>>= 7;
         }
-        writeRawByte(i);
+        writeRawByte(i2);
     }
 
     public void writeVarint64(long j) throws IOException {
@@ -179,26 +180,26 @@ public final class WireOutput {
         writeRawByte((int) j);
     }
 
-    public static WireOutput newInstance(byte[] bArr, int i, int i2) {
-        return new WireOutput(bArr, i, i2);
+    public static WireOutput newInstance(byte[] bArr, int i2, int i3) {
+        return new WireOutput(bArr, i2, i3);
     }
 
-    public void writeRawBytes(byte[] bArr, int i, int i2) throws IOException {
-        int i3 = this.limit;
-        int i4 = this.position;
-        if (i3 - i4 >= i2) {
-            System.arraycopy(bArr, i, this.buffer, i4, i2);
-            this.position += i2;
+    public void writeRawBytes(byte[] bArr, int i2, int i3) throws IOException {
+        int i4 = this.limit;
+        int i5 = this.position;
+        if (i4 - i5 >= i3) {
+            System.arraycopy(bArr, i2, this.buffer, i5, i3);
+            this.position += i3;
             return;
         }
         throw new IOException("Out of space: position=" + this.position + ", limit=" + this.limit);
     }
 
-    public void writeTag(int i, WireType wireType) throws IOException {
-        writeVarint32(makeTag(i, wireType));
+    public void writeTag(int i2, WireType wireType) throws IOException {
+        writeVarint32(makeTag(i2, wireType));
     }
 
-    public void writeRawByte(int i) throws IOException {
-        writeRawByte((byte) i);
+    public void writeRawByte(int i2) throws IOException {
+        writeRawByte((byte) i2);
     }
 }

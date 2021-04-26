@@ -9,7 +9,7 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
-import d.b.j0.p2.b.b.a;
+import d.a.j0.p2.b.b.a;
 /* loaded from: classes3.dex */
 public class ZXingView extends QRCodeView {
     public MultiFormatReader n;
@@ -18,17 +18,17 @@ public class ZXingView extends QRCodeView {
         this(context, attributeSet, 0);
     }
 
-    @Override // d.b.j0.p2.b.a.c.a
-    public String a(byte[] bArr, int i, int i2, boolean z) {
+    @Override // d.a.j0.p2.b.a.c.a
+    public String a(byte[] bArr, int i2, int i3, boolean z) {
         Result result;
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         try {
             try {
-                Rect h2 = this.f20362g.h(i2);
+                Rect h2 = this.f20900g.h(i3);
                 if (h2 != null) {
-                    planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, h2.left, h2.top, h2.width(), h2.height(), false);
+                    planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i2, i3, h2.left, h2.top, h2.width(), h2.height(), false);
                 } else {
-                    planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
+                    planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i2, i3, 0, 0, i2, i3, false);
                 }
                 result = this.n.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
             } catch (Exception e2) {
@@ -48,11 +48,11 @@ public class ZXingView extends QRCodeView {
     public final void o() {
         MultiFormatReader multiFormatReader = new MultiFormatReader();
         this.n = multiFormatReader;
-        multiFormatReader.setHints(a.f59369a);
+        multiFormatReader.setHints(a.f57406a);
     }
 
-    public ZXingView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ZXingView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         o();
     }
 }

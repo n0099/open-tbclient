@@ -2,16 +2,16 @@ package com.baidu.tieba.frs.entelechy.adapter;
 
 import android.view.View;
 import com.baidu.tieba.card.holder.CardViewHolder;
-import d.b.j0.j2.e;
-import d.b.j0.q0.n1.g.a;
+import d.a.j0.j2.e;
+import d.a.j0.q0.n1.g.a;
 /* loaded from: classes4.dex */
 public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> implements e {
     public FrsCardVideoViewHolder(T t) {
         super(t);
     }
 
-    @Override // d.b.j0.j2.e
-    public boolean D() {
+    @Override // d.a.j0.j2.e
+    public boolean C() {
         return false;
     }
 
@@ -19,65 +19,65 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
     @Override // com.baidu.tieba.card.holder.CardViewHolder
     /* renamed from: c */
     public T b() {
-        return (T) this.f14954e;
+        return (T) this.f15067e;
     }
 
-    @Override // d.b.j0.j2.e
+    @Override // d.a.j0.j2.e
     public int getCurrentPosition() {
-        T t = this.f14954e;
+        T t = this.f15067e;
         if (t == 0) {
             return 0;
         }
         return ((a) t).getCurrentPosition();
     }
 
-    @Override // d.b.j0.j2.e
+    @Override // d.a.j0.j2.e
     public String getPlayUrl() {
-        T t = this.f14954e;
+        T t = this.f15067e;
         if (t == 0) {
             return null;
         }
-        return ((a) t).O();
+        return ((a) t).L();
     }
 
-    @Override // d.b.j0.j2.e
+    @Override // d.a.j0.j2.e
     public View getVideoContainer() {
-        T t = this.f14954e;
+        T t = this.f15067e;
         if (t == 0) {
             return null;
         }
-        return ((a) t).P();
+        return ((a) t).M();
     }
 
-    @Override // d.b.j0.j2.e
+    @Override // d.a.j0.j2.e
     public boolean isPlayStarted() {
-        T t = this.f14954e;
+        T t = this.f15067e;
         if (t == 0) {
             return false;
         }
-        return ((a) t).Y();
+        return ((a) t).W();
     }
 
-    @Override // d.b.j0.j2.e
+    @Override // d.a.j0.j2.e
     public boolean isPlaying() {
-        T t = this.f14954e;
+        T t = this.f15067e;
         if (t == 0) {
             return false;
         }
         return ((a) t).isPlaying();
     }
 
-    @Override // d.b.j0.j2.e
+    @Override // d.a.j0.j2.e
     public void startPlay() {
-        T t = this.f14954e;
+        T t = this.f15067e;
         if (t != 0) {
             ((a) t).startPlay();
         }
     }
 
-    @Override // d.b.j0.j2.e
+    @Override // d.a.j0.j2.e
     public void stopPlay() {
-        T t = this.f14954e;
+        T t = this.f15067e;
         if (t != 0) {
             ((a) t).stopPlay();
         }

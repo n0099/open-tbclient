@@ -92,7 +92,7 @@ public final class MediaStoreFileLoader implements ModelLoader<Uri, File> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<File> buildLoadData(@NonNull Uri uri, int i, int i2, @NonNull Options options) {
+    public ModelLoader.LoadData<File> buildLoadData(@NonNull Uri uri, int i2, int i3, @NonNull Options options) {
         return new ModelLoader.LoadData<>(new ObjectKey(uri), new FilePathFetcher(this.context, uri));
     }
 

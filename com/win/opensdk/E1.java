@@ -1,61 +1,52 @@
 package com.win.opensdk;
 
-import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
-import android.os.Looper;
-import android.os.Process;
-import android.text.TextUtils;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-/* loaded from: classes7.dex */
-public class E1 implements Runnable {
+import com.win.opensdk.core.Info;
+/* loaded from: classes6.dex */
+public class E1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f40046a;
+    public Context f37642a;
 
-    public E1(F1 f1, Context context) {
-        this.f40046a = context;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public WebView f37643b;
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String str;
-        String userAgentString;
-        Context context = this.f40046a;
-        try {
-            if (Build.VERSION.SDK_INT >= 28) {
-                try {
-                    Process.myPid();
-                    if (context != null) {
-                        try {
-                            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                                if (runningAppProcessInfo.pid == Process.myPid()) {
-                                    str = runningAppProcessInfo.processName;
-                                    break;
-                                }
-                            }
-                        } catch (Exception unused) {
-                        }
-                    }
-                    str = null;
-                    if (!TextUtils.equals(context.getPackageName(), str)) {
-                        WebView.setDataDirectorySuffix(str);
-                    }
-                } catch (Exception unused2) {
-                }
+    /* renamed from: c  reason: collision with root package name */
+    public Info f37644c;
+
+    public E1(Context context) {
+        this.f37642a = context;
+        if (this.f37643b == null) {
+            WebView webView = new WebView(this.f37642a);
+            this.f37643b = webView;
+            WebSettings settings = webView.getSettings();
+            settings.setAllowContentAccess(true);
+            settings.setJavaScriptEnabled(true);
+            if (Build.VERSION.SDK_INT >= 11) {
+                this.f37643b.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.f37643b.removeJavascriptInterface("accessibility");
+                this.f37643b.removeJavascriptInterface("accessibilityTraversal");
             }
-            a2.f40250a = System.getProperty("http.agent");
-            if (Build.VERSION.SDK_INT >= 17) {
-                userAgentString = WebSettings.getDefaultUserAgent(context);
-            } else if (Looper.myLooper() != Looper.getMainLooper()) {
-                Y1.f40224a.post(new Z1(context));
-                return;
-            } else {
-                userAgentString = new WebView(context).getSettings().getUserAgentString();
+            this.f37643b.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+            this.f37643b.getSettings().setBlockNetworkImage(true);
+            this.f37643b.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+            this.f37643b.getSettings().setCacheMode(2);
+            this.f37643b.getSettings().setAppCacheEnabled(true);
+            this.f37643b.setScrollBarStyle(0);
+            settings.setDomStorageEnabled(true);
+            settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+            settings.setEnableSmoothTransition(true);
+            if (Build.VERSION.SDK_INT >= 21) {
+                settings.setMixedContentMode(1);
             }
-            a2.f40250a = userAgentString;
-        } catch (Exception unused3) {
+            settings.setNeedInitialFocus(false);
+            this.f37643b.clearCache(true);
+            this.f37643b.clearHistory();
+            this.f37643b.setWebChromeClient(new B1(this));
+            this.f37643b.setWebViewClient(new C1(this));
         }
     }
 }

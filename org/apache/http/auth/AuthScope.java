@@ -8,7 +8,7 @@ public class AuthScope {
     public static final String ANY_REALM = null;
     public static final String ANY_SCHEME = null;
 
-    public AuthScope(String str, int i, String str2, String str3) {
+    public AuthScope(String str, int i2, String str2, String str3) {
         throw new RuntimeException("Stub!");
     }
 
@@ -44,11 +44,11 @@ public class AuthScope {
         throw new RuntimeException("Stub!");
     }
 
-    public AuthScope(String str, int i, String str2) {
+    public AuthScope(String str, int i2, String str2) {
         throw new RuntimeException("Stub!");
     }
 
-    public AuthScope(String str, int i) {
+    public AuthScope(String str, int i2) {
         throw new RuntimeException("Stub!");
     }
 

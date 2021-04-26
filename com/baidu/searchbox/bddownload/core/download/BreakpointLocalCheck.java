@@ -66,8 +66,8 @@ public class BreakpointLocalCheck {
         }
         if (this.info.getFile().equals(this.task.getFile()) && this.info.getFile().length() <= this.info.getTotalLength()) {
             if (this.responseInstanceLength <= 0 || this.info.getTotalLength() == this.responseInstanceLength) {
-                for (int i = 0; i < blockCount; i++) {
-                    if (this.info.getBlock(i).getContentLength() <= 0) {
+                for (int i2 = 0; i2 < blockCount; i2++) {
+                    if (this.info.getBlock(i2).getContentLength() <= 0) {
                         return false;
                     }
                 }

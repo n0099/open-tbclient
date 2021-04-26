@@ -15,11 +15,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
-    public void getAddressGetRegion(final int i, AddrSelectorRequestParam addrSelectorRequestParam) {
+    public void getAddressGetRegion(final int i2, AddrSelectorRequestParam addrSelectorRequestParam) {
         AddressRequestFactory.newAddressGetRegion(addrSelectorRequestParam).submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.AddrListPagerPresenter.1
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i2, String str) {
-                AddrListPagerPresenter.this.doFailure(i, i2, str);
+            public void onFailure(int i3, String str) {
+                AddrListPagerPresenter.this.doFailure(i2, i3, str);
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
@@ -31,9 +31,9 @@ public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
                     arrayList = new ArrayList();
                     ArrayList arrayList3 = new ArrayList();
                     String str = "";
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                         AddressBean addressBean = new AddressBean();
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
                         addressBean.id = optJSONObject.optString(AddrSelectorResponseParam.KEY_ID);
                         addressBean.pid = optJSONObject.optString(AddrSelectorResponseParam.KEY_PID);
                         addressBean.type = optJSONObject.optString(AddrSelectorResponseParam.KEY_TYPE);
@@ -57,9 +57,9 @@ public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray(AddrSelectorResponseParam.KEY_HOTLIST);
                 if (optJSONArray2 != null) {
                     arrayList2 = new ArrayList();
-                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                    for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
                         AddressBean addressBean2 = new AddressBean();
-                        JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
+                        JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i4);
                         addressBean2.pid = optJSONObject2.optString(AddrSelectorResponseParam.KEY_PID);
                         addressBean2.pname = optJSONObject2.optString(AddrSelectorResponseParam.KEY_PNAME);
                         addressBean2.ptype = optJSONObject2.optString(AddrSelectorResponseParam.KEY_PTYPE);
@@ -71,12 +71,12 @@ public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
                         arrayList2.add(addressBean2);
                     }
                 }
-                AddrListPagerPresenter.this.doResult(i, new ElementNode.AddressEntity(arrayList, arrayList2));
+                AddrListPagerPresenter.this.doResult(i2, new ElementNode.AddressEntity(arrayList, arrayList2));
             }
         });
     }
 
-    public String getErrorMsg(int i) {
+    public String getErrorMsg(int i2) {
         return "网络不给力，请稍后重试";
     }
 
@@ -86,20 +86,20 @@ public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
         }
         List<AddressBean> list = addressEntity.list;
         if (list != null && !list.isEmpty() && !TextUtils.isEmpty(str)) {
-            int i = 0;
+            int i2 = 0;
             while (true) {
-                if (i >= list.size()) {
+                if (i2 >= list.size()) {
                     break;
                 }
-                AddressBean addressBean = list.get(i);
+                AddressBean addressBean = list.get(i2);
                 if (addressBean != null && str.equals(addressBean.id)) {
                     addressEntity.selectedId = addressBean.id;
                     addressEntity.selectedName = addressBean.name;
                     addressEntity.selectedType = addressBean.type;
-                    addressEntity.selectedPosition = i;
+                    addressEntity.selectedPosition = i2;
                     break;
                 }
-                i++;
+                i2++;
             }
         }
         return list;

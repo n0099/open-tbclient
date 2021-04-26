@@ -15,13 +15,13 @@ import org.json.JSONException;
 public class c extends a<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f5214a = Charset.forName("UTF-8");
+    public static final Charset f5345a = Charset.forName("UTF-8");
 
     private Charset a(com.baidu.fsg.base.restnet.http.a aVar) {
         if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
             return Charset.forName(aVar.j());
         }
-        return f5214a;
+        return f5345a;
     }
 
     @Override // com.baidu.fsg.base.restnet.a.a
@@ -30,11 +30,11 @@ public class c extends a<Object> {
         String copyToString = FileCopyUtils.copyToString(inputStreamReader);
         if (ApollonConstants.DEBUG) {
             int length = copyToString.length();
-            int i = 0;
-            while (i < length) {
-                int i2 = i + 2000;
-                LogUtil.i("ServerResponse", i2 > length ? copyToString.substring(i) : copyToString.substring(i, i2));
-                i = i2;
+            int i2 = 0;
+            while (i2 < length) {
+                int i3 = i2 + 2000;
+                LogUtil.i("ServerResponse", i3 > length ? copyToString.substring(i2) : copyToString.substring(i2, i3));
+                i2 = i3;
             }
         }
         try {

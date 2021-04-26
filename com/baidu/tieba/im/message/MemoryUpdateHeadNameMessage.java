@@ -8,16 +8,16 @@ public class MemoryUpdateHeadNameMessage extends CustomResponsedMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17742a;
+        public String f18068a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17743b;
+        public String f18069b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f17744c;
+        public String f18070c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f17745d;
+        public int f18071d;
     }
 
     public MemoryUpdateHeadNameMessage(a aVar) {

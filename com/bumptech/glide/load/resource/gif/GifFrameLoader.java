@@ -1,7 +1,6 @@
 package com.bumptech.glide.load.resource.gif;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -17,9 +16,8 @@ import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
-import com.bumptech.glide.request.BaseRequestOptions;
 import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.signature.ObjectKey;
 import com.bumptech.glide.util.Preconditions;
@@ -33,10 +31,8 @@ public class GifFrameLoader {
     public final List<FrameCallback> callbacks;
     public DelayTarget current;
     public Bitmap firstFrame;
-    public int firstFrameSize;
     public final GifDecoder gifDecoder;
     public final Handler handler;
-    public int height;
     public boolean isCleared;
     public boolean isLoadPending;
     public boolean isRunning;
@@ -48,29 +44,23 @@ public class GifFrameLoader {
     public final RequestManager requestManager;
     public boolean startFromFirstFrame;
     public Transformation<Bitmap> transformation;
-    public int width;
 
     @VisibleForTesting
     /* loaded from: classes5.dex */
-    public static class DelayTarget extends CustomTarget<Bitmap> {
+    public static class DelayTarget extends SimpleTarget<Bitmap> {
         public final Handler handler;
         public final int index;
         public Bitmap resource;
         public final long targetTime;
 
-        public DelayTarget(Handler handler, int i, long j) {
+        public DelayTarget(Handler handler, int i2, long j) {
             this.handler = handler;
-            this.index = i;
+            this.index = i2;
             this.targetTime = j;
         }
 
         public Bitmap getResource() {
             return this.resource;
-        }
-
-        @Override // com.bumptech.glide.request.target.Target
-        public void onLoadCleared(@Nullable Drawable drawable) {
-            this.resource = null;
         }
 
         @Override // com.bumptech.glide.request.target.Target
@@ -99,11 +89,11 @@ public class GifFrameLoader {
 
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
-            int i = message.what;
-            if (i == 1) {
+            int i2 = message.what;
+            if (i2 == 1) {
                 GifFrameLoader.this.onFrameReady((DelayTarget) message.obj);
                 return true;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 GifFrameLoader.this.requestManager.clear((DelayTarget) message.obj);
                 return false;
             } else {
@@ -118,16 +108,20 @@ public class GifFrameLoader {
         void onFrameReady();
     }
 
-    public GifFrameLoader(Glide glide, GifDecoder gifDecoder, int i, int i2, Transformation<Bitmap> transformation, Bitmap bitmap) {
-        this(glide.getBitmapPool(), Glide.with(glide.getContext()), gifDecoder, null, getRequestBuilder(Glide.with(glide.getContext()), i, i2), transformation, bitmap);
+    public GifFrameLoader(Glide glide, GifDecoder gifDecoder, int i2, int i3, Transformation<Bitmap> transformation, Bitmap bitmap) {
+        this(glide.getBitmapPool(), Glide.with(glide.getContext()), gifDecoder, null, getRequestBuilder(Glide.with(glide.getContext()), i2, i3), transformation, bitmap);
     }
 
     public static Key getFrameSignature() {
         return new ObjectKey(Double.valueOf(Math.random()));
     }
 
-    public static RequestBuilder<Bitmap> getRequestBuilder(RequestManager requestManager, int i, int i2) {
-        return requestManager.asBitmap().apply((BaseRequestOptions<?>) RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE).useAnimationPool(true).skipMemoryCache(true).override(i, i2));
+    private int getFrameSize() {
+        return Util.getBitmapByteSize(getCurrentFrame().getWidth(), getCurrentFrame().getHeight(), getCurrentFrame().getConfig());
+    }
+
+    public static RequestBuilder<Bitmap> getRequestBuilder(RequestManager requestManager, int i2, int i3) {
+        return requestManager.asBitmap().apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE).useAnimationPool(true).skipMemoryCache(true).override(i2, i3));
     }
 
     private void loadNextFrame() {
@@ -149,7 +143,7 @@ public class GifFrameLoader {
         long uptimeMillis = SystemClock.uptimeMillis() + this.gifDecoder.getNextDelay();
         this.gifDecoder.advance();
         this.next = new DelayTarget(this.handler, this.gifDecoder.getCurrentFrameIndex(), uptimeMillis);
-        this.requestBuilder.apply((BaseRequestOptions<?>) RequestOptions.signatureOf(getFrameSignature())).load((Object) this.gifDecoder).into((RequestBuilder<Bitmap>) this.next);
+        this.requestBuilder.apply(RequestOptions.signatureOf(getFrameSignature())).load((Object) this.gifDecoder).into((RequestBuilder<Bitmap>) this.next);
     }
 
     private void recycleFirstFrame() {
@@ -226,7 +220,7 @@ public class GifFrameLoader {
     }
 
     public int getHeight() {
-        return this.height;
+        return getCurrentFrame().getHeight();
     }
 
     public int getLoopCount() {
@@ -234,11 +228,11 @@ public class GifFrameLoader {
     }
 
     public int getSize() {
-        return this.gifDecoder.getByteSize() + this.firstFrameSize;
+        return this.gifDecoder.getByteSize() + getFrameSize();
     }
 
     public int getWidth() {
-        return this.width;
+        return getCurrentFrame().getWidth();
     }
 
     @VisibleForTesting
@@ -271,10 +265,7 @@ public class GifFrameLoader {
     public void setFrameTransformation(Transformation<Bitmap> transformation, Bitmap bitmap) {
         this.transformation = (Transformation) Preconditions.checkNotNull(transformation);
         this.firstFrame = (Bitmap) Preconditions.checkNotNull(bitmap);
-        this.requestBuilder = this.requestBuilder.apply((BaseRequestOptions<?>) new RequestOptions().transform(transformation));
-        this.firstFrameSize = Util.getBitmapByteSize(bitmap);
-        this.width = bitmap.getWidth();
-        this.height = bitmap.getHeight();
+        this.requestBuilder = this.requestBuilder.apply(new RequestOptions().transform(transformation));
     }
 
     public void setNextStartFromFirstFrame() {

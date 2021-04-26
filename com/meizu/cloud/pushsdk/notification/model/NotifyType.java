@@ -18,8 +18,8 @@ public class NotifyType implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public NotifyType[] newArray(int i) {
-            return new NotifyType[i];
+        public NotifyType[] newArray(int i2) {
+            return new NotifyType[i2];
         }
     };
     public static final String LIGHTS = "l";
@@ -46,7 +46,7 @@ public class NotifyType implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                d.k.a.a.a.b("notify_type", "parse json string error " + e2.getMessage());
+                d.j.a.a.a.b("notify_type", "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -78,7 +78,7 @@ public class NotifyType implements Parcelable {
             return notifyType;
         }
         str = "no such tag notify_type";
-        d.k.a.a.a.b("notify_type", str);
+        d.j.a.a.a.b("notify_type", str);
         return notifyType;
     }
 
@@ -116,7 +116,7 @@ public class NotifyType implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeByte(this.vibrate ? (byte) 1 : (byte) 0);
         parcel.writeByte(this.lights ? (byte) 1 : (byte) 0);
         parcel.writeByte(this.sound ? (byte) 1 : (byte) 0);

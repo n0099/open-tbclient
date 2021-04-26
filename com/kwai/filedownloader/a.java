@@ -6,7 +6,7 @@ public interface a {
 
     /* renamed from: com.kwai.filedownloader.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0457a {
+    public interface InterfaceC0402a {
         void a(a aVar);
     }
 
@@ -32,7 +32,7 @@ public interface a {
 
         boolean O();
 
-        boolean b(int i);
+        boolean b(int i2);
     }
 
     /* loaded from: classes6.dex */
@@ -44,9 +44,9 @@ public interface a {
     public interface d {
         void a();
 
-        void c();
+        void b_();
 
-        void f_();
+        void c();
     }
 
     int A();
@@ -61,7 +61,7 @@ public interface a {
 
     c a();
 
-    a a(int i);
+    a a(int i2);
 
     a a(i iVar);
 

@@ -7,13 +7,13 @@ public final class FragmentManagerState implements Parcelable {
     public static final Parcelable.Creator<FragmentManagerState> CREATOR = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public FragmentState[] f12710e;
+    public FragmentState[] f12618e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int[] f12711f;
+    public int[] f12619f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BackStackState[] f12712g;
+    public BackStackState[] f12620g;
 
     /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<FragmentManagerState> {
@@ -27,8 +27,8 @@ public final class FragmentManagerState implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public FragmentManagerState[] newArray(int i) {
-            return new FragmentManagerState[i];
+        public FragmentManagerState[] newArray(int i2) {
+            return new FragmentManagerState[i2];
         }
     }
 
@@ -41,15 +41,15 @@ public final class FragmentManagerState implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeTypedArray(this.f12710e, i);
-        parcel.writeIntArray(this.f12711f);
-        parcel.writeTypedArray(this.f12712g, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeTypedArray(this.f12618e, i2);
+        parcel.writeIntArray(this.f12619f);
+        parcel.writeTypedArray(this.f12620g, i2);
     }
 
     public FragmentManagerState(Parcel parcel) {
-        this.f12710e = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
-        this.f12711f = parcel.createIntArray();
-        this.f12712g = (BackStackState[]) parcel.createTypedArray(BackStackState.CREATOR);
+        this.f12618e = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
+        this.f12619f = parcel.createIntArray();
+        this.f12620g = (BackStackState[]) parcel.createTypedArray(BackStackState.CREATOR);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.gamesubpb.model;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.j0.q0.w1.d.c;
+import d.a.j0.q0.w1.d.c;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class FrsSelectSubCommentReponseMessage extends JsonHttpResponsedMessage {
@@ -13,8 +13,8 @@ public class FrsSelectSubCommentReponseMessage extends JsonHttpResponsedMessage 
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i, jSONObject);
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (hasError() || jSONObject == null) {
             return;
         }

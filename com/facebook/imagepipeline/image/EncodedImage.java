@@ -57,7 +57,7 @@ public class EncodedImage implements Closeable {
         this.mSampleSize = 1;
         this.mStreamSize = -1;
         Preconditions.checkArgument(CloseableReference.isValid(closeableReference));
-        this.mPooledByteBufferRef = closeableReference.m34clone();
+        this.mPooledByteBufferRef = closeableReference.m35clone();
         this.mInputStreamSupplier = null;
     }
 
@@ -166,12 +166,12 @@ public class EncodedImage implements Closeable {
         return this.mExifOrientation;
     }
 
-    public String getFirstBytesAsHexString(int i) {
+    public String getFirstBytesAsHexString(int i2) {
         CloseableReference<PooledByteBuffer> byteBufferRef = getByteBufferRef();
         if (byteBufferRef == null) {
             return "";
         }
-        int min = Math.min(getSize(), i);
+        int min = Math.min(getSize(), i2);
         byte[] bArr = new byte[min];
         try {
             PooledByteBuffer pooledByteBuffer = byteBufferRef.get();
@@ -181,8 +181,8 @@ public class EncodedImage implements Closeable {
             pooledByteBuffer.read(0, bArr, 0, min);
             byteBufferRef.close();
             StringBuilder sb = new StringBuilder(min * 2);
-            for (int i2 = 0; i2 < min; i2++) {
-                sb.append(String.format("%02X", Byte.valueOf(bArr[i2])));
+            for (int i3 = 0; i3 < min; i3++) {
+                sb.append(String.format("%02X", Byte.valueOf(bArr[i3])));
             }
             return sb.toString();
         } finally {
@@ -245,11 +245,11 @@ public class EncodedImage implements Closeable {
         return this.mWidth;
     }
 
-    public boolean isCompleteAt(int i) {
+    public boolean isCompleteAt(int i2) {
         if (this.mImageFormat == DefaultImageFormats.JPEG && this.mInputStreamSupplier == null) {
             Preconditions.checkNotNull(this.mPooledByteBufferRef);
             PooledByteBuffer pooledByteBuffer = this.mPooledByteBufferRef.get();
-            return pooledByteBuffer.read(i + (-2)) == -1 && pooledByteBuffer.read(i - 1) == -39;
+            return pooledByteBuffer.read(i2 + (-2)) == -1 && pooledByteBuffer.read(i2 - 1) == -39;
         }
         return true;
     }
@@ -290,32 +290,32 @@ public class EncodedImage implements Closeable {
         this.mBytesRange = bytesRange;
     }
 
-    public void setExifOrientation(int i) {
-        this.mExifOrientation = i;
+    public void setExifOrientation(int i2) {
+        this.mExifOrientation = i2;
     }
 
-    public void setHeight(int i) {
-        this.mHeight = i;
+    public void setHeight(int i2) {
+        this.mHeight = i2;
     }
 
     public void setImageFormat(ImageFormat imageFormat) {
         this.mImageFormat = imageFormat;
     }
 
-    public void setRotationAngle(int i) {
-        this.mRotationAngle = i;
+    public void setRotationAngle(int i2) {
+        this.mRotationAngle = i2;
     }
 
-    public void setSampleSize(int i) {
-        this.mSampleSize = i;
+    public void setSampleSize(int i2) {
+        this.mSampleSize = i2;
     }
 
-    public void setStreamSize(int i) {
-        this.mStreamSize = i;
+    public void setStreamSize(int i2) {
+        this.mStreamSize = i2;
     }
 
-    public void setWidth(int i) {
-        this.mWidth = i;
+    public void setWidth(int i2) {
+        this.mWidth = i2;
     }
 
     public static boolean isValid(@Nullable EncodedImage encodedImage) {
@@ -359,8 +359,8 @@ public class EncodedImage implements Closeable {
         this.mInputStreamSupplier = supplier;
     }
 
-    public EncodedImage(Supplier<FileInputStream> supplier, int i) {
+    public EncodedImage(Supplier<FileInputStream> supplier, int i2) {
         this(supplier);
-        this.mStreamSize = i;
+        this.mStreamSize = i2;
     }
 }

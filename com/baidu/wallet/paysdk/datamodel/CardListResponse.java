@@ -70,13 +70,13 @@ public class CardListResponse implements IBeanResponse, Serializable {
                 directPayPay.easypay = new PayData.EasyPay();
             }
             ArrayList arrayList = new ArrayList();
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 Card[] cardArr2 = this.bind_card_arr;
-                if (i >= cardArr2.length) {
+                if (i2 >= cardArr2.length) {
                     break;
                 }
-                Card card = cardArr2[i];
+                Card card = cardArr2[i2];
                 if (card != null) {
                     CardData.BondCard bondCard = new CardData.BondCard();
                     String str = card.bank_code;
@@ -94,7 +94,7 @@ public class CardListResponse implements IBeanResponse, Serializable {
                     bondCard.unbund_card_enabled = 1;
                     arrayList.add(bondCard);
                 }
-                i++;
+                i2++;
             }
             if (arrayList.size() > 0) {
                 payResponse.pay.easypay.bind_card_arr = new CardData.BondCard[arrayList.size()];

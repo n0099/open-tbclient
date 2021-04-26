@@ -3,5 +3,5 @@ package com.baidu.mapapi.synchronization;
 public interface SynchronizationDisplayListener {
     void onRoutePlanInfoFreshFinished(float f2, long j);
 
-    void onSynchronizationProcessResult(int i, String str);
+    void onSynchronizationProcessResult(int i2, String str);
 }

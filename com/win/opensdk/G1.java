@@ -1,25 +1,27 @@
 package com.win.opensdk;
 
-import java.security.Key;
-import java.security.spec.AlgorithmParameterSpec;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.DESKeySpec;
-import javax.crypto.spec.IvParameterSpec;
-/* loaded from: classes7.dex */
-public class G1 {
+import com.win.opensdk.core.Info;
+/* loaded from: classes6.dex */
+public class G1 implements L0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public AlgorithmParameterSpec f40056a;
+    public final /* synthetic */ I1 f37652a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Key f40057b;
+    public G1(I1 i1) {
+        this.f37652a = i1;
+    }
 
-    public G1(String str, String str2) {
-        try {
-            this.f40056a = new IvParameterSpec(str2.getBytes("utf-8"));
-            this.f40057b = SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(str.getBytes()));
-        } catch (Exception e2) {
-            throw new RuntimeException("Error in getKey(String secretKey), Cause: " + e2);
-        }
+    @Override // com.win.opensdk.L0
+    public void a() {
+    }
+
+    @Override // com.win.opensdk.L0
+    public void a(Object obj) {
+        this.f37652a.a((Info) obj);
+    }
+
+    @Override // com.win.opensdk.L0
+    public void onFail(PBError pBError) {
+        this.f37652a.f37668h.onFail(pBError);
     }
 }

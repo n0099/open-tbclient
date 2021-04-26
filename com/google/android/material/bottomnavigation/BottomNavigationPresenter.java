@@ -5,12 +5,15 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuItemImpl;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.appcompat.view.menu.SubMenuBuilder;
+import com.google.android.material.badge.BadgeUtils;
+import com.google.android.material.internal.ParcelableSparseArray;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes6.dex */
 public class BottomNavigationPresenter implements MenuPresenter {
@@ -25,17 +28,21 @@ public class BottomNavigationPresenter implements MenuPresenter {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public SavedState createFromParcel(Parcel parcel) {
+            @NonNull
+            public SavedState createFromParcel(@NonNull Parcel parcel) {
                 return new SavedState(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public SavedState[] newArray(int i) {
-                return new SavedState[i];
+            @NonNull
+            public SavedState[] newArray(int i2) {
+                return new SavedState[i2];
             }
         };
+        @Nullable
+        public ParcelableSparseArray badgeSavedStates;
         public int selectedItemId;
 
         public SavedState() {
@@ -47,12 +54,14 @@ public class BottomNavigationPresenter implements MenuPresenter {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(@NonNull Parcel parcel, int i) {
+        public void writeToParcel(@NonNull Parcel parcel, int i2) {
             parcel.writeInt(this.selectedItemId);
+            parcel.writeParcelable(this.badgeSavedStates, 0);
         }
 
-        public SavedState(Parcel parcel) {
+        public SavedState(@NonNull Parcel parcel) {
             this.selectedItemId = parcel.readInt();
+            this.badgeSavedStates = (ParcelableSparseArray) parcel.readParcelable(SavedState.class.getClassLoader());
         }
     }
 
@@ -94,14 +103,18 @@ public class BottomNavigationPresenter implements MenuPresenter {
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void onRestoreInstanceState(Parcelable parcelable) {
         if (parcelable instanceof SavedState) {
-            this.menuView.tryRestoreSelectedItemId(((SavedState) parcelable).selectedItemId);
+            SavedState savedState = (SavedState) parcelable;
+            this.menuView.tryRestoreSelectedItemId(savedState.selectedItemId);
+            this.menuView.setBadgeDrawables(BadgeUtils.createBadgeDrawablesFromSavedStates(this.menuView.getContext(), savedState.badgeSavedStates));
         }
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
+    @NonNull
     public Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState();
         savedState.selectedItemId = this.menuView.getSelectedItemId();
+        savedState.badgeSavedStates = BadgeUtils.createParcelableBadgeStates(this.menuView.getBadgeDrawables());
         return savedState;
     }
 
@@ -118,8 +131,8 @@ public class BottomNavigationPresenter implements MenuPresenter {
     public void setCallback(MenuPresenter.Callback callback) {
     }
 
-    public void setId(int i) {
-        this.id = i;
+    public void setId(int i2) {
+        this.id = i2;
     }
 
     public void setUpdateSuspended(boolean z) {

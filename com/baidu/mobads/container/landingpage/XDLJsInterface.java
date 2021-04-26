@@ -81,7 +81,7 @@ public class XDLJsInterface {
         int optInt2;
         String str2;
         JSONObject jSONObject2;
-        int i;
+        int i2;
         String str3;
         String str4;
         JSONObject jSONObject3;
@@ -122,10 +122,10 @@ public class XDLJsInterface {
                     jSONObject2 = jSONObject;
                 }
                 try {
-                    i = jSONObject3.optInt("sz", 0);
+                    i2 = jSONObject3.optInt("sz", 0);
                 } catch (Exception e4) {
                     e = e4;
-                    i = 0;
+                    i2 = 0;
                     try {
                         this.mAdLogger.d(e);
                         str4 = str2;
@@ -152,7 +152,7 @@ public class XDLJsInterface {
                         xAdInstanceInfoExt.setCanCancel(optBoolean7);
                         xAdInstanceInfoExt.setCanDelete(optBoolean8);
                         xAdInstanceInfoExt.setQueryKey(str3);
-                        xAdInstanceInfoExt.setAppSize(i);
+                        xAdInstanceInfoExt.setAppSize(i2);
                         xAdInstanceInfoExt.setAppName(str4);
                         xAdInstanceInfoExt.setSecondConfirmed(optBoolean9);
                         String str5 = str2;
@@ -176,7 +176,7 @@ public class XDLJsInterface {
                     xAdInstanceInfoExt.setCanCancel(optBoolean7);
                     xAdInstanceInfoExt.setCanDelete(optBoolean8);
                     xAdInstanceInfoExt.setQueryKey(str3);
-                    xAdInstanceInfoExt.setAppSize(i);
+                    xAdInstanceInfoExt.setAppSize(i2);
                     xAdInstanceInfoExt.setAppName(str4);
                     xAdInstanceInfoExt.setSecondConfirmed(optBoolean9);
                     String str52 = str2;
@@ -211,7 +211,7 @@ public class XDLJsInterface {
                     xAdInstanceInfoExt.setCanCancel(optBoolean7);
                     xAdInstanceInfoExt.setCanDelete(optBoolean8);
                     xAdInstanceInfoExt.setQueryKey(str3);
-                    xAdInstanceInfoExt.setAppSize(i);
+                    xAdInstanceInfoExt.setAppSize(i2);
                     xAdInstanceInfoExt.setAppName(str4);
                     xAdInstanceInfoExt.setSecondConfirmed(optBoolean9);
                     String str522 = str2;
@@ -222,14 +222,14 @@ public class XDLJsInterface {
                 str2 = "";
                 jSONObject2 = jSONObject;
                 str4 = str2;
-                i = 0;
+                i2 = 0;
             }
             str3 = optString5;
         } catch (Exception e7) {
             e = e7;
             str2 = "";
             jSONObject2 = jSONObject;
-            i = 0;
+            i2 = 0;
         }
         if (TextUtils.isEmpty(optString2)) {
             optString2 = EncryptUtils.getMD5(optString);
@@ -249,7 +249,7 @@ public class XDLJsInterface {
         xAdInstanceInfoExt.setCanCancel(optBoolean7);
         xAdInstanceInfoExt.setCanDelete(optBoolean8);
         xAdInstanceInfoExt.setQueryKey(str3);
-        xAdInstanceInfoExt.setAppSize(i);
+        xAdInstanceInfoExt.setAppSize(i2);
         xAdInstanceInfoExt.setAppName(str4);
         xAdInstanceInfoExt.setSecondConfirmed(optBoolean9);
         String str5222 = str2;
@@ -361,12 +361,12 @@ public class XDLJsInterface {
             SharedPreferences sharedPreferences = this.context.getSharedPreferences(AdDownloadApkUtils.PKGS_PREF_DOWNLOAD, 0);
             String string = sharedPreferences.getString(str2 + XAdRemoteAPKDownloadExtraInfo.KEY_SPLIT + currentProcessName, null);
             if (string != null) {
-                int i = new JSONObject(string).getInt("dl");
+                int i2 = new JSONObject(string).getInt("dl");
                 IDownloader.DownloadStatus[] values = IDownloader.DownloadStatus.values();
                 IDownloader.DownloadStatus downloadStatus = IDownloader.DownloadStatus.NONE;
-                for (int i2 = 0; i2 < values.length; i2++) {
-                    if (values[i2].getCode() == i) {
-                        downloadStatus = values[i2];
+                for (int i3 = 0; i3 < values.length; i3++) {
+                    if (values[i3].getCode() == i2) {
+                        downloadStatus = values[i3];
                     }
                 }
                 if (downloadStatus == IDownloader.DownloadStatus.COMPLETED) {
@@ -438,15 +438,15 @@ public class XDLJsInterface {
         String queryParameter = uri.getQueryParameter("pkg");
         IDownloader adsApkDownloader = XAdRemoteCommonUtils.getAdsApkDownloader(queryParameter);
         String queryParameter2 = uri.getQueryParameter("token");
-        int i = AnonymousClass4.$SwitchMap$com$baidu$mobads$container$bridge$CommandType[commandType.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass4.$SwitchMap$com$baidu$mobads$container$bridge$CommandType[commandType.ordinal()];
+        if (i2 == 1) {
             if (adsApkDownloader != null) {
                 adsApkDownloader.setPausedManually(true);
                 adsApkDownloader.pause();
             }
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             getDownloadStatus(queryParameter2, queryParameter);
-        } else if (i != 3) {
+        } else if (i2 != 3) {
         } else {
             handleclickdl(uri.getQueryParameter("json"));
         }

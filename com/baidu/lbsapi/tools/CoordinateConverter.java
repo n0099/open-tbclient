@@ -38,8 +38,8 @@ public class CoordinateConverter {
     }
 
     public static String a(COOR_TYPE coor_type) {
-        int i = AnonymousClass1.$SwitchMap$com$baidu$lbsapi$tools$CoordinateConverter$COOR_TYPE[coor_type.ordinal()];
-        return (i == 1 || i != 2) ? "WGS84" : "GCJ02";
+        int i2 = AnonymousClass1.$SwitchMap$com$baidu$lbsapi$tools$CoordinateConverter$COOR_TYPE[coor_type.ordinal()];
+        return (i2 == 1 || i2 != 2) ? "WGS84" : "GCJ02";
     }
 
     public static Point converter(COOR_TYPE coor_type, Point point) {

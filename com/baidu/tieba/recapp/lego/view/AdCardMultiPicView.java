@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdCardMultiPicView extends AdCardBaseView {
     public XfremodeRoundLayout m0;
     public TbImageView n0;
@@ -38,9 +38,9 @@ public class AdCardMultiPicView extends AdCardBaseView {
         AdCard.d[] dVarArr = adCard.threadPicList;
         int length = dVarArr != null ? dVarArr.length : 0;
         int dimensionPixelSize = (int) ((this.G - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002) * 2)) / 3.0f);
-        int i = adCard.height;
-        int i2 = adCard.width;
-        int max = (int) (dimensionPixelSize * Math.max(Math.min((i == 0 || i2 == 0) ? 1.0f : i / i2, 1.0f), 0.0f));
+        int i2 = adCard.height;
+        int i3 = adCard.width;
+        int max = (int) (dimensionPixelSize * Math.max(Math.min((i2 == 0 || i3 == 0) ? 1.0f : i2 / i3, 1.0f), 0.0f));
         if (length <= 0) {
             this.t.setVisibility(8);
             return;
@@ -58,63 +58,63 @@ public class AdCardMultiPicView extends AdCardBaseView {
         d1(this.q0, dimensionPixelSize, max);
         d1(this.t0, dimensionPixelSize, max);
         if (length == 1) {
-            this.n0.W(dVarArr[0].f20407a, 30, false);
+            this.n0.V(dVarArr[0].f20950a, 30, false);
             this.n0.setVisibility(0);
-            Y0(this.n0, dVarArr[0].f20409c);
-            if (StringUtils.isNull(dVarArr[0].f20408b, true)) {
+            Y0(this.n0, dVarArr[0].f20952c);
+            if (StringUtils.isNull(dVarArr[0].f20951b, true)) {
                 this.o0.setVisibility(8);
             } else {
                 this.o0.setVisibility(0);
-                this.o0.setText(dVarArr[0].f20408b);
+                this.o0.setText(dVarArr[0].f20951b);
             }
             e1(this.m0, 4);
         } else if (length == 2) {
-            this.n0.W(dVarArr[0].f20407a, 30, false);
+            this.n0.V(dVarArr[0].f20950a, 30, false);
             this.n0.setVisibility(0);
             this.q0.setVisibility(0);
-            Y0(this.n0, dVarArr[0].f20409c);
-            if (StringUtils.isNull(dVarArr[0].f20408b, true)) {
+            Y0(this.n0, dVarArr[0].f20952c);
+            if (StringUtils.isNull(dVarArr[0].f20951b, true)) {
                 this.o0.setVisibility(8);
             } else {
                 this.o0.setVisibility(0);
-                this.o0.setText(dVarArr[0].f20408b);
+                this.o0.setText(dVarArr[0].f20951b);
             }
-            this.q0.W(dVarArr[1].f20407a, 30, false);
-            Y0(this.q0, dVarArr[1].f20409c);
-            if (StringUtils.isNull(dVarArr[1].f20408b, true)) {
+            this.q0.V(dVarArr[1].f20950a, 30, false);
+            Y0(this.q0, dVarArr[1].f20952c);
+            if (StringUtils.isNull(dVarArr[1].f20951b, true)) {
                 this.r0.setVisibility(8);
             } else {
                 this.r0.setVisibility(0);
-                this.r0.setText(dVarArr[1].f20408b);
+                this.r0.setText(dVarArr[1].f20951b);
             }
             e1(this.p0, 3);
         } else if (length >= 3) {
-            this.n0.W(dVarArr[0].f20407a, 30, false);
+            this.n0.V(dVarArr[0].f20950a, 30, false);
             this.n0.setVisibility(0);
             this.q0.setVisibility(0);
             this.t0.setVisibility(0);
-            Y0(this.n0, dVarArr[0].f20409c);
-            if (StringUtils.isNull(dVarArr[0].f20408b, true)) {
+            Y0(this.n0, dVarArr[0].f20952c);
+            if (StringUtils.isNull(dVarArr[0].f20951b, true)) {
                 this.o0.setVisibility(8);
             } else {
                 this.o0.setVisibility(0);
-                this.o0.setText(dVarArr[0].f20408b);
+                this.o0.setText(dVarArr[0].f20951b);
             }
-            this.q0.W(dVarArr[1].f20407a, 30, false);
-            Y0(this.q0, dVarArr[1].f20409c);
-            if (StringUtils.isNull(dVarArr[1].f20408b, true)) {
+            this.q0.V(dVarArr[1].f20950a, 30, false);
+            Y0(this.q0, dVarArr[1].f20952c);
+            if (StringUtils.isNull(dVarArr[1].f20951b, true)) {
                 this.r0.setVisibility(8);
             } else {
                 this.r0.setVisibility(0);
-                this.r0.setText(dVarArr[1].f20408b);
+                this.r0.setText(dVarArr[1].f20951b);
             }
-            this.t0.W(dVarArr[2].f20407a, 30, false);
-            Y0(this.t0, dVarArr[2].f20409c);
-            if (StringUtils.isNull(dVarArr[2].f20408b, true)) {
+            this.t0.V(dVarArr[2].f20950a, 30, false);
+            Y0(this.t0, dVarArr[2].f20952c);
+            if (StringUtils.isNull(dVarArr[2].f20951b, true)) {
                 this.u0.setVisibility(8);
             } else {
                 this.u0.setVisibility(0);
-                this.u0.setText(dVarArr[2].f20408b);
+                this.u0.setText(dVarArr[2].f20951b);
             }
         }
         AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
@@ -149,25 +149,25 @@ public class AdCardMultiPicView extends AdCardBaseView {
         this.v0 = view.findViewById(R.id.channel_ad_right);
     }
 
-    public final void d1(TbImageView tbImageView, int i, int i2) {
+    public final void d1(TbImageView tbImageView, int i2, int i3) {
         if (tbImageView == null) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
-        layoutParams.height = i2;
-        layoutParams.width = i;
+        layoutParams.height = i3;
+        layoutParams.width = i2;
         tbImageView.setLayoutParams(layoutParams);
     }
 
-    public final void e1(XfremodeRoundLayout xfremodeRoundLayout, int i) {
-        if (i == 1) {
+    public final void e1(XfremodeRoundLayout xfremodeRoundLayout, int i2) {
+        if (i2 == 1) {
             float f2 = this.x0;
             float f3 = this.y0;
             xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f2, f2, f3, f3, f3, f3, f2, f2});
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             float f4 = this.y0;
             xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f4, f4, f4, f4, f4, f4, f4, f4});
-        } else if (i != 3) {
+        } else if (i2 != 3) {
             float f5 = this.x0;
             xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f5, f5, f5, f5, f5, f5, f5, f5});
         } else {

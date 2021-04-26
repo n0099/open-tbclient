@@ -77,7 +77,7 @@ public class MaterialLoader {
         OAdURLConnection oAdURLConnection = new OAdURLConnection(1, str);
         oAdURLConnection.addImageRequestListener(new OAdURLConnection.OnImageRequestListener() { // from class: com.baidu.mobads.container.util.filedownloader.MaterialLoader.3
             @Override // com.baidu.mobads.container.components.net.OAdURLConnection.OnImageRequestListener
-            public void onFail(String str2, int i) {
+            public void onFail(String str2, int i2) {
                 String str3 = MaterialLoader.TAG;
                 Log.e(str3, "素材请求失败，onFail: " + str2);
                 materialLoadingListener.onLoadingFailed(str, imageView, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
@@ -173,11 +173,11 @@ public class MaterialLoader {
     }
 
     public static int getBitmapSize(Bitmap bitmap) {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 19) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 19) {
             return bitmap.getAllocationByteCount();
         }
-        if (i >= 12) {
+        if (i2 >= 12) {
             return bitmap.getByteCount();
         }
         return bitmap.getRowBytes() * bitmap.getHeight();
@@ -194,24 +194,24 @@ public class MaterialLoader {
         return mSingleton;
     }
 
-    public static Bitmap pixelCompress(Bitmap bitmap, int i) {
-        if (i <= 1) {
+    public static Bitmap pixelCompress(Bitmap bitmap, int i2) {
+        if (i2 <= 1) {
             return bitmap;
         }
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         Matrix matrix = new Matrix();
-        float f2 = 1.0f / i;
+        float f2 = 1.0f / i2;
         matrix.postScale(f2, f2);
         return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
     }
 
-    public static Bitmap qualityCompress(Bitmap bitmap, int i) {
-        if (i == 100) {
+    public static Bitmap qualityCompress(Bitmap bitmap, int i2) {
+        if (i2 == 100) {
             return bitmap;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
         try {
             byte[] byteArray = byteArrayOutputStream.toByteArray();
             byteArrayOutputStream.close();
@@ -230,27 +230,27 @@ public class MaterialLoader {
     }
 
     public static int sizeCompressRatio(BitmapFactory.Options options) {
-        int i;
-        int i2 = options.outHeight;
-        int i3 = options.outWidth;
-        if (i2 > 1140 || i3 > 1140) {
-            int i4 = 2;
-            int i5 = i2 / 2;
+        int i2;
+        int i3 = options.outHeight;
+        int i4 = options.outWidth;
+        if (i3 > 1140 || i4 > 1140) {
+            int i5 = 2;
             int i6 = i3 / 2;
+            int i7 = i4 / 2;
             while (true) {
-                if (i5 < 1140 && i6 < 1140) {
+                if (i6 < 1140 && i7 < 1140) {
                     break;
                 }
-                i4 *= 2;
+                i5 *= 2;
             }
-            i = i4;
+            i2 = i5;
         } else {
-            i = 1;
+            i2 = 1;
         }
-        if (i > 6) {
+        if (i2 > 6) {
             return 6;
         }
-        return i;
+        return i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -300,11 +300,11 @@ public class MaterialLoader {
     public int qualityCompressionRatio(Bitmap bitmap) {
         int bitmapSize = getBitmapSize(bitmap);
         if (bitmapSize > 2457600) {
-            int i = bitmapSize / MAX_IMAGE_SIZE;
-            if (i > 6) {
+            int i2 = bitmapSize / MAX_IMAGE_SIZE;
+            if (i2 > 6) {
                 return 6;
             }
-            return i;
+            return i2;
         }
         return 0;
     }

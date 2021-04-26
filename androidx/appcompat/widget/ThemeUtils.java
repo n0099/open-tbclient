@@ -2,12 +2,21 @@ package androidx.appcompat.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.appcompat.R;
 import androidx.core.graphics.ColorUtils;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class ThemeUtils {
+    public static final String TAG = "ThemeUtils";
     public static final ThreadLocal<TypedValue> TL_TYPED_VALUE = new ThreadLocal<>();
     public static final int[] DISABLED_STATE_SET = {-16842910};
     public static final int[] FOCUSED_STATE_SET = {16842908};
@@ -19,23 +28,35 @@ public class ThemeUtils {
     public static final int[] EMPTY_STATE_SET = new int[0];
     public static final int[] TEMP_ARRAY = new int[1];
 
-    public static ColorStateList createDisabledStateList(int i, int i2) {
-        return new ColorStateList(new int[][]{DISABLED_STATE_SET, EMPTY_STATE_SET}, new int[]{i2, i});
+    public static void checkAppCompatTheme(@NonNull View view, @NonNull Context context) {
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(R.styleable.AppCompatTheme);
+        try {
+            if (!obtainStyledAttributes.hasValue(R.styleable.AppCompatTheme_windowActionBar)) {
+                Log.e(TAG, "View " + view.getClass() + " is an AppCompat widget that can only be used with a Theme.AppCompat theme (or descendant).");
+            }
+        } finally {
+            obtainStyledAttributes.recycle();
+        }
     }
 
-    public static int getDisabledThemeAttrColor(Context context, int i) {
-        ColorStateList themeAttrColorStateList = getThemeAttrColorStateList(context, i);
+    @NonNull
+    public static ColorStateList createDisabledStateList(int i2, int i3) {
+        return new ColorStateList(new int[][]{DISABLED_STATE_SET, EMPTY_STATE_SET}, new int[]{i3, i2});
+    }
+
+    public static int getDisabledThemeAttrColor(@NonNull Context context, int i2) {
+        ColorStateList themeAttrColorStateList = getThemeAttrColorStateList(context, i2);
         if (themeAttrColorStateList != null && themeAttrColorStateList.isStateful()) {
             return themeAttrColorStateList.getColorForState(DISABLED_STATE_SET, themeAttrColorStateList.getDefaultColor());
         }
         TypedValue typedValue = getTypedValue();
         context.getTheme().resolveAttribute(16842803, typedValue, true);
-        return getThemeAttrColor(context, i, typedValue.getFloat());
+        return getThemeAttrColor(context, i2, typedValue.getFloat());
     }
 
-    public static int getThemeAttrColor(Context context, int i) {
+    public static int getThemeAttrColor(@NonNull Context context, int i2) {
         int[] iArr = TEMP_ARRAY;
-        iArr[0] = i;
+        iArr[0] = i2;
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, (AttributeSet) null, iArr);
         try {
             return obtainStyledAttributes.getColor(0, 0);
@@ -44,9 +65,10 @@ public class ThemeUtils {
         }
     }
 
-    public static ColorStateList getThemeAttrColorStateList(Context context, int i) {
+    @Nullable
+    public static ColorStateList getThemeAttrColorStateList(@NonNull Context context, int i2) {
         int[] iArr = TEMP_ARRAY;
-        iArr[0] = i;
+        iArr[0] = i2;
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, (AttributeSet) null, iArr);
         try {
             return obtainStyledAttributes.getColorStateList(0);
@@ -65,8 +87,8 @@ public class ThemeUtils {
         return typedValue;
     }
 
-    public static int getThemeAttrColor(Context context, int i, float f2) {
-        int themeAttrColor = getThemeAttrColor(context, i);
+    public static int getThemeAttrColor(@NonNull Context context, int i2, float f2) {
+        int themeAttrColor = getThemeAttrColor(context, i2);
         return ColorUtils.setAlphaComponent(themeAttrColor, Math.round(Color.alpha(themeAttrColor) * f2));
     }
 }

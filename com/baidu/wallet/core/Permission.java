@@ -9,16 +9,16 @@ public enum Permission {
     
     public final int val;
 
-    Permission(int i) {
-        this.val = i;
+    Permission(int i2) {
+        this.val = i2;
     }
 
     public int getVal() {
         return this.val;
     }
 
-    public boolean verify(int i) {
-        int i2 = this.val;
-        return (i & i2) == i2;
+    public boolean verify(int i2) {
+        int i3 = this.val;
+        return (i2 & i3) == i3;
     }
 }

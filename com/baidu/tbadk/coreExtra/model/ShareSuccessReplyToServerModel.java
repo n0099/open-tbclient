@@ -18,26 +18,26 @@ import org.json.JSONObject;
 public class ShareSuccessReplyToServerModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f13378e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
+    public HttpMessageListener f13348e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
 
     /* loaded from: classes3.dex */
     public static class ShareSuccessReplySeverResponseMessage extends JsonHttpResponsedMessage {
         public CustomDialogData mActDialogData;
 
-        public ShareSuccessReplySeverResponseMessage(int i) {
-            super(i);
+        public ShareSuccessReplySeverResponseMessage(int i2) {
+            super(i2);
         }
 
         @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-        public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
             JSONObject optJSONObject;
-            super.decodeLogicInBackGround(i, jSONObject);
+            super.decodeLogicInBackGround(i2, jSONObject);
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode != 200 || error < 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                 return;
             }
-            this.mActDialogData = d.b.j0.d2.b.a(optJSONObject);
+            this.mActDialogData = d.a.j0.d2.b.a(optJSONObject);
         }
 
         public CustomDialogData getActivityDialogData() {
@@ -47,8 +47,8 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
-        public a(ShareSuccessReplyToServerModel shareSuccessReplyToServerModel, int i) {
-            super(i);
+        public a(ShareSuccessReplyToServerModel shareSuccessReplyToServerModel, int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,9 +77,9 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public ShareSuccessReplyToServerModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f13378e.setTag(getUniqueId());
-        this.f13378e.setSelfListener(true);
-        registerListener(this.f13378e);
+        this.f13348e.setTag(getUniqueId());
+        this.f13348e.setSelfListener(true);
+        registerListener(this.f13348e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -89,7 +89,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f13378e);
+        MessageManager.getInstance().unRegisterListener(this.f13348e);
         return false;
     }
 
@@ -99,25 +99,25 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void s(String str, int i, b bVar) {
+    public void s(String str, int i2, b bVar) {
         if (str == null) {
             return;
         }
-        int i2 = 0;
-        if (i == 2) {
-            i2 = 2;
-        } else if (i == 3) {
-            i2 = 1;
-        } else if (i == 4) {
-            i2 = 3;
-        } else if (i == 6) {
-            i2 = 5;
-        } else if (i == 8) {
-            i2 = 4;
+        int i3 = 0;
+        if (i2 == 2) {
+            i3 = 2;
+        } else if (i2 == 3) {
+            i3 = 1;
+        } else if (i2 == 4) {
+            i3 = 3;
+        } else if (i2 == 6) {
+            i3 = 5;
+        } else if (i2 == 8) {
+            i3 = 4;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
         httpMessage.addParam(PbChosenActivityConfig.KEY_SHARE_URL, str);
-        httpMessage.addParam(DI.TB.SHARE_CHANNEL, i2);
+        httpMessage.addParam(DI.TB.SHARE_CHANNEL, i3);
         httpMessage.setExtra(bVar);
         sendMessage(httpMessage);
     }

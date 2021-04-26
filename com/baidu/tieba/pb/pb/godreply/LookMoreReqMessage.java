@@ -3,8 +3,8 @@ package com.baidu.tieba.pb.pb.godreply;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.c.e.p.l;
-import d.b.i0.z0.w;
+import d.a.c.e.p.l;
+import d.a.i0.z0.w;
 import java.util.List;
 import tbclient.GetPostList.DataReq;
 import tbclient.GetPostList.GetPostListReqIdl;
@@ -27,13 +27,13 @@ public class LookMoreReqMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             int k = l.k(TbadkCoreApplication.getInst());
-            int i = l.i(TbadkCoreApplication.getInst());
+            int i2 = l.i(TbadkCoreApplication.getInst());
             DataReq.Builder builder = new DataReq.Builder();
             builder.kz = this.kz;
             builder.with_floor = Integer.valueOf(this.with_floor);
             builder.post_id = this.post_id;
             builder.scr_w = Integer.valueOf(k);
-            builder.scr_h = Integer.valueOf(i);
+            builder.scr_h = Integer.valueOf(i2);
             builder.st_type = Integer.valueOf(this.st_type);
             builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
             if (z) {
@@ -55,19 +55,19 @@ public class LookMoreReqMessage extends NetMessage {
         this.post_id = list;
     }
 
-    public void setScr_h(int i) {
-        this.scr_h = i;
+    public void setScr_h(int i2) {
+        this.scr_h = i2;
     }
 
-    public void setScr_w(int i) {
-        this.scr_w = i;
+    public void setScr_w(int i2) {
+        this.scr_w = i2;
     }
 
-    public void setSt_type(int i) {
-        this.st_type = i;
+    public void setSt_type(int i2) {
+        this.st_type = i2;
     }
 
-    public void setWith_floor(int i) {
-        this.with_floor = i;
+    public void setWith_floor(int i2) {
+        this.with_floor = i2;
     }
 }

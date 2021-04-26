@@ -6,11 +6,11 @@ import com.baidu.wallet.core.NoProguard;
 public interface IImageProcess extends NoProguard {
     void destroyProcessor();
 
-    int getRecycledBufSize(int i, int i2);
+    int getRecycledBufSize(int i2, int i3);
 
     boolean initProcessor();
 
-    Object[] processImage(byte[] bArr, int i, int i2, Rect rect, byte[] bArr2);
+    Object[] processImage(byte[] bArr, int i2, int i3, Rect rect, byte[] bArr2);
 
-    Object[] processImageJpegData(byte[] bArr, int i, int i2);
+    Object[] processImageJpegData(byte[] bArr, int i2, int i3);
 }

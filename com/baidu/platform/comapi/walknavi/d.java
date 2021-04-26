@@ -3,14 +3,14 @@ package com.baidu.platform.comapi.walknavi;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f9481a;
+    public final /* synthetic */ b f9836a;
 
     public d(b bVar) {
-        this.f9481a = bVar;
+        this.f9836a = bVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f9481a.F().runEntryState();
+        this.f9836a.F().runEntryState();
     }
 }

@@ -7,8 +7,8 @@ import kotlin.Metadata;
 public abstract class Lambda<R> implements FunctionBase<R>, Serializable {
     public final int arity;
 
-    public Lambda(int i) {
-        this.arity = i;
+    public Lambda(int i2) {
+        this.arity = i2;
     }
 
     @Override // kotlin.jvm.internal.FunctionBase
@@ -18,7 +18,7 @@ public abstract class Lambda<R> implements FunctionBase<R>, Serializable {
 
     public String toString() {
         String renderLambdaToString = Reflection.renderLambdaToString((Lambda) this);
-        Intrinsics.checkExpressionValueIsNotNull(renderLambdaToString, "Reflection.renderLambdaToString(this)");
+        Intrinsics.checkNotNullExpressionValue(renderLambdaToString, "Reflection.renderLambdaToString(this)");
         return renderLambdaToString;
     }
 }

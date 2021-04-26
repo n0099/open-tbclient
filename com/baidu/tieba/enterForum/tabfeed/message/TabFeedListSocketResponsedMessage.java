@@ -2,14 +2,14 @@ package com.baidu.tieba.enterForum.tabfeed.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.c.j.e.n;
-import d.b.i0.g0.b.a;
+import d.a.c.j.e.n;
+import d.a.i0.g0.b.a;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes4.dex */
 public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements a {
-    public d.b.j0.i0.l.d.a enterForumTabFeedData;
+    public d.a.j0.i0.l.d.a enterForumTabFeedData;
 
     public TabFeedListSocketResponsedMessage() {
         super(309651);
@@ -25,7 +25,7 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         String str;
         Integer num;
         TabfeedlistResIdl tabfeedlistResIdl = (TabfeedlistResIdl) new Wire(new Class[0]).parseFrom(bArr, TabfeedlistResIdl.class);
@@ -38,7 +38,7 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
             setErrorString(tabfeedlistResIdl.error.usermsg);
         }
         if (getError() == 0 && tabfeedlistResIdl.data != null) {
-            d.b.j0.i0.l.d.a aVar = new d.b.j0.i0.l.d.a();
+            d.a.j0.i0.l.d.a aVar = new d.a.j0.i0.l.d.a();
             this.enterForumTabFeedData = aVar;
             aVar.g(tabfeedlistResIdl.data);
         }

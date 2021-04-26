@@ -17,14 +17,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.switchs.WebpSwitch;
 import com.baidu.tieba.R;
-import d.b.c.e.a.d;
-import d.b.c.e.a.f.c;
-import d.b.c.e.l.b;
-import d.b.c.e.l.e;
-import d.b.c.e.p.j;
-import d.b.c.e.p.l;
-import d.b.c.j.d.a;
-import d.b.i0.z0.o;
+import d.a.c.e.a.d;
+import d.a.c.e.a.f.c;
+import d.a.c.e.l.b;
+import d.a.c.e.l.e;
+import d.a.c.e.p.j;
+import d.a.c.e.p.l;
+import d.a.c.j.d.a;
+import d.a.i0.z0.o;
 import java.io.File;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -34,9 +34,9 @@ public class BigImageLoaderProc implements e<a> {
     public static final String NCDN_PER = "width=";
     public int procType;
 
-    public BigImageLoaderProc(int i) {
+    public BigImageLoaderProc(int i2) {
         this.procType = 0;
-        this.procType = i;
+        this.procType = i2;
     }
 
     public static boolean checkBigImageFileExist(String str) {
@@ -66,13 +66,13 @@ public class BigImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(newDiskPicOperate);
-            bVar.f42585a = diskCancelWorker;
+            bVar.f39786a = diskCancelWorker;
         }
         if (d.g().a(newDiskPicOperate)) {
-            int i = j.H() ? 500 : 2000;
+            int i2 = j.H() ? 500 : 2000;
             synchronized (bArr) {
                 try {
-                    bArr.wait(i);
+                    bArr.wait(i2);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
@@ -119,7 +119,7 @@ public class BigImageLoaderProc implements e<a> {
     }
 
     public static String getPidFromCDNURL(String str) {
-        int i;
+        int i2;
         if (str != null && o.b(str)) {
             int lastIndexOf = str.lastIndexOf("/");
             int lastIndexOf2 = str.lastIndexOf(".");
@@ -129,14 +129,14 @@ public class BigImageLoaderProc implements e<a> {
                 if (lastIndexOf4 <= 0) {
                     return null;
                 }
-                i = lastIndexOf4 + 5;
+                i2 = lastIndexOf4 + 5;
             } else {
-                i = lastIndexOf3 + 4;
+                i2 = lastIndexOf3 + 4;
             }
             StringBuffer stringBuffer = new StringBuffer();
             if (lastIndexOf > 0 && lastIndexOf2 > 0) {
                 stringBuffer.append(str.substring(lastIndexOf + 1, lastIndexOf2));
-                stringBuffer.append(str.substring(i));
+                stringBuffer.append(str.substring(i2));
                 return stringBuffer.toString();
             }
         }
@@ -178,7 +178,7 @@ public class BigImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(newDiskPicOperate);
-            bVar.f42585a = diskCancelWorker;
+            bVar.f39786a = diskCancelWorker;
         }
         d.g().a(newDiskPicOperate);
     }
@@ -189,20 +189,20 @@ public class BigImageLoaderProc implements e<a> {
         return null;
     }
 
-    @Override // d.b.c.e.l.e
+    @Override // d.a.c.e.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         return null;
     }
 
-    @Override // d.b.c.e.l.e
+    @Override // d.a.c.e.l.e
     public int getAsyncTaskPriority() {
         return 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.c.e.l.e
-    public a getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // d.a.c.e.l.e
+    public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         return null;
     }
 
@@ -210,7 +210,7 @@ public class BigImageLoaderProc implements e<a> {
         return this.procType;
     }
 
-    @Override // d.b.c.e.l.e
+    @Override // d.a.c.e.l.e
     public boolean isNeedLoad() {
         return true;
     }
@@ -218,22 +218,22 @@ public class BigImageLoaderProc implements e<a> {
     public void storeLocal(String str, byte[] bArr, Object... objArr) {
     }
 
-    @Override // d.b.c.e.l.e
-    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
+    @Override // d.a.c.e.l.e
+    public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.c.e.l.e
-    public a getFromLocal(String str, String str2, int i, int i2, b bVar, Object... objArr) {
+    @Override // d.a.c.e.l.e
+    public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         boolean booleanValue = Boolean.valueOf(String.valueOf(objArr[0])).booleanValue();
         byte[] bArr = (byte[]) objArr[1];
         Bitmap Bytes2Bitmap = bArr != null ? BitmapHelper.Bytes2Bitmap(bArr) : null;
         if (Bytes2Bitmap == null) {
             if (booleanValue && str.startsWith("/")) {
-                Bytes2Bitmap = d.b.c.e.p.d.d().c(str);
+                Bytes2Bitmap = d.a.c.e.p.d.d().c(str);
                 if (Bytes2Bitmap != null && bArr == null) {
-                    bArr = d.b.c.e.p.d.d().a(Bytes2Bitmap, 100);
+                    bArr = d.a.c.e.p.d.d().a(Bytes2Bitmap, 100);
                 }
             } else {
                 bArr = getFromLocalData(str, bVar);
@@ -243,7 +243,7 @@ public class BigImageLoaderProc implements e<a> {
             }
         }
         if (Bytes2Bitmap != null) {
-            return new a(Bytes2Bitmap, l.A(bArr), str2, bArr);
+            return new a(Bytes2Bitmap, l.B(bArr), str2, bArr);
         }
         return null;
     }
@@ -251,11 +251,11 @@ public class BigImageLoaderProc implements e<a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     /* JADX WARN: Removed duplicated region for block: B:32:0x00ce  */
-    @Override // d.b.c.e.l.e
+    @Override // d.a.c.e.l.e
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public a getFromRemote(String str, String str2, int i, int i2, b bVar, Object... objArr) {
+    public a getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         String str3;
         String str4;
         boolean z;
@@ -284,19 +284,19 @@ public class BigImageLoaderProc implements e<a> {
                     z = true;
                     webClient = new WebClient();
                     if (bVar != null) {
-                        bVar.f42585a = webClient;
+                        bVar.f39786a = webClient;
                     }
                     downloadImageBytes = webClient.downloadImageBytes(str4, !booleanValue);
                     needCache = webClient.needCache();
                     if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                         BdLog.e("BIGIMAGE imagesize too big");
-                        d.b.i0.r.z.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                        d.a.i0.r.z.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
                     }
                     if (webClient.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
                         try {
                             InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete_big2, new TypedValue());
-                            downloadImageBytes = d.b.c.e.j.b.b.d(openRawResource);
-                            d.b.c.e.m.a.c(openRawResource);
+                            downloadImageBytes = d.a.c.e.j.b.b.d(openRawResource);
+                            d.a.c.e.m.a.c(openRawResource);
                         } catch (Throwable th) {
                             BdLog.e(th);
                             return null;
@@ -317,7 +317,7 @@ public class BigImageLoaderProc implements e<a> {
                     if (needCache && !webClient.isCrackPic) {
                         updateLocal(str, downloadImageBytes, false, bVar);
                     }
-                    a aVar = new a(bitmap, l.A(downloadImageBytes), str, downloadImageBytes);
+                    a aVar = new a(bitmap, l.B(downloadImageBytes), str, downloadImageBytes);
                     aVar.y(needCache);
                     return aVar;
                 }
@@ -331,12 +331,12 @@ public class BigImageLoaderProc implements e<a> {
             needCache = webClient.needCache();
             if (webClient.IsRequestSuccess()) {
                 BdLog.e("BIGIMAGE imagesize too big");
-                d.b.i0.r.z.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                d.a.i0.r.z.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
             }
             if (webClient.responseCode == 302) {
                 InputStream openRawResource2 = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete_big2, new TypedValue());
-                downloadImageBytes = d.b.c.e.j.b.b.d(openRawResource2);
-                d.b.c.e.m.a.c(openRawResource2);
+                downloadImageBytes = d.a.c.e.j.b.b.d(openRawResource2);
+                d.a.c.e.m.a.c(openRawResource2);
             }
             if (!webClient.IsRequestSuccess()) {
             }
@@ -353,7 +353,7 @@ public class BigImageLoaderProc implements e<a> {
             if (needCache) {
                 updateLocal(str, downloadImageBytes, false, bVar);
             }
-            a aVar2 = new a(bitmap, l.A(downloadImageBytes), str, downloadImageBytes);
+            a aVar2 = new a(bitmap, l.B(downloadImageBytes), str, downloadImageBytes);
             aVar2.y(needCache);
             return aVar2;
         }

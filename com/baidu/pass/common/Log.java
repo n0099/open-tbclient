@@ -14,10 +14,10 @@ public class Log implements com.baidu.pass.a {
                 }
                 StringBuffer stringBuffer = new StringBuffer();
                 int length = objArr.length;
-                for (int i = 0; i < length; i++) {
-                    Object obj = objArr[i];
+                for (int i2 = 0; i2 < length; i2++) {
+                    Object obj = objArr[i2];
                     if (obj != null) {
-                        if (i != 0) {
+                        if (i2 != 0) {
                             stringBuffer.append(FieldBuilder.SE);
                         }
                         try {

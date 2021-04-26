@@ -32,8 +32,8 @@ public class JSONToken {
     public static final int TRUE = 6;
     public static final int UNDEFINED = 23;
 
-    public static String name(int i) {
-        switch (i) {
+    public static String name(int i2) {
+        switch (i2) {
             case 1:
                 return "error";
             case 2:

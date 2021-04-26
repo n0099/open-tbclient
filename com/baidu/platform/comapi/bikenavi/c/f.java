@@ -6,19 +6,19 @@ import com.baidu.platform.comapi.walknavi.widget.a;
 public class f implements a.InterfaceC0127a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f9402a;
+    public final /* synthetic */ b f9754a;
 
     public f(b bVar) {
-        this.f9402a = bVar;
+        this.f9754a = bVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0127a
     public void a() {
         b.a aVar;
         b.a aVar2;
-        aVar = this.f9402a.v;
+        aVar = this.f9754a.v;
         if (aVar != null) {
-            aVar2 = this.f9402a.v;
+            aVar2 = this.f9754a.v;
             aVar2.cancel();
         }
     }

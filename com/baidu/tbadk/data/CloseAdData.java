@@ -8,32 +8,32 @@ public class CloseAdData extends OrmObject {
     public static final int ERROR_CODE_NOT_MEMBER = 1990043;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13480e = 1;
+    public int f13462e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13481f;
+    public int f13463f;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f13480e = jSONObject.optInt("is_open");
-        this.f13481f = jSONObject.optInt("vip_close");
+        this.f13462e = jSONObject.optInt("is_open");
+        this.f13463f = jSONObject.optInt("vip_close");
     }
 
     public int s() {
-        return this.f13480e;
+        return this.f13462e;
     }
 
     public int t() {
-        return this.f13481f;
+        return this.f13463f;
     }
 
     public void u(VipCloseAd vipCloseAd) {
         if (vipCloseAd == null) {
             return;
         }
-        this.f13480e = vipCloseAd.is_open.intValue();
-        this.f13481f = vipCloseAd.vip_close.intValue();
+        this.f13462e = vipCloseAd.is_open.intValue();
+        this.f13463f = vipCloseAd.vip_close.intValue();
     }
 }

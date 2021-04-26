@@ -36,8 +36,8 @@ public class Barrier extends ConstraintHelper {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_Layout);
             int indexCount = obtainStyledAttributes.getIndexCount();
-            for (int i = 0; i < indexCount; i++) {
-                int index = obtainStyledAttributes.getIndex(i);
+            for (int i2 = 0; i2 < indexCount; i2++) {
+                int index = obtainStyledAttributes.getIndex(i2);
                 if (index == R.styleable.ConstraintLayout_Layout_barrierDirection) {
                     setType(obtainStyledAttributes.getInt(index, 0));
                 } else if (index == R.styleable.ConstraintLayout_Layout_barrierAllowsGoneWidgets) {
@@ -53,28 +53,28 @@ public class Barrier extends ConstraintHelper {
         this.mBarrier.setAllowsGoneWidget(z);
     }
 
-    public void setType(int i) {
-        this.mIndicatedType = i;
-        this.mResolvedType = i;
+    public void setType(int i2) {
+        this.mIndicatedType = i2;
+        this.mResolvedType = i2;
         if (Build.VERSION.SDK_INT >= 17) {
             if (1 == getResources().getConfiguration().getLayoutDirection()) {
-                int i2 = this.mIndicatedType;
-                if (i2 == 5) {
+                int i3 = this.mIndicatedType;
+                if (i3 == 5) {
                     this.mResolvedType = 1;
-                } else if (i2 == 6) {
+                } else if (i3 == 6) {
                     this.mResolvedType = 0;
                 }
             } else {
-                int i3 = this.mIndicatedType;
-                if (i3 == 5) {
+                int i4 = this.mIndicatedType;
+                if (i4 == 5) {
                     this.mResolvedType = 0;
-                } else if (i3 == 6) {
+                } else if (i4 == 6) {
                     this.mResolvedType = 1;
                 }
             }
-        } else if (i == 5) {
+        } else if (i2 == 5) {
             this.mResolvedType = 0;
-        } else if (i == 6) {
+        } else if (i2 == 6) {
             this.mResolvedType = 1;
         }
         this.mBarrier.setBarrierType(this.mResolvedType);
@@ -85,8 +85,8 @@ public class Barrier extends ConstraintHelper {
         super.setVisibility(8);
     }
 
-    public Barrier(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public Barrier(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         super.setVisibility(8);
     }
 }

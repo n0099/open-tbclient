@@ -50,7 +50,7 @@ public class AdDownloadApkUtils {
     */
     public static int getApkDownloadStatus(Context context, String str, String str2) {
         SPUtils sPUtils = new SPUtils(context, PKGS_PREF_ACTIVATION);
-        int i = -1;
+        int i2 = -1;
         if (str != null && !"".equals(str)) {
             boolean z = false;
             try {
@@ -83,9 +83,9 @@ public class AdDownloadApkUtils {
                                         sPUtils2.putString(str, jSONObject.toString());
                                     } catch (Exception e3) {
                                         e = e3;
-                                        i = 5;
+                                        i2 = 5;
                                         Log.e(TAG, e.getMessage());
-                                        return i;
+                                        return i2;
                                     }
                                 }
                             }
@@ -97,13 +97,13 @@ public class AdDownloadApkUtils {
                     return optInt;
                 } catch (Exception e4) {
                     e = e4;
-                    i = optInt;
+                    i2 = optInt;
                 }
             } catch (Exception e5) {
                 e = e5;
             }
         }
-        return i;
+        return i2;
     }
 
     public static String getApkFileLocalPath(Context context, String str) {

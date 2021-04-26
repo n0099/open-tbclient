@@ -72,13 +72,13 @@ public final class FormBody extends RequestBody {
             buffer = bufferedSink.buffer();
         }
         int size = this.encodedNames.size();
-        for (int i = 0; i < size; i++) {
-            if (i > 0) {
+        for (int i2 = 0; i2 < size; i2++) {
+            if (i2 > 0) {
                 buffer.writeByte(38);
             }
-            buffer.writeUtf8(this.encodedNames.get(i));
+            buffer.writeUtf8(this.encodedNames.get(i2));
             buffer.writeByte(61);
-            buffer.writeUtf8(this.encodedValues.get(i));
+            buffer.writeUtf8(this.encodedValues.get(i2));
         }
         if (z) {
             long size2 = buffer.size();
@@ -98,24 +98,24 @@ public final class FormBody extends RequestBody {
         return CONTENT_TYPE;
     }
 
-    public String encodedName(int i) {
-        return this.encodedNames.get(i);
+    public String encodedName(int i2) {
+        return this.encodedNames.get(i2);
     }
 
-    public String encodedValue(int i) {
-        return this.encodedValues.get(i);
+    public String encodedValue(int i2) {
+        return this.encodedValues.get(i2);
     }
 
-    public String name(int i) {
-        return HttpUrl.percentDecode(encodedName(i), true);
+    public String name(int i2) {
+        return HttpUrl.percentDecode(encodedName(i2), true);
     }
 
     public int size() {
         return this.encodedNames.size();
     }
 
-    public String value(int i) {
-        return HttpUrl.percentDecode(encodedValue(i), true);
+    public String value(int i2) {
+        return HttpUrl.percentDecode(encodedValue(i2), true);
     }
 
     @Override // okhttp3.RequestBody

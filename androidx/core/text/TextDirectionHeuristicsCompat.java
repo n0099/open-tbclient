@@ -16,24 +16,23 @@ public final class TextDirectionHeuristicsCompat {
 
     /* loaded from: classes.dex */
     public static class AnyStrong implements TextDirectionAlgorithm {
-        public final boolean mLookForRtl;
         public static final AnyStrong INSTANCE_RTL = new AnyStrong(true);
-        public static final AnyStrong INSTANCE_LTR = new AnyStrong(false);
+        public final boolean mLookForRtl;
 
         public AnyStrong(boolean z) {
             this.mLookForRtl = z;
         }
 
         @Override // androidx.core.text.TextDirectionHeuristicsCompat.TextDirectionAlgorithm
-        public int checkRtl(CharSequence charSequence, int i, int i2) {
-            int i3 = i2 + i;
+        public int checkRtl(CharSequence charSequence, int i2, int i3) {
+            int i4 = i3 + i2;
             boolean z = false;
-            while (i < i3) {
-                int isRtlText = TextDirectionHeuristicsCompat.isRtlText(Character.getDirectionality(charSequence.charAt(i)));
+            while (i2 < i4) {
+                int isRtlText = TextDirectionHeuristicsCompat.isRtlText(Character.getDirectionality(charSequence.charAt(i2)));
                 if (isRtlText != 0) {
                     if (isRtlText != 1) {
                         continue;
-                        i++;
+                        i2++;
                     } else if (!this.mLookForRtl) {
                         return 1;
                     }
@@ -41,7 +40,7 @@ public final class TextDirectionHeuristicsCompat {
                     return 0;
                 }
                 z = true;
-                i++;
+                i2++;
             }
             if (z) {
                 return this.mLookForRtl ? 1 : 0;
@@ -55,20 +54,20 @@ public final class TextDirectionHeuristicsCompat {
         public static final FirstStrong INSTANCE = new FirstStrong();
 
         @Override // androidx.core.text.TextDirectionHeuristicsCompat.TextDirectionAlgorithm
-        public int checkRtl(CharSequence charSequence, int i, int i2) {
-            int i3 = i2 + i;
-            int i4 = 2;
-            while (i < i3 && i4 == 2) {
-                i4 = TextDirectionHeuristicsCompat.isRtlTextOrFormat(Character.getDirectionality(charSequence.charAt(i)));
-                i++;
+        public int checkRtl(CharSequence charSequence, int i2, int i3) {
+            int i4 = i3 + i2;
+            int i5 = 2;
+            while (i2 < i4 && i5 == 2) {
+                i5 = TextDirectionHeuristicsCompat.isRtlTextOrFormat(Character.getDirectionality(charSequence.charAt(i2)));
+                i2++;
             }
-            return i4;
+            return i5;
         }
     }
 
     /* loaded from: classes.dex */
     public interface TextDirectionAlgorithm {
-        int checkRtl(CharSequence charSequence, int i, int i2);
+        int checkRtl(CharSequence charSequence, int i2, int i3);
     }
 
     /* loaded from: classes.dex */
@@ -79,8 +78,8 @@ public final class TextDirectionHeuristicsCompat {
             this.mAlgorithm = textDirectionAlgorithm;
         }
 
-        private boolean doCheck(CharSequence charSequence, int i, int i2) {
-            int checkRtl = this.mAlgorithm.checkRtl(charSequence, i, i2);
+        private boolean doCheck(CharSequence charSequence, int i2, int i3) {
+            int checkRtl = this.mAlgorithm.checkRtl(charSequence, i2, i3);
             if (checkRtl != 0) {
                 if (checkRtl != 1) {
                     return defaultIsRtl();
@@ -93,17 +92,17 @@ public final class TextDirectionHeuristicsCompat {
         public abstract boolean defaultIsRtl();
 
         @Override // androidx.core.text.TextDirectionHeuristicCompat
-        public boolean isRtl(char[] cArr, int i, int i2) {
-            return isRtl(CharBuffer.wrap(cArr), i, i2);
+        public boolean isRtl(char[] cArr, int i2, int i3) {
+            return isRtl(CharBuffer.wrap(cArr), i2, i3);
         }
 
         @Override // androidx.core.text.TextDirectionHeuristicCompat
-        public boolean isRtl(CharSequence charSequence, int i, int i2) {
-            if (charSequence != null && i >= 0 && i2 >= 0 && charSequence.length() - i2 >= i) {
+        public boolean isRtl(CharSequence charSequence, int i2, int i3) {
+            if (charSequence != null && i2 >= 0 && i3 >= 0 && charSequence.length() - i3 >= i2) {
                 if (this.mAlgorithm == null) {
                     return defaultIsRtl();
                 }
-                return doCheck(charSequence, i, i2);
+                return doCheck(charSequence, i2, i3);
             }
             throw new IllegalArgumentException();
         }
@@ -138,19 +137,19 @@ public final class TextDirectionHeuristicsCompat {
         }
     }
 
-    public static int isRtlText(int i) {
-        if (i != 0) {
-            return (i == 1 || i == 2) ? 0 : 2;
+    public static int isRtlText(int i2) {
+        if (i2 != 0) {
+            return (i2 == 1 || i2 == 2) ? 0 : 2;
         }
         return 1;
     }
 
-    public static int isRtlTextOrFormat(int i) {
-        if (i != 0) {
-            if (i == 1 || i == 2) {
+    public static int isRtlTextOrFormat(int i2) {
+        if (i2 != 0) {
+            if (i2 == 1 || i2 == 2) {
                 return 0;
             }
-            switch (i) {
+            switch (i2) {
                 case 14:
                 case 15:
                     break;

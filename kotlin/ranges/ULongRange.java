@@ -9,7 +9,7 @@ import kotlin.ULong;
 import kotlin.UnsignedKt;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 @SinceKotlin(version = "1.3")
-@Metadata(bv = {1, 0, 3}, d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u000b\b\u0007\u0018\u0000 \u001c2\u00020\u00012\u00020\u0002:\u0001\u001cB\u001a\u0012\u0006\u0010\u0019\u001a\u00020\u0003\u0012\u0006\u0010\u0017\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0004\b\u001a\u0010\u001bJ\u001b\u0010\b\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0096\u0002ø\u0001\u0000¢\u0006\u0004\b\u0006\u0010\u0007J\u001a\u0010\u000b\u001a\u00020\u00052\b\u0010\n\u001a\u0004\u0018\u00010\tH\u0096\u0002¢\u0006\u0004\b\u000b\u0010\fJ\u000f\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u000f\u0010\u0010\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0013\u001a\u00020\u0012H\u0016¢\u0006\u0004\b\u0013\u0010\u0014R\u0019\u0010\u0017\u001a\u00020\u00038V@\u0016X\u0096\u0004ø\u0001\u0000¢\u0006\u0006\u001a\u0004\b\u0015\u0010\u0016R\u0019\u0010\u0019\u001a\u00020\u00038V@\u0016X\u0096\u0004ø\u0001\u0000¢\u0006\u0006\u001a\u0004\b\u0018\u0010\u0016ø\u0001\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u001d"}, d2 = {"Lkotlin/ranges/ULongRange;", "Lkotlin/ranges/ClosedRange;", "Lkotlin/ranges/ULongProgression;", "Lkotlin/ULong;", "value", "", "contains-VKZWuLQ", "(J)Z", "contains", "", "other", "equals", "(Ljava/lang/Object;)Z", "", "hashCode", "()I", "isEmpty", "()Z", "", "toString", "()Ljava/lang/String;", "getEndInclusive", "()Lkotlin/ULong;", "endInclusive", "getStart", IntentConfig.START, "<init>", "(JJLkotlin/jvm/internal/DefaultConstructorMarker;)V", "Companion", "kotlin-stdlib"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u000b\b\u0007\u0018\u0000 \u001c2\u00020\u00012\u00020\u0002:\u0001\u001cB\u001a\u0012\u0006\u0010\u0019\u001a\u00020\u0003\u0012\u0006\u0010\u0017\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0004\b\u001a\u0010\u001bJ\u001b\u0010\b\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0096\u0002ø\u0001\u0000¢\u0006\u0004\b\u0006\u0010\u0007J\u001a\u0010\u000b\u001a\u00020\u00052\b\u0010\n\u001a\u0004\u0018\u00010\tH\u0096\u0002¢\u0006\u0004\b\u000b\u0010\fJ\u000f\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u000f\u0010\u0010\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0013\u001a\u00020\u0012H\u0016¢\u0006\u0004\b\u0013\u0010\u0014R\u001c\u0010\u0017\u001a\u00020\u00038V@\u0016X\u0096\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\u0006\u001a\u0004\b\u0015\u0010\u0016R\u001c\u0010\u0019\u001a\u00020\u00038V@\u0016X\u0096\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\u0006\u001a\u0004\b\u0018\u0010\u0016ø\u0001\u0000\u0082\u0002\b\n\u0002\b\u0019\n\u0002\b!¨\u0006\u001d"}, d2 = {"Lkotlin/ranges/ULongRange;", "Lkotlin/ranges/ClosedRange;", "Lkotlin/ranges/ULongProgression;", "Lkotlin/ULong;", "value", "", "contains-VKZWuLQ", "(J)Z", "contains", "", "other", "equals", "(Ljava/lang/Object;)Z", "", "hashCode", "()I", "isEmpty", "()Z", "", "toString", "()Ljava/lang/String;", "getEndInclusive-s-VKNKU", "()J", "endInclusive", "getStart-s-VKNKU", IntentConfig.START, "<init>", "(JJLkotlin/jvm/internal/DefaultConstructorMarker;)V", "Companion", "kotlin-stdlib"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 @ExperimentalUnsignedTypes
 /* loaded from: classes7.dex */
 public final class ULongRange extends ULongProgression implements ClosedRange<ULong> {
@@ -38,12 +38,12 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable] */
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ boolean contains(ULong uLong) {
-        return m1511containsVKZWuLQ(uLong.m829unboximpl());
+        return m1826containsVKZWuLQ(uLong.m835unboximpl());
     }
 
     /* renamed from: contains-VKZWuLQ  reason: not valid java name */
-    public boolean m1511containsVKZWuLQ(long j) {
-        return UnsignedKt.ulongCompare(getFirst(), j) <= 0 && UnsignedKt.ulongCompare(j, getLast()) <= 0;
+    public boolean m1826containsVKZWuLQ(long j) {
+        return UnsignedKt.ulongCompare(m1823getFirstsVKNKU(), j) <= 0 && UnsignedKt.ulongCompare(j, m1824getLastsVKNKU()) <= 0;
     }
 
     @Override // kotlin.ranges.ULongProgression
@@ -51,7 +51,7 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
         if (obj instanceof ULongRange) {
             if (!isEmpty() || !((ULongRange) obj).isEmpty()) {
                 ULongRange uLongRange = (ULongRange) obj;
-                if (getFirst() != uLongRange.getFirst() || getLast() != uLongRange.getLast()) {
+                if (m1823getFirstsVKNKU() != uLongRange.m1823getFirstsVKNKU() || m1824getLastsVKNKU() != uLongRange.m1824getLastsVKNKU()) {
                 }
             }
             return true;
@@ -59,37 +59,47 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
         return false;
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Comparable' to match base method */
+    @Override // kotlin.ranges.ClosedRange
+    public /* bridge */ /* synthetic */ ULong getEndInclusive() {
+        return ULong.m786boximpl(m1827getEndInclusivesVKNKU());
+    }
+
+    /* renamed from: getEndInclusive-s-VKNKU  reason: not valid java name */
+    public long m1827getEndInclusivesVKNKU() {
+        return m1824getLastsVKNKU();
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Comparable' to match base method */
+    @Override // kotlin.ranges.ClosedRange
+    public /* bridge */ /* synthetic */ ULong getStart() {
+        return ULong.m786boximpl(m1828getStartsVKNKU());
+    }
+
+    /* renamed from: getStart-s-VKNKU  reason: not valid java name */
+    public long m1828getStartsVKNKU() {
+        return m1823getFirstsVKNKU();
+    }
+
     @Override // kotlin.ranges.ULongProgression
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return ((int) ULong.m786constructorimpl(getLast() ^ ULong.m786constructorimpl(getLast() >>> 32))) + (((int) ULong.m786constructorimpl(getFirst() ^ ULong.m786constructorimpl(getFirst() >>> 32))) * 31);
+        return ((int) ULong.m792constructorimpl(m1824getLastsVKNKU() ^ ULong.m792constructorimpl(m1824getLastsVKNKU() >>> 32))) + (((int) ULong.m792constructorimpl(m1823getFirstsVKNKU() ^ ULong.m792constructorimpl(m1823getFirstsVKNKU() >>> 32))) * 31);
     }
 
     @Override // kotlin.ranges.ULongProgression, kotlin.ranges.ClosedRange
     public boolean isEmpty() {
-        return UnsignedKt.ulongCompare(getFirst(), getLast()) > 0;
+        return UnsignedKt.ulongCompare(m1823getFirstsVKNKU(), m1824getLastsVKNKU()) > 0;
     }
 
     @Override // kotlin.ranges.ULongProgression
     public String toString() {
-        return ULong.m823toStringimpl(getFirst()) + IStringUtil.TOP_PATH + ULong.m823toStringimpl(getLast());
+        return ULong.m829toStringimpl(m1823getFirstsVKNKU()) + IStringUtil.TOP_PATH + ULong.m829toStringimpl(m1824getLastsVKNKU());
     }
 
     public /* synthetic */ ULongRange(long j, long j2, DefaultConstructorMarker defaultConstructorMarker) {
         this(j, j2);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.ranges.ClosedRange
-    public ULong getEndInclusive() {
-        return ULong.m780boximpl(getLast());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.ranges.ClosedRange
-    public ULong getStart() {
-        return ULong.m780boximpl(getFirst());
     }
 }

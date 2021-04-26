@@ -15,7 +15,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AsyncHttpClient {
     public static final boolean DEBUG = false;
     public static final int DEFAULT_MAX_CONNECTIONS = 20;
@@ -193,16 +193,16 @@ public class AsyncHttpClient {
         }
     }
 
-    public void setConnectTimeout(int i) {
-        this.mProxyURLConnection.setConnectTimeout(i);
+    public void setConnectTimeout(int i2) {
+        this.mProxyURLConnection.setConnectTimeout(i2);
     }
 
     public void setThreadPool(ThreadPoolExecutor threadPoolExecutor) {
         this.threadPool = threadPoolExecutor;
     }
 
-    public void setTimeout(int i) {
-        this.mProxyURLConnection.setSocketTimeout(i);
+    public void setTimeout(int i2) {
+        this.mProxyURLConnection.setSocketTimeout(i2);
     }
 
     public void switchProxy() {

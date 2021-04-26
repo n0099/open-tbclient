@@ -1,6 +1,7 @@
 package com.baidu.tieba.flutter.plugin.tiebaUtility.android;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
@@ -9,18 +10,22 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
 import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
 import com.baidu.tbadk.core.atomData.SquareSearchActivityConfig;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityOpenPageAuto;
-import d.b.i0.r.a0.b;
-import d.b.i0.s.d.f;
-import d.b.i0.t.k;
-import d.b.j0.s.a;
+import d.a.c.e.m.b;
+import d.a.i0.d.f;
+import d.a.i0.t.k;
+import d.a.j0.s.a;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpenPage {
@@ -30,6 +35,35 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
         if (currentActivity instanceof TbPageContextSupport) {
             UrlManager.getInstance().dealOneLink(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{missionEntranceUrl});
         }
+    }
+
+    @Override // com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityOpenPageAuto.HostUtilityOpenPage
+    public void accessLiveCenterService(TiebaUtilityOpenPageAuto.PageStringValue pageStringValue) {
+        if (TextUtils.isEmpty(pageStringValue.getResult())) {
+            return;
+        }
+        Uri parse = Uri.parse(pageStringValue.getResult());
+        final AlaPersonCenterActivityConfig alaPersonCenterActivityConfig = new AlaPersonCenterActivityConfig(TbadkCoreApplication.getInst(), parse.getQueryParameter("kUid"), parse.getQueryParameter(TbEnum.SystemMessage.KEY_USER_NAME), parse.getQueryParameter("portrait"), b.d(parse.getQueryParameter("sex"), 0), true);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921545, new f() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.UtilityOpenPage.1
+            @Override // d.a.i0.d.f
+            public void onFail() {
+                onSwitchGet(false);
+            }
+
+            @Override // d.a.i0.d.f
+            public void onSwitchGet(boolean z) {
+                TbPageContextSupport tbPageContextSupport;
+                if (z) {
+                    if (!(TbadkApplication.getInst().getCurrentActivity() instanceof TbPageContextSupport) || (tbPageContextSupport = (TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()) == null) {
+                        return;
+                    }
+                    UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{UrlSchemaHelper.GO_TO_YY_PERSONAL_CENTER_PAGE});
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, alaPersonCenterActivityConfig));
+            }
+        }));
+        TiebaStatic.log(CommonStatisticKey.KEY_PERSON_LIVE_TAB_CLICK);
     }
 
     @Override // com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityOpenPageAuto.HostUtilityOpenPage
@@ -56,7 +90,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
         if (toWhereParam.getResult() == null) {
             return;
         }
-        b.g(TbadkCoreApplication.getInst(), toWhereParam.getResult().intValue(), false);
+        d.a.i0.r.a0.b.g(TbadkCoreApplication.getInst(), toWhereParam.getResult().intValue(), false);
     }
 
     @Override // com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityOpenPageAuto.HostUtilityOpenPage
@@ -88,7 +122,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
     @Override // com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityOpenPageAuto.HostUtilityOpenPage
     public void openBBASMAppForItem(TiebaUtilityOpenPageAuto.SMAppMapParam sMAppMapParam) {
         HashMap result = sMAppMapParam.getResult();
-        if (a.b((String) result.get("id"), (String) result.get("link"), "1191000600000000", Integer.valueOf(((Boolean) result.get("is_game")).booleanValue() ? 1 : 0)) || d.b.c.e.p.k.isEmpty((String) result.get("h5_url"))) {
+        if (a.b((String) result.get("id"), (String) result.get("link"), "1191000600000000", Integer.valueOf(((Boolean) result.get("is_game")).booleanValue() ? 1 : 0)) || d.a.c.e.p.k.isEmpty((String) result.get("h5_url"))) {
             return;
         }
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
@@ -112,7 +146,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
     public void postSignProcess(TiebaUtilityOpenPageAuto.SignProcessParam signProcessParam) {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity instanceof TbPageContextSupport) {
-            f.c().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
+            d.a.i0.s.d.f.c().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
         }
     }
 

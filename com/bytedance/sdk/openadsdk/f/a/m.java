@@ -5,5 +5,5 @@ import androidx.annotation.Nullable;
 public interface m {
     void a(@Nullable String str, @Nullable String str2);
 
-    void a(@Nullable String str, @Nullable String str2, int i);
+    void a(@Nullable String str, @Nullable String str2, int i2);
 }

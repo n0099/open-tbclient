@@ -19,7 +19,7 @@ public class XLinearLayoutManager extends LinearLayoutManager {
         }
     }
 
-    public XLinearLayoutManager(Context context, AttributeSet attributeSet, int i, int i2) {
-        super(context, attributeSet, i, i2);
+    public XLinearLayoutManager(Context context, AttributeSet attributeSet, int i2, int i3) {
+        super(context, attributeSet, i2, i3);
     }
 }

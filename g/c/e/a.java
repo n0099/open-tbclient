@@ -56,11 +56,11 @@ public abstract class a extends g.c.a implements Runnable, WebSocket {
                             if (Thread.interrupted()) {
                                 break;
                             }
-                            ByteBuffer take = a.this.engine.f68776e.take();
+                            ByteBuffer take = a.this.engine.f67635e.take();
                             a.this.ostream.write(take.array(), 0, take.limit());
                             a.this.ostream.flush();
                         } catch (InterruptedException unused) {
-                            for (ByteBuffer byteBuffer : a.this.engine.f68776e) {
+                            for (ByteBuffer byteBuffer : a.this.engine.f67635e) {
                                 a.this.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
                                 a.this.ostream.flush();
                             }
@@ -158,7 +158,7 @@ public abstract class a extends g.c.a implements Runnable, WebSocket {
         sb.append((port == 80 || port == 443) ? "" : ":" + port);
         String sb2 = sb.toString();
         d dVar = new d();
-        dVar.f(rawPath);
+        dVar.b(rawPath);
         dVar.put("Host", sb2);
         Map<String, String> map = this.headers;
         if (map != null) {
@@ -180,8 +180,8 @@ public abstract class a extends g.c.a implements Runnable, WebSocket {
         this.closeLatch.await();
     }
 
-    public void closeConnection(int i, String str) {
-        this.engine.f(i, str);
+    public void closeConnection(int i2, String str) {
+        this.engine.f(i2, str);
     }
 
     public void connect() {
@@ -277,12 +277,12 @@ public abstract class a extends g.c.a implements Runnable, WebSocket {
         return this.engine.B();
     }
 
-    public abstract void onClose(int i, String str, boolean z);
+    public abstract void onClose(int i2, String str, boolean z);
 
-    public void onCloseInitiated(int i, String str) {
+    public void onCloseInitiated(int i2, String str) {
     }
 
-    public void onClosing(int i, String str, boolean z) {
+    public void onClosing(int i2, String str, boolean z) {
     }
 
     public abstract void onError(Exception exc);
@@ -299,25 +299,25 @@ public abstract class a extends g.c.a implements Runnable, WebSocket {
     public abstract void onOpen(h hVar);
 
     @Override // g.c.d
-    public final void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z) {
+    public final void onWebsocketClose(WebSocket webSocket, int i2, String str, boolean z) {
         stopConnectionLostTimer();
         Thread thread = this.writeThread;
         if (thread != null) {
             thread.interrupt();
         }
-        onClose(i, str, z);
+        onClose(i2, str, z);
         this.connectLatch.countDown();
         this.closeLatch.countDown();
     }
 
     @Override // g.c.d
-    public void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str) {
-        onCloseInitiated(i, str);
+    public void onWebsocketCloseInitiated(WebSocket webSocket, int i2, String str) {
+        onCloseInitiated(i2, str);
     }
 
     @Override // g.c.d
-    public void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z) {
-        onClosing(i, str, z);
+    public void onWebsocketClosing(WebSocket webSocket, int i2, String str, boolean z) {
+        onClosing(i2, str, z);
     }
 
     @Override // g.c.d
@@ -462,7 +462,7 @@ public abstract class a extends g.c.a implements Runnable, WebSocket {
         this(uri, new g.c.f.a(), map);
     }
 
-    public void close(int i) {
+    public void close(int i2) {
         this.engine.a();
     }
 
@@ -482,8 +482,8 @@ public abstract class a extends g.c.a implements Runnable, WebSocket {
         this(uri, draft, map, 0);
     }
 
-    public void close(int i, String str) {
-        this.engine.c(i, str);
+    public void close(int i2, String str) {
+        this.engine.c(i2, str);
     }
 
     public boolean connectBlocking(long j, TimeUnit timeUnit) throws InterruptedException {
@@ -491,7 +491,7 @@ public abstract class a extends g.c.a implements Runnable, WebSocket {
         return this.connectLatch.await(j, timeUnit) && this.engine.B();
     }
 
-    public a(URI uri, Draft draft, Map<String, String> map, int i) {
+    public a(URI uri, Draft draft, Map<String, String> map, int i2) {
         this.uri = null;
         this.engine = null;
         this.socket = null;
@@ -506,7 +506,7 @@ public abstract class a extends g.c.a implements Runnable, WebSocket {
             this.uri = uri;
             this.draft = draft;
             this.headers = map;
-            this.connectTimeout = i;
+            this.connectTimeout = i2;
             setTcpNoDelay(false);
             setReuseAddr(false);
             this.engine = new c(this, draft);

@@ -12,9 +12,9 @@ import kotlin.jvm.internal.Reflection;
 public abstract class SuspendLambda extends ContinuationImpl implements FunctionBase<Object>, SuspendFunction {
     public final int arity;
 
-    public SuspendLambda(int i, Continuation<Object> continuation) {
+    public SuspendLambda(int i2, Continuation<Object> continuation) {
         super(continuation);
-        this.arity = i;
+        this.arity = i2;
     }
 
     @Override // kotlin.jvm.internal.FunctionBase
@@ -26,13 +26,13 @@ public abstract class SuspendLambda extends ContinuationImpl implements Function
     public String toString() {
         if (getCompletion() == null) {
             String renderLambdaToString = Reflection.renderLambdaToString(this);
-            Intrinsics.checkExpressionValueIsNotNull(renderLambdaToString, "Reflection.renderLambdaToString(this)");
+            Intrinsics.checkNotNullExpressionValue(renderLambdaToString, "Reflection.renderLambdaToString(this)");
             return renderLambdaToString;
         }
         return super.toString();
     }
 
-    public SuspendLambda(int i) {
-        this(i, null);
+    public SuspendLambda(int i2) {
+        this(i2, null);
     }
 }

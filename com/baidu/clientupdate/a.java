@@ -5,15 +5,15 @@ import com.baidu.util.LogUtil;
 public class a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ClientUpdater f4592a;
+    public final /* synthetic */ ClientUpdater f4697a;
 
     public a(ClientUpdater clientUpdater) {
-        this.f4592a = clientUpdater;
+        this.f4697a = clientUpdater;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         LogUtil.logD("ClientUpdater", "background Check ClientUpdate!");
-        this.f4592a.b();
+        this.f4697a.b();
     }
 }

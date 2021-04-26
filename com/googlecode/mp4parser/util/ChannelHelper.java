@@ -12,18 +12,18 @@ public class ChannelHelper {
         readFully(readableByteChannel, byteBuffer, byteBuffer.remaining());
     }
 
-    public static int readFully(ReadableByteChannel readableByteChannel, ByteBuffer byteBuffer, int i) throws IOException {
+    public static int readFully(ReadableByteChannel readableByteChannel, ByteBuffer byteBuffer, int i2) throws IOException {
         int read;
-        int i2 = 0;
+        int i3 = 0;
         do {
             read = readableByteChannel.read(byteBuffer);
             if (-1 == read) {
                 break;
             }
-            i2 += read;
-        } while (i2 != i);
+            i3 += read;
+        } while (i3 != i2);
         if (read != -1) {
-            return i2;
+            return i3;
         }
         throw new EOFException("End of file. No more boxes.");
     }

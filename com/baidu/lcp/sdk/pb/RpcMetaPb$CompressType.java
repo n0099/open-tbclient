@@ -12,14 +12,14 @@ public enum RpcMetaPb$CompressType implements Internal.EnumLite {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.Internal.EnumLiteMap
         /* renamed from: a */
-        public RpcMetaPb$CompressType findValueByNumber(int i) {
-            return RpcMetaPb$CompressType.valueOf(i);
+        public RpcMetaPb$CompressType findValueByNumber(int i2) {
+            return RpcMetaPb$CompressType.valueOf(i2);
         }
     };
     public final int value;
 
-    RpcMetaPb$CompressType(int i, int i2) {
-        this.value = i2;
+    RpcMetaPb$CompressType(int i2, int i3) {
+        this.value = i3;
     }
 
     public static Internal.EnumLiteMap<RpcMetaPb$CompressType> internalGetValueMap() {
@@ -31,9 +31,9 @@ public enum RpcMetaPb$CompressType implements Internal.EnumLite {
         return this.value;
     }
 
-    public static RpcMetaPb$CompressType valueOf(int i) {
-        if (i != 0) {
-            if (i != 1) {
+    public static RpcMetaPb$CompressType valueOf(int i2) {
+        if (i2 != 0) {
+            if (i2 != 1) {
                 return null;
             }
             return COMPRESS_GZIP;

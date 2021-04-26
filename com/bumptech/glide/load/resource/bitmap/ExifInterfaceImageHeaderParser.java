@@ -1,8 +1,8 @@
 package com.bumptech.glide.load.resource.bitmap;
 
+import android.media.ExifInterface;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.exifinterface.media.ExifInterface;
 import com.bumptech.glide.load.ImageHeaderParser;
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import com.bumptech.glide.util.ByteBufferUtil;
@@ -14,7 +14,7 @@ import java.nio.ByteBuffer;
 public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
     @Override // com.bumptech.glide.load.ImageHeaderParser
     public int getOrientation(@NonNull InputStream inputStream, @NonNull ArrayPool arrayPool) throws IOException {
-        int attributeInt = new ExifInterface(inputStream).getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+        int attributeInt = new ExifInterface(inputStream).getAttributeInt("Orientation", 1);
         if (attributeInt == 0) {
             return -1;
         }
@@ -23,13 +23,13 @@ public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
 
     @Override // com.bumptech.glide.load.ImageHeaderParser
     @NonNull
-    public ImageHeaderParser.ImageType getType(@NonNull InputStream inputStream) {
+    public ImageHeaderParser.ImageType getType(@NonNull InputStream inputStream) throws IOException {
         return ImageHeaderParser.ImageType.UNKNOWN;
     }
 
     @Override // com.bumptech.glide.load.ImageHeaderParser
     @NonNull
-    public ImageHeaderParser.ImageType getType(@NonNull ByteBuffer byteBuffer) {
+    public ImageHeaderParser.ImageType getType(@NonNull ByteBuffer byteBuffer) throws IOException {
         return ImageHeaderParser.ImageType.UNKNOWN;
     }
 

@@ -176,39 +176,39 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
         arrayList.add(payTypeItemViewData);
         CardData.BondCard[] bondCards = precashierModifyPayTypeResponse != null ? precashierModifyPayTypeResponse.getBondCards() : null;
         if (bondCards != null && bondCards.length > 0) {
-            for (int i = 0; i < bondCards.length; i++) {
+            for (int i2 = 0; i2 < bondCards.length; i2++) {
                 PayTypeItemView.PayTypeItemViewData payTypeItemViewData2 = new PayTypeItemView.PayTypeItemViewData();
                 payTypeItemViewData2.type = PayTypeItemView.ItemViewType.BANKCARD;
-                payTypeItemViewData2.hintMsg = bondCards[i].card_hint_msg;
-                payTypeItemViewData2.hintUrl = bondCards[i].card_hint_url;
-                if ("1".equals(bondCards[i].card_state)) {
+                payTypeItemViewData2.hintMsg = bondCards[i2].card_hint_msg;
+                payTypeItemViewData2.hintUrl = bondCards[i2].card_hint_url;
+                if ("1".equals(bondCards[i2].card_state)) {
                     payTypeItemViewData2.isAvaible = true;
-                    if (TextUtils.isEmpty(bondCards[i].bank_card_msg)) {
-                        str = !TextUtils.isEmpty(bondCards[i].quota_show_msg) ? bondCards[i].quota_show_msg : "";
+                    if (TextUtils.isEmpty(bondCards[i2].bank_card_msg)) {
+                        str = !TextUtils.isEmpty(bondCards[i2].quota_show_msg) ? bondCards[i2].quota_show_msg : "";
                     } else {
-                        str = bondCards[i].bank_card_msg;
+                        str = bondCards[i2].bank_card_msg;
                     }
                     payTypeItemViewData2.tips = str;
                 } else {
                     payTypeItemViewData2.isAvaible = false;
-                    payTypeItemViewData2.tips = bondCards[i].bank_card_msg;
+                    payTypeItemViewData2.tips = bondCards[i2].bank_card_msg;
                 }
-                if (!TextUtils.isEmpty(bondCards[i].bank_card_msg)) {
-                    payTypeItemViewData2.tips = bondCards[i].bank_card_msg;
+                if (!TextUtils.isEmpty(bondCards[i2].bank_card_msg)) {
+                    payTypeItemViewData2.tips = bondCards[i2].bank_card_msg;
                 }
-                payTypeItemViewData2.name = bondCards[i].getCardDesc(this.mContext, true);
-                payTypeItemViewData2.card = bondCards[i];
+                payTypeItemViewData2.name = bondCards[i2].getCardDesc(this.mContext, true);
+                payTypeItemViewData2.card = bondCards[i2];
                 if (precashierModifyPayTypeDefaultData != null && !"balance".equals(precashierModifyPayTypeDefaultData.getDefaultType())) {
                     if (precashierModifyPayTypeDefaultData.getCard() != null) {
                         PrecashierModifyPayTypeDefaultData.Card card = precashierModifyPayTypeDefaultData.getCard();
-                        if (!TextUtils.isEmpty(card.account_no) && bondCards[i] != null && card.account_no.equals(bondCards[i].account_no)) {
+                        if (!TextUtils.isEmpty(card.account_no) && bondCards[i2] != null && card.account_no.equals(bondCards[i2].account_no)) {
                             payTypeItemViewData2.isChecked = true;
                         }
                     }
                 } else {
                     payTypeItemViewData2.isChecked = false;
                 }
-                payTypeItemViewData2.logoUrl = bondCards[i].bank_url;
+                payTypeItemViewData2.logoUrl = bondCards[i2].bank_url;
                 arrayList.add(payTypeItemViewData2);
             }
         }
@@ -225,9 +225,9 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
     }
 
     @Override // com.baidu.wallet.paysdk.contract.PayTypeContract.Presenter, com.baidu.wallet.paysdk.presenter.NetWorkPresenter
-    public void handleResponse(int i, Object obj, String str) {
-        super.handleResponse(i, obj, str);
-        if (i == 16) {
+    public void handleResponse(int i2, Object obj, String str) {
+        super.handleResponse(i2, obj, str);
+        if (i2 == 16) {
             this.mActivity.reFreshUI(getData());
         }
     }
@@ -245,8 +245,8 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
     }
 
     @Override // com.baidu.wallet.paysdk.contract.PayTypeContract.Presenter
-    public void onActivityResult(int i, int i2, Intent intent) {
-        if (i == 1) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        if (i2 == 1) {
             if (isFromClickChangePayType()) {
                 PrecashierModifyPayTypeDefaultData precashierModifyPayTypeDefaultData = new PrecashierModifyPayTypeDefaultData();
                 precashierModifyPayTypeDefaultData.updated = 1;

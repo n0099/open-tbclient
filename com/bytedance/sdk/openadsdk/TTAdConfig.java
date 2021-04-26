@@ -3,34 +3,36 @@ package com.bytedance.sdk.openadsdk;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import com.bytedance.sdk.openadsdk.core.p;
-import d.c.c.b.f.a;
+import d.b.c.b.f.a;
 /* loaded from: classes5.dex */
 public final class TTAdConfig {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26975a;
+    public String f27793a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26976b;
+    public String f27794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f26977c;
+    public boolean f27795c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26978d;
+    public String f27796d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26979e;
+    public String f27797e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26980f;
+    public int f27798f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f26981g;
+    public boolean f27799g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f26982h;
-    public boolean i;
+    public boolean f27800h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f27801i;
     public int[] j;
     public boolean k;
     public boolean l;
@@ -45,16 +47,16 @@ public final class TTAdConfig {
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f26983a;
+        public String f27802a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f26984b;
+        public String f27803b;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f26986d;
+        public String f27805d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f26987e;
+        public String f27806e;
         public int[] j;
         public a m;
         public TTDownloadEventLogger n;
@@ -63,39 +65,41 @@ public final class TTAdConfig {
         public TTCustomController r;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f26985c = false;
+        public boolean f27804c = false;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f26988f = 0;
+        public int f27807f = 0;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f26989g = true;
+        public boolean f27808g = true;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f26990h = false;
-        public boolean i = false;
+        public boolean f27809h = false;
+
+        /* renamed from: i  reason: collision with root package name */
+        public boolean f27810i = false;
         public boolean k = false;
         public boolean l = false;
         public boolean q = false;
 
         public Builder allowShowNotify(boolean z) {
-            this.f26989g = z;
+            this.f27808g = z;
             return this;
         }
 
         @Deprecated
         public Builder allowShowPageWhenScreenLock(boolean z) {
-            this.i = z;
+            this.f27810i = z;
             return this;
         }
 
         public Builder appId(String str) {
-            this.f26983a = str;
+            this.f27802a = str;
             return this;
         }
 
         public Builder appName(String str) {
-            this.f26984b = str;
+            this.f27803b = str;
             return this;
         }
 
@@ -106,15 +110,15 @@ public final class TTAdConfig {
 
         public TTAdConfig build() {
             TTAdConfig tTAdConfig = new TTAdConfig();
-            tTAdConfig.setAppId(this.f26983a);
-            tTAdConfig.setAppName(this.f26984b);
-            tTAdConfig.setPaid(this.f26985c);
-            tTAdConfig.setKeywords(this.f26986d);
-            tTAdConfig.setData(this.f26987e);
-            tTAdConfig.setTitleBarTheme(this.f26988f);
-            tTAdConfig.setAllowShowNotify(this.f26989g);
-            tTAdConfig.setDebug(this.f26990h);
-            tTAdConfig.setAllowShowPageWhenScreenLock(this.i);
+            tTAdConfig.setAppId(this.f27802a);
+            tTAdConfig.setAppName(this.f27803b);
+            tTAdConfig.setPaid(this.f27804c);
+            tTAdConfig.setKeywords(this.f27805d);
+            tTAdConfig.setData(this.f27806e);
+            tTAdConfig.setTitleBarTheme(this.f27807f);
+            tTAdConfig.setAllowShowNotify(this.f27808g);
+            tTAdConfig.setDebug(this.f27809h);
+            tTAdConfig.setAllowShowPageWhenScreenLock(this.f27810i);
             tTAdConfig.setDirectDownloadNetworkType(this.j);
             tTAdConfig.setUseTextureView(this.k);
             tTAdConfig.setSupportMultiProcess(this.l);
@@ -133,12 +137,12 @@ public final class TTAdConfig {
         }
 
         public Builder data(String str) {
-            this.f26987e = str;
+            this.f27806e = str;
             return this;
         }
 
         public Builder debug(boolean z) {
-            this.f26990h = z;
+            this.f27809h = z;
             return this;
         }
 
@@ -158,7 +162,7 @@ public final class TTAdConfig {
         }
 
         public Builder keywords(String str) {
-            this.f26986d = str;
+            this.f27805d = str;
             return this;
         }
 
@@ -168,7 +172,7 @@ public final class TTAdConfig {
         }
 
         public Builder paid(boolean z) {
-            this.f26985c = z;
+            this.f27804c = z;
             return this;
         }
 
@@ -177,8 +181,8 @@ public final class TTAdConfig {
             return this;
         }
 
-        public Builder titleBarTheme(int i) {
-            this.f26988f = i;
+        public Builder titleBarTheme(int i2) {
+            this.f27807f = i2;
             return this;
         }
 
@@ -208,15 +212,15 @@ public final class TTAdConfig {
     }
 
     public String getAppId() {
-        return this.f26975a;
+        return this.f27793a;
     }
 
     public String getAppName() {
-        String str = this.f26976b;
+        String str = this.f27794b;
         if (str == null || str.isEmpty()) {
-            this.f26976b = a(p.a());
+            this.f27794b = a(p.a());
         }
-        return this.f26976b;
+        return this.f27794b;
     }
 
     public TTCustomController getCustomController() {
@@ -224,7 +228,7 @@ public final class TTAdConfig {
     }
 
     public String getData() {
-        return this.f26979e;
+        return this.f27797e;
     }
 
     public int[] getDirectDownloadNetworkType() {
@@ -236,7 +240,7 @@ public final class TTAdConfig {
     }
 
     public String getKeywords() {
-        return this.f26978d;
+        return this.f27796d;
     }
 
     public String[] getNeedClearTaskReset() {
@@ -252,15 +256,15 @@ public final class TTAdConfig {
     }
 
     public int getTitleBarTheme() {
-        return this.f26980f;
+        return this.f27798f;
     }
 
     public boolean isAllowShowNotify() {
-        return this.f26981g;
+        return this.f27799g;
     }
 
     public boolean isAllowShowPageWhenScreenLock() {
-        return this.i;
+        return this.f27801i;
     }
 
     public boolean isAsyncInit() {
@@ -268,11 +272,11 @@ public final class TTAdConfig {
     }
 
     public boolean isDebug() {
-        return this.f26982h;
+        return this.f27800h;
     }
 
     public boolean isPaid() {
-        return this.f26977c;
+        return this.f27795c;
     }
 
     public boolean isSupportMultiProcess() {
@@ -284,19 +288,19 @@ public final class TTAdConfig {
     }
 
     public void setAllowShowNotify(boolean z) {
-        this.f26981g = z;
+        this.f27799g = z;
     }
 
     public void setAllowShowPageWhenScreenLock(boolean z) {
-        this.i = z;
+        this.f27801i = z;
     }
 
     public void setAppId(String str) {
-        this.f26975a = str;
+        this.f27793a = str;
     }
 
     public void setAppName(String str) {
-        this.f26976b = str;
+        this.f27794b = str;
     }
 
     public void setAsyncInit(boolean z) {
@@ -308,11 +312,11 @@ public final class TTAdConfig {
     }
 
     public void setData(String str) {
-        this.f26979e = str;
+        this.f27797e = str;
     }
 
     public void setDebug(boolean z) {
-        this.f26982h = z;
+        this.f27800h = z;
     }
 
     public void setDirectDownloadNetworkType(int... iArr) {
@@ -324,7 +328,7 @@ public final class TTAdConfig {
     }
 
     public void setKeywords(String str) {
-        this.f26978d = str;
+        this.f27796d = str;
     }
 
     public void setNeedClearTaskReset(String... strArr) {
@@ -332,7 +336,7 @@ public final class TTAdConfig {
     }
 
     public void setPaid(boolean z) {
-        this.f26977c = z;
+        this.f27795c = z;
     }
 
     public void setSupportMultiProcess(boolean z) {
@@ -347,8 +351,8 @@ public final class TTAdConfig {
         this.o = tTSecAbs;
     }
 
-    public void setTitleBarTheme(int i) {
-        this.f26980f = i;
+    public void setTitleBarTheme(int i2) {
+        this.f27798f = i2;
     }
 
     public void setUseTextureView(boolean z) {
@@ -356,11 +360,11 @@ public final class TTAdConfig {
     }
 
     public TTAdConfig() {
-        this.f26977c = false;
-        this.f26980f = 0;
-        this.f26981g = true;
-        this.f26982h = false;
-        this.i = false;
+        this.f27795c = false;
+        this.f27798f = 0;
+        this.f27799g = true;
+        this.f27800h = false;
+        this.f27801i = false;
         this.k = false;
         this.l = false;
         this.q = false;

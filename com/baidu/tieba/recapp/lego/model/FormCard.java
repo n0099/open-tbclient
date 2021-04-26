@@ -9,7 +9,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdvert {
     public static final int BG_SIZE_FULL_SCALE = 2;
     public static final int BG_SIZE_WIDTH_SCALE = 1;
@@ -36,85 +36,85 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
     public final f resultInfo;
     public final g titleInfo;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f20420a;
+        public String f20963a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f20421b;
+        public String f20964b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f20422c;
+        public int f20965c;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f20423a;
+        public int f20966a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f20424b;
+        public String f20967b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f20425c;
+        public String f20968c;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class c extends b {
 
         /* renamed from: d  reason: collision with root package name */
-        public String f20426d;
+        public String f20969d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f20427e;
+        public String f20970e;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class d extends b {
 
         /* renamed from: d  reason: collision with root package name */
-        public String f20428d;
+        public String f20971d;
 
         /* renamed from: e  reason: collision with root package name */
-        public h f20429e;
+        public h f20972e;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class e extends b {
 
         /* renamed from: d  reason: collision with root package name */
-        public String[] f20430d;
+        public String[] f20973d;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f20431a;
+        public String f20974a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f20432b;
+        public String f20975b;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class g extends b {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class h extends b {
 
         /* renamed from: d  reason: collision with root package name */
-        public String f20433d;
+        public String f20976d;
     }
 
     public FormCard(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
         JSONObject jSONObject2;
         JSONArray jSONArray;
-        int i = 0;
+        int i2 = 0;
         this.mIsCommitSuccess = false;
         if (jSONObject == null) {
             this.itemList = null;
@@ -132,13 +132,13 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         this.mWidth = jSONObject.optInt("width", 750);
         this.mHeight = jSONObject.optInt("height", HEIGHT_DEFAULT_SIZE);
         JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.WearableExtender.KEY_BACKGROUND);
-        int i2 = -1;
+        int i3 = -1;
         if (optJSONObject != null) {
             a aVar = new a();
             this.backgroundInfo = aVar;
-            aVar.f20420a = optJSONObject.optString("img", "");
-            this.backgroundInfo.f20421b = optJSONObject.optString("color", "");
-            this.backgroundInfo.f20422c = optJSONObject.optInt("mode", -1);
+            aVar.f20963a = optJSONObject.optString("img", "");
+            this.backgroundInfo.f20964b = optJSONObject.optString("color", "");
+            this.backgroundInfo.f20965c = optJSONObject.optInt("mode", -1);
         } else {
             this.backgroundInfo = null;
         }
@@ -146,8 +146,8 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         if (optJSONObject2 != null) {
             f fVar = new f();
             this.resultInfo = fVar;
-            fVar.f20431a = optJSONObject2.optString("title", "");
-            this.resultInfo.f20432b = optJSONObject2.optString("desc", "");
+            fVar.f20974a = optJSONObject2.optString("title", "");
+            this.resultInfo.f20975b = optJSONObject2.optString("desc", "");
         } else {
             this.resultInfo = null;
         }
@@ -155,11 +155,11 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         if (optJSONObject3 != null) {
             c cVar = new c();
             this.commitInfo = cVar;
-            cVar.f20423a = optJSONObject3.optInt("type", -1);
-            this.commitInfo.f20427e = optJSONObject3.optString("post_url", "");
-            this.commitInfo.f20424b = optJSONObject3.optString("content", "");
-            this.commitInfo.f20426d = optJSONObject3.optString("check_str", "");
-            this.commitInfo.f20425c = optJSONObject3.optString("tag", "");
+            cVar.f20966a = optJSONObject3.optInt("type", -1);
+            this.commitInfo.f20970e = optJSONObject3.optString("post_url", "");
+            this.commitInfo.f20967b = optJSONObject3.optString("content", "");
+            this.commitInfo.f20969d = optJSONObject3.optString("check_str", "");
+            this.commitInfo.f20968c = optJSONObject3.optString("tag", "");
         } else {
             this.commitInfo = null;
         }
@@ -167,9 +167,9 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         if (optJSONObject4 != null) {
             g gVar = new g();
             this.titleInfo = gVar;
-            gVar.f20423a = optJSONObject4.optInt("type", -1);
-            this.titleInfo.f20424b = optJSONObject4.optString("content", "");
-            this.titleInfo.f20425c = optJSONObject4.optString("tag", "");
+            gVar.f20966a = optJSONObject4.optInt("type", -1);
+            this.titleInfo.f20967b = optJSONObject4.optString("content", "");
+            this.titleInfo.f20968c = optJSONObject4.optString("tag", "");
         } else {
             this.titleInfo = null;
         }
@@ -178,70 +178,70 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return;
             }
-            int i3 = 0;
-            while (i3 < optJSONArray.length()) {
-                JSONObject jSONObject3 = optJSONArray.getJSONObject(i3);
+            int i4 = 0;
+            while (i4 < optJSONArray.length()) {
+                JSONObject jSONObject3 = optJSONArray.getJSONObject(i4);
                 if (jSONObject3 != null) {
-                    int optInt = jSONObject3.optInt("type", i2);
+                    int optInt = jSONObject3.optInt("type", i3);
                     switch (optInt) {
                         case 1:
                             g gVar2 = new g();
-                            gVar2.f20423a = optInt;
-                            gVar2.f20424b = jSONObject3.optString("content", "");
-                            gVar2.f20425c = jSONObject3.optString("tag", "");
-                            d.b.j0.j1.o.k.a.a(this.itemList, gVar2);
+                            gVar2.f20966a = optInt;
+                            gVar2.f20967b = jSONObject3.optString("content", "");
+                            gVar2.f20968c = jSONObject3.optString("tag", "");
+                            d.a.j0.j1.o.k.a.a(this.itemList, gVar2);
                             continue;
                         case 2:
                             c cVar2 = new c();
-                            cVar2.f20423a = optInt;
-                            cVar2.f20424b = jSONObject3.optString("content", "");
-                            cVar2.f20426d = jSONObject3.optString("check_str", "");
-                            cVar2.f20427e = jSONObject3.optString("post_url", "");
-                            cVar2.f20425c = jSONObject3.optString("tag", "");
-                            d.b.j0.j1.o.k.a.a(this.itemList, cVar2);
+                            cVar2.f20966a = optInt;
+                            cVar2.f20967b = jSONObject3.optString("content", "");
+                            cVar2.f20969d = jSONObject3.optString("check_str", "");
+                            cVar2.f20970e = jSONObject3.optString("post_url", "");
+                            cVar2.f20968c = jSONObject3.optString("tag", "");
+                            d.a.j0.j1.o.k.a.a(this.itemList, cVar2);
                             continue;
                         case 3:
                         case 4:
                         case 5:
                             d dVar = new d();
-                            dVar.f20423a = optInt;
-                            dVar.f20424b = jSONObject3.optString("content", "");
-                            dVar.f20425c = jSONObject3.optString("tag", "");
-                            dVar.f20428d = jSONObject3.optString("reg_str", "");
+                            dVar.f20966a = optInt;
+                            dVar.f20967b = jSONObject3.optString("content", "");
+                            dVar.f20968c = jSONObject3.optString("tag", "");
+                            dVar.f20971d = jSONObject3.optString("reg_str", "");
                             if (jSONObject3.has("veri_code_info") && (jSONObject2 = jSONObject3.getJSONObject("veri_code_info")) != null) {
                                 h hVar = new h();
-                                hVar.f20424b = jSONObject2.optString("content");
-                                hVar.f20433d = jSONObject2.optString("btn_title");
-                                hVar.f20425c = jSONObject2.optString("tag");
-                                dVar.f20429e = hVar;
+                                hVar.f20967b = jSONObject2.optString("content");
+                                hVar.f20976d = jSONObject2.optString("btn_title");
+                                hVar.f20968c = jSONObject2.optString("tag");
+                                dVar.f20972e = hVar;
                             }
-                            d.b.j0.j1.o.k.a.a(this.itemList, dVar);
+                            d.a.j0.j1.o.k.a.a(this.itemList, dVar);
                             continue;
                         case 6:
                         case 7:
                         case 8:
                             e eVar = new e();
-                            eVar.f20423a = optInt;
-                            eVar.f20425c = jSONObject3.optString("tag", "");
-                            eVar.f20424b = jSONObject3.optString("content", "");
-                            eVar.f20425c = jSONObject3.optString("tag", "");
+                            eVar.f20966a = optInt;
+                            eVar.f20968c = jSONObject3.optString("tag", "");
+                            eVar.f20967b = jSONObject3.optString("content", "");
+                            eVar.f20968c = jSONObject3.optString("tag", "");
                             if (jSONObject3.has("list") && (jSONArray = jSONObject3.getJSONArray("list")) != null && jSONArray.length() > 0) {
                                 String[] strArr = new String[jSONArray.length()];
-                                while (i < jSONArray.length()) {
-                                    strArr[i] = jSONArray.getString(i);
-                                    i++;
+                                while (i2 < jSONArray.length()) {
+                                    strArr[i2] = jSONArray.getString(i2);
+                                    i2++;
                                 }
-                                eVar.f20430d = strArr;
+                                eVar.f20973d = strArr;
                             }
-                            d.b.j0.j1.o.k.a.a(this.itemList, eVar);
+                            d.a.j0.j1.o.k.a.a(this.itemList, eVar);
                             continue;
                         default:
                             continue;
                     }
                 }
-                i3++;
-                i = 0;
-                i2 = -1;
+                i4++;
+                i2 = 0;
+                i3 = -1;
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -249,7 +249,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
-    public int checkLegal(int i) {
+    public int checkLegal(int i2) {
         return 0;
     }
 
@@ -264,7 +264,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
-    public d.b.i0.r.q.c getAppInfoModel() {
+    public d.a.i0.r.q.c getAppInfoModel() {
         return null;
     }
 
@@ -285,14 +285,14 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         if (advertAppInfo == null || (aVar = advertAppInfo.U3) == null) {
             return 0;
         }
-        return aVar.f12879h;
+        return aVar.f12794h;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public double getRatio() {
-        int i = this.mWidth;
-        if (i > 0) {
-            return this.mHeight / i;
+        int i2 = this.mWidth;
+        if (i2 > 0) {
+            return this.mHeight / i2;
         }
         return super.getRatio();
     }

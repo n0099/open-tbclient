@@ -15,13 +15,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SVGImageView extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public static Method f30282e;
+    public static Method f31205e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends AsyncTask<String, Integer, Picture> {
         public b() {
         }
@@ -55,7 +55,7 @@ public class SVGImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c extends AsyncTask<Integer, Integer, Picture> {
         public c() {
         }
@@ -83,7 +83,7 @@ public class SVGImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class d extends AsyncTask<InputStream, Integer, Picture> {
         public d() {
         }
@@ -132,23 +132,23 @@ public class SVGImageView extends ImageView {
     public SVGImageView(Context context) {
         super(context);
         try {
-            f30282e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            f31205e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
         }
     }
 
-    public final void b(AttributeSet attributeSet, int i) {
+    public final void b(AttributeSet attributeSet, int i2) {
         if (isInEditMode()) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, d.b.p.a.a.SVGImageView, i, 0);
+        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, d.a.p.a.a.SVGImageView, i2, 0);
         try {
-            int resourceId = obtainStyledAttributes.getResourceId(d.b.p.a.a.SVGImageView_svg, -1);
+            int resourceId = obtainStyledAttributes.getResourceId(d.a.p.a.a.SVGImageView_svg, -1);
             if (resourceId != -1) {
                 setImageResource(resourceId);
                 return;
             }
-            String string = obtainStyledAttributes.getString(d.b.p.a.a.SVGImageView_svg);
+            String string = obtainStyledAttributes.getString(d.a.p.a.a.SVGImageView_svg);
             if (string != null) {
                 if (c(Uri.parse(string), false)) {
                     return;
@@ -173,11 +173,11 @@ public class SVGImageView extends ImageView {
     }
 
     public final void d() {
-        if (f30282e == null) {
+        if (f31205e == null) {
             return;
         }
         try {
-            f30282e.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);
+            f31205e.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);
         } catch (Exception e2) {
             Log.w("SVGImageView", "Unexpected failure calling setLayerType", e2);
         }
@@ -188,8 +188,8 @@ public class SVGImageView extends ImageView {
     }
 
     @Override // android.widget.ImageView
-    public void setImageResource(int i) {
-        new c().execute(Integer.valueOf(i));
+    public void setImageResource(int i2) {
+        new c().execute(Integer.valueOf(i2));
     }
 
     @Override // android.widget.ImageView
@@ -209,18 +209,18 @@ public class SVGImageView extends ImageView {
     public SVGImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet, 0);
         try {
-            f30282e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            f31205e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
         }
         b(attributeSet, 0);
     }
 
-    public SVGImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public SVGImageView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         try {
-            f30282e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            f31205e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
         }
-        b(attributeSet, i);
+        b(attributeSet, i2);
     }
 }

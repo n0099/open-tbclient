@@ -17,13 +17,13 @@ public class ResponseQueryCollectUpdateNumMessage extends SocketResponsedMessage
         return this.mCollectUpdateNum;
     }
 
-    public void setCollectUpdateNum(int i) {
-        this.mCollectUpdateNum = i;
+    public void setCollectUpdateNum(int i2) {
+        this.mCollectUpdateNum = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         DataRes dataRes;
         QueryCollectUpdateNumResIdl queryCollectUpdateNumResIdl = (QueryCollectUpdateNumResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryCollectUpdateNumResIdl.class);
         setError(queryCollectUpdateNumResIdl.error.errorno.intValue());

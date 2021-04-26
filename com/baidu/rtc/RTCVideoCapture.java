@@ -34,7 +34,7 @@ public abstract class RTCVideoCapture implements VideoCapturer {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void changeCaptureFormat(int i, int i2, int i3) {
+    public void changeCaptureFormat(int i2, int i3, int i4) {
     }
 
     @Override // org.webrtc.VideoCapturer
@@ -55,7 +55,7 @@ public abstract class RTCVideoCapture implements VideoCapturer {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void startCapture(int i, int i2, int i3) {
+    public void startCapture(int i2, int i3, int i4) {
     }
 
     @Override // org.webrtc.VideoCapturer

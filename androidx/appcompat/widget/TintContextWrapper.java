@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TintContextWrapper extends ContextWrapper {
     public static final Object CACHE_LOCK = new Object();
@@ -83,12 +83,12 @@ public class TintContextWrapper extends ContextWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i) {
+    public void setTheme(int i2) {
         Resources.Theme theme = this.mTheme;
         if (theme == null) {
-            super.setTheme(i);
+            super.setTheme(i2);
         } else {
-            theme.applyStyle(i, true);
+            theme.applyStyle(i2, true);
         }
     }
 }

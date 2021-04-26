@@ -12,8 +12,8 @@ public class AppEngine {
         return JNIEngine.InitEngine(context);
     }
 
-    public static void SetProxyInfo(String str, int i) {
-        JNIEngine.SetProxyInfo(str, i);
+    public static void SetProxyInfo(String str, int i2) {
+        JNIEngine.SetProxyInfo(str, i2);
     }
 
     public static boolean StartSocketProc() {
@@ -24,7 +24,7 @@ public class AppEngine {
         return JNIEngine.UnInitEngine();
     }
 
-    public static void despatchMessage(int i, int i2, int i3, long j) {
-        a.a(i, i2, i3, j);
+    public static void despatchMessage(int i2, int i3, int i4, long j) {
+        a.a(i2, i3, i4, j);
     }
 }

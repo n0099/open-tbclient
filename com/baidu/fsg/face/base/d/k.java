@@ -5,15 +5,15 @@ import android.os.Looper;
 public class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5683a;
+    public String f5838a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Runnable f5684b;
+    public Runnable f5839b;
 
     public k(Runnable runnable) {
-        this.f5683a = "EmptyName";
-        this.f5683a = "nullname";
-        this.f5684b = runnable;
+        this.f5838a = "EmptyName";
+        this.f5838a = "nullname";
+        this.f5839b = runnable;
     }
 
     @Override // java.lang.Runnable
@@ -23,7 +23,7 @@ public class k implements Runnable {
                 Looper.prepare();
             }
             System.currentTimeMillis();
-            this.f5684b.run();
+            this.f5839b.run();
             System.currentTimeMillis();
         } catch (Throwable th) {
             th.printStackTrace();
@@ -31,8 +31,8 @@ public class k implements Runnable {
     }
 
     public k(Runnable runnable, String str) {
-        this.f5683a = "EmptyName";
-        this.f5683a = str;
-        this.f5684b = runnable;
+        this.f5838a = "EmptyName";
+        this.f5838a = str;
+        this.f5839b = runnable;
     }
 }

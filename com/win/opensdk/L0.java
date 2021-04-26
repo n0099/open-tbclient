@@ -1,22 +1,9 @@
 package com.win.opensdk;
-/* loaded from: classes7.dex */
-public enum L0 {
-    STATE_DEFAULT("default"),
-    STATE_EXPANDED("expanded"),
-    STATE_LOADING("loading"),
-    STATE_HIDDEN("hidden"),
-    STATE_RESIZED("resized");
-    
+/* loaded from: classes6.dex */
+public interface L0 {
+    void a();
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f40105a;
+    void a(Object obj);
 
-    L0(String str) {
-        this.f40105a = str;
-    }
-
-    @Override // java.lang.Enum
-    public String toString() {
-        return this.f40105a;
-    }
+    void onFail(PBError pBError);
 }

@@ -8,7 +8,7 @@ public class LocalSearchInfo extends BaseCloudSearchInfo {
     public String region;
 
     public LocalSearchInfo() {
-        this.f6791a = HttpClient.isHttpsEnable ? "https://api.map.baidu.com/geosearch/v2/local" : "http://api.map.baidu.com/geosearch/v2/local";
+        this.f7027a = HttpClient.isHttpsEnable ? "https://api.map.baidu.com/geosearch/v2/local" : "http://api.map.baidu.com/geosearch/v2/local";
     }
 
     @Override // com.baidu.mapapi.cloud.BaseCloudSearchInfo, com.baidu.mapapi.cloud.BaseSearchInfo

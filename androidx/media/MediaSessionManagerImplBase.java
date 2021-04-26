@@ -26,10 +26,10 @@ public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSes
         public int mPid;
         public int mUid;
 
-        public RemoteUserInfoImplBase(String str, int i, int i2) {
+        public RemoteUserInfoImplBase(String str, int i2, int i3) {
             this.mPackageName = str;
-            this.mPid = i;
-            this.mUid = i2;
+            this.mPid = i2;
+            this.mUid = i3;
         }
 
         public boolean equals(Object obj) {

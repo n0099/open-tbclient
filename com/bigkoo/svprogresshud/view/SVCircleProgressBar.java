@@ -46,57 +46,57 @@ public class SVCircleProgressBar extends View {
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        int i;
+        int i2;
         super.onDraw(canvas);
         int width = getWidth() / 2;
         float f2 = width;
-        int i2 = (int) (f2 - (this.roundWidth / 2.0f));
+        int i3 = (int) (f2 - (this.roundWidth / 2.0f));
         this.paint.setAntiAlias(true);
         this.paint.setColor(this.roundColor);
         this.paint.setStyle(Paint.Style.STROKE);
         this.paint.setStrokeWidth(this.roundWidth);
-        canvas.drawCircle(f2, f2, i2, this.paint);
+        canvas.drawCircle(f2, f2, i3, this.paint);
         this.paint.setStrokeWidth(this.roundWidth);
         this.paint.setColor(this.roundProgressColor);
-        float f3 = width - i2;
-        float f4 = width + i2;
+        float f3 = width - i3;
+        float f4 = width + i3;
         RectF rectF = new RectF(f3, f3, f4, f4);
-        int i3 = this.style;
-        if (i3 == 0) {
+        int i4 = this.style;
+        if (i4 == 0) {
             this.paint.setStyle(Paint.Style.STROKE);
             canvas.drawArc(rectF, 270.0f, (this.progress * 360) / this.max, false, this.paint);
-        } else if (i3 != 1) {
+        } else if (i4 != 1) {
         } else {
             this.paint.setStyle(Paint.Style.FILL_AND_STROKE);
             if (this.progress != 0) {
-                canvas.drawArc(rectF, 270.0f, (i * 360) / this.max, true, this.paint);
+                canvas.drawArc(rectF, 270.0f, (i2 * 360) / this.max, true, this.paint);
             }
         }
     }
 
-    public void setCircleColor(int i) {
-        this.roundColor = i;
+    public void setCircleColor(int i2) {
+        this.roundColor = i2;
     }
 
-    public void setCircleProgressColor(int i) {
-        this.roundProgressColor = i;
+    public void setCircleProgressColor(int i2) {
+        this.roundProgressColor = i2;
     }
 
-    public synchronized void setMax(int i) {
-        if (i >= 0) {
-            this.max = i;
+    public synchronized void setMax(int i2) {
+        if (i2 >= 0) {
+            this.max = i2;
         } else {
             throw new IllegalArgumentException("max not less than 0");
         }
     }
 
-    public synchronized void setProgress(int i) {
-        if (i >= 0) {
-            if (i > this.max) {
-                i = this.max;
+    public synchronized void setProgress(int i2) {
+        if (i2 >= 0) {
+            if (i2 > this.max) {
+                i2 = this.max;
             }
-            if (i <= this.max) {
-                this.progress = i;
+            if (i2 <= this.max) {
+                this.progress = i2;
                 postInvalidate();
             }
         } else {
@@ -112,8 +112,8 @@ public class SVCircleProgressBar extends View {
         this(context, attributeSet, 0);
     }
 
-    public SVCircleProgressBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public SVCircleProgressBar(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.paint = new Paint();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SVCircleProgressBar);
         this.roundColor = obtainStyledAttributes.getColor(R.styleable.SVCircleProgressBar_svprogress_roundColor, -16776961);

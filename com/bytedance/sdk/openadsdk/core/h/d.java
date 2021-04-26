@@ -16,21 +16,21 @@ public class d extends com.bytedance.sdk.openadsdk.l.g {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f28102a;
+    public static volatile d f28961a;
 
     public d() {
         super("ProcessPushHelper");
     }
 
     public static d a() {
-        if (f28102a == null) {
+        if (f28961a == null) {
             synchronized (f.class) {
-                if (f28102a == null) {
-                    f28102a = new d();
+                if (f28961a == null) {
+                    f28961a = new d();
                 }
             }
         }
-        return f28102a;
+        return f28961a;
     }
 
     private JSONObject c() {
@@ -38,8 +38,8 @@ public class d extends com.bytedance.sdk.openadsdk.l.g {
         if (a2 != null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("latitude", a2.f30090a);
-                jSONObject.put("longitude", a2.f30091b);
+                jSONObject.put("latitude", a2.f31007a);
+                jSONObject.put("longitude", a2.f31008b);
                 return jSONObject;
             } catch (Exception unused) {
                 return null;
@@ -67,16 +67,16 @@ public class d extends com.bytedance.sdk.openadsdk.l.g {
         }
         List<e> I = p.h().I();
         if (I != null) {
-            for (int i = 0; i < I.size(); i++) {
-                e eVar = I.get(i);
+            for (int i2 = 0; i2 < I.size(); i2++) {
+                e eVar = I.get(i2);
                 if (eVar != null) {
                     try {
                         long currentTimeMillis = System.currentTimeMillis();
-                        if (eVar.f28104b != null && eVar.f28105c != null && currentTimeMillis - com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", eVar.f28105c, 0L) > eVar.f28106d * 1000) {
-                            com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", eVar.f28105c, Long.valueOf(currentTimeMillis));
+                        if (eVar.f28963b != null && eVar.f28964c != null && currentTimeMillis - com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", eVar.f28964c, 0L) > eVar.f28965d * 1000) {
+                            com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", eVar.f28964c, Long.valueOf(currentTimeMillis));
                             Intent intent = new Intent();
-                            intent.setAction(eVar.f28103a);
-                            intent.setPackage(eVar.f28105c);
+                            intent.setAction(eVar.f28962a);
+                            intent.setPackage(eVar.f28964c);
                             p.a().startService(intent);
                             a(eVar, 1);
                         }
@@ -88,10 +88,10 @@ public class d extends com.bytedance.sdk.openadsdk.l.g {
         }
     }
 
-    private String b(e eVar, int i) {
+    private String b(e eVar, int i2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("wk_status", i);
+            jSONObject.put("wk_status", i2);
             jSONObject.put(Constants.APP_ID, com.bytedance.sdk.openadsdk.core.i.d().g());
             jSONObject.put("package_name", ak.e());
             jSONObject.put("geo", c());
@@ -102,18 +102,18 @@ public class d extends com.bytedance.sdk.openadsdk.l.g {
             jSONObject.put("ua", ak.b());
             jSONObject.put("vendor", Build.MANUFACTURER);
             jSONObject.put("model", Build.MODEL);
-            jSONObject.put("ad_package_name", eVar.f28105c);
-            jSONObject.put("action", eVar.f28103a);
-            jSONObject.put("service", eVar.f28104b);
+            jSONObject.put("ad_package_name", eVar.f28964c);
+            jSONObject.put("action", eVar.f28962a);
+            jSONObject.put("service", eVar.f28963b);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
         return jSONObject.toString();
     }
 
-    public void a(e eVar, int i) {
+    public void a(e eVar, int i2) {
         com.bytedance.sdk.openadsdk.h.a.c cVar = new com.bytedance.sdk.openadsdk.h.a.c();
-        cVar.b(b(eVar, i));
+        cVar.b(b(eVar, i2));
         cVar.a("wk_status");
         cVar.e("3.4.5.5");
         cVar.c(System.currentTimeMillis());

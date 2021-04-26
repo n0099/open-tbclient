@@ -1,8 +1,8 @@
 package com.google.common.collect;
 
 import com.google.common.collect.ImmutableMap;
-import d.h.c.a.n;
-import d.h.c.c.u;
+import d.g.c.a.n;
+import d.g.c.c.u;
 import java.io.Serializable;
 import java.util.Map;
 /* loaded from: classes6.dex */
@@ -14,14 +14,14 @@ public final class ImmutableClassToInstanceMap<B> extends u<Class<? extends B>, 
     public static final class b<B> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ImmutableMap.b<Class<? extends B>, B> f30878a = ImmutableMap.builder();
+        public final ImmutableMap.b<Class<? extends B>, B> f31837a = ImmutableMap.builder();
 
         public static <B, T extends B> T b(Class<T> cls, B b2) {
-            return (T) d.h.c.g.a.d(cls).cast(b2);
+            return (T) d.g.c.g.a.d(cls).cast(b2);
         }
 
         public ImmutableClassToInstanceMap<B> a() {
-            ImmutableMap<Class<? extends B>, B> a2 = this.f30878a.a();
+            ImmutableMap<Class<? extends B>, B> a2 = this.f31837a.a();
             if (a2.isEmpty()) {
                 return ImmutableClassToInstanceMap.of();
             }
@@ -33,7 +33,7 @@ public final class ImmutableClassToInstanceMap<B> extends u<Class<? extends B>, 
         public <T extends B> b<B> c(Map<? extends Class<? extends T>, ? extends T> map) {
             for (Map.Entry<? extends Class<? extends T>, ? extends T> entry : map.entrySet()) {
                 Class<? extends T> key = entry.getKey();
-                this.f30878a.c(key, b(key, entry.getValue()));
+                this.f31837a.c(key, b(key, entry.getValue()));
             }
             return this;
         }
@@ -81,7 +81,7 @@ public final class ImmutableClassToInstanceMap<B> extends u<Class<? extends B>, 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.h.c.c.u, d.h.c.c.y
+    @Override // d.g.c.c.u, d.g.c.c.y
     public Map<Class<? extends B>, B> delegate() {
         return this.delegate;
     }

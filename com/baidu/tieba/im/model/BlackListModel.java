@@ -69,8 +69,8 @@ public class BlackListModel extends BdBaseModel {
         super.sendMessage(this.mUpdateMessage);
     }
 
-    public void setMaskType(int i) {
-        this.mMaskType = i;
+    public void setMaskType(int i2) {
+        this.mMaskType = i2;
     }
 
     public BlackListModel(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {

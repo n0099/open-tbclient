@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
-import d.b.c.e.p.j;
-import d.b.i0.r.s.a;
-import d.b.j0.r1.c.b.r;
-import d.b.j0.r1.e.a;
-import d.b.j0.r1.e.c;
+import d.a.c.e.p.j;
+import d.a.i0.r.s.a;
+import d.a.j0.r1.c.b.r;
+import d.a.j0.r1.e.a;
+import d.a.j0.r1.e.c;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.GetMemberTaskList.ImgInfo;
@@ -26,9 +26,9 @@ import tbclient.GetMemberTaskList.ImgInfo;
 public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActivity> {
     public String imageUrl;
     public String jumpUrl;
-    public d.b.j0.r1.e.a mFinishMemberTaskModel;
-    public d.b.j0.r1.e.c mModel;
-    public d.b.j0.r1.e.d mView;
+    public d.a.j0.r1.e.a mFinishMemberTaskModel;
+    public d.a.j0.r1.e.c mModel;
+    public d.a.j0.r1.e.d mView;
     public int type;
     public boolean isFromH5 = false;
     public a.b mFinishMemberTaskCallbak = new a();
@@ -40,23 +40,23 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         public a() {
         }
 
-        @Override // d.b.j0.r1.e.a.b
-        public void a(int i, String str, int i2, int i3, long j) {
-            if (i == 0 && MemberTaskCenterActivity.this.mView != null) {
-                MemberTaskCenterActivity.this.showGetScoresSuccessDialog(i3);
+        @Override // d.a.j0.r1.e.a.b
+        public void a(int i2, String str, int i3, int i4, long j) {
+            if (i2 == 0 && MemberTaskCenterActivity.this.mView != null) {
+                MemberTaskCenterActivity.this.showGetScoresSuccessDialog(i4);
                 r rVar = new r();
                 rVar.i(j);
-                if (MemberTaskCenterActivity.this.type == 1 && i2 == 2) {
-                    MemberTaskCenterActivity.this.mModel.l(MemberTaskCenterActivity.this.mModel.h() + i3);
+                if (MemberTaskCenterActivity.this.type == 1 && i3 == 2) {
+                    MemberTaskCenterActivity.this.mModel.l(MemberTaskCenterActivity.this.mModel.h() + i4);
                 }
                 if (MemberTaskCenterActivity.this.type == 2) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016498, Integer.valueOf(i3)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016498, Integer.valueOf(i4)));
                 }
-                if (i2 >= 1) {
-                    i2 = 1;
+                if (i3 >= 1) {
+                    i3 = 1;
                 }
-                rVar.h(i2);
-                MemberTaskCenterActivity.this.refreshDataWithScores(rVar, i3);
+                rVar.h(i3);
+                MemberTaskCenterActivity.this.refreshDataWithScores(rVar, i4);
                 if (MemberTaskCenterActivity.this.type == 2) {
                     TiebaStatic.log(new StatisticItem("c11744"));
                 }
@@ -72,8 +72,8 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         public b() {
         }
 
-        @Override // d.b.j0.r1.e.c.b
-        public void a(int i, String str) {
+        @Override // d.a.j0.r1.e.c.b
+        public void a(int i2, String str) {
             MemberTaskCenterActivity.this.mView.b().setVisibility(8);
             MemberTaskCenterActivity memberTaskCenterActivity = MemberTaskCenterActivity.this;
             memberTaskCenterActivity.hideLoadingView(memberTaskCenterActivity.mView.c());
@@ -82,7 +82,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             MemberTaskCenterActivity.this.setNetRefreshViewEmotionDefMarginTop();
         }
 
-        @Override // d.b.j0.r1.e.c.b
+        @Override // d.a.j0.r1.e.c.b
         public void b(List<ImgInfo> list, List<r> list2, long j) {
             MemberTaskCenterActivity.this.mView.b().setVisibility(0);
             MemberTaskCenterActivity memberTaskCenterActivity = MemberTaskCenterActivity.this;
@@ -132,15 +132,15 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     public class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.r.s.a f18636e;
+        public final /* synthetic */ d.a.i0.r.s.a f19059e;
 
-        public d(d.b.i0.r.s.a aVar) {
-            this.f18636e = aVar;
+        public d(d.a.i0.r.s.a aVar) {
+            this.f19059e = aVar;
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
-            this.f18636e.dismiss();
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
+            this.f19059e.dismiss();
             ViewHelper.skipToLoginActivity(MemberTaskCenterActivity.this.getPageContext().getPageActivity());
         }
     }
@@ -149,15 +149,15 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     public class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.r.s.a f18638e;
+        public final /* synthetic */ d.a.i0.r.s.a f19061e;
 
-        public e(d.b.i0.r.s.a aVar) {
-            this.f18638e = aVar;
+        public e(d.a.i0.r.s.a aVar) {
+            this.f19061e = aVar;
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
-            this.f18638e.dismiss();
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
+            this.f19061e.dismiss();
         }
     }
 
@@ -165,15 +165,15 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     public class f implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.r.s.a f18640e;
+        public final /* synthetic */ d.a.i0.r.s.a f19063e;
 
-        public f(d.b.i0.r.s.a aVar) {
-            this.f18640e = aVar;
+        public f(d.a.i0.r.s.a aVar) {
+            this.f19063e = aVar;
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
-            this.f18640e.dismiss();
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
+            this.f19063e.dismiss();
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(MemberTaskCenterActivity.this.getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 0);
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_MISSION_CENTER_NATIVE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_BUTTON);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -184,15 +184,15 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     public class g implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.r.s.a f18642e;
+        public final /* synthetic */ d.a.i0.r.s.a f19065e;
 
-        public g(d.b.i0.r.s.a aVar) {
-            this.f18642e = aVar;
+        public g(d.a.i0.r.s.a aVar) {
+            this.f19065e = aVar;
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
-            this.f18642e.dismiss();
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
+            this.f19065e.dismiss();
         }
     }
 
@@ -202,19 +202,19 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             return;
         }
         if (!TbadkCoreApplication.isLogin()) {
-            d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(getPageContext().getPageActivity());
+            d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getPageContext().getPageActivity());
             aVar.setTitle(R.string.tips_login_and_get_scores);
             aVar.setPositiveButton(R.string.login, new d(aVar));
             aVar.setNegativeButton(R.string.cancel, new e(aVar));
             aVar.create(getPageContext());
             aVar.show();
         } else if (TbadkCoreApplication.getCurrentMemberType() >= 2) {
-            d.b.j0.r1.e.a aVar2 = this.mFinishMemberTaskModel;
+            d.a.j0.r1.e.a aVar2 = this.mFinishMemberTaskModel;
             if (aVar2 != null) {
                 aVar2.f(rVar.c(), rVar.a());
             }
         } else {
-            d.b.i0.r.s.a aVar3 = new d.b.i0.r.s.a(getPageContext().getPageActivity());
+            d.a.i0.r.s.a aVar3 = new d.a.i0.r.s.a(getPageContext().getPageActivity());
             aVar3.setTitle(R.string.tips_nomal_member_get_scores);
             aVar3.setButtonTextColor(R.color.CAM_X0305);
             aVar3.setPositiveButton(R.string.open_now, new f(aVar3));
@@ -225,32 +225,32 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void showGetScoresSuccessDialog(int i) {
-        if (i <= 0) {
+    public void showGetScoresSuccessDialog(int i2) {
+        if (i2 <= 0) {
             return;
         }
-        int i2 = this.type;
-        if (i2 == 1) {
-            showToast(String.format(getResources().getString(R.string.tips_get_task_success), Integer.valueOf(i)));
-        } else if (i2 == 2) {
-            showToast(String.format(getResources().getString(R.string.tips_get_scores_success), Integer.valueOf(i)));
+        int i3 = this.type;
+        if (i3 == 1) {
+            showToast(String.format(getResources().getString(R.string.tips_get_task_success), Integer.valueOf(i2)));
+        } else if (i3 == 2) {
+            showToast(String.format(getResources().getString(R.string.tips_get_scores_success), Integer.valueOf(i2)));
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mView.d(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mView.d(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mView = new d.b.j0.r1.e.d(this, this.mCommenClickListener);
-        d.b.j0.r1.e.c cVar = new d.b.j0.r1.e.c();
+        this.mView = new d.a.j0.r1.e.d(this, this.mCommenClickListener);
+        d.a.j0.r1.e.c cVar = new d.a.j0.r1.e.c();
         this.mModel = cVar;
         cVar.m(this.mTaskLoadCallback);
-        d.b.j0.r1.e.a aVar = new d.b.j0.r1.e.a();
+        d.a.j0.r1.e.a aVar = new d.a.j0.r1.e.a();
         this.mFinishMemberTaskModel = aVar;
         aVar.h(this.mFinishMemberTaskCallbak);
         this.mModel.j();
@@ -260,11 +260,11 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.j0.r1.e.a aVar = this.mFinishMemberTaskModel;
+        d.a.j0.r1.e.a aVar = this.mFinishMemberTaskModel;
         if (aVar != null) {
             aVar.g();
         }
-        d.b.j0.r1.e.c cVar = this.mModel;
+        d.a.j0.r1.e.c cVar = this.mModel;
         if (cVar != null) {
             cVar.k();
         }
@@ -286,13 +286,13 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         }
     }
 
-    public void refreshDataWithScores(r rVar, int i) {
-        List<r> i2;
-        if (rVar == null || i <= 0) {
+    public void refreshDataWithScores(r rVar, int i2) {
+        List<r> i3;
+        if (rVar == null || i2 <= 0) {
             return;
         }
-        if (this.mModel.i() != null && (i2 = this.mModel.i()) != null && i2.size() > 0) {
-            Iterator<r> it = i2.iterator();
+        if (this.mModel.i() != null && (i3 = this.mModel.i()) != null && i3.size() > 0) {
+            Iterator<r> it = i3.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

@@ -33,8 +33,8 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
         }
         int length = webMessagePortCompatArr.length;
         WebMessagePort[] webMessagePortArr = new WebMessagePort[length];
-        for (int i = 0; i < length; i++) {
-            webMessagePortArr[i] = webMessagePortCompatArr[i].getFrameworkPort();
+        for (int i2 = 0; i2 < length; i2++) {
+            webMessagePortArr[i2] = webMessagePortCompatArr[i2].getFrameworkPort();
         }
         return webMessagePortArr;
     }
@@ -64,8 +64,8 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
             return null;
         }
         WebMessagePortCompat[] webMessagePortCompatArr = new WebMessagePortCompat[webMessagePortArr.length];
-        for (int i = 0; i < webMessagePortArr.length; i++) {
-            webMessagePortCompatArr[i] = new WebMessagePortImpl(webMessagePortArr[i]);
+        for (int i2 = 0; i2 < webMessagePortArr.length; i2++) {
+            webMessagePortCompatArr[i2] = new WebMessagePortImpl(webMessagePortArr[i2]);
         }
         return webMessagePortCompatArr;
     }

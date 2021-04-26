@@ -42,9 +42,9 @@ public class ElasticQueue implements Recordable {
         return this.waitingTimeInRecordLifeCycle;
     }
 
-    public void insertTask(Runnable runnable, String str, int i) {
+    public void insertTask(Runnable runnable, String str, int i2) {
         if (runnable != null && !TextUtils.isEmpty(str)) {
-            ElasticTask build = ElasticTaskBuilder.getInstance().build(runnable, str, i);
+            ElasticTask build = ElasticTaskBuilder.getInstance().build(runnable, str, i2);
             this.mElasticTasks.add(build);
             build.recordEnqueueTime();
             return;

@@ -61,8 +61,8 @@ public class ApkSoSource extends ExtractFromZipSoSource {
         }
     }
 
-    public ApkSoSource(Context context, String str, int i) {
-        this(context, new File(context.getApplicationInfo().sourceDir), str, i);
+    public ApkSoSource(Context context, String str, int i2) {
+        this(context, new File(context.getApplicationInfo().sourceDir), str, i2);
     }
 
     @Override // com.facebook.soloader.UnpackingSoSource
@@ -102,8 +102,8 @@ public class ApkSoSource extends ExtractFromZipSoSource {
         return new ApkUnpacker(this);
     }
 
-    public ApkSoSource(Context context, File file, String str, int i) {
+    public ApkSoSource(Context context, File file, String str, int i2) {
         super(context, str, file, "^lib/([^/]+)/([^/]+\\.so)$");
-        this.mFlags = i;
+        this.mFlags = i2;
     }
 }

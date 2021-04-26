@@ -50,16 +50,16 @@ import org.json.JSONObject;
 public class bw {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8703a;
+    public static String f9014a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f8704b;
+    public static String f9015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f8705c;
+    public static String f9016c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f8706d = Pattern.compile("\\s*|\t|\r|\n");
+    public static final Pattern f9017d = Pattern.compile("\\s*|\t|\r|\n");
 
     public static String a(Context context, String str) {
         try {
@@ -236,7 +236,7 @@ public class bw {
         boolean z;
         List<ScanResult> list;
         JSONArray jSONArray;
-        int i;
+        int i2;
         if (context == null || !bo.e(context, "android.permission.ACCESS_WIFI_STATE")) {
             return "";
         }
@@ -256,14 +256,14 @@ public class bw {
                 });
             }
             jSONArray = new JSONArray();
-            i = 0;
+            i2 = 0;
             while (true) {
-                int i2 = 1;
-                if (list != null || i >= list.size() || i >= 30) {
+                int i3 = 1;
+                if (list != null || i2 >= list.size() || i2 >= 30) {
                     break;
                 }
                 try {
-                    ScanResult scanResult = list.get(i);
+                    ScanResult scanResult = list.get(i2);
                     StringBuilder sb = new StringBuilder();
                     sb.append(scanResult.BSSID);
                     sb.append(FieldBuilder.SE);
@@ -276,13 +276,13 @@ public class bw {
                     sb.append(scanResult.level);
                     sb.append(FieldBuilder.SE);
                     if (wifiInfo == null || !scanResult.BSSID.equals(wifiInfo.getBSSID())) {
-                        i2 = 0;
+                        i3 = 0;
                     }
-                    sb.append(i2);
+                    sb.append(i3);
                     jSONArray.put(sb.toString());
                 } catch (Exception unused) {
                 }
-                i++;
+                i2++;
             }
             if (jSONArray.length() == 0) {
                 return null;
@@ -317,14 +317,14 @@ public class bw {
             });
         }
         jSONArray = new JSONArray();
-        i = 0;
+        i2 = 0;
         while (true) {
-            int i22 = 1;
+            int i32 = 1;
             if (list != null) {
                 break;
             }
             break;
-            i++;
+            i2++;
         }
         if (jSONArray.length() == 0) {
         }
@@ -379,7 +379,7 @@ public class bw {
     }
 
     public static String u(Context context) {
-        String str = f8704b;
+        String str = f9015b;
         if (str == null) {
             String y = y(context);
             String b2 = b(context, y);
@@ -387,7 +387,7 @@ public class bw {
                 b2 = c(context, y);
             }
             str = b2 == null ? "" : b2;
-            f8704b = str;
+            f9015b = str;
         }
         return str;
     }
@@ -408,18 +408,18 @@ public class bw {
             return "";
         }
         int length = serviceInfoArr.length;
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            if (i >= length) {
+            if (i2 >= length) {
                 str = "";
                 break;
             }
-            ServiceInfo serviceInfo = serviceInfoArr[i];
+            ServiceInfo serviceInfo = serviceInfoArr[i2];
             if (y.equals(serviceInfo.processName)) {
                 str = serviceInfo.name;
                 break;
             }
-            i++;
+            i2++;
         }
         return str == null ? "" : str;
     }
@@ -464,39 +464,39 @@ public class bw {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String y(Context context) {
-        String str = f8703a;
+        String str = f9014a;
         if (str == null) {
             try {
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-                int i = 0;
+                int i2 = 0;
                 while (true) {
-                    if (runningAppProcesses == null || i >= runningAppProcesses.size()) {
+                    if (runningAppProcesses == null || i2 >= runningAppProcesses.size()) {
                         break;
                     }
-                    ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i);
+                    ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i2);
                     if (runningAppProcessInfo != null && runningAppProcessInfo.pid == Process.myPid()) {
                         break;
                     }
-                    i++;
+                    i2++;
                 }
             } catch (Exception unused) {
             }
             if (str == null) {
                 str = "";
             }
-            f8703a = str;
+            f9014a = str;
         }
         return str;
     }
 
-    public static String b(int i, Context context) {
+    public static String b(int i2, Context context) {
         String l = l(context);
-        return TextUtils.isEmpty(l) ? "" : bm.b.c(i, l.getBytes());
+        return TextUtils.isEmpty(l) ? "" : bm.b.c(i2, l.getBytes());
     }
 
-    public static String c(int i, Context context) {
-        String d2 = d(i, context);
-        String c2 = !TextUtils.isEmpty(d2) ? bm.b.c(i, d2.getBytes()) : null;
+    public static String c(int i2, Context context) {
+        String d2 = d(i2, context);
+        String c2 = !TextUtils.isEmpty(d2) ? bm.b.c(i2, d2.getBytes()) : null;
         return TextUtils.isEmpty(c2) ? "" : c2;
     }
 
@@ -514,8 +514,8 @@ public class bw {
                     }
                     StringBuilder sb = new StringBuilder();
                     int length = hardwareAddress.length;
-                    for (int i = 0; i < length; i++) {
-                        sb.append(String.format("%02x:", Byte.valueOf(hardwareAddress[i])));
+                    for (int i2 = 0; i2 < length; i2++) {
+                        sb.append(String.format("%02x:", Byte.valueOf(hardwareAddress[i2])));
                     }
                     if (sb.length() > 0) {
                         sb.deleteCharAt(sb.length() - 1);
@@ -529,7 +529,7 @@ public class bw {
     }
 
     @SuppressLint({"NewApi"})
-    public static String e(int i, Context context) {
+    public static String e(int i2, Context context) {
         StringBuffer stringBuffer = new StringBuffer();
         byte[] bArr = null;
         try {
@@ -559,17 +559,17 @@ public class bw {
             }
             return stringBuffer.substring(0, stringBuffer.length() - 1).replaceAll(":", "");
         }
-        String b3 = b(i, context);
+        String b3 = b(i2, context);
         return b3 != null ? b3.replaceAll(":", "") : b3;
     }
 
-    public static String h(int i, Context context) {
+    public static String h(int i2, Context context) {
         String t = t(context);
         if (TextUtils.isEmpty(t)) {
             return "";
         }
         try {
-            return bm.b.c(i, t.getBytes());
+            return bm.b.c(i2, t.getBytes());
         } catch (Exception unused) {
             return "";
         }
@@ -577,26 +577,26 @@ public class bw {
 
     public static String b(Context context, String str) {
         int lastIndexOf;
-        int i;
-        if (str != null && (lastIndexOf = str.lastIndexOf(58)) > 0 && (i = lastIndexOf + 1) < str.length()) {
-            return str.substring(i);
+        int i2;
+        if (str != null && (lastIndexOf = str.lastIndexOf(58)) > 0 && (i2 = lastIndexOf + 1) < str.length()) {
+            return str.substring(i2);
         }
         return null;
     }
 
-    public static String f(int i, Context context) {
+    public static String f(int i2, Context context) {
         String n = n(context);
-        return TextUtils.isEmpty(n) ? "" : bm.b.c(i, n.getBytes());
+        return TextUtils.isEmpty(n) ? "" : bm.b.c(i2, n.getBytes());
     }
 
-    public static String g(int i, Context context) {
+    public static String g(int i2, Context context) {
         String p = p(context);
-        return TextUtils.isEmpty(p) ? "" : bm.b.d(i, p.getBytes());
+        return TextUtils.isEmpty(p) ? "" : bm.b.d(i2, p.getBytes());
     }
 
-    public static String a(int i, Context context) {
+    public static String a(int i2, Context context) {
         try {
-            return bm.b.c(i, a(context).getBytes());
+            return bm.b.c(i2, a(context).getBytes());
         } catch (Exception unused) {
             return "";
         }
@@ -604,7 +604,7 @@ public class bw {
 
     public static String b() {
         String str;
-        String str2 = f8705c;
+        String str2 = f9016c;
         if (str2 != null) {
             return str2;
         }
@@ -625,7 +625,7 @@ public class bw {
                 str = ImmersiveOSUtils.FLYME;
             }
         }
-        f8705c = str;
+        f9016c = str;
         return str;
     }
 
@@ -642,7 +642,7 @@ public class bw {
     }
 
     public static String a(Context context) {
-        return f8706d.matcher(bx.a(context)).replaceAll("");
+        return f9017d.matcher(bx.a(context)).replaceAll("");
     }
 
     public static Boolean c() {
@@ -674,9 +674,9 @@ public class bw {
                     if (read == -1) {
                         break;
                     } else if (read != 20 || cArr[19] == '\r') {
-                        for (int i = 0; i < read; i++) {
-                            if (cArr[i] != '\r') {
-                                stringBuffer.append(cArr[i]);
+                        for (int i2 = 0; i2 < read; i2++) {
+                            if (cArr[i2] != '\r') {
+                                stringBuffer.append(cArr[i2]);
                             }
                         }
                     } else {
@@ -715,17 +715,17 @@ public class bw {
         }
     }
 
-    public static String d(int i, Context context) {
+    public static String d(int i2, Context context) {
         String a2 = a();
         if (TextUtils.isEmpty(a2)) {
-            a2 = e(i, context);
+            a2 = e(i2, context);
         }
         return TextUtils.isEmpty(a2) ? "" : a2;
     }
 
-    public static String a(Context context, int i) {
+    public static String a(Context context, int i2) {
         String m = m(context);
-        return TextUtils.isEmpty(m) ? "" : bm.b.c(i, m.getBytes());
+        return TextUtils.isEmpty(m) ? "" : bm.b.c(i2, m.getBytes());
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0035, code lost:

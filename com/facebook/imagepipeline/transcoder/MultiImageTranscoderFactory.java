@@ -12,8 +12,8 @@ public class MultiImageTranscoderFactory implements ImageTranscoderFactory {
     public final ImageTranscoderFactory mPrimaryImageTranscoderFactory;
     public final boolean mUseDownSamplingRatio;
 
-    public MultiImageTranscoderFactory(int i, boolean z, @Nullable ImageTranscoderFactory imageTranscoderFactory, @Nullable Integer num) {
-        this.mMaxBitmapSize = i;
+    public MultiImageTranscoderFactory(int i2, boolean z, @Nullable ImageTranscoderFactory imageTranscoderFactory, @Nullable Integer num) {
+        this.mMaxBitmapSize = i2;
         this.mUseDownSamplingRatio = z;
         this.mPrimaryImageTranscoderFactory = imageTranscoderFactory;
         this.mImageTranscoderType = num;

@@ -15,8 +15,8 @@ public final class BinaryBitmap {
         throw new IllegalArgumentException("Binarizer must be non-null.");
     }
 
-    public BinaryBitmap crop(int i, int i2, int i3, int i4) {
-        return new BinaryBitmap(this.binarizer.createBinarizer(this.binarizer.getLuminanceSource().crop(i, i2, i3, i4)));
+    public BinaryBitmap crop(int i2, int i3, int i4, int i5) {
+        return new BinaryBitmap(this.binarizer.createBinarizer(this.binarizer.getLuminanceSource().crop(i2, i3, i4, i5)));
     }
 
     public BitMatrix getBlackMatrix() throws NotFoundException {
@@ -26,8 +26,8 @@ public final class BinaryBitmap {
         return this.matrix;
     }
 
-    public BitArray getBlackRow(int i, BitArray bitArray) throws NotFoundException {
-        return this.binarizer.getBlackRow(i, bitArray);
+    public BitArray getBlackRow(int i2, BitArray bitArray) throws NotFoundException {
+        return this.binarizer.getBlackRow(i2, bitArray);
     }
 
     public int getHeight() {

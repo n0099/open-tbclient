@@ -24,8 +24,8 @@ public class LiveInfoResultData extends BaseResultData {
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return;
         }
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
             if (optJSONObject != null) {
                 LiveInfo liveInfo = new LiveInfo();
                 liveInfo.pcursor = this.pcursor;

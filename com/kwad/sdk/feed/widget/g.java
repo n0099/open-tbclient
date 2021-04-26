@@ -17,14 +17,16 @@ import java.util.List;
 public class g extends com.kwad.sdk.feed.widget.base.a implements View.OnClickListener {
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f35318f;
+    public TextView f34044f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f35319g;
+    public ImageView f34045g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f35320h;
-    public KsLogoView i;
+    public ImageView f34046h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public KsLogoView f34047i;
 
     public g(@NonNull Context context) {
         super(context);
@@ -33,25 +35,25 @@ public class g extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     @Override // com.kwad.sdk.feed.widget.base.a
     public void a(@NonNull AdTemplate adTemplate) {
         super.a(adTemplate);
-        this.f35318f.setText(com.kwad.sdk.core.response.b.a.n(this.f35298b));
-        List<String> I = com.kwad.sdk.core.response.b.a.I(this.f35298b);
-        this.i.a(adTemplate);
-        if (I.size() >= 1) {
-            KSImageLoader.loadFeeImage(this.f35319g, I.get(0), ((com.kwad.sdk.feed.widget.base.a) this).f35297a);
+        this.f34044f.setText(com.kwad.sdk.core.response.b.a.m(this.f34025b));
+        List<String> E = com.kwad.sdk.core.response.b.a.E(this.f34025b);
+        this.f34047i.a(adTemplate);
+        if (E.size() >= 1) {
+            KSImageLoader.loadFeeImage(this.f34045g, E.get(0), ((com.kwad.sdk.feed.widget.base.a) this).f34024a);
         } else {
-            com.kwad.sdk.core.d.a.d("FeedTextImmerseImageView", "getImageUrlList size less than one");
+            com.kwad.sdk.core.d.a.e("FeedTextImmerseImageView", "getImageUrlList size less than one");
         }
-        this.f35320h.setOnClickListener(this);
+        this.f34046h.setOnClickListener(this);
         setOnClickListener(this);
     }
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public void c() {
         ((RatioFrameLayout) findViewById(R.id.ksad_container)).setRatio(0.56f);
-        this.f35318f = (TextView) findViewById(R.id.ksad_ad_desc);
-        this.f35319g = (ImageView) findViewById(R.id.ksad_ad_image);
-        this.f35320h = (ImageView) findViewById(R.id.ksad_ad_dislike);
-        this.i = (KsLogoView) findViewById(R.id.ksad_feed_logo);
+        this.f34044f = (TextView) findViewById(R.id.ksad_ad_desc);
+        this.f34045g = (ImageView) findViewById(R.id.ksad_ad_image);
+        this.f34046h = (ImageView) findViewById(R.id.ksad_ad_dislike);
+        this.f34047i = (KsLogoView) findViewById(R.id.ksad_feed_logo);
     }
 
     @Override // com.kwad.sdk.feed.widget.base.a
@@ -61,17 +63,17 @@ public class g extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f35320h) {
+        if (view == this.f34046h) {
             l();
-        } else if (com.kwad.sdk.core.download.b.d.a(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f35297a, 1) == 1) {
+        } else if (com.kwad.sdk.core.download.b.d.a(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f34024a, 1) == 1) {
             k();
         } else {
-            boolean y = com.kwad.sdk.core.response.b.a.y(this.f35298b);
+            boolean v = com.kwad.sdk.core.response.b.a.v(this.f34025b);
             k();
-            if (y) {
-                FeedDownloadActivityProxy.launch(this.f35300d, ((com.kwad.sdk.feed.widget.base.a) this).f35297a, this.f35299c);
+            if (v) {
+                FeedDownloadActivityProxy.launch(this.f34027d, ((com.kwad.sdk.feed.widget.base.a) this).f34024a, this.f34026c);
             } else {
-                AdWebViewActivityProxy.launch(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f35297a);
+                AdWebViewActivityProxy.launch(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f34024a);
             }
         }
     }

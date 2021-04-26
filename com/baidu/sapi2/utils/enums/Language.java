@@ -4,19 +4,15 @@ public enum Language {
     CHINESE(0, "chinese"),
     ENGLISH(1, "english");
     
+    public String name;
+    public int type;
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f11072a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f11073b;
-
-    Language(int i, String str) {
-        this.f11072a = i;
-        this.f11073b = str;
+    Language(int i2, String str) {
+        this.type = i2;
+        this.name = str;
     }
 
     public int getType() {
-        return this.f11072a;
+        return this.type;
     }
 }

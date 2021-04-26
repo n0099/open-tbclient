@@ -30,7 +30,7 @@ public interface KsRewardVideoAd {
 
         @KsAdSdkApi
         @Keep
-        void onVideoPlayError(int i, int i2);
+        void onVideoPlayError(int i2, int i3);
 
         @KsAdSdkApi
         @Keep
@@ -47,7 +47,7 @@ public interface KsRewardVideoAd {
 
     @KsAdSdkApi
     @Keep
-    void setBidEcpm(int i);
+    void setBidEcpm(int i2);
 
     @KsAdSdkApi
     @Keep

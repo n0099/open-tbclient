@@ -10,7 +10,7 @@ public class ConnConnectionParamBean extends HttpAbstractParamBean {
         throw new RuntimeException("Stub!");
     }
 
-    public void setMaxStatusLineGarbage(int i) {
+    public void setMaxStatusLineGarbage(int i2) {
         throw new RuntimeException("Stub!");
     }
 }

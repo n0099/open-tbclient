@@ -56,10 +56,10 @@ public class f extends com.baidu.platform.base.d {
             return;
         }
         OnGetShareUrlResultListener onGetShareUrlResultListener = (OnGetShareUrlResultListener) obj;
-        int i = g.f9981a[a().ordinal()];
-        if (i == 1) {
+        int i2 = g.f10349a[a().ordinal()];
+        if (i2 == 1) {
             onGetShareUrlResultListener.onGetPoiDetailShareUrlResult((ShareUrlResult) searchResult);
-        } else if (i != 2) {
+        } else if (i2 != 2) {
         } else {
             onGetShareUrlResultListener.onGetLocationShareUrlResult((ShareUrlResult) searchResult);
         }

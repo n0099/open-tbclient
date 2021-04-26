@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.background;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.GetBgList.DataReq;
 import tbclient.GetBgList.GetBgListReqIdl;
 /* loaded from: classes5.dex */
@@ -27,11 +27,11 @@ public class BackgroundListRequestMessage extends NetMessage {
         return builder2.build(false);
     }
 
-    public void setPn(int i) {
-        this.pn = i;
+    public void setPn(int i2) {
+        this.pn = i2;
     }
 
-    public void setRn(int i) {
-        this.rn = i;
+    public void setRn(int i2) {
+        this.rn = i2;
     }
 }

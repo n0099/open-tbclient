@@ -61,8 +61,8 @@ public class WbSdkProgressBar extends View {
         this.stopGrowTime = j2 + j;
     }
 
-    private int dip2px(Context context, int i) {
-        return (int) (context.getResources().getDisplayMetrics().density * i);
+    private int dip2px(Context context, int i2) {
+        return (int) (context.getResources().getDisplayMetrics().density * i2);
     }
 
     @Override // android.view.View
@@ -86,34 +86,34 @@ public class WbSdkProgressBar extends View {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        int i3 = this.miniSize;
-        setMeasuredDimension(i3, i3);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        int i4 = this.miniSize;
+        setMeasuredDimension(i4, i4);
     }
 
     @Override // android.view.View
-    public void onVisibilityChanged(View view, int i) {
-        super.onVisibilityChanged(view, i);
-        if (i == 8) {
+    public void onVisibilityChanged(View view, int i2) {
+        super.onVisibilityChanged(view, i2);
+        if (i2 == 8) {
             this.handler.sendEmptyMessageDelayed(0, 1000L);
-        } else if (i == 0 && getVisibility() == 0) {
+        } else if (i2 == 0 && getVisibility() == 0) {
             this.handler.removeMessages(0);
             this.showView = true;
             invalidate();
         }
     }
 
-    public void setProgressColor(int i) {
-        this.paint.setColor(i);
+    public void setProgressColor(int i2) {
+        this.paint.setColor(i2);
     }
 
     public WbSdkProgressBar(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public WbSdkProgressBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public WbSdkProgressBar(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.minLength = 20;
         this.maxLength = 300;
         this.lastTime = 0L;
@@ -143,8 +143,8 @@ public class WbSdkProgressBar extends View {
         this.paint.setColor(-48861);
         this.paint.setStyle(Paint.Style.STROKE);
         this.paint.setStrokeWidth(this.paintWidth);
-        int i2 = this.padding;
-        int i3 = this.miniSize;
-        this.rect = new RectF(i2, i2, i3 - i2, i3 - i2);
+        int i3 = this.padding;
+        int i4 = this.miniSize;
+        this.rect = new RectF(i3, i3, i4 - i3, i4 - i3);
     }
 }

@@ -10,8 +10,8 @@ import com.heytap.mcssdk.utils.LogUtil;
 /* loaded from: classes6.dex */
 public final class a extends c {
     @Override // com.heytap.mcssdk.a.d
-    public final Message a(Context context, int i, Intent intent) {
-        if (4098 == i) {
+    public final Message a(Context context, int i2, Intent intent) {
+        if (4098 == i2) {
             Message a2 = a(intent);
             PushManager.statisticMessage(context, (AppMessage) a2, PushManager.EVENT_ID_PUSH_TRANSMIT);
             return a2;

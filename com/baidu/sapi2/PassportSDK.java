@@ -51,8 +51,8 @@ public final class PassportSDK {
         CoreViewRouter.getInstance().extendSysWebViewMethod(activity, str, extendSysWebViewMethodCallback);
     }
 
-    public void handleWXLoginResp(Activity activity, String str, String str2, int i) {
-        CoreViewRouter.getInstance().handleWXLoginResp(activity, str, str2, i);
+    public void handleWXLoginResp(Activity activity, String str, String str2, int i2) {
+        CoreViewRouter.getInstance().handleWXLoginResp(activity, str, str2, i2);
     }
 
     public void invokeV2ShareLogin(Activity activity, WebAuthListener webAuthListener, ShareStorage.StorageModel storageModel) {
@@ -77,6 +77,10 @@ public final class PassportSDK {
 
     public void loadBindWidget(WebBindWidgetCallback webBindWidgetCallback, WebBindWidgetDTO webBindWidgetDTO) {
         CoreViewRouter.getInstance().loadBindWidget(webBindWidgetCallback, webBindWidgetDTO);
+    }
+
+    public void loadChildActivity(Context context, AccountRealNameCallback accountRealNameCallback) {
+        CoreViewRouter.getInstance().loadChildActivity(context, accountRealNameCallback);
     }
 
     public void loadInvoiceBuild(Context context, InvoiceBuildDTO invoiceBuildDTO, InvoiceBuildCallback invoiceBuildCallback) {

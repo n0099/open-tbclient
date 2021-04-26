@@ -48,9 +48,9 @@ public class JdkWithJettyBootPlatform extends Platform {
                 if ((name.equals("selectProtocol") || name.equals(InvoiceBuildActivity.EXTRA_PARAMS_TYPE)) && String.class == returnType && objArr.length == 1 && (objArr[0] instanceof List)) {
                     List list = (List) objArr[0];
                     int size = list.size();
-                    for (int i = 0; i < size; i++) {
-                        if (this.protocols.contains(list.get(i))) {
-                            String str = (String) list.get(i);
+                    for (int i2 = 0; i2 < size; i2++) {
+                        if (this.protocols.contains(list.get(i2))) {
+                            String str = (String) list.get(i2);
                             this.selected = str;
                             return str;
                         }

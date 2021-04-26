@@ -17,24 +17,26 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes5.dex */
 public class EmotionButton extends View {
     public static final int t = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
     public static int u = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21754e;
+    public int f22405e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21755f;
+    public int f22406f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21756g;
+    public int f22407g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21757h;
-    public int i;
+    public int f22408h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f22409i;
     public int j;
     public Paint k;
     public TextPaint l;
@@ -69,7 +71,7 @@ public class EmotionButton extends View {
 
     public final void b(Canvas canvas) {
         this.k.setShader(this.p);
-        this.k.setShadowLayer(t, 2.0f, 2.0f, this.f21754e);
+        this.k.setShadowLayer(t, 2.0f, 2.0f, this.f22405e);
         if (this.m == null) {
             this.m = new RectF();
         }
@@ -88,7 +90,7 @@ public class EmotionButton extends View {
 
     public final void c(Canvas canvas) {
         this.k.setShader(this.q);
-        this.k.setShadowLayer(t, 2.0f, 2.0f, this.f21757h);
+        this.k.setShadowLayer(t, 2.0f, 2.0f, this.f22408h);
         if (this.m == null) {
             this.m = new RectF();
         }
@@ -106,11 +108,11 @@ public class EmotionButton extends View {
     }
 
     public final void d(Context context) {
-        this.f21754e = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-        this.f21755f = SkinManager.getColor(R.color.CAM_X0302);
-        this.f21756g = SkinManager.getColor(R.color.CAM_X0303);
-        this.f21757h = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-        this.i = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+        this.f22405e = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+        this.f22406f = SkinManager.getColor(R.color.CAM_X0302);
+        this.f22407g = SkinManager.getColor(R.color.CAM_X0303);
+        this.f22408h = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+        this.f22409i = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
         this.j = SkinManager.getColor(R.color.cp_link_tip_b_alpha50);
         Paint paint = new Paint();
         this.k = paint;
@@ -134,12 +136,12 @@ public class EmotionButton extends View {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        int mode = View.MeasureSpec.getMode(i);
-        int size = View.MeasureSpec.getSize(i);
-        int mode2 = View.MeasureSpec.getMode(i2);
-        int size2 = View.MeasureSpec.getSize(i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        int mode = View.MeasureSpec.getMode(i2);
+        int size = View.MeasureSpec.getSize(i2);
+        int mode2 = View.MeasureSpec.getMode(i3);
+        int size2 = View.MeasureSpec.getSize(i3);
         if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
             setMeasuredDimension(200, 200);
         } else if (mode == Integer.MIN_VALUE) {
@@ -150,12 +152,12 @@ public class EmotionButton extends View {
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        this.n = i;
-        this.o = i2;
-        this.p = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.f21756g, this.f21755f, Shader.TileMode.MIRROR);
-        this.q = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.j, this.i, Shader.TileMode.MIRROR);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        this.n = i2;
+        this.o = i3;
+        this.p = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.f22407g, this.f22406f, Shader.TileMode.MIRROR);
+        this.q = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.j, this.f22409i, Shader.TileMode.MIRROR);
     }
 
     public void setText(String str) {
@@ -172,8 +174,8 @@ public class EmotionButton extends View {
         d(context);
     }
 
-    public EmotionButton(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public EmotionButton(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.EmotionButton);
         this.r = obtainStyledAttributes.getString(R$styleable.EmotionButton_text);
         this.s = obtainStyledAttributes.getDimension(R$styleable.EmotionButton_ebTextSize, l.g(context, R.dimen.tbds44));

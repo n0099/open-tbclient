@@ -12,9 +12,9 @@ public class ZwDebug {
         ApisInteractWithMario.clearCrashKey(str);
     }
 
-    public static void crashIntentionally(int i) {
+    public static void crashIntentionally(int i2) {
         if (debugModel) {
-            WebViewFactory.getProvider().getStatics().crashIntentionally(i);
+            WebViewFactory.getProvider().getStatics().crashIntentionally(i2);
         }
     }
 

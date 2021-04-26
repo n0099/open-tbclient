@@ -21,8 +21,8 @@ public class Log {
     public static void i(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
     }
 
-    public static void setLogLevel(int i) {
-        logLevel = i;
+    public static void setLogLevel(int i2) {
+        logLevel = i2;
     }
 
     public static void v(@NonNull String str, @NonNull String str2) {

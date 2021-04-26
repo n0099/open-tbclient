@@ -17,11 +17,11 @@ public final class i {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static i f25137a = new i();
+        public static i f25906a = new i();
     }
 
     public static i a() {
-        return a.f25137a;
+        return a.f25906a;
     }
 
     public i() {
@@ -64,26 +64,26 @@ public final class i {
             return 0;
         }
         if (((context instanceof HalfScreenBaseActivity) || (context instanceof WalletSmsActivity)) && errorContentResponse != null && errorContentResponse.card_item_required != null && ((certificateTypeInfoArr = errorContentResponse.certificate_type_info) == null || 1 >= certificateTypeInfoArr.length)) {
-            int i = "1".equals(errorContentResponse.card_item_required.valid_code) ? 1 : 0;
+            int i2 = "1".equals(errorContentResponse.card_item_required.valid_code) ? 1 : 0;
             if ("1".equals(errorContentResponse.card_item_required.valid_date)) {
-                i++;
+                i2++;
             }
             if ("1".equals(errorContentResponse.card_item_required.mobile)) {
-                i++;
+                i2++;
             }
             if ("1".equals(errorContentResponse.card_item_required.certificate_code)) {
                 GetCardInfoResponse.CertificateTypeInfo[] certificateTypeInfoArr2 = errorContentResponse.certificate_type_info;
                 if (1 == certificateTypeInfoArr2.length && "1".equals(certificateTypeInfoArr2[0].type)) {
-                    i++;
+                    i2++;
                 }
             }
-            if (1 == i || 2 == i) {
+            if (1 == i2 || 2 == i2) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add("2");
-                arrayList.add(Integer.toString(i));
+                arrayList.add(Integer.toString(i2));
                 PayStatisticsUtil.onEventWithValues(StatServiceEvent.EVENT_BANKCARD_MISSINFO, arrayList);
             }
-            return i;
+            return i2;
         }
         return 0;
     }

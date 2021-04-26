@@ -1,65 +1,69 @@
 package io.reactivex.internal.operators.maybe;
 
-import f.b.e;
-import f.b.i;
-import f.b.j;
-import f.b.t.b;
-import g.d.c;
+import io.reactivex.Flowable;
+import io.reactivex.MaybeObserver;
+import io.reactivex.MaybeSource;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
+import io.reactivex.internal.fuseable.HasUpstreamMaybeSource;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
+import org.reactivestreams.Subscriber;
 /* loaded from: classes7.dex */
-public final class MaybeToFlowable<T> extends e<T> {
-
-    /* renamed from: f  reason: collision with root package name */
-    public final j<T> f69208f;
+public final class MaybeToFlowable<T> extends Flowable<T> implements HasUpstreamMaybeSource<T> {
+    public final MaybeSource<T> source;
 
     /* loaded from: classes7.dex */
-    public static final class MaybeToFlowableSubscriber<T> extends DeferredScalarSubscription<T> implements i<T> {
+    public static final class MaybeToFlowableSubscriber<T> extends DeferredScalarSubscription<T> implements MaybeObserver<T> {
         public static final long serialVersionUID = 7603343402964826922L;
 
         /* renamed from: d  reason: collision with root package name */
-        public b f69209d;
+        public Disposable f68268d;
 
-        public MaybeToFlowableSubscriber(c<? super T> cVar) {
-            super(cVar);
+        public MaybeToFlowableSubscriber(Subscriber<? super T> subscriber) {
+            super(subscriber);
         }
 
-        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, io.reactivex.internal.subscriptions.BasicIntQueueSubscription, g.d.d
+        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.reactivestreams.Subscription
         public void cancel() {
             super.cancel();
-            this.f69209d.dispose();
+            this.f68268d.dispose();
         }
 
-        @Override // f.b.i
+        @Override // io.reactivex.MaybeObserver
         public void onComplete() {
             this.actual.onComplete();
         }
 
-        @Override // f.b.i
+        @Override // io.reactivex.MaybeObserver
         public void onError(Throwable th) {
             this.actual.onError(th);
         }
 
-        @Override // f.b.i
-        public void onSubscribe(b bVar) {
-            if (DisposableHelper.validate(this.f69209d, bVar)) {
-                this.f69209d = bVar;
+        @Override // io.reactivex.MaybeObserver
+        public void onSubscribe(Disposable disposable) {
+            if (DisposableHelper.validate(this.f68268d, disposable)) {
+                this.f68268d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
 
-        @Override // f.b.i
+        @Override // io.reactivex.MaybeObserver
         public void onSuccess(T t) {
             complete(t);
         }
     }
 
-    public MaybeToFlowable(j<T> jVar) {
-        this.f69208f = jVar;
+    public MaybeToFlowable(MaybeSource<T> maybeSource) {
+        this.source = maybeSource;
     }
 
-    @Override // f.b.e
-    public void c(c<? super T> cVar) {
-        this.f69208f.a(new MaybeToFlowableSubscriber(cVar));
+    @Override // io.reactivex.internal.fuseable.HasUpstreamMaybeSource
+    public MaybeSource<T> source() {
+        return this.source;
+    }
+
+    @Override // io.reactivex.Flowable
+    public void subscribeActual(Subscriber<? super T> subscriber) {
+        this.source.subscribe(new MaybeToFlowableSubscriber(subscriber));
     }
 }

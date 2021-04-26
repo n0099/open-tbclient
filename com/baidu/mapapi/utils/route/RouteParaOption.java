@@ -5,22 +5,22 @@ import com.baidu.mapapi.model.LatLng;
 public class RouteParaOption {
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f7448a;
+    public LatLng f7715a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f7449b;
+    public LatLng f7716b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7450c;
+    public String f7717c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7451d;
+    public String f7718d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7452e;
+    public String f7719e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EBusStrategyType f7453f = EBusStrategyType.bus_recommend_way;
+    public EBusStrategyType f7720f = EBusStrategyType.bus_recommend_way;
 
     /* loaded from: classes2.dex */
     public enum EBusStrategyType {
@@ -32,56 +32,56 @@ public class RouteParaOption {
     }
 
     public RouteParaOption busStrategyType(EBusStrategyType eBusStrategyType) {
-        this.f7453f = eBusStrategyType;
+        this.f7720f = eBusStrategyType;
         return this;
     }
 
     public RouteParaOption cityName(String str) {
-        this.f7452e = str;
+        this.f7719e = str;
         return this;
     }
 
     public RouteParaOption endName(String str) {
-        this.f7451d = str;
+        this.f7718d = str;
         return this;
     }
 
     public RouteParaOption endPoint(LatLng latLng) {
-        this.f7449b = latLng;
+        this.f7716b = latLng;
         return this;
     }
 
     public EBusStrategyType getBusStrategyType() {
-        return this.f7453f;
+        return this.f7720f;
     }
 
     public String getCityName() {
-        return this.f7452e;
+        return this.f7719e;
     }
 
     public String getEndName() {
-        return this.f7451d;
+        return this.f7718d;
     }
 
     public LatLng getEndPoint() {
-        return this.f7449b;
+        return this.f7716b;
     }
 
     public String getStartName() {
-        return this.f7450c;
+        return this.f7717c;
     }
 
     public LatLng getStartPoint() {
-        return this.f7448a;
+        return this.f7715a;
     }
 
     public RouteParaOption startName(String str) {
-        this.f7450c = str;
+        this.f7717c = str;
         return this;
     }
 
     public RouteParaOption startPoint(LatLng latLng) {
-        this.f7448a = latLng;
+        this.f7715a = latLng;
         return this;
     }
 }

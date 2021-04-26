@@ -79,13 +79,13 @@ public final class FactoryPools {
     }
 
     @NonNull
-    public static <T extends Poolable> Pools.Pool<T> simple(int i, @NonNull Factory<T> factory) {
-        return build(new Pools.SimplePool(i), factory);
+    public static <T extends Poolable> Pools.Pool<T> simple(int i2, @NonNull Factory<T> factory) {
+        return build(new Pools.SimplePool(i2), factory);
     }
 
     @NonNull
-    public static <T extends Poolable> Pools.Pool<T> threadSafe(int i, @NonNull Factory<T> factory) {
-        return build(new Pools.SynchronizedPool(i), factory);
+    public static <T extends Poolable> Pools.Pool<T> threadSafe(int i2, @NonNull Factory<T> factory) {
+        return build(new Pools.SynchronizedPool(i2), factory);
     }
 
     @NonNull
@@ -99,8 +99,8 @@ public final class FactoryPools {
     }
 
     @NonNull
-    public static <T> Pools.Pool<List<T>> threadSafeList(int i) {
-        return build(new Pools.SynchronizedPool(i), new Factory<List<T>>() { // from class: com.bumptech.glide.util.pool.FactoryPools.2
+    public static <T> Pools.Pool<List<T>> threadSafeList(int i2) {
+        return build(new Pools.SynchronizedPool(i2), new Factory<List<T>>() { // from class: com.bumptech.glide.util.pool.FactoryPools.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bumptech.glide.util.pool.FactoryPools.Factory
             @NonNull

@@ -1,16 +1,12 @@
 package kotlin.jvm.internal;
 
+import kotlin.SinceKotlin;
+import kotlin.reflect.KClass;
 import kotlin.reflect.KDeclarationContainer;
 /* loaded from: classes7.dex */
 public class MutablePropertyReference1Impl extends MutablePropertyReference1 {
-    public final String name;
-    public final KDeclarationContainer owner;
-    public final String signature;
-
     public MutablePropertyReference1Impl(KDeclarationContainer kDeclarationContainer, String str, String str2) {
-        this.owner = kDeclarationContainer;
-        this.name = str;
-        this.signature = str2;
+        super(CallableReference.NO_RECEIVER, ((ClassBasedDeclarationContainer) kDeclarationContainer).getJClass(), str, str2, !(kDeclarationContainer instanceof KClass) ? 1 : 0);
     }
 
     @Override // kotlin.reflect.KProperty1
@@ -18,23 +14,18 @@ public class MutablePropertyReference1Impl extends MutablePropertyReference1 {
         return getGetter().call(obj);
     }
 
-    @Override // kotlin.jvm.internal.CallableReference, kotlin.reflect.KCallable
-    public String getName() {
-        return this.name;
-    }
-
-    @Override // kotlin.jvm.internal.CallableReference
-    public KDeclarationContainer getOwner() {
-        return this.owner;
-    }
-
-    @Override // kotlin.jvm.internal.CallableReference
-    public String getSignature() {
-        return this.signature;
-    }
-
     @Override // kotlin.reflect.KMutableProperty1
     public void set(Object obj, Object obj2) {
         getSetter().call(obj, obj2);
+    }
+
+    @SinceKotlin(version = "1.4")
+    public MutablePropertyReference1Impl(Class cls, String str, String str2, int i2) {
+        super(CallableReference.NO_RECEIVER, cls, str, str2, i2);
+    }
+
+    @SinceKotlin(version = "1.4")
+    public MutablePropertyReference1Impl(Object obj, Class cls, String str, String str2, int i2) {
+        super(obj, cls, str, str2, i2);
     }
 }

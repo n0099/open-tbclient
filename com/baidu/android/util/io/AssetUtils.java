@@ -47,45 +47,39 @@ public final class AssetUtils {
         return z;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0064 */
-    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0069 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0064 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0069 A[EDGE_INSN: B:29:0x0069->B:21:0x0069 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0066 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean extractFolderFromAsset(AssetManager assetManager, String str, String str2) {
-        int i = 0;
         try {
             String[] list = assetManager.list(str);
-            int length = list.length;
-            boolean z = false;
-            while (i < length) {
-                try {
-                    String str3 = list[i];
-                    if (!TextUtils.isEmpty(str3)) {
-                        String str4 = str + File.separator + str3;
-                        String[] list2 = assetManager.list(str4);
-                        if (list2 != null && list2.length != 0) {
-                            z = extractFolderFromAsset(assetManager, str4, str2 + File.separator + str3);
+            if (list != null) {
+                boolean z = false;
+                for (String str3 : list) {
+                    try {
+                        if (!TextUtils.isEmpty(str3)) {
+                            String str4 = str + File.separator + str3;
+                            String[] list2 = assetManager.list(str4);
+                            if (list2 != null && list2.length != 0) {
+                                z = extractFolderFromAsset(assetManager, str4, str2 + File.separator + str3);
+                                if (z) {
+                                    break;
+                                }
+                            }
+                            z = extractFileFromAsset(assetManager, str4, str2 + File.separator + str3);
                             if (z) {
-                                return z;
                             }
                         }
-                        z = extractFileFromAsset(assetManager, str4, str2 + File.separator + str3);
-                        if (z) {
-                        }
+                    } catch (IOException unused) {
                     }
-                    i++;
-                    z = z;
-                } catch (IOException unused) {
-                    i = z;
-                    return i;
                 }
+                return z;
             }
-            return z;
+            return false;
         } catch (IOException unused2) {
+            return false;
         }
     }
 

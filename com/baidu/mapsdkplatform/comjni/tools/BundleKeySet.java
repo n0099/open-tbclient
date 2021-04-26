@@ -10,10 +10,10 @@ public class BundleKeySet {
         }
         if (!bundle.isEmpty()) {
             strArr = new String[bundle.size()];
-            int i = 0;
+            int i2 = 0;
             for (String str : bundle.keySet()) {
-                strArr[i] = str.toString();
-                i++;
+                strArr[i2] = str.toString();
+                i2++;
             }
         }
         return strArr;

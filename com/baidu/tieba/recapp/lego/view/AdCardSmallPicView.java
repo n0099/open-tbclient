@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public TbImageView A;
     public XfremodeRoundLayout z;
@@ -16,13 +16,13 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    public void S(AdCard adCard) {
+    public void Q(AdCard adCard) {
         AdCard.d[] dVarArr;
         if (adCard != null && (dVarArr = adCard.threadPicList) != null && dVarArr.length >= 1) {
-            String str = dVarArr[0].f20407a;
+            String str = dVarArr[0].f20950a;
             if (!TextUtils.isEmpty(str)) {
                 this.t.setVisibility(0);
-                this.A.W(str, 17, false);
+                this.A.V(str, 17, false);
                 return;
             }
             this.t.setVisibility(8);
@@ -32,7 +32,7 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    public void U(View view) {
+    public void S(View view) {
         float dimensionPixelSize = this.m.getResources().getDimensionPixelSize(R.dimen.tbds10);
         this.z = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.ad_img);

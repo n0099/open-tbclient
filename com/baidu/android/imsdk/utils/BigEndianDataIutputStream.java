@@ -13,16 +13,16 @@ public class BigEndianDataIutputStream {
         this.mDis = new DataInputStream(inputStream);
     }
 
-    private int readToBuff(int i) throws IOException {
-        int i2 = 0;
-        while (i2 < i) {
-            int read = this.mDis.read(this.buff, i2, i - i2);
+    private int readToBuff(int i2) throws IOException {
+        int i3 = 0;
+        while (i3 < i2) {
+            int read = this.mDis.read(this.buff, i3, i2 - i3);
             if (read == -1) {
                 return read;
             }
-            i2 += read;
+            i3 += read;
         }
-        return i2;
+        return i3;
     }
 
     public void close() throws IOException {
@@ -64,7 +64,7 @@ public class BigEndianDataIutputStream {
         throw new EOFException();
     }
 
-    public final void skipBytes(int i) throws IOException {
-        this.mDis.skipBytes(i);
+    public final void skipBytes(int i2) throws IOException {
+        this.mDis.skipBytes(i2);
     }
 }

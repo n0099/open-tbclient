@@ -12,7 +12,7 @@ public final class IoUtils {
 
     /* loaded from: classes6.dex */
     public interface CopyListener {
-        boolean onBytesCopied(int i, int i2);
+        boolean onBytesCopied(int i2, int i3);
     }
 
     public static void closeSilently(Closeable closeable) {
@@ -28,25 +28,25 @@ public final class IoUtils {
         return copyStream(inputStream, outputStream, copyListener, 32768);
     }
 
-    public static boolean copyStream(InputStream inputStream, OutputStream outputStream, CopyListener copyListener, int i) {
+    public static boolean copyStream(InputStream inputStream, OutputStream outputStream, CopyListener copyListener, int i2) {
         int available = inputStream.available();
         if (available <= 0) {
             available = 512000;
         }
-        byte[] bArr = new byte[i];
+        byte[] bArr = new byte[i2];
         if (shouldStopLoading(copyListener, 0, available)) {
             return false;
         }
-        int i2 = 0;
+        int i3 = 0;
         do {
-            int read = inputStream.read(bArr, 0, i);
+            int read = inputStream.read(bArr, 0, i2);
             if (read == -1) {
                 outputStream.flush();
                 return true;
             }
             outputStream.write(bArr, 0, read);
-            i2 += read;
-        } while (!shouldStopLoading(copyListener, i2, available));
+            i3 += read;
+        } while (!shouldStopLoading(copyListener, i3, available));
         return false;
     }
 
@@ -62,7 +62,7 @@ public final class IoUtils {
         closeSilently(inputStream);
     }
 
-    public static boolean shouldStopLoading(CopyListener copyListener, int i, int i2) {
-        return (copyListener == null || copyListener.onBytesCopied(i, i2) || (i * 100) / i2 >= 75) ? false : true;
+    public static boolean shouldStopLoading(CopyListener copyListener, int i2, int i3) {
+        return (copyListener == null || copyListener.onBytesCopied(i2, i3) || (i2 * 100) / i3 >= 75) ? false : true;
     }
 }

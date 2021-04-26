@@ -6,11 +6,11 @@ public class c {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f29334a = new c();
+        public static final c f30236a = new c();
     }
 
     public static c a() {
-        return a.f29334a;
+        return a.f30236a;
     }
 
     public b b() {

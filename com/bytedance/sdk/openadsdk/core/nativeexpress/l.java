@@ -22,79 +22,79 @@ public class l implements TTNativeExpressAd {
     public static class a implements TTAppDownloadListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<TTAppDownloadListener> f28245a;
+        public WeakReference<TTAppDownloadListener> f29112a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f28246b;
+        public String f29113b;
 
         public a(TTAppDownloadListener tTAppDownloadListener, String str) {
-            this.f28246b = "";
-            this.f28245a = new WeakReference<>(tTAppDownloadListener);
-            this.f28246b = str;
+            this.f29113b = "";
+            this.f29112a = new WeakReference<>(tTAppDownloadListener);
+            this.f29113b = str;
         }
 
         public void a(TTAppDownloadListener tTAppDownloadListener) {
-            this.f28245a = new WeakReference<>(tTAppDownloadListener);
+            this.f29112a = new WeakReference<>(tTAppDownloadListener);
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
         public void onDownloadActive(long j, long j2, String str, String str2) {
-            WeakReference<TTAppDownloadListener> weakReference = this.f28245a;
+            WeakReference<TTAppDownloadListener> weakReference = this.f29112a;
             if (weakReference != null && weakReference.get() != null) {
-                this.f28245a.get().onDownloadActive(j, j2, str, str2);
+                this.f29112a.get().onDownloadActive(j, j2, str, str2);
             }
             if (j > 0) {
-                a.C0323a.a(this.f28246b, 3, (int) ((j2 * 100) / j));
+                a.C0316a.a(this.f29113b, 3, (int) ((j2 * 100) / j));
             }
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
         public void onDownloadFailed(long j, long j2, String str, String str2) {
-            WeakReference<TTAppDownloadListener> weakReference = this.f28245a;
+            WeakReference<TTAppDownloadListener> weakReference = this.f29112a;
             if (weakReference != null && weakReference.get() != null) {
-                this.f28245a.get().onDownloadFailed(j, j2, str, str2);
+                this.f29112a.get().onDownloadFailed(j, j2, str, str2);
             }
             if (j > 0) {
-                a.C0323a.a(this.f28246b, 4, (int) ((j2 * 100) / j));
+                a.C0316a.a(this.f29113b, 4, (int) ((j2 * 100) / j));
             }
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
         public void onDownloadFinished(long j, String str, String str2) {
-            WeakReference<TTAppDownloadListener> weakReference = this.f28245a;
+            WeakReference<TTAppDownloadListener> weakReference = this.f29112a;
             if (weakReference != null && weakReference.get() != null) {
-                this.f28245a.get().onDownloadFinished(j, str, str2);
+                this.f29112a.get().onDownloadFinished(j, str, str2);
             }
-            a.C0323a.a(this.f28246b, 5, 100);
+            a.C0316a.a(this.f29113b, 5, 100);
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
         public void onDownloadPaused(long j, long j2, String str, String str2) {
-            WeakReference<TTAppDownloadListener> weakReference = this.f28245a;
+            WeakReference<TTAppDownloadListener> weakReference = this.f29112a;
             if (weakReference != null && weakReference.get() != null) {
-                this.f28245a.get().onDownloadPaused(j, j2, str, str2);
+                this.f29112a.get().onDownloadPaused(j, j2, str, str2);
             }
             if (j > 0) {
-                a.C0323a.a(this.f28246b, 2, (int) ((j2 * 100) / j));
+                a.C0316a.a(this.f29113b, 2, (int) ((j2 * 100) / j));
             }
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
         public void onIdle() {
-            WeakReference<TTAppDownloadListener> weakReference = this.f28245a;
+            WeakReference<TTAppDownloadListener> weakReference = this.f29112a;
             if (weakReference != null && weakReference.get() != null) {
-                this.f28245a.get().onIdle();
+                this.f29112a.get().onIdle();
             }
-            a.C0323a.a(this.f28246b, 1, 0);
+            a.C0316a.a(this.f29113b, 1, 0);
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
         public void onInstalled(String str, String str2) {
-            WeakReference<TTAppDownloadListener> weakReference = this.f28245a;
+            WeakReference<TTAppDownloadListener> weakReference = this.f29112a;
             if (weakReference != null && weakReference.get() != null) {
-                this.f28245a.get().onInstalled(str, str2);
+                this.f29112a.get().onInstalled(str, str2);
             }
-            a.C0323a.a(this.f28246b, 6, 100);
+            a.C0316a.a(this.f29113b, 6, 100);
         }
     }
 
@@ -171,7 +171,7 @@ public class l implements TTNativeExpressAd {
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd
-    public void setSlideIntervalTime(int i) {
+    public void setSlideIntervalTime(int i2) {
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd

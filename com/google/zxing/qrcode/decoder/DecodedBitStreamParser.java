@@ -25,12 +25,12 @@ public final class DecodedBitStreamParser {
         Mode mode;
         BitSource bitSource = new BitSource(bArr);
         StringBuilder sb = new StringBuilder(50);
-        int i = 1;
+        int i2 = 1;
         ArrayList arrayList = new ArrayList(1);
         CharacterSetECI characterSetECI = null;
         boolean z = false;
-        int i2 = -1;
         int i3 = -1;
+        int i4 = -1;
         while (true) {
             try {
                 if (bitSource.available() < 4) {
@@ -44,8 +44,8 @@ public final class DecodedBitStreamParser {
                         if (mode2 == Mode.STRUCTURED_APPEND) {
                             if (bitSource.available() >= 16) {
                                 int readBits = bitSource.readBits(8);
-                                i3 = bitSource.readBits(8);
-                                i2 = readBits;
+                                i4 = bitSource.readBits(8);
+                                i3 = readBits;
                             } else {
                                 throw FormatException.getFormatInstance();
                             }
@@ -57,7 +57,7 @@ public final class DecodedBitStreamParser {
                         } else if (mode2 == Mode.HANZI) {
                             int readBits2 = bitSource.readBits(4);
                             int readBits3 = bitSource.readBits(mode2.getCharacterCountBits(version));
-                            if (readBits2 == i) {
+                            if (readBits2 == i2) {
                                 decodeHanziSegment(bitSource, sb, readBits3);
                             }
                         } else {
@@ -79,9 +79,9 @@ public final class DecodedBitStreamParser {
                                     }
                                 }
                                 if (mode == Mode.TERMINATOR) {
-                                    return new DecoderResult(bArr, sb.toString(), arrayList.isEmpty() ? null : arrayList, errorCorrectionLevel == null ? null : errorCorrectionLevel.toString(), i2, i3);
+                                    return new DecoderResult(bArr, sb.toString(), arrayList.isEmpty() ? null : arrayList, errorCorrectionLevel == null ? null : errorCorrectionLevel.toString(), i3, i4);
                                 }
-                                i = 1;
+                                i2 = 1;
                             }
                         }
                     }
@@ -99,18 +99,18 @@ public final class DecodedBitStreamParser {
         }
     }
 
-    public static void decodeAlphanumericSegment(BitSource bitSource, StringBuilder sb, int i, boolean z) throws FormatException {
-        while (i > 1) {
+    public static void decodeAlphanumericSegment(BitSource bitSource, StringBuilder sb, int i2, boolean z) throws FormatException {
+        while (i2 > 1) {
             if (bitSource.available() >= 11) {
                 int readBits = bitSource.readBits(11);
                 sb.append(toAlphaNumericChar(readBits / 45));
                 sb.append(toAlphaNumericChar(readBits % 45));
-                i -= 2;
+                i2 -= 2;
             } else {
                 throw FormatException.getFormatInstance();
             }
         }
-        if (i == 1) {
+        if (i2 == 1) {
             if (bitSource.available() >= 6) {
                 sb.append(toAlphaNumericChar(bitSource.readBits(6)));
             } else {
@@ -121,9 +121,9 @@ public final class DecodedBitStreamParser {
             for (int length = sb.length(); length < sb.length(); length++) {
                 if (sb.charAt(length) == '%') {
                     if (length < sb.length() - 1) {
-                        int i2 = length + 1;
-                        if (sb.charAt(i2) == '%') {
-                            sb.deleteCharAt(i2);
+                        int i3 = length + 1;
+                        if (sb.charAt(i3) == '%') {
+                            sb.deleteCharAt(i3);
                         }
                     }
                     sb.setCharAt(length, com.google.zxing.maxicode.decoder.DecodedBitStreamParser.GS);
@@ -132,12 +132,12 @@ public final class DecodedBitStreamParser {
         }
     }
 
-    public static void decodeByteSegment(BitSource bitSource, StringBuilder sb, int i, CharacterSetECI characterSetECI, Collection<byte[]> collection, Map<DecodeHintType, ?> map) throws FormatException {
+    public static void decodeByteSegment(BitSource bitSource, StringBuilder sb, int i2, CharacterSetECI characterSetECI, Collection<byte[]> collection, Map<DecodeHintType, ?> map) throws FormatException {
         String name;
-        if ((i << 3) <= bitSource.available()) {
-            byte[] bArr = new byte[i];
-            for (int i2 = 0; i2 < i; i2++) {
-                bArr[i2] = (byte) bitSource.readBits(8);
+        if ((i2 << 3) <= bitSource.available()) {
+            byte[] bArr = new byte[i2];
+            for (int i3 = 0; i3 < i2; i3++) {
+                bArr[i3] = (byte) bitSource.readBits(8);
             }
             if (characterSetECI == null) {
                 name = StringUtils.guessEncoding(bArr, map);
@@ -155,18 +155,18 @@ public final class DecodedBitStreamParser {
         throw FormatException.getFormatInstance();
     }
 
-    public static void decodeHanziSegment(BitSource bitSource, StringBuilder sb, int i) throws FormatException {
-        if (i * 13 <= bitSource.available()) {
-            byte[] bArr = new byte[i * 2];
-            int i2 = 0;
-            while (i > 0) {
+    public static void decodeHanziSegment(BitSource bitSource, StringBuilder sb, int i2) throws FormatException {
+        if (i2 * 13 <= bitSource.available()) {
+            byte[] bArr = new byte[i2 * 2];
+            int i3 = 0;
+            while (i2 > 0) {
                 int readBits = bitSource.readBits(13);
-                int i3 = (readBits % 96) | ((readBits / 96) << 8);
-                int i4 = i3 + (i3 < 959 ? 41377 : 42657);
-                bArr[i2] = (byte) (i4 >> 8);
-                bArr[i2 + 1] = (byte) i4;
-                i2 += 2;
-                i--;
+                int i4 = (readBits % 96) | ((readBits / 96) << 8);
+                int i5 = i4 + (i4 < 959 ? 41377 : 42657);
+                bArr[i3] = (byte) (i5 >> 8);
+                bArr[i3 + 1] = (byte) i5;
+                i3 += 2;
+                i2--;
             }
             try {
                 sb.append(new String(bArr, StringUtils.GB2312));
@@ -178,18 +178,18 @@ public final class DecodedBitStreamParser {
         throw FormatException.getFormatInstance();
     }
 
-    public static void decodeKanjiSegment(BitSource bitSource, StringBuilder sb, int i) throws FormatException {
-        if (i * 13 <= bitSource.available()) {
-            byte[] bArr = new byte[i * 2];
-            int i2 = 0;
-            while (i > 0) {
+    public static void decodeKanjiSegment(BitSource bitSource, StringBuilder sb, int i2) throws FormatException {
+        if (i2 * 13 <= bitSource.available()) {
+            byte[] bArr = new byte[i2 * 2];
+            int i3 = 0;
+            while (i2 > 0) {
                 int readBits = bitSource.readBits(13);
-                int i3 = (readBits % 192) | ((readBits / 192) << 8);
-                int i4 = i3 + (i3 < 7936 ? 33088 : 49472);
-                bArr[i2] = (byte) (i4 >> 8);
-                bArr[i2 + 1] = (byte) i4;
-                i2 += 2;
-                i--;
+                int i4 = (readBits % 192) | ((readBits / 192) << 8);
+                int i5 = i4 + (i4 < 7936 ? 33088 : 49472);
+                bArr[i3] = (byte) (i5 >> 8);
+                bArr[i3 + 1] = (byte) i5;
+                i3 += 2;
+                i2--;
             }
             try {
                 sb.append(new String(bArr, StringUtils.SHIFT_JIS));
@@ -201,15 +201,15 @@ public final class DecodedBitStreamParser {
         throw FormatException.getFormatInstance();
     }
 
-    public static void decodeNumericSegment(BitSource bitSource, StringBuilder sb, int i) throws FormatException {
-        while (i >= 3) {
+    public static void decodeNumericSegment(BitSource bitSource, StringBuilder sb, int i2) throws FormatException {
+        while (i2 >= 3) {
             if (bitSource.available() >= 10) {
                 int readBits = bitSource.readBits(10);
                 if (readBits < 1000) {
                     sb.append(toAlphaNumericChar(readBits / 100));
                     sb.append(toAlphaNumericChar((readBits / 10) % 10));
                     sb.append(toAlphaNumericChar(readBits % 10));
-                    i -= 3;
+                    i2 -= 3;
                 } else {
                     throw FormatException.getFormatInstance();
                 }
@@ -217,7 +217,7 @@ public final class DecodedBitStreamParser {
                 throw FormatException.getFormatInstance();
             }
         }
-        if (i == 2) {
+        if (i2 == 2) {
             if (bitSource.available() >= 7) {
                 int readBits2 = bitSource.readBits(7);
                 if (readBits2 < 100) {
@@ -228,7 +228,7 @@ public final class DecodedBitStreamParser {
                 throw FormatException.getFormatInstance();
             }
             throw FormatException.getFormatInstance();
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             if (bitSource.available() >= 4) {
                 int readBits3 = bitSource.readBits(4);
                 if (readBits3 < 10) {
@@ -255,10 +255,10 @@ public final class DecodedBitStreamParser {
         throw FormatException.getFormatInstance();
     }
 
-    public static char toAlphaNumericChar(int i) throws FormatException {
+    public static char toAlphaNumericChar(int i2) throws FormatException {
         char[] cArr = ALPHANUMERIC_CHARS;
-        if (i < cArr.length) {
-            return cArr[i];
+        if (i2 < cArr.length) {
+            return cArr[i2];
         }
         throw FormatException.getFormatInstance();
     }

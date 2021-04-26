@@ -24,11 +24,11 @@ public class IMMediaBuildSessionListener implements IGetPaInfosListener, IGetUse
     public List<ChatSession> mUserResultList = null;
     public List<ChatSession> mPaResultList = null;
 
-    public IMMediaBuildSessionListener(Context context, int i, boolean z, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+    public IMMediaBuildSessionListener(Context context, int i2, boolean z, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
         this.mNewNum = 0;
         this.mHasMore = false;
         this.mContext = context;
-        this.mNewNum = i;
+        this.mNewNum = i2;
         this.mHasMore = z;
         this.mListener = iMediaGetChatSessionListener;
     }
@@ -91,9 +91,9 @@ public class IMMediaBuildSessionListener implements IGetPaInfosListener, IGetUse
     }
 
     @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-    public synchronized void onGetUserIdentityResult(int i, List<ChatUser> list) {
+    public synchronized void onGetUserIdentityResult(int i2, List<ChatUser> list) {
         this.mUserResultList = new ArrayList();
-        if (i == 0 && list != null && this.mUserMap != null) {
+        if (i2 == 0 && list != null && this.mUserMap != null) {
             for (ChatUser chatUser : list) {
                 ChatSession chatSession = this.mUserMap.get(Long.valueOf(chatUser.getBuid()));
                 if (chatSession != null) {
@@ -103,22 +103,22 @@ public class IMMediaBuildSessionListener implements IGetPaInfosListener, IGetUse
             }
         }
         if (this.mListener != null) {
-            if (i != 0) {
-                this.mListener.onMediaGetChatSessionResult(i, 0, false, null);
+            if (i2 != 0) {
+                this.mListener.onMediaGetChatSessionResult(i2, 0, false, null);
                 this.mListener = null;
             } else if (this.mPaMap == null) {
-                this.mListener.onMediaGetChatSessionResult(i, this.mNewNum, this.mHasMore, this.mUserResultList);
+                this.mListener.onMediaGetChatSessionResult(i2, this.mNewNum, this.mHasMore, this.mUserResultList);
             } else if (this.mPaResultList != null) {
                 this.mUserResultList.addAll(this.mPaResultList);
-                this.mListener.onMediaGetChatSessionResult(i, this.mNewNum, this.mHasMore, this.mUserResultList);
+                this.mListener.onMediaGetChatSessionResult(i2, this.mNewNum, this.mHasMore, this.mUserResultList);
             }
         }
     }
 
     @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
-    public synchronized void onResult(int i, String str, ArrayList<PaInfo> arrayList) {
+    public synchronized void onResult(int i2, String str, ArrayList<PaInfo> arrayList) {
         this.mPaResultList = new ArrayList();
-        if (i == 0 && arrayList != null && this.mPaMap != null) {
+        if (i2 == 0 && arrayList != null && this.mPaMap != null) {
             Iterator<PaInfo> it = arrayList.iterator();
             while (it.hasNext()) {
                 PaInfo next = it.next();
@@ -130,14 +130,14 @@ public class IMMediaBuildSessionListener implements IGetPaInfosListener, IGetUse
             }
         }
         if (this.mListener != null) {
-            if (i != 0) {
-                this.mListener.onMediaGetChatSessionResult(i, 0, false, null);
+            if (i2 != 0) {
+                this.mListener.onMediaGetChatSessionResult(i2, 0, false, null);
                 this.mListener = null;
             } else if (this.mUserMap == null) {
-                this.mListener.onMediaGetChatSessionResult(i, this.mNewNum, this.mHasMore, this.mPaResultList);
+                this.mListener.onMediaGetChatSessionResult(i2, this.mNewNum, this.mHasMore, this.mPaResultList);
             } else if (this.mUserResultList != null) {
                 this.mPaResultList.addAll(this.mUserResultList);
-                this.mListener.onMediaGetChatSessionResult(i, this.mNewNum, this.mHasMore, this.mPaResultList);
+                this.mListener.onMediaGetChatSessionResult(i2, this.mNewNum, this.mHasMore, this.mPaResultList);
             }
         }
     }

@@ -27,29 +27,31 @@ public final class DebugConfig {
     public static final String VOICE_SERVICE_URL_DFT = "https://wallet.baidu.com";
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f23899a = false;
+    public static boolean f24643a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23900b = "wallet_config.properties";
+    public static final String f24644b = "wallet_config.properties";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f23901c = "wallet_https_host";
+    public static final String f24645c = "wallet_https_host";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f23902d = "wallet_passport_host";
+    public static final String f24646d = "wallet_passport_host";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f23903e = "environment";
+    public static final String f24647e = "environment";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f23904f = "wallet_plugin_host";
+    public static final String f24648f = "wallet_plugin_host";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f23905g = "wallet_nfc_host";
+    public static final String f24649g = "wallet_nfc_host";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f23906h = "wallet_web_cache_host";
-    public static final String i = "voiceprint_service";
+    public static final String f24650h = "wallet_web_cache_host";
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final String f24651i = "voiceprint_service";
     public static final String j = "voiceprint_host";
     public static final String k = "wallet_stat_host";
     public static final String l = "wallet_stat_strategy_host";
@@ -81,9 +83,9 @@ public final class DebugConfig {
             if (externalFilesDir != null && !externalFilesDir.exists()) {
                 externalFilesDir.mkdirs();
             }
-            this.D = new File(externalFilesDir, f23900b);
+            this.D = new File(externalFilesDir, f24644b);
         } else {
-            this.D = new File(String.valueOf(Environment.getExternalStorageDirectory()), f23900b);
+            this.D = new File(String.valueOf(Environment.getExternalStorageDirectory()), f24644b);
         }
         this.E = b();
     }
@@ -170,7 +172,7 @@ public final class DebugConfig {
     }
 
     public void changeOnline() {
-        f23899a = false;
+        f24643a = false;
         p = "https://www.baifubao.com";
         r = "https://wappass.baidu.com/passport/";
         s = "https://chong.baidu.com";
@@ -186,7 +188,7 @@ public final class DebugConfig {
     }
 
     public void changeQA() {
-        f23899a = true;
+        f24643a = true;
         DEFAULT_ENVIRONMENT = "QA";
         readConfigHost(true);
     }
@@ -200,8 +202,8 @@ public final class DebugConfig {
     }
 
     public String getEnvironment() {
-        if (f23899a) {
-            return a(f23903e);
+        if (f24643a) {
+            return a(f24647e);
         }
         return DEFAULT_ENVIRONMENT;
     }
@@ -211,7 +213,7 @@ public final class DebugConfig {
     }
 
     public String getProperty(String str, String str2) {
-        if (!f23899a) {
+        if (!f24643a) {
             LogUtil.logd("没有打开DEBUG开关 返回默认值=" + str2);
             return str2;
         }
@@ -275,7 +277,7 @@ public final class DebugConfig {
     }
 
     public void readConfigHost(boolean z2) {
-        f23899a = z2;
+        f24643a = z2;
         if (z2) {
             a();
         } else {

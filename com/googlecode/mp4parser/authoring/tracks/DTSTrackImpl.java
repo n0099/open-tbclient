@@ -65,16 +65,16 @@ public class DTSTrackImpl extends AbstractTrack {
     public class a implements Sample {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f31428b;
+        public final /* synthetic */ int f32296b;
 
-        public a(int i) {
-            this.f31428b = i;
+        public a(int i2) {
+            this.f32296b = i2;
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public ByteBuffer asByteBuffer() {
             try {
-                return DTSTrackImpl.this.dataSource.map(this.f31428b, DTSTrackImpl.this.frameSize);
+                return DTSTrackImpl.this.dataSource.map(this.f32296b, DTSTrackImpl.this.frameSize);
             } catch (IOException e2) {
                 throw new RuntimeException(e2);
             }
@@ -87,7 +87,7 @@ public class DTSTrackImpl extends AbstractTrack {
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-            DTSTrackImpl.this.dataSource.transferTo(this.f31428b, DTSTrackImpl.this.frameSize, writableByteChannel);
+            DTSTrackImpl.this.dataSource.transferTo(this.f32296b, DTSTrackImpl.this.frameSize, writableByteChannel);
         }
     }
 
@@ -146,8 +146,8 @@ public class DTSTrackImpl extends AbstractTrack {
         throw new IOException();
     }
 
-    private boolean parseAuprhdr(int i, ByteBuffer byteBuffer) {
-        int i2;
+    private boolean parseAuprhdr(int i2, ByteBuffer byteBuffer) {
+        int i3;
         byteBuffer.get();
         short s = byteBuffer.getShort();
         this.maxSampleRate = (byteBuffer.get() << 16) | (byteBuffer.getShort() & UShort.MAX_VALUE);
@@ -160,36 +160,36 @@ public class DTSTrackImpl extends AbstractTrack {
             this.bcCoreMaxSampleRate = (byteBuffer.get() << 16) | (byteBuffer.getShort() & UShort.MAX_VALUE);
             this.bcCoreBitRate = byteBuffer.getShort();
             this.bcCoreChannelMask = byteBuffer.getShort();
-            i2 = 28;
+            i3 = 28;
         } else {
-            i2 = 21;
+            i3 = 21;
         }
         if ((s & 4) > 0) {
             this.lsbTrimPercent = byteBuffer.get();
-            i2++;
+            i3++;
         }
         if ((s & 8) > 0) {
             this.lbrCodingPresent = 1;
         }
-        while (i2 < i) {
+        while (i3 < i2) {
             byteBuffer.get();
-            i2++;
+            i3++;
         }
         return true;
     }
 
-    private boolean parseCoressmd(int i, ByteBuffer byteBuffer) {
+    private boolean parseCoressmd(int i2, ByteBuffer byteBuffer) {
         this.coreMaxSampleRate = (byteBuffer.get() << 16) | (byteBuffer.getShort() & UShort.MAX_VALUE);
         this.coreBitRate = byteBuffer.getShort();
         this.coreChannelMask = byteBuffer.getShort();
         this.coreFramePayloadInBytes = byteBuffer.getInt();
-        for (int i2 = 11; i2 < i; i2++) {
+        for (int i3 = 11; i3 < i2; i3++) {
             byteBuffer.get();
         }
         return true;
     }
 
-    private boolean parseDtshdhdr(int i, ByteBuffer byteBuffer) {
+    private boolean parseDtshdhdr(int i2, ByteBuffer byteBuffer) {
         byteBuffer.getInt();
         byteBuffer.get();
         byteBuffer.getInt();
@@ -209,36 +209,36 @@ public class DTSTrackImpl extends AbstractTrack {
         } else {
             this.numExtSubStreams = 0;
         }
-        for (int i2 = 14; i2 < i; i2++) {
+        for (int i3 = 14; i3 < i2; i3++) {
             byteBuffer.get();
         }
         return true;
     }
 
-    private boolean parseExtssmd(int i, ByteBuffer byteBuffer) {
-        int i2;
+    private boolean parseExtssmd(int i2, ByteBuffer byteBuffer) {
+        int i3;
         this.extAvgBitrate = (byteBuffer.get() << 16) | (byteBuffer.getShort() & UShort.MAX_VALUE);
         if (this.isVBR) {
             this.extPeakBitrate = (byteBuffer.get() << 16) | (byteBuffer.getShort() & UShort.MAX_VALUE);
             this.extSmoothBuffSize = byteBuffer.getShort();
-            i2 = 8;
+            i3 = 8;
         } else {
             this.extFramePayloadInBytes = byteBuffer.getInt();
-            i2 = 7;
+            i3 = 7;
         }
-        while (i2 < i) {
+        while (i3 < i2) {
             byteBuffer.get();
-            i2++;
+            i3++;
         }
         return true;
     }
 
     private List<Sample> readSamples() throws IOException {
         ArrayList arrayList = new ArrayList(CastUtils.l2i(this.dataSource.size() / this.frameSize));
-        int i = this.dataOffset;
-        while (this.frameSize + i < this.dataSource.size()) {
-            arrayList.add(new a(i));
-            i += this.frameSize;
+        int i2 = this.dataOffset;
+        while (this.frameSize + i2 < this.dataSource.size()) {
+            arrayList.add(new a(i2));
+            i2 += this.frameSize;
         }
         long[] jArr = new long[arrayList.size()];
         this.sampleDurations = jArr;
@@ -1272,35 +1272,35 @@ public class DTSTrackImpl extends AbstractTrack {
     */
     private boolean readVariables() throws IOException {
         ByteBuffer map = this.dataSource.map(0L, 25000L);
-        int i = map.getInt();
         int i2 = map.getInt();
-        if (i != 1146377032 || i2 != 1145586770) {
+        int i3 = map.getInt();
+        if (i2 != 1146377032 || i3 != 1145586770) {
             return false;
         }
         while (true) {
-            if ((i != 1398035021 || i2 != 1145132097) && map.remaining() > 100) {
-                int i3 = (int) map.getLong();
-                if (i == 1146377032 && i2 == 1145586770) {
-                    if (!parseDtshdhdr(i3, map)) {
+            if ((i2 != 1398035021 || i3 != 1145132097) && map.remaining() > 100) {
+                int i4 = (int) map.getLong();
+                if (i2 == 1146377032 && i3 == 1145586770) {
+                    if (!parseDtshdhdr(i4, map)) {
                         return false;
                     }
-                } else if (i == 1129271877 && i2 == 1397968196) {
-                    if (!parseCoressmd(i3, map)) {
+                } else if (i2 == 1129271877 && i3 == 1397968196) {
+                    if (!parseCoressmd(i4, map)) {
                         return false;
                     }
-                } else if (i == 1096110162 && i2 == 759710802) {
-                    if (!parseAuprhdr(i3, map)) {
+                } else if (i2 == 1096110162 && i3 == 759710802) {
+                    if (!parseAuprhdr(i4, map)) {
                         return false;
                     }
-                } else if (i != 1163416659 || i2 != 1398754628) {
-                    for (int i4 = 0; i4 < i3; i4++) {
+                } else if (i2 != 1163416659 || i3 != 1398754628) {
+                    for (int i5 = 0; i5 < i4; i5++) {
                         map.get();
                     }
-                } else if (!parseExtssmd(i3, map)) {
+                } else if (!parseExtssmd(i4, map)) {
                     return false;
                 }
-                i = map.getInt();
                 i2 = map.getInt();
+                i3 = map.getInt();
             }
         }
     }

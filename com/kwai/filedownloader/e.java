@@ -5,7 +5,7 @@ import com.kwai.filedownloader.event.DownloadServiceConnectChangedEvent;
 public abstract class e extends com.kwai.filedownloader.event.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public DownloadServiceConnectChangedEvent.ConnectStatus f37378a;
+    public DownloadServiceConnectChangedEvent.ConnectStatus f35100a;
 
     public abstract void a();
 
@@ -13,7 +13,7 @@ public abstract class e extends com.kwai.filedownloader.event.c {
     public boolean a(com.kwai.filedownloader.event.b bVar) {
         if (bVar instanceof DownloadServiceConnectChangedEvent) {
             DownloadServiceConnectChangedEvent.ConnectStatus a2 = ((DownloadServiceConnectChangedEvent) bVar).a();
-            this.f37378a = a2;
+            this.f35100a = a2;
             if (a2 == DownloadServiceConnectChangedEvent.ConnectStatus.connected) {
                 a();
                 return false;
@@ -27,6 +27,6 @@ public abstract class e extends com.kwai.filedownloader.event.c {
     public abstract void b();
 
     public DownloadServiceConnectChangedEvent.ConnectStatus c() {
-        return this.f37378a;
+        return this.f35100a;
     }
 }

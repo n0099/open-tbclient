@@ -23,16 +23,16 @@ public class GlUtil {
         return asFloatBuffer;
     }
 
-    public static int generateTexture(int i) {
+    public static int generateTexture(int i2) {
         int[] iArr = new int[1];
         GLES20.glGenTextures(1, iArr, 0);
-        int i2 = iArr[0];
-        GLES20.glBindTexture(i, i2);
-        GLES20.glTexParameterf(i, 10241, 9729.0f);
-        GLES20.glTexParameterf(i, 10240, 9729.0f);
-        GLES20.glTexParameterf(i, 10242, 33071.0f);
-        GLES20.glTexParameterf(i, 10243, 33071.0f);
+        int i3 = iArr[0];
+        GLES20.glBindTexture(i2, i3);
+        GLES20.glTexParameterf(i2, 10241, 9729.0f);
+        GLES20.glTexParameterf(i2, 10240, 9729.0f);
+        GLES20.glTexParameterf(i2, 10242, 33071.0f);
+        GLES20.glTexParameterf(i2, 10243, 33071.0f);
         checkNoGLES2Error("generateTexture");
-        return i2;
+        return i3;
     }
 }

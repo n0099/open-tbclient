@@ -25,8 +25,8 @@ public class GroupImageView extends TbClipImageView {
         this(context, attributeSet, 0);
     }
 
-    public GroupImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public GroupImageView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.x0 = R.drawable.transparent_bg;
         this.y0 = R.color.CAM_X0205;
         G();

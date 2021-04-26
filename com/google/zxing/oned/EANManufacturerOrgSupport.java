@@ -140,16 +140,16 @@ public final class EANManufacturerOrgSupport {
 
     public String lookupCountryIdentifier(String str) {
         int[] iArr;
-        int i;
+        int i2;
         initIfNeeded();
         int parseInt = Integer.parseInt(str.substring(0, 3));
         int size = this.ranges.size();
-        for (int i2 = 0; i2 < size && parseInt >= (i = (iArr = this.ranges.get(i2))[0]); i2++) {
+        for (int i3 = 0; i3 < size && parseInt >= (i2 = (iArr = this.ranges.get(i3))[0]); i3++) {
             if (iArr.length != 1) {
-                i = iArr[1];
+                i2 = iArr[1];
             }
-            if (parseInt <= i) {
-                return this.countryIdentifiers.get(i2);
+            if (parseInt <= i2) {
+                return this.countryIdentifiers.get(i3);
             }
         }
         return null;

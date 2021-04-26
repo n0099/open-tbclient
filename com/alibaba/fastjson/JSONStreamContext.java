@@ -9,8 +9,8 @@ public class JSONStreamContext {
     public final JSONStreamContext parent;
     public int state;
 
-    public JSONStreamContext(JSONStreamContext jSONStreamContext, int i) {
+    public JSONStreamContext(JSONStreamContext jSONStreamContext, int i2) {
         this.parent = jSONStreamContext;
-        this.state = i;
+        this.state = i2;
     }
 }

@@ -47,9 +47,9 @@ public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
     }
 
     public int hashCode() {
-        int i = ((this.isEncrypted * 31) + this.ivSize) * 31;
+        int i2 = ((this.isEncrypted * 31) + this.ivSize) * 31;
         byte[] bArr = this.kid;
-        return i + (bArr != null ? Arrays.hashCode(bArr) : 0);
+        return i2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
@@ -61,8 +61,8 @@ public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
         byteBuffer.get(bArr);
     }
 
-    public void setEncrypted(int i) {
-        this.isEncrypted = i;
+    public void setEncrypted(int i2) {
+        this.isEncrypted = i2;
     }
 
     public void setIvSize(byte b2) {

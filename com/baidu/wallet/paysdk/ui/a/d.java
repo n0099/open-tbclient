@@ -13,13 +13,15 @@ import com.baidu.wallet.paysdk.contract.a;
 public class d extends com.baidu.wallet.paysdk.ui.a implements a.b {
 
     /* renamed from: h  reason: collision with root package name */
-    public final Context f26014h;
-    public SafeKeyBoardEditText.CheckFunc i;
+    public final Context f26807h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public SafeKeyBoardEditText.CheckFunc f26808i;
 
     public d(Context context) {
-        this.f26014h = context;
+        this.f26807h = context;
         final com.baidu.wallet.paysdk.a aVar = new com.baidu.wallet.paysdk.a();
-        this.i = new SafeKeyBoardEditText.CheckFunc() { // from class: com.baidu.wallet.paysdk.ui.a.d.1
+        this.f26808i = new SafeKeyBoardEditText.CheckFunc() { // from class: com.baidu.wallet.paysdk.ui.a.d.1
             @Override // com.baidu.wallet.base.widget.SafeKeyBoardEditText.CheckFunc
             public boolean check(String str) {
                 return aVar.a(str);
@@ -29,8 +31,8 @@ public class d extends com.baidu.wallet.paysdk.ui.a implements a.b {
 
     @Override // com.baidu.wallet.paysdk.contract.a.b
     public View a() {
-        a(this.f26014h, 0);
-        return this.f25998b;
+        a(this.f26807h, 0);
+        return this.f26791b;
     }
 
     @Override // com.baidu.wallet.paysdk.contract.a.b
@@ -39,29 +41,29 @@ public class d extends com.baidu.wallet.paysdk.ui.a implements a.b {
 
     @Override // com.baidu.wallet.paysdk.contract.a.b
     public SafeKeyBoardEditText b() {
-        return this.f26001e;
+        return this.f26794e;
     }
 
     @Override // com.baidu.wallet.paysdk.contract.a.b
     public void c() {
-        a((CharSequence) ResUtils.getString(this.f26014h, "wallet_cashdesk_card_info_id_error_msg"));
+        a((CharSequence) ResUtils.getString(this.f26807h, "wallet_cashdesk_card_info_id_error_msg"));
     }
 
     @Override // com.baidu.wallet.paysdk.ui.a
     public CharSequence d() {
-        return ResUtils.getString(this.f26014h, "wallet_cashdesk_card_info_id_title");
+        return ResUtils.getString(this.f26807h, "wallet_cashdesk_card_info_id_title");
     }
 
     @Override // com.baidu.wallet.paysdk.ui.a
     public void e() {
-        final PromptDialog promptDialog = new PromptDialog(this.f26014h);
-        Context context = this.f26014h;
+        final PromptDialog promptDialog = new PromptDialog(this.f26807h);
+        Context context = this.f26807h;
         promptDialog.setMessage(context.getString(ResUtils.string(context, "wallet_cashdesk_card_info_id_hint_msg")));
         promptDialog.setCanceledOnTouchOutside(false);
-        Context context2 = this.f26014h;
+        Context context2 = this.f26807h;
         promptDialog.setTitleText(context2.getString(ResUtils.string(context2, "wallet_cashdesk_card_info_id_hint_title")));
         promptDialog.hideNegativeButton();
-        promptDialog.setPositiveBtn(ResUtils.string(this.f26014h, "ebpay_know"), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.a.d.2
+        promptDialog.setPositiveBtn(ResUtils.string(this.f26807h, "ebpay_know"), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.a.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 promptDialog.dismiss();
@@ -72,12 +74,12 @@ public class d extends com.baidu.wallet.paysdk.ui.a implements a.b {
 
     @Override // com.baidu.wallet.paysdk.ui.a
     public SafeKeyBoardEditText.CheckFunc f() {
-        return this.i;
+        return this.f26808i;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.a
     public void a(SafeKeyBoardEditText safeKeyBoardEditText) {
-        safeKeyBoardEditText.setHint(ResUtils.string(this.f26014h, "wallet_cashdesk_card_info_id_input_hint"));
+        safeKeyBoardEditText.setHint(ResUtils.string(this.f26807h, "wallet_cashdesk_card_info_id_input_hint"));
         safeKeyBoardEditText.setUseSafeKeyBoard(true);
         safeKeyBoardEditText.setUseKeyX(true);
         safeKeyBoardEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});

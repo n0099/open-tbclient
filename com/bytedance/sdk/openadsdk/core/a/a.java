@@ -27,15 +27,15 @@ public class a extends b {
     public int F;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f27709a;
+    public boolean f28548a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27710b;
+    public boolean f28549b;
 
-    public a(@NonNull Context context, @NonNull l lVar, @NonNull String str, int i) {
-        super(context, lVar, str, i);
-        this.f27709a = true;
-        this.f27710b = false;
+    public a(@NonNull Context context, @NonNull l lVar, @NonNull String str, int i2) {
+        super(context, lVar, str, i2);
+        this.f28548a = true;
+        this.f28549b = false;
         this.D = false;
     }
 
@@ -46,21 +46,21 @@ public class a extends b {
         if (view instanceof NativeVideoTsView) {
             u.c("ClickCreativeListener", "NativeVideoTsView....");
             return true;
-        } else if (view.getId() != ad.e(this.f27711c, "tt_video_ad_cover_center_layout") && view.getId() != ad.e(this.f27711c, "tt_video_ad_logo_image") && view.getId() != ad.e(this.f27711c, "tt_video_btn_ad_image_tv") && view.getId() != ad.e(this.f27711c, "tt_video_ad_name") && view.getId() != ad.e(this.f27711c, "tt_video_ad_button")) {
-            if (view.getId() != ad.e(this.f27711c, "tt_root_view") && view.getId() != ad.e(this.f27711c, "tt_video_play")) {
+        } else if (view.getId() != ad.e(this.f28550c, "tt_video_ad_cover_center_layout") && view.getId() != ad.e(this.f28550c, "tt_video_ad_logo_image") && view.getId() != ad.e(this.f28550c, "tt_video_btn_ad_image_tv") && view.getId() != ad.e(this.f28550c, "tt_video_ad_name") && view.getId() != ad.e(this.f28550c, "tt_video_ad_button")) {
+            if (view.getId() != ad.e(this.f28550c, "tt_root_view") && view.getId() != ad.e(this.f28550c, "tt_video_play")) {
                 if (!(view instanceof ViewGroup)) {
                     return false;
                 }
-                int i = 0;
+                int i2 = 0;
                 while (true) {
                     ViewGroup viewGroup = (ViewGroup) view;
-                    if (i >= viewGroup.getChildCount()) {
+                    if (i2 >= viewGroup.getChildCount()) {
                         return false;
                     }
-                    if (c(viewGroup.getChildAt(i))) {
+                    if (c(viewGroup.getChildAt(i2))) {
                         return true;
                     }
-                    i++;
+                    i2++;
                 }
             } else {
                 u.c("ClickCreativeListener", "tt_root_view....");
@@ -73,8 +73,8 @@ public class a extends b {
     }
 
     private boolean f() {
-        l lVar = this.f27712d;
-        return lVar != null && lVar.k() == 1 && l.c(this.f27712d);
+        l lVar = this.f28551d;
+        return lVar != null && lVar.k() == 1 && l.c(this.f28551d);
     }
 
     private boolean g() {
@@ -82,11 +82,11 @@ public class a extends b {
     }
 
     private boolean h() {
-        if (this.f27712d == null || g() || !l.c(this.f27712d)) {
+        if (this.f28551d == null || g() || !l.c(this.f28551d)) {
             return false;
         }
         if (this.F == 0) {
-            this.F = ak.c(this.f27712d.ap());
+            this.F = ak.c(this.f28551d.ap());
         }
         StringBuilder sb = new StringBuilder();
         sb.append("!isViewVisibility()=");
@@ -99,8 +99,8 @@ public class a extends b {
         if (this.F == 5 && f() && a() && !b() && !c()) {
             return false;
         }
-        int i = this.F;
-        return i == 1 || i == 2 || i == 5;
+        int i2 = this.F;
+        return i2 == 1 || i2 == 2 || i2 == 5;
     }
 
     private void i() {
@@ -115,7 +115,7 @@ public class a extends b {
     }
 
     public void b(boolean z) {
-        this.f27710b = z;
+        this.f28549b = z;
     }
 
     public boolean b() {
@@ -180,74 +180,74 @@ public class a extends b {
     }
 
     public void a(boolean z) {
-        this.f27709a = z;
+        this.f28548a = z;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.a.b, com.bytedance.sdk.openadsdk.core.a.c
-    public void a(View view, int i, int i2, int i3, int i4) {
+    public void a(View view, int i2, int i3, int i4, int i5) {
         TTDrawFeedAd.DrawVideoListener drawVideoListener;
         if (a(2)) {
             return;
         }
         if (h() && c(view) && !this.D) {
             u.b("ClickCreativeListener", "拦截原生视频view走普通点击事件.....");
-            super.a(view, i, i2, i3, i4);
+            super.a(view, i2, i3, i4, i5);
             return;
         }
         i();
         u.b("ClickCreativeListener", "走创意区域点击事件.....");
-        if (this.f27711c == null) {
-            this.f27711c = p.a();
+        if (this.f28550c == null) {
+            this.f28550c = p.a();
         }
-        if (this.f27711c == null) {
+        if (this.f28550c == null) {
             return;
         }
         long j = this.w;
         long j2 = this.x;
-        WeakReference<View> weakReference = this.f27715g;
+        WeakReference<View> weakReference = this.f28554g;
         View view2 = weakReference == null ? null : weakReference.get();
-        WeakReference<View> weakReference2 = this.f27716h;
-        this.i = a(i, i2, i3, i4, j, j2, view2, weakReference2 == null ? null : weakReference2.get());
-        int Z = this.f27712d.Z();
+        WeakReference<View> weakReference2 = this.f28555h;
+        this.f28556i = a(i2, i3, i4, i5, j, j2, view2, weakReference2 == null ? null : weakReference2.get());
+        int Z = this.f28551d.Z();
         if (Z == 2 || Z == 3) {
-            if (this.k != null || this.f27710b) {
-                com.bytedance.sdk.openadsdk.c.d.a(this.f27711c, "click_button", this.f27712d, this.i, this.f27713e, true, this.o);
+            if (this.k != null || this.f28549b) {
+                com.bytedance.sdk.openadsdk.c.d.a(this.f28550c, "click_button", this.f28551d, this.f28556i, this.f28552e, true, this.o);
             }
             z.a(true);
-            Context context = this.f27711c;
-            l lVar = this.f27712d;
-            int i5 = this.f27714f;
-            boolean a2 = z.a(context, lVar, i5, this.k, this.p, ak.a(i5), this.n, true, this.o, this.r, a(this.f27713e));
-            if (this.f27709a) {
-                com.bytedance.sdk.openadsdk.c.d.a(this.f27711c, PrefetchEvent.STATE_CLICK, this.f27712d, this.i, this.f27713e, a2, this.o);
+            Context context = this.f28550c;
+            l lVar = this.f28551d;
+            int i6 = this.f28553f;
+            boolean a2 = z.a(context, lVar, i6, this.k, this.p, ak.a(i6), this.n, true, this.o, this.r, a(this.f28552e));
+            if (this.f28548a) {
+                com.bytedance.sdk.openadsdk.c.d.a(this.f28550c, PrefetchEvent.STATE_CLICK, this.f28551d, this.f28556i, this.f28552e, a2, this.o);
             }
         } else if (Z != 4) {
             if (Z != 5) {
                 Z = -1;
             } else {
-                String b2 = b(this.f27713e);
+                String b2 = b(this.f28552e);
                 if (!TextUtils.isEmpty(b2)) {
-                    com.bytedance.sdk.openadsdk.c.d.a(this.f27711c, "click_call", this.f27712d, this.i, b2, true, this.o);
+                    com.bytedance.sdk.openadsdk.c.d.a(this.f28550c, "click_call", this.f28551d, this.f28556i, b2, true, this.o);
                 }
-                com.bytedance.sdk.openadsdk.c.d.a(this.f27711c, PrefetchEvent.STATE_CLICK, this.f27712d, this.i, this.f27713e, ak.d(view.getContext(), this.f27712d.ag()), this.o);
+                com.bytedance.sdk.openadsdk.c.d.a(this.f28550c, PrefetchEvent.STATE_CLICK, this.f28551d, this.f28556i, this.f28552e, ak.d(view.getContext(), this.f28551d.ag()), this.o);
             }
-        } else if ((this.k != null || this.p != null) && !"feed_video_middle_page".equals(this.f27713e) && this.f27712d.C() && !TextUtils.isEmpty(n.a(this.f27712d))) {
-            Context context2 = this.f27711c;
-            l lVar2 = this.f27712d;
-            int i6 = this.f27714f;
+        } else if ((this.k != null || this.p != null) && !"feed_video_middle_page".equals(this.f28552e) && this.f28551d.C() && !TextUtils.isEmpty(n.a(this.f28551d))) {
+            Context context2 = this.f28550c;
+            l lVar2 = this.f28551d;
+            int i7 = this.f28553f;
             TTNativeAd tTNativeAd = this.k;
             TTNativeExpressAd tTNativeExpressAd = this.p;
-            String str = this.f27713e;
-            boolean a3 = z.a(context2, lVar2, i6, tTNativeAd, tTNativeExpressAd, str, this.n, true, this.o, this.r, a(str));
-            if (this.f27709a) {
-                com.bytedance.sdk.openadsdk.c.d.a(this.f27711c, PrefetchEvent.STATE_CLICK, this.f27712d, this.i, this.f27713e, a3, this.o);
+            String str = this.f28552e;
+            boolean a3 = z.a(context2, lVar2, i7, tTNativeAd, tTNativeExpressAd, str, this.n, true, this.o, this.r, a(str));
+            if (this.f28548a) {
+                com.bytedance.sdk.openadsdk.c.d.a(this.f28550c, PrefetchEvent.STATE_CLICK, this.f28551d, this.f28556i, this.f28552e, a3, this.o);
             }
         } else {
             com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.n;
             if (aVar != null) {
                 aVar.g();
-                if (this.f27709a) {
-                    com.bytedance.sdk.openadsdk.c.d.a(this.f27711c, PrefetchEvent.STATE_CLICK, this.f27712d, this.i, this.f27713e, true, this.o);
+                if (this.f28548a) {
+                    com.bytedance.sdk.openadsdk.c.d.a(this.f28550c, PrefetchEvent.STATE_CLICK, this.f28551d, this.f28556i, this.f28552e, true, this.o);
                 }
             }
         }
@@ -255,7 +255,7 @@ public class a extends b {
         if (aVar2 != null) {
             aVar2.a(view, Z);
         }
-        if (!ak.b(this.f27712d) || (drawVideoListener = this.E) == null) {
+        if (!ak.b(this.f28551d) || (drawVideoListener = this.E) == null) {
             return;
         }
         drawVideoListener.onClick();
@@ -270,14 +270,14 @@ public class a extends b {
     }
 
     public boolean a() {
-        l lVar = this.f27712d;
+        l lVar = this.f28551d;
         if (lVar == null) {
             return true;
         }
         int c2 = p.h().c(ak.d(lVar.ap()));
         if (c2 != 1) {
-            return c2 != 2 ? c2 != 3 : x.e(this.f27711c) || x.d(this.f27711c);
+            return c2 != 2 ? c2 != 3 : x.e(this.f28550c) || x.d(this.f28550c);
         }
-        return x.d(this.f27711c);
+        return x.d(this.f28550c);
     }
 }

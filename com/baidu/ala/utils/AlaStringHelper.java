@@ -12,13 +12,13 @@ import java.util.Formatter;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class AlaStringHelper {
-    public static String formatLowercasekDou(long j) {
-        if (j < 100) {
-            return String.valueOf(j);
+    public static String formatLowercasekDou(float f2) {
+        if (f2 < 100.0f) {
+            return String.valueOf(f2);
         }
         DecimalFormat decimalFormat = new DecimalFormat("0.0k");
         decimalFormat.setRoundingMode(RoundingMode.FLOOR);
-        return decimalFormat.format(j / 1000.0d);
+        return decimalFormat.format(f2 / 1000.0d);
     }
 
     public static String formatTosepara(long j) {
@@ -70,10 +70,10 @@ public class AlaStringHelper {
             String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.minute);
             sb.append((int) (j / 60));
             sb.append(string2);
-            int i = (int) (j % 60);
-            if (i > 0) {
+            int i2 = (int) (j % 60);
+            if (i2 > 0) {
                 String string3 = TbadkCoreApplication.getInst().getResources().getString(R.string.time_second);
-                sb.append(i);
+                sb.append(i2);
                 sb.append(string3);
             }
             return sb.toString();
@@ -81,10 +81,10 @@ public class AlaStringHelper {
             String string4 = TbadkCoreApplication.getInst().getResources().getString(R.string.time_hour);
             sb.append((int) (j / 3600));
             sb.append(string4);
-            int i2 = ((int) (j % 3600)) / 60;
-            if (i2 > 0) {
+            int i3 = ((int) (j % 3600)) / 60;
+            if (i3 > 0) {
                 String string5 = TbadkCoreApplication.getInst().getResources().getString(R.string.minute);
-                sb.append(i2);
+                sb.append(i3);
                 sb.append(string5);
             }
             return sb.toString();
@@ -92,10 +92,10 @@ public class AlaStringHelper {
             String string6 = TbadkCoreApplication.getInst().getResources().getString(R.string.day);
             sb.append((int) (j / 86400));
             sb.append(string6);
-            int i3 = ((int) (j % 86400)) / 3600;
-            if (i3 > 0) {
+            int i4 = ((int) (j % 86400)) / 3600;
+            if (i4 > 0) {
                 String string7 = TbadkCoreApplication.getInst().getResources().getString(R.string.time_hour);
-                sb.append(i3);
+                sb.append(i4);
                 sb.append(string7);
             }
             return sb.toString();
@@ -109,9 +109,9 @@ public class AlaStringHelper {
         if (j >= 100000) {
             return String.valueOf(j / 10000) + "w";
         }
-        int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
-        if (i <= 0) {
-            if (i == 0) {
+        int i2 = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
+        if (i2 <= 0) {
+            if (i2 == 0) {
                 return "1w";
             }
             if (j < 0) {
@@ -143,11 +143,11 @@ public class AlaStringHelper {
         if (j >= 10000000) {
             return String.valueOf(j / 10000) + "w";
         }
-        int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
-        if (i > 0) {
+        int i2 = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
+        if (i2 > 0) {
             return String.format(Locale.getDefault(), "%.1f%s", Float.valueOf(((float) j) / 10000.0f), "w");
         }
-        if (i == 0) {
+        if (i2 == 0) {
             return "1w";
         }
         if (j < 0) {
@@ -163,11 +163,11 @@ public class AlaStringHelper {
         if (j >= 10000000) {
             return String.valueOf(j / 10000) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
         }
-        int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
-        if (i > 0) {
+        int i2 = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
+        if (i2 > 0) {
             return String.format(Locale.getDefault(), "%.1f%s", Float.valueOf(((float) j) / 10000.0f), TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan));
         }
-        if (i == 0) {
+        if (i2 == 0) {
             return "1" + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
         } else if (j < 0) {
             return "--";
@@ -176,16 +176,16 @@ public class AlaStringHelper {
         }
     }
 
-    public static String stringForLastTime(int i) {
-        if (i < 1) {
-            i = 1;
+    public static String stringForLastTime(int i2) {
+        if (i2 < 1) {
+            i2 = 1;
         }
-        int i2 = i % 60;
-        int i3 = (i / 60) % 60;
-        int i4 = i / 3600;
+        int i3 = i2 % 60;
+        int i4 = (i2 / 60) % 60;
+        int i5 = i2 / 3600;
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter(sb, Locale.getDefault());
         sb.setLength(0);
-        return i4 > 0 ? formatter.format("%d:%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3), Integer.valueOf(i2)).toString() : formatter.format("%02d:%02d", Integer.valueOf(i3), Integer.valueOf(i2)).toString();
+        return i5 > 0 ? formatter.format("%d:%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i3)).toString() : formatter.format("%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3)).toString();
     }
 }

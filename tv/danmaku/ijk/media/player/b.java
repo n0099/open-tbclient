@@ -4,28 +4,28 @@ public interface b {
 
     /* loaded from: classes7.dex */
     public interface a {
-        void a(b bVar, int i);
+        void a(b bVar, int i2);
     }
 
     /* renamed from: tv.danmaku.ijk.media.player.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC1937b {
+    public interface InterfaceC1891b {
         void b(b bVar);
     }
 
     /* loaded from: classes7.dex */
     public interface c {
-        boolean a(b bVar, int i, int i2, Object obj);
+        boolean a(b bVar, int i2, int i3, Object obj);
     }
 
     /* loaded from: classes7.dex */
     public interface d {
-        boolean b(b bVar, int i, int i2, Object obj);
+        boolean b(b bVar, int i2, int i3, Object obj);
     }
 
     /* loaded from: classes7.dex */
     public interface e {
-        boolean c(b bVar, int i, int i2, Object obj);
+        boolean c(b bVar, int i2, int i3, Object obj);
     }
 
     /* loaded from: classes7.dex */
@@ -45,6 +45,6 @@ public interface b {
 
     /* loaded from: classes7.dex */
     public interface i {
-        void a(b bVar, int i, int i2, int i3, int i4);
+        void a(b bVar, int i2, int i3, int i4, int i5);
     }
 }

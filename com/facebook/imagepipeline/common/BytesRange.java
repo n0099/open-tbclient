@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BytesRange {
     public static final int TO_END_OF_CONTENT = Integer.MAX_VALUE;
     @Nullable
@@ -14,14 +14,14 @@ public class BytesRange {
     public final int from;
     public final int to;
 
-    public BytesRange(int i, int i2) {
-        this.from = i;
-        this.to = i2;
+    public BytesRange(int i2, int i3) {
+        this.from = i2;
+        this.to = i3;
     }
 
-    public static BytesRange from(int i) {
-        Preconditions.checkArgument(i >= 0);
-        return new BytesRange(i, Integer.MAX_VALUE);
+    public static BytesRange from(int i2) {
+        Preconditions.checkArgument(i2 >= 0);
+        return new BytesRange(i2, Integer.MAX_VALUE);
     }
 
     @Nullable
@@ -50,13 +50,13 @@ public class BytesRange {
         }
     }
 
-    public static BytesRange toMax(int i) {
-        Preconditions.checkArgument(i > 0);
-        return new BytesRange(0, i);
+    public static BytesRange toMax(int i2) {
+        Preconditions.checkArgument(i2 > 0);
+        return new BytesRange(0, i2);
     }
 
-    public static String valueOrEmpty(int i) {
-        return i == Integer.MAX_VALUE ? "" : Integer.toString(i);
+    public static String valueOrEmpty(int i2) {
+        return i2 == Integer.MAX_VALUE ? "" : Integer.toString(i2);
     }
 
     public boolean contains(@Nullable BytesRange bytesRange) {

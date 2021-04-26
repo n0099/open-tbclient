@@ -116,10 +116,10 @@ public final class RealBufferedSink implements BufferedSink {
             }
 
             @Override // java.io.OutputStream
-            public void write(int i) throws IOException {
+            public void write(int i2) throws IOException {
                 RealBufferedSink realBufferedSink = RealBufferedSink.this;
                 if (!realBufferedSink.closed) {
-                    realBufferedSink.buffer.writeByte((int) ((byte) i));
+                    realBufferedSink.buffer.writeByte((int) ((byte) i2));
                     RealBufferedSink.this.emitCompleteSegments();
                     return;
                 }
@@ -127,10 +127,10 @@ public final class RealBufferedSink implements BufferedSink {
             }
 
             @Override // java.io.OutputStream
-            public void write(byte[] bArr, int i, int i2) throws IOException {
+            public void write(byte[] bArr, int i2, int i3) throws IOException {
                 RealBufferedSink realBufferedSink = RealBufferedSink.this;
                 if (!realBufferedSink.closed) {
-                    realBufferedSink.buffer.write(bArr, i, i2);
+                    realBufferedSink.buffer.write(bArr, i2, i3);
                     RealBufferedSink.this.emitCompleteSegments();
                     return;
                 }
@@ -175,9 +175,9 @@ public final class RealBufferedSink implements BufferedSink {
     }
 
     @Override // okio.BufferedSink
-    public BufferedSink writeByte(int i) throws IOException {
+    public BufferedSink writeByte(int i2) throws IOException {
         if (!this.closed) {
-            this.buffer.writeByte(i);
+            this.buffer.writeByte(i2);
             return emitCompleteSegments();
         }
         throw new IllegalStateException("closed");
@@ -202,18 +202,18 @@ public final class RealBufferedSink implements BufferedSink {
     }
 
     @Override // okio.BufferedSink
-    public BufferedSink writeInt(int i) throws IOException {
+    public BufferedSink writeInt(int i2) throws IOException {
         if (!this.closed) {
-            this.buffer.writeInt(i);
+            this.buffer.writeInt(i2);
             return emitCompleteSegments();
         }
         throw new IllegalStateException("closed");
     }
 
     @Override // okio.BufferedSink
-    public BufferedSink writeIntLe(int i) throws IOException {
+    public BufferedSink writeIntLe(int i2) throws IOException {
         if (!this.closed) {
-            this.buffer.writeIntLe(i);
+            this.buffer.writeIntLe(i2);
             return emitCompleteSegments();
         }
         throw new IllegalStateException("closed");
@@ -238,18 +238,18 @@ public final class RealBufferedSink implements BufferedSink {
     }
 
     @Override // okio.BufferedSink
-    public BufferedSink writeShort(int i) throws IOException {
+    public BufferedSink writeShort(int i2) throws IOException {
         if (!this.closed) {
-            this.buffer.writeShort(i);
+            this.buffer.writeShort(i2);
             return emitCompleteSegments();
         }
         throw new IllegalStateException("closed");
     }
 
     @Override // okio.BufferedSink
-    public BufferedSink writeShortLe(int i) throws IOException {
+    public BufferedSink writeShortLe(int i2) throws IOException {
         if (!this.closed) {
-            this.buffer.writeShortLe(i);
+            this.buffer.writeShortLe(i2);
             return emitCompleteSegments();
         }
         throw new IllegalStateException("closed");
@@ -274,9 +274,9 @@ public final class RealBufferedSink implements BufferedSink {
     }
 
     @Override // okio.BufferedSink
-    public BufferedSink writeUtf8CodePoint(int i) throws IOException {
+    public BufferedSink writeUtf8CodePoint(int i2) throws IOException {
         if (!this.closed) {
-            this.buffer.writeUtf8CodePoint(i);
+            this.buffer.writeUtf8CodePoint(i2);
             return emitCompleteSegments();
         }
         throw new IllegalStateException("closed");
@@ -292,18 +292,18 @@ public final class RealBufferedSink implements BufferedSink {
     }
 
     @Override // okio.BufferedSink
-    public BufferedSink writeString(String str, int i, int i2, Charset charset) throws IOException {
+    public BufferedSink writeString(String str, int i2, int i3, Charset charset) throws IOException {
         if (!this.closed) {
-            this.buffer.writeString(str, i, i2, charset);
+            this.buffer.writeString(str, i2, i3, charset);
             return emitCompleteSegments();
         }
         throw new IllegalStateException("closed");
     }
 
     @Override // okio.BufferedSink
-    public BufferedSink writeUtf8(String str, int i, int i2) throws IOException {
+    public BufferedSink writeUtf8(String str, int i2, int i3) throws IOException {
         if (!this.closed) {
-            this.buffer.writeUtf8(str, i, i2);
+            this.buffer.writeUtf8(str, i2, i3);
             return emitCompleteSegments();
         }
         throw new IllegalStateException("closed");
@@ -319,9 +319,9 @@ public final class RealBufferedSink implements BufferedSink {
     }
 
     @Override // okio.BufferedSink
-    public BufferedSink write(byte[] bArr, int i, int i2) throws IOException {
+    public BufferedSink write(byte[] bArr, int i2, int i3) throws IOException {
         if (!this.closed) {
-            this.buffer.write(bArr, i, i2);
+            this.buffer.write(bArr, i2, i3);
             return emitCompleteSegments();
         }
         throw new IllegalStateException("closed");

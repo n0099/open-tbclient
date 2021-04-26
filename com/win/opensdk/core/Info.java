@@ -6,7 +6,7 @@ import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Info implements Serializable {
     public String btndesc;
     public int cache;
@@ -22,7 +22,7 @@ public class Info implements Serializable {
     public String events;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40298h;
+    public int f37850h;
     public boolean ho_c_sw;
     public String icon;
     public String id;
@@ -108,8 +108,8 @@ public class Info implements Serializable {
         if (!TextUtils.isEmpty(this.events)) {
             try {
                 JSONArray jSONArray = new JSONArray(this.events);
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     if (optJSONObject != null) {
                         sparseArray.put(optJSONObject.optInt("type", 0), optJSONObject.optString("urls"));
                     }
@@ -122,7 +122,7 @@ public class Info implements Serializable {
     }
 
     public int getH() {
-        return this.f40298h;
+        return this.f37850h;
     }
 
     public String getIcon() {
@@ -187,10 +187,6 @@ public class Info implements Serializable {
 
     public String getTraceid() {
         return this.traceid;
-    }
-
-    public int getTsi() {
-        return this.tsi;
     }
 
     public int getType() {
@@ -269,16 +265,16 @@ public class Info implements Serializable {
         this.btndesc = str;
     }
 
-    public void setCache(int i) {
-        this.cache = i;
+    public void setCache(int i2) {
+        this.cache = i2;
     }
 
-    public void setCb(int i) {
-        this.cb = i;
+    public void setCb(int i2) {
+        this.cb = i2;
     }
 
-    public void setCdt(int i) {
-        this.cdt = i;
+    public void setCdt(int i2) {
+        this.cdt = i2;
     }
 
     public void setClick_urls(String str) {
@@ -301,8 +297,8 @@ public class Info implements Serializable {
         this.dl_pkg = str;
     }
 
-    public void setDl_vsc(int i) {
-        this.dl_vsc = i;
+    public void setDl_vsc(int i2) {
+        this.dl_vsc = i2;
     }
 
     public void setDpl(String str) {
@@ -313,8 +309,8 @@ public class Info implements Serializable {
         this.events = str;
     }
 
-    public void setH(int i) {
-        this.f40298h = i;
+    public void setH(int i2) {
+        this.f37850h = i2;
     }
 
     public void setHo_c_sw(boolean z) {
@@ -357,8 +353,8 @@ public class Info implements Serializable {
         this.open = str;
     }
 
-    public void setOpent(int i) {
-        this.opent = i;
+    public void setOpent(int i2) {
+        this.opent = i2;
     }
 
     public void setOph5Url(String str) {
@@ -369,8 +365,8 @@ public class Info implements Serializable {
         this.pid = str;
     }
 
-    public void setPs(int i) {
-        this.ps = i;
+    public void setPs(int i2) {
+        this.ps = i2;
     }
 
     public void setShown(boolean z) {
@@ -393,12 +389,8 @@ public class Info implements Serializable {
         this.traceid = str;
     }
 
-    public void setTsi(int i) {
-        this.tsi = i;
-    }
-
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 
     public void setVertical(boolean z) {
@@ -437,19 +429,19 @@ public class Info implements Serializable {
         this.vvamount = j;
     }
 
-    public void setVvt(int i) {
-        this.vvt = i;
+    public void setVvt(int i2) {
+        this.vvt = i2;
     }
 
-    public void setW(int i) {
-        this.w = i;
+    public void setW(int i2) {
+        this.w = i2;
     }
 
-    public void setWt(int i) {
-        this.wt = i;
+    public void setWt(int i2) {
+        this.wt = i2;
     }
 
-    public void setXn(int i) {
-        this.xn = i;
+    public void setXn(int i2) {
+        this.xn = i2;
     }
 }

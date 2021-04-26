@@ -9,17 +9,17 @@ import org.json.JSONObject;
 public final class h {
     /* JADX DEBUG: Multi-variable search result rejected for r4v3, resolved type: com.baidu.clientupdate.appinfo.ClientUpdateInfo */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AppInfo a(JSONObject jSONObject, int i) {
+    public static AppInfo a(JSONObject jSONObject, int i2) {
         RuleInfo ruleInfo;
         if (jSONObject == null) {
             return null;
         }
-        if (i == 0) {
+        if (i2 == 0) {
             ClientUpdateInfo clientUpdateInfo = new ClientUpdateInfo();
             clientUpdateInfo.mIsForceUpdate = jSONObject.optString("isforce");
             clientUpdateInfo.mContentUrl = jSONObject.optString("content_url");
             ruleInfo = clientUpdateInfo;
-        } else if (3 != i) {
+        } else if (3 != i2) {
             return null;
         } else {
             RuleInfo ruleInfo2 = new RuleInfo();

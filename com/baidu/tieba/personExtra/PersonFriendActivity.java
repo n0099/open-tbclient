@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import android.os.Bundle;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonFriendActivity extends BasePersonInfoActivity {
     public PersonFriendAdapter mAdapter = null;
     public PersonFriendModel mModel = null;
@@ -54,7 +54,7 @@ public class PersonFriendActivity extends BasePersonInfoActivity {
         return 5;
     }
 
-    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         PersonFriendModel personFriendModel = new PersonFriendModel(getPageContext(), getIsHost());

@@ -3,6 +3,7 @@ package com.baidu.wallet.paysdk.datamodel;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.lifecycle.SavedStateHandle;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.beans.IBeanResponse;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
@@ -35,29 +36,31 @@ public class SdkInitResponse implements IBeanResponse {
     public static final String SID_OFFLINE_CACHE_CONFIG = "offline_cache_config";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f25258a = "langbridge_speed_up";
+    public static final String f26028a = "langbridge_speed_up";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f25259b = "pass_auth_url";
+    public static final String f26029b = "pass_auth_url";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f25260c = "key_paycode_url";
+    public static final String f26030c = "key_paycode_url";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f25261d = "key_balance_home_url";
+    public static final String f26031d = "key_balance_home_url";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f25262e = "key_cookies_sync_domain_list";
+    public static final String f26032e = "key_cookies_sync_domain_list";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f25263f = "white_screen_config";
+    public static final String f26033f = "white_screen_config";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f25264g = "key_loading_duration_interval";
+    public static final String f26034g = "key_loading_duration_interval";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f25265h = "key_transaction_records_url";
-    public static volatile boolean i = true;
+    public static final String f26035h = "key_transaction_records_url";
+
+    /* renamed from: i  reason: collision with root package name */
+    public static volatile boolean f26036i = true;
     public JSONObject loginUrl;
     public String fp = "";
     public String kefuPhoneNum = "";
@@ -106,7 +109,7 @@ public class SdkInitResponse implements IBeanResponse {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final SdkInitResponse f25270a = new SdkInitResponse();
+        public static final SdkInitResponse f26041a = new SdkInitResponse();
     }
 
     private Map<String, EnumSet<Permission>> a(@NonNull String str) throws JSONException {
@@ -123,21 +126,21 @@ public class SdkInitResponse implements IBeanResponse {
     }
 
     public static SdkInitResponse getInstance() {
-        return a.f25270a;
+        return a.f26041a;
     }
 
     public static boolean isEnableJsNameVerify() {
-        if (TextUtils.isEmpty(a.f25270a.enableJsNameVerify)) {
+        if (TextUtils.isEmpty(a.f26041a.enableJsNameVerify)) {
             return false;
         }
-        return "1".equals(a.f25270a.enableJsNameVerify);
+        return "1".equals(a.f26041a.enableJsNameVerify);
     }
 
     public static boolean isLangBridgeCheckUrlProtocol() {
-        if (TextUtils.isEmpty(a.f25270a.langbridgeCheckProtocol)) {
+        if (TextUtils.isEmpty(a.f26041a.langbridgeCheckProtocol)) {
             return true;
         }
-        return "1".equals(a.f25270a.langbridgeCheckProtocol);
+        return "1".equals(a.f26041a.langbridgeCheckProtocol);
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponse
@@ -147,21 +150,21 @@ public class SdkInitResponse implements IBeanResponse {
 
     public String getBalanceHomeUrl(Context context) {
         if (TextUtils.isEmpty(this.balanceHomeUrl)) {
-            this.balanceHomeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f25261d, "");
+            this.balanceHomeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26031d, "");
         }
         return this.balanceHomeUrl;
     }
 
     public String getCookiesSyncDomainList(Context context) {
         if (TextUtils.isEmpty(this.cookiesSyncDomainList)) {
-            this.cookiesSyncDomainList = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f25262e, "");
+            this.cookiesSyncDomainList = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26032e, "");
         }
         return this.cookiesSyncDomainList;
     }
 
     public String getJsHookURl(Context context) {
-        if (!TextUtils.isEmpty(a.f25270a.JSHookURL)) {
-            return a.f25270a.JSHookURL;
+        if (!TextUtils.isEmpty(a.f26041a.JSHookURL)) {
+            return a.f26041a.JSHookURL;
         }
         LogUtil.d("WebViewCacheManager", "cache jsHookUrl = " + ((String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, SID_JS_HOOK_URL, DEFAULT_JS_HOOK_URL)));
         return (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, SID_JS_HOOK_URL, DEFAULT_JS_HOOK_URL);
@@ -169,7 +172,7 @@ public class SdkInitResponse implements IBeanResponse {
 
     public String getLoadingDurationInterval(Context context) {
         if (TextUtils.isEmpty(this.loadingDurationInterval) && context != null) {
-            this.loadingDurationInterval = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f25264g, "");
+            this.loadingDurationInterval = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26034g, "");
         }
         return this.loadingDurationInterval;
     }
@@ -189,51 +192,51 @@ public class SdkInitResponse implements IBeanResponse {
     }
 
     public String getOfflineCacheConfig(Context context) {
-        return a.f25270a.offlineCacheConfig;
+        return a.f26041a.offlineCacheConfig;
     }
 
     public String getPassAuthUrl(Context context) {
         String str = DomainConfig.getInstance().getCOHost() + "/content/resource/pass_normal/index.html";
-        if (!TextUtils.isEmpty(a.f25270a.passAuthUrl)) {
-            return a.f25270a.passAuthUrl;
+        if (!TextUtils.isEmpty(a.f26041a.passAuthUrl)) {
+            return a.f26041a.passAuthUrl;
         }
-        String str2 = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f25259b, "");
+        String str2 = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26029b, "");
         return !TextUtils.isEmpty(str2) ? str2 : str;
     }
 
     public String getPayCodeUrl(Context context) {
         if (TextUtils.isEmpty(this.paymentCodeUrl)) {
-            this.paymentCodeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f25260c, "");
+            this.paymentCodeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26030c, "");
         }
         return this.paymentCodeUrl;
     }
 
     public int getTakePicWaitTime() {
-        if (TextUtils.isEmpty(a.f25270a.takePicWaitTime)) {
+        if (TextUtils.isEmpty(a.f26041a.takePicWaitTime)) {
             return 2000;
         }
-        return Integer.valueOf(a.f25270a.takePicWaitTime).intValue();
+        return Integer.valueOf(a.f26041a.takePicWaitTime).intValue();
     }
 
     public String getTransactionRecordsUrl(Context context) {
         if (TextUtils.isEmpty(this.transactionRecordsUrl)) {
-            this.transactionRecordsUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f25265h, "");
+            this.transactionRecordsUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26035h, "");
         }
         return this.transactionRecordsUrl;
     }
 
     public String getWhiteScreenConfig(Context context) {
-        if (!TextUtils.isEmpty(a.f25270a.whiteScreenConfig)) {
-            return a.f25270a.whiteScreenConfig;
+        if (!TextUtils.isEmpty(a.f26041a.whiteScreenConfig)) {
+            return a.f26041a.whiteScreenConfig;
         }
-        return (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f25263f, "");
+        return (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26033f, "");
     }
 
     public boolean isLangbridgeSpeedUpEnable(Context context) {
-        if (!TextUtils.isEmpty(a.f25270a.langbridgeSpeedUp)) {
-            return "1".equals(a.f25270a.langbridgeSpeedUp);
+        if (!TextUtils.isEmpty(a.f26041a.langbridgeSpeedUp)) {
+            return "1".equals(a.f26041a.langbridgeSpeedUp);
         }
-        String str = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f25258a, "");
+        String str = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26028a, "");
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -243,7 +246,7 @@ public class SdkInitResponse implements IBeanResponse {
     @Override // com.baidu.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
         if (!TextUtils.isEmpty(this.offlineCacheConfig)) {
-            a.f25270a.offlineCacheConfig = this.offlineCacheConfig;
+            a.f26041a.offlineCacheConfig = this.offlineCacheConfig;
             SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, SID_OFFLINE_CACHE_CONFIG, this.offlineCacheConfig);
             try {
                 PollOfflineCacheSwitch.getInstance().updateCacheConfig((OfflineCacheConfig) JsonUtils.fromJson(this.offlineCacheConfig, OfflineCacheConfig.class));
@@ -256,7 +259,7 @@ public class SdkInitResponse implements IBeanResponse {
             PollOfflineCacheSwitch.getInstance().updateIntervalTime(this.interval_millis);
         }
         if (!TextUtils.isEmpty(this.LangbridgeSettings)) {
-            a.f25270a.LangbridgeSettings = this.LangbridgeSettings;
+            a.f26041a.LangbridgeSettings = this.LangbridgeSettings;
             LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_updateSettings").data("config", this.LangbridgeSettings), new RouterCallback() { // from class: com.baidu.wallet.paysdk.datamodel.SdkInitResponse.1
                 @Override // com.baidu.wallet.router.RouterCallback
                 public void onResult(int i2, HashMap hashMap) {
@@ -264,17 +267,17 @@ public class SdkInitResponse implements IBeanResponse {
             });
         }
         if (!TextUtils.isEmpty(this.JSHookURL)) {
-            a.f25270a.JSHookURL = this.JSHookURL;
+            a.f26041a.JSHookURL = this.JSHookURL;
             SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, SID_JS_HOOK_URL, this.JSHookURL);
             LogUtil.d("WebViewCacheManager", "init config JSHookURL = " + this.JSHookURL);
-            LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_getToImapctJsFiles").data("configs", new String[]{"config.json"}).data("keys", new String[]{"common", "multi-webview"}), new RouterCallback() { // from class: com.baidu.wallet.paysdk.datamodel.SdkInitResponse.2
+            LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_getToImapctJsFiles").data("configs", new String[]{"config.json"}).data(SavedStateHandle.KEYS, new String[]{"common", "multi-webview"}), new RouterCallback() { // from class: com.baidu.wallet.paysdk.datamodel.SdkInitResponse.2
                 @Override // com.baidu.wallet.router.RouterCallback
                 public void onResult(int i2, HashMap hashMap) {
                 }
             });
         }
-        if (i) {
-            i = false;
+        if (f26036i) {
+            f26036i = false;
             if (!TextUtils.isEmpty(this.fp)) {
                 String decrypt = SafePay.getInstance().decrypt(this.fp);
                 if (!TextUtils.isEmpty(decrypt) && !decrypt.equals(BdWalletUtils.getDeviceFP(context))) {
@@ -285,55 +288,55 @@ public class SdkInitResponse implements IBeanResponse {
                 BdWalletUtils.setKefuPhoneNumToSP(context, this.kefuPhoneNum);
             }
             if (!TextUtils.isEmpty(this.langbridgeSpeedUp)) {
-                a.f25270a.langbridgeSpeedUp = this.langbridgeSpeedUp;
-                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f25258a, this.langbridgeSpeedUp);
+                a.f26041a.langbridgeSpeedUp = this.langbridgeSpeedUp;
+                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26028a, this.langbridgeSpeedUp);
             }
             if (!TextUtils.isEmpty(this.passAuthUrl)) {
-                a.f25270a.passAuthUrl = this.passAuthUrl;
-                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f25259b, this.passAuthUrl);
+                a.f26041a.passAuthUrl = this.passAuthUrl;
+                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26029b, this.passAuthUrl);
             }
-            a.f25270a.paymentCodeUrl = this.paymentCodeUrl;
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f25260c, this.paymentCodeUrl);
-            a.f25270a.transactionRecordsUrl = this.transactionRecordsUrl;
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f25265h, this.transactionRecordsUrl);
-            a.f25270a.balanceHomeUrl = this.balanceHomeUrl;
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f25261d, this.balanceHomeUrl);
+            a.f26041a.paymentCodeUrl = this.paymentCodeUrl;
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26030c, this.paymentCodeUrl);
+            a.f26041a.transactionRecordsUrl = this.transactionRecordsUrl;
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26035h, this.transactionRecordsUrl);
+            a.f26041a.balanceHomeUrl = this.balanceHomeUrl;
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26031d, this.balanceHomeUrl);
             if (!TextUtils.isEmpty(this.whiteScreenConfig)) {
-                a.f25270a.whiteScreenConfig = this.whiteScreenConfig;
-                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f25263f, this.whiteScreenConfig);
+                a.f26041a.whiteScreenConfig = this.whiteScreenConfig;
+                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26033f, this.whiteScreenConfig);
             }
-            a.f25270a.fp = this.fp;
-            a.f25270a.kefuPhoneNum = this.kefuPhoneNum;
-            a.f25270a.enableJsNameVerify = this.enableJsNameVerify;
-            a.f25270a.loginUrl = this.loginUrl;
-            a.f25270a.certWhiteList = this.certWhiteList;
-            a.f25270a.jsipc = this.jsipc;
-            a.f25270a.publicKeyPins = this.publicKeyPins;
-            a.f25270a.langbridgeSpeedUp = this.langbridgeSpeedUp;
-            a.f25270a.langbridgeCheckProtocol = this.langbridgeCheckProtocol;
-            a.f25270a.passAuthUrl = this.passAuthUrl;
-            a.f25270a.domainSwitch = this.domainSwitch;
-            a.f25270a.domainConfig = this.domainConfig;
-            a.f25270a.paymentCodeUrl = this.paymentCodeUrl;
-            a.f25270a.balanceHomeUrl = this.balanceHomeUrl;
-            a.f25270a.transactionRecordsUrl = this.transactionRecordsUrl;
-            a.f25270a.takePicWaitTime = this.takePicWaitTime;
-            a.f25270a.cookiesSyncDomainList = this.cookiesSyncDomainList;
-            a.f25270a.sdk_permission_dialog = this.sdk_permission_dialog;
-            a.f25270a.langbridge_permission_dialog = this.langbridge_permission_dialog;
-            a.f25270a.permission_dialog_info = this.permission_dialog_info;
-            a.f25270a.permission_dialog_contacts = this.permission_dialog_contacts;
-            a.f25270a.permission_dialog_location = this.permission_dialog_location;
-            a.f25270a.permission_dialog_camera = this.permission_dialog_camera;
-            a.f25270a.permission_dialog_audio = this.permission_dialog_audio;
-            a.f25270a.permission_dialog_storage = this.permission_dialog_storage;
+            a.f26041a.fp = this.fp;
+            a.f26041a.kefuPhoneNum = this.kefuPhoneNum;
+            a.f26041a.enableJsNameVerify = this.enableJsNameVerify;
+            a.f26041a.loginUrl = this.loginUrl;
+            a.f26041a.certWhiteList = this.certWhiteList;
+            a.f26041a.jsipc = this.jsipc;
+            a.f26041a.publicKeyPins = this.publicKeyPins;
+            a.f26041a.langbridgeSpeedUp = this.langbridgeSpeedUp;
+            a.f26041a.langbridgeCheckProtocol = this.langbridgeCheckProtocol;
+            a.f26041a.passAuthUrl = this.passAuthUrl;
+            a.f26041a.domainSwitch = this.domainSwitch;
+            a.f26041a.domainConfig = this.domainConfig;
+            a.f26041a.paymentCodeUrl = this.paymentCodeUrl;
+            a.f26041a.balanceHomeUrl = this.balanceHomeUrl;
+            a.f26041a.transactionRecordsUrl = this.transactionRecordsUrl;
+            a.f26041a.takePicWaitTime = this.takePicWaitTime;
+            a.f26041a.cookiesSyncDomainList = this.cookiesSyncDomainList;
+            a.f26041a.sdk_permission_dialog = this.sdk_permission_dialog;
+            a.f26041a.langbridge_permission_dialog = this.langbridge_permission_dialog;
+            a.f26041a.permission_dialog_info = this.permission_dialog_info;
+            a.f26041a.permission_dialog_contacts = this.permission_dialog_contacts;
+            a.f26041a.permission_dialog_location = this.permission_dialog_location;
+            a.f26041a.permission_dialog_camera = this.permission_dialog_camera;
+            a.f26041a.permission_dialog_audio = this.permission_dialog_audio;
+            a.f26041a.permission_dialog_storage = this.permission_dialog_storage;
             if (!TextUtils.isEmpty(this.cookiesSyncDomainList)) {
-                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f25262e, this.cookiesSyncDomainList);
+                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26032e, this.cookiesSyncDomainList);
             }
-            a.f25270a.needShowLoadingInterval = this.needShowLoadingInterval;
-            a.f25270a.loadingDurationInterval = this.loadingDurationInterval;
+            a.f26041a.needShowLoadingInterval = this.needShowLoadingInterval;
+            a.f26041a.loadingDurationInterval = this.loadingDurationInterval;
             if (!TextUtils.isEmpty(this.loadingDurationInterval)) {
-                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f25264g, this.loadingDurationInterval);
+                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26034g, this.loadingDurationInterval);
             }
             try {
                 Domains.getInstance().setDomainsPermissionConfig(a(this.jsipc));

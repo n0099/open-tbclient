@@ -5,12 +5,12 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes4.dex */
 public class AutoLineWrapLayout extends ViewGroup {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15227e;
+    public int f15365e;
 
     public AutoLineWrapLayout(Context context) {
         super(context);
@@ -18,38 +18,38 @@ public class AutoLineWrapLayout extends ViewGroup {
     }
 
     public final void a() {
-        this.f15227e = l.g(getContext(), R.dimen.ds20);
+        this.f15365e = l.g(getContext(), R.dimen.ds20);
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         int childCount = getChildCount();
-        int i5 = 0;
-        int i6 = i;
-        int i7 = 0;
-        while (i5 < childCount) {
-            View childAt = getChildAt(i5);
+        int i6 = 0;
+        int i7 = i2;
+        int i8 = 0;
+        while (i6 < childCount) {
+            View childAt = getChildAt(i6);
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
-            i6 = i5 == 0 ? i6 + measuredWidth : i6 + this.f15227e + measuredWidth;
-            int i8 = this.f15227e;
-            int i9 = ((measuredHeight + i8) * i7) + i8 + measuredHeight + i2;
-            if (i6 > i3) {
-                i6 = measuredWidth + i;
-                i7++;
-                i9 = ((measuredHeight + i8) * i7) + i8 + measuredHeight + i2;
+            i7 = i6 == 0 ? i7 + measuredWidth : i7 + this.f15365e + measuredWidth;
+            int i9 = this.f15365e;
+            int i10 = ((measuredHeight + i9) * i8) + i9 + measuredHeight + i3;
+            if (i7 > i4) {
+                i7 = measuredWidth + i2;
+                i8++;
+                i10 = ((measuredHeight + i9) * i8) + i9 + measuredHeight + i3;
             }
-            childAt.layout(i6 - measuredWidth, i9 - measuredHeight, i6, i9);
-            i5++;
+            childAt.layout(i7 - measuredWidth, i10 - measuredHeight, i7, i10);
+            i6++;
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        for (int i3 = 0; i3 < getChildCount(); i3++) {
-            getChildAt(i3).measure(0, 0);
+    public void onMeasure(int i2, int i3) {
+        for (int i4 = 0; i4 < getChildCount(); i4++) {
+            getChildAt(i4).measure(0, 0);
         }
-        super.onMeasure(i, i2);
+        super.onMeasure(i2, i3);
     }
 
     public AutoLineWrapLayout(Context context, AttributeSet attributeSet) {
@@ -57,8 +57,8 @@ public class AutoLineWrapLayout extends ViewGroup {
         a();
     }
 
-    public AutoLineWrapLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public AutoLineWrapLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a();
     }
 }

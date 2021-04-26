@@ -21,8 +21,8 @@ public class BaseException extends Exception implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public BaseException[] newArray(int i) {
-            return new BaseException[i];
+        public BaseException[] newArray(int i2) {
+            return new BaseException[i2];
         }
     }
 
@@ -57,19 +57,19 @@ public class BaseException extends Exception implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.errorCode);
         parcel.writeString(this.errorMsg);
     }
 
-    public BaseException(int i, String str) {
+    public BaseException(int i2, String str) {
         super(TAG + str);
         this.errorMsg = TAG + str;
-        this.errorCode = i;
+        this.errorCode = i2;
     }
 
-    public BaseException(int i, Throwable th) {
-        this(i, d.p.a.e.b.l.e.R0(th));
+    public BaseException(int i2, Throwable th) {
+        this(i2, d.o.a.e.b.l.e.R0(th));
     }
 
     public BaseException(Parcel parcel) {

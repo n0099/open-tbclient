@@ -12,7 +12,7 @@ public class d {
         int p;
         ContentResolver contentResolver;
         int columnIndex;
-        int i = 0;
+        int i2 = 0;
         Cursor cursor = null;
         try {
             p = m.p(context, str);
@@ -24,7 +24,7 @@ public class d {
         try {
             contentResolver = context.getContentResolver();
         } catch (Throwable unused2) {
-            i = p;
+            i2 = p;
         }
         if (contentResolver != null) {
             cursor = contentResolver.query(Uri.parse("content://" + str + ".bdpush/pushinfo_v3"), new String[]{c.g.PushVersion.name()}, null, null, null);
@@ -38,14 +38,14 @@ public class d {
                 columnIndex = cursor.getColumnIndex(c.g.PushVersion.name());
                 p = cursor.getInt(columnIndex);
             }
-            i = p;
+            i2 = p;
             if (cursor != null) {
                 try {
                     cursor.close();
                 } catch (Exception unused3) {
                 }
             }
-            return i;
+            return i2;
         }
         if (cursor != null) {
             try {

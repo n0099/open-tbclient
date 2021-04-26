@@ -29,16 +29,16 @@ public final class MatcherMatchResult$groups$1 extends AbstractCollection<MatchG
     }
 
     @Override // kotlin.text.MatchGroupCollection
-    public MatchGroup get(int i) {
+    public MatchGroup get(int i2) {
         java.util.regex.MatchResult matchResult;
         IntRange range;
         java.util.regex.MatchResult matchResult2;
         matchResult = this.this$0.getMatchResult();
-        range = RegexKt.range(matchResult, i);
+        range = RegexKt.range(matchResult, i2);
         if (range.getStart().intValue() >= 0) {
             matchResult2 = this.this$0.getMatchResult();
-            String group = matchResult2.group(i);
-            Intrinsics.checkExpressionValueIsNotNull(group, "matchResult.group(index)");
+            String group = matchResult2.group(i2);
+            Intrinsics.checkNotNullExpressionValue(group, "matchResult.group(index)");
             return new MatchGroup(group, range);
         }
         return null;
@@ -66,10 +66,11 @@ public final class MatcherMatchResult$groups$1 extends AbstractCollection<MatchG
     }
 
     @Override // kotlin.text.MatchNamedGroupCollection
-    public MatchGroup get(String str) {
+    public MatchGroup get(String name) {
         java.util.regex.MatchResult matchResult;
+        Intrinsics.checkNotNullParameter(name, "name");
         PlatformImplementations platformImplementations = PlatformImplementationsKt.IMPLEMENTATIONS;
         matchResult = this.this$0.getMatchResult();
-        return platformImplementations.getMatchResultNamedGroup(matchResult, str);
+        return platformImplementations.getMatchResultNamedGroup(matchResult, name);
     }
 }

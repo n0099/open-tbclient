@@ -21,7 +21,7 @@ public final class IntegerArrayAdapter implements ArrayAdapterInterface<int[]> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayAdapterInterface
-    public int[] newArray(int i) {
-        return new int[i];
+    public int[] newArray(int i2) {
+        return new int[i2];
     }
 }

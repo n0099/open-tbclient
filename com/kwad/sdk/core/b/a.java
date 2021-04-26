@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.utils.j;
+import com.kwad.sdk.utils.k;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
@@ -19,7 +19,7 @@ public final class a implements i {
     @Override // com.kwad.sdk.core.b.i
     public String a(String str) {
         try {
-            String a2 = j.a(0);
+            String a2 = k.a(0);
             return new String(c.a().a(b.a(a2.getBytes("UTF-8"), b.a(str.getBytes()))), "UTF-8");
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
@@ -41,7 +41,7 @@ public final class a implements i {
     @Override // com.kwad.sdk.core.b.i
     public String b(String str) {
         try {
-            return new String(b.b(b.a(j.a(0), c.b().a(str.getBytes()))), "UTF-8");
+            return new String(b.b(b.a(k.a(0), c.b().a(str.getBytes()))), "UTF-8");
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
             return str;

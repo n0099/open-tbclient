@@ -15,8 +15,8 @@ public class BDMapCustomMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public BDMapCustomMsg[] newArray(int i) {
-            return new BDMapCustomMsg[i];
+        public BDMapCustomMsg[] newArray(int i2) {
+            return new BDMapCustomMsg[i2];
         }
     };
 
@@ -31,8 +31,8 @@ public class BDMapCustomMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
     }
 
     public BDMapCustomMsg() {

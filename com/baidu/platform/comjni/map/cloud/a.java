@@ -18,53 +18,53 @@ import org.json.JSONObject;
 public class a implements ICloudCenter {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9953b;
+    public int f10321b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CloudListener f9954c;
+    public CloudListener f10322c;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f9959h;
+    public String f10327h;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Lock f9952a = new ReentrantLock();
+    public final Lock f10320a = new ReentrantLock();
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9955d = true;
+    public boolean f10323d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f9956e = true;
+    public boolean f10324e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public AsyncHttpClient f9957f = new AsyncHttpClient();
+    public AsyncHttpClient f10325f = new AsyncHttpClient();
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f9958g = new Handler(Looper.getMainLooper());
+    public Handler f10326g = new Handler(Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i) {
-        switch (this.f9953b) {
+    public void a(int i2) {
+        switch (this.f10321b) {
             case 10001:
                 CloudSearchResult cloudSearchResult = new CloudSearchResult();
-                this.f9952a.lock();
+                this.f10320a.lock();
                 try {
-                    this.f9954c.onGetSearchResult(cloudSearchResult, i);
+                    this.f10322c.onGetSearchResult(cloudSearchResult, i2);
                     break;
                 } finally {
                 }
             case 10002:
                 DetailSearchResult detailSearchResult = new DetailSearchResult();
-                this.f9952a.lock();
+                this.f10320a.lock();
                 try {
-                    this.f9954c.onGetDetailSearchResult(detailSearchResult, i);
+                    this.f10322c.onGetDetailSearchResult(detailSearchResult, i2);
                     break;
                 } finally {
                 }
             case 10003:
                 CloudRgcResult cloudRgcResult = new CloudRgcResult();
-                this.f9952a.lock();
+                this.f10320a.lock();
                 try {
-                    this.f9954c.onGetCloudRgcResult(cloudRgcResult, i);
+                    this.f10322c.onGetCloudRgcResult(cloudRgcResult, i2);
                     break;
                 } finally {
                 }
@@ -82,7 +82,7 @@ public class a implements ICloudCenter {
         if (str == null) {
             return false;
         }
-        this.f9957f.get(str, new b(this));
+        this.f10325f.get(str, new b(this));
         return true;
     }
 
@@ -95,11 +95,11 @@ public class a implements ICloudCenter {
             a(-4);
             return null;
         }
-        if (this.f9955d) {
+        if (this.f10323d) {
             str = str + "&token=" + AppMD5.encodeUrlParamsValue(authToken);
         }
         String str2 = str + HttpClient.getPhoneInfo();
-        if (this.f9956e) {
+        if (this.f10324e) {
             Uri.Builder buildUpon = Uri.parse(str2).buildUpon();
             return str2 + "&sign=" + AppMD5.getSignMD5String(buildUpon.build().getEncodedQuery());
         }
@@ -110,7 +110,7 @@ public class a implements ICloudCenter {
     public void f(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            switch (this.f9953b) {
+            switch (this.f10321b) {
                 case 10001:
                     CloudSearchResult cloudSearchResult = new CloudSearchResult();
                     try {
@@ -118,9 +118,9 @@ public class a implements ICloudCenter {
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
-                    this.f9952a.lock();
+                    this.f10320a.lock();
                     try {
-                        this.f9954c.onGetSearchResult(cloudSearchResult, cloudSearchResult.status);
+                        this.f10322c.onGetSearchResult(cloudSearchResult, cloudSearchResult.status);
                         break;
                     } finally {
                     }
@@ -131,9 +131,9 @@ public class a implements ICloudCenter {
                     } catch (JSONException e3) {
                         e3.printStackTrace();
                     }
-                    this.f9952a.lock();
+                    this.f10320a.lock();
                     try {
-                        this.f9954c.onGetDetailSearchResult(detailSearchResult, detailSearchResult.status);
+                        this.f10322c.onGetDetailSearchResult(detailSearchResult, detailSearchResult.status);
                         break;
                     } finally {
                     }
@@ -144,9 +144,9 @@ public class a implements ICloudCenter {
                     } catch (JSONException e4) {
                         e4.printStackTrace();
                     }
-                    this.f9952a.lock();
+                    this.f10320a.lock();
                     try {
-                        this.f9954c.onGetCloudRgcResult(cloudRgcResult, cloudRgcResult.status);
+                        this.f10322c.onGetCloudRgcResult(cloudRgcResult, cloudRgcResult.status);
                         break;
                     } finally {
                     }
@@ -160,29 +160,29 @@ public class a implements ICloudCenter {
 
     @Override // com.baidu.platform.comjni.map.cloud.ICloudCenter
     public void a(CloudListener cloudListener) {
-        this.f9952a.lock();
-        this.f9954c = cloudListener;
-        this.f9952a.unlock();
+        this.f10320a.lock();
+        this.f10322c = cloudListener;
+        this.f10320a.unlock();
     }
 
     @Override // com.baidu.platform.comjni.map.cloud.ICloudCenter
     public boolean a(String str) {
-        this.f9953b = 10001;
-        this.f9955d = false;
+        this.f10321b = 10001;
+        this.f10323d = false;
         return d(e(str));
     }
 
     @Override // com.baidu.platform.comjni.map.cloud.ICloudCenter
     public boolean b(String str) {
-        this.f9953b = 10002;
-        this.f9955d = false;
+        this.f10321b = 10002;
+        this.f10323d = false;
         return d(e(str));
     }
 
     @Override // com.baidu.platform.comjni.map.cloud.ICloudCenter
     public boolean c(String str) {
-        this.f9953b = 10003;
-        this.f9955d = true;
+        this.f10321b = 10003;
+        this.f10323d = true;
         return d(e(str));
     }
 }

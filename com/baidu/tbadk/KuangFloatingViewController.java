@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.j0.p3.c;
+import d.a.c.e.p.l;
+import d.a.j0.p3.c;
 /* loaded from: classes3.dex */
 public class KuangFloatingViewController {
     public static String STORY_PACKAGE = "com.baidu.tieba.story";

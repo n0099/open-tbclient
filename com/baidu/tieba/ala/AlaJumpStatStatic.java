@@ -6,22 +6,23 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
+import com.baidu.sapi2.SapiAccount;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import d.b.i0.m0.l;
+import d.a.i0.m0.l;
 /* loaded from: classes4.dex */
 public class AlaJumpStatStatic {
 
     /* loaded from: classes4.dex */
-    public static class a extends d.b.c.c.f.b {
-        public a(int i) {
-            super(i);
+    public static class a extends d.a.c.c.f.b {
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
         /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-        @Override // d.b.c.c.f.f
+        @Override // d.a.c.c.f.f
         public /* bridge */ /* synthetic */ CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
             CustomMessage<?> customMessage2 = customMessage;
             process2(customMessage2, customMessageTask);
@@ -39,14 +40,14 @@ public class AlaJumpStatStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class b extends d.b.c.c.f.b {
-        public b(int i) {
-            super(i);
+    public static class b extends d.a.c.c.f.b {
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
         /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-        @Override // d.b.c.c.f.f
+        @Override // d.a.c.c.f.f
         public /* bridge */ /* synthetic */ CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
             CustomMessage<?> customMessage2 = customMessage;
             process2(customMessage2, customMessageTask);
@@ -72,13 +73,13 @@ public class AlaJumpStatStatic {
     }
 
     public static final void b(Object obj, String str) {
-        d.b.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+        d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
         statsItem.b("workflow", "ala_jump_fail");
         statsItem.b("config", str);
         statsItem.c("startTime", Long.valueOf(System.currentTimeMillis() - l.b().c()));
         if (obj instanceof AlaLiveRoomActivityConfig) {
             AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) obj;
-            statsItem.b("fromType", alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_FROM_TYPE));
+            statsItem.b(SapiAccount.SAPI_ACCOUNT_FROMTYPE, alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_FROM_TYPE));
             statsItem.b("liveUname", alaLiveRoomActivityConfig.getIntent().getStringExtra("user_name"));
             try {
                 AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) alaLiveRoomActivityConfig.getIntent().getSerializableExtra("live_info_core");

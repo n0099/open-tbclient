@@ -25,16 +25,16 @@ public class Download implements Serializable {
     public List mRequestHeaders = new ArrayList();
 
     /* renamed from: a  reason: collision with root package name */
-    public long f4645a = 0;
+    public long f4753a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f4646b = 0;
+    public long f4754b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4647c = 0;
+    public int f4755c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f4648d = true;
+    public boolean f4756d = true;
 
     public void addRequestHeader(String str, String str2) {
         if (str == null) {
@@ -85,11 +85,11 @@ public class Download implements Serializable {
             if (j2 == 0) {
                 return 0;
             }
-            int i = (int) ((j * 100) / j2);
-            if (i >= 100) {
+            int i2 = (int) ((j * 100) / j2);
+            if (i2 >= 100) {
                 return 99;
             }
-            return i;
+            return i2;
         }
         return 0;
     }

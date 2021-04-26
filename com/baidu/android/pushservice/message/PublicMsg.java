@@ -34,8 +34,8 @@ public class PublicMsg implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public PublicMsg[] newArray(int i) {
-            return new PublicMsg[i];
+        public PublicMsg[] newArray(int i2) {
+            return new PublicMsg[i2];
         }
     };
     public static final int FLAG_NEED_CLEAR = 1;
@@ -128,18 +128,18 @@ public class PublicMsg implements Parcelable {
         }
     }
 
-    private void sendResult(final Context context, String str, int i) {
+    private void sendResult(final Context context, String str, int i2) {
         final String a2 = com.baidu.android.pushservice.k.a(context).a();
         final String b2 = com.baidu.android.pushservice.k.a(context).b();
         if (TextUtils.isEmpty(a2) || TextUtils.isEmpty(b2)) {
             com.baidu.android.pushservice.g.a.b(TAG, "Fail Send Public msg result. Token invalid!", context.getApplicationContext());
             return;
         }
-        com.baidu.android.pushservice.g.a.a(TAG, "Send Linkhit, msgId = " + str + ", resultCode = " + i, context.getApplicationContext());
+        com.baidu.android.pushservice.g.a.a(TAG, "Send Linkhit, msgId = " + str + ", resultCode = " + i2, context.getApplicationContext());
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("msgid", str);
-            jSONObject.put("result_code", i);
+            jSONObject.put("result_code", i2);
         } catch (JSONException e2) {
             com.baidu.android.pushservice.g.a.b(TAG, e2.getMessage(), context.getApplicationContext());
             new b.c(context).a(Log.getStackTraceString(e2)).a();
@@ -215,7 +215,7 @@ public class PublicMsg implements Parcelable {
             return;
         }
         PackageManager packageManager = context.getPackageManager();
-        int i = 0;
+        int i2 = 0;
         try {
             if (packageManager.getPackageInfo(this.mPkgName, 0).versionCode >= this.mPkgVercode) {
                 Intent parseUri = Intent.parseUri(this.mPkgContent, 0);
@@ -226,34 +226,34 @@ public class PublicMsg implements Parcelable {
                     parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     context.startActivity(parseUri);
                 }
-                i = 1;
+                i2 = 1;
             }
         } catch (PackageManager.NameNotFoundException e2) {
             com.baidu.android.pushservice.g.a.b(TAG, "package not exist \r\n" + e2.getMessage(), context);
             cVar = new b.c(context);
             nameNotFoundException = e2;
             cVar.a(Log.getStackTraceString(nameNotFoundException)).a();
-            if (i == 0) {
+            if (i2 == 0) {
             }
-            sendResult(context, str2, i);
+            sendResult(context, str2, i2);
         } catch (URISyntaxException e3) {
             com.baidu.android.pushservice.g.a.b(TAG, "uri to intent fail \r\n" + e3.getMessage(), context);
             cVar = new b.c(context);
             nameNotFoundException = e3;
             cVar.a(Log.getStackTraceString(nameNotFoundException)).a();
-            if (i == 0) {
+            if (i2 == 0) {
             }
-            sendResult(context, str2, i);
+            sendResult(context, str2, i2);
         } catch (Exception e4) {
             com.baidu.android.pushservice.g.a.b(TAG, "parse customize action error\r\n" + e4.getMessage(), context);
             cVar = new b.c(context);
             nameNotFoundException = e4;
             cVar.a(Log.getStackTraceString(nameNotFoundException)).a();
-            if (i == 0) {
+            if (i2 == 0) {
             }
-            sendResult(context, str2, i);
+            sendResult(context, str2, i2);
         }
-        if (i == 0) {
+        if (i2 == 0) {
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.setData(Uri.parse(this.mUrl));
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
@@ -264,7 +264,7 @@ public class PublicMsg implements Parcelable {
                 new b.c(context).a(Log.getStackTraceString(e5)).a();
             }
         }
-        sendResult(context, str2, i);
+        sendResult(context, str2, i2);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r8v5, resolved type: android.content.pm.PackageManager$NameNotFoundException */
@@ -337,7 +337,7 @@ public class PublicMsg implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.mMsgId);
         parcel.writeString(this.mAppId);
         parcel.writeString(this.mTitle);

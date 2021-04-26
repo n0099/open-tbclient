@@ -35,9 +35,9 @@ import com.baidu.tieba.pbextra.emotion.view.ChooseColorLayout;
 import com.baidu.tieba.pbextra.emotion.view.EmotionEditLayout;
 import com.baidu.tieba.pbextra.emotion.view.EmotionEditText;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.c.e.p.f;
-import d.b.c.e.p.j;
-import d.b.c.e.p.l;
+import d.a.c.e.p.f;
+import d.a.c.e.p.j;
+import d.a.c.e.p.l;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class EmotionEditActivity extends BaseActivity implements EmotionEditModel.e {
@@ -63,7 +63,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     public String mLastSendText;
     public EmotionEditModel mModel;
     public PermissionJudgePolicy mPermissionJudgement;
-    public d.b.i0.r.f0.a mProgressDialog;
+    public d.a.i0.r.f0.a mProgressDialog;
     public View mRootView;
     public View mSend;
     public int mSendInStep = 0;
@@ -89,8 +89,8 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         }
 
         @Override // com.baidu.tieba.pbextra.emotion.view.ChooseColorLayout.b
-        public void a(int i) {
-            EmotionEditActivity.this.mEditText.setTextColor(i);
+        public void a(int i2) {
+            EmotionEditActivity.this.mEditText.setTextColor(i2);
         }
     }
 
@@ -112,13 +112,13 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     }
 
     /* loaded from: classes3.dex */
-    public class d extends d.b.c.e.l.c<d.b.c.j.d.a> {
+    public class d extends d.a.c.e.l.c<d.a.c.j.d.a> {
         public d() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.c.e.l.c
-        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
+        @Override // d.a.c.e.l.c
+        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
             if (aVar != null) {
                 EmotionEditActivity.this.mIsGif = aVar.t();
                 if (EmotionEditActivity.this.mIsGif) {
@@ -193,25 +193,25 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
             this.mImageView = tbImageView;
             tbImageView.setGifIconSupport(false);
             ((TbImageView) this.mImageView).setAutoChangeStyle(false);
-            ((TbImageView) this.mImageView).W(this.mEmotionImageData.getPicUrl(), 10, true);
-            d.b.c.e.l.d.h().m(this.mEmotionImageData.getPicUrl(), 10, new d(), getUniqueId());
+            ((TbImageView) this.mImageView).V(this.mEmotionImageData.getPicUrl(), 10, true);
+            d.a.c.e.l.d.h().m(this.mEmotionImageData.getPicUrl(), 10, new d(), getUniqueId());
         }
         this.mImageWidth = this.mEmotionImageData.getWidth();
         int height = this.mEmotionImageData.getHeight();
         this.mImageHeight = height;
-        int i = this.mImageWidth;
-        if (i == height) {
-            int i2 = this.mContainerSize;
-            this.mImageWidth = i2;
-            this.mImageHeight = i2;
-        } else if (i > height) {
+        int i2 = this.mImageWidth;
+        if (i2 == height) {
             int i3 = this.mContainerSize;
-            this.mImageHeight = (int) ((i3 / i) * height);
             this.mImageWidth = i3;
-        } else {
+            this.mImageHeight = i3;
+        } else if (i2 > height) {
             int i4 = this.mContainerSize;
-            this.mImageWidth = (int) ((i4 / height) * i);
-            this.mImageHeight = i4;
+            this.mImageHeight = (int) ((i4 / i2) * height);
+            this.mImageWidth = i4;
+        } else {
+            int i5 = this.mContainerSize;
+            this.mImageWidth = (int) ((i5 / height) * i2);
+            this.mImageHeight = i5;
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mImageWidth, this.mImageHeight);
         layoutParams.gravity = 17;
@@ -257,14 +257,14 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         }
         ImageView imageView2 = this.mImageView;
         if (imageView2 instanceof TbImageView) {
-            d.b.c.j.d.a bdImage = ((TbImageView) imageView2).getBdImage();
+            d.a.c.j.d.a bdImage = ((TbImageView) imageView2).getBdImage();
             if (bdImage != null) {
                 if (this.mModel.B()) {
                     return;
                 }
                 Bitmap addTextToImage = addTextToImage(bdImage.p());
                 if (addTextToImage != null) {
-                    this.mModel.E(addTextToImage, f.f42740b + "/" + TbConfig.getTempDirName() + "/emotion.png");
+                    this.mModel.E(addTextToImage, f.f39949b + "/" + TbConfig.getTempDirName() + "/emotion.png");
                     return;
                 }
                 showToast(R.string.upload_error);
@@ -313,9 +313,9 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
             return;
         }
         String text = this.mEditText.getText();
-        int i = this.mSendInStep;
-        if (i != 2) {
-            if (i == 3 && !TextUtils.isEmpty(this.mLastSendText) && this.mLastSendText.equals(text) && !TextUtils.isEmpty(this.mImageFilePath)) {
+        int i2 = this.mSendInStep;
+        if (i2 != 2) {
+            if (i2 == 3 && !TextUtils.isEmpty(this.mLastSendText) && this.mLastSendText.equals(text) && !TextUtils.isEmpty(this.mImageFilePath)) {
                 onSaveImageSuccess(this.mImageFilePath);
                 return;
             }
@@ -365,27 +365,27 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         if (bitmap == null) {
             return null;
         }
-        int i = this.mImageWidth;
-        int i2 = this.mImageHeight;
+        int i2 = this.mImageWidth;
+        int i3 = this.mImageHeight;
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         Bitmap.Config config = Bitmap.Config.ARGB_8888;
         if (!this.mIsGif) {
             Matrix matrix = new Matrix();
-            matrix.postScale(i / width, i2 / height);
+            matrix.postScale(i2 / width, i3 / height);
             bitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
         }
-        Bitmap createBitmap = Bitmap.createBitmap(this.mIsGif ? width : i, this.mIsGif ? height : i2, config);
+        Bitmap createBitmap = Bitmap.createBitmap(this.mIsGif ? width : i2, this.mIsGif ? height : i3, config);
         Canvas canvas = new Canvas(createBitmap);
         canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
         if (!TextUtils.isEmpty(this.mEditText.getText())) {
             if (!this.mIsGif) {
-                width = i;
-                height = i2;
+                width = i2;
+                height = i3;
             }
             Bitmap textBitmap = getTextBitmap(width, height);
             if (textBitmap != null) {
-                canvas.drawBitmap(textBitmap, (this.mEditText.getLeft() * width) / i, (this.mEditText.getTop() * height) / i2, (Paint) null);
+                canvas.drawBitmap(textBitmap, (this.mEditText.getLeft() * width) / i2, (this.mEditText.getTop() * height) / i3, (Paint) null);
             }
         }
         canvas.save();
@@ -403,27 +403,27 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
-    public Bitmap getTextBitmap(int i, int i2) {
+    public Bitmap getTextBitmap(int i2, int i3) {
         Bitmap bitmap = this.mTextBitmap;
         if (bitmap != null) {
             return bitmap;
         }
-        int i3 = this.mImageWidth;
-        int i4 = this.mImageHeight;
+        int i4 = this.mImageWidth;
+        int i5 = this.mImageHeight;
         this.mEditText.getTextView().buildDrawingCache();
         Bitmap drawingCache = this.mEditText.getTextView().getDrawingCache();
         this.mTextBitmap = drawingCache;
         if (this.mIsGif) {
             Matrix matrix = new Matrix();
-            matrix.postScale(i / i3, i2 / i4);
+            matrix.postScale(i2 / i4, i3 / i5);
             this.mTextBitmap = Bitmap.createBitmap(drawingCache, 0, 0, drawingCache.getWidth(), drawingCache.getHeight(), matrix, true);
         }
         return this.mTextBitmap;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         SkinManager.setBackgroundColor(this.mRootView, R.color.black_alpha40);
         SkinManager.setImageResource(this.mClose, R.drawable.icon_emotion_close_n);
         SkinManager.setViewTextColor(this.mSend, R.color.CAM_X0111);
@@ -466,7 +466,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         addGlobalLayoutListener();
         adjustResizeForSoftInput(R.color.black_alpha40, false);
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
-        d.b.i0.r.f0.a aVar = new d.b.i0.r.f0.a(getPageContext());
+        d.a.i0.r.f0.a aVar = new d.a.i0.r.f0.a(getPageContext());
         this.mProgressDialog = aVar;
         aVar.i(R.string.emotion_composition);
         this.mProgressDialog.e(new a());

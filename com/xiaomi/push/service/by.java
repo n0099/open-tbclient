@@ -7,25 +7,25 @@ import com.xiaomi.push.service.XMPushService;
 public class by extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f41403a;
+    public final /* synthetic */ XMPushService f38949a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public by(XMPushService xMPushService, Handler handler) {
         super(handler);
-        this.f41403a = xMPushService;
+        this.f38949a = xMPushService;
     }
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        boolean m541f;
+        boolean m544f;
         super.onChange(z);
-        m541f = this.f41403a.m541f();
-        com.xiaomi.channel.commonutils.logger.b.m55a("ExtremePowerMode:" + m541f);
-        if (!m541f) {
-            this.f41403a.a(true);
+        m544f = this.f38949a.m544f();
+        com.xiaomi.channel.commonutils.logger.b.m58a("ExtremePowerMode:" + m544f);
+        if (!m544f) {
+            this.f38949a.a(true);
             return;
         }
-        XMPushService xMPushService = this.f41403a;
+        XMPushService xMPushService = this.f38949a;
         xMPushService.a(new XMPushService.f(23, null));
     }
 }

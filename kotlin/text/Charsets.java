@@ -28,22 +28,22 @@ public final class Charsets {
 
     static {
         Charset forName = Charset.forName("UTF-8");
-        Intrinsics.checkExpressionValueIsNotNull(forName, "Charset.forName(\"UTF-8\")");
+        Intrinsics.checkNotNullExpressionValue(forName, "Charset.forName(\"UTF-8\")");
         UTF_8 = forName;
         Charset forName2 = Charset.forName("UTF-16");
-        Intrinsics.checkExpressionValueIsNotNull(forName2, "Charset.forName(\"UTF-16\")");
+        Intrinsics.checkNotNullExpressionValue(forName2, "Charset.forName(\"UTF-16\")");
         UTF_16 = forName2;
         Charset forName3 = Charset.forName(CharEncoding.UTF_16BE);
-        Intrinsics.checkExpressionValueIsNotNull(forName3, "Charset.forName(\"UTF-16BE\")");
+        Intrinsics.checkNotNullExpressionValue(forName3, "Charset.forName(\"UTF-16BE\")");
         UTF_16BE = forName3;
         Charset forName4 = Charset.forName(CharEncoding.UTF_16LE);
-        Intrinsics.checkExpressionValueIsNotNull(forName4, "Charset.forName(\"UTF-16LE\")");
+        Intrinsics.checkNotNullExpressionValue(forName4, "Charset.forName(\"UTF-16LE\")");
         UTF_16LE = forName4;
         Charset forName5 = Charset.forName("US-ASCII");
-        Intrinsics.checkExpressionValueIsNotNull(forName5, "Charset.forName(\"US-ASCII\")");
+        Intrinsics.checkNotNullExpressionValue(forName5, "Charset.forName(\"US-ASCII\")");
         US_ASCII = forName5;
         Charset forName6 = Charset.forName("ISO-8859-1");
-        Intrinsics.checkExpressionValueIsNotNull(forName6, "Charset.forName(\"ISO-8859-1\")");
+        Intrinsics.checkNotNullExpressionValue(forName6, "Charset.forName(\"ISO-8859-1\")");
         ISO_8859_1 = forName6;
     }
 
@@ -54,7 +54,7 @@ public final class Charsets {
             return charset;
         }
         Charset forName = Charset.forName("UTF-32");
-        Intrinsics.checkExpressionValueIsNotNull(forName, "Charset.forName(\"UTF-32\")");
+        Intrinsics.checkNotNullExpressionValue(forName, "Charset.forName(\"UTF-32\")");
         utf_32 = forName;
         return forName;
     }
@@ -66,7 +66,7 @@ public final class Charsets {
             return charset;
         }
         Charset forName = Charset.forName("UTF-32BE");
-        Intrinsics.checkExpressionValueIsNotNull(forName, "Charset.forName(\"UTF-32BE\")");
+        Intrinsics.checkNotNullExpressionValue(forName, "Charset.forName(\"UTF-32BE\")");
         utf_32be = forName;
         return forName;
     }
@@ -78,7 +78,7 @@ public final class Charsets {
             return charset;
         }
         Charset forName = Charset.forName("UTF-32LE");
-        Intrinsics.checkExpressionValueIsNotNull(forName, "Charset.forName(\"UTF-32LE\")");
+        Intrinsics.checkNotNullExpressionValue(forName, "Charset.forName(\"UTF-32LE\")");
         utf_32le = forName;
         return forName;
     }

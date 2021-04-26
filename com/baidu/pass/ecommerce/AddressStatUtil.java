@@ -1,6 +1,7 @@
 package com.baidu.pass.ecommerce;
 
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
+import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.ecommerce.EcommerceRouter;
 import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
 import com.baidu.sapi2.utils.Log;
@@ -25,7 +26,7 @@ public class AddressStatUtil {
     public static void onEventAutoStatistic(String str, String str2) {
         LinkedHashMap linkedHashMap = new LinkedHashMap(2);
         linkedHashMap.put("eventType", str);
-        linkedHashMap.put("fromType", str2);
+        linkedHashMap.put(SapiAccount.SAPI_ACCOUNT_FROMTYPE, str2);
         StatService.onEventAutoStatistic(linkedHashMap);
     }
 

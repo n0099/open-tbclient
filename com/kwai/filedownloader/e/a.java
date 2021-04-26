@@ -5,7 +5,7 @@ public interface a {
 
     void a(long j);
 
-    void a(byte[] bArr, int i, int i2);
+    void a(byte[] bArr, int i2, int i3);
 
     void b();
 

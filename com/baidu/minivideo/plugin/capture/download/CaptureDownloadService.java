@@ -31,19 +31,19 @@ public class CaptureDownloadService extends Service {
         public LocalBroadcastManager mLocalBroadcastManager;
         public int mPosition;
 
-        public ProgressCallback(int i, RequestTask requestTask, Context context) {
-            this.mPosition = i;
+        public ProgressCallback(int i2, RequestTask requestTask, Context context) {
+            this.mPosition = i2;
             this.mAppInfo = requestTask;
             this.mLocalBroadcastManager = LocalBroadcastManager.getInstance(context);
         }
 
-        private boolean checkSendBroadLimit(int i) {
+        private boolean checkSendBroadLimit(int i2) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.mLastTime <= 300 || i == this.mLastProgress) {
+            if (currentTimeMillis - this.mLastTime <= 300 || i2 == this.mLastProgress) {
                 return false;
             }
             this.mLastTime = currentTimeMillis;
-            this.mLastProgress = i;
+            this.mLastProgress = i2;
             return true;
         }
 
@@ -85,14 +85,14 @@ public class CaptureDownloadService extends Service {
         }
 
         @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadCallback
-        public void onProgress(long j, long j2, int i) {
+        public void onProgress(long j, long j2, int i2) {
             if (this.mLastTime == 0) {
                 this.mLastTime = System.currentTimeMillis();
             }
             this.mAppInfo.setStatus(3);
-            this.mAppInfo.setProgress(i);
+            this.mAppInfo.setProgress(i2);
             this.mAppInfo.setDownloadPerSize(CommonUtils.getDownloadPerSize(j, j2));
-            if (checkSendBroadLimit(i)) {
+            if (checkSendBroadLimit(i2)) {
                 sendBroadCast(this.mAppInfo);
             }
         }
@@ -115,8 +115,8 @@ public class CaptureDownloadService extends Service {
         context.stopService(new Intent(context, CaptureDownloadService.class));
     }
 
-    private void download(int i, RequestTask requestTask, String str) {
-        this.mDownloadManager.download(new DownloadRequest.Builder().setUri(requestTask.getUrl()).build(), str, new ProgressCallback(i, requestTask, getApplicationContext()));
+    private void download(int i2, RequestTask requestTask, String str) {
+        this.mDownloadManager.download(new DownloadRequest.Builder().setUri(requestTask.getUrl()).build(), str, new ProgressCallback(i2, requestTask, getApplicationContext()));
     }
 
     public static void pause(Context context, String str) {
@@ -161,7 +161,7 @@ public class CaptureDownloadService extends Service {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(Intent intent, int i2, int i3) {
         if (intent != null) {
             String action = intent.getAction();
             char c2 = 0;
@@ -215,13 +215,13 @@ public class CaptureDownloadService extends Service {
                 cancelAll();
             }
         }
-        return super.onStartCommand(intent, i, i2);
+        return super.onStartCommand(intent, i2, i3);
     }
 
-    public static void start(Context context, int i, String str, RequestTask requestTask) {
+    public static void start(Context context, int i2, String str, RequestTask requestTask) {
         Intent intent = new Intent(context, CaptureDownloadService.class);
         intent.setAction(ACTION_DOWNLOAD);
-        intent.putExtra("extra_position", i);
+        intent.putExtra("extra_position", i2);
         intent.putExtra("extra_tag", str);
         intent.putExtra("extra_file_info", requestTask);
         context.startService(intent);

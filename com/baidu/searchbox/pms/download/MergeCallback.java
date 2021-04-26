@@ -61,11 +61,11 @@ public class MergeCallback {
         }
     }
 
-    public void onError(int i, String str) {
+    public void onError(int i2, String str) {
         synchronized (this.list) {
             for (MergeBean mergeBean : this.list) {
                 mergeBean.info.type = 6;
-                mergeBean.callback.onError(mergeBean.info, i, str);
+                mergeBean.callback.onError(mergeBean.info, i2, str);
             }
             this.list.clear();
         }

@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class StatisticUtils {
-    public static void sendBulkDownload(List<PackageInfo> list, List<PackageInfo> list2, List<PackageInfo> list3, int i) {
+    public static void sendBulkDownload(List<PackageInfo> list, List<PackageInfo> list2, List<PackageInfo> list3, int i2) {
         String str;
         String format = String.format(ErrorConstant.ErrorMsg.DOWNLOAD_BULK_DOWNLOADED, Integer.valueOf(list.size()), Integer.valueOf(list2.size()), Integer.valueOf(list3.size()));
         if (list.size() > 0) {
@@ -22,7 +22,7 @@ public class StatisticUtils {
         } else {
             str = list3.size() > 0 ? list3.get(0).channelId : "";
         }
-        PackageFileStatisticManager.getInstance().addDownloadStatistic2(ErrorConstant.Code.DOWNLOAD_BULK_DOWNLOADED, format, str, null, 0L, "", "", 0, i);
+        PackageFileStatisticManager.getInstance().addDownloadStatistic2(ErrorConstant.Code.DOWNLOAD_BULK_DOWNLOADED, format, str, null, 0L, "", "", 0, i2);
     }
 
     public static void sendCloudCtrl(String str, List<RequestParams.Channel> list) {
@@ -68,8 +68,8 @@ public class StatisticUtils {
         }
     }
 
-    public static void sendDownload(PackageInfo packageInfo, int i) {
-        sendDownload(packageInfo, new ErrorInfo(i));
+    public static void sendDownload(PackageInfo packageInfo, int i2) {
+        sendDownload(packageInfo, new ErrorInfo(i2));
     }
 
     public static void sendDownload(PackageInfo packageInfo, ErrorInfo errorInfo) {

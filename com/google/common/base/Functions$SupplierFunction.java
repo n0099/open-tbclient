@@ -1,21 +1,21 @@
 package com.google.common.base;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.h.c.a.g;
-import d.h.c.a.n;
-import d.h.c.a.r;
+import d.g.c.a.g;
+import d.g.c.a.n;
+import d.g.c.a.r;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public class Functions$SupplierFunction<T> implements g<Object, T>, Serializable {
     public static final long serialVersionUID = 0;
     public final r<T> supplier;
 
-    @Override // d.h.c.a.g
+    @Override // d.g.c.a.g
     public T apply(Object obj) {
         return this.supplier.get();
     }
 
-    @Override // d.h.c.a.g
+    @Override // d.g.c.a.g
     public boolean equals(Object obj) {
         if (obj instanceof Functions$SupplierFunction) {
             return this.supplier.equals(((Functions$SupplierFunction) obj).supplier);

@@ -12,7 +12,7 @@ public class NativeMemoryChunkPool extends MemoryChunkPool {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Return type fixed from 'com.facebook.imagepipeline.memory.NativeMemoryChunk' to match base method */
     @Override // com.facebook.imagepipeline.memory.MemoryChunkPool, com.facebook.imagepipeline.memory.BasePool
-    public MemoryChunk alloc(int i) {
-        return new NativeMemoryChunk(i);
+    public MemoryChunk alloc(int i2) {
+        return new NativeMemoryChunk(i2);
     }
 }

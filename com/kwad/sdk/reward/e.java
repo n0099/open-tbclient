@@ -19,10 +19,10 @@ import com.kwad.sdk.api.core.BaseSystemDialogFragment;
 public class e extends BaseSystemDialogFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f36843a;
+    public static e f34595a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f36844b;
+    public a f34596b;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -34,20 +34,20 @@ public class e extends BaseSystemDialogFragment {
     }
 
     public static void a(Activity activity, String str, a aVar) {
-        f36843a = new e();
+        f34595a = new e();
         Bundle bundle = new Bundle();
         bundle.putString("key_title", str);
-        f36843a.setArguments(bundle);
-        f36843a.a(aVar);
-        f36843a.show(activity.getFragmentManager(), "videoCloseDialog");
+        f34595a.setArguments(bundle);
+        f34595a.a(aVar);
+        f34595a.show(activity.getFragmentManager(), "videoCloseDialog");
     }
 
     private void a(a aVar) {
-        this.f36844b = aVar;
+        this.f34596b = aVar;
     }
 
     public static boolean a() {
-        e eVar = f36843a;
+        e eVar = f34595a;
         return eVar != null && eVar.b();
     }
 
@@ -69,7 +69,7 @@ public class e extends BaseSystemDialogFragment {
         getDialog().setCanceledOnTouchOutside(false);
         window.setLayout(-1, -1);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        a aVar = this.f36844b;
+        a aVar = this.f34596b;
         if (aVar != null) {
             aVar.a();
         }
@@ -85,8 +85,8 @@ public class e extends BaseSystemDialogFragment {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();
-                if (e.this.f36844b != null) {
-                    e.this.f36844b.b();
+                if (e.this.f34596b != null) {
+                    e.this.f34596b.b();
                 }
             }
         });
@@ -94,15 +94,15 @@ public class e extends BaseSystemDialogFragment {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();
-                if (e.this.f36844b != null) {
-                    e.this.f36844b.c();
+                if (e.this.f34596b != null) {
+                    e.this.f34596b.c();
                 }
             }
         });
         getDialog().setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.kwad.sdk.reward.e.3
             @Override // android.content.DialogInterface.OnKeyListener
-            public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-                return i == 4 && keyEvent.getAction() == 0;
+            public boolean onKey(DialogInterface dialogInterface, int i2, KeyEvent keyEvent) {
+                return i2 == 4 && keyEvent.getAction() == 0;
             }
         });
         return inflate;

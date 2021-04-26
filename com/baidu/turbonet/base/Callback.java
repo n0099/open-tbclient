@@ -18,7 +18,7 @@ public abstract class Callback<T> {
     }
 
     @CalledByNative
-    private void onResultFromNative(int i) {
-        a(Integer.valueOf(i));
+    private void onResultFromNative(int i2) {
+        a(Integer.valueOf(i2));
     }
 }

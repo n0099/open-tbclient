@@ -16,11 +16,11 @@ public class SupplementSignActivityConfig extends TbWebViewActivityConfig {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public SupplementSignActivityConfig(Context context, int i, int i2) {
-        super(context, r4, JUMP_URL + "?forum_id=" + i + "&_client_version=" + TbConfig.getVersion(), true, true, true);
+    public SupplementSignActivityConfig(Context context, int i2, int i3) {
+        super(context, r4, JUMP_URL + "?forum_id=" + i2 + "&_client_version=" + TbConfig.getVersion(), true, true, true);
         String string = context.getResources().getString(R.string.resign);
-        getIntent().putExtra(FORUM_ID, i);
-        setRequestCode(i2);
+        getIntent().putExtra(FORUM_ID, i2);
+        setRequestCode(i3);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

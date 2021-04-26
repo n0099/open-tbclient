@@ -7,16 +7,16 @@ import java.util.List;
 public class ResponsedMemoryListMessage extends CustomResponsedMessage<List<ImMessageCenterPojo>> {
     public int type;
 
-    public ResponsedMemoryListMessage(List<ImMessageCenterPojo> list, int i) {
+    public ResponsedMemoryListMessage(List<ImMessageCenterPojo> list, int i2) {
         super(2016007, list);
-        this.type = i;
+        this.type = i2;
     }
 
     public int getType() {
         return this.type;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 }

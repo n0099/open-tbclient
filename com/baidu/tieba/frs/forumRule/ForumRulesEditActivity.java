@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.forumRule.model.ForumRuleEditModel;
 import com.baidu.tieba.view.BdTopToast;
-import d.b.j0.q0.q1.b.b;
-import d.b.j0.q0.q1.f.a;
+import d.a.j0.q0.q1.b.b;
+import d.a.j0.q0.q1.f.a;
 /* loaded from: classes4.dex */
 public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity> implements b {
     public String bawuHead;
@@ -52,12 +52,12 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         super.closeAnimation();
     }
 
-    @Override // d.b.j0.q0.q1.b.b
-    public void commitCallback(int i, String str, boolean z) {
-        if (i == 0) {
+    @Override // d.a.j0.q0.q1.b.b
+    public void commitCallback(int i2, String str, boolean z) {
+        if (i2 == 0) {
             Intent intent = getIntent();
             if (z) {
-                this.mView.E();
+                this.mView.B();
                 intent.putExtra("group_name", getString(R.string.save_success));
                 intent.putExtra("from", true);
             } else {
@@ -74,7 +74,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         bdTopToast.j((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
     }
 
-    @Override // d.b.j0.q0.q1.b.b
+    @Override // d.a.j0.q0.q1.b.b
     public void commitData(ForumRuleBaseData forumRuleBaseData, boolean z) {
         if (TextUtils.isEmpty(this.mForumId)) {
             BdTopToast bdTopToast = new BdTopToast(this, 2000);
@@ -86,24 +86,24 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         this.mModel.v(this.mForumId, forumRuleBaseData, z);
     }
 
-    @Override // d.b.j0.q0.q1.b.b
-    public void draftCallback(int i, ForumRuleBaseData forumRuleBaseData, String str) {
+    @Override // d.a.j0.q0.q1.b.b
+    public void draftCallback(int i2, ForumRuleBaseData forumRuleBaseData, String str) {
         if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS.equals(this.mfrom) && forumRuleBaseData == null) {
             this.mView.p();
         }
-        if (i == 0) {
+        if (i2 == 0) {
             if (forumRuleBaseData != null) {
-                this.mView.S(forumRuleBaseData, true);
+                this.mView.Q(forumRuleBaseData, true);
                 return;
             } else if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mfrom)) {
-                this.mView.S(this.mBaseData, false);
+                this.mView.Q(this.mBaseData, false);
                 return;
             } else {
                 return;
             }
         }
         if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mfrom)) {
-            this.mView.S(this.mBaseData, false);
+            this.mView.Q(this.mBaseData, false);
         }
         BdTopToast bdTopToast = new BdTopToast(this, 2000);
         bdTopToast.i(false);
@@ -111,7 +111,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         bdTopToast.j((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
     public String getCurrentPageKey() {
         return "a073";
     }
@@ -121,11 +121,11 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         a aVar = this.mView;
         if (aVar != null) {
-            aVar.v(i);
+            aVar.u(i2);
         }
     }
 
@@ -146,20 +146,20 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.mView.J();
+        this.mView.I();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
-            this.mView.K();
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4) {
+            this.mView.J();
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // android.app.Activity
-    public void overridePendingTransition(int i, int i2) {
+    public void overridePendingTransition(int i2, int i3) {
         super.overridePendingTransition(R.anim.activity_open_from_bottom, R.anim.activity_close_from_top);
     }
 }

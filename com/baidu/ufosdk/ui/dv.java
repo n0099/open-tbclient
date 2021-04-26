@@ -15,10 +15,10 @@ import org.json.JSONArray;
 public final class dv extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f22888a;
+    public final /* synthetic */ FeedbackReportActivity f23599a;
 
     public dv(FeedbackReportActivity feedbackReportActivity) {
-        this.f22888a = feedbackReportActivity;
+        this.f23599a = feedbackReportActivity;
     }
 
     @Override // android.os.Handler
@@ -54,101 +54,101 @@ public final class dv extends Handler {
         if (message.what == 0) {
             com.baidu.ufosdk.f.c.a("--- msg.what = 0 ---");
         }
-        int i = message.what;
-        if (i == 12) {
-            this.f22888a.B = false;
-            FeedbackReportActivity.b(this.f22888a);
-            z2 = this.f22888a.C;
+        int i2 = message.what;
+        if (i2 == 12) {
+            this.f23599a.B = false;
+            FeedbackReportActivity.b(this.f23599a);
+            z2 = this.f23599a.C;
             if (z2) {
-                this.f22888a.C = false;
+                this.f23599a.C = false;
                 return;
             }
-            this.f22888a.y = Boolean.FALSE;
-            str6 = this.f22888a.z;
+            this.f23599a.y = Boolean.FALSE;
+            str6 = this.f23599a.z;
             if (!TextUtils.isEmpty(str6)) {
-                str9 = this.f22888a.f22730g;
+                str9 = this.f23599a.f23439g;
                 if (TextUtils.isEmpty(str9)) {
-                    editor6 = this.f22888a.f22725b;
-                    str10 = this.f22888a.z;
+                    editor6 = this.f23599a.f23434b;
+                    str10 = this.f23599a.z;
                     editor6.putString(str10, "");
                 }
             }
-            str7 = this.f22888a.f22730g;
+            str7 = this.f23599a.f23439g;
             if (!TextUtils.isEmpty(str7)) {
-                editor5 = this.f22888a.f22725b;
-                str8 = this.f22888a.f22730g;
+                editor5 = this.f23599a.f23434b;
+                str8 = this.f23599a.f23439g;
                 editor5.putString(str8, "");
             }
-            editor4 = this.f22888a.f22725b;
+            editor4 = this.f23599a.f23434b;
             editor4.commit();
-            view4 = this.f22888a.A;
+            view4 = this.f23599a.A;
             view4.setVisibility(8);
-            Toast.makeText(this.f22888a.getApplicationContext(), com.baidu.ufosdk.f.s.a("59"), 0).show();
-            this.f22888a.finish();
-        } else if (i == 13) {
-            this.f22888a.B = false;
-            view3 = this.f22888a.A;
+            Toast.makeText(this.f23599a.getApplicationContext(), com.baidu.ufosdk.f.s.a("59"), 0).show();
+            this.f23599a.finish();
+        } else if (i2 == 13) {
+            this.f23599a.B = false;
+            view3 = this.f23599a.A;
             view3.setVisibility(8);
-            button = this.f22888a.m;
+            button = this.f23599a.m;
             button.setTextColor(com.baidu.ufosdk.b.v);
-            this.f22888a.finish();
-        } else if (i != 14) {
-            if (i == 15) {
+            this.f23599a.finish();
+        } else if (i2 != 14) {
+            if (i2 == 15) {
                 try {
-                    editText = this.f22888a.t;
-                    editText2 = this.f22888a.t;
+                    editText = this.f23599a.t;
+                    editText2 = this.f23599a.t;
                     ((InputMethodManager) editText.getContext().getSystemService("input_method")).showSoftInput(editText2, 0);
                 } catch (Exception unused) {
                 }
-            } else if (i == 16) {
-                if (this.f22888a.getCurrentFocus() == null || this.f22888a.getCurrentFocus().getWindowToken() == null) {
+            } else if (i2 == 16) {
+                if (this.f23599a.getCurrentFocus() == null || this.f23599a.getCurrentFocus().getWindowToken() == null) {
                     return;
                 }
-                ((InputMethodManager) this.f22888a.getSystemService("input_method")).hideSoftInputFromWindow(this.f22888a.getCurrentFocus().getWindowToken(), 2);
-            } else if (i == 17) {
-                this.f22888a.B = false;
-                view = this.f22888a.A;
+                ((InputMethodManager) this.f23599a.getSystemService("input_method")).hideSoftInputFromWindow(this.f23599a.getCurrentFocus().getWindowToken(), 2);
+            } else if (i2 == 17) {
+                this.f23599a.B = false;
+                view = this.f23599a.A;
                 view.setVisibility(8);
             }
         } else {
-            this.f22888a.B = false;
-            FeedbackReportActivity.b(this.f22888a);
-            z = this.f22888a.C;
+            this.f23599a.B = false;
+            FeedbackReportActivity.b(this.f23599a);
+            z = this.f23599a.C;
             if (z) {
-                this.f22888a.C = false;
+                this.f23599a.C = false;
                 return;
             }
-            this.f22888a.y = Boolean.FALSE;
-            str = this.f22888a.z;
+            this.f23599a.y = Boolean.FALSE;
+            str = this.f23599a.z;
             if (!TextUtils.isEmpty(str)) {
-                str4 = this.f22888a.f22730g;
+                str4 = this.f23599a.f23439g;
                 if (TextUtils.isEmpty(str4)) {
-                    editor3 = this.f22888a.f22725b;
-                    str5 = this.f22888a.z;
+                    editor3 = this.f23599a.f23434b;
+                    str5 = this.f23599a.z;
                     editor3.putString(str5, "");
                 }
             }
-            str2 = this.f22888a.f22730g;
+            str2 = this.f23599a.f23439g;
             if (!TextUtils.isEmpty(str2)) {
-                editor2 = this.f22888a.f22725b;
-                str3 = this.f22888a.f22730g;
+                editor2 = this.f23599a.f23434b;
+                str3 = this.f23599a.f23439g;
                 editor2.putString(str3, "");
             }
-            editor = this.f22888a.f22725b;
+            editor = this.f23599a.f23434b;
             editor.commit();
-            view2 = this.f22888a.A;
+            view2 = this.f23599a.A;
             view2.setVisibility(8);
             ReportCallback reportCallback = com.baidu.ufosdk.b.af;
             if (reportCallback != null) {
                 reportCallback.getReportResult(1);
                 ReportCallback reportCallback2 = com.baidu.ufosdk.b.af;
-                jSONArray = this.f22888a.I;
+                jSONArray = this.f23599a.I;
                 String jSONArray3 = jSONArray.toString();
-                jSONArray2 = this.f22888a.J;
+                jSONArray2 = this.f23599a.J;
                 reportCallback2.getReportContent(jSONArray3, jSONArray2.toString());
             }
-            Toast.makeText(this.f22888a.getApplicationContext(), com.baidu.ufosdk.f.s.a("59"), 0).show();
-            this.f22888a.finish();
+            Toast.makeText(this.f23599a.getApplicationContext(), com.baidu.ufosdk.f.s.a("59"), 0).show();
+            this.f23599a.finish();
         }
     }
 }

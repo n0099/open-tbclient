@@ -43,12 +43,12 @@ public abstract class JSONValidator implements Cloneable, Closeable {
 
         @Override // com.alibaba.fastjson.JSONValidator
         public void next() {
-            int i = this.pos;
-            if (i < this.end) {
+            int i2 = this.pos;
+            if (i2 < this.end) {
                 char[] cArr = this.buf;
-                int i2 = i + 1;
-                this.pos = i2;
-                this.ch = cArr[i2];
+                int i3 = i2 + 1;
+                this.pos = i3;
+                this.ch = cArr[i3];
             } else if (this.eof) {
             } else {
                 try {
@@ -99,10 +99,10 @@ public abstract class JSONValidator implements Cloneable, Closeable {
         @Override // com.alibaba.fastjson.JSONValidator
         public final void fieldName() {
             char charAt;
-            int i = this.pos;
+            int i2 = this.pos;
             do {
-                i++;
-                if (i >= this.str.length() || (charAt = this.str.charAt(i)) == '\\') {
+                i2++;
+                if (i2 >= this.str.length() || (charAt = this.str.charAt(i2)) == '\\') {
                     next();
                     while (true) {
                         char c2 = this.ch;
@@ -126,16 +126,16 @@ public abstract class JSONValidator implements Cloneable, Closeable {
                     }
                 }
             } while (charAt != '\"');
-            int i2 = i + 1;
-            this.ch = this.str.charAt(i2);
-            this.pos = i2;
+            int i3 = i2 + 1;
+            this.ch = this.str.charAt(i3);
+            this.pos = i3;
         }
 
         @Override // com.alibaba.fastjson.JSONValidator
         public void next() {
-            int i = this.pos + 1;
-            this.pos = i;
-            if (i >= this.str.length()) {
+            int i2 = this.pos + 1;
+            this.pos = i2;
+            if (i2 >= this.str.length()) {
                 this.ch = (char) 0;
                 this.eof = true;
                 return;
@@ -173,12 +173,12 @@ public abstract class JSONValidator implements Cloneable, Closeable {
 
         @Override // com.alibaba.fastjson.JSONValidator
         public void next() {
-            int i = this.pos;
-            if (i < this.end) {
+            int i2 = this.pos;
+            if (i2 < this.end) {
                 byte[] bArr = this.buf;
-                int i2 = i + 1;
-                this.pos = i2;
-                this.ch = (char) bArr[i2];
+                int i3 = i2 + 1;
+                this.pos = i3;
+                this.ch = (char) bArr[i3];
             } else if (this.eof) {
             } else {
                 try {
@@ -221,15 +221,15 @@ public abstract class JSONValidator implements Cloneable, Closeable {
 
         @Override // com.alibaba.fastjson.JSONValidator
         public void next() {
-            int i = this.pos + 1;
-            this.pos = i;
+            int i2 = this.pos + 1;
+            this.pos = i2;
             byte[] bArr = this.bytes;
-            if (i >= bArr.length) {
+            if (i2 >= bArr.length) {
                 this.ch = (char) 0;
                 this.eof = true;
                 return;
             }
-            this.ch = (char) bArr[i];
+            this.ch = (char) bArr[i2];
         }
     }
 

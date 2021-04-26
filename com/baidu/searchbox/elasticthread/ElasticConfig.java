@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.alipay.sdk.app.statistic.c;
 import com.baidu.mobstat.Config;
+import com.google.gson.internal.bind.TypeAdapters;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -183,8 +184,8 @@ public final class ElasticConfig {
         JSONObject optJSONObject3 = jSONObject.optJSONObject("block_weight");
         if (optJSONObject3 != null) {
             QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT = optJSONObject3.optDouble(Config.TRACE_VISIT_FIRST, QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT);
-            QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT = optJSONObject3.optDouble("second", QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT);
-            double optDouble = optJSONObject3.optDouble(c.f1864e, QUEUE_CONFIG_THIRD_PRIORITY_TASK_WEIGHT);
+            QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT = optJSONObject3.optDouble(TypeAdapters.AnonymousClass27.SECOND, QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT);
+            double optDouble = optJSONObject3.optDouble(c.f1810e, QUEUE_CONFIG_THIRD_PRIORITY_TASK_WEIGHT);
             QUEUE_CONFIG_THIRD_PRIORITY_TASK_WEIGHT = optDouble;
             ELASTIC_QUEUE_BLOCK_WEIGHT = new double[]{QUEUE_CONFIG_IMMEDIATE_PRIORITY_TASK_WEIGHT, QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT, QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT, optDouble};
         }

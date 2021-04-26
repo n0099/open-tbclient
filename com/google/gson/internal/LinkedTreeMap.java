@@ -14,43 +14,24 @@ import java.util.Set;
 /* loaded from: classes6.dex */
 public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Serializable {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
-    public static final Comparator<Comparable> NATURAL_ORDER = new a();
-    public Comparator<? super K> comparator;
-    public LinkedTreeMap<K, V>.b entrySet;
-    public final e<K, V> header;
-    public LinkedTreeMap<K, V>.c keySet;
-    public int modCount;
-    public e<K, V> root;
-    public int size;
-
-    /* loaded from: classes6.dex */
-    public static class a implements Comparator<Comparable> {
+    public static final Comparator<Comparable> NATURAL_ORDER = new Comparator<Comparable>() { // from class: com.google.gson.internal.LinkedTreeMap.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
-        /* renamed from: a */
         public int compare(Comparable comparable, Comparable comparable2) {
             return comparable.compareTo(comparable2);
         }
-    }
+    };
+    public Comparator<? super K> comparator;
+    public LinkedTreeMap<K, V>.EntrySet entrySet;
+    public final Node<K, V> header;
+    public LinkedTreeMap<K, V>.KeySet keySet;
+    public int modCount;
+    public Node<K, V> root;
+    public int size;
 
     /* loaded from: classes6.dex */
-    public class b extends AbstractSet<Map.Entry<K, V>> {
-
-        /* loaded from: classes6.dex */
-        public class a extends LinkedTreeMap<K, V>.d<Map.Entry<K, V>> {
-            public a(b bVar) {
-                super();
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.Iterator
-            /* renamed from: b */
-            public Map.Entry<K, V> next() {
-                return a();
-            }
-        }
-
-        public b() {
+    public class EntrySet extends AbstractSet<Map.Entry<K, V>> {
+        public EntrySet() {
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -65,12 +46,22 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<Map.Entry<K, V>> iterator() {
-            return new a(this);
+            return new LinkedTreeMap<K, V>.LinkedTreeMapIterator<Map.Entry<K, V>>() { // from class: com.google.gson.internal.LinkedTreeMap.EntrySet.1
+                {
+                    LinkedTreeMap linkedTreeMap = LinkedTreeMap.this;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // java.util.Iterator
+                public Map.Entry<K, V> next() {
+                    return nextNode();
+                }
+            };
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean remove(Object obj) {
-            e<K, V> findByEntry;
+            Node<K, V> findByEntry;
             if ((obj instanceof Map.Entry) && (findByEntry = LinkedTreeMap.this.findByEntry((Map.Entry) obj)) != null) {
                 LinkedTreeMap.this.removeInternal(findByEntry, true);
                 return true;
@@ -85,21 +76,8 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     /* loaded from: classes6.dex */
-    public final class c extends AbstractSet<K> {
-
-        /* loaded from: classes6.dex */
-        public class a extends LinkedTreeMap<K, V>.d<K> {
-            public a(c cVar) {
-                super();
-            }
-
-            @Override // java.util.Iterator
-            public K next() {
-                return a().j;
-            }
-        }
-
-        public c() {
+    public final class KeySet extends AbstractSet<K> {
+        public KeySet() {
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -114,7 +92,16 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<K> iterator() {
-            return new a(this);
+            return new LinkedTreeMap<K, V>.LinkedTreeMapIterator<K>() { // from class: com.google.gson.internal.LinkedTreeMap.KeySet.1
+                {
+                    LinkedTreeMap linkedTreeMap = LinkedTreeMap.this;
+                }
+
+                @Override // java.util.Iterator
+                public K next() {
+                    return nextNode().key;
+                }
+            };
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -129,32 +116,31 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     /* loaded from: classes6.dex */
-    public abstract class d<T> implements Iterator<T> {
+    public abstract class LinkedTreeMapIterator<T> implements Iterator<T> {
+        public int expectedModCount;
+        public Node<K, V> lastReturned;
+        public Node<K, V> next;
 
-        /* renamed from: e  reason: collision with root package name */
-        public e<K, V> f31318e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public e<K, V> f31319f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f31320g;
-
-        public d() {
+        public LinkedTreeMapIterator() {
             LinkedTreeMap linkedTreeMap = LinkedTreeMap.this;
-            this.f31318e = linkedTreeMap.header.f31325h;
-            this.f31319f = null;
-            this.f31320g = linkedTreeMap.modCount;
+            this.next = linkedTreeMap.header.next;
+            this.lastReturned = null;
+            this.expectedModCount = linkedTreeMap.modCount;
         }
 
-        public final e<K, V> a() {
-            e<K, V> eVar = this.f31318e;
+        @Override // java.util.Iterator
+        public final boolean hasNext() {
+            return this.next != LinkedTreeMap.this.header;
+        }
+
+        public final Node<K, V> nextNode() {
+            Node<K, V> node = this.next;
             LinkedTreeMap linkedTreeMap = LinkedTreeMap.this;
-            if (eVar != linkedTreeMap.header) {
-                if (linkedTreeMap.modCount == this.f31320g) {
-                    this.f31318e = eVar.f31325h;
-                    this.f31319f = eVar;
-                    return eVar;
+            if (node != linkedTreeMap.header) {
+                if (linkedTreeMap.modCount == this.expectedModCount) {
+                    this.next = node.next;
+                    this.lastReturned = node;
+                    return node;
                 }
                 throw new ConcurrentModificationException();
             }
@@ -162,17 +148,12 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         }
 
         @Override // java.util.Iterator
-        public final boolean hasNext() {
-            return this.f31318e != LinkedTreeMap.this.header;
-        }
-
-        @Override // java.util.Iterator
         public final void remove() {
-            e<K, V> eVar = this.f31319f;
-            if (eVar != null) {
-                LinkedTreeMap.this.removeInternal(eVar, true);
-                this.f31319f = null;
-                this.f31320g = LinkedTreeMap.this.modCount;
+            Node<K, V> node = this.lastReturned;
+            if (node != null) {
+                LinkedTreeMap.this.removeInternal(node, true);
+                this.lastReturned = null;
+                this.expectedModCount = LinkedTreeMap.this.modCount;
                 return;
             }
             throw new IllegalStateException();
@@ -187,104 +168,104 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         return obj == obj2 || (obj != null && obj.equals(obj2));
     }
 
-    private void rebalance(e<K, V> eVar, boolean z) {
-        while (eVar != null) {
-            e<K, V> eVar2 = eVar.f31323f;
-            e<K, V> eVar3 = eVar.f31324g;
-            int i = eVar2 != null ? eVar2.l : 0;
-            int i2 = eVar3 != null ? eVar3.l : 0;
-            int i3 = i - i2;
-            if (i3 == -2) {
-                e<K, V> eVar4 = eVar3.f31323f;
-                e<K, V> eVar5 = eVar3.f31324g;
-                int i4 = (eVar4 != null ? eVar4.l : 0) - (eVar5 != null ? eVar5.l : 0);
-                if (i4 != -1 && (i4 != 0 || z)) {
-                    rotateRight(eVar3);
-                    rotateLeft(eVar);
+    private void rebalance(Node<K, V> node, boolean z) {
+        while (node != null) {
+            Node<K, V> node2 = node.left;
+            Node<K, V> node3 = node.right;
+            int i2 = node2 != null ? node2.height : 0;
+            int i3 = node3 != null ? node3.height : 0;
+            int i4 = i2 - i3;
+            if (i4 == -2) {
+                Node<K, V> node4 = node3.left;
+                Node<K, V> node5 = node3.right;
+                int i5 = (node4 != null ? node4.height : 0) - (node5 != null ? node5.height : 0);
+                if (i5 != -1 && (i5 != 0 || z)) {
+                    rotateRight(node3);
+                    rotateLeft(node);
                 } else {
-                    rotateLeft(eVar);
+                    rotateLeft(node);
                 }
                 if (z) {
                     return;
                 }
-            } else if (i3 == 2) {
-                e<K, V> eVar6 = eVar2.f31323f;
-                e<K, V> eVar7 = eVar2.f31324g;
-                int i5 = (eVar6 != null ? eVar6.l : 0) - (eVar7 != null ? eVar7.l : 0);
-                if (i5 != 1 && (i5 != 0 || z)) {
-                    rotateLeft(eVar2);
-                    rotateRight(eVar);
+            } else if (i4 == 2) {
+                Node<K, V> node6 = node2.left;
+                Node<K, V> node7 = node2.right;
+                int i6 = (node6 != null ? node6.height : 0) - (node7 != null ? node7.height : 0);
+                if (i6 != 1 && (i6 != 0 || z)) {
+                    rotateLeft(node2);
+                    rotateRight(node);
                 } else {
-                    rotateRight(eVar);
+                    rotateRight(node);
                 }
                 if (z) {
                     return;
                 }
-            } else if (i3 == 0) {
-                eVar.l = i + 1;
+            } else if (i4 == 0) {
+                node.height = i2 + 1;
                 if (z) {
                     return;
                 }
             } else {
-                eVar.l = Math.max(i, i2) + 1;
+                node.height = Math.max(i2, i3) + 1;
                 if (!z) {
                     return;
                 }
             }
-            eVar = eVar.f31322e;
+            node = node.parent;
         }
     }
 
-    private void replaceInParent(e<K, V> eVar, e<K, V> eVar2) {
-        e<K, V> eVar3 = eVar.f31322e;
-        eVar.f31322e = null;
-        if (eVar2 != null) {
-            eVar2.f31322e = eVar3;
+    private void replaceInParent(Node<K, V> node, Node<K, V> node2) {
+        Node<K, V> node3 = node.parent;
+        node.parent = null;
+        if (node2 != null) {
+            node2.parent = node3;
         }
-        if (eVar3 != null) {
-            if (eVar3.f31323f == eVar) {
-                eVar3.f31323f = eVar2;
+        if (node3 != null) {
+            if (node3.left == node) {
+                node3.left = node2;
                 return;
             } else {
-                eVar3.f31324g = eVar2;
+                node3.right = node2;
                 return;
             }
         }
-        this.root = eVar2;
+        this.root = node2;
     }
 
-    private void rotateLeft(e<K, V> eVar) {
-        e<K, V> eVar2 = eVar.f31323f;
-        e<K, V> eVar3 = eVar.f31324g;
-        e<K, V> eVar4 = eVar3.f31323f;
-        e<K, V> eVar5 = eVar3.f31324g;
-        eVar.f31324g = eVar4;
-        if (eVar4 != null) {
-            eVar4.f31322e = eVar;
+    private void rotateLeft(Node<K, V> node) {
+        Node<K, V> node2 = node.left;
+        Node<K, V> node3 = node.right;
+        Node<K, V> node4 = node3.left;
+        Node<K, V> node5 = node3.right;
+        node.right = node4;
+        if (node4 != null) {
+            node4.parent = node;
         }
-        replaceInParent(eVar, eVar3);
-        eVar3.f31323f = eVar;
-        eVar.f31322e = eVar3;
-        int max = Math.max(eVar2 != null ? eVar2.l : 0, eVar4 != null ? eVar4.l : 0) + 1;
-        eVar.l = max;
-        eVar3.l = Math.max(max, eVar5 != null ? eVar5.l : 0) + 1;
+        replaceInParent(node, node3);
+        node3.left = node;
+        node.parent = node3;
+        int max = Math.max(node2 != null ? node2.height : 0, node4 != null ? node4.height : 0) + 1;
+        node.height = max;
+        node3.height = Math.max(max, node5 != null ? node5.height : 0) + 1;
     }
 
-    private void rotateRight(e<K, V> eVar) {
-        e<K, V> eVar2 = eVar.f31323f;
-        e<K, V> eVar3 = eVar.f31324g;
-        e<K, V> eVar4 = eVar2.f31323f;
-        e<K, V> eVar5 = eVar2.f31324g;
-        eVar.f31323f = eVar5;
-        if (eVar5 != null) {
-            eVar5.f31322e = eVar;
+    private void rotateRight(Node<K, V> node) {
+        Node<K, V> node2 = node.left;
+        Node<K, V> node3 = node.right;
+        Node<K, V> node4 = node2.left;
+        Node<K, V> node5 = node2.right;
+        node.left = node5;
+        if (node5 != null) {
+            node5.parent = node;
         }
-        replaceInParent(eVar, eVar2);
-        eVar2.f31324g = eVar;
-        eVar.f31322e = eVar2;
-        int max = Math.max(eVar3 != null ? eVar3.l : 0, eVar5 != null ? eVar5.l : 0) + 1;
-        eVar.l = max;
-        eVar2.l = Math.max(max, eVar4 != null ? eVar4.l : 0) + 1;
+        replaceInParent(node, node2);
+        node2.right = node;
+        node.parent = node2;
+        int max = Math.max(node3 != null ? node3.height : 0, node5 != null ? node5.height : 0) + 1;
+        node.height = max;
+        node2.height = Math.max(max, node4 != null ? node4.height : 0) + 1;
     }
 
     private Object writeReplace() throws ObjectStreamException {
@@ -296,9 +277,9 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         this.root = null;
         this.size = 0;
         this.modCount++;
-        e<K, V> eVar = this.header;
-        eVar.i = eVar;
-        eVar.f31325h = eVar;
+        Node<K, V> node = this.header;
+        node.prev = node;
+        node.next = node;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -308,68 +289,68 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
 
     @Override // java.util.AbstractMap, java.util.Map
     public Set<Map.Entry<K, V>> entrySet() {
-        LinkedTreeMap<K, V>.b bVar = this.entrySet;
-        if (bVar != null) {
-            return bVar;
+        LinkedTreeMap<K, V>.EntrySet entrySet = this.entrySet;
+        if (entrySet != null) {
+            return entrySet;
         }
-        LinkedTreeMap<K, V>.b bVar2 = new b();
-        this.entrySet = bVar2;
-        return bVar2;
+        LinkedTreeMap<K, V>.EntrySet entrySet2 = new EntrySet();
+        this.entrySet = entrySet2;
+        return entrySet2;
     }
 
     /* JADX DEBUG: Type inference failed for r4v2. Raw type applied. Possible types: K, ? super K */
-    public e<K, V> find(K k, boolean z) {
-        int i;
-        e<K, V> eVar;
+    public Node<K, V> find(K k, boolean z) {
+        int i2;
+        Node<K, V> node;
         Comparator<? super K> comparator = this.comparator;
-        e<K, V> eVar2 = this.root;
-        if (eVar2 != null) {
+        Node<K, V> node2 = this.root;
+        if (node2 != null) {
             Comparable comparable = comparator == NATURAL_ORDER ? (Comparable) k : null;
             while (true) {
                 if (comparable != null) {
-                    i = comparable.compareTo(eVar2.j);
+                    i2 = comparable.compareTo(node2.key);
                 } else {
-                    i = comparator.compare(k, (K) eVar2.j);
+                    i2 = comparator.compare(k, (K) node2.key);
                 }
-                if (i == 0) {
-                    return eVar2;
+                if (i2 == 0) {
+                    return node2;
                 }
-                e<K, V> eVar3 = i < 0 ? eVar2.f31323f : eVar2.f31324g;
-                if (eVar3 == null) {
+                Node<K, V> node3 = i2 < 0 ? node2.left : node2.right;
+                if (node3 == null) {
                     break;
                 }
-                eVar2 = eVar3;
+                node2 = node3;
             }
         } else {
-            i = 0;
+            i2 = 0;
         }
         if (z) {
-            e<K, V> eVar4 = this.header;
-            if (eVar2 == null) {
+            Node<K, V> node4 = this.header;
+            if (node2 == null) {
                 if (comparator == NATURAL_ORDER && !(k instanceof Comparable)) {
                     throw new ClassCastException(k.getClass().getName() + " is not Comparable");
                 }
-                eVar = new e<>(eVar2, k, eVar4, eVar4.i);
-                this.root = eVar;
+                node = new Node<>(node2, k, node4, node4.prev);
+                this.root = node;
             } else {
-                eVar = new e<>(eVar2, k, eVar4, eVar4.i);
-                if (i < 0) {
-                    eVar2.f31323f = eVar;
+                node = new Node<>(node2, k, node4, node4.prev);
+                if (i2 < 0) {
+                    node2.left = node;
                 } else {
-                    eVar2.f31324g = eVar;
+                    node2.right = node;
                 }
-                rebalance(eVar2, true);
+                rebalance(node2, true);
             }
             this.size++;
             this.modCount++;
-            return eVar;
+            return node;
         }
         return null;
     }
 
-    public e<K, V> findByEntry(Map.Entry<?, ?> entry) {
-        e<K, V> findByObject = findByObject(entry.getKey());
-        if (findByObject != null && equal(findByObject.k, entry.getValue())) {
+    public Node<K, V> findByEntry(Map.Entry<?, ?> entry) {
+        Node<K, V> findByObject = findByObject(entry.getKey());
+        if (findByObject != null && equal(findByObject.value, entry.getValue())) {
             return findByObject;
         }
         return null;
@@ -377,7 +358,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    public e<K, V> findByObject(Object obj) {
+    public Node<K, V> findByObject(Object obj) {
         if (obj != 0) {
             try {
                 return find(obj, false);
@@ -390,30 +371,30 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
 
     @Override // java.util.AbstractMap, java.util.Map
     public V get(Object obj) {
-        e<K, V> findByObject = findByObject(obj);
+        Node<K, V> findByObject = findByObject(obj);
         if (findByObject != null) {
-            return findByObject.k;
+            return findByObject.value;
         }
         return null;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public Set<K> keySet() {
-        LinkedTreeMap<K, V>.c cVar = this.keySet;
-        if (cVar != null) {
-            return cVar;
+        LinkedTreeMap<K, V>.KeySet keySet = this.keySet;
+        if (keySet != null) {
+            return keySet;
         }
-        LinkedTreeMap<K, V>.c cVar2 = new c();
-        this.keySet = cVar2;
-        return cVar2;
+        LinkedTreeMap<K, V>.KeySet keySet2 = new KeySet();
+        this.keySet = keySet2;
+        return keySet2;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public V put(K k, V v) {
         if (k != null) {
-            e<K, V> find = find(k, true);
-            V v2 = find.k;
-            find.k = v;
+            Node<K, V> find = find(k, true);
+            V v2 = find.value;
+            find.value = v;
             return v2;
         }
         throw new NullPointerException("key == null");
@@ -421,63 +402,63 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
 
     @Override // java.util.AbstractMap, java.util.Map
     public V remove(Object obj) {
-        e<K, V> removeInternalByKey = removeInternalByKey(obj);
+        Node<K, V> removeInternalByKey = removeInternalByKey(obj);
         if (removeInternalByKey != null) {
-            return removeInternalByKey.k;
+            return removeInternalByKey.value;
         }
         return null;
     }
 
-    public void removeInternal(e<K, V> eVar, boolean z) {
-        int i;
+    public void removeInternal(Node<K, V> node, boolean z) {
+        int i2;
         if (z) {
-            e<K, V> eVar2 = eVar.i;
-            eVar2.f31325h = eVar.f31325h;
-            eVar.f31325h.i = eVar2;
+            Node<K, V> node2 = node.prev;
+            node2.next = node.next;
+            node.next.prev = node2;
         }
-        e<K, V> eVar3 = eVar.f31323f;
-        e<K, V> eVar4 = eVar.f31324g;
-        e<K, V> eVar5 = eVar.f31322e;
-        int i2 = 0;
-        if (eVar3 != null && eVar4 != null) {
-            e<K, V> b2 = eVar3.l > eVar4.l ? eVar3.b() : eVar4.a();
-            removeInternal(b2, false);
-            e<K, V> eVar6 = eVar.f31323f;
-            if (eVar6 != null) {
-                i = eVar6.l;
-                b2.f31323f = eVar6;
-                eVar6.f31322e = b2;
-                eVar.f31323f = null;
+        Node<K, V> node3 = node.left;
+        Node<K, V> node4 = node.right;
+        Node<K, V> node5 = node.parent;
+        int i3 = 0;
+        if (node3 != null && node4 != null) {
+            Node<K, V> last = node3.height > node4.height ? node3.last() : node4.first();
+            removeInternal(last, false);
+            Node<K, V> node6 = node.left;
+            if (node6 != null) {
+                i2 = node6.height;
+                last.left = node6;
+                node6.parent = last;
+                node.left = null;
             } else {
-                i = 0;
+                i2 = 0;
             }
-            e<K, V> eVar7 = eVar.f31324g;
-            if (eVar7 != null) {
-                i2 = eVar7.l;
-                b2.f31324g = eVar7;
-                eVar7.f31322e = b2;
-                eVar.f31324g = null;
+            Node<K, V> node7 = node.right;
+            if (node7 != null) {
+                i3 = node7.height;
+                last.right = node7;
+                node7.parent = last;
+                node.right = null;
             }
-            b2.l = Math.max(i, i2) + 1;
-            replaceInParent(eVar, b2);
+            last.height = Math.max(i2, i3) + 1;
+            replaceInParent(node, last);
             return;
         }
-        if (eVar3 != null) {
-            replaceInParent(eVar, eVar3);
-            eVar.f31323f = null;
-        } else if (eVar4 != null) {
-            replaceInParent(eVar, eVar4);
-            eVar.f31324g = null;
+        if (node3 != null) {
+            replaceInParent(node, node3);
+            node.left = null;
+        } else if (node4 != null) {
+            replaceInParent(node, node4);
+            node.right = null;
         } else {
-            replaceInParent(eVar, null);
+            replaceInParent(node, null);
         }
-        rebalance(eVar5, false);
+        rebalance(node5, false);
         this.size--;
         this.modCount++;
     }
 
-    public e<K, V> removeInternalByKey(Object obj) {
-        e<K, V> findByObject = findByObject(obj);
+    public Node<K, V> removeInternalByKey(Object obj) {
+        Node<K, V> findByObject = findByObject(obj);
         if (findByObject != null) {
             removeInternal(findByObject, true);
         }
@@ -492,56 +473,32 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     public LinkedTreeMap(Comparator<? super K> comparator) {
         this.size = 0;
         this.modCount = 0;
-        this.header = new e<>();
+        this.header = new Node<>();
         this.comparator = comparator == null ? NATURAL_ORDER : comparator;
     }
 
     /* loaded from: classes6.dex */
-    public static final class e<K, V> implements Map.Entry<K, V> {
+    public static final class Node<K, V> implements Map.Entry<K, V> {
+        public int height;
+        public final K key;
+        public Node<K, V> left;
+        public Node<K, V> next;
+        public Node<K, V> parent;
+        public Node<K, V> prev;
+        public Node<K, V> right;
+        public V value;
 
-        /* renamed from: e  reason: collision with root package name */
-        public e<K, V> f31322e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public e<K, V> f31323f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public e<K, V> f31324g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public e<K, V> f31325h;
-        public e<K, V> i;
-        public final K j;
-        public V k;
-        public int l;
-
-        public e() {
-            this.j = null;
-            this.i = this;
-            this.f31325h = this;
-        }
-
-        public e<K, V> a() {
-            e<K, V> eVar = this;
-            for (e<K, V> eVar2 = this.f31323f; eVar2 != null; eVar2 = eVar2.f31323f) {
-                eVar = eVar2;
-            }
-            return eVar;
-        }
-
-        public e<K, V> b() {
-            e<K, V> eVar = this;
-            for (e<K, V> eVar2 = this.f31324g; eVar2 != null; eVar2 = eVar2.f31324g) {
-                eVar = eVar2;
-            }
-            return eVar;
+        public Node() {
+            this.key = null;
+            this.prev = this;
+            this.next = this;
         }
 
         @Override // java.util.Map.Entry
         public boolean equals(Object obj) {
             if (obj instanceof Map.Entry) {
                 Map.Entry entry = (Map.Entry) obj;
-                K k = this.j;
+                K k = this.key;
                 if (k == null) {
                     if (entry.getKey() != null) {
                         return false;
@@ -549,7 +506,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
                 } else if (!k.equals(entry.getKey())) {
                     return false;
                 }
-                V v = this.k;
+                V v = this.value;
                 if (v == null) {
                     if (entry.getValue() != null) {
                         return false;
@@ -562,43 +519,59 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
             return false;
         }
 
+        public Node<K, V> first() {
+            Node<K, V> node = this;
+            for (Node<K, V> node2 = this.left; node2 != null; node2 = node2.left) {
+                node = node2;
+            }
+            return node;
+        }
+
         @Override // java.util.Map.Entry
         public K getKey() {
-            return this.j;
+            return this.key;
         }
 
         @Override // java.util.Map.Entry
         public V getValue() {
-            return this.k;
+            return this.value;
         }
 
         @Override // java.util.Map.Entry
         public int hashCode() {
-            K k = this.j;
+            K k = this.key;
             int hashCode = k == null ? 0 : k.hashCode();
-            V v = this.k;
+            V v = this.value;
             return hashCode ^ (v != null ? v.hashCode() : 0);
+        }
+
+        public Node<K, V> last() {
+            Node<K, V> node = this;
+            for (Node<K, V> node2 = this.right; node2 != null; node2 = node2.right) {
+                node = node2;
+            }
+            return node;
         }
 
         @Override // java.util.Map.Entry
         public V setValue(V v) {
-            V v2 = this.k;
-            this.k = v;
+            V v2 = this.value;
+            this.value = v;
             return v2;
         }
 
         public String toString() {
-            return this.j + "=" + this.k;
+            return this.key + "=" + this.value;
         }
 
-        public e(e<K, V> eVar, K k, e<K, V> eVar2, e<K, V> eVar3) {
-            this.f31322e = eVar;
-            this.j = k;
-            this.l = 1;
-            this.f31325h = eVar2;
-            this.i = eVar3;
-            eVar3.f31325h = this;
-            eVar2.i = this;
+        public Node(Node<K, V> node, K k, Node<K, V> node2, Node<K, V> node3) {
+            this.parent = node;
+            this.key = k;
+            this.height = 1;
+            this.next = node2;
+            this.prev = node3;
+            node3.next = this;
+            node2.prev = this;
         }
     }
 }

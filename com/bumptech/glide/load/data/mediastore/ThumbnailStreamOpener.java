@@ -30,60 +30,25 @@ public class ThumbnailStreamOpener {
         this(list, DEFAULT_SERVICE, thumbnailQuery, arrayPool, contentResolver);
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x004a: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:28:0x004a */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x004d  */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     @Nullable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private String getPath(@NonNull Uri uri) {
-        Cursor cursor;
-        Cursor cursor2;
-        Cursor cursor3 = null;
-        try {
+        Cursor query = this.query.query(uri);
+        if (query != null) {
             try {
-                cursor = this.query.query(uri);
-                if (cursor != null) {
-                    try {
-                        if (cursor.moveToFirst()) {
-                            String string = cursor.getString(0);
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            return string;
-                        }
-                    } catch (SecurityException e2) {
-                        e = e2;
-                        if (Log.isLoggable(TAG, 3)) {
-                            Log.d(TAG, "Failed to query for thumbnail for Uri: " + uri, e);
-                        }
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        return null;
-                    }
+                if (query.moveToFirst()) {
+                    return query.getString(0);
                 }
-                if (cursor != null) {
-                    cursor.close();
+            } finally {
+                if (query != null) {
+                    query.close();
                 }
-                return null;
-            } catch (Throwable th) {
-                th = th;
-                cursor3 = cursor2;
-                if (cursor3 != null) {
-                    cursor3.close();
-                }
-                throw th;
             }
-        } catch (SecurityException e3) {
-            e = e3;
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (cursor3 != null) {
-            }
-            throw th;
         }
+        if (query != null) {
+            query.close();
+        }
+        return null;
     }
 
     private boolean isValid(File file) {

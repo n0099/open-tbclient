@@ -2,6 +2,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.model;
 
 import androidx.annotation.Keep;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
+import io.reactivex.annotations.SchedulerSupport;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,8 +13,8 @@ public class CheckRequestBodyModel {
     @c(a = "common")
 
     /* renamed from: common  reason: collision with root package name */
-    public Common f30005common;
-    @c(a = "custom")
+    public Common f30921common;
+    @c(a = SchedulerSupport.CUSTOM)
     public Map<String, Map<String, Object>> custom;
     @c(a = "deployment")
     public Map<String, List<ChannelInfo>> deployment;
@@ -125,7 +126,7 @@ public class CheckRequestBodyModel {
     }
 
     public void setCommon(Common common2) {
-        this.f30005common = common2;
+        this.f30921common = common2;
     }
 
     public void setCustom(Map<String, Map<String, Object>> map) {

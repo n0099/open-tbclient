@@ -1,5 +1,6 @@
 package androidx.transition;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -21,21 +22,21 @@ import org.xmlpull.v1.XmlPullParserException;
 public class TransitionInflater {
     public final Context mContext;
     public static final Class<?>[] CONSTRUCTOR_SIGNATURE = {Context.class, AttributeSet.class};
-    public static final ArrayMap<String, Constructor> CONSTRUCTORS = new ArrayMap<>();
+    public static final ArrayMap<String, Constructor<?>> CONSTRUCTORS = new ArrayMap<>();
 
     public TransitionInflater(@NonNull Context context) {
         this.mContext = context;
     }
 
-    private Object createCustom(AttributeSet attributeSet, Class cls, String str) {
+    private Object createCustom(AttributeSet attributeSet, Class<?> cls, String str) {
         Object newInstance;
         Class<? extends U> asSubclass;
         String attributeValue = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
         if (attributeValue != null) {
             try {
                 synchronized (CONSTRUCTORS) {
-                    Constructor constructor = CONSTRUCTORS.get(attributeValue);
-                    if (constructor == null && (asSubclass = this.mContext.getClassLoader().loadClass(attributeValue).asSubclass(cls)) != 0) {
+                    Constructor<?> constructor = CONSTRUCTORS.get(attributeValue);
+                    if (constructor == null && (asSubclass = Class.forName(attributeValue, false, this.mContext.getClassLoader()).asSubclass(cls)) != 0) {
                         constructor = asSubclass.getConstructor(CONSTRUCTOR_SIGNATURE);
                         constructor.setAccessible(true);
                         CONSTRUCTORS.put(attributeValue, constructor);
@@ -159,6 +160,7 @@ public class TransitionInflater {
         return new TransitionInflater(context);
     }
 
+    @SuppressLint({"RestrictedApi"})
     private void getTargetIds(XmlPullParser xmlPullParser, AttributeSet attributeSet, Transition transition) throws XmlPullParserException, IOException {
         int depth = xmlPullParser.getDepth();
         while (true) {
@@ -188,7 +190,7 @@ public class TransitionInflater {
                                     String namedString3 = TypedArrayUtils.getNamedString(obtainStyledAttributes, xmlPullParser, "excludeClass", 3);
                                     if (namedString3 != null) {
                                         try {
-                                            transition.excludeTarget((Class) Class.forName(namedString3), true);
+                                            transition.excludeTarget(Class.forName(namedString3), true);
                                         } catch (ClassNotFoundException e2) {
                                             obtainStyledAttributes.recycle();
                                             throw new RuntimeException("Could not create " + namedString3, e2);
@@ -211,6 +213,7 @@ public class TransitionInflater {
         }
     }
 
+    @SuppressLint({"RestrictedApi"})
     private void loadTransition(AttributeSet attributeSet, XmlPullParser xmlPullParser, ViewGroup viewGroup, TransitionManager transitionManager) throws Resources.NotFoundException {
         Transition inflateTransition;
         TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, Styleable.TRANSITION_MANAGER);
@@ -231,8 +234,8 @@ public class TransitionInflater {
         obtainStyledAttributes.recycle();
     }
 
-    public Transition inflateTransition(int i) {
-        XmlResourceParser xml = this.mContext.getResources().getXml(i);
+    public Transition inflateTransition(int i2) {
+        XmlResourceParser xml = this.mContext.getResources().getXml(i2);
         try {
             try {
                 return createTransitionFromXml(xml, Xml.asAttributeSet(xml), null);
@@ -246,8 +249,8 @@ public class TransitionInflater {
         }
     }
 
-    public TransitionManager inflateTransitionManager(int i, ViewGroup viewGroup) {
-        XmlResourceParser xml = this.mContext.getResources().getXml(i);
+    public TransitionManager inflateTransitionManager(int i2, ViewGroup viewGroup) {
+        XmlResourceParser xml = this.mContext.getResources().getXml(i2);
         try {
             try {
                 return createTransitionManagerFromXml(xml, Xml.asAttributeSet(xml), viewGroup);

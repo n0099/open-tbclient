@@ -6,25 +6,25 @@ import org.json.JSONObject;
 public class VideoOption {
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f38441a;
+    public final boolean f36009a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f38442b;
+    public final int f36010b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f38443c;
+    public final boolean f36011c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f38444d;
+    public final boolean f36012d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f38445e;
+    public final boolean f36013e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f38446f;
+    public final boolean f36014f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f38447g;
+    public final boolean f36015g;
 
     /* loaded from: classes6.dex */
     public static final class AutoPlayPolicy {
@@ -37,66 +37,66 @@ public class VideoOption {
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f38448a = true;
+        public boolean f36016a = true;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f38449b = 1;
+        public int f36017b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f38450c = true;
+        public boolean f36018c = true;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f38451d = true;
+        public boolean f36019d = true;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f38452e = true;
+        public boolean f36020e = true;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f38453f = false;
+        public boolean f36021f = false;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f38454g = false;
+        public boolean f36022g = false;
 
         public final VideoOption build() {
             return new VideoOption(this, (byte) 0);
         }
 
         public final Builder setAutoPlayMuted(boolean z) {
-            this.f38448a = z;
+            this.f36016a = z;
             return this;
         }
 
-        public final Builder setAutoPlayPolicy(int i) {
-            if (i < 0 || i > 2) {
+        public final Builder setAutoPlayPolicy(int i2) {
+            if (i2 < 0 || i2 > 2) {
                 GDTLogger.e("invalid value of autoPlayPolicy, can only be [0, 2], reset to : 1");
-                i = 1;
+                i2 = 1;
             }
-            this.f38449b = i;
+            this.f36017b = i2;
             return this;
         }
 
         public final Builder setDetailPageMuted(boolean z) {
-            this.f38454g = z;
+            this.f36022g = z;
             return this;
         }
 
         public final Builder setEnableDetailPage(boolean z) {
-            this.f38452e = z;
+            this.f36020e = z;
             return this;
         }
 
         public final Builder setEnableUserControl(boolean z) {
-            this.f38453f = z;
+            this.f36021f = z;
             return this;
         }
 
         public final Builder setNeedCoverImage(boolean z) {
-            this.f38451d = z;
+            this.f36019d = z;
             return this;
         }
 
         public final Builder setNeedProgressBar(boolean z) {
-            this.f38450c = z;
+            this.f36018c = z;
             return this;
         }
     }
@@ -118,13 +118,13 @@ public class VideoOption {
     }
 
     public VideoOption(Builder builder) {
-        this.f38441a = builder.f38448a;
-        this.f38442b = builder.f38449b;
-        this.f38443c = builder.f38450c;
-        this.f38444d = builder.f38451d;
-        this.f38445e = builder.f38452e;
-        this.f38446f = builder.f38453f;
-        this.f38447g = builder.f38454g;
+        this.f36009a = builder.f36016a;
+        this.f36010b = builder.f36017b;
+        this.f36011c = builder.f36018c;
+        this.f36012d = builder.f36019d;
+        this.f36013e = builder.f36020e;
+        this.f36014f = builder.f36021f;
+        this.f36015g = builder.f36022g;
     }
 
     public /* synthetic */ VideoOption(Builder builder, byte b2) {
@@ -132,19 +132,19 @@ public class VideoOption {
     }
 
     public boolean getAutoPlayMuted() {
-        return this.f38441a;
+        return this.f36009a;
     }
 
     public int getAutoPlayPolicy() {
-        return this.f38442b;
+        return this.f36010b;
     }
 
     public JSONObject getOptions() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.putOpt("autoPlayMuted", Boolean.valueOf(this.f38441a));
-            jSONObject.putOpt("autoPlayPolicy", Integer.valueOf(this.f38442b));
-            jSONObject.putOpt("detailPageMuted", Boolean.valueOf(this.f38447g));
+            jSONObject.putOpt("autoPlayMuted", Boolean.valueOf(this.f36009a));
+            jSONObject.putOpt("autoPlayPolicy", Integer.valueOf(this.f36010b));
+            jSONObject.putOpt("detailPageMuted", Boolean.valueOf(this.f36015g));
         } catch (Exception e2) {
             GDTLogger.e("Get video options error: " + e2.getMessage());
         }
@@ -152,22 +152,22 @@ public class VideoOption {
     }
 
     public boolean isDetailPageMuted() {
-        return this.f38447g;
+        return this.f36015g;
     }
 
     public boolean isEnableDetailPage() {
-        return this.f38445e;
+        return this.f36013e;
     }
 
     public boolean isEnableUserControl() {
-        return this.f38446f;
+        return this.f36014f;
     }
 
     public boolean isNeedCoverImage() {
-        return this.f38444d;
+        return this.f36012d;
     }
 
     public boolean isNeedProgressBar() {
-        return this.f38443c;
+        return this.f36011c;
     }
 }

@@ -2,11 +2,11 @@ package com.vivo.push.b;
 
 import android.text.TextUtils;
 import com.vivo.push.model.UnvarnishedMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class q extends x {
 
     /* renamed from: a  reason: collision with root package name */
-    public UnvarnishedMessage f39775a;
+    public UnvarnishedMessage f37378a;
 
     public q() {
         super(3);
@@ -15,7 +15,7 @@ public final class q extends x {
     @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("msg_v1", this.f39775a.unpackToJson());
+        aVar.a("msg_v1", this.f37378a.unpackToJson());
     }
 
     @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
@@ -26,12 +26,12 @@ public final class q extends x {
             return;
         }
         UnvarnishedMessage unvarnishedMessage = new UnvarnishedMessage(a2);
-        this.f39775a = unvarnishedMessage;
+        this.f37378a = unvarnishedMessage;
         unvarnishedMessage.setMsgId(f());
     }
 
     public final UnvarnishedMessage e() {
-        return this.f39775a;
+        return this.f37378a;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -40,7 +40,7 @@ public final class q extends x {
     }
 
     public final String d() {
-        UnvarnishedMessage unvarnishedMessage = this.f39775a;
+        UnvarnishedMessage unvarnishedMessage = this.f37378a;
         if (unvarnishedMessage == null) {
             return null;
         }

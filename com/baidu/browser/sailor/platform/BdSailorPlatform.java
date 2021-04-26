@@ -28,7 +28,7 @@ import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.dumper.CrashCallback;
-import d.b.h.b.d.b;
+import d.a.h.b.d.b;
 import java.io.File;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
@@ -49,7 +49,7 @@ public final class BdSailorPlatform implements INoProGuard {
     public Handler mHandler;
     public a mNetworkChangedReciever;
     public HashMap<String, com.baidu.browser.sailor.feature.a> mSailorFeatureMap;
-    public d.b.h.b.d.c.a mSailorStatic;
+    public d.a.h.b.d.c.a mSailorStatic;
     public BdWebkitManager mWebkitMgr;
     public String mWorkspace;
     public boolean mNeedFix = true;
@@ -81,7 +81,7 @@ public final class BdSailorPlatform implements INoProGuard {
 
     public BdSailorPlatform() {
         Log.d(TAG, "BdSailorPlatform");
-        this.mSailorStatic = new d.b.h.b.d.c.a();
+        this.mSailorStatic = new d.a.h.b.d.c.a();
         this.mWebkitMgr = new BdWebkitManager();
         this.mSailorFeatureMap = new HashMap<>(4);
     }
@@ -120,7 +120,7 @@ public final class BdSailorPlatform implements INoProGuard {
         return bdSailorPlatform;
     }
 
-    public static d.b.h.b.d.c.a getStatic() {
+    public static d.a.h.b.d.c.a getStatic() {
         return getInstance().mSailorStatic;
     }
 
@@ -233,9 +233,9 @@ public final class BdSailorPlatform implements INoProGuard {
         }
     }
 
-    private void setNetworkType(int i) {
-        this.mNetworkType = i;
-        if (1 == i || -1 == i) {
+    private void setNetworkType(int i2) {
+        this.mNetworkType = i2;
+        if (1 == i2 || -1 == i2) {
             BdSailor.getInstance().getSailorSettings().setSaveFlow(false);
         }
     }
@@ -256,10 +256,10 @@ public final class BdSailorPlatform implements INoProGuard {
     }
 
     public final void clearCache(boolean z) {
-        d.b.h.b.f.a a2 = d.b.h.b.f.a.a();
+        d.a.h.b.f.a a2 = d.a.h.b.f.a.a();
         try {
             a2.e();
-            a2.f43810b.clearCache(z);
+            a2.f41068b.clearCache(z);
         } catch (Exception e2) {
             Log.printStackTrace(e2);
         }
@@ -273,8 +273,8 @@ public final class BdSailorPlatform implements INoProGuard {
                 this.mHandler.removeMessages(1);
                 this.mHandler = null;
             }
-            d.b.h.b.d.a.a.a();
-            d.b.h.b.f.a.b();
+            d.a.h.b.d.a.a.a();
+            d.a.h.b.f.a.b();
             WebKitFactory.destroy();
             this.mContext = null;
         } catch (Exception e2) {
@@ -367,11 +367,11 @@ public final class BdSailorPlatform implements INoProGuard {
             bdWebkitManager.initWebkit(str, z, cls);
         }
         long currentTimeMillis = System.currentTimeMillis();
-        d.b.h.b.f.a a2 = d.b.h.b.f.a.a();
+        d.a.h.b.f.a a2 = d.a.h.b.f.a.a();
         Context appContext = getAppContext();
-        if (a2.f43809a == null) {
-            a2.f43809a = appContext.getApplicationContext();
-            Log.d(d.b.h.b.f.a.f43807d, "in BdWebViewSingleton, init");
+        if (a2.f41067a == null) {
+            a2.f41067a = appContext.getApplicationContext();
+            Log.d(d.a.h.b.f.a.f41065d, "in BdWebViewSingleton, init");
         }
         this.mIsWebkitInited = true;
         long currentTimeMillis2 = System.currentTimeMillis();
@@ -418,14 +418,14 @@ public final class BdSailorPlatform implements INoProGuard {
         bdUploadFeature.onDestroy(activity);
     }
 
-    public final void onActivityResult(Activity activity, int i, int i2, Intent intent) {
-        if (11 == i) {
-            ((BdUploadFeature) findSailorFeature(BdSailorConfig.SAILOR_BASE_UPLOAD)).onResult(activity, i2, intent);
+    public final void onActivityResult(Activity activity, int i2, int i3, Intent intent) {
+        if (11 == i2) {
+            ((BdUploadFeature) findSailorFeature(BdSailorConfig.SAILOR_BASE_UPLOAD)).onResult(activity, i3, intent);
         }
     }
 
-    public final void onReceivedNetworkType(int i) {
-        setNetworkType(i);
+    public final void onReceivedNetworkType(int i2) {
+        setNetworkType(i2);
     }
 
     public final void pause() {
@@ -447,7 +447,7 @@ public final class BdSailorPlatform implements INoProGuard {
                 this.mHandler.removeMessages(1);
                 if (this.mWebkitTimerPaused) {
                     Log.d(TAG, "do resume");
-                    d.b.h.b.f.a.a().d();
+                    d.a.h.b.f.a.a().d();
                     CookieSyncManager createInstance = CookieSyncManager.createInstance(this.mContext);
                     if (createInstance != null) {
                         createInstance.startSync();

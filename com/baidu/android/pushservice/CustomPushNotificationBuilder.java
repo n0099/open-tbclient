@@ -19,11 +19,11 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
     public int mLayoutTextId;
     public int mLayoutTitleId;
 
-    public CustomPushNotificationBuilder(int i, int i2, int i3, int i4) {
-        this.mLayoutId = i;
-        this.mLayoutIconId = i2;
-        this.mLayoutTitleId = i3;
-        this.mLayoutTextId = i4;
+    public CustomPushNotificationBuilder(int i2, int i3, int i4, int i5) {
+        this.mLayoutId = i2;
+        this.mLayoutIconId = i3;
+        this.mLayoutTitleId = i4;
+        this.mLayoutTextId = i5;
     }
 
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
@@ -35,8 +35,8 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
         }
         int readInt = objectInputStream.readInt();
         this.mVibratePattern = new long[readInt];
-        for (int i = 0; i < readInt; i++) {
-            this.mVibratePattern[i] = objectInputStream.readLong();
+        for (int i2 = 0; i2 < readInt; i2++) {
+            this.mVibratePattern[i2] = objectInputStream.readLong();
         }
         this.mNotificationTitle = (String) objectInputStream.readObject();
         this.mNotificationText = (String) objectInputStream.readObject();
@@ -54,7 +54,7 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
         objectOutputStream.writeInt(this.mStatusbarIcon);
         objectOutputStream.writeInt(this.mNotificationFlags);
         objectOutputStream.writeInt(this.mNotificationDefaults);
-        int i = 0;
+        int i2 = 0;
         if (this.mNotificationsound != null) {
             objectOutputStream.writeBoolean(true);
             objectOutputStream.writeObject(this.mNotificationsound);
@@ -66,11 +66,11 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
             objectOutputStream.writeInt(jArr.length);
             while (true) {
                 long[] jArr2 = this.mVibratePattern;
-                if (i >= jArr2.length) {
+                if (i2 >= jArr2.length) {
                     break;
                 }
-                objectOutputStream.writeLong(jArr2[i]);
-                i++;
+                objectOutputStream.writeLong(jArr2[i2]);
+                i2++;
             }
         } else {
             objectOutputStream.writeInt(0);
@@ -90,11 +90,11 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
     @Override // com.baidu.android.pushservice.PushNotificationBuilder
     @SuppressLint({"NewApi"})
     public Notification construct(Context context) {
-        int i;
+        int i2;
         Notification.Builder builder = new Notification.Builder(context);
-        int i2 = this.mNotificationDefaults;
-        if (i2 != 0) {
-            builder.setDefaults(i2);
+        int i3 = this.mNotificationDefaults;
+        if (i3 != 0) {
+            builder.setDefaults(i3);
         }
         String str = this.mNotificationsound;
         if (str != null) {
@@ -104,15 +104,15 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
         if (jArr != null) {
             builder.setVibrate(jArr);
         }
-        int i3 = this.mStatusbarIcon;
-        if (i3 != 0) {
-            builder.setSmallIcon(i3);
+        int i4 = this.mStatusbarIcon;
+        if (i4 != 0) {
+            builder.setSmallIcon(i4);
         }
         if (this.mLayoutId != 0) {
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), this.mLayoutId);
-            int i4 = this.mLayoutIconDrawable;
-            if (i4 != 0) {
-                remoteViews.setImageViewResource(this.mLayoutIconId, i4);
+            int i5 = this.mLayoutIconDrawable;
+            if (i5 != 0) {
+                remoteViews.setImageViewResource(this.mLayoutIconId, i5);
             }
             String str2 = this.mNotificationTitle;
             if (str2 != null) {
@@ -127,8 +127,8 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
             builder.setContentTitle(this.mNotificationTitle);
             builder.setContentText(this.mNotificationText);
         }
-        if (Build.VERSION.SDK_INT >= 21 && (i = this.mColor) != 0) {
-            builder.setColor(i);
+        if (Build.VERSION.SDK_INT >= 21 && (i2 = this.mColor) != 0) {
+            builder.setColor(i2);
         }
         if (m.p(context)) {
             if (TextUtils.isEmpty(this.mChannelId)) {
@@ -141,14 +141,14 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
             builder.setChannelId(this.mChannelId);
         }
         Notification build = Build.VERSION.SDK_INT >= 16 ? builder.build() : builder.getNotification();
-        int i5 = this.mNotificationFlags;
-        if (i5 != 0 && build != null) {
-            build.flags = i5;
+        int i6 = this.mNotificationFlags;
+        if (i6 != 0 && build != null) {
+            build.flags = i6;
         }
         return build;
     }
 
-    public void setLayoutDrawable(int i) {
-        this.mLayoutIconDrawable = i;
+    public void setLayoutDrawable(int i2) {
+        this.mLayoutIconDrawable = i2;
     }
 }

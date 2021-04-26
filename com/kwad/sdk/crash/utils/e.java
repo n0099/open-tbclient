@@ -23,21 +23,21 @@ public class e {
     public static class b extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final PrintWriter f34875a;
+        public final PrintWriter f33842a;
 
         public b(PrintWriter printWriter) {
             super();
-            this.f34875a = printWriter;
+            this.f33842a = printWriter;
         }
 
         @Override // com.kwad.sdk.crash.utils.e.a
         public Object a() {
-            return this.f34875a;
+            return this.f33842a;
         }
 
         @Override // com.kwad.sdk.crash.utils.e.a
         public void a(Object obj) {
-            this.f34875a.println(obj);
+            this.f33842a.println(obj);
         }
     }
 

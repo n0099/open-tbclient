@@ -17,21 +17,21 @@ import java.util.zip.ZipFile;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f38243a;
+    public final File f35802a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f38244b;
+    public final File f35803b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38245c;
+    public String f35804c;
 
     public e(String str, String str2) {
-        this.f38243a = new File(str);
+        this.f35802a = new File(str);
         File file = new File(str2);
-        this.f38244b = file;
-        this.f38245c = file.getAbsolutePath();
-        d.k.a.a.a.d("ZipExtractTask", "Extract mInput file = " + this.f38243a.toString());
-        d.k.a.a.a.d("ZipExtractTask", "Extract mOutput file = " + this.f38244b.toString());
+        this.f35803b = file;
+        this.f35804c = file.getAbsolutePath();
+        d.j.a.a.a.d("ZipExtractTask", "Extract mInput file = " + this.f35802a.toString());
+        d.j.a.a.a.d("ZipExtractTask", "Extract mOutput file = " + this.f35803b.toString());
     }
 
     private int a(InputStream inputStream, OutputStream outputStream) {
@@ -39,7 +39,7 @@ public class e {
         byte[] bArr = new byte[8192];
         BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream, 8192);
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream, 8192);
-        int i = 0;
+        int i2 = 0;
         while (true) {
             try {
                 try {
@@ -48,13 +48,13 @@ public class e {
                         break;
                     }
                     bufferedOutputStream.write(bArr, 0, read);
-                    i += read;
+                    i2 += read;
                 } catch (IOException e2) {
-                    d.k.a.a.a.b("ZipExtractTask", "Extracted IOException:" + e2.toString());
+                    d.j.a.a.a.b("ZipExtractTask", "Extracted IOException:" + e2.toString());
                     try {
                         bufferedOutputStream.close();
                     } catch (IOException e3) {
-                        d.k.a.a.a.b("ZipExtractTask", "out.close() IOException e=" + e3.toString());
+                        d.j.a.a.a.b("ZipExtractTask", "out.close() IOException e=" + e3.toString());
                     }
                     try {
                         bufferedInputStream.close();
@@ -63,20 +63,20 @@ public class e {
                         sb = new StringBuilder();
                         sb.append("in.close() IOException e=");
                         sb.append(e.toString());
-                        d.k.a.a.a.b("ZipExtractTask", sb.toString());
-                        return i;
+                        d.j.a.a.a.b("ZipExtractTask", sb.toString());
+                        return i2;
                     }
                 }
             } catch (Throwable th) {
                 try {
                     bufferedOutputStream.close();
                 } catch (IOException e5) {
-                    d.k.a.a.a.b("ZipExtractTask", "out.close() IOException e=" + e5.toString());
+                    d.j.a.a.a.b("ZipExtractTask", "out.close() IOException e=" + e5.toString());
                 }
                 try {
                     bufferedInputStream.close();
                 } catch (IOException e6) {
-                    d.k.a.a.a.b("ZipExtractTask", "in.close() IOException e=" + e6.toString());
+                    d.j.a.a.a.b("ZipExtractTask", "in.close() IOException e=" + e6.toString());
                 }
                 throw th;
             }
@@ -85,7 +85,7 @@ public class e {
         try {
             bufferedOutputStream.close();
         } catch (IOException e7) {
-            d.k.a.a.a.b("ZipExtractTask", "out.close() IOException e=" + e7.toString());
+            d.j.a.a.a.b("ZipExtractTask", "out.close() IOException e=" + e7.toString());
         }
         try {
             bufferedInputStream.close();
@@ -94,20 +94,20 @@ public class e {
             sb = new StringBuilder();
             sb.append("in.close() IOException e=");
             sb.append(e.toString());
-            d.k.a.a.a.b("ZipExtractTask", sb.toString());
-            return i;
+            d.j.a.a.a.b("ZipExtractTask", sb.toString());
+            return i2;
         }
-        return i;
+        return i2;
     }
 
     private void b() {
         StringBuilder sb;
         String str;
-        File file = this.f38243a;
+        File file = this.f35802a;
         if (file == null || !file.exists()) {
             return;
         }
-        if (this.f38243a.delete()) {
+        if (this.f35802a.delete()) {
             sb = new StringBuilder();
             str = "Delete file:";
         } else {
@@ -115,9 +115,9 @@ public class e {
             str = "Can't delete file:";
         }
         sb.append(str);
-        sb.append(this.f38243a.toString());
+        sb.append(this.f35802a.toString());
         sb.append(" after extracted.");
-        d.k.a.a.a.d("ZipExtractTask", sb.toString());
+        d.j.a.a.a.d("ZipExtractTask", sb.toString());
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0047, code lost:
@@ -125,7 +125,7 @@ public class e {
      */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0049, code lost:
         r7 = r13.split("/")[0];
-        d.k.a.a.a.d("ZipExtractTask", "Extract temp directory=" + r18.f38244b + "/" + r7);
+        d.j.a.a.a.d("ZipExtractTask", "Extract temp directory=" + r18.f35803b + "/" + r7);
      */
     /* JADX WARN: Removed duplicated region for block: B:74:0x01e8  */
     /*
@@ -150,7 +150,7 @@ public class e {
         long j2 = 0;
         try {
             try {
-                zipFile = new ZipFile(this.f38243a);
+                zipFile = new ZipFile(this.f35802a);
             } catch (Throwable th2) {
                 th = th2;
             }
@@ -176,35 +176,35 @@ public class e {
                     if (name != null && name.contains(Constants.PATH_PARENT)) {
                         throw new Exception("unsecurity zip file");
                     }
-                    File file = new File(this.f38244b, name);
+                    File file = new File(this.f35803b, name);
                     if (!file.getParentFile().exists()) {
                         if (file.getParentFile().mkdirs()) {
                             str2 = "Make Destination directory=" + file.getParentFile().getAbsolutePath();
                         } else {
                             str2 = "Can't make destination directory=" + file.getParentFile().getAbsolutePath();
                         }
-                        d.k.a.a.a.d("ZipExtractTask", str2);
+                        d.j.a.a.a.d("ZipExtractTask", str2);
                     }
                     j2 += a(zipFile.getInputStream(nextElement), fileOutputStream);
                     new FileOutputStream(file).close();
                 }
             }
-            String str4 = this.f38244b + "/" + str3;
-            if (!this.f38245c.equals(str4)) {
-                a.a(str4, this.f38245c);
+            String str4 = this.f35803b + "/" + str3;
+            if (!this.f35804c.equals(str4)) {
+                a.a(str4, this.f35804c);
                 z = true;
             }
             try {
                 zipFile.close();
             } catch (IOException e5) {
-                d.k.a.a.a.b("ZipExtractTask", "Extracted IOException:" + e5.toString());
+                d.j.a.a.a.b("ZipExtractTask", "Extracted IOException:" + e5.toString());
             }
         } catch (ZipException e6) {
             e = e6;
             str = null;
             zipFile4 = zipFile;
             j = 0;
-            d.k.a.a.a.b("ZipExtractTask", "ZipException :" + e.toString());
+            d.j.a.a.a.b("ZipExtractTask", "ZipException :" + e.toString());
             if (zipFile4 != null) {
                 try {
                     zipFile4.close();
@@ -213,11 +213,11 @@ public class e {
                     sb = new StringBuilder();
                     sb.append("Extracted IOException:");
                     sb.append(iOException.toString());
-                    d.k.a.a.a.b("ZipExtractTask", sb.toString());
+                    d.j.a.a.a.b("ZipExtractTask", sb.toString());
                     str3 = str;
                     j2 = j;
                     long currentThreadTimeMillis2 = SystemClock.currentThreadTimeMillis();
-                    d.k.a.a.a.d("ZipExtractTask", "Extract file " + this.f38243a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2 - currentThreadTimeMillis));
+                    d.j.a.a.a.d("ZipExtractTask", "Extract file " + this.f35802a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2 - currentThreadTimeMillis));
                     if (z) {
                     }
                     b();
@@ -227,7 +227,7 @@ public class e {
             str3 = str;
             j2 = j;
             long currentThreadTimeMillis22 = SystemClock.currentThreadTimeMillis();
-            d.k.a.a.a.d("ZipExtractTask", "Extract file " + this.f38243a + ", UseTime =" + String.valueOf(currentThreadTimeMillis22 - currentThreadTimeMillis));
+            d.j.a.a.a.d("ZipExtractTask", "Extract file " + this.f35802a + ", UseTime =" + String.valueOf(currentThreadTimeMillis22 - currentThreadTimeMillis));
             if (z) {
             }
             b();
@@ -237,7 +237,7 @@ public class e {
             str = null;
             zipFile5 = zipFile;
             j = 0;
-            d.k.a.a.a.b("ZipExtractTask", "Extracted IOException:" + e.toString());
+            d.j.a.a.a.b("ZipExtractTask", "Extracted IOException:" + e.toString());
             if (zipFile5 != null) {
                 try {
                     zipFile5.close();
@@ -246,11 +246,11 @@ public class e {
                     sb = new StringBuilder();
                     sb.append("Extracted IOException:");
                     sb.append(iOException.toString());
-                    d.k.a.a.a.b("ZipExtractTask", sb.toString());
+                    d.j.a.a.a.b("ZipExtractTask", sb.toString());
                     str3 = str;
                     j2 = j;
                     long currentThreadTimeMillis222 = SystemClock.currentThreadTimeMillis();
-                    d.k.a.a.a.d("ZipExtractTask", "Extract file " + this.f38243a + ", UseTime =" + String.valueOf(currentThreadTimeMillis222 - currentThreadTimeMillis));
+                    d.j.a.a.a.d("ZipExtractTask", "Extract file " + this.f35802a + ", UseTime =" + String.valueOf(currentThreadTimeMillis222 - currentThreadTimeMillis));
                     if (z) {
                     }
                     b();
@@ -260,7 +260,7 @@ public class e {
             str3 = str;
             j2 = j;
             long currentThreadTimeMillis2222 = SystemClock.currentThreadTimeMillis();
-            d.k.a.a.a.d("ZipExtractTask", "Extract file " + this.f38243a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2222 - currentThreadTimeMillis));
+            d.j.a.a.a.d("ZipExtractTask", "Extract file " + this.f35802a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2222 - currentThreadTimeMillis));
             if (z) {
             }
             b();
@@ -270,7 +270,7 @@ public class e {
             str = null;
             zipFile2 = zipFile;
             j = 0;
-            d.k.a.a.a.b("ZipExtractTask", "Extracted Exception " + e.toString());
+            d.j.a.a.a.b("ZipExtractTask", "Extracted Exception " + e.toString());
             if (zipFile2 != null) {
                 try {
                     zipFile2.close();
@@ -279,11 +279,11 @@ public class e {
                     sb = new StringBuilder();
                     sb.append("Extracted IOException:");
                     sb.append(iOException.toString());
-                    d.k.a.a.a.b("ZipExtractTask", sb.toString());
+                    d.j.a.a.a.b("ZipExtractTask", sb.toString());
                     str3 = str;
                     j2 = j;
                     long currentThreadTimeMillis22222 = SystemClock.currentThreadTimeMillis();
-                    d.k.a.a.a.d("ZipExtractTask", "Extract file " + this.f38243a + ", UseTime =" + String.valueOf(currentThreadTimeMillis22222 - currentThreadTimeMillis));
+                    d.j.a.a.a.d("ZipExtractTask", "Extract file " + this.f35802a + ", UseTime =" + String.valueOf(currentThreadTimeMillis22222 - currentThreadTimeMillis));
                     if (z) {
                     }
                     b();
@@ -293,7 +293,7 @@ public class e {
             str3 = str;
             j2 = j;
             long currentThreadTimeMillis222222 = SystemClock.currentThreadTimeMillis();
-            d.k.a.a.a.d("ZipExtractTask", "Extract file " + this.f38243a + ", UseTime =" + String.valueOf(currentThreadTimeMillis222222 - currentThreadTimeMillis));
+            d.j.a.a.a.d("ZipExtractTask", "Extract file " + this.f35802a + ", UseTime =" + String.valueOf(currentThreadTimeMillis222222 - currentThreadTimeMillis));
             if (z) {
             }
             b();
@@ -305,15 +305,15 @@ public class e {
                 try {
                     zipFile3.close();
                 } catch (IOException e12) {
-                    d.k.a.a.a.b("ZipExtractTask", "Extracted IOException:" + e12.toString());
+                    d.j.a.a.a.b("ZipExtractTask", "Extracted IOException:" + e12.toString());
                 }
             }
             throw th;
         }
         long currentThreadTimeMillis2222222 = SystemClock.currentThreadTimeMillis();
-        d.k.a.a.a.d("ZipExtractTask", "Extract file " + this.f38243a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2222222 - currentThreadTimeMillis));
+        d.j.a.a.a.d("ZipExtractTask", "Extract file " + this.f35802a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2222222 - currentThreadTimeMillis));
         if (z) {
-            a.b(this.f38244b + "/" + str3);
+            a.b(this.f35803b + "/" + str3);
         }
         b();
         return j2;

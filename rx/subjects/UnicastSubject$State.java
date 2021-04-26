@@ -6,9 +6,9 @@ import h.f;
 import h.j;
 import h.k;
 import h.n.a;
-import h.o.d.k.f0;
-import h.o.d.k.y;
-import h.o.d.k.z;
+import h.o.d.j.f0;
+import h.o.d.j.y;
+import h.o.d.j.z;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
@@ -26,13 +26,13 @@ public final class UnicastSubject$State<T> extends AtomicLong implements f, e<T>
     public final AtomicReference<j<? super T>> subscriber = new AtomicReference<>();
     public final AtomicReference<a> terminateOnce;
 
-    public UnicastSubject$State(int i, a aVar) {
+    public UnicastSubject$State(int i2, a aVar) {
         Queue<Object> yVar;
         this.terminateOnce = aVar != null ? new AtomicReference<>(aVar) : null;
-        if (i > 1) {
-            yVar = f0.b() ? new z<>(i) : new h.o.d.j.f<>(i);
+        if (i2 > 1) {
+            yVar = f0.b() ? new z<>(i2) : new h.o.d.i.f<>(i2);
         } else {
-            yVar = f0.b() ? new y<>() : new h.o.d.j.e<>();
+            yVar = f0.b() ? new y<>() : new h.o.d.i.e<>();
         }
         this.queue = yVar;
     }
@@ -223,11 +223,11 @@ public final class UnicastSubject$State<T> extends AtomicLong implements f, e<T>
 
     @Override // h.f
     public void request(long j) {
-        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i < 0) {
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i2 < 0) {
             throw new IllegalArgumentException("n >= 0 required");
         }
-        if (i > 0) {
+        if (i2 > 0) {
             h.o.a.a.b(this, j);
             replay();
         } else if (this.done) {

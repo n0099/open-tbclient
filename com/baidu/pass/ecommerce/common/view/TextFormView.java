@@ -33,9 +33,9 @@ public class TextFormView extends FrameLayout {
         this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_bottom_line_bg_dark_color));
     }
 
-    public TextFormView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.SapiSdkTextFormView, i, 0);
+    public TextFormView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.SapiSdkTextFormView, i2, 0);
         this.mTextStr = obtainStyledAttributes.getString(R.styleable.SapiSdkTextFormView_SapiSdkActionText);
         this.mIsShowBottomLine = obtainStyledAttributes.getBoolean(R.styleable.SapiSdkTextFormView_SapiSdkShowTextBottomLine, true);
         obtainStyledAttributes.recycle();

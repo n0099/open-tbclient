@@ -7,14 +7,14 @@ import android.view.Window;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-import d.b.h0.a.i2.k0;
-import d.b.h0.a.k;
-import d.b.h0.a.k1.c;
-import d.b.h0.a.n1.c.a;
-import d.b.h0.a.x1.b;
-/* loaded from: classes2.dex */
+import d.a.h0.a.i2.k0;
+import d.a.h0.a.k;
+import d.a.h0.a.k1.c;
+import d.a.h0.a.n1.c.a;
+import d.a.h0.a.x1.b;
+/* loaded from: classes.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
-    public static final boolean DEBUG = k.f45772a;
+    public static final boolean DEBUG = k.f43101a;
     public static final String TAG = "SwanAppBaseActivity";
     public c mPermissionHandler;
     public b mSkinDecorator = null;
@@ -23,7 +23,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
         return this.mSkinDecorator;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, d.b.h0.m.a.a.f, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, d.a.h0.m.a.a.f, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         int V = k0.V(this);
         super.onCreate(bundle);
@@ -50,7 +50,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
         }
         if (z2) {
             a e2 = a.e();
-            d.b.h0.a.n1.c.c cVar = new d.b.h0.a.n1.c.c(5);
+            d.a.h0.a.n1.c.c cVar = new d.a.h0.a.n1.c.c(5);
             cVar.f(true);
             e2.h(cVar);
         }
@@ -59,28 +59,28 @@ public class SwanAppBaseActivity extends FragmentActivity {
     @Override // android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        boolean a2 = d.b.h0.a.w0.a.z().a();
-        d.b.h0.a.y0.c.a.e(Boolean.valueOf(a2));
+        boolean a2 = d.a.h0.a.w0.a.z().a();
+        d.a.h0.a.y0.c.a.e(Boolean.valueOf(a2));
         onNightModeCoverChanged(a2, false);
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, d.b.h0.m.a.a.a.b
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, d.a.h0.m.a.a.a.b
+    public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         c cVar = this.mPermissionHandler;
         if (cVar != null) {
-            cVar.c(this, i, strArr, iArr);
+            cVar.c(this, i2, strArr, iArr);
         } else {
-            superOnRequestPermissionsResult(i, strArr, iArr);
+            superOnRequestPermissionsResult(i2, strArr, iArr);
         }
     }
 
-    public void requestPermissionsExt(int i, @NonNull String[] strArr, c.a aVar) {
+    public void requestPermissionsExt(int i2, @NonNull String[] strArr, c.a aVar) {
         c b2 = c.b();
         this.mPermissionHandler = b2;
-        b2.d(this, i, strArr, aVar);
+        b2.d(this, i2, strArr, aVar);
     }
 
-    public void superOnRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        super.onRequestPermissionsResult(i, strArr, iArr);
+    public void superOnRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+        super.onRequestPermissionsResult(i2, strArr, iArr);
     }
 }

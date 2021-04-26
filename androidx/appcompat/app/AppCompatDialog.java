@@ -24,18 +24,24 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
         this(context, 0);
     }
 
-    public static int getThemeResId(Context context, int i) {
-        if (i == 0) {
+    public static int getThemeResId(Context context, int i2) {
+        if (i2 == 0) {
             TypedValue typedValue = new TypedValue();
             context.getTheme().resolveAttribute(R.attr.dialogTheme, typedValue, true);
             return typedValue.resourceId;
         }
-        return i;
+        return i2;
     }
 
     @Override // android.app.Dialog
     public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
         getDelegate().addContentView(view, layoutParams);
+    }
+
+    @Override // android.app.Dialog, android.content.DialogInterface
+    public void dismiss() {
+        super.dismiss();
+        getDelegate().onDestroy();
     }
 
     @Override // android.app.Dialog, android.view.Window.Callback
@@ -45,8 +51,8 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
 
     @Override // android.app.Dialog
     @Nullable
-    public <T extends View> T findViewById(@IdRes int i) {
-        return (T) getDelegate().findViewById(i);
+    public <T extends View> T findViewById(@IdRes int i2) {
+        return (T) getDelegate().findViewById(i2);
     }
 
     public AppCompatDelegate getDelegate() {
@@ -61,7 +67,7 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // android.app.Dialog
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void invalidateOptionsMenu() {
         getDelegate().invalidateOptionsMenu();
     }
@@ -94,8 +100,8 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // android.app.Dialog
-    public void setContentView(@LayoutRes int i) {
-        getDelegate().setContentView(i);
+    public void setContentView(@LayoutRes int i2) {
+        getDelegate().setContentView(i2);
     }
 
     @Override // android.app.Dialog
@@ -108,20 +114,21 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
         return super.dispatchKeyEvent(keyEvent);
     }
 
-    public boolean supportRequestWindowFeature(int i) {
-        return getDelegate().requestWindowFeature(i);
+    public boolean supportRequestWindowFeature(int i2) {
+        return getDelegate().requestWindowFeature(i2);
     }
 
-    public AppCompatDialog(Context context, int i) {
-        super(context, getThemeResId(context, i));
+    public AppCompatDialog(Context context, int i2) {
+        super(context, getThemeResId(context, i2));
         this.mKeyDispatcher = new KeyEventDispatcher.Component() { // from class: androidx.appcompat.app.AppCompatDialog.1
             @Override // androidx.core.view.KeyEventDispatcher.Component
             public boolean superDispatchKeyEvent(KeyEvent keyEvent) {
                 return AppCompatDialog.this.superDispatchKeyEvent(keyEvent);
             }
         };
-        getDelegate().onCreate(null);
-        getDelegate().applyDayNight();
+        AppCompatDelegate delegate = getDelegate();
+        delegate.setTheme(getThemeResId(context, i2));
+        delegate.onCreate(null);
     }
 
     @Override // android.app.Dialog
@@ -135,9 +142,9 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // android.app.Dialog
-    public void setTitle(int i) {
-        super.setTitle(i);
-        getDelegate().setTitle(getContext().getString(i));
+    public void setTitle(int i2) {
+        super.setTitle(i2);
+        getDelegate().setTitle(getContext().getString(i2));
     }
 
     public AppCompatDialog(Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {

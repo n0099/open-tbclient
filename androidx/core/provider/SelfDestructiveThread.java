@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class SelfDestructiveThread {
     public static final int MSG_DESTRUCTION = 0;
@@ -28,11 +28,11 @@ public class SelfDestructiveThread {
     public Handler.Callback mCallback = new Handler.Callback() { // from class: androidx.core.provider.SelfDestructiveThread.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
-            int i = message.what;
-            if (i == 0) {
+            int i2 = message.what;
+            if (i2 == 0) {
                 SelfDestructiveThread.this.onDestruction();
                 return true;
-            } else if (i != 1) {
+            } else if (i2 != 1) {
                 return true;
             } else {
                 SelfDestructiveThread.this.onInvokeRunnable((Runnable) message.obj);
@@ -48,10 +48,10 @@ public class SelfDestructiveThread {
         void onReply(T t);
     }
 
-    public SelfDestructiveThread(String str, int i, int i2) {
+    public SelfDestructiveThread(String str, int i2, int i3) {
         this.mThreadName = str;
-        this.mPriority = i;
-        this.mDestructAfterMillisec = i2;
+        this.mPriority = i2;
+        this.mDestructAfterMillisec = i3;
     }
 
     private void post(Runnable runnable) {
@@ -70,11 +70,11 @@ public class SelfDestructiveThread {
 
     @VisibleForTesting
     public int getGeneration() {
-        int i;
+        int i2;
         synchronized (this.mLock) {
-            i = this.mGeneration;
+            i2 = this.mGeneration;
         }
-        return i;
+        return i2;
     }
 
     @VisibleForTesting
@@ -126,7 +126,7 @@ public class SelfDestructiveThread {
         });
     }
 
-    public <T> T postAndWait(final Callable<T> callable, int i) throws InterruptedException {
+    public <T> T postAndWait(final Callable<T> callable, int i2) throws InterruptedException {
         final ReentrantLock reentrantLock = new ReentrantLock();
         final Condition newCondition = reentrantLock.newCondition();
         final AtomicReference atomicReference = new AtomicReference();
@@ -152,7 +152,7 @@ public class SelfDestructiveThread {
             if (!atomicBoolean.get()) {
                 return (T) atomicReference.get();
             }
-            long nanos = TimeUnit.MILLISECONDS.toNanos(i);
+            long nanos = TimeUnit.MILLISECONDS.toNanos(i2);
             do {
                 try {
                     nanos = newCondition.awaitNanos(nanos);

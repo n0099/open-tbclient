@@ -212,8 +212,8 @@ public class MediaSessionCompatApi21 {
         ((MediaSession) obj).setExtras(bundle);
     }
 
-    public static void setFlags(Object obj, int i) {
-        ((MediaSession) obj).setFlags(i);
+    public static void setFlags(Object obj, int i2) {
+        ((MediaSession) obj).setFlags(i2);
     }
 
     public static void setMediaButtonReceiver(Object obj, PendingIntent pendingIntent) {
@@ -228,9 +228,9 @@ public class MediaSessionCompatApi21 {
         ((MediaSession) obj).setPlaybackState((PlaybackState) obj2);
     }
 
-    public static void setPlaybackToLocal(Object obj, int i) {
+    public static void setPlaybackToLocal(Object obj, int i2) {
         AudioAttributes.Builder builder = new AudioAttributes.Builder();
-        builder.setLegacyStreamType(i);
+        builder.setLegacyStreamType(i2);
         ((MediaSession) obj).setPlaybackToLocal(builder.build());
     }
 

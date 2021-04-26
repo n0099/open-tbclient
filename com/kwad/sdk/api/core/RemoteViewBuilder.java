@@ -7,7 +7,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.widget.RemoteViews;
 import androidx.annotation.Keep;
-import com.kwad.sdk.api.R;
 @KsAdSdkDynamicApi
 @Keep
 /* loaded from: classes6.dex */
@@ -22,7 +21,7 @@ public class RemoteViewBuilder {
         public CompletedRemoteViewImpl(Context context) {
             this.mContext = context;
             this.mOriginContext = context instanceof ResContext ? ((ResContext) context).getDelegatedContext() : context;
-            this.mRemoteViews = new RemoteViews(this.mOriginContext.getPackageName(), R.layout.ksad_notification_download_completed);
+            this.mRemoteViews = new RemoteViews(this.mOriginContext.getPackageName(), ResUtil.getLayoutId(this.mOriginContext, "ksad_notification_download_completed"));
         }
 
         @Override // com.kwad.sdk.api.core.ICompletedRemoteView
@@ -31,33 +30,33 @@ public class RemoteViewBuilder {
         }
 
         @Override // com.kwad.sdk.api.core.ICompletedRemoteView
-        public void setIcon(int i) {
-            setIcon(RemoteViewBuilder.getBitmap(this.mContext, i));
+        public void setIcon(int i2) {
+            setIcon(RemoteViewBuilder.getBitmap(this.mContext, i2));
         }
 
         @Override // com.kwad.sdk.api.core.ICompletedRemoteView
         public void setIcon(Bitmap bitmap) {
-            this.mRemoteViews.setImageViewBitmap(R.id.ksad_download_icon, bitmap);
+            this.mRemoteViews.setImageViewBitmap(ResUtil.getId(this.mOriginContext, "ksad_download_icon"), bitmap);
         }
 
         @Override // com.kwad.sdk.api.core.ICompletedRemoteView
         public void setInstallText(String str) {
-            this.mRemoteViews.setTextViewText(R.id.ksad_download_install, str);
+            this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_install"), str);
         }
 
         @Override // com.kwad.sdk.api.core.ICompletedRemoteView
         public void setName(String str) {
-            this.mRemoteViews.setTextViewText(R.id.ksad_download_name, str);
+            this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_name"), str);
         }
 
         @Override // com.kwad.sdk.api.core.ICompletedRemoteView
         public void setSize(String str) {
-            this.mRemoteViews.setTextViewText(R.id.ksad_download_size, str);
+            this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_size"), str);
         }
 
         @Override // com.kwad.sdk.api.core.ICompletedRemoteView
         public void setStatus(String str) {
-            this.mRemoteViews.setTextViewText(R.id.ksad_download_status, str);
+            this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_status"), str);
         }
     }
 
@@ -70,7 +69,7 @@ public class RemoteViewBuilder {
         public ProgressRemoteViewImpl(Context context) {
             this.mContext = context;
             this.mOriginContext = context instanceof ResContext ? ((ResContext) context).getDelegatedContext() : context;
-            this.mRemoteViews = new RemoteViews(this.mOriginContext.getPackageName(), R.layout.ksad_notification_download_progress);
+            this.mRemoteViews = new RemoteViews(this.mOriginContext.getPackageName(), ResUtil.getLayoutId(this.mOriginContext, "ksad_notification_download_progress"));
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
@@ -79,38 +78,38 @@ public class RemoteViewBuilder {
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
-        public void setIcon(int i) {
-            setIcon(RemoteViewBuilder.getBitmap(this.mContext, i));
+        public void setIcon(int i2) {
+            setIcon(RemoteViewBuilder.getBitmap(this.mContext, i2));
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
         public void setIcon(Bitmap bitmap) {
-            this.mRemoteViews.setImageViewBitmap(R.id.ksad_download_icon, bitmap);
+            this.mRemoteViews.setImageViewBitmap(ResUtil.getId(this.mOriginContext, "ksad_download_icon"), bitmap);
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
         public void setName(String str) {
-            this.mRemoteViews.setTextViewText(R.id.ksad_download_name, str);
+            this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_name"), str);
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
         public void setPercentNum(String str) {
-            this.mRemoteViews.setTextViewText(R.id.ksad_download_percent_num, str);
+            this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_percent_num"), str);
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
-        public void setProgress(int i, int i2, boolean z) {
-            this.mRemoteViews.setProgressBar(R.id.ksad_download_progress, i, i2, z);
+        public void setProgress(int i2, int i3, boolean z) {
+            this.mRemoteViews.setProgressBar(ResUtil.getId(this.mOriginContext, "ksad_download_progress"), i2, i3, z);
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
         public void setSize(String str) {
-            this.mRemoteViews.setTextViewText(R.id.ksad_download_size, str);
+            this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_size"), str);
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
         public void setStatus(String str) {
-            this.mRemoteViews.setTextViewText(R.id.ksad_download_status, str);
+            this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_status"), str);
         }
     }
 
@@ -145,7 +144,7 @@ public class RemoteViewBuilder {
         return createBitmap;
     }
 
-    public static Bitmap getBitmap(Context context, int i) {
-        return drawableToBitmap(context.getResources().getDrawable(i));
+    public static Bitmap getBitmap(Context context, int i2) {
+        return drawableToBitmap(context.getResources().getDrawable(i2));
     }
 }

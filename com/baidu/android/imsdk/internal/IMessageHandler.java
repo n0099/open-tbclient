@@ -58,8 +58,8 @@ public abstract class IMessageHandler {
         JSONArray jSONArray = new JSONArray();
         try {
             JSONArray jSONArray2 = jSONObject.getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES);
-            for (int i = 0; i < jSONArray2.length(); i++) {
-                jSONArray.put(jSONArray2.getJSONObject(i));
+            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                jSONArray.put(jSONArray2.getJSONObject(i2));
             }
         } catch (JSONException e2) {
             LogUtils.e(TAG, "Exception ", e2);
@@ -84,14 +84,14 @@ public abstract class IMessageHandler {
         long j;
         SyncStrategy generate;
         LogUtils.i(TAG, "handleMessage Deliver:" + jSONObject.toString());
-        int i = jSONObject.getInt("category");
-        if (i == 0 && jSONObject.has("msgid")) {
+        int i2 = jSONObject.getInt("category");
+        if (i2 == 0 && jSONObject.has("msgid")) {
             try {
                 j = jSONObject.getLong("msgid");
             } catch (JSONException e2) {
                 LogUtils.i(TAG, "JSONException:" + e2.getMessage());
             }
-            if (i != 0 || i == 2) {
+            if (i2 != 0 || i2 == 2) {
                 generate = Generator.generate(this.mContext, 5);
                 if (generate == null) {
                     if (j != -1) {
@@ -103,11 +103,11 @@ public abstract class IMessageHandler {
                     }
                 }
                 return;
-            } else if (i == 1) {
+            } else if (i2 == 1) {
                 long j2 = jSONObject.getLong("contacter");
                 long j3 = jSONObject.getLong("msgid");
                 LogUtils.i(TAG, "msgid : " + j3);
-                SyncGroupMessageService.getInstance().execute(this.mContext, i, j2, j3, 2);
+                SyncGroupMessageService.getInstance().execute(this.mContext, i2, j2, j3, 2);
                 return;
             } else {
                 LogUtils.e(TAG, "handleDeliverMessage category error!!");
@@ -115,7 +115,7 @@ public abstract class IMessageHandler {
             }
         }
         j = -1;
-        if (i != 0) {
+        if (i2 != 0) {
         }
         generate = Generator.generate(this.mContext, 5);
         if (generate == null) {
@@ -135,11 +135,11 @@ public abstract class IMessageHandler {
                 return;
             }
             JSONObject jSONObject = new JSONObject(message.getBody());
-            int i = jSONObject.has(PmsConstant.Statistic.STATISTIC_ERRCODE) ? jSONObject.getInt(PmsConstant.Statistic.STATISTIC_ERRCODE) : 1004;
+            int i2 = jSONObject.has(PmsConstant.Statistic.STATISTIC_ERRCODE) ? jSONObject.getInt(PmsConstant.Statistic.STATISTIC_ERRCODE) : 1004;
             if (jSONObject.has("msg")) {
                 str = jSONObject.getString("msg");
             }
-            message.handleMessageResult(this.mContext, jSONObject, i, str);
+            message.handleMessageResult(this.mContext, jSONObject, i2, str);
         } catch (Exception e2) {
             LogUtils.e(LogUtils.TAG, "handleFatalMessage:", e2);
         }
@@ -349,7 +349,7 @@ public abstract class IMessageHandler {
 
     public abstract boolean socketClose() throws IOException;
 
-    public abstract SocketState socketConnect(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, SSLHandshakeException, AssertionError;
+    public abstract SocketState socketConnect(String str, int i2) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, SSLHandshakeException, AssertionError;
 
     public abstract void socketWrite(Message message) throws IOException;
 }

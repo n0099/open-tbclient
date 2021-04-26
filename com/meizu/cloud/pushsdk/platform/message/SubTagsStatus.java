@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
 import com.heytap.mcssdk.mode.CommandMessage;
-import d.k.a.a.a;
+import d.j.a.a.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +29,8 @@ public class SubTagsStatus extends BasicPushStatus {
             return this.tagName;
         }
 
-        public void setTagId(int i) {
-            this.tagId = i;
+        public void setTagId(int i2) {
+            this.tagId = i2;
         }
 
         public void setTagName(String str) {
@@ -67,8 +67,8 @@ public class SubTagsStatus extends BasicPushStatus {
         }
         JSONArray jSONArray = jSONObject.getJSONArray(CommandMessage.TYPE_TAGS);
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < jSONArray.length(); i++) {
-            JSONObject jSONObject2 = jSONArray.getJSONObject(i);
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
             Tag tag = new Tag();
             if (!jSONObject2.isNull("tagId")) {
                 tag.tagId = jSONObject2.getInt("tagId");

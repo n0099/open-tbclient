@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Process;
+import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.mapsdkplatform.comapi.map.r;
@@ -22,19 +23,19 @@ import java.util.List;
 public class SystemUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f34863a;
+    public static volatile String f33830a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f34864b;
+    public static long f33831b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f34865c;
+    public static long f33832c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f34866d;
+    public static int f33833d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static LEVEL f34867e;
+    public static LEVEL f33834e;
 
     /* loaded from: classes6.dex */
     public enum LEVEL {
@@ -47,8 +48,8 @@ public class SystemUtil {
         
         public int value;
 
-        LEVEL(int i) {
-            this.value = i;
+        LEVEL(int i2) {
+            this.value = i2;
         }
 
         public int getValue() {
@@ -60,22 +61,22 @@ public class SystemUtil {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f34868a;
+        public long f33835a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f34869b;
+        public long f33836b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f34870c;
+        public long f33837c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f34871d;
+        public long f33838d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f34872e;
+        public long f33839e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f34873f;
+        public int f33840f;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:46:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -146,7 +147,7 @@ public class SystemUtil {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:47:0x000b */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:53:0x003c */
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0033, code lost:
-        com.kwad.sdk.crash.utils.SystemUtil.f34863a = r1.processName;
+        com.kwad.sdk.crash.utils.SystemUtil.f33830a = r1.processName;
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v1, types: [boolean] */
@@ -164,9 +165,9 @@ public class SystemUtil {
         BufferedReader bufferedReader;
         IOException e2;
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        ?? isEmpty = TextUtils.isEmpty(f34863a);
+        ?? isEmpty = TextUtils.isEmpty(f33830a);
         if (isEmpty == 0) {
-            return f34863a;
+            return f33830a;
         }
         try {
             isEmpty = Process.myPid();
@@ -186,7 +187,7 @@ public class SystemUtil {
         } catch (Exception e3) {
             com.kwad.sdk.core.d.a.b(e3);
         }
-        if (TextUtils.isEmpty(f34863a)) {
+        if (TextUtils.isEmpty(f33830a)) {
             try {
                 try {
                     bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(ProcessUtils.CMD_LINE_NAME)));
@@ -199,17 +200,17 @@ public class SystemUtil {
                             }
                             sb.append((char) read);
                         }
-                        f34863a = sb.toString();
+                        f33830a = sb.toString();
                     } catch (FileNotFoundException e4) {
                         e2 = e4;
                         com.kwad.sdk.core.d.a.b(e2);
                         b.a((Reader) bufferedReader);
-                        return f34863a;
+                        return f33830a;
                     } catch (IOException e5) {
                         e2 = e5;
                         com.kwad.sdk.core.d.a.b(e2);
                         b.a((Reader) bufferedReader);
-                        return f34863a;
+                        return f33830a;
                     }
                 } catch (Throwable th2) {
                     th = th2;
@@ -230,7 +231,7 @@ public class SystemUtil {
             }
             b.a((Reader) bufferedReader);
         }
-        return f34863a;
+        return f33830a;
     }
 
     public static String a(String str, String str2) {
@@ -238,7 +239,7 @@ public class SystemUtil {
             str2 = "";
         }
         int length = str2.length();
-        int i = -1;
+        int i2 = -1;
         while (true) {
             if (length >= str.length()) {
                 length = -1;
@@ -246,22 +247,22 @@ public class SystemUtil {
             }
             char charAt = str.charAt(length);
             if (charAt < '0' || charAt > '9') {
-                if (i != -1) {
+                if (i2 != -1) {
                     break;
                 }
-            } else if (i == -1) {
-                i = length;
+            } else if (i2 == -1) {
+                i2 = length;
             }
             length++;
         }
-        if (i == -1) {
+        if (i2 == -1) {
             return null;
         }
-        return length == -1 ? str.substring(i) : str.substring(i, length);
+        return length == -1 ? str.substring(i2) : str.substring(i2, length);
     }
 
-    public static boolean a(int i) {
-        return b() >= i;
+    public static boolean a(int i2) {
+        return b() >= i2;
     }
 
     public static int b() {
@@ -274,13 +275,22 @@ public class SystemUtil {
         return memoryInfo.availMem;
     }
 
+    public static int c(Context context) {
+        try {
+            return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.b(e2);
+            return 0;
+        }
+    }
+
     public static a c() {
         String a2;
         a aVar = new a();
         RandomAccessFile randomAccessFile = null;
         try {
             try {
-                RandomAccessFile randomAccessFile2 = new RandomAccessFile("/proc/self/status", r.f7699a);
+                RandomAccessFile randomAccessFile2 = new RandomAccessFile("/proc/self/status", r.f7975a);
                 while (true) {
                     try {
                         String readLine = randomAccessFile2.readLine();
@@ -290,15 +300,15 @@ public class SystemUtil {
                             if (readLine.startsWith("VmSize") && readLine.contains("kB")) {
                                 String a3 = a(readLine, "VmSize");
                                 if (a3 != null) {
-                                    aVar.f34869b = Long.valueOf(a3).longValue();
+                                    aVar.f33836b = Long.valueOf(a3).longValue();
                                 }
                             } else if (readLine.startsWith("VmRSS:") && readLine.contains("kB")) {
                                 String a4 = a(readLine, "VmRSS:");
                                 if (a4 != null) {
-                                    aVar.f34870c = Long.valueOf(a4).longValue();
+                                    aVar.f33837c = Long.valueOf(a4).longValue();
                                 }
                             } else if (readLine.startsWith("Threads:") && (a2 = a(readLine, "Threads:")) != null) {
-                                aVar.f34873f = Integer.valueOf(a2).intValue();
+                                aVar.f33840f = Integer.valueOf(a2).intValue();
                             }
                         }
                     } catch (IOException e2) {

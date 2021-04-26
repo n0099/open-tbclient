@@ -26,7 +26,7 @@ public class Metaphone implements StringEncoder {
         throw new RuntimeException("Stub!");
     }
 
-    public void setMaxCodeLen(int i) {
+    public void setMaxCodeLen(int i2) {
         throw new RuntimeException("Stub!");
     }
 

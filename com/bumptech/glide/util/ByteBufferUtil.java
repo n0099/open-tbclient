@@ -24,10 +24,10 @@ public final class ByteBufferUtil {
         public final int limit;
         public final int offset;
 
-        public SafeArray(@NonNull byte[] bArr, int i, int i2) {
+        public SafeArray(@NonNull byte[] bArr, int i2, int i3) {
             this.data = bArr;
-            this.offset = i;
-            this.limit = i2;
+            this.offset = i2;
+            this.limit = i3;
         }
     }
 
@@ -39,7 +39,7 @@ public final class ByteBufferUtil {
             long length = file.length();
             if (length <= 2147483647L) {
                 if (length != 0) {
-                    randomAccessFile = new RandomAccessFile(file, r.f7699a);
+                    randomAccessFile = new RandomAccessFile(file, r.f7975a);
                     try {
                         fileChannel = randomAccessFile.getChannel();
                         MappedByteBuffer load = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0L, length).load();
@@ -168,8 +168,8 @@ public final class ByteBufferUtil {
         SafeArray safeArray = getSafeArray(byteBuffer);
         if (safeArray != null) {
             byte[] bArr = safeArray.data;
-            int i = safeArray.offset;
-            outputStream.write(bArr, i, safeArray.limit + i);
+            int i2 = safeArray.offset;
+            outputStream.write(bArr, i2, safeArray.limit + i2);
             return;
         }
         byte[] andSet = BUFFER_REF.getAndSet(null);
@@ -201,7 +201,7 @@ public final class ByteBufferUtil {
         }
 
         @Override // java.io.InputStream
-        public synchronized void mark(int i) {
+        public synchronized void mark(int i2) {
             this.markPos = this.byteBuffer.position();
         }
 
@@ -213,7 +213,7 @@ public final class ByteBufferUtil {
         @Override // java.io.InputStream
         public int read() {
             if (this.byteBuffer.hasRemaining()) {
-                return this.byteBuffer.get() & 255;
+                return this.byteBuffer.get();
             }
             return -1;
         }
@@ -239,10 +239,10 @@ public final class ByteBufferUtil {
         }
 
         @Override // java.io.InputStream
-        public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
+        public int read(@NonNull byte[] bArr, int i2, int i3) throws IOException {
             if (this.byteBuffer.hasRemaining()) {
-                int min = Math.min(i2, available());
-                this.byteBuffer.get(bArr, i, min);
+                int min = Math.min(i3, available());
+                this.byteBuffer.get(bArr, i2, min);
                 return min;
             }
             return -1;

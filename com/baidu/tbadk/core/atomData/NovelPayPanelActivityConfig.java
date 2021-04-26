@@ -13,11 +13,11 @@ public class NovelPayPanelActivityConfig extends IntentConfig {
     public static final int PAY_TYPE_BUY = 1;
     public static final int PAY_TYPE_EXCHANGE = 2;
 
-    public NovelPayPanelActivityConfig(Context context, int i, String str, int i2) {
+    public NovelPayPanelActivityConfig(Context context, int i2, String str, int i3) {
         super(context);
-        getIntent().putExtra("book_type", i);
+        getIntent().putExtra("book_type", i2);
         getIntent().putExtra("book_id", str);
-        getIntent().putExtra("page_id", i2);
+        getIntent().putExtra("page_id", i3);
     }
 
     public void setForm(String str) {
@@ -27,10 +27,10 @@ public class NovelPayPanelActivityConfig extends IntentConfig {
         }
     }
 
-    public void setPayType(int i) {
+    public void setPayType(int i2) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra("pay_type", i);
+            intent.putExtra("pay_type", i2);
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.fun.ad.sdk.channel.model.gdt;
 
-import a.a.a.a.r.b.b.b;
-import a.a.a.a.v.d;
+import a.a.a.a.t.b.b.b;
+import a.a.a.a.x.d;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
@@ -19,16 +19,16 @@ import java.util.List;
 public class GDTNativeUnifiedImg3View extends b {
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f30539d;
+    public LinearLayout f31472d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f30540e;
+    public ImageView f31473e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f30541f;
+    public ImageView f31474f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f30542g;
+    public ImageView f31475g;
 
     public GDTNativeUnifiedImg3View(Context context) {
         this(context, null);
@@ -38,27 +38,27 @@ public class GDTNativeUnifiedImg3View extends b {
         this(context, attributeSet, 0);
     }
 
-    public GDTNativeUnifiedImg3View(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public GDTNativeUnifiedImg3View(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 
-    @Override // a.a.a.a.r.b.b.b
+    @Override // a.a.a.a.t.b.b.b
     public List<View> a() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(this.f1278c);
-        arrayList.add(((b) this).f1277b);
-        arrayList.add(((b) this).f1276a);
-        arrayList.add(this.f30539d);
+        arrayList.add(this.f1296c);
+        arrayList.add(((b) this).f1295b);
+        arrayList.add(((b) this).f1294a);
+        arrayList.add(this.f31472d);
         return arrayList;
     }
 
-    @Override // a.a.a.a.r.b.b.b
+    @Override // a.a.a.a.t.b.b.b
     public void a(Activity activity, NativeUnifiedADData nativeUnifiedADData) {
         super.a(activity, nativeUnifiedADData);
         d.b("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
         Context context = getContext();
         String str = nativeUnifiedADData.getImgList().get(0);
-        ImageView imageView = this.f30540e;
+        ImageView imageView = this.f31473e;
         if (context == null) {
             d.b("GlideHelper: context is null when load: " + str, new Object[0]);
         } else if (context instanceof Activity) {
@@ -73,7 +73,7 @@ public class GDTNativeUnifiedImg3View extends b {
         }
         Context context2 = getContext();
         String str2 = nativeUnifiedADData.getImgList().get(1);
-        ImageView imageView2 = this.f30541f;
+        ImageView imageView2 = this.f31474f;
         if (context2 == null) {
             d.b("GlideHelper: context is null when load: " + str2, new Object[0]);
         } else if (context2 instanceof Activity) {
@@ -88,7 +88,7 @@ public class GDTNativeUnifiedImg3View extends b {
         }
         Context context3 = getContext();
         String str3 = nativeUnifiedADData.getImgList().get(2);
-        ImageView imageView3 = this.f30542g;
+        ImageView imageView3 = this.f31475g;
         if (context3 == null) {
             d.b("GlideHelper: context is null when load: " + str3, new Object[0]);
         } else if (context3 instanceof Activity) {
@@ -103,25 +103,25 @@ public class GDTNativeUnifiedImg3View extends b {
         }
     }
 
-    @Override // a.a.a.a.r.b.b.b, android.view.View
+    @Override // a.a.a.a.t.b.b.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30539d = (LinearLayout) findViewById(R.id.ad_img_container);
-        this.f30540e = (ImageView) findViewById(R.id.ad_img_1);
-        this.f30541f = (ImageView) findViewById(R.id.ad_img_2);
-        this.f30542g = (ImageView) findViewById(R.id.ad_img_3);
+        this.f31472d = (LinearLayout) findViewById(R.id.ad_img_container);
+        this.f31473e = (ImageView) findViewById(R.id.ad_img_1);
+        this.f31474f = (ImageView) findViewById(R.id.ad_img_2);
+        this.f31475g = (ImageView) findViewById(R.id.ad_img_3);
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30539d.getLayoutParams();
-        int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f30540e.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f30541f.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f30542g.getLayoutParams();
-        layoutParams.width = i5;
-        layoutParams.height = (int) (((((((i5 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.52f);
-        this.f30539d.setLayoutParams(layoutParams);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f31472d.getLayoutParams();
+        int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f31473e.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f31474f.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f31475g.getLayoutParams();
+        layoutParams.width = i6;
+        layoutParams.height = (int) (((((((i6 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.52f);
+        this.f31472d.setLayoutParams(layoutParams);
     }
 }

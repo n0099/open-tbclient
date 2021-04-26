@@ -21,10 +21,10 @@ public class XInputConnectionAdaptor extends BaseInputConnection {
     public final Layout mLayout;
     public final TextInputChannel textInputChannel;
 
-    public XInputConnectionAdaptor(View view, int i, TextInputChannel textInputChannel, Editable editable) {
+    public XInputConnectionAdaptor(View view, int i2, TextInputChannel textInputChannel, Editable editable) {
         super(view, true);
         this.mFlutterView = view;
-        this.mClient = i;
+        this.mClient = i2;
         this.textInputChannel = textInputChannel;
         this.mEditable = editable;
         this.mBatchCount = 0;
@@ -32,10 +32,10 @@ public class XInputConnectionAdaptor extends BaseInputConnection {
         this.mImm = (InputMethodManager) view.getContext().getSystemService("input_method");
     }
 
-    public static int clampIndexToEditable(int i, Editable editable) {
-        int max = Math.max(0, Math.min(editable.length(), i));
-        if (max != i) {
-            Log.d("flutter", "Text selection index was clamped (" + i + "->" + max + ") to remain in bounds. This may not be your fault, as some keyboards may select outside of bounds.");
+    public static int clampIndexToEditable(int i2, Editable editable) {
+        int max = Math.max(0, Math.min(editable.length(), i2));
+        if (max != i2) {
+            Log.d("flutter", "Text selection index was clamped (" + i2 + "->" + max + ") to remain in bounds. This may not be your fault, as some keyboards may select outside of bounds.");
         }
         return max;
     }
@@ -47,18 +47,18 @@ public class XInputConnectionAdaptor extends BaseInputConnection {
     }
 
     @Override // android.view.inputmethod.BaseInputConnection, android.view.inputmethod.InputConnection
-    public boolean commitText(CharSequence charSequence, int i) {
-        boolean commitText = super.commitText(charSequence, i);
+    public boolean commitText(CharSequence charSequence, int i2) {
+        boolean commitText = super.commitText(charSequence, i2);
         updateEditingState();
         return commitText;
     }
 
     @Override // android.view.inputmethod.BaseInputConnection, android.view.inputmethod.InputConnection
-    public boolean deleteSurroundingText(int i, int i2) {
+    public boolean deleteSurroundingText(int i2, int i3) {
         if (Selection.getSelectionStart(this.mEditable) == -1) {
             return true;
         }
-        boolean deleteSurroundingText = super.deleteSurroundingText(i, i2);
+        boolean deleteSurroundingText = super.deleteSurroundingText(i2, i3);
         updateEditingState();
         return deleteSurroundingText;
     }
@@ -77,20 +77,20 @@ public class XInputConnectionAdaptor extends BaseInputConnection {
     }
 
     @Override // android.view.inputmethod.BaseInputConnection, android.view.inputmethod.InputConnection
-    public boolean performEditorAction(int i) {
-        if (i == 0) {
+    public boolean performEditorAction(int i2) {
+        if (i2 == 0) {
             this.textInputChannel.unspecifiedAction(this.mClient);
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             this.textInputChannel.newline(this.mClient);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             this.textInputChannel.go(this.mClient);
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             this.textInputChannel.search(this.mClient);
-        } else if (i == 4) {
+        } else if (i2 == 4) {
             this.textInputChannel.send(this.mClient);
-        } else if (i == 5) {
+        } else if (i2 == 5) {
             this.textInputChannel.next(this.mClient);
-        } else if (i != 7) {
+        } else if (i2 != 7) {
             this.textInputChannel.done(this.mClient);
         } else {
             this.textInputChannel.previous(this.mClient);
@@ -144,8 +144,8 @@ public class XInputConnectionAdaptor extends BaseInputConnection {
                         this.mEditable.delete(max2, max3);
                     }
                     this.mEditable.insert(max2, String.valueOf((char) unicodeChar));
-                    int i = max2 + 1;
-                    setSelection(i, i);
+                    int i2 = max2 + 1;
+                    setSelection(i2, i2);
                 }
                 return true;
             }
@@ -154,27 +154,27 @@ public class XInputConnectionAdaptor extends BaseInputConnection {
     }
 
     @Override // android.view.inputmethod.BaseInputConnection, android.view.inputmethod.InputConnection
-    public boolean setComposingRegion(int i, int i2) {
-        boolean composingRegion = super.setComposingRegion(i, i2);
+    public boolean setComposingRegion(int i2, int i3) {
+        boolean composingRegion = super.setComposingRegion(i2, i3);
         updateEditingState();
         return composingRegion;
     }
 
     @Override // android.view.inputmethod.BaseInputConnection, android.view.inputmethod.InputConnection
-    public boolean setComposingText(CharSequence charSequence, int i) {
+    public boolean setComposingText(CharSequence charSequence, int i2) {
         boolean composingText;
         if (charSequence.length() == 0) {
-            composingText = super.commitText(charSequence, i);
+            composingText = super.commitText(charSequence, i2);
         } else {
-            composingText = super.setComposingText(charSequence, i);
+            composingText = super.setComposingText(charSequence, i2);
         }
         updateEditingState();
         return composingText;
     }
 
     @Override // android.view.inputmethod.BaseInputConnection, android.view.inputmethod.InputConnection
-    public boolean setSelection(int i, int i2) {
-        boolean selection = super.setSelection(i, i2);
+    public boolean setSelection(int i2, int i3) {
+        boolean selection = super.setSelection(i2, i3);
         updateEditingState();
         return selection;
     }

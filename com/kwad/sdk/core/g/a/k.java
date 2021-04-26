@@ -1,23 +1,22 @@
 package com.kwad.sdk.core.g.a;
 
+import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.utils.o;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class k implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public h f34056a;
+    public long f33091a;
 
-    public static k a() {
-        k kVar = new k();
-        kVar.f34056a = h.a();
-        return kVar;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public long f33092b;
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "modeInfo", this.f34056a);
+        o.a(jSONObject, "photoId", this.f33091a);
+        o.a(jSONObject, URLPackage.KEY_AUTHOR_ID, this.f33092b);
         return jSONObject;
     }
 }

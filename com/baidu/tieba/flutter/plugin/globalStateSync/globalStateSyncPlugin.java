@@ -18,15 +18,15 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.flutter.plugin.globalStateSync.GlobalStateSyncAuto;
-import d.b.c.e.p.k;
-import d.b.i0.b.d;
-import d.b.i0.b.e;
-import d.b.i0.b.f.s;
-import d.b.i0.c1.b.c;
-import d.b.i0.r.d0.b;
-import d.b.i0.s.b.a;
-import d.b.i0.z0.m0;
-import d.b.j0.m0.a.b.g;
+import d.a.c.e.p.k;
+import d.a.i0.b.d;
+import d.a.i0.b.e;
+import d.a.i0.b.f.s;
+import d.a.i0.c1.b.c;
+import d.a.i0.r.d0.b;
+import d.a.i0.s.b.a;
+import d.a.i0.z0.m0;
+import d.a.j0.m0.a.b.g;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
 import java.util.Map;
@@ -119,11 +119,11 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
     }
 
     public static String getExperimentID() {
-        e b2 = d.b(s.f50473c);
-        if (b2 == null || k.isEmpty(b2.f50424a)) {
+        e b2 = d.b(s.f48027c);
+        if (b2 == null || k.isEmpty(b2.f47978a)) {
             return "";
         }
-        String str = b2.f50424a;
+        String str = b2.f47978a;
         char c2 = 65535;
         int hashCode = str.hashCode();
         if (hashCode != 1688589) {
@@ -263,13 +263,14 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         hashMap2.put("financeURL", b.j().p("baidu_finance", null));
         hashMap2.put("personalCellText", TbadkCoreApplication.getInst().getActivityPrizeData().e());
         hashMap2.put("loginAwardUrl", TbadkCoreApplication.getInst().getActivityPrizeData().c());
-        hashMap2.put("auditPackageSwitch", Integer.valueOf(b.j().g("person_center_show_lite_game", true) ? 1 : 0));
+        hashMap2.put("auditPackageSwitch", Integer.valueOf(b.j().g("audit_package_switch", false) ? 1 : 0));
         hashMap2.put("isLiteMode", "0");
         hashMap2.put("isShowShoubaiDynamicGuide", String.valueOf(b.j().k("key_is_show_shoubai_dynamic_guide", 0)));
         hashMap2.put("isShowBaiduFinanceEntrance", String.valueOf(b.j().k("baidu_financial_display", 1)));
         hashMap2.put("experimentID", getExperimentID());
         hashMap2.put("userSmallPhotoHost", TbConfig.getPhotoSmallAddress());
         hashMap2.put("userBigPhotoHost", TbConfig.getBigPhotoAdress());
+        hashMap2.put("isYYUser", TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
         hashMap.put("syncData", hashMap2);
         hashMap.put("configInfo", hashMap3);
         hashMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, hashMap4);
@@ -317,17 +318,17 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
                 } else if (entry.getValue() instanceof Boolean) {
                     equals = ((Boolean) entry.getValue()).booleanValue();
                 }
-                int i = !equals;
+                int i2 = !equals;
                 updatingSyncDataByFlutter = true;
-                SwitchManager.getInstance().turn(entry.getKey(), i);
+                SwitchManager.getInstance().turn(entry.getKey(), i2);
             }
         }
         return true;
     }
 
-    private boolean writeThemeData(int i) {
+    private boolean writeThemeData(int i2) {
         updatingThemeDataByFlutter = true;
-        TbadkCoreApplication.getInst().setSkinType(i);
+        TbadkCoreApplication.getInst().setSkinType(i2);
         return true;
     }
 

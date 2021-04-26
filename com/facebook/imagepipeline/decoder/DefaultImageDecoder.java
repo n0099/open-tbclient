@@ -41,11 +41,11 @@ public class DefaultImageDecoder implements ImageDecoder {
     }
 
     @Override // com.facebook.imagepipeline.decoder.ImageDecoder
-    public CloseableImage decode(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+    public CloseableImage decode(EncodedImage encodedImage, int i2, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
         ImageDecoder imageDecoder;
         ImageDecoder imageDecoder2 = imageDecodeOptions.customImageDecoder;
         if (imageDecoder2 != null) {
-            return imageDecoder2.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
+            return imageDecoder2.decode(encodedImage, i2, qualityInfo, imageDecodeOptions);
         }
         ImageFormat imageFormat = encodedImage.getImageFormat();
         if (imageFormat == null || imageFormat == ImageFormat.UNKNOWN) {
@@ -54,25 +54,25 @@ public class DefaultImageDecoder implements ImageDecoder {
         }
         Map<ImageFormat, ImageDecoder> map = this.mCustomDecoders;
         if (map != null && (imageDecoder = map.get(imageFormat)) != null) {
-            return imageDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
+            return imageDecoder.decode(encodedImage, i2, qualityInfo, imageDecodeOptions);
         }
-        return this.mDefaultDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
+        return this.mDefaultDecoder.decode(encodedImage, i2, qualityInfo, imageDecodeOptions);
     }
 
-    public CloseableImage decodeAnimatedWebp(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
-        return this.mAnimatedWebPDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
+    public CloseableImage decodeAnimatedWebp(EncodedImage encodedImage, int i2, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+        return this.mAnimatedWebPDecoder.decode(encodedImage, i2, qualityInfo, imageDecodeOptions);
     }
 
-    public CloseableImage decodeGif(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+    public CloseableImage decodeGif(EncodedImage encodedImage, int i2, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
         ImageDecoder imageDecoder;
         if (!imageDecodeOptions.forceStaticImage && (imageDecoder = this.mAnimatedGifDecoder) != null) {
-            return imageDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
+            return imageDecoder.decode(encodedImage, i2, qualityInfo, imageDecodeOptions);
         }
         return decodeStaticImage(encodedImage, imageDecodeOptions);
     }
 
-    public CloseableStaticBitmap decodeJpeg(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
-        CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeJPEGFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, i, imageDecodeOptions.transformToSRGB);
+    public CloseableStaticBitmap decodeJpeg(EncodedImage encodedImage, int i2, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+        CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeJPEGFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, i2, imageDecodeOptions.transformToSRGB);
         try {
             maybeApplyTransformation(imageDecodeOptions.bitmapTransformation, decodeJPEGFromEncodedImageWithColorSpace);
             return new CloseableStaticBitmap(decodeJPEGFromEncodedImageWithColorSpace, qualityInfo, encodedImage.getRotationAngle(), encodedImage.getExifOrientation());
@@ -94,16 +94,16 @@ public class DefaultImageDecoder implements ImageDecoder {
     public DefaultImageDecoder(ImageDecoder imageDecoder, ImageDecoder imageDecoder2, PlatformDecoder platformDecoder, @Nullable Map<ImageFormat, ImageDecoder> map) {
         this.mDefaultDecoder = new ImageDecoder() { // from class: com.facebook.imagepipeline.decoder.DefaultImageDecoder.1
             @Override // com.facebook.imagepipeline.decoder.ImageDecoder
-            public CloseableImage decode(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+            public CloseableImage decode(EncodedImage encodedImage, int i2, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
                 ImageFormat imageFormat = encodedImage.getImageFormat();
                 if (imageFormat == DefaultImageFormats.JPEG) {
-                    return DefaultImageDecoder.this.decodeJpeg(encodedImage, i, qualityInfo, imageDecodeOptions);
+                    return DefaultImageDecoder.this.decodeJpeg(encodedImage, i2, qualityInfo, imageDecodeOptions);
                 }
                 if (imageFormat == DefaultImageFormats.GIF) {
-                    return DefaultImageDecoder.this.decodeGif(encodedImage, i, qualityInfo, imageDecodeOptions);
+                    return DefaultImageDecoder.this.decodeGif(encodedImage, i2, qualityInfo, imageDecodeOptions);
                 }
                 if (imageFormat == DefaultImageFormats.WEBP_ANIMATED) {
-                    return DefaultImageDecoder.this.decodeAnimatedWebp(encodedImage, i, qualityInfo, imageDecodeOptions);
+                    return DefaultImageDecoder.this.decodeAnimatedWebp(encodedImage, i2, qualityInfo, imageDecodeOptions);
                 }
                 if (imageFormat != ImageFormat.UNKNOWN) {
                     return DefaultImageDecoder.this.decodeStaticImage(encodedImage, imageDecodeOptions);

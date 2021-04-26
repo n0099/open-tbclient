@@ -9,8 +9,9 @@ public final class ArrayBooleanIterator extends BooleanIterator {
     public final boolean[] array;
     public int index;
 
-    public ArrayBooleanIterator(boolean[] zArr) {
-        this.array = zArr;
+    public ArrayBooleanIterator(boolean[] array) {
+        Intrinsics.checkNotNullParameter(array, "array");
+        this.array = array;
     }
 
     @Override // java.util.Iterator
@@ -22,9 +23,9 @@ public final class ArrayBooleanIterator extends BooleanIterator {
     public boolean nextBoolean() {
         try {
             boolean[] zArr = this.array;
-            int i = this.index;
-            this.index = i + 1;
-            return zArr[i];
+            int i2 = this.index;
+            this.index = i2 + 1;
+            return zArr[i2];
         } catch (ArrayIndexOutOfBoundsException e2) {
             this.index--;
             throw new NoSuchElementException(e2.getMessage());

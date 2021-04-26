@@ -13,28 +13,13 @@ import android.graphics.drawable.RippleDrawable;
 import android.os.Build;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.core.graphics.drawable.WrappedDrawableApi14;
 import java.lang.reflect.Method;
 @RequiresApi(21)
 /* loaded from: classes.dex */
 public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     public static final String TAG = "WrappedDrawableApi21";
     public static Method sIsProjectedDrawableMethod;
-
-    /* loaded from: classes.dex */
-    public static class DrawableWrapperStateLollipop extends WrappedDrawableApi14.DrawableWrapperState {
-        public DrawableWrapperStateLollipop(@Nullable WrappedDrawableApi14.DrawableWrapperState drawableWrapperState, @Nullable Resources resources) {
-            super(drawableWrapperState, resources);
-        }
-
-        @Override // androidx.core.graphics.drawable.WrappedDrawableApi14.DrawableWrapperState, android.graphics.drawable.Drawable.ConstantState
-        @NonNull
-        public Drawable newDrawable(@Nullable Resources resources) {
-            return new WrappedDrawableApi21(this, resources);
-        }
-    }
 
     public WrappedDrawableApi21(Drawable drawable) {
         super(drawable);
@@ -85,20 +70,14 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
         return false;
     }
 
-    @Override // androidx.core.graphics.drawable.WrappedDrawableApi14
-    @NonNull
-    public WrappedDrawableApi14.DrawableWrapperState mutateConstantState() {
-        return new DrawableWrapperStateLollipop(this.mState, null);
-    }
-
     @Override // android.graphics.drawable.Drawable
     public void setHotspot(float f2, float f3) {
         this.mDrawable.setHotspot(f2, f3);
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setHotspotBounds(int i, int i2, int i3, int i4) {
-        this.mDrawable.setHotspotBounds(i, i2, i3, i4);
+    public void setHotspotBounds(int i2, int i3, int i4, int i5) {
+        this.mDrawable.setHotspotBounds(i2, i3, i4, i5);
     }
 
     @Override // androidx.core.graphics.drawable.WrappedDrawableApi14, android.graphics.drawable.Drawable
@@ -111,11 +90,11 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     }
 
     @Override // androidx.core.graphics.drawable.WrappedDrawableApi14, android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public void setTint(int i) {
+    public void setTint(int i2) {
         if (isCompatTintEnabled()) {
-            super.setTint(i);
+            super.setTint(i2);
         } else {
-            this.mDrawable.setTint(i);
+            this.mDrawable.setTint(i2);
         }
     }
 
@@ -129,7 +108,7 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     }
 
     @Override // androidx.core.graphics.drawable.WrappedDrawableApi14, android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public void setTintMode(PorterDuff.Mode mode) {
+    public void setTintMode(@NonNull PorterDuff.Mode mode) {
         if (isCompatTintEnabled()) {
             super.setTintMode(mode);
         } else {
@@ -137,8 +116,8 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
         }
     }
 
-    public WrappedDrawableApi21(WrappedDrawableApi14.DrawableWrapperState drawableWrapperState, Resources resources) {
-        super(drawableWrapperState, resources);
+    public WrappedDrawableApi21(WrappedDrawableState wrappedDrawableState, Resources resources) {
+        super(wrappedDrawableState, resources);
         findAndCacheIsProjectedDrawableMethod();
     }
 }

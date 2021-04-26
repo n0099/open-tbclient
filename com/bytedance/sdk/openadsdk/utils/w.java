@@ -21,23 +21,23 @@ import java.util.regex.Pattern;
 public class w {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile w f30142c;
+    public static volatile w f31059c;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f30143a;
+    public Map<String, String> f31060a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f30144b = false;
+    public volatile boolean f31061b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f30145d;
+    public Context f31062d;
 
     public w(Context context) {
-        if (context != null && this.f30145d == null) {
-            this.f30145d = context.getApplicationContext();
+        if (context != null && this.f31062d == null) {
+            this.f31062d = context.getApplicationContext();
             a();
         }
-        this.f30145d = context;
+        this.f31062d = context;
     }
 
     public static String b(String str) {
@@ -49,11 +49,11 @@ public class w {
         }
         String lowerCase = str.substring(0, indexOf).trim().toLowerCase(Locale.ENGLISH);
         if (c(lowerCase)) {
-            int i = indexOf + 1;
+            int i2 = indexOf + 1;
             if (indexOf2 < 0) {
-                substring = str.substring(i);
+                substring = str.substring(i2);
             } else {
-                substring = str.substring(i, indexOf2);
+                substring = str.substring(i2, indexOf2);
             }
             String lowerCase2 = substring.trim().toLowerCase(Locale.ENGLISH);
             if (c(lowerCase2)) {
@@ -73,8 +73,8 @@ public class w {
         if (length == 0) {
             return false;
         }
-        for (int i = 0; i < length; i++) {
-            if (!a(str.charAt(i))) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (!a(str.charAt(i2))) {
                 return false;
             }
         }
@@ -88,12 +88,12 @@ public class w {
             return null;
         }
         a();
-        Map<String, String> map = this.f30143a;
+        Map<String, String> map = this.f31060a;
         if (map == null || map.isEmpty()) {
             return null;
         }
         do {
-            str2 = this.f30143a.get(e2);
+            str2 = this.f31060a.get(e2);
             if (str2 == null) {
                 e2 = e(e2);
             }
@@ -141,8 +141,8 @@ public class w {
             return;
         }
         String[] split = replaceAll.split("\\s+");
-        for (int i = 1; i < split.length; i++) {
-            a(split[i], split[0]);
+        for (int i2 = 1; i2 < split.length; i2++) {
+            a(split[i2], split[0]);
         }
     }
 
@@ -162,14 +162,14 @@ public class w {
     }
 
     public static w a(Context context) {
-        if (f30142c == null) {
+        if (f31059c == null) {
             synchronized (w.class) {
-                if (f30142c == null) {
-                    f30142c = new w(context);
+                if (f31059c == null) {
+                    f31059c = new w(context);
                 }
             }
         }
-        return f30142c;
+        return f31059c;
     }
 
     public final String a(String str) {
@@ -188,11 +188,11 @@ public class w {
     }
 
     private void a() {
-        if (this.f30145d == null || this.f30144b) {
+        if (this.f31062d == null || this.f31061b) {
             return;
         }
         synchronized (this) {
-            if (!this.f30144b) {
+            if (!this.f31061b) {
                 List list = (List) AccessController.doPrivileged(new PrivilegedAction<List<String>>() { // from class: com.bytedance.sdk.openadsdk.utils.w.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // java.security.PrivilegedAction
@@ -202,7 +202,7 @@ public class w {
                         InputStream inputStream = null;
                         try {
                             ArrayList arrayList = new ArrayList();
-                            InputStream open = w.this.f30145d.getAssets().open("tt_mime_type.pro");
+                            InputStream open = w.this.f31062d.getAssets().open("tt_mime_type.pro");
                             try {
                                 bufferedReader = new BufferedReader(new InputStreamReader(open));
                                 while (true) {
@@ -259,7 +259,7 @@ public class w {
                         }
                     }
                 });
-                this.f30143a = new HashMap(list.size());
+                this.f31060a = new HashMap(list.size());
                 String str = "";
                 Iterator it = list.iterator();
                 while (it.hasNext()) {
@@ -274,15 +274,15 @@ public class w {
                 if (!str.isEmpty()) {
                     f(str);
                 }
-                this.f30144b = true;
+                this.f31061b = true;
             }
         }
     }
 
     private void a(String str, String str2) {
-        if (str == null || str.isEmpty() || str2 == null || str2.isEmpty() || this.f30143a.containsKey(str)) {
+        if (str == null || str.isEmpty() || str2 == null || str2.isEmpty() || this.f31060a.containsKey(str)) {
             return;
         }
-        this.f30143a.put(str, str2);
+        this.f31060a.put(str, str2);
     }
 }

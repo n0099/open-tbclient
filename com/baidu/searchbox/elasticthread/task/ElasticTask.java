@@ -28,11 +28,11 @@ public class ElasticTask implements Runnable {
         COMPLETE
     }
 
-    public ElasticTask(Runnable runnable, String str, long j, int i) {
+    public ElasticTask(Runnable runnable, String str, long j, int i2) {
         this.mTaskEntity = runnable;
         this.id = j;
         this.name = str;
-        this.priority = i;
+        this.priority = i2;
     }
 
     public String getName() {

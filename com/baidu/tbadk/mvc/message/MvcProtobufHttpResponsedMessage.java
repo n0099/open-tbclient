@@ -4,29 +4,29 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
-import d.b.c.e.d.l;
-import d.b.c.e.p.b;
-import d.b.c.e.p.n;
-import d.b.i0.g0.b.d;
-import d.b.i0.g0.b.h;
-import d.b.i0.r.r.a;
+import d.a.c.e.d.l;
+import d.a.c.e.p.b;
+import d.a.c.e.p.n;
+import d.a.i0.g0.b.d;
+import d.a.i0.g0.b.h;
+import d.a.i0.r.r.a;
 import java.lang.reflect.Field;
 import java.util.List;
 import protobuf.Error;
 /* loaded from: classes3.dex */
 public abstract class MvcProtobufHttpResponsedMessage<D extends h, M extends Message> extends MvcHttpResponsedMessage<D> {
-    public MvcProtobufHttpResponsedMessage(int i) {
-        super(i);
+    public MvcProtobufHttpResponsedMessage(int i2) {
+        super(i2);
     }
 
     public abstract Class<M> getProtobufResponseIdlClass();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
         d dVar;
         l<byte[]> e2;
-        super.afterDispatchInBackGround(i, (int) bArr);
+        super.afterDispatchInBackGround(i2, (int) bArr);
         if (getError() != 0 || bArr == null) {
             return;
         }
@@ -47,9 +47,9 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends h, M extends Mes
         }
         if (dVar != null) {
             String cacheKey = dVar.getCacheKey();
-            String q = dVar.q();
+            String r = dVar.r();
             String currentAccount = dVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-            if (cacheKey == null || TextUtils.isEmpty(q) || bArr == null || (e2 = a.f().e(q, currentAccount)) == null) {
+            if (cacheKey == null || TextUtils.isEmpty(r) || bArr == null || (e2 = a.f().e(r, currentAccount)) == null) {
                 return;
             }
             e2.g(cacheKey, bArr);
@@ -58,10 +58,10 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends h, M extends Mes
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         boolean z;
         List<Field> c2;
-        super.decodeInBackGround(i, bArr);
+        super.decodeInBackGround(i2, bArr);
         Message parseFrom = new Wire(new Class[0]).parseFrom(bArr, getProtobufResponseIdlClass());
         List<Field> c3 = b.c(parseFrom, Error.class);
         if (c3 == null || c3.size() <= 0) {

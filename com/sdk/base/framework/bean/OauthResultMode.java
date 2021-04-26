@@ -12,16 +12,16 @@ public class OauthResultMode implements Serializable {
     public OauthResultMode() {
     }
 
-    public OauthResultMode(int i, String str, int i2) {
-        this.code = i;
+    public OauthResultMode(int i2, String str, int i3) {
+        this.code = i2;
         this.msg = str;
-        this.status = i2;
+        this.status = i3;
     }
 
-    public OauthResultMode(int i, String str, int i2, Object obj, String str2) {
-        this.code = i;
+    public OauthResultMode(int i2, String str, int i3, Object obj, String str2) {
+        this.code = i2;
         this.msg = str;
-        this.status = i2;
+        this.status = i3;
         this.object = obj;
         this.seq = str2;
     }
@@ -46,8 +46,8 @@ public class OauthResultMode implements Serializable {
         return this.status;
     }
 
-    public void setCode(int i) {
-        this.code = i;
+    public void setCode(int i2) {
+        this.code = i2;
     }
 
     public void setMsg(String str) {
@@ -62,8 +62,8 @@ public class OauthResultMode implements Serializable {
         this.seq = str;
     }
 
-    public void setStatus(int i) {
-        this.status = i;
+    public void setStatus(int i2) {
+        this.status = i2;
     }
 
     public String toString() {

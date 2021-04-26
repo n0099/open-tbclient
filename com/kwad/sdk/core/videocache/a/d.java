@@ -18,11 +18,11 @@ public class d {
         }
 
         private int a(long j, long j2) {
-            int i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
-            if (i < 0) {
+            int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+            if (i2 < 0) {
                 return -1;
             }
-            return i == 0 ? 0 : 1;
+            return i2 == 0 ? 0 : 1;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,7 +63,7 @@ public class d {
             }
             d(file);
             if (file.lastModified() < currentTimeMillis) {
-                com.kwad.sdk.core.d.a.c("Files", String.format("Last modified date %s is not set for file %s", new Date(file.lastModified()), file.getAbsolutePath()));
+                com.kwad.sdk.core.d.a.d("Files", String.format("Last modified date %s is not set for file %s", new Date(file.lastModified()), file.getAbsolutePath()));
             }
         }
     }

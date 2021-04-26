@@ -82,8 +82,8 @@ public abstract class XBaseHtmlAdContainer extends XBaseAdContainer {
             getRootView().addView(this.expandedLayout, new ViewGroup.LayoutParams(-1, -1));
             this.expandedLayout.setKeyDownListener(new ExpandedLayout.KeyDownListener() { // from class: com.baidu.mobads.container.XBaseHtmlAdContainer.2
                 @Override // com.baidu.mobads.container.bridge.ExpandedLayout.KeyDownListener
-                public boolean handleKeyDown(int i, KeyEvent keyEvent) {
-                    Boolean valueOf = Boolean.valueOf(i == 4);
+                public boolean handleKeyDown(int i2, KeyEvent keyEvent) {
+                    Boolean valueOf = Boolean.valueOf(i2 == 4);
                     if (valueOf.booleanValue()) {
                         XBaseHtmlAdContainer.this.closeExpand();
                     }

@@ -1,7 +1,7 @@
 package com.google.common.primitives;
 
 import com.baidu.webkit.sdk.WebKitFactory;
-import d.h.c.g.b;
+import d.g.c.g.b;
 import java.lang.reflect.Field;
 import java.nio.ByteOrder;
 import java.security.AccessController;
@@ -65,10 +65,10 @@ public enum UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator imple
     @Override // java.util.Comparator
     public int compare(byte[] bArr, byte[] bArr2) {
         int min = Math.min(bArr.length, bArr2.length);
-        int i = min & (-8);
-        int i2 = 0;
-        while (i2 < i) {
-            long j = i2;
+        int i2 = min & (-8);
+        int i3 = 0;
+        while (i3 < i2) {
+            long j = i3;
             long j2 = theUnsafe.getLong(bArr, BYTE_ARRAY_BASE_OFFSET + j);
             long j3 = theUnsafe.getLong(bArr2, BYTE_ARRAY_BASE_OFFSET + j);
             if (j2 != j3) {
@@ -78,14 +78,14 @@ public enum UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator imple
                 int numberOfTrailingZeros = Long.numberOfTrailingZeros(j2 ^ j3) & (-8);
                 return ((int) ((j2 >>> numberOfTrailingZeros) & 255)) - ((int) ((j3 >>> numberOfTrailingZeros) & 255));
             }
-            i2 += 8;
+            i3 += 8;
         }
-        while (i2 < min) {
-            int b2 = b.b(bArr[i2], bArr2[i2]);
+        while (i3 < min) {
+            int b2 = b.b(bArr[i3], bArr2[i3]);
             if (b2 != 0) {
                 return b2;
             }
-            i2++;
+            i3++;
         }
         return bArr.length - bArr2.length;
     }

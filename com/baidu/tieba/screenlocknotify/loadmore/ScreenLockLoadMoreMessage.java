@@ -2,10 +2,10 @@ package com.baidu.tieba.screenlocknotify.loadmore;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.GetMoreMsg.DataReq;
 import tbclient.GetMoreMsg.GetMoreMsgReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ScreenLockLoadMoreMessage extends NetMessage {
     public ScreenLockLoadMoreMessage() {
         super(CmdConfigHttp.CMD_SCREEN_LOCK_MESSAGE_MORE, 309420);

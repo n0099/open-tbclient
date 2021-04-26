@@ -13,16 +13,16 @@ import java.util.List;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public static t f28323a;
+    public static t f29192a;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f28325c = false;
+    public volatile boolean f29194c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28326d = null;
+    public String f29195d = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.n.b.b.d.b f28324b = d.n.b.b.d.c.a(p.a(), "df979cdb-05a7-448c-bece-92d5005a1247", 0, d());
+    public d.m.b.b.d.b f29193b = d.m.b.b.d.c.a(p.a(), "df979cdb-05a7-448c-bece-92d5005a1247", 0, d());
 
     public t() {
         if (TextUtils.isEmpty(i.d().g())) {
@@ -30,29 +30,29 @@ public class t {
         }
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(Constants.APP_ID, i.d().g());
-        this.f28324b.setCustomInfo(hashMap);
+        this.f29193b.setCustomInfo(hashMap);
     }
 
     public static t b() {
-        if (f28323a == null) {
+        if (f29192a == null) {
             synchronized (t.class) {
-                if (f28323a == null) {
-                    f28323a = new t();
+                if (f29192a == null) {
+                    f29192a = new t();
                 }
             }
         }
-        return f28323a;
+        return f29192a;
     }
 
-    private d.n.b.b.d.a d() {
+    private d.m.b.b.d.a d() {
         final TTCustomController e2 = i.d().e();
-        return new d.n.b.b.d.a() { // from class: com.bytedance.sdk.openadsdk.core.t.1
-            @Override // d.n.b.b.d.a
+        return new d.m.b.b.d.a() { // from class: com.bytedance.sdk.openadsdk.core.t.1
+            @Override // d.m.b.b.d.a
             public String a() {
                 return "";
             }
 
-            @Override // d.n.b.b.d.a
+            @Override // d.m.b.b.d.a
             public String b() {
                 TTCustomController tTCustomController = e2;
                 if (tTCustomController == null || tTCustomController.isCanUsePhoneState()) {
@@ -61,7 +61,7 @@ public class t {
                 return null;
             }
 
-            @Override // d.n.b.b.d.a
+            @Override // d.m.b.b.d.a
             public WifiInfo c() {
                 WifiManager wifiManager;
                 TTCustomController tTCustomController = e2;
@@ -71,7 +71,7 @@ public class t {
                 return null;
             }
 
-            @Override // d.n.b.b.d.a
+            @Override // d.m.b.b.d.a
             public List<ScanResult> d() {
                 WifiManager wifiManager;
                 TTCustomController tTCustomController = e2;
@@ -81,7 +81,7 @@ public class t {
                 return null;
             }
 
-            @Override // d.n.b.b.d.a
+            @Override // d.m.b.b.d.a
             public String e() {
                 TTCustomController tTCustomController = e2;
                 if (tTCustomController == null || tTCustomController.isCanUseWifiState()) {
@@ -90,7 +90,7 @@ public class t {
                 return null;
             }
 
-            @Override // d.n.b.b.d.a
+            @Override // d.m.b.b.d.a
             public String f() {
                 TTCustomController tTCustomController = e2;
                 if (tTCustomController != null && !tTCustomController.isCanUseLocation()) {
@@ -101,11 +101,11 @@ public class t {
                 } else if (com.bytedance.sdk.openadsdk.utils.d.a(p.a()) == null) {
                     return null;
                 } else {
-                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f30091b);
+                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f31008b);
                 }
             }
 
-            @Override // d.n.b.b.d.a
+            @Override // d.m.b.b.d.a
             public String g() {
                 TTCustomController tTCustomController = e2;
                 if (tTCustomController != null && !tTCustomController.isCanUseLocation()) {
@@ -116,19 +116,19 @@ public class t {
                 } else if (com.bytedance.sdk.openadsdk.utils.d.a(p.a()) == null) {
                     return null;
                 } else {
-                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f30090a);
+                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f31007a);
                 }
             }
         };
     }
 
     public String a() {
-        return this.f28324b.onEvent();
+        return this.f29193b.onEvent();
     }
 
     public String c() {
         try {
-            String pullSg = this.f28324b.pullSg();
+            String pullSg = this.f29193b.pullSg();
             if (d(pullSg)) {
                 return pullSg.toUpperCase();
             }
@@ -143,14 +143,14 @@ public class t {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f28326d = str;
-        this.f28324b.setParams(str, null);
+        this.f29195d = str;
+        this.f29193b.setParams(str, null);
         if (TextUtils.isEmpty(i.d().g())) {
             return;
         }
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(Constants.APP_ID, i.d().g());
-        this.f28324b.setCustomInfo(hashMap);
+        this.f29193b.setCustomInfo(hashMap);
     }
 
     private boolean d(String str) {
@@ -167,11 +167,11 @@ public class t {
     }
 
     public void b(@NonNull String str) {
-        if (this.f28325c) {
+        if (this.f29194c) {
             return;
         }
-        this.f28324b.reportNow(str);
-        this.f28325c = true;
+        this.f29193b.reportNow(str);
+        this.f29194c = true;
     }
 
     public String c(String str) {
@@ -179,6 +179,6 @@ public class t {
             return "";
         }
         String a2 = com.bytedance.sdk.openadsdk.utils.j.a(str);
-        return TextUtils.isEmpty(a2) ? "" : this.f28324b.pullVer(a2);
+        return TextUtils.isEmpty(a2) ? "" : this.f29193b.pullVer(a2);
     }
 }

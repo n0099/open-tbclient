@@ -38,7 +38,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.utils.Utility;
-import d.b.r.a;
+import d.a.r.a;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -81,8 +81,8 @@ public class BIMRtcManager {
             }
             BIMRtcManager.this.heartBeat(new IStatusListener() { // from class: com.baidu.android.imrtc.BIMRtcManager.3.1
                 @Override // com.baidu.android.imrtc.utils.IStatusListener
-                public void onResult(int i, String str) {
-                    LogUtils.d(BIMRtcManager.TAG, "heartBeat responseCode :" + i + ", msg :" + str);
+                public void onResult(int i2, String str) {
+                    LogUtils.d(BIMRtcManager.TAG, "heartBeat responseCode :" + i2 + ", msg :" + str);
                 }
             });
         }
@@ -96,8 +96,8 @@ public class BIMRtcManager {
         mActionSyncSeqIdMap.clear();
         Class<?>[] clsArr = {BIMRtcSendMsg.class};
         int[] iArr = {RtcConstants.METHOD_IM_RTC_MSG};
-        for (int i = 0; i < 1; i++) {
-            MessageFactory.getInstance().addType(iArr[i], clsArr[i]);
+        for (int i2 = 0; i2 < 1; i2++) {
+            MessageFactory.getInstance().addType(iArr[i2], clsArr[i2]);
         }
         RtcUtility.setIMUK(context, Utility.getUK(mContext));
         RtcUtility.setCuid(context, Utility.getDeviceId(mContext));
@@ -135,11 +135,11 @@ public class BIMRtcManager {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void handleRtcResult(int i, BIMRtcInfo bIMRtcInfo, int i2) {
-        if (i == 100) {
+    private void handleRtcResult(int i2, BIMRtcInfo bIMRtcInfo, int i3) {
+        if (i2 == 100) {
             checkServerSeqId(bIMRtcInfo);
             this.mRtcHandler.removeCallbacks(this.heartBeatRunnable);
-            if (i2 == 0) {
+            if (i3 == 0) {
                 RTC_HEART_BEAT_FAILED_COUNT.set(0);
             } else {
                 RTC_HEART_BEAT_FAILED_COUNT.getAndIncrement();
@@ -148,10 +148,10 @@ public class BIMRtcManager {
                 return;
             }
             this.mRtcHandler.postDelayed(this.heartBeatRunnable, RtcConstants.RTC_HEART_BEAT_TIME);
-        } else if (i2 == 0) {
-            if (i != 84) {
-                if (i != 86 && i != 88) {
-                    if (i == 92) {
+        } else if (i3 == 0) {
+            if (i2 != 84) {
+                if (i2 != 86 && i2 != 88) {
+                    if (i2 == 92) {
                         this.mRtcHandler.removeCallbacks(this.heartBeatRunnable);
                         this.mRtcHandler.postDelayed(this.heartBeatRunnable, RtcConstants.RTC_HEART_BEAT_TIME);
                     }
@@ -166,7 +166,7 @@ public class BIMRtcManager {
                 this.mRtcHandler.removeCallbacks(this.heartBeatRunnable);
                 this.mRtcHandler.postDelayed(this.heartBeatRunnable, RtcConstants.RTC_HEART_BEAT_TIME);
             }
-            notifyRtcActionAndInfo(false, i, bIMRtcInfo);
+            notifyRtcActionAndInfo(false, i2, bIMRtcInfo);
         }
     }
 
@@ -204,8 +204,8 @@ public class BIMRtcManager {
                 bIMRtcListener.roomCalleeInviteFromCaller(bIMRtcInfo);
                 getInstance(mContext).ring(bIMRtcInfo.getRtcRoomId(), new IStatusListener() { // from class: com.baidu.android.imrtc.BIMRtcManager.4
                     @Override // com.baidu.android.imrtc.utils.IStatusListener
-                    public void onResult(int i, String str) {
-                        LogUtils.d(BIMRtcManager.TAG, "rtcRing responseCode :" + i + ", msg :" + str);
+                    public void onResult(int i2, String str) {
+                        LogUtils.d(BIMRtcManager.TAG, "rtcRing responseCode :" + i2 + ", msg :" + str);
                     }
                 });
             }
@@ -332,16 +332,16 @@ public class BIMRtcManager {
         }
     }
 
-    public static void notifyRtcActionAndInfo(boolean z, int i, BIMRtcInfo bIMRtcInfo) {
+    public static void notifyRtcActionAndInfo(boolean z, int i2, BIMRtcInfo bIMRtcInfo) {
         for (BIMRtcListener bIMRtcListener : mRtcListeners) {
             if (bIMRtcListener != null) {
-                bIMRtcListener.onRtcResult(i, bIMRtcInfo);
+                bIMRtcListener.onRtcResult(i2, bIMRtcInfo);
                 notifyEvent(bIMRtcInfo, bIMRtcListener);
                 if (z) {
-                    trackRequest(bIMRtcInfo, 231, i, "c_client_sync", -1);
+                    trackRequest(bIMRtcInfo, 231, i2, "c_client_sync", -1);
                 }
                 if (isOthers(bIMRtcInfo)) {
-                    mBIMRtcEvent.notifyAction = i;
+                    mBIMRtcEvent.notifyAction = i2;
                     mBIMRtcEvent.notifySeqId = RtcConstants.IM_RTC_SERVER_SEQ_ID;
                     mBIMRtcEvent.notifyRoomId = bIMRtcInfo.getRtcRoomId();
                 }
@@ -349,15 +349,15 @@ public class BIMRtcManager {
         }
     }
 
-    private void rtcSendEvent(@NonNull BIMRtcInfo bIMRtcInfo, int i, IStatusListener iStatusListener) {
-        LogUtils.d(TAG, "rtcSendEvent action :" + i);
-        if (i != 100 && i != 102) {
-            trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i, "c_client_request", -1);
+    private void rtcSendEvent(@NonNull BIMRtcInfo bIMRtcInfo, int i2, IStatusListener iStatusListener) {
+        LogUtils.d(TAG, "rtcSendEvent action :" + i2);
+        if (i2 != 100 && i2 != 102) {
+            trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i2, "c_client_request", -1);
         }
-        bIMRtcInfo.setAction(i);
+        bIMRtcInfo.setAction(i2);
         bIMRtcInfo.setRtcDeviceId(RtcUtility.getCuid(mContext));
-        if (i != 100 && i != 102) {
-            mBIMRtcEvent.requestAction = i;
+        if (i2 != 100 && i2 != 102) {
+            mBIMRtcEvent.requestAction = i2;
             mBIMRtcEvent.requestRoomId = bIMRtcInfo.getRtcRoomId();
         }
         if (TextUtils.isEmpty(bIMRtcInfo.getRtcRoomId())) {
@@ -368,17 +368,17 @@ public class BIMRtcManager {
             Intent creatMethodIntent = Utility.creatMethodIntent(mContext, RtcConstants.METHOD_IM_RTC_MSG);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_INFO, bIMRtcInfo.toRtcInfoString());
-            creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_ACTION_ID, i);
+            creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_ACTION_ID, i2);
             creatMethodIntent.putExtra("rtc_room_id", bIMRtcInfo.getRtcRoomId());
             a.e(mContext).d(mContext, creatMethodIntent);
-            trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i, "c_send_request", -1);
-            mBIMRtcEvent.sdkAction = i;
+            trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i2, "c_send_request", -1);
+            mBIMRtcEvent.sdkAction = i2;
             mBIMRtcEvent.sdkSeqId = RtcConstants.IM_RTC_SDK_SEQ_ID.get();
             mBIMRtcEvent.sdkRoomId = RtcUtility.getRtcRoomId(mContext);
         } catch (Exception e2) {
             if (iStatusListener != null) {
                 iStatusListener.onResult(-1, "rtcSendEvent exception");
-                trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i, "c_send_response exception", -1, e2.getMessage());
+                trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i2, "c_send_response exception", -1, e2.getMessage());
             }
         }
     }
@@ -416,13 +416,13 @@ public class BIMRtcManager {
         }
     }
 
-    public static void trackRequest(BIMRtcInfo bIMRtcInfo, int i, int i2, String str, int i3, String str2) {
-        if (i2 == 100) {
+    public static void trackRequest(BIMRtcInfo bIMRtcInfo, int i2, int i3, String str, int i4, String str2) {
+        if (i3 == 100) {
             return;
         }
         BIMRtcTrack.RequestBuilder requestBuilder = new BIMRtcTrack.RequestBuilder(mContext);
-        BIMRtcTrack.RequestBuilder method = requestBuilder.method("" + i);
-        method.requestId("" + i2).requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i3).ext(trackExt(bIMRtcInfo, str, str2)).build();
+        BIMRtcTrack.RequestBuilder method = requestBuilder.method("" + i2);
+        method.requestId("" + i3).requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i4).ext(trackExt(bIMRtcInfo, str, str2)).build();
     }
 
     public void answer(@NonNull BIMAnswerRtcInfo bIMAnswerRtcInfo, IStatusListener iStatusListener) {
@@ -503,14 +503,14 @@ public class BIMRtcManager {
         rtcSendEvent(bIMKickRequestRtcInfo, 104, iStatusListener);
     }
 
-    public void onRtcRequestResult(int i, BIMRtcInfo bIMRtcInfo, int i2, String str, String str2) {
+    public void onRtcRequestResult(int i2, BIMRtcInfo bIMRtcInfo, int i3, String str, String str2) {
         IMListener removeListener = ListenerManager.getInstance().removeListener(str2);
         if (removeListener instanceof IStatusListener) {
-            ((IStatusListener) removeListener).onResult(i2, str);
-            trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i, "c_client_response", i2);
+            ((IStatusListener) removeListener).onResult(i3, str);
+            trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i2, "c_client_response", i3);
         }
-        handleRtcResult(i, bIMRtcInfo, i2);
-        mBIMRtcEvent.sdkAction = i;
+        handleRtcResult(i2, bIMRtcInfo, i3);
+        mBIMRtcEvent.sdkAction = i2;
         mBIMRtcEvent.sdkSeqId = RtcConstants.IM_RTC_SDK_SEQ_ID.get();
         mBIMRtcEvent.sdkRoomId = RtcUtility.getRtcRoomId(mContext);
     }
@@ -555,14 +555,14 @@ public class BIMRtcManager {
         rtcSendEvent(bIMRtcInfo, 86, iStatusListener);
     }
 
-    public static void trackRequest(String str, String str2, int i, String str3) {
-        new BIMRtcTrack.RequestBuilder(mContext).method(str).requestId("-1").requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i).ext(trackExt(null, str2, str3)).build();
+    public static void trackRequest(String str, String str2, int i2, String str3) {
+        new BIMRtcTrack.RequestBuilder(mContext).method(str).requestId("-1").requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i2).ext(trackExt(null, str2, str3)).build();
     }
 
-    public static void trackRequest(BIMRtcInfo bIMRtcInfo, int i, int i2, String str, int i3) {
-        if (i2 == 100) {
+    public static void trackRequest(BIMRtcInfo bIMRtcInfo, int i2, int i3, String str, int i4) {
+        if (i3 == 100) {
             return;
         }
-        trackRequest(bIMRtcInfo, i, i2, str, i3, "");
+        trackRequest(bIMRtcInfo, i2, i3, str, i4, "");
     }
 }

@@ -26,19 +26,19 @@ import org.json.JSONObject;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11432a = new String(b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
+    public static final String f11256a = new String(b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11433b = new String(b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
+    public static final String f11257b = new String(b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11434c = f11432a + f11433b;
+    public static final String f11258c = f11256a + f11257b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f11435d;
+    public static c f11259d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f11436e;
+    public Context f11260e;
 
     /* loaded from: classes2.dex */
     public static class a {
@@ -54,18 +54,18 @@ public final class j {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final byte[] f11437a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+        public static final byte[] f11261a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
 
         public static byte[] a(byte[] bArr) {
             byte b2;
-            int i;
+            int i2;
             int length = bArr.length;
-            int i2 = (length / 4) * 3;
-            if (i2 == 0) {
+            int i3 = (length / 4) * 3;
+            if (i3 == 0) {
                 return new byte[0];
             }
-            byte[] bArr2 = new byte[i2];
-            int i3 = 0;
+            byte[] bArr2 = new byte[i3];
+            int i4 = 0;
             while (true) {
                 byte b3 = bArr[length - 1];
                 b2 = 10;
@@ -73,57 +73,57 @@ public final class j {
                     if (b3 != 61) {
                         break;
                     }
-                    i3++;
+                    i4++;
                 }
                 length--;
             }
-            int i4 = 0;
             int i5 = 0;
             int i6 = 0;
             int i7 = 0;
-            while (i4 < length) {
-                byte b4 = bArr[i4];
+            int i8 = 0;
+            while (i5 < length) {
+                byte b4 = bArr[i5];
                 if (b4 != b2 && b4 != 13 && b4 != 32 && b4 != 9) {
                     if (b4 >= 65 && b4 <= 90) {
-                        i = b4 - 65;
+                        i2 = b4 - 65;
                     } else if (b4 >= 97 && b4 <= 122) {
-                        i = b4 - 71;
+                        i2 = b4 - 71;
                     } else if (b4 >= 48 && b4 <= 57) {
-                        i = b4 + 4;
+                        i2 = b4 + 4;
                     } else if (b4 == 43) {
-                        i = 62;
+                        i2 = 62;
                     } else if (b4 != 47) {
                         return null;
                     } else {
-                        i = 63;
+                        i2 = 63;
                     }
-                    i5 = (i5 << 6) | ((byte) i);
-                    if (i7 % 4 == 3) {
-                        int i8 = i6 + 1;
-                        bArr2[i6] = (byte) ((i5 & ItemTouchHelper.ACTION_MODE_DRAG_MASK) >> 16);
-                        int i9 = i8 + 1;
-                        bArr2[i8] = (byte) ((i5 & 65280) >> 8);
-                        bArr2[i9] = (byte) (i5 & 255);
-                        i6 = i9 + 1;
+                    i6 = (i6 << 6) | ((byte) i2);
+                    if (i8 % 4 == 3) {
+                        int i9 = i7 + 1;
+                        bArr2[i7] = (byte) ((i6 & ItemTouchHelper.ACTION_MODE_DRAG_MASK) >> 16);
+                        int i10 = i9 + 1;
+                        bArr2[i9] = (byte) ((i6 & 65280) >> 8);
+                        bArr2[i10] = (byte) (i6 & 255);
+                        i7 = i10 + 1;
                     }
-                    i7++;
+                    i8++;
                 }
-                i4++;
+                i5++;
                 b2 = 10;
             }
-            if (i3 > 0) {
-                int i10 = i5 << (i3 * 6);
-                int i11 = i6 + 1;
-                bArr2[i6] = (byte) ((i10 & ItemTouchHelper.ACTION_MODE_DRAG_MASK) >> 16);
-                if (i3 == 1) {
-                    i6 = i11 + 1;
-                    bArr2[i11] = (byte) ((i10 & 65280) >> 8);
+            if (i4 > 0) {
+                int i11 = i6 << (i4 * 6);
+                int i12 = i7 + 1;
+                bArr2[i7] = (byte) ((i11 & ItemTouchHelper.ACTION_MODE_DRAG_MASK) >> 16);
+                if (i4 == 1) {
+                    i7 = i12 + 1;
+                    bArr2[i12] = (byte) ((i11 & 65280) >> 8);
                 } else {
-                    i6 = i11;
+                    i7 = i12;
                 }
             }
-            byte[] bArr3 = new byte[i6];
-            System.arraycopy(bArr2, 0, bArr3, 0, i6);
+            byte[] bArr3 = new byte[i7];
+            System.arraycopy(bArr2, 0, bArr3, 0, i7);
             return bArr3;
         }
     }
@@ -132,10 +132,10 @@ public final class j {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f11438a;
+        public String f11262a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11439b;
+        public String f11263b;
 
         public c() {
         }
@@ -150,8 +150,8 @@ public final class j {
                 String string2 = jSONObject.getString("imei");
                 if (!TextUtils.isEmpty(string) && string2 != null) {
                     c cVar = new c();
-                    cVar.f11438a = string;
-                    cVar.f11439b = string2;
+                    cVar.f11262a = string;
+                    cVar.f11263b = string2;
                     return cVar;
                 }
                 return null;
@@ -167,12 +167,12 @@ public final class j {
 
         public final String a() {
             try {
-                String str = this.f11439b;
+                String str = this.f11263b;
                 if (TextUtils.isEmpty(str)) {
                     str = "0";
                 }
                 String stringBuffer = new StringBuffer(str).reverse().toString();
-                return this.f11438a + FieldBuilder.SE + stringBuffer;
+                return this.f11262a + FieldBuilder.SE + stringBuffer;
             } catch (Throwable unused) {
                 com.baidu.sofire.g.d.a();
                 return null;
@@ -205,12 +205,12 @@ public final class j {
     }
 
     public j(Context context) {
-        this.f11436e = context;
+        this.f11260e = context;
     }
 
     private String a(String str) {
         try {
-            return r.b(this.f11436e) ? Settings.System.getString(this.f11436e.getContentResolver(), str) : "";
+            return r.b(this.f11260e) ? Settings.System.getString(this.f11260e.getContentResolver(), str) : "";
         } catch (Throwable unused) {
             com.baidu.sofire.g.d.a();
             return null;
@@ -220,10 +220,10 @@ public final class j {
     public static synchronized c b(Context context) {
         c cVar;
         synchronized (j.class) {
-            if (f11435d == null) {
-                f11435d = new j(context).a();
+            if (f11259d == null) {
+                f11259d = new j(context).a();
             }
-            cVar = f11435d;
+            cVar = f11259d;
         }
         return cVar;
     }
@@ -236,15 +236,15 @@ public final class j {
                 a3 = c("");
             }
             if (TextUtils.isEmpty(a2)) {
-                String i = r.i(this.f11436e);
-                a2 = a(d.a((com.baidu.sofire.g.d.f("q6R8gqLUgHDSsH6dbL27xN7Qr9sa0MxMqXTV66AWUUE=") + a3 + i).getBytes()));
+                String i2 = r.i(this.f11260e);
+                a2 = a(d.a((com.baidu.sofire.g.d.f("q6R8gqLUgHDSsH6dbL27xN7Qr9sa0MxMqXTV66AWUUE=") + a3 + i2).getBytes()));
             }
             if (TextUtils.isEmpty(a2)) {
                 return null;
             }
             c cVar = new c((byte) 0);
-            cVar.f11438a = a2;
-            cVar.f11439b = a3;
+            cVar.f11262a = a2;
+            cVar.f11263b = a3;
             return cVar;
         } catch (Throwable unused) {
             com.baidu.sofire.g.d.a();
@@ -257,7 +257,7 @@ public final class j {
             return null;
         }
         try {
-            return new String(a.a(f11434c, f11434c, b.a(str.getBytes())));
+            return new String(a.a(f11258c, f11258c, b.a(str.getBytes())));
         } catch (Throwable unused) {
             com.baidu.sofire.g.d.a();
             return "";
@@ -309,13 +309,13 @@ public final class j {
         } catch (Throwable unused) {
             com.baidu.sofire.g.d.a();
         }
-        if (r.c(this.f11436e)) {
+        if (r.c(this.f11260e)) {
             File externalStorageDirectory = Environment.getExternalStorageDirectory();
             File file = new File(externalStorageDirectory, com.baidu.sofire.g.d.f("_99uIeWLLYgYWnfdVm4xmTNMy58crLVzIq1_1xd6OaXaqNsyUOaKaQPHeL9hMa2J") + "/" + com.baidu.sofire.g.d.f("idzo8hWEQF2c4tBTa5WOlQMU8UU8Wq-86X4X9ljayiU="));
             if (file.exists()) {
                 String a2 = a(file);
                 if (!TextUtils.isEmpty(a2)) {
-                    return c.a(new String(a.a(f11434c, f11434c, b.a(a2.getBytes()))));
+                    return c.a(new String(a.a(f11258c, f11258c, b.a(a2.getBytes()))));
                 }
             }
             return null;
@@ -335,7 +335,7 @@ public final class j {
 
     private c b(String str) {
         boolean z = Build.VERSION.SDK_INT < 23;
-        if (!(z && TextUtils.isEmpty(str)) && r.c(this.f11436e)) {
+        if (!(z && TextUtils.isEmpty(str)) && r.c(this.f11260e)) {
             String str2 = "";
             File externalStorageDirectory = Environment.getExternalStorageDirectory();
             File file = new File(externalStorageDirectory, com.baidu.sofire.g.d.f("u_lhldj5Nkwulw6YvIU2wr_ieZRcYQnQZ7zSlbUYnYY=") + "/" + com.baidu.sofire.g.d.f("u2fjUEpcZJL7IE6RlBqIRmFJW_FjZrNApjdMKDgt7FM="));
@@ -355,7 +355,7 @@ public final class j {
                     sb.append(Part.CRLF);
                 }
                 bufferedReader.close();
-                String[] split = new String(a.a(f11434c, f11434c, b.a(sb.toString().getBytes()))).split("=");
+                String[] split = new String(a.a(f11258c, f11258c, b.a(sb.toString().getBytes()))).split("=");
                 if (split != null && split.length == 2) {
                     if (z && str.equals(split[0])) {
                         str2 = split[1];
@@ -373,8 +373,8 @@ public final class j {
                 return null;
             }
             c cVar = new c((byte) 0);
-            cVar.f11438a = str2;
-            cVar.f11439b = str;
+            cVar.f11262a = str2;
+            cVar.f11263b = str;
             return cVar;
         }
         return null;
@@ -386,7 +386,7 @@ public final class j {
 
     private c a() {
         try {
-            File file = new File(this.f11436e.getFilesDir(), com.baidu.sofire.g.d.f("K5j7Snuat7HHCaEg62XaRa41Ukv_4vtSH9Z4FqXi1Fs="));
+            File file = new File(this.f11260e.getFilesDir(), com.baidu.sofire.g.d.f("K5j7Snuat7HHCaEg62XaRa41Ukv_4vtSH9Z4FqXi1Fs="));
             c a2 = file.exists() ? c.a(d(a(file))) : null;
             if (a2 != null) {
                 return a2;
@@ -395,7 +395,7 @@ public final class j {
             if (a3 != null) {
                 return a3;
             }
-            boolean z = this.f11436e.checkPermission("android.permission.READ_EXTERNAL_STORAGE", Process.myPid(), Process.myUid()) == 0;
+            boolean z = this.f11260e.checkPermission("android.permission.READ_EXTERNAL_STORAGE", Process.myPid(), Process.myUid()) == 0;
             if (z) {
                 a3 = b();
             }

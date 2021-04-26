@@ -89,27 +89,27 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
                 return;
             }
             int length = replaySubject$ReplayProducerArr.length;
-            int i = -1;
-            int i2 = 0;
+            int i2 = -1;
+            int i3 = 0;
             while (true) {
-                if (i2 >= length) {
+                if (i3 >= length) {
                     break;
-                } else if (replaySubject$ReplayProducerArr[i2] == replaySubject$ReplayProducer) {
-                    i = i2;
+                } else if (replaySubject$ReplayProducerArr[i3] == replaySubject$ReplayProducer) {
+                    i2 = i3;
                     break;
                 } else {
-                    i2++;
+                    i3++;
                 }
             }
-            if (i < 0) {
+            if (i2 < 0) {
                 return;
             }
             if (length == 1) {
                 replaySubject$ReplayProducerArr2 = EMPTY;
             } else {
                 ReplaySubject$ReplayProducer[] replaySubject$ReplayProducerArr3 = new ReplaySubject$ReplayProducer[length - 1];
-                System.arraycopy(replaySubject$ReplayProducerArr, 0, replaySubject$ReplayProducerArr3, 0, i);
-                System.arraycopy(replaySubject$ReplayProducerArr, i + 1, replaySubject$ReplayProducerArr3, i, (length - i) - 1);
+                System.arraycopy(replaySubject$ReplayProducerArr, 0, replaySubject$ReplayProducerArr3, 0, i2);
+                System.arraycopy(replaySubject$ReplayProducerArr, i2 + 1, replaySubject$ReplayProducerArr3, i2, (length - i2) - 1);
                 replaySubject$ReplayProducerArr2 = replaySubject$ReplayProducerArr3;
             }
         } while (!compareAndSet(replaySubject$ReplayProducerArr, replaySubject$ReplayProducerArr2));

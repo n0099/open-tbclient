@@ -40,7 +40,7 @@ public class NetUtils {
     }
 
     @PublicMethod
-    public static String appendCDNStatParams(String str, int i) {
+    public static String appendCDNStatParams(String str, int i2) {
         if (TextUtils.isEmpty(str)) {
             return str;
         }
@@ -58,7 +58,7 @@ public class NetUtils {
             sb.append(getNetTypeParams());
             sb.append("&");
             sb.append("dt=");
-            sb.append(i);
+            sb.append(i2);
             return sb.toString();
         }
         return str;
@@ -66,8 +66,8 @@ public class NetUtils {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @PublicMethod
-    public static String getMobileNetworkType(int i, String str) {
-        switch (i) {
+    public static String getMobileNetworkType(int i2, String str) {
+        switch (i2) {
             case 1:
             case 2:
             case 4:

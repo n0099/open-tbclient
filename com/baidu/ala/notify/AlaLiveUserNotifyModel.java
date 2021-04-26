@@ -27,8 +27,8 @@ public class AlaLiveUserNotifyModel {
                         AlaLiveUserNotifyModel.this.showNextNotifyDialog(0, alaLiveGetUserNotifyResponsedMessage.getDataList());
                         return;
                     }
-                    for (int i = 0; i < count; i++) {
-                        AlaLiveUserNotifyModel.this.addNotifyToImList(alaLiveGetUserNotifyResponsedMessage.getDataList().get(i));
+                    for (int i2 = 0; i2 < count; i2++) {
+                        AlaLiveUserNotifyModel.this.addNotifyToImList(alaLiveGetUserNotifyResponsedMessage.getDataList().get(i2));
                     }
                 }
             }
@@ -60,27 +60,27 @@ public class AlaLiveUserNotifyModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void showNextNotifyDialog(int i, ArrayList<AlaLiveUserNotifyData> arrayList) {
-        if (i < ListUtils.getCount(arrayList)) {
-            int i2 = i;
+    public void showNextNotifyDialog(int i2, ArrayList<AlaLiveUserNotifyData> arrayList) {
+        if (i2 < ListUtils.getCount(arrayList)) {
+            int i3 = i2;
             while (true) {
-                if (i2 >= ListUtils.getCount(arrayList)) {
+                if (i3 >= ListUtils.getCount(arrayList)) {
                     break;
-                } else if (arrayList.get(i2).isSuperGuardian()) {
-                    i = i2;
+                } else if (arrayList.get(i3).isSuperGuardian()) {
+                    i2 = i3;
                     break;
                 } else {
-                    i2++;
+                    i3++;
                 }
             }
-            AlaLiveUserNotifyData alaLiveUserNotifyData = arrayList.get(i);
+            AlaLiveUserNotifyData alaLiveUserNotifyData = arrayList.get(i2);
             if (alaLiveUserNotifyData.isSuperGuardian()) {
-                showNotifyDialog(i, alaLiveUserNotifyData, arrayList);
+                showNotifyDialog(i2, alaLiveUserNotifyData, arrayList);
             }
         }
     }
 
-    private void showNotifyDialog(final int i, AlaLiveUserNotifyData alaLiveUserNotifyData, final ArrayList<AlaLiveUserNotifyData> arrayList) {
+    private void showNotifyDialog(final int i2, AlaLiveUserNotifyData alaLiveUserNotifyData, final ArrayList<AlaLiveUserNotifyData> arrayList) {
         if (this.mTbPageContext == null) {
             return;
         }
@@ -88,7 +88,7 @@ public class AlaLiveUserNotifyModel {
         alaLiveUserNotifyDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.ala.notify.AlaLiveUserNotifyModel.2
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                AlaLiveUserNotifyModel.this.showNextNotifyDialog(i + 1, arrayList);
+                AlaLiveUserNotifyModel.this.showNextNotifyDialog(i2 + 1, arrayList);
             }
         });
         alaLiveUserNotifyDialog.show(alaLiveUserNotifyData);

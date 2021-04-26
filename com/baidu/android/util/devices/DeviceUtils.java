@@ -1,5 +1,6 @@
 package com.baidu.android.util.devices;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
@@ -23,6 +24,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 /* loaded from: classes.dex */
 public class DeviceUtils implements IDevices {
 
@@ -61,7 +63,7 @@ public class DeviceUtils implements IDevices {
                     RandomAccessFile randomAccessFile2 = null;
                     try {
                         try {
-                            randomAccessFile = new RandomAccessFile(file, r.f7699a);
+                            randomAccessFile = new RandomAccessFile(file, r.f7975a);
                         } catch (Throwable th) {
                             th = th;
                         }
@@ -73,14 +75,14 @@ public class DeviceUtils implements IDevices {
                     try {
                         randomAccessFile.readFully(bArr);
                         randomAccessFile2 = 8;
-                        int i = bArr[18] | (bArr[19] << 8);
-                        if (i == 3) {
+                        int i2 = bArr[18] | (bArr[19] << 8);
+                        if (i2 == 3) {
                             sArch = IDevices.ARCH.X86;
-                        } else if (i == 8) {
+                        } else if (i2 == 8) {
                             sArch = IDevices.ARCH.MIPS;
-                        } else if (i == 40) {
+                        } else if (i2 == 40) {
                             sArch = IDevices.ARCH.ARM;
-                        } else if (i == 183) {
+                        } else if (i2 == 183) {
                             sArch = IDevices.ARCH.ARM64;
                         }
                         try {
@@ -140,7 +142,7 @@ public class DeviceUtils implements IDevices {
         }
 
         public static String getCpuArchInfo() {
-            String lowerCase = System.getProperty("os.arch").toLowerCase();
+            String lowerCase = System.getProperty("os.arch").toLowerCase(Locale.getDefault());
             if (lowerCase == null || lowerCase.length() == 0) {
                 return null;
             }
@@ -180,7 +182,7 @@ public class DeviceUtils implements IDevices {
                 FileReader fileReader = new FileReader("/proc/cpuinfo");
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
                 for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
-                    String lowerCase = readLine.trim().toLowerCase();
+                    String lowerCase = readLine.trim().toLowerCase(Locale.getDefault());
                     if (lowerCase.startsWith("processor") && lowerCase.indexOf(":", 9) != -1) {
                         if (cPUInfo2.processor.length() > 0) {
                             cPUInfo2.processor += "__";
@@ -252,26 +254,32 @@ public class DeviceUtils implements IDevices {
             return Build.VERSION.SDK_INT;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean hasFroyo() {
             return Build.VERSION.SDK_INT >= 8;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean hasGingerbread() {
             return Build.VERSION.SDK_INT >= 9;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean hasHoneycomb() {
             return Build.VERSION.SDK_INT >= 11;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean hasHoneycombMR1() {
             return Build.VERSION.SDK_INT >= 12;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean hasICS() {
             return Build.VERSION.SDK_INT >= 14;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean hasICSMR1() {
             return Build.VERSION.SDK_INT >= 15;
         }
@@ -328,10 +336,12 @@ public class DeviceUtils implements IDevices {
             return Build.VERSION.SDK_INT >= 29;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean isGingerbread() {
             return Build.VERSION.SDK_INT == 9;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean isGingerbreadmr1() {
             return Build.VERSION.SDK_INT == 10;
         }
@@ -440,10 +450,11 @@ public class DeviceUtils implements IDevices {
             return iArr;
         }
 
+        @SuppressLint({"PrivateApi"})
         public static int getScreenOriginDensityDip() {
-            int i = originDensityDip;
-            if (i > 0) {
-                return i;
+            int i2 = originDensityDip;
+            if (i2 > 0) {
+                return i2;
             }
             try {
                 originDensityDip = ((Integer) Class.forName("android.view.IWindowManager").getMethod("getInitialDisplayDensity", Integer.TYPE).invoke(Class.forName("android.view.WindowManagerGlobal").getMethod("getWindowManagerService", new Class[0]).invoke(new Object(), new Object[0]), 0)).intValue();
@@ -455,14 +466,14 @@ public class DeviceUtils implements IDevices {
 
         public static int getStatusBarHeight() {
             int identifier = AppRuntime.getAppContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
-            int i = 0;
+            int i2 = 0;
             if (identifier > 0) {
                 try {
-                    i = AppRuntime.getAppContext().getResources().getDimensionPixelSize(identifier);
+                    i2 = AppRuntime.getAppContext().getResources().getDimensionPixelSize(identifier);
                 } catch (Exception unused) {
                 }
             }
-            return i == 0 ? (int) (getDensity(null) * 25.0f) : i;
+            return i2 == 0 ? (int) (getDensity(null) * 25.0f) : i2;
         }
 
         public static void initDisplayMetrics(Context context) {

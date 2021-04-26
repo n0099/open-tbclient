@@ -59,7 +59,7 @@ public class GameShareJsBridge {
             this.mShareContentUrl = String.valueOf(jSONObject.opt("app_link"));
             this.mShareImage = String.valueOf(jSONObject.opt("img"));
             this.mShareName = String.valueOf(jSONObject.opt(DpStatConstants.KEY_APP_NAME));
-            this.mGameId = String.valueOf(jSONObject.opt(b.f1883h));
+            this.mGameId = String.valueOf(jSONObject.opt(b.f1831h));
         } catch (JSONException e2) {
             e2.printStackTrace();
         } catch (Exception e3) {

@@ -19,13 +19,13 @@ public final class ContentLengthInputStream extends FilterInputStream {
         this.contentLength = j;
     }
 
-    private int checkReadSoFarOrThrow(int i) throws IOException {
-        if (i >= 0) {
-            this.readSoFar += i;
+    private int checkReadSoFarOrThrow(int i2) throws IOException {
+        if (i2 >= 0) {
+            this.readSoFar += i2;
         } else if (this.contentLength - this.readSoFar > 0) {
             throw new IOException("Failed to read all expected data, expected: " + this.contentLength + ", but read: " + this.readSoFar);
         }
-        return i;
+        return i2;
     }
 
     @NonNull
@@ -70,7 +70,7 @@ public final class ContentLengthInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public synchronized int read(byte[] bArr, int i, int i2) throws IOException {
-        return checkReadSoFarOrThrow(super.read(bArr, i, i2));
+    public synchronized int read(byte[] bArr, int i2, int i3) throws IOException {
+        return checkReadSoFarOrThrow(super.read(bArr, i2, i3));
     }
 }

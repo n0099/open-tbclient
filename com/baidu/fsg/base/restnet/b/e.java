@@ -12,56 +12,58 @@ import kotlin.text.Typography;
 public class e implements com.baidu.fsg.base.restnet.rest.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.baidu.fsg.base.restnet.rest.c f5226a;
+    public final com.baidu.fsg.base.restnet.rest.c f5357a;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5228c;
+    public String f5359c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpDefines.HttpMethod f5229d;
+    public HttpDefines.HttpMethod f5360d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5230e;
+    public String f5361e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f5231f;
+    public String f5362f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<RestNameValuePair> f5232g;
+    public List<RestNameValuePair> f5363g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RestMultipartEntity f5233h;
+    public RestMultipartEntity f5364h;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.baidu.fsg.base.restnet.http.a f5227b = new com.baidu.fsg.base.restnet.http.a();
-    public int i = -1;
+    public final com.baidu.fsg.base.restnet.http.a f5358b = new com.baidu.fsg.base.restnet.http.a();
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f5365i = -1;
 
     public e(com.baidu.fsg.base.restnet.rest.c cVar, String str, HttpDefines.HttpMethod httpMethod, List<RestNameValuePair> list, RestMultipartEntity restMultipartEntity, String str2) {
-        this.f5226a = cVar;
-        this.f5228c = str2;
-        this.f5229d = httpMethod;
-        this.f5230e = str;
-        this.f5232g = list;
-        this.f5233h = restMultipartEntity;
+        this.f5357a = cVar;
+        this.f5359c = str2;
+        this.f5360d = httpMethod;
+        this.f5361e = str;
+        this.f5363g = list;
+        this.f5364h = restMultipartEntity;
     }
 
     public RestMultipartEntity a() {
-        return this.f5233h;
+        return this.f5364h;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
     public com.baidu.fsg.base.restnet.http.a b() {
-        return this.f5227b;
+        return this.f5358b;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
     public HttpDefines.HttpMethod c() {
-        return this.f5229d;
+        return this.f5360d;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
     public String d() {
-        return this.f5230e;
+        return this.f5361e;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
@@ -69,22 +71,22 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
         if (Thread.currentThread().isInterrupted()) {
             return null;
         }
-        return this.f5226a.a(this);
+        return this.f5357a.a(this);
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
     public String f() {
-        return this.f5228c;
+        return this.f5359c;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
     public void g() {
-        this.f5226a.a();
+        this.f5357a.a();
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
     public int h() {
-        return this.i;
+        return this.f5365i;
     }
 
     public boolean i() {
@@ -97,16 +99,16 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
 
     @Override // com.baidu.fsg.base.restnet.rest.d
     public String k() {
-        return this.f5231f;
+        return this.f5362f;
     }
 
     public String l() {
-        List<RestNameValuePair> list = this.f5232g;
+        List<RestNameValuePair> list = this.f5363g;
         if (list == null || list.size() == 0) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        for (RestNameValuePair restNameValuePair : this.f5232g) {
+        for (RestNameValuePair restNameValuePair : this.f5363g) {
             String name = restNameValuePair.getName();
             String value = restNameValuePair.getValue();
             if (!TextUtils.isEmpty(name)) {
@@ -114,9 +116,9 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
                     value = "";
                 }
                 try {
-                    sb.append(URLEncoder.encode(name, this.f5228c));
-                    sb.append(com.alipay.sdk.encrypt.a.f1922h);
-                    sb.append(URLEncoder.encode(value, this.f5228c));
+                    sb.append(URLEncoder.encode(name, this.f5359c));
+                    sb.append(com.alipay.sdk.encrypt.a.f1873h);
+                    sb.append(URLEncoder.encode(value, this.f5359c));
                     sb.append(Typography.amp);
                 } catch (UnsupportedEncodingException e2) {
                     e2.printStackTrace();
@@ -130,16 +132,16 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
     }
 
     public void a(String str) {
-        this.f5230e = str;
+        this.f5361e = str;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
     public void b(String str) {
-        this.f5231f = str;
+        this.f5362f = str;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
-    public void a(int i) {
-        this.i = i;
+    public void a(int i2) {
+        this.f5365i = i2;
     }
 }

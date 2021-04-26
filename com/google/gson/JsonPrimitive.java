@@ -1,7 +1,7 @@
 package com.google.gson;
 
+import com.google.gson.internal.C$Gson$Preconditions;
 import com.google.gson.internal.LazilyParsedNumber;
-import d.h.d.b.a;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 /* loaded from: classes6.dex */
@@ -177,7 +177,7 @@ public final class JsonPrimitive extends JsonElement {
             this.value = String.valueOf(((Character) obj).charValue());
             return;
         }
-        a.a((obj instanceof Number) || isPrimitiveOrString(obj));
+        C$Gson$Preconditions.checkArgument((obj instanceof Number) || isPrimitiveOrString(obj));
         this.value = obj;
     }
 

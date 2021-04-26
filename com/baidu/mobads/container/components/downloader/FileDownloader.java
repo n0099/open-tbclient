@@ -97,8 +97,8 @@ public class FileDownloader extends Observable implements Runnable, IDownloader 
         TaskScheduler.getInstance().submit(this);
     }
 
-    public void downloaded(int i, float f2) {
-        this.mDownloaded += i;
+    public void downloaded(int i2, float f2) {
+        this.mDownloaded += i2;
         stateChanged();
     }
 
@@ -265,14 +265,14 @@ public class FileDownloader extends Observable implements Runnable, IDownloader 
         try {
             byte[] bArr = new byte[10240];
             ByteArrayOutputStream byteArrayOutputStream2 = this.saveFileAndMemory ? new ByteArrayOutputStream() : null;
-            int i = 0;
+            int i2 = 0;
             while (this.mState == IDownloader.DownloadStatus.DOWNLOADING && (read = bufferedInputStream.read(bArr, 0, 10240)) != -1) {
                 bufferedOutputStream.write(bArr, 0, read);
                 if (byteArrayOutputStream2 != null) {
                     byteArrayOutputStream2.write(bArr, 0, read);
                 }
-                i += read;
-                downloaded(read, i / this.mFileSize);
+                i2 += read;
+                downloaded(read, i2 / this.mFileSize);
             }
             bufferedOutputStream.flush();
             if (byteArrayOutputStream2 != null) {

@@ -8,7 +8,7 @@ public abstract class d<T, R> extends h.d<R> implements e<T> {
         super(aVar);
     }
 
-    public final c<T, R> M() {
+    public final c<T, R> J() {
         if (getClass() == c.class) {
             return (c) this;
         }

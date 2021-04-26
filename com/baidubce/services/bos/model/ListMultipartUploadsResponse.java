@@ -69,8 +69,8 @@ public class ListMultipartUploadsResponse extends BosResponse {
         this.keyMarker = str;
     }
 
-    public void setMaxUploads(int i) {
-        this.maxUploads = i;
+    public void setMaxUploads(int i2) {
+        this.maxUploads = i2;
     }
 
     public void setMultipartUploads(List<MultipartUploadSummary> list) {

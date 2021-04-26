@@ -1,8 +1,8 @@
 package com.baidu.tieba.forbidden.fans;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.i0.r.q.z0;
-import d.b.j0.n0.a.a;
+import d.a.i0.r.q.z0;
+import d.a.j0.n0.a.a;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -11,13 +11,13 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
     public ArrayList<a> fansList;
     public z0 pageData;
 
-    public GetForbiddenFansResponse(int i) {
-        super(i);
+    public GetForbiddenFansResponse(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i, jSONObject);
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        super.decodeLogicInBackGround(i2, jSONObject);
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
@@ -25,10 +25,10 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
                 this.fansList = new ArrayList<>();
-                for (int i2 = 0; i2 < length; i2++) {
+                for (int i3 = 0; i3 < length; i3++) {
                     a aVar = new a();
-                    aVar.a(optJSONArray.getJSONObject(i2));
-                    if (aVar.f58865a != 0) {
+                    aVar.a(optJSONArray.getJSONObject(i3));
+                    if (aVar.f56880a != 0) {
                         this.fansList.add(aVar);
                     }
                 }

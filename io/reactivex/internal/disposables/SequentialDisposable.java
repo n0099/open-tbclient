@@ -1,33 +1,33 @@
 package io.reactivex.internal.disposables;
 
-import f.b.t.b;
+import io.reactivex.disposables.Disposable;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class SequentialDisposable extends AtomicReference<b> implements b {
+public final class SequentialDisposable extends AtomicReference<Disposable> implements Disposable {
     public static final long serialVersionUID = -754898800686245608L;
 
     public SequentialDisposable() {
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }
 
-    public boolean replace(b bVar) {
-        return DisposableHelper.replace(this, bVar);
+    public boolean replace(Disposable disposable) {
+        return DisposableHelper.replace(this, disposable);
     }
 
-    public boolean update(b bVar) {
-        return DisposableHelper.set(this, bVar);
+    public boolean update(Disposable disposable) {
+        return DisposableHelper.set(this, disposable);
     }
 
-    public SequentialDisposable(b bVar) {
-        lazySet(bVar);
+    public SequentialDisposable(Disposable disposable) {
+        lazySet(disposable);
     }
 }

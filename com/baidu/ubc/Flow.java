@@ -32,8 +32,8 @@ public class Flow implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public Flow[] newArray(int i) {
-            return new Flow[i];
+        public Flow[] newArray(int i2) {
+            return new Flow[i2];
         }
     }
 
@@ -133,7 +133,7 @@ public class Flow implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.mId);
         parcel.writeInt(this.mHandle);
         parcel.writeInt(this.mOption);
@@ -166,11 +166,11 @@ public class Flow implements Parcelable {
         }
     }
 
-    public Flow(String str, int i, int i2) {
+    public Flow(String str, int i2, int i3) {
         this.mValid = true;
         this.mId = str;
-        this.mHandle = i;
-        this.mOption = i2;
+        this.mHandle = i2;
+        this.mOption = i3;
         this.mStartTime = System.currentTimeMillis();
         this.mSlotMaps = new HashMap<>();
     }

@@ -7,23 +7,25 @@ import java.io.InterruptedIOException;
 public class PipedInputStreamAndroid25 extends InputStream {
 
     /* renamed from: h  reason: collision with root package name */
-    public Thread f22492h;
-    public Thread i;
+    public Thread f23188h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Thread f23189i;
     public byte[] j;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f22489e = false;
+    public boolean f23185e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f22490f = false;
+    public volatile boolean f23186f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f22491g = false;
+    public boolean f23187g = false;
     public int k = -1;
     public int l = 0;
 
-    public PipedInputStreamAndroid25(PipedOutputStreamAndroid25 pipedOutputStreamAndroid25, int i) throws IOException {
-        q(i);
+    public PipedInputStreamAndroid25(PipedOutputStreamAndroid25 pipedOutputStreamAndroid25, int i2) throws IOException {
+        q(i2);
         p(pipedOutputStreamAndroid25);
     }
 
@@ -43,7 +45,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f22490f = true;
+        this.f23186f = true;
         synchronized (this) {
             this.k = -1;
         }
@@ -63,9 +65,9 @@ public class PipedInputStreamAndroid25 extends InputStream {
     }
 
     public final void o() throws IOException {
-        if (this.f22491g) {
-            if (!this.f22489e && !this.f22490f) {
-                Thread thread = this.f22492h;
+        if (this.f23187g) {
+            if (!this.f23185e && !this.f23186f) {
+                Thread thread = this.f23188h;
                 if (thread != null && !thread.isAlive()) {
                     throw new IOException("Read end dead");
                 }
@@ -80,17 +82,17 @@ public class PipedInputStreamAndroid25 extends InputStream {
         pipedOutputStreamAndroid25.c(this);
     }
 
-    public final void q(int i) {
-        if (i > 0) {
-            this.j = new byte[i];
+    public final void q(int i2) {
+        if (i2 > 0) {
+            this.j = new byte[i2];
             return;
         }
         throw new IllegalArgumentException("Pipe Size <= 0");
     }
 
-    public synchronized void r(int i) throws IOException {
+    public synchronized void r(int i2) throws IOException {
         o();
-        this.i = Thread.currentThread();
+        this.f23189i = Thread.currentThread();
         if (this.k == this.l) {
             n();
         }
@@ -99,29 +101,29 @@ public class PipedInputStreamAndroid25 extends InputStream {
             this.l = 0;
         }
         byte[] bArr = this.j;
-        int i2 = this.k;
-        int i3 = i2 + 1;
-        this.k = i3;
-        bArr[i2] = (byte) (i & 255);
-        if (i3 >= this.j.length) {
+        int i3 = this.k;
+        int i4 = i3 + 1;
+        this.k = i4;
+        bArr[i3] = (byte) (i2 & 255);
+        if (i4 >= this.j.length) {
             this.k = 0;
         }
     }
 
     @Override // java.io.InputStream
     public synchronized int read() throws IOException {
-        if (this.f22491g) {
-            if (!this.f22490f) {
-                if (this.i != null && !this.i.isAlive() && !this.f22489e && this.k < 0) {
+        if (this.f23187g) {
+            if (!this.f23186f) {
+                if (this.f23189i != null && !this.f23189i.isAlive() && !this.f23185e && this.k < 0) {
                     throw new IOException("Write end dead");
                 }
-                this.f22492h = Thread.currentThread();
-                int i = 2;
+                this.f23188h = Thread.currentThread();
+                int i2 = 2;
                 while (this.k < 0) {
-                    if (this.f22489e) {
+                    if (this.f23185e) {
                         return -1;
                     }
-                    if (this.i != null && !this.i.isAlive() && i - 1 < 0) {
+                    if (this.f23189i != null && !this.f23189i.isAlive() && i2 - 1 < 0) {
                         throw new IOException("Pipe broken");
                     }
                     notifyAll();
@@ -133,17 +135,17 @@ public class PipedInputStreamAndroid25 extends InputStream {
                     }
                 }
                 byte[] bArr = this.j;
-                int i2 = this.l;
-                int i3 = i2 + 1;
-                this.l = i3;
-                int i4 = bArr[i2] & 255;
-                if (i3 >= this.j.length) {
+                int i3 = this.l;
+                int i4 = i3 + 1;
+                this.l = i4;
+                int i5 = bArr[i3] & 255;
+                if (i4 >= this.j.length) {
                     this.l = 0;
                 }
                 if (this.k == this.l) {
                     this.k = -1;
                 }
-                return i4;
+                return i5;
             }
             throw new IOException("Pipe closed");
         }
@@ -156,58 +158,58 @@ public class PipedInputStreamAndroid25 extends InputStream {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void s(byte[] bArr, int i, int i2) throws IOException {
-        int i3;
+    public synchronized void s(byte[] bArr, int i2, int i3) throws IOException {
         int i4;
         int i5;
         int i6;
+        int i7;
         o();
-        this.i = Thread.currentThread();
-        while (i2 > 0) {
+        this.f23189i = Thread.currentThread();
+        while (i3 > 0) {
             if (this.k == this.l) {
                 n();
             }
             if (this.l < this.k) {
-                i4 = this.j.length;
-                i5 = this.k;
+                i5 = this.j.length;
+                i6 = this.k;
             } else {
                 if (this.k >= this.l) {
-                    i3 = 0;
+                    i4 = 0;
                 } else if (this.k == -1) {
                     this.l = 0;
                     this.k = 0;
-                    i3 = this.j.length - 0;
+                    i4 = this.j.length - 0;
                 } else {
-                    i4 = this.l;
-                    i5 = this.k;
+                    i5 = this.l;
+                    i6 = this.k;
                 }
-                if (i3 > i2) {
-                    i3 = i2;
+                if (i4 > i3) {
+                    i4 = i3;
                 }
-                System.arraycopy(bArr, i, this.j, this.k, i3);
-                i2 -= i3;
-                i += i3;
-                i6 = this.k + i3;
-                this.k = i6;
-                if (i6 < this.j.length) {
+                System.arraycopy(bArr, i2, this.j, this.k, i4);
+                i3 -= i4;
+                i2 += i4;
+                i7 = this.k + i4;
+                this.k = i7;
+                if (i7 < this.j.length) {
                     this.k = 0;
                 }
             }
-            i3 = i4 - i5;
-            if (i3 > i2) {
+            i4 = i5 - i6;
+            if (i4 > i3) {
             }
-            System.arraycopy(bArr, i, this.j, this.k, i3);
-            i2 -= i3;
-            i += i3;
-            i6 = this.k + i3;
-            this.k = i6;
-            if (i6 < this.j.length) {
+            System.arraycopy(bArr, i2, this.j, this.k, i4);
+            i3 -= i4;
+            i2 += i4;
+            i7 = this.k + i4;
+            this.k = i7;
+            if (i7 < this.j.length) {
             }
         }
     }
 
     public synchronized void t() {
-        this.f22489e = true;
+        this.f23185e = true;
         notifyAll();
     }
 
@@ -216,44 +218,44 @@ public class PipedInputStreamAndroid25 extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public synchronized int read(byte[] bArr, int i, int i2) throws IOException {
+    public synchronized int read(byte[] bArr, int i2, int i3) throws IOException {
         int length;
         if (bArr != null) {
-            if (i < 0 || i2 < 0 || i2 > bArr.length - i) {
+            if (i2 < 0 || i3 < 0 || i3 > bArr.length - i2) {
                 throw new IndexOutOfBoundsException();
             }
-            if (i2 == 0) {
+            if (i3 == 0) {
                 return 0;
             }
             int read = read();
             if (read < 0) {
                 return -1;
             }
-            bArr[i] = (byte) read;
-            int i3 = 1;
-            while (this.k >= 0 && i2 > 1) {
+            bArr[i2] = (byte) read;
+            int i4 = 1;
+            while (this.k >= 0 && i3 > 1) {
                 if (this.k > this.l) {
                     length = Math.min(this.j.length - this.l, this.k - this.l);
                 } else {
                     length = this.j.length - this.l;
                 }
-                int i4 = i2 - 1;
-                if (length > i4) {
-                    length = i4;
+                int i5 = i3 - 1;
+                if (length > i5) {
+                    length = i5;
                 }
-                System.arraycopy(this.j, this.l, bArr, i + i3, length);
-                int i5 = this.l + length;
-                this.l = i5;
-                i3 += length;
-                i2 -= length;
-                if (i5 >= this.j.length) {
+                System.arraycopy(this.j, this.l, bArr, i2 + i4, length);
+                int i6 = this.l + length;
+                this.l = i6;
+                i4 += length;
+                i3 -= length;
+                if (i6 >= this.j.length) {
                     this.l = 0;
                 }
                 if (this.k == this.l) {
                     this.k = -1;
                 }
             }
-            return i3;
+            return i4;
         }
         throw new NullPointerException();
     }

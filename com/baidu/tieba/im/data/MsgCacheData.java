@@ -38,12 +38,12 @@ public class MsgCacheData extends OrmObject implements Serializable {
         return this.voice_status;
     }
 
-    public void setIs_left(int i) {
-        this.is_left = i;
+    public void setIs_left(int i2) {
+        this.is_left = i2;
     }
 
-    public void setIs_show_time(int i) {
-        this.is_show_time = i;
+    public void setIs_show_time(int i2) {
+        this.is_show_time = i2;
     }
 
     public void setLastMsgTime(long j) {
@@ -58,7 +58,7 @@ public class MsgCacheData extends OrmObject implements Serializable {
         this.voice_model = voiceData$VoiceModel;
     }
 
-    public void setVoice_status(int i) {
-        this.voice_status = i;
+    public void setVoice_status(int i2) {
+        this.voice_status = i2;
     }
 }

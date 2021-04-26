@@ -19,17 +19,17 @@ public class SPSwitchRootLinearLayout extends LinearLayout {
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        this.conflictHandler.handleBeforeMeasure(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
-        super.onMeasure(i, i2);
+    public void onMeasure(int i2, int i3) {
+        this.conflictHandler.handleBeforeMeasure(View.MeasureSpec.getSize(i2), View.MeasureSpec.getSize(i3));
+        super.onMeasure(i2, i3);
     }
 
     public SPSwitchRootLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public SPSwitchRootLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public SPSwitchRootLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         init();
     }
 }

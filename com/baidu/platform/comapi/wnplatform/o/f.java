@@ -3,13 +3,13 @@ package com.baidu.platform.comapi.wnplatform.o;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f9919a = {"m", "km", "米", "公里"};
+    public static final String[] f10287a = {"m", "km", "米", "公里"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f9920b = {"m", "h", "分钟", "小时"};
+    public static final String[] f10288b = {"m", "h", "分钟", "小时"};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f9921c = {"m", "h", "d", "分钟", "小时", "天"};
+    public static final String[] f10289c = {"m", "h", "d", "分钟", "小时", "天"};
 
     /* loaded from: classes2.dex */
     public enum a {
@@ -18,14 +18,14 @@ public class f {
         
 
         /* renamed from: c  reason: collision with root package name */
-        public int f9925c;
+        public int f10293c;
 
-        a(int i) {
-            this.f9925c = i;
+        a(int i2) {
+            this.f10293c = i2;
         }
 
         public int a() {
-            return this.f9925c;
+            return this.f10293c;
         }
     }
 
@@ -33,25 +33,25 @@ public class f {
         return 0;
     }
 
-    public static void a(int i, a aVar, StringBuffer stringBuffer) {
+    public static void a(int i2, a aVar, StringBuffer stringBuffer) {
         int a2 = aVar.a();
         if (a2 != 0) {
             a2++;
         }
-        if (i < 1000) {
+        if (i2 < 1000) {
             if (stringBuffer != null) {
-                stringBuffer.append(String.format("%d%s", Integer.valueOf(i), f9919a[a2 + 0]));
+                stringBuffer.append(String.format("%d%s", Integer.valueOf(i2), f10287a[a2 + 0]));
                 return;
             }
             return;
         }
-        String str = i % 1000 == 0 ? "%.0f%s" : "%.1f%s";
+        String str = i2 % 1000 == 0 ? "%.0f%s" : "%.1f%s";
         if (stringBuffer != null) {
-            int i2 = i / 1000;
-            if (i2 >= 100) {
-                stringBuffer.append(String.format("%d%s", Integer.valueOf(i2), f9919a[a2 + 1]));
+            int i3 = i2 / 1000;
+            if (i3 >= 100) {
+                stringBuffer.append(String.format("%d%s", Integer.valueOf(i3), f10287a[a2 + 1]));
             } else {
-                stringBuffer.append(String.format(str, Double.valueOf(i / 1000.0d), f9919a[a2 + 1]));
+                stringBuffer.append(String.format(str, Double.valueOf(i2 / 1000.0d), f10287a[a2 + 1]));
             }
         }
     }
@@ -64,38 +64,38 @@ public class f {
         return 2;
     }
 
-    public static void a(int i, int i2, StringBuffer stringBuffer) {
+    public static void a(int i2, int i3, StringBuffer stringBuffer) {
         if (stringBuffer != null) {
-            if (i < 60) {
+            if (i2 < 60) {
                 stringBuffer.append("少于1分钟");
                 return;
             }
-            int i3 = (i / 3600) % 24;
-            int i4 = (i / 60) % 60;
-            if (i < 3600) {
+            int i4 = (i2 / 3600) % 24;
+            int i5 = (i2 / 60) % 60;
+            if (i2 < 3600) {
+                stringBuffer.append(i5);
+                stringBuffer.append(f10289c[i3 + 1]);
+            } else if (i2 < 86400) {
                 stringBuffer.append(i4);
-                stringBuffer.append(f9921c[i2 + 1]);
-            } else if (i < 86400) {
-                stringBuffer.append(i3);
-                stringBuffer.append(f9921c[i2 + 2]);
-                if (i4 > 0) {
-                    stringBuffer.append(i4);
+                stringBuffer.append(f10289c[i3 + 2]);
+                if (i5 > 0) {
+                    stringBuffer.append(i5);
                     stringBuffer.append("分");
                 }
             } else {
-                stringBuffer.append(i / 86400);
-                stringBuffer.append(f9921c[i2 + 3]);
-                if (i3 > 0) {
-                    stringBuffer.append(i3);
-                    stringBuffer.append(f9921c[i2 + 2]);
+                stringBuffer.append(i2 / 86400);
+                stringBuffer.append(f10289c[i3 + 3]);
+                if (i4 > 0) {
+                    stringBuffer.append(i4);
+                    stringBuffer.append(f10289c[i3 + 2]);
                 }
             }
         }
     }
 
-    public static String a(int i, int i2) {
+    public static String a(int i2, int i3) {
         StringBuffer stringBuffer = new StringBuffer();
-        a(i, i2, stringBuffer);
+        a(i2, i3, stringBuffer);
         return stringBuffer.toString();
     }
 }

@@ -8,8 +8,8 @@ public final class HttpException extends IOException {
     public static final long serialVersionUID = 1;
     public final int statusCode;
 
-    public HttpException(int i) {
-        this("Http request failed with status code: " + i, i);
+    public HttpException(int i2) {
+        this("Http request failed with status code: " + i2, i2);
     }
 
     public int getStatusCode() {
@@ -20,12 +20,12 @@ public final class HttpException extends IOException {
         this(str, -1);
     }
 
-    public HttpException(String str, int i) {
-        this(str, i, null);
+    public HttpException(String str, int i2) {
+        this(str, i2, null);
     }
 
-    public HttpException(String str, int i, @Nullable Throwable th) {
+    public HttpException(String str, int i2, @Nullable Throwable th) {
         super(str, th);
-        this.statusCode = i;
+        this.statusCode = i2;
     }
 }

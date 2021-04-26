@@ -7,5 +7,5 @@ import com.baidu.searchbox.bddownload.core.cause.EndCause;
 public interface DownloadContextListener {
     void queueEnd(@NonNull DownloadContext downloadContext);
 
-    void taskEnd(@NonNull DownloadContext downloadContext, @NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc, int i);
+    void taskEnd(@NonNull DownloadContext downloadContext, @NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc, int i2);
 }

@@ -15,9 +15,9 @@ public class WXEmojiSharedObject implements WXMediaMessage.IMediaObject {
     public WXEmojiSharedObject() {
     }
 
-    public WXEmojiSharedObject(String str, int i, String str2, String str3) {
+    public WXEmojiSharedObject(String str, int i2, String str2, String str3) {
         this.thumburl = str;
-        this.packageflag = i;
+        this.packageflag = i2;
         this.packageid = str2;
         this.url = str3;
     }

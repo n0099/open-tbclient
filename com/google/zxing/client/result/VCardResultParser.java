@@ -28,16 +28,16 @@ public final class VCardResultParser extends ResultParser {
         int length = charSequence.length();
         StringBuilder sb = new StringBuilder(length);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        int i = 0;
-        while (i < length) {
-            char charAt2 = charSequence.charAt(i);
+        int i2 = 0;
+        while (i2 < length) {
+            char charAt2 = charSequence.charAt(i2);
             if (charAt2 != '\n' && charAt2 != '\r') {
                 if (charAt2 != '=') {
                     maybeAppendFragment(byteArrayOutputStream, str, sb);
                     sb.append(charAt2);
-                } else if (i < length - 2 && (charAt = charSequence.charAt(i + 1)) != '\r' && charAt != '\n') {
-                    i += 2;
-                    char charAt3 = charSequence.charAt(i);
+                } else if (i2 < length - 2 && (charAt = charSequence.charAt(i2 + 1)) != '\r' && charAt != '\n') {
+                    i2 += 2;
+                    char charAt3 = charSequence.charAt(i2);
                     int parseHexDigit = ResultParser.parseHexDigit(charAt);
                     int parseHexDigit2 = ResultParser.parseHexDigit(charAt3);
                     if (parseHexDigit >= 0 && parseHexDigit2 >= 0) {
@@ -45,7 +45,7 @@ public final class VCardResultParser extends ResultParser {
                     }
                 }
             }
-            i++;
+            i2++;
         }
         maybeAppendFragment(byteArrayOutputStream, str, sb);
         return sb.toString();
@@ -57,14 +57,14 @@ public final class VCardResultParser extends ResultParser {
             for (List<String> list : iterable) {
                 String str = list.get(0);
                 String[] strArr = new String[5];
-                int i = 0;
                 int i2 = 0;
-                while (i < 4 && (indexOf = str.indexOf(59, i2)) >= 0) {
-                    strArr[i] = str.substring(i2, indexOf);
-                    i++;
-                    i2 = indexOf + 1;
+                int i3 = 0;
+                while (i2 < 4 && (indexOf = str.indexOf(59, i3)) >= 0) {
+                    strArr[i2] = str.substring(i3, indexOf);
+                    i2++;
+                    i3 = indexOf + 1;
                 }
-                strArr[i] = str.substring(i2);
+                strArr[i2] = str.substring(i3);
                 StringBuilder sb = new StringBuilder(100);
                 maybeAppendComponent(strArr, 3, sb);
                 maybeAppendComponent(strArr, 1, sb);
@@ -101,35 +101,35 @@ public final class VCardResultParser extends ResultParser {
         int indexOf;
         String replaceAll;
         int length = str.length();
-        int i = 0;
         int i2 = 0;
+        int i3 = 0;
         ArrayList arrayList2 = null;
-        while (i2 < length) {
+        while (i3 < length) {
             Matcher matcher = Pattern.compile("(?:^|\n)" + ((Object) charSequence) + "(?:;([^:]*))?:", 2).matcher(str);
-            if (i2 > 0) {
-                i2--;
+            if (i3 > 0) {
+                i3--;
             }
-            if (!matcher.find(i2)) {
+            if (!matcher.find(i3)) {
                 break;
             }
-            int end = matcher.end(i);
+            int end = matcher.end(i2);
             String group = matcher.group(1);
             if (group != null) {
                 String[] split = SEMICOLON.split(group);
                 int length2 = split.length;
-                int i3 = 0;
+                int i4 = 0;
                 arrayList = null;
                 z3 = false;
                 str2 = null;
-                while (i3 < length2) {
-                    String str3 = split[i3];
+                while (i4 < length2) {
+                    String str3 = split[i4];
                     if (arrayList == null) {
                         arrayList = new ArrayList(1);
                     }
                     arrayList.add(str3);
                     String[] split2 = EQUALS.split(str3, 2);
                     if (split2.length > 1) {
-                        String str4 = split2[i];
+                        String str4 = split2[i2];
                         String str5 = split2[1];
                         if ("ENCODING".equalsIgnoreCase(str4) && "QUOTED-PRINTABLE".equalsIgnoreCase(str5)) {
                             z3 = true;
@@ -137,28 +137,28 @@ public final class VCardResultParser extends ResultParser {
                             str2 = str5;
                         }
                     }
-                    i3++;
-                    i = 0;
+                    i4++;
+                    i2 = 0;
                 }
             } else {
                 arrayList = null;
                 z3 = false;
                 str2 = null;
             }
-            int i4 = end;
+            int i5 = end;
             while (true) {
-                indexOf = str.indexOf(10, i4);
+                indexOf = str.indexOf(10, i5);
                 if (indexOf >= 0) {
                     if (indexOf < str.length() - 1) {
-                        int i5 = indexOf + 1;
-                        if (str.charAt(i5) == ' ' || str.charAt(i5) == '\t') {
-                            i4 = indexOf + 2;
+                        int i6 = indexOf + 1;
+                        if (str.charAt(i6) == ' ' || str.charAt(i6) == '\t') {
+                            i5 = indexOf + 2;
                         }
                     }
                     if (!z3 || ((indexOf <= 0 || str.charAt(indexOf - 1) != '=') && (indexOf < 2 || str.charAt(indexOf - 2) != '='))) {
                         break;
                     }
-                    i4 = indexOf + 1;
+                    i5 = indexOf + 1;
                 } else {
                     break;
                 }
@@ -192,24 +192,24 @@ public final class VCardResultParser extends ResultParser {
                 } else {
                     arrayList.add(0, replaceAll);
                     arrayList2.add(arrayList);
-                    i2 = indexOf + 1;
-                    i = 0;
+                    i3 = indexOf + 1;
+                    i2 = 0;
                 }
             }
-            i2 = indexOf + 1;
-            i = 0;
+            i3 = indexOf + 1;
+            i2 = 0;
         }
         return arrayList2;
     }
 
-    public static void maybeAppendComponent(String[] strArr, int i, StringBuilder sb) {
-        if (strArr[i] == null || strArr[i].isEmpty()) {
+    public static void maybeAppendComponent(String[] strArr, int i2, StringBuilder sb) {
+        if (strArr[i2] == null || strArr[i2].isEmpty()) {
             return;
         }
         if (sb.length() > 0) {
             sb.append(' ');
         }
-        sb.append(strArr[i]);
+        sb.append(strArr[i2]);
     }
 
     public static void maybeAppendFragment(ByteArrayOutputStream byteArrayOutputStream, String str, StringBuilder sb) {
@@ -258,20 +258,20 @@ public final class VCardResultParser extends ResultParser {
         }
         ArrayList arrayList = new ArrayList(collection.size());
         for (List<String> list : collection) {
-            int i = 1;
+            int i2 = 1;
             while (true) {
-                if (i >= list.size()) {
+                if (i2 >= list.size()) {
                     str = null;
                     break;
                 }
-                str = list.get(i);
+                str = list.get(i2);
                 int indexOf = str.indexOf(61);
                 if (indexOf >= 0) {
                     if ("TYPE".equalsIgnoreCase(str.substring(0, indexOf))) {
                         str = str.substring(indexOf + 1);
                         break;
                     }
-                    i++;
+                    i2++;
                 }
             }
             arrayList.add(str);

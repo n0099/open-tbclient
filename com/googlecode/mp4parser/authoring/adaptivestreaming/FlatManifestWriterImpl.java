@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.authoring.adaptivestreaming;
 
-import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import com.coremedia.iso.Hex;
@@ -36,6 +35,7 @@ import javax.xml.transform.stream.StreamResult;
 import kotlin.jvm.internal.ByteCompanionObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes6.dex */
 public class FlatManifestWriterImpl extends AbstractManifestWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -45,42 +45,42 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte f31405a;
+        public byte f32272a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte f31406b;
+        public byte f32273b;
 
         /* renamed from: c  reason: collision with root package name */
-        public EC3SpecificBox.Entry f31407c;
+        public EC3SpecificBox.Entry f32274c;
 
         public a(FlatManifestWriterImpl flatManifestWriterImpl, byte b2, byte b3, EC3SpecificBox.Entry entry) {
-            this.f31405a = b2;
-            this.f31406b = b3;
-            this.f31407c = entry;
+            this.f32272a = b2;
+            this.f32273b = b3;
+            this.f32274c = entry;
         }
 
         public byte a() {
-            return this.f31405a;
+            return this.f32272a;
         }
 
         public byte b() {
-            return this.f31406b;
+            return this.f32273b;
         }
 
         public a c() {
-            int i = this.f31407c.chan_loc;
-            if (i == 0) {
-                this.f31405a = (byte) (this.f31405a | 3);
-            } else if (i == 1) {
-                this.f31405a = (byte) (this.f31405a | StandardMessageCodec.LIST);
-            } else if (i == 2) {
-                this.f31406b = (byte) (this.f31406b | ByteCompanionObject.MIN_VALUE);
-            } else if (i == 3) {
-                this.f31406b = (byte) (this.f31406b | 8);
-            } else if (i == 6) {
-                this.f31406b = (byte) (this.f31406b | 5);
-            } else if (i == 7) {
-                this.f31406b = (byte) (this.f31406b | 2);
+            int i2 = this.f32274c.chan_loc;
+            if (i2 == 0) {
+                this.f32272a = (byte) (this.f32272a | 3);
+            } else if (i2 == 1) {
+                this.f32272a = (byte) (this.f32272a | StandardMessageCodec.LIST);
+            } else if (i2 == 2) {
+                this.f32273b = (byte) (this.f32273b | ByteCompanionObject.MIN_VALUE);
+            } else if (i2 == 3) {
+                this.f32273b = (byte) (this.f32273b | 8);
+            } else if (i2 == 6) {
+                this.f32273b = (byte) (this.f32273b | 5);
+            } else if (i2 == 7) {
+                this.f32273b = (byte) (this.f32273b | 2);
             }
             return this;
         }
@@ -155,14 +155,14 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
         if (dTSSpecificBox != null) {
             ByteBuffer allocate = ByteBuffer.allocate(22);
             int frameDuration = dTSSpecificBox.getFrameDuration();
-            int i = frameDuration != 0 ? frameDuration != 1 ? frameDuration != 2 ? frameDuration != 3 ? 0 : 4096 : 2048 : 1024 : 512;
-            allocate.put((byte) (i & 255));
-            allocate.put((byte) (i >>> 8));
-            int i2 = getNumChannelsAndMask(dTSSpecificBox)[1];
+            int i2 = frameDuration != 0 ? frameDuration != 1 ? frameDuration != 2 ? frameDuration != 3 ? 0 : 4096 : 2048 : 1024 : 512;
             allocate.put((byte) (i2 & 255));
             allocate.put((byte) (i2 >>> 8));
-            allocate.put((byte) (i2 >>> 16));
-            allocate.put((byte) (i2 >>> 24));
+            int i3 = getNumChannelsAndMask(dTSSpecificBox)[1];
+            allocate.put((byte) (i3 & 255));
+            allocate.put((byte) (i3 >>> 8));
+            allocate.put((byte) (i3 >>> 16));
+            allocate.put((byte) (i3 >>> 24));
             allocate.put(new byte[]{-82, -28, -65, 94, 97, 94, 65, -121, -110, -4, -92, -127, 38, -103, 2, 17});
             ByteBuffer allocate2 = ByteBuffer.allocate(8);
             allocate2.put((byte) dTSSpecificBox.getStreamConstruction());
@@ -193,10 +193,10 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private AudioQuality getEc3AudioQuality(Track track, AudioSampleEntry audioSampleEntry) {
-        int i;
-        byte b2;
         int i2;
+        byte b2;
         int i3;
+        int i4;
         EC3SpecificBox eC3SpecificBox = (EC3SpecificBox) audioSampleEntry.getBoxes(EC3SpecificBox.class).get(0);
         if (eC3SpecificBox != null) {
             byte b3 = 0;
@@ -214,15 +214,15 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                             aVar.c();
                             b3 = (byte) (b3 | aVar.a());
                             b2 = aVar.b();
-                            i3 = b4 | b2;
-                            b4 = (byte) i3;
+                            i4 = b4 | b2;
+                            b4 = (byte) i4;
                             if (entry.lfeon == 1) {
                                 s2 = (short) (s2 + 1);
                                 b3 = (byte) (b3 | 16);
                             }
                         } else {
-                            i = b3 | 32;
-                            b3 = (byte) i;
+                            i2 = b3 | 32;
+                            b3 = (byte) i2;
                             if (entry.lfeon == 1) {
                             }
                         }
@@ -233,13 +233,13 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                             aVar2.c();
                             b3 = (byte) (b3 | aVar2.a());
                             b2 = aVar2.b();
-                            i3 = b4 | b2;
-                            b4 = (byte) i3;
+                            i4 = b4 | b2;
+                            b4 = (byte) i4;
                             if (entry.lfeon == 1) {
                             }
                         } else {
-                            i = b3 | ExifInterface.MARKER_SOF0;
-                            b3 = (byte) i;
+                            i2 = b3 | 192;
+                            b3 = (byte) i2;
                             if (entry.lfeon == 1) {
                             }
                         }
@@ -251,13 +251,13 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                             aVar3.c();
                             b3 = (byte) (b3 | aVar3.a());
                             b2 = aVar3.b();
-                            i3 = b4 | b2;
-                            b4 = (byte) i3;
+                            i4 = b4 | b2;
+                            b4 = (byte) i4;
                             if (entry.lfeon == 1) {
                             }
                         } else {
-                            i = b3 | 224;
-                            b3 = (byte) i;
+                            i2 = b3 | 224;
+                            b3 = (byte) i2;
                             if (entry.lfeon == 1) {
                             }
                         }
@@ -269,15 +269,15 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                             aVar4.c();
                             b3 = (byte) (b3 | aVar4.a());
                             b2 = aVar4.b();
-                            i3 = b4 | b2;
-                            b4 = (byte) i3;
+                            i4 = b4 | b2;
+                            b4 = (byte) i4;
                             if (entry.lfeon == 1) {
                             }
                         } else {
-                            i2 = b3 | ExifInterface.MARKER_SOF0;
-                            b3 = (byte) i2;
-                            i3 = b4 | ByteCompanionObject.MIN_VALUE;
-                            b4 = (byte) i3;
+                            i3 = b3 | 192;
+                            b3 = (byte) i3;
+                            i4 = b4 | ByteCompanionObject.MIN_VALUE;
+                            b4 = (byte) i4;
                             if (entry.lfeon == 1) {
                             }
                         }
@@ -289,15 +289,15 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                             aVar5.c();
                             b3 = (byte) (b3 | aVar5.a());
                             b2 = aVar5.b();
-                            i3 = b4 | b2;
-                            b4 = (byte) i3;
+                            i4 = b4 | b2;
+                            b4 = (byte) i4;
                             if (entry.lfeon == 1) {
                             }
                         } else {
-                            i2 = b3 | 224;
-                            b3 = (byte) i2;
-                            i3 = b4 | ByteCompanionObject.MIN_VALUE;
-                            b4 = (byte) i3;
+                            i3 = b3 | 224;
+                            b3 = (byte) i3;
+                            i4 = b4 | ByteCompanionObject.MIN_VALUE;
+                            b4 = (byte) i4;
                             if (entry.lfeon == 1) {
                             }
                         }
@@ -309,13 +309,13 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                             aVar6.c();
                             b3 = (byte) (b3 | aVar6.a());
                             b2 = aVar6.b();
-                            i3 = b4 | b2;
-                            b4 = (byte) i3;
+                            i4 = b4 | b2;
+                            b4 = (byte) i4;
                             if (entry.lfeon == 1) {
                             }
                         } else {
-                            i = b3 | 204;
-                            b3 = (byte) i;
+                            i2 = b3 | 204;
+                            b3 = (byte) i2;
                             if (entry.lfeon == 1) {
                             }
                         }
@@ -327,13 +327,13 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                             aVar7.c();
                             b3 = (byte) (b3 | aVar7.a());
                             b2 = aVar7.b();
-                            i3 = b4 | b2;
-                            b4 = (byte) i3;
+                            i4 = b4 | b2;
+                            b4 = (byte) i4;
                             if (entry.lfeon == 1) {
                             }
                         } else {
-                            i = b3 | 236;
-                            b3 = (byte) i;
+                            i2 = b3 | 236;
+                            b3 = (byte) i2;
                             if (entry.lfeon == 1) {
                             }
                         }
@@ -349,7 +349,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             allocate.put(b3);
             allocate.put(b4);
             allocate.put(new byte[2]);
-            allocate.put(new byte[]{-81, -121, -5, -89, 2, UtilsBlink.VER_TYPE_SEPARATOR, -5, 66, -92, -44, 5, ExifInterface.MARKER_SOF13, -109, -124, 59, -35});
+            allocate.put(new byte[]{-81, -121, -5, -89, 2, UtilsBlink.VER_TYPE_SEPARATOR, -5, 66, -92, -44, 5, -51, -109, -124, 59, -35});
             ByteBuffer allocate2 = ByteBuffer.allocate((int) eC3SpecificBox.getContentSize());
             eC3SpecificBox.getContent(allocate2);
             AudioQuality audioQuality = new AudioQuality();
@@ -367,95 +367,95 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     }
 
     private int[] getNumChannelsAndMask(DTSSpecificBox dTSSpecificBox) {
-        int i;
         int i2;
+        int i3;
         int channelLayout = dTSSpecificBox.getChannelLayout();
         if ((channelLayout & 1) == 1) {
-            i = 1;
-            i2 = 4;
+            i2 = 1;
+            i3 = 4;
         } else {
-            i = 0;
             i2 = 0;
+            i3 = 0;
         }
         if ((channelLayout & 2) == 2) {
-            i += 2;
-            i2 = i2 | 1 | 2;
+            i2 += 2;
+            i3 = i3 | 1 | 2;
         }
         if ((channelLayout & 4) == 4) {
-            i += 2;
-            i2 = i2 | 16 | 32;
+            i2 += 2;
+            i3 = i3 | 16 | 32;
         }
         if ((channelLayout & 8) == 8) {
-            i++;
-            i2 |= 8;
+            i2++;
+            i3 |= 8;
         }
         if ((channelLayout & 16) == 16) {
-            i++;
-            i2 |= 256;
+            i2++;
+            i3 |= 256;
         }
         if ((channelLayout & 32) == 32) {
-            i += 2;
-            i2 = i2 | 4096 | 16384;
+            i2 += 2;
+            i3 = i3 | 4096 | 16384;
         }
         if ((channelLayout & 64) == 64) {
-            i += 2;
-            i2 = i2 | 16 | 32;
+            i2 += 2;
+            i3 = i3 | 16 | 32;
         }
         if ((channelLayout & 128) == 128) {
-            i++;
-            i2 |= 8192;
+            i2++;
+            i3 |= 8192;
         }
         if ((channelLayout & 256) == 256) {
-            i++;
-            i2 |= 2048;
+            i2++;
+            i3 |= 2048;
         }
         if ((channelLayout & 512) == 512) {
-            i += 2;
-            i2 = i2 | 64 | 128;
+            i2 += 2;
+            i3 = i3 | 64 | 128;
         }
         if ((channelLayout & 1024) == 1024) {
-            i += 2;
-            i2 = i2 | 512 | 1024;
+            i2 += 2;
+            i3 = i3 | 512 | 1024;
         }
         if ((channelLayout & 2048) == 2048) {
-            i += 2;
-            i2 = i2 | 16 | 32;
+            i2 += 2;
+            i3 = i3 | 16 | 32;
         }
         if ((channelLayout & 4096) == 4096) {
-            i++;
-            i2 |= 8;
+            i2++;
+            i3 |= 8;
         }
         if ((channelLayout & 8192) == 8192) {
-            i += 2;
-            i2 = i2 | 16 | 32;
+            i2 += 2;
+            i3 = i3 | 16 | 32;
         }
         if ((channelLayout & 16384) == 16384) {
-            i++;
-            i2 |= 65536;
+            i2++;
+            i3 |= 65536;
         }
         if ((channelLayout & 32768) == 32768) {
-            i += 2;
-            i2 = 32768 | i2 | 131072;
+            i2 += 2;
+            i3 = 32768 | i3 | 131072;
         }
         if ((channelLayout & 65536) == 65536) {
-            i++;
+            i2++;
         }
         if ((channelLayout & 131072) == 131072) {
-            i += 2;
+            i2 += 2;
         }
-        return new int[]{i, i2};
+        return new int[]{i2, i3};
     }
 
-    private d.i.a.a.a.a getVideoQuality(Track track, VisualSampleEntry visualSampleEntry) {
+    private d.h.a.a.a.a getVideoQuality(Track track, VisualSampleEntry visualSampleEntry) {
         if (VisualSampleEntry.TYPE3.equals(getFormat(visualSampleEntry))) {
             AvcConfigurationBox avcConfigurationBox = (AvcConfigurationBox) visualSampleEntry.getBoxes(AvcConfigurationBox.class).get(0);
-            d.i.a.a.a.a aVar = new d.i.a.a.a.a();
-            aVar.f67320a = getBitrate(track);
-            aVar.f67324e = Hex.encodeHex(getAvcCodecPrivateData(avcConfigurationBox));
-            aVar.f67321b = "AVC1";
-            aVar.f67322c = visualSampleEntry.getWidth();
-            aVar.f67323d = visualSampleEntry.getHeight();
-            aVar.f67325f = avcConfigurationBox.getLengthSizeMinusOne() + 1;
+            d.h.a.a.a.a aVar = new d.h.a.a.a.a();
+            aVar.f65647a = getBitrate(track);
+            aVar.f65651e = Hex.encodeHex(getAvcCodecPrivateData(avcConfigurationBox));
+            aVar.f65648b = "AVC1";
+            aVar.f65649c = visualSampleEntry.getWidth();
+            aVar.f65650d = visualSampleEntry.getHeight();
+            aVar.f65652f = avcConfigurationBox.getLengthSizeMinusOne() + 1;
             return aVar;
         }
         throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
@@ -516,7 +516,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             String str13 = "QualityLevels";
             createElement2.setAttribute("QualityLevels", Integer.toString(linkedList.size()));
             createElement.appendChild(createElement2);
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 int size = linkedList.size();
                 LinkedList linkedList3 = linkedList;
@@ -526,24 +526,24 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 str3 = "Index";
                 str4 = "FourCC";
                 str5 = "QualityLevel";
-                if (i >= size) {
+                if (i2 >= size) {
                     break;
                 }
                 String str14 = str9;
                 String str15 = str11;
                 createElement2 = element;
                 linkedList = linkedList3;
-                d.i.a.a.a.a aVar = (d.i.a.a.a.a) linkedList.get(i);
+                d.h.a.a.a.a aVar = (d.h.a.a.a.a) linkedList.get(i2);
                 Element createElement3 = newDocument.createElement("QualityLevel");
-                createElement3.setAttribute("Index", Integer.toString(i));
-                createElement3.setAttribute(str2, Long.toString(aVar.f67320a));
-                createElement3.setAttribute(str4, aVar.f67321b);
-                createElement3.setAttribute("MaxWidth", Long.toString(aVar.f67322c));
-                createElement3.setAttribute("MaxHeight", Long.toString(aVar.f67323d));
-                createElement3.setAttribute(str, aVar.f67324e);
-                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.f67325f));
+                createElement3.setAttribute("Index", Integer.toString(i2));
+                createElement3.setAttribute(str2, Long.toString(aVar.f65647a));
+                createElement3.setAttribute(str4, aVar.f65648b);
+                createElement3.setAttribute("MaxWidth", Long.toString(aVar.f65649c));
+                createElement3.setAttribute("MaxHeight", Long.toString(aVar.f65650d));
+                createElement3.setAttribute(str, aVar.f65651e);
+                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.f65652f));
                 createElement2.appendChild(createElement3);
-                i++;
+                i2++;
                 str13 = str13;
                 createElement = createElement;
                 str8 = str8;
@@ -552,20 +552,20 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 str9 = str14;
                 str11 = str15;
             }
-            int i2 = 0;
+            int i3 = 0;
             while (true) {
                 str6 = str3;
                 str7 = str5;
-                if (i2 >= this.videoFragmentsDurations.length) {
+                if (i3 >= this.videoFragmentsDurations.length) {
                     break;
                 }
                 Element element2 = createElement;
                 String str16 = str;
                 Element createElement4 = newDocument.createElement("c");
-                createElement4.setAttribute("n", Integer.toString(i2));
-                createElement4.setAttribute("d", Long.toString(this.videoFragmentsDurations[i2]));
+                createElement4.setAttribute("n", Integer.toString(i3));
+                createElement4.setAttribute("d", Long.toString(this.videoFragmentsDurations[i3]));
                 element.appendChild(createElement4);
-                i2++;
+                i3++;
                 str3 = str6;
                 str5 = str7;
                 str10 = str10;
@@ -580,30 +580,30 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             }
             if (this.audioFragmentsDurations != null) {
                 Element createElement5 = newDocument.createElement(str8);
-                createElement5.setAttribute(str9, "audio");
+                createElement5.setAttribute(str9, MediaStreamTrack.AUDIO_TRACK_KIND);
                 createElement5.setAttribute(str10, Long.toString(j2));
                 createElement5.setAttribute(str11, Integer.toString(this.audioFragmentsDurations.length));
                 createElement5.setAttribute(str12, "audio/{bitrate}/{start time}");
                 createElement5.setAttribute(str13, Integer.toString(linkedList2.size()));
                 createElement.appendChild(createElement5);
-                for (int i3 = 0; i3 < linkedList2.size(); i3++) {
-                    AudioQuality audioQuality = (AudioQuality) linkedList2.get(i3);
+                for (int i4 = 0; i4 < linkedList2.size(); i4++) {
+                    AudioQuality audioQuality = (AudioQuality) linkedList2.get(i4);
                     Element createElement6 = newDocument.createElement(str7);
-                    createElement6.setAttribute(str6, Integer.toString(i3));
+                    createElement6.setAttribute(str6, Integer.toString(i4));
                     createElement6.setAttribute(str4, audioQuality.fourCC);
                     createElement6.setAttribute(str2, Long.toString(audioQuality.bitrate));
                     createElement6.setAttribute("AudioTag", Integer.toString(audioQuality.audioTag));
                     createElement6.setAttribute("SamplingRate", Long.toString(audioQuality.samplingRate));
                     createElement6.setAttribute("Channels", Integer.toString(audioQuality.channels));
-                    createElement6.setAttribute(ExifInterface.TAG_BITS_PER_SAMPLE, Integer.toString(audioQuality.bitPerSample));
+                    createElement6.setAttribute("BitsPerSample", Integer.toString(audioQuality.bitPerSample));
                     createElement6.setAttribute("PacketSize", Integer.toString(audioQuality.packetSize));
                     createElement6.setAttribute(str, audioQuality.codecPrivateData);
                     createElement5.appendChild(createElement6);
                 }
-                for (int i4 = 0; i4 < this.audioFragmentsDurations.length; i4++) {
+                for (int i5 = 0; i5 < this.audioFragmentsDurations.length; i5++) {
                     Element createElement7 = newDocument.createElement("c");
-                    createElement7.setAttribute("n", Integer.toString(i4));
-                    createElement7.setAttribute("d", Long.toString(this.audioFragmentsDurations[i4]));
+                    createElement7.setAttribute("n", Integer.toString(i5));
+                    createElement7.setAttribute("d", Long.toString(this.audioFragmentsDurations[i5]));
                     createElement5.appendChild(createElement7);
                 }
             }

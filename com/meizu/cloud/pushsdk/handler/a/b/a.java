@@ -17,27 +17,27 @@ public class a implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public a[] newArray(int i) {
-            return new a[i];
+        public a[] newArray(int i2) {
+            return new a[i2];
         }
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38184a;
+    public int f35743a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38185b;
+    public int f35744b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38186c;
+    public int f35745c;
 
     public a() {
     }
 
     public a(Parcel parcel) {
-        this.f38184a = parcel.readInt();
-        this.f38185b = parcel.readInt();
-        this.f38186c = parcel.readInt();
+        this.f35743a = parcel.readInt();
+        this.f35744b = parcel.readInt();
+        this.f35745c = parcel.readInt();
     }
 
     public static a a(JSONObject jSONObject) {
@@ -60,24 +60,24 @@ public class a implements Parcelable {
             return aVar;
         }
         str = "no control message can parse ";
-        d.k.a.a.a.b("ctl", str);
+        d.j.a.a.a.b("ctl", str);
         return aVar;
     }
 
     public int a() {
-        return this.f38184a;
+        return this.f35743a;
     }
 
-    public void a(int i) {
-        this.f38184a = i;
+    public void a(int i2) {
+        this.f35743a = i2;
     }
 
-    public void b(int i) {
-        this.f38185b = i;
+    public void b(int i2) {
+        this.f35744b = i2;
     }
 
-    public void c(int i) {
-        this.f38186c = i;
+    public void c(int i2) {
+        this.f35745c = i2;
     }
 
     @Override // android.os.Parcelable
@@ -86,13 +86,13 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "Control{pushType=" + this.f38184a + ", cached=" + this.f38185b + ", cacheNum=" + this.f38186c + '}';
+        return "Control{pushType=" + this.f35743a + ", cached=" + this.f35744b + ", cacheNum=" + this.f35745c + '}';
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f38184a);
-        parcel.writeInt(this.f38185b);
-        parcel.writeInt(this.f38186c);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeInt(this.f35743a);
+        parcel.writeInt(this.f35744b);
+        parcel.writeInt(this.f35745c);
     }
 }

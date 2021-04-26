@@ -35,26 +35,28 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
     public static final String TAG = "WithholdPayActivity";
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f25988a;
+    public TextView f26780a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f25989b;
+    public LinearLayout f26781b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f25990c;
+    public TextView f26782c;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f25991e;
+    public TextView f26783e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f25992f;
+    public TextView f26784f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NetImageView f25993g;
+    public NetImageView f26785g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f25994h;
-    public TextView i;
+    public TextView f26786h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f26787i;
     public SwitchButton j;
     public LinearLayout k;
     public TextView l;
@@ -89,10 +91,10 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         WalletGlobalUtils.safeShowDialog(this, 18, "");
     }
@@ -118,30 +120,30 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a();
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, android.app.Activity
-    public Dialog onCreateDialog(int i) {
-        if (i == 1) {
+    public Dialog onCreateDialog(int i2) {
+        if (i2 == 1) {
             return new PromptTipDialog(getActivity());
         }
-        return super.onCreateDialog(i);
+        return super.onCreateDialog(i2);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, android.app.Activity
-    public void onPrepareDialog(int i, Dialog dialog) {
-        if (i == 1) {
+    public void onPrepareDialog(int i2, Dialog dialog) {
+        if (i2 == 1) {
             PromptTipDialog promptTipDialog = (PromptTipDialog) dialog;
             promptTipDialog.setTitleMessage(ResUtils.getString(this, "bd_wallet_withhold_tips"));
             promptTipDialog.setMessage(this.s);
             promptTipDialog.setButtonMessage(ResUtils.getString(this, "ebpay_know"));
             return;
         }
-        super.onPrepareDialog(i, dialog);
+        super.onPrepareDialog(i2, dialog);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -161,7 +163,7 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
         String discountAmount = payRequest.getDiscountAmount();
         String discountMsg = payRequest.getDiscountMsg();
         boolean z = true;
-        this.f25988a.setText(!TextUtils.isEmpty(orderPrice) ? String.format(this.v, StringUtils.fen2Yuan(orderPrice)) : "");
+        this.f26780a.setText(!TextUtils.isEmpty(orderPrice) ? String.format(this.v, StringUtils.fen2Yuan(orderPrice)) : "");
         try {
             bigDecimal = new BigDecimal(orderPrice);
         } catch (NumberFormatException unused) {
@@ -176,37 +178,37 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
         boolean z2 = bigDecimal.compareTo(subtract) > 0;
         String bigDecimal3 = subtract.toString();
         if (z2) {
-            this.f25988a.getPaint().setFlags(16);
+            this.f26780a.getPaint().setFlags(16);
         } else {
-            this.f25988a.getPaint().setFlags(1);
+            this.f26780a.getPaint().setFlags(1);
         }
         if (payRequest.showCouponListEntry() && z2) {
-            this.f25989b.setVisibility(0);
-            TextView textView = this.f25990c;
+            this.f26781b.setVisibility(0);
+            TextView textView = this.f26782c;
             if (TextUtils.isEmpty(discountMsg)) {
                 discountMsg = "";
             }
             textView.setText(discountMsg);
-            this.f25991e.setText(!TextUtils.isEmpty(discountAmount) ? String.format(this.w, StringUtils.fen2Yuan(discountAmount)) : "");
+            this.f26783e.setText(!TextUtils.isEmpty(discountAmount) ? String.format(this.w, StringUtils.fen2Yuan(discountAmount)) : "");
         } else {
-            this.f25989b.setVisibility(8);
+            this.f26781b.setVisibility(8);
         }
         String format = !TextUtils.isEmpty(bigDecimal3) ? String.format(this.v, StringUtils.fen2Yuan(bigDecimal3)) : "";
         if (format.length() > 0) {
             SpannableString spannableString = new SpannableString(format);
             spannableString.setSpan(this.x, 0, 1, 33);
-            this.f25992f.setText(spannableString);
+            this.f26784f.setText(spannableString);
         } else {
-            this.f25992f.setText(format);
+            this.f26784f.setText(format);
         }
         if (!TextUtils.isEmpty(payRequest.withholding.sp_log_url)) {
-            this.f25993g.setVisibility(0);
-            this.f25993g.setImageUrl(payRequest.withholding.sp_log_url);
+            this.f26785g.setVisibility(0);
+            this.f26785g.setImageUrl(payRequest.withholding.sp_log_url);
         } else {
-            this.f25993g.setVisibility(8);
+            this.f26785g.setVisibility(8);
         }
-        this.f25994h.setText(!TextUtils.isEmpty(payRequest.withholding.sp_company) ? payRequest.withholding.sp_company : "");
-        this.i.setText(!TextUtils.isEmpty(payRequest.withholding.authorize_action_desc) ? payRequest.withholding.authorize_action_desc : "");
+        this.f26786h.setText(!TextUtils.isEmpty(payRequest.withholding.sp_company) ? payRequest.withholding.sp_company : "");
+        this.f26787i.setText(!TextUtils.isEmpty(payRequest.withholding.authorize_action_desc) ? payRequest.withholding.authorize_action_desc : "");
         Withholding.AgreementInfo[] agreementInfoArr = payRequest.withholding.agreement_info;
         if (agreementInfoArr != null && agreementInfoArr.length >= 1) {
             if (!TextUtils.isEmpty(agreementInfoArr[0].title)) {
@@ -231,16 +233,16 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
             if (!TextUtils.isEmpty(detailInfo.introduce)) {
                 this.s += payRequest.withholding.detail_info.introduce + "\n";
             }
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 String[] strArr2 = payRequest.withholding.detail_info.detail;
-                if (i >= strArr2.length) {
+                if (i2 >= strArr2.length) {
                     break;
                 }
-                if (!TextUtils.isEmpty(strArr2[i])) {
-                    this.s += "\n· " + payRequest.withholding.detail_info.detail[i];
+                if (!TextUtils.isEmpty(strArr2[i2])) {
+                    this.s += "\n· " + payRequest.withholding.detail_info.detail[i2];
                 }
-                i++;
+                i2++;
             }
         }
         z = (TextUtils.isEmpty(payRequest.withholding.agreement_tag) || !"1".equals(payRequest.withholding.agreement_tag)) ? false : false;
@@ -259,7 +261,7 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity
-    public void showPaySuccessPage(boolean z, PayResultContent payResultContent, int i) {
+    public void showPaySuccessPage(boolean z, PayResultContent payResultContent, int i2) {
     }
 
     private void b() {
@@ -269,14 +271,14 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
     private void a() {
         setContentView(ResUtils.layout(this, "wallet_base_withhold_pay_layout"));
         initActionBar("lbspay_title_new");
-        this.f25988a = (TextView) findViewById(ResUtils.id(this, "tv_order_amount"));
-        this.f25989b = (LinearLayout) findViewById(ResUtils.id(this, "ll_discount_panel"));
-        this.f25991e = (TextView) findViewById(ResUtils.id(this, "tv_discount"));
-        this.f25990c = (TextView) findViewById(ResUtils.id(this, "tv_discount_tips"));
-        this.f25992f = (TextView) findViewById(ResUtils.id(this, "tv_pay_amount"));
-        this.f25993g = (NetImageView) findViewById(ResUtils.id(this, "ni_sp_logo"));
-        this.f25994h = (TextView) findViewById(ResUtils.id(this, "tv_sp_name"));
-        this.i = (TextView) findViewById(ResUtils.id(this, "tv_sp_action"));
+        this.f26780a = (TextView) findViewById(ResUtils.id(this, "tv_order_amount"));
+        this.f26781b = (LinearLayout) findViewById(ResUtils.id(this, "ll_discount_panel"));
+        this.f26783e = (TextView) findViewById(ResUtils.id(this, "tv_discount"));
+        this.f26782c = (TextView) findViewById(ResUtils.id(this, "tv_discount_tips"));
+        this.f26784f = (TextView) findViewById(ResUtils.id(this, "tv_pay_amount"));
+        this.f26785g = (NetImageView) findViewById(ResUtils.id(this, "ni_sp_logo"));
+        this.f26786h = (TextView) findViewById(ResUtils.id(this, "tv_sp_name"));
+        this.f26787i = (TextView) findViewById(ResUtils.id(this, "tv_sp_action"));
         this.j = (SwitchButton) findViewById(ResUtils.id(this, "sb_auth_switch"));
         this.k = (LinearLayout) findViewById(ResUtils.id(this, "ll_auth_desc_panel"));
         this.l = (TextView) findViewById(ResUtils.id(this, "tv_auth_desc"));
@@ -288,7 +290,7 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
         this.v = ResUtils.getString(this, "price_format");
         this.w = ResUtils.getString(this, "save_format");
         this.x = new RelativeSizeSpan(0.5f);
-        this.i.setOnClickListener(this);
+        this.f26787i.setOnClickListener(this);
         this.m.setOnClickListener(this);
         this.q.setOnClickListener(this);
         this.j.setOnCheckedListener(new SwitchButton.a() { // from class: com.baidu.wallet.paysdk.ui.WithholdPayActivity.1

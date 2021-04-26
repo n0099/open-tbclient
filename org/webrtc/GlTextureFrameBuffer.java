@@ -9,17 +9,17 @@ public class GlTextureFrameBuffer {
     public int textureId;
     public int width;
 
-    public GlTextureFrameBuffer(int i) {
-        switch (i) {
+    public GlTextureFrameBuffer(int i2) {
+        switch (i2) {
             case 6407:
             case 6408:
             case 6409:
-                this.pixelFormat = i;
+                this.pixelFormat = i2;
                 this.width = 0;
                 this.height = 0;
                 return;
             default:
-                throw new IllegalArgumentException("Invalid pixel format: " + i);
+                throw new IllegalArgumentException("Invalid pixel format: " + i2);
         }
     }
 
@@ -48,13 +48,13 @@ public class GlTextureFrameBuffer {
         this.height = 0;
     }
 
-    public void setSize(int i, int i2) {
-        if (i <= 0 || i2 <= 0) {
-            throw new IllegalArgumentException("Invalid size: " + i + "x" + i2);
-        } else if (i == this.width && i2 == this.height) {
+    public void setSize(int i2, int i3) {
+        if (i2 <= 0 || i3 <= 0) {
+            throw new IllegalArgumentException("Invalid size: " + i2 + "x" + i3);
+        } else if (i2 == this.width && i3 == this.height) {
         } else {
-            this.width = i;
-            this.height = i2;
+            this.width = i2;
+            this.height = i3;
             if (this.textureId == 0) {
                 this.textureId = GlUtil.generateTexture(3553);
             }
@@ -65,8 +65,8 @@ public class GlTextureFrameBuffer {
             }
             GLES20.glActiveTexture(33984);
             GLES20.glBindTexture(3553, this.textureId);
-            int i3 = this.pixelFormat;
-            GLES20.glTexImage2D(3553, 0, i3, i, i2, 0, i3, 5121, null);
+            int i4 = this.pixelFormat;
+            GLES20.glTexImage2D(3553, 0, i4, i2, i3, 0, i4, 5121, null);
             GLES20.glBindTexture(3553, 0);
             GlUtil.checkNoGLES2Error("GlTextureFrameBuffer setSize");
             GLES20.glBindFramebuffer(36160, this.frameBufferId);

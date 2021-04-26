@@ -19,7 +19,6 @@ import android.view.animation.Animation;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.loader.Wrapper;
 /* loaded from: classes6.dex */
 public class ResFragment extends DelegateFragment {
@@ -46,6 +45,9 @@ public class ResFragment extends DelegateFragment {
     @Override // androidx.fragment.app.Fragment
     @Nullable
     public Context getContext() {
+        if (super.getContext() == null) {
+            return null;
+        }
         return Wrapper.wrapContextIfNeed(super.getContext());
     }
 
@@ -62,8 +64,8 @@ public class ResFragment extends DelegateFragment {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public /* bridge */ /* synthetic */ void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
@@ -97,13 +99,13 @@ public class ResFragment extends DelegateFragment {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ Animation onCreateAnimation(int i, boolean z, int i2) {
-        return super.onCreateAnimation(i, z, i2);
+    public /* bridge */ /* synthetic */ Animation onCreateAnimation(int i2, boolean z, int i3) {
+        return super.onCreateAnimation(i2, z, i3);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ Animator onCreateAnimator(int i, boolean z, int i2) {
-        return super.onCreateAnimator(i, z, i2);
+    public /* bridge */ /* synthetic */ Animator onCreateAnimator(int i2, boolean z, int i3) {
+        return super.onCreateAnimator(i2, z, i3);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment, android.view.View.OnCreateContextMenuListener
@@ -125,7 +127,6 @@ public class ResFragment extends DelegateFragment {
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        ComponentDestroyer.destroyFragment(this);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
@@ -200,8 +201,8 @@ public class ResFragment extends DelegateFragment {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public /* bridge */ /* synthetic */ void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        super.onRequestPermissionsResult(i, strArr, iArr);
+    public /* bridge */ /* synthetic */ void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+        super.onRequestPermissionsResult(i2, strArr, iArr);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment

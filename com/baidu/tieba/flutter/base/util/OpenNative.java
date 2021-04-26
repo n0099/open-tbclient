@@ -18,7 +18,6 @@ import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
 import com.baidu.tbadk.core.atomData.AvatarPendantActivityConfig;
 import com.baidu.tbadk.core.atomData.BarVoteActivityConfig;
-import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tbadk.core.atomData.ChangeSystemPhotoActivityConfig;
 import com.baidu.tbadk.core.atomData.CommonEmotionManagerActivityConfig;
 import com.baidu.tbadk.core.atomData.DressupCenterActivityConfig;
@@ -67,6 +66,7 @@ import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
@@ -80,15 +80,16 @@ import com.baidu.tieba.person.PersonMoreData;
 import com.baidu.tieba.person.PersonMoreItemData;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.wallet.CurrencyJumpHelper;
 import com.baidu.wallet.api.Constants;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.google.gson.Gson;
 import com.heytap.mcssdk.mode.CommandMessage;
-import d.b.c.e.p.k;
-import d.b.c.e.p.l;
-import d.b.i0.f0.h;
-import d.b.i0.l.a;
-import d.b.j0.j1.o.k.b;
+import d.a.c.e.p.k;
+import d.a.c.e.p.l;
+import d.a.i0.f0.h;
+import d.a.i0.l.a;
+import d.a.j0.j1.o.k.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -163,9 +164,9 @@ public class OpenNative {
         int b2;
         int b3;
         int b4;
-        int i;
-        int b5;
         int i2;
+        int b5;
+        int i3;
         if (themeElement == null) {
             b2 = b.b("#2BB8FF");
             b3 = b.b("#2BB8FF");
@@ -174,27 +175,27 @@ public class OpenNative {
             b3 = b.b(themeElement.common_color);
         }
         if (themeElement2 == null) {
-            i = b.b("#249BD6");
+            i2 = b.b("#249BD6");
             b4 = b.b("#246CD6");
         } else {
             int b6 = b.b(themeElement2.common_color);
             b4 = b.b(themeElement2.common_color);
-            i = b6;
+            i2 = b6;
         }
         if (themeElement3 == null) {
-            i2 = b.b("#249BD6");
+            i3 = b.b("#249BD6");
             b5 = b.b("#246CD6");
         } else {
             int b7 = b.b(themeElement3.common_color);
             b5 = b.b(themeElement3.common_color);
-            i2 = b7;
+            i3 = b7;
         }
         ArrayList<Integer> arrayList = new ArrayList<>();
         arrayList.add(Integer.valueOf(b2));
         arrayList.add(Integer.valueOf(b3));
-        arrayList.add(Integer.valueOf(i));
-        arrayList.add(Integer.valueOf(b4));
         arrayList.add(Integer.valueOf(i2));
+        arrayList.add(Integer.valueOf(b4));
+        arrayList.add(Integer.valueOf(i3));
         arrayList.add(Integer.valueOf(b5));
         return arrayList;
     }
@@ -217,11 +218,26 @@ public class OpenNative {
     }
 
     public static void openNativeAlaPersonalVC(Context context, Map<String, Object> map) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(context, (String) map.get("kUid"), (String) map.get(TbEnum.SystemMessage.KEY_USER_NAME), (String) map.get("portrait"), d.b.c.e.m.b.d((String) map.get("sex"), 0), true)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(context, (String) map.get("kUid"), (String) map.get(TbEnum.SystemMessage.KEY_USER_NAME), (String) map.get("portrait"), d.a.c.e.m.b.d((String) map.get("sex"), 0), true)));
     }
 
     public static void openNativeAlaVideoPlayer(Context context, Map<String, Object> map) {
-        long f2 = d.b.c.e.m.b.f((String) map.get("liveId"), 0L);
+        String str;
+        String str2;
+        String str3 = null;
+        if (map.containsKey("sid") && map.containsKey("ssid") && map.containsKey("templateId")) {
+            str3 = (String) map.get("sid");
+            str = (String) map.get("ssid");
+            str2 = (String) map.get("templateId");
+        } else {
+            str = null;
+            str2 = null;
+        }
+        if (!k.isEmpty(str3) && !k.isEmpty(str)) {
+            UrlManager.getInstance().dealOneLink(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{UrlSchemaHelper.SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX + "sid=" + str3 + "&ssid=" + str + "&templateId=" + str2});
+            return;
+        }
+        long f2 = d.a.c.e.m.b.f((String) map.get("liveId"), 0L);
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
         alaLiveInfoCoreData.liveID = f2;
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PHOTO_BROWSE_TOP, null, false, "")));
@@ -251,7 +267,7 @@ public class OpenNative {
 
     public static void openNativeBigImagePage(Context context, Map<String, Object> map) {
         if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-            l.L(context, "大图功能安装失败,请稍候重试");
+            l.M(context, "大图功能安装失败,请稍候重试");
             return;
         }
         ArrayList<String> arrayList = (ArrayList) map.get("urls");
@@ -284,9 +300,7 @@ public class OpenNative {
     }
 
     public static void openNativeBuyTBean(Context context, Map<String, Object> map) {
-        BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(TbadkCoreApplication.getInst().getContext(), 0L);
-        buyTBeanActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));
+        CurrencyJumpHelper.openNativeBuyTBean(context, map);
     }
 
     public static void openNativeCreateForumPage(Context context, Map<String, Object> map) {
@@ -324,9 +338,9 @@ public class OpenNative {
         }
         FrsActivityConfig createNormalCfg = new FrsActivityConfig(context).createNormalCfg(str2, str3);
         if (!k.isEmpty(str4)) {
-            createNormalCfg.setCallFrom(d.b.c.e.m.b.d(str4, 0));
+            createNormalCfg.setCallFrom(d.a.c.e.m.b.d(str4, 0));
         }
-        long f2 = d.b.c.e.m.b.f(str5, 0L);
+        long f2 = d.a.c.e.m.b.f(str5, 0L);
         if (f2 > 0) {
             createNormalCfg.setFakeThreadId(f2);
         }
@@ -367,14 +381,14 @@ public class OpenNative {
             personChangeData.setMem(currentAccountInfo.getMemberType());
         }
         personChangeData.setName((String) map.get(TbEnum.SystemMessage.KEY_USER_NAME));
-        personChangeData.setSex(d.b.c.e.m.b.d((String) map.get("sex"), 0));
+        personChangeData.setSex(d.a.c.e.m.b.d((String) map.get("sex"), 0));
         personChangeData.setIntro((String) map.get("intro"));
         personChangeData.setForumAge((String) map.get("TBAge"));
-        personChangeData.setAlaId(d.b.c.e.m.b.f((String) map.get("alaID"), 0L));
-        personChangeData.setNickNameLeftDays(d.b.c.e.m.b.d((String) map.get("leftDays"), 0));
-        personChangeData.setUserAge(d.b.c.e.m.b.d((String) map.get("age"), 0));
-        personChangeData.setBirthdayTime(d.b.c.e.m.b.f((String) map.get("birthdayTime"), 0L));
-        personChangeData.setBirthdayShowStatus(d.b.c.e.m.b.d((String) map.get("birthdayShowStatus"), 0));
+        personChangeData.setAlaId(d.a.c.e.m.b.f((String) map.get("alaID"), 0L));
+        personChangeData.setNickNameLeftDays(d.a.c.e.m.b.d((String) map.get("leftDays"), 0));
+        personChangeData.setUserAge(d.a.c.e.m.b.d((String) map.get("age"), 0));
+        personChangeData.setBirthdayTime(d.a.c.e.m.b.f((String) map.get("birthdayTime"), 0L));
+        personChangeData.setBirthdayShowStatus(d.a.c.e.m.b.d((String) map.get("birthdayShowStatus"), 0));
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(context, 101, personChangeData, Boolean.FALSE)));
     }
 
@@ -396,9 +410,9 @@ public class OpenNative {
             int parseInt2 = Integer.parseInt(String.valueOf(map.get("isSchool")));
             String str2 = (String) map.get("name");
             String str3 = (String) map.get(CommandMessage.TYPE_TAGS);
-            int d2 = d.b.c.e.m.b.d(String.valueOf(map.get("commentStar")), 0);
+            int d2 = d.a.c.e.m.b.d(String.valueOf(map.get("commentStar")), 0);
             String valueOf = String.valueOf(map.get("pointNum"));
-            double b2 = TextUtils.isEmpty(valueOf) ? 0.0d : d.b.c.e.m.b.b(valueOf, 0.0d);
+            double b2 = TextUtils.isEmpty(valueOf) ? 0.0d : d.a.c.e.m.b.b(valueOf, 0.0d);
             if (WriteActivityConfig.isAsyncWriting() || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null) {
                 return;
             }
@@ -418,15 +432,15 @@ public class OpenNative {
         String str2 = (String) map.get("userSex");
         int intValue = ((Integer) map.get("type")).intValue();
         String str3 = (String) map.get("ShowNaviBar");
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(TbadkCoreApplication.getInst().getContext(), intValue == 1, str, d.b.c.e.m.b.d(str2, 0))));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(TbadkCoreApplication.getInst().getContext(), intValue == 1, str, d.a.c.e.m.b.d(str2, 0))));
     }
 
     public static void openNativeFavoriteBars(Context context, Map<String, Object> map) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(context, d.b.c.e.m.b.d((String) map.get("forumNum"), 0), (String) map.get("uid"), d.b.c.e.m.b.d((String) map.get("sex"), 0))));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(context, d.a.c.e.m.b.d((String) map.get("forumNum"), 0), (String) map.get("uid"), d.a.c.e.m.b.d((String) map.get("sex"), 0))));
     }
 
     public static void openNativeFollowedUsers(Context context, Map<String, Object> map) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(context, "1".equals((String) map.get("type")), (String) map.get("uid"), d.b.c.e.m.b.d((String) map.get("sex"), 0)).updateFollowNum(d.b.c.e.m.b.d((String) map.get("concerNum"), 0), (String) map.get("portrait"))));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(context, "1".equals((String) map.get("type")), (String) map.get("uid"), d.a.c.e.m.b.d((String) map.get("sex"), 0)).updateFollowNum(d.a.c.e.m.b.d((String) map.get("concerNum"), 0), (String) map.get("portrait"))));
     }
 
     public static void openNativeForumGroup(Context context, Map<String, Object> map) {
@@ -439,8 +453,8 @@ public class OpenNative {
     }
 
     public static void openNativeFrsManagerElectionVC(Context context, Map<String, Object> map) {
-        long d2 = d.b.c.e.m.b.d((String) map.get(TbTitleActivityConfig.FORUM_ID), 0);
-        int d3 = d.b.c.e.m.b.d((String) map.get("electionEnterType"), 0);
+        long d2 = d.a.c.e.m.b.d((String) map.get(TbTitleActivityConfig.FORUM_ID), 0);
+        int d3 = d.a.c.e.m.b.d((String) map.get("electionEnterType"), 0);
         if (d2 != 0 && d3 != 0) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(context).createNormalConfig(d2, d3)));
         } else {
@@ -449,25 +463,25 @@ public class OpenNative {
     }
 
     public static void openNativeGiftTabPage(Context context, Map<String, Object> map) {
-        GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), d.b.c.e.m.b.f((String) map.get("id"), 0L), (String) map.get("name"), (String) map.get("nameShow"), GiftTabActivityConfig.FROM_PERSON_CENTER, 24001);
+        GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), d.a.c.e.m.b.f((String) map.get("id"), 0L), (String) map.get("name"), (String) map.get("nameShow"), GiftTabActivityConfig.FROM_PERSON_CENTER, 24001);
         giftTabActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_HE_HER_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, giftTabActivityConfig));
     }
 
     public static void openNativeGroupList(Context context, Map<String, Object> map) {
         String str = (String) map.get("uid");
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonGroupActivityConfig(context, d.b.c.e.m.b.d((String) map.get("sex"), 0), 0, 1)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonGroupActivityConfig(context, d.a.c.e.m.b.d((String) map.get("sex"), 0), 0, 1)));
     }
 
     public static void openNativeHotTopicList(Context context, Map<String, Object> map) {
-        if (TbadkApplication.getInst().getCurrentActivity() == null || d.b.i0.p0.b.b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext())) {
+        if (TbadkApplication.getInst().getCurrentActivity() == null || d.a.i0.p0.b.b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext())) {
             return;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotRanklistActivityConfig(context).createNormalConfig("hottopic", "all")));
     }
 
     public static void openNativeHotTopicTrendDetail(Context context, Map<String, Object> map) {
-        long f2 = d.b.c.e.m.b.f((String) map.get("hotTopicID"), 0L);
+        long f2 = d.a.c.e.m.b.f((String) map.get("hotTopicID"), 0L);
         if (f2 > 0) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(context, f2)));
         }
@@ -475,8 +489,8 @@ public class OpenNative {
 
     public static void openNativeMemberStore(Context context, Map<String, Object> map) {
         String str = (String) map.get("stParam");
-        int d2 = d.b.c.e.m.b.d((String) map.get("enterType"), 0);
-        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(context, d.b.c.e.m.b.d((String) map.get("memberType"), 0), (String) map.get("stType"), d2);
+        int d2 = d.a.c.e.m.b.d((String) map.get("enterType"), 0);
+        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(context, d.a.c.e.m.b.d((String) map.get("memberType"), 0), (String) map.get("stType"), d2);
         memberPayActivityConfig.setSceneId((String) map.get("sceneId"));
         memberPayActivityConfig.setClose("1".equals((String) map.get(IntentConfig.CLOSE)));
         memberPayActivityConfig.setReferPageClickZone((String) map.get("referPage"), (String) map.get("clickZone"));
@@ -489,15 +503,15 @@ public class OpenNative {
 
     public static void openNativeMyPostAndReply(Context context, Map<String, Object> map) {
         String str = (String) map.get(TbEnum.SystemMessage.KEY_USER_NAME);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(context, (String) map.get("userID"), d.b.c.e.m.b.d((String) map.get("sex"), 0), (String) map.get("portrait"))));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(context, (String) map.get("userID"), d.a.c.e.m.b.d((String) map.get("sex"), 0), (String) map.get("portrait"))));
     }
 
     public static void openNativeOfficalBarChat(Context context, Map<String, Object> map) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(TbadkCoreApplication.getInst().getContext(), d.b.c.e.m.b.f((String) map.get(TbTitleActivityConfig.FORUM_ID), 0L), (String) map.get("forumName"), (String) map.get("imageUrl"), 0)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(TbadkCoreApplication.getInst().getContext(), d.a.c.e.m.b.f((String) map.get(TbTitleActivityConfig.FORUM_ID), 0L), (String) map.get("forumName"), (String) map.get("imageUrl"), 0)));
     }
 
     public static void openNativeOfficialForumHistory(Context context, Map<String, Object> map) {
-        int d2 = d.b.c.e.m.b.d((String) map.get(TbTitleActivityConfig.FORUM_ID), 0);
+        int d2 = d.a.c.e.m.b.d((String) map.get(TbTitleActivityConfig.FORUM_ID), 0);
         if (d2 == 0) {
             BdLog.e("openPageByUrl param is empty.");
         } else {
@@ -531,7 +545,7 @@ public class OpenNative {
     }
 
     public static void openNativePersonChat(Context context, Map<String, Object> map) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getContext(), Long.parseLong((String) map.get("userId")), (String) map.get(TbEnum.SystemMessage.KEY_USER_NAME), (String) map.get("nameShow"), (String) map.get("portrait"), d.b.c.e.m.b.d((String) map.get("sex"), 0), d.b.c.e.m.b.d((String) map.get("isFriend"), 0), d.b.c.e.m.b.d((String) map.get(Constants.USER_TYPE_KEY), 0))));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getContext(), Long.parseLong((String) map.get("userId")), (String) map.get(TbEnum.SystemMessage.KEY_USER_NAME), (String) map.get("nameShow"), (String) map.get("portrait"), d.a.c.e.m.b.d((String) map.get("sex"), 0), d.a.c.e.m.b.d((String) map.get("isFriend"), 0), d.a.c.e.m.b.d((String) map.get(Constants.USER_TYPE_KEY), 0))));
     }
 
     public static void openNativePersonMore(Context context, Map<String, Object> map) {
@@ -539,10 +553,10 @@ public class OpenNative {
         try {
             PersonMoreData personMoreData = new PersonMoreData();
             List<PersonMoreItemData> list = personMoreData.mUrlMaps;
-            for (int i = 0; i < arrayList.size(); i++) {
-                HashMap hashMap = (HashMap) arrayList.get(i);
+            for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                HashMap hashMap = (HashMap) arrayList.get(i2);
                 PersonMoreItemData personMoreItemData = new PersonMoreItemData();
-                personMoreItemData.mId = d.b.c.e.m.b.d((String) hashMap.get("id"), 0);
+                personMoreItemData.mId = d.a.c.e.m.b.d((String) hashMap.get("id"), 0);
                 personMoreItemData.mName = (String) hashMap.get("name");
                 personMoreItemData.mUrl = (String) hashMap.get("url");
                 list.add(personMoreItemData);
@@ -588,7 +602,7 @@ public class OpenNative {
     }
 
     public static void openNativeSentGiftList(Context context, Map<String, Object> map) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(context, (String) map.get("uid"), (String) map.get(TbEnum.SystemMessage.KEY_USER_NAME), (String) map.get("nameShow"), d.b.c.e.m.b.d((String) map.get("sex"), 0), "iowner_gift")));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(context, (String) map.get("uid"), (String) map.get(TbEnum.SystemMessage.KEY_USER_NAME), (String) map.get("nameShow"), d.a.c.e.m.b.d((String) map.get("sex"), 0), "iowner_gift")));
     }
 
     public static void openNativeSetting(Context context, Map<String, Object> map) {
@@ -670,7 +684,7 @@ public class OpenNative {
 
     public static void openNativeVitalityPB(Context context, Map<String, Object> map) {
         String str = (String) map.get("tid");
-        int d2 = d.b.c.e.m.b.d((String) map.get("threadType"), 0);
+        int d2 = d.a.c.e.m.b.d((String) map.get("threadType"), 0);
         if (k.isEmpty(str)) {
             BdLog.e("openPageByUrl param is empty.");
             return;
@@ -695,6 +709,9 @@ public class OpenNative {
         }
         if (map.containsKey("enter_type")) {
             TbPageExtraHelper.v((String) map.get("enter_type"));
+        }
+        if (map.containsKey("is_remain")) {
+            pbActivityConfig.setIsPrivacy(!"0".equals((String) map.get("is_remain")));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
     }
@@ -735,7 +752,7 @@ public class OpenNative {
 
     public static void openNativefourmBigImagePage(Context context, Map<String, Object> map) {
         if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-            l.L(context, "大图功能安装失败,请稍候重试");
+            l.M(context, "大图功能安装失败,请稍候重试");
             return;
         }
         ArrayList<String> arrayList = (ArrayList) map.get("urls");
@@ -748,14 +765,14 @@ public class OpenNative {
         String str4 = (String) map.get("thread_id");
         String str5 = (String) map.get("post_id");
         ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (!TextUtils.isEmpty(arrayList.get(i))) {
+        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+            if (!TextUtils.isEmpty(arrayList.get(i2))) {
                 ImageUrlData imageUrlData = new ImageUrlData();
                 imageUrlData.urlType = 13;
-                imageUrlData.imageUrl = arrayList.get(i);
-                imageUrlData.threadId = d.b.c.e.m.b.f(str4, -1L);
-                imageUrlData.postId = d.b.c.e.m.b.f(str5, -1L);
-                concurrentHashMap.put(arrayList.get(i), imageUrlData);
+                imageUrlData.imageUrl = arrayList.get(i2);
+                imageUrlData.threadId = d.a.c.e.m.b.f(str4, -1L);
+                imageUrlData.postId = d.a.c.e.m.b.f(str5, -1L);
+                concurrentHashMap.put(arrayList.get(i2), imageUrlData);
             }
         }
         ImageViewerConfig.b bVar = new ImageViewerConfig.b();
@@ -788,8 +805,8 @@ public class OpenNative {
         if (!TextUtils.isEmpty(str)) {
             String[] split = str.split(",");
             if (split.length >= 2) {
-                rect.left = (int) (d.b.c.e.m.b.b(split[0], 0.0d) * 2.6d);
-                rect.top = (int) (d.b.c.e.m.b.b(split[1], 0.0d) * 2.6d);
+                rect.left = (int) (d.a.c.e.m.b.b(split[0], 0.0d) * 2.6d);
+                rect.top = (int) (d.a.c.e.m.b.b(split[1], 0.0d) * 2.6d);
             }
         }
         return rect;

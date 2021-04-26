@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidubce.services.vod.VodClient;
-import d.b.c.e.p.k;
+import d.a.c.e.p.k;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -293,12 +293,12 @@ public class MarkData implements Serializable {
         this.cartoonId = j;
     }
 
-    public void setChapterId(int i) {
-        this.chapterId = i;
+    public void setChapterId(int i2) {
+        this.chapterId = i2;
     }
 
-    public void setFloor(int i) {
-        this.mFloor = i;
+    public void setFloor(int i2) {
+        this.mFloor = i2;
     }
 
     public void setForumId(String str) {
@@ -317,8 +317,8 @@ public class MarkData implements Serializable {
         this.mId = str;
     }
 
-    public void setIs_god(int i) {
-        this.is_god = i;
+    public void setIs_god(int i2) {
+        this.is_god = i2;
     }
 
     public void setLikeInPage(boolean z) {
@@ -333,8 +333,8 @@ public class MarkData implements Serializable {
         this.metaData = metaData;
     }
 
-    public void setNewCounts(int i) {
-        this.mNewCounts = i;
+    public void setNewCounts(int i2) {
+        this.mNewCounts = i2;
     }
 
     public void setPic_url(String str) {
@@ -353,16 +353,16 @@ public class MarkData implements Serializable {
         this.isRedTipShow = z;
     }
 
-    public void setReplyNum(int i) {
-        this.mReplyNum = i;
+    public void setReplyNum(int i2) {
+        this.mReplyNum = i2;
     }
 
     public void setSequence(Boolean bool) {
         this.mSequence = bool.booleanValue();
     }
 
-    public void setSubPost(int i) {
-        this.mSubPost = i;
+    public void setSubPost(int i2) {
+        this.mSubPost = i2;
     }
 
     public void setThreadId(String str) {
@@ -386,11 +386,11 @@ public class MarkData implements Serializable {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("tid", this.mThreadId);
             jSONObject.put("pid", this.mPostId);
-            int i = this.mSequence ? 1 : 4;
+            int i2 = this.mSequence ? 1 : 4;
             if (this.mHostMode) {
-                i += 2;
+                i2 += 2;
             }
-            jSONObject.put("status", i);
+            jSONObject.put("status", i2);
             return jSONObject;
         } catch (Exception e2) {
             BdLog.detailException(e2);

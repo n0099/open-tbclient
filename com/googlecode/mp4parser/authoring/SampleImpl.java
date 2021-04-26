@@ -65,11 +65,11 @@ public class SampleImpl implements Sample {
 
     public SampleImpl(ByteBuffer[] byteBufferArr) {
         this.offset = -1L;
-        int i = 0;
+        int i2 = 0;
         for (ByteBuffer byteBuffer : byteBufferArr) {
-            i += byteBuffer.remaining();
+            i2 += byteBuffer.remaining();
         }
-        this.size = i;
+        this.size = i2;
         this.data = byteBufferArr;
         this.parent = null;
     }

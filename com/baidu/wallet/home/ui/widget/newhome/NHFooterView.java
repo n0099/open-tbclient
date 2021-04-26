@@ -46,7 +46,7 @@ public class NHFooterView extends LinearLayout {
         addView(this.mPicture, layoutParams2);
     }
 
-    public void setData(HomeCfgResponse homeCfgResponse, b bVar, int i) {
+    public void setData(HomeCfgResponse homeCfgResponse, b bVar, int i2) {
         HomeCfgResponse.FooterItemDate[] footerItemDateArr;
         HomeCfgResponse.TitleItem[] titleItemArr;
         setBackgroundColor(ResUtils.getColor(getContext(), "5".equals(homeCfgResponse.version) ? "wallet_home_nh_whiteColor" : "wallet_extend_home_nh_separate_bright"));
@@ -83,7 +83,7 @@ public class NHFooterView extends LinearLayout {
             this.mPicture.setVisibility(8);
         }
         int dip2px = DisplayUtils.dip2px(getContext(), MARGIN_TOP);
-        int displayWidth = (i - dip2px) - ((DisplayUtils.getDisplayWidth(getContext()) * 160) / 750);
+        int displayWidth = (i2 - dip2px) - ((DisplayUtils.getDisplayWidth(getContext()) * 160) / 750);
         if (displayWidth > 0) {
             this.mSeperator.setLayoutParams(new LinearLayout.LayoutParams(-1, displayWidth + dip2px));
         }

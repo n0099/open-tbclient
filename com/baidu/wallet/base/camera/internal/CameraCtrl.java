@@ -19,6 +19,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.ListIterator;
+import kotlinx.coroutines.DebugKt;
 /* loaded from: classes5.dex */
 public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static final int STATE_RAW = 0;
@@ -50,7 +51,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static CameraCtrl f23253a = new CameraCtrl();
+        public static CameraCtrl f23969a = new CameraCtrl();
     }
 
     private void doDestroy() {
@@ -68,9 +69,9 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         if (this._previewCb == null) {
             int bitsPerPixel = ((this._width * this._height) * ImageFormat.getBitsPerPixel(this._cameraProxy.d().getPreviewFormat())) / 8;
             byte[][] bArr = new byte[4];
-            for (int i = 0; i < 4; i++) {
-                bArr[i] = new byte[bitsPerPixel];
-                this._cameraProxy.a(bArr[i]);
+            for (int i2 = 0; i2 < 4; i2++) {
+                bArr[i2] = new byte[bitsPerPixel];
+                this._cameraProxy.a(bArr[i2]);
             }
         }
         this._previewCb = previewCallback;
@@ -90,36 +91,36 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     }
 
     public static CameraCtrl getInstance() {
-        return a.f23253a;
+        return a.f23969a;
     }
 
-    private Camera.Size getSimilarRatioSize(int i, int i2, List<Camera.Size> list, int i3) {
-        int i4 = i;
+    private Camera.Size getSimilarRatioSize(int i2, int i3, List<Camera.Size> list, int i4) {
         int i5 = i2;
-        if (i4 >= i5) {
-            i5 = i4;
-            i4 = i5;
+        int i6 = i3;
+        if (i5 >= i6) {
+            i6 = i5;
+            i5 = i6;
         }
-        float f2 = i4 / i5;
+        float f2 = i5 / i6;
         double d2 = Double.MAX_VALUE;
         Camera.Size size = null;
         sortSize(list);
         ListIterator<Camera.Size> listIterator = list.listIterator();
         String str = Tag;
-        LogUtil.i(str, "sorted getSimilarRatioSize(" + i5 + i4 + ") ; expectRatio = " + f2);
+        LogUtil.i(str, "sorted getSimilarRatioSize(" + i6 + i5 + ") ; expectRatio = " + f2);
         while (true) {
             if (!listIterator.hasNext()) {
                 break;
             }
             Camera.Size next = listIterator.next();
             LogUtil.i(Tag, String.format("supported picture size:(%d,%d)", Integer.valueOf(next.width), Integer.valueOf(next.height)));
-            if (next.width == i5 && next.height == i4) {
+            if (next.width == i6 && next.height == i5) {
                 size = next;
                 break;
             }
-            int i6 = next.width;
-            double d3 = next.height / i6;
-            LogUtil.i(Tag, String.format("supported picture size:(%d,%d);ratio:%f", Integer.valueOf(i6), Integer.valueOf(next.height), Double.valueOf(d3)));
+            int i7 = next.width;
+            double d3 = next.height / i7;
+            LogUtil.i(Tag, String.format("supported picture size:(%d,%d);ratio:%f", Integer.valueOf(i7), Integer.valueOf(next.height), Double.valueOf(d3)));
             double abs = Math.abs(f2 - d3);
             if (d2 > abs && 400 < next.height) {
                 size = next;
@@ -131,8 +132,8 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
             StringBuilder sb = new StringBuilder(size2.width);
             sb.append(",");
             sb.append(size2.height);
-            DXMSdkSAUtils.onEventWithValues(StatServiceEvent.SDK_SELF_DEFINE_CAMERA_GET_SIZE, Arrays.asList(String.valueOf(i3), sb.toString()));
-            String valueOf = String.valueOf(i3);
+            DXMSdkSAUtils.onEventWithValues(StatServiceEvent.SDK_SELF_DEFINE_CAMERA_GET_SIZE, Arrays.asList(String.valueOf(i4), sb.toString()));
+            String valueOf = String.valueOf(i4);
             StringBuilder sb2 = new StringBuilder(size2.width);
             sb2.append(",");
             sb2.append(size2.height);
@@ -160,7 +161,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized boolean openCamera(int i, int i2, int i3, int i4, int i5, int i6) {
+    private synchronized boolean openCamera(int i2, int i3, int i4, int i5, int i6, int i7) {
         String focusMode;
         boolean z;
         Camera.Size similarRatioSize;
@@ -168,51 +169,51 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         if (this._cameraProxy == null) {
             try {
                 this._cameraProxy = b.a();
-                if (-1 != i && isSupportMultiCamera()) {
-                    this._cameraProxy.f23260a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i));
+                if (-1 != i2 && isSupportMultiCamera()) {
+                    this._cameraProxy.f23976a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i2));
                     Camera.Parameters d2 = this._cameraProxy.d();
                     focusMode = d2.getFocusMode();
-                    if (!focusMode.equals("auto") && !focusMode.equals("macro")) {
+                    if (!focusMode.equals(DebugKt.DEBUG_PROPERTY_VALUE_AUTO) && !focusMode.equals("macro")) {
                         z = false;
                         this._supportAutoFocus = z;
-                        similarRatioSize = getSimilarRatioSize(i2, i3, d2.getSupportedPreviewSizes(), 0);
+                        similarRatioSize = getSimilarRatioSize(i3, i4, d2.getSupportedPreviewSizes(), 0);
                         if (similarRatioSize != null) {
                             this._cameraProxy.f();
                             this._cameraProxy = null;
                             String str = Tag;
-                            LogUtil.e(str, "fail to get a proximate preivew size(" + i2 + "," + i3 + ").", null);
+                            LogUtil.e(str, "fail to get a proximate preivew size(" + i3 + "," + i4 + ").", null);
                             return false;
                         }
                         String str2 = Tag;
                         LogUtil.i(str2, "set preview size to widht = " + similarRatioSize.width + " , height = " + similarRatioSize.height);
-                        int i7 = similarRatioSize.width;
-                        this._width = i7;
-                        int i8 = similarRatioSize.height;
-                        this._height = i8;
-                        d2.setPreviewSize(i7, i8);
-                        Camera.Size similarRatioSize2 = getSimilarRatioSize(i2, i3, d2.getSupportedPictureSizes(), 1);
+                        int i8 = similarRatioSize.width;
+                        this._width = i8;
+                        int i9 = similarRatioSize.height;
+                        this._height = i9;
+                        d2.setPreviewSize(i8, i9);
+                        Camera.Size similarRatioSize2 = getSimilarRatioSize(i3, i4, d2.getSupportedPictureSizes(), 1);
                         if (similarRatioSize2 != null) {
                             d2.setPictureSize(similarRatioSize2.width, similarRatioSize2.height);
                             String str3 = Tag;
                             LogUtil.i(str3, "set picture size to width = " + similarRatioSize2.width + " , height = " + similarRatioSize2.height);
                         }
                         try {
-                            d2.setPreviewFormat(i5);
+                            d2.setPreviewFormat(i6);
                             if (9 > Build.VERSION.SDK_INT) {
-                                d2.setPreviewFrameRate(i6);
+                                d2.setPreviewFrameRate(i7);
                             }
                             try {
                                 this._cameraProxy.a(d2);
                                 Method method = this._newVersionMethods[MethodIndex.setDisplayOrientation.ordinal()];
                                 if (method != null) {
                                     try {
-                                        method.invoke(this._cameraProxy.f23260a, Integer.valueOf(i4));
-                                        this._rotation = i4;
+                                        method.invoke(this._cameraProxy.f23976a, Integer.valueOf(i5));
+                                        this._rotation = i5;
                                     } catch (Exception e2) {
                                         LogUtil.e(Tag, "", e2);
                                     }
                                 }
-                                this._cameraId = i;
+                                this._cameraId = i2;
                                 return true;
                             } catch (Exception e3) {
                                 LogUtil.e(Tag, d2.toString(), e3);
@@ -225,23 +226,23 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                     }
                     z = true;
                     this._supportAutoFocus = z;
-                    similarRatioSize = getSimilarRatioSize(i2, i3, d2.getSupportedPreviewSizes(), 0);
+                    similarRatioSize = getSimilarRatioSize(i3, i4, d2.getSupportedPreviewSizes(), 0);
                     if (similarRatioSize != null) {
                     }
                 }
                 this._cameraProxy.b();
                 Camera.Parameters d22 = this._cameraProxy.d();
                 focusMode = d22.getFocusMode();
-                if (!focusMode.equals("auto")) {
+                if (!focusMode.equals(DebugKt.DEBUG_PROPERTY_VALUE_AUTO)) {
                     z = false;
                     this._supportAutoFocus = z;
-                    similarRatioSize = getSimilarRatioSize(i2, i3, d22.getSupportedPreviewSizes(), 0);
+                    similarRatioSize = getSimilarRatioSize(i3, i4, d22.getSupportedPreviewSizes(), 0);
                     if (similarRatioSize != null) {
                     }
                 }
                 z = true;
                 this._supportAutoFocus = z;
-                similarRatioSize = getSimilarRatioSize(i2, i3, d22.getSupportedPreviewSizes(), 0);
+                similarRatioSize = getSimilarRatioSize(i3, i4, d22.getSupportedPreviewSizes(), 0);
                 if (similarRatioSize != null) {
                 }
             } catch (Exception e5) {
@@ -249,28 +250,28 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                 return false;
             }
         } else {
-            return (i == this._cameraId && i2 == this._width && i4 == this._rotation && i3 == this._height) ? false : false;
+            return (i2 == this._cameraId && i3 == this._width && i5 == this._rotation && i4 == this._height) ? false : false;
         }
     }
 
-    private boolean setState(int i) {
-        if (2 == i) {
+    private boolean setState(int i2) {
+        if (2 == i2) {
             if ((this._state & 7) == 0) {
                 return false;
             }
-        } else if (4 == i) {
+        } else if (4 == i2) {
             if ((this._state & 6) == 0) {
                 return false;
             }
-        } else if (1 == i) {
-            int i2 = this._state;
-            if (i2 != 0 && 8 != i2) {
+        } else if (1 == i2) {
+            int i3 = this._state;
+            if (i3 != 0 && 8 != i3) {
                 return false;
             }
-        } else if (8 != i) {
+        } else if (8 != i2) {
             return false;
         }
-        this._state = i;
+        this._state = i2;
         String str = Tag;
         LogUtil.i(str, "setState(" + this._state + ") succeed.");
         return true;
@@ -282,21 +283,21 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(Camera.Size size, Camera.Size size2) {
-                int i = size.width;
-                int i2 = size2.width;
-                if (i > i2) {
+                int i2 = size.width;
+                int i3 = size2.width;
+                if (i2 > i3) {
                     return 1;
                 }
-                if (i < i2) {
+                if (i2 < i3) {
                     return -1;
                 }
-                if (i == i2) {
-                    int i3 = size.height;
-                    int i4 = size2.height;
-                    if (i3 > i4) {
+                if (i2 == i3) {
+                    int i4 = size.height;
+                    int i5 = size2.height;
+                    if (i4 > i5) {
                         return 1;
                     }
-                    return i3 < i4 ? -1 : 0;
+                    return i4 < i5 ? -1 : 0;
                 }
                 return 0;
             }
@@ -316,15 +317,15 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     }
 
     public int getCameraCount() {
-        int i = this._cameraCnt;
-        if (-1 == i) {
+        int i2 = this._cameraCnt;
+        if (-1 == i2) {
             if (this._newVersionMethods[MethodIndex.getNumberOfCameras.ordinal()] == null) {
                 return 1;
             }
             try {
                 int intValue = ((Integer) this._newVersionMethods[MethodIndex.getNumberOfCameras.ordinal()].invoke(Camera.class, new Object[0])).intValue();
                 this._cameraCnt = intValue;
-                i = intValue;
+                i2 = intValue;
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
             } catch (IllegalArgumentException e3) {
@@ -332,12 +333,12 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
             } catch (InvocationTargetException e4) {
                 e4.printStackTrace();
             }
-            if (-1 == i) {
+            if (-1 == i2) {
                 return 0;
             }
-            return i;
+            return i2;
         }
-        return i;
+        return i2;
     }
 
     public int getCurrentZoom() {
@@ -364,12 +365,12 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         return this._width;
     }
 
-    public synchronized boolean init(int i, int i2, int i3, int i4, int i5, int i6) {
+    public synchronized boolean init(int i2, int i3, int i4, int i5, int i6, int i7) {
         String str = Tag;
         LogUtil.i(str, "init:state=" + this._state);
         if (setState(1)) {
             this._previewCb = null;
-            return openCamera(i, i2, i3, i4, i5, i6);
+            return openCamera(i2, i3, i4, i5, i6, i7);
         }
         return false;
     }
@@ -398,9 +399,9 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     }
 
     @Override // android.hardware.Camera.ErrorCallback
-    public void onError(int i, Camera camera) {
+    public void onError(int i2, Camera camera) {
         String str = Tag;
-        LogUtil.e(str, "camera error: " + i, null);
+        LogUtil.e(str, "camera error: " + i2, null);
     }
 
     public synchronized void pause() {
@@ -426,7 +427,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         if ((this._state & 6) == 0 || (flashMode = (d2 = this._cameraProxy.d()).getFlashMode()) == null) {
             return false;
         }
-        String str = z ? "torch" : "off";
+        String str = z ? "torch" : DebugKt.DEBUG_PROPERTY_VALUE_OFF;
         if (str.equals(flashMode)) {
             return true;
         }
@@ -451,14 +452,14 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         }
     }
 
-    public void setZoom(int i) {
+    public void setZoom(int i2) {
         b bVar = this._cameraProxy;
         if (bVar != null) {
             Camera.Parameters d2 = bVar.d();
-            if (!isSupportZoom() || d2.getZoom() == i) {
+            if (!isSupportZoom() || d2.getZoom() == i2) {
                 return;
             }
-            d2.setZoom(i);
+            d2.setZoom(i2);
             this._cameraProxy.a(d2);
         }
     }
@@ -483,7 +484,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         this._cameraProxy.c();
         Camera.Parameters d2 = this._cameraProxy.d();
         if ("torch".equals(d2.getFlashMode())) {
-            d2.setFlashMode("off");
+            d2.setFlashMode(DebugKt.DEBUG_PROPERTY_VALUE_OFF);
         } else {
             d2.setFlashMode("torch");
         }
@@ -505,12 +506,12 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         this._state = 0;
         reset();
         this._newVersionMethods = new Method[MethodIndex.values().length];
-        int i = 0;
+        int i2 = 0;
         while (true) {
             Method[] methodArr = this._newVersionMethods;
-            if (i < methodArr.length) {
-                methodArr[i] = null;
-                i++;
+            if (i2 < methodArr.length) {
+                methodArr[i2] = null;
+                i2++;
             } else {
                 try {
                     Class[] clsArr = {Integer.TYPE};

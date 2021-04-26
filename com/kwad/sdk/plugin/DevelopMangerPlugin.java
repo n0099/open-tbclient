@@ -2,7 +2,7 @@ package com.kwad.sdk.plugin;
 
 import java.io.Serializable;
 /* loaded from: classes6.dex */
-public interface DevelopMangerPlugin extends e {
+public interface DevelopMangerPlugin extends d {
 
     /* loaded from: classes6.dex */
     public static class DevelopValue implements Serializable {

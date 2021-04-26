@@ -5,7 +5,7 @@ import com.facebook.common.internal.Preconditions;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class StreamUtil {
     public static byte[] getBytesFromStream(InputStream inputStream) throws IOException {
         return getBytesFromStream(inputStream, inputStream.available());
@@ -28,13 +28,13 @@ public class StreamUtil {
         return j;
     }
 
-    public static byte[] getBytesFromStream(InputStream inputStream, int i) throws IOException {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(i) { // from class: com.facebook.common.util.StreamUtil.1
+    public static byte[] getBytesFromStream(InputStream inputStream, int i2) throws IOException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(i2) { // from class: com.facebook.common.util.StreamUtil.1
             @Override // java.io.ByteArrayOutputStream
             public byte[] toByteArray() {
-                int i2 = ((ByteArrayOutputStream) this).count;
+                int i3 = ((ByteArrayOutputStream) this).count;
                 byte[] bArr = ((ByteArrayOutputStream) this).buf;
-                return i2 == bArr.length ? bArr : super.toByteArray();
+                return i3 == bArr.length ? bArr : super.toByteArray();
             }
         };
         ByteStreams.copy(inputStream, byteArrayOutputStream);

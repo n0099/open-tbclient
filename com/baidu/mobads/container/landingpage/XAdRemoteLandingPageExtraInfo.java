@@ -17,8 +17,8 @@ public class XAdRemoteLandingPageExtraInfo extends XAdRemoteCommandExtraInfo {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public XAdRemoteLandingPageExtraInfo[] newArray(int i) {
-            return new XAdRemoteLandingPageExtraInfo[i];
+        public XAdRemoteLandingPageExtraInfo[] newArray(int i2) {
+            return new XAdRemoteLandingPageExtraInfo[i2];
         }
     };
     public int e75;
@@ -39,8 +39,8 @@ public class XAdRemoteLandingPageExtraInfo extends XAdRemoteCommandExtraInfo {
     }
 
     @Override // com.baidu.mobads.container.landingpage.XAdRemoteCommandExtraInfo, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.url);
         parcel.writeByte(this.isFullScreen ? (byte) 1 : (byte) 0);
         parcel.writeInt(this.orientation);

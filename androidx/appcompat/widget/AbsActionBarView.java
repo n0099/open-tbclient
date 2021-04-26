@@ -9,6 +9,8 @@ import android.view.ContextThemeWrapper;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.R;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewPropertyAnimatorCompat;
@@ -54,23 +56,23 @@ public abstract class AbsActionBarView extends ViewGroup {
             this.mCanceled = false;
         }
 
-        public VisibilityAnimListener withFinalVisibility(ViewPropertyAnimatorCompat viewPropertyAnimatorCompat, int i) {
+        public VisibilityAnimListener withFinalVisibility(ViewPropertyAnimatorCompat viewPropertyAnimatorCompat, int i2) {
             AbsActionBarView.this.mVisibilityAnim = viewPropertyAnimatorCompat;
-            this.mFinalVisibility = i;
+            this.mFinalVisibility = i2;
             return this;
         }
     }
 
-    public AbsActionBarView(Context context) {
+    public AbsActionBarView(@NonNull Context context) {
         this(context, null);
     }
 
-    public static int next(int i, int i2, boolean z) {
-        return z ? i - i2 : i + i2;
+    public static int next(int i2, int i3, boolean z) {
+        return z ? i2 - i3 : i2 + i3;
     }
 
-    public void animateToVisibility(int i) {
-        setupAnimatorToVisibility(i, 200L).start();
+    public void animateToVisibility(int i2) {
+        setupAnimatorToVisibility(i2, 200L).start();
     }
 
     public boolean canShowOverflowMenu() {
@@ -124,9 +126,9 @@ public abstract class AbsActionBarView extends ViewGroup {
         return actionMenuPresenter != null && actionMenuPresenter.isOverflowReserved();
     }
 
-    public int measureChildView(View view, int i, int i2, int i3) {
-        view.measure(View.MeasureSpec.makeMeasureSpec(i, Integer.MIN_VALUE), i2);
-        return Math.max(0, (i - view.getMeasuredWidth()) - i3);
+    public int measureChildView(View view, int i2, int i3, int i4) {
+        view.measure(View.MeasureSpec.makeMeasureSpec(i2, Integer.MIN_VALUE), i3);
+        return Math.max(0, (i2 - view.getMeasuredWidth()) - i4);
     }
 
     @Override // android.view.View
@@ -177,14 +179,14 @@ public abstract class AbsActionBarView extends ViewGroup {
         return true;
     }
 
-    public int positionChild(View view, int i, int i2, int i3, boolean z) {
+    public int positionChild(View view, int i2, int i3, int i4, boolean z) {
         int measuredWidth = view.getMeasuredWidth();
         int measuredHeight = view.getMeasuredHeight();
-        int i4 = i2 + ((i3 - measuredHeight) / 2);
+        int i5 = i3 + ((i4 - measuredHeight) / 2);
         if (z) {
-            view.layout(i - measuredWidth, i4, i, measuredHeight + i4);
+            view.layout(i2 - measuredWidth, i5, i2, measuredHeight + i5);
         } else {
-            view.layout(i, i4, i + measuredWidth, measuredHeight + i4);
+            view.layout(i2, i5, i2 + measuredWidth, measuredHeight + i5);
         }
         return z ? -measuredWidth : measuredWidth;
     }
@@ -198,39 +200,39 @@ public abstract class AbsActionBarView extends ViewGroup {
         });
     }
 
-    public void setContentHeight(int i) {
-        this.mContentHeight = i;
+    public void setContentHeight(int i2) {
+        this.mContentHeight = i2;
         requestLayout();
     }
 
     @Override // android.view.View
-    public void setVisibility(int i) {
-        if (i != getVisibility()) {
+    public void setVisibility(int i2) {
+        if (i2 != getVisibility()) {
             ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = this.mVisibilityAnim;
             if (viewPropertyAnimatorCompat != null) {
                 viewPropertyAnimatorCompat.cancel();
             }
-            super.setVisibility(i);
+            super.setVisibility(i2);
         }
     }
 
-    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i, long j) {
+    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j) {
         ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = this.mVisibilityAnim;
         if (viewPropertyAnimatorCompat != null) {
             viewPropertyAnimatorCompat.cancel();
         }
-        if (i == 0) {
+        if (i2 == 0) {
             if (getVisibility() != 0) {
                 setAlpha(0.0f);
             }
             ViewPropertyAnimatorCompat alpha = ViewCompat.animate(this).alpha(1.0f);
             alpha.setDuration(j);
-            alpha.setListener(this.mVisAnimListener.withFinalVisibility(alpha, i));
+            alpha.setListener(this.mVisAnimListener.withFinalVisibility(alpha, i2));
             return alpha;
         }
         ViewPropertyAnimatorCompat alpha2 = ViewCompat.animate(this).alpha(0.0f);
         alpha2.setDuration(j);
-        alpha2.setListener(this.mVisAnimListener.withFinalVisibility(alpha2, i));
+        alpha2.setListener(this.mVisAnimListener.withFinalVisibility(alpha2, i2));
         return alpha2;
     }
 
@@ -242,12 +244,12 @@ public abstract class AbsActionBarView extends ViewGroup {
         return false;
     }
 
-    public AbsActionBarView(Context context, AttributeSet attributeSet) {
+    public AbsActionBarView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public AbsActionBarView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public AbsActionBarView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mVisAnimListener = new VisibilityAnimListener();
         TypedValue typedValue = new TypedValue();
         if (context.getTheme().resolveAttribute(R.attr.actionBarPopupTheme, typedValue, true) && typedValue.resourceId != 0) {

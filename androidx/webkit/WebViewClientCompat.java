@@ -50,8 +50,8 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
 
     @Override // org.chromium.support_lib_boundary.WebViewClientBoundaryInterface
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public final void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i, @NonNull InvocationHandler invocationHandler) {
-        onSafeBrowsingHit(webView, webResourceRequest, i, new SafeBrowsingResponseImpl(invocationHandler));
+    public final void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i2, @NonNull InvocationHandler invocationHandler) {
+        onSafeBrowsingHit(webView, webResourceRequest, i2, new SafeBrowsingResponseImpl(invocationHandler));
     }
 
     @Override // android.webkit.WebViewClient, org.chromium.support_lib_boundary.WebViewClientBoundaryInterface
@@ -76,11 +76,11 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
     @Override // android.webkit.WebViewClient
     @RequiresApi(27)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public final void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i, @NonNull SafeBrowsingResponse safeBrowsingResponse) {
-        onSafeBrowsingHit(webView, webResourceRequest, i, new SafeBrowsingResponseImpl(safeBrowsingResponse));
+    public final void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i2, @NonNull SafeBrowsingResponse safeBrowsingResponse) {
+        onSafeBrowsingHit(webView, webResourceRequest, i2, new SafeBrowsingResponseImpl(safeBrowsingResponse));
     }
 
-    public void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i, @NonNull SafeBrowsingResponseCompat safeBrowsingResponseCompat) {
+    public void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i2, @NonNull SafeBrowsingResponseCompat safeBrowsingResponseCompat) {
         if (WebViewFeature.isFeatureSupported("SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL")) {
             safeBrowsingResponseCompat.showInterstitial(true);
             return;

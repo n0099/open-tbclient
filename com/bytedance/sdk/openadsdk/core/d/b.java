@@ -6,52 +6,52 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27799a;
+    public String f28642a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27800b;
+    public String f28643b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27801c;
+    public String f28644c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27802d;
+    public int f28645d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27803e;
+    public int f28646e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27804f;
+    public int f28647f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f27805g;
+    public String f28648g;
 
     public String a() {
-        return this.f27805g;
+        return this.f28648g;
     }
 
     public String b() {
-        return this.f27799a;
+        return this.f28642a;
     }
 
     public String c() {
-        return this.f27800b;
+        return this.f28643b;
     }
 
     public String d() {
-        return this.f27801c;
+        return this.f28644c;
     }
 
     public int e() {
-        return this.f27802d;
+        return this.f28645d;
     }
 
     public int f() {
-        return this.f27803e;
+        return this.f28646e;
     }
 
     public int g() {
-        return this.f27804f;
+        return this.f28647f;
     }
 
     public JSONObject h() {
@@ -70,30 +70,30 @@ public class b {
     }
 
     public void a(String str) {
-        this.f27805g = str;
+        this.f28648g = str;
     }
 
     public void b(String str) {
-        this.f27799a = str;
+        this.f28642a = str;
     }
 
     public void c(String str) {
-        this.f27800b = str;
+        this.f28643b = str;
     }
 
     public void d(String str) {
-        this.f27801c = str;
+        this.f28644c = str;
     }
 
-    public void a(int i) {
-        this.f27802d = i;
+    public void a(int i2) {
+        this.f28645d = i2;
     }
 
-    public void b(int i) {
-        this.f27803e = i;
+    public void b(int i2) {
+        this.f28646e = i2;
     }
 
-    public void c(int i) {
-        this.f27804f = i;
+    public void c(int i2) {
+        this.f28647f = i2;
     }
 }

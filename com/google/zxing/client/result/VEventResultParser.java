@@ -21,8 +21,8 @@ public final class VEventResultParser extends ResultParser {
         }
         int size = matchVCardPrefixedField.size();
         String[] strArr = new String[size];
-        for (int i = 0; i < size; i++) {
-            strArr[i] = matchVCardPrefixedField.get(i).get(0);
+        for (int i2 = 0; i2 < size; i2++) {
+            strArr[i2] = matchVCardPrefixedField.get(i2).get(0);
         }
         return strArr;
     }
@@ -50,8 +50,8 @@ public final class VEventResultParser extends ResultParser {
         String stripMailto = stripMailto(matchSingleVCardPrefixedField("ORGANIZER", massagedText, true));
         String[] matchVCardPrefixedField = matchVCardPrefixedField("ATTENDEE", massagedText, true);
         if (matchVCardPrefixedField != null) {
-            for (int i = 0; i < matchVCardPrefixedField.length; i++) {
-                matchVCardPrefixedField[i] = stripMailto(matchVCardPrefixedField[i]);
+            for (int i2 = 0; i2 < matchVCardPrefixedField.length; i2++) {
+                matchVCardPrefixedField[i2] = stripMailto(matchVCardPrefixedField[i2]);
             }
         }
         String matchSingleVCardPrefixedField6 = matchSingleVCardPrefixedField("DESCRIPTION", massagedText, true);

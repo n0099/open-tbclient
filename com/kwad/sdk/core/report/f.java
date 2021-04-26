@@ -9,6 +9,6 @@ public class f extends com.kwad.sdk.core.network.d {
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public String a() {
-        return com.kwad.sdk.d.d();
+        return com.kwad.sdk.d.c();
     }
 }

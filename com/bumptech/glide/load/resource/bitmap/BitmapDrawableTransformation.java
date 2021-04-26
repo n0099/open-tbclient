@@ -46,8 +46,8 @@ public class BitmapDrawableTransformation implements Transformation<BitmapDrawab
 
     @Override // com.bumptech.glide.load.Transformation
     @NonNull
-    public Resource<BitmapDrawable> transform(@NonNull Context context, @NonNull Resource<BitmapDrawable> resource, int i, int i2) {
-        return convertToBitmapDrawableResource(this.wrapped.transform(context, convertToDrawableResource(resource), i, i2));
+    public Resource<BitmapDrawable> transform(@NonNull Context context, @NonNull Resource<BitmapDrawable> resource, int i2, int i3) {
+        return convertToBitmapDrawableResource(this.wrapped.transform(context, convertToDrawableResource(resource), i2, i3));
     }
 
     @Override // com.bumptech.glide.load.Key

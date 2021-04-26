@@ -49,8 +49,8 @@ public class GetRnAuthQueryBean extends BaseBean<RnAuthQueryBeanResponse> implem
         return DomainConfig.getInstance().getAppPayHost() + "/auth/0/auth_result/0";
     }
 
-    public void setParams(int i) {
-        this.need_msg = i;
+    public void setParams(int i2) {
+        this.need_msg = i2;
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponse

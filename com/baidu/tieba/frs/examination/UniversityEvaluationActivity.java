@@ -6,9 +6,9 @@ import android.view.KeyEvent;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import d.b.j0.q0.o1.a;
-import d.b.j0.q0.o1.b;
-import d.b.j0.q0.o1.d;
+import d.a.j0.q0.o1.a;
+import d.a.j0.q0.o1.b;
+import d.a.j0.q0.o1.d;
 /* loaded from: classes4.dex */
 public class UniversityEvaluationActivity extends BaseFragmentActivity {
     public a mEvaluationView;
@@ -17,17 +17,17 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
     public boolean mItemIsSchool;
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        this.mEvaluationView.i(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        this.mEvaluationView.h(i2, i3, intent);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        this.mEvaluationView.j();
+    public void onChangeSkinType(int i2) {
+        this.mEvaluationView.i();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
@@ -49,16 +49,16 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        this.mEvaluationView.k();
+        this.mEvaluationView.j();
         super.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
-            this.mEvaluationView.m();
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4) {
+            this.mEvaluationView.l();
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 }

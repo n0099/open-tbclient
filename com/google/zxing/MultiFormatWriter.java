@@ -82,12 +82,12 @@ public final class MultiFormatWriter implements Writer {
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) throws WriterException {
-        return encode(str, barcodeFormat, i, i2, null);
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3) throws WriterException {
+        return encode(str, barcodeFormat, i2, i3, null);
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3, Map<EncodeHintType, ?> map) throws WriterException {
         Writer eAN8Writer;
         switch (AnonymousClass1.$SwitchMap$com$google$zxing$BarcodeFormat[barcodeFormat.ordinal()]) {
             case 1:
@@ -132,6 +132,6 @@ public final class MultiFormatWriter implements Writer {
             default:
                 throw new IllegalArgumentException("No encoder available for format " + barcodeFormat);
         }
-        return eAN8Writer.encode(str, barcodeFormat, i, i2, map);
+        return eAN8Writer.encode(str, barcodeFormat, i2, i3, map);
     }
 }

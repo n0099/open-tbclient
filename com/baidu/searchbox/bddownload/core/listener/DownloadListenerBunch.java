@@ -40,23 +40,23 @@ public class DownloadListenerBunch implements DownloadListener {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void connectEnd(@NonNull DownloadTask downloadTask, int i, int i2, @NonNull Map<String, List<String>> map) {
+    public void connectEnd(@NonNull DownloadTask downloadTask, int i2, int i3, @NonNull Map<String, List<String>> map) {
         for (DownloadListener downloadListener : this.listenerList) {
-            downloadListener.connectEnd(downloadTask, i, i2, map);
+            downloadListener.connectEnd(downloadTask, i2, i3, map);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void connectStart(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
+    public void connectStart(@NonNull DownloadTask downloadTask, int i2, @NonNull Map<String, List<String>> map) {
         for (DownloadListener downloadListener : this.listenerList) {
-            downloadListener.connectStart(downloadTask, i, map);
+            downloadListener.connectStart(downloadTask, i2, map);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void connectTrialEnd(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
+    public void connectTrialEnd(@NonNull DownloadTask downloadTask, int i2, @NonNull Map<String, List<String>> map) {
         for (DownloadListener downloadListener : this.listenerList) {
-            downloadListener.connectTrialEnd(downloadTask, i, map);
+            downloadListener.connectTrialEnd(downloadTask, i2, map);
         }
     }
 
@@ -91,37 +91,37 @@ public class DownloadListenerBunch implements DownloadListener {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchEnd(@NonNull DownloadTask downloadTask, int i, long j) {
+    public void fetchEnd(@NonNull DownloadTask downloadTask, int i2, long j) {
         for (DownloadListener downloadListener : this.listenerList) {
-            downloadListener.fetchEnd(downloadTask, i, j);
+            downloadListener.fetchEnd(downloadTask, i2, j);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchProgress(@NonNull DownloadTask downloadTask, int i, long j) {
+    public void fetchProgress(@NonNull DownloadTask downloadTask, int i2, long j) {
         for (DownloadListener downloadListener : this.listenerList) {
-            downloadListener.fetchProgress(downloadTask, i, j);
+            downloadListener.fetchProgress(downloadTask, i2, j);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchStart(@NonNull DownloadTask downloadTask, int i, long j) {
+    public void fetchStart(@NonNull DownloadTask downloadTask, int i2, long j) {
         for (DownloadListener downloadListener : this.listenerList) {
-            downloadListener.fetchStart(downloadTask, i, j);
+            downloadListener.fetchStart(downloadTask, i2, j);
         }
     }
 
     public int indexOf(DownloadListener downloadListener) {
-        int i = 0;
+        int i2 = 0;
         while (true) {
             DownloadListener[] downloadListenerArr = this.listenerList;
-            if (i >= downloadListenerArr.length) {
+            if (i2 >= downloadListenerArr.length) {
                 return -1;
             }
-            if (downloadListenerArr[i] == downloadListener) {
-                return i;
+            if (downloadListenerArr[i2] == downloadListener) {
+                return i2;
             }
-            i++;
+            i2++;
         }
     }
 

@@ -16,12 +16,12 @@ public final class WebSocketManager {
         return new JavaWebSockeClientImpl();
     }
 
-    public final void close(String str, int i, String str2) {
+    public final void close(String str, int i2, String str2) {
         HashMap<String, WebSocketTask> hashMap = mTasks;
         if (hashMap.containsKey(str)) {
             WebSocketTask webSocketTask = hashMap.get(str);
             if (webSocketTask != null) {
-                webSocketTask.close(i, str2);
+                webSocketTask.close(i2, str2);
             }
             hashMap.remove(str);
             return;

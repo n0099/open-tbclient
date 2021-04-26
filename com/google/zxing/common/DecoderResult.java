@@ -70,21 +70,21 @@ public final class DecoderResult {
         this.errorsCorrected = num;
     }
 
-    public void setNumBits(int i) {
-        this.numBits = i;
+    public void setNumBits(int i2) {
+        this.numBits = i2;
     }
 
     public void setOther(Object obj) {
         this.other = obj;
     }
 
-    public DecoderResult(byte[] bArr, String str, List<byte[]> list, String str2, int i, int i2) {
+    public DecoderResult(byte[] bArr, String str, List<byte[]> list, String str2, int i2, int i3) {
         this.rawBytes = bArr;
         this.numBits = bArr == null ? 0 : bArr.length * 8;
         this.text = str;
         this.byteSegments = list;
         this.ecLevel = str2;
-        this.structuredAppendParity = i2;
-        this.structuredAppendSequenceNumber = i;
+        this.structuredAppendParity = i3;
+        this.structuredAppendSequenceNumber = i2;
     }
 }

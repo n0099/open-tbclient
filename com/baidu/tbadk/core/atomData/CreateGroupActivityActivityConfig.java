@@ -21,7 +21,7 @@ public class CreateGroupActivityActivityConfig extends IntentConfig {
         getIntent().putExtra(GROUP_ACTIVITY_ISEDIT, false);
     }
 
-    public CreateGroupActivityActivityConfig(Activity activity, long j, GroupActivityData groupActivityData, int i) {
+    public CreateGroupActivityActivityConfig(Activity activity, long j, GroupActivityData groupActivityData, int i2) {
         super(activity);
         getIntent().putExtra("gid", j);
         getIntent().putExtra(GROUP_ACTIVITY_ISEDIT, true);
@@ -30,7 +30,7 @@ public class CreateGroupActivityActivityConfig extends IntentConfig {
         getIntent().putExtra("time", groupActivityData.getgActivityTime());
         getIntent().putExtra(GROUP_ACTIVITY_AREA, groupActivityData.getgActivityArea());
         getIntent().putExtra("content", groupActivityData.getgActivityContent());
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

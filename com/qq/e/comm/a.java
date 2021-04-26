@@ -26,7 +26,7 @@ public class a {
     }
 
     public static boolean a(Context context, Class<?>... clsArr) {
-        for (int i = 0; i <= 0; i++) {
+        for (int i2 = 0; i2 <= 0; i2++) {
             try {
                 Intent intent = new Intent();
                 intent.setClass(context, clsArr[0]);
@@ -107,9 +107,9 @@ public class a {
 
     public static boolean b(Context context) {
         String[] strArr = {"android.permission.INTERNET", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, "android.permission.ACCESS_WIFI_STATE"};
-        for (int i = 0; i < 3; i++) {
+        for (int i2 = 0; i2 < 3; i2++) {
             try {
-                String str = strArr[i];
+                String str = strArr[i2];
                 if (context.checkCallingOrSelfPermission(str) == -1) {
                     GDTLogger.e(String.format("Permission %s is required in AndroidManifest.xml", str));
                     return false;
@@ -123,7 +123,7 @@ public class a {
     }
 
     public static boolean b(Context context, Class<?>... clsArr) {
-        for (int i = 0; i <= 0; i++) {
+        for (int i2 = 0; i2 <= 0; i2++) {
             try {
                 Class<?> cls = clsArr[0];
                 Intent intent = new Intent();

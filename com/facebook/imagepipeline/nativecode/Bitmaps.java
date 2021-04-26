@@ -19,5 +19,5 @@ public class Bitmaps {
     }
 
     @DoNotStrip
-    public static native void nativeCopyBitmap(Bitmap bitmap, int i, Bitmap bitmap2, int i2, int i3);
+    public static native void nativeCopyBitmap(Bitmap bitmap, int i2, Bitmap bitmap2, int i3, int i4);
 }

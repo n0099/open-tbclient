@@ -37,7 +37,7 @@ public class UrlLoader implements ModelLoader<URL, InputStream> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<InputStream> buildLoadData(@NonNull URL url, int i, int i2, @NonNull Options options) {
-        return this.glideUrlLoader.buildLoadData(new GlideUrl(url), i, i2, options);
+    public ModelLoader.LoadData<InputStream> buildLoadData(@NonNull URL url, int i2, int i3, @NonNull Options options) {
+        return this.glideUrlLoader.buildLoadData(new GlideUrl(url), i2, i3, options);
     }
 }

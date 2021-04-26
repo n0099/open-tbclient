@@ -4,29 +4,29 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import java.lang.ref.WeakReference;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f39702a;
+    public static g f37304a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile WeakReference<SharedPreferences> f39703b = null;
+    public volatile WeakReference<SharedPreferences> f37305b = null;
 
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (f39702a == null) {
-                f39702a = new g();
+            if (f37304a == null) {
+                f37304a = new g();
             }
-            gVar = f39702a;
+            gVar = f37304a;
         }
         return gVar;
     }
 
     public String a(Context context, String str) {
-        if (this.f39703b == null || this.f39703b.get() == null) {
-            this.f39703b = new WeakReference<>(context.getSharedPreferences("ServerPrefs", 0));
+        if (this.f37305b == null || this.f37305b.get() == null) {
+            this.f37305b = new WeakReference<>(context.getSharedPreferences("ServerPrefs", 0));
         }
         try {
             String host = new URL(str).getHost();
@@ -34,7 +34,7 @@ public class g {
                 com.tencent.open.a.f.e("openSDK_LOG.ServerSetting", "Get host error. url=" + str);
                 return str;
             }
-            String string = this.f39703b.get().getString(host, null);
+            String string = this.f37305b.get().getString(host, null);
             if (string != null && !host.equals(string)) {
                 String replace = str.replace(host, string);
                 com.tencent.open.a.f.a("openSDK_LOG.ServerSetting", "return environment url : " + replace);

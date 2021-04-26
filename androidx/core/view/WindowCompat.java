@@ -12,11 +12,11 @@ public final class WindowCompat {
     public static final int FEATURE_ACTION_MODE_OVERLAY = 10;
 
     @NonNull
-    public static <T extends View> T requireViewById(@NonNull Window window, @IdRes int i) {
+    public static <T extends View> T requireViewById(@NonNull Window window, @IdRes int i2) {
         if (Build.VERSION.SDK_INT >= 28) {
-            return (T) window.requireViewById(i);
+            return (T) window.requireViewById(i2);
         }
-        T t = (T) window.findViewById(i);
+        T t = (T) window.findViewById(i2);
         if (t != null) {
             return t;
         }

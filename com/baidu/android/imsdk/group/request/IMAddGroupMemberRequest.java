@@ -39,17 +39,17 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
 
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         public void run() {
-            int i;
+            int i2;
             String str;
             ArrayList arrayList = new ArrayList();
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
-                i = jSONObject.getInt("error_code");
+                i2 = jSONObject.getInt("error_code");
                 str = jSONObject.optString("error_msg", "");
-                if (i == 0 && jSONObject.has("response_params")) {
+                if (i2 == 0 && jSONObject.has("response_params")) {
                     JSONArray jSONArray = jSONObject.getJSONObject("response_params").getJSONArray("members");
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                    for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                         long optLong = jSONObject2.optLong("bd_uid");
                         int optInt = jSONObject2.optInt("role");
                         long optLong2 = jSONObject2.optLong(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME);
@@ -73,11 +73,11 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
                 }
             } catch (JSONException e2) {
                 LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e2);
-                i = 1010;
+                i2 = 1010;
                 new IMTrack.CrashBuilder(IMAddGroupMemberRequest.this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
-            if (i != 0) {
+            if (i2 != 0) {
                 IMListener removeListener = ListenerManager.getInstance().removeListener(IMAddGroupMemberRequest.this.mKey);
                 if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
                     return;
@@ -88,7 +88,7 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
                     ((BIMValueCallBack) removeListener).onResult(0, str, createResultInfo);
                     return;
                 }
-                ((BIMValueCallBack) removeListener).onResult(i, str, null);
+                ((BIMValueCallBack) removeListener).onResult(i2, str, null);
             } else if (IMAddGroupMemberRequest.this.isCreateGroup) {
                 ArrayList arrayList3 = new ArrayList();
                 arrayList3.add(String.valueOf(IMAddGroupMemberRequest.this.mGroupId));
@@ -143,8 +143,8 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
             return;
@@ -159,7 +159,7 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str = new String(bArr);
         String str2 = TAG;
         LogUtils.d(str2, "json is " + str);

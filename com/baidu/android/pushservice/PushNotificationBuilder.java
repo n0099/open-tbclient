@@ -26,16 +26,16 @@ public abstract class PushNotificationBuilder implements Serializable {
         this.mChannelName = str;
     }
 
-    public void setColor(int i) {
-        this.mColor = i;
+    public void setColor(int i2) {
+        this.mColor = i2;
     }
 
-    public void setNotificationDefaults(int i) {
-        this.mNotificationDefaults = i;
+    public void setNotificationDefaults(int i2) {
+        this.mNotificationDefaults = i2;
     }
 
-    public void setNotificationFlags(int i) {
-        this.mNotificationFlags = i;
+    public void setNotificationFlags(int i2) {
+        this.mNotificationFlags = i2;
     }
 
     public void setNotificationSound(String str) {
@@ -50,7 +50,7 @@ public abstract class PushNotificationBuilder implements Serializable {
         this.mNotificationTitle = str;
     }
 
-    public void setStatusbarIcon(int i) {
-        this.mStatusbarIcon = i;
+    public void setStatusbarIcon(int i2) {
+        this.mStatusbarIcon = i2;
     }
 }

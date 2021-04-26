@@ -15,16 +15,16 @@ public abstract class c implements d {
         if (intent == null) {
             return null;
         }
-        int i = 4096;
+        int i2 = 4096;
         try {
-            i = Integer.parseInt(CryptoUtil.desDecrypt(intent.getStringExtra("type")));
+            i2 = Integer.parseInt(CryptoUtil.desDecrypt(intent.getStringExtra("type")));
         } catch (Exception e2) {
             LogUtil.e("MessageParser--getMessageByIntent--Exception:" + e2.getMessage());
         }
-        LogUtil.d("MessageParser--getMessageByIntent--type:" + i);
+        LogUtil.d("MessageParser--getMessageByIntent--type:" + i2);
         ArrayList arrayList = new ArrayList();
         for (d dVar : PushManager.getInstance().getParsers()) {
-            if (dVar != null && (a2 = dVar.a(context, i, intent)) != null) {
+            if (dVar != null && (a2 = dVar.a(context, i2, intent)) != null) {
                 arrayList.add(a2);
             }
         }

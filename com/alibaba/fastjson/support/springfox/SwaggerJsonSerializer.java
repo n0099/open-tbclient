@@ -10,7 +10,7 @@ public class SwaggerJsonSerializer implements ObjectSerializer {
     public static final SwaggerJsonSerializer instance = new SwaggerJsonSerializer();
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         jSONSerializer.getWriter().write(((Json) obj).value());
     }
 }

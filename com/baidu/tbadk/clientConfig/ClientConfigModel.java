@@ -12,30 +12,30 @@ import tbclient.GetClientConfig.DataRes;
 public class ClientConfigModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.p.a f12816e;
+    public d.a.i0.p.a f12730e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.b.c.c.g.a f12817f;
+    public final d.a.c.c.g.a f12731f;
 
     /* loaded from: classes3.dex */
-    public class a extends d.b.c.c.g.a {
-        public a(int i, int i2) {
-            super(i, i2);
+    public class a extends d.a.c.c.g.a {
+        public a(int i2, int i3) {
+            super(i2, i3);
         }
 
-        @Override // d.b.c.c.g.a
+        @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (!ClientConfigModel.this.v(responsedMessage)) {
-                if (ClientConfigModel.this.f12816e != null) {
-                    ClientConfigModel.this.f12816e.onError("");
+                if (ClientConfigModel.this.f12730e != null) {
+                    ClientConfigModel.this.f12730e.onError("");
                 }
             } else if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                 if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
                     ClientConfigModel.this.w(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                 } else if (responsedMessage instanceof ClientConfigSocketResponse) {
                     ClientConfigModel.this.w(((ClientConfigSocketResponse) responsedMessage).getData());
-                } else if (ClientConfigModel.this.f12816e != null) {
-                    ClientConfigModel.this.f12816e.onError("");
+                } else if (ClientConfigModel.this.f12730e != null) {
+                    ClientConfigModel.this.f12730e.onError("");
                 }
             } else {
                 String errorString = responsedMessage.getErrorString();
@@ -43,18 +43,18 @@ public class ClientConfigModel extends BdBaseModel {
                 if (StringUtils.isNull(errorString)) {
                     errorString = string;
                 }
-                if (ClientConfigModel.this.f12816e != null) {
-                    ClientConfigModel.this.f12816e.onError(errorString);
+                if (ClientConfigModel.this.f12730e != null) {
+                    ClientConfigModel.this.f12730e.onError(errorString);
                 }
             }
         }
     }
 
-    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, d.b.i0.p.a aVar) {
+    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, d.a.i0.p.a aVar) {
         super(bdBaseFragmentActivity.getPageContext());
         a aVar2 = new a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.f12817f = aVar2;
-        this.f12816e = aVar;
+        this.f12731f = aVar2;
+        this.f12730e = aVar;
         registerListener(aVar2);
     }
 
@@ -74,13 +74,13 @@ public class ClientConfigModel extends BdBaseModel {
 
     public final void w(DataRes dataRes) {
         if (dataRes == null) {
-            if (this.f12816e != null) {
-                this.f12816e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
+            if (this.f12730e != null) {
+                this.f12730e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
                 return;
             }
             return;
         }
-        d.b.i0.p.a aVar = this.f12816e;
+        d.a.i0.p.a aVar = this.f12730e;
         if (aVar != null) {
             aVar.a(dataRes);
         }

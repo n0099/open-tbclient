@@ -9,33 +9,33 @@ import java.util.Map;
 public final class dp implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f22877a;
+    public final /* synthetic */ FeedbackListActivity f23588a;
 
     public dp(FeedbackListActivity feedbackListActivity) {
-        this.f22877a = feedbackListActivity;
+        this.f23588a = feedbackListActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView adapterView, View view, int i, long j) {
+    public final void onItemClick(AdapterView adapterView, View view, int i2, long j) {
         List list;
         du duVar;
         List list2;
         List list3;
-        list = this.f22877a.f22720e;
-        ((Map) list.get(i)).put("newmsg", "0");
-        duVar = this.f22877a.u;
+        list = this.f23588a.f23428e;
+        ((Map) list.get(i2)).put("newmsg", "0");
+        duVar = this.f23588a.u;
         duVar.notifyDataSetChanged();
         Intent intent = new Intent();
-        intent.setClass(this.f22877a, FeedbackInputActivity.class);
-        list2 = this.f22877a.f22720e;
-        intent.putExtra("msgid", (String) ((Map) list2.get(i)).get("id"));
-        list3 = this.f22877a.f22720e;
-        intent.putExtra("appid", (String) ((Map) list3.get(i)).get("appid"));
+        intent.setClass(this.f23588a, FeedbackInputActivity.class);
+        list2 = this.f23588a.f23428e;
+        intent.putExtra("msgid", (String) ((Map) list2.get(i2)).get("id"));
+        list3 = this.f23588a.f23428e;
+        intent.putExtra("appid", (String) ((Map) list3.get(i2)).get("appid"));
         intent.putExtra("fromList", true);
         intent.putExtra("fromEdit", false);
         if (com.baidu.ufosdk.f.h.a()) {
             return;
         }
-        this.f22877a.startActivity(intent);
+        this.f23588a.startActivity(intent);
     }
 }

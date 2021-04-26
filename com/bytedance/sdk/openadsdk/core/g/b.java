@@ -26,11 +26,11 @@ public class b {
         }
     }
 
-    public static void a(Context context, l lVar, int i, String str) {
+    public static void a(Context context, l lVar, int i2, String str) {
         if (lVar != null) {
             if (lVar.D() || lVar.C()) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("error_code", Integer.valueOf(i));
+                hashMap.put("error_code", Integer.valueOf(i2));
                 hashMap.put(LoadErrorCode.Statistics.KEY_ERROR_REASON, str);
                 d.k(context, lVar, "playable_preload", "preload_fail", hashMap);
             }

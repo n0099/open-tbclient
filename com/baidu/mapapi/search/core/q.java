@@ -14,7 +14,7 @@ public final class q implements Parcelable.Creator<VehicleInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public VehicleInfo[] newArray(int i) {
-        return new VehicleInfo[i];
+    public VehicleInfo[] newArray(int i2) {
+        return new VehicleInfo[i2];
     }
 }

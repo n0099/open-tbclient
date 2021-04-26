@@ -30,12 +30,12 @@ public class FramesSequenceAnimation {
         void AnimationStopped();
     }
 
-    public FramesSequenceAnimation(ImageView imageView, int i, int i2, int i3) {
+    public FramesSequenceAnimation(ImageView imageView, int i2, int i3, int i4) {
         this.mBitmap = null;
-        this.mFrames = getData(i);
+        this.mFrames = getData(i2);
         this.mSoftReferenceImageView = new SoftReference<>(imageView);
-        this.mDelayMillis = 1000 / i2;
-        this.mRepeatTimes = i3;
+        this.mDelayMillis = 1000 / i3;
+        this.mRepeatTimes = i4;
         imageView.setImageResource(this.mFrames[0]);
         if (Build.VERSION.SDK_INT >= 11) {
             try {
@@ -52,16 +52,16 @@ public class FramesSequenceAnimation {
         }
     }
 
-    public static FramesSequenceAnimation createProgressDialogAnim(ImageView imageView, int i, int i2, int i3) {
-        return new FramesSequenceAnimation(imageView, i, i2, i3);
+    public static FramesSequenceAnimation createProgressDialogAnim(ImageView imageView, int i2, int i3, int i4) {
+        return new FramesSequenceAnimation(imageView, i2, i3, i4);
     }
 
-    private int[] getData(int i) {
-        TypedArray obtainTypedArray = TbadkCoreApplication.getInst().getResources().obtainTypedArray(i);
+    private int[] getData(int i2) {
+        TypedArray obtainTypedArray = TbadkCoreApplication.getInst().getResources().obtainTypedArray(i2);
         int length = obtainTypedArray.length();
         int[] iArr = new int[obtainTypedArray.length()];
-        for (int i2 = 0; i2 < length; i2++) {
-            iArr[i2] = obtainTypedArray.getResourceId(i2, 0);
+        for (int i3 = 0; i3 < length; i3++) {
+            iArr[i3] = obtainTypedArray.getResourceId(i3, 0);
         }
         obtainTypedArray.recycle();
         return iArr;
@@ -69,9 +69,9 @@ public class FramesSequenceAnimation {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getNext() {
-        int i = this.mIndex + 1;
-        this.mIndex = i;
-        if (i + 1 >= this.mFrames.length) {
+        int i2 = this.mIndex + 1;
+        this.mIndex = i2;
+        if (i2 + 1 >= this.mFrames.length) {
             this.times++;
         }
         if (this.mIndex >= this.mFrames.length) {

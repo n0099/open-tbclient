@@ -21,11 +21,11 @@ public class l {
         }
 
         private int a(long j, long j2) {
-            int i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
-            if (i < 0) {
+            int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+            if (i2 < 0) {
                 return -1;
             }
-            return i == 0 ? 0 : 1;
+            return i2 == 0 ? 0 : 1;
         }
 
         /* JADX DEBUG: Method merged with bridge method */

@@ -22,12 +22,12 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tieba.compatible.EditorHelper;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.webkit.sdk.VideoCloudSetting;
-import d.b.c.e.n.d;
-import d.b.c.e.n.e;
-import d.b.c.e.n.f;
-import d.b.c.e.n.k.a;
-import d.b.c.e.n.m.g;
-import d.b.c.e.p.q;
+import d.a.c.e.n.d;
+import d.a.c.e.n.e;
+import d.a.c.e.n.f;
+import d.a.c.e.n.k.a;
+import d.a.c.e.n.m.g;
+import d.a.c.e.p.q;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -43,8 +43,8 @@ public class BdStatisticsManager {
     public static final Handler mHandler = new a();
     public static BdStatisticsManager statisticsManager;
     public String mAppVersion;
-    public d.b.c.e.n.b mBdLogSetting;
-    public d.b.c.e.n.c mCommonData;
+    public d.a.c.e.n.b mBdLogSetting;
+    public d.a.c.e.n.c mCommonData;
     public Context mContext;
     public boolean mIsMainProcess;
     public c mMultiProcessReceiver;
@@ -60,11 +60,11 @@ public class BdStatisticsManager {
     public static class a extends Handler {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            int i = message.what;
-            if (i == 1) {
+            int i2 = message.what;
+            if (i2 == 1) {
                 BdStatisticsManager.getInstance().forceUploadAllLog();
                 BdStatisticsManager.getInstance().startOrNextUploadTimer();
-            } else if (i != 2) {
+            } else if (i2 != 2) {
             } else {
                 removeMessages(2);
                 BdStatisticsManager.getInstance().checkLogToUpload();
@@ -77,7 +77,7 @@ public class BdStatisticsManager {
         public b() {
         }
 
-        @Override // d.b.c.e.n.k.a.b
+        @Override // d.a.c.e.n.k.a.b
         public void a() {
             BdStatisticsManager.this.isSwitchReady = true;
             if (BdStatisticsManager.this.mIsMainProcess) {
@@ -121,7 +121,7 @@ public class BdStatisticsManager {
         }
     }
 
-    private void addLog(String str, String str2, long j, String str3, d.b.c.e.n.a aVar, Object... objArr) {
+    private void addLog(String str, String str2, long j, String str3, d.a.c.e.n.a aVar, Object... objArr) {
         if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || e.c().a(str)) {
             return;
         }
@@ -141,7 +141,7 @@ public class BdStatisticsManager {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return System.currentTimeMillis() - getConfig().getLong(str, 0L) < ((long) (((d.b.c.e.n.k.a.o().m(str, 24) * 60) * 60) * 1000));
+        return System.currentTimeMillis() - getConfig().getLong(str, 0L) < ((long) (((d.a.c.e.n.k.a.o().m(str, 24) * 60) * 60) * 1000));
     }
 
     public static void clearInstance() {
@@ -169,9 +169,9 @@ public class BdStatisticsManager {
         Context context = this.mContext;
         if (context != null && (activityManager = (ActivityManager) context.getSystemService("activity")) != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
             int myPid = Process.myPid();
-            for (int i = 0; i < runningAppProcesses.size(); i++) {
-                if (runningAppProcesses.get(i).pid == myPid) {
-                    String str = runningAppProcesses.get(i).processName;
+            for (int i2 = 0; i2 < runningAppProcesses.size(); i2++) {
+                if (runningAppProcesses.get(i2).pid == myPid) {
+                    String str = runningAppProcesses.get(i2).processName;
                     if (!TextUtils.isEmpty(str)) {
                         try {
                             String d2 = q.d(str.getBytes("UTF-8"));
@@ -206,14 +206,14 @@ public class BdStatisticsManager {
             return;
         }
         forceUploadAllLogIgnoreSwitch();
-        d.b.c.e.n.k.a.o().k(str, str2, bdUploadStatMsgData);
+        d.a.c.e.n.k.a.o().k(str, str2, bdUploadStatMsgData);
     }
 
-    public void aladinPortErr(String str, String str2, int i, String str3, Object... objArr) {
+    public void aladinPortErr(String str, String str2, int i2, String str3, Object... objArr) {
         if (e.c().a("aladin_port_error")) {
             return;
         }
-        op(true, "aladin_port_error", str, str2, 0L, i, str3, objArr);
+        op(true, "aladin_port_error", str, str2, 0L, i2, str3, objArr);
     }
 
     public void alert(String str, String str2) {
@@ -242,7 +242,7 @@ public class BdStatisticsManager {
     }
 
     public void crash(String str, String str2, String str3, Object... objArr) {
-        d.b.c.e.n.a aVar = new d.b.c.e.n.a("crash");
+        d.a.c.e.n.a aVar = new d.a.c.e.n.a("crash");
         aVar.b("module", "crash");
         if (!TextUtils.isEmpty(str)) {
             aVar.b("crash_type", str);
@@ -260,23 +260,23 @@ public class BdStatisticsManager {
         addLog("crash", "crash", -1L, null, aVar, new Object[0]);
     }
 
-    public void db(String str, String str2, int i, String str3, Object... objArr) {
+    public void db(String str, String str2, int i2, String str3, Object... objArr) {
         if (e.c().a(IMTrackDatabase.DbEnum.TABLE_NAME)) {
             return;
         }
-        op(true, IMTrackDatabase.DbEnum.TABLE_NAME, str, str2, 0L, i, str3, objArr);
+        op(true, IMTrackDatabase.DbEnum.TABLE_NAME, str, str2, 0L, i2, str3, objArr);
     }
 
     public void debug(String str, Object... objArr) {
         addLog("dbg", str, -1L, null, null, objArr);
     }
 
-    public void error(String str, long j, String str2, d.b.c.e.n.a aVar) {
+    public void error(String str, long j, String str2, d.a.c.e.n.a aVar) {
         addLog("error", str, j, str2, aVar, new Object[0]);
     }
 
-    public void eventStat(Context context, String str, String str2, int i, Object... objArr) {
-        d.b.c.e.n.a aVar = new d.b.c.e.n.a("stat");
+    public void eventStat(Context context, String str, String str2, int i2, Object... objArr) {
+        d.a.c.e.n.a aVar = new d.a.c.e.n.a("stat");
         aVar.b("module", "stat");
         if (!TextUtils.isEmpty(str)) {
             aVar.b("op_key", str);
@@ -284,7 +284,7 @@ public class BdStatisticsManager {
         if (!TextUtils.isEmpty(str2)) {
             aVar.b(Config.PLATFORM_TYPE, str2);
         }
-        aVar.b("co", String.valueOf(i));
+        aVar.b("co", String.valueOf(i2));
         aVar.b("t", String.valueOf(System.currentTimeMillis()));
         if (objArr != null && objArr.length > 0) {
             aVar.c(objArr);
@@ -293,11 +293,11 @@ public class BdStatisticsManager {
         addLog("stat", null, -1L, null, aVar, new Object[0]);
     }
 
-    public void file(String str, String str2, int i, String str3, Object... objArr) {
+    public void file(String str, String str2, int i2, String str3, Object... objArr) {
         if (e.c().a("file")) {
             return;
         }
-        op(true, "file", str, str2, 0L, i, str3, objArr);
+        op(true, "file", str, str2, 0L, i2, str3, objArr);
     }
 
     public void forceUploadAllLog() {
@@ -320,12 +320,12 @@ public class BdStatisticsManager {
         return this.mAppVersion;
     }
 
-    public d.b.c.e.n.b getBdLogSetting() {
+    public d.a.c.e.n.b getBdLogSetting() {
         return this.mBdLogSetting;
     }
 
     public long getClientLogId() {
-        return d.b.c.e.n.i.a.b().a();
+        return d.a.c.e.n.i.a.b().a();
     }
 
     public String getCurNetworkType() {
@@ -340,8 +340,8 @@ public class BdStatisticsManager {
         return this.mProcessNameMd5;
     }
 
-    public d.b.c.e.n.a getStatsItem(String str) {
-        return new d.b.c.e.n.a(str);
+    public d.a.c.e.n.a getStatsItem(String str) {
+        return new d.a.c.e.n.a(str);
     }
 
     public String getTrackLogWriteDir() {
@@ -360,21 +360,21 @@ public class BdStatisticsManager {
         return this.mWriteFileDir;
     }
 
-    public void imgErr(String str, String str2, int i, String str3, Object... objArr) {
+    public void imgErr(String str, String str2, int i2, String str3, Object... objArr) {
         if (e.c().a("img")) {
             return;
         }
-        op(true, "img", str, str2, 0L, i, str3, objArr);
+        op(true, "img", str, str2, 0L, i2, str3, objArr);
     }
 
-    public void imgNet(String str, String str2, long j, long j2, long j3, long j4, long j5, int i, int i2, String str3, Object... objArr) {
-        if ((i2 == 0 || i2 == 200) && (j3 <= 2000 || !CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING.equals(d.a(this.mContext)))) {
+    public void imgNet(String str, String str2, long j, long j2, long j3, long j4, long j5, int i2, int i3, String str3, Object... objArr) {
+        if ((i3 == 0 || i3 == 200) && (j3 <= 2000 || !CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING.equals(d.a(this.mContext)))) {
             return;
         }
-        net("img", str, str2, j, j2, j3, j4, j5, i, i2, str3, objArr);
+        net("img", str, str2, j, j2, j3, j4, j5, i2, i3, str3, objArr);
     }
 
-    public void init(Context context, boolean z, String str, String str2, String str3, String str4, d.b.c.e.n.c cVar, d.b.c.e.n.b bVar, long j, String str5) {
+    public void init(Context context, boolean z, String str, String str2, String str3, String str4, d.a.c.e.n.c cVar, d.a.c.e.n.b bVar, long j, String str5) {
         this.mContext = context;
         this.mWriteFileDir = str3;
         this.mNotUploadWriteFileDir = this.mWriteFileDir + "/notUpload";
@@ -382,12 +382,12 @@ public class BdStatisticsManager {
         this.mIsMainProcess = z;
         this.mBdLogSetting = bVar;
         this.mCommonData = cVar;
-        d.b.c.e.a.d.g().h(str2);
-        d.b.c.e.n.k.a.o().r(z, str, this.mContext, this.mLogSwitchInitCallback);
-        d.b.c.e.n.l.b.m().n(cVar, str4, str5);
+        d.a.c.e.a.d.g().h(str2);
+        d.a.c.e.n.k.a.o().r(z, str, this.mContext, this.mLogSwitchInitCallback);
+        d.a.c.e.n.l.b.m().n(cVar, str4, str5);
         g.h().k(cVar);
         if (cVar != null) {
-            this.mAppVersion = cVar.f42625c;
+            this.mAppVersion = cVar.f39828c;
         }
         if (TextUtils.isEmpty(this.mProcessNameMd5)) {
             String processNameMd5 = getProcessNameMd5();
@@ -436,41 +436,41 @@ public class BdStatisticsManager {
         return this.isSwitchReady;
     }
 
-    public void liveErr(String str, String str2, int i, String str3, Object... objArr) {
+    public void liveErr(String str, String str2, int i2, String str3, Object... objArr) {
         if (e.c().a("live")) {
             return;
         }
-        op(true, "live", str, str2, 0L, i, str3, objArr);
+        op(true, "live", str, str2, 0L, i2, str3, objArr);
     }
 
     public void log(String str, Object... objArr) {
-        d.b.c.e.n.h.a i = g.h().i(str);
-        if (i == null || !d.b.c.e.n.k.a.o().v(str, null)) {
+        d.a.c.e.n.h.a i2 = g.h().i(str);
+        if (i2 == null || !d.a.c.e.n.k.a.o().v(str, null)) {
             return;
         }
-        d.b.c.e.n.a aVar = new d.b.c.e.n.a(str);
+        d.a.c.e.n.a aVar = new d.a.c.e.n.a(str);
         if (objArr != null && objArr.length > 0) {
             aVar.c(objArr);
         }
-        i.a(aVar);
+        i2.a(aVar);
     }
 
-    public void net(String str, String str2, long j, long j2, long j3, long j4, long j5, int i, int i2, String str3, Object... objArr) {
-        net("d", str, str2, j, j2, j3, j4, j5, i, i2, str3, objArr);
+    public void net(String str, String str2, long j, long j2, long j3, long j4, long j5, int i2, int i3, String str3, Object... objArr) {
+        net("d", str, str2, j, j2, j3, j4, j5, i2, i3, str3, objArr);
     }
 
-    public void net(String str, String str2, String str3, long j, long j2, long j3, long j4, long j5, int i, int i2, String str4, Object... objArr) {
+    public void net(String str, String str2, String str3, long j, long j2, long j3, long j4, long j5, int i2, int i3, String str4, Object... objArr) {
     }
 
     public void newDebug(String str, long j, String str2, Object... objArr) {
         addLog("dbg", str, j, str2, null, objArr);
     }
 
-    public void op(String str, String str2, long j, int i, String str3, Object... objArr) {
-        op(true, "d", str, str2, j, i, str3, objArr);
+    public void op(String str, String str2, long j, int i2, String str3, Object... objArr) {
+        op(true, "d", str, str2, j, i2, str3, objArr);
     }
 
-    public void op(boolean z, String str, String str2, String str3, long j, int i, String str4, Object... objArr) {
+    public void op(boolean z, String str, String str2, String str3, long j, int i2, String str4, Object... objArr) {
     }
 
     public void performance(String str, Object... objArr) {
@@ -492,27 +492,27 @@ public class BdStatisticsManager {
         if (BdBaseApplication.getInst().checkInterrupt()) {
             return;
         }
-        d.b.c.e.n.h.a i = g.h().i(str);
-        g.h().A(i);
-        g.h().v(i);
+        d.a.c.e.n.h.a i2 = g.h().i(str);
+        g.h().A(i2);
+        g.h().v(i2);
     }
 
     public void setAndroidId(String str) {
-        d.b.c.e.n.c cVar = this.mCommonData;
+        d.a.c.e.n.c cVar = this.mCommonData;
         if (cVar != null) {
             cVar.v = str;
         }
     }
 
     public void setCommonDataMac(String str) {
-        d.b.c.e.n.c cVar = this.mCommonData;
+        d.a.c.e.n.c cVar = this.mCommonData;
         if (cVar != null) {
             cVar.u = str;
         }
     }
 
     public void setOaid(String str) {
-        d.b.c.e.n.c cVar = this.mCommonData;
+        d.a.c.e.n.c cVar = this.mCommonData;
         if (cVar != null) {
             cVar.t = str;
         }
@@ -526,21 +526,21 @@ public class BdStatisticsManager {
     }
 
     public void setUser(String str, String str2, String str3) {
-        d.b.c.e.n.l.b.m().o(str, str2, str3);
+        d.a.c.e.n.l.b.m().o(str, str2, str3);
     }
 
-    public void voiceErr(String str, String str2, int i, String str3, Object... objArr) {
+    public void voiceErr(String str, String str2, int i2, String str3, Object... objArr) {
         if (e.c().a("voice")) {
             return;
         }
-        op(true, "voice", str, str2, 0L, i, str3, objArr);
+        op(true, "voice", str, str2, 0L, i2, str3, objArr);
     }
 
-    public void voiceNet(String str, String str2, long j, long j2, long j3, long j4, long j5, int i, int i2, String str3, Object... objArr) {
-        net("voice", str, str2, j, j2, j3, j4, j5, i, i2, str3, objArr);
+    public void voiceNet(String str, String str2, long j, long j2, long j3, long j4, long j5, int i2, int i3, String str3, Object... objArr) {
+        net("voice", str, str2, j, j2, j3, j4, j5, i2, i3, str3, objArr);
     }
 
-    public void debug(String str, d.b.c.e.n.a aVar) {
+    public void debug(String str, d.a.c.e.n.a aVar) {
         if (aVar == null) {
             return;
         }
@@ -551,30 +551,30 @@ public class BdStatisticsManager {
         addLog("error", str, j, str2, null, objArr);
     }
 
-    public void performance(String str, d.b.c.e.n.a aVar) {
+    public void performance(String str, d.a.c.e.n.a aVar) {
         if (aVar == null) {
             return;
         }
-        Address j = d.b.c.e.i.a.l().j(false, false);
+        Address j = d.a.c.e.i.a.l().j(false, false);
         if (j != null) {
             aVar.b("location", j.getLocality());
         }
         addLog("pfmonitor", str, -1L, null, aVar, new Object[0]);
     }
 
-    public void debug(String str, long j, String str2, d.b.c.e.n.a aVar) {
+    public void debug(String str, long j, String str2, d.a.c.e.n.a aVar) {
         addLog("dbg", str, j, str2, aVar, new Object[0]);
     }
 
-    public void error(String str, String str2, String str3, int i, String str4, Object... objArr) {
-        op(true, str, str2, str3, 0L, i, str4, objArr);
+    public void error(String str, String str2, String str3, int i2, String str4, Object... objArr) {
+        op(true, str, str2, str3, 0L, i2, str4, objArr);
     }
 
     private void alert(String str, String str2, Object[] objArr) {
-        if (d.b.c.e.n.k.a.o().u("alert", str) && !checkUploadRecently(str)) {
+        if (d.a.c.e.n.k.a.o().u("alert", str) && !checkUploadRecently(str)) {
             setUploadTime(str);
-            d.b.c.e.n.h.a i = g.h().i("alert");
-            d.b.c.e.n.a aVar = new d.b.c.e.n.a("alert");
+            d.a.c.e.n.h.a i2 = g.h().i("alert");
+            d.a.c.e.n.a aVar = new d.a.c.e.n.a("alert");
             aVar.b("module", "alert");
             if (!TextUtils.isEmpty(str)) {
                 aVar.b("st", str);
@@ -586,13 +586,13 @@ public class BdStatisticsManager {
             if (objArr != null && objArr.length > 0) {
                 aVar.c(objArr);
             }
-            i.a(aVar);
+            i2.a(aVar);
             if (f.e()) {
                 aVar.d(this.mCommonData);
-                d.b.c.e.n.l.b.m().q(i, aVar.f().c().toString());
+                d.a.c.e.n.l.b.m().q(i2, aVar.f().c().toString());
             }
             BdLog.i("alert item = " + aVar.toString());
-            d.b.c.e.n.l.b.m().p(i, aVar.toString());
+            d.a.c.e.n.l.b.m().p(i2, aVar.toString());
         }
     }
 }

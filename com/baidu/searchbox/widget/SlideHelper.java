@@ -117,10 +117,10 @@ public class SlideHelper {
         }
     }
 
-    public void setFadeColor(int i) {
+    public void setFadeColor(int i2) {
         SlidingPaneLayout slidingPaneLayout = this.mSlideLayout;
         if (slidingPaneLayout != null) {
-            slidingPaneLayout.setSliderFadeColor(i);
+            slidingPaneLayout.setSliderFadeColor(i2);
         }
     }
 

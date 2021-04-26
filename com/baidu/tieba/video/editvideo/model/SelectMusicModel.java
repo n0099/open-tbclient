@@ -15,9 +15,9 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.video.editvideo.data.MusicData;
-import d.b.c.e.p.j;
-import d.b.j0.q3.l.h;
-import d.b.j0.q3.l.i;
+import d.a.c.e.p.j;
+import d.a.j0.q3.l.h;
+import d.a.j0.q3.l.i;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -26,24 +26,24 @@ import org.json.JSONObject;
 public class SelectMusicModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.j0.q3.j.b f21447e;
+    public d.a.j0.q3.j.b f22070e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f21448f;
+    public TbPageContext f22071f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f21449g;
+    public final HttpMessageListener f22072g;
 
     /* loaded from: classes5.dex */
     public static class VideoSugMusicResponseMessage extends JsonHttpResponsedMessage {
         public List<MusicData> musicDatas;
 
-        public VideoSugMusicResponseMessage(int i) {
-            super(i);
+        public VideoSugMusicResponseMessage(int i2) {
+            super(i2);
         }
 
         @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-        public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
@@ -57,8 +57,8 @@ public class SelectMusicModel extends BdBaseModel {
                 }
                 JSONArray jSONArray = new JSONArray(optString2);
                 this.musicDatas = new ArrayList();
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    MusicData musicData = (MusicData) OrmObject.objectWithJsonStr(jSONArray.optString(i2), MusicData.class);
+                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                    MusicData musicData = (MusicData) OrmObject.objectWithJsonStr(jSONArray.optString(i3), MusicData.class);
                     if (musicData != null) {
                         this.musicDatas.add(musicData);
                     }
@@ -71,32 +71,32 @@ public class SelectMusicModel extends BdBaseModel {
     public class a extends BdAsyncTask<Void, Integer, i> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f21450a;
+        public final /* synthetic */ String f22073a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f21451b;
+        public final /* synthetic */ boolean f22074b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f21452c;
+        public final /* synthetic */ String f22075c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f21453d;
+        public final /* synthetic */ String f22076d;
 
         public a(String str, boolean z, String str2, String str3) {
-            this.f21450a = str;
-            this.f21451b = z;
-            this.f21452c = str2;
-            this.f21453d = str3;
+            this.f22073a = str;
+            this.f22074b = z;
+            this.f22075c = str2;
+            this.f22076d = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public i doInBackground(Void... voidArr) {
-            if (TextUtils.isEmpty(this.f21450a) && !this.f21451b) {
-                return h.e().g(this.f21452c, this.f21453d);
+            if (TextUtils.isEmpty(this.f22073a) && !this.f22074b) {
+                return h.e().g(this.f22075c, this.f22076d);
             }
-            return h.e().h(this.f21452c, this.f21450a, this.f21453d, this.f21451b);
+            return h.e().h(this.f22075c, this.f22073a, this.f22076d, this.f22074b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -104,18 +104,18 @@ public class SelectMusicModel extends BdBaseModel {
         /* renamed from: c */
         public void onPostExecute(i iVar) {
             super.onPostExecute(iVar);
-            if (iVar == null || iVar.f61202a != 0) {
-                SelectMusicModel.this.f21447e.onSaveMusicVideo(null, iVar.f61202a, iVar.f61203b);
+            if (iVar == null || iVar.f59340a != 0) {
+                SelectMusicModel.this.f22070e.onSaveMusicVideo(null, iVar.f59340a, iVar.f59341b);
             } else {
-                SelectMusicModel.this.f21447e.onSaveMusicVideo(this.f21453d, -4399, "");
+                SelectMusicModel.this.f22070e.onSaveMusicVideo(this.f22076d, -4399, "");
             }
         }
     }
 
     /* loaded from: classes5.dex */
     public class b extends HttpMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -126,20 +126,20 @@ public class SelectMusicModel extends BdBaseModel {
                 if (videoSugMusicResponseMessage.musicDatas == null) {
                     return;
                 }
-                SelectMusicModel.this.f21447e.setMusicData(videoSugMusicResponseMessage.musicDatas);
+                SelectMusicModel.this.f22070e.setMusicData(videoSugMusicResponseMessage.musicDatas);
             }
         }
     }
 
-    public SelectMusicModel(TbPageContext tbPageContext, d.b.j0.q3.j.b bVar) {
+    public SelectMusicModel(TbPageContext tbPageContext, d.a.j0.q3.j.b bVar) {
         super(tbPageContext);
-        this.f21449g = new b(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
-        this.f21448f = tbPageContext;
-        this.f21447e = bVar;
+        this.f22072g = new b(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
+        this.f22071f = tbPageContext;
+        this.f22070e = bVar;
         u();
-        this.f21449g.setTag(getUniqueId());
-        this.f21449g.setSelfListener(true);
-        registerListener(this.f21449g);
+        this.f22072g.setTag(getUniqueId());
+        this.f22072g.setSelfListener(true);
+        registerListener(this.f22072g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -155,7 +155,7 @@ public class SelectMusicModel extends BdBaseModel {
 
     public void t() {
         if (!j.z()) {
-            this.f21448f.showToast(R.string.no_network);
+            this.f22071f.showToast(R.string.no_network);
         } else {
             sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC));
         }

@@ -81,10 +81,10 @@ public class LongProgression implements Iterable<Long>, KMappedMarker {
     }
 
     public boolean isEmpty() {
-        int i = (this.step > 0L ? 1 : (this.step == 0L ? 0 : -1));
+        int i2 = (this.step > 0L ? 1 : (this.step == 0L ? 0 : -1));
         long j = this.first;
         long j2 = this.last;
-        if (i > 0) {
+        if (i2 > 0) {
             if (j > j2) {
                 return true;
             }

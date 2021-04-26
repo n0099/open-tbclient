@@ -96,9 +96,9 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
     }
 
     @Override // android.view.SurfaceHolder.Callback
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
         ThreadUtils.checkIsOnMainThread();
-        logD("surfaceChanged: format: " + i + " size: " + i2 + "x" + i3);
+        logD("surfaceChanged: format: " + i2 + " size: " + i3 + "x" + i4);
     }
 
     @Override // android.view.SurfaceHolder.Callback

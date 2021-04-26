@@ -25,7 +25,7 @@ public class AccessibilityRecordCompat {
         if (this == obj) {
             return true;
         }
-        if (obj != null && AccessibilityRecordCompat.class == obj.getClass()) {
+        if (obj instanceof AccessibilityRecordCompat) {
             AccessibilityRecordCompat accessibilityRecordCompat = (AccessibilityRecordCompat) obj;
             AccessibilityRecord accessibilityRecord = this.mRecord;
             if (accessibilityRecord == null) {
@@ -170,8 +170,8 @@ public class AccessibilityRecordCompat {
     }
 
     @Deprecated
-    public void setAddedCount(int i) {
-        this.mRecord.setAddedCount(i);
+    public void setAddedCount(int i2) {
+        this.mRecord.setAddedCount(i2);
     }
 
     @Deprecated
@@ -195,8 +195,8 @@ public class AccessibilityRecordCompat {
     }
 
     @Deprecated
-    public void setCurrentItemIndex(int i) {
-        this.mRecord.setCurrentItemIndex(i);
+    public void setCurrentItemIndex(int i2) {
+        this.mRecord.setCurrentItemIndex(i2);
     }
 
     @Deprecated
@@ -205,8 +205,8 @@ public class AccessibilityRecordCompat {
     }
 
     @Deprecated
-    public void setFromIndex(int i) {
-        this.mRecord.setFromIndex(i);
+    public void setFromIndex(int i2) {
+        this.mRecord.setFromIndex(i2);
     }
 
     @Deprecated
@@ -215,18 +215,18 @@ public class AccessibilityRecordCompat {
     }
 
     @Deprecated
-    public void setItemCount(int i) {
-        this.mRecord.setItemCount(i);
+    public void setItemCount(int i2) {
+        this.mRecord.setItemCount(i2);
     }
 
     @Deprecated
-    public void setMaxScrollX(int i) {
-        setMaxScrollX(this.mRecord, i);
+    public void setMaxScrollX(int i2) {
+        setMaxScrollX(this.mRecord, i2);
     }
 
     @Deprecated
-    public void setMaxScrollY(int i) {
-        setMaxScrollY(this.mRecord, i);
+    public void setMaxScrollY(int i2) {
+        setMaxScrollY(this.mRecord, i2);
     }
 
     @Deprecated
@@ -240,18 +240,18 @@ public class AccessibilityRecordCompat {
     }
 
     @Deprecated
-    public void setRemovedCount(int i) {
-        this.mRecord.setRemovedCount(i);
+    public void setRemovedCount(int i2) {
+        this.mRecord.setRemovedCount(i2);
     }
 
     @Deprecated
-    public void setScrollX(int i) {
-        this.mRecord.setScrollX(i);
+    public void setScrollX(int i2) {
+        this.mRecord.setScrollX(i2);
     }
 
     @Deprecated
-    public void setScrollY(int i) {
-        this.mRecord.setScrollY(i);
+    public void setScrollY(int i2) {
+        this.mRecord.setScrollY(i2);
     }
 
     @Deprecated
@@ -265,8 +265,8 @@ public class AccessibilityRecordCompat {
     }
 
     @Deprecated
-    public void setToIndex(int i) {
-        this.mRecord.setToIndex(i);
+    public void setToIndex(int i2) {
+        this.mRecord.setToIndex(i2);
     }
 
     public static int getMaxScrollX(AccessibilityRecord accessibilityRecord) {
@@ -288,26 +288,26 @@ public class AccessibilityRecordCompat {
         return new AccessibilityRecordCompat(AccessibilityRecord.obtain());
     }
 
-    public static void setMaxScrollX(AccessibilityRecord accessibilityRecord, int i) {
+    public static void setMaxScrollX(AccessibilityRecord accessibilityRecord, int i2) {
         if (Build.VERSION.SDK_INT >= 15) {
-            accessibilityRecord.setMaxScrollX(i);
+            accessibilityRecord.setMaxScrollX(i2);
         }
     }
 
-    public static void setMaxScrollY(AccessibilityRecord accessibilityRecord, int i) {
+    public static void setMaxScrollY(AccessibilityRecord accessibilityRecord, int i2) {
         if (Build.VERSION.SDK_INT >= 15) {
-            accessibilityRecord.setMaxScrollY(i);
+            accessibilityRecord.setMaxScrollY(i2);
         }
     }
 
     @Deprecated
-    public void setSource(View view, int i) {
-        setSource(this.mRecord, view, i);
+    public void setSource(View view, int i2) {
+        setSource(this.mRecord, view, i2);
     }
 
-    public static void setSource(@NonNull AccessibilityRecord accessibilityRecord, View view, int i) {
+    public static void setSource(@NonNull AccessibilityRecord accessibilityRecord, View view, int i2) {
         if (Build.VERSION.SDK_INT >= 16) {
-            accessibilityRecord.setSource(view, i);
+            accessibilityRecord.setSource(view, i2);
         }
     }
 }

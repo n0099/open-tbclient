@@ -45,8 +45,8 @@ public class HttpUtils {
         if (messageDigest == null) {
             return "";
         }
-        for (int i = 0; i < arrayList.size(); i++) {
-            RestNameValuePair restNameValuePair2 = (RestNameValuePair) arrayList.get(i);
+        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+            RestNameValuePair restNameValuePair2 = (RestNameValuePair) arrayList.get(i2);
             String name = restNameValuePair2.getName();
             String value = restNameValuePair2.getValue();
             if (!TextUtils.isEmpty(name)) {
@@ -55,9 +55,9 @@ public class HttpUtils {
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append(name);
-                sb.append(a.f1922h);
+                sb.append(a.f1873h);
                 sb.append(value);
-                if (i != arrayList.size() - 1) {
+                if (i2 != arrayList.size() - 1) {
                     sb.append(Typography.amp);
                 }
                 if (!TextUtils.isEmpty(sb)) {

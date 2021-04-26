@@ -13,10 +13,10 @@ public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.
     public final int numberOfSubscribers;
     public final a<? extends T> source;
 
-    public OnSubscribeAutoConnect(a<? extends T> aVar, int i, b<? super k> bVar) {
-        if (i > 0) {
+    public OnSubscribeAutoConnect(a<? extends T> aVar, int i2, b<? super k> bVar) {
+        if (i2 > 0) {
             this.source = aVar;
-            this.numberOfSubscribers = i;
+            this.numberOfSubscribers = i2;
             this.connection = bVar;
             return;
         }
@@ -29,9 +29,9 @@ public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.
     }
 
     public void call(j<? super T> jVar) {
-        this.source.L(f.c(jVar));
+        this.source.I(f.c(jVar));
         if (incrementAndGet() == this.numberOfSubscribers) {
-            this.source.M(this.connection);
+            this.source.J(this.connection);
         }
     }
 }

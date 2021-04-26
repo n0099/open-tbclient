@@ -12,10 +12,10 @@ public class EditNickNameActivityConfig extends IntentConfig {
     public static final String PARAM_URL = "param_url";
     public static final int TYPE_MODIFY_NICKNAME = 0;
 
-    public EditNickNameActivityConfig(Context context, int i, int i2, String str) {
+    public EditNickNameActivityConfig(Context context, int i2, int i3, String str) {
         super(context);
-        setRequestCode(i);
-        getIntent().putExtra(PARAM_TYPE, i2);
+        setRequestCode(i2);
+        getIntent().putExtra(PARAM_TYPE, i3);
         getIntent().putExtra(PARAM_URL, str);
         setIntentAction(IntentAction.ActivityForResult);
     }

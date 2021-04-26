@@ -6,7 +6,7 @@ import android.os.IBinder;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.i0.c0.a;
+import d.a.i0.c0.a;
 /* loaded from: classes4.dex */
 public class GuardServiceWatcher extends Service {
     @Override // android.app.Service
@@ -20,7 +20,7 @@ public class GuardServiceWatcher extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(Intent intent, int i2, int i3) {
         try {
             TiebaStatic.log(CommonStatisticKey.KEY_KEEP_LIVE);
             a.b(0, 0, 0, 1, 5);

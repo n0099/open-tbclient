@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
 import android.text.TextUtils;
-import d.k.a.a.a;
+import d.j.a.a.a;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;

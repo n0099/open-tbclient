@@ -15,13 +15,13 @@ import java.io.InputStream;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f9568a = "";
+    public static String f9925a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f9569b = "";
+    public static String f9926b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f9570c = "";
+    public static String f9927c = "";
 
     public static long a(Context context) {
         FileReader fileReader;
@@ -111,7 +111,7 @@ public class h {
                 bufferedReader = new BufferedReader(fileReader);
                 try {
                     String[] split = bufferedReader.readLine().split(":\\s+", 2);
-                    for (int i = 0; i < split.length; i++) {
+                    for (int i2 = 0; i2 < split.length; i2++) {
                     }
                     String str = split[1];
                     try {

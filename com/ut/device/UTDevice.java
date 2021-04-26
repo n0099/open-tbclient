@@ -1,7 +1,7 @@
 package com.ut.device;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UTDevice {
     @Deprecated
     public static String getAid(String str, String str2, Context context) {

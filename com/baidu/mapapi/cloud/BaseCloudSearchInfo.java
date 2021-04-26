@@ -61,8 +61,8 @@ public abstract class BaseCloudSearchInfo extends BaseSearchInfo {
                 sb.append("=");
                 sb.append(this.pageIndex);
             }
-            int i = this.pageSize;
-            if (i >= 0 && i <= 50) {
+            int i2 = this.pageSize;
+            if (i2 >= 0 && i2 <= 50) {
                 sb.append("&");
                 sb.append("page_size");
                 sb.append("=");

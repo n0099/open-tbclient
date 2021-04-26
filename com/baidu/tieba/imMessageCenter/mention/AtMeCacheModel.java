@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
-import d.b.j0.f1.b.c;
+import d.a.j0.f1.b.c;
 /* loaded from: classes4.dex */
 public class AtMeCacheModel extends CacheModel<c, AtMessageActivity> {
     public AtMeCacheModel(TbPageContext<AtMessageActivity> tbPageContext) {
@@ -25,7 +25,7 @@ public class AtMeCacheModel extends CacheModel<c, AtMessageActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String q() {
+    public String r() {
         return "tb_user_atme";
     }
 }

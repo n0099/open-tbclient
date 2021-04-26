@@ -18,17 +18,17 @@ public final class Pools {
         public final Object[] mPool;
         public int mPoolSize;
 
-        public SimplePool(int i) {
-            if (i > 0) {
-                this.mPool = new Object[i];
+        public SimplePool(int i2) {
+            if (i2 > 0) {
+                this.mPool = new Object[i2];
                 return;
             }
             throw new IllegalArgumentException("The max pool size must be > 0");
         }
 
         private boolean isInPool(@NonNull T t) {
-            for (int i = 0; i < this.mPoolSize; i++) {
-                if (this.mPool[i] == t) {
+            for (int i2 = 0; i2 < this.mPoolSize; i2++) {
+                if (this.mPool[i2] == t) {
                     return true;
                 }
             }
@@ -37,13 +37,13 @@ public final class Pools {
 
         @Override // androidx.core.util.Pools.Pool
         public T acquire() {
-            int i = this.mPoolSize;
-            if (i > 0) {
-                int i2 = i - 1;
+            int i2 = this.mPoolSize;
+            if (i2 > 0) {
+                int i3 = i2 - 1;
                 Object[] objArr = this.mPool;
-                T t = (T) objArr[i2];
-                objArr[i2] = null;
-                this.mPoolSize = i - 1;
+                T t = (T) objArr[i3];
+                objArr[i3] = null;
+                this.mPoolSize = i2 - 1;
                 return t;
             }
             return null;
@@ -52,11 +52,11 @@ public final class Pools {
         @Override // androidx.core.util.Pools.Pool
         public boolean release(@NonNull T t) {
             if (!isInPool(t)) {
-                int i = this.mPoolSize;
+                int i2 = this.mPoolSize;
                 Object[] objArr = this.mPool;
-                if (i < objArr.length) {
-                    objArr[i] = t;
-                    this.mPoolSize = i + 1;
+                if (i2 < objArr.length) {
+                    objArr[i2] = t;
+                    this.mPoolSize = i2 + 1;
                     return true;
                 }
                 return false;
@@ -69,8 +69,8 @@ public final class Pools {
     public static class SynchronizedPool<T> extends SimplePool<T> {
         public final Object mLock;
 
-        public SynchronizedPool(int i) {
-            super(i);
+        public SynchronizedPool(int i2) {
+            super(i2);
             this.mLock = new Object();
         }
 

@@ -12,15 +12,15 @@ public class ChangeSystemPhotoActivityConfig extends IntentConfig {
     public static final int UPLOAD_TYPE_RESET_PORTRAIT = 1;
     public static final int UPLOAD_TYPE_UPLOAD_ONLY = 2;
 
-    public ChangeSystemPhotoActivityConfig(Context context, int i) {
+    public ChangeSystemPhotoActivityConfig(Context context, int i2) {
         super(context);
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public ChangeSystemPhotoActivityConfig(Context context, int i, boolean z) {
+    public ChangeSystemPhotoActivityConfig(Context context, int i2, boolean z) {
         super(context);
-        setRequestCode(i);
+        setRequestCode(i2);
         getIntent().putExtra("need_upload", z);
         setIntentAction(IntentAction.ActivityForResult);
     }

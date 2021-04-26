@@ -21,6 +21,7 @@ import java.nio.channels.FileChannel;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.logging.Logger;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes6.dex */
 public class FlatPackageWriterImpl implements PackageWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -32,7 +33,7 @@ public class FlatPackageWriterImpl implements PackageWriter {
     public File outputDirectory;
     public long timeScale = 10000000;
 
-    public FlatPackageWriterImpl(int i) {
+    public FlatPackageWriterImpl(int i2) {
     }
 
     private Movie removeUnknownTracks(Movie movie) {
@@ -127,7 +128,7 @@ public class FlatPackageWriterImpl implements PackageWriter {
             long trackId = track2.getTrackMetaData().getTrackId();
             Iterator<Box> it2 = build3.getBoxes().iterator();
             if (track2.getMediaHeaderBox() instanceof SoundMediaHeaderBox) {
-                file = new File(this.outputDirectory, "audio");
+                file = new File(this.outputDirectory, MediaStreamTrack.AUDIO_TRACK_KIND);
             } else if (track2.getMediaHeaderBox() instanceof VideoMediaHeaderBox) {
                 file = new File(this.outputDirectory, "video");
             } else {
@@ -141,19 +142,19 @@ public class FlatPackageWriterImpl implements PackageWriter {
             long[] calculateFragmentDurations = this.manifestWriter.calculateFragmentDurations(track2, correctTimescale);
             long j = 0;
             char c2 = 0;
-            int i = 0;
+            int i2 = 0;
             while (it2.hasNext()) {
                 Box next2 = it2.next();
                 if ((next2 instanceof MovieFragmentBox) && ((MovieFragmentBox) next2).getTrackNumbers()[c2] == trackId) {
                     FileOutputStream fileOutputStream4 = new FileOutputStream(new File(file2, Long.toString(j)));
-                    int i2 = i + 1;
-                    j += calculateFragmentDurations[i];
+                    int i3 = i2 + 1;
+                    j += calculateFragmentDurations[i2];
                     FileChannel channel = fileOutputStream4.getChannel();
                     next2.getBox(channel);
                     it2.next().getBox(channel);
                     channel.truncate(channel.position());
                     channel.close();
-                    i = i2;
+                    i2 = i3;
                 }
                 c2 = 0;
             }

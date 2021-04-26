@@ -2,12 +2,12 @@ package com.google.common.collect;
 
 import com.google.common.collect.Multisets;
 import com.google.common.primitives.Ints;
-import d.h.c.a.n;
-import d.h.c.c.d;
-import d.h.c.c.f0;
-import d.h.c.c.i0;
-import d.h.c.c.m;
-import d.h.c.c.r0;
+import d.g.c.a.n;
+import d.g.c.c.d;
+import d.g.c.c.f0;
+import d.g.c.c.i0;
+import d.g.c.c.m;
+import d.g.c.c.r0;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -35,8 +35,8 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.EnumMultiset.c
         /* renamed from: b */
-        public E a(int i) {
-            return (E) EnumMultiset.this.enumConstants[i];
+        public E a(int i2) {
+            return (E) EnumMultiset.this.enumConstants[i2];
         }
     }
 
@@ -47,22 +47,22 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         public class a extends Multisets.b<E> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f30857e;
+            public final /* synthetic */ int f31815e;
 
-            public a(int i) {
-                this.f30857e = i;
+            public a(int i2) {
+                this.f31815e = i2;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.h.c.c.i0.a
+            @Override // d.g.c.c.i0.a
             /* renamed from: a */
             public E getElement() {
-                return (E) EnumMultiset.this.enumConstants[this.f30857e];
+                return (E) EnumMultiset.this.enumConstants[this.f31815e];
             }
 
-            @Override // d.h.c.c.i0.a
+            @Override // d.g.c.c.i0.a
             public int getCount() {
-                return EnumMultiset.this.counts[this.f30857e];
+                return EnumMultiset.this.counts[this.f31815e];
             }
         }
 
@@ -73,8 +73,8 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.EnumMultiset.c
         /* renamed from: b */
-        public i0.a<E> a(int i) {
-            return new a(i);
+        public i0.a<E> a(int i2) {
+            return new a(i2);
         }
     }
 
@@ -82,25 +82,25 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
     public abstract class c<T> implements Iterator<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f30859e = 0;
+        public int f31817e = 0;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f30860f = -1;
+        public int f31818f = -1;
 
         public c() {
         }
 
-        public abstract T a(int i);
+        public abstract T a(int i2);
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            while (this.f30859e < EnumMultiset.this.enumConstants.length) {
+            while (this.f31817e < EnumMultiset.this.enumConstants.length) {
                 int[] iArr = EnumMultiset.this.counts;
-                int i = this.f30859e;
-                if (iArr[i] > 0) {
+                int i2 = this.f31817e;
+                if (iArr[i2] > 0) {
                     return true;
                 }
-                this.f30859e = i + 1;
+                this.f31817e = i2 + 1;
             }
             return false;
         }
@@ -108,10 +108,10 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         @Override // java.util.Iterator
         public T next() {
             if (hasNext()) {
-                T a2 = a(this.f30859e);
-                int i = this.f30859e;
-                this.f30860f = i;
-                this.f30859e = i + 1;
+                T a2 = a(this.f31817e);
+                int i2 = this.f31817e;
+                this.f31818f = i2;
+                this.f31817e = i2 + 1;
                 return a2;
             }
             throw new NoSuchElementException();
@@ -119,13 +119,13 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
 
         @Override // java.util.Iterator
         public void remove() {
-            m.e(this.f30860f >= 0);
-            if (EnumMultiset.this.counts[this.f30860f] > 0) {
+            m.e(this.f31818f >= 0);
+            if (EnumMultiset.this.counts[this.f31818f] > 0) {
                 EnumMultiset.access$210(EnumMultiset.this);
-                EnumMultiset.this.size -= EnumMultiset.this.counts[this.f30860f];
-                EnumMultiset.this.counts[this.f30860f] = 0;
+                EnumMultiset.this.size -= EnumMultiset.this.counts[this.f31818f];
+                EnumMultiset.this.counts[this.f31818f] = 0;
             }
-            this.f30860f = -1;
+            this.f31818f = -1;
         }
     }
 
@@ -138,9 +138,9 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
     }
 
     public static /* synthetic */ int access$210(EnumMultiset enumMultiset) {
-        int i = enumMultiset.distinctElements;
-        enumMultiset.distinctElements = i - 1;
-        return i;
+        int i2 = enumMultiset.distinctElements;
+        enumMultiset.distinctElements = i2 - 1;
+        return i2;
     }
 
     public static <E extends Enum<E>> EnumMultiset<E> create(Class<E> cls) {
@@ -175,9 +175,9 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.common.collect.EnumMultiset<E extends java.lang.Enum<E>> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.h.c.c.d, d.h.c.c.i0
-    public /* bridge */ /* synthetic */ int add(Object obj, int i) {
-        return add((EnumMultiset<E>) ((Enum) obj), i);
+    @Override // d.g.c.c.d, d.g.c.c.i0
+    public /* bridge */ /* synthetic */ int add(Object obj, int i2) {
+        return add((EnumMultiset<E>) ((Enum) obj), i2);
     }
 
     public void checkIsE(Object obj) {
@@ -188,19 +188,19 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         throw new ClassCastException("Expected an " + this.type + " but got " + obj);
     }
 
-    @Override // d.h.c.c.d, java.util.AbstractCollection, java.util.Collection
+    @Override // d.g.c.c.d, java.util.AbstractCollection, java.util.Collection
     public void clear() {
         Arrays.fill(this.counts, 0);
         this.size = 0L;
         this.distinctElements = 0;
     }
 
-    @Override // d.h.c.c.d, java.util.AbstractCollection, java.util.Collection, d.h.c.c.i0
+    @Override // d.g.c.c.d, java.util.AbstractCollection, java.util.Collection, d.g.c.c.i0
     public /* bridge */ /* synthetic */ boolean contains(Object obj) {
         return super.contains(obj);
     }
 
-    @Override // d.h.c.c.i0
+    @Override // d.g.c.c.i0
     public int count(Object obj) {
         if (obj == null || !isActuallyE(obj)) {
             return 0;
@@ -208,76 +208,76 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         return this.counts[((Enum) obj).ordinal()];
     }
 
-    @Override // d.h.c.c.d
+    @Override // d.g.c.c.d
     public int distinctElements() {
         return this.distinctElements;
     }
 
-    @Override // d.h.c.c.d
+    @Override // d.g.c.c.d
     public Iterator<E> elementIterator() {
         return new a();
     }
 
-    @Override // d.h.c.c.d, d.h.c.c.i0
+    @Override // d.g.c.c.d, d.g.c.c.i0
     public /* bridge */ /* synthetic */ Set elementSet() {
         return super.elementSet();
     }
 
-    @Override // d.h.c.c.d
+    @Override // d.g.c.c.d
     public Iterator<i0.a<E>> entryIterator() {
         return new b();
     }
 
-    @Override // d.h.c.c.d, d.h.c.c.i0
+    @Override // d.g.c.c.d, d.g.c.c.i0
     public /* bridge */ /* synthetic */ Set entrySet() {
         return super.entrySet();
     }
 
-    @Override // d.h.c.c.d, java.util.AbstractCollection, java.util.Collection
+    @Override // d.g.c.c.d, java.util.AbstractCollection, java.util.Collection
     public /* bridge */ /* synthetic */ boolean isEmpty() {
         return super.isEmpty();
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, d.h.c.c.i0
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, d.g.c.c.i0
     public Iterator<E> iterator() {
         return Multisets.i(this);
     }
 
-    @Override // d.h.c.c.d, d.h.c.c.i0
-    public int remove(Object obj, int i) {
+    @Override // d.g.c.c.d, d.g.c.c.i0
+    public int remove(Object obj, int i2) {
         if (obj == null || !isActuallyE(obj)) {
             return 0;
         }
         Enum r1 = (Enum) obj;
-        m.b(i, "occurrences");
-        if (i == 0) {
+        m.b(i2, "occurrences");
+        if (i2 == 0) {
             return count(obj);
         }
         int ordinal = r1.ordinal();
         int[] iArr = this.counts;
-        int i2 = iArr[ordinal];
-        if (i2 == 0) {
+        int i3 = iArr[ordinal];
+        if (i3 == 0) {
             return 0;
         }
-        if (i2 <= i) {
+        if (i3 <= i2) {
             iArr[ordinal] = 0;
             this.distinctElements--;
-            this.size -= i2;
+            this.size -= i3;
         } else {
-            iArr[ordinal] = i2 - i;
-            this.size -= i;
+            iArr[ordinal] = i3 - i2;
+            this.size -= i2;
         }
-        return i2;
+        return i3;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.common.collect.EnumMultiset<E extends java.lang.Enum<E>> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.h.c.c.d, d.h.c.c.i0
-    public /* bridge */ /* synthetic */ int setCount(Object obj, int i) {
-        return setCount((EnumMultiset<E>) ((Enum) obj), i);
+    @Override // d.g.c.c.d, d.g.c.c.i0
+    public /* bridge */ /* synthetic */ int setCount(Object obj, int i2) {
+        return setCount((EnumMultiset<E>) ((Enum) obj), i2);
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, d.h.c.c.i0
+    @Override // java.util.AbstractCollection, java.util.Collection, d.g.c.c.i0
     public int size() {
         return Ints.j(this.size);
     }
@@ -290,39 +290,39 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         return enumMultiset;
     }
 
-    public int add(E e2, int i) {
+    public int add(E e2, int i2) {
         checkIsE(e2);
-        m.b(i, "occurrences");
-        if (i == 0) {
+        m.b(i2, "occurrences");
+        if (i2 == 0) {
             return count(e2);
         }
         int ordinal = e2.ordinal();
-        int i2 = this.counts[ordinal];
-        long j = i;
-        long j2 = i2 + j;
+        int i3 = this.counts[ordinal];
+        long j = i2;
+        long j2 = i3 + j;
         n.h(j2 <= 2147483647L, "too many occurrences: %s", j2);
         this.counts[ordinal] = (int) j2;
-        if (i2 == 0) {
+        if (i3 == 0) {
             this.distinctElements++;
         }
         this.size += j;
-        return i2;
+        return i3;
     }
 
-    public int setCount(E e2, int i) {
+    public int setCount(E e2, int i2) {
         checkIsE(e2);
-        m.b(i, "count");
+        m.b(i2, "count");
         int ordinal = e2.ordinal();
         int[] iArr = this.counts;
-        int i2 = iArr[ordinal];
-        iArr[ordinal] = i;
-        this.size += i - i2;
-        if (i2 == 0 && i > 0) {
+        int i3 = iArr[ordinal];
+        iArr[ordinal] = i2;
+        this.size += i2 - i3;
+        if (i3 == 0 && i2 > 0) {
             this.distinctElements++;
-        } else if (i2 > 0 && i == 0) {
+        } else if (i3 > 0 && i2 == 0) {
             this.distinctElements--;
         }
-        return i2;
+        return i3;
     }
 
     public static <E extends Enum<E>> EnumMultiset<E> create(Iterable<E> iterable, Class<E> cls) {

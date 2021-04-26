@@ -9,7 +9,7 @@ import tbclient.Personalized.DataRes;
 public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
     public DataRes resultData;
 
-    public RecPersonalizeHttpResponse(int i) {
+    public RecPersonalizeHttpResponse(int i2) {
         super(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE);
     }
 
@@ -19,7 +19,7 @@ public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         PersonalizedResIdl personalizedResIdl = (PersonalizedResIdl) new Wire(new Class[0]).parseFrom(bArr, PersonalizedResIdl.class);
         if (personalizedResIdl == null) {
             return;

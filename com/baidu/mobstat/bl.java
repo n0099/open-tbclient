@@ -14,39 +14,39 @@ import org.json.JSONObject;
 public class bl {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8689a;
+    public static String f9000a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<WebView> f8690b;
+    public WeakReference<WebView> f9001b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f8691c;
+    public WeakReference<Activity> f9002c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f8692d;
+    public JSONObject f9003d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f8693e;
+    public boolean f9004e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f8694f;
+    public boolean f9005f;
 
     public static void b(Activity activity, final WebView webView, Rect rect) {
-        int i;
         int i2;
         int i3;
-        int i4 = 0;
+        int i4;
+        int i5 = 0;
         if (rect != null) {
-            i4 = ah.a(activity, rect.left);
-            i2 = ah.a(activity, rect.top);
-            i3 = ah.a(activity, rect.width());
-            i = ah.a(activity, rect.height());
+            i5 = ah.a(activity, rect.left);
+            i3 = ah.a(activity, rect.top);
+            i4 = ah.a(activity, rect.width());
+            i2 = ah.a(activity, rect.height());
         } else {
-            i = 0;
             i2 = 0;
             i3 = 0;
+            i4 = 0;
         }
-        final String str = "javascript:window._automtj.getViewportTree('android', '" + ("{\"x\": " + i4 + ", \"y\": " + i2 + ", \"w\": " + i3 + ", \"h\": " + i + ", \"sw\": " + ah.a(activity, bj.c(activity)) + ", \"sh\": " + ah.a(activity, bj.d(activity)) + "}") + "', 'window.WebViewInterface.setViewportTreeToNative')";
+        final String str = "javascript:window._automtj.getViewportTree('android', '" + ("{\"x\": " + i5 + ", \"y\": " + i3 + ", \"w\": " + i4 + ", \"h\": " + i2 + ", \"sw\": " + ah.a(activity, bj.c(activity)) + ", \"sh\": " + ah.a(activity, bj.d(activity)) + "}") + "', 'window.WebViewInterface.setViewportTreeToNative')";
         activity.runOnUiThread(new Runnable() { // from class: com.baidu.mobstat.bl.1
             @Override // java.lang.Runnable
             public void run() {
@@ -67,7 +67,7 @@ public class bl {
         Activity activity;
         WeakReference<WebView> weakReference;
         WebView webView;
-        if (bd.c().b() && this.f8694f) {
+        if (bd.c().b() && this.f9005f) {
             bd c2 = bd.c();
             c2.a("setEventToNative: " + str);
         }
@@ -75,8 +75,8 @@ public class bl {
             bh c3 = bh.c();
             c3.a("setEventToNative: " + str);
         }
-        WeakReference<Activity> weakReference2 = this.f8691c;
-        if (weakReference2 == null || (activity = weakReference2.get()) == null || (weakReference = this.f8690b) == null || (webView = weakReference.get()) == null) {
+        WeakReference<Activity> weakReference2 = this.f9002c;
+        if (weakReference2 == null || (activity = weakReference2.get()) == null || (weakReference = this.f9001b) == null || (webView = weakReference.get()) == null) {
             return;
         }
         a(str, activity, webView);
@@ -88,26 +88,26 @@ public class bl {
             bd c2 = bd.c();
             c2.a("setViewportTreeToNative " + str);
         }
-        f8689a = str;
+        f9000a = str;
     }
 
     public static String a(Activity activity, WebView webView, Rect rect) {
-        f8689a = "";
+        f9000a = "";
         b(activity, webView, rect);
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            int i2 = i + 1;
-            if (i >= 15) {
+            int i3 = i2 + 1;
+            if (i2 >= 15) {
                 return "";
             }
             try {
                 Thread.sleep(20L);
             } catch (Exception unused) {
             }
-            if (!TextUtils.isEmpty(f8689a)) {
-                return f8689a;
+            if (!TextUtils.isEmpty(f9000a)) {
+                return f9000a;
             }
-            i = i2;
+            i2 = i3;
         }
     }
 
@@ -116,8 +116,8 @@ public class bl {
             return;
         }
         if (z) {
-            this.f8694f = z;
-            this.f8692d = jSONObject;
+            this.f9005f = z;
+            this.f9003d = jSONObject;
         }
         if (z) {
             bd.c().a("injectTrackJs circleConfig: " + jSONObject);
@@ -132,17 +132,17 @@ public class bl {
             }
         }
         if (activity != null) {
-            this.f8691c = new WeakReference<>(activity);
+            this.f9002c = new WeakReference<>(activity);
         }
         if (webView != null) {
-            this.f8690b = new WeakReference<>(webView);
+            this.f9001b = new WeakReference<>(webView);
         }
-        this.f8693e = z;
+        this.f9004e = z;
         String a2 = a();
         if (TextUtils.isEmpty(a2)) {
             a2 = new JSONObject().toString();
         }
-        if (bd.c().b() && this.f8694f) {
+        if (bd.c().b() && this.f9005f) {
             bd.c().a("injectTrackJs h5Config: " + a2);
         }
         if (bh.c().b()) {
@@ -155,8 +155,8 @@ public class bl {
     }
 
     private boolean a(WebView webView, boolean z) {
-        WeakReference<WebView> weakReference = this.f8690b;
-        return (weakReference == null || weakReference.get() != webView || this.f8693e == z) ? false : true;
+        WeakReference<WebView> weakReference = this.f9001b;
+        return (weakReference == null || weakReference.get() != webView || this.f9004e == z) ? false : true;
     }
 
     private String a() {
@@ -231,9 +231,9 @@ public class bl {
             Map<String, String> g2 = bj.g(webView);
             Context applicationContext = activity.getApplicationContext();
             long currentTimeMillis = System.currentTimeMillis();
-            if (a(this.f8692d, activity.getClass().getName(), str5, a3, b2)) {
+            if (a(this.f9003d, activity.getClass().getName(), str5, a3, b2)) {
                 BDStatCore.instance().onEvent(applicationContext, "", str422, 1, System.currentTimeMillis(), a2, jSONArray222, name, str5, f2, g2, true);
-            } else if (bd.c().b() && this.f8694f) {
+            } else if (bd.c().b() && this.f9005f) {
                 bd.c().a("setEventToNative: not circle event, will not take effect");
             }
             aw.a().a(applicationContext, "", str422, 1, currentTimeMillis, name, a2, str5, jSONArray222, f2, g2, true, jSONObject322, "");
@@ -243,7 +243,7 @@ public class bl {
     /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
     private boolean a(JSONObject jSONObject, String str, String str2, String str3, String str4) {
-        int i = 0;
+        int i2 = 0;
         if (jSONObject == null || jSONObject.toString().equals(new JSONObject().toString()) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
             return false;
         }
@@ -256,9 +256,9 @@ public class bl {
         try {
             JSONArray jSONArray = (JSONArray) jSONObject.get("data");
             boolean z = false;
-            while (i < jSONArray.length()) {
+            while (i2 < jSONArray.length()) {
                 try {
-                    JSONObject jSONObject2 = (JSONObject) jSONArray.get(i);
+                    JSONObject jSONObject2 = (JSONObject) jSONArray.get(i2);
                     String optString = jSONObject2.optString("page");
                     String optString2 = jSONObject2.optString("layout");
                     String str5 = (String) jSONObject2.opt("url");
@@ -266,10 +266,10 @@ public class bl {
                     if (str.equals(optString) && str2.equals(str5) && str3.equals(optString2) && str4.equals(str6)) {
                         z = true;
                     }
-                    i++;
+                    i2++;
                 } catch (Exception unused2) {
-                    i = z ? 1 : 0;
-                    return i;
+                    i2 = z ? 1 : 0;
+                    return i2;
                 }
             }
             return z;

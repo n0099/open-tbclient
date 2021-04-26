@@ -16,9 +16,9 @@ public class LruCache<K, V> {
     public int putCount;
     public int size;
 
-    public LruCache(int i) {
-        if (i > 0) {
-            this.maxSize = i;
+    public LruCache(int i2) {
+        if (i2 > 0) {
+            this.maxSize = i2;
             this.map = new LinkedHashMap<>(0, 0.75f, true);
             return;
         }
@@ -143,12 +143,12 @@ public class LruCache<K, V> {
         throw new NullPointerException("key == null");
     }
 
-    public void resize(int i) {
-        if (i > 0) {
+    public void resize(int i2) {
+        if (i2 > 0) {
             synchronized (this) {
-                this.maxSize = i;
+                this.maxSize = i2;
             }
-            trimToSize(i);
+            trimToSize(i2);
             return;
         }
         throw new IllegalArgumentException("maxSize <= 0");
@@ -167,9 +167,9 @@ public class LruCache<K, V> {
     }
 
     public final synchronized String toString() {
-        int i;
-        i = this.hitCount + this.missCount;
-        return String.format(Locale.US, "LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.maxSize), Integer.valueOf(this.hitCount), Integer.valueOf(this.missCount), Integer.valueOf(i != 0 ? (this.hitCount * 100) / i : 0));
+        int i2;
+        i2 = this.hitCount + this.missCount;
+        return String.format(Locale.US, "LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.maxSize), Integer.valueOf(this.hitCount), Integer.valueOf(this.missCount), Integer.valueOf(i2 != 0 ? (this.hitCount * 100) / i2 : 0));
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0070, code lost:
@@ -178,13 +178,13 @@ public class LruCache<K, V> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void trimToSize(int i) {
+    public void trimToSize(int i2) {
         K key;
         V value;
         while (true) {
             synchronized (this) {
                 if (this.size >= 0 && (!this.map.isEmpty() || this.size == 0)) {
-                    if (this.size <= i || this.map.isEmpty()) {
+                    if (this.size <= i2 || this.map.isEmpty()) {
                         break;
                     }
                     Map.Entry<K, V> next = this.map.entrySet().iterator().next();

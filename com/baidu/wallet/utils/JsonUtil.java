@@ -57,9 +57,9 @@ public final class JsonUtil {
             if (names == null) {
                 return null;
             }
-            for (int i = 0; i < names.length(); i++) {
-                if (names.get(i) != null && (names.get(i) instanceof String)) {
-                    StringBuilder sb2 = new StringBuilder((String) names.get(i));
+            for (int i2 = 0; i2 < names.length(); i2++) {
+                if (names.get(i2) != null && (names.get(i2) instanceof String)) {
+                    StringBuilder sb2 = new StringBuilder((String) names.get(i2));
                     if (!TextUtils.isEmpty(sb2)) {
                         if (jSONObject.get(sb2.toString()) instanceof JSONObject) {
                             jsonToURLParams(new JSONObject(sb2.toString()), z);
@@ -67,7 +67,7 @@ public final class JsonUtil {
                         try {
                             StringBuilder sb3 = new StringBuilder(z ? URLEncoder.encode(sb2.toString(), "gbk") : sb2);
                             if (jSONObject.get(sb2.toString()) != null && (jSONObject.get(sb2.toString()) instanceof String)) {
-                                if (i < names.length() - 1) {
+                                if (i2 < names.length() - 1) {
                                     sb3.append("=");
                                     if (z) {
                                         obj2 = URLEncoder.encode(jSONObject.get(sb2.toString()).toString(), "gbk");

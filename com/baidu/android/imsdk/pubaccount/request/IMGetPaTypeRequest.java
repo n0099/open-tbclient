@@ -43,45 +43,45 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        LogUtils.d(RetrieveReportRequest.APP_NAME, "IMGetPaTypeRequest " + this.mPaId + GlideException.IndentedAppendable.INDENT + i + " " + bArr);
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        LogUtils.d(RetrieveReportRequest.APP_NAME, "IMGetPaTypeRequest " + this.mPaId + GlideException.IndentedAppendable.INDENT + i2 + " " + bArr);
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         PaManagerImpl.getInstance(this.mContext).onGetPaTypeResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mPaId, -1);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str;
-        int i2;
         int i3;
         int i4;
+        int i5;
         String optString;
-        LogUtils.d(RetrieveReportRequest.APP_NAME, "IMGetPaTypeRequest " + this.mPaId + GlideException.IndentedAppendable.INDENT + i + " " + bArr);
+        LogUtils.d(RetrieveReportRequest.APP_NAME, "IMGetPaTypeRequest " + this.mPaId + GlideException.IndentedAppendable.INDENT + i2 + " " + bArr);
         String str2 = new String(bArr);
-        LogUtils.d(RetrieveReportRequest.APP_NAME, "IMGetPaTypeRequest " + this.mPaId + GlideException.IndentedAppendable.INDENT + i + " " + str2);
-        int i5 = -1;
+        LogUtils.d(RetrieveReportRequest.APP_NAME, "IMGetPaTypeRequest " + this.mPaId + GlideException.IndentedAppendable.INDENT + i2 + " " + str2);
+        int i6 = -1;
         try {
             JSONObject jSONObject = new JSONObject(str2);
             if (jSONObject.has("response_params")) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                i4 = jSONObject2.getInt("error_code");
-                i5 = jSONObject2.optInt("type");
+                i5 = jSONObject2.getInt("error_code");
+                i6 = jSONObject2.optInt("type");
                 optString = Constants.ERROR_MSG_SUCCESS;
             } else {
-                i4 = jSONObject.getInt("error_code");
+                i5 = jSONObject.getInt("error_code");
                 optString = jSONObject.optString("error_msg", "");
             }
-            i3 = i5;
+            i4 = i6;
             str = optString;
-            i2 = i4;
+            i3 = i5;
         } catch (JSONException e2) {
             LogUtils.e("IMQueryZhidaSubscribedStateRequest", "JSONException", e2);
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-            i2 = 1010;
-            i3 = -1;
+            i3 = 1010;
+            i4 = -1;
         }
-        PaManagerImpl.getInstance(this.mContext).onGetPaTypeResult(this.mKey, i2, str, this.mPaId, i3);
+        PaManagerImpl.getInstance(this.mContext).onGetPaTypeResult(this.mKey, i3, str, this.mPaId, i4);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

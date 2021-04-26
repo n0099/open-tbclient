@@ -5,17 +5,17 @@ import android.os.Environment;
 import android.os.StatFs;
 import java.io.File;
 import java.text.SimpleDateFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
-        public static final boolean a(int i, int i2) {
-            return i2 == (i & i2);
+        public static final boolean a(int i2, int i3) {
+            return i3 == (i2 & i3);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
         public static boolean a() {
             String externalStorageState = Environment.getExternalStorageState();
@@ -30,28 +30,28 @@ public class d {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public File f39592a;
+        public File f37193a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f39593b;
+        public long f37194b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f39594c;
+        public long f37195c;
 
         public File a() {
-            return this.f39592a;
+            return this.f37193a;
         }
 
         public long b() {
-            return this.f39593b;
+            return this.f37194b;
         }
 
         public long c() {
-            return this.f39594c;
+            return this.f37195c;
         }
 
         public String toString() {
@@ -59,11 +59,11 @@ public class d {
         }
 
         public void a(File file) {
-            this.f39592a = file;
+            this.f37193a = file;
         }
 
         public void b(long j) {
-            this.f39594c = j;
+            this.f37195c = j;
         }
 
         public static c b(File file) {
@@ -77,13 +77,13 @@ public class d {
         }
 
         public void a(long j) {
-            this.f39593b = j;
+            this.f37194b = j;
         }
     }
 
     /* renamed from: com.tencent.open.a.d$d  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static final class C0534d {
+    /* loaded from: classes6.dex */
+    public static final class C0478d {
         @SuppressLint({"SimpleDateFormat"})
         public static SimpleDateFormat a(String str) {
             return new SimpleDateFormat(str);

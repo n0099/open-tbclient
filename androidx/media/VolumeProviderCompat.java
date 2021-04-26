@@ -27,10 +27,10 @@ public abstract class VolumeProviderCompat {
     public @interface ControlType {
     }
 
-    public VolumeProviderCompat(int i, int i2, int i3) {
-        this.mControlType = i;
-        this.mMaxVolume = i2;
-        this.mCurrentVolume = i3;
+    public VolumeProviderCompat(int i2, int i3, int i4) {
+        this.mControlType = i2;
+        this.mMaxVolume = i3;
+        this.mCurrentVolume = i4;
     }
 
     public final int getCurrentVolume() {
@@ -49,34 +49,34 @@ public abstract class VolumeProviderCompat {
         if (this.mVolumeProviderObj == null && Build.VERSION.SDK_INT >= 21) {
             this.mVolumeProviderObj = VolumeProviderCompatApi21.createVolumeProvider(this.mControlType, this.mMaxVolume, this.mCurrentVolume, new VolumeProviderCompatApi21.Delegate() { // from class: androidx.media.VolumeProviderCompat.1
                 @Override // androidx.media.VolumeProviderCompatApi21.Delegate
-                public void onAdjustVolume(int i) {
-                    VolumeProviderCompat.this.onAdjustVolume(i);
+                public void onAdjustVolume(int i2) {
+                    VolumeProviderCompat.this.onAdjustVolume(i2);
                 }
 
                 @Override // androidx.media.VolumeProviderCompatApi21.Delegate
-                public void onSetVolumeTo(int i) {
-                    VolumeProviderCompat.this.onSetVolumeTo(i);
+                public void onSetVolumeTo(int i2) {
+                    VolumeProviderCompat.this.onSetVolumeTo(i2);
                 }
             });
         }
         return this.mVolumeProviderObj;
     }
 
-    public void onAdjustVolume(int i) {
+    public void onAdjustVolume(int i2) {
     }
 
-    public void onSetVolumeTo(int i) {
+    public void onSetVolumeTo(int i2) {
     }
 
     public void setCallback(Callback callback) {
         this.mCallback = callback;
     }
 
-    public final void setCurrentVolume(int i) {
-        this.mCurrentVolume = i;
+    public final void setCurrentVolume(int i2) {
+        this.mCurrentVolume = i2;
         Object volumeProvider = getVolumeProvider();
         if (volumeProvider != null && Build.VERSION.SDK_INT >= 21) {
-            VolumeProviderCompatApi21.setCurrentVolume(volumeProvider, i);
+            VolumeProviderCompatApi21.setCurrentVolume(volumeProvider, i2);
         }
         Callback callback = this.mCallback;
         if (callback != null) {

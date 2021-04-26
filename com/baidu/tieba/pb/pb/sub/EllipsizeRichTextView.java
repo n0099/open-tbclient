@@ -8,7 +8,7 @@ import android.widget.TextView;
 public class EllipsizeRichTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public SpannableStringBuilder f19568e;
+    public SpannableStringBuilder f20048e;
 
     public EllipsizeRichTextView(Context context) {
         super(context);
@@ -16,12 +16,12 @@ public class EllipsizeRichTextView extends TextView {
     }
 
     public final void a() {
-        this.f19568e = new SpannableStringBuilder();
+        this.f20048e = new SpannableStringBuilder();
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
         if (getText() == null || getLayout() == null) {
             return;
         }
@@ -34,16 +34,16 @@ public class EllipsizeRichTextView extends TextView {
         if (text == null || text.length() <= lineVisibleEnd) {
             return;
         }
-        SpannableStringBuilder spannableStringBuilder = this.f19568e;
+        SpannableStringBuilder spannableStringBuilder = this.f20048e;
         if (spannableStringBuilder == null) {
             a();
         } else {
             spannableStringBuilder.clear();
         }
-        SpannableStringBuilder spannableStringBuilder2 = this.f19568e;
+        SpannableStringBuilder spannableStringBuilder2 = this.f20048e;
         if (spannableStringBuilder2 != null) {
             spannableStringBuilder2.append(text.subSequence(0, lineVisibleEnd));
-            setText(this.f19568e);
+            setText(this.f20048e);
         }
     }
 
@@ -52,8 +52,8 @@ public class EllipsizeRichTextView extends TextView {
         a();
     }
 
-    public EllipsizeRichTextView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public EllipsizeRichTextView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a();
     }
 }

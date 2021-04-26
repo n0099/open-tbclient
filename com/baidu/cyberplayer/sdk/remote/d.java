@@ -7,21 +7,21 @@ import android.os.Parcel;
 import android.os.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface d extends IInterface {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a extends Binder implements d {
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes.dex */
+        /* loaded from: classes2.dex */
         public static class C0076a implements d {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f5046a;
+            public IBinder f5173a;
 
             public C0076a(IBinder iBinder) {
-                this.f5046a = iBinder;
+                this.f5173a = iBinder;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.d
@@ -30,7 +30,7 @@ public interface d extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
-                    this.f5046a.transact(1, obtain, obtain2, 0);
+                    this.f5173a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -39,13 +39,13 @@ public interface d extends IInterface {
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.d
-            public void a(int i) throws RemoteException {
+            public void a(int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
-                    obtain.writeInt(i);
-                    this.f5046a.transact(3, obtain, obtain2, 0);
+                    obtain.writeInt(i2);
+                    this.f5173a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -54,16 +54,16 @@ public interface d extends IInterface {
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.d
-            public void a(int i, int i2, int i3, int i4) throws RemoteException {
+            public void a(int i2, int i3, int i4, int i5) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
-                    obtain.writeInt(i);
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
                     obtain.writeInt(i4);
-                    this.f5046a.transact(5, obtain, obtain2, 0);
+                    obtain.writeInt(i5);
+                    this.f5173a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -79,7 +79,7 @@ public interface d extends IInterface {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
                     obtain.writeString(str);
                     obtain.writeStringList(list);
-                    this.f5046a.transact(8, obtain, obtain2, 0);
+                    this.f5173a.transact(8, obtain, obtain2, 0);
                     obtain2.readException();
                     obtain2.readStringList(list);
                 } finally {
@@ -89,15 +89,15 @@ public interface d extends IInterface {
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.d
-            public boolean a(int i, int i2, String str) throws RemoteException {
+            public boolean a(int i2, int i3, String str) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
-                    obtain.writeInt(i);
                     obtain.writeInt(i2);
+                    obtain.writeInt(i3);
                     obtain.writeString(str);
-                    this.f5046a.transact(6, obtain, obtain2, 0);
+                    this.f5173a.transact(6, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -108,7 +108,7 @@ public interface d extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f5046a;
+                return this.f5173a;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.d
@@ -117,7 +117,7 @@ public interface d extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
-                    this.f5046a.transact(2, obtain, obtain2, 0);
+                    this.f5173a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -126,15 +126,15 @@ public interface d extends IInterface {
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.d
-            public boolean b(int i, int i2, String str) throws RemoteException {
+            public boolean b(int i2, int i3, String str) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
-                    obtain.writeInt(i);
                     obtain.writeInt(i2);
+                    obtain.writeInt(i3);
                     obtain.writeString(str);
-                    this.f5046a.transact(7, obtain, obtain2, 0);
+                    this.f5173a.transact(7, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -149,7 +149,7 @@ public interface d extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
-                    this.f5046a.transact(4, obtain, obtain2, 0);
+                    this.f5173a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -158,15 +158,15 @@ public interface d extends IInterface {
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.d
-            public boolean c(int i, int i2, String str) throws RemoteException {
+            public boolean c(int i2, int i3, String str) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
-                    obtain.writeInt(i);
                     obtain.writeInt(i2);
+                    obtain.writeInt(i3);
                     obtain.writeString(str);
-                    this.f5046a.transact(9, obtain, obtain2, 0);
+                    this.f5173a.transact(9, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -194,12 +194,12 @@ public interface d extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1598968902) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 == 1598968902) {
                 parcel2.writeString("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
                 return true;
             }
-            switch (i) {
+            switch (i2) {
                 case 1:
                     parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
                     a();
@@ -252,26 +252,26 @@ public interface d extends IInterface {
                     parcel2.writeInt(c2 ? 1 : 0);
                     return true;
                 default:
-                    return super.onTransact(i, parcel, parcel2, i2);
+                    return super.onTransact(i2, parcel, parcel2, i3);
             }
         }
     }
 
     void a() throws RemoteException;
 
-    void a(int i) throws RemoteException;
+    void a(int i2) throws RemoteException;
 
-    void a(int i, int i2, int i3, int i4) throws RemoteException;
+    void a(int i2, int i3, int i4, int i5) throws RemoteException;
 
     void a(String str, List<String> list) throws RemoteException;
 
-    boolean a(int i, int i2, String str) throws RemoteException;
+    boolean a(int i2, int i3, String str) throws RemoteException;
 
     void b() throws RemoteException;
 
-    boolean b(int i, int i2, String str) throws RemoteException;
+    boolean b(int i2, int i3, String str) throws RemoteException;
 
     void c() throws RemoteException;
 
-    boolean c(int i, int i2, String str) throws RemoteException;
+    boolean c(int i2, int i3, String str) throws RemoteException;
 }

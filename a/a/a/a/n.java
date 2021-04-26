@@ -1,7 +1,19 @@
 package a.a.a.a;
 /* loaded from: classes.dex */
 public interface n {
-    boolean a();
+    void a();
 
-    int b();
+    void a(int i2, String str);
+
+    void b();
+
+    void onAdClicked();
+
+    void onAdClose();
+
+    void onAdShow();
+
+    void onError(int i2, String str);
+
+    void onLoaded();
 }

@@ -46,8 +46,10 @@ public class CloudControlRequest {
     /* loaded from: classes2.dex */
     public class CloudControlResponseCallback extends ResponseCallback<CloudControlData> {
         public HashMap<String, Object> mCheckData;
+        public long mContentLength;
         public long mDuration;
         public HashMap<String, Boolean> mIsForceDispatchs;
+        public long mPostLength;
         public String mRuntype;
         public long mStart;
         public String mTraceID;
@@ -56,19 +58,19 @@ public class CloudControlRequest {
             this.mRuntype = str;
         }
 
-        private void doStabilityUBCEvent(int i, int i2, String str) {
-            CloudStabilityUBCUtils.doResponseStatistics(this.mRuntype, i, this.mTraceID, i2, -100, str, this.mDuration);
+        private void doStabilityUBCEvent(int i2, int i3, String str) {
+            CloudStabilityUBCUtils.doResponseStatistics(this.mRuntype, i2, this.mTraceID, i3, -100, str, this.mDuration, this.mContentLength, this.mPostLength);
         }
 
-        private void parseCloudErrorBean(CloudControlData cloudControlData, Response response, int i) {
+        private void parseCloudErrorBean(CloudControlData cloudControlData, Response response, int i2) {
             if (cloudControlData.getCloudControlErrorBean() != null) {
                 int errorCode = cloudControlData.getCloudControlErrorBean().getErrorCode();
                 int subErrorCode = cloudControlData.getCloudControlErrorBean().getSubErrorCode();
                 if (errorCode == 2) {
-                    doStabilityUBCEvent(4, i, subErrorCode, response.message());
+                    doStabilityUBCEvent(4, i2, subErrorCode, response.message());
                 } else if (errorCode != 3) {
                 } else {
-                    doStabilityUBCEvent(5, i, subErrorCode, response.message());
+                    doStabilityUBCEvent(5, i2, subErrorCode, response.message());
                 }
             }
         }
@@ -76,7 +78,7 @@ public class CloudControlRequest {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             this.mDuration = SystemClock.elapsedRealtime() - this.mStart;
-            doStabilityUBCEvent(6, 0, "onFail");
+            doStabilityUBCEvent(6, 0, exc.getMessage());
             CloudControlData cloudControlData = new CloudControlData();
             CloudControlErrorBean cloudControlErrorBean = new CloudControlErrorBean();
             cloudControlErrorBean.setErrorCode(1);
@@ -98,6 +100,10 @@ public class CloudControlRequest {
             this.mIsForceDispatchs = hashMap;
         }
 
+        public void setPostLength(long j) {
+            this.mPostLength = j;
+        }
+
         public void setStart(long j) {
             this.mStart = j;
         }
@@ -106,30 +112,32 @@ public class CloudControlRequest {
             this.mTraceID = str;
         }
 
-        private void doStabilityUBCEvent(int i, int i2, int i3, String str) {
-            CloudStabilityUBCUtils.doResponseStatistics(this.mRuntype, i, this.mTraceID, i2, i3, str, this.mDuration);
+        private void doStabilityUBCEvent(int i2, int i3, int i4, String str) {
+            CloudStabilityUBCUtils.doResponseStatistics(this.mRuntype, i2, this.mTraceID, i3, i4, str, this.mDuration, this.mContentLength, this.mPostLength);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(CloudControlData cloudControlData, int i) {
-            doStabilityUBCEvent(0, i, "");
+        public void onSuccess(CloudControlData cloudControlData, int i2) {
+            doStabilityUBCEvent(0, i2, "");
             new DataRouter().routeServiceData(cloudControlData);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public CloudControlData parseResponse(Response response, int i) throws Exception {
+        public CloudControlData parseResponse(Response response, int i2) throws Exception {
             this.mDuration = SystemClock.elapsedRealtime() - this.mStart;
             if (response.code() != 200) {
-                doStabilityUBCEvent(2, i, response.message());
+                doStabilityUBCEvent(2, i2, response.message());
             }
             if (response.body() != null) {
-                CloudControlData parseResponse = new CloudControlResponseParse(this.mRuntype, this.mTraceID).parseResponse(new JSONObject(response.body().string()), false);
+                String string = response.body().string();
+                this.mContentLength = string.length();
+                CloudControlData parseResponse = new CloudControlResponseParse(this.mRuntype, this.mTraceID).parseResponse(new JSONObject(string), false);
                 parseResponse.setCheckDatas(this.mCheckData);
                 parseResponse.setIsForceDispatchs(this.mIsForceDispatchs);
-                parseCloudErrorBean(parseResponse, response, i);
+                parseCloudErrorBean(parseResponse, response, i2);
                 return parseResponse;
             }
             CloudControlData cloudControlData = new CloudControlData();
@@ -139,8 +147,23 @@ public class CloudControlRequest {
             cloudControlData.setCloudControlErrorBean(cloudControlErrorBean);
             cloudControlData.setCheckDatas(this.mCheckData);
             cloudControlData.setIsForceDispatchs(this.mIsForceDispatchs);
-            doStabilityUBCEvent(3, i, response.message());
+            doStabilityUBCEvent(3, i2, response.message());
             return cloudControlData;
+        }
+    }
+
+    private void doStabilityRequestUBCEvent(String str, HttpRequest httpRequest) {
+        try {
+            String bdTraceId = httpRequest.getBdTraceId();
+            long j = -1;
+            if (httpRequest.getOkRequest() != null && httpRequest.getOkRequest().body() != null) {
+                j = httpRequest.getOkRequest().body().contentLength();
+            }
+            CloudStabilityUBCUtils.doRequestStatistics(str, bdTraceId, j);
+        } catch (Exception e2) {
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, "doStabilityRequestUBCEvent error " + e2.toString());
+            }
         }
     }
 
@@ -168,8 +191,8 @@ public class CloudControlRequest {
         if (!TextUtils.equals(str, "1") && !TextUtils.equals(str, "0")) {
             try {
                 JSONArray jSONArray = new JSONArray(this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_RUNTYPE_BLACK, ""));
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    if (TextUtils.equals(jSONArray.optString(i), str)) {
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    if (TextUtils.equals(jSONArray.optString(i2), str)) {
                         return true;
                     }
                 }
@@ -179,7 +202,7 @@ public class CloudControlRequest {
         return false;
     }
 
-    /* JADX WARN: Type inference failed for: r3v8, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
+    /* JADX WARN: Type inference failed for: r5v6, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
     public void cloudControlRequest(String str, ArrayList<CloudControlRequestInfo> arrayList) {
         if (isContentInterval(str) && !isInBlackInterrupt(str)) {
             CloudControlResponseCallback cloudControlResponseCallback = new CloudControlResponseCallback(str);
@@ -190,8 +213,8 @@ public class CloudControlRequest {
             HashMap<String, Object> hashMap = new HashMap<>();
             HashMap<String, Boolean> hashMap2 = new HashMap<>();
             String str2 = cloudControlUrl;
-            for (int i = 0; i < postData.size(); i++) {
-                CloudControlRequestInfo cloudControlRequestInfo = postData.get(i);
+            for (int i2 = 0; i2 < postData.size(); i2++) {
+                CloudControlRequestInfo cloudControlRequestInfo = postData.get(i2);
                 if (cloudControlRequestInfo != null) {
                     try {
                         jSONObject.put(cloudControlRequestInfo.getServiceName(), cloudControlRequestInfo.getPostData());
@@ -250,12 +273,14 @@ public class CloudControlRequest {
                     }
                 }
             }
-            HttpRequest build = httpCommonRequestBuilder.requestBody(RequestBody.create(MediaType.parse("application/json"), new JSONObject(hashMap3).toString())).requestSubFrom(101).cookieManager(httpManager.getCookieManager(true, false)).build();
+            String jSONObject4 = new JSONObject(hashMap3).toString();
+            HttpRequest build = httpCommonRequestBuilder.requestBody(RequestBody.create(MediaType.parse("application/json"), jSONObject4)).requestSubFrom(101).cookieManager(httpManager.getCookieManager(true, false)).build();
             long elapsedRealtime = SystemClock.elapsedRealtime();
             String bdTraceId = build.getBdTraceId();
             cloudControlResponseCallback.setStart(elapsedRealtime);
             cloudControlResponseCallback.setTraceID(bdTraceId);
-            CloudStabilityUBCUtils.doRequestStatistics(str, bdTraceId);
+            cloudControlResponseCallback.setPostLength(jSONObject4.length());
+            doStabilityRequestUBCEvent(str, build);
             build.executeAsync(cloudControlResponseCallback);
         }
     }

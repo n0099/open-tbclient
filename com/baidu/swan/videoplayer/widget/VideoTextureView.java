@@ -23,7 +23,7 @@ public class VideoTextureView extends TextureView {
         super(context, attributeSet);
     }
 
-    public VideoTextureView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public VideoTextureView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

@@ -9,10 +9,10 @@ import android.widget.LinearLayout;
 public class DeskLinearLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f13599e;
+    public View f13596e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13600f;
+    public boolean f13597f;
 
     public DeskLinearLayout(Context context) {
         super(context);
@@ -21,41 +21,41 @@ public class DeskLinearLayout extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.f13600f) {
+        if (this.f13597f) {
             canvas.save();
-            canvas.translate(this.f13599e.getLeft(), this.f13599e.getTop());
-            this.f13599e.draw(canvas);
+            canvas.translate(this.f13596e.getLeft(), this.f13596e.getTop());
+            this.f13596e.draw(canvas);
             canvas.restore();
         }
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
         View childAt = getChildAt(0);
-        if (this.f13599e == null || childAt == null) {
+        if (this.f13596e == null || childAt == null) {
             return;
         }
-        int measuredWidth = childAt.getMeasuredWidth() - this.f13599e.getMeasuredWidth();
-        View view = this.f13599e;
-        view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.f13599e.getMeasuredHeight());
+        int measuredWidth = childAt.getMeasuredWidth() - this.f13596e.getMeasuredWidth();
+        View view = this.f13596e;
+        view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.f13596e.getMeasuredHeight());
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        View view = this.f13599e;
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        View view = this.f13596e;
         if (view != null) {
-            this.f13599e.measure(LinearLayout.getChildMeasureSpec(i, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i2, 0, this.f13599e.getLayoutParams().height));
+            this.f13596e.measure(LinearLayout.getChildMeasureSpec(i2, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i3, 0, this.f13596e.getLayoutParams().height));
         }
     }
 
     public void setNewView(View view) {
-        this.f13599e = view;
+        this.f13596e = view;
     }
 
     public void setNewViewVisible(boolean z) {
-        this.f13600f = z;
+        this.f13597f = z;
         invalidate();
     }
 

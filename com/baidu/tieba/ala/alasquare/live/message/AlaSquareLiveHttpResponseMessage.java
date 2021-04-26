@@ -5,9 +5,9 @@ import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.squareup.wire.Wire;
-import d.b.c.e.d.l;
-import d.b.j0.t.d.a.b;
-import d.b.j0.t.d.b.b.a;
+import d.a.c.e.d.l;
+import d.a.j0.t.d.a.b;
+import d.a.j0.t.d.b.b.a;
 import java.util.LinkedList;
 import tbclient.LiveSquare.DataRes;
 import tbclient.LiveSquare.FunctionListInfo;
@@ -47,13 +47,13 @@ public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
         return this.mHasMore;
     }
 
-    public void setPn(int i) {
-        this.mPn = i;
+    public void setPn(int i2) {
+        this.mPn = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
         l<byte[]> a2;
         if (hasError() || ListUtils.isEmpty(this.categoryList) || this.mPn != 1 || (a2 = BdCacheService.l().a("ala_square_space", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20)) == null) {
             return;
@@ -63,7 +63,7 @@ public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         LiveSquareResIdl liveSquareResIdl = (LiveSquareResIdl) new Wire(new Class[0]).parseFrom(bArr, LiveSquareResIdl.class);
         setError(liveSquareResIdl.error.errorno.intValue());
         setErrorString(liveSquareResIdl.error.usermsg);

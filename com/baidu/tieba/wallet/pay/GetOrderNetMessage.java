@@ -3,8 +3,8 @@ package com.baidu.tieba.wallet.pay;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.c.e.m.b;
-import d.b.i0.z0.w;
+import d.a.c.e.m.b;
+import d.a.i0.z0.w;
 import tbclient.GetOrder.DataReq;
 import tbclient.GetOrder.GetOrderReqIdl;
 import tbclient.Wares;
@@ -60,17 +60,17 @@ public class GetOrderNetMessage extends NetMessage {
         return this.mWares;
     }
 
-    public void setParams(int i, int i2, String str, int i3, int i4, int i5, String str2, String str3) {
-        this.mPayType = i;
-        this.mIsLeft = i2;
-        this.isAutoPay = i5;
+    public void setParams(int i2, int i3, String str, int i4, int i5, int i6, String str2, String str3) {
+        this.mPayType = i2;
+        this.mIsLeft = i3;
+        this.isAutoPay = i6;
         this.mPaymentPosKey = str2;
         this.mWalletSdkUa = str3;
         Wares.Builder builder = new Wares.Builder();
         builder.props_id = Integer.valueOf(b.d(str, 0));
         builder.new_props_id = str;
-        builder.money = Integer.valueOf(i3);
-        builder.props_mon = Integer.valueOf(i4);
+        builder.money = Integer.valueOf(i4);
+        builder.props_mon = Integer.valueOf(i5);
         builder.wars_name = "";
         builder.wars_item = "";
         this.mWares = builder.build(false);

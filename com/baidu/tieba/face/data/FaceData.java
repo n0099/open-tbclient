@@ -19,8 +19,8 @@ public class FaceData implements Comparable<FaceData>, Serializable {
     public FaceData() {
     }
 
-    public FaceData(int i) {
-        this.type = i;
+    public FaceData(int i2) {
+        this.type = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

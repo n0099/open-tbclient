@@ -43,8 +43,8 @@ public final class a implements Serializable {
         this.K = str;
     }
 
-    public final void setId(int i) {
-        this.id = i;
+    public final void setId(int i2) {
+        this.id = i2;
     }
 
     public final void t(String str) {

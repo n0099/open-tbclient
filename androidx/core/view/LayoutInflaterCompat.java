@@ -28,6 +28,7 @@ public final class LayoutInflaterCompat {
             return this.mDelegateFactory.onCreateView(null, str, context, attributeSet);
         }
 
+        @NonNull
         public String toString() {
             return Factory2Wrapper.class.getName() + StringUtil.ARRAY_START + this.mDelegateFactory + "}";
         }

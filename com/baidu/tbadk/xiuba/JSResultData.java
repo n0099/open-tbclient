@@ -49,16 +49,16 @@ public class JSResultData extends OrmObject implements Serializable {
             this.apkVersion = str;
         }
 
-        public void setDownload(int i) {
-            this.download = i;
+        public void setDownload(int i2) {
+            this.download = i2;
         }
 
-        public void setInstall(int i) {
-            this.install = i;
+        public void setInstall(int i2) {
+            this.install = i2;
         }
 
-        public void setIsInstall(int i) {
-            this.isInstall = i;
+        public void setIsInstall(int i2) {
+            this.isInstall = i2;
         }
     }
 
@@ -90,7 +90,7 @@ public class JSResultData extends OrmObject implements Serializable {
         this.result = result;
     }
 
-    public void setStatus(int i) {
-        this.status = i;
+    public void setStatus(int i2) {
+        this.status = i2;
     }
 }

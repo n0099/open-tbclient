@@ -15,13 +15,13 @@ import java.util.concurrent.ScheduledExecutorService;
 public class d extends c<SubAliasStatus> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38286a;
+    public String f35848a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38287b;
+    public int f35849b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38288c;
+    public String f35850c;
     public Map<String, Boolean> m;
 
     public d(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
@@ -40,25 +40,25 @@ public class d extends c<SubAliasStatus> {
 
     public d(Context context, String str, String str2, String str3, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, str, str2, aVar, scheduledExecutorService);
-        this.f38286a = str3;
+        this.f35848a = str3;
     }
 
     private void b(boolean z) {
         Map<String, Boolean> map = this.m;
-        map.put(this.f38284h + "_" + this.f38287b, Boolean.valueOf(z));
+        map.put(this.f35845h + "_" + this.f35849b, Boolean.valueOf(z));
     }
 
     private void f(String str) {
-        com.meizu.cloud.pushsdk.util.b.h(this.f38281e, !TextUtils.isEmpty(this.f38284h) ? this.f38284h : this.f38281e.getPackageName(), str);
+        com.meizu.cloud.pushsdk.util.b.h(this.f35842e, !TextUtils.isEmpty(this.f35845h) ? this.f35845h : this.f35842e.getPackageName(), str);
     }
 
     private String p() {
-        return com.meizu.cloud.pushsdk.util.b.g(this.f38281e, !TextUtils.isEmpty(this.f38284h) ? this.f38284h : this.f38281e.getPackageName());
+        return com.meizu.cloud.pushsdk.util.b.g(this.f35842e, !TextUtils.isEmpty(this.f35845h) ? this.f35845h : this.f35842e.getPackageName());
     }
 
     private boolean q() {
         Map<String, Boolean> map = this.m;
-        Boolean bool = map.get(this.f38284h + "_" + this.f38287b);
+        Boolean bool = map.get(this.f35845h + "_" + this.f35849b);
         if (bool != null) {
             return bool.booleanValue();
         }
@@ -66,46 +66,46 @@ public class d extends c<SubAliasStatus> {
     }
 
     private boolean r() {
-        return !this.k && "com.meizu.cloud".equals(this.f38284h);
+        return !this.k && "com.meizu.cloud".equals(this.f35845h);
     }
 
-    public void a(int i) {
-        this.f38287b = i;
+    public void a(int i2) {
+        this.f35849b = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public void a(SubAliasStatus subAliasStatus) {
-        PlatformMessageSender.a(this.f38281e, !TextUtils.isEmpty(this.f38284h) ? this.f38284h : this.f38281e.getPackageName(), subAliasStatus);
+        PlatformMessageSender.a(this.f35842e, !TextUtils.isEmpty(this.f35845h) ? this.f35845h : this.f35842e.getPackageName(), subAliasStatus);
     }
 
     public void a(String str) {
-        this.f38288c = str;
+        this.f35850c = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public boolean a() {
-        return (TextUtils.isEmpty(this.f38282f) || TextUtils.isEmpty(this.f38283g) || TextUtils.isEmpty(this.f38286a)) ? false : true;
+        return (TextUtils.isEmpty(this.f35843f) || TextUtils.isEmpty(this.f35844g) || TextUtils.isEmpty(this.f35848a)) ? false : true;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public Intent c() {
-        if (this.f38287b != 2) {
+        if (this.f35849b != 2) {
             Intent intent = new Intent();
-            intent.putExtra(Constants.APP_ID, this.f38282f);
-            intent.putExtra(com.alipay.sdk.cons.b.f1883h, this.f38283g);
-            intent.putExtra("strategy_package_name", this.f38281e.getPackageName());
-            intent.putExtra("push_id", this.f38286a);
+            intent.putExtra(Constants.APP_ID, this.f35843f);
+            intent.putExtra(com.alipay.sdk.cons.b.f1831h, this.f35844g);
+            intent.putExtra("strategy_package_name", this.f35842e.getPackageName());
+            intent.putExtra("push_id", this.f35848a);
             intent.putExtra("strategy_type", g());
-            intent.putExtra("strategy_child_type", this.f38287b);
-            intent.putExtra("strategy_params", this.f38288c);
+            intent.putExtra("strategy_child_type", this.f35849b);
+            intent.putExtra("strategy_params", this.f35850c);
             return intent;
         }
         return null;
     }
 
     public void e(String str) {
-        this.f38286a = str;
+        this.f35848a = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
@@ -120,10 +120,10 @@ public class d extends c<SubAliasStatus> {
         String str;
         SubAliasStatus subAliasStatus = new SubAliasStatus();
         subAliasStatus.setCode(LightappConstants.ERRCODE_NOT_ALLOWED_BACKGROUND);
-        if (TextUtils.isEmpty(this.f38282f)) {
+        if (TextUtils.isEmpty(this.f35843f)) {
             str = "appId not empty";
-        } else if (!TextUtils.isEmpty(this.f38283g)) {
-            if (TextUtils.isEmpty(this.f38286a)) {
+        } else if (!TextUtils.isEmpty(this.f35844g)) {
+            if (TextUtils.isEmpty(this.f35848a)) {
                 str = "pushId not empty";
             }
             return subAliasStatus;
@@ -144,13 +144,13 @@ public class d extends c<SubAliasStatus> {
     public SubAliasStatus e() {
         com.meizu.cloud.pushsdk.b.a.c c2;
         SubAliasStatus subAliasStatus = new SubAliasStatus();
-        subAliasStatus.setPushId(this.f38286a);
+        subAliasStatus.setPushId(this.f35848a);
         String str = "";
         subAliasStatus.setMessage("");
-        int i = this.f38287b;
-        if (i != 0) {
-            if (i != 1) {
-                if (i == 2) {
+        int i2 = this.f35849b;
+        if (i2 != 0) {
+            if (i2 != 1) {
+                if (i2 == 2) {
                     subAliasStatus.setAlias(p());
                     subAliasStatus.setCode(BasicPushStatus.SUCCESS_CODE);
                 }
@@ -159,22 +159,22 @@ public class d extends c<SubAliasStatus> {
                 if (r()) {
                     f("");
                 }
-                c2 = this.j.d(this.f38282f, this.f38283g, this.f38286a, this.f38288c);
+                c2 = this.j.d(this.f35843f, this.f35844g, this.f35848a, this.f35850c);
                 if (c2 != null) {
                     if (c2.b()) {
                         subAliasStatus = new SubAliasStatus((String) c2.a());
-                        d.k.a.a.a.b("Strategy", "network subAliasStatus " + subAliasStatus);
+                        d.j.a.a.a.b("Strategy", "network subAliasStatus " + subAliasStatus);
                         if (BasicPushStatus.SUCCESS_CODE.equals(subAliasStatus.getCode())) {
                             b(false);
                         }
                     } else {
                         com.meizu.cloud.pushsdk.b.b.a c3 = c2.c();
                         if (c3.a() != null) {
-                            d.k.a.a.a.b("Strategy", "status code=" + c3.b() + " data=" + c3.a());
+                            d.j.a.a.a.b("Strategy", "status code=" + c3.b() + " data=" + c3.a());
                         }
                         subAliasStatus.setCode(String.valueOf(c3.b()));
                         subAliasStatus.setMessage(c3.c());
-                        d.k.a.a.a.b("Strategy", "subAliasStatus " + subAliasStatus);
+                        d.j.a.a.a.b("Strategy", "subAliasStatus " + subAliasStatus);
                     }
                 }
                 return subAliasStatus;
@@ -182,18 +182,18 @@ public class d extends c<SubAliasStatus> {
                 subAliasStatus.setCode(BasicPushStatus.SUCCESS_CODE);
                 subAliasStatus.setAlias(str);
             }
-        } else if (!this.f38288c.equals(p()) || q()) {
+        } else if (!this.f35850c.equals(p()) || q()) {
             b(true);
             if (r()) {
-                f(this.f38288c);
+                f(this.f35850c);
             }
-            c2 = this.j.c(this.f38282f, this.f38283g, this.f38286a, this.f38288c);
+            c2 = this.j.c(this.f35843f, this.f35844g, this.f35848a, this.f35850c);
             if (c2 != null) {
             }
             return subAliasStatus;
         } else {
             subAliasStatus.setCode(BasicPushStatus.SUCCESS_CODE);
-            str = this.f38288c;
+            str = this.f35850c;
             subAliasStatus.setAlias(str);
         }
         c2 = null;
@@ -206,12 +206,12 @@ public class d extends c<SubAliasStatus> {
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     /* renamed from: j */
     public SubAliasStatus f() {
-        if (this.f38287b != 2) {
+        if (this.f35849b != 2) {
             return null;
         }
         SubAliasStatus subAliasStatus = new SubAliasStatus();
         subAliasStatus.setCode(BasicPushStatus.SUCCESS_CODE);
-        subAliasStatus.setPushId(this.f38286a);
+        subAliasStatus.setPushId(this.f35848a);
         subAliasStatus.setAlias(p());
         subAliasStatus.setMessage("check alias success");
         return subAliasStatus;

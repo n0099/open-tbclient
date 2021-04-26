@@ -1,99 +1,187 @@
 package h.o.a;
 
 import h.d;
+import h.g;
+import java.util.concurrent.TimeoutException;
 /* loaded from: classes7.dex */
-public final class u<T> implements d.b<T, T> {
+public class u<T> implements d.b<T, T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.n.g<? super T, ? super Integer, Boolean> f68965e;
+    public final a<T> f67823e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final b<T> f67824f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final h.d<? extends T> f67825g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final h.g f67826h;
 
     /* loaded from: classes7.dex */
-    public class a implements h.n.g<T, Integer, Boolean> {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h.n.f f68966a;
-
-        public a(h.n.f fVar) {
-            this.f68966a = fVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // h.n.g
-        /* renamed from: b */
-        public Boolean a(T t, Integer num) {
-            return (Boolean) this.f68966a.call(t);
-        }
+    public interface a<T> extends h.n.h<c<T>, Long, g.a, h.k> {
     }
 
     /* loaded from: classes7.dex */
-    public class b extends h.j<T> {
+    public interface b<T> extends h.n.i<c<T>, Long, T, g.a, h.k> {
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class c<T> extends h.j<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f68967e;
+        public final h.u.d f67827e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f68968f;
+        public final h.q.e<T> f67828f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ h.j f68969g;
+        public final b<T> f67829g;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(h.j jVar, boolean z, h.j jVar2) {
-            super(jVar, z);
-            this.f68969g = jVar2;
+        /* renamed from: h  reason: collision with root package name */
+        public final h.d<? extends T> f67830h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public final g.a f67831i;
+        public final h.o.b.a j = new h.o.b.a();
+        public boolean k;
+        public long l;
+
+        /* loaded from: classes7.dex */
+        public class a extends h.j<T> {
+            public a() {
+            }
+
+            @Override // h.e
+            public void onCompleted() {
+                c.this.f67828f.onCompleted();
+            }
+
+            @Override // h.e
+            public void onError(Throwable th) {
+                c.this.f67828f.onError(th);
+            }
+
+            @Override // h.e
+            public void onNext(T t) {
+                c.this.f67828f.onNext(t);
+            }
+
+            @Override // h.j
+            public void setProducer(h.f fVar) {
+                c.this.j.c(fVar);
+            }
+        }
+
+        public c(h.q.e<T> eVar, b<T> bVar, h.u.d dVar, h.d<? extends T> dVar2, g.a aVar) {
+            this.f67828f = eVar;
+            this.f67829g = bVar;
+            this.f67827e = dVar;
+            this.f67830h = dVar2;
+            this.f67831i = aVar;
+        }
+
+        public void b(long j) {
+            boolean z;
+            synchronized (this) {
+                z = true;
+                if (j != this.l || this.k) {
+                    z = false;
+                } else {
+                    this.k = true;
+                }
+            }
+            if (z) {
+                if (this.f67830h == null) {
+                    this.f67828f.onError(new TimeoutException());
+                    return;
+                }
+                a aVar = new a();
+                this.f67830h.I(aVar);
+                this.f67827e.a(aVar);
+            }
         }
 
         @Override // h.e
         public void onCompleted() {
-            if (this.f68968f) {
-                return;
+            boolean z;
+            synchronized (this) {
+                z = true;
+                if (this.k) {
+                    z = false;
+                } else {
+                    this.k = true;
+                }
             }
-            this.f68969g.onCompleted();
+            if (z) {
+                this.f67827e.unsubscribe();
+                this.f67828f.onCompleted();
+            }
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            if (this.f68968f) {
-                return;
+            boolean z;
+            synchronized (this) {
+                z = true;
+                if (this.k) {
+                    z = false;
+                } else {
+                    this.k = true;
+                }
             }
-            this.f68969g.onError(th);
+            if (z) {
+                this.f67827e.unsubscribe();
+                this.f67828f.onError(th);
+            }
         }
 
         @Override // h.e
         public void onNext(T t) {
-            try {
-                h.n.g<? super T, ? super Integer, Boolean> gVar = u.this.f68965e;
-                int i = this.f68967e;
-                this.f68967e = i + 1;
-                if (gVar.a(t, Integer.valueOf(i)).booleanValue()) {
-                    this.f68969g.onNext(t);
-                    return;
+            long j;
+            boolean z;
+            synchronized (this) {
+                if (!this.k) {
+                    j = this.l + 1;
+                    this.l = j;
+                    z = true;
+                } else {
+                    j = this.l;
+                    z = false;
                 }
-                this.f68968f = true;
-                this.f68969g.onCompleted();
-                unsubscribe();
-            } catch (Throwable th) {
-                this.f68968f = true;
-                h.m.a.g(th, this.f68969g, t);
-                unsubscribe();
             }
+            if (z) {
+                this.f67828f.onNext(t);
+                this.f67827e.a(this.f67829g.a(this, Long.valueOf(j), t, this.f67831i));
+            }
+        }
+
+        @Override // h.j
+        public void setProducer(h.f fVar) {
+            this.j.c(fVar);
         }
     }
 
-    public u(h.n.f<? super T, Boolean> fVar) {
-        this(new a(fVar));
+    public u(a<T> aVar, b<T> bVar, h.d<? extends T> dVar, h.g gVar) {
+        this.f67823e = aVar;
+        this.f67824f = bVar;
+        this.f67825g = dVar;
+        this.f67826h = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // h.n.f
     /* renamed from: a */
     public h.j<? super T> call(h.j<? super T> jVar) {
-        b bVar = new b(jVar, false, jVar);
-        jVar.add(bVar);
-        return bVar;
-    }
-
-    public u(h.n.g<? super T, ? super Integer, Boolean> gVar) {
-        this.f68965e = gVar;
+        g.a createWorker = this.f67826h.createWorker();
+        jVar.add(createWorker);
+        h.q.e eVar = new h.q.e(jVar);
+        h.u.d dVar = new h.u.d();
+        eVar.add(dVar);
+        c cVar = new c(eVar, this.f67824f, dVar, this.f67825g, createWorker);
+        eVar.add(cVar);
+        eVar.setProducer(cVar.j);
+        dVar.a(this.f67823e.a(cVar, 0L, createWorker));
+        return cVar;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.swan.apps.media.chooser.model;
 import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VideoModel extends MediaModel {
     public static final Parcelable.Creator<MediaModel> CREATOR = new a();
     public long duration;
@@ -13,7 +13,7 @@ public class VideoModel extends MediaModel {
     public String uri;
     public int width;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<MediaModel> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -25,8 +25,8 @@ public class VideoModel extends MediaModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public MediaModel[] newArray(int i) {
-            return new MediaModel[i];
+        public MediaModel[] newArray(int i2) {
+            return new MediaModel[i2];
         }
     }
 
@@ -50,17 +50,17 @@ public class VideoModel extends MediaModel {
         this.duration = j;
     }
 
-    public void n(int i) {
-        this.height = i;
+    public void n(int i2) {
+        this.height = i2;
     }
 
-    public void o(int i) {
-        this.width = i;
+    public void o(int i2) {
+        this.width = i2;
     }
 
     @Override // com.baidu.swan.apps.media.chooser.model.MediaModel, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.uri);
         parcel.writeLong(this.duration);
         parcel.writeInt(this.width);

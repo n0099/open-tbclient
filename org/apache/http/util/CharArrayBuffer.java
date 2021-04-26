@@ -2,11 +2,11 @@ package org.apache.http.util;
 @Deprecated
 /* loaded from: classes7.dex */
 public final class CharArrayBuffer {
-    public CharArrayBuffer(int i) {
+    public CharArrayBuffer(int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public void append(char[] cArr, int i, int i2) {
+    public void append(char[] cArr, int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 
@@ -18,7 +18,7 @@ public final class CharArrayBuffer {
         throw new RuntimeException("Stub!");
     }
 
-    public char charAt(int i) {
+    public char charAt(int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -26,11 +26,11 @@ public final class CharArrayBuffer {
         throw new RuntimeException("Stub!");
     }
 
-    public void ensureCapacity(int i) {
+    public void ensureCapacity(int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public int indexOf(int i, int i2, int i3) {
+    public int indexOf(int i2, int i3, int i4) {
         throw new RuntimeException("Stub!");
     }
 
@@ -46,15 +46,15 @@ public final class CharArrayBuffer {
         throw new RuntimeException("Stub!");
     }
 
-    public void setLength(int i) {
+    public void setLength(int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public String substring(int i, int i2) {
+    public String substring(int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 
-    public String substringTrimmed(int i, int i2) {
+    public String substringTrimmed(int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 
@@ -70,11 +70,11 @@ public final class CharArrayBuffer {
         throw new RuntimeException("Stub!");
     }
 
-    public int indexOf(int i) {
+    public int indexOf(int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public void append(CharArrayBuffer charArrayBuffer, int i, int i2) {
+    public void append(CharArrayBuffer charArrayBuffer, int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 
@@ -86,11 +86,11 @@ public final class CharArrayBuffer {
         throw new RuntimeException("Stub!");
     }
 
-    public void append(byte[] bArr, int i, int i2) {
+    public void append(byte[] bArr, int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 
-    public void append(ByteArrayBuffer byteArrayBuffer, int i, int i2) {
+    public void append(ByteArrayBuffer byteArrayBuffer, int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 

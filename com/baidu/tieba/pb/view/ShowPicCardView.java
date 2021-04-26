@@ -13,23 +13,25 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.j0.d3.h0.a;
+import d.a.c.e.p.l;
+import d.a.j0.d3.h0.a;
 /* loaded from: classes3.dex */
 public class ShowPicCardView extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f19860e;
+    public Context f20356e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f19861f;
+    public a f20357f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f19862g;
+    public TbImageView f20358g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f19863h;
-    public ImageView i;
+    public LinearLayout f20359h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public ImageView f20360i;
     public TextView j;
     public TextView k;
     public View l;
@@ -40,35 +42,35 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     }
 
     public final void a() {
-        this.l = LayoutInflater.from(this.f19860e).inflate(R.layout.pic_show_cardview_layout, (ViewGroup) this, true);
-        this.f19862g = (TbImageView) findViewById(R.id.pic_img);
-        this.f19863h = (LinearLayout) findViewById(R.id.bottom_ll);
+        this.l = LayoutInflater.from(this.f20356e).inflate(R.layout.pic_show_cardview_layout, (ViewGroup) this, true);
+        this.f20358g = (TbImageView) findViewById(R.id.pic_img);
+        this.f20359h = (LinearLayout) findViewById(R.id.bottom_ll);
         this.j = (TextView) findViewById(R.id.title_ll);
         this.k = (TextView) findViewById(R.id.desc_ll);
-        this.i = (ImageView) findViewById(R.id.show_pic_icon);
+        this.f20360i = (ImageView) findViewById(R.id.show_pic_icon);
     }
 
     public a getData() {
-        return this.f19861f;
+        return this.f20357f;
     }
 
     public ImageView getIcon() {
-        return this.i;
+        return this.f20360i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        a aVar = this.f19861f;
+        a aVar = this.f20357f;
         if (aVar != null) {
-            d.b.i0.l.a.l(this.f19860e, aVar.e());
+            d.a.i0.l.a.l(this.f20356e, aVar.e());
         }
     }
 
     public void setData(a aVar) {
-        if (aVar == null || this.f19861f == aVar) {
+        if (aVar == null || this.f20357f == aVar) {
             return;
         }
-        this.f19861f = aVar;
+        this.f20357f = aVar;
         if (!StringUtils.isNULL(aVar.f())) {
             this.j.setVisibility(0);
             this.j.setText(aVar.f());
@@ -82,32 +84,32 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
             this.k.setVisibility(8);
         }
         if (this.m) {
-            this.f19862g.setSupportNoImage(true);
+            this.f20358g.setSupportNoImage(true);
         }
         int d2 = aVar.d();
         int b2 = aVar.b();
         if (d2 <= 0 || b2 <= 0) {
             return;
         }
-        this.f19862g.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f19862g.setOnClickListener(this);
-        this.f19862g.setInterceptOnClick(true);
-        this.f19862g.setDefaultResource(R.drawable.icon_click);
-        this.f19862g.W(aVar.c(), 18, false);
-        int k = l.k(this.f19860e) - (l.g(this.f19860e, R.dimen.ds30) * 2);
+        this.f20358g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f20358g.setOnClickListener(this);
+        this.f20358g.setInterceptOnClick(true);
+        this.f20358g.setDefaultResource(R.drawable.icon_click);
+        this.f20358g.V(aVar.c(), 18, false);
+        int k = l.k(this.f20356e) - (l.g(this.f20356e, R.dimen.ds30) * 2);
         float f2 = b2 / d2;
-        this.f19862g.setLayoutParams(new FrameLayout.LayoutParams(k, (int) (f2 > 1.7777778f ? k * 1.7777778f : f2 < 0.75f ? k * 0.75f : k * f2)));
-        removeView(this.f19862g);
-        addView(this.f19862g);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f19863h.getLayoutParams();
+        this.f20358g.setLayoutParams(new FrameLayout.LayoutParams(k, (int) (f2 > 1.7777778f ? k * 1.7777778f : f2 < 0.75f ? k * 0.75f : k * f2)));
+        removeView(this.f20358g);
+        addView(this.f20358g);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f20359h.getLayoutParams();
         layoutParams.width = k;
-        layoutParams.height = l.g(this.f19860e, R.dimen.ds110);
-        removeView(this.f19863h);
-        addView(this.f19863h, layoutParams);
+        layoutParams.height = l.g(this.f20356e, R.dimen.ds110);
+        removeView(this.f20359h);
+        addView(this.f20359h, layoutParams);
     }
 
-    public void setIconResId(int i) {
-        SkinManager.setImageResource(this.i, i);
+    public void setIconResId(int i2) {
+        SkinManager.setImageResource(this.f20360i, i2);
     }
 
     public void setSupportNoImage() {
@@ -118,10 +120,10 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
         this(context, attributeSet, 0);
     }
 
-    public ShowPicCardView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ShowPicCardView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.m = false;
-        this.f19860e = context;
+        this.f20356e = context;
         a();
     }
 }

@@ -41,4 +41,9 @@ public abstract class MutablePropertyReference0 extends MutablePropertyReference
     public KMutableProperty0.Setter getSetter() {
         return ((KMutableProperty0) getReflected()).getSetter();
     }
+
+    @SinceKotlin(version = "1.4")
+    public MutablePropertyReference0(Object obj, Class cls, String str, String str2, int i2) {
+        super(obj, cls, str, str2, i2);
+    }
 }

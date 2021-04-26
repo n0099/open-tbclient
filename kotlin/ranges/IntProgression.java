@@ -22,8 +22,8 @@ public class IntProgression implements Iterable<Integer>, KMappedMarker {
         public Companion() {
         }
 
-        public final IntProgression fromClosedRange(int i, int i2, int i3) {
-            return new IntProgression(i, i2, i3);
+        public final IntProgression fromClosedRange(int i2, int i3, int i4) {
+            return new IntProgression(i2, i3, i4);
         }
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -31,14 +31,14 @@ public class IntProgression implements Iterable<Integer>, KMappedMarker {
         }
     }
 
-    public IntProgression(int i, int i2, int i3) {
-        if (i3 == 0) {
+    public IntProgression(int i2, int i3, int i4) {
+        if (i4 == 0) {
             throw new IllegalArgumentException("Step must be non-zero.");
         }
-        if (i3 != Integer.MIN_VALUE) {
-            this.first = i;
-            this.last = ProgressionUtilKt.getProgressionLastElement(i, i2, i3);
-            this.step = i3;
+        if (i4 != Integer.MIN_VALUE) {
+            this.first = i2;
+            this.last = ProgressionUtilKt.getProgressionLastElement(i2, i3, i4);
+            this.step = i4;
             return;
         }
         throw new IllegalArgumentException("Step must be greater than Int.MIN_VALUE to avoid overflow on negation.");
@@ -88,23 +88,23 @@ public class IntProgression implements Iterable<Integer>, KMappedMarker {
 
     public String toString() {
         StringBuilder sb;
-        int i;
+        int i2;
         if (this.step > 0) {
             sb = new StringBuilder();
             sb.append(this.first);
             sb.append(IStringUtil.TOP_PATH);
             sb.append(this.last);
             sb.append(" step ");
-            i = this.step;
+            i2 = this.step;
         } else {
             sb = new StringBuilder();
             sb.append(this.first);
             sb.append(" downTo ");
             sb.append(this.last);
             sb.append(" step ");
-            i = -this.step;
+            i2 = -this.step;
         }
-        sb.append(i);
+        sb.append(i2);
         return sb.toString();
     }
 

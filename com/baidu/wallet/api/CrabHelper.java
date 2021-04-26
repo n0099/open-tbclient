@@ -16,10 +16,10 @@ public class CrabHelper {
     public static final String CRAB_TAG = "crab";
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f23165a = false;
+    public static volatile boolean f23878a = false;
 
     public static void b(Context context) {
-        f23165a = true;
+        f23878a = true;
         long currentTimeMillis = System.currentTimeMillis();
         try {
             Class.forName("com.baidu.crabsdk.lite.CrabLite");
@@ -44,14 +44,14 @@ public class CrabHelper {
         String str4 = TextUtils.isEmpty(passUserName) ? "" : passUserName;
         List<String> generateSDKPackageConcerned = generateSDKPackageConcerned();
         LogUtil.d(CRAB_TAG, "init crab with pkg size:" + generateSDKPackageConcerned.size());
-        int i = 0;
+        int i2 = 0;
         for (String str5 : generateSDKPackageConcerned) {
             long currentTimeMillis = System.currentTimeMillis();
             a(context, "e4ede3580390f467", str, str3, str5, str2, str4);
             StringBuilder sb = new StringBuilder();
             sb.append("init ");
-            i++;
-            sb.append(i);
+            i2++;
+            sb.append(i2);
             sb.append(" cost :");
             sb.append(System.currentTimeMillis() - currentTimeMillis);
             LogUtil.d(CRAB_TAG, sb.toString());
@@ -71,7 +71,7 @@ public class CrabHelper {
     }
 
     public static void initCrab(final Context context) {
-        if (StatSettings.getInstance(context).isEnableCrashHandler() && !f23165a) {
+        if (StatSettings.getInstance(context).isEnableCrashHandler() && !f23878a) {
             new Thread(new Runnable() { // from class: com.baidu.wallet.api.CrabHelper.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -81,8 +81,8 @@ public class CrabHelper {
             }).start();
             return;
         }
-        if (f23165a) {
-            LogUtil.d(CRAB_TAG, "crab already init :" + f23165a);
+        if (f23878a) {
+            LogUtil.d(CRAB_TAG, "crab already init :" + f23878a);
         }
         if (StatSettings.getInstance(context).isEnableCrashHandler()) {
             return;

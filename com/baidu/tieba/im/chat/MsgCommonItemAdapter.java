@@ -7,12 +7,12 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import d.b.c.e.h.b;
-import d.b.c.j.e.a;
+import d.a.c.e.h.b;
+import d.a.c.j.e.a;
 /* loaded from: classes4.dex */
 public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHolder<T>> {
     public TbPageContext<MsglistActivity<?>> m;
-    public d.b.c.e.h.a n;
+    public d.a.c.e.h.a n;
     public b o;
     public long p;
     public boolean q;
@@ -23,15 +23,15 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
     public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public T f17449a;
+        public T f17758a;
 
         public MsgViewHolder(View view, T t) {
             super(view);
-            this.f17449a = t;
+            this.f17758a = t;
         }
 
         public T b() {
-            return this.f17449a;
+            return this.f17758a;
         }
     }
 
@@ -45,46 +45,46 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
         this.m = tbPageContext;
     }
 
-    public final void h0() {
+    public final void e0() {
         this.p = System.currentTimeMillis() / 1000;
     }
 
-    public boolean i0() {
+    public boolean f0() {
         return this.r;
     }
 
-    public boolean j0() {
+    public boolean g0() {
         return this.q;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.c.j.e.a
-    /* renamed from: l0 */
-    public View X(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
+    @Override // d.a.c.j.e.a
+    /* renamed from: h0 */
+    public View W(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        h0();
+        e0();
         return view;
     }
 
-    public void m0(boolean z) {
+    public void i0(boolean z) {
         this.r = z;
     }
 
-    public void n0(boolean z) {
+    public void j0(boolean z) {
         this.q = z;
     }
 
-    public void o0(d.b.c.e.h.a aVar) {
+    public void m0(d.a.c.e.h.a aVar) {
         this.n = aVar;
     }
 
-    public void p0(b bVar) {
+    public void n0(b bVar) {
         this.o = bVar;
     }
 
-    public void q0(int i) {
-        this.s = i;
+    public void p0(int i2) {
+        this.s = i2;
     }
 }

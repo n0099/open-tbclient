@@ -6,8 +6,8 @@ public final class DataMatrixSymbolInfo144 extends SymbolInfo {
     }
 
     @Override // com.google.zxing.datamatrix.encoder.SymbolInfo
-    public int getDataLengthForInterleavedBlock(int i) {
-        return i <= 8 ? 156 : 155;
+    public int getDataLengthForInterleavedBlock(int i2) {
+        return i2 <= 8 ? 156 : 155;
     }
 
     @Override // com.google.zxing.datamatrix.encoder.SymbolInfo

@@ -2,21 +2,21 @@ package com.baidu.tieba.square.forumlist;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.GetForumsFromForumClass.DataReq;
 import tbclient.GetForumsFromForumClass.GetForumsFromForumClassReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SquareForumListReq extends NetMessage {
     public int pageLimit;
     public int pageNum;
     public int pageType;
 
-    public SquareForumListReq(int i, int i2, int i3) {
+    public SquareForumListReq(int i2, int i3, int i4) {
         super(CmdConfigHttp.CMD_SQUARE_FORUM_LIST, 309097);
-        this.pageType = i;
-        this.pageNum = i2;
-        this.pageLimit = i3;
-        if (i != 1 && i != 2) {
+        this.pageType = i2;
+        this.pageNum = i3;
+        this.pageLimit = i4;
+        if (i2 != 1 && i2 != 2) {
             this.pageType = 1;
         }
         if (this.pageNum <= 0) {

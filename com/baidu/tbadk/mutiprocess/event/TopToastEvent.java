@@ -6,8 +6,8 @@ public class TopToastEvent extends SerializableEvent {
     public String content;
     public int status;
 
-    public TopToastEvent(int i, String str) {
-        this.status = i;
+    public TopToastEvent(int i2, String str) {
+        this.status = i2;
         this.content = str;
     }
 

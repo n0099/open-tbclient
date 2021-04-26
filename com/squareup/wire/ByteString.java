@@ -19,21 +19,21 @@ public final class ByteString {
         return new ByteString((byte[]) bArr.clone());
     }
 
-    public static ByteString read(InputStream inputStream, int i) throws IOException {
-        byte[] bArr = new byte[i];
-        int i2 = 0;
-        while (i2 < i) {
-            int read = inputStream.read(bArr, i2, i - i2);
+    public static ByteString read(InputStream inputStream, int i2) throws IOException {
+        byte[] bArr = new byte[i2];
+        int i3 = 0;
+        while (i3 < i2) {
+            int read = inputStream.read(bArr, i3, i2 - i3);
             if (read == -1) {
-                throw new EOFException("Expected " + i + "; received " + i2);
+                throw new EOFException("Expected " + i2 + "; received " + i3);
             }
-            i2 += read;
+            i3 += read;
         }
         return new ByteString(bArr);
     }
 
-    public byte byteAt(int i) {
-        return this.data[i];
+    public byte byteAt(int i2) {
+        return this.data[i2];
     }
 
     public boolean equals(Object obj) {
@@ -44,9 +44,9 @@ public final class ByteString {
     }
 
     public int hashCode() {
-        int i = this.hashCode;
-        if (i != 0) {
-            return i;
+        int i2 = this.hashCode;
+        if (i2 != 0) {
+            return i2;
         }
         int hashCode = Arrays.hashCode(this.data);
         this.hashCode = hashCode;
@@ -69,14 +69,14 @@ public final class ByteString {
         outputStream.write(this.data);
     }
 
-    public static ByteString of(byte[] bArr, int i, int i2) {
-        byte[] bArr2 = new byte[i2];
-        System.arraycopy(bArr, i, bArr2, 0, i2);
+    public static ByteString of(byte[] bArr, int i2, int i3) {
+        byte[] bArr2 = new byte[i3];
+        System.arraycopy(bArr, i2, bArr2, 0, i3);
         return new ByteString(bArr2);
     }
 
-    public void write(OutputStream outputStream, int i, int i2) throws IOException {
-        outputStream.write(this.data, i, i2);
+    public void write(OutputStream outputStream, int i2, int i3) throws IOException {
+        outputStream.write(this.data, i2, i3);
     }
 
     public static ByteString of(String str) {

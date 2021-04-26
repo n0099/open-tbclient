@@ -5,29 +5,28 @@ import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.Utf8;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
-import com.kwai.video.player.KsMediaMeta;
 import g.a.a.a;
 import g.a.b.b.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LocationInformationBox extends AbstractFullBox {
     public static final String TYPE = "loci";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_10 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_11 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_12 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_13 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_14 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_15 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_8 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_9 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_10 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_11 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_12 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_13 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_14 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_15 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_9 = null;
     public String additionalNotes;
     public double altitude;
     public String astronomicalBody;
@@ -51,7 +50,7 @@ public class LocationInformationBox extends AbstractFullBox {
     public static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("LocationInformationBox.java", LocationInformationBox.class);
         ajc$tjp_0 = bVar.g("method-execution", bVar.f("1", "getLanguage", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "", "", "", "java.lang.String"), 30);
-        ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "setLanguage", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "java.lang.String", KsMediaMeta.KSM_KEY_LANGUAGE, "", "void"), 34);
+        ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "setLanguage", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "java.lang.String", "language", "", "void"), 34);
         ajc$tjp_10 = bVar.g("method-execution", bVar.f("1", "getAltitude", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "", "", "", "double"), 70);
         ajc$tjp_11 = bVar.g("method-execution", bVar.f("1", "setAltitude", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "double", "altitude", "", "void"), 74);
         ajc$tjp_12 = bVar.g("method-execution", bVar.f("1", "getAstronomicalBody", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "", "", "", "java.lang.String"), 78);
@@ -177,8 +176,8 @@ public class LocationInformationBox extends AbstractFullBox {
         this.name = str;
     }
 
-    public void setRole(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.e(i)));
-        this.role = i;
+    public void setRole(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.e(i2)));
+        this.role = i2;
     }
 }

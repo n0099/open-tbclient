@@ -24,7 +24,7 @@ public class RequestGetMaskInfoMessage extends TbSocketMessage {
         return this.maskType;
     }
 
-    public void setMaskType(int i) {
-        this.maskType = i;
+    public void setMaskType(int i2) {
+        this.maskType = i2;
     }
 }

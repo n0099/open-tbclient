@@ -15,9 +15,9 @@ public class AlaLiveGetUserNotifyResponsedMessage extends JsonHttpResponsedMessa
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
-        super.decodeLogicInBackGround(i, jSONObject);
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
             return;
         }
@@ -25,10 +25,10 @@ public class AlaLiveGetUserNotifyResponsedMessage extends JsonHttpResponsedMessa
         JSONArray optJSONArray = optJSONObject.optJSONArray("notify_list");
         if (optJSONArray != null) {
             this.dataList = new ArrayList<>();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                if (optJSONArray.optJSONObject(i2) != null) {
+            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                if (optJSONArray.optJSONObject(i3) != null) {
                     AlaLiveUserNotifyData alaLiveUserNotifyData = new AlaLiveUserNotifyData();
-                    alaLiveUserNotifyData.parseJson(optJSONArray.optJSONObject(i2));
+                    alaLiveUserNotifyData.parseJson(optJSONArray.optJSONObject(i3));
                     this.dataList.add(alaLiveUserNotifyData);
                 }
             }

@@ -30,14 +30,14 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityComponentsAuto;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import d.b.c.e.p.l;
-import d.b.i.b0;
-import d.b.i0.f0.h;
-import d.b.i0.r.d0.b;
-import d.b.i0.r.q.a2;
-import d.b.i0.r.q.v0;
-import d.b.j0.d3.h0.e;
-import d.b.j0.r2.a;
+import d.a.c.e.p.l;
+import d.a.i.b0;
+import d.a.i0.f0.h;
+import d.a.i0.r.d0.b;
+import d.a.i0.r.q.a2;
+import d.a.i0.r.q.v0;
+import d.a.j0.d3.h0.e;
+import d.a.j0.r2.a;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -62,7 +62,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         a2 a2Var = new a2();
         a2Var.Q2(jSONObject);
         AgreeData L = a2Var.L();
-        int i = 1;
+        int i2 = 1;
         if (z) {
             TbPageContext pageContext = TbadkApplication.getInst().getCurrentActivity() != null ? ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext() : null;
             if (L.hasAgree) {
@@ -73,7 +73,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                     if (!StringUtil.isEmpty(str)) {
                         L.objSource = str;
                     }
-                    sendMesage(i, L);
+                    sendMesage(i2, L);
                 } else {
                     L.agreeType = 2;
                     L.hasAgree = true;
@@ -86,10 +86,10 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                 L.agreeNum++;
                 a.g().l(pageContext);
             }
-            i = 0;
+            i2 = 0;
             if (!StringUtil.isEmpty(str)) {
             }
-            sendMesage(i, L);
+            sendMesage(i2, L);
         } else {
             if (L.hasAgree) {
                 if (L.agreeType == 5) {
@@ -99,7 +99,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                     if (!StringUtil.isEmpty(str)) {
                         L.objSource = str;
                     }
-                    sendMesage(i, L);
+                    sendMesage(i2, L);
                 } else {
                     L.agreeType = 5;
                     L.hasAgree = true;
@@ -109,13 +109,13 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                 L.agreeType = 5;
                 L.hasAgree = true;
             }
-            i = 0;
+            i2 = 0;
             if (!StringUtil.isEmpty(str)) {
             }
-            sendMesage(i, L);
+            sendMesage(i2, L);
         }
         e eVar = new e();
-        eVar.f55240b = L;
+        eVar.f53077b = L;
         if (a2Var.V() != null) {
             L.nid = a2Var.V().oriUgcNid;
         }
@@ -161,13 +161,13 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         final boolean[] zArr = {false};
         if (currentActivity instanceof TbPageContextSupport) {
             PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(((TbPageContextSupport) currentActivity).getPageContext());
-            pbHistoryCacheModel.K(new CacheModel.c<d.b.j0.w1.h.a>() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.UtilityComponents.1
+            pbHistoryCacheModel.K(new CacheModel.c<d.a.j0.w1.h.a>() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.UtilityComponents.1
                 @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-                public void onCacheDataGet(ReadCacheRespMsg<List<d.b.j0.w1.h.a>> readCacheRespMsg, ReadCacheMessage<d.b.j0.w1.h.a> readCacheMessage) {
+                public void onCacheDataGet(ReadCacheRespMsg<List<d.a.j0.w1.h.a>> readCacheRespMsg, ReadCacheMessage<d.a.j0.w1.h.a> readCacheMessage) {
                     if (readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
                         return;
                     }
-                    List<d.b.j0.w1.h.a> data = readCacheRespMsg.getData();
+                    List<d.a.j0.w1.h.a> data = readCacheRespMsg.getData();
                     if (zArr[0] || result == null) {
                         return;
                     }
@@ -178,7 +178,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                 }
 
                 @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-                public void onCacheDataWrite(WriteCacheRespMsg<List<d.b.j0.w1.h.a>> writeCacheRespMsg, WriteCacheMessage<d.b.j0.w1.h.a> writeCacheMessage) {
+                public void onCacheDataWrite(WriteCacheRespMsg<List<d.a.j0.w1.h.a>> writeCacheRespMsg, WriteCacheMessage<d.a.j0.w1.h.a> writeCacheMessage) {
                 }
             });
             pbHistoryCacheModel.H();
@@ -223,7 +223,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
             JSONObject optJSONObject = new JSONObject((HashMap) result2.get("item")).optJSONObject("item");
             a2 a2Var = new a2();
             a2Var.Q2(optJSONObject);
-            v0 g2 = a2Var.g();
+            v0 h2 = a2Var.h();
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity instanceof TbPageContextSupport) {
                 ViewGroup viewGroup = (ViewGroup) currentActivity.getWindow().getDecorView().findViewById(16908290);
@@ -255,7 +255,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                     public void onNEGFeedbackWindowShow(v0 v0Var) {
                     }
                 });
-                this.mNegFeedBackItem.a(g2);
+                this.mNegFeedBackItem.a(h2);
                 int k = l.k(tbPageContextSupport.getPageContext().getPageActivity());
                 if (Build.VERSION.SDK_INT >= 11) {
                     this.mNegFeedBackItem.b().setY(round - l.e(tbPageContextSupport.getPageContext().getPageActivity(), 16.0f));
@@ -263,7 +263,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                 }
                 viewGroup.addView(this.mNegFeedBackItem.b(), this.mNegFeedBackItem.c());
                 this.mNegFeedBackItem.b().setVisibility(4);
-                d.b.c.e.m.e.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.UtilityComponents.3
+                d.a.c.e.m.e.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.UtilityComponents.3
                     @Override // java.lang.Runnable
                     public void run() {
                         UtilityComponents.this.mNegFeedBackItem.b().performClick();
@@ -276,17 +276,17 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
 
     @Override // com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityComponentsAuto.HostUtilityComponents
     public void selectForumCategory(TiebaUtilityComponentsAuto.ComponentsStringValue componentsStringValue) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921539, componentsStringValue.getResult()));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921541, componentsStringValue.getResult()));
     }
 
-    public void sendMesage(int i, AgreeData agreeData) {
+    public void sendMesage(int i2, AgreeData agreeData) {
         if (agreeData == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
         httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
         httpMessage.addParam("thread_id", agreeData.threadId);
-        httpMessage.addParam("op_type", i);
+        httpMessage.addParam("op_type", i2);
         if (agreeData.objType == 0) {
             agreeData.objType = 3;
         }
@@ -306,7 +306,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         if (!StringUtil.isEmpty(agreeData.objSource)) {
             httpMessage.addParam("obj_source", agreeData.objSource);
         }
-        httpMessage.setExtra(Integer.valueOf(i));
+        httpMessage.setExtra(Integer.valueOf(i2));
         httpMessage.addHeader("needSig", "1");
         MessageManager.getInstance().sendMessage(httpMessage);
     }
@@ -314,7 +314,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
     @Override // com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityComponentsAuto.HostUtilityComponents
     public void showRedDotForMyTab(TiebaUtilityComponentsAuto.Result<TiebaUtilityComponentsAuto.ComponentsBoolResult> result) {
         TiebaUtilityComponentsAuto.ComponentsBoolResult componentsBoolResult = new TiebaUtilityComponentsAuto.ComponentsBoolResult();
-        componentsBoolResult.setResult(Boolean.valueOf(d.b.j0.t2.a.v().z()));
+        componentsBoolResult.setResult(Boolean.valueOf(d.a.j0.t2.a.v().z()));
         result.success(componentsBoolResult);
     }
 }

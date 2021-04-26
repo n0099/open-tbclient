@@ -214,8 +214,8 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         if (Build.VERSION.SDK_INT >= 24) {
             LocaleList locales = configuration.getLocales();
             int size = locales.size();
-            for (int i = 0; i < size; i++) {
-                arrayList.add(locales.get(i));
+            for (int i2 = 0; i2 < size; i2++) {
+                arrayList.add(locales.get(i2));
             }
         } else {
             arrayList.add(configuration.locale);
@@ -260,9 +260,9 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
 
     public ZeroSides calculateShouldZeroSides() {
         Activity activity = (Activity) getContext();
-        int i = activity.getResources().getConfiguration().orientation;
+        int i2 = activity.getResources().getConfiguration().orientation;
         int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
-        if (i == 2) {
+        if (i2 == 2) {
             if (rotation == 1) {
                 return ZeroSides.RIGHT;
             }
@@ -467,21 +467,21 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     }
 
     @Override // android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         if (!isAttached()) {
-            return super.onKeyDown(i, keyEvent);
+            return super.onKeyDown(i2, keyEvent);
         }
         this.androidKeyProcessor.onKeyDown(keyEvent);
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
         if (!isAttached()) {
-            return super.onKeyUp(i, keyEvent);
+            return super.onKeyUp(i2, keyEvent);
         }
         this.androidKeyProcessor.onKeyUp(keyEvent);
-        return super.onKeyUp(i, keyEvent);
+        return super.onKeyUp(i2, keyEvent);
     }
 
     public void onMemoryPressure() {
@@ -500,12 +500,12 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
         ViewportMetrics viewportMetrics = this.mMetrics;
-        viewportMetrics.physicalWidth = i;
-        viewportMetrics.physicalHeight = i2;
+        viewportMetrics.physicalWidth = i2;
+        viewportMetrics.physicalHeight = i3;
         updateViewportMetrics();
-        super.onSizeChanged(i, i2, i3, i4);
+        super.onSizeChanged(i2, i3, i4, i5);
     }
 
     public void onStart() {
@@ -616,9 +616,9 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
             this.mNativeView.attachViewAndActivity(this, activity);
             this.mSurfaceCallback = new SurfaceHolder.Callback() { // from class: io.flutter.view.FlutterView.2
                 @Override // android.view.SurfaceHolder.Callback
-                public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+                public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
                     FlutterView.this.assertAttached();
-                    FlutterView.this.mNativeView.getFlutterJNI().onSurfaceChanged(i2, i3);
+                    FlutterView.this.mNativeView.getFlutterJNI().onSurfaceChanged(i3, i4);
                 }
 
                 @Override // android.view.SurfaceHolder.Callback

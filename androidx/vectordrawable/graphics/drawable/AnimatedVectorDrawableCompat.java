@@ -78,8 +78,8 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                     int size = arrayList.size();
                     this.mAnimators = new ArrayList<>(size);
                     this.mTargetNameMap = new ArrayMap<>(size);
-                    for (int i = 0; i < size; i++) {
-                        Animator animator = animatedVectorDrawableCompatState.mAnimators.get(i);
+                    for (int i2 = 0; i2 < size; i2++) {
+                        Animator animator = animatedVectorDrawableCompatState.mAnimators.get(i2);
                         Animator clone = animator.clone();
                         String str = animatedVectorDrawableCompatState.mTargetNameMap.get(animator);
                         clone.setTarget(this.mVectorDrawable.getTargetByName(str));
@@ -119,18 +119,18 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     @Nullable
-    public static AnimatedVectorDrawableCompat create(@NonNull Context context, @DrawableRes int i) {
+    public static AnimatedVectorDrawableCompat create(@NonNull Context context, @DrawableRes int i2) {
         int next;
         if (Build.VERSION.SDK_INT >= 24) {
             AnimatedVectorDrawableCompat animatedVectorDrawableCompat = new AnimatedVectorDrawableCompat(context);
-            Drawable drawable = ResourcesCompat.getDrawable(context.getResources(), i, context.getTheme());
+            Drawable drawable = ResourcesCompat.getDrawable(context.getResources(), i2, context.getTheme());
             animatedVectorDrawableCompat.mDelegateDrawable = drawable;
             drawable.setCallback(animatedVectorDrawableCompat.mCallback);
             animatedVectorDrawableCompat.mCachedConstantStateDelegate = new AnimatedVectorDrawableDelegateState(animatedVectorDrawableCompat.mDelegateDrawable.getConstantState());
             return animatedVectorDrawableCompat;
         }
         try {
-            XmlResourceParser xml = context.getResources().getXml(i);
+            XmlResourceParser xml = context.getResources().getXml(i2);
             AttributeSet asAttributeSet = Xml.asAttributeSet(xml);
             while (true) {
                 next = xml.next();
@@ -187,8 +187,8 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     private void setupColorAnimator(Animator animator) {
         ArrayList<Animator> childAnimations;
         if ((animator instanceof AnimatorSet) && (childAnimations = ((AnimatorSet) animator).getChildAnimations()) != null) {
-            for (int i = 0; i < childAnimations.size(); i++) {
-                setupColorAnimator(childAnimations.get(i));
+            for (int i2 = 0; i2 < childAnimations.size(); i2++) {
+                setupColorAnimator(childAnimations.get(i2));
             }
         }
         if (animator instanceof ObjectAnimator) {
@@ -276,9 +276,13 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
         return super.getChangingConfigurations() | this.mAnimatedVectorState.mChangingConfigurations;
     }
 
-    @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ ColorFilter getColorFilter() {
-        return super.getColorFilter();
+    @Override // android.graphics.drawable.Drawable
+    public ColorFilter getColorFilter() {
+        Drawable drawable = this.mDelegateDrawable;
+        if (drawable != null) {
+            return DrawableCompat.getColorFilter(drawable);
+        }
+        return this.mAnimatedVectorState.mVectorDrawable.getColorFilter();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -447,12 +451,12 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
-    public boolean onLevelChange(int i) {
+    public boolean onLevelChange(int i2) {
         Drawable drawable = this.mDelegateDrawable;
         if (drawable != null) {
-            return drawable.setLevel(i);
+            return drawable.setLevel(i2);
         }
-        return this.mAnimatedVectorState.mVectorDrawable.setLevel(i);
+        return this.mAnimatedVectorState.mVectorDrawable.setLevel(i2);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -484,8 +488,8 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                     public void onAnimationEnd(Animator animator) {
                         ArrayList arrayList = new ArrayList(AnimatedVectorDrawableCompat.this.mAnimationCallbacks);
                         int size = arrayList.size();
-                        for (int i = 0; i < size; i++) {
-                            ((Animatable2Compat.AnimationCallback) arrayList.get(i)).onAnimationEnd(AnimatedVectorDrawableCompat.this);
+                        for (int i2 = 0; i2 < size; i2++) {
+                            ((Animatable2Compat.AnimationCallback) arrayList.get(i2)).onAnimationEnd(AnimatedVectorDrawableCompat.this);
                         }
                     }
 
@@ -493,8 +497,8 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                     public void onAnimationStart(Animator animator) {
                         ArrayList arrayList = new ArrayList(AnimatedVectorDrawableCompat.this.mAnimationCallbacks);
                         int size = arrayList.size();
-                        for (int i = 0; i < size; i++) {
-                            ((Animatable2Compat.AnimationCallback) arrayList.get(i)).onAnimationStart(AnimatedVectorDrawableCompat.this);
+                        for (int i2 = 0; i2 < size; i2++) {
+                            ((Animatable2Compat.AnimationCallback) arrayList.get(i2)).onAnimationStart(AnimatedVectorDrawableCompat.this);
                         }
                     }
                 };
@@ -504,12 +508,12 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
+    public void setAlpha(int i2) {
         Drawable drawable = this.mDelegateDrawable;
         if (drawable != null) {
-            drawable.setAlpha(i);
+            drawable.setAlpha(i2);
         } else {
-            this.mAnimatedVectorState.mVectorDrawable.setAlpha(i);
+            this.mAnimatedVectorState.mVectorDrawable.setAlpha(i2);
         }
     }
 
@@ -524,13 +528,13 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setChangingConfigurations(int i) {
-        super.setChangingConfigurations(i);
+    public /* bridge */ /* synthetic */ void setChangingConfigurations(int i2) {
+        super.setChangingConfigurations(i2);
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setColorFilter(int i, PorterDuff.Mode mode) {
-        super.setColorFilter(i, mode);
+    public /* bridge */ /* synthetic */ void setColorFilter(int i2, PorterDuff.Mode mode) {
+        super.setColorFilter(i2, mode);
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
@@ -544,8 +548,8 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setHotspotBounds(int i, int i2, int i3, int i4) {
-        super.setHotspotBounds(i, i2, i3, i4);
+    public /* bridge */ /* synthetic */ void setHotspotBounds(int i2, int i3, int i4, int i5) {
+        super.setHotspotBounds(i2, i3, i4, i5);
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
@@ -554,12 +558,12 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public void setTint(int i) {
+    public void setTint(int i2) {
         Drawable drawable = this.mDelegateDrawable;
         if (drawable != null) {
-            DrawableCompat.setTint(drawable, i);
+            DrawableCompat.setTint(drawable, i2);
         } else {
-            this.mAnimatedVectorState.mVectorDrawable.setTint(i);
+            this.mAnimatedVectorState.mVectorDrawable.setTint(i2);
         }
     }
 
@@ -722,13 +726,12 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     public static void clearAnimationCallbacks(Drawable drawable) {
-        if (drawable == null || !(drawable instanceof Animatable)) {
-            return;
-        }
-        if (Build.VERSION.SDK_INT >= 24) {
-            ((AnimatedVectorDrawable) drawable).clearAnimationCallbacks();
-        } else {
-            ((AnimatedVectorDrawableCompat) drawable).clearAnimationCallbacks();
+        if (drawable instanceof Animatable) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                ((AnimatedVectorDrawable) drawable).clearAnimationCallbacks();
+            } else {
+                ((AnimatedVectorDrawableCompat) drawable).clearAnimationCallbacks();
+            }
         }
     }
 

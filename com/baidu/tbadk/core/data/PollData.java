@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import d.b.i0.r.q.o;
+import d.a.i0.r.q.o;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +62,7 @@ public class PollData extends o implements Serializable {
         return this.totalPoll;
     }
 
-    @Override // d.b.i0.r.q.o
+    @Override // d.a.i0.r.q.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
@@ -80,9 +80,9 @@ public class PollData extends o implements Serializable {
             JSONArray optJSONArray = jSONObject.optJSONArray("options");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
+                for (int i2 = 0; i2 < length; i2++) {
                     PollOptionData pollOptionData = new PollOptionData();
-                    pollOptionData.parserJson(optJSONArray.optJSONObject(i));
+                    pollOptionData.parserJson(optJSONArray.optJSONObject(i2));
                     this.options.add(pollOptionData);
                 }
             }
@@ -107,36 +107,36 @@ public class PollData extends o implements Serializable {
         List<PollOption> list = pollInfo.options;
         if (list != null) {
             int size = list.size();
-            for (int i = 0; i < size; i++) {
+            for (int i2 = 0; i2 < size; i2++) {
                 PollOptionData pollOptionData = new PollOptionData();
-                pollOptionData.parserProtobuf(pollInfo.options.get(i));
+                pollOptionData.parserProtobuf(pollInfo.options.get(i2));
                 this.options.add(pollOptionData);
             }
         }
     }
 
-    public void setEndTime(int i) {
-        this.endTime = i;
+    public void setEndTime(int i2) {
+        this.endTime = i2;
     }
 
-    public void setIsMulti(int i) {
-        this.isMulti = i;
+    public void setIsMulti(int i2) {
+        this.isMulti = i2;
     }
 
-    public void setIsPolled(int i) {
-        this.isPolled = i;
+    public void setIsPolled(int i2) {
+        this.isPolled = i2;
     }
 
-    public void setLastTime(int i) {
-        this.lastTime = i;
+    public void setLastTime(int i2) {
+        this.lastTime = i2;
     }
 
     public void setOptions(List<PollOptionData> list) {
         this.options = list;
     }
 
-    public void setOptionsCount(int i) {
-        this.optionsCount = i;
+    public void setOptionsCount(int i2) {
+        this.optionsCount = i2;
     }
 
     public void setPolledValue(String str) {

@@ -145,13 +145,13 @@ public class F implements FI {
     }
 
     @Override // com.baidu.sofire.ac.FI
-    public Pair<Integer, Object> cmsi(int i, String str, Class<?>[] clsArr, Object... objArr) {
+    public Pair<Integer, Object> cmsi(int i2, String str, Class<?>[] clsArr, Object... objArr) {
         try {
             c a2 = c.a();
             if (a2 == null) {
                 return new Pair<>(4, null);
             }
-            return a2.a(i, str, clsArr, objArr);
+            return a2.a(i2, str, clsArr, objArr);
         } catch (Throwable unused) {
             d.a();
             return new Pair<>(3, null);
@@ -166,7 +166,7 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public Map<Integer, String> gpd() {
         try {
-            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f11292d;
+            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f11111d;
             if (aVar != null) {
                 return aVar.b();
             }
@@ -202,7 +202,7 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public String p(String str) {
         try {
-            ApkInfo apkInfo = f.a().f11373a.get(str);
+            ApkInfo apkInfo = f.a().f11194a.get(str);
             if (apkInfo == null) {
                 return null;
             }
@@ -328,15 +328,15 @@ public class F implements FI {
     }
 
     @Override // com.baidu.sofire.ac.FI
-    public void s(int i, boolean z) {
+    public void s(int i2, boolean z) {
         try {
-            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f11292d;
+            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f11111d;
             if (aVar != null) {
-                int i2 = z ? 1 : 0;
+                int i3 = z ? 1 : 0;
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("s", Integer.valueOf(i2));
-                SQLiteDatabase sQLiteDatabase = aVar.f11295c;
-                sQLiteDatabase.update("pgn", contentValues, "k=" + i + " and n=1", null);
+                contentValues.put("s", Integer.valueOf(i3));
+                SQLiteDatabase sQLiteDatabase = aVar.f11114c;
+                sQLiteDatabase.update("pgn", contentValues, "k=" + i2 + " and n=1", null);
             }
         } catch (Throwable unused) {
             d.a();
@@ -346,12 +346,12 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void sp(String str, boolean z) {
         try {
-            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f11292d;
+            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f11111d;
             if (aVar != null) {
-                int i = z ? 1 : 0;
+                int i2 = z ? 1 : 0;
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("s", Integer.valueOf(i));
-                aVar.f11295c.update("pgn", contentValues, "p=? and n=1", new String[]{str});
+                contentValues.put("s", Integer.valueOf(i2));
+                aVar.f11114c.update("pgn", contentValues, "p=? and n=1", new String[]{str});
             }
         } catch (Throwable unused) {
             d.a();

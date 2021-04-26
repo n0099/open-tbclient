@@ -6,7 +6,7 @@ public enum PMSConstants$PayProtected {
     
     public int type;
 
-    PMSConstants$PayProtected(int i) {
-        this.type = i;
+    PMSConstants$PayProtected(int i2) {
+        this.type = i2;
     }
 }

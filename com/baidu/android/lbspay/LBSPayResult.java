@@ -17,11 +17,11 @@ public class LBSPayResult {
     public String mOrderNo;
     public String mStateCode;
 
-    public static void payResult(Context context, int i, String str) {
-        payResult(context, i, str, null);
+    public static void payResult(Context context, int i2, String str) {
+        payResult(context, i2, str, null);
     }
 
-    public static void payResult(Context context, int i, String str, AbstractChannelPay abstractChannelPay) {
+    public static void payResult(Context context, int i2, String str, AbstractChannelPay abstractChannelPay) {
         GetPayBean payBean;
         GetPayContent payResponse;
         String orderNo = LBSPayInner.getInstance().getOrderNo();
@@ -33,7 +33,7 @@ public class LBSPayResult {
         }
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("statecode={");
-        stringBuffer.append(String.valueOf(i));
+        stringBuffer.append(String.valueOf(i2));
         stringBuffer.append("};");
         stringBuffer.append("order_no={");
         stringBuffer.append(orderNo);
@@ -60,7 +60,7 @@ public class LBSPayResult {
                     LogUtil.e("Pay", "call back error", e2);
                 }
             }
-            callBack.onPayResult(i, stringBuffer2);
+            callBack.onPayResult(i2, stringBuffer2);
         } else {
             LogUtil.logd("callback 为空");
         }

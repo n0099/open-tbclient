@@ -9,7 +9,7 @@ public class DoubleMetaphone implements StringEncoder {
 
     /* loaded from: classes7.dex */
     public class DoubleMetaphoneResult {
-        public DoubleMetaphoneResult(int i) {
+        public DoubleMetaphoneResult(int i2) {
             throw new RuntimeException("Stub!");
         }
 
@@ -62,11 +62,11 @@ public class DoubleMetaphone implements StringEncoder {
         throw new RuntimeException("Stub!");
     }
 
-    public static boolean contains(String str, int i, int i2, String[] strArr) {
+    public static boolean contains(String str, int i2, int i3, String[] strArr) {
         throw new RuntimeException("Stub!");
     }
 
-    public char charAt(String str, int i) {
+    public char charAt(String str, int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -87,7 +87,7 @@ public class DoubleMetaphone implements StringEncoder {
         throw new RuntimeException("Stub!");
     }
 
-    public void setMaxCodeLen(int i) {
+    public void setMaxCodeLen(int i2) {
         throw new RuntimeException("Stub!");
     }
 

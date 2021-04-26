@@ -30,8 +30,8 @@ public class SelectedLocationInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public SelectedLocationInfo[] newArray(int i) {
-            return new SelectedLocationInfo[i];
+        public SelectedLocationInfo[] newArray(int i2) {
+            return new SelectedLocationInfo[i2];
         }
     }
 
@@ -58,7 +58,7 @@ public class SelectedLocationInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.mName);
         parcel.writeString(this.mAddress);
         parcel.writeDouble(this.mLatitude);

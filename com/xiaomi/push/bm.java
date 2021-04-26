@@ -11,10 +11,10 @@ import java.util.Random;
 import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public class bm {
-    public static String a(int i) {
+    public static String a(int i2) {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
-        for (int i2 = 0; i2 < i; i2++) {
+        for (int i3 = 0; i3 < i2; i3++) {
             stringBuffer.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".charAt(random.nextInt(62)));
         }
         return stringBuffer.toString();
@@ -26,37 +26,37 @@ public class bm {
         }
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(m167a(str));
+            messageDigest.update(m170a(str));
             return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
         } catch (NoSuchAlgorithmException unused) {
             return str;
         }
     }
 
-    public static String a(String str, int i) {
+    public static String a(String str, int i2) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         int length = str.length();
-        if (i <= 0 || length < i) {
-            i = length / 3;
-            if (i <= 1) {
-                i = 1;
+        if (i2 <= 0 || length < i2) {
+            i2 = length / 3;
+            if (i2 <= 1) {
+                i2 = 1;
             }
-            if (i > 3) {
-                i = 3;
+            if (i2 > 3) {
+                i2 = 3;
             }
         }
-        int i2 = 0;
-        while (i2 < length) {
-            int i3 = i2 + 1;
-            if (i3 % i == 0) {
+        int i3 = 0;
+        while (i3 < length) {
+            int i4 = i3 + 1;
+            if (i4 % i2 == 0) {
                 sb.append("*");
             } else {
-                sb.append(str.charAt(i2));
+                sb.append(str.charAt(i3));
             }
-            i2 = i3;
+            i3 = i4;
         }
         return sb.toString();
     }
@@ -114,34 +114,34 @@ public class bm {
         return a(objArr, str, 0, objArr.length);
     }
 
-    public static String a(Object[] objArr, String str, int i, int i2) {
+    public static String a(Object[] objArr, String str, int i2, int i3) {
         if (objArr == null) {
             return null;
         }
         if (str == null) {
             str = "";
         }
-        int i3 = i2 - i;
-        if (i3 <= 0) {
+        int i4 = i3 - i2;
+        if (i4 <= 0) {
             return "";
         }
-        StringBuffer stringBuffer = new StringBuffer(i3 * ((objArr[i] == null ? 16 : objArr[i].toString().length()) + str.length()));
-        for (int i4 = i; i4 < i2; i4++) {
-            if (i4 > i) {
+        StringBuffer stringBuffer = new StringBuffer(i4 * ((objArr[i2] == null ? 16 : objArr[i2].toString().length()) + str.length()));
+        for (int i5 = i2; i5 < i3; i5++) {
+            if (i5 > i2) {
                 stringBuffer.append(str);
             }
-            if (objArr[i4] != null) {
-                stringBuffer.append(objArr[i4]);
+            if (objArr[i5] != null) {
+                stringBuffer.append(objArr[i5]);
             }
         }
         return stringBuffer.toString();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m166a(String str) {
+    public static boolean m169a(String str) {
         if (str != null) {
-            for (int i = 0; i < str.length(); i++) {
-                char charAt = str.charAt(i);
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                char charAt = str.charAt(i2);
                 if (charAt < 0 || charAt > 127) {
                     return false;
                 }
@@ -152,7 +152,7 @@ public class bm {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m167a(String str) {
+    public static byte[] m170a(String str) {
         try {
             return str.getBytes("UTF-8");
         } catch (UnsupportedEncodingException unused) {
@@ -164,7 +164,7 @@ public class bm {
         if (str != null) {
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
-                messageDigest.update(m167a(str));
+                messageDigest.update(m170a(str));
                 return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
             } catch (NoSuchAlgorithmException unused) {
                 return str;
@@ -174,7 +174,7 @@ public class bm {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m168b(String str) {
+    public static boolean m171b(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -186,8 +186,8 @@ public class bm {
             return false;
         }
         char charAt = str.charAt(0);
-        for (int i = 1; i < str.length(); i++) {
-            if (str.charAt(i) != charAt) {
+        for (int i2 = 1; i2 < str.length(); i2++) {
+            if (str.charAt(i2) != charAt) {
                 return false;
             }
         }

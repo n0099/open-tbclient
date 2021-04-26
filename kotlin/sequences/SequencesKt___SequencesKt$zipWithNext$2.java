@@ -1,6 +1,5 @@
 package kotlin.sequences;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.down.request.task.ProgressInfo;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import java.util.Iterator;
@@ -12,8 +11,9 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.jvm.functions.Function2;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-@DebugMetadata(c = "kotlin.sequences.SequencesKt___SequencesKt$zipWithNext$2", f = "_Sequences.kt", i = {0, 0, 0, 0}, l = {1702}, m = "invokeSuspend", n = {"$this$result", "iterator", ProgressInfo.JSON_KEY_CURRENT, UnitedSchemeConstants.UNITED_SCHEME_NEXT}, s = {"L$0", "L$1", "L$2", "L$3"})
+import kotlin.jvm.internal.Intrinsics;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "T", "R", "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
+@DebugMetadata(c = "kotlin.sequences.SequencesKt___SequencesKt$zipWithNext$2", f = "_Sequences.kt", i = {0, 0, 0, 0}, l = {2656}, m = "invokeSuspend", n = {"$this$result", "iterator", ProgressInfo.JSON_KEY_CURRENT, UnitedSchemeConstants.UNITED_SCHEME_NEXT}, s = {"L$0", "L$1", "L$2", "L$3"})
 /* loaded from: classes7.dex */
 public final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super R>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Sequence $this_zipWithNext;
@@ -33,8 +33,9 @@ public final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSus
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-        SequencesKt___SequencesKt$zipWithNext$2 sequencesKt___SequencesKt$zipWithNext$2 = new SequencesKt___SequencesKt$zipWithNext$2(this.$this_zipWithNext, this.$transform, continuation);
+    public final Continuation<Unit> create(Object obj, Continuation<?> completion) {
+        Intrinsics.checkNotNullParameter(completion, "completion");
+        SequencesKt___SequencesKt$zipWithNext$2 sequencesKt___SequencesKt$zipWithNext$2 = new SequencesKt___SequencesKt$zipWithNext$2(this.$this_zipWithNext, this.$transform, completion);
         sequencesKt___SequencesKt$zipWithNext$2.p$ = (SequenceScope) obj;
         return sequencesKt___SequencesKt$zipWithNext$2;
     }
@@ -51,8 +52,8 @@ public final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSus
         Object next;
         Iterator it;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i = this.label;
-        if (i == 0) {
+        int i2 = this.label;
+        if (i2 == 0) {
             ResultKt.throwOnFailure(obj);
             SequenceScope sequenceScope2 = this.p$;
             Iterator it2 = this.$this_zipWithNext.iterator();
@@ -62,7 +63,7 @@ public final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSus
             sequenceScope = sequenceScope2;
             next = it2.next();
             it = it2;
-        } else if (i != 1) {
+        } else if (i2 != 1) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         } else {
             Object obj2 = this.L$3;

@@ -2,7 +2,7 @@ package com.google.common.primitives;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.google.common.base.Converter;
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.Arrays;
@@ -26,8 +26,8 @@ public final class Shorts {
         @Override // java.util.Comparator
         public int compare(short[] sArr, short[] sArr2) {
             int min = Math.min(sArr.length, sArr2.length);
-            for (int i = 0; i < min; i++) {
-                int c2 = Shorts.c(sArr[i], sArr2[i]);
+            for (int i2 = 0; i2 < min; i2++) {
+                int c2 = Shorts.c(sArr[i2], sArr2[i2]);
                 if (c2 != 0) {
                     return c2;
                 }
@@ -63,8 +63,8 @@ public final class Shorts {
                 if (shortArrayAsList.size() != size) {
                     return false;
                 }
-                for (int i = 0; i < size; i++) {
-                    if (this.array[this.start + i] != shortArrayAsList.array[shortArrayAsList.start + i]) {
+                for (int i2 = 0; i2 < size; i2++) {
+                    if (this.array[this.start + i2] != shortArrayAsList.array[shortArrayAsList.start + i2]) {
                         return false;
                     }
                 }
@@ -75,13 +75,13 @@ public final class Shorts {
 
         @Override // java.util.AbstractList, java.util.Collection, java.util.List
         public int hashCode() {
-            int i = 1;
-            for (int i2 = this.start; i2 < this.end; i2++) {
-                short s = this.array[i2];
+            int i2 = 1;
+            for (int i3 = this.start; i3 < this.end; i3++) {
+                short s = this.array[i3];
                 Shorts.d(s);
-                i = (i * 31) + s;
+                i2 = (i2 * 31) + s;
             }
-            return i;
+            return i2;
         }
 
         @Override // java.util.AbstractList, java.util.List
@@ -113,14 +113,14 @@ public final class Shorts {
         }
 
         @Override // java.util.AbstractList, java.util.List
-        public List<Short> subList(int i, int i2) {
-            n.v(i, i2, size());
-            if (i == i2) {
+        public List<Short> subList(int i2, int i3) {
+            n.v(i2, i3, size());
+            if (i2 == i3) {
                 return Collections.emptyList();
             }
             short[] sArr = this.array;
-            int i3 = this.start;
-            return new ShortArrayAsList(sArr, i + i3, i3 + i2);
+            int i4 = this.start;
+            return new ShortArrayAsList(sArr, i2 + i4, i4 + i3);
         }
 
         public short[] toShortArray() {
@@ -132,12 +132,12 @@ public final class Shorts {
             StringBuilder sb = new StringBuilder(size() * 6);
             sb.append('[');
             sb.append((int) this.array[this.start]);
-            int i = this.start;
+            int i2 = this.start;
             while (true) {
-                i++;
-                if (i < this.end) {
+                i2++;
+                if (i2 < this.end) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append((int) this.array[i]);
+                    sb.append((int) this.array[i2]);
                 } else {
                     sb.append(']');
                     return sb.toString();
@@ -145,28 +145,28 @@ public final class Shorts {
             }
         }
 
-        public ShortArrayAsList(short[] sArr, int i, int i2) {
+        public ShortArrayAsList(short[] sArr, int i2, int i3) {
             this.array = sArr;
-            this.start = i;
-            this.end = i2;
+            this.start = i2;
+            this.end = i3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Short get(int i) {
-            n.n(i, size());
-            return Short.valueOf(this.array[this.start + i]);
+        public Short get(int i2) {
+            n.n(i2, size());
+            return Short.valueOf(this.array[this.start + i2]);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Short set(int i, Short sh) {
-            n.n(i, size());
+        public Short set(int i2, Short sh) {
+            n.n(i2, size());
             short[] sArr = this.array;
-            int i2 = this.start;
-            short s = sArr[i2 + i];
+            int i3 = this.start;
+            short s = sArr[i3 + i2];
             n.p(sh);
-            sArr[i2 + i] = sh.shortValue();
+            sArr[i3 + i2] = sh.shortValue();
             return Short.valueOf(s);
         }
     }
@@ -205,20 +205,20 @@ public final class Shorts {
         return s;
     }
 
-    public static int e(short[] sArr, short s, int i, int i2) {
-        while (i < i2) {
-            if (sArr[i] == s) {
-                return i;
+    public static int e(short[] sArr, short s, int i2, int i3) {
+        while (i2 < i3) {
+            if (sArr[i2] == s) {
+                return i2;
             }
-            i++;
+            i2++;
         }
         return -1;
     }
 
-    public static int f(short[] sArr, short s, int i, int i2) {
-        for (int i3 = i2 - 1; i3 >= i; i3--) {
-            if (sArr[i3] == s) {
-                return i3;
+    public static int f(short[] sArr, short s, int i2, int i3) {
+        for (int i4 = i3 - 1; i4 >= i2; i4--) {
+            if (sArr[i4] == s) {
+                return i4;
             }
         }
         return -1;

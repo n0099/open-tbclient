@@ -36,24 +36,24 @@ public class ForumWriteData implements Serializable {
         this.avatar = str;
     }
 
-    public void setCategoryId(int i) {
-        this.categoryId = i;
+    public void setCategoryId(int i2) {
+        this.categoryId = i2;
     }
 
-    public void setDefaultZone(int i) {
-        this.defaultZone = i;
+    public void setDefaultZone(int i2) {
+        this.defaultZone = i2;
     }
 
-    public void setForumLevel(int i) {
-        this.forumLevel = i;
+    public void setForumLevel(int i2) {
+        this.forumLevel = i2;
     }
 
-    public void setMem_type(int i) {
-        this.mem_type = i;
+    public void setMem_type(int i2) {
+        this.mem_type = i2;
     }
 
-    public void setPrivateThread(int i) {
-        this.privateThread = i;
+    public void setPrivateThread(int i2) {
+        this.privateThread = i2;
     }
 
     public void setTopicData(PostTopicData postTopicData) {

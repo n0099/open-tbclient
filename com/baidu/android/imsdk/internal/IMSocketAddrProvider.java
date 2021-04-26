@@ -40,11 +40,11 @@ public class IMSocketAddrProvider {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         if (list != null && !list.isEmpty()) {
-            for (int i = 0; i < list.size(); i++) {
-                if (Utility.isIpv4(list.get(i))) {
-                    arrayList.add(list.get(i));
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                if (Utility.isIpv4(list.get(i2))) {
+                    arrayList.add(list.get(i2));
                 } else {
-                    arrayList2.add(list.get(i));
+                    arrayList2.add(list.get(i2));
                 }
             }
         }

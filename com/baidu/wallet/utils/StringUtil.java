@@ -12,14 +12,14 @@ import java.util.regex.Pattern;
 public class StringUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f26549a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f27356a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     public static final Pattern AcceptUrlPat = Pattern.compile("^(https?://|file:///android_asset/).*");
 
     /* renamed from: b  reason: collision with root package name */
-    public static Pattern f26550b = Pattern.compile("(.*)<color=#?((?:\\d|[a-f]){3,8})>(\\d+)</color>(.*)", 2);
+    public static Pattern f27357b = Pattern.compile("(.*)<color=#?((?:\\d|[a-f]){3,8})>(\\d+)</color>(.*)", 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static WeakReference<Paint> f26551c = new WeakReference<>(null);
+    public static WeakReference<Paint> f27358c = new WeakReference<>(null);
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: char : 0x000b: AGET  (r1v2 char A[IMMUTABLE_TYPE, REMOVE]) = 
       (wrap: char[] : 0x0009: SGET  (r2v0 char[] A[IMMUTABLE_TYPE, REMOVE]) =  com.baidu.wallet.utils.StringUtil.a char[])
@@ -30,24 +30,24 @@ public class StringUtil {
     )] */
     public static String a(byte b2) {
         StringBuilder sb = new StringBuilder();
-        sb.append(f26549a[(b2 >> 4) & 15]);
-        sb.append(f26549a[b2 & 15]);
+        sb.append(f27356a[(b2 >> 4) & 15]);
+        sb.append(f27356a[b2 & 15]);
         return sb.toString();
     }
 
-    public static String arrayToString(byte[] bArr, int i, int i2) {
+    public static String arrayToString(byte[] bArr, int i2, int i3) {
         if (bArr == null) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        i = (i < 0 || bArr.length < i) ? 0 : 0;
-        int i3 = i2 + i;
-        if (i3 > bArr.length) {
-            i3 = bArr.length;
+        i2 = (i2 < 0 || bArr.length < i2) ? 0 : 0;
+        int i4 = i3 + i2;
+        if (i4 > bArr.length) {
+            i4 = bArr.length;
         }
-        while (i < i3) {
-            sb.append(a(bArr[i]));
-            i++;
+        while (i2 < i4) {
+            sb.append(a(bArr[i2]));
+            i2++;
         }
         return sb.toString();
     }
@@ -56,10 +56,10 @@ public class StringUtil {
         if (TextUtils.isEmpty(str)) {
             return 0.0f;
         }
-        Paint paint = f26551c.get();
+        Paint paint = f27358c.get();
         if (paint == null) {
             paint = new Paint();
-            f26551c = new WeakReference<>(paint);
+            f27358c = new WeakReference<>(paint);
         }
         paint.setTextSize(f2);
         return paint.measureText(str);
@@ -69,7 +69,7 @@ public class StringUtil {
         if (charSequence == null) {
             return null;
         }
-        Matcher matcher = f26550b.matcher(charSequence);
+        Matcher matcher = f27357b.matcher(charSequence);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         if (matcher.matches()) {
             spannableStringBuilder.append((CharSequence) matcher.group(1));
@@ -105,34 +105,34 @@ public class StringUtil {
     }
 
     public static int a(String str) {
-        int i;
         int i2;
-        int i3 = 0;
+        int i3;
+        int i4 = 0;
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
-        int i4 = 255;
+        int i5 = 255;
         String lowerCase = str.toLowerCase();
         try {
             String substring = lowerCase.substring(0, 2);
             String substring2 = lowerCase.substring(2, 4);
             String substring3 = lowerCase.substring(4, 6);
             String substring4 = lowerCase.substring(6, 8);
-            i4 = Integer.valueOf(substring, 16).intValue();
-            i = Integer.valueOf(substring2, 16).intValue();
+            i5 = Integer.valueOf(substring, 16).intValue();
+            i2 = Integer.valueOf(substring2, 16).intValue();
             try {
-                i2 = Integer.valueOf(substring3, 16).intValue();
+                i3 = Integer.valueOf(substring3, 16).intValue();
                 try {
-                    i3 = Integer.valueOf(substring4, 16).intValue();
+                    i4 = Integer.valueOf(substring4, 16).intValue();
                 } catch (Exception unused) {
                 }
             } catch (Exception unused2) {
-                i2 = 0;
-                return Color.argb(i4, i, i2, i3);
+                i3 = 0;
+                return Color.argb(i5, i2, i3, i4);
             }
         } catch (Exception unused3) {
-            i = 0;
+            i2 = 0;
         }
-        return Color.argb(i4, i, i2, i3);
+        return Color.argb(i5, i2, i3, i4);
     }
 }

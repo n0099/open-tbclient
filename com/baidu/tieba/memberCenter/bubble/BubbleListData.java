@@ -77,16 +77,16 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
             return this.is_free == 1;
         }
 
-        public void setBcode(int i) {
-            this.bcode = i;
+        public void setBcode(int i2) {
+            this.bcode = i2;
         }
 
-        public void setCan_use(int i) {
-            this.can_use = i;
+        public void setCan_use(int i2) {
+            this.can_use = i2;
         }
 
-        public void setIs_def(int i) {
-            this.is_def = i;
+        public void setIs_def(int i2) {
+            this.is_def = i2;
         }
     }
 

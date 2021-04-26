@@ -24,7 +24,7 @@ public final class d extends b {
         try {
             str2 = g.d(file);
         } catch (Exception e3) {
-            this.f34856b += e3 + "\n";
+            this.f33823b += e3 + "\n";
             str2 = null;
         }
         if (str2 != null) {
@@ -34,18 +34,18 @@ public final class d extends b {
                     javaExceptionMessage.parseJson(new JSONObject(str2));
                 } catch (Exception e4) {
                     e2 = e4;
-                    this.f34856b += e2 + "\n";
+                    this.f33823b += e2 + "\n";
                     javaExceptionMessage2 = javaExceptionMessage;
                     if (javaExceptionMessage2 == null) {
                     }
                     javaExceptionMessage2.mLogUUID = f.a(file.getName());
-                    this.f34855a.a("ExceptionCollector", "------ Java Crash Report Begin ------\n" + javaExceptionMessage2);
+                    this.f33822a.a("ExceptionCollector", "------ Java Crash Report Begin ------\n" + javaExceptionMessage2);
                     a(new File(str + ".jtrace"), javaExceptionMessage2);
                     b(file3, javaExceptionMessage2);
                     f.a(file, javaExceptionMessage2.toString());
                     f.a(file3, file);
                     file.renameTo(file3);
-                    if (!TextUtils.isEmpty(this.f34856b)) {
+                    if (!TextUtils.isEmpty(this.f33823b)) {
                     }
                     return javaExceptionMessage2;
                 }
@@ -63,18 +63,18 @@ public final class d extends b {
         }
         try {
             javaExceptionMessage2.mLogUUID = f.a(file.getName());
-            this.f34855a.a("ExceptionCollector", "------ Java Crash Report Begin ------\n" + javaExceptionMessage2);
+            this.f33822a.a("ExceptionCollector", "------ Java Crash Report Begin ------\n" + javaExceptionMessage2);
             a(new File(str + ".jtrace"), javaExceptionMessage2);
             b(file3, javaExceptionMessage2);
             f.a(file, javaExceptionMessage2.toString());
             f.a(file3, file);
             file.renameTo(file3);
         } catch (Throwable th) {
-            this.f34856b += th + "\n";
+            this.f33823b += th + "\n";
             com.kwad.sdk.core.d.a.b(th);
         }
-        if (!TextUtils.isEmpty(this.f34856b)) {
-            javaExceptionMessage2.mErrorMessage += this.f34856b;
+        if (!TextUtils.isEmpty(this.f33823b)) {
+            javaExceptionMessage2.mErrorMessage += this.f33823b;
         }
         return javaExceptionMessage2;
     }

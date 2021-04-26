@@ -28,7 +28,7 @@ public class GetBucketAclResponse extends BosResponse {
         this.owner = grantee;
     }
 
-    public void setVersion(int i) {
-        this.version = i;
+    public void setVersion(int i2) {
+        this.version = i2;
     }
 }

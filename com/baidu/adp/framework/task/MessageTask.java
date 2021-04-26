@@ -1,7 +1,7 @@
 package com.baidu.adp.framework.task;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import d.b.c.c.j.e;
+import d.a.c.c.j.e;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class MessageTask {
@@ -12,8 +12,8 @@ public abstract class MessageTask {
     public BdAsyncTaskParallel mParallel = null;
     public boolean mNeedEncrypt = true;
 
-    public MessageTask(int i) {
-        this.mCmd = i;
+    public MessageTask(int i2) {
+        this.mCmd = i2;
         check();
     }
 
@@ -57,12 +57,12 @@ public abstract class MessageTask {
         this.mParallel = bdAsyncTaskParallel;
     }
 
-    public void setPriority(int i) {
-        this.mPriority = i;
+    public void setPriority(int i2) {
+        this.mPriority = i2;
     }
 
-    public void setRetry(int i) {
-        this.mRetry = i;
+    public void setRetry(int i2) {
+        this.mRetry = i2;
     }
 
     public void setTimeOut(e eVar) {

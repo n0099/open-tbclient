@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.atomData.CreateBarGuideActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.home.BfbInfoModel;
-import d.b.i0.r.s.a;
+import d.a.i0.r.s.a;
 import tbclient.UserBfbInfo;
 /* loaded from: classes4.dex */
 public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity> {
@@ -19,7 +19,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public String forumName;
     public BfbInfoModel.b mCallback = new a();
     public BfbInfoModel mModel;
-    public d.b.j0.y0.a mView;
+    public d.a.j0.y0.a mView;
 
     /* loaded from: classes4.dex */
     public class a implements BfbInfoModel.b {
@@ -27,16 +27,16 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         }
 
         @Override // com.baidu.tieba.home.BfbInfoModel.b
-        public void a(int i, String str, UserBfbInfo userBfbInfo) {
+        public void a(int i2, String str, UserBfbInfo userBfbInfo) {
             CreateBarGuideActivity createBarGuideActivity = CreateBarGuideActivity.this;
             createBarGuideActivity.hideLoadingView(createBarGuideActivity.mView.d());
             CreateBarGuideActivity.this.mView.g();
-            if (i == 0) {
+            if (i2 == 0) {
                 CreateBarGuideActivity.this.mView.h(CreateBarGuideActivity.this.forumName, userBfbInfo);
                 return;
             }
             CreateBarGuideActivity.this.showToast(str);
-            if (i == 260211) {
+            if (i2 == 260211) {
                 CreateBarGuideActivity.this.showUpdateDialog(null);
             }
         }
@@ -46,15 +46,15 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.r.s.a f16639e;
+        public final /* synthetic */ d.a.i0.r.s.a f16888e;
 
-        public b(d.b.i0.r.s.a aVar) {
-            this.f16639e = aVar;
+        public b(d.a.i0.r.s.a aVar) {
+            this.f16888e = aVar;
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
-            this.f16639e.dismiss();
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
+            this.f16888e.dismiss();
             CreateBarGuideActivity.this.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(CreateBarGuideActivity.this.getPageContext().getPageActivity())));
         }
     }
@@ -63,15 +63,15 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.r.s.a f16641e;
+        public final /* synthetic */ d.a.i0.r.s.a f16890e;
 
-        public c(d.b.i0.r.s.a aVar) {
-            this.f16641e = aVar;
+        public c(d.a.i0.r.s.a aVar) {
+            this.f16890e = aVar;
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
-            this.f16641e.dismiss();
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
+            this.f16890e.dismiss();
         }
     }
 
@@ -80,7 +80,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         if (StringUtils.isNull(str)) {
             str = getResources().getString(R.string.tips_version_low);
         }
-        d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(getActivity());
+        d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getActivity());
         aVar.setTitle(str);
         aVar.setPositiveButton(R.string.confirm, new b(aVar));
         aVar.setNegativeButton(R.string.cancel, new c(aVar));
@@ -89,9 +89,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void changeSkinType(int i) {
-        super.changeSkinType(i);
-        d.b.j0.y0.a aVar = this.mView;
+    public void changeSkinType(int i2) {
+        super.changeSkinType(i2);
+        d.a.j0.y0.a aVar = this.mView;
         if (aVar != null) {
             aVar.f();
         }
@@ -108,7 +108,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         BfbInfoModel bfbInfoModel = new BfbInfoModel(this);
         this.mModel = bfbInfoModel;
         bfbInfoModel.w(this.mCallback);
-        d.b.j0.y0.a aVar = new d.b.j0.y0.a(this);
+        d.a.j0.y0.a aVar = new d.a.j0.y0.a(this);
         this.mView = aVar;
         aVar.e();
         showLoadingView(this.mView.d());

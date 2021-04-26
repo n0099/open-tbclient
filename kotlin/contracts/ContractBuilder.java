@@ -11,12 +11,12 @@ import kotlin.internal.ContractsDsl;
 /* loaded from: classes7.dex */
 public interface ContractBuilder {
 
-    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
     /* loaded from: classes7.dex */
     public static final class DefaultImpls {
-        public static /* synthetic */ CallsInPlace callsInPlace$default(ContractBuilder contractBuilder, Function function, InvocationKind invocationKind, int i, Object obj) {
+        public static /* synthetic */ CallsInPlace callsInPlace$default(ContractBuilder contractBuilder, Function function, InvocationKind invocationKind, int i2, Object obj) {
             if (obj == null) {
-                if ((i & 2) != 0) {
+                if ((i2 & 2) != 0) {
                     invocationKind = InvocationKind.UNKNOWN;
                 }
                 return contractBuilder.callsInPlace(function, invocationKind);

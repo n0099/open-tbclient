@@ -7,12 +7,12 @@ import org.json.JSONObject;
 public class ResponseBubbleListMessage extends JsonHttpResponsedMessage {
     public BubbleListData bubbleListData;
 
-    public ResponseBubbleListMessage(int i) {
-        super(i);
+    public ResponseBubbleListMessage(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         if (getStatusCode() != 200 || jSONObject == null) {
             return;
         }

@@ -56,18 +56,18 @@ public class IMSyncDialog extends Message {
 
     /* JADX WARN: Type inference failed for: r0v4, types: [T, java.lang.Long] */
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
         long j = -1;
-        if (i == 0 && jSONObject != null) {
+        if (i2 == 0 && jSONObject != null) {
             try {
                 JSONArray jSONArray = jSONObject.getJSONArray("dialogue");
                 int length = jSONArray.length();
                 r3 = length > 0 ? new ArrayList() : null;
                 Type type = new Type();
                 type.t = 0L;
-                for (int i2 = 0; i2 < length; i2++) {
+                for (int i3 = 0; i3 < length; i3++) {
                     try {
-                        ChatMsg parserMessage = MessageParser.parserMessage(context, jSONArray.getJSONObject(i2).getJSONObject(TableDefine.SessionColumns.COLUMN_LAST_MSG), type, false);
+                        ChatMsg parserMessage = MessageParser.parserMessage(context, jSONArray.getJSONObject(i3).getJSONObject(TableDefine.SessionColumns.COLUMN_LAST_MSG), type, false);
                         if (parserMessage != null) {
                             if (1003 == parserMessage.getMsgType()) {
                                 GroupMemberQuitMsg groupMemberQuitMsg = (GroupMemberQuitMsg) parserMessage;
@@ -95,15 +95,15 @@ public class IMSyncDialog extends Message {
                     } catch (Exception e3) {
                         e = e3;
                         LogUtils.e(TAG, "handle IMSyncMsg exception :", e);
-                        super.handleMessageResult(context, jSONObject, i, str);
-                        ChatSessionManagerImpl.getInstance(this.mContext).onSyncDialogResult(i, str, getListenerKey(), j, r3);
+                        super.handleMessageResult(context, jSONObject, i2, str);
+                        ChatSessionManagerImpl.getInstance(this.mContext).onSyncDialogResult(i2, str, getListenerKey(), j, r3);
                     }
                 }
             } catch (Exception e4) {
                 e = e4;
             }
         }
-        super.handleMessageResult(context, jSONObject, i, str);
-        ChatSessionManagerImpl.getInstance(this.mContext).onSyncDialogResult(i, str, getListenerKey(), j, r3);
+        super.handleMessageResult(context, jSONObject, i2, str);
+        ChatSessionManagerImpl.getInstance(this.mContext).onSyncDialogResult(i2, str, getListenerKey(), j, r3);
     }
 }

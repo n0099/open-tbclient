@@ -15,11 +15,11 @@ public final class TakeSequence$iterator$1 implements Iterator<T>, KMappedMarker
 
     /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public TakeSequence$iterator$1(TakeSequence takeSequence) {
-        int i;
+        int i2;
         Sequence sequence;
         this.this$0 = takeSequence;
-        i = takeSequence.count;
-        this.left = i;
+        i2 = takeSequence.count;
+        this.left = i2;
         sequence = takeSequence.sequence;
         this.iterator = sequence.iterator();
     }
@@ -40,9 +40,9 @@ public final class TakeSequence$iterator$1 implements Iterator<T>, KMappedMarker
     /* JADX WARN: Type inference failed for: r0v4, types: [T, java.lang.Object] */
     @Override // java.util.Iterator
     public T next() {
-        int i = this.left;
-        if (i != 0) {
-            this.left = i - 1;
+        int i2 = this.left;
+        if (i2 != 0) {
+            this.left = i2 - 1;
             return this.iterator.next();
         }
         throw new NoSuchElementException();
@@ -53,7 +53,7 @@ public final class TakeSequence$iterator$1 implements Iterator<T>, KMappedMarker
         throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 
-    public final void setLeft(int i) {
-        this.left = i;
+    public final void setLeft(int i2) {
+        this.left = i2;
     }
 }

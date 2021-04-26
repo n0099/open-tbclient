@@ -12,14 +12,14 @@ public class EvaluateRelevanceItemSelectedMessage extends CustomResponsedMessage
     public int star;
     public List<String> tags;
 
-    public EvaluateRelevanceItemSelectedMessage(String str, String str2, String str3, double d2, double d3, int i, List<String> list) {
+    public EvaluateRelevanceItemSelectedMessage(String str, String str2, String str3, double d2, double d3, int i2, List<String> list) {
         super(2921516);
         this.item_id = str;
         this.item_name = str2;
         this.icon_url = str3;
         this.score = d2;
         this.icon_size = d3;
-        this.star = i;
+        this.star = i2;
         this.tags = list;
     }
 }

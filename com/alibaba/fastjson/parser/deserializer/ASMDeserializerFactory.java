@@ -21,7 +21,6 @@ import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.JavaBeanInfo;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.android.common.others.IStringUtil;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.nps.main.manager.Bundle;
 import com.baidu.nps.pm.provider.BundleOpProvider;
@@ -80,7 +79,7 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitVarInsn(58, context.var(Transition.MATCH_INSTANCE_STR));
     }
 
-    private void _deserObject(Context context, MethodVisitor methodVisitor, FieldInfo fieldInfo, Class<?> cls, int i) {
+    private void _deserObject(Context context, MethodVisitor methodVisitor, FieldInfo fieldInfo, Class<?> cls, int i2) {
         _getFieldDeser(context, methodVisitor, fieldInfo);
         Label label = new Label();
         Label label2 = new Label();
@@ -94,7 +93,7 @@ public class ASMDeserializerFactory implements Opcodes {
                 methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(fieldInfo.fieldClass)));
             } else {
                 methodVisitor.visitVarInsn(25, 0);
-                methodVisitor.visitLdcInsn(Integer.valueOf(i));
+                methodVisitor.visitLdcInsn(Integer.valueOf(i2));
                 methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, ASMUtils.type(JavaBeanDeserializer.class), "getFieldType", "(I)Ljava/lang/reflect/Type;");
             }
             methodVisitor.visitLdcInsn(fieldInfo.name);
@@ -111,7 +110,7 @@ public class ASMDeserializerFactory implements Opcodes {
             methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(fieldInfo.fieldClass)));
         } else {
             methodVisitor.visitVarInsn(25, 0);
-            methodVisitor.visitLdcInsn(Integer.valueOf(i));
+            methodVisitor.visitLdcInsn(Integer.valueOf(i2));
             methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, ASMUtils.type(JavaBeanDeserializer.class), "getFieldType", "(I)Ljava/lang/reflect/Type;");
         }
         methodVisitor.visitLdcInsn(fieldInfo.name);
@@ -139,18 +138,18 @@ public class ASMDeserializerFactory implements Opcodes {
     */
     private void _deserialze(ClassWriter classWriter, Context context) {
         FieldInfo[] fieldInfoArr;
-        int i;
-        Label label;
         int i2;
+        Label label;
+        int i3;
         ASMDeserializerFactory aSMDeserializerFactory;
         String str;
         String str2;
         MethodWriter methodWriter;
         Label label2;
-        int i3;
         int i4;
-        Label label3;
         int i5;
+        Label label3;
+        int i6;
         FieldInfo fieldInfo;
         Label label4;
         Label label5;
@@ -234,24 +233,24 @@ public class ASMDeserializerFactory implements Opcodes {
         methodWriter2.visitFieldInsn(180, JSONLexerBase, "matchStat", "I");
         methodWriter2.visitLdcInsn(4);
         methodWriter2.visitJumpInsn(Opcodes.IF_ICMPEQ, label10);
-        int i6 = 3;
+        int i7 = 3;
         methodWriter2.visitInsn(3);
         methodWriter2.visitIntInsn(54, context.var("matchStat"));
         int length = context.fieldInfoList.length;
-        int i7 = 0;
-        while (i7 < length) {
-            methodWriter2.visitInsn(i6);
-            methodWriter2.visitVarInsn(54, context.var("_asm_flag_" + (i7 / 32)));
-            i7 += 32;
-            i6 = 3;
+        int i8 = 0;
+        while (i8 < length) {
+            methodWriter2.visitInsn(i7);
+            methodWriter2.visitVarInsn(54, context.var("_asm_flag_" + (i8 / 32)));
+            i8 += 32;
+            i7 = 3;
         }
         methodWriter2.visitVarInsn(25, context.var("lexer"));
         methodWriter2.visitLdcInsn(Integer.valueOf(Feature.InitStringFieldAsEmpty.mask));
         methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "isEnabled", "(I)Z");
         methodWriter2.visitIntInsn(54, context.var("initStringFieldAsEmpty"));
-        int i8 = 0;
-        while (i8 < length) {
-            Class<?> cls2 = context.fieldInfoList[i8].fieldClass;
+        int i9 = 0;
+        while (i9 < length) {
+            Class<?> cls2 = context.fieldInfoList[i9].fieldClass;
             if (cls2 != Boolean.TYPE && cls2 != Byte.TYPE && cls2 != Short.TYPE && cls2 != Integer.TYPE) {
                 if (cls2 == Long.TYPE) {
                     methodWriter2.visitInsn(9);
@@ -271,7 +270,7 @@ public class ASMDeserializerFactory implements Opcodes {
                         label7 = label11;
                         methodWriter2.visitVarInsn(21, context.var("initStringFieldAsEmpty"));
                         methodWriter2.visitJumpInsn(153, label16);
-                        aSMDeserializerFactory2._setFlag(methodWriter2, context, i8);
+                        aSMDeserializerFactory2._setFlag(methodWriter2, context, i9);
                         methodWriter2.visitVarInsn(25, context.var("lexer"));
                         label4 = label8;
                         methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "stringDefaultValue", "()Ljava/lang/String;");
@@ -301,7 +300,7 @@ public class ASMDeserializerFactory implements Opcodes {
                 methodWriter2.visitInsn(3);
                 methodWriter2.visitVarInsn(54, context.var(fieldInfo.name + "_asm"));
             }
-            i8++;
+            i9++;
             aSMDeserializerFactory2 = this;
             label9 = label5;
             label10 = label6;
@@ -312,9 +311,9 @@ public class ASMDeserializerFactory implements Opcodes {
         Label label18 = label9;
         Label label19 = label10;
         Label label20 = label11;
-        int i9 = 0;
-        while (i9 < length) {
-            FieldInfo fieldInfo3 = context.fieldInfoList[i9];
+        int i10 = 0;
+        while (i10 < length) {
+            FieldInfo fieldInfo3 = context.fieldInfoList[i10];
             Class<?> cls3 = fieldInfo3.fieldClass;
             java.lang.reflect.Type type2 = fieldInfo3.fieldType;
             Label label21 = new Label();
@@ -324,9 +323,9 @@ public class ASMDeserializerFactory implements Opcodes {
                 methodWriter2.visitFieldInsn(180, context.className, fieldInfo3.name + "_asm_prefix__", "[C");
                 methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanFieldBoolean", "([C)Z");
                 methodWriter2.visitVarInsn(54, context.var(fieldInfo3.name + "_asm"));
-                i = length;
+                i2 = length;
             } else {
-                i = length;
+                i2 = length;
                 if (cls3 == Byte.TYPE) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
                     methodWriter2.visitVarInsn(25, 0);
@@ -335,7 +334,7 @@ public class ASMDeserializerFactory implements Opcodes {
                     methodWriter2.visitVarInsn(54, context.var(fieldInfo3.name + "_asm"));
                 } else {
                     label = label21;
-                    i2 = i9;
+                    i3 = i10;
                     if (cls3 == Byte.class) {
                         methodWriter2.visitVarInsn(25, context.var("lexer"));
                         methodWriter2.visitVarInsn(25, 0);
@@ -522,8 +521,8 @@ public class ASMDeserializerFactory implements Opcodes {
                             methodWriter2.visitFieldInsn(180, JSONLexerBase, str3, str4);
                             Label label28 = new Label();
                             methodWriter2.visitJumpInsn(158, label28);
-                            i5 = i2;
-                            aSMDeserializerFactory._setFlag(methodWriter2, context, i5);
+                            i6 = i3;
+                            aSMDeserializerFactory._setFlag(methodWriter2, context, i6);
                             methodWriter2.visitLabel(label28);
                             methodWriter2.visitVarInsn(25, context.var("lexer"));
                             methodWriter2.visitFieldInsn(180, JSONLexerBase, str3, str4);
@@ -546,7 +545,7 @@ public class ASMDeserializerFactory implements Opcodes {
                             Label label31 = label20;
                             methodWriter2.visitJumpInsn(Opcodes.IF_ICMPEQ, label31);
                             methodWriter2.visitLabel(label30);
-                            if (i5 == i - 1) {
+                            if (i6 == i2 - 1) {
                                 methodWriter2.visitVarInsn(25, context.var("lexer"));
                                 methodWriter2.visitFieldInsn(180, JSONLexerBase, str3, str4);
                                 methodWriter2.visitLdcInsn(4);
@@ -557,16 +556,16 @@ public class ASMDeserializerFactory implements Opcodes {
                             str2 = str4;
                             label2 = label31;
                             methodWriter = methodWriter2;
-                            i3 = i;
-                            i4 = i5;
-                            int i10 = i4 + 1;
+                            i4 = i2;
+                            i5 = i6;
+                            int i11 = i5 + 1;
                             label20 = label2;
                             methodWriter2 = methodWriter;
                             label17 = label3;
-                            length = i3;
+                            length = i4;
                             str3 = str;
                             str4 = str2;
-                            i9 = i10;
+                            i10 = i11;
                         } else {
                             aSMDeserializerFactory = this;
                             if (Collection.class.isAssignableFrom(cls3)) {
@@ -582,8 +581,8 @@ public class ASMDeserializerFactory implements Opcodes {
                                     methodWriter2.visitFieldInsn(180, JSONLexerBase, str3, str4);
                                     Label label282 = new Label();
                                     methodWriter2.visitJumpInsn(158, label282);
-                                    i5 = i2;
-                                    aSMDeserializerFactory._setFlag(methodWriter2, context, i5);
+                                    i6 = i3;
+                                    aSMDeserializerFactory._setFlag(methodWriter2, context, i6);
                                     methodWriter2.visitLabel(label282);
                                     methodWriter2.visitVarInsn(25, context.var("lexer"));
                                     methodWriter2.visitFieldInsn(180, JSONLexerBase, str3, str4);
@@ -606,25 +605,25 @@ public class ASMDeserializerFactory implements Opcodes {
                                     Label label312 = label20;
                                     methodWriter2.visitJumpInsn(Opcodes.IF_ICMPEQ, label312);
                                     methodWriter2.visitLabel(label302);
-                                    if (i5 == i - 1) {
+                                    if (i6 == i2 - 1) {
                                     }
                                     str = str3;
                                     label3 = label292;
                                     str2 = str4;
                                     label2 = label312;
                                     methodWriter = methodWriter2;
-                                    i3 = i;
-                                    i4 = i5;
+                                    i4 = i2;
+                                    i5 = i6;
                                 } else {
                                     label2 = label20;
                                     str = str3;
-                                    i3 = i;
+                                    i4 = i2;
                                     MethodWriter methodWriter3 = methodWriter2;
                                     str2 = str4;
                                     methodWriter = methodWriter2;
-                                    i4 = i2;
-                                    _deserialze_list_obj(context, methodWriter3, label17, fieldInfo3, cls3, collectionItemClass, i4);
-                                    if (i4 == i3 - 1) {
+                                    i5 = i3;
+                                    _deserialze_list_obj(context, methodWriter3, label17, fieldInfo3, cls3, collectionItemClass, i5);
+                                    if (i5 == i4 - 1) {
                                         Label label32 = label17;
                                         aSMDeserializerFactory._deserialize_endCheck(context, methodWriter, label32);
                                         label3 = label32;
@@ -638,30 +637,30 @@ public class ASMDeserializerFactory implements Opcodes {
                                 methodWriter = methodWriter2;
                                 label2 = label20;
                                 Label label33 = label17;
-                                i3 = i;
                                 i4 = i2;
+                                i5 = i3;
                                 label3 = label33;
-                                _deserialze_obj(context, methodWriter, label33, fieldInfo3, cls3, i4);
-                                if (i4 == i3 - 1) {
+                                _deserialze_obj(context, methodWriter, label33, fieldInfo3, cls3, i5);
+                                if (i5 == i4 - 1) {
                                     aSMDeserializerFactory._deserialize_endCheck(context, methodWriter, label3);
                                 }
                             }
-                            int i102 = i4 + 1;
+                            int i112 = i5 + 1;
                             label20 = label2;
                             methodWriter2 = methodWriter;
                             label17 = label3;
-                            length = i3;
+                            length = i4;
                             str3 = str;
                             str4 = str2;
-                            i9 = i102;
+                            i10 = i112;
                         }
                         aSMDeserializerFactory = this;
                         methodWriter2.visitVarInsn(25, context.var("lexer"));
                         methodWriter2.visitFieldInsn(180, JSONLexerBase, str3, str4);
                         Label label2822 = new Label();
                         methodWriter2.visitJumpInsn(158, label2822);
-                        i5 = i2;
-                        aSMDeserializerFactory._setFlag(methodWriter2, context, i5);
+                        i6 = i3;
+                        aSMDeserializerFactory._setFlag(methodWriter2, context, i6);
                         methodWriter2.visitLabel(label2822);
                         methodWriter2.visitVarInsn(25, context.var("lexer"));
                         methodWriter2.visitFieldInsn(180, JSONLexerBase, str3, str4);
@@ -684,31 +683,31 @@ public class ASMDeserializerFactory implements Opcodes {
                         Label label3122 = label20;
                         methodWriter2.visitJumpInsn(Opcodes.IF_ICMPEQ, label3122);
                         methodWriter2.visitLabel(label3022);
-                        if (i5 == i - 1) {
+                        if (i6 == i2 - 1) {
                         }
                         str = str3;
                         label3 = label2922;
                         str2 = str4;
                         label2 = label3122;
                         methodWriter = methodWriter2;
-                        i3 = i;
-                        i4 = i5;
-                        int i1022 = i4 + 1;
+                        i4 = i2;
+                        i5 = i6;
+                        int i1122 = i5 + 1;
                         label20 = label2;
                         methodWriter2 = methodWriter;
                         label17 = label3;
-                        length = i3;
+                        length = i4;
                         str3 = str;
                         str4 = str2;
-                        i9 = i1022;
+                        i10 = i1122;
                     }
                     aSMDeserializerFactory = this;
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
                     methodWriter2.visitFieldInsn(180, JSONLexerBase, str3, str4);
                     Label label28222 = new Label();
                     methodWriter2.visitJumpInsn(158, label28222);
-                    i5 = i2;
-                    aSMDeserializerFactory._setFlag(methodWriter2, context, i5);
+                    i6 = i3;
+                    aSMDeserializerFactory._setFlag(methodWriter2, context, i6);
                     methodWriter2.visitLabel(label28222);
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
                     methodWriter2.visitFieldInsn(180, JSONLexerBase, str3, str4);
@@ -731,34 +730,34 @@ public class ASMDeserializerFactory implements Opcodes {
                     Label label31222 = label20;
                     methodWriter2.visitJumpInsn(Opcodes.IF_ICMPEQ, label31222);
                     methodWriter2.visitLabel(label30222);
-                    if (i5 == i - 1) {
+                    if (i6 == i2 - 1) {
                     }
                     str = str3;
                     label3 = label29222;
                     str2 = str4;
                     label2 = label31222;
                     methodWriter = methodWriter2;
-                    i3 = i;
-                    i4 = i5;
-                    int i10222 = i4 + 1;
+                    i4 = i2;
+                    i5 = i6;
+                    int i11222 = i5 + 1;
                     label20 = label2;
                     methodWriter2 = methodWriter;
                     label17 = label3;
-                    length = i3;
+                    length = i4;
                     str3 = str;
                     str4 = str2;
-                    i9 = i10222;
+                    i10 = i11222;
                 }
             }
-            i2 = i9;
+            i3 = i10;
             label = label21;
             aSMDeserializerFactory = this;
             methodWriter2.visitVarInsn(25, context.var("lexer"));
             methodWriter2.visitFieldInsn(180, JSONLexerBase, str3, str4);
             Label label282222 = new Label();
             methodWriter2.visitJumpInsn(158, label282222);
-            i5 = i2;
-            aSMDeserializerFactory._setFlag(methodWriter2, context, i5);
+            i6 = i3;
+            aSMDeserializerFactory._setFlag(methodWriter2, context, i6);
             methodWriter2.visitLabel(label282222);
             methodWriter2.visitVarInsn(25, context.var("lexer"));
             methodWriter2.visitFieldInsn(180, JSONLexerBase, str3, str4);
@@ -781,25 +780,25 @@ public class ASMDeserializerFactory implements Opcodes {
             Label label312222 = label20;
             methodWriter2.visitJumpInsn(Opcodes.IF_ICMPEQ, label312222);
             methodWriter2.visitLabel(label302222);
-            if (i5 == i - 1) {
+            if (i6 == i2 - 1) {
             }
             str = str3;
             label3 = label292222;
             str2 = str4;
             label2 = label312222;
             methodWriter = methodWriter2;
-            i3 = i;
-            i4 = i5;
-            int i102222 = i4 + 1;
+            i4 = i2;
+            i5 = i6;
+            int i112222 = i5 + 1;
             label20 = label2;
             methodWriter2 = methodWriter;
             label17 = label3;
-            length = i3;
+            length = i4;
             str3 = str;
             str4 = str2;
-            i9 = i102222;
+            i10 = i112222;
         }
-        int i11 = length;
+        int i12 = length;
         MethodWriter methodWriter4 = methodWriter2;
         Label label34 = label17;
         methodWriter4.visitLabel(label20);
@@ -822,26 +821,26 @@ public class ASMDeserializerFactory implements Opcodes {
         methodWriter4.visitVarInsn(25, 3);
         methodWriter4.visitVarInsn(25, context.var(Transition.MATCH_INSTANCE_STR));
         methodWriter4.visitVarInsn(21, 4);
-        int i12 = i11 / 32;
-        if (i11 != 0 && i11 % 32 != 0) {
-            i12++;
+        int i13 = i12 / 32;
+        if (i12 != 0 && i12 % 32 != 0) {
+            i13++;
         }
-        if (i12 == 1) {
+        if (i13 == 1) {
             methodWriter4.visitInsn(4);
         } else {
-            methodWriter4.visitIntInsn(16, i12);
+            methodWriter4.visitIntInsn(16, i13);
         }
         methodWriter4.visitIntInsn(Opcodes.NEWARRAY, 10);
-        for (int i13 = 0; i13 < i12; i13++) {
+        for (int i14 = 0; i14 < i13; i14++) {
             methodWriter4.visitInsn(89);
-            if (i13 == 0) {
+            if (i14 == 0) {
                 methodWriter4.visitInsn(3);
-            } else if (i13 == 1) {
+            } else if (i14 == 1) {
                 methodWriter4.visitInsn(4);
             } else {
-                methodWriter4.visitIntInsn(16, i13);
+                methodWriter4.visitIntInsn(16, i14);
             }
-            methodWriter4.visitVarInsn(21, context.var("_asm_flag_" + i13));
+            methodWriter4.visitVarInsn(21, context.var("_asm_flag_" + i14));
             methodWriter4.visitInsn(79);
         }
         methodWriter4.visitMethodInsn(Opcodes.INVOKEVIRTUAL, ASMUtils.type(JavaBeanDeserializer.class), "parseRest", "(L" + DefaultJSONParser + ";Ljava/lang/reflect/Type;Ljava/lang/Object;Ljava/lang/Object;I[I)Ljava/lang/Object;");
@@ -860,12 +859,12 @@ public class ASMDeserializerFactory implements Opcodes {
     }
 
     private void _deserialzeArrayMapping(ClassWriter classWriter, Context context) {
-        int i;
+        int i2;
         MethodWriter methodWriter;
         Class<JavaBeanDeserializer> cls;
-        int i2;
-        FieldInfo[] fieldInfoArr;
         int i3;
+        FieldInfo[] fieldInfoArr;
+        int i4;
         Class<JavaBeanDeserializer> cls2 = JavaBeanDeserializer.class;
         MethodWriter methodWriter2 = new MethodWriter(classWriter, 1, "deserialzeArrayMapping", "(L" + DefaultJSONParser + ";Ljava/lang/reflect/Type;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", null, null);
         defineVarLexer(context, methodWriter2);
@@ -903,21 +902,21 @@ public class ASMDeserializerFactory implements Opcodes {
         _createInstance(context, methodWriter2);
         FieldInfo[] fieldInfoArr2 = context.beanInfo.sortedFields;
         int length = fieldInfoArr2.length;
-        int i4 = 0;
-        while (i4 < length) {
-            boolean z = i4 == length + (-1);
-            int i5 = z ? 93 : 44;
-            FieldInfo fieldInfo = fieldInfoArr2[i4];
+        int i5 = 0;
+        while (i5 < length) {
+            boolean z = i5 == length + (-1);
+            int i6 = z ? 93 : 44;
+            FieldInfo fieldInfo = fieldInfoArr2[i5];
             Class<?> cls3 = fieldInfo.fieldClass;
             java.lang.reflect.Type type3 = fieldInfo.fieldType;
-            int i6 = length;
+            int i7 = length;
             FieldInfo[] fieldInfoArr3 = fieldInfoArr2;
             if (cls3 != Byte.TYPE && cls3 != Short.TYPE && cls3 != Integer.TYPE) {
                 boolean z2 = z;
-                int i7 = i4;
+                int i8 = i5;
                 if (cls3 == Byte.class) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanInt", "(C)I");
                     methodWriter2.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Byte", "valueOf", "(B)Ljava/lang/Byte;");
                     methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
@@ -931,7 +930,7 @@ public class ASMDeserializerFactory implements Opcodes {
                     methodWriter2.visitLabel(label2);
                 } else if (cls3 == Short.class) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanInt", "(C)I");
                     methodWriter2.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Short", "valueOf", "(S)Ljava/lang/Short;");
                     methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
@@ -945,7 +944,7 @@ public class ASMDeserializerFactory implements Opcodes {
                     methodWriter2.visitLabel(label3);
                 } else if (cls3 == Integer.class) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanInt", "(C)I");
                     methodWriter2.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
                     methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
@@ -959,12 +958,12 @@ public class ASMDeserializerFactory implements Opcodes {
                     methodWriter2.visitLabel(label4);
                 } else if (cls3 == Long.TYPE) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanLong", "(C)J");
                     methodWriter2.visitVarInsn(55, context.var(fieldInfo.name + "_asm", 2));
                 } else if (cls3 == Long.class) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanLong", "(C)J");
                     methodWriter2.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Long", "valueOf", "(J)Ljava/lang/Long;");
                     methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
@@ -978,17 +977,17 @@ public class ASMDeserializerFactory implements Opcodes {
                     methodWriter2.visitLabel(label5);
                 } else if (cls3 == Boolean.TYPE) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanBoolean", "(C)Z");
                     methodWriter2.visitVarInsn(54, context.var(fieldInfo.name + "_asm"));
                 } else if (cls3 == Float.TYPE) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanFloat", "(C)F");
                     methodWriter2.visitVarInsn(56, context.var(fieldInfo.name + "_asm"));
                 } else if (cls3 == Float.class) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanFloat", "(C)F");
                     methodWriter2.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Float", "valueOf", "(F)Ljava/lang/Float;");
                     methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
@@ -1002,12 +1001,12 @@ public class ASMDeserializerFactory implements Opcodes {
                     methodWriter2.visitLabel(label6);
                 } else if (cls3 == Double.TYPE) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanDouble", "(C)D");
                     methodWriter2.visitVarInsn(57, context.var(fieldInfo.name + "_asm", 2));
                 } else if (cls3 == Double.class) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanDouble", "(C)D");
                     methodWriter2.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Double", "valueOf", "(D)Ljava/lang/Double;");
                     methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
@@ -1021,29 +1020,29 @@ public class ASMDeserializerFactory implements Opcodes {
                     methodWriter2.visitLabel(label7);
                 } else if (cls3 == Character.TYPE) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanString", "(C)Ljava/lang/String;");
                     methodWriter2.visitInsn(3);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/lang/String", "charAt", "(I)C");
                     methodWriter2.visitVarInsn(54, context.var(fieldInfo.name + "_asm"));
                 } else if (cls3 == String.class) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanString", "(C)Ljava/lang/String;");
                     methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
                 } else if (cls3 == BigDecimal.class) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanDecimal", "(C)Ljava/math/BigDecimal;");
                     methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
                 } else if (cls3 == Date.class) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanDate", "(C)Ljava/util/Date;");
                     methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
                 } else if (cls3 == UUID.class) {
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanUUID", "(C)Ljava/util/UUID;");
                     methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
                 } else if (cls3.isEnum()) {
@@ -1067,7 +1066,7 @@ public class ASMDeserializerFactory implements Opcodes {
                     methodWriter2.visitVarInsn(25, 1);
                     String str4 = DefaultJSONParser;
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str4, "getSymbolTable", "()" + ASMUtils.desc(SymbolTable.class));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     String str5 = JSONLexerBase;
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str5, "scanEnum", "(Ljava/lang/Class;" + ASMUtils.desc(SymbolTable.class) + "C)Ljava/lang/Enum;");
                     methodWriter2.visitJumpInsn(167, label10);
@@ -1081,23 +1080,23 @@ public class ASMDeserializerFactory implements Opcodes {
                     _getFieldDeser(context, methodWriter2, fieldInfo);
                     methodWriter2.visitTypeInsn(192, ASMUtils.type(EnumDeserializer.class));
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanInt", "(C)I");
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, ASMUtils.type(EnumDeserializer.class), "valueOf", "(I)Ljava/lang/Enum;");
                     methodWriter2.visitJumpInsn(167, label10);
                     methodWriter2.visitLabel(label9);
                     methodWriter2.visitVarInsn(25, 0);
                     methodWriter2.visitVarInsn(25, context.var("lexer"));
-                    methodWriter2.visitVarInsn(16, i5);
+                    methodWriter2.visitVarInsn(16, i6);
                     String type4 = ASMUtils.type(cls);
                     methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, type4, "scanEnum", "(L" + JSONLexerBase + ";C)Ljava/lang/Enum;");
                     methodWriter2.visitLabel(label10);
                     methodWriter2.visitTypeInsn(192, ASMUtils.type(cls3));
                     methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
                     methodWriter = methodWriter2;
-                    i2 = i6;
+                    i3 = i7;
                     fieldInfoArr = fieldInfoArr3;
-                    i = i7;
+                    i2 = i8;
                 } else {
                     cls = cls2;
                     if (Collection.class.isAssignableFrom(cls3)) {
@@ -1114,7 +1113,7 @@ public class ASMDeserializerFactory implements Opcodes {
                             methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
                             methodWriter2.visitVarInsn(25, context.var("lexer"));
                             methodWriter2.visitVarInsn(25, context.var(fieldInfo.name + "_asm"));
-                            methodWriter2.visitVarInsn(16, i5);
+                            methodWriter2.visitVarInsn(16, i6);
                             methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanStringArray", "(Ljava/util/Collection;C)V");
                             Label label12 = new Label();
                             methodWriter2.visitVarInsn(25, context.var("lexer"));
@@ -1124,18 +1123,18 @@ public class ASMDeserializerFactory implements Opcodes {
                             methodWriter2.visitInsn(1);
                             methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
                             methodWriter2.visitLabel(label12);
-                            i3 = i7;
+                            i4 = i8;
                         } else {
                             Label label13 = new Label();
                             methodWriter2.visitVarInsn(25, context.var("lexer"));
                             methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "token", "()I");
                             methodWriter2.visitVarInsn(54, context.var("token"));
                             methodWriter2.visitVarInsn(21, context.var("token"));
-                            int i8 = i7 == 0 ? 14 : 16;
-                            methodWriter2.visitLdcInsn(Integer.valueOf(i8));
+                            int i9 = i8 == 0 ? 14 : 16;
+                            methodWriter2.visitLdcInsn(Integer.valueOf(i9));
                             methodWriter2.visitJumpInsn(Opcodes.IF_ICMPEQ, label13);
                             methodWriter2.visitVarInsn(25, 1);
-                            methodWriter2.visitLdcInsn(Integer.valueOf(i8));
+                            methodWriter2.visitLdcInsn(Integer.valueOf(i9));
                             methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, DefaultJSONParser, "throwException", "(I)V");
                             methodWriter2.visitLabel(label13);
                             Label label14 = new Label();
@@ -1156,8 +1155,8 @@ public class ASMDeserializerFactory implements Opcodes {
                             methodWriter2.visitLdcInsn(14);
                             methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "nextToken", "(I)V");
                             methodWriter2.visitLabel(label15);
-                            i3 = i7;
-                            _newCollection(methodWriter2, cls3, i3, false);
+                            i4 = i8;
+                            _newCollection(methodWriter2, cls3, i4, false);
                             methodWriter2.visitInsn(89);
                             methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
                             _getCollectionFieldItemDeser(context, methodWriter2, fieldInfo, collectionItemClass);
@@ -1167,9 +1166,9 @@ public class ASMDeserializerFactory implements Opcodes {
                             String type5 = ASMUtils.type(cls);
                             methodWriter2.visitMethodInsn(Opcodes.INVOKESTATIC, type5, "parseArray", "(Ljava/util/Collection;" + ASMUtils.desc(ObjectDeserializer.class) + "L" + DefaultJSONParser + ";Ljava/lang/reflect/Type;Ljava/lang/Object;)V");
                         }
-                        i = i3;
+                        i2 = i4;
                         methodWriter = methodWriter2;
-                        i2 = i6;
+                        i3 = i7;
                         fieldInfoArr = fieldInfoArr3;
                     } else if (cls3.isArray()) {
                         methodWriter2.visitVarInsn(25, context.var("lexer"));
@@ -1177,14 +1176,14 @@ public class ASMDeserializerFactory implements Opcodes {
                         methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "nextToken", "(I)V");
                         methodWriter2.visitVarInsn(25, 1);
                         methodWriter2.visitVarInsn(25, 0);
-                        methodWriter2.visitLdcInsn(Integer.valueOf(i7));
+                        methodWriter2.visitLdcInsn(Integer.valueOf(i8));
                         methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, ASMUtils.type(cls), "getFieldType", "(I)Ljava/lang/reflect/Type;");
                         methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, DefaultJSONParser, "parseObject", "(Ljava/lang/reflect/Type;)Ljava/lang/Object;");
                         methodWriter2.visitTypeInsn(192, ASMUtils.type(cls3));
                         methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
-                        i = i7;
+                        i2 = i8;
                         methodWriter = methodWriter2;
-                        i2 = i6;
+                        i3 = i7;
                         fieldInfoArr = fieldInfoArr3;
                     } else {
                         Label label16 = new Label();
@@ -1197,7 +1196,7 @@ public class ASMDeserializerFactory implements Opcodes {
                             methodWriter2.visitTypeInsn(Opcodes.NEW, ASMUtils.type(Date.class));
                             methodWriter2.visitInsn(89);
                             methodWriter2.visitVarInsn(25, context.var("lexer"));
-                            methodWriter2.visitVarInsn(16, i5);
+                            methodWriter2.visitVarInsn(16, i6);
                             methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanLong", "(C)J");
                             methodWriter2.visitMethodInsn(183, ASMUtils.type(Date.class), "<init>", "(J)V");
                             methodWriter2.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
@@ -1205,11 +1204,11 @@ public class ASMDeserializerFactory implements Opcodes {
                         }
                         methodWriter2.visitLabel(label16);
                         _quickNextToken(context, methodWriter2, 14);
-                        i = i7;
-                        i2 = i6;
+                        i2 = i8;
+                        i3 = i7;
                         fieldInfoArr = fieldInfoArr3;
                         methodWriter = methodWriter2;
-                        _deserObject(context, methodWriter2, fieldInfo, cls3, i);
+                        _deserObject(context, methodWriter2, fieldInfo, cls3, i2);
                         methodWriter.visitVarInsn(25, context.var("lexer"));
                         methodWriter.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "token", "()I");
                         methodWriter.visitLdcInsn(15);
@@ -1228,22 +1227,22 @@ public class ASMDeserializerFactory implements Opcodes {
                 }
                 methodWriter = methodWriter2;
                 cls = cls2;
-                i2 = i6;
+                i3 = i7;
                 fieldInfoArr = fieldInfoArr3;
-                i = i7;
+                i2 = i8;
             } else {
-                i = i4;
+                i2 = i5;
                 methodWriter = methodWriter2;
                 cls = cls2;
-                i2 = i6;
+                i3 = i7;
                 fieldInfoArr = fieldInfoArr3;
                 methodWriter.visitVarInsn(25, context.var("lexer"));
-                methodWriter.visitVarInsn(16, i5);
+                methodWriter.visitVarInsn(16, i6);
                 methodWriter.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "scanInt", "(C)I");
                 methodWriter.visitVarInsn(54, context.var(fieldInfo.name + "_asm"));
             }
-            i4 = i + 1;
-            length = i2;
+            i5 = i2 + 1;
+            length = i3;
             methodWriter2 = methodWriter;
             fieldInfoArr2 = fieldInfoArr;
             cls2 = cls;
@@ -1300,15 +1299,15 @@ public class ASMDeserializerFactory implements Opcodes {
         methodWriter3.visitEnd();
     }
 
-    private void _deserialze_list_obj(Context context, MethodVisitor methodVisitor, Label label, FieldInfo fieldInfo, Class<?> cls, Class<?> cls2, int i) {
+    private void _deserialze_list_obj(Context context, MethodVisitor methodVisitor, Label label, FieldInfo fieldInfo, Class<?> cls, Class<?> cls2, int i2) {
         String str;
         String str2;
         String str3;
-        int i2;
+        int i3;
         Label label2 = new Label();
         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "matchField", "([C)Z");
         methodVisitor.visitJumpInsn(153, label2);
-        _setFlag(methodVisitor, context, i);
+        _setFlag(methodVisitor, context, i2);
         Label label3 = new Label();
         methodVisitor.visitVarInsn(25, context.var("lexer"));
         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "token", "()I");
@@ -1329,7 +1328,7 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitVarInsn(25, context.var("lexer"));
         methodVisitor.visitLdcInsn(14);
         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "nextToken", "(I)V");
-        _newCollection(methodVisitor, cls, i, true);
+        _newCollection(methodVisitor, cls, i2, true);
         methodVisitor.visitJumpInsn(167, label4);
         methodVisitor.visitLabel(label5);
         methodVisitor.visitVarInsn(25, context.var("lexer"));
@@ -1340,7 +1339,7 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "token", "()I");
         methodVisitor.visitLdcInsn(12);
         methodVisitor.visitJumpInsn(160, label);
-        _newCollection(methodVisitor, cls, i, false);
+        _newCollection(methodVisitor, cls, i2, false);
         methodVisitor.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
         _getCollectionFieldItemDeser(context, methodVisitor, fieldInfo, cls2);
         methodVisitor.visitVarInsn(25, 1);
@@ -1362,7 +1361,7 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitInsn(87);
         methodVisitor.visitJumpInsn(167, label2);
         methodVisitor.visitLabel(label6);
-        _newCollection(methodVisitor, cls, i, false);
+        _newCollection(methodVisitor, cls, i2, false);
         methodVisitor.visitLabel(label4);
         methodVisitor.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
         boolean isPrimitive2 = ParserConfig.isPrimitive2(fieldInfo.fieldClass);
@@ -1435,12 +1434,12 @@ public class ASMDeserializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(25, context.var("lexer"));
             methodVisitor.visitVarInsn(21, context.var("fastMatchToken"));
             methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, str8, str6);
-            i2 = 167;
+            i3 = 167;
         } else {
             _quickNextToken(context, methodVisitor, 12);
-            i2 = 167;
+            i3 = 167;
         }
-        methodVisitor.visitJumpInsn(i2, label7);
+        methodVisitor.visitJumpInsn(i3, label7);
         methodVisitor.visitLabel(label8);
         methodVisitor.visitVarInsn(25, 1);
         methodVisitor.visitVarInsn(25, context.var("listContext"));
@@ -1454,7 +1453,7 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitLabel(label2);
     }
 
-    private void _deserialze_obj(Context context, MethodVisitor methodVisitor, Label label, FieldInfo fieldInfo, Class<?> cls, int i) {
+    private void _deserialze_obj(Context context, MethodVisitor methodVisitor, Label label, FieldInfo fieldInfo, Class<?> cls, int i2) {
         Label label2 = new Label();
         Label label3 = new Label();
         methodVisitor.visitVarInsn(25, context.var("lexer"));
@@ -1467,12 +1466,12 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitVarInsn(58, context.var(fieldInfo.name + "_asm"));
         methodVisitor.visitJumpInsn(167, label3);
         methodVisitor.visitLabel(label2);
-        _setFlag(methodVisitor, context, i);
+        _setFlag(methodVisitor, context, i2);
         methodVisitor.visitVarInsn(21, context.var("matchedCount"));
         methodVisitor.visitInsn(4);
         methodVisitor.visitInsn(96);
         methodVisitor.visitVarInsn(54, context.var("matchedCount"));
-        _deserObject(context, methodVisitor, fieldInfo, cls, i);
+        _deserObject(context, methodVisitor, fieldInfo, cls, i2);
         methodVisitor.visitVarInsn(25, 1);
         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, DefaultJSONParser, "getResolveStatus", "()I");
         methodVisitor.visitLdcInsn(1);
@@ -1542,13 +1541,13 @@ public class ASMDeserializerFactory implements Opcodes {
 
     private void _init(ClassWriter classWriter, Context context) {
         int length = context.fieldInfoList.length;
-        for (int i = 0; i < length; i++) {
-            FieldInfo fieldInfo = context.fieldInfoList[i];
+        for (int i2 = 0; i2 < length; i2++) {
+            FieldInfo fieldInfo = context.fieldInfoList[i2];
             new FieldWriter(classWriter, 1, fieldInfo.name + "_asm_prefix__", "[C").visitEnd();
         }
         int length2 = context.fieldInfoList.length;
-        for (int i2 = 0; i2 < length2; i2++) {
-            FieldInfo fieldInfo2 = context.fieldInfoList[i2];
+        for (int i3 = 0; i3 < length2; i3++) {
+            FieldInfo fieldInfo2 = context.fieldInfoList[i3];
             Class<?> cls = fieldInfo2.fieldClass;
             if (!cls.isPrimitive()) {
                 if (Collection.class.isAssignableFrom(cls)) {
@@ -1565,8 +1564,8 @@ public class ASMDeserializerFactory implements Opcodes {
         String type = ASMUtils.type(JavaBeanDeserializer.class);
         methodWriter.visitMethodInsn(183, type, "<init>", "(" + ASMUtils.desc(ParserConfig.class) + ASMUtils.desc(JavaBeanInfo.class) + ")V");
         int length3 = context.fieldInfoList.length;
-        for (int i3 = 0; i3 < length3; i3++) {
-            FieldInfo fieldInfo3 = context.fieldInfoList[i3];
+        for (int i4 = 0; i4 < length3; i4++) {
+            FieldInfo fieldInfo3 = context.fieldInfoList[i4];
             methodWriter.visitVarInsn(25, 0);
             methodWriter.visitLdcInsn("\"" + fieldInfo3.name + "\":");
             methodWriter.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/lang/String", "toCharArray", "()[C");
@@ -1578,9 +1577,9 @@ public class ASMDeserializerFactory implements Opcodes {
         methodWriter.visitEnd();
     }
 
-    private void _isFlag(MethodVisitor methodVisitor, Context context, int i, Label label) {
-        methodVisitor.visitVarInsn(21, context.var("_asm_flag_" + (i / 32)));
-        methodVisitor.visitLdcInsn(Integer.valueOf(1 << i));
+    private void _isFlag(MethodVisitor methodVisitor, Context context, int i2, Label label) {
+        methodVisitor.visitVarInsn(21, context.var("_asm_flag_" + (i2 / 32)));
+        methodVisitor.visitLdcInsn(Integer.valueOf(1 << i2));
         methodVisitor.visitInsn(126);
         methodVisitor.visitJumpInsn(153, label);
     }
@@ -1644,7 +1643,7 @@ public class ASMDeserializerFactory implements Opcodes {
         }
     }
 
-    private void _newCollection(MethodVisitor methodVisitor, Class<?> cls, int i, boolean z) {
+    private void _newCollection(MethodVisitor methodVisitor, Class<?> cls, int i2, boolean z) {
         if (cls.isAssignableFrom(ArrayList.class) && !z) {
             methodVisitor.visitTypeInsn(Opcodes.NEW, "java/util/ArrayList");
             methodVisitor.visitInsn(89);
@@ -1671,21 +1670,21 @@ public class ASMDeserializerFactory implements Opcodes {
             methodVisitor.visitMethodInsn(183, ASMUtils.type(HashSet.class), "<init>", "()V");
         } else {
             methodVisitor.visitVarInsn(25, 0);
-            methodVisitor.visitLdcInsn(Integer.valueOf(i));
+            methodVisitor.visitLdcInsn(Integer.valueOf(i2));
             methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, ASMUtils.type(JavaBeanDeserializer.class), "getFieldType", "(I)Ljava/lang/reflect/Type;");
             methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, ASMUtils.type(TypeUtils.class), "createCollection", "(Ljava/lang/reflect/Type;)Ljava/util/Collection;");
         }
         methodVisitor.visitTypeInsn(192, ASMUtils.type(cls));
     }
 
-    private void _quickNextToken(Context context, MethodVisitor methodVisitor, int i) {
+    private void _quickNextToken(Context context, MethodVisitor methodVisitor, int i2) {
         Label label = new Label();
         Label label2 = new Label();
         methodVisitor.visitVarInsn(25, context.var("lexer"));
         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "getCurrent", "()C");
-        if (i == 12) {
-            methodVisitor.visitVarInsn(16, Constants.METHOD_IM_FRIEND_GROUP_QUERY);
-        } else if (i == 14) {
+        if (i2 == 12) {
+            methodVisitor.visitVarInsn(16, 123);
+        } else if (i2 == 14) {
             methodVisitor.visitVarInsn(16, 91);
         } else {
             throw new IllegalStateException();
@@ -1695,12 +1694,12 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, UnitedSchemeConstants.UNITED_SCHEME_NEXT, "()C");
         methodVisitor.visitInsn(87);
         methodVisitor.visitVarInsn(25, context.var("lexer"));
-        methodVisitor.visitLdcInsn(Integer.valueOf(i));
+        methodVisitor.visitLdcInsn(Integer.valueOf(i2));
         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "setToken", "(I)V");
         methodVisitor.visitJumpInsn(167, label2);
         methodVisitor.visitLabel(label);
         methodVisitor.visitVarInsn(25, context.var("lexer"));
-        methodVisitor.visitLdcInsn(Integer.valueOf(i));
+        methodVisitor.visitLdcInsn(Integer.valueOf(i2));
         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "nextToken", "(I)V");
         methodVisitor.visitLabel(label2);
     }
@@ -1787,10 +1786,10 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitLabel(label);
     }
 
-    private void _setFlag(MethodVisitor methodVisitor, Context context, int i) {
-        String str = "_asm_flag_" + (i / 32);
+    private void _setFlag(MethodVisitor methodVisitor, Context context, int i2) {
+        String str = "_asm_flag_" + (i2 / 32);
         methodVisitor.visitVarInsn(21, context.var(str));
-        methodVisitor.visitLdcInsn(Integer.valueOf(1 << i));
+        methodVisitor.visitLdcInsn(Integer.valueOf(1 << i2));
         methodVisitor.visitInsn(128);
         methodVisitor.visitVarInsn(54, context.var(str));
     }
@@ -1830,12 +1829,12 @@ public class ASMDeserializerFactory implements Opcodes {
 
     private void _batchSet(Context context, MethodVisitor methodVisitor, boolean z) {
         int length = context.fieldInfoList.length;
-        for (int i = 0; i < length; i++) {
+        for (int i2 = 0; i2 < length; i2++) {
             Label label = new Label();
             if (z) {
-                _isFlag(methodVisitor, context, i, label);
+                _isFlag(methodVisitor, context, i2, label);
             }
-            _loadAndSet(context, methodVisitor, context.fieldInfoList[i]);
+            _loadAndSet(context, methodVisitor, context.fieldInfoList[i2]);
             if (z) {
                 methodVisitor.visitLabel(label);
             }
@@ -1854,11 +1853,11 @@ public class ASMDeserializerFactory implements Opcodes {
         public int variantIndex;
         public final Map<String, Integer> variants = new HashMap();
 
-        public Context(String str, ParserConfig parserConfig, JavaBeanInfo javaBeanInfo, int i) {
+        public Context(String str, ParserConfig parserConfig, JavaBeanInfo javaBeanInfo, int i2) {
             this.variantIndex = -1;
             this.className = str;
             this.clazz = javaBeanInfo.clazz;
-            this.variantIndex = i;
+            this.variantIndex = i2;
             this.beanInfo = javaBeanInfo;
             this.fieldInfoList = javaBeanInfo.fields;
         }
@@ -1868,10 +1867,10 @@ public class ASMDeserializerFactory implements Opcodes {
             return cls == null ? this.clazz : cls;
         }
 
-        public int var(String str, int i) {
+        public int var(String str, int i2) {
             if (this.variants.get(str) == null) {
                 this.variants.put(str, Integer.valueOf(this.variantIndex));
-                this.variantIndex += i;
+                this.variantIndex += i2;
             }
             return this.variants.get(str).intValue();
         }
@@ -1879,9 +1878,9 @@ public class ASMDeserializerFactory implements Opcodes {
         public int var(String str) {
             if (this.variants.get(str) == null) {
                 Map<String, Integer> map = this.variants;
-                int i = this.variantIndex;
-                this.variantIndex = i + 1;
-                map.put(str, Integer.valueOf(i));
+                int i2 = this.variantIndex;
+                this.variantIndex = i2 + 1;
+                map.put(str, Integer.valueOf(i2));
             }
             return this.variants.get(str).intValue();
         }

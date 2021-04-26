@@ -5,17 +5,17 @@ import com.sdk.base.framework.a.l;
 public abstract class b<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38884a = 1000;
+    public int f36468a = 1000;
 
     public final int a() {
-        int i = this.f38884a;
-        if (i < 200) {
+        int i2 = this.f36468a;
+        if (i2 < 200) {
             return 200;
         }
-        return i;
+        return i2;
     }
 
-    public abstract void a(int i, Object obj);
+    public abstract void a(int i2, Object obj);
 
     public abstract void a(l<T> lVar);
 }

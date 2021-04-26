@@ -11,11 +11,11 @@ public final class a {
         }
     }
 
-    public static native Object meta(int i, Context context, Object obj);
+    public static native Object meta(int i2, Context context, Object obj);
 
-    public static Object njss(int i, Object obj) {
+    public static Object njss(int i2, Object obj) {
         try {
-            return b.a().a(i, obj);
+            return b.a().a(i2, obj);
         } catch (Throwable unused) {
             return null;
         }

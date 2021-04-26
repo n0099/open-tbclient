@@ -2,7 +2,7 @@ package org.apache.http.conn.scheme;
 @Deprecated
 /* loaded from: classes7.dex */
 public final class Scheme {
-    public Scheme(String str, SocketFactory socketFactory, int i) {
+    public Scheme(String str, SocketFactory socketFactory, int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -30,7 +30,7 @@ public final class Scheme {
         throw new RuntimeException("Stub!");
     }
 
-    public final int resolvePort(int i) {
+    public final int resolvePort(int i2) {
         throw new RuntimeException("Stub!");
     }
 

@@ -7,37 +7,37 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-import d.b.h0.a.c;
-import d.b.h0.a.i2.h0;
+import d.a.h0.a.c;
+import d.a.h0.a.i2.h0;
 /* loaded from: classes3.dex */
 public class LocationItemDecoration extends RecyclerView.ItemDecoration {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f12639c = h0.f(15.0f);
+    public static final int f12538c = h0.f(15.0f);
 
     /* renamed from: a  reason: collision with root package name */
-    public ColorDrawable f12640a;
+    public ColorDrawable f12539a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12641b;
+    public boolean f12540b;
 
     public LocationItemDecoration(Context context) {
         this(context, false);
     }
 
     public final void drawVertical(Canvas canvas, RecyclerView recyclerView) {
-        int paddingLeft = recyclerView.getPaddingLeft() + f12639c;
-        int width = (recyclerView.getWidth() - recyclerView.getPaddingRight()) - f12639c;
+        int paddingLeft = recyclerView.getPaddingLeft() + f12538c;
+        int width = (recyclerView.getWidth() - recyclerView.getPaddingRight()) - f12538c;
         int childCount = recyclerView.getChildCount();
-        if (!this.f12641b) {
+        if (!this.f12540b) {
             childCount--;
         }
-        for (int i = 0; i < childCount; i++) {
-            View childAt = recyclerView.getChildAt(i);
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = recyclerView.getChildAt(i2);
             if (childAt != null) {
                 int bottom = childAt.getBottom() + ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) childAt.getLayoutParams())).bottomMargin;
-                this.f12640a.setBounds(paddingLeft, bottom, width, bottom + 1);
-                this.f12640a.draw(canvas);
+                this.f12539a.setBounds(paddingLeft, bottom, width, bottom + 1);
+                this.f12539a.draw(canvas);
             }
         }
     }
@@ -53,8 +53,8 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     public LocationItemDecoration(Context context, boolean z) {
-        this.f12641b = true;
-        this.f12640a = new ColorDrawable(context.getResources().getColor(c.aiapps_location_item_bg_pressed));
-        this.f12641b = z;
+        this.f12540b = true;
+        this.f12539a = new ColorDrawable(context.getResources().getColor(c.aiapps_location_item_bg_pressed));
+        this.f12540b = z;
     }
 }

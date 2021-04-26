@@ -28,7 +28,12 @@ public class BuildCompat {
         return Build.VERSION.SDK_INT >= 28;
     }
 
+    @Deprecated
     public static boolean isAtLeastQ() {
-        return Build.VERSION.CODENAME.length() == 1 && Build.VERSION.CODENAME.charAt(0) >= 'Q' && Build.VERSION.CODENAME.charAt(0) <= 'Z';
+        return Build.VERSION.SDK_INT >= 29;
+    }
+
+    public static boolean isAtLeastR() {
+        return Build.VERSION.SDK_INT >= 30 || Build.VERSION.CODENAME.equals("R");
     }
 }

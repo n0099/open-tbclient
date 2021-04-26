@@ -2,13 +2,13 @@ package com.baidu.tieba.pushdialog.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.GetLockWindowTid.DataReq;
 import tbclient.GetLockWindowTid.GetLockWindowTidReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PullTidReqNetMessage extends NetMessage {
-    public PullTidReqNetMessage(int i, int i2) {
-        super(i, i2);
+    public PullTidReqNetMessage(int i2, int i3) {
+        super(i2, i3);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -24,7 +24,7 @@ public class PullTidReqNetMessage extends NetMessage {
         }
     }
 
-    public PullTidReqNetMessage(int i, int i2, BdUniqueId bdUniqueId) {
-        super(i, i2, bdUniqueId);
+    public PullTidReqNetMessage(int i2, int i3, BdUniqueId bdUniqueId) {
+        super(i2, i3, bdUniqueId);
     }
 }

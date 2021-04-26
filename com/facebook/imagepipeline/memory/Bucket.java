@@ -18,14 +18,14 @@ public class Bucket<V> {
     public final int mItemSize;
     public final int mMaxLength;
 
-    public Bucket(int i, int i2, int i3, boolean z) {
-        Preconditions.checkState(i > 0);
-        Preconditions.checkState(i2 >= 0);
+    public Bucket(int i2, int i3, int i4, boolean z) {
+        Preconditions.checkState(i2 > 0);
         Preconditions.checkState(i3 >= 0);
-        this.mItemSize = i;
-        this.mMaxLength = i2;
+        Preconditions.checkState(i4 >= 0);
+        this.mItemSize = i2;
+        this.mMaxLength = i3;
         this.mFreeList = new LinkedList();
-        this.mInUseLength = i3;
+        this.mInUseLength = i4;
         this.mFixBucketsReinitialization = z;
     }
 
@@ -77,9 +77,9 @@ public class Bucket<V> {
             addToFreeList(v);
             return;
         }
-        int i = this.mInUseLength;
-        if (i > 0) {
-            this.mInUseLength = i - 1;
+        int i2 = this.mInUseLength;
+        if (i2 > 0) {
+            this.mInUseLength = i2 - 1;
             addToFreeList(v);
             return;
         }

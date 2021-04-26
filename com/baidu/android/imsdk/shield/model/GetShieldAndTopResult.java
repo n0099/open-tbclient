@@ -16,8 +16,8 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public GetShieldAndTopResult[] newArray(int i) {
-            return new GetShieldAndTopResult[i];
+        public GetShieldAndTopResult[] newArray(int i2) {
+            return new GetShieldAndTopResult[i2];
         }
     };
     public static final String TAG = "GetShieldAndTopResult";
@@ -70,32 +70,32 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         return this.mShieldTime;
     }
 
-    public void setChatType(int i) {
-        this.mChatType = i;
+    public void setChatType(int i2) {
+        this.mChatType = i2;
     }
 
     public void setContacter(long j) {
         this.mContacter = j;
     }
 
-    public void setDisturbStatus(int i) {
-        this.mDisturbStatus = i;
+    public void setDisturbStatus(int i2) {
+        this.mDisturbStatus = i2;
     }
 
     public void setDisturbTime(long j) {
         this.mDisturbTime = j;
     }
 
-    public void setMarkTop(int i) {
-        this.mMarkTop = i;
+    public void setMarkTop(int i2) {
+        this.mMarkTop = i2;
     }
 
     public void setMarkTopTime(long j) {
         this.mMarkTopTime = j;
     }
 
-    public void setShield(int i) {
-        this.mShield = i;
+    public void setShield(int i2) {
+        this.mShield = i2;
     }
 
     public void setShieldTime(long j) {
@@ -103,7 +103,7 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.mErrorCode);
         parcel.writeString(this.mErrorMsg);
         parcel.writeInt(this.mMarkTop);

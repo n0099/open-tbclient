@@ -9,15 +9,15 @@ import android.widget.TextView;
 public class PrivilegeTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f18625e;
+    public a f19047e;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void a(CharSequence charSequence, int i, int i2, int i3);
+        void a(CharSequence charSequence, int i2, int i3, int i4);
     }
 
-    public PrivilegeTextView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public PrivilegeTextView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 
     public int getAvailableWidth() {
@@ -27,16 +27,16 @@ public class PrivilegeTextView extends TextView {
     }
 
     @Override // android.widget.TextView
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        super.onTextChanged(charSequence, i, i2, i3);
-        a aVar = this.f18625e;
+    public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+        super.onTextChanged(charSequence, i2, i3, i4);
+        a aVar = this.f19047e;
         if (aVar != null) {
-            aVar.a(charSequence, i, i2, i3);
+            aVar.a(charSequence, i2, i3, i4);
         }
     }
 
     public void setTextChangeListener(a aVar) {
-        this.f18625e = aVar;
+        this.f19047e = aVar;
     }
 
     public PrivilegeTextView(Context context, AttributeSet attributeSet) {

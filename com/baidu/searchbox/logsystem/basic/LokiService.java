@@ -65,7 +65,7 @@ public class LokiService extends Service {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(Intent intent, int i2, int i3) {
         File file;
         LogType logType;
         File file2;
@@ -122,7 +122,7 @@ public class LokiService extends Service {
                     }
                     LogSystemProcessor logSystemProcessor = mProcessor;
                     if (logSystemProcessor != null) {
-                        logSystemProcessor.process(this, i2, logObject);
+                        logSystemProcessor.process(this, i3, logObject);
                     }
                     return 2;
                 }

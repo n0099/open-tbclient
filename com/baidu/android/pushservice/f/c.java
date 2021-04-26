@@ -26,10 +26,10 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f3063a;
+    public static b f3080a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f3064b;
+    public static volatile c f3081b;
 
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str) {
@@ -43,14 +43,14 @@ public class c {
     }
 
     public static c a() {
-        if (f3064b == null) {
+        if (f3081b == null) {
             synchronized (c.class) {
-                if (f3064b == null) {
-                    f3064b = new c();
+                if (f3081b == null) {
+                    f3081b = new c();
                 }
             }
         }
-        return f3064b;
+        return f3081b;
     }
 
     private String a(String str, String str2, HashMap<String, String> hashMap) {
@@ -70,7 +70,7 @@ public class c {
         hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE"));
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         hashMap.put("timestamp", currentTimeMillis + "");
-        hashMap.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, f3063a.a() + "");
+        hashMap.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, f3080a.a() + "");
         JSONArray jSONArray = new JSONArray();
         jSONArray.put(DeviceId.getCUID(context));
         hashMap.put("cuids", jSONArray.toString());
@@ -90,25 +90,25 @@ public class c {
         return hashMap;
     }
 
-    private void a(Context context, int i) {
+    private void a(Context context, int i2) {
         Intent launchIntentForPackage;
         if (context == null) {
             return;
         }
-        if (f3063a == null) {
+        if (f3080a == null) {
             b(context);
         }
-        if (f3063a == null || (launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName())) == null) {
+        if (f3080a == null || (launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName())) == null) {
             return;
         }
-        f3063a.a(context, launchIntentForPackage.getComponent(), i);
+        f3080a.a(context, launchIntentForPackage.getComponent(), i2);
     }
 
     private void b(Context context) {
         if (Build.VERSION.SDK_INT < 26 || !d.l(context)) {
             return;
         }
-        f3063a = new a();
+        f3080a = new a();
     }
 
     private void c(final Context context) {
@@ -117,7 +117,7 @@ public class c {
             @Override // com.baidu.android.pushservice.h.c
             public void a() {
                 HashMap a2 = c.this.a(context, "POST", str);
-                int i = 2;
+                int i2 = 2;
                 do {
                     com.baidu.android.pushservice.e.b b2 = com.baidu.android.pushservice.e.c.b(context, str, "POST", a2, "BCCS_SDK/3.0", h.c());
                     if (b2 != null) {
@@ -127,8 +127,8 @@ public class c {
                             return;
                         }
                     }
-                    i--;
-                } while (i > 0);
+                    i2--;
+                } while (i2 > 0);
             }
         });
     }

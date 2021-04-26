@@ -16,22 +16,22 @@ public class RemoteReflectInterface {
             IDownloader adsApkDownloader = XAdRemoteCommonUtils.getAdsApkDownloader(str);
             IDownloader.DownloadStatus downloadStatus = null;
             String str2 = "";
-            int i = 0;
+            int i2 = 0;
             if (adsApkDownloader != null) {
                 downloadStatus = adsApkDownloader.getState();
-                i = (int) adsApkDownloader.getProgress();
+                i2 = (int) adsApkDownloader.getProgress();
                 str2 = adsApkDownloader.getOutputPath();
             } else {
                 XAdRemoteAPKDownloadExtraInfo storedDownloadInfo = XAdRemoteAPKDownloadExtraInfo.getStoredDownloadInfo(XAdRemoteCommonUtils.getApplicationContext(), str);
                 if (storedDownloadInfo != null && storedDownloadInfo.status == IDownloader.DownloadStatus.COMPLETED) {
                     downloadStatus = storedDownloadInfo.status;
-                    i = storedDownloadInfo.progress;
+                    i2 = storedDownloadInfo.progress;
                     str2 = storedDownloadInfo.outputFolder + storedDownloadInfo.outputFileName;
                 }
             }
             if (downloadStatus != null) {
                 if (downloadStatus == IDownloader.DownloadStatus.INITING || downloadStatus == IDownloader.DownloadStatus.DOWNLOADING) {
-                    return i;
+                    return i2;
                 }
                 if (downloadStatus == IDownloader.DownloadStatus.COMPLETED) {
                     return isLocalFileExist(str2) ? 101 : -1;

@@ -14,7 +14,7 @@ public interface BaseDialogInterface {
 
     void hideTitleLine();
 
-    void setNegativeBtn(int i, View.OnClickListener onClickListener);
+    void setNegativeBtn(int i2, View.OnClickListener onClickListener);
 
     void setNegativeBtn(SpannableString spannableString, View.OnClickListener onClickListener);
 
@@ -22,7 +22,7 @@ public interface BaseDialogInterface {
 
     void setNegativeBtn(String str, View.OnClickListener onClickListener);
 
-    void setPositiveBtn(int i, View.OnClickListener onClickListener);
+    void setPositiveBtn(int i2, View.OnClickListener onClickListener);
 
     void setPositiveBtn(SpannableString spannableString, View.OnClickListener onClickListener);
 
@@ -30,11 +30,11 @@ public interface BaseDialogInterface {
 
     void setPositiveBtn(String str, View.OnClickListener onClickListener);
 
-    void setTitleText(int i);
+    void setTitleText(int i2);
 
     void setTitleText(String str);
 
-    void setTitleTextBackgroud(int i);
+    void setTitleTextBackgroud(int i2);
 
     void showCloseBtn(boolean z);
 }

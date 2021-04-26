@@ -7,12 +7,12 @@ public final class BarcodeMetadata {
     public final int rowCountLowerPart;
     public final int rowCountUpperPart;
 
-    public BarcodeMetadata(int i, int i2, int i3, int i4) {
-        this.columnCount = i;
-        this.errorCorrectionLevel = i4;
-        this.rowCountUpperPart = i2;
-        this.rowCountLowerPart = i3;
-        this.rowCount = i2 + i3;
+    public BarcodeMetadata(int i2, int i3, int i4, int i5) {
+        this.columnCount = i2;
+        this.errorCorrectionLevel = i5;
+        this.rowCountUpperPart = i3;
+        this.rowCountLowerPart = i4;
+        this.rowCount = i3 + i4;
     }
 
     public int getColumnCount() {

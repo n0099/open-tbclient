@@ -19,8 +19,8 @@ public class RedPackMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public RedPackMsg[] newArray(int i) {
-            return new RedPackMsg[i];
+        public RedPackMsg[] newArray(int i2) {
+            return new RedPackMsg[i2];
         }
     };
     public String mBusiLogo;
@@ -118,8 +118,8 @@ public class RedPackMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeInt(this.mType);
         parcel.writeString(this.mRedPacketId);
         parcel.writeString(this.mSendUid);

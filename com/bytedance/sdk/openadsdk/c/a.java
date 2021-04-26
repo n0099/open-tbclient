@@ -11,14 +11,14 @@ import org.json.JSONObject;
 public class a implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f27228a;
+    public final String f28052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final JSONObject f27229b;
+    public final JSONObject f28053b;
 
     public a(String str, JSONObject jSONObject) {
-        this.f27228a = str;
-        this.f27229b = jSONObject;
+        this.f28052a = str;
+        this.f28053b = jSONObject;
     }
 
     public static a a(Context context, String str, String str2, String str3, JSONObject jSONObject) {
@@ -73,13 +73,13 @@ public class a implements i {
     }
 
     public String a() {
-        if (TextUtils.isEmpty(this.f27228a) || this.f27229b == null) {
+        if (TextUtils.isEmpty(this.f28052a) || this.f28053b == null) {
             return null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("localId", this.f27228a);
-            jSONObject.put("event", this.f27229b);
+            jSONObject.put("localId", this.f28052a);
+            jSONObject.put("event", this.f28053b);
         } catch (Throwable unused) {
         }
         return jSONObject.toString();
@@ -110,6 +110,6 @@ public class a implements i {
 
     @Override // com.bytedance.sdk.openadsdk.c.i
     public String b() {
-        return this.f27228a;
+        return this.f28052a;
     }
 }

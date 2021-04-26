@@ -25,10 +25,10 @@ public interface VideoDecoder {
         public final int width;
 
         @CalledByNative("Settings")
-        public Settings(int i, int i2, int i3) {
-            this.numberOfCores = i;
-            this.width = i2;
-            this.height = i3;
+        public Settings(int i2, int i3, int i4) {
+            this.numberOfCores = i2;
+            this.width = i3;
+            this.height = i4;
         }
     }
 

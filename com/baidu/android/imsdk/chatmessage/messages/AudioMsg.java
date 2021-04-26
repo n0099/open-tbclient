@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.kwai.video.player.KsMediaMeta;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONException;
@@ -22,23 +21,23 @@ public class AudioMsg extends RichMediaMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public AudioMsg[] newArray(int i) {
-            return new AudioMsg[i];
+        public AudioMsg[] newArray(int i2) {
+            return new AudioMsg[i2];
         }
     };
     public final String TAG;
     public int mDuration;
     public int mFormat;
 
-    private String getAudioContent(String str, int i, int i2) {
+    private String getAudioContent(String str, int i2, int i3) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("url", str);
-            jSONObject.put(KsMediaMeta.KSM_KEY_FORMAT, i);
-            jSONObject.put("duration", i2);
+            jSONObject.put("format", i2);
+            jSONObject.put("duration", i3);
             return jSONObject.toString();
         } catch (JSONException e2) {
             LogUtils.e(this.TAG, "getAudioContent Json", e2);
@@ -81,7 +80,7 @@ public class AudioMsg extends RichMediaMsg {
         try {
             JSONObject jSONObject = new JSONObject(this.mjsonContent);
             this.mRemoteUrl = jSONObject.optString("url");
-            this.mFormat = jSONObject.optInt(KsMediaMeta.KSM_KEY_FORMAT);
+            this.mFormat = jSONObject.optInt("format");
             this.mDuration = jSONObject.optInt("duration");
             if (this.mRemoteUrl.regionMatches(0, "http%3A", 0, 7)) {
                 transCodeUrl(jSONObject);
@@ -93,13 +92,13 @@ public class AudioMsg extends RichMediaMsg {
         }
     }
 
-    public void setContent(String str, int i, int i2) {
-        setMsgContent(getAudioContent(str, i, i2));
+    public void setContent(String str, int i2, int i3) {
+        setMsgContent(getAudioContent(str, i2, i3));
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeInt(this.mFormat);
         parcel.writeInt(this.mDuration);
     }
@@ -111,14 +110,14 @@ public class AudioMsg extends RichMediaMsg {
         setMsgType(2);
     }
 
-    public AudioMsg(String str, int i, int i2) {
+    public AudioMsg(String str, int i2, int i3) {
         this.TAG = VideoMsg.class.getSimpleName();
         this.mFormat = -1;
         this.mDuration = -1;
         setMsgType(2);
         setLocalUrl(str);
-        this.mDuration = i;
-        this.mFormat = i2;
+        this.mDuration = i2;
+        this.mFormat = i3;
     }
 
     public AudioMsg(Parcel parcel) {

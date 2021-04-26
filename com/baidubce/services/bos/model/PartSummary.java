@@ -32,8 +32,8 @@ public class PartSummary {
         this.lastModified = date;
     }
 
-    public void setPartNumber(int i) {
-        this.partNumber = i;
+    public void setPartNumber(int i2) {
+        this.partNumber = i2;
     }
 
     public void setSize(long j) {

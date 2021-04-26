@@ -117,9 +117,9 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
         this.mCleanEtBtnDarkShape.setVisibility(8);
     }
 
-    public InputFormView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.SapiSDKInputFormView, i, 0);
+    public InputFormView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.SapiSDKInputFormView, i2, 0);
         this.mIsShowBottomLine = obtainStyledAttributes.getBoolean(R.styleable.SapiSDKInputFormView_SapiSdkShowInputBottomLine, true);
         this.mIconResId = obtainStyledAttributes.getResourceId(R.styleable.SapiSDKInputFormView_SapiSdkInputIcon, 0);
         this.mMinLines = obtainStyledAttributes.getInt(R.styleable.SapiSDKInputFormView_SapiSdkMinLines, 1);

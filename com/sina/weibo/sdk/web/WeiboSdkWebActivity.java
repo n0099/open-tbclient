@@ -69,10 +69,10 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         }
 
         @Override // android.webkit.WebChromeClient
-        public void onProgressChanged(WebView webView, int i) {
-            super.onProgressChanged(webView, i);
-            WeiboSdkWebActivity.this.loadingBar.drawProgress(i);
-            if (i == 100) {
+        public void onProgressChanged(WebView webView, int i2) {
+            super.onProgressChanged(webView, i2);
+            WeiboSdkWebActivity.this.loadingBar.drawProgress(i2);
+            if (i2 == 100) {
                 WeiboSdkWebActivity.this.loadingBar.setVisibility(4);
             } else {
                 WeiboSdkWebActivity.this.loadingBar.setVisibility(0);
@@ -108,18 +108,18 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
             finish();
             return;
         }
-        int i = extras.getInt("type", -1);
-        if (i == -1) {
+        int i2 = extras.getInt("type", -1);
+        if (i2 == -1) {
             finish();
             return;
         }
-        if (i == 0) {
+        if (i2 == 0) {
             this.baseParam = new DefaultWebViewRequestParam();
             this.webViewClient = new DefaultWebViewClient(this, this.baseParam);
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             this.baseParam = new ShareWebViewRequestParam(this);
             this.webViewClient = new ShareWebViewClient(this, this, this.baseParam);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             this.baseParam = new AuthWebViewRequestParam();
             this.webViewClient = new AuthWebViewClient(this, this, this.baseParam);
         }
@@ -290,8 +290,8 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4) {
             if (this.webViewClient.onBackKeyDown()) {
                 return true;
             }
@@ -300,7 +300,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                 return true;
             }
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
@@ -317,7 +317,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
     }
 
     @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
-    public void onReceivedErrorCallBack(WebView webView, int i, String str, String str2) {
+    public void onReceivedErrorCallBack(WebView webView, int i2, String str, String str2) {
         String url = webView.getUrl();
         try {
             if (TextUtils.isEmpty(url) || TextUtils.isEmpty(str2)) {
@@ -339,13 +339,13 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         builder.setMessage("你访问的连接可能存在隐患，是否继续访问");
         builder.setPositiveButton("继续", new DialogInterface.OnClickListener() { // from class: com.sina.weibo.sdk.web.WeiboSdkWebActivity.4
             @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int i2) {
                 sslErrorHandler.proceed();
             }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.sina.weibo.sdk.web.WeiboSdkWebActivity.5
             @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int i2) {
                 sslErrorHandler.cancel();
             }
         });

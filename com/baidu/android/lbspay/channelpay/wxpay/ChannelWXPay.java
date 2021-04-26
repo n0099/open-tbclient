@@ -24,7 +24,7 @@ public class ChannelWXPay extends AbstractChannelPay {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static ChannelWXPay f2647a = new ChannelWXPay();
+        public static ChannelWXPay f2644a = new ChannelWXPay();
     }
 
     private PayReq genPayReq(PayDataBean payDataBean) {
@@ -40,7 +40,7 @@ public class ChannelWXPay extends AbstractChannelPay {
     }
 
     public static ChannelWXPay getInstance() {
-        return a.f2647a;
+        return a.f2644a;
     }
 
     @Override // com.baidu.android.lbspay.channelpay.IChannelPay
@@ -54,17 +54,17 @@ public class ChannelWXPay extends AbstractChannelPay {
             payCancel();
             return;
         }
-        int i = baseResp.errCode;
+        int i2 = baseResp.errCode;
         String str = "";
-        if (i == 0) {
+        if (i2 == 0) {
             paySuccess("");
-        } else if (i == -1) {
+        } else if (i2 == -1) {
             try {
-                str = String.valueOf(i);
+                str = String.valueOf(i2);
             } catch (Exception unused) {
             }
             payError(str, baseResp.errStr);
-        } else if (i == -2) {
+        } else if (i2 == -2) {
             payCancel();
         }
     }

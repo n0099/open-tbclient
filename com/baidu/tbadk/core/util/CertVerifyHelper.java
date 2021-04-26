@@ -28,10 +28,10 @@ public class CertVerifyHelper {
     public static byte[] hexStr2Bytes(String str) {
         int length = str.length() / 2;
         byte[] bArr = new byte[length];
-        for (int i = 0; i < length; i++) {
-            int i2 = i * 2;
-            int i3 = i2 + 1;
-            bArr[i] = (byte) (Integer.decode("0x" + str.substring(i2, i3) + str.substring(i3, i3 + 1)).intValue() & 255);
+        for (int i2 = 0; i2 < length; i2++) {
+            int i3 = i2 * 2;
+            int i4 = i3 + 1;
+            bArr[i2] = (byte) (Integer.decode("0x" + str.substring(i3, i4) + str.substring(i4, i4 + 1)).intValue() & 255);
         }
         return bArr;
     }

@@ -7,6 +7,8 @@ import org.json.JSONObject;
 public interface AdHttpProxy<Response> {
     c doGet(String str, Map<String, String> map);
 
+    c doGetWithoutResponse(String str, Map<String, String> map);
+
     c doPost(String str, Map<String, String> map, Map<String, String> map2);
 
     c doPost(String str, Map<String, String> map, JSONObject jSONObject);

@@ -18,11 +18,11 @@ public class BeanResponseBase implements NoProguard {
     }
 
     public int getServerReturnValue(Class<?> cls) {
-        int i = this.retCode;
-        if (i != 0) {
-            return i;
+        int i2 = this.retCode;
+        if (i2 != 0) {
+            return i2;
         }
-        if (i == 0) {
+        if (i2 == 0) {
             if (this.result != null || cls == null || JsonUtils.DataType.isString(cls)) {
                 return this.retCode;
             }

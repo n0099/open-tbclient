@@ -55,10 +55,10 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
         }
     }
 
-    public SyncSampleIntersectFinderImpl(Movie movie, Track track, int i) {
+    public SyncSampleIntersectFinderImpl(Movie movie, Track track, int i2) {
         this.movie = movie;
         this.referenceTrack = track;
-        this.minFragmentDurationSeconds = i;
+        this.minFragmentDurationSeconds = i2;
     }
 
     public static long calculateTracktimesScalingFactor(Movie movie, Track track) {
@@ -87,19 +87,19 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
         long[] jArr = new long[syncSamples.length];
         long calculateTracktimesScalingFactor = calculateTracktimesScalingFactor(movie, track);
         long j = 0;
-        int i = 0;
-        int i2 = 1;
+        int i2 = 0;
+        int i3 = 1;
         while (true) {
-            long j2 = i2;
+            long j2 = i3;
             if (j2 >= syncSamples[syncSamples.length - 1]) {
                 return jArr;
             }
-            if (j2 == syncSamples[i]) {
-                jArr[i] = j * calculateTracktimesScalingFactor;
-                i++;
+            if (j2 == syncSamples[i2]) {
+                jArr[i2] = j * calculateTracktimesScalingFactor;
+                i2++;
             }
-            j += track.getSampleDurations()[i2];
-            i2++;
+            j += track.getSampleDurations()[i3];
+            i3++;
         }
     }
 
@@ -107,14 +107,14 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
         LinkedList linkedList;
         LinkedList<Long> linkedList2 = new LinkedList();
         LinkedList linkedList3 = new LinkedList();
-        for (int i = 0; i < jArr2.length; i++) {
+        for (int i2 = 0; i2 < jArr2.length; i2++) {
             boolean z = true;
             for (long[] jArr4 : jArr3) {
-                z &= Arrays.binarySearch(jArr4, jArr2[i]) >= 0;
+                z &= Arrays.binarySearch(jArr4, jArr2[i2]) >= 0;
             }
             if (z) {
-                linkedList2.add(Long.valueOf(jArr[i]));
-                linkedList3.add(Long.valueOf(jArr2[i]));
+                linkedList2.add(Long.valueOf(jArr[i2]));
+                linkedList3.add(Long.valueOf(jArr2[i2]));
             }
         }
         if (linkedList2.size() < jArr.length * 0.25d) {
@@ -158,8 +158,8 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
         }
         int size = linkedList.size();
         long[] jArr5 = new long[size];
-        for (int i2 = 0; i2 < size; i2++) {
-            jArr5[i2] = ((Long) linkedList.get(i2)).longValue();
+        for (int i3 = 0; i3 < size; i3++) {
+            jArr5[i3] = ((Long) linkedList.get(i3)).longValue();
         }
         return jArr5;
     }
@@ -180,7 +180,7 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
             }
             throw new RuntimeException("Video Tracks need sync samples. Only tracks other than video may have no sync samples.");
         }
-        int i = 0;
+        int i2 = 0;
         if ("soun".equals(track.getHandler())) {
             if (this.referenceTrack == null) {
                 for (Track track2 : this.movie.getTracks()) {
@@ -208,24 +208,24 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
                             long sampleRate = audioSampleEntry.getSampleRate();
                             double size2 = next.getSamples().size() / size;
                             long j2 = next.getSampleDurations()[0];
-                            int i2 = 0;
-                            while (i2 < length) {
-                                jArr2[i2] = (long) Math.ceil((sampleNumbers[i2] - 1) * size2 * j2);
-                                i2++;
+                            int i3 = 0;
+                            while (i3 < length) {
+                                jArr2[i3] = (long) Math.ceil((sampleNumbers[i3] - 1) * size2 * j2);
+                                i3++;
                                 sampleNumbers = sampleNumbers;
                                 length = length;
-                                i = 0;
+                                i2 = 0;
                             }
                             j = sampleRate;
                         }
                     }
                 }
-                long j3 = track.getSampleDurations()[i];
+                long j3 = track.getSampleDurations()[i2];
                 double sampleRate2 = ((AudioSampleEntry) track.getSampleDescriptionBox().getSampleEntry()).getSampleRate() / j;
                 if (sampleRate2 == Math.rint(sampleRate2)) {
-                    while (i < length) {
-                        jArr2[i] = (long) (((jArr2[i] * sampleRate2) / j3) + 1.0d);
-                        i++;
+                    while (i2 < length) {
+                        jArr2[i2] = (long) (((jArr2[i2] * sampleRate2) / j3) + 1.0d);
+                        i2++;
                     }
                     getSampleNumbersCache.put(cacheTuple, jArr2);
                     return jArr2;
@@ -241,8 +241,8 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
                 int length2 = sampleNumbers2.length;
                 long[] jArr3 = new long[length2];
                 double size4 = track.getSamples().size() / size3;
-                for (int i3 = 0; i3 < length2; i3++) {
-                    jArr3[i3] = ((long) Math.ceil((sampleNumbers2[i3] - 1) * size4)) + 1;
+                for (int i4 = 0; i4 < length2; i4++) {
+                    jArr3[i4] = ((long) Math.ceil((sampleNumbers2[i4] - 1) * size4)) + 1;
                 }
                 getSampleNumbersCache.put(cacheTuple, jArr3);
                 return jArr3;

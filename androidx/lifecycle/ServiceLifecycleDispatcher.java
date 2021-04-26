@@ -44,6 +44,7 @@ public class ServiceLifecycleDispatcher {
         this.mHandler.postAtFrontOfQueue(dispatchRunnable2);
     }
 
+    @NonNull
     public Lifecycle getLifecycle() {
         return this.mRegistry;
     }

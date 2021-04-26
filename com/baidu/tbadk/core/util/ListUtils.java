@@ -10,11 +10,11 @@ public class ListUtils {
         return list.add(t);
     }
 
-    public static <T> boolean addAll(List<T> list, int i, List<T> list2) {
-        if (list == null || i > list.size() || i < 0 || list2 == null || list2.size() <= 0) {
+    public static <T> boolean addAll(List<T> list, int i2, List<T> list2) {
+        if (list == null || i2 > list.size() || i2 < 0 || list2 == null || list2.size() <= 0) {
             return false;
         }
-        list.addAll(i, list2);
+        list.addAll(i2, list2);
         return true;
     }
 
@@ -39,11 +39,11 @@ public class ListUtils {
         return list.size();
     }
 
-    public static <T> T getItem(List<T> list, int i) {
-        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
+    public static <T> T getItem(List<T> list, int i2) {
+        if (list == null || list.isEmpty() || i2 < 0 || i2 >= list.size()) {
             return null;
         }
-        return list.get(i);
+        return list.get(i2);
     }
 
     public static <T> int getPosition(List<T> list, T t) {
@@ -57,39 +57,39 @@ public class ListUtils {
         return getCount(list) <= 0;
     }
 
-    public static <T> T remove(List<T> list, int i) {
-        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
+    public static <T> T remove(List<T> list, int i2) {
+        if (list == null || list.isEmpty() || i2 < 0 || i2 >= list.size()) {
             return null;
         }
-        return list.remove(i);
+        return list.remove(i2);
     }
 
-    public static <T> void removeSubList(List<T> list, int i, int i2) {
+    public static <T> void removeSubList(List<T> list, int i2, int i3) {
         int count = getCount(list);
-        if (count > 0 && i >= 0 && i2 <= count) {
-            clear(list.subList(i, i2));
+        if (count > 0 && i2 >= 0 && i3 <= count) {
+            clear(list.subList(i2, i3));
         }
     }
 
-    public static <T> List<T> subList(List<T> list, int i, int i2) {
+    public static <T> List<T> subList(List<T> list, int i2, int i3) {
         int count = getCount(list);
-        if (count > 0 && i >= 0 && i2 <= count) {
-            return list.subList(i, i2);
+        if (count > 0 && i2 >= 0 && i3 <= count) {
+            return list.subList(i2, i3);
         }
         return null;
     }
 
-    public static <T> List<T> trimToSize(List<T> list, int i) {
+    public static <T> List<T> trimToSize(List<T> list, int i2) {
         int count = getCount(list);
-        int min = Math.min(count, i);
+        int min = Math.min(count, i2);
         return (min <= 0 || min >= count) ? list : subList(list, 0, min);
     }
 
-    public static <T> boolean add(List<T> list, int i, T t) {
-        if (list == null || i > list.size() || i < 0) {
+    public static <T> boolean add(List<T> list, int i2, T t) {
+        if (list == null || i2 > list.size() || i2 < 0) {
             return false;
         }
-        list.add(i, t);
+        list.add(i2, t);
         return true;
     }
 }

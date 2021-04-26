@@ -10,14 +10,14 @@ import com.baidu.platform.comapi.walknavi.g.b.c;
 public class ac implements c.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BaseNpcModel f9636a;
+    public final /* synthetic */ BaseNpcModel f9995a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ c f9637b;
+    public final /* synthetic */ c f9996b;
 
     public ac(c cVar, BaseNpcModel baseNpcModel) {
-        this.f9637b = cVar;
-        this.f9636a = baseNpcModel;
+        this.f9996b = cVar;
+        this.f9995a = baseNpcModel;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.b.c.d
@@ -25,13 +25,13 @@ public class ac implements c.d {
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener;
         View view;
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener2;
-        iWNPCLoadAndInitListener = this.f9637b.W;
+        iWNPCLoadAndInitListener = this.f9996b.W;
         if (iWNPCLoadAndInitListener != null) {
-            iWNPCLoadAndInitListener2 = this.f9637b.W;
+            iWNPCLoadAndInitListener2 = this.f9996b.W;
             iWNPCLoadAndInitListener2.onSuccess();
         }
-        view = this.f9637b.N;
-        ((ImageView) view).setImageBitmap(this.f9636a.getIcon());
+        view = this.f9996b.N;
+        ((ImageView) view).setImageBitmap(this.f9995a.getIcon());
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.b.c.d
@@ -39,16 +39,16 @@ public class ac implements c.d {
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener;
         View view;
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener2;
-        iWNPCLoadAndInitListener = this.f9637b.W;
+        iWNPCLoadAndInitListener = this.f9996b.W;
         if (iWNPCLoadAndInitListener != null) {
             com.baidu.platform.comapi.walknavi.d.e.c().a("");
-            this.f9637b.b(true);
+            this.f9996b.b(true);
             com.baidu.platform.comapi.walknavi.b.a().D().a(0, 0);
-            this.f9637b.o();
-            iWNPCLoadAndInitListener2 = this.f9637b.W;
+            this.f9996b.o();
+            iWNPCLoadAndInitListener2 = this.f9996b.W;
             iWNPCLoadAndInitListener2.onFail();
         }
-        view = this.f9637b.N;
+        view = this.f9996b.N;
         ((ImageView) view).setImageBitmap(BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), 2130837800));
     }
 }

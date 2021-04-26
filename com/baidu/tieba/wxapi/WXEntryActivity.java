@@ -23,8 +23,8 @@ import com.tencent.mm.sdk.modelmsg.ShowMessageFromWX;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-import d.b.i0.a.f;
-import d.b.j0.b2.a;
+import d.a.i0.a.f;
+import d.a.j0.b2.a;
 /* loaded from: classes5.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
     public static final int WX_NOTINSTALL_CODE = 123456;
@@ -41,21 +41,21 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             if (str.startsWith("tid=")) {
                 String[] split = str.split("&");
                 int length = split.length;
-                int i = 0;
+                int i2 = 0;
                 while (true) {
-                    if (i < length) {
-                        String str2 = split[i];
+                    if (i2 < length) {
+                        String str2 = split[i2];
                         if (str2 != null && str2.startsWith("tid=")) {
                             str = UrlSchemaHelper.SCHEMA_TYPE_PB + str2.substring(4);
                             break;
                         }
-                        i++;
+                        i2++;
                     } else {
                         break;
                     }
                 }
             }
-            if (str.startsWith(f.f50303a) && f.c(Uri.parse(str))) {
+            if (str.startsWith(f.f47853a) && f.c(Uri.parse(str))) {
                 UtilHelper.dealOneScheme(getPageContext().getPageActivity(), str);
             } else {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str});
@@ -71,11 +71,11 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         NavigationBar navigationBar = this.mNavigationBar;
         if (navigationBar != null) {
-            navigationBar.onChangeSkinType(getPageContext(), i);
+            navigationBar.onChangeSkinType(getPageContext(), i2);
         }
     }
 
@@ -129,26 +129,26 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         int type = baseResp.getType();
         if (1 == type) {
             a aVar = new a();
-            aVar.f53740a = this;
-            aVar.f53741b = baseResp;
+            aVar.f51489a = this;
+            aVar.f51490b = baseResp;
             MessageManager.getInstance().runTask(2921351, null, aVar);
             closeActivity();
         } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {
             SendMessageToWX.Resp resp = (SendMessageToWX.Resp) baseResp;
-            int i = resp.errCode;
+            int i2 = resp.errCode;
             String str = resp.errStr;
             if (str == null) {
                 str = "";
             }
             Intent intent = new Intent(WXEntryActivityConfig.ACTION_WX_SHARE_RESULT);
-            intent.putExtra("weixin_result_errCode", i);
+            intent.putExtra("weixin_result_errCode", i2);
             intent.putExtra("weixin_result_errMsg", str);
-            if (i == 0) {
+            if (i2 == 0) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016450, Boolean.TRUE));
                 intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_SUCCESS);
-            } else if (i == -2) {
+            } else if (i2 == -2) {
                 intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_CANCLE);
-            } else if (i == 123456) {
+            } else if (i2 == 123456) {
                 intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_FAIL);
             } else {
                 intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_FAIL);

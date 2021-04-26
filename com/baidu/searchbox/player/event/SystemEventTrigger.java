@@ -7,9 +7,9 @@ public class SystemEventTrigger extends AbsEventTrigger implements VideoReceiver
     public VideoReceiver mVideoReceiver = new VideoReceiver(this);
 
     @Override // com.baidu.searchbox.player.event.VideoReceiver.VideoReceiverListener
-    public void onBatteryChanged(int i) {
+    public void onBatteryChanged(int i2) {
         VideoEvent obtainEvent = SystemEvent.obtainEvent(SystemEvent.ACTION_BATTERY_CHANGED);
-        obtainEvent.putExtra(4, Integer.valueOf(i));
+        obtainEvent.putExtra(4, Integer.valueOf(i2));
         triggerEvent(obtainEvent);
     }
 
@@ -42,9 +42,9 @@ public class SystemEventTrigger extends AbsEventTrigger implements VideoReceiver
     }
 
     @Override // com.baidu.searchbox.player.event.VideoReceiver.VideoReceiverListener
-    public void onVolumeChanged(int i) {
+    public void onVolumeChanged(int i2) {
         VideoEvent obtainEvent = SystemEvent.obtainEvent(SystemEvent.ACTION_VOLUME_CHANGED);
-        obtainEvent.putExtra(5, Integer.valueOf(i));
+        obtainEvent.putExtra(5, Integer.valueOf(i2));
         triggerEvent(obtainEvent);
     }
 

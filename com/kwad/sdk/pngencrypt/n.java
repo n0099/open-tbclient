@@ -7,13 +7,13 @@ import java.nio.charset.Charset;
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Charset f36580a = Charset.forName("ISO-8859-1");
+    public static Charset f34294a = Charset.forName("ISO-8859-1");
 
     /* renamed from: b  reason: collision with root package name */
-    public static Charset f36581b = Charset.forName("UTF-8");
+    public static Charset f34295b = Charset.forName("UTF-8");
 
     /* renamed from: c  reason: collision with root package name */
-    public static ThreadLocal<Boolean> f36582c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
+    public static ThreadLocal<Boolean> f34296c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.ThreadLocal
         /* renamed from: a */
@@ -22,16 +22,16 @@ public final class n {
         }
     };
 
-    public static double a(int i) {
-        return i / 100000.0d;
+    public static double a(int i2) {
+        return i2 / 100000.0d;
     }
 
-    public static final int a(int i, int i2, int i3) {
-        int i4 = (i + i2) - i3;
-        int i5 = i4 >= i ? i4 - i : i - i4;
-        int i6 = i4 >= i2 ? i4 - i2 : i2 - i4;
-        int i7 = i4 >= i3 ? i4 - i3 : i3 - i4;
-        return (i5 > i6 || i5 > i7) ? i6 <= i7 ? i2 : i3 : i;
+    public static final int a(int i2, int i3, int i4) {
+        int i5 = (i2 + i3) - i4;
+        int i6 = i5 >= i2 ? i5 - i2 : i2 - i5;
+        int i7 = i5 >= i3 ? i5 - i3 : i3 - i5;
+        int i8 = i5 >= i4 ? i5 - i4 : i4 - i5;
+        return (i6 > i7 || i6 > i8) ? i7 <= i8 ? i3 : i4 : i2;
     }
 
     public static int a(InputStream inputStream) {
@@ -43,8 +43,8 @@ public final class n {
         }
     }
 
-    public static int a(byte[] bArr, int i) {
-        return bArr[i] & 255;
+    public static int a(byte[] bArr, int i2) {
+        return bArr[i2] & 255;
     }
 
     public static byte[] a() {
@@ -67,11 +67,11 @@ public final class n {
         }
     }
 
-    public static int b(byte[] bArr, int i) {
-        return (bArr[i + 1] & 255) | ((bArr[i] & 255) << 8);
+    public static int b(byte[] bArr, int i2) {
+        return (bArr[i2 + 1] & 255) | ((bArr[i2] & 255) << 8);
     }
 
-    public static final int c(byte[] bArr, int i) {
-        return (bArr[i + 3] & 255) | ((bArr[i] & 255) << 24) | ((bArr[i + 1] & 255) << 16) | ((bArr[i + 2] & 255) << 8);
+    public static final int c(byte[] bArr, int i2) {
+        return (bArr[i2 + 3] & 255) | ((bArr[i2] & 255) << 24) | ((bArr[i2 + 1] & 255) << 16) | ((bArr[i2 + 2] & 255) << 8);
     }
 }

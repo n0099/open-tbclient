@@ -26,7 +26,7 @@ public final class ConnManagerParams implements ConnManagerPNames {
         throw new RuntimeException("Stub!");
     }
 
-    public static void setMaxTotalConnections(HttpParams httpParams, int i) {
+    public static void setMaxTotalConnections(HttpParams httpParams, int i2) {
         throw new RuntimeException("Stub!");
     }
 

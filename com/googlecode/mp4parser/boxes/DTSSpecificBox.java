@@ -1,7 +1,6 @@
 package com.googlecode.mp4parser.boxes;
 
 import com.alibaba.fastjson.asm.Opcodes;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.channelpay.IChannelPay;
 import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
 import com.coremedia.iso.IsoTypeReader;
@@ -16,38 +15,38 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class DTSSpecificBox extends AbstractBox {
     public static final String TYPE = "ddts";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_10 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_11 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_12 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_13 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_14 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_15 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_16 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_17 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_18 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_19 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_20 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_21 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_22 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_23 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_24 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_25 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_26 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_27 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_28 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_29 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_30 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_31 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_8 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_9 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_10 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_11 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_12 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_13 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_14 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_15 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_16 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_17 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_18 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_19 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_20 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_21 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_22 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_23 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_24 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_25 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_26 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_27 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_28 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_29 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_30 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_31 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_9 = null;
     public long DTSSamplingFrequency;
     public int LBRDurationMod;
     public long avgBitRate;
@@ -106,7 +105,7 @@ public class DTSSpecificBox extends AbstractBox {
         ajc$tjp_6 = bVar.g("method-execution", bVar.f("1", "getPcmSampleDepth", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 112);
         ajc$tjp_7 = bVar.g("method-execution", bVar.f("1", "setPcmSampleDepth", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "pcmSampleDepth", "", "void"), 116);
         ajc$tjp_8 = bVar.g("method-execution", bVar.f("1", "getFrameDuration", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 120);
-        ajc$tjp_9 = bVar.g("method-execution", bVar.f("1", "setFrameDuration", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "frameDuration", "", "void"), Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER);
+        ajc$tjp_9 = bVar.g("method-execution", bVar.f("1", "setFrameDuration", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "frameDuration", "", "void"), 124);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
@@ -241,24 +240,24 @@ public class DTSSpecificBox extends AbstractBox {
         this.avgBitRate = j;
     }
 
-    public void setChannelLayout(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_23, this, this, g.a.b.a.a.e(i)));
-        this.channelLayout = i;
+    public void setChannelLayout(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_23, this, this, g.a.b.a.a.e(i2)));
+        this.channelLayout = i2;
     }
 
-    public void setCoreLFEPresent(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_13, this, this, g.a.b.a.a.e(i)));
-        this.coreLFEPresent = i;
+    public void setCoreLFEPresent(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_13, this, this, g.a.b.a.a.e(i2)));
+        this.coreLFEPresent = i2;
     }
 
-    public void setCoreLayout(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_15, this, this, g.a.b.a.a.e(i)));
-        this.coreLayout = i;
+    public void setCoreLayout(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_15, this, this, g.a.b.a.a.e(i2)));
+        this.coreLayout = i2;
     }
 
-    public void setCoreSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_17, this, this, g.a.b.a.a.e(i)));
-        this.coreSize = i;
+    public void setCoreSize(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_17, this, this, g.a.b.a.a.e(i2)));
+        this.coreSize = i2;
     }
 
     public void setDTSSamplingFrequency(long j) {
@@ -266,14 +265,14 @@ public class DTSSpecificBox extends AbstractBox {
         this.DTSSamplingFrequency = j;
     }
 
-    public void setFrameDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_9, this, this, g.a.b.a.a.e(i)));
-        this.frameDuration = i;
+    public void setFrameDuration(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_9, this, this, g.a.b.a.a.e(i2)));
+        this.frameDuration = i2;
     }
 
-    public void setLBRDurationMod(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_27, this, this, g.a.b.a.a.e(i)));
-        this.LBRDurationMod = i;
+    public void setLBRDurationMod(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_27, this, this, g.a.b.a.a.e(i2)));
+        this.LBRDurationMod = i2;
     }
 
     public void setMaxBitRate(long j) {
@@ -281,38 +280,38 @@ public class DTSSpecificBox extends AbstractBox {
         this.maxBitRate = j;
     }
 
-    public void setMultiAssetFlag(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_25, this, this, g.a.b.a.a.e(i)));
-        this.multiAssetFlag = i;
+    public void setMultiAssetFlag(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_25, this, this, g.a.b.a.a.e(i2)));
+        this.multiAssetFlag = i2;
     }
 
-    public void setPcmSampleDepth(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_7, this, this, g.a.b.a.a.e(i)));
-        this.pcmSampleDepth = i;
+    public void setPcmSampleDepth(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_7, this, this, g.a.b.a.a.e(i2)));
+        this.pcmSampleDepth = i2;
     }
 
-    public void setRepresentationType(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_21, this, this, g.a.b.a.a.e(i)));
-        this.representationType = i;
+    public void setRepresentationType(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_21, this, this, g.a.b.a.a.e(i2)));
+        this.representationType = i2;
     }
 
-    public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_29, this, this, g.a.b.a.a.e(i)));
-        this.reserved = i;
+    public void setReserved(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_29, this, this, g.a.b.a.a.e(i2)));
+        this.reserved = i2;
     }
 
-    public void setReservedBoxPresent(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_31, this, this, g.a.b.a.a.e(i)));
-        this.reservedBoxPresent = i;
+    public void setReservedBoxPresent(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_31, this, this, g.a.b.a.a.e(i2)));
+        this.reservedBoxPresent = i2;
     }
 
-    public void setStereoDownmix(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_19, this, this, g.a.b.a.a.e(i)));
-        this.stereoDownmix = i;
+    public void setStereoDownmix(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_19, this, this, g.a.b.a.a.e(i2)));
+        this.stereoDownmix = i2;
     }
 
-    public void setStreamConstruction(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_11, this, this, g.a.b.a.a.e(i)));
-        this.streamConstruction = i;
+    public void setStreamConstruction(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_11, this, this, g.a.b.a.a.e(i2)));
+        this.streamConstruction = i2;
     }
 }

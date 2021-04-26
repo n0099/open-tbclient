@@ -6,7 +6,11 @@ import android.animation.TimeInterpolator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
+import androidx.annotation.Dimension;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.google.android.material.animation.AnimationUtils;
 /* loaded from: classes6.dex */
@@ -15,6 +19,8 @@ public class HideBottomViewOnScrollBehavior<V extends View> extends CoordinatorL
     public static final int EXIT_ANIMATION_DURATION = 175;
     public static final int STATE_SCROLLED_DOWN = 1;
     public static final int STATE_SCROLLED_UP = 2;
+    public int additionalHiddenOffsetY;
+    @Nullable
     public ViewPropertyAnimator currentAnimator;
     public int currentState;
     public int height;
@@ -22,10 +28,11 @@ public class HideBottomViewOnScrollBehavior<V extends View> extends CoordinatorL
     public HideBottomViewOnScrollBehavior() {
         this.height = 0;
         this.currentState = 2;
+        this.additionalHiddenOffsetY = 0;
     }
 
-    private void animateChildTo(V v, int i, long j, TimeInterpolator timeInterpolator) {
-        this.currentAnimator = v.animate().translationY(i).setInterpolator(timeInterpolator).setDuration(j).setListener(new AnimatorListenerAdapter() { // from class: com.google.android.material.behavior.HideBottomViewOnScrollBehavior.1
+    private void animateChildTo(@NonNull V v, int i2, long j, TimeInterpolator timeInterpolator) {
+        this.currentAnimator = v.animate().translationY(i2).setInterpolator(timeInterpolator).setDuration(j).setListener(new AnimatorListenerAdapter() { // from class: com.google.android.material.behavior.HideBottomViewOnScrollBehavior.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 HideBottomViewOnScrollBehavior.this.currentAnimator = null;
@@ -34,37 +41,49 @@ public class HideBottomViewOnScrollBehavior<V extends View> extends CoordinatorL
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, V v, int i) {
-        this.height = v.getMeasuredHeight();
-        return super.onLayoutChild(coordinatorLayout, v, i);
+    public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i2) {
+        this.height = v.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) v.getLayoutParams()).bottomMargin;
+        return super.onLayoutChild(coordinatorLayout, v, i2);
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public void onNestedScroll(CoordinatorLayout coordinatorLayout, V v, View view, int i, int i2, int i3, int i4) {
-        if (this.currentState != 1 && i2 > 0) {
+    public void onNestedScroll(CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, int i2, int i3, int i4, int i5, int i6, @NonNull int[] iArr) {
+        if (i3 > 0) {
             slideDown(v);
-        } else if (this.currentState == 2 || i2 >= 0) {
-        } else {
+        } else if (i3 < 0) {
             slideUp(v);
         }
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, V v, View view, View view2, int i) {
-        return i == 2;
+    public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, @NonNull View view2, int i2, int i3) {
+        return i2 == 2;
     }
 
-    public void slideDown(V v) {
+    public void setAdditionalHiddenOffsetY(@NonNull V v, @Dimension int i2) {
+        this.additionalHiddenOffsetY = i2;
+        if (this.currentState == 1) {
+            v.setTranslationY(this.height + i2);
+        }
+    }
+
+    public void slideDown(@NonNull V v) {
+        if (this.currentState == 1) {
+            return;
+        }
         ViewPropertyAnimator viewPropertyAnimator = this.currentAnimator;
         if (viewPropertyAnimator != null) {
             viewPropertyAnimator.cancel();
             v.clearAnimation();
         }
         this.currentState = 1;
-        animateChildTo(v, this.height, 175L, AnimationUtils.FAST_OUT_LINEAR_IN_INTERPOLATOR);
+        animateChildTo(v, this.height + this.additionalHiddenOffsetY, 175L, AnimationUtils.FAST_OUT_LINEAR_IN_INTERPOLATOR);
     }
 
-    public void slideUp(V v) {
+    public void slideUp(@NonNull V v) {
+        if (this.currentState == 2) {
+            return;
+        }
         ViewPropertyAnimator viewPropertyAnimator = this.currentAnimator;
         if (viewPropertyAnimator != null) {
             viewPropertyAnimator.cancel();
@@ -78,5 +97,6 @@ public class HideBottomViewOnScrollBehavior<V extends View> extends CoordinatorL
         super(context, attributeSet);
         this.height = 0;
         this.currentState = 2;
+        this.additionalHiddenOffsetY = 0;
     }
 }

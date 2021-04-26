@@ -31,9 +31,9 @@ public class LiteralByteString extends ByteString {
         public byte nextByte() {
             try {
                 byte[] bArr = LiteralByteString.this.bytes;
-                int i = this.position;
-                this.position = i + 1;
-                return bArr[i];
+                int i2 = this.position;
+                this.position = i2 + 1;
+                return bArr[i2];
             } catch (ArrayIndexOutOfBoundsException e2) {
                 throw new NoSuchElementException(e2.getMessage());
             }
@@ -74,8 +74,8 @@ public class LiteralByteString extends ByteString {
     }
 
     @Override // com.google.protobuf.ByteString
-    public byte byteAt(int i) {
-        return this.bytes[i];
+    public byte byteAt(int i2) {
+        return this.bytes[i2];
     }
 
     @Override // com.google.protobuf.ByteString
@@ -84,8 +84,8 @@ public class LiteralByteString extends ByteString {
     }
 
     @Override // com.google.protobuf.ByteString
-    public void copyToInternal(byte[] bArr, int i, int i2, int i3) {
-        System.arraycopy(this.bytes, i, bArr, i2, i3);
+    public void copyToInternal(byte[] bArr, int i2, int i3, int i4) {
+        System.arraycopy(this.bytes, i2, bArr, i3, i4);
     }
 
     @Override // com.google.protobuf.ByteString
@@ -108,14 +108,14 @@ public class LiteralByteString extends ByteString {
         return false;
     }
 
-    public boolean equalsRange(LiteralByteString literalByteString, int i, int i2) {
-        if (i2 <= literalByteString.size()) {
-            if (i + i2 <= literalByteString.size()) {
+    public boolean equalsRange(LiteralByteString literalByteString, int i2, int i3) {
+        if (i3 <= literalByteString.size()) {
+            if (i2 + i3 <= literalByteString.size()) {
                 byte[] bArr = this.bytes;
                 byte[] bArr2 = literalByteString.bytes;
-                int offsetIntoBytes = getOffsetIntoBytes() + i2;
+                int offsetIntoBytes = getOffsetIntoBytes() + i3;
                 int offsetIntoBytes2 = getOffsetIntoBytes();
-                int offsetIntoBytes3 = literalByteString.getOffsetIntoBytes() + i;
+                int offsetIntoBytes3 = literalByteString.getOffsetIntoBytes() + i2;
                 while (offsetIntoBytes2 < offsetIntoBytes) {
                     if (bArr[offsetIntoBytes2] != bArr2[offsetIntoBytes3]) {
                         return false;
@@ -125,9 +125,9 @@ public class LiteralByteString extends ByteString {
                 }
                 return true;
             }
-            throw new IllegalArgumentException("Ran off end of other: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + literalByteString.size());
+            throw new IllegalArgumentException("Ran off end of other: " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + literalByteString.size());
         }
-        throw new IllegalArgumentException("Length too large: " + i2 + size());
+        throw new IllegalArgumentException("Length too large: " + i3 + size());
     }
 
     public int getOffsetIntoBytes() {
@@ -141,16 +141,16 @@ public class LiteralByteString extends ByteString {
 
     @Override // com.google.protobuf.ByteString
     public int hashCode() {
-        int i = this.hash;
-        if (i == 0) {
+        int i2 = this.hash;
+        if (i2 == 0) {
             int size = size();
-            i = partialHash(size, 0, size);
-            if (i == 0) {
-                i = 1;
+            i2 = partialHash(size, 0, size);
+            if (i2 == 0) {
+                i2 = 1;
             }
-            this.hash = i;
+            this.hash = i2;
         }
-        return i;
+        return i2;
     }
 
     @Override // com.google.protobuf.ByteString
@@ -175,21 +175,21 @@ public class LiteralByteString extends ByteString {
     }
 
     @Override // com.google.protobuf.ByteString
-    public int partialHash(int i, int i2, int i3) {
+    public int partialHash(int i2, int i3, int i4) {
         byte[] bArr = this.bytes;
-        int offsetIntoBytes = getOffsetIntoBytes() + i2;
-        int i4 = i3 + offsetIntoBytes;
-        while (offsetIntoBytes < i4) {
-            i = (i * 31) + bArr[offsetIntoBytes];
+        int offsetIntoBytes = getOffsetIntoBytes() + i3;
+        int i5 = i4 + offsetIntoBytes;
+        while (offsetIntoBytes < i5) {
+            i2 = (i2 * 31) + bArr[offsetIntoBytes];
             offsetIntoBytes++;
         }
-        return i;
+        return i2;
     }
 
     @Override // com.google.protobuf.ByteString
-    public int partialIsValidUtf8(int i, int i2, int i3) {
-        int offsetIntoBytes = getOffsetIntoBytes() + i2;
-        return Utf8.partialIsValidUtf8(i, this.bytes, offsetIntoBytes, i3 + offsetIntoBytes);
+    public int partialIsValidUtf8(int i2, int i3, int i4) {
+        int offsetIntoBytes = getOffsetIntoBytes() + i3;
+        return Utf8.partialIsValidUtf8(i2, this.bytes, offsetIntoBytes, i4 + offsetIntoBytes);
     }
 
     @Override // com.google.protobuf.ByteString
@@ -203,21 +203,21 @@ public class LiteralByteString extends ByteString {
     }
 
     @Override // com.google.protobuf.ByteString
-    public ByteString substring(int i, int i2) {
-        if (i >= 0) {
-            if (i2 > size()) {
-                throw new IndexOutOfBoundsException("End index: " + i2 + " > " + size());
+    public ByteString substring(int i2, int i3) {
+        if (i2 >= 0) {
+            if (i3 > size()) {
+                throw new IndexOutOfBoundsException("End index: " + i3 + " > " + size());
             }
-            int i3 = i2 - i;
-            if (i3 >= 0) {
-                if (i3 == 0) {
+            int i4 = i3 - i2;
+            if (i4 >= 0) {
+                if (i4 == 0) {
                     return ByteString.EMPTY;
                 }
-                return new BoundedByteString(this.bytes, getOffsetIntoBytes() + i, i3);
+                return new BoundedByteString(this.bytes, getOffsetIntoBytes() + i2, i4);
             }
-            throw new IndexOutOfBoundsException("Beginning index larger than ending index: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2);
+            throw new IndexOutOfBoundsException("Beginning index larger than ending index: " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3);
         }
-        throw new IndexOutOfBoundsException("Beginning index: " + i + " < 0");
+        throw new IndexOutOfBoundsException("Beginning index: " + i2 + " < 0");
     }
 
     @Override // com.google.protobuf.ByteString

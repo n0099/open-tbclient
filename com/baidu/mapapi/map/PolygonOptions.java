@@ -7,71 +7,71 @@ import java.util.List;
 public final class PolygonOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7004a;
+    public int f7251a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bundle f7006c;
+    public Bundle f7253c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Stroke f7007d;
+    public Stroke f7254d;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<LatLng> f7009f;
+    public List<LatLng> f7256f;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7008e = -16777216;
+    public int f7255e = -16777216;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7005b = true;
+    public boolean f7252b = true;
 
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Polygon polygon = new Polygon();
-        polygon.x = this.f7005b;
-        polygon.w = this.f7004a;
-        polygon.y = this.f7006c;
-        List<LatLng> list = this.f7009f;
+        polygon.x = this.f7252b;
+        polygon.w = this.f7251a;
+        polygon.y = this.f7253c;
+        List<LatLng> list = this.f7256f;
         if (list == null || list.size() < 2) {
             throw new IllegalStateException("when you add polyline, you must at least supply 2 points");
         }
-        polygon.f7003c = this.f7009f;
-        polygon.f7002b = this.f7008e;
-        polygon.f7001a = this.f7007d;
+        polygon.f7250c = this.f7256f;
+        polygon.f7249b = this.f7255e;
+        polygon.f7248a = this.f7254d;
         return polygon;
     }
 
     public PolygonOptions extraInfo(Bundle bundle) {
-        this.f7006c = bundle;
+        this.f7253c = bundle;
         return this;
     }
 
-    public PolygonOptions fillColor(int i) {
-        this.f7008e = i;
+    public PolygonOptions fillColor(int i2) {
+        this.f7255e = i2;
         return this;
     }
 
     public Bundle getExtraInfo() {
-        return this.f7006c;
+        return this.f7253c;
     }
 
     public int getFillColor() {
-        return this.f7008e;
+        return this.f7255e;
     }
 
     public List<LatLng> getPoints() {
-        return this.f7009f;
+        return this.f7256f;
     }
 
     public Stroke getStroke() {
-        return this.f7007d;
+        return this.f7254d;
     }
 
     public int getZIndex() {
-        return this.f7004a;
+        return this.f7251a;
     }
 
     public boolean isVisible() {
-        return this.f7005b;
+        return this.f7252b;
     }
 
     public PolygonOptions points(List<LatLng> list) {
@@ -80,17 +80,17 @@ public final class PolygonOptions extends OverlayOptions {
                 if (list.contains(null)) {
                     throw new IllegalArgumentException("points list can not contains null");
                 }
-                int i = 0;
-                while (i < list.size()) {
-                    int i2 = i + 1;
-                    for (int i3 = i2; i3 < list.size(); i3++) {
-                        if (list.get(i) == list.get(i3)) {
+                int i2 = 0;
+                while (i2 < list.size()) {
+                    int i3 = i2 + 1;
+                    for (int i4 = i3; i4 < list.size(); i4++) {
+                        if (list.get(i2) == list.get(i4)) {
                             throw new IllegalArgumentException("points list can not has same points");
                         }
                     }
-                    i = i2;
+                    i2 = i3;
                 }
-                this.f7009f = list;
+                this.f7256f = list;
                 return this;
             }
             throw new IllegalArgumentException("points count can not less than three");
@@ -99,17 +99,17 @@ public final class PolygonOptions extends OverlayOptions {
     }
 
     public PolygonOptions stroke(Stroke stroke) {
-        this.f7007d = stroke;
+        this.f7254d = stroke;
         return this;
     }
 
     public PolygonOptions visible(boolean z) {
-        this.f7005b = z;
+        this.f7252b = z;
         return this;
     }
 
-    public PolygonOptions zIndex(int i) {
-        this.f7004a = i;
+    public PolygonOptions zIndex(int i2) {
+        this.f7251a = i2;
         return this;
     }
 }

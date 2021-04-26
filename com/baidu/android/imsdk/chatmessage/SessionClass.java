@@ -31,19 +31,19 @@ public class SessionClass {
         this.avatarurl = str;
     }
 
-    public void setShow(int i) {
-        this.show = i;
+    public void setShow(int i2) {
+        this.show = i2;
     }
 
     public void setTitle(String str) {
         this.title = str;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 
-    public void setUnread(int i) {
-        this.unreadcount = i;
+    public void setUnread(int i2) {
+        this.unreadcount = i2;
     }
 }

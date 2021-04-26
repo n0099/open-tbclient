@@ -84,18 +84,18 @@ public class ChatUserManager extends BaseManager {
         return false;
     }
 
-    public static void setUserBlack(Context context, long j, int i, IUserPrivacyListener iUserPrivacyListener) {
+    public static void setUserBlack(Context context, long j, int i2, IUserPrivacyListener iUserPrivacyListener) {
         if (BaseManager.isNullContext(context)) {
             return;
         }
-        ChatUserManagerImpl.getInstance(context).setUserPrivacy(j, -1, i, iUserPrivacyListener);
+        ChatUserManagerImpl.getInstance(context).setUserPrivacy(j, -1, i2, iUserPrivacyListener);
     }
 
-    public static void setUserDisturb(Context context, long j, int i, IUserPrivacyListener iUserPrivacyListener) {
+    public static void setUserDisturb(Context context, long j, int i2, IUserPrivacyListener iUserPrivacyListener) {
         if (BaseManager.isNullContext(context)) {
             return;
         }
-        ChatUserManagerImpl.getInstance(context).setUserPrivacy(j, i, -1, iUserPrivacyListener);
+        ChatUserManagerImpl.getInstance(context).setUserPrivacy(j, i2, -1, iUserPrivacyListener);
     }
 
     public static void syncUsersProfileBatch(Context context) {

@@ -18,9 +18,9 @@ public final class EncoderContext {
         byte[] bytes = str.getBytes(Charset.forName("ISO-8859-1"));
         StringBuilder sb = new StringBuilder(bytes.length);
         int length = bytes.length;
-        for (int i = 0; i < length; i++) {
-            char c2 = (char) (bytes[i] & 255);
-            if (c2 == '?' && str.charAt(i) != '?') {
+        for (int i2 = 0; i2 < length; i2++) {
+            char c2 = (char) (bytes[i2] & 255);
+            if (c2 == '?' && str.charAt(i2) != '?') {
                 throw new IllegalArgumentException("Message contains characters outside ISO-8859-1 encoding.");
             }
             sb.append(c2);
@@ -84,16 +84,16 @@ public final class EncoderContext {
         this.maxSize = dimension2;
     }
 
-    public void setSkipAtEnd(int i) {
-        this.skipAtEnd = i;
+    public void setSkipAtEnd(int i2) {
+        this.skipAtEnd = i2;
     }
 
     public void setSymbolShape(SymbolShapeHint symbolShapeHint) {
         this.shape = symbolShapeHint;
     }
 
-    public void signalEncoderChange(int i) {
-        this.newEncoding = i;
+    public void signalEncoderChange(int i2) {
+        this.newEncoding = i2;
     }
 
     public void updateSymbolInfo() {
@@ -108,10 +108,10 @@ public final class EncoderContext {
         this.codewords.append(str);
     }
 
-    public void updateSymbolInfo(int i) {
+    public void updateSymbolInfo(int i2) {
         SymbolInfo symbolInfo = this.symbolInfo;
-        if (symbolInfo == null || i > symbolInfo.getDataCapacity()) {
-            this.symbolInfo = SymbolInfo.lookup(i, this.shape, this.minSize, this.maxSize, true);
+        if (symbolInfo == null || i2 > symbolInfo.getDataCapacity()) {
+            this.symbolInfo = SymbolInfo.lookup(i2, this.shape, this.minSize, this.maxSize, true);
         }
     }
 }

@@ -20,10 +20,10 @@ public interface IRemoteServiceCallback extends IInterface {
         public static class a implements IRemoteServiceCallback {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f1653a;
+            public IBinder f1593a;
 
             public a(IBinder iBinder) {
-                this.f1653a = iBinder;
+                this.f1593a = iBinder;
             }
 
             public String a() {
@@ -32,7 +32,7 @@ public interface IRemoteServiceCallback extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f1653a;
+                return this.f1593a;
             }
 
             @Override // com.alipay.android.app.IRemoteServiceCallback
@@ -41,7 +41,7 @@ public interface IRemoteServiceCallback extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.f1653a.transact(3, obtain, obtain2, 0);
+                    this.f1593a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -58,7 +58,7 @@ public interface IRemoteServiceCallback extends IInterface {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeInt(z ? 1 : 0);
                     obtain.writeString(str);
-                    this.f1653a.transact(2, obtain, obtain2, 0);
+                    this.f1593a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -67,21 +67,21 @@ public interface IRemoteServiceCallback extends IInterface {
             }
 
             @Override // com.alipay.android.app.IRemoteServiceCallback
-            public void startActivity(String str, String str2, int i, Bundle bundle) throws RemoteException {
+            public void startActivity(String str, String str2, int i2, Bundle bundle) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    obtain.writeInt(i);
+                    obtain.writeInt(i2);
                     if (bundle != null) {
                         obtain.writeInt(1);
                         bundle.writeToParcel(obtain, 0);
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f1653a.transact(1, obtain, obtain2, 0);
+                    this.f1593a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -111,20 +111,20 @@ public interface IRemoteServiceCallback extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 == 1) {
                 parcel.enforceInterface(DESCRIPTOR);
                 startActivity(parcel.readString(), parcel.readString(), parcel.readInt(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
                 parcel2.writeNoException();
                 return true;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 parcel.enforceInterface(DESCRIPTOR);
                 payEnd(parcel.readInt() != 0, parcel.readString());
                 parcel2.writeNoException();
                 return true;
-            } else if (i != 3) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 3) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString(DESCRIPTOR);
                 return true;
@@ -142,5 +142,5 @@ public interface IRemoteServiceCallback extends IInterface {
 
     void payEnd(boolean z, String str) throws RemoteException;
 
-    void startActivity(String str, String str2, int i, Bundle bundle) throws RemoteException;
+    void startActivity(String str, String str2, int i2, Bundle bundle) throws RemoteException;
 }

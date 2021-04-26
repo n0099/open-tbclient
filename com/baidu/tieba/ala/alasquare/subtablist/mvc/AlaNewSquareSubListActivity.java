@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.atomdata.AlaNewSquareSubListActivityConfig;
 import com.baidu.ala.data.AlaSquareTabInfo;
 import com.baidu.tbadk.BaseActivity;
-import d.b.j0.t.d.g.c.a;
+import d.a.j0.t.d.g.c.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {
@@ -25,10 +25,10 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         this.mSubTypeList = intent.getStringArrayListExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_SUB_TYPE_LIST);
         AlaSquareTabInfo alaSquareTabInfo = this.mTabInfo;
         if (alaSquareTabInfo != null) {
-            int i = alaSquareTabInfo.iconType;
-            if (i == 1) {
+            int i2 = alaSquareTabInfo.iconType;
+            if (i2 == 1) {
                 this.mEntryName = alaSquareTabInfo.name;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 this.mEntryName = "游戏";
                 this.mLableName = alaSquareTabInfo.name;
             }
@@ -47,11 +47,11 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         a aVar = this.mAlaNewSquareSubListController;
         if (aVar != null) {
-            aVar.h(getPageContext(), i);
+            aVar.h(getPageContext(), i2);
         }
     }
 

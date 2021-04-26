@@ -47,14 +47,16 @@ public abstract class a implements c, d, am.a {
     public int N;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f28344a;
+    public final WeakReference<Context> f29213a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f28345b;
+    public final l f29214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f28346c;
-    public long i;
+    public long f29215c;
+
+    /* renamed from: i  reason: collision with root package name */
+    public long f29221i;
     public h j;
     public final ViewGroup k;
     public com.bytedance.sdk.openadsdk.core.video.d.d o;
@@ -77,19 +79,19 @@ public abstract class a implements c, d, am.a {
     public boolean C = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, Object> f28347d = null;
+    public Map<String, Object> f29216d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f28348e = 0;
+    public long f29217e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f28349f = 0;
+    public long f29218f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f28350g = false;
+    public boolean f29219g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f28351h = false;
+    public boolean f29220h = false;
     public boolean F = false;
     public boolean G = true;
     public final Runnable H = new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.c.a.2
@@ -113,7 +115,7 @@ public abstract class a implements c, d, am.a {
         public void run() {
             if (a.this.o != null) {
                 a aVar = a.this;
-                if (aVar.f28346c <= 0) {
+                if (aVar.f29215c <= 0) {
                     aVar.o.e();
                 }
                 a.this.o.f();
@@ -140,21 +142,21 @@ public abstract class a implements c, d, am.a {
     public static /* synthetic */ class AnonymousClass6 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f28357a;
+        public static final /* synthetic */ int[] f29227a;
 
         static {
             int[] iArr = new int[h.a.values().length];
-            f28357a = iArr;
+            f29227a = iArr;
             try {
                 iArr[h.a.PAUSE_VIDEO.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f28357a[h.a.RELEASE_VIDEO.ordinal()] = 2;
+                f29227a[h.a.RELEASE_VIDEO.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f28357a[h.a.START_VIDEO.ordinal()] = 3;
+                f29227a[h.a.START_VIDEO.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -164,10 +166,10 @@ public abstract class a implements c, d, am.a {
         this.N = 1;
         this.N = x.c(context);
         this.k = viewGroup;
-        this.f28344a = new WeakReference<>(context);
-        this.f28345b = lVar;
+        this.f29213a = new WeakReference<>(context);
+        this.f29214b = lVar;
         a(context);
-        this.E = ak.d(this.f28345b.ap());
+        this.E = ak.d(this.f29214b.ap());
         this.u = Build.VERSION.SDK_INT >= 17;
     }
 
@@ -194,7 +196,7 @@ public abstract class a implements c, d, am.a {
     }
 
     private boolean G() {
-        WeakReference<Context> weakReference = this.f28344a;
+        WeakReference<Context> weakReference = this.f29213a;
         return (weakReference == null || weakReference.get() == null) ? false : true;
     }
 
@@ -213,8 +215,8 @@ public abstract class a implements c, d, am.a {
     private boolean I() throws Throwable {
         com.bytedance.sdk.openadsdk.core.video.d.d dVar;
         l lVar;
-        WeakReference<Context> weakReference = this.f28344a;
-        return weakReference == null || weakReference.get() == null || L() == null || (dVar = this.o) == null || dVar.a() == null || (lVar = this.f28345b) == null || lVar.S() != null || this.f28345b.n() == 1;
+        WeakReference<Context> weakReference = this.f29213a;
+        return weakReference == null || weakReference.get() == null || L() == null || (dVar = this.o) == null || dVar.a() == null || (lVar = this.f29214b) == null || lVar.S() != null || this.f29214b.n() == 1;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:35:0x0124 A[Catch: all -> 0x0190, TryCatch #0 {all -> 0x0190, blocks: (B:3:0x0004, B:6:0x0025, B:10:0x0047, B:14:0x005d, B:20:0x0079, B:26:0x00f3, B:33:0x0107, B:35:0x0124, B:37:0x0144, B:39:0x0156, B:41:0x015e, B:45:0x0179, B:47:0x0181, B:42:0x0168, B:44:0x0170, B:48:0x018a, B:31:0x0101, B:18:0x006d), top: B:53:0x0004 }] */
@@ -225,7 +227,7 @@ public abstract class a implements c, d, am.a {
     */
     private void J() {
         try {
-            u.c("changeVideoSize", "changeVideoSize start.......mMaterialMeta.getAdSlot()=" + this.f28345b.p());
+            u.c("changeVideoSize", "changeVideoSize start.......mMaterialMeta.getAdSlot()=" + this.f29214b.p());
             if (I()) {
                 return;
             }
@@ -233,7 +235,7 @@ public abstract class a implements c, d, am.a {
             int[] b2 = al.b(p.a());
             MediaPlayer a2 = this.o.a();
             boolean z = false;
-            boolean z2 = this.f28345b.aq() == 15;
+            boolean z2 = this.f29214b.aq() == 15;
             float f2 = b2[0];
             float f3 = b2[1];
             float videoWidth = a2.getVideoWidth();
@@ -267,9 +269,9 @@ public abstract class a implements c, d, am.a {
                     f2 = videoWidth;
                     f3 = videoHeight;
                 }
-                int i = (int) f2;
-                int i2 = (int) f3;
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, i2);
+                int i2 = (int) f2;
+                int i3 = (int) f3;
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i2, i3);
                 layoutParams.addRule(13);
                 if (L() != null) {
                     if (L() instanceof TextureView) {
@@ -279,8 +281,8 @@ public abstract class a implements c, d, am.a {
                     }
                     ViewGroup.LayoutParams layoutParams2 = this.k.getLayoutParams();
                     if (layoutParams2 != null) {
-                        layoutParams2.height = i2;
-                        layoutParams2.width = i;
+                        layoutParams2.height = i3;
+                        layoutParams2.width = i2;
                         this.k.setLayoutParams(layoutParams2);
                     }
                 }
@@ -294,9 +296,9 @@ public abstract class a implements c, d, am.a {
             u.c("changeVideoSize", "适配后宽高：videoHeight=" + videoHeight + ",videoWidth=" + videoWidth);
             if (z) {
             }
-            int i3 = (int) f2;
-            int i22 = (int) f3;
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i3, i22);
+            int i22 = (int) f2;
+            int i32 = (int) f3;
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i22, i32);
             layoutParams3.addRule(13);
             if (L() != null) {
             }
@@ -309,8 +311,8 @@ public abstract class a implements c, d, am.a {
     private void K() {
         int[] b2;
         try {
-            if (this.f28344a != null && this.f28344a.get() != null && L() != null && this.o != null && this.o.a() != null && this.f28345b != null) {
-                boolean z = this.f28345b.aq() == 15;
+            if (this.f29213a != null && this.f29213a.get() != null && L() != null && this.o != null && this.o.a() != null && this.f29214b != null) {
+                boolean z = this.f29214b.aq() == 15;
                 float f2 = al.b(p.a())[1];
                 MediaPlayer a2 = this.o.a();
                 a(b2[0], f2, a2.getVideoWidth(), a2.getVideoHeight(), z);
@@ -323,7 +325,7 @@ public abstract class a implements c, d, am.a {
 
     private com.bytedance.sdk.openadsdk.core.video.renderview.b L() {
         com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar;
-        WeakReference<Context> weakReference = this.f28344a;
+        WeakReference<Context> weakReference = this.f29213a;
         if (weakReference == null || weakReference.get() == null || (hVar = this.j) == null) {
             return null;
         }
@@ -348,13 +350,13 @@ public abstract class a implements c, d, am.a {
 
     public Map<String, Object> B() {
         HashMap hashMap = new HashMap();
-        Map<String, Object> map = this.f28347d;
+        Map<String, Object> map = this.f29216d;
         if (map != null) {
             for (Map.Entry<String, Object> entry : map.entrySet()) {
                 hashMap.put(entry.getKey(), entry.getValue());
             }
         }
-        Map<String, Object> a2 = ak.a(this.f28349f, this.f28345b, u());
+        Map<String, Object> a2 = ak.a(this.f29218f, this.f29214b, u());
         if (a2 != null) {
             for (Map.Entry<String, Object> entry2 : a2.entrySet()) {
                 hashMap.put(entry2.getKey(), entry2.getValue());
@@ -365,13 +367,13 @@ public abstract class a implements c, d, am.a {
 
     public Map<String, Object> C() {
         HashMap hashMap = new HashMap();
-        Map<String, Object> a2 = ak.a(this.f28345b, o(), u());
+        Map<String, Object> a2 = ak.a(this.f29214b, o(), u());
         if (a2 != null) {
             for (Map.Entry<String, Object> entry : a2.entrySet()) {
                 hashMap.put(entry.getKey(), entry.getValue());
             }
         }
-        Map<String, Object> map = this.f28347d;
+        Map<String, Object> map = this.f29216d;
         if (map != null) {
             for (Map.Entry<String, Object> entry2 : map.entrySet()) {
                 hashMap.put(entry2.getKey(), entry2.getValue());
@@ -382,17 +384,17 @@ public abstract class a implements c, d, am.a {
 
     public abstract int a();
 
-    public abstract void a(int i, int i2);
+    public abstract void a(int i2, int i3);
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
-    public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+    public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view, boolean z) {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void a(c.InterfaceC0317c interfaceC0317c) {
+    public void a(c.InterfaceC0310c interfaceC0310c) {
     }
 
     public abstract void b();
@@ -507,12 +509,12 @@ public abstract class a implements c, d, am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
     public int r() {
-        return com.bytedance.sdk.openadsdk.core.video.e.a.a(this.r, this.f28346c);
+        return com.bytedance.sdk.openadsdk.core.video.e.a.a(this.r, this.f29215c);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
     public long s() {
-        return this.f28346c;
+        return this.f29215c;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
@@ -563,7 +565,7 @@ public abstract class a implements c, d, am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
     public void c(long j) {
-        this.f28346c = j;
+        this.f29215c = j;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
@@ -583,7 +585,7 @@ public abstract class a implements c, d, am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
     public void h() {
-        this.i = p();
+        this.f29221i = p();
         com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
         if (dVar != null) {
             dVar.b();
@@ -644,7 +646,7 @@ public abstract class a implements c, d, am.a {
         EnumSet noneOf = EnumSet.noneOf(b.a.class);
         noneOf.add(b.a.hideCloseBtn);
         noneOf.add(b.a.hideBackBtn);
-        com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = new com.bytedance.sdk.openadsdk.core.video.nativevideo.h(context.getApplicationContext(), LayoutInflater.from(context.getApplicationContext()).inflate(ad.f(context, "tt_video_play_layout_for_live"), (ViewGroup) null, false), true, noneOf, this.f28345b, this);
+        com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = new com.bytedance.sdk.openadsdk.core.video.nativevideo.h(context.getApplicationContext(), LayoutInflater.from(context.getApplicationContext()).inflate(ad.f(context, "tt_video_play_layout_for_live"), (ViewGroup) null, false), true, noneOf, this.f29214b, this);
         this.j = hVar;
         hVar.a(this);
     }
@@ -654,7 +656,7 @@ public abstract class a implements c, d, am.a {
         this.z = j;
     }
 
-    private void b(int i) {
+    private void b(int i2) {
         if (G() && this.j != null) {
             this.l.removeCallbacks(this.I);
             this.j.w();
@@ -662,17 +664,17 @@ public abstract class a implements c, d, am.a {
             this.n = currentTimeMillis;
             c.a aVar = this.p;
             if (aVar != null) {
-                aVar.a(currentTimeMillis, com.bytedance.sdk.openadsdk.core.video.e.a.a(this.q, this.f28346c));
+                aVar.a(currentTimeMillis, com.bytedance.sdk.openadsdk.core.video.e.a.a(this.q, this.f29215c));
             }
-            if (ak.d(this.f28345b)) {
-                this.j.a(this.f28345b, this.f28344a, true);
+            if (ak.d(this.f29214b)) {
+                this.j.a(this.f29214b, this.f29213a, true);
             }
             if (!this.w) {
                 b();
                 this.w = true;
-                long j = this.f28346c;
+                long j = this.f29215c;
                 a(j, j);
-                long j2 = this.f28346c;
+                long j2 = this.f29215c;
                 this.q = j2;
                 this.r = j2;
             }
@@ -689,8 +691,8 @@ public abstract class a implements c, d, am.a {
         a(true);
     }
 
-    private boolean c(int i) {
-        return this.j.b(i);
+    private boolean c(int i2) {
+        return this.j.b(i2);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
@@ -708,13 +710,13 @@ public abstract class a implements c, d, am.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public boolean a(String str, String str2, int i, int i2, List<String> list, String str3, long j, boolean z) {
+    public boolean a(String str, String str2, int i2, int i3, List<String> list, String str3, long j, boolean z) {
         u.b("BaseVideoController", "video local url " + str);
         if (TextUtils.isEmpty(str)) {
             u.f("BaseVideoController", "No video info");
             return false;
         }
-        this.f28350g = !str.startsWith("http");
+        this.f29219g = !str.startsWith("http");
         this.y = z;
         if (j > 0) {
             this.q = j;
@@ -728,7 +730,7 @@ public abstract class a implements c, d, am.a {
         if (hVar != null) {
             hVar.e();
             this.j.d();
-            this.j.c(i, i2);
+            this.j.c(i2, i3);
             this.j.c(this.k);
         }
         if (this.o == null) {
@@ -743,7 +745,7 @@ public abstract class a implements c, d, am.a {
         }
     }
 
-    private boolean d(int i) {
+    private boolean d(int i2) {
         l lVar;
         int c2 = x.c(p.a());
         if (c2 != 4 && c2 != 0) {
@@ -751,8 +753,8 @@ public abstract class a implements c, d, am.a {
             this.A = true;
             this.B = false;
             com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = this.j;
-            if (hVar != null && (lVar = this.f28345b) != null) {
-                return hVar.a(i, lVar.X(), true);
+            if (hVar != null && (lVar = this.f29214b) != null) {
+                return hVar.a(i2, lVar.X(), true);
             }
         } else if (c2 == 4) {
             this.A = false;
@@ -772,7 +774,7 @@ public abstract class a implements c, d, am.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
-    public void b(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, int i) {
+    public void b(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, int i2) {
         if (this.o != null) {
             F();
         }
@@ -800,7 +802,7 @@ public abstract class a implements c, d, am.a {
     public void b(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view, boolean z, boolean z2) {
         if (G()) {
             g(!this.K);
-            if (!(this.f28344a.get() instanceof Activity)) {
+            if (!(this.f29213a.get() instanceof Activity)) {
                 u.b("BaseVideoController", "context is not activity, not support this function.");
                 return;
             }
@@ -829,21 +831,21 @@ public abstract class a implements c, d, am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
     public void a(Map<String, Object> map) {
-        this.f28347d = map;
+        this.f29216d = map;
     }
 
     private void a(String str) throws Exception {
         if (this.o != null) {
             com.bytedance.sdk.openadsdk.core.video.b.a aVar = new com.bytedance.sdk.openadsdk.core.video.b.a();
-            aVar.f28340a = str;
-            l lVar = this.f28345b;
+            aVar.f29209a = str;
+            l lVar = this.f29214b;
             if (lVar != null) {
                 if (lVar.X() != null) {
-                    aVar.f28343d = this.f28345b.X().l();
+                    aVar.f29212d = this.f29214b.X().l();
                 }
-                aVar.f28341b = String.valueOf(ak.d(this.f28345b.ap()));
+                aVar.f29210b = String.valueOf(ak.d(this.f29214b.ap()));
             }
-            aVar.f28342c = 1;
+            aVar.f29211c = 1;
             this.o.a(aVar);
         }
         this.m = System.currentTimeMillis();
@@ -930,17 +932,17 @@ public abstract class a implements c, d, am.a {
     @Override // com.bytedance.sdk.openadsdk.utils.am.a
     public void a(Message message) {
         WeakReference<Context> weakReference;
-        if (this.j == null || message == null || (weakReference = this.f28344a) == null || weakReference.get() == null) {
+        if (this.j == null || message == null || (weakReference = this.f29213a) == null || weakReference.get() == null) {
             return;
         }
-        int i = message.what;
-        if (i == 108) {
+        int i2 = message.what;
+        if (i2 == 108) {
             Object obj = message.obj;
             if (!(obj instanceof Long) || ((Long) obj).longValue() <= 0) {
                 return;
             }
-            this.f28346c = ((Long) message.obj).longValue();
-        } else if (i == 109) {
+            this.f29215c = ((Long) message.obj).longValue();
+        } else if (i2 == 109) {
             Object obj2 = message.obj;
             if (obj2 instanceof Long) {
                 long longValue = ((Long) obj2).longValue();
@@ -950,21 +952,21 @@ public abstract class a implements c, d, am.a {
                     longValue = j;
                 }
                 this.r = longValue;
-                a(this.q, this.f28346c);
+                a(this.q, this.f29215c);
             }
-        } else if (i == 308) {
+        } else if (i2 == 308) {
             a(308, 0);
-        } else if (i == 311) {
-            l lVar = this.f28345b;
+        } else if (i2 == 311) {
+            l lVar = this.f29214b;
             if (lVar != null && lVar.l() == 0) {
                 K();
             } else {
                 J();
             }
-        } else if (i != 314) {
-            switch (i) {
+        } else if (i2 != 314) {
+            switch (i2) {
                 case 302:
-                    b(i);
+                    b(i2);
                     return;
                 case 303:
                     a(message.arg1, message.arg2);
@@ -975,29 +977,29 @@ public abstract class a implements c, d, am.a {
                     }
                     c.a aVar = this.p;
                     if (aVar != null) {
-                        aVar.b(this.n, com.bytedance.sdk.openadsdk.core.video.e.a.a(this.q, this.f28346c));
+                        aVar.b(this.n, com.bytedance.sdk.openadsdk.core.video.e.a.a(this.q, this.f29215c));
                         return;
                     }
                     return;
                 case 304:
-                    int i2 = message.arg1;
+                    int i3 = message.arg1;
                     com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar2 = this.j;
                     if (hVar2 != null) {
-                        if (i2 == 3 || i2 == 702) {
+                        if (i3 == 3 || i3 == 702) {
                             this.j.w();
                             this.l.removeCallbacks(this.I);
                             this.F = false;
-                        } else if (i2 == 701) {
+                        } else if (i3 == 701) {
                             hVar2.t();
                             D();
                             this.F = true;
                         }
                     }
-                    if (this.u && i2 == 3 && !this.v) {
-                        this.f28349f = SystemClock.elapsedRealtime() - this.f28348e;
+                    if (this.u && i3 == 3 && !this.v) {
+                        this.f29218f = SystemClock.elapsedRealtime() - this.f29217e;
                         e();
                         this.v = true;
-                        this.f28351h = true;
+                        this.f29220h = true;
                         return;
                     }
                     return;
@@ -1007,7 +1009,7 @@ public abstract class a implements c, d, am.a {
                         amVar.removeCallbacks(this.I);
                     }
                     if (!this.u && !this.v) {
-                        this.f28349f = SystemClock.elapsedRealtime() - this.f28348e;
+                        this.f29218f = SystemClock.elapsedRealtime() - this.f29217e;
                         f();
                         this.v = true;
                     }
@@ -1029,7 +1031,7 @@ public abstract class a implements c, d, am.a {
                     return;
             }
         } else {
-            this.f28348e = SystemClock.elapsedRealtime();
+            this.f29217e = SystemClock.elapsedRealtime();
         }
     }
 
@@ -1039,8 +1041,8 @@ public abstract class a implements c, d, am.a {
             u.b("changeVideoSize", "screenWidth=" + f2 + ",screenHeight=" + f3);
             u.b("changeVideoSize", "videoHeight=" + f5 + ",videoWidth=" + f4);
             if (f4 <= 0.0f || f5 <= 0.0f) {
-                f4 = this.f28345b.X().c();
-                f5 = this.f28345b.X().b();
+                f4 = this.f29214b.X().c();
+                f5 = this.f29214b.X().b();
             }
             if (f5 > 0.0f && f4 > 0.0f) {
                 if (z) {
@@ -1100,19 +1102,19 @@ public abstract class a implements c, d, am.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
-    public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, int i) {
+    public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, int i2) {
         if (this.o == null) {
             return;
         }
         E();
-        a(this.L, c(i));
+        a(this.L, c(i2));
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
-    public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, int i, boolean z) {
+    public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, int i2, boolean z) {
         if (G()) {
-            long l = (((float) (i * this.f28346c)) * 1.0f) / ad.l(this.f28344a.get(), "tt_video_progress_max");
-            if (this.f28346c > 0) {
+            long l = (((float) (i2 * this.f29215c)) * 1.0f) / ad.l(this.f29213a.get(), "tt_video_progress_max");
+            if (this.f29215c > 0) {
                 this.L = (int) l;
             } else {
                 this.L = 0L;
@@ -1126,7 +1128,7 @@ public abstract class a implements c, d, am.a {
 
     private void a(long j, long j2) {
         this.q = j;
-        this.f28346c = j2;
+        this.f29215c = j2;
         this.j.a(j, j2);
         this.j.a(com.bytedance.sdk.openadsdk.core.video.e.a.a(j, j2));
         try {
@@ -1138,14 +1140,14 @@ public abstract class a implements c, d, am.a {
         }
     }
 
-    public void a(int i) {
+    public void a(int i2) {
         if (G()) {
-            boolean z = i == 0 || i == 8;
-            Context context = this.f28344a.get();
+            boolean z = i2 == 0 || i2 == 8;
+            Context context = this.f29213a.get();
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 try {
-                    activity.setRequestedOrientation(i);
+                    activity.setRequestedOrientation(i2);
                 } catch (Throwable unused) {
                 }
                 if (!z) {
@@ -1215,12 +1217,12 @@ public abstract class a implements c, d, am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.d
     public void a(h.a aVar, String str) {
-        int i = AnonymousClass6.f28357a[aVar.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass6.f29227a[aVar.ordinal()];
+        if (i2 == 1) {
             h();
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             a(true);
-        } else if (i != 3) {
+        } else if (i2 != 3) {
         } else {
             k();
             this.A = false;

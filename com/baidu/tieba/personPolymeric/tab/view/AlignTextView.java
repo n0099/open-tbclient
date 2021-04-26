@@ -7,8 +7,8 @@ import android.text.Layout;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import d.b.c.e.p.k;
-/* loaded from: classes3.dex */
+import d.a.c.e.p.k;
+/* loaded from: classes4.dex */
 public class AlignTextView extends TextView {
     public AlignTextView(Context context) {
         super(context);
@@ -28,8 +28,8 @@ public class AlignTextView extends TextView {
             float measureText = getPaint().measureText(str);
             float paddingLeft = getPaddingLeft();
             float measuredWidth = (((getMeasuredWidth() - measureText) - getPaddingLeft()) - getPaddingRight()) / (str.length() - 1);
-            for (int i = 0; i < str.length(); i++) {
-                String valueOf = String.valueOf(str.charAt(i));
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                String valueOf = String.valueOf(str.charAt(i2));
                 float measureText2 = getPaint().measureText(valueOf);
                 canvas.drawText(valueOf, paddingLeft, lineBaseline, getPaint());
                 paddingLeft += measureText2 + measuredWidth;
@@ -40,17 +40,17 @@ public class AlignTextView extends TextView {
     }
 
     @Override // android.widget.TextView
-    public void setTextColor(int i) {
-        super.setTextColor(i);
-        getPaint().setColor(i);
+    public void setTextColor(int i2) {
+        super.setTextColor(i2);
+        getPaint().setColor(i2);
     }
 
     public AlignTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 
-    public AlignTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public AlignTextView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 
     @Override // android.widget.TextView

@@ -17,9 +17,9 @@ public final class CipherSuite {
         @Override // java.util.Comparator
         public int compare(String str, String str2) {
             int min = Math.min(str.length(), str2.length());
-            for (int i = 4; i < min; i++) {
-                char charAt = str.charAt(i);
-                char charAt2 = str2.charAt(i);
+            for (int i2 = 4; i2 < min; i2++) {
+                char charAt = str.charAt(i2);
+                char charAt2 = str2.charAt(i2);
                 if (charAt != charAt2) {
                     return charAt < charAt2 ? -1 : 1;
                 }
@@ -175,7 +175,7 @@ public final class CipherSuite {
         return Collections.unmodifiableList(arrayList);
     }
 
-    public static CipherSuite of(String str, int i) {
+    public static CipherSuite of(String str, int i2) {
         return forJavaName(str);
     }
 

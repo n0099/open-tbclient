@@ -46,11 +46,11 @@ public class FileUtils {
                 return str5.startsWith(str2);
             }
         })) != null) {
-            for (int i = 0; i < list.length; i++) {
-                if (str4.equals(list[i])) {
+            for (int i2 = 0; i2 < list.length; i2++) {
+                if (str4.equals(list[i2])) {
                     return null;
                 }
-                new File(file, list[i]).delete();
+                new File(file, list[i2]).delete();
             }
             return str4;
         }

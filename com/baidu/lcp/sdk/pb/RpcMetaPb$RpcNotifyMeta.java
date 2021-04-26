@@ -43,16 +43,16 @@ public final class RpcMetaPb$RpcNotifyMeta extends GeneratedMessageLite implemen
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$RpcNotifyMeta, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6444e;
+        public int f6633e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6445f;
+        public long f6634f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f6446g;
+        public long f6635g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f6447h;
+        public long f6636h;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -98,31 +98,31 @@ public final class RpcMetaPb$RpcNotifyMeta extends GeneratedMessageLite implemen
         /* renamed from: n */
         public RpcMetaPb$RpcNotifyMeta buildPartial() {
             RpcMetaPb$RpcNotifyMeta rpcMetaPb$RpcNotifyMeta = new RpcMetaPb$RpcNotifyMeta(this);
-            int i = this.f6444e;
-            int i2 = (i & 1) != 1 ? 0 : 1;
-            rpcMetaPb$RpcNotifyMeta.serviceId = this.f6445f;
-            if ((i & 2) == 2) {
-                i2 |= 2;
+            int i2 = this.f6633e;
+            int i3 = (i2 & 1) != 1 ? 0 : 1;
+            rpcMetaPb$RpcNotifyMeta.serviceId = this.f6634f;
+            if ((i2 & 2) == 2) {
+                i3 |= 2;
             }
-            rpcMetaPb$RpcNotifyMeta.methodId = this.f6446g;
-            if ((i & 4) == 4) {
-                i2 |= 4;
+            rpcMetaPb$RpcNotifyMeta.methodId = this.f6635g;
+            if ((i2 & 4) == 4) {
+                i3 |= 4;
             }
-            rpcMetaPb$RpcNotifyMeta.logId = this.f6447h;
-            rpcMetaPb$RpcNotifyMeta.bitField0 = i2;
+            rpcMetaPb$RpcNotifyMeta.logId = this.f6636h;
+            rpcMetaPb$RpcNotifyMeta.bitField0 = i3;
             return rpcMetaPb$RpcNotifyMeta;
         }
 
         public b o() {
             super.clear();
-            this.f6445f = 0L;
-            int i = this.f6444e & (-2);
-            this.f6444e = i;
-            this.f6446g = 0L;
-            int i2 = i & (-3);
-            this.f6444e = i2;
-            this.f6447h = 0L;
-            this.f6444e = i2 & (-5);
+            this.f6634f = 0L;
+            int i2 = this.f6633e & (-2);
+            this.f6633e = i2;
+            this.f6635g = 0L;
+            int i3 = i2 & (-3);
+            this.f6633e = i3;
+            this.f6636h = 0L;
+            this.f6633e = i3 & (-5);
             return this;
         }
 
@@ -193,20 +193,20 @@ public final class RpcMetaPb$RpcNotifyMeta extends GeneratedMessageLite implemen
         }
 
         public b u(long j) {
-            this.f6444e |= 4;
-            this.f6447h = j;
+            this.f6633e |= 4;
+            this.f6636h = j;
             return this;
         }
 
         public b v(long j) {
-            this.f6444e |= 2;
-            this.f6446g = j;
+            this.f6633e |= 2;
+            this.f6635g = j;
             return this;
         }
 
         public b w(long j) {
-            this.f6444e |= 1;
-            this.f6445f = j;
+            this.f6633e |= 1;
+            this.f6634f = j;
             return this;
         }
 
@@ -274,9 +274,9 @@ public final class RpcMetaPb$RpcNotifyMeta extends GeneratedMessageLite implemen
 
     @Override // com.google.protobuf.MessageLite
     public int getSerializedSize() {
-        int i = this.memoizedSerializedSize;
-        if (i != -1) {
-            return i;
+        int i2 = this.memoizedSerializedSize;
+        if (i2 != -1) {
+            return i2;
         }
         int computeInt64Size = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.serviceId) : 0;
         if ((this.bitField0 & 2) == 2) {

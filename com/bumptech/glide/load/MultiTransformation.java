@@ -34,10 +34,10 @@ public class MultiTransformation<T> implements Transformation<T> {
 
     @Override // com.bumptech.glide.load.Transformation
     @NonNull
-    public Resource<T> transform(@NonNull Context context, @NonNull Resource<T> resource, int i, int i2) {
+    public Resource<T> transform(@NonNull Context context, @NonNull Resource<T> resource, int i2, int i3) {
         Resource<T> resource2 = resource;
         for (Transformation<T> transformation : this.transformations) {
-            Resource<T> transform = transformation.transform(context, resource2, i, i2);
+            Resource<T> transform = transformation.transform(context, resource2, i2, i3);
             if (resource2 != null && !resource2.equals(resource) && !resource2.equals(transform)) {
                 resource2.recycle();
             }

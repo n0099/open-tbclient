@@ -10,22 +10,22 @@ public class RouteStep implements Parcelable {
     public static final Parcelable.Creator<RouteStep> CREATOR = new k();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7198a;
+    public int f7454a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7199b;
+    public int f7455b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7200c;
+    public String f7456c;
     public List<LatLng> mWayPoints;
 
     public RouteStep() {
     }
 
     public RouteStep(Parcel parcel) {
-        this.f7198a = parcel.readInt();
-        this.f7199b = parcel.readInt();
-        this.f7200c = parcel.readString();
+        this.f7454a = parcel.readInt();
+        this.f7455b = parcel.readInt();
+        this.f7456c = parcel.readString();
         ArrayList arrayList = new ArrayList();
         this.mWayPoints = arrayList;
         parcel.readList(arrayList, LatLng.class.getClassLoader());
@@ -40,31 +40,31 @@ public class RouteStep implements Parcelable {
     }
 
     public int getDistance() {
-        return this.f7198a;
+        return this.f7454a;
     }
 
     public int getDuration() {
-        return this.f7199b;
+        return this.f7455b;
     }
 
     public String getName() {
-        return this.f7200c;
+        return this.f7456c;
     }
 
     public List<LatLng> getWayPoints() {
         return this.mWayPoints;
     }
 
-    public void setDistance(int i) {
-        this.f7198a = i;
+    public void setDistance(int i2) {
+        this.f7454a = i2;
     }
 
-    public void setDuration(int i) {
-        this.f7199b = i;
+    public void setDuration(int i2) {
+        this.f7455b = i2;
     }
 
     public void setName(String str) {
-        this.f7200c = str;
+        this.f7456c = str;
     }
 
     public void setWayPoints(List<LatLng> list) {
@@ -72,10 +72,10 @@ public class RouteStep implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f7198a);
-        parcel.writeInt(this.f7199b);
-        parcel.writeString(this.f7200c);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeInt(this.f7454a);
+        parcel.writeInt(this.f7455b);
+        parcel.writeString(this.f7456c);
         parcel.writeList(this.mWayPoints);
     }
 }

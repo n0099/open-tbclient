@@ -58,9 +58,9 @@ public final class DiskCacheWriteLocker {
         synchronized (this) {
             writeLock = (WriteLock) Preconditions.checkNotNull(this.locks.get(str));
             if (writeLock.interestedThreads >= 1) {
-                int i = writeLock.interestedThreads - 1;
-                writeLock.interestedThreads = i;
-                if (i == 0) {
+                int i2 = writeLock.interestedThreads - 1;
+                writeLock.interestedThreads = i2;
+                if (i2 == 0) {
                     WriteLock remove = this.locks.remove(str);
                     if (remove.equals(writeLock)) {
                         this.writeLockPool.offer(remove);

@@ -16,14 +16,14 @@ public class BIMKickResponseRtcInfo extends BIMKickRequestRtcInfo {
         return this.mKickedStatus;
     }
 
-    public void setBIMKickedStatus(int i) {
-        this.mKickedStatus = i;
+    public void setBIMKickedStatus(int i2) {
+        this.mKickedStatus = i2;
     }
 
     @Override // com.baidu.android.imrtc.send.BIMKickRequestRtcInfo, com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
-        BIMKickResponseRtcInfo bIMKickResponseRtcInfo = new BIMKickResponseRtcInfo(super.toRtcInfo(i, str, str2));
+    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
+        BIMKickResponseRtcInfo bIMKickResponseRtcInfo = new BIMKickResponseRtcInfo(super.toRtcInfo(i2, str, str2));
         try {
             bIMKickResponseRtcInfo.setBIMKickedStatus(new JSONObject(str2).optInt("status"));
         } catch (Exception e2) {

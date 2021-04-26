@@ -1,5 +1,6 @@
 package androidx.transition;
 
+import android.annotation.SuppressLint;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,8 @@ import androidx.fragment.app.FragmentTransitionImpl;
 import androidx.transition.Transition;
 import java.util.ArrayList;
 import java.util.List;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@SuppressLint({"RestrictedApi"})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class FragmentTransitionSupport extends FragmentTransitionImpl {
     public static boolean hasSimpleTarget(Transition transition) {
@@ -29,20 +31,20 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
         if (transition == null) {
             return;
         }
-        int i = 0;
+        int i2 = 0;
         if (transition instanceof TransitionSet) {
             TransitionSet transitionSet = (TransitionSet) transition;
             int transitionCount = transitionSet.getTransitionCount();
-            while (i < transitionCount) {
-                addTargets(transitionSet.getTransitionAt(i), arrayList);
-                i++;
+            while (i2 < transitionCount) {
+                addTargets(transitionSet.getTransitionAt(i2), arrayList);
+                i2++;
             }
         } else if (hasSimpleTarget(transition) || !FragmentTransitionImpl.isNullOrEmpty(transition.getTargets())) {
         } else {
             int size = arrayList.size();
-            while (i < size) {
-                transition.addTarget(arrayList.get(i));
-                i++;
+            while (i2 < size) {
+                transition.addTarget(arrayList.get(i2));
+                i2++;
             }
         }
     }
@@ -111,21 +113,21 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
     @Override // androidx.fragment.app.FragmentTransitionImpl
     public void replaceTargets(Object obj, ArrayList<View> arrayList, ArrayList<View> arrayList2) {
         Transition transition = (Transition) obj;
-        int i = 0;
+        int i2 = 0;
         if (transition instanceof TransitionSet) {
             TransitionSet transitionSet = (TransitionSet) transition;
             int transitionCount = transitionSet.getTransitionCount();
-            while (i < transitionCount) {
-                replaceTargets(transitionSet.getTransitionAt(i), arrayList, arrayList2);
-                i++;
+            while (i2 < transitionCount) {
+                replaceTargets(transitionSet.getTransitionAt(i2), arrayList, arrayList2);
+                i2++;
             }
         } else if (!hasSimpleTarget(transition)) {
             List<View> targets = transition.getTargets();
             if (targets.size() == arrayList.size() && targets.containsAll(arrayList)) {
                 int size = arrayList2 == null ? 0 : arrayList2.size();
-                while (i < size) {
-                    transition.addTarget(arrayList2.get(i));
-                    i++;
+                while (i2 < size) {
+                    transition.addTarget(arrayList2.get(i2));
+                    i2++;
                 }
                 for (int size2 = arrayList.size() - 1; size2 >= 0; size2--) {
                     transition.removeTarget(arrayList.get(size2));
@@ -146,8 +148,8 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
                 transition.removeListener(this);
                 view.setVisibility(8);
                 int size = arrayList.size();
-                for (int i = 0; i < size; i++) {
-                    ((View) arrayList.get(i)).setVisibility(0);
+                for (int i2 = 0; i2 < size; i2++) {
+                    ((View) arrayList.get(i2)).setVisibility(0);
                 }
             }
 
@@ -167,24 +169,13 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
 
     @Override // androidx.fragment.app.FragmentTransitionImpl
     public void scheduleRemoveTargets(Object obj, final Object obj2, final ArrayList<View> arrayList, final Object obj3, final ArrayList<View> arrayList2, final Object obj4, final ArrayList<View> arrayList3) {
-        ((Transition) obj).addListener(new Transition.TransitionListener() { // from class: androidx.transition.FragmentTransitionSupport.3
-            @Override // androidx.transition.Transition.TransitionListener
-            public void onTransitionCancel(@NonNull Transition transition) {
-            }
-
-            @Override // androidx.transition.Transition.TransitionListener
+        ((Transition) obj).addListener(new TransitionListenerAdapter() { // from class: androidx.transition.FragmentTransitionSupport.3
+            @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
             public void onTransitionEnd(@NonNull Transition transition) {
+                transition.removeListener(this);
             }
 
-            @Override // androidx.transition.Transition.TransitionListener
-            public void onTransitionPause(@NonNull Transition transition) {
-            }
-
-            @Override // androidx.transition.Transition.TransitionListener
-            public void onTransitionResume(@NonNull Transition transition) {
-            }
-
-            @Override // androidx.transition.Transition.TransitionListener
+            @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
             public void onTransitionStart(@NonNull Transition transition) {
                 Object obj5 = obj2;
                 if (obj5 != null) {
@@ -222,8 +213,8 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
         List<View> targets = transitionSet.getTargets();
         targets.clear();
         int size = arrayList.size();
-        for (int i = 0; i < size; i++) {
-            FragmentTransitionImpl.bfsAddViewChildren(targets, arrayList.get(i));
+        for (int i2 = 0; i2 < size; i2++) {
+            FragmentTransitionImpl.bfsAddViewChildren(targets, arrayList.get(i2));
         }
         targets.add(view);
         arrayList.add(view);

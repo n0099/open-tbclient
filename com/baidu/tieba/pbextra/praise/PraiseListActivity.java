@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PraiseListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
-import d.b.c.e.p.k;
-import d.b.i0.z0.v;
-import d.b.j0.e2.c.a;
-import d.b.j0.e2.c.d;
-import d.b.j0.e2.c.e;
+import d.a.c.e.p.k;
+import d.a.i0.z0.v;
+import d.a.j0.e2.c.a;
+import d.a.j0.e2.c.d;
+import d.a.j0.e2.c.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements d.b, View.OnClickListener, AdapterView.OnItemClickListener {
@@ -37,8 +37,8 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        this.mZanListView.d(getLayoutMode(), i);
+    public void onChangeSkinType(int i2) {
+        this.mZanListView.d(getLayoutMode(), i2);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
@@ -50,9 +50,9 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
                 return;
             }
             v.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.mZanListModel.k(), null, "praise_list"));
-        } else if (view != this.mZanListView.e() || this.mZanListView.h()) {
+        } else if (view != this.mZanListView.e() || this.mZanListView.g()) {
         } else {
-            this.mZanListView.l(true);
+            this.mZanListView.k(true);
             this.mZanListModel.m(this.pageType);
         }
     }
@@ -80,7 +80,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         this.mZanListModel.t(z);
         e eVar = new e(this, this.mZanListModel.i());
         this.mZanListView = eVar;
-        eVar.l(false);
+        eVar.k(false);
         this.mZanListModel.m(this.pageType);
     }
 
@@ -91,31 +91,31 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        a j2 = this.mZanListModel.j(i);
+    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+        a j2 = this.mZanListModel.j(i2);
         if (j2 != null) {
             v.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j2.c(), j2.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
         }
     }
 
-    @Override // d.b.j0.e2.c.d.b
+    @Override // d.a.j0.e2.c.d.b
     public void onLoadFailed(String str) {
         if (k.isEmpty(str)) {
             str = getResources().getString(R.string.neterror);
         }
-        this.mZanListView.m();
-        this.mZanListView.k(str, this.pageType);
+        this.mZanListView.l();
+        this.mZanListView.j(str, this.pageType);
     }
 
-    @Override // d.b.j0.e2.c.d.b
-    public void onLoadSuccessed(int i, List<a> list, int i2, int i3) {
-        this.mZanListView.n(i, list, i2, i3);
+    @Override // d.a.j0.e2.c.d.b
+    public void onLoadSuccessed(int i2, List<a> list, int i3, int i4) {
+        this.mZanListView.m(i2, list, i3, i4);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.mZanListView.i();
+        this.mZanListView.h();
     }
 
     @Override // android.app.Activity

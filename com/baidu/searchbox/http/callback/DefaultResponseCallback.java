@@ -5,7 +5,7 @@ import okhttp3.Response;
 public abstract class DefaultResponseCallback extends ResponseCallback<Response> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.callback.ResponseCallback
-    public Response parseResponse(Response response, int i) throws Exception {
+    public Response parseResponse(Response response, int i2) throws Exception {
         return response;
     }
 }

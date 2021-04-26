@@ -3,8 +3,8 @@ package com.baidu.swan.pms.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import d.b.h0.l.k.f;
-import d.b.h0.l.k.g;
+import d.a.h0.l.k.f;
+import d.a.h0.l.k.g;
 /* loaded from: classes3.dex */
 public class PMSAppInfo implements Parcelable {
     public static final Parcelable.Creator<PMSAppInfo> CREATOR = new a();
@@ -65,8 +65,8 @@ public class PMSAppInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public PMSAppInfo[] newArray(int i) {
-            return new PMSAppInfo[i];
+        public PMSAppInfo[] newArray(int i2) {
+            return new PMSAppInfo[i2];
         }
     }
 
@@ -96,8 +96,8 @@ public class PMSAppInfo implements Parcelable {
         if (fVar == null) {
             return;
         }
-        this.appId = fVar.f49644g;
-        this.versionCode = fVar.i;
+        this.appId = fVar.f47153g;
+        this.versionCode = fVar.f47155i;
         this.versionName = fVar.j;
         this.type = fVar.o;
         this.pkgSize = fVar.k;
@@ -108,7 +108,7 @@ public class PMSAppInfo implements Parcelable {
             return;
         }
         this.appId = gVar.o;
-        this.versionCode = gVar.i;
+        this.versionCode = gVar.f47155i;
         this.versionName = gVar.j;
         this.type = gVar.q;
         this.pkgSize = gVar.k;
@@ -158,25 +158,25 @@ public class PMSAppInfo implements Parcelable {
         return (System.currentTimeMillis() - this.createTime) / 1000 > this.maxAge;
     }
 
-    public void m(int i) {
-        if (-1 < i) {
-            this.orientation = i;
+    public void m(int i2) {
+        if (-1 < i2) {
+            this.orientation = i2;
         }
     }
 
-    public void n(int i) {
-        if (this.installSrc != 0 || i <= 0) {
+    public void n(int i2) {
+        if (this.installSrc != 0 || i2 <= 0) {
             return;
         }
-        this.installSrc = i;
+        this.installSrc = i2;
     }
 
     public void o(long j) {
         this.lastLaunchTime = Math.max(j, this.lastLaunchTime);
     }
 
-    public void p(int i) {
-        this.launchCount = Math.max(i, this.launchCount);
+    public void p(int i2) {
+        this.launchCount = Math.max(i2, this.launchCount);
     }
 
     public String toString() {
@@ -184,7 +184,7 @@ public class PMSAppInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.appId);
         parcel.writeString(this.appKey);
         parcel.writeLong(this.appSign);

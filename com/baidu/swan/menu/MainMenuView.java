@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import d.b.h0.i.g;
-import d.b.h0.i.o;
+import d.a.h0.i.g;
+import d.a.h0.i.o;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MainMenuView extends BaseMenuView {
@@ -48,7 +48,7 @@ public class MainMenuView extends BaseMenuView {
         return list != null && list.size() > 1;
     }
 
-    public final void d(int i) {
+    public final void d(int i2) {
         this.m.setVisibility(0);
         this.p.setVisibility(0);
         if (this.o == null) {
@@ -56,16 +56,16 @@ public class MainMenuView extends BaseMenuView {
             this.o = menuContentAdapter;
             this.n.setAdapter(menuContentAdapter);
         }
-        this.o.f(this.r.subList(0, 1), this.t, i);
+        this.o.f(this.r.subList(0, 1), this.t, i2);
         if (this.q == null) {
             MenuContentAdapter menuContentAdapter2 = new MenuContentAdapter(getContext());
             this.q = menuContentAdapter2;
             this.p.setAdapter(menuContentAdapter2);
         }
-        this.q.f(this.r.subList(1, 2), this.t, i);
+        this.q.f(this.r.subList(1, 2), this.t, i2);
     }
 
-    public final void e(int i) {
+    public final void e(int i2) {
         this.m.setVisibility(8);
         this.p.setVisibility(8);
         if (this.o == null) {
@@ -73,7 +73,7 @@ public class MainMenuView extends BaseMenuView {
             this.o = menuContentAdapter;
             this.n.setAdapter(menuContentAdapter);
         }
-        this.o.f(this.r, this.t, i);
+        this.o.f(this.r, this.t, i2);
     }
 
     public void f() {
@@ -102,19 +102,19 @@ public class MainMenuView extends BaseMenuView {
         return this.s;
     }
 
-    public void h(List<List<o>> list, View view, boolean z, int i) {
+    public void h(List<List<o>> list, View view, boolean z, int i2) {
         setMode();
         setMenuHeader(view);
-        i(list, z, i);
+        i(list, z, i2);
     }
 
-    public final void i(List<List<o>> list, boolean z, int i) {
+    public final void i(List<List<o>> list, boolean z, int i2) {
         this.r = list;
         this.t = z;
         if (z && list.size() > 1) {
-            d(i);
+            d(i2);
         } else {
-            e(i);
+            e(i2);
         }
     }
 
@@ -126,16 +126,16 @@ public class MainMenuView extends BaseMenuView {
         this(context, attributeSet, 0);
     }
 
-    public MainMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
-        super(context, attributeSet, i);
-        LinearLayout linearLayout = new LinearLayout(context, attributeSet, i);
+    public MainMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i2) {
+        super(context, attributeSet, i2);
+        LinearLayout linearLayout = new LinearLayout(context, attributeSet, i2);
         this.k = linearLayout;
         linearLayout.setOrientation(1);
-        RecyclerView recyclerView = new RecyclerView(context, attributeSet, i);
+        RecyclerView recyclerView = new RecyclerView(context, attributeSet, i2);
         this.n = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.n.setPadding(0, (int) this.f12651e.getResources().getDimension(g.aiapp_menu_gridview_padding_top), 0, 0);
+        this.n.setPadding(0, (int) this.f12551e.getResources().getDimension(g.aiapp_menu_gridview_padding_top), 0, 0);
         this.k.addView(this.n, layoutParams);
         View view = new View(context);
         this.m = view;
@@ -145,7 +145,7 @@ public class MainMenuView extends BaseMenuView {
         layoutParams2.leftMargin = dimensionPixelSize;
         layoutParams2.rightMargin = dimensionPixelSize;
         this.k.addView(this.m, layoutParams2);
-        RecyclerView recyclerView2 = new RecyclerView(context, attributeSet, i);
+        RecyclerView recyclerView2 = new RecyclerView(context, attributeSet, i2);
         this.p = recyclerView2;
         recyclerView2.setVisibility(8);
         this.p.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));

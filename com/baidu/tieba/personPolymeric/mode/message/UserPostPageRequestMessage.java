@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.squareup.wire.Message;
-import d.b.c.e.m.b;
-import d.b.i0.z0.w;
+import d.a.c.e.m.b;
+import d.a.i0.z0.w;
 import tbclient.User;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UserPostPageRequestMessage extends NetMessage {
     public int from;
     public boolean isHost;
@@ -68,8 +68,8 @@ public class UserPostPageRequestMessage extends NetMessage {
         this.mCallback = cVar;
     }
 
-    public void setFrom(int i) {
-        this.from = i;
+    public void setFrom(int i2) {
+        this.from = i2;
     }
 
     public void setHost(boolean z) {
@@ -80,16 +80,16 @@ public class UserPostPageRequestMessage extends NetMessage {
         this.needContent = z;
     }
 
-    public void setPn(int i) {
-        this.pn = i;
+    public void setPn(int i2) {
+        this.pn = i2;
     }
 
     public void setReset(boolean z) {
         this.isReset = z;
     }
 
-    public void setRn(int i) {
-        this.rn = i;
+    public void setRn(int i2) {
+        this.rn = i2;
     }
 
     public void setThread(boolean z) {
@@ -104,28 +104,28 @@ public class UserPostPageRequestMessage extends NetMessage {
         this.uid = str;
     }
 
-    public void set_is_view_card(int i) {
-        this.is_view_card = i;
+    public void set_is_view_card(int i2) {
+        this.is_view_card = i2;
     }
 
-    public void set_q_type(int i) {
-        this.q_type = i;
+    public void set_q_type(int i2) {
+        this.q_type = i2;
     }
 
     public void set_scr_dip(double d2) {
         this.scr_dip = d2;
     }
 
-    public void set_scr_h(int i) {
-        this.scr_h = i;
+    public void set_scr_h(int i2) {
+        this.scr_h = i2;
     }
 
-    public void set_scr_w(int i) {
-        this.scr_w = i;
+    public void set_scr_w(int i2) {
+        this.scr_w = i2;
     }
 
-    public void set_sub_type(int i) {
-        this.sub_type = i;
+    public void set_sub_type(int i2) {
+        this.sub_type = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

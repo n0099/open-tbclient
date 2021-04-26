@@ -43,9 +43,9 @@ public class PostPrefixData extends OrmObject implements Serializable {
             String optString3 = jSONObject.optString("type");
             if (!TextUtils.isEmpty(optString3)) {
                 String[] split = optString3.split(" ");
-                for (int i = 0; i < split.length; i++) {
-                    if (!TextUtils.isEmpty(split[i].trim())) {
-                        this.prefixs.add(optString2.replace("#type#", split[i]));
+                for (int i2 = 0; i2 < split.length; i2++) {
+                    if (!TextUtils.isEmpty(split[i2].trim())) {
+                        this.prefixs.add(optString2.replace("#type#", split[i2]));
                     }
                 }
                 return;
@@ -73,9 +73,9 @@ public class PostPrefixData extends OrmObject implements Serializable {
             String str3 = postPrefix.type;
             if (!TextUtils.isEmpty(str3)) {
                 String[] split = str3.split(" ");
-                for (int i = 0; i < split.length; i++) {
-                    if (!TextUtils.isEmpty(split[i].trim())) {
-                        this.prefixs.add(str2.replace("#type#", split[i]));
+                for (int i2 = 0; i2 < split.length; i2++) {
+                    if (!TextUtils.isEmpty(split[i2].trim())) {
+                        this.prefixs.add(str2.replace("#type#", split[i2]));
                     }
                 }
                 return;
@@ -107,9 +107,9 @@ public class PostPrefixData extends OrmObject implements Serializable {
             String str3 = postPrefix.type;
             if (!TextUtils.isEmpty(str3)) {
                 String[] split = str3.split(" ");
-                for (int i = 0; i < split.length; i++) {
-                    if (!TextUtils.isEmpty(split[i].trim())) {
-                        this.prefixs.add(str2.replace("#type#", split[i]));
+                for (int i2 = 0; i2 < split.length; i2++) {
+                    if (!TextUtils.isEmpty(split[i2].trim())) {
+                        this.prefixs.add(str2.replace("#type#", split[i2]));
                     }
                 }
                 return;

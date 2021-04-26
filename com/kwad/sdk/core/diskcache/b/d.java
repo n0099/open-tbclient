@@ -2,7 +2,6 @@ package com.kwad.sdk.core.diskcache.b;
 
 import android.text.TextUtils;
 import java.io.Closeable;
-import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
@@ -33,7 +32,7 @@ public class d {
         if (closeable != null) {
             try {
                 closeable.close();
-            } catch (IOException unused) {
+            } catch (Throwable unused) {
             }
         }
     }

@@ -13,22 +13,24 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import d.b.i0.r.f0.m.a;
-/* loaded from: classes4.dex */
+import d.a.i0.r.f0.m.a;
+/* loaded from: classes5.dex */
 public class YoungsterIntroduceView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f20760e;
+    public ImageView f21319e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f20761f;
+    public TextView f21320f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20762g;
+    public TextView f21321g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f20763h;
-    public TextView i;
+    public TextView f21322h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f21323i;
     public TBSpecificationBtn j;
     public int k;
 
@@ -38,11 +40,11 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
 
     public final void a() {
         LinearLayout.inflate(getContext(), R.layout.youngster_introduce, this);
-        this.f20760e = (ImageView) findViewById(R.id.img_youngster_introduce);
-        this.f20761f = (TextView) findViewById(R.id.txt_youngster_introduce_title);
-        this.f20762g = (TextView) findViewById(R.id.txt_youngster_introduce_content1);
-        this.f20763h = (TextView) findViewById(R.id.txt_youngster_introduce_content2);
-        this.i = (TextView) findViewById(R.id.txt_youngster_introduce_content3);
+        this.f21319e = (ImageView) findViewById(R.id.img_youngster_introduce);
+        this.f21320f = (TextView) findViewById(R.id.txt_youngster_introduce_title);
+        this.f21321g = (TextView) findViewById(R.id.txt_youngster_introduce_content1);
+        this.f21322h = (TextView) findViewById(R.id.txt_youngster_introduce_content2);
+        this.f21323i = (TextView) findViewById(R.id.txt_youngster_introduce_content3);
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.btn_youngster_open);
         this.j = tBSpecificationBtn;
         tBSpecificationBtn.setConfig(new a());
@@ -52,11 +54,11 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
     }
 
     public void b() {
-        this.f20760e.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian, WebPManager.ResourceStateType.NORMAL));
-        SkinManager.setViewTextColor(this.f20761f, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f20762g, R.color.CAM_X0107);
-        SkinManager.setViewTextColor(this.f20763h, R.color.CAM_X0107);
-        SkinManager.setViewTextColor(this.i, R.color.CAM_X0107);
+        this.f21319e.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian, WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setViewTextColor(this.f21320f, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f21321g, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f21322h, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f21323i, R.color.CAM_X0107);
         this.j.k();
     }
 
@@ -70,16 +72,16 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
         }
     }
 
-    public void setFrom(int i) {
-        this.k = i;
+    public void setFrom(int i2) {
+        this.k = i2;
     }
 
     public YoungsterIntroduceView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public YoungsterIntroduceView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public YoungsterIntroduceView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a();
     }
 }

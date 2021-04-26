@@ -1,6 +1,5 @@
 package com.google.zxing.pdf417.encoder;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.webkit.internal.Base64;
@@ -30,38 +29,38 @@ public final class PDF417HighLevelEncoder {
     public static final int SUBMODE_MIXED = 2;
     public static final int SUBMODE_PUNCTUATION = 3;
     public static final int TEXT_COMPACTION = 0;
-    public static final byte[] TEXT_MIXED_RAW = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 38, 13, 9, 44, 58, Base64.INTERNAL_PADDING, UtilsBlink.VER_TYPE_SEPARATOR, 46, 36, 47, 43, 37, ExifInterface.START_CODE, 61, 94, 0, 32, 0, 0, 0};
-    public static final byte[] TEXT_PUNCTUATION_RAW = {59, 60, 62, 64, 91, 92, 93, 95, 96, 126, PublicSuffixDatabase.EXCEPTION_MARKER, 13, 9, 44, 58, 10, UtilsBlink.VER_TYPE_SEPARATOR, 46, 36, 47, 34, 124, ExifInterface.START_CODE, 40, 41, 63, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 125, 39, 0};
+    public static final byte[] TEXT_MIXED_RAW = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 38, 13, 9, 44, 58, Base64.INTERNAL_PADDING, UtilsBlink.VER_TYPE_SEPARATOR, 46, 36, 47, 43, 37, 42, 61, 94, 0, 32, 0, 0, 0};
+    public static final byte[] TEXT_PUNCTUATION_RAW = {59, 60, 62, 64, 91, 92, 93, 95, 96, 126, PublicSuffixDatabase.EXCEPTION_MARKER, 13, 9, 44, 58, 10, UtilsBlink.VER_TYPE_SEPARATOR, 46, 36, 47, 34, 124, 42, 40, 41, 63, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 125, 39, 0};
     public static final byte[] MIXED = new byte[128];
     public static final byte[] PUNCTUATION = new byte[128];
     public static final Charset DEFAULT_ENCODING = Charset.forName("ISO-8859-1");
 
     static {
         Arrays.fill(MIXED, (byte) -1);
-        int i = 0;
         int i2 = 0;
+        int i3 = 0;
         while (true) {
             byte[] bArr = TEXT_MIXED_RAW;
-            if (i2 >= bArr.length) {
+            if (i3 >= bArr.length) {
                 break;
             }
-            byte b2 = bArr[i2];
+            byte b2 = bArr[i3];
             if (b2 > 0) {
-                MIXED[b2] = (byte) i2;
+                MIXED[b2] = (byte) i3;
             }
-            i2++;
+            i3++;
         }
         Arrays.fill(PUNCTUATION, (byte) -1);
         while (true) {
             byte[] bArr2 = TEXT_PUNCTUATION_RAW;
-            if (i >= bArr2.length) {
+            if (i2 >= bArr2.length) {
                 return;
             }
-            byte b3 = bArr2[i];
+            byte b3 = bArr2[i2];
             if (b3 > 0) {
-                PUNCTUATION[b3] = (byte) i;
+                PUNCTUATION[b3] = (byte) i2;
             }
-            i++;
+            i2++;
         }
     }
 
@@ -71,40 +70,40 @@ public final class PDF417HighLevelEncoder {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int determineConsecutiveBinaryCount(String str, int i, Charset charset) throws WriterException {
-        int i2;
+    public static int determineConsecutiveBinaryCount(String str, int i2, Charset charset) throws WriterException {
+        int i3;
         CharsetEncoder newEncoder = charset.newEncoder();
         int length = str.length();
-        int i3 = i;
-        while (i3 < length) {
-            char charAt = str.charAt(i3);
-            int i4 = 0;
-            while (i4 < 13 && isDigit(charAt) && (i2 = i3 + (i4 = i4 + 1)) < length) {
-                charAt = str.charAt(i2);
+        int i4 = i2;
+        while (i4 < length) {
+            char charAt = str.charAt(i4);
+            int i5 = 0;
+            while (i5 < 13 && isDigit(charAt) && (i3 = i4 + (i5 = i5 + 1)) < length) {
+                charAt = str.charAt(i3);
             }
-            char charAt2 = str.charAt(i3);
+            char charAt2 = str.charAt(i4);
             if (!newEncoder.canEncode(charAt2)) {
                 throw new WriterException("Non-encodable character detected: " + charAt2 + " (Unicode: " + ((int) charAt2) + ')');
             }
-            i3++;
+            i4++;
         }
-        return i3 - i;
+        return i4 - i2;
     }
 
-    public static int determineConsecutiveDigitCount(CharSequence charSequence, int i) {
+    public static int determineConsecutiveDigitCount(CharSequence charSequence, int i2) {
         int length = charSequence.length();
-        int i2 = 0;
-        if (i < length) {
-            char charAt = charSequence.charAt(i);
-            while (isDigit(charAt) && i < length) {
+        int i3 = 0;
+        if (i2 < length) {
+            char charAt = charSequence.charAt(i2);
+            while (isDigit(charAt) && i2 < length) {
+                i3++;
                 i2++;
-                i++;
-                if (i < length) {
-                    charAt = charSequence.charAt(i);
+                if (i2 < length) {
+                    charAt = charSequence.charAt(i2);
                 }
             }
         }
-        return i2;
+        return i3;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0027, code lost:
@@ -113,61 +112,61 @@ public final class PDF417HighLevelEncoder {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int determineConsecutiveTextCount(CharSequence charSequence, int i) {
+    public static int determineConsecutiveTextCount(CharSequence charSequence, int i2) {
         int length = charSequence.length();
-        int i2 = i;
-        while (i2 < length) {
-            char charAt = charSequence.charAt(i2);
-            int i3 = 0;
-            while (i3 < 13 && isDigit(charAt) && i2 < length) {
+        int i3 = i2;
+        while (i3 < length) {
+            char charAt = charSequence.charAt(i3);
+            int i4 = 0;
+            while (i4 < 13 && isDigit(charAt) && i3 < length) {
+                i4++;
                 i3++;
-                i2++;
-                if (i2 < length) {
-                    charAt = charSequence.charAt(i2);
+                if (i3 < length) {
+                    charAt = charSequence.charAt(i3);
                 }
             }
-            if (i3 <= 0) {
-                if (!isText(charSequence.charAt(i2))) {
+            if (i4 <= 0) {
+                if (!isText(charSequence.charAt(i3))) {
                     break;
                 }
-                i2++;
+                i3++;
             }
         }
-        return i2 - i;
+        return i3 - i2;
     }
 
-    public static void encodeBinary(byte[] bArr, int i, int i2, int i3, StringBuilder sb) {
-        int i4;
-        if (i2 == 1 && i3 == 0) {
+    public static void encodeBinary(byte[] bArr, int i2, int i3, int i4, StringBuilder sb) {
+        int i5;
+        if (i3 == 1 && i4 == 0) {
             sb.append((char) 913);
-        } else if (i2 % 6 == 0) {
+        } else if (i3 % 6 == 0) {
             sb.append((char) 924);
         } else {
             sb.append((char) 901);
         }
-        if (i2 >= 6) {
+        if (i3 >= 6) {
             char[] cArr = new char[5];
-            i4 = i;
-            while ((i + i2) - i4 >= 6) {
+            i5 = i2;
+            while ((i2 + i3) - i5 >= 6) {
                 long j = 0;
-                for (int i5 = 0; i5 < 6; i5++) {
-                    j = (j << 8) + (bArr[i4 + i5] & 255);
+                for (int i6 = 0; i6 < 6; i6++) {
+                    j = (j << 8) + (bArr[i5 + i6] & 255);
                 }
-                for (int i6 = 0; i6 < 5; i6++) {
-                    cArr[i6] = (char) (j % 900);
+                for (int i7 = 0; i7 < 5; i7++) {
+                    cArr[i7] = (char) (j % 900);
                     j /= 900;
                 }
-                for (int i7 = 4; i7 >= 0; i7--) {
-                    sb.append(cArr[i7]);
+                for (int i8 = 4; i8 >= 0; i8--) {
+                    sb.append(cArr[i8]);
                 }
-                i4 += 6;
+                i5 += 6;
             }
         } else {
-            i4 = i;
+            i5 = i2;
         }
-        while (i4 < i + i2) {
-            sb.append((char) (bArr[i4] & 255));
-            i4++;
+        while (i5 < i2 + i3) {
+            sb.append((char) (bArr[i5] & 255));
+            i5++;
         }
     }
 
@@ -189,42 +188,42 @@ public final class PDF417HighLevelEncoder {
             sb.append((char) 902);
             encodeNumeric(str, 0, length, sb);
         } else {
-            int i = 0;
             int i2 = 0;
             int i3 = 0;
-            while (i < length) {
-                int determineConsecutiveDigitCount = determineConsecutiveDigitCount(str, i);
+            int i4 = 0;
+            while (i2 < length) {
+                int determineConsecutiveDigitCount = determineConsecutiveDigitCount(str, i2);
                 if (determineConsecutiveDigitCount >= 13) {
                     sb.append((char) 902);
-                    i3 = 2;
-                    encodeNumeric(str, i, determineConsecutiveDigitCount, sb);
-                    i += determineConsecutiveDigitCount;
-                    i2 = 0;
+                    i4 = 2;
+                    encodeNumeric(str, i2, determineConsecutiveDigitCount, sb);
+                    i2 += determineConsecutiveDigitCount;
+                    i3 = 0;
                 } else {
-                    int determineConsecutiveTextCount = determineConsecutiveTextCount(str, i);
+                    int determineConsecutiveTextCount = determineConsecutiveTextCount(str, i2);
                     if (determineConsecutiveTextCount < 5 && determineConsecutiveDigitCount != length) {
-                        int determineConsecutiveBinaryCount = determineConsecutiveBinaryCount(str, i, charset);
+                        int determineConsecutiveBinaryCount = determineConsecutiveBinaryCount(str, i2, charset);
                         if (determineConsecutiveBinaryCount == 0) {
                             determineConsecutiveBinaryCount = 1;
                         }
-                        int i4 = determineConsecutiveBinaryCount + i;
-                        byte[] bytes2 = str.substring(i, i4).getBytes(charset);
-                        if (bytes2.length == 1 && i3 == 0) {
+                        int i5 = determineConsecutiveBinaryCount + i2;
+                        byte[] bytes2 = str.substring(i2, i5).getBytes(charset);
+                        if (bytes2.length == 1 && i4 == 0) {
                             encodeBinary(bytes2, 0, 1, 0, sb);
                         } else {
-                            encodeBinary(bytes2, 0, bytes2.length, i3, sb);
-                            i2 = 0;
-                            i3 = 1;
-                        }
-                        i = i4;
-                    } else {
-                        if (i3 != 0) {
-                            sb.append((char) 900);
-                            i2 = 0;
+                            encodeBinary(bytes2, 0, bytes2.length, i4, sb);
                             i3 = 0;
+                            i4 = 1;
                         }
-                        i2 = encodeText(str, i, determineConsecutiveTextCount, sb, i2);
-                        i += determineConsecutiveTextCount;
+                        i2 = i5;
+                    } else {
+                        if (i4 != 0) {
+                            sb.append((char) 900);
+                            i3 = 0;
+                            i4 = 0;
+                        }
+                        i3 = encodeText(str, i2, determineConsecutiveTextCount, sb, i3);
+                        i2 += determineConsecutiveTextCount;
                     }
                 }
             }
@@ -232,17 +231,17 @@ public final class PDF417HighLevelEncoder {
         return sb.toString();
     }
 
-    public static void encodeNumeric(String str, int i, int i2, StringBuilder sb) {
-        StringBuilder sb2 = new StringBuilder((i2 / 3) + 1);
+    public static void encodeNumeric(String str, int i2, int i3, StringBuilder sb) {
+        StringBuilder sb2 = new StringBuilder((i3 / 3) + 1);
         BigInteger valueOf = BigInteger.valueOf(900L);
         BigInteger valueOf2 = BigInteger.valueOf(0L);
-        int i3 = 0;
-        while (i3 < i2) {
+        int i4 = 0;
+        while (i4 < i3) {
             sb2.setLength(0);
-            int min = Math.min(44, i2 - i3);
+            int min = Math.min(44, i3 - i4);
             StringBuilder sb3 = new StringBuilder("1");
-            int i4 = i + i3;
-            sb3.append(str.substring(i4, i4 + min));
+            int i5 = i2 + i4;
+            sb3.append(str.substring(i5, i5 + min));
             BigInteger bigInteger = new BigInteger(sb3.toString());
             do {
                 sb2.append((char) bigInteger.mod(valueOf).intValue());
@@ -251,7 +250,7 @@ public final class PDF417HighLevelEncoder {
             for (int length = sb2.length() - 1; length >= 0; length--) {
                 sb.append(sb2.charAt(length));
             }
-            i3 += min;
+            i4 += min;
         }
     }
 
@@ -260,34 +259,34 @@ public final class PDF417HighLevelEncoder {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int encodeText(CharSequence charSequence, int i, int i2, StringBuilder sb, int i3) {
-        StringBuilder sb2 = new StringBuilder(i2);
-        int i4 = i3;
-        int i5 = 0;
+    public static int encodeText(CharSequence charSequence, int i2, int i3, StringBuilder sb, int i4) {
+        StringBuilder sb2 = new StringBuilder(i3);
+        int i5 = i4;
+        int i6 = 0;
         while (true) {
-            int i6 = i + i5;
-            char charAt = charSequence.charAt(i6);
-            if (i4 != 0) {
-                if (i4 != 1) {
-                    if (i4 != 2) {
+            int i7 = i2 + i6;
+            char charAt = charSequence.charAt(i7);
+            if (i5 != 0) {
+                if (i5 != 1) {
+                    if (i5 != 2) {
                         if (isPunctuation(charAt)) {
                             sb2.append((char) PUNCTUATION[charAt]);
                         } else {
                             sb2.append(DecodedBitStreamParser.GS);
-                            i4 = 0;
+                            i5 = 0;
                         }
                     } else if (isMixed(charAt)) {
                         sb2.append((char) MIXED[charAt]);
                     } else if (isAlphaUpper(charAt)) {
                         sb2.append(DecodedBitStreamParser.FS);
-                        i4 = 0;
+                        i5 = 0;
                     } else if (isAlphaLower(charAt)) {
                         sb2.append((char) 27);
-                        i4 = 1;
+                        i5 = 1;
                     } else {
-                        int i7 = i6 + 1;
-                        if (i7 < i2 && isPunctuation(charSequence.charAt(i7))) {
-                            i4 = 3;
+                        int i8 = i7 + 1;
+                        if (i8 < i3 && isPunctuation(charSequence.charAt(i8))) {
+                            i5 = 3;
                             sb2.append((char) 25);
                         } else {
                             sb2.append(DecodedBitStreamParser.GS);
@@ -305,13 +304,13 @@ public final class PDF417HighLevelEncoder {
                     sb2.append((char) (charAt - 'A'));
                 } else if (isMixed(charAt)) {
                     sb2.append(DecodedBitStreamParser.FS);
-                    i4 = 2;
+                    i5 = 2;
                 } else {
                     sb2.append(DecodedBitStreamParser.GS);
                     sb2.append((char) PUNCTUATION[charAt]);
                 }
-                i5++;
-                if (i5 < i2) {
+                i6++;
+                if (i6 < i3) {
                     break;
                 }
             } else {
@@ -323,48 +322,48 @@ public final class PDF417HighLevelEncoder {
                     }
                 } else if (isAlphaLower(charAt)) {
                     sb2.append((char) 27);
-                    i4 = 1;
+                    i5 = 1;
                 } else if (isMixed(charAt)) {
                     sb2.append(DecodedBitStreamParser.FS);
-                    i4 = 2;
+                    i5 = 2;
                 } else {
                     sb2.append(DecodedBitStreamParser.GS);
                     sb2.append((char) PUNCTUATION[charAt]);
                 }
-                i5++;
-                if (i5 < i2) {
+                i6++;
+                if (i6 < i3) {
                 }
             }
         }
         int length = sb2.length();
         char c2 = 0;
-        for (int i8 = 0; i8 < length; i8++) {
-            if (i8 % 2 != 0) {
-                c2 = (char) ((c2 * DecodedBitStreamParser.RS) + sb2.charAt(i8));
+        for (int i9 = 0; i9 < length; i9++) {
+            if (i9 % 2 != 0) {
+                c2 = (char) ((c2 * DecodedBitStreamParser.RS) + sb2.charAt(i9));
                 sb.append(c2);
             } else {
-                c2 = sb2.charAt(i8);
+                c2 = sb2.charAt(i9);
             }
         }
         if (length % 2 != 0) {
             sb.append((char) ((c2 * DecodedBitStreamParser.RS) + 29));
         }
-        return i4;
+        return i5;
     }
 
-    public static void encodingECI(int i, StringBuilder sb) throws WriterException {
-        if (i >= 0 && i < 900) {
+    public static void encodingECI(int i2, StringBuilder sb) throws WriterException {
+        if (i2 >= 0 && i2 < 900) {
             sb.append((char) 927);
-            sb.append((char) i);
-        } else if (i < 810900) {
+            sb.append((char) i2);
+        } else if (i2 < 810900) {
             sb.append((char) 926);
-            sb.append((char) ((i / 900) - 1));
-            sb.append((char) (i % 900));
-        } else if (i < 811800) {
+            sb.append((char) ((i2 / 900) - 1));
+            sb.append((char) (i2 % 900));
+        } else if (i2 < 811800) {
             sb.append((char) 925);
-            sb.append((char) (810900 - i));
+            sb.append((char) (810900 - i2));
         } else {
-            throw new WriterException("ECI number not in valid range from 0..811799, but was " + i);
+            throw new WriterException("ECI number not in valid range from 0..811799, but was " + i2);
         }
     }
 

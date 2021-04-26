@@ -93,7 +93,7 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void onInfo(int i, int i2, Object obj) {
+    public void onInfo(int i2, int i3, Object obj) {
         BdVideoLog.e("player has released, cannot call onInfo!!!");
     }
 
@@ -112,12 +112,12 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void seekTo(int i) {
+    public void seekTo(int i2) {
         BdVideoLog.e("player has released, cannot call seekTo!!!");
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setDecodeMode(int i) {
+    public void setDecodeMode(int i2) {
         BdVideoLog.e("player has released, cannot call setDecodeMode!!!");
     }
 
@@ -172,12 +172,12 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setVideoRotation(int i) {
+    public void setVideoRotation(int i2) {
         BdVideoLog.e("player has released, cannot call setVideoRotation!!!");
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setVideoScalingMode(int i) {
+    public void setVideoScalingMode(int i2) {
         BdVideoLog.e("player has released, cannot call setVideoScalingMode!!!");
     }
 

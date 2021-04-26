@@ -60,9 +60,9 @@ public class AppPriActivity implements IActivityImpl {
             canvas.drawRect(0.0f, 0.0f, (this.mScreenWidth * this.mProgress) / 100, getLayoutParams().height, this.mPaint);
         }
 
-        public void setProgress(int i) {
-            if (i != this.mProgress) {
-                this.mProgress = i;
+        public void setProgress(int i2) {
+            if (i2 != this.mProgress) {
+                this.mProgress = i2;
                 postInvalidate();
             }
         }
@@ -120,12 +120,12 @@ public class AppPriActivity implements IActivityImpl {
         }
         this.mXMyWebView.setWebChromeClient(new WebChromeClient() { // from class: com.baidu.mobads.container.landingpage.AppPriActivity.1
             @Override // android.webkit.WebChromeClient
-            public void onProgressChanged(WebView webView, int i) {
+            public void onProgressChanged(WebView webView, int i2) {
                 CustomProgressBar customProgressBar2 = customProgressBar;
                 if (customProgressBar2 != null) {
-                    customProgressBar2.setProgress(i);
-                    if (i > 50) {
-                        customProgressBar.setVisibility(i >= 100 ? 4 : 0);
+                    customProgressBar2.setProgress(i2);
+                    if (i2 > 50) {
+                        customProgressBar.setVisibility(i2 >= 100 ? 4 : 0);
                     }
                 }
             }
@@ -163,7 +163,7 @@ public class AppPriActivity implements IActivityImpl {
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl
@@ -213,12 +213,12 @@ public class AppPriActivity implements IActivityImpl {
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         return false;
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
         return false;
     }
 
@@ -260,7 +260,7 @@ public class AppPriActivity implements IActivityImpl {
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl
-    public void overridePendingTransition(int i, int i2) {
+    public void overridePendingTransition(int i2, int i3) {
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl

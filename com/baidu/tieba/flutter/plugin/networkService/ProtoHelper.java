@@ -14,7 +14,7 @@ import com.baidu.tbadk.newFriends.RequestDeleteFriendMessage;
 import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
 import com.baidu.tieba.flutter.plugin.networkService.FlutterNetModelAuto;
 import com.baidu.tieba.im.message.RequestGetLivableForumList;
-import d.b.i0.g0.b.g;
+import d.a.i0.g0.b.g;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
@@ -56,29 +56,29 @@ public class ProtoHelper {
         return 0;
     }
 
-    public static FlutterNetModelAuto getImNetModel(String str, int i, HashMap<String, Object> hashMap) {
-        if (i == 104102) {
+    public static FlutterNetModelAuto getImNetModel(String str, int i2, HashMap<String, Object> hashMap) {
+        if (i2 == 104102) {
             FlutterNetModelAuto flutterNetModelAuto = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
-            flutterNetModelAuto.setSocketRequestMsg(getSocketRequestMsg(i, hashMap));
-            flutterNetModelAuto.setSocketCmd(i);
+            flutterNetModelAuto.setSocketRequestMsg(getSocketRequestMsg(i2, hashMap));
+            flutterNetModelAuto.setSocketCmd(i2);
             flutterNetModelAuto.setRequestDataClass(RequestUpdateMaskInfoMessage.class);
             flutterNetModelAuto.setResponseDataClass(ResponseUpdateMaskInfoMessage.class);
             return flutterNetModelAuto;
-        } else if (i == 107129) {
+        } else if (i2 == 107129) {
             FlutterNetModelAuto flutterNetModelAuto2 = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
-            flutterNetModelAuto2.setSocketRequestMsg(getSocketRequestMsg(i, hashMap));
+            flutterNetModelAuto2.setSocketRequestMsg(getSocketRequestMsg(i2, hashMap));
             flutterNetModelAuto2.setNeedCompress(false);
             flutterNetModelAuto2.setNeedParallel(true);
-            flutterNetModelAuto2.setSocketCmd(i);
+            flutterNetModelAuto2.setSocketCmd(i2);
             flutterNetModelAuto2.setRequestDataClass(RequestGetLivableForumList.class);
             flutterNetModelAuto2.setResponseDataClass(ResponseGetLivableForumList.class);
             return flutterNetModelAuto2;
-        } else if (i == 304102) {
+        } else if (i2 == 304102) {
             FlutterNetModelAuto flutterNetModelAuto3 = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
-            flutterNetModelAuto3.setSocketRequestMsg(getSocketRequestMsg(i, hashMap));
+            flutterNetModelAuto3.setSocketRequestMsg(getSocketRequestMsg(i2, hashMap));
             flutterNetModelAuto3.setNeedCompress(false);
             flutterNetModelAuto3.setNeedParallel(true);
-            flutterNetModelAuto3.setSocketCmd(i);
+            flutterNetModelAuto3.setSocketCmd(i2);
             flutterNetModelAuto3.setRequestDataClass(RequestDeleteFriendMessage.class);
             flutterNetModelAuto3.setResponseDataClass(ResponseDeleteFriendMessage.class);
             return flutterNetModelAuto3;
@@ -87,29 +87,29 @@ public class ProtoHelper {
         }
     }
 
-    public static FlutterNetModelAuto getNetModel(String str, int i) {
+    public static FlutterNetModelAuto getNetModel(String str, int i2) {
         FlutterNetModelAuto flutterNetModelAuto = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
-        flutterNetModelAuto.setHttpCmd(i);
+        flutterNetModelAuto.setHttpCmd(i2);
         return flutterNetModelAuto;
     }
 
-    public static g getRequestData(int i, HashMap<String, Object> hashMap, HashMap<String, Object> hashMap2) {
+    public static g getRequestData(int i2, HashMap<String, Object> hashMap, HashMap<String, Object> hashMap2) {
         return null;
     }
 
-    public static g getSocketRequestData(int i, HashMap<String, Object> hashMap) {
+    public static g getSocketRequestData(int i2, HashMap<String, Object> hashMap) {
         return null;
     }
 
-    public static TbSocketMessage getSocketRequestMsg(int i, HashMap<String, Object> hashMap) {
-        if (i == 104102) {
+    public static TbSocketMessage getSocketRequestMsg(int i2, HashMap<String, Object> hashMap) {
+        if (i2 == 104102) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
             requestUpdateMaskInfoMessage.setIsMask(Integer.valueOf((String) hashMap.get(IntentConfig.IS_MASK)).intValue());
             requestUpdateMaskInfoMessage.setMaskType(Integer.valueOf((String) hashMap.get("type")).intValue());
             requestUpdateMaskInfoMessage.setList((String) hashMap.get("list"));
             return requestUpdateMaskInfoMessage;
-        } else if (i != 107129) {
-            if (i == 304102) {
+        } else if (i2 != 107129) {
+            if (i2 == 304102) {
                 RequestDeleteFriendMessage requestDeleteFriendMessage = new RequestDeleteFriendMessage();
                 requestDeleteFriendMessage.setFriendId(Long.valueOf((String) hashMap.get("uid")).longValue());
                 return requestDeleteFriendMessage;
@@ -153,8 +153,8 @@ public class ProtoHelper {
                         JSONObject jSONObject4 = new JSONObject();
                         JSONArray jSONArray = new JSONArray();
                         ArrayList<ForumData> data = responseGetLivableForumList.getData();
-                        for (int i = 0; i < data.size(); i++) {
-                            ForumData forumData = data.get(i);
+                        for (int i2 = 0; i2 < data.size(); i2++) {
+                            ForumData forumData = data.get(i2);
                             JSONObject jSONObject5 = new JSONObject();
                             jSONObject5.put("id", forumData.getId());
                             jSONObject5.put("name", forumData.getName());

@@ -5,7 +5,7 @@ import com.baidu.down.loopj.android.request.handler.ICommonRequestHandler;
 import com.baidu.down.request.task.MultiSrcBinaryReqTask;
 import com.baidu.down.request.taskmanager.MultiSrcTaskMsg;
 import com.baidu.down.request.taskmanager.TaskFacade;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MultiSrcAsyncHttpRequest extends AsyncHttpRequest {
     public static final boolean DEBUG = false;
     public static final int NOTIFY_TIME_INTERVAL = 100;
@@ -80,10 +80,10 @@ public class MultiSrcAsyncHttpRequest extends AsyncHttpRequest {
         this.mRequestIsRunning = false;
     }
 
-    public void updateAverageSpeed(MultiSrcBinaryReqTask multiSrcBinaryReqTask, long j, int i) {
+    public void updateAverageSpeed(MultiSrcBinaryReqTask multiSrcBinaryReqTask, long j, int i2) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         this.mCurFilePos = j;
-        long j2 = this.mRequestBytes + i;
+        long j2 = this.mRequestBytes + i2;
         this.mRequestBytes = j2;
         this.mAverageSpeed = (j2 * 1000) / (elapsedRealtime - this.mRequestStartTime);
         if (elapsedRealtime - this.mRequestLastNotifyTimes > 100) {

@@ -3,17 +3,17 @@ package com.bytedance.sdk.openadsdk.c;
 import java.util.List;
 /* loaded from: classes5.dex */
 public interface e<T> {
-    List<T> a(int i, String str);
+    List<T> a(int i2, String str);
 
-    void a(int i);
+    void a(int i2);
 
-    void a(int i, long j);
+    void a(int i2, long j);
 
     void a(T t);
 
     void a(List<T> list);
 
-    void a(List<T> list, int i, long j);
+    void a(List<T> list, int i2, long j);
 
     void a(boolean z);
 

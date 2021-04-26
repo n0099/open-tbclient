@@ -25,8 +25,8 @@ public class BitmapBytesTranscoder implements ResourceTranscoder<Bitmap, byte[]>
         return new BytesResource(byteArrayOutputStream.toByteArray());
     }
 
-    public BitmapBytesTranscoder(@NonNull Bitmap.CompressFormat compressFormat, int i) {
+    public BitmapBytesTranscoder(@NonNull Bitmap.CompressFormat compressFormat, int i2) {
         this.compressFormat = compressFormat;
-        this.quality = i;
+        this.quality = i2;
     }
 }

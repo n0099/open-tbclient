@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.squareup.wire.ByteString;
-import d.b.c.e.m.b;
+import d.a.c.e.m.b;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
@@ -71,8 +71,8 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         this.stoken = str2;
     }
 
-    public void setHeight(int i) {
-        this.height = i;
+    public void setHeight(int i2) {
+        this.height = i2;
     }
 
     public void setLat(double d2) {
@@ -91,7 +91,7 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         this.secretKey = bArr;
     }
 
-    public void setWidth(int i) {
-        this.width = i;
+    public void setWidth(int i2) {
+        this.width = i2;
     }
 }

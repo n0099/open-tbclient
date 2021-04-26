@@ -35,9 +35,9 @@ public class OAdRemoteDownloadManager {
         return sInstance;
     }
 
-    public synchronized IDownloader createAdsApkDownloader(URL url, String str, String str2, int i, String str3) {
+    public synchronized IDownloader createAdsApkDownloader(URL url, String str, String str2, int i2, String str3) {
         OAdRemoteApkDownloader oAdRemoteApkDownloader;
-        oAdRemoteApkDownloader = new OAdRemoteApkDownloader(this.mContext, url, str, str2, i, str3);
+        oAdRemoteApkDownloader = new OAdRemoteApkDownloader(this.mContext, url, str, str2, i2, str3);
         putAdsApkDownloader(str3, oAdRemoteApkDownloader);
         try {
             if (this.networkController == null) {

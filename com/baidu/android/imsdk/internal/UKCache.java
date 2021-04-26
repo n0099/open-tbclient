@@ -5,9 +5,9 @@ import android.util.LruCache;
 public class UKCache {
     public LruCache<Long, Long> mCache;
 
-    public UKCache(int i) {
+    public UKCache(int i2) {
         this.mCache = null;
-        this.mCache = new LruCache<>(i);
+        this.mCache = new LruCache<>(i2);
     }
 
     public Long get(long j) {

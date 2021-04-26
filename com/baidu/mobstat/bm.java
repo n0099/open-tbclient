@@ -13,12 +13,12 @@ public final class bm {
 
     /* loaded from: classes2.dex */
     public static class b {
-        public static byte[] a(int i, byte[] bArr) throws Exception {
-            int i2 = i - 1;
-            if (i2 >= 0) {
-                String[] strArr = br.f8702a;
-                if (strArr.length > i2) {
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i2].getBytes(), "AES");
+        public static byte[] a(int i2, byte[] bArr) throws Exception {
+            int i3 = i2 - 1;
+            if (i3 >= 0) {
+                String[] strArr = br.f9013a;
+                if (strArr.length > i3) {
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i3].getBytes(), "AES");
                     Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
                     cipher.init(1, secretKeySpec);
                     return cipher.doFinal(bArr);
@@ -27,12 +27,12 @@ public final class bm {
             return new byte[0];
         }
 
-        public static byte[] b(int i, byte[] bArr) throws Exception {
-            int i2 = i - 1;
-            if (i2 >= 0) {
-                String[] strArr = br.f8702a;
-                if (strArr.length > i2) {
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i2].getBytes(), "AES");
+        public static byte[] b(int i2, byte[] bArr) throws Exception {
+            int i3 = i2 - 1;
+            if (i3 >= 0) {
+                String[] strArr = br.f9013a;
+                if (strArr.length > i3) {
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i3].getBytes(), "AES");
                     Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
                     cipher.init(2, secretKeySpec);
                     return cipher.doFinal(bArr);
@@ -41,20 +41,20 @@ public final class bm {
             return new byte[0];
         }
 
-        public static String c(int i, byte[] bArr) {
+        public static String c(int i2, byte[] bArr) {
             try {
-                return bp.b(a(i, bArr));
+                return bp.b(a(i2, bArr));
             } catch (Exception unused) {
                 return "";
             }
         }
 
-        public static String d(int i, byte[] bArr) {
-            String c2 = c(i, bArr);
+        public static String d(int i2, byte[] bArr) {
+            String c2 = c(i2, bArr);
             if (TextUtils.isEmpty(c2)) {
                 return "";
             }
-            return c2 + FieldBuilder.SE + i;
+            return c2 + FieldBuilder.SE + i2;
         }
     }
 

@@ -58,8 +58,8 @@ public final class StringUtils {
         }
         int length = str.length();
         StringBuffer stringBuffer = new StringBuffer();
-        for (int i = 0; i < length; i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            char charAt = str.charAt(i2);
             if (charAt >= '0' && charAt <= '9') {
                 stringBuffer.append(charAt);
             }

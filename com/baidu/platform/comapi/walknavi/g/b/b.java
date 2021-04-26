@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.g.b;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f9641a;
+    public boolean f10000a;
 
     public void a() {
     }
@@ -12,12 +12,12 @@ public abstract class b {
     }
 
     public void e() {
-        this.f9641a = true;
+        this.f10000a = true;
         a();
     }
 
     public void f() {
-        this.f9641a = false;
+        this.f10000a = false;
         b();
     }
 }

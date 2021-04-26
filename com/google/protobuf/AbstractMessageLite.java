@@ -106,9 +106,9 @@ public abstract class AbstractMessageLite implements MessageLite {
         public static final class LimitedInputStream extends FilterInputStream {
             public int limit;
 
-            public LimitedInputStream(InputStream inputStream, int i) {
+            public LimitedInputStream(InputStream inputStream, int i2) {
                 super(inputStream);
-                this.limit = i;
+                this.limit = i2;
             }
 
             @Override // java.io.FilterInputStream, java.io.InputStream
@@ -138,12 +138,12 @@ public abstract class AbstractMessageLite implements MessageLite {
             }
 
             @Override // java.io.FilterInputStream, java.io.InputStream
-            public int read(byte[] bArr, int i, int i2) throws IOException {
-                int i3 = this.limit;
-                if (i3 <= 0) {
+            public int read(byte[] bArr, int i2, int i3) throws IOException {
+                int i4 = this.limit;
+                if (i4 <= 0) {
                     return -1;
                 }
-                int read = super.read(bArr, i, Math.min(i2, i3));
+                int read = super.read(bArr, i2, Math.min(i3, i4));
                 if (read >= 0) {
                     this.limit -= read;
                 }
@@ -200,9 +200,9 @@ public abstract class AbstractMessageLite implements MessageLite {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite.Builder
-        public BuilderType mergeFrom(byte[] bArr, int i, int i2) throws InvalidProtocolBufferException {
+        public BuilderType mergeFrom(byte[] bArr, int i2, int i3) throws InvalidProtocolBufferException {
             try {
-                CodedInputStream newInstance = CodedInputStream.newInstance(bArr, i, i2);
+                CodedInputStream newInstance = CodedInputStream.newInstance(bArr, i2, i3);
                 mergeFrom(newInstance);
                 newInstance.checkLastTagWas(0);
                 return this;
@@ -221,9 +221,9 @@ public abstract class AbstractMessageLite implements MessageLite {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite.Builder
-        public BuilderType mergeFrom(byte[] bArr, int i, int i2, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+        public BuilderType mergeFrom(byte[] bArr, int i2, int i3, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
             try {
-                CodedInputStream newInstance = CodedInputStream.newInstance(bArr, i, i2);
+                CodedInputStream newInstance = CodedInputStream.newInstance(bArr, i2, i3);
                 mergeFrom(newInstance, extensionRegistryLite);
                 newInstance.checkLastTagWas(0);
                 return this;

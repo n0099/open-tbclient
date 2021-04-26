@@ -6,18 +6,18 @@ import java.io.InputStream;
 public class a extends InputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f29923a;
+    public com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f30838a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f29924b;
+    public long f30839b;
 
     public a(com.bytedance.sdk.openadsdk.preload.geckox.buffer.a aVar) {
-        this.f29923a = aVar;
+        this.f30838a = aVar;
     }
 
     @Override // java.io.InputStream
     public int available() throws IOException {
-        long b2 = this.f29923a.b() - this.f29923a.c();
+        long b2 = this.f30838a.b() - this.f30838a.c();
         if (b2 > 2147483647L) {
             return Integer.MAX_VALUE;
         }
@@ -29,8 +29,8 @@ public class a extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public synchronized void mark(int i) {
-        this.f29924b = i;
+    public synchronized void mark(int i2) {
+        this.f30839b = i2;
     }
 
     @Override // java.io.InputStream
@@ -40,26 +40,26 @@ public class a extends InputStream {
 
     @Override // java.io.InputStream
     public int read(byte[] bArr) throws IOException {
-        return this.f29923a.b(bArr);
+        return this.f30838a.b(bArr);
     }
 
     @Override // java.io.InputStream
     public synchronized void reset() throws IOException {
-        this.f29923a.b(this.f29924b);
+        this.f30838a.b(this.f30839b);
     }
 
     @Override // java.io.InputStream
     public long skip(long j) throws IOException {
-        return this.f29923a.a(j);
+        return this.f30838a.a(j);
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        return this.f29923a.b(bArr, i, i2);
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
+        return this.f30838a.b(bArr, i2, i3);
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        return this.f29923a.d();
+        return this.f30838a.d();
     }
 }

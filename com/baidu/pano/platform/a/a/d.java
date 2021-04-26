@@ -5,17 +5,17 @@ import com.baidu.pano.platform.a.q;
 public class d extends com.baidu.pano.platform.a.n<byte[]> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final q.b<byte[]> f8882a;
+    public final q.b<byte[]> f9210a;
 
-    public d(int i, String str, q.b<byte[]> bVar, q.a aVar) {
-        super(i, str, aVar);
-        this.f8882a = bVar;
+    public d(int i2, String str, q.b<byte[]> bVar, q.a aVar) {
+        super(i2, str, aVar);
+        this.f9210a = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.pano.platform.a.n
     public void a(byte[] bArr) {
-        this.f8882a.a(bArr);
+        this.f9210a.a(bArr);
     }
 
     public d(String str, q.b<byte[]> bVar, q.a aVar) {
@@ -24,6 +24,6 @@ public class d extends com.baidu.pano.platform.a.n<byte[]> {
 
     @Override // com.baidu.pano.platform.a.n
     public q<byte[]> a(com.baidu.pano.platform.a.l lVar) {
-        return q.a(lVar.f8938b, h.a(lVar));
+        return q.a(lVar.f9266b, h.a(lVar));
     }
 }

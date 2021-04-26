@@ -11,7 +11,7 @@ import javax.crypto.Cipher;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1923a = "RSA";
+    public static final String f1875a = "RSA";
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0052: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:28:0x0052 */
     /* JADX WARN: Removed duplicated region for block: B:35:0x0055 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -34,9 +34,9 @@ public class d {
                     byte[] bytes = str.getBytes("UTF-8");
                     int blockSize = cipher.getBlockSize();
                     byteArrayOutputStream = new ByteArrayOutputStream();
-                    for (int i = 0; i < bytes.length; i += blockSize) {
+                    for (int i2 = 0; i2 < bytes.length; i2 += blockSize) {
                         try {
-                            byteArrayOutputStream.write(cipher.doFinal(bytes, i, bytes.length - i < blockSize ? bytes.length - i : blockSize));
+                            byteArrayOutputStream.write(cipher.doFinal(bytes, i2, bytes.length - i2 < blockSize ? bytes.length - i2 : blockSize));
                         } catch (Exception e2) {
                             e = e2;
                             com.alipay.sdk.util.c.a(e);

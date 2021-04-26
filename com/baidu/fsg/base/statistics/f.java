@@ -10,42 +10,42 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5325a = "f";
+    public static final String f5460a = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f5326b;
+    public JSONArray f5461b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f5327c;
+    public byte[] f5462c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f5328d;
+    public byte[] f5463d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f5329e;
+    public byte[] f5464e;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f5330a;
+        public int f5465a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5331b;
+        public String f5466b;
 
         /* renamed from: c  reason: collision with root package name */
-        public h[] f5332c;
+        public h[] f5467c;
     }
 
     /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static f f5333a = new f();
+        public static f f5468a = new f();
     }
 
     public static f a() {
-        return b.f5333a;
+        return b.f5468a;
     }
 
     public void b() {
@@ -67,8 +67,8 @@ public class f {
                 try {
                     JSONArray jSONArray = new JSONArray(a2);
                     long currentTimeMillis = System.currentTimeMillis();
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        JSONObject jSONObject = (JSONObject) jSONArray.get(i);
+                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                        JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
                         if (currentTimeMillis - jSONObject.getLong("dim_excep_time") <= 604800000) {
                             a().a(jSONObject);
                         }
@@ -82,27 +82,27 @@ public class f {
 
     public boolean c() {
         boolean z;
-        synchronized (this.f5328d) {
-            z = this.f5326b.length() == 0;
+        synchronized (this.f5463d) {
+            z = this.f5461b.length() == 0;
         }
         return z;
     }
 
     public JSONArray d() {
-        return this.f5326b;
+        return this.f5461b;
     }
 
     public f() {
-        this.f5326b = new JSONArray();
-        this.f5327c = new byte[0];
-        this.f5328d = new byte[0];
-        this.f5329e = new byte[0];
+        this.f5461b = new JSONArray();
+        this.f5462c = new byte[0];
+        this.f5463d = new byte[0];
+        this.f5464e = new byte[0];
     }
 
     public void a(JSONObject jSONObject) {
-        synchronized (this.f5328d) {
+        synchronized (this.f5463d) {
             try {
-                this.f5326b.put(this.f5326b.length(), jSONObject);
+                this.f5461b.put(this.f5461b.length(), jSONObject);
             } catch (JSONException unused) {
             }
         }
@@ -110,8 +110,8 @@ public class f {
 
     public void a(String str) {
         if (com.baidu.fsg.base.statistics.b.o.equals(str)) {
-            synchronized (this.f5328d) {
-                this.f5326b = new JSONArray();
+            synchronized (this.f5463d) {
+                this.f5461b = new JSONArray();
             }
             com.baidu.fsg.base.statistics.a.a(RimStatisticsUtil.getAppContext(), com.baidu.fsg.base.statistics.b.n, StringUtil.EMPTY_ARRAY, false);
         }

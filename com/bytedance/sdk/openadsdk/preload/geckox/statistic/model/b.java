@@ -6,25 +6,25 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30027a;
+    public String f30944a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30028b;
+    public String f30945b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30029c;
+    public String f30946c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30030d;
+    public String f30947d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30031e;
+    public String f30948e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30032f;
+    public String f30949f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f30033g;
+    public int f30950g;
 
     public static String a(Map<String, String> map) {
         if (map != null && !map.isEmpty()) {

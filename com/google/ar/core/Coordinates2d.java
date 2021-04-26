@@ -13,20 +13,20 @@ public enum Coordinates2d {
     
     public final int nativeCode;
 
-    Coordinates2d(int i) {
-        this.nativeCode = i;
+    Coordinates2d(int i2) {
+        this.nativeCode = i2;
     }
 
-    public static Coordinates2d forNumber(int i) {
+    public static Coordinates2d forNumber(int i2) {
         Coordinates2d[] values;
         for (Coordinates2d coordinates2d : values()) {
-            if (coordinates2d.nativeCode == i) {
+            if (coordinates2d.nativeCode == i2) {
                 return coordinates2d;
             }
         }
         StringBuilder sb = new StringBuilder(60);
         sb.append("Unexpected value for native Coordinates2d, value=");
-        sb.append(i);
+        sb.append(i2);
         throw new FatalException(sb.toString());
     }
 }

@@ -26,13 +26,13 @@ import org.json.JSONObject;
 public final class ej extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference f22907a;
+    public final WeakReference f23618a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22908b;
+    public String f23619b;
 
     public ej(FeedbackInputActivity feedbackInputActivity) {
-        this.f22907a = new WeakReference(feedbackInputActivity);
+        this.f23618a = new WeakReference(feedbackInputActivity);
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(15:18|(5:20|(1:22)(1:128)|23|24|(1:26)(2:114|(1:116)(2:117|(4:119|(1:121)|122|(1:124))(2:125|(1:127)))))(1:129)|27|(1:29)(1:113)|30|(2:32|33)(1:112)|34|(2:39|(6:109|110|48|49|(2:55|56)|57)(7:43|(2:45|46)(10:65|66|67|(2:69|70)(1:105)|71|72|73|(1:75)(1:101)|76|(11:85|86|87|88|(2:90|91)|(1:97)(1:95)|96|48|49|(1:60)(4:51|53|55|56)|57)(2:80|(1:84)))|47|48|49|(0)(0)|57))|111|110|48|49|(0)(0)|57|16) */
@@ -71,7 +71,7 @@ public final class ej extends Handler {
         String str18 = "discontent_reason";
         String str19 = "evaluation";
         feedbackInputActivity.u = false;
-        feedbackInputActivity.f22715h.clear();
+        feedbackInputActivity.f23422h.clear();
         HashMap hashMap = new HashMap();
         String str20 = "from";
         hashMap.put("from", 1);
@@ -88,12 +88,12 @@ public final class ej extends Handler {
             str = "extra";
             str2 = "contenttype";
             String valueOf = String.valueOf(System.currentTimeMillis());
-            this.f22908b = valueOf;
+            this.f23619b = valueOf;
             hashMap.put("time", valueOf);
         } else {
             str = "extra";
             str2 = "contenttype";
-            String string = feedbackInputActivity.r.getString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.f22712e, "0");
+            String string = feedbackInputActivity.r.getString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.f23419e, "0");
             if (string.equals("0")) {
                 try {
                     string = (String) new JSONArray(str25).getJSONObject(0).get("time");
@@ -104,7 +104,7 @@ public final class ej extends Handler {
             hashMap.put("time", string);
         }
         if (!feedbackInputActivity.o) {
-            feedbackInputActivity.f22715h.add(hashMap);
+            feedbackInputActivity.f23422h.add(hashMap);
         }
         cg cgVar = feedbackInputActivity.j;
         if (cgVar != null) {
@@ -112,13 +112,13 @@ public final class ej extends Handler {
         }
         try {
             JSONArray jSONArray3 = new JSONArray(str25);
-            int i = 0;
-            while (i < jSONArray3.length()) {
+            int i2 = 0;
+            while (i2 < jSONArray3.length()) {
                 HashMap hashMap2 = new HashMap();
-                int intValue = ((Integer) jSONArray3.getJSONObject(i).get(str20)).intValue();
+                int intValue = ((Integer) jSONArray3.getJSONObject(i2).get(str20)).intValue();
                 hashMap2.put(str20, Integer.valueOf(intValue));
                 if (intValue == 1) {
-                    int intValue2 = jSONArray3.getJSONObject(i).has(str19) ? ((Integer) jSONArray3.getJSONObject(i).get(str19)).intValue() : 0;
+                    int intValue2 = jSONArray3.getJSONObject(i2).has(str19) ? ((Integer) jSONArray3.getJSONObject(i2).get(str19)).intValue() : 0;
                     str4 = str20;
                     hashMap2.put(str19, Integer.valueOf(intValue2));
                     if (intValue2 == 0) {
@@ -130,11 +130,11 @@ public final class ej extends Handler {
                             hashMap2.put("ask", 1);
                         } else if (intValue2 <= 9) {
                             hashMap2.put("ask", 9);
-                            if (jSONArray3.getJSONObject(i).has(str18)) {
-                                hashMap2.put(str18, (String) jSONArray3.getJSONObject(i).get(str18));
+                            if (jSONArray3.getJSONObject(i2).has(str18)) {
+                                hashMap2.put(str18, (String) jSONArray3.getJSONObject(i2).get(str18));
                             }
-                            if (jSONArray3.getJSONObject(i).has(str17)) {
-                                hashMap2.put(str17, (JSONArray) jSONArray3.getJSONObject(i).get(str17));
+                            if (jSONArray3.getJSONObject(i2).has(str17)) {
+                                hashMap2.put(str17, (JSONArray) jSONArray3.getJSONObject(i2).get(str17));
                             }
                         } else if (intValue2 >= 11) {
                             hashMap2.put("ask", 11);
@@ -144,15 +144,15 @@ public final class ej extends Handler {
                     str3 = str19;
                     str4 = str20;
                 }
-                hashMap2.put("chatId", Integer.valueOf(jSONArray3.getJSONObject(i).has(str16) ? ((Integer) jSONArray3.getJSONObject(i).get(str16)).intValue() : 0));
+                hashMap2.put("chatId", Integer.valueOf(jSONArray3.getJSONObject(i2).has(str16) ? ((Integer) jSONArray3.getJSONObject(i2).get(str16)).intValue() : 0));
                 String str27 = str2;
-                String str28 = (String) jSONArray3.getJSONObject(i).get(str27);
+                String str28 = (String) jSONArray3.getJSONObject(i2).get(str27);
                 hashMap2.put(str27, str28);
                 String str29 = str16;
                 String str30 = str;
                 String str31 = null;
-                if (jSONArray3.getJSONObject(i).has(str30)) {
-                    str6 = jSONArray3.getJSONObject(i).getString(str30);
+                if (jSONArray3.getJSONObject(i2).has(str30)) {
+                    str6 = jSONArray3.getJSONObject(i2).getString(str30);
                     str5 = str30;
                 } else {
                     str5 = str30;
@@ -162,11 +162,11 @@ public final class ej extends Handler {
                     str7 = str17;
                     JSONObject jSONObject = new JSONObject(str6);
                     if (intValue == 1 && str28.equals(str23)) {
-                        int i2 = jSONObject.getInt("flagRobot");
-                        hashMap2.put("flagRobot", Integer.valueOf(i2));
-                        if (i2 == 0) {
+                        int i3 = jSONObject.getInt("flagRobot");
+                        hashMap2.put("flagRobot", Integer.valueOf(i3));
+                        if (i3 == 0) {
                             str9 = str26;
-                            hashMap2.put(str9, jSONArray3.getJSONObject(i).getString(str9));
+                            hashMap2.put(str9, jSONArray3.getJSONObject(i2).getString(str9));
                             str10 = str23;
                             str11 = str22;
                             str8 = str24;
@@ -204,13 +204,13 @@ public final class ej extends Handler {
                                 } catch (Exception e5) {
                                     e5.printStackTrace();
                                 }
-                                hashMap2.put(str9, (str31 != null || str31.length() <= 0) ? jSONArray3.getJSONObject(i).getString(str9) : jSONObject.getString(str13));
+                                hashMap2.put(str9, (str31 != null || str31.length() <= 0) ? jSONArray3.getJSONObject(i2).getString(str9) : jSONObject.getString(str13));
                                 str14 = (String) hashMap2.get(str9);
                                 if (str14 == null) {
                                 }
-                                hashMap2.put("time", (String) jSONArray3.getJSONObject(i).get("time"));
-                                feedbackInputActivity.f22715h.add(hashMap2);
-                                i++;
+                                hashMap2.put("time", (String) jSONArray3.getJSONObject(i2).get("time"));
+                                feedbackInputActivity.f23422h.add(hashMap2);
+                                i2++;
                                 str = str5;
                                 str21 = str13;
                                 str24 = str8;
@@ -230,14 +230,14 @@ public final class ej extends Handler {
                                 if (jSONObject.has(str13)) {
                                     str31 = jSONObject.getString(str13);
                                 }
-                                hashMap2.put(str9, (str31 != null || str31.length() <= 0) ? jSONArray3.getJSONObject(i).getString(str9) : jSONObject.getString(str13));
+                                hashMap2.put(str9, (str31 != null || str31.length() <= 0) ? jSONArray3.getJSONObject(i2).getString(str9) : jSONObject.getString(str13));
                                 str14 = (String) hashMap2.get(str9);
                                 if (str14 == null) {
                                     hashMap2.put(str27, "1");
                                 }
-                                hashMap2.put("time", (String) jSONArray3.getJSONObject(i).get("time"));
-                                feedbackInputActivity.f22715h.add(hashMap2);
-                                i++;
+                                hashMap2.put("time", (String) jSONArray3.getJSONObject(i2).get("time"));
+                                feedbackInputActivity.f23422h.add(hashMap2);
+                                i2++;
                                 str = str5;
                                 str21 = str13;
                                 str24 = str8;
@@ -264,9 +264,9 @@ public final class ej extends Handler {
                         str14 = (String) hashMap2.get(str9);
                         if (str14 == null) {
                         }
-                        hashMap2.put("time", (String) jSONArray3.getJSONObject(i).get("time"));
-                        feedbackInputActivity.f22715h.add(hashMap2);
-                        i++;
+                        hashMap2.put("time", (String) jSONArray3.getJSONObject(i2).get("time"));
+                        feedbackInputActivity.f23422h.add(hashMap2);
+                        i2++;
                         str = str5;
                         str21 = str13;
                         str24 = str8;
@@ -286,15 +286,15 @@ public final class ej extends Handler {
                         str11 = str22;
                         str12 = str18;
                         str13 = str21;
-                        hashMap2.put(str9, (String) jSONArray3.getJSONObject(i).get(str9));
+                        hashMap2.put(str9, (String) jSONArray3.getJSONObject(i2).get(str9));
                         hashMap2.put("flagRobot", 0);
                         str14 = (String) hashMap2.get(str9);
                         if (str14 == null && str14.contains(".jpg") && str14.startsWith("http")) {
                             hashMap2.put(str27, "1");
                         }
-                        hashMap2.put("time", (String) jSONArray3.getJSONObject(i).get("time"));
-                        feedbackInputActivity.f22715h.add(hashMap2);
-                        i++;
+                        hashMap2.put("time", (String) jSONArray3.getJSONObject(i2).get("time"));
+                        feedbackInputActivity.f23422h.add(hashMap2);
+                        i2++;
                         str = str5;
                         str21 = str13;
                         str24 = str8;
@@ -316,14 +316,14 @@ public final class ej extends Handler {
                 str11 = str22;
                 str12 = str18;
                 str13 = str21;
-                hashMap2.put(str9, (String) jSONArray3.getJSONObject(i).get(str9));
+                hashMap2.put(str9, (String) jSONArray3.getJSONObject(i2).get(str9));
                 hashMap2.put("flagRobot", 0);
                 str14 = (String) hashMap2.get(str9);
                 if (str14 == null) {
                 }
-                hashMap2.put("time", (String) jSONArray3.getJSONObject(i).get("time"));
-                feedbackInputActivity.f22715h.add(hashMap2);
-                i++;
+                hashMap2.put("time", (String) jSONArray3.getJSONObject(i2).get("time"));
+                feedbackInputActivity.f23422h.add(hashMap2);
+                i2++;
                 str = str5;
                 str21 = str13;
                 str24 = str8;
@@ -338,11 +338,11 @@ public final class ej extends Handler {
                 str19 = str3;
             }
             feedbackInputActivity.j.notifyDataSetChanged();
-            feedbackInputActivity.f22711d.setVisibility(0);
-            feedbackInputActivity.f22710c.setVisibility(0);
-            feedbackInputActivity.f22709b.setVisibility(8);
+            feedbackInputActivity.f23418d.setVisibility(0);
+            feedbackInputActivity.f23417c.setVisibility(0);
+            feedbackInputActivity.f23416b.setVisibility(8);
             feedbackInputActivity.k.setVisibility(8);
-            feedbackInputActivity.i.setSelection(feedbackInputActivity.i.getBottom());
+            feedbackInputActivity.f23423i.setSelection(feedbackInputActivity.f23423i.getBottom());
             feedbackInputActivity.n = true;
             new Handler().postDelayed(new ek(this, feedbackInputActivity), 1500L);
         } catch (JSONException e6) {
@@ -362,23 +362,23 @@ public final class ej extends Handler {
             feedbackInputActivity.y = false;
         }
         if (feedbackInputActivity.H) {
-            feedbackInputActivity.f22713f = feedbackInputActivity.f22712e;
+            feedbackInputActivity.f23420f = feedbackInputActivity.f23419e;
         }
         feedbackInputActivity.u = false;
-        feedbackInputActivity.f22711d.setVisibility(0);
+        feedbackInputActivity.f23418d.setVisibility(0);
         ArrayList arrayList = (ArrayList) message.obj;
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (((String) ((Map) arrayList.get(i)).get("id")).equals(feedbackInputActivity.f22712e)) {
+        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+            if (((String) ((Map) arrayList.get(i2)).get("id")).equals(feedbackInputActivity.f23419e)) {
                 HashMap hashMap = new HashMap();
-                if (((Integer) ((Map) arrayList.get(i)).get("flagRobot")).intValue() == 0) {
-                    if (((Map) arrayList.get(i)).containsKey("chatId")) {
-                        hashMap.put("chatId", ((Map) arrayList.get(i)).get("chatId"));
+                if (((Integer) ((Map) arrayList.get(i2)).get("flagRobot")).intValue() == 0) {
+                    if (((Map) arrayList.get(i2)).containsKey("chatId")) {
+                        hashMap.put("chatId", ((Map) arrayList.get(i2)).get("chatId"));
                     }
                     hashMap.put("from", 1);
-                    hashMap.put("content", (String) ((Map) arrayList.get(i)).get("content"));
-                    hashMap.put("time", (String) ((Map) arrayList.get(i)).get("time"));
+                    hashMap.put("content", (String) ((Map) arrayList.get(i2)).get("content"));
+                    hashMap.put("time", (String) ((Map) arrayList.get(i2)).get("time"));
                     hashMap.put("contenttype", "0");
-                    if (!((String) ((Map) arrayList.get(i)).get("toggle")).equals("yes") || feedbackInputActivity.z) {
+                    if (!((String) ((Map) arrayList.get(i2)).get("toggle")).equals("yes") || feedbackInputActivity.z) {
                         hashMap.put("ask", 0);
                     } else {
                         hashMap.put("ask", 1);
@@ -396,35 +396,35 @@ public final class ej extends Handler {
                         obj = "ask";
                     }
                     try {
-                        JSONArray jSONArray = new JSONArray((String) ((Map) arrayList.get(i)).get("content"));
-                        hashMap.put("chatId", ((Map) arrayList.get(i)).get("chatId"));
+                        JSONArray jSONArray = new JSONArray((String) ((Map) arrayList.get(i2)).get("content"));
+                        hashMap.put("chatId", ((Map) arrayList.get(i2)).get("chatId"));
                         hashMap.put("from", 1);
                         hashMap.put("content", jSONArray);
-                        hashMap.put("time", (String) ((Map) arrayList.get(i)).get("time"));
+                        hashMap.put("time", (String) ((Map) arrayList.get(i2)).get("time"));
                         hashMap.put("contenttype", "-1");
                         hashMap.put("subtype", 0);
-                        hashMap.put("tip", (String) ((Map) arrayList.get(i)).get("tip"));
+                        hashMap.put("tip", (String) ((Map) arrayList.get(i2)).get("tip"));
                     } catch (JSONException e3) {
                         e = e3;
                         e.printStackTrace();
-                        if (((String) ((Map) arrayList.get(i)).get("toggle")).equals("yes")) {
+                        if (((String) ((Map) arrayList.get(i2)).get("toggle")).equals("yes")) {
                         }
                         hashMap.put(obj, 0);
-                        feedbackInputActivity.f22715h.add(hashMap);
+                        feedbackInputActivity.f23422h.add(hashMap);
                         feedbackInputActivity.j.notifyDataSetChanged();
-                        ListView listView = feedbackInputActivity.i;
+                        ListView listView = feedbackInputActivity.f23423i;
                         listView.setSelection(listView.getBottom());
                     }
-                    if (((String) ((Map) arrayList.get(i)).get("toggle")).equals("yes") || feedbackInputActivity.z) {
+                    if (((String) ((Map) arrayList.get(i2)).get("toggle")).equals("yes") || feedbackInputActivity.z) {
                         hashMap.put(obj, 0);
                     } else {
                         hashMap.put(obj, 1);
                         feedbackInputActivity.B = false;
                     }
                 }
-                feedbackInputActivity.f22715h.add(hashMap);
+                feedbackInputActivity.f23422h.add(hashMap);
                 feedbackInputActivity.j.notifyDataSetChanged();
-                ListView listView2 = feedbackInputActivity.i;
+                ListView listView2 = feedbackInputActivity.f23423i;
                 listView2.setSelection(listView2.getBottom());
             }
         }
@@ -447,7 +447,7 @@ public final class ej extends Handler {
         String str5;
         String str6;
         super.handleMessage(message);
-        FeedbackInputActivity feedbackInputActivity = (FeedbackInputActivity) this.f22907a.get();
+        FeedbackInputActivity feedbackInputActivity = (FeedbackInputActivity) this.f23618a.get();
         if (feedbackInputActivity == null) {
             return;
         }
@@ -458,9 +458,9 @@ public final class ej extends Handler {
                 hashMap.put("content", message.obj);
                 hashMap.put("contenttype", "0");
                 hashMap.put("time", String.valueOf(System.currentTimeMillis()));
-                feedbackInputActivity.f22715h.add(hashMap);
+                feedbackInputActivity.f23422h.add(hashMap);
                 feedbackInputActivity.j.notifyDataSetChanged();
-                ListView listView = feedbackInputActivity.i;
+                ListView listView = feedbackInputActivity.f23423i;
                 listView.setSelection(listView.getBottom());
                 feedbackInputActivity.s.setVisibility(8);
                 feedbackInputActivity.E.setEnabled(true);
@@ -481,9 +481,9 @@ public final class ej extends Handler {
                             hashMap2.put("content", decodeByteArray);
                             hashMap2.put("contenttype", "2");
                             hashMap2.put("time", String.valueOf(System.currentTimeMillis()));
-                            feedbackInputActivity.f22715h.add(hashMap2);
+                            feedbackInputActivity.f23422h.add(hashMap2);
                             feedbackInputActivity.j.notifyDataSetChanged();
-                            ListView listView2 = feedbackInputActivity.i;
+                            ListView listView2 = feedbackInputActivity.f23423i;
                             listView2.setSelection(listView2.getBottom());
                             return;
                         }
@@ -495,10 +495,10 @@ public final class ej extends Handler {
                 }
                 return;
             case 4:
-                feedbackInputActivity.f22711d.setVisibility(8);
-                feedbackInputActivity.f22710c.setVisibility(8);
+                feedbackInputActivity.f23418d.setVisibility(8);
+                feedbackInputActivity.f23417c.setVisibility(8);
                 com.baidu.ufosdk.f.i.a(feedbackInputActivity.getApplicationContext(), feedbackInputActivity.m);
-                feedbackInputActivity.f22709b.setVisibility(0);
+                feedbackInputActivity.f23416b.setVisibility(0);
                 feedbackInputActivity.k.setVisibility(8);
                 return;
             case 5:
@@ -506,7 +506,7 @@ public final class ej extends Handler {
                 return;
             case 6:
                 if (feedbackInputActivity.n) {
-                    ListView listView3 = feedbackInputActivity.i;
+                    ListView listView3 = feedbackInputActivity.f23423i;
                     listView3.setSelection(listView3.getBottom());
                     return;
                 }
@@ -519,7 +519,7 @@ public final class ej extends Handler {
                         if (new JSONObject(b2).optInt("errno", -1) == 0) {
                             feedbackInputActivity.u = false;
                             feedbackInputActivity.j.notifyDataSetChanged();
-                            feedbackInputActivity.i.setSelection(feedbackInputActivity.i.getBottom());
+                            feedbackInputActivity.f23423i.setSelection(feedbackInputActivity.f23423i.getBottom());
                             return;
                         }
                     }
@@ -528,7 +528,7 @@ public final class ej extends Handler {
                 }
                 feedbackInputActivity.u = false;
                 feedbackInputActivity.j.notifyDataSetChanged();
-                ListView listView4 = feedbackInputActivity.i;
+                ListView listView4 = feedbackInputActivity.f23423i;
                 listView4.setSelection(listView4.getBottom());
                 if (TextUtils.isEmpty(feedbackInputActivity.L)) {
                     Toast.makeText(feedbackInputActivity.getApplicationContext(), com.baidu.ufosdk.f.s.a("44"), 0).show();
@@ -565,11 +565,11 @@ public final class ej extends Handler {
                     hashMap3.put("contenttype", "0");
                     hashMap3.put("time", String.valueOf(System.currentTimeMillis()));
                     hashMap3.put("ask", 0);
-                    feedbackInputActivity.f22715h.add(hashMap3);
+                    feedbackInputActivity.f23422h.add(hashMap3);
                 }
                 feedbackInputActivity.u = true;
                 feedbackInputActivity.j.notifyDataSetChanged();
-                ListView listView5 = feedbackInputActivity.i;
+                ListView listView5 = feedbackInputActivity.f23423i;
                 listView5.setSelection(listView5.getBottom());
                 return;
             case 9:
@@ -580,9 +580,9 @@ public final class ej extends Handler {
                     hashMap4.put("contenttype", "-1");
                     hashMap4.put("subtype", 1);
                     hashMap4.put("content", (JSONArray) message.obj);
-                    feedbackInputActivity.f22715h.add(hashMap4);
+                    feedbackInputActivity.f23422h.add(hashMap4);
                     feedbackInputActivity.j.notifyDataSetChanged();
-                    feedbackInputActivity.i.setSelection(feedbackInputActivity.i.getBottom());
+                    feedbackInputActivity.f23423i.setSelection(feedbackInputActivity.f23423i.getBottom());
                     return;
                 } catch (Exception e3) {
                     e3.printStackTrace();
@@ -593,19 +593,19 @@ public final class ej extends Handler {
                 Intent intent = new Intent();
                 intent.setClass(feedbackInputActivity, FeedbackEditActivity.class);
                 intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
-                intent.putExtra("msgid", feedbackInputActivity.f22712e);
+                intent.putExtra("msgid", feedbackInputActivity.f23419e);
                 intent.putExtra("im_content", feedbackInputActivity.A);
                 intent.putExtra("come_from", 0);
                 feedbackInputActivity.startActivity(intent);
                 return;
             case 11:
-                feedbackInputActivity.K.f22935a.setVisibility(8);
-                feedbackInputActivity.K.f22937c.setBackgroundResource(R.drawable.dialog_btn_selector);
-                feedbackInputActivity.K.f22937c.setTextColor(-1);
-                feedbackInputActivity.K.f22937c.setClickable(true);
-                feedbackInputActivity.K.f22936b.setFocusable(true);
-                feedbackInputActivity.K.f22936b.setFocusableInTouchMode(true);
-                feedbackInputActivity.K.f22936b.requestFocus();
+                feedbackInputActivity.K.f23647a.setVisibility(8);
+                feedbackInputActivity.K.f23649c.setBackgroundResource(R.drawable.dialog_btn_selector);
+                feedbackInputActivity.K.f23649c.setTextColor(-1);
+                feedbackInputActivity.K.f23649c.setClickable(true);
+                feedbackInputActivity.K.f23648b.setFocusable(true);
+                feedbackInputActivity.K.f23648b.setFocusableInTouchMode(true);
+                feedbackInputActivity.K.f23648b.requestFocus();
                 if (((Integer) message.obj).intValue() == 0) {
                     ev evVar = feedbackInputActivity.K;
                     if (evVar != null && evVar.isShowing()) {
@@ -644,13 +644,13 @@ public final class ej extends Handler {
                 StringBuilder sb = new StringBuilder();
                 sb.append(message.arg1);
                 String sb2 = sb.toString();
-                feedbackInputActivity.f22713f = sb2;
-                feedbackInputActivity.f22712e = sb2;
+                feedbackInputActivity.f23420f = sb2;
+                feedbackInputActivity.f23419e = sb2;
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append(message.arg2);
                 String sb4 = sb3.toString();
-                com.baidu.ufosdk.f.c.a("Handler = 12 PluginInvoker.robotAnswer = " + UfoSDK.robotAnswer + "; tempRobotSwitch = " + feedbackInputActivity.y + "; id = " + feedbackInputActivity.f22713f);
-                if (!UfoSDK.robotAnswer || !feedbackInputActivity.y || (str4 = feedbackInputActivity.f22713f) == null || str4.length() <= 0) {
+                com.baidu.ufosdk.f.c.a("Handler = 12 PluginInvoker.robotAnswer = " + UfoSDK.robotAnswer + "; tempRobotSwitch = " + feedbackInputActivity.y + "; id = " + feedbackInputActivity.f23420f);
+                if (!UfoSDK.robotAnswer || !feedbackInputActivity.y || (str4 = feedbackInputActivity.f23420f) == null || str4.length() <= 0) {
                     return;
                 }
                 feedbackInputActivity.l.execute(new em(this, feedbackInputActivity, sb4));
@@ -660,10 +660,10 @@ public final class ej extends Handler {
                 feedbackInputActivity.s.setVisibility(8);
                 feedbackInputActivity.E.setEnabled(true);
                 TextView textView = feedbackInputActivity.J;
-                int i = com.baidu.ufosdk.b.v;
-                int i2 = com.baidu.ufosdk.b.y;
-                int i3 = com.baidu.ufosdk.b.v;
-                textView.setTextColor(com.baidu.ufosdk.f.i.a(i, i2, i3, i3));
+                int i2 = com.baidu.ufosdk.b.v;
+                int i3 = com.baidu.ufosdk.b.y;
+                int i4 = com.baidu.ufosdk.b.v;
+                textView.setTextColor(com.baidu.ufosdk.f.i.a(i2, i3, i4, i4));
                 return;
             case 14:
                 feedbackInputActivity.E.setEnabled(true);
@@ -675,8 +675,8 @@ public final class ej extends Handler {
                     return;
                 }
                 feedbackInputActivity.G = false;
-                if (!TextUtils.isEmpty(feedbackInputActivity.f22712e) && TextUtils.isEmpty(feedbackInputActivity.F)) {
-                    feedbackInputActivity.q.putString(feedbackInputActivity.f22712e, "");
+                if (!TextUtils.isEmpty(feedbackInputActivity.f23419e) && TextUtils.isEmpty(feedbackInputActivity.F)) {
+                    feedbackInputActivity.q.putString(feedbackInputActivity.f23419e, "");
                 }
                 if (!TextUtils.isEmpty(feedbackInputActivity.F)) {
                     feedbackInputActivity.q.putString(feedbackInputActivity.F, "");
@@ -688,20 +688,20 @@ public final class ej extends Handler {
                 StringBuilder sb5 = new StringBuilder();
                 sb5.append(message.arg1);
                 String sb6 = sb5.toString();
-                feedbackInputActivity.f22713f = sb6;
-                feedbackInputActivity.f22712e = sb6;
+                feedbackInputActivity.f23420f = sb6;
+                feedbackInputActivity.f23419e = sb6;
                 StringBuilder sb7 = new StringBuilder();
                 sb7.append(message.arg2);
                 String sb8 = sb7.toString();
-                com.baidu.ufosdk.a.a aVar = feedbackInputActivity.f22714g;
-                if (aVar != null && (str6 = feedbackInputActivity.f22712e) != null) {
+                com.baidu.ufosdk.a.a aVar = feedbackInputActivity.f23421g;
+                if (aVar != null && (str6 = feedbackInputActivity.f23419e) != null) {
                     aVar.a(str6);
                 }
                 SharedPreferences.Editor editor = feedbackInputActivity.q;
-                editor.putString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.f22713f, this.f22908b);
+                editor.putString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.f23420f, this.f23619b);
                 feedbackInputActivity.q.commit();
-                com.baidu.ufosdk.f.c.a("Handler = 14 tempRobotSwitch = " + feedbackInputActivity.y + "; id = " + feedbackInputActivity.f22713f);
-                if (!UfoSDK.robotAnswer || !feedbackInputActivity.y || (str5 = feedbackInputActivity.f22713f) == null || str5.length() <= 0) {
+                com.baidu.ufosdk.f.c.a("Handler = 14 tempRobotSwitch = " + feedbackInputActivity.y + "; id = " + feedbackInputActivity.f23420f);
+                if (!UfoSDK.robotAnswer || !feedbackInputActivity.y || (str5 = feedbackInputActivity.f23420f) == null || str5.length() <= 0) {
                     feedbackInputActivity.l.execute(new eo(this, feedbackInputActivity, sb8));
                     return;
                 } else {
@@ -729,15 +729,15 @@ public final class ej extends Handler {
                     hashMap5.put("contenttype", "0");
                     hashMap5.put("time", String.valueOf(System.currentTimeMillis()));
                     hashMap5.put("ask", 0);
-                    feedbackInputActivity.f22715h.add(hashMap5);
+                    feedbackInputActivity.f23422h.add(hashMap5);
                 }
                 feedbackInputActivity.u = true;
                 feedbackInputActivity.j.notifyDataSetChanged();
-                ListView listView6 = feedbackInputActivity.i;
+                ListView listView6 = feedbackInputActivity.f23423i;
                 listView6.setSelection(listView6.getBottom());
                 return;
             case 18:
-                ((InputMethodManager) feedbackInputActivity.getSystemService("input_method")).showSoftInput(feedbackInputActivity.K.f22936b, 1);
+                ((InputMethodManager) feedbackInputActivity.getSystemService("input_method")).showSoftInput(feedbackInputActivity.K.f23648b, 1);
                 com.baidu.ufosdk.f.c.a("show keyboard! " + message.obj.toString());
                 return;
             default:

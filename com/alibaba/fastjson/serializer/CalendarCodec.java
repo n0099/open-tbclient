@@ -57,8 +57,8 @@ public class CalendarCodec extends ContextObjectDeserializer implements ObjectSe
 
     /* JADX WARN: Type inference failed for: r7v3, types: [java.util.Calendar, T] */
     @Override // com.alibaba.fastjson.parser.deserializer.ContextObjectDeserializer
-    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, String str, int i) {
-        T t = (T) DateCodec.instance.deserialze(defaultJSONParser, type, obj, str, i);
+    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, String str, int i2) {
+        T t = (T) DateCodec.instance.deserialze(defaultJSONParser, type, obj, str, i2);
         if (t instanceof Calendar) {
             return t;
         }
@@ -73,7 +73,7 @@ public class CalendarCodec extends ContextObjectDeserializer implements ObjectSe
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         Calendar calendar;
         char[] charArray;
         SerializeWriter serializeWriter = jSONSerializer.out;
@@ -89,59 +89,59 @@ public class CalendarCodec extends ContextObjectDeserializer implements ObjectSe
         if (serializeWriter.isEnabled(SerializerFeature.UseISO8601DateFormat)) {
             char c2 = serializeWriter.isEnabled(SerializerFeature.UseSingleQuotes) ? '\'' : Typography.quote;
             serializeWriter.append(c2);
-            int i2 = calendar.get(1);
-            int i3 = calendar.get(2) + 1;
-            int i4 = calendar.get(5);
-            int i5 = calendar.get(11);
-            int i6 = calendar.get(12);
-            int i7 = calendar.get(13);
-            int i8 = calendar.get(14);
-            if (i8 != 0) {
+            int i3 = calendar.get(1);
+            int i4 = calendar.get(2) + 1;
+            int i5 = calendar.get(5);
+            int i6 = calendar.get(11);
+            int i7 = calendar.get(12);
+            int i8 = calendar.get(13);
+            int i9 = calendar.get(14);
+            if (i9 != 0) {
                 charArray = "0000-00-00T00:00:00.000".toCharArray();
-                IOUtils.getChars(i8, 23, charArray);
-                IOUtils.getChars(i7, 19, charArray);
-                IOUtils.getChars(i6, 16, charArray);
-                IOUtils.getChars(i5, 13, charArray);
-                IOUtils.getChars(i4, 10, charArray);
-                IOUtils.getChars(i3, 7, charArray);
-                IOUtils.getChars(i2, 4, charArray);
-            } else if (i7 == 0 && i6 == 0 && i5 == 0) {
+                IOUtils.getChars(i9, 23, charArray);
+                IOUtils.getChars(i8, 19, charArray);
+                IOUtils.getChars(i7, 16, charArray);
+                IOUtils.getChars(i6, 13, charArray);
+                IOUtils.getChars(i5, 10, charArray);
+                IOUtils.getChars(i4, 7, charArray);
+                IOUtils.getChars(i3, 4, charArray);
+            } else if (i8 == 0 && i7 == 0 && i6 == 0) {
                 charArray = "0000-00-00".toCharArray();
-                IOUtils.getChars(i4, 10, charArray);
-                IOUtils.getChars(i3, 7, charArray);
-                IOUtils.getChars(i2, 4, charArray);
+                IOUtils.getChars(i5, 10, charArray);
+                IOUtils.getChars(i4, 7, charArray);
+                IOUtils.getChars(i3, 4, charArray);
             } else {
                 charArray = "0000-00-00T00:00:00".toCharArray();
-                IOUtils.getChars(i7, 19, charArray);
-                IOUtils.getChars(i6, 16, charArray);
-                IOUtils.getChars(i5, 13, charArray);
-                IOUtils.getChars(i4, 10, charArray);
-                IOUtils.getChars(i3, 7, charArray);
-                IOUtils.getChars(i2, 4, charArray);
+                IOUtils.getChars(i8, 19, charArray);
+                IOUtils.getChars(i7, 16, charArray);
+                IOUtils.getChars(i6, 13, charArray);
+                IOUtils.getChars(i5, 10, charArray);
+                IOUtils.getChars(i4, 7, charArray);
+                IOUtils.getChars(i3, 4, charArray);
             }
             serializeWriter.write(charArray);
             float offset = calendar.getTimeZone().getOffset(calendar.getTimeInMillis()) / 3600000.0f;
-            int i9 = (int) offset;
-            if (i9 == 0.0d) {
+            int i10 = (int) offset;
+            if (i10 == 0.0d) {
                 serializeWriter.write(90);
             } else {
-                if (i9 > 9) {
+                if (i10 > 9) {
                     serializeWriter.write(43);
-                    serializeWriter.writeInt(i9);
-                } else if (i9 > 0) {
+                    serializeWriter.writeInt(i10);
+                } else if (i10 > 0) {
                     serializeWriter.write(43);
                     serializeWriter.write(48);
-                    serializeWriter.writeInt(i9);
-                } else if (i9 < -9) {
+                    serializeWriter.writeInt(i10);
+                } else if (i10 < -9) {
                     serializeWriter.write(45);
-                    serializeWriter.writeInt(i9);
-                } else if (i9 < 0) {
+                    serializeWriter.writeInt(i10);
+                } else if (i10 < 0) {
                     serializeWriter.write(45);
                     serializeWriter.write(48);
-                    serializeWriter.writeInt(-i9);
+                    serializeWriter.writeInt(-i10);
                 }
                 serializeWriter.write(58);
-                serializeWriter.append((CharSequence) String.format("%02d", Integer.valueOf((int) ((offset - i9) * 60.0f))));
+                serializeWriter.append((CharSequence) String.format("%02d", Integer.valueOf((int) ((offset - i10) * 60.0f))));
             }
             serializeWriter.append(c2);
             return;

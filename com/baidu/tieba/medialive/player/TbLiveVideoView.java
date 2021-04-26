@@ -14,19 +14,19 @@ public class TbLiveVideoView extends BVideoView {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void onBufferingUpdate(int i);
+        void onBufferingUpdate(int i2);
 
         void onCompletion();
 
-        void onError(int i, int i2);
+        void onError(int i2, int i3);
 
-        void onInfo(int i, int i2);
+        void onInfo(int i2, int i3);
 
         void onPrepared();
 
         void onSeekComplete();
 
-        void onVideoSizeChanged(int i, int i2);
+        void onVideoSizeChanged(int i2, int i3);
     }
 
     public TbLiveVideoView(Context context, AttributeSet attributeSet) {
@@ -47,11 +47,11 @@ public class TbLiveVideoView extends BVideoView {
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
-    public void onBufferingUpdate(int i) {
-        super.onBufferingUpdate(i);
+    public void onBufferingUpdate(int i2) {
+        super.onBufferingUpdate(i2);
         a aVar = this.H;
         if (aVar != null) {
-            aVar.onBufferingUpdate(i);
+            aVar.onBufferingUpdate(i2);
         }
     }
 
@@ -65,21 +65,21 @@ public class TbLiveVideoView extends BVideoView {
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
-    public boolean onError(int i, int i2, Object obj) {
+    public boolean onError(int i2, int i3, Object obj) {
         a aVar = this.H;
         if (aVar != null) {
-            aVar.onError(i, i2);
+            aVar.onError(i2, i3);
         }
-        return super.onError(i, i2, obj);
+        return super.onError(i2, i3, obj);
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
-    public boolean onInfo(int i, int i2, Object obj) {
+    public boolean onInfo(int i2, int i3, Object obj) {
         a aVar = this.H;
         if (aVar != null) {
-            aVar.onInfo(i, i2);
+            aVar.onInfo(i2, i3);
         }
-        return super.onInfo(i, i2, obj);
+        return super.onInfo(i2, i3, obj);
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
@@ -101,11 +101,11 @@ public class TbLiveVideoView extends BVideoView {
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
-    public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
-        super.onVideoSizeChanged(i, i2, i3, i4);
+    public void onVideoSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onVideoSizeChanged(i2, i3, i4, i5);
         a aVar = this.H;
         if (aVar != null) {
-            aVar.onVideoSizeChanged(i, i2);
+            aVar.onVideoSizeChanged(i2, i3);
         }
     }
 

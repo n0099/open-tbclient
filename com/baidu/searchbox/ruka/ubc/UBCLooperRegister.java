@@ -99,7 +99,7 @@ public class UBCLooperRegister extends ILooperRegister {
             LinkedList<TrackUI> trackUIs = looperBlock.getTrackUIs();
             if (trackUIs != null && trackUIs.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                int i = 1;
+                int i2 = 1;
                 int size = trackUIs.size() - 1;
                 while (true) {
                     TrackUI trackUI = trackUIs.get(size);
@@ -108,16 +108,16 @@ public class UBCLooperRegister extends ILooperRegister {
                     jSONObject2.put("page", trackUI.toStringPage());
                     jSONObject2.put("event", trackUI.getEvent());
                     jSONArray.put(jSONObject2);
-                    int i2 = i + 1;
-                    if (i >= 20) {
+                    int i3 = i2 + 1;
+                    if (i2 >= 20) {
                         break;
                     }
-                    int i3 = size - 1;
+                    int i4 = size - 1;
                     if (size <= 0) {
                         break;
                     }
-                    size = i3;
-                    i = i2;
+                    size = i4;
+                    i2 = i3;
                 }
                 jSONObject.put("pageTrace", jSONArray);
             }

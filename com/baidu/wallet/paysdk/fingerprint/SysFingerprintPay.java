@@ -45,10 +45,10 @@ public class SysFingerprintPay implements IFingerprintPay {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            int i = message.what;
-            if (i == 4096) {
+            int i2 = message.what;
+            if (i2 == 4096) {
                 WalletGlobalUtils.showLoadingDialog((Activity) message.obj);
-            } else if (i == 4097) {
+            } else if (i2 == 4097) {
                 WalletGlobalUtils.DismissLoadingDialog();
             } else {
                 super.handleMessage(message);
@@ -94,7 +94,7 @@ public class SysFingerprintPay implements IFingerprintPay {
         aVar.a(sn);
         aVar.setResponseCallback(new IBeanResponseCallback() { // from class: com.baidu.wallet.paysdk.fingerprint.SysFingerprintPay.2
             @Override // com.baidu.apollon.beans.IBeanResponseCallback
-            public void onBeanExecFailure(int i, int i2, final String str) {
+            public void onBeanExecFailure(int i2, int i3, final String str) {
                 WalletGlobalUtils.DismissLoadingDialog();
                 SysFingerprintPay.this.mSysFpHander.post(new Runnable() { // from class: com.baidu.wallet.paysdk.fingerprint.SysFingerprintPay.2.2
                     @Override // java.lang.Runnable
@@ -105,7 +105,7 @@ public class SysFingerprintPay implements IFingerprintPay {
             }
 
             @Override // com.baidu.apollon.beans.IBeanResponseCallback
-            public void onBeanExecSuccess(int i, Object obj, String str) {
+            public void onBeanExecSuccess(int i2, Object obj, String str) {
                 WalletGlobalUtils.DismissLoadingDialog();
                 WalletFingerprint.getInstance(activity).clearOTPToken();
                 SysFingerprintPay.this.mSysFpHander.post(new Runnable() { // from class: com.baidu.wallet.paysdk.fingerprint.SysFingerprintPay.2.1
@@ -139,7 +139,7 @@ public class SysFingerprintPay implements IFingerprintPay {
         }
         PasswordController.getPassWordInstance().checkPwd(activity, BeanConstants.FROM_FINGERPRINT_PAY, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.fingerprint.SysFingerprintPay.1
             @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
-            public void onFail(int i, String str) {
+            public void onFail(int i2, String str) {
                 fingerprintCallback.onAuthorizeResult(IFingerprintPay.Action.OPEN, 1, str);
             }
 
@@ -165,7 +165,7 @@ public class SysFingerprintPay implements IFingerprintPay {
                     final com.baidu.wallet.paysdk.fingerprint.bean.b bVar = (com.baidu.wallet.paysdk.fingerprint.bean.b) FingerprintBeanFactory.getInstance().getBean(applicationContext, FingerprintBeanFactory.BEAN_ID_SYS_FINGERPRINT_OPEN, TAG);
                     bVar.setResponseCallback(new IBeanResponseCallback() { // from class: com.baidu.wallet.paysdk.fingerprint.SysFingerprintPay.3
                         @Override // com.baidu.apollon.beans.IBeanResponseCallback
-                        public void onBeanExecFailure(int i, int i2, String str) {
+                        public void onBeanExecFailure(int i2, int i3, String str) {
                             bVar.destroyBean();
                             SysFingerprintPay.this.mSysFpHander.sendEmptyMessage(4097);
                             SysFingerprintPay.this.mSysFpHander.post(new Runnable() { // from class: com.baidu.wallet.paysdk.fingerprint.SysFingerprintPay.3.2
@@ -178,7 +178,7 @@ public class SysFingerprintPay implements IFingerprintPay {
                         }
 
                         @Override // com.baidu.apollon.beans.IBeanResponseCallback
-                        public void onBeanExecSuccess(int i, Object obj, String str) {
+                        public void onBeanExecSuccess(int i2, Object obj, String str) {
                             bVar.destroyBean();
                             SysFingerprintPay.this.mSysFpHander.sendEmptyMessage(4097);
                             OpenFingerprintResponse openFingerprintResponse = (obj == null || !(obj instanceof OpenFingerprintResponse)) ? null : (OpenFingerprintResponse) obj;

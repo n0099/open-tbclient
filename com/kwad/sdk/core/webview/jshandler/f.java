@@ -6,32 +6,24 @@ import org.json.JSONObject;
 public class f implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f34719a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public a f34720b;
+    public final com.kwad.sdk.core.webview.a f33679a;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void a();
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b implements com.kwad.sdk.core.b {
+    public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f34721a;
+        public int f33680a;
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "screenOrientation", this.f34721a);
+            com.kwad.sdk.utils.o.a(jSONObject, "screenOrientation", this.f33680a);
             return jSONObject;
         }
     }
 
     public f(com.kwad.sdk.core.webview.a aVar) {
-        this.f34719a = aVar;
+        this.f33679a = aVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -40,23 +32,15 @@ public class f implements com.kwad.sdk.core.webview.a.a {
         return "getScreenOrientation";
     }
 
-    public void a(a aVar) {
-        this.f34720b = aVar;
-    }
-
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        if (this.f34719a.f34670b == null) {
+        if (this.f33679a.f33622b == null) {
             cVar.a(-1, "native adTemplate is null");
             return;
         }
-        a aVar = this.f34720b;
-        if (aVar != null) {
-            aVar.a();
-        }
-        b bVar = new b();
-        bVar.f34721a = this.f34719a.f34669a;
-        cVar.a(bVar);
+        a aVar = new a();
+        aVar.f33680a = this.f33679a.f33621a;
+        cVar.a(aVar);
     }
 
     @Override // com.kwad.sdk.core.webview.a.a

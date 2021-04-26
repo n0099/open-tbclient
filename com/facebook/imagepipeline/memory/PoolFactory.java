@@ -22,9 +22,9 @@ public class PoolFactory {
         this.mConfig = (PoolConfig) Preconditions.checkNotNull(poolConfig);
     }
 
-    private MemoryChunkPool getMemoryChunkPool(int i) {
-        if (i != 0) {
-            if (i == 1) {
+    private MemoryChunkPool getMemoryChunkPool(int i2) {
+        if (i2 != 0) {
+            if (i2 == 1) {
                 return getBufferMemoryChunkPool();
             }
             throw new IllegalArgumentException("Invalid MemoryChunkType");
@@ -125,9 +125,9 @@ public class PoolFactory {
         return this.mSmallByteArrayPool;
     }
 
-    public PooledByteBufferFactory getPooledByteBufferFactory(int i) {
+    public PooledByteBufferFactory getPooledByteBufferFactory(int i2) {
         if (this.mPooledByteBufferFactory == null) {
-            this.mPooledByteBufferFactory = new MemoryPooledByteBufferFactory(getMemoryChunkPool(i), getPooledByteStreams());
+            this.mPooledByteBufferFactory = new MemoryPooledByteBufferFactory(getMemoryChunkPool(i2), getPooledByteStreams());
         }
         return this.mPooledByteBufferFactory;
     }

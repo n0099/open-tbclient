@@ -173,8 +173,8 @@ public class Config {
         this.scaleMode = pair;
     }
 
-    public final void setShadow(int i) {
-        this.shadow = i;
+    public final void setShadow(int i2) {
+        this.shadow = i2;
     }
 
     public final void setSize(Pair<Integer, Integer> pair) {

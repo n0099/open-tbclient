@@ -57,25 +57,25 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     public View C;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f23299a;
+    public Activity f24016a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f23300b;
+    public View f24017b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f23301c;
+    public View f24018c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f23302d;
+    public LinearLayout f24019d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LaserScannerForScan f23303e;
+    public LaserScannerForScan f24020e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SurfaceViewForScan f23304f;
+    public SurfaceViewForScan f24021f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f23305g;
+    public TextView f24022g;
     public int j;
     public int k;
     public int l;
@@ -89,8 +89,10 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     public String z;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f23306h = -1.0f;
-    public float i = -1.0f;
+    public float f24023h = -1.0f;
+
+    /* renamed from: i  reason: collision with root package name */
+    public float f24024i = -1.0f;
     public String p = "";
     public boolean t = false;
     public boolean u = false;
@@ -105,40 +107,40 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<IdCardActivity> f23315a;
+        public final WeakReference<IdCardActivity> f24033a;
 
         public a(IdCardActivity idCardActivity) {
-            this.f23315a = new WeakReference<>(idCardActivity);
+            this.f24033a = new WeakReference<>(idCardActivity);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            IdCardActivity idCardActivity = this.f23315a.get();
+            IdCardActivity idCardActivity = this.f24033a.get();
             if (idCardActivity == null) {
                 return;
             }
-            int i = message.what;
-            if (i == 0) {
+            int i2 = message.what;
+            if (i2 == 0) {
                 LogUtil.i(IdCardActivity.TAG, "成功" + idCardActivity.y + ";姓名=" + idCardActivity.o + ";号码=" + idCardActivity.n);
                 idCardActivity.v = false;
                 idCardActivity.D.sendEmptyMessage(6);
-            } else if (i == 1) {
+            } else if (i2 == 1) {
                 LogUtil.i(IdCardActivity.TAG, "失败" + idCardActivity.y);
                 idCardActivity.v = true;
                 idCardActivity.u = false;
-                idCardActivity.f23304f.autoFocus();
-            } else if (i == 2) {
+                idCardActivity.f24021f.autoFocus();
+            } else if (i2 == 2) {
                 idCardActivity.t = true;
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 if (idCardActivity.A) {
-                    idCardActivity.f23305g.setText(idCardActivity.z);
+                    idCardActivity.f24022g.setText(idCardActivity.z);
                 }
-            } else if (i == 5) {
+            } else if (i2 == 5) {
                 PayStatisticsUtil.onEvent(StatServiceEvent.IDCARD_DETECT_EVENTID_FAIL_TIMEOUT);
                 idCardActivity.t = false;
                 idCardActivity.D.sendEmptyMessage(7);
-            } else if (i != 6) {
-                if (i != 7) {
+            } else if (i2 != 6) {
+                if (i2 != 7) {
                     return;
                 }
                 idCardActivity.f();
@@ -169,16 +171,16 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleFailure(int i, int i2, String str) {
-        if (i == 57345) {
-            PayStatisticsUtil.onEventEndWithValue(StatServiceEvent.IDCARD_DETECT_API_DETECT, i2, str);
+    public void handleFailure(int i2, int i3, String str) {
+        if (i2 == 57345) {
+            PayStatisticsUtil.onEventEndWithValue(StatServiceEvent.IDCARD_DETECT_API_DETECT, i3, str);
             this.D.sendEmptyMessage(1);
         }
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
-        if (i == 57345) {
+    public void handleResponse(int i2, Object obj, String str) {
+        if (i2 == 57345) {
             PayStatisticsUtil.onEventEnd(StatServiceEvent.IDCARD_DETECT_API_DETECT, 0);
             if (obj != null && (obj instanceof IDDetectResponse)) {
                 IDDetectResponse iDDetectResponse = (IDDetectResponse) obj;
@@ -198,7 +200,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
         return false;
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         PayStatisticsUtil.onEventWithValue(StatServiceEvent.IDCARD_DETECT_EVENTID_FAIL_TIMES, "" + this.y);
         this.D.sendEmptyMessage(7);
@@ -206,16 +208,16 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == ResUtils.id(this.f23299a, "back_btn")) {
+        if (view.getId() == ResUtils.id(this.f24016a, "back_btn")) {
             PayStatisticsUtil.onEventWithValue(StatServiceEvent.IDCARD_DETECT_EVENTID_FAIL_TIMES, "" + this.y);
             this.D.sendEmptyMessage(7);
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f23299a = getActivity();
+        this.f24016a = getActivity();
         a(getActivity());
         setIsMultiWindowAvailable(false);
         setIsShowMultiWindowTips(true);
@@ -235,9 +237,9 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, android.app.Activity
-    public void onPrepareDialog(int i, Dialog dialog) {
-        super.onPrepareDialog(i, dialog);
-        if (i == 3) {
+    public void onPrepareDialog(int i2, Dialog dialog) {
+        super.onPrepareDialog(i2, dialog);
+        if (i2 == 3) {
             dialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.1
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
@@ -255,14 +257,14 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        if (i == 1) {
+    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+        if (i2 == 1) {
             if (iArr != null && iArr.length > 0 && iArr[0] == 0) {
                 c();
             } else {
                 b();
             }
-        } else if (i != 3) {
+        } else if (i2 != 3) {
         } else {
             if (iArr != null && iArr.length > 0 && iArr[0] == 0) {
                 b(getActivity());
@@ -420,32 +422,32 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     }
 
     private void d() {
-        SurfaceViewForScan surfaceViewForScan = (SurfaceViewForScan) findViewById(ResUtils.id(this.f23299a, "surface_view"));
-        this.f23304f = surfaceViewForScan;
+        SurfaceViewForScan surfaceViewForScan = (SurfaceViewForScan) findViewById(ResUtils.id(this.f24016a, "surface_view"));
+        this.f24021f = surfaceViewForScan;
         surfaceViewForScan.setAttachedActivity(this);
-        LaserScannerForScan laserScannerForScan = (LaserScannerForScan) findViewById(ResUtils.id(this.f23299a, "frame"));
-        this.f23303e = laserScannerForScan;
+        LaserScannerForScan laserScannerForScan = (LaserScannerForScan) findViewById(ResUtils.id(this.f24016a, "frame"));
+        this.f24020e = laserScannerForScan;
         laserScannerForScan.setAttachedActivity(this);
-        this.f23300b = findViewById(ResUtils.id(this.f23299a, "view_top"));
-        this.f23301c = findViewById(ResUtils.id(this.f23299a, "view_left"));
-        this.f23302d = (LinearLayout) findViewById(ResUtils.id(this.f23299a, "title_bar"));
-        this.f23305g = (TextView) findViewById(ResUtils.id(this.f23299a, TrackReferenceTypeBox.TYPE1));
+        this.f24017b = findViewById(ResUtils.id(this.f24016a, "view_top"));
+        this.f24018c = findViewById(ResUtils.id(this.f24016a, "view_left"));
+        this.f24019d = (LinearLayout) findViewById(ResUtils.id(this.f24016a, "title_bar"));
+        this.f24022g = (TextView) findViewById(ResUtils.id(this.f24016a, TrackReferenceTypeBox.TYPE1));
         View findViewById = findViewById(ResUtils.id(getActivity(), "title_bar_margin"));
         this.C = findViewById;
         setTop(findViewById);
     }
 
     private void e() {
-        this.f23303e.startScan();
-        findViewById(ResUtils.id(this.f23299a, "back_btn")).setOnClickListener(this);
-        this.f23304f.setPreviewCallback(new SurfaceViewForScan.a() { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.5
+        this.f24020e.startScan();
+        findViewById(ResUtils.id(this.f24016a, "back_btn")).setOnClickListener(this);
+        this.f24021f.setPreviewCallback(new SurfaceViewForScan.a() { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.5
             @Override // com.baidu.wallet.base.iddetect.view.SurfaceViewForScan.a
-            public void a(byte[] bArr, int i, int i2, int i3) {
+            public void a(byte[] bArr, int i2, int i3, int i4) {
                 if (IdCardActivity.this.t && IdCardActivity.this.w && IdCardActivity.this.v) {
                     long currentTimeMillis = System.currentTimeMillis();
                     if (currentTimeMillis - IdCardActivity.this.x >= 200) {
                         IdCardActivity.this.x = currentTimeMillis;
-                        IdCardActivity.this.a(bArr, i, i2, i3);
+                        IdCardActivity.this.a(bArr, i2, i3, i4);
                     }
                 }
             }
@@ -457,9 +459,9 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        this.f23303e.stopScan();
-        this.f23304f.setPreviewCallback(null);
-        this.f23304f.releaseSource();
+        this.f24020e.stopScan();
+        this.f24021f.setPreviewCallback(null);
+        this.f24021f.releaseSource();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -472,7 +474,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
 
     private void c() {
         try {
-            setContentView(ResUtils.layout(this.f23299a, "wallet_base_id_detect"));
+            setContentView(ResUtils.layout(this.f24016a, "wallet_base_id_detect"));
             d();
             e();
         } catch (Exception unused) {
@@ -570,45 +572,45 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(byte[] bArr, int i, int i2, int i3) {
+    public void a(byte[] bArr, int i2, int i3, int i4) {
         if (this.u) {
             return;
         }
         this.u = true;
-        int i4 = this.y;
-        if (i4 >= 50) {
+        int i5 = this.y;
+        if (i5 >= 50) {
             this.D.sendEmptyMessage(5);
             return;
         }
-        this.y = i4 + 1;
-        Bitmap a2 = a(bArr, i, i2);
+        this.y = i5 + 1;
+        Bitmap a2 = a(bArr, i2, i3);
         this.r = a2;
         Bitmap a3 = a(a2);
         this.s = a3;
         a(a3, this.p, "IdCard");
-        com.baidu.wallet.base.iddetect.beans.a aVar = (com.baidu.wallet.base.iddetect.beans.a) IDDetectBeanFactory.getInstance().getBean((Context) this.f23299a, IDDetectBeanFactory.BEAN_ID_ID_DETECT, TAG);
+        com.baidu.wallet.base.iddetect.beans.a aVar = (com.baidu.wallet.base.iddetect.beans.a) IDDetectBeanFactory.getInstance().getBean((Context) this.f24016a, IDDetectBeanFactory.BEAN_ID_ID_DETECT, TAG);
         aVar.a(com.baidu.wallet.base.iddetect.utils.a.a(this.s));
         aVar.setResponseCallback(this);
         aVar.execBean();
         PayStatisticsUtil.onEventStart(StatServiceEvent.IDCARD_DETECT_API_DETECT);
     }
 
-    private Bitmap a(byte[] bArr, int i, int i2) {
-        return Bitmap.createBitmap(e.a(bArr, i, i2), i, i2, Bitmap.Config.ARGB_8888);
+    private Bitmap a(byte[] bArr, int i2, int i3) {
+        return Bitmap.createBitmap(e.a(bArr, i2, i3), i2, i3, Bitmap.Config.ARGB_8888);
     }
 
-    private void a(int i, int i2) {
-        this.f23306h = (i2 * 1.0f) / this.f23304f.getHeight();
-        float width = (i * 1.0f) / this.f23304f.getWidth();
-        this.i = width;
-        this.j = (int) (width * this.f23301c.getWidth());
-        this.k = (int) (this.f23306h * (this.f23300b.getHeight() + this.f23302d.getHeight()));
-        this.l = (int) (this.i * this.f23303e.getWidth());
-        this.m = (int) (this.f23306h * this.f23303e.getHeight());
+    private void a(int i2, int i3) {
+        this.f24023h = (i3 * 1.0f) / this.f24021f.getHeight();
+        float width = (i2 * 1.0f) / this.f24021f.getWidth();
+        this.f24024i = width;
+        this.j = (int) (width * this.f24018c.getWidth());
+        this.k = (int) (this.f24023h * (this.f24017b.getHeight() + this.f24019d.getHeight()));
+        this.l = (int) (this.f24024i * this.f24020e.getWidth());
+        this.m = (int) (this.f24023h * this.f24020e.getHeight());
     }
 
     private Bitmap a(Bitmap bitmap) {
-        if (this.f23306h == -1.0f) {
+        if (this.f24023h == -1.0f) {
             a(bitmap.getWidth(), bitmap.getHeight());
         }
         return Bitmap.createBitmap(bitmap, this.j, this.k, this.l, this.m);
@@ -625,7 +627,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
             file.delete();
         }
         System.out.println(str3);
-        com.baidu.wallet.base.iddetect.utils.a.a(this.f23299a, bitmap, str3, Bitmap.CompressFormat.JPEG, 70);
+        com.baidu.wallet.base.iddetect.utils.a.a(this.f24016a, bitmap, str3, Bitmap.CompressFormat.JPEG, 70);
         this.q = str3;
     }
 }

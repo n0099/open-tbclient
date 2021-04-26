@@ -1,6 +1,6 @@
 package com.google.common.collect;
 
-import d.h.c.c.c1;
+import d.g.c.c.c1;
 import java.io.Serializable;
 import java.util.Map;
 /* loaded from: classes6.dex */
@@ -24,39 +24,39 @@ public abstract class ImmutableMapEntrySet<K, V> extends ImmutableSet<Map.Entry<
     public static final class RegularEntrySet<K, V> extends ImmutableMapEntrySet<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final transient ImmutableMap<K, V> f30894e;
+        public final transient ImmutableMap<K, V> f31853e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final transient ImmutableList<Map.Entry<K, V>> f30895f;
+        public final transient ImmutableList<Map.Entry<K, V>> f31854f;
 
         public RegularEntrySet(ImmutableMap<K, V> immutableMap, Map.Entry<K, V>[] entryArr) {
             this(immutableMap, ImmutableList.asImmutableList(entryArr));
         }
 
         @Override // com.google.common.collect.ImmutableCollection
-        public int copyIntoArray(Object[] objArr, int i) {
-            return this.f30895f.copyIntoArray(objArr, i);
+        public int copyIntoArray(Object[] objArr, int i2) {
+            return this.f31854f.copyIntoArray(objArr, i2);
         }
 
         @Override // com.google.common.collect.ImmutableSet
         public ImmutableList<Map.Entry<K, V>> createAsList() {
-            return this.f30895f;
+            return this.f31854f;
         }
 
         @Override // com.google.common.collect.ImmutableMapEntrySet
         public ImmutableMap<K, V> map() {
-            return this.f30894e;
+            return this.f31853e;
         }
 
         public RegularEntrySet(ImmutableMap<K, V> immutableMap, ImmutableList<Map.Entry<K, V>> immutableList) {
-            this.f30894e = immutableMap;
-            this.f30895f = immutableList;
+            this.f31853e = immutableMap;
+            this.f31854f = immutableList;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.ImmutableSet, com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set, java.util.NavigableSet
         public c1<Map.Entry<K, V>> iterator() {
-            return this.f30895f.iterator();
+            return this.f31854f.iterator();
         }
     }
 

@@ -61,8 +61,8 @@ public final class WebViewClientWrapper extends WebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
-    public final void onReceivedError(WebView webView, int i, String str, String str2) {
-        this.mClient.onReceivedError(this.mWebView.getWebView(), i, str, str2);
+    public final void onReceivedError(WebView webView, int i2, String str, String str2) {
+        this.mClient.onReceivedError(this.mWebView.getWebView(), i2, str, str2);
     }
 
     @Override // android.webkit.WebViewClient

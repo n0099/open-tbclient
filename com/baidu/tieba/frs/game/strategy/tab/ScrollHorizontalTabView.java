@@ -16,24 +16,26 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<d.b.j0.q0.s1.a.d.e> f15991e;
+    public final List<d.a.j0.q0.s1.a.d.e> f16188e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<TextView> f15992f;
+    public final List<TextView> f16189f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f15993g;
+    public final int f16190g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f15994h;
-    public boolean i;
+    public final int f16191h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f16192i;
     public int j;
     public int k;
     public float l;
@@ -53,22 +55,22 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            int size = ScrollHorizontalTabView.this.f15992f.size();
-            int i = 0;
+            int size = ScrollHorizontalTabView.this.f16189f.size();
             int i2 = 0;
+            int i3 = 0;
             while (true) {
-                if (i2 >= size) {
+                if (i3 >= size) {
                     break;
-                } else if (view == ScrollHorizontalTabView.this.f15992f.get(i2)) {
-                    i = i2;
+                } else if (view == ScrollHorizontalTabView.this.f16189f.get(i3)) {
+                    i2 = i3;
                     break;
                 } else {
-                    i2++;
+                    i3++;
                 }
             }
-            ScrollHorizontalTabView.this.i = true;
+            ScrollHorizontalTabView.this.f16192i = true;
             if (ScrollHorizontalTabView.this.q != null) {
-                ScrollHorizontalTabView.this.q.setCurrentItem(i);
+                ScrollHorizontalTabView.this.q.setCurrentItem(i2);
             }
         }
     }
@@ -92,15 +94,15 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f15997e;
+        public final /* synthetic */ int f16195e;
 
-        public c(int i) {
-            this.f15997e = i;
+        public c(int i2) {
+            this.f16195e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ScrollHorizontalTabView.this.scrollBy(0 - this.f15997e, 0);
+            ScrollHorizontalTabView.this.scrollBy(0 - this.f16195e, 0);
         }
     }
 
@@ -122,44 +124,44 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i) {
-            if (ScrollHorizontalTabView.this.o.getChildCount() == 0 || ScrollHorizontalTabView.this.q == null || i != 0) {
+        public void onPageScrollStateChanged(int i2) {
+            if (ScrollHorizontalTabView.this.o.getChildCount() == 0 || ScrollHorizontalTabView.this.q == null || i2 != 0) {
                 return;
             }
             ScrollHorizontalTabView.this.l = 0.0f;
-            ScrollHorizontalTabView.this.i = false;
+            ScrollHorizontalTabView.this.f16192i = false;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f2, int i2) {
-            if (ScrollHorizontalTabView.this.o.getChildCount() == 0 || ScrollHorizontalTabView.this.i) {
+        public void onPageScrolled(int i2, float f2, int i3) {
+            if (ScrollHorizontalTabView.this.o.getChildCount() == 0 || ScrollHorizontalTabView.this.f16192i) {
                 return;
             }
-            if (ScrollHorizontalTabView.this.j != i) {
+            if (ScrollHorizontalTabView.this.j != i2) {
                 int unused = ScrollHorizontalTabView.this.j;
             }
-            ScrollHorizontalTabView.this.j = i;
+            ScrollHorizontalTabView.this.j = i2;
             ScrollHorizontalTabView.this.l = f2;
             ScrollHorizontalTabView scrollHorizontalTabView = ScrollHorizontalTabView.this;
-            scrollHorizontalTabView.scrollToChild(i, (int) (f2 * scrollHorizontalTabView.o.getChildAt(i).getWidth()));
+            scrollHorizontalTabView.scrollToChild(i2, (int) (f2 * scrollHorizontalTabView.o.getChildAt(i2).getWidth()));
             ScrollHorizontalTabView.this.updateTabStyles();
             ScrollHorizontalTabView.this.invalidate();
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
-            d.b.j0.q0.s1.a.d.e eVar = (d.b.j0.q0.s1.a.d.e) ListUtils.getItem(ScrollHorizontalTabView.this.f15991e, i);
-            if (ScrollHorizontalTabView.this.s == null || ScrollHorizontalTabView.this.s.b(i, eVar)) {
+        public void onPageSelected(int i2) {
+            d.a.j0.q0.s1.a.d.e eVar = (d.a.j0.q0.s1.a.d.e) ListUtils.getItem(ScrollHorizontalTabView.this.f16188e, i2);
+            if (ScrollHorizontalTabView.this.s == null || ScrollHorizontalTabView.this.s.a(i2, eVar)) {
                 if (ScrollHorizontalTabView.this.s != null) {
-                    ScrollHorizontalTabView.this.s.a(i, eVar);
+                    ScrollHorizontalTabView.this.s.b(i2, eVar);
                 }
-                if (ScrollHorizontalTabView.this.i) {
-                    if (ScrollHorizontalTabView.this.j != i) {
+                if (ScrollHorizontalTabView.this.f16192i) {
+                    if (ScrollHorizontalTabView.this.j != i2) {
                         int unused = ScrollHorizontalTabView.this.j;
                     }
-                    ScrollHorizontalTabView.this.j = i;
+                    ScrollHorizontalTabView.this.j = i2;
                     ScrollHorizontalTabView scrollHorizontalTabView = ScrollHorizontalTabView.this;
-                    scrollHorizontalTabView.scrollToChild(i, (int) (scrollHorizontalTabView.l * ScrollHorizontalTabView.this.o.getChildAt(i).getWidth()));
+                    scrollHorizontalTabView.scrollToChild(i2, (int) (scrollHorizontalTabView.l * ScrollHorizontalTabView.this.o.getChildAt(i2).getWidth()));
                     ScrollHorizontalTabView.this.updateTabStyles();
                     ScrollHorizontalTabView.this.invalidate();
                 }
@@ -173,18 +175,18 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
     /* loaded from: classes4.dex */
     public interface f {
-        void a(int i, d.b.j0.q0.s1.a.d.e eVar);
+        boolean a(int i2, d.a.j0.q0.s1.a.d.e eVar);
 
-        boolean b(int i, d.b.j0.q0.s1.a.d.e eVar);
+        void b(int i2, d.a.j0.q0.s1.a.d.e eVar);
     }
 
     public ScrollHorizontalTabView(Context context) {
         super(context);
-        this.f15991e = new ArrayList();
-        this.f15992f = new ArrayList();
-        this.f15993g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.f15994h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
-        this.i = false;
+        this.f16188e = new ArrayList();
+        this.f16189f = new ArrayList();
+        this.f16190g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+        this.f16191h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        this.f16192i = false;
         this.j = 0;
         this.k = SkinManager.getColor(R.color.CAM_X0106);
         this.l = 0.0f;
@@ -196,13 +198,13 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     }
 
     public final void fillTabData() {
-        int size = this.f15991e.size();
-        int size2 = this.f15992f.size();
-        for (int i = 0; i < size && i < size2; i++) {
-            d.b.j0.q0.s1.a.d.e eVar = this.f15991e.get(i);
-            TextView textView = this.f15992f.get(i);
+        int size = this.f16188e.size();
+        int size2 = this.f16189f.size();
+        for (int i2 = 0; i2 < size && i2 < size2; i2++) {
+            d.a.j0.q0.s1.a.d.e eVar = this.f16188e.get(i2);
+            TextView textView = this.f16189f.get(i2);
             if (eVar != null && textView != null) {
-                textView.setText(eVar.f60643b);
+                textView.setText(eVar.f58750b);
             }
         }
     }
@@ -226,7 +228,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.m = (int) TypedValue.applyDimension(1, this.m, getResources().getDisplayMetrics());
     }
 
-    public void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i2) {
         this.k = SkinManager.getColor(R.color.CAM_X0106);
         updateTabStyles();
     }
@@ -234,7 +236,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (isInEditMode() || this.f15992f.isEmpty()) {
+        if (isInEditMode() || this.f16189f.isEmpty()) {
             return;
         }
         int height = getHeight();
@@ -242,28 +244,28 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         View childAt = this.o.getChildAt(this.j);
         int width = (childAt.getWidth() - childAt.getPaddingLeft()) - childAt.getPaddingRight();
         int left = this.o.getLeft() + childAt.getLeft() + childAt.getPaddingLeft();
-        int i = this.f15994h;
-        float f2 = left + ((width - i) / 2);
-        float f3 = i + f2;
+        int i2 = this.f16191h;
+        float f2 = left + ((width - i2) / 2);
+        float f3 = i2 + f2;
         if (this.l > 0.0f && this.j < this.o.getChildCount() - 1) {
             View childAt2 = this.o.getChildAt(this.j + 1);
             int width2 = (childAt2.getWidth() - childAt2.getPaddingRight()) - childAt2.getPaddingLeft();
             int left2 = childAt2.getLeft() + childAt2.getPaddingLeft() + this.o.getLeft();
-            int i2 = this.f15994h;
-            float f4 = left2 + ((width2 - i2) / 2);
+            int i3 = this.f16191h;
+            float f4 = left2 + ((width2 - i3) / 2);
             float f5 = this.l;
             f2 = (f4 * f5) + ((1.0f - f5) * f2);
-            f3 = ((i2 + f4) * f5) + ((1.0f - f5) * f3);
+            f3 = ((i3 + f4) * f5) + ((1.0f - f5) * f3);
         }
-        canvas.drawRect(f2, height - this.f15993g, f3, height, this.p);
+        canvas.drawRect(f2, height - this.f16190g, f3, height, this.p);
     }
 
-    public final void scrollToChild(int i, int i2) {
-        if (this.f15992f.isEmpty()) {
+    public final void scrollToChild(int i2, int i3) {
+        if (this.f16189f.isEmpty()) {
             return;
         }
-        int left = this.f15992f.get(i).getLeft() + i2;
-        if (i > 0 || i2 > 0) {
+        int left = this.f16189f.get(i2).getLeft() + i3;
+        if (i2 > 0 || i3 > 0) {
             left -= this.m;
         }
         if (left != this.n) {
@@ -272,14 +274,14 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    public void setCurrentIndex(int i) {
-        setCurrentIndex(i, true);
+    public void setCurrentIndex(int i2) {
+        setCurrentIndex(i2, true);
     }
 
-    public void setData(List<d.b.j0.q0.s1.a.d.e> list) {
-        this.f15991e.clear();
+    public void setData(List<d.a.j0.q0.s1.a.d.e> list) {
+        this.f16188e.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.f15991e.addAll(list);
+            this.f16188e.addAll(list);
         }
         setupTabItems();
         fillTabData();
@@ -311,8 +313,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     }
 
     public final void setupTabItems() {
-        int size = this.f15991e.size();
-        int size2 = this.f15992f.size();
+        int size = this.f16188e.size();
+        int size2 = this.f16189f.size();
         int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.ds4);
         int dimensionPixelSize2 = getContext().getResources().getDimensionPixelSize(R.dimen.ds32);
         if (size > size2) {
@@ -322,28 +324,28 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                 textView.setTextSize(0, getContext().getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
                 textView.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
                 textView.setGravity(17);
-                this.f15992f.add(textView);
+                this.f16189f.add(textView);
                 size2++;
             }
         } else if (size < size2) {
-            for (int i = size2 - 1; i >= size; i--) {
-                this.f15992f.remove(i);
+            for (int i2 = size2 - 1; i2 >= size; i2--) {
+                this.f16189f.remove(i2);
             }
         }
         this.o.removeAllViews();
-        int size3 = this.f15992f.size();
-        for (int i2 = 0; i2 < size3; i2++) {
-            this.o.addView(this.f15992f.get(i2));
+        int size3 = this.f16189f.size();
+        for (int i3 = 0; i3 < size3; i3++) {
+            this.o.addView(this.f16189f.get(i3));
         }
     }
 
     public final void updateTabStyles() {
-        int size = this.f15992f.size();
-        for (int i = 0; i < size; i++) {
-            TextView textView = this.f15992f.get(i);
+        int size = this.f16189f.size();
+        for (int i2 = 0; i2 < size; i2++) {
+            TextView textView = this.f16189f.get(i2);
             if (textView instanceof TextView) {
                 TextView textView2 = textView;
-                if (i == this.j) {
+                if (i2 == this.j) {
                     setTabStatus(textView2, true);
                 } else {
                     setTabStatus(textView2, false);
@@ -352,10 +354,10 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    public void setCurrentIndex(int i, boolean z) {
+    public void setCurrentIndex(int i2, boolean z) {
         if (z) {
             int[] iArr = new int[2];
-            ((View) ListUtils.getItem(this.f15992f, i)).getLocationOnScreen(iArr);
+            ((View) ListUtils.getItem(this.f16189f, i2)).getLocationOnScreen(iArr);
             int k = l.k(getContext()) - iArr[0];
             int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.ds160);
             if (iArr[0] < 0) {
@@ -366,18 +368,18 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         ViewPager viewPager = this.q;
         if (viewPager != null) {
-            viewPager.setCurrentItem(i);
+            viewPager.setCurrentItem(i2);
         }
         updateTabStyles();
     }
 
     public ScrollHorizontalTabView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15991e = new ArrayList();
-        this.f15992f = new ArrayList();
-        this.f15993g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.f15994h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
-        this.i = false;
+        this.f16188e = new ArrayList();
+        this.f16189f = new ArrayList();
+        this.f16190g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+        this.f16191h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        this.f16192i = false;
         this.j = 0;
         this.k = SkinManager.getColor(R.color.CAM_X0106);
         this.l = 0.0f;
@@ -388,13 +390,13 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         init();
     }
 
-    public ScrollHorizontalTabView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f15991e = new ArrayList();
-        this.f15992f = new ArrayList();
-        this.f15993g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.f15994h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
-        this.i = false;
+    public ScrollHorizontalTabView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f16188e = new ArrayList();
+        this.f16189f = new ArrayList();
+        this.f16190g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+        this.f16191h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        this.f16192i = false;
         this.j = 0;
         this.k = SkinManager.getColor(R.color.CAM_X0106);
         this.l = 0.0f;

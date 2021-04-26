@@ -1,7 +1,7 @@
 package com.google.common.primitives;
 
 import com.baidu.android.common.others.lang.StringUtil;
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.Arrays;
@@ -34,12 +34,12 @@ public final class ImmutableIntArray implements Serializable {
                 if (size() != list.size()) {
                     return false;
                 }
-                int i = this.parent.start;
+                int i2 = this.parent.start;
                 for (Object obj2 : list) {
                     if (obj2 instanceof Integer) {
-                        int i2 = i + 1;
-                        if (this.parent.array[i] == ((Integer) obj2).intValue()) {
-                            i = i2;
+                        int i3 = i2 + 1;
+                        if (this.parent.array[i2] == ((Integer) obj2).intValue()) {
+                            i2 = i3;
                         }
                     }
                     return false;
@@ -76,8 +76,8 @@ public final class ImmutableIntArray implements Serializable {
         }
 
         @Override // java.util.AbstractList, java.util.List
-        public List<Integer> subList(int i, int i2) {
-            return this.parent.subArray(i, i2).asList();
+        public List<Integer> subList(int i2, int i3) {
+            return this.parent.subArray(i2, i3).asList();
         }
 
         @Override // java.util.AbstractCollection
@@ -91,8 +91,8 @@ public final class ImmutableIntArray implements Serializable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Integer get(int i) {
-            return Integer.valueOf(this.parent.get(i));
+        public Integer get(int i2) {
+            return Integer.valueOf(this.parent.get(i2));
         }
     }
 
@@ -100,35 +100,35 @@ public final class ImmutableIntArray implements Serializable {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int[] f31221a;
+        public int[] f32200a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31222b = 0;
+        public int f32201b = 0;
 
-        public b(int i) {
-            this.f31221a = new int[i];
+        public b(int i2) {
+            this.f32200a = new int[i2];
         }
 
-        public static int f(int i, int i2) {
-            if (i2 >= 0) {
-                int i3 = i + (i >> 1) + 1;
-                if (i3 < i2) {
-                    i3 = Integer.highestOneBit(i2 - 1) << 1;
+        public static int f(int i2, int i3) {
+            if (i3 >= 0) {
+                int i4 = i2 + (i2 >> 1) + 1;
+                if (i4 < i3) {
+                    i4 = Integer.highestOneBit(i3 - 1) << 1;
                 }
-                if (i3 < 0) {
+                if (i4 < 0) {
                     return Integer.MAX_VALUE;
                 }
-                return i3;
+                return i4;
             }
             throw new AssertionError("cannot store more than MAX_VALUE elements");
         }
 
-        public b a(int i) {
+        public b a(int i2) {
             e(1);
-            int[] iArr = this.f31221a;
-            int i2 = this.f31222b;
-            iArr[i2] = i;
-            this.f31222b = i2 + 1;
+            int[] iArr = this.f32200a;
+            int i3 = this.f32201b;
+            iArr[i3] = i2;
+            this.f32201b = i3 + 1;
             return this;
         }
 
@@ -146,32 +146,32 @@ public final class ImmutableIntArray implements Serializable {
         public b c(Collection<Integer> collection) {
             e(collection.size());
             for (Integer num : collection) {
-                int[] iArr = this.f31221a;
-                int i = this.f31222b;
-                this.f31222b = i + 1;
-                iArr[i] = num.intValue();
+                int[] iArr = this.f32200a;
+                int i2 = this.f32201b;
+                this.f32201b = i2 + 1;
+                iArr[i2] = num.intValue();
             }
             return this;
         }
 
         public ImmutableIntArray d() {
-            return this.f31222b == 0 ? ImmutableIntArray.EMPTY : new ImmutableIntArray(this.f31221a, 0, this.f31222b);
+            return this.f32201b == 0 ? ImmutableIntArray.EMPTY : new ImmutableIntArray(this.f32200a, 0, this.f32201b);
         }
 
-        public final void e(int i) {
-            int i2 = this.f31222b + i;
-            int[] iArr = this.f31221a;
-            if (i2 > iArr.length) {
-                int[] iArr2 = new int[f(iArr.length, i2)];
-                System.arraycopy(this.f31221a, 0, iArr2, 0, this.f31222b);
-                this.f31221a = iArr2;
+        public final void e(int i2) {
+            int i3 = this.f32201b + i2;
+            int[] iArr = this.f32200a;
+            if (i3 > iArr.length) {
+                int[] iArr2 = new int[f(iArr.length, i3)];
+                System.arraycopy(this.f32200a, 0, iArr2, 0, this.f32201b);
+                this.f32200a = iArr2;
             }
         }
     }
 
-    public static b builder(int i) {
-        n.f(i >= 0, "Invalid initialCapacity: %s", i);
-        return new b(i);
+    public static b builder(int i2) {
+        n.f(i2 >= 0, "Invalid initialCapacity: %s", i2);
+        return new b(i2);
     }
 
     public static ImmutableIntArray copyOf(int[] iArr) {
@@ -190,8 +190,8 @@ public final class ImmutableIntArray implements Serializable {
         return new AsList();
     }
 
-    public boolean contains(int i) {
-        return indexOf(i) >= 0;
+    public boolean contains(int i2) {
+        return indexOf(i2) >= 0;
     }
 
     public boolean equals(Object obj) {
@@ -203,8 +203,8 @@ public final class ImmutableIntArray implements Serializable {
             if (length() != immutableIntArray.length()) {
                 return false;
             }
-            for (int i = 0; i < length(); i++) {
-                if (get(i) != immutableIntArray.get(i)) {
+            for (int i2 = 0; i2 < length(); i2++) {
+                if (get(i2) != immutableIntArray.get(i2)) {
                     return false;
                 }
             }
@@ -213,25 +213,25 @@ public final class ImmutableIntArray implements Serializable {
         return false;
     }
 
-    public int get(int i) {
-        n.n(i, length());
-        return this.array[this.start + i];
+    public int get(int i2) {
+        n.n(i2, length());
+        return this.array[this.start + i2];
     }
 
     public int hashCode() {
-        int i = 1;
-        for (int i2 = this.start; i2 < this.end; i2++) {
-            int i3 = this.array[i2];
-            Ints.f(i3);
-            i = (i * 31) + i3;
+        int i2 = 1;
+        for (int i3 = this.start; i3 < this.end; i3++) {
+            int i4 = this.array[i3];
+            Ints.f(i4);
+            i2 = (i2 * 31) + i4;
         }
-        return i;
+        return i2;
     }
 
-    public int indexOf(int i) {
-        for (int i2 = this.start; i2 < this.end; i2++) {
-            if (this.array[i2] == i) {
-                return i2 - this.start;
+    public int indexOf(int i2) {
+        for (int i3 = this.start; i3 < this.end; i3++) {
+            if (this.array[i3] == i2) {
+                return i3 - this.start;
             }
         }
         return -1;
@@ -241,16 +241,16 @@ public final class ImmutableIntArray implements Serializable {
         return this.end == this.start;
     }
 
-    public int lastIndexOf(int i) {
-        int i2 = this.end;
+    public int lastIndexOf(int i2) {
+        int i3 = this.end;
         while (true) {
-            i2--;
-            int i3 = this.start;
-            if (i2 < i3) {
+            i3--;
+            int i4 = this.start;
+            if (i3 < i4) {
                 return -1;
             }
-            if (this.array[i2] == i) {
-                return i2 - i3;
+            if (this.array[i3] == i2) {
+                return i3 - i4;
             }
         }
     }
@@ -263,14 +263,14 @@ public final class ImmutableIntArray implements Serializable {
         return isEmpty() ? EMPTY : this;
     }
 
-    public ImmutableIntArray subArray(int i, int i2) {
-        n.v(i, i2, length());
-        if (i == i2) {
+    public ImmutableIntArray subArray(int i2, int i3) {
+        n.v(i2, i3, length());
+        if (i2 == i3) {
             return EMPTY;
         }
         int[] iArr = this.array;
-        int i3 = this.start;
-        return new ImmutableIntArray(iArr, i + i3, i3 + i2);
+        int i4 = this.start;
+        return new ImmutableIntArray(iArr, i2 + i4, i4 + i3);
     }
 
     public int[] toArray() {
@@ -284,12 +284,12 @@ public final class ImmutableIntArray implements Serializable {
         StringBuilder sb = new StringBuilder(length() * 5);
         sb.append('[');
         sb.append(this.array[this.start]);
-        int i = this.start;
+        int i2 = this.start;
         while (true) {
-            i++;
-            if (i < this.end) {
+            i2++;
+            if (i2 < this.end) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                sb.append(this.array[i]);
+                sb.append(this.array[i2]);
             } else {
                 sb.append(']');
                 return sb.toString();
@@ -313,14 +313,14 @@ public final class ImmutableIntArray implements Serializable {
         return collection.isEmpty() ? EMPTY : new ImmutableIntArray(Ints.k(collection));
     }
 
-    public static ImmutableIntArray of(int i) {
-        return new ImmutableIntArray(new int[]{i});
+    public static ImmutableIntArray of(int i2) {
+        return new ImmutableIntArray(new int[]{i2});
     }
 
-    public ImmutableIntArray(int[] iArr, int i, int i2) {
+    public ImmutableIntArray(int[] iArr, int i2, int i3) {
         this.array = iArr;
-        this.start = i;
-        this.end = i2;
+        this.start = i2;
+        this.end = i3;
     }
 
     public static b builder() {
@@ -336,30 +336,30 @@ public final class ImmutableIntArray implements Serializable {
         return builder.d();
     }
 
-    public static ImmutableIntArray of(int i, int i2) {
-        return new ImmutableIntArray(new int[]{i, i2});
+    public static ImmutableIntArray of(int i2, int i3) {
+        return new ImmutableIntArray(new int[]{i2, i3});
     }
 
-    public static ImmutableIntArray of(int i, int i2, int i3) {
-        return new ImmutableIntArray(new int[]{i, i2, i3});
+    public static ImmutableIntArray of(int i2, int i3, int i4) {
+        return new ImmutableIntArray(new int[]{i2, i3, i4});
     }
 
-    public static ImmutableIntArray of(int i, int i2, int i3, int i4) {
-        return new ImmutableIntArray(new int[]{i, i2, i3, i4});
+    public static ImmutableIntArray of(int i2, int i3, int i4, int i5) {
+        return new ImmutableIntArray(new int[]{i2, i3, i4, i5});
     }
 
-    public static ImmutableIntArray of(int i, int i2, int i3, int i4, int i5) {
-        return new ImmutableIntArray(new int[]{i, i2, i3, i4, i5});
+    public static ImmutableIntArray of(int i2, int i3, int i4, int i5, int i6) {
+        return new ImmutableIntArray(new int[]{i2, i3, i4, i5, i6});
     }
 
-    public static ImmutableIntArray of(int i, int i2, int i3, int i4, int i5, int i6) {
-        return new ImmutableIntArray(new int[]{i, i2, i3, i4, i5, i6});
+    public static ImmutableIntArray of(int i2, int i3, int i4, int i5, int i6, int i7) {
+        return new ImmutableIntArray(new int[]{i2, i3, i4, i5, i6, i7});
     }
 
-    public static ImmutableIntArray of(int i, int... iArr) {
+    public static ImmutableIntArray of(int i2, int... iArr) {
         n.e(iArr.length <= 2147483646, "the total number of elements must fit in an int");
         int[] iArr2 = new int[iArr.length + 1];
-        iArr2[0] = i;
+        iArr2[0] = i2;
         System.arraycopy(iArr, 0, iArr2, 1, iArr.length);
         return new ImmutableIntArray(iArr2);
     }

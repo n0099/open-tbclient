@@ -27,9 +27,9 @@ public class DecoderSpecificInfo extends BaseDescriptor {
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
     public void parseDetail(ByteBuffer byteBuffer) throws IOException {
-        int i = this.sizeOfInstance;
-        if (i > 0) {
-            byte[] bArr = new byte[i];
+        int i2 = this.sizeOfInstance;
+        if (i2 > 0) {
+            byte[] bArr = new byte[i2];
             this.bytes = bArr;
             byteBuffer.get(bArr);
         }

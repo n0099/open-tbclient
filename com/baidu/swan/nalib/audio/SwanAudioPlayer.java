@@ -9,8 +9,9 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.SparseArray;
 import androidx.annotation.Keep;
-import d.b.h0.j.a.b;
-import d.b.h0.j.a.c;
+import d.a.h0.j.a.b;
+import d.a.h0.j.a.c;
+import org.webrtc.MediaStreamTrack;
 @Keep
 /* loaded from: classes3.dex */
 public class SwanAudioPlayer {
@@ -51,37 +52,37 @@ public class SwanAudioPlayer {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            int i = message.what;
-            if (i == -1) {
+            int i2 = message.what;
+            if (i2 == -1) {
                 MediaPlayer.OnErrorListener onErrorListener = (MediaPlayer.OnErrorListener) SwanAudioPlayer.this.mErrorMap.get(message.arg1);
                 if (onErrorListener != null) {
                     onErrorListener.onError(null, message.arg1, message.arg2);
                 }
-            } else if (i == 1) {
+            } else if (i2 == 1) {
                 MediaPlayer.OnPreparedListener onPreparedListener = (MediaPlayer.OnPreparedListener) SwanAudioPlayer.this.mPreparedMap.get(message.arg1);
                 if (onPreparedListener != null) {
                     onPreparedListener.onPrepared(null);
                 }
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 MediaPlayer.OnSeekCompleteListener onSeekCompleteListener = (MediaPlayer.OnSeekCompleteListener) SwanAudioPlayer.this.mSeekMap.get(message.arg1);
                 if (onSeekCompleteListener != null) {
                     onSeekCompleteListener.onSeekComplete(null);
                 }
-            } else if (i == 4) {
+            } else if (i2 == 4) {
                 MediaPlayer.OnCompletionListener onCompletionListener = (MediaPlayer.OnCompletionListener) SwanAudioPlayer.this.mEndMap.get(message.arg1);
                 if (onCompletionListener != null) {
                     onCompletionListener.onCompletion(null);
                 }
-            } else if (i == 5) {
+            } else if (i2 == 5) {
                 c cVar = (c) SwanAudioPlayer.this.mPausedMap.get(message.arg1);
                 if (cVar != null) {
                     cVar.onPause();
                 }
-            } else if (i == 100) {
+            } else if (i2 == 100) {
                 SwanAudioPlayer.this.postRunnable(Long.parseLong(message.obj.toString()));
-            } else if (i != 101) {
+            } else if (i2 != 101) {
             } else {
-                d.b.h0.j.a.a aVar = (d.b.h0.j.a.a) message.obj;
+                d.a.h0.j.a.a aVar = (d.a.h0.j.a.a) message.obj;
                 if (SwanAudioPlayer.this.mAudioRecordListener != null) {
                     SwanAudioPlayer.this.mAudioRecordListener.a(aVar);
                 }
@@ -103,7 +104,7 @@ public class SwanAudioPlayer {
         }
     }
 
-    private native void destroy(int i);
+    private native void destroy(int i2);
 
     public static SwanAudioPlayer getInstance() {
         if (instance == null) {
@@ -116,7 +117,7 @@ public class SwanAudioPlayer {
         return instance;
     }
 
-    public static native void init(int i, int i2);
+    public static native void init(int i2, int i3);
 
     /* JADX INFO: Access modifiers changed from: private */
     public native void postRunnable(long j);
@@ -124,7 +125,7 @@ public class SwanAudioPlayer {
     public static native void release();
 
     public static final void settingNativeAudioParameters(Context context) {
-        AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+        AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         String property = audioManager.getProperty("android.media.property.OUTPUT_SAMPLE_RATE");
         String property2 = audioManager.getProperty("android.media.property.OUTPUT_FRAMES_PER_BUFFER");
         try {
@@ -138,87 +139,87 @@ public class SwanAudioPlayer {
         init(mSampleRate, mSampleBufSize);
     }
 
-    public native int getDuration(int i);
+    public native int getDuration(int i2);
 
-    public native int getPosition(int i);
+    public native int getPosition(int i2);
 
-    public native int getState(int i);
+    public native int getState(int i2);
 
     public native boolean isAudioPlayer();
 
-    public native void pause(int i);
+    public native void pause(int i2);
 
     public native void pauseAll();
 
-    public native void play(int i, float f2, boolean z);
+    public native void play(int i2, float f2, boolean z);
 
     public void postAudioData(byte[] bArr, long j) {
         if (bArr != null) {
-            d.b.h0.j.a.a aVar = new d.b.h0.j.a.a();
-            aVar.f49597a = bArr;
-            aVar.f49598b = j;
-            aVar.f49599c = System.nanoTime();
+            d.a.h0.j.a.a aVar = new d.a.h0.j.a.a();
+            aVar.f47103a = bArr;
+            aVar.f47104b = j;
+            aVar.f47105c = System.nanoTime();
             this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, aVar));
         }
     }
 
-    public void postEventFromNative(int i, int i2, int i3, Object obj) {
-        this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(i, i2, i3, obj));
+    public void postEventFromNative(int i2, int i3, int i4, Object obj) {
+        this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(i2, i3, i4, obj));
     }
 
     public void postRunnableFromNative(long j) {
         this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(100, 0, 0, Long.valueOf(j)));
     }
 
-    public native void prepare(int i);
+    public native void prepare(int i2);
 
-    public synchronized void release(int i) {
-        this.mErrorMap.remove(i);
-        this.mEndMap.remove(i);
-        this.mSeekMap.remove(i);
-        this.mPreparedMap.remove(i);
-        this.mPausedMap.remove(i);
+    public synchronized void release(int i2) {
+        this.mErrorMap.remove(i2);
+        this.mEndMap.remove(i2);
+        this.mSeekMap.remove(i2);
+        this.mPreparedMap.remove(i2);
+        this.mPausedMap.remove(i2);
     }
 
     public native void resume();
 
-    public native void seek(int i, int i2);
+    public native void seek(int i2, int i3);
 
     public native void setAudioRecord(boolean z);
 
     public native int setDataSource(AssetManager assetManager, String str);
 
-    public native int setDataSource(String str, int i);
+    public native int setDataSource(String str, int i2);
 
-    public native void setLoop(int i, boolean z);
+    public native void setLoop(int i2, boolean z);
 
     public void setOnAudioRecordListener(b bVar) {
         this.mAudioRecordListener = bVar;
     }
 
-    public void setOnCompletionListener(int i, MediaPlayer.OnCompletionListener onCompletionListener) {
-        this.mEndMap.put(i, onCompletionListener);
+    public void setOnCompletionListener(int i2, MediaPlayer.OnCompletionListener onCompletionListener) {
+        this.mEndMap.put(i2, onCompletionListener);
     }
 
-    public void setOnErrorListener(int i, MediaPlayer.OnErrorListener onErrorListener) {
-        this.mErrorMap.put(i, onErrorListener);
+    public void setOnErrorListener(int i2, MediaPlayer.OnErrorListener onErrorListener) {
+        this.mErrorMap.put(i2, onErrorListener);
     }
 
-    public void setOnPauseListener(int i, c cVar) {
-        this.mPausedMap.put(i, cVar);
+    public void setOnPauseListener(int i2, c cVar) {
+        this.mPausedMap.put(i2, cVar);
     }
 
-    public void setOnPreparedListener(int i, MediaPlayer.OnPreparedListener onPreparedListener) {
-        this.mPreparedMap.put(i, onPreparedListener);
+    public void setOnPreparedListener(int i2, MediaPlayer.OnPreparedListener onPreparedListener) {
+        this.mPreparedMap.put(i2, onPreparedListener);
     }
 
-    public void setOnSeekCompleteListener(int i, MediaPlayer.OnSeekCompleteListener onSeekCompleteListener) {
-        this.mSeekMap.put(i, onSeekCompleteListener);
+    public void setOnSeekCompleteListener(int i2, MediaPlayer.OnSeekCompleteListener onSeekCompleteListener) {
+        this.mSeekMap.put(i2, onSeekCompleteListener);
     }
 
-    public native void setVolume(int i, float f2);
+    public native void setVolume(int i2, float f2);
 
-    public native void stop(int i);
+    public native void stop(int i2);
 
     public native void stopAll();
 }

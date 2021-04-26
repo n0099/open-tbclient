@@ -13,24 +13,24 @@ public class ApplyJoinGroupActivityConfig extends IntentConfig {
     public static int JOINTYPE_INVITE = 1;
     public static final String JOIN_TYPE = "joinType";
 
-    public ApplyJoinGroupActivityConfig(Context context, String str, int i, int i2) {
+    public ApplyJoinGroupActivityConfig(Context context, String str, int i2, int i3) {
         super(context);
         if (context == null) {
             return;
         }
         getIntent().putExtra(GROUP_ID, str);
-        getIntent().putExtra(ALREADY_JOIN_COUNT, i);
-        getIntent().putExtra(CAN_JOIN_COUNT, i2);
+        getIntent().putExtra(ALREADY_JOIN_COUNT, i2);
+        getIntent().putExtra(CAN_JOIN_COUNT, i3);
     }
 
-    public ApplyJoinGroupActivityConfig(Context context, String str, int i, int i2, long j, String str2) {
+    public ApplyJoinGroupActivityConfig(Context context, String str, int i2, int i3, long j, String str2) {
         super(context);
         if (context == null) {
             return;
         }
         getIntent().putExtra(GROUP_ID, str);
-        getIntent().putExtra(ALREADY_JOIN_COUNT, i);
-        getIntent().putExtra(CAN_JOIN_COUNT, i2);
+        getIntent().putExtra(ALREADY_JOIN_COUNT, i2);
+        getIntent().putExtra(CAN_JOIN_COUNT, i3);
         getIntent().putExtra(INVITE_USER_ID, j);
         getIntent().putExtra(DEFAULT_USER_MSG, str2);
         getIntent().putExtra(JOIN_TYPE, JOINTYPE_INVITE);

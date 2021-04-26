@@ -19,14 +19,14 @@ import com.baidu.tieba.pushdialog.data.PullTidSocketResponseMessage;
 import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
 import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
 import com.squareup.wire.Wire;
-import d.b.i0.r.s.a;
-/* loaded from: classes3.dex */
+import d.a.i0.r.s.a;
+/* loaded from: classes4.dex */
 public class PushDialogStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Wire f20321a = new Wire(new Class[0]);
+    public static Wire f20857a = new Wire(new Class[0]);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements CustomMessageTask.CustomRunnable {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage customMessage) {
@@ -35,64 +35,64 @@ public class PushDialogStatic {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b implements CustomMessageTask.CustomRunnable {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements a.e {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TbPageContextSupport f20322e;
+            public final /* synthetic */ TbPageContextSupport f20858e;
 
             public a(b bVar, TbPageContextSupport tbPageContextSupport) {
-                this.f20322e = tbPageContextSupport;
+                this.f20858e = tbPageContextSupport;
             }
 
-            @Override // d.b.i0.r.s.a.e
-            public void onClick(d.b.i0.r.s.a aVar) {
+            @Override // d.a.i0.r.s.a.e
+            public void onClick(d.a.i0.r.s.a aVar) {
                 aVar.dismiss();
                 Intent intent = new Intent();
                 intent.setAction("miui.intent.action.APP_PERM_EDITOR_PRIVATE");
-                intent.putExtra("extra_pkgname", this.f20322e.getPageContext().getPageActivity().getPackageName());
+                intent.putExtra("extra_pkgname", this.f20858e.getPageContext().getPageActivity().getPackageName());
                 intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 try {
-                    this.f20322e.getPageContext().getPageActivity().startActivity(intent);
+                    this.f20858e.getPageContext().getPageActivity().startActivity(intent);
                 } catch (Exception unused) {
                 }
             }
         }
 
         /* renamed from: com.baidu.tieba.pushdialog.PushDialogStatic$b$b  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0226b implements a.e {
+        /* loaded from: classes4.dex */
+        public class C0222b implements a.e {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TbPageContextSupport f20323e;
+            public final /* synthetic */ TbPageContextSupport f20859e;
 
-            public C0226b(b bVar, TbPageContextSupport tbPageContextSupport) {
-                this.f20323e = tbPageContextSupport;
+            public C0222b(b bVar, TbPageContextSupport tbPageContextSupport) {
+                this.f20859e = tbPageContextSupport;
             }
 
-            @Override // d.b.i0.r.s.a.e
-            public void onClick(d.b.i0.r.s.a aVar) {
+            @Override // d.a.i0.r.s.a.e
+            public void onClick(d.a.i0.r.s.a aVar) {
                 aVar.dismiss();
                 Intent intent = new Intent();
                 intent.setAction("com.iqoo.secure.PERMISSION_MANAGER");
                 intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 try {
-                    this.f20323e.getPageContext().getPageActivity().startActivity(intent);
+                    this.f20859e.getPageContext().getPageActivity().startActivity(intent);
                 } catch (Exception unused) {
                 }
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class c implements a.e {
             public c(b bVar) {
             }
 
-            @Override // d.b.i0.r.s.a.e
-            public void onClick(d.b.i0.r.s.a aVar) {
+            @Override // d.a.i0.r.s.a.e
+            public void onClick(d.a.i0.r.s.a aVar) {
                 aVar.dismiss();
             }
         }
@@ -100,33 +100,33 @@ public class PushDialogStatic {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage customMessage) {
             a.e eVar;
-            int i;
+            int i2;
             if (customMessage != null && (customMessage.getData() instanceof TbPageContextSupport)) {
-                int k = d.b.i0.r.d0.b.j().k("lock_permission_guide_set", 0);
+                int k = d.a.i0.r.d0.b.j().k("lock_permission_guide_set", 0);
                 if (!(k >= 2) && TbSingleton.getInstance().canShowPermDialog()) {
                     TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) customMessage.getData();
                     if (tbPageContextSupport.getPageContext() != null && tbPageContextSupport.getPageContext().getPageActivity() != null) {
-                        if (d.b.j0.o2.b.a()) {
+                        if (d.a.j0.o2.b.a()) {
                             eVar = new a(this, tbPageContextSupport);
-                            i = R.string.push_dialog_guide_content_miui;
-                        } else if (d.b.j0.o2.b.b()) {
-                            eVar = new C0226b(this, tbPageContextSupport);
-                            i = R.string.push_dialog_guide_content_vivo;
+                            i2 = R.string.push_dialog_guide_content_miui;
+                        } else if (d.a.j0.o2.b.b()) {
+                            eVar = new C0222b(this, tbPageContextSupport);
+                            i2 = R.string.push_dialog_guide_content_vivo;
                         } else {
                             eVar = null;
-                            i = 0;
+                            i2 = 0;
                         }
                         if (eVar != null) {
-                            d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(tbPageContextSupport.getPageContext().getPageActivity());
+                            d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(tbPageContextSupport.getPageContext().getPageActivity());
                             aVar.setTitle(R.string.push_dialog_guide_title);
-                            aVar.setMessageId(i);
+                            aVar.setMessageId(i2);
                             aVar.setPositiveButton(R.string.go_setting, eVar);
                             aVar.setNegativeButton(R.string.has_set, new c(this));
                             aVar.create(tbPageContextSupport.getPageContext());
                             aVar.show();
                             TbSingleton.getInstance().setHasShowPermDlg(true);
                         }
-                        d.b.i0.r.d0.b.j().v("lock_permission_guide_set", k + 1);
+                        d.a.i0.r.d0.b.j().v("lock_permission_guide_set", k + 1);
                     }
                 }
             }
@@ -140,12 +140,12 @@ public class PushDialogStatic {
     }
 
     public static void a() {
-        d.b.j0.d3.d0.a.h(309614, PushDialogSocketResMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, d.b.j0.d3.d0.a.a(TbConfig.GET_PUSH_DIALOG_DETAIL, 309614));
+        d.a.j0.d3.d0.a.h(309614, PushDialogSocketResMsg.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, d.a.j0.d3.d0.a.a(TbConfig.GET_PUSH_DIALOG_DETAIL, 309614));
         tbHttpMessageTask.setResponsedClass(PushDialogHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        d.b.j0.d3.d0.a.h(309618, PullTidSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, d.b.j0.d3.d0.a.a(TbConfig.GET_PUSH_DIALOG_TID, 309618));
+        d.a.j0.d3.d0.a.h(309618, PullTidSocketResponseMessage.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, d.a.j0.d3.d0.a.a(TbConfig.GET_PUSH_DIALOG_TID, 309618));
         tbHttpMessageTask2.setResponsedClass(PullTidHttpRespMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
         CustomMessageTask customMessageTask = new CustomMessageTask(2921359, new a());

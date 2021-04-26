@@ -81,8 +81,8 @@ public class AdElementInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public AdElementInfo[] newArray(int i) {
-            return new AdElementInfo[i];
+        public AdElementInfo[] newArray(int i2) {
+            return new AdElementInfo[i2];
         }
     }
 
@@ -259,7 +259,7 @@ public class AdElementInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.mQueryKey);
         parcel.writeString(this.mAdId);
         parcel.writeString(this.mTitle);
@@ -349,33 +349,33 @@ public class AdElementInfo implements Parcelable {
                     String next = keys.next();
                     if (next.equals("s")) {
                         JSONArray optJSONArray = optJSONObject.optJSONArray(next);
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            g(optJSONArray.optString(i));
+                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                            g(optJSONArray.optString(i2));
                         }
                     } else if (next.equals("vskip")) {
                         JSONArray optJSONArray2 = optJSONObject.optJSONArray(next);
-                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                            d(optJSONArray2.optString(i2));
+                        for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                            d(optJSONArray2.optString(i3));
                         }
                     } else if (next.equals("vstart")) {
                         JSONArray optJSONArray3 = optJSONObject.optJSONArray(next);
-                        for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                            e(optJSONArray3.optString(i3));
+                        for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
+                            e(optJSONArray3.optString(i4));
                         }
                     } else if (next.equals("vclose")) {
                         JSONArray optJSONArray4 = optJSONObject.optJSONArray(next);
-                        for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                            a(optJSONArray4.optString(i4));
+                        for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
+                            a(optJSONArray4.optString(i5));
                         }
                     } else if (next.equals(PrefetchEvent.STATE_CLICK)) {
                         JSONArray optJSONArray5 = optJSONObject.optJSONArray(next);
-                        for (int i5 = 0; i5 < optJSONArray5.length(); i5++) {
-                            c(optJSONArray5.optString(i5));
+                        for (int i6 = 0; i6 < optJSONArray5.length(); i6++) {
+                            c(optJSONArray5.optString(i6));
                         }
                     } else if (next.equals("c")) {
                         JSONArray optJSONArray6 = optJSONObject.optJSONArray(next);
-                        for (int i6 = 0; i6 < optJSONArray6.length(); i6++) {
-                            f(optJSONArray6.optString(i6));
+                        for (int i7 = 0; i7 < optJSONArray6.length(); i7++) {
+                            f(optJSONArray6.optString(i7));
                         }
                     }
                 }
@@ -450,28 +450,28 @@ public class AdElementInfo implements Parcelable {
             }
             if (jSONObject.has("imp_urls")) {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("imp_urls");
-                for (int i = 0; optJSONArray2 != null && i < optJSONArray2.length(); i++) {
-                    if (!TextUtils.isEmpty(optJSONArray2.optString(i))) {
-                        this.mImpressionUrls.add(optJSONArray2.optString(i));
+                for (int i2 = 0; optJSONArray2 != null && i2 < optJSONArray2.length(); i2++) {
+                    if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
+                        this.mImpressionUrls.add(optJSONArray2.optString(i2));
                     }
                 }
             }
             if (jSONObject.has("click_urls")) {
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("click_urls");
-                for (int i2 = 0; optJSONArray3 != null && i2 < optJSONArray3.length(); i2++) {
-                    f(optJSONArray3.optString(i2));
+                for (int i3 = 0; optJSONArray3 != null && i3 < optJSONArray3.length(); i3++) {
+                    f(optJSONArray3.optString(i3));
                 }
             }
             if (jSONObject.has("video_play_urls")) {
                 JSONArray optJSONArray4 = jSONObject.optJSONArray("video_play_urls");
-                for (int i3 = 0; optJSONArray4 != null && i3 < optJSONArray4.length(); i3++) {
-                    a(optJSONArray4.optString(i3));
+                for (int i4 = 0; optJSONArray4 != null && i4 < optJSONArray4.length(); i4++) {
+                    a(optJSONArray4.optString(i4));
                 }
             }
             if (jSONObject.has("conversion_urls")) {
                 JSONArray optJSONArray5 = jSONObject.optJSONArray("conversion_urls");
-                for (int i4 = 0; optJSONArray5 != null && i4 < optJSONArray5.length(); i4++) {
-                    b(optJSONArray5.optString(i4));
+                for (int i5 = 0; optJSONArray5 != null && i5 < optJSONArray5.length(); i5++) {
+                    b(optJSONArray5.optString(i5));
                 }
             }
             this.mExpire = jSONObject.optInt("expiration", 0);

@@ -68,20 +68,20 @@ public class FeedForumData implements Serializable {
         this.forumName = str;
     }
 
-    public void setIsLike(int i) {
-        this.isLike = i;
+    public void setIsLike(int i2) {
+        this.isLike = i2;
     }
 
-    public void setMemberCount(int i) {
-        this.memberCount = i;
+    public void setMemberCount(int i2) {
+        this.memberCount = i2;
     }
 
-    public void setPos(int i) {
-        this.pos = i;
+    public void setPos(int i2) {
+        this.pos = i2;
     }
 
-    public void setPostNum(int i) {
-        this.postNum = i;
+    public void setPostNum(int i2) {
+        this.postNum = i2;
     }
 
     public void setReason(String str) {

@@ -45,12 +45,12 @@ public class ArrayListTypeFieldDeserializer extends FieldDeserializer {
 
     public final void parseArray(DefaultJSONParser defaultJSONParser, Type type, Collection collection) {
         Class cls;
-        int i;
-        Type intern;
         int i2;
+        Type intern;
+        int i3;
         Type type2 = this.itemType;
         ObjectDeserializer objectDeserializer = this.deserializer;
-        int i3 = 0;
+        int i4 = 0;
         if (type instanceof ParameterizedType) {
             if (type2 instanceof TypeVariable) {
                 TypeVariable typeVariable = (TypeVariable) type2;
@@ -58,17 +58,17 @@ public class ArrayListTypeFieldDeserializer extends FieldDeserializer {
                 cls = parameterizedType.getRawType() instanceof Class ? (Class) parameterizedType.getRawType() : null;
                 if (cls != null) {
                     int length = cls.getTypeParameters().length;
-                    i2 = 0;
-                    while (i2 < length) {
-                        if (cls.getTypeParameters()[i2].getName().equals(typeVariable.getName())) {
+                    i3 = 0;
+                    while (i3 < length) {
+                        if (cls.getTypeParameters()[i3].getName().equals(typeVariable.getName())) {
                             break;
                         }
-                        i2++;
+                        i3++;
                     }
                 }
-                i2 = -1;
-                if (i2 != -1) {
-                    intern = parameterizedType.getActualTypeArguments()[i2];
+                i3 = -1;
+                if (i3 != -1) {
+                    intern = parameterizedType.getActualTypeArguments()[i3];
                     if (!intern.equals(this.itemType)) {
                         objectDeserializer = defaultJSONParser.getConfig().getDeserializer(intern);
                     }
@@ -83,17 +83,17 @@ public class ArrayListTypeFieldDeserializer extends FieldDeserializer {
                     cls = parameterizedType3.getRawType() instanceof Class ? (Class) parameterizedType3.getRawType() : null;
                     if (cls != null) {
                         int length2 = cls.getTypeParameters().length;
-                        i = 0;
-                        while (i < length2) {
-                            if (cls.getTypeParameters()[i].getName().equals(typeVariable2.getName())) {
+                        i2 = 0;
+                        while (i2 < length2) {
+                            if (cls.getTypeParameters()[i2].getName().equals(typeVariable2.getName())) {
                                 break;
                             }
-                            i++;
+                            i2++;
                         }
                     }
-                    i = -1;
-                    if (i != -1) {
-                        actualTypeArguments[0] = parameterizedType3.getActualTypeArguments()[i];
+                    i2 = -1;
+                    if (i2 != -1) {
+                        actualTypeArguments[0] = parameterizedType3.getActualTypeArguments()[i2];
                         intern = TypeReference.intern(new ParameterizedTypeImpl(actualTypeArguments, parameterizedType2.getOwnerType(), parameterizedType2.getRawType()));
                         type2 = intern;
                     }
@@ -104,19 +104,19 @@ public class ArrayListTypeFieldDeserializer extends FieldDeserializer {
             TypeVariable typeVariable3 = (TypeVariable) type2;
             cls2.getTypeParameters();
             int length3 = cls2.getTypeParameters().length;
-            int i4 = 0;
+            int i5 = 0;
             while (true) {
-                if (i4 >= length3) {
+                if (i5 >= length3) {
                     break;
                 }
-                TypeVariable typeVariable4 = cls2.getTypeParameters()[i4];
+                TypeVariable typeVariable4 = cls2.getTypeParameters()[i5];
                 if (typeVariable4.getName().equals(typeVariable3.getName())) {
                     Type[] bounds = typeVariable4.getBounds();
                     if (bounds.length == 1) {
                         type2 = bounds[0];
                     }
                 } else {
-                    i4++;
+                    i5++;
                 }
             }
         }
@@ -139,12 +139,12 @@ public class ArrayListTypeFieldDeserializer extends FieldDeserializer {
                     jSONLexer.nextToken(16);
                     return;
                 }
-                collection.add(objectDeserializer2.deserialze(defaultJSONParser, type2, Integer.valueOf(i3)));
+                collection.add(objectDeserializer2.deserialze(defaultJSONParser, type2, Integer.valueOf(i4)));
                 defaultJSONParser.checkListResolve(collection);
                 if (jSONLexer.token() == 16) {
                     jSONLexer.nextToken(this.itemFastMatchToken);
                 }
-                i3++;
+                i4++;
             }
         } else {
             if (objectDeserializer == null) {
@@ -159,8 +159,8 @@ public class ArrayListTypeFieldDeserializer extends FieldDeserializer {
     @Override // com.alibaba.fastjson.parser.deserializer.FieldDeserializer
     public void parseField(DefaultJSONParser defaultJSONParser, Object obj, Type type, Map<String, Object> map) {
         JSONLexer jSONLexer = defaultJSONParser.lexer;
-        int i = jSONLexer.token();
-        if (i == 8 || (i == 4 && jSONLexer.stringVal().length() == 0)) {
+        int i2 = jSONLexer.token();
+        if (i2 == 8 || (i2 == 4 && jSONLexer.stringVal().length() == 0)) {
             if (obj == null) {
                 map.put(this.fieldInfo.name, null);
                 return;

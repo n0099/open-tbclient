@@ -36,18 +36,18 @@ public final class TouchHelper {
         this.config = config;
     }
 
-    private final int calculateX(int i, int i2, int i3) {
-        int i4 = i + i3;
-        int i5 = getMBlockOffset().left;
-        int i6 = (this.mDisplayWidth - i2) - getMBlockOffset().right;
-        return i4 < i5 ? i5 : i4 > i6 ? i6 : i4;
+    private final int calculateX(int i2, int i3, int i4) {
+        int i5 = i2 + i4;
+        int i6 = getMBlockOffset().left;
+        int i7 = (this.mDisplayWidth - i3) - getMBlockOffset().right;
+        return i5 < i6 ? i6 : i5 > i7 ? i7 : i5;
     }
 
-    private final int calculateY(int i, int i2) {
-        int i3 = i + i2;
-        int i4 = getMBlockOffset().top;
-        int i5 = this.mEmptyHeight - getMBlockOffset().bottom;
-        return i3 < i4 ? i4 : i3 > i5 ? i5 : i3;
+    private final int calculateY(int i2, int i3) {
+        int i4 = i2 + i3;
+        int i5 = getMBlockOffset().top;
+        int i6 = this.mEmptyHeight - getMBlockOffset().bottom;
+        return i4 < i5 ? i5 : i4 > i6 ? i6 : i4;
     }
 
     private final Rect getMBlockOffset() {

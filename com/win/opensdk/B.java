@@ -1,30 +1,19 @@
 package com.win.opensdk;
 
-import android.view.View;
-import com.win.opensdk.core.Info;
-/* loaded from: classes7.dex */
-public class B implements View.OnClickListener {
+import android.os.Handler;
+import android.os.Message;
+/* loaded from: classes6.dex */
+public class B extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Info f40007a;
+    public final /* synthetic */ C f37611a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ C f40008b;
-
-    public B(C c2, Info info) {
-        this.f40008b = c2;
-        this.f40007a = info;
+    public B(C c2, E e2) {
+        this.f37611a = c2;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        try {
-            a1.a(this.f40008b.f40021c).a(new b1(this.f40007a)).a();
-            if (this.f40008b.f40025g != null) {
-                this.f40008b.f40025g.onClosed();
-            }
-        } catch (Exception unused) {
-        }
-        this.f40008b.f40020b.destroy();
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        this.f37611a.a(message);
     }
 }

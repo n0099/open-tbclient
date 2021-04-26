@@ -11,20 +11,20 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import d.b.h0.a.i2.k0;
-import d.b.h0.a.k;
-import d.b.h0.g.w.d;
+import d.a.h0.a.i2.k0;
+import d.a.h0.a.k;
+import d.a.h0.g.w.d;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanAppNetworkUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f12058a = k.f45772a;
+    public static final boolean f11899a = k.f43101a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum NetType {
         NONE("no"),
         WIFI("wifi"),
@@ -41,30 +41,30 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static class a extends d.b.h0.a.n1.a.b.c.b {
+    /* loaded from: classes3.dex */
+    public static class a extends d.a.h0.a.n1.a.b.c.b {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f12059c;
+        public final /* synthetic */ b f11900c;
 
         public a(b bVar) {
-            this.f12059c = bVar;
+            this.f11900c = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.h0.a.n1.a.b.c.b, d.b.h0.a.n1.a.b.c.c, d.b.h0.a.n1.a.b.c.a
-        public void onEvent(@NonNull d.b.h0.a.n1.a.b.a.b bVar) {
-            int i = bVar.a() != null ? bVar.a().getInt("net_quality") : -1;
-            b bVar2 = this.f12059c;
+        @Override // d.a.h0.a.n1.a.b.c.b, d.a.h0.a.n1.a.b.c.c, d.a.h0.a.n1.a.b.c.a
+        public void onEvent(@NonNull d.a.h0.a.n1.a.b.a.b bVar) {
+            int i2 = bVar.a() != null ? bVar.a().getInt("net_quality") : -1;
+            b bVar2 = this.f11900c;
             if (bVar2 != null) {
-                bVar2.onResult(i);
+                bVar2.onResult(i2);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
-        void onResult(int i);
+        void onResult(int i2);
     }
 
     public static boolean a(OkHttpClient okHttpClient, String str) {
@@ -87,7 +87,7 @@ public class SwanAppNetworkUtils {
     }
 
     public static void b(@NonNull b bVar) {
-        d.b.h0.a.n1.c.e.a.C().J(null, d.class, new a(bVar));
+        d.a.h0.a.n1.c.e.a.C().J(null, d.class, new a(bVar));
     }
 
     public static NetworkInfo c(Context context) {
@@ -100,11 +100,11 @@ public class SwanAppNetworkUtils {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String d(int i, String str) {
-        if (f12058a) {
-            Log.d("NetWorkUtils", "——> getNetworkType: netType " + i + " subTypeName " + str);
+    public static String d(int i2, String str) {
+        if (f11899a) {
+            Log.d("NetWorkUtils", "——> getNetworkType: netType " + i2 + " subTypeName " + str);
         }
-        switch (i) {
+        switch (i2) {
             case 1:
             case 2:
             case 4:
@@ -195,7 +195,7 @@ public class SwanAppNetworkUtils {
     }
 
     public static String g() {
-        String g2 = k0.g(d.b.h0.a.e0.w.d.L().W());
+        String g2 = k0.g(d.a.h0.a.e0.w.d.L().W());
         return TextUtils.isEmpty(g2) ? "" : g2;
     }
 
@@ -222,27 +222,27 @@ public class SwanAppNetworkUtils {
                 e2 = "none";
             }
             jSONObject.put("networkType", e2);
-            if (f12058a) {
+            if (f11899a) {
                 Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType"));
             }
         } catch (JSONException e3) {
-            if (f12058a) {
+            if (f11899a) {
                 e3.printStackTrace();
             }
         }
         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-        if (f12058a) {
+        if (f11899a) {
             Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: post success ");
         }
     }
 
     public static <T> void k(String str, String str2, ResponseCallback<T> responseCallback) {
-        if (f12058a) {
+        if (f11899a) {
             Log.d("postJsonRequest", HttpRetryStatistic.RETRY_URL + str + "\nbody:" + str2);
         }
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        d.b.h0.k.e.a.f().postStringRequest().url(str).cookieManager(d.b.h0.a.w0.a.m().a()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
+        d.a.h0.k.e.a.f().postStringRequest().url(str).cookieManager(d.a.h0.a.w0.a.m().a()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
     }
 }

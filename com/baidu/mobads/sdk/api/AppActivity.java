@@ -48,8 +48,8 @@ public class AppActivity extends Activity {
         return !TextUtils.isEmpty(activityName);
     }
 
-    public static void setActionBarColor(int i, int i2, int i3, int i4) {
-        mSActionBarColorTheme = new ActionBarColorTheme(i, i2, i3, i4);
+    public static void setActionBarColor(int i2, int i3, int i4, int i5) {
+        mSActionBarColorTheme = new ActionBarColorTheme(i2, i3, i4, i5);
     }
 
     public static void setActionBarColorTheme(ActionBarColorTheme actionBarColorTheme) {
@@ -81,12 +81,12 @@ public class AppActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
         IActivityImpl iActivityImpl = this.mProxyActivity;
         if (iActivityImpl != null) {
-            iActivityImpl.onActivityResult(i, i2, intent);
+            iActivityImpl.onActivityResult(i2, i3, intent);
         }
-        super.onActivityResult(i, i2, intent);
+        super.onActivityResult(i2, i3, intent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -171,21 +171,21 @@ public class AppActivity extends Activity {
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         IActivityImpl iActivityImpl = this.mProxyActivity;
-        if (iActivityImpl != null ? iActivityImpl.onKeyDown(i, keyEvent) : false) {
+        if (iActivityImpl != null ? iActivityImpl.onKeyDown(i2, keyEvent) : false) {
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
         IActivityImpl iActivityImpl = this.mProxyActivity;
-        if (iActivityImpl != null ? iActivityImpl.onKeyUp(i, keyEvent) : false) {
+        if (iActivityImpl != null ? iActivityImpl.onKeyUp(i2, keyEvent) : false) {
             return true;
         }
-        return super.onKeyUp(i, keyEvent);
+        return super.onKeyUp(i2, keyEvent);
     }
 
     @Override // android.app.Activity
@@ -270,11 +270,11 @@ public class AppActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void overridePendingTransition(int i, int i2) {
-        super.overridePendingTransition(i, i2);
+    public void overridePendingTransition(int i2, int i3) {
+        super.overridePendingTransition(i2, i3);
         IActivityImpl iActivityImpl = this.mProxyActivity;
         if (iActivityImpl != null) {
-            iActivityImpl.overridePendingTransition(i, i2);
+            iActivityImpl.overridePendingTransition(i2, i3);
         }
     }
 
@@ -292,11 +292,11 @@ public class AppActivity extends Activity {
         public static final ActionBarColorTheme ACTION_BAR_COFFEE_THEME = new ActionBarColorTheme(-1, -1, -12510, -11255230);
         public static final ActionBarColorTheme ACTION_BAR_BLACK_THEME = new ActionBarColorTheme(-1, -1, -12510, -13749450);
 
-        public ActionBarColorTheme(int i, int i2, int i3, int i4) {
-            this.closeColor = i;
-            this.titleColor = i2;
-            this.progressColor = i3;
-            this.backgroundColor = i4;
+        public ActionBarColorTheme(int i2, int i3, int i4, int i5) {
+            this.closeColor = i2;
+            this.titleColor = i3;
+            this.progressColor = i4;
+            this.backgroundColor = i5;
         }
 
         public boolean equals(Object obj) {
@@ -320,20 +320,20 @@ public class AppActivity extends Activity {
             return this.titleColor;
         }
 
-        public void setBackgroundColor(int i) {
-            this.backgroundColor = i;
+        public void setBackgroundColor(int i2) {
+            this.backgroundColor = i2;
         }
 
-        public void setCloseColor(int i) {
-            this.closeColor = i;
+        public void setCloseColor(int i2) {
+            this.closeColor = i2;
         }
 
-        public void setProgressColor(int i) {
-            this.progressColor = i;
+        public void setProgressColor(int i2) {
+            this.progressColor = i2;
         }
 
-        public void setTitleColor(int i) {
-            this.titleColor = i;
+        public void setTitleColor(int i2) {
+            this.titleColor = i2;
         }
 
         public ActionBarColorTheme(ActionBarColorTheme actionBarColorTheme) {

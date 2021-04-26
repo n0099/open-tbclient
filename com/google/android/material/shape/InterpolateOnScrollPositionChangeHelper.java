@@ -3,8 +3,7 @@ package com.google.android.material.shape;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
-import com.google.android.material.internal.Experimental;
-@Experimental("The shapes API is currently experimental and subject to change")
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public class InterpolateOnScrollPositionChangeHelper {
     public ScrollView containingScrollView;
@@ -33,11 +32,11 @@ public class InterpolateOnScrollPositionChangeHelper {
         this.materialShapeDrawable = materialShapeDrawable;
     }
 
-    public void startListeningForScrollChanges(ViewTreeObserver viewTreeObserver) {
+    public void startListeningForScrollChanges(@NonNull ViewTreeObserver viewTreeObserver) {
         viewTreeObserver.addOnScrollChangedListener(this.scrollChangedListener);
     }
 
-    public void stopListeningForScrollChanges(ViewTreeObserver viewTreeObserver) {
+    public void stopListeningForScrollChanges(@NonNull ViewTreeObserver viewTreeObserver) {
         viewTreeObserver.removeOnScrollChangedListener(this.scrollChangedListener);
     }
 
@@ -57,9 +56,9 @@ public class InterpolateOnScrollPositionChangeHelper {
                 this.shapedView.invalidate();
                 return;
             }
-            int i = top + height;
-            if (i > height2) {
-                this.materialShapeDrawable.setInterpolation(Math.max(0.0f, Math.min(1.0f, 1.0f - ((i - height2) / height))));
+            int i2 = top + height;
+            if (i2 > height2) {
+                this.materialShapeDrawable.setInterpolation(Math.max(0.0f, Math.min(1.0f, 1.0f - ((i2 - height2) / height))));
                 this.shapedView.invalidate();
                 return;
             } else if (this.materialShapeDrawable.getInterpolation() != 1.0f) {

@@ -1,11 +1,11 @@
 package com.baidu.tbadk.message.websockt;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import d.b.c.e.d.l;
+import d.a.c.e.d.l;
 /* loaded from: classes3.dex */
 public abstract class TbSocketReponsedMessage extends SocketResponsedMessage {
-    public TbSocketReponsedMessage(int i) {
-        super(i);
+    public TbSocketReponsedMessage(int i2) {
+        super(i2);
     }
 
     public static void saveProtocolBufferDataToCache(l<byte[]> lVar, String str, byte[] bArr) {
@@ -16,5 +16,5 @@ public abstract class TbSocketReponsedMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
+    public abstract /* synthetic */ void decodeInBackGround(int i2, T t) throws Exception;
 }

@@ -31,10 +31,10 @@ public class LegoListActivityConfig extends IntentConfig {
         this.mContext = context;
     }
 
-    public LegoListActivityConfig addLandingPageParams(String str, String str2, String str3, int i, int i2, String str4) {
+    public LegoListActivityConfig addLandingPageParams(String str, String str2, String str3, int i2, int i3, String str4) {
         Intent intent = getIntent();
-        intent.putExtra(HAS_ANIMATION, i);
-        intent.putExtra(IS_LANDINGPAGE, i2);
+        intent.putExtra(HAS_ANIMATION, i2);
+        intent.putExtra(IS_LANDINGPAGE, i3);
         if (!TextUtils.isEmpty(str)) {
             intent.putExtra(ANIMATION_INFO, str);
         }
@@ -48,15 +48,15 @@ public class LegoListActivityConfig extends IntentConfig {
         return this;
     }
 
-    public LegoListActivityConfig createNormalCfg(long j, int i, String str, int i2, int i3, String str2) {
+    public LegoListActivityConfig createNormalCfg(long j, int i2, String str, int i3, int i4, String str2) {
         Intent intent = getIntent();
         intent.putExtra("page_id", j);
-        intent.putExtra("page_type", i);
+        intent.putExtra("page_type", i2);
         if (!TextUtils.isEmpty(str)) {
             intent.putExtra(ITEM_ID, str);
         }
-        intent.putExtra(IS_IMMERSIVE, i2);
-        intent.putExtra("rn", i3);
+        intent.putExtra(IS_IMMERSIVE, i3);
+        intent.putExtra("rn", i4);
         intent.putExtra("params", str2);
         if (!(this.mContext instanceof Activity)) {
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);

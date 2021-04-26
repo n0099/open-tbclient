@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.l.d;
-/* loaded from: classes4.dex */
+import d.a.c.e.l.d;
+/* loaded from: classes5.dex */
 public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertActivity> {
     public String mAdPic;
     public String mAdUrl;
@@ -22,22 +22,22 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     public ImageView mIcon;
     public NavigationBar mNavigationBar;
 
-    /* loaded from: classes4.dex */
-    public class a extends d.b.c.e.l.c<d.b.c.j.d.a> {
+    /* loaded from: classes5.dex */
+    public class a extends d.a.c.e.l.c<d.a.c.j.d.a> {
         public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.c.e.l.c
-        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
-            super.onLoaded((a) aVar, str, i);
+        @Override // d.a.c.e.l.c
+        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+            super.onLoaded((a) aVar, str, i2);
             if (aVar == null) {
                 SignAllForumAdvertActivity.this.finish();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -48,7 +48,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -73,7 +73,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         this.mCloseBtn = (ImageView) findViewById(R.id.signallforum_advert_close);
         this.mAdvertPic.setDefaultBgResource(R.drawable.transparent_bg);
         d.h().m(this.mAdPic, 10, new a(), null);
-        this.mAdvertPic.W(this.mAdPic, 10, false);
+        this.mAdvertPic.V(this.mAdPic, 10, false);
         this.mAdvertPic.setOnClickListener(new b());
         this.mCloseBtn.setOnClickListener(new c());
     }

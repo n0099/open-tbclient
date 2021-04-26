@@ -15,11 +15,11 @@ public class BitmapCounter {
     public long mSize;
     public final ResourceReleaser<Bitmap> mUnpooledBitmapsReleaser;
 
-    public BitmapCounter(int i, int i2) {
-        Preconditions.checkArgument(i > 0);
+    public BitmapCounter(int i2, int i3) {
         Preconditions.checkArgument(i2 > 0);
-        this.mMaxCount = i;
-        this.mMaxSize = i2;
+        Preconditions.checkArgument(i3 > 0);
+        this.mMaxCount = i2;
+        this.mMaxSize = i3;
         this.mUnpooledBitmapsReleaser = new ResourceReleaser<Bitmap>() { // from class: com.facebook.imagepipeline.memory.BitmapCounter.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.ResourceReleaser

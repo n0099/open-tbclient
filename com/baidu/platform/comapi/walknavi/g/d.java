@@ -6,19 +6,19 @@ import com.baidu.platform.comapi.walknavi.widget.a;
 public class d implements a.InterfaceC0127a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f9689a;
+    public final /* synthetic */ a f10049a;
 
     public d(a aVar) {
-        this.f9689a = aVar;
+        this.f10049a = aVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0127a
     public void a() {
         a.CountDownTimerC0124a countDownTimerC0124a;
         a.CountDownTimerC0124a countDownTimerC0124a2;
-        countDownTimerC0124a = this.f9689a.q;
+        countDownTimerC0124a = this.f10049a.q;
         if (countDownTimerC0124a != null) {
-            countDownTimerC0124a2 = this.f9689a.q;
+            countDownTimerC0124a2 = this.f10049a.q;
             countDownTimerC0124a2.cancel();
         }
     }

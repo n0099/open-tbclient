@@ -11,10 +11,10 @@ import com.alipay.sdk.util.e;
 public class h extends IRemoteServiceCallback.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f2005a;
+    public final /* synthetic */ e f1962a;
 
     public h(e eVar) {
-        this.f2005a = eVar;
+        this.f1962a = eVar;
     }
 
     @Override // com.alipay.android.app.IRemoteServiceCallback
@@ -27,7 +27,7 @@ public class h extends IRemoteServiceCallback.Stub {
     }
 
     @Override // com.alipay.android.app.IRemoteServiceCallback
-    public void startActivity(String str, String str2, int i, Bundle bundle) throws RemoteException {
+    public void startActivity(String str, String str2, int i2, Bundle bundle) throws RemoteException {
         Activity activity;
         e.a aVar;
         Activity activity2;
@@ -36,17 +36,17 @@ public class h extends IRemoteServiceCallback.Stub {
             bundle = new Bundle();
         }
         try {
-            bundle.putInt("CallingPid", i);
+            bundle.putInt("CallingPid", i2);
             intent.putExtras(bundle);
         } catch (Exception unused) {
         }
         intent.setClassName(str, str2);
-        activity = this.f2005a.f1996c;
+        activity = this.f1962a.f1952c;
         if (activity != null) {
-            activity2 = this.f2005a.f1996c;
+            activity2 = this.f1962a.f1952c;
             activity2.startActivity(intent);
         }
-        aVar = this.f2005a.f2000g;
+        aVar = this.f1962a.f1956g;
         aVar.b();
     }
 }

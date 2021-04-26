@@ -41,22 +41,22 @@ public final class RSAUtil {
         return cipher.doFinal(bArr);
     }
 
-    public static byte[] decryptLongByPrivateKey(byte[] bArr, String str, int i) throws Exception {
+    public static byte[] decryptLongByPrivateKey(byte[] bArr, String str, int i2) throws Exception {
         PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(2, generatePrivate);
-        int i2 = i / 8;
+        int i3 = i2 / 8;
         StringBuilder sb = new StringBuilder();
         int length = bArr.length;
-        int i3 = 0;
-        while (i3 < length) {
-            int i4 = length - i3;
-            if (i2 < i4) {
-                i4 = i2;
+        int i4 = 0;
+        while (i4 < length) {
+            int i5 = length - i4;
+            if (i3 < i5) {
+                i5 = i3;
             }
-            byte[] bArr2 = new byte[i4];
-            System.arraycopy(bArr, i3, bArr2, 0, i4);
-            i3 += i4;
+            byte[] bArr2 = new byte[i5];
+            System.arraycopy(bArr, i4, bArr2, 0, i5);
+            i4 += i5;
             sb.append(new String(cipher.doFinal(bArr2)));
         }
         return sb.toString().getBytes();
@@ -76,33 +76,33 @@ public final class RSAUtil {
         return cipher.doFinal(bArr);
     }
 
-    public static byte[] encryptLongByPublicKey(byte[] bArr, String str, int i) throws Exception {
+    public static byte[] encryptLongByPublicKey(byte[] bArr, String str, int i2) throws Exception {
         PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(1, generatePublic);
-        int i2 = i / 8;
-        int i3 = i2 - 11;
+        int i3 = i2 / 8;
+        int i4 = i3 - 11;
         int length = bArr.length;
-        byte[] bArr2 = new byte[(((length + i3) - 1) / i3) * i2];
-        int i4 = 0;
+        byte[] bArr2 = new byte[(((length + i4) - 1) / i4) * i3];
         int i5 = 0;
-        while (i4 < length) {
-            int i6 = length - i4;
-            if (i3 < i6) {
-                i6 = i3;
+        int i6 = 0;
+        while (i5 < length) {
+            int i7 = length - i5;
+            if (i4 < i7) {
+                i7 = i4;
             }
-            byte[] bArr3 = new byte[i6];
-            System.arraycopy(bArr, i4, bArr3, 0, i6);
-            i4 += i6;
-            System.arraycopy(cipher.doFinal(bArr3), 0, bArr2, i5, i2);
-            i5 += i2;
+            byte[] bArr3 = new byte[i7];
+            System.arraycopy(bArr, i5, bArr3, 0, i7);
+            i5 += i7;
+            System.arraycopy(cipher.doFinal(bArr3), 0, bArr2, i6, i3);
+            i6 += i3;
         }
         return bArr2;
     }
 
-    public static Map<String, Object> generateKey(int i) throws NoSuchAlgorithmException {
+    public static Map<String, Object> generateKey(int i2) throws NoSuchAlgorithmException {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
-        keyPairGenerator.initialize(i);
+        keyPairGenerator.initialize(i2);
         KeyPair generateKeyPair = keyPairGenerator.generateKeyPair();
         HashMap hashMap = new HashMap(2);
         hashMap.put(PUBLIC_KEY, (RSAPublicKey) generateKeyPair.getPublic());

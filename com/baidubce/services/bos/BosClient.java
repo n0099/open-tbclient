@@ -357,16 +357,16 @@ public class BosClient extends AbstractBceClient {
         while (true) {
             byte[] bArr = new byte[streamBufferSize];
             arrayList.add(bArr);
-            int i = 0;
-            while (i < streamBufferSize) {
+            int i2 = 0;
+            while (i2 < streamBufferSize) {
                 try {
-                    int read = inputStream.read(bArr, i, streamBufferSize - i);
+                    int read = inputStream.read(bArr, i2, streamBufferSize - i2);
                     if (read < 0) {
                         objectMetadata.setContentLength(j);
                         return arrayList;
                     }
                     j += read;
-                    i += read;
+                    i2 += read;
                 } catch (IOException e2) {
                     throw new BceClientException("Fail to read data:" + e2.getMessage(), e2);
                 }
@@ -506,8 +506,8 @@ public class BosClient extends AbstractBceClient {
         return doesBucketExist(new DoesBucketExistRequest(str));
     }
 
-    public URL generatePresignedUrl(String str, String str2, int i) {
-        return generatePresignedUrl(str, str2, i, HttpMethodName.GET);
+    public URL generatePresignedUrl(String str, String str2, int i2) {
+        return generatePresignedUrl(str, str2, i2, HttpMethodName.GET);
     }
 
     public User getBosAccountOwner() {
@@ -639,9 +639,9 @@ public class BosClient extends AbstractBceClient {
         }
     }
 
-    public URL generatePresignedUrl(String str, String str2, int i, HttpMethodName httpMethodName) {
+    public URL generatePresignedUrl(String str, String str2, int i2, HttpMethodName httpMethodName) {
         GeneratePresignedUrlRequest generatePresignedUrlRequest = new GeneratePresignedUrlRequest(str, str2, httpMethodName);
-        generatePresignedUrlRequest.setExpiration(i);
+        generatePresignedUrlRequest.setExpiration(i2);
         return generatePresignedUrl(generatePresignedUrlRequest);
     }
 

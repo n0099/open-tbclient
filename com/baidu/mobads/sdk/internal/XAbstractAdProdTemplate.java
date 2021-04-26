@@ -60,8 +60,8 @@ public abstract class XAbstractAdProdTemplate {
                         XAbstractAdProdTemplate.this.onAdClose(iOAdEvent);
                     } else {
                         String str = "";
-                        int i = 0;
                         int i2 = 0;
+                        int i3 = 0;
                         if ("AdError".equals(iOAdEvent.getType())) {
                             HashMap hashMap = (HashMap) iOAdEvent.getData();
                             if (hashMap != null) {
@@ -71,9 +71,9 @@ public abstract class XAbstractAdProdTemplate {
                                 if (obj == null) {
                                     num = 0;
                                 }
-                                i = ((Integer) num).intValue();
+                                i2 = ((Integer) num).intValue();
                             }
-                            XAbstractAdProdTemplate.this.onAdFailed(str, i);
+                            XAbstractAdProdTemplate.this.onAdFailed(str, i2);
                         } else if ("AdEmptyList".equals(iOAdEvent.getType())) {
                             HashMap hashMap2 = (HashMap) iOAdEvent.getData();
                             if (hashMap2 != null) {
@@ -83,9 +83,9 @@ public abstract class XAbstractAdProdTemplate {
                                 if (obj2 == null) {
                                     num2 = 0;
                                 }
-                                i2 = ((Integer) num2).intValue();
+                                i3 = ((Integer) num2).intValue();
                             }
-                            XAbstractAdProdTemplate.this.onNoAd(i2, str);
+                            XAbstractAdProdTemplate.this.onNoAd(i3, str);
                         } else if ("AdUserClick".equals(iOAdEvent.getType())) {
                             XAbstractAdProdTemplate.this.onAdClick(iOAdEvent.getMessage());
                         } else if ("AdLpClosed".equals(iOAdEvent.getType())) {
@@ -213,7 +213,7 @@ public abstract class XAbstractAdProdTemplate {
     public void onAdDownloadWindowShow(String str, boolean z) {
     }
 
-    public void onAdFailed(String str, int i) {
+    public void onAdFailed(String str, int i2) {
         removeAdAllListeners();
     }
 
@@ -232,7 +232,7 @@ public abstract class XAbstractAdProdTemplate {
     public void onLpClosed() {
     }
 
-    public void onNoAd(int i, String str) {
+    public void onNoAd(int i2, String str) {
         removeAdAllListeners();
     }
 

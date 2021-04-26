@@ -60,14 +60,14 @@ public class e {
                 obj = Boolean.valueOf(xmlPullParser.getAttributeValue(null, "value"));
             } else if (name.equals("int-array")) {
                 xmlPullParser.next();
-                int[] m50a = m50a(xmlPullParser, "int-array", strArr);
+                int[] m53a = m53a(xmlPullParser, "int-array", strArr);
                 strArr[0] = attributeValue;
-                return m50a;
+                return m53a;
             } else if (name.equals("map")) {
                 xmlPullParser.next();
-                HashMap m49a = m49a(xmlPullParser, "map", strArr);
+                HashMap m52a = m52a(xmlPullParser, "map", strArr);
                 strArr[0] = attributeValue;
-                return m49a;
+                return m52a;
             } else if (name.equals("list")) {
                 xmlPullParser.next();
                 ArrayList a2 = a(xmlPullParser, "list", strArr);
@@ -121,8 +121,8 @@ public class e {
             xmlSerializer.attribute(null, "name", str);
         }
         int size = list.size();
-        for (int i = 0; i < size; i++) {
-            a(list.get(i), (String) null, xmlSerializer);
+        for (int i2 = 0; i2 < size; i2++) {
+            a(list.get(i2), (String) null, xmlSerializer);
         }
         xmlSerializer.endTag(null, "list");
     }
@@ -140,10 +140,10 @@ public class e {
         xmlSerializer.attribute(null, "num", Integer.toString(bArr.length));
         StringBuilder sb = new StringBuilder(bArr.length * 2);
         for (byte b2 : bArr) {
-            int i = b2 >> 4;
-            sb.append(i >= 10 ? (i + 97) - 10 : i + 48);
-            int i2 = b2 & 255;
+            int i2 = b2 >> 4;
             sb.append(i2 >= 10 ? (i2 + 97) - 10 : i2 + 48);
+            int i3 = b2 & 255;
+            sb.append(i3 >= 10 ? (i3 + 97) - 10 : i3 + 48);
         }
         xmlSerializer.text(sb.toString());
         xmlSerializer.endTag(null, "byte-array");
@@ -160,9 +160,9 @@ public class e {
             xmlSerializer.attribute(null, "name", str);
         }
         xmlSerializer.attribute(null, "num", Integer.toString(iArr.length));
-        for (int i : iArr) {
+        for (int i2 : iArr) {
             xmlSerializer.startTag(null, "item");
-            xmlSerializer.attribute(null, "value", Integer.toString(i));
+            xmlSerializer.attribute(null, "value", Integer.toString(i2));
             xmlSerializer.endTag(null, "item");
         }
         xmlSerializer.endTag(null, "int-array");
@@ -235,7 +235,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final HashMap m49a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final HashMap m52a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         HashMap hashMap = new HashMap();
         int eventType = xmlPullParser.getEventType();
         do {
@@ -275,16 +275,16 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final int[] m50a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final int[] m53a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         try {
             int[] iArr = new int[Integer.parseInt(xmlPullParser.getAttributeValue(null, "num"))];
-            int i = 0;
+            int i2 = 0;
             int eventType = xmlPullParser.getEventType();
             do {
                 if (eventType == 2) {
                     if (xmlPullParser.getName().equals("item")) {
                         try {
-                            iArr[i] = Integer.parseInt(xmlPullParser.getAttributeValue(null, "value"));
+                            iArr[i2] = Integer.parseInt(xmlPullParser.getAttributeValue(null, "value"));
                         } catch (NullPointerException unused) {
                             throw new XmlPullParserException("Need value attribute in item");
                         } catch (NumberFormatException unused2) {
@@ -300,7 +300,7 @@ public class e {
                     if (!xmlPullParser.getName().equals("item")) {
                         throw new XmlPullParserException("Expected " + str + " end tag at: " + xmlPullParser.getName());
                     }
-                    i++;
+                    i2++;
                 }
                 eventType = xmlPullParser.next();
             } while (eventType != 1);

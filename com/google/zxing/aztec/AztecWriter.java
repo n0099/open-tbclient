@@ -12,30 +12,30 @@ import java.util.Map;
 public final class AztecWriter implements Writer {
     public static final Charset DEFAULT_CHARSET = Charset.forName("ISO-8859-1");
 
-    public static BitMatrix renderResult(AztecCode aztecCode, int i, int i2) {
+    public static BitMatrix renderResult(AztecCode aztecCode, int i2, int i3) {
         BitMatrix matrix = aztecCode.getMatrix();
         if (matrix != null) {
             int width = matrix.getWidth();
             int height = matrix.getHeight();
-            int max = Math.max(i, width);
-            int max2 = Math.max(i2, height);
+            int max = Math.max(i2, width);
+            int max2 = Math.max(i3, height);
             int min = Math.min(max / width, max2 / height);
-            int i3 = (max - (width * min)) / 2;
-            int i4 = (max2 - (height * min)) / 2;
+            int i4 = (max - (width * min)) / 2;
+            int i5 = (max2 - (height * min)) / 2;
             BitMatrix bitMatrix = new BitMatrix(max, max2);
-            int i5 = 0;
-            while (i5 < height) {
-                int i6 = i3;
-                int i7 = 0;
-                while (i7 < width) {
-                    if (matrix.get(i7, i5)) {
-                        bitMatrix.setRegion(i6, i4, min, min);
+            int i6 = 0;
+            while (i6 < height) {
+                int i7 = i4;
+                int i8 = 0;
+                while (i8 < width) {
+                    if (matrix.get(i8, i6)) {
+                        bitMatrix.setRegion(i7, i5, min, min);
                     }
-                    i7++;
-                    i6 += min;
+                    i8++;
+                    i7 += min;
                 }
-                i5++;
-                i4 += min;
+                i6++;
+                i5 += min;
             }
             return bitMatrix;
         }
@@ -43,15 +43,15 @@ public final class AztecWriter implements Writer {
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) {
-        return encode(str, barcodeFormat, i, i2, null);
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3) {
+        return encode(str, barcodeFormat, i2, i3, null);
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3, Map<EncodeHintType, ?> map) {
         Charset charset;
-        int i3;
         int i4;
+        int i5;
         Charset charset2 = DEFAULT_CHARSET;
         if (map != null) {
             if (map.containsKey(EncodeHintType.CHARACTER_SET)) {
@@ -60,23 +60,23 @@ public final class AztecWriter implements Writer {
             int parseInt = map.containsKey(EncodeHintType.ERROR_CORRECTION) ? Integer.parseInt(map.get(EncodeHintType.ERROR_CORRECTION).toString()) : 33;
             if (map.containsKey(EncodeHintType.AZTEC_LAYERS)) {
                 charset = charset2;
-                i3 = parseInt;
-                i4 = Integer.parseInt(map.get(EncodeHintType.AZTEC_LAYERS).toString());
-                return encode(str, barcodeFormat, i, i2, charset, i3, i4);
+                i4 = parseInt;
+                i5 = Integer.parseInt(map.get(EncodeHintType.AZTEC_LAYERS).toString());
+                return encode(str, barcodeFormat, i2, i3, charset, i4, i5);
             }
             charset = charset2;
-            i3 = parseInt;
+            i4 = parseInt;
         } else {
             charset = charset2;
-            i3 = 33;
+            i4 = 33;
         }
-        i4 = 0;
-        return encode(str, barcodeFormat, i, i2, charset, i3, i4);
+        i5 = 0;
+        return encode(str, barcodeFormat, i2, i3, charset, i4, i5);
     }
 
-    public static BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Charset charset, int i3, int i4) {
+    public static BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3, Charset charset, int i4, int i5) {
         if (barcodeFormat == BarcodeFormat.AZTEC) {
-            return renderResult(Encoder.encode(str.getBytes(charset), i3, i4), i, i2);
+            return renderResult(Encoder.encode(str.getBytes(charset), i4, i5), i2, i3);
         }
         throw new IllegalArgumentException("Can only encode AZTEC, but got " + barcodeFormat);
     }

@@ -14,7 +14,7 @@ public class SetPrivilegeRequestMessage extends HttpMessage {
         return this.propsID;
     }
 
-    public void setPropsID(int i) {
-        this.propsID = i;
+    public void setPropsID(int i2) {
+        this.propsID = i2;
     }
 }

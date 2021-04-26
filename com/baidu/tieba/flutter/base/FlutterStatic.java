@@ -23,8 +23,8 @@ import com.baidu.tieba.flutter.base.view.PageRouter;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.Utils;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
-import d.b.c.c.f.b;
-import d.b.j0.d3.h0.m;
+import d.a.c.c.f.b;
+import d.a.j0.d3.h0.m;
 import io.flutter.embedding.android.FlutterView;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,7 +44,7 @@ public class FlutterStatic {
         FlutterEnterForumDelegateStatic.registerFlutterFragment();
         INativeRouter iNativeRouter = new INativeRouter() { // from class: com.baidu.tieba.flutter.base.FlutterStatic.1
             @Override // com.idlefish.flutterboost.interfaces.INativeRouter
-            public void openContainer(Context context, String str, Map<String, Object> map, int i, Map<String, Object> map2) {
+            public void openContainer(Context context, String str, Map<String, Object> map, int i2, Map<String, Object> map2) {
                 PageRouter.openPageByUrl(context, Utils.assembleUrl(str, map), map);
             }
         };
@@ -82,7 +82,7 @@ public class FlutterStatic {
     public static void registerFlutterRule() {
         MessageManager.getInstance().addMessageRule(new b(0) { // from class: com.baidu.tieba.flutter.base.FlutterStatic.3
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.c.c.f.f
+            @Override // d.a.c.c.f.f
             public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
                 return (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof IntentConfig)) ? customMessage : OpenFlutter.goToFlutter(customMessage);
             }

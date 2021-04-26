@@ -14,6 +14,7 @@ import com.baidu.searchbox.bddownload.core.download.DownloadStrategy;
 import com.baidu.searchbox.bddownload.core.file.DownloadOutputStream;
 import com.baidu.searchbox.bddownload.core.file.DownloadUriOutputStream;
 import com.baidu.searchbox.bddownload.core.file.ProcessFileStrategy;
+import com.baidu.searchbox.bddownload.statistic.IBDDownloadStatistic;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes2.dex */
 public class BdDownload {
@@ -29,9 +30,12 @@ public class BdDownload {
     public DownloadMonitor monitor;
     public final DownloadOutputStream.Factory outputStreamFactory;
     public final ProcessFileStrategy processFileStrategy;
+    @Nullable
+    public IBDDownloadStatistic statistic;
 
     /* loaded from: classes2.dex */
     public static class Builder {
+        public IBDDownloadStatistic bdDownloadStatistic;
         public CallbackDispatcher callbackDispatcher;
         public DownloadConnection.Factory connectionFactory;
         public final Context context;
@@ -44,6 +48,11 @@ public class BdDownload {
 
         public Builder(@NonNull Context context) {
             this.context = context.getApplicationContext();
+        }
+
+        public Builder bdDownloadStatistic(IBDDownloadStatistic iBDDownloadStatistic) {
+            this.bdDownloadStatistic = iBDDownloadStatistic;
+            return this;
         }
 
         public BdDownload build() {
@@ -70,6 +79,7 @@ public class BdDownload {
             }
             BdDownload bdDownload = new BdDownload(this.context, this.downloadDispatcher, this.callbackDispatcher, this.downloadStore, this.connectionFactory, this.outputStreamFactory, this.processFileStrategy, this.downloadStrategy);
             bdDownload.setMonitor(this.monitor);
+            bdDownload.setBDDownloadStatistic(this.bdDownloadStatistic);
             Util.d("BdDownload", "downloadStore[" + this.downloadStore + "] connectionFactory[" + this.connectionFactory);
             return bdDownload;
         }
@@ -145,10 +155,9 @@ public class BdDownload {
         if (singleton == null) {
             synchronized (BdDownload.class) {
                 if (singleton == null) {
-                    if (DownloadProvider.context != null) {
-                        singleton = new Builder(DownloadProvider.context).build();
-                    } else if (AppRuntime.getAppContext() != null) {
-                        singleton = new Builder(AppRuntime.getAppContext()).build();
+                    Context appContext = AppRuntime.getAppContext();
+                    if (appContext != null) {
+                        singleton = new Builder(appContext).build();
                     } else {
                         throw new IllegalStateException("context == null");
                     }
@@ -187,12 +196,20 @@ public class BdDownload {
         return this.monitor;
     }
 
+    public IBDDownloadStatistic getStatistic() {
+        return this.statistic;
+    }
+
     public DownloadOutputStream.Factory outputStreamFactory() {
         return this.outputStreamFactory;
     }
 
     public ProcessFileStrategy processFileStrategy() {
         return this.processFileStrategy;
+    }
+
+    public void setBDDownloadStatistic(@Nullable IBDDownloadStatistic iBDDownloadStatistic) {
+        this.statistic = iBDDownloadStatistic;
     }
 
     public void setMonitor(@Nullable DownloadMonitor downloadMonitor) {

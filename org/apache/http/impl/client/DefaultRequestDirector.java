@@ -43,7 +43,7 @@ public class DefaultRequestDirector implements RequestDirector {
         throw new RuntimeException("Stub!");
     }
 
-    public boolean createTunnelToProxy(HttpRoute httpRoute, int i, HttpContext httpContext) throws HttpException, IOException {
+    public boolean createTunnelToProxy(HttpRoute httpRoute, int i2, HttpContext httpContext) throws HttpException, IOException {
         throw new RuntimeException("Stub!");
     }
 

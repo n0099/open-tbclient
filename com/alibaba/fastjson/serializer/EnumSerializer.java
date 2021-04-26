@@ -16,7 +16,7 @@ public class EnumSerializer implements ObjectSerializer {
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         Object invoke;
         Member member = this.member;
         if (member == null) {

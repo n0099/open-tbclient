@@ -19,7 +19,7 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
         throw new RuntimeException("Stub!");
     }
 
-    public static int toDigit(char c2, int i) throws DecoderException {
+    public static int toDigit(char c2, int i2) throws DecoderException {
         throw new RuntimeException("Stub!");
     }
 

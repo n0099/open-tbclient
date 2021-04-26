@@ -1,7 +1,7 @@
 package kotlin;
 
 import com.baidu.media.duplayer.LibsInfoDef;
-import com.baidu.searchbox.bddownload.core.breakpoint.sqllite.BreakpointSQLiteHelper;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import kotlin.coroutines.Continuation;
 import kotlin.internal.InlineOnly;
 import kotlin.jvm.functions.Function1;

@@ -7,68 +7,68 @@ import java.util.concurrent.BlockingQueue;
 public class c extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8912a = w.f8973b;
+    public static final boolean f9240a = w.f9303b;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BlockingQueue<n<?>> f8913b;
+    public final BlockingQueue<n<?>> f9241b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final BlockingQueue<n<?>> f8914c;
+    public final BlockingQueue<n<?>> f9242c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final b f8915d;
+    public final b f9243d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final r f8916e;
+    public final r f9244e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f8917f = false;
+    public volatile boolean f9245f = false;
 
     public c(BlockingQueue<n<?>> blockingQueue, BlockingQueue<n<?>> blockingQueue2, b bVar, r rVar) {
-        this.f8913b = blockingQueue;
-        this.f8914c = blockingQueue2;
-        this.f8915d = bVar;
-        this.f8916e = rVar;
+        this.f9241b = blockingQueue;
+        this.f9242c = blockingQueue2;
+        this.f9243d = bVar;
+        this.f9244e = rVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        if (f8912a) {
+        if (f9240a) {
             w.a("start new dispatcher", new Object[0]);
         }
         Process.setThreadPriority(10);
-        this.f8915d.a();
+        this.f9243d.a();
         while (true) {
             try {
-                n<?> take = this.f8913b.take();
+                n<?> take = this.f9241b.take();
                 take.a("cache-queue-take");
                 if (take.h()) {
                     take.b("cache-discard-canceled");
                 } else {
-                    b.a a2 = this.f8915d.a(take.e());
+                    b.a a2 = this.f9243d.a(take.e());
                     if (a2 == null) {
                         take.a("cache-miss");
-                        this.f8914c.put(take);
+                        this.f9242c.put(take);
                     } else if (a2.a()) {
                         take.a("cache-hit-expired");
                         take.a(a2);
-                        this.f8914c.put(take);
+                        this.f9242c.put(take);
                     } else {
                         take.a("cache-hit");
-                        q<?> a3 = take.a(new l(a2.f8905a, a2.f8911g));
+                        q<?> a3 = take.a(new l(a2.f9233a, a2.f9239g));
                         take.a("cache-hit-parsed");
                         if (!a2.b()) {
-                            this.f8916e.a(take, a3);
+                            this.f9244e.a(take, a3);
                         } else {
                             take.a("cache-hit-refresh-needed");
                             take.a(a2);
-                            a3.f8969d = true;
-                            this.f8916e.a(take, a3, new d(this, take));
+                            a3.f9299d = true;
+                            this.f9244e.a(take, a3, new d(this, take));
                         }
                     }
                 }
             } catch (InterruptedException unused) {
-                if (this.f8917f) {
+                if (this.f9245f) {
                     return;
                 }
             }
@@ -76,7 +76,7 @@ public class c extends Thread {
     }
 
     public void a() {
-        this.f8917f = true;
+        this.f9245f = true;
         interrupt();
     }
 }

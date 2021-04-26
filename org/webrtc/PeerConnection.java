@@ -55,8 +55,8 @@ public class PeerConnection {
         CLOSED;
 
         @CalledByNative("IceConnectionState")
-        public static IceConnectionState fromNativeIndex(int i) {
-            return values()[i];
+        public static IceConnectionState fromNativeIndex(int i2) {
+            return values()[i2];
         }
     }
 
@@ -67,8 +67,8 @@ public class PeerConnection {
         COMPLETE;
 
         @CalledByNative("IceGatheringState")
-        public static IceGatheringState fromNativeIndex(int i) {
-            return values()[i];
+        public static IceGatheringState fromNativeIndex(int i2) {
+            return values()[i2];
         }
     }
 
@@ -255,9 +255,9 @@ public class PeerConnection {
         public final int max;
         public final int min;
 
-        public IntervalRange(int i, int i2) {
-            this.min = i;
-            this.max = i2;
+        public IntervalRange(int i2, int i3) {
+            this.min = i2;
+            this.max = i3;
         }
 
         @CalledByNative("IntervalRange")
@@ -340,8 +340,8 @@ public class PeerConnection {
         CLOSED;
 
         @CalledByNative("PeerConnectionState")
-        public static PeerConnectionState fromNativeIndex(int i) {
-            return values()[i];
+        public static PeerConnectionState fromNativeIndex(int i2) {
+            return values()[i2];
         }
     }
 
@@ -641,8 +641,8 @@ public class PeerConnection {
         CLOSED;
 
         @CalledByNative("SignalingState")
-        public static SignalingState fromNativeIndex(int i) {
-            return values()[i];
+        public static SignalingState fromNativeIndex(int i2) {
+            return values()[i2];
         }
     }
 
@@ -674,7 +674,7 @@ public class PeerConnection {
         return nativeCreatePeerConnectionObserver(observer);
     }
 
-    private native boolean nativeAddIceCandidate(String str, int i, String str2);
+    private native boolean nativeAddIceCandidate(String str, int i2, String str2);
 
     private native boolean nativeAddLocalStream(long j);
 
@@ -742,7 +742,7 @@ public class PeerConnection {
 
     private native SignalingState nativeSignalingState();
 
-    private native boolean nativeStartRtcEventLog(int i, int i2);
+    private native boolean nativeStartRtcEventLog(int i2, int i3);
 
     private native void nativeStopRtcEventLog();
 
@@ -971,8 +971,8 @@ public class PeerConnection {
         return nativeSignalingState();
     }
 
-    public boolean startRtcEventLog(int i, int i2) {
-        return nativeStartRtcEventLog(i, i2);
+    public boolean startRtcEventLog(int i2, int i3) {
+        return nativeStartRtcEventLog(i2, i3);
     }
 
     public void stopRtcEventLog() {

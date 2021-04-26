@@ -27,8 +27,8 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tieba.R;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.c.e.p.l;
-import d.b.i0.r.s.b;
+import d.a.c.e.p.l;
+import d.a.i0.r.s.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -73,8 +73,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
 
         /* renamed from: com.baidu.tieba.im.chat.AbsMsgImageActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class animation.Animation$AnimationListenerC0198a implements Animation.AnimationListener {
-            public animation.Animation$AnimationListenerC0198a() {
+        public class animation.Animation$AnimationListenerC0193a implements Animation.AnimationListener {
+            public animation.Animation$AnimationListenerC0193a() {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -145,7 +145,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                 }
                 AbsMsgImageActivity.this.mAnim.setDuration(300L);
                 AbsMsgImageActivity.this.mAnim.setFillAfter(true);
-                AbsMsgImageActivity.this.mAnim.setAnimationListener(new animation.Animation$AnimationListenerC0198a());
+                AbsMsgImageActivity.this.mAnim.setAnimationListener(new animation.Animation$AnimationListenerC0193a());
                 AbsMsgImageActivity.this.mAnimFinished = false;
                 AbsMsgImageActivity.this.mTitle.startAnimation(AbsMsgImageActivity.this.mAnim);
             }
@@ -158,8 +158,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i) {
-            if (i != 1 || System.nanoTime() - AbsMsgImageActivity.this.pageDoneTime <= AbsMsgImageActivity.INV_TIME || AbsMsgImageActivity.this.imageUrls == null || AbsMsgImageActivity.this.mIndex >= AbsMsgImageActivity.this.imageUrls.size()) {
+        public void onPageScrollStateChanged(int i2) {
+            if (i2 != 1 || System.nanoTime() - AbsMsgImageActivity.this.pageDoneTime <= AbsMsgImageActivity.INV_TIME || AbsMsgImageActivity.this.imageUrls == null || AbsMsgImageActivity.this.mIndex >= AbsMsgImageActivity.this.imageUrls.size()) {
                 return;
             }
             HashMap hashMap = AbsMsgImageActivity.this.pvHash;
@@ -168,14 +168,14 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f2, int i2) {
+        public void onPageScrolled(int i2, float f2, int i3) {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
+        public void onPageSelected(int i2) {
             AbsMsgImageActivity absMsgImageActivity = AbsMsgImageActivity.this;
-            absMsgImageActivity.imageChange(absMsgImageActivity.mIndex, i);
-            AbsMsgImageActivity.this.mIndex = i;
+            absMsgImageActivity.imageChange(absMsgImageActivity.mIndex, i2);
+            AbsMsgImageActivity.this.mIndex = i2;
             AbsMsgImageActivity.this.setTitle();
         }
     }
@@ -186,7 +186,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
 
         @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-        public void a(int i) {
+        public void a(int i2) {
         }
     }
 
@@ -195,10 +195,10 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         public d() {
         }
 
-        @Override // d.b.i0.r.s.b.c
-        public void a(d.b.i0.r.s.b bVar, int i, View view) {
+        @Override // d.a.i0.r.s.b.c
+        public void a(d.a.i0.r.s.b bVar, int i2, View view) {
             if (bVar == AbsMsgImageActivity.this.getListMenu()) {
-                if (i == 0) {
+                if (i2 == 0) {
                     try {
                         Activity pageActivity = AbsMsgImageActivity.this.getPageContext().getPageActivity();
                         if (AbsMsgImageActivity.this.mPermissionJudgement == null) {
@@ -230,26 +230,26 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     public class e implements View.OnLongClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.c f17420e;
+        public final /* synthetic */ b.c f17729e;
 
         public e(b.c cVar) {
-            this.f17420e = cVar;
+            this.f17729e = cVar;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            AbsMsgImageActivity.this.createListMenu(new String[]{AbsMsgImageActivity.this.getPageContext().getString(R.string.save)}, this.f17420e);
+            AbsMsgImageActivity.this.createListMenu(new String[]{AbsMsgImageActivity.this.getPageContext().getString(R.string.save)}, this.f17729e);
             AbsMsgImageActivity.this.showListMenu();
             return false;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class f implements d.b.j0.e1.s.c {
+    public class f implements d.a.j0.e1.s.c {
         public f() {
         }
 
-        @Override // d.b.j0.e1.s.c
+        @Override // d.a.j0.e1.s.c
         public void a(LinkedHashMap<String, String> linkedHashMap, HashMap<String, ImageUrlData> hashMap) {
             boolean z;
             if (linkedHashMap == null || AbsMsgImageActivity.this.isSingleGif) {
@@ -268,7 +268,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             if (linkedHashMap.size() != 0) {
                 String str = AbsMsgImageActivity.this.uniqueId;
                 Iterator<String> it = linkedHashMap.keySet().iterator();
-                int i = 0;
+                int i2 = 0;
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -276,11 +276,11 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                     }
                     String next = it.next();
                     if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(next) && next.equals(str)) {
-                        AbsMsgImageActivity.this.mIndex = i;
+                        AbsMsgImageActivity.this.mIndex = i2;
                         z = true;
                         break;
                     }
-                    i++;
+                    i2++;
                 }
                 AbsMsgImageActivity.this.mCount = linkedHashMap.size();
                 if (!z) {
@@ -304,16 +304,16 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     public class g extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17423a;
+        public String f17732a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f17424b;
+        public byte[] f17733b;
 
         public g(String str, byte[] bArr) {
-            this.f17423a = null;
-            this.f17424b = null;
-            this.f17423a = str;
-            this.f17424b = bArr;
+            this.f17732a = null;
+            this.f17733b = null;
+            this.f17732a = str;
+            this.f17733b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -331,7 +331,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f17423a, this.f17424b, AbsMsgImageActivity.this.getPageContext().getPageActivity());
+            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f17732a, this.f17733b, AbsMsgImageActivity.this.getPageContext().getPageActivity());
             if (saveImageFileByUser != -2) {
                 if (saveImageFileByUser != 0) {
                     return AbsMsgImageActivity.this.getPageContext().getString(R.string.save_fail);
@@ -375,12 +375,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void imageChange(int i, int i2) {
+    public void imageChange(int i2, int i3) {
         synchronized (this.pvHash) {
-            if (System.nanoTime() - this.pageDoneTime > INV_TIME && this.imageUrls != null && i < this.imageUrls.size()) {
+            if (System.nanoTime() - this.pageDoneTime > INV_TIME && this.imageUrls != null && i2 < this.imageUrls.size()) {
                 HashMap<String, Boolean> hashMap = this.pvHash;
                 LinkedHashMap<String, String> linkedHashMap = this.imageUrls;
-                hashMap.put(linkedHashMap.get("" + i), Boolean.TRUE);
+                hashMap.put(linkedHashMap.get("" + i2), Boolean.TRUE);
             }
             this.pageDoneTime = System.nanoTime();
         }
@@ -453,8 +453,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.mMultiImageView.setNextTitle("mNextTitle");
         this.mMultiImageView.setIsFromCDN(true);
         this.mMultiImageView.setAllowLocalUrl(true);
-        int i = this.mIndex;
-        imageChange(i, i);
+        int i2 = this.mIndex;
+        imageChange(i2, i2);
         this.mTextView.setVisibility(4);
     }
 
@@ -487,8 +487,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
 
     @Override // com.baidu.tbadk.BaseActivity
     @SuppressLint({"ResourceAsColor"})
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         SkinManager.setBackgroundColor(this.mMultiImageView, R.color.black_alpha100);
         SkinManager.setBackgroundColor(this.mTitle, R.color.common_color_10222);
         getLayoutMode().j(this.mBack);
@@ -520,15 +520,15 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4) {
             Intent intent = new Intent();
             intent.putExtra("index", this.mIndex);
             setResult(-1, intent);
             finish();
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // android.app.Activity
@@ -564,8 +564,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        int i = this.mIndex;
-        imageChange(i, i);
+        int i2 = this.mIndex;
+        imageChange(i2, i2);
         this.mMultiImageView.v();
         g gVar = this.mSaveImageTask;
         if (gVar != null) {
@@ -574,7 +574,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    public abstract void queryAllBigImageUrls(String str, d.b.j0.e1.s.c cVar);
+    public abstract void queryAllBigImageUrls(String str, d.a.j0.e1.s.c cVar);
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {

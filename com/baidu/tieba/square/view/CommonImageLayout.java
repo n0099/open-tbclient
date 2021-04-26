@@ -12,8 +12,9 @@ import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-/* loaded from: classes4.dex */
+import d.a.c.e.p.l;
+import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
+/* loaded from: classes5.dex */
 public class CommonImageLayout extends ViewGroup {
     public static float[] l = {306.0f, 144.0f, 204.0f, 101.0f, 97.0f};
     public static float[] m = {138.0f, 144.0f, 204.0f, 101.0f, 97.0f};
@@ -23,33 +24,35 @@ public class CommonImageLayout extends ViewGroup {
     public static float q = -1.0f;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f20981e;
+    public TbImageView f21558e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f20982f;
+    public TbImageView f21559f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f20983g;
+    public TbImageView f21560g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MediaData[] f20984h;
-    public int i;
+    public MediaData[] f21561h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f21562i;
     public boolean j;
     public final Context k;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MediaData f20985e;
+        public final /* synthetic */ MediaData f21563e;
 
         public a(MediaData mediaData) {
-            this.f20985e = mediaData;
+            this.f21563e = mediaData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.i0.l.a.l(CommonImageLayout.this.k, this.f20985e.getVideoUrl());
+            d.a.i0.l.a.l(CommonImageLayout.this.k, this.f21563e.getVideoUrl());
         }
     }
 
@@ -62,16 +65,16 @@ public class CommonImageLayout extends ViewGroup {
             return;
         }
         q = l.k(this.k) / 320.0f;
-        int i = 0;
+        int i2 = 0;
         while (true) {
             float[] fArr = l;
-            if (i < fArr.length) {
-                float f2 = fArr[i];
+            if (i2 < fArr.length) {
+                float f2 = fArr[i2];
                 float f3 = q;
-                fArr[i] = f2 * f3;
+                fArr[i2] = f2 * f3;
                 float[] fArr2 = m;
-                fArr2[i] = fArr2[i] * f3;
-                i++;
+                fArr2[i2] = fArr2[i2] * f3;
+                i2++;
             } else {
                 float f4 = q;
                 n = (int) (n * f4);
@@ -97,32 +100,32 @@ public class CommonImageLayout extends ViewGroup {
             tbImageView.setClickable(false);
         }
         tbImageView.setTag(picUrl);
-        tbImageView.W(picUrl, 13, false);
+        tbImageView.V(picUrl, 13, false);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        MediaData[] mediaDataArr = this.f20984h;
+        MediaData[] mediaDataArr = this.f21561h;
         if (mediaDataArr == null || mediaDataArr.length == 0) {
             return;
         }
         long drawingTime = getDrawingTime();
-        int length = this.f20984h.length;
+        int length = this.f21561h.length;
         if (length == 1) {
-            drawChild(canvas, this.f20981e, drawingTime);
+            drawChild(canvas, this.f21558e, drawingTime);
         } else if (length == 2) {
-            drawChild(canvas, this.f20981e, drawingTime);
-            drawChild(canvas, this.f20982f, drawingTime);
+            drawChild(canvas, this.f21558e, drawingTime);
+            drawChild(canvas, this.f21559f, drawingTime);
         } else if (length != 3) {
         } else {
-            drawChild(canvas, this.f20981e, drawingTime);
-            drawChild(canvas, this.f20982f, drawingTime);
-            drawChild(canvas, this.f20983g, drawingTime);
+            drawChild(canvas, this.f21558e, drawingTime);
+            drawChild(canvas, this.f21559f, drawingTime);
+            drawChild(canvas, this.f21560g, drawingTime);
         }
     }
 
     public int getPadding() {
-        return this.i;
+        return this.f21562i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -132,8 +135,8 @@ public class CommonImageLayout extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        MediaData[] mediaDataArr = this.f20984h;
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        MediaData[] mediaDataArr = this.f21561h;
         if (mediaDataArr == null || mediaDataArr.length == 0) {
             return;
         }
@@ -141,103 +144,103 @@ public class CommonImageLayout extends ViewGroup {
         if (length == 1) {
             if (this.j) {
                 float f2 = l[0];
-                this.f20981e.layout(0, 0, i3, i4 - i2);
+                this.f21558e.layout(0, 0, i4, i5 - i3);
             } else {
-                TbImageView tbImageView = this.f20981e;
-                int i5 = this.i;
-                tbImageView.layout(i5, 0, ((int) (l[4] + 0.5f)) + i5, i4 - i2);
+                TbImageView tbImageView = this.f21558e;
+                int i6 = this.f21562i;
+                tbImageView.layout(i6, 0, ((int) (l[4] + 0.5f)) + i6, i5 - i3);
             }
-            this.f20982f.layout(0, 0, 0, 0);
-            this.f20983g.layout(0, 0, 0, 0);
+            this.f21559f.layout(0, 0, 0, 0);
+            this.f21560g.layout(0, 0, 0, 0);
         } else if (length == 2) {
             if (this.j) {
-                int i6 = (int) (l[1] + 0.5f);
-                TbImageView tbImageView2 = this.f20981e;
-                int i7 = this.i;
-                int i8 = i4 - i2;
-                tbImageView2.layout(i7, 0, i7 + i6, i8);
-                TbImageView tbImageView3 = this.f20982f;
-                int i9 = this.i;
-                tbImageView3.layout(i6 + i9 + o, 0, (i3 - i9) - i, i8);
+                int i7 = (int) (l[1] + 0.5f);
+                TbImageView tbImageView2 = this.f21558e;
+                int i8 = this.f21562i;
+                int i9 = i5 - i3;
+                tbImageView2.layout(i8, 0, i8 + i7, i9);
+                TbImageView tbImageView3 = this.f21559f;
+                int i10 = this.f21562i;
+                tbImageView3.layout(i7 + i10 + o, 0, (i4 - i10) - i2, i9);
             } else {
-                int i10 = (int) (l[4] + 0.5f);
-                TbImageView tbImageView4 = this.f20981e;
-                int i11 = this.i;
-                int i12 = i4 - i2;
-                tbImageView4.layout(i11, 0, i11 + i10, i12);
-                TbImageView tbImageView5 = this.f20982f;
-                int i13 = this.i;
-                int i14 = n;
-                tbImageView5.layout(i13 + i10 + i14, 0, i13 + (i10 * 2) + i14, i12);
+                int i11 = (int) (l[4] + 0.5f);
+                TbImageView tbImageView4 = this.f21558e;
+                int i12 = this.f21562i;
+                int i13 = i5 - i3;
+                tbImageView4.layout(i12, 0, i12 + i11, i13);
+                TbImageView tbImageView5 = this.f21559f;
+                int i14 = this.f21562i;
+                int i15 = n;
+                tbImageView5.layout(i14 + i11 + i15, 0, i14 + (i11 * 2) + i15, i13);
             }
-            this.f20983g.layout(0, 0, 0, 0);
+            this.f21560g.layout(0, 0, 0, 0);
         } else if (length != 3) {
         } else {
             if (this.j) {
                 float[] fArr = l;
-                int i15 = (int) (fArr[2] + 0.5f);
-                int i16 = (int) (fArr[3] + 0.5f);
-                int i17 = i4 - i2;
-                this.f20981e.layout(0, 0, i15, i17);
-                this.f20982f.layout(n + i15, 0, i3, i16);
-                TbImageView tbImageView6 = this.f20983g;
-                int i18 = n;
-                tbImageView6.layout(i15 + i18, i16 + i18, i3, i17);
+                int i16 = (int) (fArr[2] + 0.5f);
+                int i17 = (int) (fArr[3] + 0.5f);
+                int i18 = i5 - i3;
+                this.f21558e.layout(0, 0, i16, i18);
+                this.f21559f.layout(n + i16, 0, i4, i17);
+                TbImageView tbImageView6 = this.f21560g;
+                int i19 = n;
+                tbImageView6.layout(i16 + i19, i17 + i19, i4, i18);
                 return;
             }
-            int i19 = (int) (l[4] + 0.5f);
-            TbImageView tbImageView7 = this.f20981e;
-            int i20 = this.i;
-            int i21 = i4 - i2;
-            tbImageView7.layout(i20, 0, i19 + i20, i21);
-            TbImageView tbImageView8 = this.f20982f;
-            int i22 = this.i;
-            int i23 = n;
-            int i24 = i19 * 2;
-            tbImageView8.layout(i19 + i22 + i23, 0, i22 + i24 + i23, i21);
-            TbImageView tbImageView9 = this.f20983g;
-            int i25 = this.i;
-            tbImageView9.layout(i24 + i25 + (n * 2), 0, (i3 - i25) - i, i21);
+            int i20 = (int) (l[4] + 0.5f);
+            TbImageView tbImageView7 = this.f21558e;
+            int i21 = this.f21562i;
+            int i22 = i5 - i3;
+            tbImageView7.layout(i21, 0, i20 + i21, i22);
+            TbImageView tbImageView8 = this.f21559f;
+            int i23 = this.f21562i;
+            int i24 = n;
+            int i25 = i20 * 2;
+            tbImageView8.layout(i20 + i23 + i24, 0, i23 + i25 + i24, i22);
+            TbImageView tbImageView9 = this.f21560g;
+            int i26 = this.f21562i;
+            tbImageView9.layout(i25 + i26 + (n * 2), 0, (i4 - i26) - i2, i22);
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        int i3;
+    public void onMeasure(int i2, int i3) {
+        int i4;
         float f2;
-        int i4 = i & 1073741823;
+        int i5 = i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
         if (p == 0) {
-            p = i4;
+            p = i5;
         }
-        MediaData[] mediaDataArr = this.f20984h;
+        MediaData[] mediaDataArr = this.f21561h;
         if (mediaDataArr != null && mediaDataArr.length != 0) {
             if (this.j) {
                 setMeasuredDimension(p, (int) (m[mediaDataArr.length - 1] + 0.5f));
             } else {
                 setMeasuredDimension(p, (int) (m[4] + 0.5f));
             }
-            int length = this.f20984h.length;
+            int length = this.f21561h.length;
             if (length == 1) {
                 if (this.j) {
-                    measureChild(this.f20981e, p + 1073741824, ((int) (m[0] + 0.5f)) + 1073741824);
+                    measureChild(this.f21558e, p + 1073741824, ((int) (m[0] + 0.5f)) + 1073741824);
                 } else {
-                    measureChild(this.f20981e, ((int) (l[4] + 0.5f)) + 1073741824, ((int) (m[4] + 0.5f)) + 1073741824);
+                    measureChild(this.f21558e, ((int) (l[4] + 0.5f)) + 1073741824, ((int) (m[4] + 0.5f)) + 1073741824);
                 }
-                measureChild(this.f20982f, 0, 0);
-                measureChild(this.f20983g, 0, 0);
+                measureChild(this.f21559f, 0, 0);
+                measureChild(this.f21560g, 0, 0);
                 return;
             } else if (length == 2) {
                 if (this.j) {
-                    i3 = ((int) (l[1] + 0.5f)) + 1073741824;
+                    i4 = ((int) (l[1] + 0.5f)) + 1073741824;
                     f2 = m[1];
                 } else {
-                    i3 = ((int) (l[4] + 0.5f)) + 1073741824;
+                    i4 = ((int) (l[4] + 0.5f)) + 1073741824;
                     f2 = m[4];
                 }
-                int i5 = ((int) (f2 + 0.5f)) + 1073741824;
-                measureChild(this.f20981e, i3, i5);
-                measureChild(this.f20982f, i3, i5);
-                measureChild(this.f20983g, 0, 0);
+                int i6 = ((int) (f2 + 0.5f)) + 1073741824;
+                measureChild(this.f21558e, i4, i6);
+                measureChild(this.f21559f, i4, i6);
+                measureChild(this.f21560g, 0, 0);
                 return;
             } else if (length != 3) {
                 return;
@@ -245,18 +248,18 @@ public class CommonImageLayout extends ViewGroup {
                 if (this.j) {
                     float[] fArr = l;
                     float[] fArr2 = m;
-                    int i6 = ((int) (fArr[3] + 0.5f)) + 1073741824;
-                    int i7 = ((int) (fArr2[3] + 0.5f)) + 1073741824;
-                    measureChild(this.f20981e, ((int) (fArr[2] + 0.5f)) + 1073741824, ((int) (fArr2[2] + 0.5f)) + 1073741824);
-                    measureChild(this.f20982f, i6, i7);
-                    measureChild(this.f20983g, i6, i7);
+                    int i7 = ((int) (fArr[3] + 0.5f)) + 1073741824;
+                    int i8 = ((int) (fArr2[3] + 0.5f)) + 1073741824;
+                    measureChild(this.f21558e, ((int) (fArr[2] + 0.5f)) + 1073741824, ((int) (fArr2[2] + 0.5f)) + 1073741824);
+                    measureChild(this.f21559f, i7, i8);
+                    measureChild(this.f21560g, i7, i8);
                     return;
                 }
-                int i8 = ((int) (l[4] + 0.5f)) + 1073741824;
-                int i9 = ((int) (m[4] + 0.5f)) + 1073741824;
-                measureChild(this.f20981e, i8, i9);
-                measureChild(this.f20982f, i8, i9);
-                measureChild(this.f20983g, i8, i9);
+                int i9 = ((int) (l[4] + 0.5f)) + 1073741824;
+                int i10 = ((int) (m[4] + 0.5f)) + 1073741824;
+                measureChild(this.f21558e, i9, i10);
+                measureChild(this.f21559f, i9, i10);
+                measureChild(this.f21560g, i9, i10);
                 return;
             }
         }
@@ -264,47 +267,47 @@ public class CommonImageLayout extends ViewGroup {
     }
 
     public void setData(MediaData[] mediaDataArr) {
-        this.f20984h = mediaDataArr;
+        this.f21561h = mediaDataArr;
         if (mediaDataArr != null && mediaDataArr.length > 0) {
             int length = mediaDataArr.length;
             if (length == 1) {
-                d(this.f20981e, mediaDataArr[0]);
-                TbImageView tbImageView = this.f20982f;
+                d(this.f21558e, mediaDataArr[0]);
+                TbImageView tbImageView = this.f21559f;
                 if (tbImageView != null) {
                     tbImageView.setTag(null);
-                    this.f20982f.setClickable(false);
+                    this.f21559f.setClickable(false);
                 }
-                TbImageView tbImageView2 = this.f20983g;
+                TbImageView tbImageView2 = this.f21560g;
                 if (tbImageView2 != null) {
                     tbImageView2.setTag(null);
-                    this.f20983g.setClickable(false);
+                    this.f21560g.setClickable(false);
                 }
             } else if (length == 2) {
-                d(this.f20981e, mediaDataArr[0]);
-                d(this.f20982f, this.f20984h[1]);
-                TbImageView tbImageView3 = this.f20983g;
+                d(this.f21558e, mediaDataArr[0]);
+                d(this.f21559f, this.f21561h[1]);
+                TbImageView tbImageView3 = this.f21560g;
                 if (tbImageView3 != null) {
                     tbImageView3.setTag(null);
-                    this.f20983g.setClickable(false);
+                    this.f21560g.setClickable(false);
                 }
             } else if (length == 3) {
-                d(this.f20981e, mediaDataArr[0]);
-                d(this.f20982f, this.f20984h[1]);
-                d(this.f20983g, this.f20984h[2]);
+                d(this.f21558e, mediaDataArr[0]);
+                d(this.f21559f, this.f21561h[1]);
+                d(this.f21560g, this.f21561h[2]);
             }
             requestLayout();
             invalidate();
             return;
         }
-        TbImageView tbImageView4 = this.f20981e;
+        TbImageView tbImageView4 = this.f21558e;
         if (tbImageView4 != null) {
             tbImageView4.setTag(null);
         }
-        TbImageView tbImageView5 = this.f20982f;
+        TbImageView tbImageView5 = this.f21559f;
         if (tbImageView5 != null) {
             tbImageView5.setTag(null);
         }
-        TbImageView tbImageView6 = this.f20983g;
+        TbImageView tbImageView6 = this.f21560g;
         if (tbImageView6 != null) {
             tbImageView6.setTag(null);
         }
@@ -315,8 +318,8 @@ public class CommonImageLayout extends ViewGroup {
     public void setFromCDN(boolean z) {
     }
 
-    public void setPadding(int i) {
-        this.i = i;
+    public void setPadding(int i2) {
+        this.f21562i = i2;
     }
 
     public void setShowBig(boolean z) {
@@ -325,24 +328,24 @@ public class CommonImageLayout extends ViewGroup {
 
     public CommonImageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.i = 7;
+        this.f21562i = 7;
         this.j = false;
         this.k = context;
         b();
         TbadkCoreApplication.getInst().getSkinType();
         Drawable drawable = SkinManager.getDrawable(R.color.common_color_10220);
-        this.f20981e = new TbImageView(context);
-        this.f20982f = new TbImageView(context);
-        this.f20983g = new TbImageView(context);
-        this.f20981e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f20982f.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f20983g.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f20981e.setDefaultBg(drawable);
-        this.f20982f.setDefaultBg(drawable);
-        this.f20983g.setDefaultBg(drawable);
-        addView(this.f20981e);
-        addView(this.f20982f);
-        addView(this.f20983g);
-        this.i = (int) (this.i * q);
+        this.f21558e = new TbImageView(context);
+        this.f21559f = new TbImageView(context);
+        this.f21560g = new TbImageView(context);
+        this.f21558e.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f21559f.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f21560g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f21558e.setDefaultBg(drawable);
+        this.f21559f.setDefaultBg(drawable);
+        this.f21560g.setDefaultBg(drawable);
+        addView(this.f21558e);
+        addView(this.f21559f);
+        addView(this.f21560g);
+        this.f21562i = (int) (this.f21562i * q);
     }
 }

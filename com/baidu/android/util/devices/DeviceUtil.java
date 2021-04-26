@@ -15,6 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.Locale;
 @Deprecated
 /* loaded from: classes.dex */
 public class DeviceUtil implements IDevices {
@@ -93,7 +94,7 @@ public class DeviceUtil implements IDevices {
                 FileReader fileReader = new FileReader("/proc/cpuinfo");
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
                 for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
-                    String lowerCase = readLine.trim().toLowerCase();
+                    String lowerCase = readLine.trim().toLowerCase(Locale.getDefault());
                     if (lowerCase.startsWith("processor") && lowerCase.indexOf(":", 9) != -1) {
                         if (cPUInfo2.processor.length() > 0) {
                             cPUInfo2.processor += "__";
@@ -403,11 +404,34 @@ public class DeviceUtil implements IDevices {
         return "HUAWEI".equalsIgnoreCase(Build.MANUFACTURER) && AppRuntime.getAppContext().getPackageManager().hasSystemFeature("com.huawei.hardware.sensor.posture");
     }
 
+    public static boolean isInMagicWindow(Context context) {
+        if (context == null) {
+            return false;
+        }
+        String configuration = context.getResources().getConfiguration().toString();
+        if (TextUtils.isEmpty(configuration)) {
+            return false;
+        }
+        return configuration.contains("hw-magic-windows");
+    }
+
     public static boolean isMateX() {
         String[] strArr = {"RLI-AN00", "RLI-N29", "TAH-AN00", "TAH-N29", "TAH-AN00m", "RHA-AN00m", "TET-AN00"};
         if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
-            for (int i = 0; i < 7; i++) {
-                if (strArr[i].equalsIgnoreCase(Build.MODEL)) {
+            for (int i2 = 0; i2 < 7; i2++) {
+                if (strArr[i2].equalsIgnoreCase(Build.MODEL)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean isSamSungFolded() {
+        String[] strArr = {"SM-F9000", "SM-F9160"};
+        if ("SAMSUNG".equalsIgnoreCase(Build.MANUFACTURER)) {
+            for (int i2 = 0; i2 < 2; i2++) {
+                if (strArr[i2].equalsIgnoreCase(Build.MODEL)) {
                     return true;
                 }
             }
@@ -416,9 +440,6 @@ public class DeviceUtil implements IDevices {
     }
 
     public static boolean isSupportFoldable() {
-        if (isMateX() || isHwFoldableDevice()) {
-            return true;
-        }
-        return Build.MODEL.equals("SM-F9000");
+        return isMateX() || isHwFoldableDevice() || isSamSungFolded();
     }
 }

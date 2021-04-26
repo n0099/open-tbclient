@@ -35,9 +35,9 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
+    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
         JSONArray optJSONArray;
-        BIMCancelRtcInfo bIMCancelRtcInfo = new BIMCancelRtcInfo(super.toRtcInfo(i, str, str2));
+        BIMCancelRtcInfo bIMCancelRtcInfo = new BIMCancelRtcInfo(super.toRtcInfo(i2, str, str2));
         try {
             optJSONArray = new JSONObject(str2).optJSONArray("user_list");
         } catch (Exception e2) {
@@ -45,9 +45,9 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
         }
         if (optJSONArray != null && optJSONArray.length() > 0) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                 BIMCancelUser bIMCancelUser = new BIMCancelUser();
-                JSONObject jSONObject = (JSONObject) optJSONArray.opt(i2);
+                JSONObject jSONObject = (JSONObject) optJSONArray.opt(i3);
                 bIMCancelUser.appId = jSONObject.optLong("appid");
                 bIMCancelUser.uk = jSONObject.optLong("uk");
                 bIMCancelUser.cuid = jSONObject.optString("cuid");

@@ -52,29 +52,29 @@ public class DisplayListenerProxy {
             displayManager.unregisterDisplayListener(it.next());
             displayManager.registerDisplayListener(new DisplayManager.DisplayListener() { // from class: io.flutter.plugins.webviewflutter.DisplayListenerProxy.1
                 @Override // android.hardware.display.DisplayManager.DisplayListener
-                public void onDisplayAdded(int i) {
+                public void onDisplayAdded(int i2) {
                     Iterator it2 = yoinkDisplayListeners.iterator();
                     while (it2.hasNext()) {
-                        ((DisplayManager.DisplayListener) it2.next()).onDisplayAdded(i);
+                        ((DisplayManager.DisplayListener) it2.next()).onDisplayAdded(i2);
                     }
                 }
 
                 @Override // android.hardware.display.DisplayManager.DisplayListener
-                public void onDisplayChanged(int i) {
-                    if (displayManager.getDisplay(i) == null) {
+                public void onDisplayChanged(int i2) {
+                    if (displayManager.getDisplay(i2) == null) {
                         return;
                     }
                     Iterator it2 = yoinkDisplayListeners.iterator();
                     while (it2.hasNext()) {
-                        ((DisplayManager.DisplayListener) it2.next()).onDisplayChanged(i);
+                        ((DisplayManager.DisplayListener) it2.next()).onDisplayChanged(i2);
                     }
                 }
 
                 @Override // android.hardware.display.DisplayManager.DisplayListener
-                public void onDisplayRemoved(int i) {
+                public void onDisplayRemoved(int i2) {
                     Iterator it2 = yoinkDisplayListeners.iterator();
                     while (it2.hasNext()) {
-                        ((DisplayManager.DisplayListener) it2.next()).onDisplayRemoved(i);
+                        ((DisplayManager.DisplayListener) it2.next()).onDisplayRemoved(i2);
                     }
                 }
             }, null);

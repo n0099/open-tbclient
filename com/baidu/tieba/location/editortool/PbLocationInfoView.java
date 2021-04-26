@@ -9,26 +9,26 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.c.a.j;
-import d.b.j0.d3.a;
+import d.a.c.a.j;
+import d.a.j0.d3.a;
 /* loaded from: classes3.dex */
 public class PbLocationInfoView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18459e;
+    public int f18824e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f18460f;
+    public Rect f18825f;
 
     public PbLocationInfoView(Context context) {
         this(context, null);
     }
 
     public void a() {
-        if (this.f18459e == 1) {
+        if (this.f18824e == 1) {
             Drawable drawable = SkinManager.getDrawable(R.drawable.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.f18460f);
+                drawable.setBounds(this.f18825f);
             }
             setCompoundDrawables(drawable, null, null, null);
             a.a((TbPageContextSupport) j.b(getContext()), (Animatable) drawable);
@@ -36,13 +36,13 @@ public class PbLocationInfoView extends TextView {
         }
         Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.f18460f);
+            drawable2.setBounds(this.f18825f);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }
 
     public final void b() {
-        this.f18460f = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
+        this.f18825f = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
         setState(0, null);
         c();
     }
@@ -53,12 +53,12 @@ public class PbLocationInfoView extends TextView {
     }
 
     public int getState() {
-        return this.f18459e;
+        return this.f18824e;
     }
 
-    public void setState(int i, String str) {
-        this.f18459e = i;
-        if (i == 1) {
+    public void setState(int i2, String str) {
+        this.f18824e = i2;
+        if (i2 == 1) {
             if (str == null) {
                 str = getResources().getString(R.string.location_loading);
             }

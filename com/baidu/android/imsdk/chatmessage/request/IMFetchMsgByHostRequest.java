@@ -42,12 +42,12 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
     public String mKey;
     public long mUk;
 
-    public IMFetchMsgByHostRequest(Context context, String str, long j, long j2, int i, int i2, long j3, long j4, boolean z) {
+    public IMFetchMsgByHostRequest(Context context, String str, long j, long j2, int i2, int i3, long j3, long j4, boolean z) {
         this.mContext = context;
         this.mUk = j;
         this.mContacter = j2;
-        this.mCategory = i;
-        this.mCount = i2;
+        this.mCategory = i2;
+        this.mCount = i3;
         this.mBeginid = j3;
         this.mEndid = j4;
         this.mKey = str;
@@ -127,15 +127,15 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         LogUtils.d(TAG, "onFailure errorCode: " + transErrorCode.first);
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener instanceof IFetchMsgByIdExtendListener) {
-            ((IFetchMsgByIdExtendListener) removeListener).onFetchMsgByIdResult(i, "", "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, 0, 0L, null, false);
+            ((IFetchMsgByIdExtendListener) removeListener).onFetchMsgByIdResult(i2, "", "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, 0, 0L, null, false);
             LogUtils.d(TAG, "onFailure, IFetchMsgByIdExtendListener.onFetchMsgByIdResult");
         } else if (removeListener instanceof IFetchMsgByIdListener) {
-            ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i, "", "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, 0, 0L, null);
+            ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i2, "", "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, 0, 0L, null);
         }
     }
 
@@ -146,46 +146,46 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         boolean z;
-        int i2;
+        int i3;
         final ArrayList<ChatMsg> arrayList;
         String str;
         boolean z2;
-        int i3;
+        int i4;
         IMListener removeListener;
         String str2 = "";
         String str3 = new String(bArr);
         LogUtils.d(TAG, "onSuccess :" + str3);
         Type type = new Type();
         type.t = 0L;
-        int i4 = 0;
+        int i5 = 0;
         ArrayList<ChatMsg> arrayList2 = null;
         try {
             JSONObject jSONObject = new JSONObject(str3);
-            int i5 = jSONObject.getInt(PmsConstant.Statistic.STATISTIC_ERRCODE);
+            int i6 = jSONObject.getInt(PmsConstant.Statistic.STATISTIC_ERRCODE);
             String optString = jSONObject.optString(PmsConstant.Statistic.STATISTIC_ERRMSG, "");
             str2 = jSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, "0");
             z = jSONObject.optBoolean("has_more", false);
-            if (i5 == 0) {
+            if (i6 == 0) {
                 try {
                     if (jSONObject.has(NotificationCompat.CarExtender.KEY_MESSAGES)) {
                         JSONArray jSONArray = jSONObject.getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES);
                         int length = jSONArray.length();
                         try {
                             arrayList2 = MessageParser.parserMessage(this.mContext, jSONArray, type, true, false);
-                            i4 = length;
+                            i5 = length;
                         } catch (Exception e2) {
                             e = e2;
-                            i4 = length;
+                            i5 = length;
                             LogUtils.e(TAG, "JSONException", e);
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                            i2 = i4;
+                            i3 = i5;
                             arrayList = null;
                             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                             z2 = z;
-                            i3 = 1010;
-                            LogUtils.d(TAG, "onSuccess requestid : " + str2 + " , resultCode: " + i3 + " , resultMsg : " + str);
+                            i4 = 1010;
+                            LogUtils.d(TAG, "onSuccess requestid : " + str2 + " , resultCode: " + i4 + " , resultMsg : " + str);
                             if (this.mIsReliable) {
                                 LogUtils.d(TAG, "短连接回ack begin");
                                 TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.chatmessage.request.IMFetchMsgByHostRequest.1
@@ -205,16 +205,16 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
                     e = e3;
                 }
             }
-            i2 = i4;
+            i3 = i5;
             arrayList = arrayList2;
             str = optString;
             z2 = z;
-            i3 = i5;
+            i4 = i6;
         } catch (Exception e4) {
             e = e4;
             z = false;
         }
-        LogUtils.d(TAG, "onSuccess requestid : " + str2 + " , resultCode: " + i3 + " , resultMsg : " + str);
+        LogUtils.d(TAG, "onSuccess requestid : " + str2 + " , resultCode: " + i4 + " , resultMsg : " + str);
         if (this.mIsReliable && arrayList != null && arrayList.size() > 0) {
             LogUtils.d(TAG, "短连接回ack begin");
             TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.chatmessage.request.IMFetchMsgByHostRequest.1
@@ -227,10 +227,10 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
         }
         removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (!(removeListener instanceof IFetchMsgByIdExtendListener)) {
-            ((IFetchMsgByIdExtendListener) removeListener).onFetchMsgByIdResult(i3, str, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList, z2);
+            ((IFetchMsgByIdExtendListener) removeListener).onFetchMsgByIdResult(i4, str, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i3, ((Long) type.t).longValue(), arrayList, z2);
             LogUtils.d(TAG, "onSuccess, IFetchMsgByIdExtendListener.onFetchMsgByIdResult");
         } else if (removeListener instanceof IFetchMsgByIdListener) {
-            ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i3, str, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList);
+            ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i4, str, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i3, ((Long) type.t).longValue(), arrayList);
         }
     }
 

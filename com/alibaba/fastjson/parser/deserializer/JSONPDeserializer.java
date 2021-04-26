@@ -12,29 +12,29 @@ public class JSONPDeserializer implements ObjectDeserializer {
     /* JADX WARN: Type inference failed for: r1v1, types: [com.alibaba.fastjson.JSONPObject, T] */
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
-        int i;
+        int i2;
         JSONLexerBase jSONLexerBase = (JSONLexerBase) defaultJSONParser.getLexer();
         String scanSymbolUnQuoted = jSONLexerBase.scanSymbolUnQuoted(defaultJSONParser.getSymbolTable());
         jSONLexerBase.nextToken();
-        int i2 = jSONLexerBase.token();
-        if (i2 == 25) {
+        int i3 = jSONLexerBase.token();
+        if (i3 == 25) {
             String str = scanSymbolUnQuoted + ".";
             scanSymbolUnQuoted = str + jSONLexerBase.scanSymbolUnQuoted(defaultJSONParser.getSymbolTable());
             jSONLexerBase.nextToken();
-            i2 = jSONLexerBase.token();
+            i3 = jSONLexerBase.token();
         }
         ?? r1 = (T) new JSONPObject(scanSymbolUnQuoted);
-        if (i2 == 10) {
+        if (i3 == 10) {
             jSONLexerBase.nextToken();
             while (true) {
                 r1.addParameter(defaultJSONParser.parse());
-                i = jSONLexerBase.token();
-                if (i != 16) {
+                i2 = jSONLexerBase.token();
+                if (i2 != 16) {
                     break;
                 }
                 jSONLexerBase.nextToken();
             }
-            if (i == 11) {
+            if (i2 == 11) {
                 jSONLexerBase.nextToken();
                 if (jSONLexerBase.token() == 24) {
                     jSONLexerBase.nextToken();

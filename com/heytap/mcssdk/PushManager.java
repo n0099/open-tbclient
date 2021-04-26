@@ -123,11 +123,11 @@ public class PushManager implements b {
         return e.a();
     }
 
-    private Intent getIntent(int i, String str, JSONObject jSONObject) {
+    private Intent getIntent(int i2, String str, JSONObject jSONObject) {
         Intent intent = new Intent();
         intent.setAction(getReceiveSdkAction(this.mContext));
         intent.setPackage(getMcsPackageName(this.mContext));
-        intent.putExtra("type", i);
+        intent.putExtra("type", i2);
         JSONObject jSONObject2 = new JSONObject();
         try {
             jSONObject2.putOpt(APP_VERSION_NAME, Utils.getVersionName(this.mContext, this.mContext.getPackageName()));
@@ -199,7 +199,7 @@ public class PushManager implements b {
     }
 
     public static String getSDKVersion() {
-        return a.f31468f;
+        return a.f32337f;
     }
 
     public static boolean isSupportPush(Context context) {
@@ -212,14 +212,14 @@ public class PushManager implements b {
         statisticMessage(context, new MessageStat(context.getPackageName(), "app_start", null));
     }
 
-    private void startMcsService(int i, String str, JSONObject jSONObject) {
+    private void startMcsService(int i2, String str, JSONObject jSONObject) {
         synchronized (this.mMcsServiceLock) {
-            this.mContext.startService(getIntent(i, str, jSONObject));
+            this.mContext.startService(getIntent(i2, str, jSONObject));
         }
     }
 
-    private void startMcsService(int i, JSONObject jSONObject) {
-        startMcsService(i, "", jSONObject);
+    private void startMcsService(int i2, JSONObject jSONObject) {
+        startMcsService(i2, "", jSONObject);
     }
 
     public static void statisticMessage(Context context, AppMessage appMessage, String str) {
@@ -266,8 +266,8 @@ public class PushManager implements b {
         StatUtil.statisticMessage(context, list);
     }
 
-    public void bindMcsService(int i) {
-        Intent intent = getIntent(i, "", null);
+    public void bindMcsService(int i2) {
+        Intent intent = getIntent(i2, "", null);
         this.mContext.bindService(intent, new d(this, intent), 1);
     }
 
@@ -533,15 +533,15 @@ public class PushManager implements b {
     }
 
     @Override // com.heytap.mcssdk.b
-    public void setNotificationType(int i) {
-        setNotificationType(i, null);
+    public void setNotificationType(int i2) {
+        setNotificationType(i2, null);
     }
 
     @Override // com.heytap.mcssdk.c
-    public void setNotificationType(int i, JSONObject jSONObject) {
+    public void setNotificationType(int i2, JSONObject jSONObject) {
         try {
             checkAll();
-            startMcsService(CommandMessage.COMMAND_SET_NOTIFICATION_TYPE, String.valueOf(i), jSONObject);
+            startMcsService(CommandMessage.COMMAND_SET_NOTIFICATION_TYPE, String.valueOf(i2), jSONObject);
         } catch (Exception e2) {
             LogUtil.e(LogUtil.TAG, e2);
         }
@@ -552,24 +552,24 @@ public class PushManager implements b {
     }
 
     @Override // com.heytap.mcssdk.b
-    public void setPushTime(List<Integer> list, int i, int i2, int i3, int i4) {
-        setPushTime(list, i, i2, i3, i4, null);
+    public void setPushTime(List<Integer> list, int i2, int i3, int i4, int i5) {
+        setPushTime(list, i2, i3, i4, i5, null);
     }
 
     @Override // com.heytap.mcssdk.c
-    public void setPushTime(List<Integer> list, int i, int i2, int i3, int i4, JSONObject jSONObject) {
+    public void setPushTime(List<Integer> list, int i2, int i3, int i4, int i5, JSONObject jSONObject) {
         try {
             checkAll();
-            if (list == null || list.size() <= 0 || i < 0 || i > 23 || i2 < 0 || i2 > 59 || i3 < i || i3 > 23 || i4 < i2 || i4 > 59) {
+            if (list == null || list.size() <= 0 || i2 < 0 || i2 > 23 || i3 < 0 || i3 > 59 || i4 < i2 || i4 > 23 || i5 < i3 || i5 > 59) {
                 throw new IllegalArgumentException("params are not all right,please check params");
             }
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("weekDays", CommandMessage.parseToString(list));
-                jSONObject2.put("startHour", i);
-                jSONObject2.put("startMin", i2);
-                jSONObject2.put("endHour", i3);
-                jSONObject2.put("endMin", i4);
+                jSONObject2.put("startHour", i2);
+                jSONObject2.put("startMin", i3);
+                jSONObject2.put("endHour", i4);
+                jSONObject2.put("endMin", i5);
                 startMcsService(CommandMessage.COMMAND_SET_PUSH_TIME, jSONObject2.toString(), jSONObject);
             } catch (JSONException e2) {
                 e2.printStackTrace();

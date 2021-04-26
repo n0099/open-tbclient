@@ -24,13 +24,13 @@ public class IMSendQuizOptMsg extends Message {
     public long mRoomId;
     public long mUid;
 
-    public IMSendQuizOptMsg(Context context, long j, long j2, int i, String str, String str2) {
+    public IMSendQuizOptMsg(Context context, long j, long j2, int i2, String str, String str2) {
         this.mContext = context;
         initCommonParameter(context);
         this.mListenerKey = str2;
         this.mCastId = j;
         this.mRoomId = j2;
-        this.mOpCode = i;
+        this.mOpCode = i2;
         this.mOptExt = str;
         setListenerKey(str2);
         setNeedReplay(true);

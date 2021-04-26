@@ -7,12 +7,12 @@ public class FrsRecommendResMsg extends JsonHttpResponsedMessage {
     public String mPushMsg;
     public int mPushStatus;
 
-    public FrsRecommendResMsg(int i) {
-        super(i);
+    public FrsRecommendResMsg(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
             return;

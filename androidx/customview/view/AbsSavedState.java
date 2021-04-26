@@ -12,8 +12,8 @@ public abstract class AbsSavedState implements Parcelable {
     public static final Parcelable.Creator<AbsSavedState> CREATOR = new Parcelable.ClassLoaderCreator<AbsSavedState>() { // from class: androidx.customview.view.AbsSavedState.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        public AbsSavedState[] newArray(int i) {
-            return new AbsSavedState[i];
+        public AbsSavedState[] newArray(int i2) {
+            return new AbsSavedState[i2];
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,8 +44,8 @@ public abstract class AbsSavedState implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.mSuperState, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeParcelable(this.mSuperState, i2);
     }
 
     public AbsSavedState() {

@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.i0.a0.c;
+import d.a.c.e.p.l;
+import d.a.i0.a0.c;
 import java.util.HashSet;
 /* loaded from: classes3.dex */
 public class TbConfig {
@@ -236,6 +236,7 @@ public class TbConfig {
     public static final String HTTPS_LIVE_SHARE_PREFIX = "https://tieba.baidu.com/ala/share";
     public static final String HTTPS_PB_PREFIX = "http://tieba.baidu.com/p/";
     public static final String HTTPS_PREFIX = "http://tieba.baidu.com/f?";
+    public static final String HTTPS_YY_LIVE_SHARE_PREFIX = "https://web.yy.com/bd_liveroom_share/invoke.html?hostid=5&livesid=";
     public static final String HTTP_PB_PREFIX = "http://tieba.baidu.com/p/";
     public static final String HTTP_PREFIX = "http://tieba.baidu.com/f?";
     public static final String IMAGE_CACHE_DIR_NAME = "images";
@@ -378,7 +379,7 @@ public class TbConfig {
     public static final String POST_SEARCH_URL = "c/s/searchpost";
     public static final String POST_THREAD_ADDRESS = "c/c/thread/add";
     public static final String POST_THREAD_FOR_SHARE_ADDRESS = "c/c/thread/sdkshare";
-    public static final String PRIVACY_DETAIL_URL = "https://tieba.baidu.com/tb/cms/client-static/privacy.html";
+    public static final String PRIVACY_DETAIL_URL = "https://tieba.baidu.com/tb/mobile/wisemainstatic/privacy.html";
     public static final String PRODUCT_NO = "1000002";
     public static final String PROFILE_HEAD_MODIFY = "c/c/img/portrait";
     public static final String PROFILE_MODIFY = "c/c/profile/modify";
@@ -553,6 +554,7 @@ public class TbConfig {
     public static final String URL_SMART_APP_DEL_BROWSE_HISTORY = "c/c/smartapp/delView";
     public static final String URL_SMART_APP_SHARE_IMAGE = "c/c/img/getShareImg";
     public static final String URL_SUB_INTEREST_LABEL_LIST = "c/f/recommtag/subTagList";
+    public static final String URL_SWITCH_YY_CURRENCY = "c/s/yyConvert";
     public static final String URL_TAB_ACTIVITY_TAB = "c/f/forum/activityPage";
     public static final String URL_TAB_FEED_LIST = "c/f/forum/tabfeedlist";
     public static final String URL_THREAD_PUBLISH = "c/c/bawu/threadPublish";
@@ -721,6 +723,7 @@ public class TbConfig {
         public static final String ENC_KEY = "6e93e7659ae637845c7f83abee68a740";
         public static final String GET_CERT_URL = "http://passport.baidu.com/sslcrypt/get_last_cert";
         public static final String LOGIN_BDUSS_URL = "http://passport.baidu.com/v2/sapi/bdusslogin";
+        public static final String OAUTH_OPEN_PLATFORM_ID = "Bxr73Efet8HjR5Tr0HqcgDKr";
         public static final String TPL = "tb";
     }
 
@@ -852,8 +855,8 @@ public class TbConfig {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public static final int getDimens(int i) {
-        return l.g(TbadkCoreApplication.getInst().getContext(), i);
+    public static final int getDimens(int i2) {
+        return l.g(TbadkCoreApplication.getInst().getContext(), i2);
     }
 
     public static String getFriendPhotoAddress() {
@@ -1008,17 +1011,17 @@ public class TbConfig {
         if (e2 > 640) {
             e2 = 640;
         }
-        int i = (int) (e2 * e2 * 1.6f * 2.0f);
-        BIG_IMAGE_SIZE = i;
-        return i;
+        int i2 = (int) (e2 * e2 * 1.6f * 2.0f);
+        BIG_IMAGE_SIZE = i2;
+        return i2;
     }
 
     public static void setAppServer(String str) {
         SERVER_ADDRESS = str;
     }
 
-    public static void setBigImageMaxUsedMemory(int i) {
-        BIG_IMAGE_MAX_USED_MEMORY = i;
+    public static void setBigImageMaxUsedMemory(int i2) {
+        BIG_IMAGE_MAX_USED_MEMORY = i2;
     }
 
     public static void setBigPhotoAdress(String str) {
@@ -1047,14 +1050,14 @@ public class TbConfig {
         LEGO_LIB_VERSION = str;
     }
 
-    public static void setMaxPhotoMemoryCache(int i) {
-        if (i < 60) {
-            i = 60;
+    public static void setMaxPhotoMemoryCache(int i2) {
+        if (i2 < 60) {
+            i2 = 60;
         }
-        if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.k().t(i);
+        if (MAX_PHOTO_MEMORY_CACHE != i2) {
+            c.k().t(i2);
         }
-        MAX_PHOTO_MEMORY_CACHE = i;
+        MAX_PHOTO_MEMORY_CACHE = i2;
     }
 
     public static void setPhotoSmallAddress(String str) {
@@ -1091,7 +1094,7 @@ public class TbConfig {
         VERSION = str;
     }
 
-    public static void setVersionType(int i) {
-        VERSION_TYPE = i;
+    public static void setVersionType(int i2) {
+        VERSION_TYPE = i2;
     }
 }

@@ -67,17 +67,17 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         AccountManagerImpl.getInstance(this.mContext).onSetZhidaAppidResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mAppid, -1L);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str;
         long j;
-        int i2;
         int i3;
+        int i4;
         String string;
         String str2 = new String(bArr);
         LogUtils.d("IMGetPaidByAppidRequest", str2);
@@ -85,24 +85,24 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
             JSONObject jSONObject = new JSONObject(str2);
             if (jSONObject.has("response_params")) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                i3 = jSONObject2.getInt("error_code");
-                r1 = i3 == 0 ? jSONObject2.getLong("pa_uid") : -1L;
+                i4 = jSONObject2.getInt("error_code");
+                r1 = i4 == 0 ? jSONObject2.getLong("pa_uid") : -1L;
                 string = Constants.ERROR_MSG_SUCCESS;
             } else {
-                i3 = jSONObject.getInt("error_code");
+                i4 = jSONObject.getInt("error_code");
                 string = jSONObject.getString("error_msg");
             }
             str = string;
-            i2 = i3;
+            i3 = i4;
             j = r1;
         } catch (JSONException e2) {
             LogUtils.e("IMGetPaidByAppidRequest", e2.getMessage(), e2);
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             j = -1;
-            i2 = 1010;
+            i3 = 1010;
         }
-        AccountManagerImpl.getInstance(this.mContext).onSetZhidaAppidResult(this.mKey, i2, str, this.mAppid, j);
+        AccountManagerImpl.getInstance(this.mContext).onSetZhidaAppidResult(this.mKey, i3, str, this.mAppid, j);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

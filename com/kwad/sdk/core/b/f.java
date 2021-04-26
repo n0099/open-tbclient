@@ -12,9 +12,9 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class f {
     public static String a(String str) {
-        String n;
+        String l;
         Context context = KsAdSDKImpl.get().getContext();
-        return (context == null || (n = d.r.a.a.b.n(context, str)) == null) ? "" : n;
+        return (context == null || (l = d.q.a.a.b.l(context, str)) == null) ? "" : l;
     }
 
     public static List<String> a(Map<String, String> map) {

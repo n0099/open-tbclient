@@ -13,32 +13,34 @@ public class f {
     public static f j;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9003a;
+    public int f9333a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9004b;
+    public int f9334b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9005c;
+    public int f9335c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f9006d;
+    public int f9336d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f9007e = "-1";
+    public String f9337e = "-1";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9008f = "02";
+    public String f9338f = "02";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f9009g = "";
+    public String f9339g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f9010h = PathUtils.DIRCTORY_BAIDU;
-    public Context i;
+    public String f9340h = PathUtils.DIRCTORY_BAIDU;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Context f9341i;
 
     public f(Context context) {
-        this.i = context;
+        this.f9341i = context;
         n();
         m();
     }
@@ -59,17 +61,17 @@ public class f {
     }
 
     private String d() {
-        return e.b(this.i);
+        return e.b(this.f9341i);
     }
 
     private String e() {
-        return "com.baidu.BaiduMap".equals(h()) ? "01" : this.f9008f;
+        return "com.baidu.BaiduMap".equals(h()) ? "01" : this.f9338f;
     }
 
     private String f() {
         String str;
         try {
-            str = com.baidu.android.bbalbs.common.util.b.b(this.i);
+            str = com.baidu.android.bbalbs.common.util.b.b(this.f9341i);
         } catch (Exception unused) {
             str = null;
         }
@@ -77,42 +79,42 @@ public class f {
     }
 
     private String g() {
-        return this.f9010h;
+        return this.f9340h;
     }
 
     private String h() {
-        return this.i.getPackageName();
+        return this.f9341i.getPackageName();
     }
 
     private int i() {
-        return this.f9003a;
+        return this.f9333a;
     }
 
     private int j() {
-        return this.f9004b;
+        return this.f9334b;
     }
 
     private int k() {
-        return this.f9005c;
+        return this.f9335c;
     }
 
     private int l() {
-        return this.f9006d;
+        return this.f9336d;
     }
 
     private void m() {
-        DisplayMetrics displayMetrics = this.i.getResources().getDisplayMetrics();
+        DisplayMetrics displayMetrics = this.f9341i.getResources().getDisplayMetrics();
         if (displayMetrics != null) {
-            this.f9005c = (int) displayMetrics.xdpi;
-            this.f9006d = (int) displayMetrics.ydpi;
+            this.f9335c = (int) displayMetrics.xdpi;
+            this.f9336d = (int) displayMetrics.ydpi;
         }
     }
 
     private void n() {
-        DisplayMetrics displayMetrics = this.i.getResources().getDisplayMetrics();
+        DisplayMetrics displayMetrics = this.f9341i.getResources().getDisplayMetrics();
         if (displayMetrics != null) {
-            this.f9003a = displayMetrics.widthPixels;
-            this.f9004b = displayMetrics.heightPixels;
+            this.f9333a = displayMetrics.widthPixels;
+            this.f9334b = displayMetrics.heightPixels;
         }
     }
 
@@ -143,7 +145,7 @@ public class f {
             String h2 = h();
             sb.append("&pcn=");
             sb.append(URLEncoder.encode(h2, "UTF-8"));
-            String b3 = b(this.i);
+            String b3 = b(this.f9341i);
             sb.append("&name=");
             sb.append(URLEncoder.encode(b3, "UTF-8"));
             sb.append("&screen=");

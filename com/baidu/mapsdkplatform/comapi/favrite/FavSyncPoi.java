@@ -5,28 +5,30 @@ import com.baidu.mapapi.model.inner.Point;
 public class FavSyncPoi {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7570a;
+    public String f7837a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7571b;
+    public String f7838b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f7572c;
+    public Point f7839c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7573d;
+    public String f7840d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7574e;
+    public String f7841e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7575f;
+    public String f7842f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7576g;
+    public int f7843g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f7577h;
-    public boolean i;
+    public String f7844h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f7845i;
     public String j;
 }

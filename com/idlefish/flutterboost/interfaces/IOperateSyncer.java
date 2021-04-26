@@ -4,13 +4,13 @@ import android.content.Intent;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public interface IOperateSyncer {
-    void onActivityResult(int i, int i2, Intent intent);
+    void onActivityResult(int i2, int i3, Intent intent);
 
     void onAppear();
 
     void onBackPressed();
 
-    void onContainerResult(int i, int i2, Map<String, Object> map);
+    void onContainerResult(int i2, int i3, Map<String, Object> map);
 
     void onCreate();
 
@@ -22,7 +22,7 @@ public interface IOperateSyncer {
 
     void onNewIntent(Intent intent);
 
-    void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
+    void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr);
 
-    void onTrimMemory(int i);
+    void onTrimMemory(int i2);
 }

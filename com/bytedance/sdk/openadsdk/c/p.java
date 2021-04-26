@@ -10,50 +10,52 @@ import org.json.JSONObject;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27285a;
+    public String f28111a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.d.l f27286b;
+    public com.bytedance.sdk.openadsdk.core.d.l f28112b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Boolean f27287c;
+    public Boolean f28113c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Boolean f27288d;
+    public Boolean f28114d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Boolean f27289e;
+    public Boolean f28115e;
 
     /* renamed from: f  reason: collision with root package name */
-    public JSONObject f27290f;
+    public JSONObject f28116f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONArray f27291g;
+    public JSONArray f28117g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONArray f27292h;
-    public boolean i;
+    public JSONArray f28118h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f28119i;
     public final Object j;
 
-    public p(int i, String str, com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        this.f27285a = "embeded_ad";
+    public p(int i2, String str, com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        this.f28111a = "embeded_ad";
         Boolean bool = Boolean.FALSE;
-        this.f27287c = bool;
-        this.f27288d = bool;
-        this.f27289e = bool;
-        this.i = false;
+        this.f28113c = bool;
+        this.f28114d = bool;
+        this.f28115e = bool;
+        this.f28119i = false;
         this.j = new Object();
-        this.f27285a = str;
-        this.f27286b = lVar;
-        this.f27290f = new JSONObject();
-        this.f27291g = new JSONArray();
-        this.f27292h = new JSONArray();
-        a(this.f27290f, "webview_source", Integer.valueOf(i));
+        this.f28111a = str;
+        this.f28112b = lVar;
+        this.f28116f = new JSONObject();
+        this.f28117g = new JSONArray();
+        this.f28118h = new JSONArray();
+        a(this.f28116f, "webview_source", Integer.valueOf(i2));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean n() {
-        return this.f27289e.booleanValue() || (this.f27288d.booleanValue() && this.f27287c.booleanValue());
+        return this.f28115e.booleanValue() || (this.f28114d.booleanValue() && this.f28113c.booleanValue());
     }
 
     public void i() {
@@ -64,7 +66,7 @@ public class p {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
                     p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27290f, "native_endcard_close", jSONObject);
+                    p.this.a(p.this.f28116f, "native_endcard_close", jSONObject);
                 }
             }
         });
@@ -79,7 +81,7 @@ public class p {
                     JSONObject jSONObject = new JSONObject();
                     p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
                     p.this.a(jSONObject, "type", "native_enterBackground");
-                    p.this.a(p.this.f27291g, jSONObject);
+                    p.this.a(p.this.f28117g, jSONObject);
                 }
             }
         });
@@ -94,14 +96,14 @@ public class p {
                     JSONObject jSONObject = new JSONObject();
                     p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
                     p.this.a(jSONObject, "type", "native_enterForeground");
-                    p.this.a(p.this.f27291g, jSONObject);
+                    p.this.a(p.this.f28117g, jSONObject);
                 }
             }
         });
     }
 
     public void l() {
-        this.f27287c = Boolean.TRUE;
+        this.f28113c = Boolean.TRUE;
     }
 
     public void m() {
@@ -110,28 +112,28 @@ public class p {
             public void run() {
                 synchronized (p.this.j) {
                     if (p.this.n()) {
-                        if (p.this.i) {
+                        if (p.this.f28119i) {
                             return;
                         }
-                        if (p.this.f27291g != null && p.this.f27291g.length() != 0) {
+                        if (p.this.f28117g != null && p.this.f28117g.length() != 0) {
                             try {
-                                p.this.f27290f.put("native_switchBackgroundAndForeground", p.this.f27291g);
+                                p.this.f28116f.put("native_switchBackgroundAndForeground", p.this.f28117g);
                             } catch (Exception unused) {
                             }
                         }
-                        if (p.this.f27292h != null && p.this.f27292h.length() != 0) {
+                        if (p.this.f28118h != null && p.this.f28118h.length() != 0) {
                             try {
-                                p.this.f27290f.put("intercept_source", p.this.f27292h);
+                                p.this.f28116f.put("intercept_source", p.this.f28118h);
                             } catch (Exception unused2) {
                             }
                         }
                         HashMap hashMap = new HashMap();
-                        hashMap.put("webview_time_track", p.this.f27290f);
-                        if (com.bytedance.sdk.openadsdk.core.i.d().w() && p.this.f27290f != null) {
-                            u.b("WebviewTimeTrack", p.this.f27290f.toString());
+                        hashMap.put("webview_time_track", p.this.f28116f);
+                        if (com.bytedance.sdk.openadsdk.core.i.d().w() && p.this.f28116f != null) {
+                            u.b("WebviewTimeTrack", p.this.f28116f.toString());
                         }
-                        d.h(com.bytedance.sdk.openadsdk.core.p.a(), p.this.f27286b, p.this.f27285a, "webview_time_track", hashMap);
-                        p.this.i = true;
+                        d.h(com.bytedance.sdk.openadsdk.core.p.a(), p.this.f28112b, p.this.f28111a, "webview_time_track", hashMap);
+                        p.this.f28119i = true;
                     }
                 }
             }
@@ -146,7 +148,7 @@ public class p {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
                     p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27290f, "render_success", jSONObject);
+                    p.this.a(p.this.f28116f, "render_success", jSONObject);
                 }
             }
         });
@@ -160,7 +162,7 @@ public class p {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
                     p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27290f, "native_render_start", jSONObject);
+                    p.this.a(p.this.f28116f, "native_render_start", jSONObject);
                 }
             }
         });
@@ -174,7 +176,7 @@ public class p {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
                     p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27290f, "native_render_end", jSONObject);
+                    p.this.a(p.this.f28116f, "native_render_end", jSONObject);
                 }
             }
         });
@@ -188,7 +190,7 @@ public class p {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
                     p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27290f, "webview_load_start", (Object) jSONObject, false);
+                    p.this.a(p.this.f28116f, "webview_load_start", (Object) jSONObject, false);
                 }
             }
         });
@@ -202,7 +204,7 @@ public class p {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
                     p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27290f, "webview_load_success", jSONObject);
+                    p.this.a(p.this.f28116f, "webview_load_success", jSONObject);
                 }
             }
         });
@@ -227,13 +229,13 @@ public class p {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
                     p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27290f, "native_endcard_show", jSONObject);
+                    p.this.a(p.this.f28116f, "native_endcard_show", jSONObject);
                 }
             }
         });
     }
 
-    public void b(final String str, final long j, final long j2, final int i) {
+    public void b(final String str, final long j, final long j2, final int i2) {
         com.bytedance.sdk.openadsdk.l.e.b(new com.bytedance.sdk.openadsdk.l.g("onInterceptJs") { // from class: com.bytedance.sdk.openadsdk.c.p.8
             @Override // java.lang.Runnable
             public void run() {
@@ -242,11 +244,11 @@ public class p {
                         JSONObject jSONObject = new JSONObject();
                         p.this.a(jSONObject, "start_ts", Long.valueOf(j));
                         p.this.a(jSONObject, "end_ts", Long.valueOf(j2));
-                        p.this.a(jSONObject, "intercept_type", Integer.valueOf(i));
+                        p.this.a(jSONObject, "intercept_type", Integer.valueOf(i2));
                         p.this.a(jSONObject, "type", "intercept_js");
                         p.this.a(jSONObject, "url", str);
                         p.this.a(jSONObject, "duration", Long.valueOf(j2 - j));
-                        p.this.a(p.this.f27292h, jSONObject);
+                        p.this.a(p.this.f28118h, jSONObject);
                     }
                 }
             }
@@ -265,7 +267,7 @@ public class p {
                     JSONObject jSONObject = new JSONObject();
                     p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
                     p.this.a(jSONObject, "jsb", str);
-                    p.this.a(p.this.f27290f, "webview_jsb_end", jSONObject);
+                    p.this.a(p.this.f28116f, "webview_jsb_end", jSONObject);
                 }
             }
         });
@@ -276,13 +278,13 @@ public class p {
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (p.this.j) {
-                    if (p.this.f27290f != null && jSONObject != null) {
+                    if (p.this.f28116f != null && jSONObject != null) {
                         Iterator<String> keys = jSONObject.keys();
                         while (keys.hasNext()) {
                             String next = keys.next();
-                            p.this.a(p.this.f27290f, next, jSONObject.opt(next));
+                            p.this.a(p.this.f28116f, next, jSONObject.opt(next));
                         }
-                        p.this.f27288d = Boolean.TRUE;
+                        p.this.f28114d = Boolean.TRUE;
                         p.this.m();
                     }
                 }
@@ -298,24 +300,24 @@ public class p {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
                     p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27290f, "render_start", jSONObject);
+                    p.this.a(p.this.f28116f, "render_start", jSONObject);
                 }
             }
         });
     }
 
-    public void a(final int i) {
+    public void a(final int i2) {
         com.bytedance.sdk.openadsdk.l.e.b(new com.bytedance.sdk.openadsdk.l.g("onRenderError") { // from class: com.bytedance.sdk.openadsdk.c.p.14
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (p.this.j) {
-                    p.this.a(i, (String) null);
+                    p.this.a(i2, (String) null);
                 }
             }
         });
     }
 
-    public void a(final int i, final String str) {
+    public void a(final int i2, final String str) {
         com.bytedance.sdk.openadsdk.l.e.b(new com.bytedance.sdk.openadsdk.l.g("onRenderError") { // from class: com.bytedance.sdk.openadsdk.c.p.15
             @Override // java.lang.Runnable
             public void run() {
@@ -323,11 +325,11 @@ public class p {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
                     p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                    p.this.a(jSONObject, "code", Integer.valueOf(i));
+                    p.this.a(jSONObject, "code", Integer.valueOf(i2));
                     if (str != null) {
                         p.this.a(jSONObject, "msg", str);
                     }
-                    p.this.a(p.this.f27290f, "render_error", jSONObject);
+                    p.this.a(p.this.f28116f, "render_error", jSONObject);
                 }
             }
         });
@@ -343,13 +345,13 @@ public class p {
                         jSONObject2 = new JSONObject();
                     }
                     p.this.a(jSONObject2, "ts", Long.valueOf(System.currentTimeMillis()));
-                    p.this.a(p.this.f27290f, "webview_load_error", jSONObject2);
+                    p.this.a(p.this.f28116f, "webview_load_error", jSONObject2);
                 }
             }
         });
     }
 
-    public void a(final String str, final long j, final long j2, final int i) {
+    public void a(final String str, final long j, final long j2, final int i2) {
         com.bytedance.sdk.openadsdk.l.e.b(new com.bytedance.sdk.openadsdk.l.g("onInterceptHtml") { // from class: com.bytedance.sdk.openadsdk.c.p.7
             @Override // java.lang.Runnable
             public void run() {
@@ -358,11 +360,11 @@ public class p {
                         JSONObject jSONObject = new JSONObject();
                         p.this.a(jSONObject, "start_ts", Long.valueOf(j));
                         p.this.a(jSONObject, "end_ts", Long.valueOf(j2));
-                        p.this.a(jSONObject, "intercept_type", Integer.valueOf(i));
+                        p.this.a(jSONObject, "intercept_type", Integer.valueOf(i2));
                         p.this.a(jSONObject, "type", "intercept_html");
                         p.this.a(jSONObject, "url", str);
                         p.this.a(jSONObject, "duration", Long.valueOf(j2 - j));
-                        p.this.a(p.this.f27292h, jSONObject);
+                        p.this.a(p.this.f28118h, jSONObject);
                     }
                 }
             }
@@ -381,23 +383,23 @@ public class p {
                     JSONObject jSONObject = new JSONObject();
                     p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
                     p.this.a(jSONObject, "jsb", str);
-                    p.this.a(p.this.f27290f, "webview_jsb_start", jSONObject);
+                    p.this.a(p.this.f28116f, "webview_jsb_start", jSONObject);
                 }
             }
         });
     }
 
     public void a(boolean z) {
-        this.f27289e = Boolean.valueOf(z);
+        this.f28115e = Boolean.valueOf(z);
     }
 
     public p() {
-        this.f27285a = "embeded_ad";
+        this.f28111a = "embeded_ad";
         Boolean bool = Boolean.FALSE;
-        this.f27287c = bool;
-        this.f27288d = bool;
-        this.f27289e = bool;
-        this.i = false;
+        this.f28113c = bool;
+        this.f28114d = bool;
+        this.f28115e = bool;
+        this.f28119i = false;
         this.j = new Object();
     }
 

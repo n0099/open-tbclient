@@ -10,13 +10,13 @@ import org.json.JSONObject;
 public class BeanResponseBase implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3596a = "系统开小差，等一会儿再试吧";
+    public static final String f3638a = "系统开小差，等一会儿再试吧";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3597b = "content";
+    public static final String f3639b = "content";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3598c = "data";
+    public static final String f3640c = "data";
     public Session cashdesk;
     public String mdAlgorithm;
     public String result_string;
@@ -67,33 +67,33 @@ public class BeanResponseBase implements NoProguard {
             return this.err_msg;
         }
         if (TextUtils.isEmpty(this.result_info)) {
-            return !TextUtils.isEmpty(this.result_string) ? this.result_string : f3596a;
+            return !TextUtils.isEmpty(this.result_string) ? this.result_string : f3638a;
         }
         return this.result_info;
     }
 
     public int getServerReturnValue(Class<?> cls) {
-        int i = this.ret;
-        if (i != 0) {
-            return i;
-        }
-        int i2 = this.result;
+        int i2 = this.ret;
         if (i2 != 0) {
             return i2;
         }
-        int i3 = this.err_no;
+        int i3 = this.result;
         if (i3 != 0) {
             return i3;
         }
-        if (i == 0 && (this.content != null || cls == null || JsonUtils.DataType.isString(cls))) {
+        int i4 = this.err_no;
+        if (i4 != 0) {
+            return i4;
+        }
+        if (i2 == 0 && (this.content != null || cls == null || JsonUtils.DataType.isString(cls))) {
             return this.ret;
         }
         if (this.result == 0 && (this.data != null || cls == null || JsonUtils.DataType.isString(cls))) {
             return this.result;
         }
-        int i4 = this.err_no;
-        if (i4 == 0) {
-            return i4;
+        int i5 = this.err_no;
+        if (i5 == 0) {
+            return i5;
         }
         return -3;
     }

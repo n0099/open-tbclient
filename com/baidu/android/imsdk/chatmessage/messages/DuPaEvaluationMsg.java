@@ -22,8 +22,8 @@ public class DuPaEvaluationMsg extends ChatMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public DuPaEvaluationMsg[] newArray(int i) {
-            return new DuPaEvaluationMsg[i];
+        public DuPaEvaluationMsg[] newArray(int i2) {
+            return new DuPaEvaluationMsg[i2];
         }
     };
     public static final String TAG = "DuPaEvaluationMsg";
@@ -44,8 +44,8 @@ public class DuPaEvaluationMsg extends ChatMsg {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public EvaluationItem[] newArray(int i) {
-                return new EvaluationItem[i];
+            public EvaluationItem[] newArray(int i2) {
+                return new EvaluationItem[i2];
             }
         };
         public String mCallbackKey;
@@ -60,7 +60,7 @@ public class DuPaEvaluationMsg extends ChatMsg {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeString(this.mTitle);
             parcel.writeString(this.mCallbackKey);
         }
@@ -111,8 +111,8 @@ public class DuPaEvaluationMsg extends ChatMsg {
             this.mItems.clear();
             JSONArray optJSONArray = jSONObject.optJSONArray(DuPaBManualMsg.B_EVALUATIONS);
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                     this.mItems.add(new EvaluationItem(jSONObject2.optString("title"), jSONObject2.optString(DuPaBManualMsg.B_CALLBACK_KEY)));
                 }
             }
@@ -128,8 +128,8 @@ public class DuPaEvaluationMsg extends ChatMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.mText);
         parcel.writeTypedList(this.mItems);
         parcel.writeString(this.mCallbackKey);

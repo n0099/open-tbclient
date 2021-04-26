@@ -12,10 +12,10 @@ public abstract class ResourceCursorAdapter extends CursorAdapter {
     public int mLayout;
 
     @Deprecated
-    public ResourceCursorAdapter(Context context, int i, Cursor cursor) {
+    public ResourceCursorAdapter(Context context, int i2, Cursor cursor) {
         super(context, cursor);
-        this.mDropDownLayout = i;
-        this.mLayout = i;
+        this.mDropDownLayout = i2;
+        this.mLayout = i2;
         this.mInflater = (LayoutInflater) context.getSystemService("layout_inflater");
     }
 
@@ -29,26 +29,26 @@ public abstract class ResourceCursorAdapter extends CursorAdapter {
         return this.mInflater.inflate(this.mLayout, viewGroup, false);
     }
 
-    public void setDropDownViewResource(int i) {
-        this.mDropDownLayout = i;
+    public void setDropDownViewResource(int i2) {
+        this.mDropDownLayout = i2;
     }
 
-    public void setViewResource(int i) {
-        this.mLayout = i;
+    public void setViewResource(int i2) {
+        this.mLayout = i2;
     }
 
     @Deprecated
-    public ResourceCursorAdapter(Context context, int i, Cursor cursor, boolean z) {
+    public ResourceCursorAdapter(Context context, int i2, Cursor cursor, boolean z) {
         super(context, cursor, z);
-        this.mDropDownLayout = i;
-        this.mLayout = i;
+        this.mDropDownLayout = i2;
+        this.mLayout = i2;
         this.mInflater = (LayoutInflater) context.getSystemService("layout_inflater");
     }
 
-    public ResourceCursorAdapter(Context context, int i, Cursor cursor, int i2) {
-        super(context, cursor, i2);
-        this.mDropDownLayout = i;
-        this.mLayout = i;
+    public ResourceCursorAdapter(Context context, int i2, Cursor cursor, int i3) {
+        super(context, cursor, i3);
+        this.mDropDownLayout = i2;
+        this.mLayout = i2;
         this.mInflater = (LayoutInflater) context.getSystemService("layout_inflater");
     }
 }

@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.httpNet.HttpNetContext;
 import com.baidu.tieba.flutter.plugin.networkService.NetworkServicePlugin;
-import d.b.c.e.m.b;
-import d.b.c.e.m.e;
-import d.b.c.e.p.l;
+import d.a.c.e.m.b;
+import d.a.c.e.m.e;
+import d.a.c.e.p.l;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
@@ -92,7 +92,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("server", this.flutterNetModel.getHttpUrl());
                 hashMap.put(RetrieveTaskManager.KEY, this.flutterNetModel.getHttpUrl());
-                hashMap.put("state", this.httpNetContext.getStat().stat.f42522h);
+                hashMap.put("state", this.httpNetContext.getStat().stat.f39719h);
                 if (this.httpNetContext.getPerformance() != null && this.flutterNetModel.getStartRequestTime() > 0 && this.httpNetContext.getPerformance().containsKey("startTime")) {
                     long f2 = b.f(this.httpNetContext.getPerformance().get("startTime"), 0L) - this.flutterNetModel.getStartRequestTime();
                     if (f2 > 0) {
@@ -110,7 +110,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
 
     /* loaded from: classes4.dex */
     public interface NetResponseCallback {
-        void onHttpResponseMessage(HashMap<String, String> hashMap, HashMap<String, String> hashMap2, int i, String str, String str2, String str3);
+        void onHttpResponseMessage(HashMap<String, String> hashMap, HashMap<String, String> hashMap2, int i2, String str, String str2, String str3);
     }
 
     public FlutterNetModel(String str) {
@@ -118,10 +118,10 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void notifyHttpCallback(int i, String str) {
+    public void notifyHttpCallback(int i2, String str) {
         NetResponseCallback netResponseCallback = this.httpCallback;
         if (netResponseCallback != null) {
-            netResponseCallback.onHttpResponseMessage(null, null, i, str, null, this.identifier);
+            netResponseCallback.onHttpResponseMessage(null, null, i2, str, null, this.identifier);
         }
     }
 
@@ -161,7 +161,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
             this.timeoutRunnable = new Runnable() { // from class: com.baidu.tieba.flutter.plugin.networkService.FlutterNetModel.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    FlutterNetModel.this.notifyHttpCallback(-1, OneKeyLoginResult.m);
+                    FlutterNetModel.this.notifyHttpCallback(-1, OneKeyLoginResult.ONE_KEY_LOGIN_MSG_CONNECTION_TIMEOUT);
                 }
             };
         }
@@ -172,7 +172,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
         if (this.httpCallback == null && TbadkCoreApplication.getInst().isDebugMode()) {
             throw new RuntimeException("NetModel must have callback");
         }
-        this.isNetOk = l.C();
+        this.isNetOk = l.D();
         if (this.timeout >= 10) {
             e.a().postDelayed(getTimeoutRunnable(), this.timeout * 1000);
         }

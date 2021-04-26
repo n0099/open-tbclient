@@ -10,7 +10,7 @@ public enum e {
     /* renamed from: a  reason: collision with other field name */
     public int f85a;
 
-    e(int i) {
-        this.f85a = i;
+    e(int i2) {
+        this.f85a = i2;
     }
 }

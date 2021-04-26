@@ -12,7 +12,7 @@ public class RouteSpecificPool {
     public final HttpRoute route;
     public final Queue<WaitingThread> waitingThreads;
 
-    public RouteSpecificPool(HttpRoute httpRoute, int i) {
+    public RouteSpecificPool(HttpRoute httpRoute, int i2) {
         throw new RuntimeException("Stub!");
     }
 

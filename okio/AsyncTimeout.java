@@ -92,10 +92,10 @@ public class AsyncTimeout extends Timeout {
                 new Watchdog().start();
             }
             long nanoTime = System.nanoTime();
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i != 0 && z) {
+            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i2 != 0 && z) {
                 asyncTimeout.timeoutAt = Math.min(j, asyncTimeout.deadlineNanoTime() - nanoTime) + nanoTime;
-            } else if (i != 0) {
+            } else if (i2 != 0) {
                 asyncTimeout.timeoutAt = j + nanoTime;
             } else if (z) {
                 asyncTimeout.timeoutAt = asyncTimeout.deadlineNanoTime();

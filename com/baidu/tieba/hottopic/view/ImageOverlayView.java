@@ -6,22 +6,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.HeadImageView;
-import d.b.j0.c1.c.l;
+import d.a.j0.c1.c.l;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ImageOverlayView extends ViewGroup {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17340e;
+    public int f17642e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17341f;
+    public int f17643f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f17342g;
+    public int f17644g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17343h;
+    public int f17645h;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -32,21 +32,21 @@ public class ImageOverlayView extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         View childAt;
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        for (int i5 = 0; i5 < this.f17340e && i5 < getChildCount() && (childAt = getChildAt(i5)) != null; i5++) {
-            childAt.layout(paddingLeft, paddingTop, this.f17341f + paddingLeft, this.f17342g + paddingTop);
-            paddingLeft += this.f17341f - this.f17343h;
+        for (int i6 = 0; i6 < this.f17642e && i6 < getChildCount() && (childAt = getChildAt(i6)) != null; i6++) {
+            childAt.layout(paddingLeft, paddingTop, this.f17643f + paddingLeft, this.f17644g + paddingTop);
+            paddingLeft += this.f17643f - this.f17645h;
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         int paddingLeft = getPaddingLeft() + getPaddingRight();
-        int i3 = this.f17340e;
-        setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f17341f * i3)) - ((i3 - 1) * this.f17343h), i), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f17342g, i2));
+        int i4 = this.f17642e;
+        setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f17643f * i4)) - ((i4 - 1) * this.f17645h), i2), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f17644g, i3));
     }
 
     public void setData(List<l> list) {
@@ -54,17 +54,17 @@ public class ImageOverlayView extends ViewGroup {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        for (int i = 0; i < this.f17340e && (headImageView = (HeadImageView) getChildAt(i)) != null; i++) {
-            if (i >= list.size()) {
+        for (int i2 = 0; i2 < this.f17642e && (headImageView = (HeadImageView) getChildAt(i2)) != null; i2++) {
+            if (i2 >= list.size()) {
                 headImageView.setVisibility(8);
             } else {
                 headImageView.setVisibility(0);
-                l lVar = (l) ListUtils.getItem(list, (list.size() - i) - 1);
+                l lVar = (l) ListUtils.getItem(list, (list.size() - i2) - 1);
                 if (lVar == null) {
                     return;
                 }
-                headImageView.setUserId(String.valueOf(lVar.f53954a));
-                headImageView.T(lVar.f53955b, 12, this.f17341f, this.f17342g, false);
+                headImageView.setUserId(String.valueOf(lVar.f51717a));
+                headImageView.R(lVar.f51718b, 12, this.f17643f, this.f17644g, false);
             }
         }
     }
@@ -76,7 +76,7 @@ public class ImageOverlayView extends ViewGroup {
         super(context, attributeSet);
     }
 
-    public ImageOverlayView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ImageOverlayView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

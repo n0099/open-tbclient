@@ -1,9 +1,9 @@
 package com.google.common.collect;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.h.c.a.g;
-import d.h.c.a.k;
-import d.h.c.a.n;
+import d.g.c.a.g;
+import d.g.c.a.k;
+import d.g.c.a.n;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public final class ByFunctionOrdering<F, T> extends Ordering<F> implements Serializable {

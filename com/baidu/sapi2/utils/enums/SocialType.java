@@ -15,29 +15,27 @@ public enum SocialType {
     FACEBOOK(55, "facebook"),
     TWITTER(56, "twitter"),
     GOOGLE(57, "google"),
-    YY(58, "YY");
+    YY(58, "YY"),
+    QQ_SSO_BACKGROUND(100015, "QQ_SSO_BACKGROUND"),
+    WEIXIN_BACKGROUND(100042, "微信");
     
+    public String name;
+    public int type;
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f11079a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f11080b;
-
-    SocialType(int i, String str) {
-        this.f11079a = i;
-        this.f11080b = str;
+    SocialType(int i2, String str) {
+        this.type = i2;
+        this.name = str;
     }
 
-    public static SocialType getSocialType(int i) {
-        if (i != 2) {
-            if (i != 15) {
-                if (i != 42) {
-                    if (i != 45) {
-                        if (i != 47) {
-                            if (i != 55) {
-                                if (i != 49) {
-                                    if (i != 50) {
+    public static SocialType getSocialType(int i2) {
+        if (i2 != 2) {
+            if (i2 != 15) {
+                if (i2 != 42) {
+                    if (i2 != 45) {
+                        if (i2 != 47) {
+                            if (i2 != 55) {
+                                if (i2 != 49) {
+                                    if (i2 != 50) {
                                         return UNKNOWN;
                                     }
                                     return MEIZU;
@@ -58,10 +56,10 @@ public enum SocialType {
     }
 
     public String getName() {
-        return this.f11080b;
+        return this.name;
     }
 
     public int getType() {
-        return this.f11079a;
+        return this.type;
     }
 }

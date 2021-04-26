@@ -49,13 +49,13 @@ public class Logger {
         Thread thread = new Thread() { // from class: com.baidu.appsearchlib.Logger.1
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
-                int i = 0;
+                int i2 = 0;
                 while (!Logger.looperDisabled) {
                     try {
                         Thread.sleep(1000L);
-                        i++;
+                        i2++;
                         if (Logger.isAppOnForeground()) {
-                            if (Logger.LOG_TIMES.contains(Integer.valueOf(i))) {
+                            if (Logger.LOG_TIMES.contains(Integer.valueOf(i2))) {
                                 Logger.onAlive(context);
                             }
                         } else {

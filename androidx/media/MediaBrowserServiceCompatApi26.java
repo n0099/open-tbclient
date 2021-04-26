@@ -56,9 +56,9 @@ public class MediaBrowserServiceCompatApi26 {
             return arrayList;
         }
 
-        public void sendResult(List<Parcel> list, int i) {
+        public void sendResult(List<Parcel> list, int i2) {
             try {
-                MediaBrowserServiceCompatApi26.sResultFlags.setInt(this.mResultObj, i);
+                MediaBrowserServiceCompatApi26.sResultFlags.setInt(this.mResultObj, i2);
             } catch (IllegalAccessException e2) {
                 Log.w(MediaBrowserServiceCompatApi26.TAG, e2);
             }

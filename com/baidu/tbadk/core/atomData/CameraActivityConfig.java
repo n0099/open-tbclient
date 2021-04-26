@@ -11,11 +11,11 @@ public class CameraActivityConfig extends IntentConfig {
     public static final String KEY_CONTENT_TYPE = "contentType";
     public static final String KEY_OUTPUT_FILE_PATH = "outputFilePath";
 
-    public CameraActivityConfig(Context context, String str, String str2, int i) {
+    public CameraActivityConfig(Context context, String str, String str2, int i2) {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("outputFilePath", str);
         intent.putExtra("contentType", str2);
-        intent.putExtra("request_code", i);
+        intent.putExtra("request_code", i2);
     }
 }

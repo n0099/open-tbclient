@@ -15,8 +15,8 @@ public class UnSupportedMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public UnSupportedMsg[] newArray(int i) {
-            return new UnSupportedMsg[i];
+        public UnSupportedMsg[] newArray(int i2) {
+            return new UnSupportedMsg[i2];
         }
     };
     public static String unSupportedMsgDesc = "[不支持的消息类型，请升级应用后查看]";

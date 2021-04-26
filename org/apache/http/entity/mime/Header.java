@@ -67,19 +67,19 @@ public class Header implements Iterable<MinimalField> {
         if (list != null && !list.isEmpty()) {
             list.clear();
             list.add(minimalField);
-            int i = 0;
+            int i2 = 0;
             Iterator<MinimalField> it = this.fields.iterator();
-            int i2 = -1;
+            int i3 = -1;
             while (it.hasNext()) {
                 if (it.next().getName().equalsIgnoreCase(minimalField.getName())) {
                     it.remove();
-                    if (i2 == -1) {
-                        i2 = i;
+                    if (i3 == -1) {
+                        i3 = i2;
                     }
                 }
-                i++;
+                i2++;
             }
-            this.fields.add(i2, minimalField);
+            this.fields.add(i3, minimalField);
             return;
         }
         addField(minimalField);

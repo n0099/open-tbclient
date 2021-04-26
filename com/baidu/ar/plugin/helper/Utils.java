@@ -92,9 +92,9 @@ public class Utils {
         file.delete();
     }
 
-    public static String getProcessName(Context context, int i) {
+    public static String getProcessName(Context context, int i2) {
         for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-            if (runningAppProcessInfo != null && runningAppProcessInfo.pid == i) {
+            if (runningAppProcessInfo != null && runningAppProcessInfo.pid == i2) {
                 return runningAppProcessInfo.processName;
             }
         }

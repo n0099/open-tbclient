@@ -79,8 +79,8 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
             /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.facebook.imagepipeline.producers.MultiplexProducer$Multiplexer$ForwardingConsumer */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.facebook.imagepipeline.producers.BaseConsumer
-            public /* bridge */ /* synthetic */ void onNewResultImpl(Object obj, int i) {
-                onNewResultImpl((ForwardingConsumer) ((Closeable) obj), i);
+            public /* bridge */ /* synthetic */ void onNewResultImpl(Object obj, int i2) {
+                onNewResultImpl((ForwardingConsumer) ((Closeable) obj), i2);
             }
 
             @Override // com.facebook.imagepipeline.producers.BaseConsumer
@@ -97,12 +97,12 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                 }
             }
 
-            public void onNewResultImpl(T t, int i) {
+            public void onNewResultImpl(T t, int i2) {
                 try {
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.beginSection("MultiplexProducer#onNewResult");
                     }
-                    Multiplexer.this.onNextResult(this, t, i);
+                    Multiplexer.this.onNextResult(this, t, i2);
                 } finally {
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.endSection();
@@ -273,7 +273,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                 List<ProducerContextCallbacks> updateIsIntermediateResultExpected = updateIsIntermediateResultExpected();
                 Closeable closeable = this.mLastIntermediateResult;
                 float f2 = this.mLastProgress;
-                int i = this.mLastStatus;
+                int i2 = this.mLastStatus;
                 BaseProducerContext.callOnIsPrefetchChanged(updateIsPrefetch);
                 BaseProducerContext.callOnPriorityChanged(updatePriority);
                 BaseProducerContext.callOnIsIntermediateResultExpectedChanged(updateIsIntermediateResultExpected);
@@ -289,7 +289,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                         if (f2 > 0.0f) {
                             consumer.onProgressUpdate(f2);
                         }
-                        consumer.onNewResult(closeable, i);
+                        consumer.onNewResult(closeable, i2);
                         closeSafely(closeable);
                     }
                 }
@@ -330,7 +330,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
             }
         }
 
-        public void onNextResult(MultiplexProducer<K, T>.Multiplexer.ForwardingConsumer forwardingConsumer, T t, int i) {
+        public void onNextResult(MultiplexProducer<K, T>.Multiplexer.ForwardingConsumer forwardingConsumer, T t, int i2) {
             synchronized (this) {
                 if (this.mForwardingConsumer != forwardingConsumer) {
                     return;
@@ -338,9 +338,9 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                 closeSafely(this.mLastIntermediateResult);
                 this.mLastIntermediateResult = null;
                 Iterator<Pair<Consumer<T>, ProducerContext>> it = this.mConsumerContextPairs.iterator();
-                if (BaseConsumer.isNotLast(i)) {
+                if (BaseConsumer.isNotLast(i2)) {
                     this.mLastIntermediateResult = (T) MultiplexProducer.this.cloneOrNull(t);
-                    this.mLastStatus = i;
+                    this.mLastStatus = i2;
                 } else {
                     this.mConsumerContextPairs.clear();
                     MultiplexProducer.this.removeMultiplexer(this.mKey, this);
@@ -348,7 +348,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                 while (it.hasNext()) {
                     Pair<Consumer<T>, ProducerContext> next = it.next();
                     synchronized (next) {
-                        ((Consumer) next.first).onNewResult(t, i);
+                        ((Consumer) next.first).onNewResult(t, i2);
                     }
                 }
             }

@@ -10,14 +10,14 @@ import com.baidu.cyberplayer.sdk.remote.e;
 import com.baidu.cyberplayer.sdk.remote.g;
 import java.io.FileDescriptor;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d extends ExtractorProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.cyberplayer.sdk.remote.a f4969a;
+    public com.baidu.cyberplayer.sdk.remote.a f5092a;
 
     public d(com.baidu.cyberplayer.sdk.remote.a aVar) {
-        this.f4969a = aVar;
+        this.f5092a = aVar;
     }
 
     public static ExtractorProvider a() {
@@ -29,7 +29,7 @@ public class d extends ExtractorProvider {
     }
 
     private void a(Uri uri, Map<String, String> map) {
-        com.baidu.cyberplayer.sdk.remote.a aVar = this.f4969a;
+        com.baidu.cyberplayer.sdk.remote.a aVar = this.f5092a;
         if (aVar == null) {
             return;
         }
@@ -42,7 +42,7 @@ public class d extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public Bundle getMediaMeta() {
-        com.baidu.cyberplayer.sdk.remote.a aVar = this.f4969a;
+        com.baidu.cyberplayer.sdk.remote.a aVar = this.f5092a;
         if (aVar == null) {
             return null;
         }
@@ -57,7 +57,7 @@ public class d extends ExtractorProvider {
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void release() {
         CyberLog.i("RemoteExtractorProxy", "release");
-        com.baidu.cyberplayer.sdk.remote.a aVar = this.f4969a;
+        com.baidu.cyberplayer.sdk.remote.a aVar = this.f5092a;
         if (aVar == null) {
             return;
         }
@@ -68,7 +68,7 @@ public class d extends ExtractorProvider {
                 e2.printStackTrace();
             }
         } finally {
-            this.f4969a = null;
+            this.f5092a = null;
         }
     }
 
@@ -92,13 +92,13 @@ public class d extends ExtractorProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
-    public void setOption(int i, String str, long j) {
-        com.baidu.cyberplayer.sdk.remote.a aVar = this.f4969a;
+    public void setOption(int i2, String str, long j) {
+        com.baidu.cyberplayer.sdk.remote.a aVar = this.f5092a;
         if (aVar == null) {
             return;
         }
         try {
-            aVar.a(i, str, j);
+            aVar.a(i2, str, j);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }

@@ -45,9 +45,9 @@ public class DownloadContext {
 
         public AlterContext replaceTask(DownloadTask downloadTask, DownloadTask downloadTask2) {
             DownloadTask[] downloadTaskArr = this.context.tasks;
-            for (int i = 0; i < downloadTaskArr.length; i++) {
-                if (downloadTaskArr[i] == downloadTask) {
-                    downloadTaskArr[i] = downloadTask2;
+            for (int i2 = 0; i2 < downloadTaskArr.length; i2++) {
+                if (downloadTaskArr[i2] == downloadTask) {
+                    downloadTaskArr[i2] = downloadTask2;
                 }
             }
             return this;
@@ -64,7 +64,7 @@ public class DownloadContext {
             this(new QueueSet());
         }
 
-        public DownloadTask bind(@NonNull String str, PriorityStrategy.Priority priority) {
+        public DownloadTask bind(@NonNull String str, PriorityStrategy.Priority priority) throws IllegalArgumentException {
             if (this.set.uri != null) {
                 return bind(new DownloadTask.Builder(str, this.set.uri).setFilenameFromResponse(Boolean.TRUE), priority);
             }
@@ -98,9 +98,9 @@ public class DownloadContext {
             this(queueSet, new ArrayList());
         }
 
-        public void unbind(int i) {
+        public void unbind(int i2) {
             for (DownloadTask downloadTask : (List) this.boundTaskList.clone()) {
-                if (downloadTask.getId() == i) {
+                if (downloadTask.getId() == i2) {
                     this.boundTaskList.remove(downloadTask);
                 }
             }
@@ -159,8 +159,8 @@ public class DownloadContext {
         public final DownloadContext hostContext;
         public final AtomicInteger remainCount;
 
-        public QueueAttachTaskStartEndListener(@NonNull DownloadContext downloadContext, @NonNull DownloadContextListener downloadContextListener, int i) {
-            this.remainCount = new AtomicInteger(i);
+        public QueueAttachTaskStartEndListener(@NonNull DownloadContext downloadContext, @NonNull DownloadContextListener downloadContextListener, int i2) {
+            this.remainCount = new AtomicInteger(i2);
             this.contextListener = downloadContextListener;
             this.hostContext = downloadContext;
         }
@@ -279,8 +279,8 @@ public class DownloadContext {
             return this;
         }
 
-        public QueueSet setFlushBufferSize(int i) {
-            this.flushBufferSize = Integer.valueOf(i);
+        public QueueSet setFlushBufferSize(int i2) {
+            this.flushBufferSize = Integer.valueOf(i2);
             return this;
         }
 
@@ -315,18 +315,18 @@ public class DownloadContext {
             return this;
         }
 
-        public QueueSet setReadBufferSize(int i) {
-            this.readBufferSize = Integer.valueOf(i);
+        public QueueSet setReadBufferSize(int i2) {
+            this.readBufferSize = Integer.valueOf(i2);
             return this;
         }
 
-        public QueueSet setSyncBufferIntervalMillis(int i) {
-            this.syncBufferIntervalMillis = Integer.valueOf(i);
+        public QueueSet setSyncBufferIntervalMillis(int i2) {
+            this.syncBufferIntervalMillis = Integer.valueOf(i2);
             return this;
         }
 
-        public QueueSet setSyncBufferSize(int i) {
-            this.syncBufferSize = Integer.valueOf(i);
+        public QueueSet setSyncBufferSize(int i2) {
+            this.syncBufferSize = Integer.valueOf(i2);
             return this;
         }
 
@@ -368,9 +368,9 @@ public class DownloadContext {
         downloadContextListener.queueEnd(this);
     }
 
-    public void addOneTask(int i, DownloadListener downloadListener) {
+    public void addOneTask(int i2, DownloadListener downloadListener) {
         this.started = true;
-        this.tasks[i].enqueue(downloadListener);
+        this.tasks[i2].enqueue(downloadListener);
     }
 
     public AlterContext alter() {

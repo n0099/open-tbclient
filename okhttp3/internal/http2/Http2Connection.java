@@ -75,11 +75,11 @@ public final class Http2Connection implements Closeable {
         public final int payload2;
         public final boolean reply;
 
-        public PingRunnable(boolean z, int i, int i2) {
-            super("OkHttp %s ping %08x%08x", Http2Connection.this.hostname, Integer.valueOf(i), Integer.valueOf(i2));
+        public PingRunnable(boolean z, int i2, int i3) {
+            super("OkHttp %s ping %08x%08x", Http2Connection.this.hostname, Integer.valueOf(i2), Integer.valueOf(i3));
             this.reply = z;
-            this.payload1 = i;
-            this.payload2 = i2;
+            this.payload1 = i2;
+            this.payload2 = i3;
         }
 
         @Override // okhttp3.internal.NamedRunnable
@@ -118,24 +118,24 @@ public final class Http2Connection implements Closeable {
         }
 
         @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void alternateService(int i, String str, ByteString byteString, String str2, int i2, long j) {
+        public void alternateService(int i2, String str, ByteString byteString, String str2, int i3, long j) {
         }
 
         @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void data(boolean z, int i, BufferedSource bufferedSource, int i2) throws IOException {
-            if (Http2Connection.this.pushedStream(i)) {
-                Http2Connection.this.pushDataLater(i, bufferedSource, i2, z);
+        public void data(boolean z, int i2, BufferedSource bufferedSource, int i3) throws IOException {
+            if (Http2Connection.this.pushedStream(i2)) {
+                Http2Connection.this.pushDataLater(i2, bufferedSource, i3, z);
                 return;
             }
-            Http2Stream stream = Http2Connection.this.getStream(i);
+            Http2Stream stream = Http2Connection.this.getStream(i2);
             if (stream == null) {
-                Http2Connection.this.writeSynResetLater(i, ErrorCode.PROTOCOL_ERROR);
-                long j = i2;
+                Http2Connection.this.writeSynResetLater(i2, ErrorCode.PROTOCOL_ERROR);
+                long j = i3;
                 Http2Connection.this.updateConnectionFlowControl(j);
                 bufferedSource.skip(j);
                 return;
             }
-            stream.receiveData(bufferedSource, i2);
+            stream.receiveData(bufferedSource, i3);
             if (z) {
                 stream.receiveFin();
             }
@@ -184,7 +184,7 @@ public final class Http2Connection implements Closeable {
         }
 
         @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void goAway(int i, ErrorCode errorCode, ByteString byteString) {
+        public void goAway(int i2, ErrorCode errorCode, ByteString byteString) {
             Http2Stream[] http2StreamArr;
             byteString.size();
             synchronized (Http2Connection.this) {
@@ -192,7 +192,7 @@ public final class Http2Connection implements Closeable {
                 Http2Connection.this.shutdown = true;
             }
             for (Http2Stream http2Stream : http2StreamArr) {
-                if (http2Stream.getId() > i && http2Stream.isLocallyInitiated()) {
+                if (http2Stream.getId() > i2 && http2Stream.isLocallyInitiated()) {
                     http2Stream.receiveRstStream(ErrorCode.REFUSED_STREAM);
                     Http2Connection.this.removeStream(http2Stream.getId());
                 }
@@ -200,27 +200,27 @@ public final class Http2Connection implements Closeable {
         }
 
         @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void headers(boolean z, int i, int i2, List<Header> list) {
-            if (Http2Connection.this.pushedStream(i)) {
-                Http2Connection.this.pushHeadersLater(i, list, z);
+        public void headers(boolean z, int i2, int i3, List<Header> list) {
+            if (Http2Connection.this.pushedStream(i2)) {
+                Http2Connection.this.pushHeadersLater(i2, list, z);
                 return;
             }
             synchronized (Http2Connection.this) {
-                Http2Stream stream = Http2Connection.this.getStream(i);
+                Http2Stream stream = Http2Connection.this.getStream(i2);
                 if (stream == null) {
                     if (Http2Connection.this.shutdown) {
                         return;
                     }
-                    if (i <= Http2Connection.this.lastGoodStreamId) {
+                    if (i2 <= Http2Connection.this.lastGoodStreamId) {
                         return;
                     }
-                    if (i % 2 == Http2Connection.this.nextStreamId % 2) {
+                    if (i2 % 2 == Http2Connection.this.nextStreamId % 2) {
                         return;
                     }
-                    final Http2Stream http2Stream = new Http2Stream(i, Http2Connection.this, false, z, list);
-                    Http2Connection.this.lastGoodStreamId = i;
-                    Http2Connection.this.streams.put(Integer.valueOf(i), http2Stream);
-                    Http2Connection.listenerExecutor.execute(new NamedRunnable("OkHttp %s stream %d", new Object[]{Http2Connection.this.hostname, Integer.valueOf(i)}) { // from class: okhttp3.internal.http2.Http2Connection.ReaderRunnable.1
+                    final Http2Stream http2Stream = new Http2Stream(i2, Http2Connection.this, false, z, list);
+                    Http2Connection.this.lastGoodStreamId = i2;
+                    Http2Connection.this.streams.put(Integer.valueOf(i2), http2Stream);
+                    Http2Connection.listenerExecutor.execute(new NamedRunnable("OkHttp %s stream %d", new Object[]{Http2Connection.this.hostname, Integer.valueOf(i2)}) { // from class: okhttp3.internal.http2.Http2Connection.ReaderRunnable.1
                         @Override // okhttp3.internal.NamedRunnable
                         public void execute() {
                             try {
@@ -245,7 +245,7 @@ public final class Http2Connection implements Closeable {
         }
 
         @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void ping(boolean z, int i, int i2) {
+        public void ping(boolean z, int i2, int i3) {
             if (z) {
                 synchronized (Http2Connection.this) {
                     Http2Connection.this.awaitingPong = false;
@@ -254,27 +254,27 @@ public final class Http2Connection implements Closeable {
                 return;
             }
             try {
-                Http2Connection.this.writerExecutor.execute(new PingRunnable(true, i, i2));
+                Http2Connection.this.writerExecutor.execute(new PingRunnable(true, i2, i3));
             } catch (RejectedExecutionException unused) {
             }
         }
 
         @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void priority(int i, int i2, int i3, boolean z) {
+        public void priority(int i2, int i3, int i4, boolean z) {
         }
 
         @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void pushPromise(int i, int i2, List<Header> list) {
-            Http2Connection.this.pushRequestLater(i2, list);
+        public void pushPromise(int i2, int i3, List<Header> list) {
+            Http2Connection.this.pushRequestLater(i3, list);
         }
 
         @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void rstStream(int i, ErrorCode errorCode) {
-            if (Http2Connection.this.pushedStream(i)) {
-                Http2Connection.this.pushResetLater(i, errorCode);
+        public void rstStream(int i2, ErrorCode errorCode) {
+            if (Http2Connection.this.pushedStream(i2)) {
+                Http2Connection.this.pushResetLater(i2, errorCode);
                 return;
             }
-            Http2Stream removeStream = Http2Connection.this.removeStream(i);
+            Http2Stream removeStream = Http2Connection.this.removeStream(i2);
             if (removeStream != null) {
                 removeStream.receiveRstStream(errorCode);
             }
@@ -284,7 +284,7 @@ public final class Http2Connection implements Closeable {
         public void settings(boolean z, Settings settings) {
             Http2Stream[] http2StreamArr;
             long j;
-            int i;
+            int i2;
             synchronized (Http2Connection.this) {
                 int initialWindowSize = Http2Connection.this.peerSettings.getInitialWindowSize();
                 if (z) {
@@ -324,15 +324,15 @@ public final class Http2Connection implements Closeable {
         }
 
         @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void windowUpdate(int i, long j) {
-            if (i == 0) {
+        public void windowUpdate(int i2, long j) {
+            if (i2 == 0) {
                 synchronized (Http2Connection.this) {
                     Http2Connection.this.bytesLeftInWriteWindow += j;
                     Http2Connection.this.notifyAll();
                 }
                 return;
             }
-            Http2Stream stream = Http2Connection.this.getStream(i);
+            Http2Stream stream = Http2Connection.this.getStream(i2);
             if (stream != null) {
                 synchronized (stream) {
                     stream.addBytesToWriteWindow(j);
@@ -346,10 +346,10 @@ public final class Http2Connection implements Closeable {
         boolean z = builder.client;
         this.client = z;
         this.listener = builder.listener;
-        int i = z ? 1 : 2;
-        this.nextStreamId = i;
+        int i2 = z ? 1 : 2;
+        this.nextStreamId = i2;
         if (builder.client) {
-            this.nextStreamId = i + 2;
+            this.nextStreamId = i2 + 2;
         }
         if (builder.client) {
             this.okHttpSettings.set(7, 16777216);
@@ -359,8 +359,8 @@ public final class Http2Connection implements Closeable {
         this.writerExecutor = scheduledThreadPoolExecutor;
         if (builder.pingIntervalMillis != 0) {
             PingRunnable pingRunnable = new PingRunnable(false, 0, 0);
-            int i2 = builder.pingIntervalMillis;
-            scheduledThreadPoolExecutor.scheduleAtFixedRate(pingRunnable, i2, i2, TimeUnit.MILLISECONDS);
+            int i3 = builder.pingIntervalMillis;
+            scheduledThreadPoolExecutor.scheduleAtFixedRate(pingRunnable, i3, i3, TimeUnit.MILLISECONDS);
         }
         this.pushExecutor = new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Util.threadFactory(Util.format("OkHttp %s Push Observer", this.hostname), true));
         this.peerSettings.set(7, 65535);
@@ -404,8 +404,8 @@ public final class Http2Connection implements Closeable {
         return Protocol.HTTP_2;
     }
 
-    public synchronized Http2Stream getStream(int i) {
-        return this.streams.get(Integer.valueOf(i));
+    public synchronized Http2Stream getStream(int i2) {
+        return this.streams.get(Integer.valueOf(i2));
     }
 
     public synchronized boolean isShutdown() {
@@ -424,23 +424,23 @@ public final class Http2Connection implements Closeable {
         return this.streams.size();
     }
 
-    public void pushDataLater(final int i, BufferedSource bufferedSource, final int i2, final boolean z) throws IOException {
+    public void pushDataLater(final int i2, BufferedSource bufferedSource, final int i3, final boolean z) throws IOException {
         final Buffer buffer = new Buffer();
-        long j = i2;
+        long j = i3;
         bufferedSource.require(j);
         bufferedSource.read(buffer, j);
         if (buffer.size() == j) {
-            pushExecutorExecute(new NamedRunnable("OkHttp %s Push Data[%s]", new Object[]{this.hostname, Integer.valueOf(i)}) { // from class: okhttp3.internal.http2.Http2Connection.5
+            pushExecutorExecute(new NamedRunnable("OkHttp %s Push Data[%s]", new Object[]{this.hostname, Integer.valueOf(i2)}) { // from class: okhttp3.internal.http2.Http2Connection.5
                 @Override // okhttp3.internal.NamedRunnable
                 public void execute() {
                     try {
-                        boolean onData = Http2Connection.this.pushObserver.onData(i, buffer, i2, z);
+                        boolean onData = Http2Connection.this.pushObserver.onData(i2, buffer, i3, z);
                         if (onData) {
-                            Http2Connection.this.writer.rstStream(i, ErrorCode.CANCEL);
+                            Http2Connection.this.writer.rstStream(i2, ErrorCode.CANCEL);
                         }
                         if (onData || z) {
                             synchronized (Http2Connection.this) {
-                                Http2Connection.this.currentPushRequests.remove(Integer.valueOf(i));
+                                Http2Connection.this.currentPushRequests.remove(Integer.valueOf(i2));
                             }
                         }
                     } catch (IOException unused) {
@@ -449,25 +449,25 @@ public final class Http2Connection implements Closeable {
             });
             return;
         }
-        throw new IOException(buffer.size() + " != " + i2);
+        throw new IOException(buffer.size() + " != " + i3);
     }
 
-    public void pushHeadersLater(final int i, final List<Header> list, final boolean z) {
+    public void pushHeadersLater(final int i2, final List<Header> list, final boolean z) {
         try {
-            pushExecutorExecute(new NamedRunnable("OkHttp %s Push Headers[%s]", new Object[]{this.hostname, Integer.valueOf(i)}) { // from class: okhttp3.internal.http2.Http2Connection.4
+            pushExecutorExecute(new NamedRunnable("OkHttp %s Push Headers[%s]", new Object[]{this.hostname, Integer.valueOf(i2)}) { // from class: okhttp3.internal.http2.Http2Connection.4
                 @Override // okhttp3.internal.NamedRunnable
                 public void execute() {
-                    boolean onHeaders = Http2Connection.this.pushObserver.onHeaders(i, list, z);
+                    boolean onHeaders = Http2Connection.this.pushObserver.onHeaders(i2, list, z);
                     if (onHeaders) {
                         try {
-                            Http2Connection.this.writer.rstStream(i, ErrorCode.CANCEL);
+                            Http2Connection.this.writer.rstStream(i2, ErrorCode.CANCEL);
                         } catch (IOException unused) {
                             return;
                         }
                     }
                     if (onHeaders || z) {
                         synchronized (Http2Connection.this) {
-                            Http2Connection.this.currentPushRequests.remove(Integer.valueOf(i));
+                            Http2Connection.this.currentPushRequests.remove(Integer.valueOf(i2));
                         }
                     }
                 }
@@ -476,22 +476,22 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    public void pushRequestLater(final int i, final List<Header> list) {
+    public void pushRequestLater(final int i2, final List<Header> list) {
         synchronized (this) {
-            if (this.currentPushRequests.contains(Integer.valueOf(i))) {
-                writeSynResetLater(i, ErrorCode.PROTOCOL_ERROR);
+            if (this.currentPushRequests.contains(Integer.valueOf(i2))) {
+                writeSynResetLater(i2, ErrorCode.PROTOCOL_ERROR);
                 return;
             }
-            this.currentPushRequests.add(Integer.valueOf(i));
+            this.currentPushRequests.add(Integer.valueOf(i2));
             try {
-                pushExecutorExecute(new NamedRunnable("OkHttp %s Push Request[%s]", new Object[]{this.hostname, Integer.valueOf(i)}) { // from class: okhttp3.internal.http2.Http2Connection.3
+                pushExecutorExecute(new NamedRunnable("OkHttp %s Push Request[%s]", new Object[]{this.hostname, Integer.valueOf(i2)}) { // from class: okhttp3.internal.http2.Http2Connection.3
                     @Override // okhttp3.internal.NamedRunnable
                     public void execute() {
-                        if (Http2Connection.this.pushObserver.onRequest(i, list)) {
+                        if (Http2Connection.this.pushObserver.onRequest(i2, list)) {
                             try {
-                                Http2Connection.this.writer.rstStream(i, ErrorCode.CANCEL);
+                                Http2Connection.this.writer.rstStream(i2, ErrorCode.CANCEL);
                                 synchronized (Http2Connection.this) {
-                                    Http2Connection.this.currentPushRequests.remove(Integer.valueOf(i));
+                                    Http2Connection.this.currentPushRequests.remove(Integer.valueOf(i2));
                                 }
                             } catch (IOException unused) {
                             }
@@ -503,32 +503,32 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    public void pushResetLater(final int i, final ErrorCode errorCode) {
-        pushExecutorExecute(new NamedRunnable("OkHttp %s Push Reset[%s]", new Object[]{this.hostname, Integer.valueOf(i)}) { // from class: okhttp3.internal.http2.Http2Connection.6
+    public void pushResetLater(final int i2, final ErrorCode errorCode) {
+        pushExecutorExecute(new NamedRunnable("OkHttp %s Push Reset[%s]", new Object[]{this.hostname, Integer.valueOf(i2)}) { // from class: okhttp3.internal.http2.Http2Connection.6
             @Override // okhttp3.internal.NamedRunnable
             public void execute() {
-                Http2Connection.this.pushObserver.onReset(i, errorCode);
+                Http2Connection.this.pushObserver.onReset(i2, errorCode);
                 synchronized (Http2Connection.this) {
-                    Http2Connection.this.currentPushRequests.remove(Integer.valueOf(i));
+                    Http2Connection.this.currentPushRequests.remove(Integer.valueOf(i2));
                 }
             }
         });
     }
 
-    public Http2Stream pushStream(int i, List<Header> list, boolean z) throws IOException {
+    public Http2Stream pushStream(int i2, List<Header> list, boolean z) throws IOException {
         if (!this.client) {
-            return newStream(i, list, z);
+            return newStream(i2, list, z);
         }
         throw new IllegalStateException("Client cannot push requests.");
     }
 
-    public boolean pushedStream(int i) {
-        return i != 0 && (i & 1) == 0;
+    public boolean pushedStream(int i2) {
+        return i2 != 0 && (i2 & 1) == 0;
     }
 
-    public synchronized Http2Stream removeStream(int i) {
+    public synchronized Http2Stream removeStream(int i2) {
         Http2Stream remove;
-        remove = this.streams.remove(Integer.valueOf(i));
+        remove = this.streams.remove(Integer.valueOf(i2));
         notifyAll();
         return remove;
     }
@@ -571,18 +571,18 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    public void writeData(int i, boolean z, Buffer buffer, long j) throws IOException {
+    public void writeData(int i2, boolean z, Buffer buffer, long j) throws IOException {
         int min;
         long j2;
         if (j == 0) {
-            this.writer.data(z, i, buffer, 0);
+            this.writer.data(z, i2, buffer, 0);
             return;
         }
         while (j > 0) {
             synchronized (this) {
                 while (this.bytesLeftInWriteWindow <= 0) {
                     try {
-                        if (this.streams.containsKey(Integer.valueOf(i))) {
+                        if (this.streams.containsKey(Integer.valueOf(i2))) {
                             wait();
                         } else {
                             throw new IOException("stream closed");
@@ -597,11 +597,11 @@ public final class Http2Connection implements Closeable {
                 this.bytesLeftInWriteWindow -= j2;
             }
             j -= j2;
-            this.writer.data(z && j == 0, i, buffer, min);
+            this.writer.data(z && j == 0, i2, buffer, min);
         }
     }
 
-    public void writePing(boolean z, int i, int i2) {
+    public void writePing(boolean z, int i2, int i3) {
         boolean z2;
         if (!z) {
             synchronized (this) {
@@ -614,7 +614,7 @@ public final class Http2Connection implements Closeable {
             }
         }
         try {
-            this.writer.ping(z, i, i2);
+            this.writer.ping(z, i2, i3);
         } catch (IOException unused) {
             failConnection();
         }
@@ -625,21 +625,21 @@ public final class Http2Connection implements Closeable {
         awaitPong();
     }
 
-    public void writeSynReply(int i, boolean z, List<Header> list) throws IOException {
-        this.writer.synReply(z, i, list);
+    public void writeSynReply(int i2, boolean z, List<Header> list) throws IOException {
+        this.writer.synReply(z, i2, list);
     }
 
-    public void writeSynReset(int i, ErrorCode errorCode) throws IOException {
-        this.writer.rstStream(i, errorCode);
+    public void writeSynReset(int i2, ErrorCode errorCode) throws IOException {
+        this.writer.rstStream(i2, errorCode);
     }
 
-    public void writeSynResetLater(final int i, final ErrorCode errorCode) {
+    public void writeSynResetLater(final int i2, final ErrorCode errorCode) {
         try {
-            this.writerExecutor.execute(new NamedRunnable("OkHttp %s stream %d", new Object[]{this.hostname, Integer.valueOf(i)}) { // from class: okhttp3.internal.http2.Http2Connection.1
+            this.writerExecutor.execute(new NamedRunnable("OkHttp %s stream %d", new Object[]{this.hostname, Integer.valueOf(i2)}) { // from class: okhttp3.internal.http2.Http2Connection.1
                 @Override // okhttp3.internal.NamedRunnable
                 public void execute() {
                     try {
-                        Http2Connection.this.writeSynReset(i, errorCode);
+                        Http2Connection.this.writeSynReset(i2, errorCode);
                     } catch (IOException unused) {
                         Http2Connection.this.failConnection();
                     }
@@ -649,13 +649,13 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    public void writeWindowUpdateLater(final int i, final long j) {
+    public void writeWindowUpdateLater(final int i2, final long j) {
         try {
-            this.writerExecutor.execute(new NamedRunnable("OkHttp Window Update %s stream %d", new Object[]{this.hostname, Integer.valueOf(i)}) { // from class: okhttp3.internal.http2.Http2Connection.2
+            this.writerExecutor.execute(new NamedRunnable("OkHttp Window Update %s stream %d", new Object[]{this.hostname, Integer.valueOf(i2)}) { // from class: okhttp3.internal.http2.Http2Connection.2
                 @Override // okhttp3.internal.NamedRunnable
                 public void execute() {
                     try {
-                        Http2Connection.this.writer.windowUpdate(i, j);
+                        Http2Connection.this.writer.windowUpdate(i2, j);
                     } catch (IOException unused) {
                         Http2Connection.this.failConnection();
                     }
@@ -669,8 +669,8 @@ public final class Http2Connection implements Closeable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private Http2Stream newStream(int i, List<Header> list, boolean z) throws IOException {
-        int i2;
+    private Http2Stream newStream(int i2, List<Header> list, boolean z) throws IOException {
+        int i3;
         Http2Stream http2Stream;
         boolean z2;
         boolean z3 = !z;
@@ -680,13 +680,13 @@ public final class Http2Connection implements Closeable {
                     shutdown(ErrorCode.REFUSED_STREAM);
                 }
                 if (!this.shutdown) {
-                    i2 = this.nextStreamId;
+                    i3 = this.nextStreamId;
                     this.nextStreamId += 2;
-                    http2Stream = new Http2Stream(i2, this, z3, false, list);
+                    http2Stream = new Http2Stream(i3, this, z3, false, list);
                     if (z && this.bytesLeftInWriteWindow != 0 && http2Stream.bytesLeftInWriteWindow != 0) {
                         z2 = false;
                         if (http2Stream.isOpen()) {
-                            this.streams.put(Integer.valueOf(i2), http2Stream);
+                            this.streams.put(Integer.valueOf(i3), http2Stream);
                         }
                     }
                     z2 = true;
@@ -696,10 +696,10 @@ public final class Http2Connection implements Closeable {
                     throw new ConnectionShutdownException();
                 }
             }
-            if (i == 0) {
-                this.writer.synStream(z3, i2, i, list);
+            if (i2 == 0) {
+                this.writer.synStream(z3, i3, i2, list);
             } else if (!this.client) {
-                this.writer.pushPromise(i, i2, list);
+                this.writer.pushPromise(i2, i3, list);
             } else {
                 throw new IllegalArgumentException("client streams shouldn't have associated stream IDs");
             }
@@ -790,8 +790,8 @@ public final class Http2Connection implements Closeable {
             return this;
         }
 
-        public Builder pingIntervalMillis(int i) {
-            this.pingIntervalMillis = i;
+        public Builder pingIntervalMillis(int i2) {
+            this.pingIntervalMillis = i2;
             return this;
         }
 

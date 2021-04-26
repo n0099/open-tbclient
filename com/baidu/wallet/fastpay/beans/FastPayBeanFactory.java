@@ -16,11 +16,11 @@ public final class FastPayBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static FastPayBeanFactory f24047a = new FastPayBeanFactory();
+        public static FastPayBeanFactory f24796a = new FastPayBeanFactory();
     }
 
     public static FastPayBeanFactory getInstance() {
-        return a.f24047a;
+        return a.f24796a;
     }
 
     public FastPayBeanFactory() {
@@ -28,9 +28,9 @@ public final class FastPayBeanFactory implements IBeanFactory {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.apollon.beans.IBeanFactory
-    public BaseBean<?> getBean(Context context, int i, String str) {
+    public BaseBean<?> getBean(Context context, int i2, String str) {
         BaseBean<?> dVar;
-        switch (i) {
+        switch (i2) {
             case BEAN_ID_QUERY_LOCATION /* 45313 */:
                 dVar = new d(context);
                 break;

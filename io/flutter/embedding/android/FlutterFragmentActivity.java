@@ -149,9 +149,9 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
         try {
             ActivityInfo activityInfo = getPackageManager().getActivityInfo(getComponentName(), 128);
             if (activityInfo.metaData != null) {
-                int i = activityInfo.metaData.getInt("io.flutter.embedding.android.NormalTheme", -1);
-                if (i != -1) {
-                    setTheme(i);
+                int i2 = activityInfo.metaData.getInt("io.flutter.embedding.android.NormalTheme", -1);
+                if (i2 != -1) {
+                    setTheme(i2);
                 }
             } else {
                 Log.v(TAG, "Using the launch theme as normal theme.");
@@ -242,17 +242,17 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        this.flutterFragment.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        this.flutterFragment.onActivityResult(i2, i3, intent);
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         this.flutterFragment.onBackPressed();
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         switchLaunchThemeForNormalTheme();
         super.onCreate(bundle);
@@ -275,15 +275,15 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        super.onRequestPermissionsResult(i, strArr, iArr);
-        this.flutterFragment.onRequestPermissionsResult(i, strArr, iArr);
+    public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+        super.onRequestPermissionsResult(i2, strArr, iArr);
+        this.flutterFragment.onRequestPermissionsResult(i2, strArr, iArr);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks2
-    public void onTrimMemory(int i) {
-        super.onTrimMemory(i);
-        this.flutterFragment.onTrimMemory(i);
+    public void onTrimMemory(int i2) {
+        super.onTrimMemory(i2);
+        this.flutterFragment.onTrimMemory(i2);
     }
 
     @Override // android.app.Activity

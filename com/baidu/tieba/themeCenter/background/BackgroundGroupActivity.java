@@ -5,10 +5,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupModel;
-import d.b.j0.j3.e.b;
-import d.b.j0.j3.e.c;
-import d.b.j0.j3.e.d;
-import d.b.j0.j3.h.e;
+import d.a.j0.j3.e.b;
+import d.a.j0.j3.e.c;
+import d.a.j0.j3.e.d;
+import d.a.j0.j3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivity> {
@@ -24,11 +24,11 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
-        public void a(int i, String str, e eVar, List<b> list) {
+        public void a(int i2, String str, e eVar, List<b> list) {
             BackgroundGroupActivity backgroundGroupActivity = BackgroundGroupActivity.this;
             backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.mView.d());
             BackgroundGroupActivity.this.mView.i();
-            if (i == 0) {
+            if (i2 == 0) {
                 BackgroundGroupActivity.this.mView.k(eVar, list, BackgroundGroupActivity.this.mModel.B());
                 return;
             }
@@ -37,16 +37,16 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
     public String getCurrentPageKey() {
         return "b007";
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public d.b.i0.k0.d getPageStayDurationItem() {
-        d.b.i0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
+    public d.a.i0.k0.d getPageStayDurationItem() {
+        d.a.i0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50982a = true;
+            pageStayDurationItem.f48564a = true;
         }
         return pageStayDurationItem;
     }
@@ -56,8 +56,8 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         c cVar = this.mView;
         if (cVar != null) {
             cVar.f();

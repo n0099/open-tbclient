@@ -12,7 +12,7 @@ import com.facebook.imagepipeline.platform.PlatformDecoder;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(11)
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class HoneycombBitmapFactory extends PlatformBitmapFactory {
     public static final String TAG = "HoneycombBitmapFactory";
     public final CloseableReferenceFactory mCloseableReferenceFactory;
@@ -26,17 +26,17 @@ public class HoneycombBitmapFactory extends PlatformBitmapFactory {
         this.mCloseableReferenceFactory = closeableReferenceFactory;
     }
 
-    private CloseableReference<Bitmap> createFallbackBitmap(int i, int i2, Bitmap.Config config) {
-        return this.mCloseableReferenceFactory.create(Bitmap.createBitmap(i, i2, config), SimpleBitmapReleaser.getInstance());
+    private CloseableReference<Bitmap> createFallbackBitmap(int i2, int i3, Bitmap.Config config) {
+        return this.mCloseableReferenceFactory.create(Bitmap.createBitmap(i2, i3, config), SimpleBitmapReleaser.getInstance());
     }
 
     @Override // com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory
     @TargetApi(12)
-    public CloseableReference<Bitmap> createBitmapInternal(int i, int i2, Bitmap.Config config) {
+    public CloseableReference<Bitmap> createBitmapInternal(int i2, int i3, Bitmap.Config config) {
         if (this.mImmutableBitmapFallback) {
-            return createFallbackBitmap(i, i2, config);
+            return createFallbackBitmap(i2, i3, config);
         }
-        CloseableReference<PooledByteBuffer> generate = this.mJpegGenerator.generate((short) i, (short) i2);
+        CloseableReference<PooledByteBuffer> generate = this.mJpegGenerator.generate((short) i2, (short) i3);
         try {
             EncodedImage encodedImage = new EncodedImage(generate);
             encodedImage.setImageFormat(DefaultImageFormats.JPEG);
@@ -45,7 +45,7 @@ public class HoneycombBitmapFactory extends PlatformBitmapFactory {
                 CloseableReference.closeSafely(decodeJPEGFromEncodedImage);
                 this.mImmutableBitmapFallback = true;
                 FLog.wtf(TAG, "Immutable bitmap returned by decoder");
-                CloseableReference<Bitmap> createFallbackBitmap = createFallbackBitmap(i, i2, config);
+                CloseableReference<Bitmap> createFallbackBitmap = createFallbackBitmap(i2, i3, config);
                 EncodedImage.closeSafely(encodedImage);
                 return createFallbackBitmap;
             }

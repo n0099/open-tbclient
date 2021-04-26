@@ -14,7 +14,7 @@ public final class a implements Parcelable.Creator<BusInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public BusInfo[] newArray(int i) {
-        return new BusInfo[i];
+    public BusInfo[] newArray(int i2) {
+        return new BusInfo[i2];
     }
 }

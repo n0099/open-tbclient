@@ -1,9 +1,9 @@
 package com.baidu.down.common;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class TaskObserver implements TaskObserverInterface {
     public abstract void onDownloadCancel(String str, long j, long j2, long j3, String str2);
 
-    public abstract void onDownloadFail(String str, long j, long j2, String str2, String str3, int i, DownDetail downDetail);
+    public abstract void onDownloadFail(String str, long j, long j2, String str2, String str3, int i2, DownDetail downDetail);
 
     public abstract void onDownloadPause(String str, long j, long j2, long j3, String str2);
 

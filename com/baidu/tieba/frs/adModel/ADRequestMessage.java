@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.adModel;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.GetADList.DataReq;
 import tbclient.GetADList.GetADListReqIdl;
 /* loaded from: classes4.dex */
@@ -45,11 +45,11 @@ public class ADRequestMessage extends NetMessage {
         this.fid = j;
     }
 
-    public void setOffset(int i) {
-        this.offset = i;
+    public void setOffset(int i2) {
+        this.offset = i2;
     }
 
-    public void setRn(int i) {
-        this.rn = i;
+    public void setRn(int i2) {
+        this.rn = i2;
     }
 }

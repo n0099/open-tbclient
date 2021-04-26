@@ -147,17 +147,17 @@ public class VideoPlayerCallbackBaseManager {
         }
     }
 
-    public void onEnd(int i) {
+    public void onEnd(int i2) {
         IVideoPlayerCallback iVideoPlayerCallback = this.mVideoPlayerCallback;
         if (iVideoPlayerCallback != null) {
-            iVideoPlayerCallback.onEnd(i);
+            iVideoPlayerCallback.onEnd(i2);
         }
     }
 
-    public void onError(int i, int i2, Object obj) {
+    public void onError(int i2, int i3, Object obj) {
         IVideoPlayerCallback iVideoPlayerCallback = this.mVideoPlayerCallback;
         if (iVideoPlayerCallback != null) {
-            iVideoPlayerCallback.onError(i, i2, obj != null ? obj.toString() : "");
+            iVideoPlayerCallback.onError(i2, i3, obj != null ? obj.toString() : "");
         }
     }
 
@@ -168,10 +168,10 @@ public class VideoPlayerCallbackBaseManager {
         }
     }
 
-    public void onInfo(int i, int i2, Object obj) {
+    public void onInfo(int i2, int i3, Object obj) {
         IVideoPlayerCallback iVideoPlayerCallback = this.mVideoPlayerCallback;
         if (iVideoPlayerCallback != null) {
-            iVideoPlayerCallback.onInfo(i, i2);
+            iVideoPlayerCallback.onInfo(i2, i3);
         }
     }
 
@@ -189,10 +189,10 @@ public class VideoPlayerCallbackBaseManager {
         }
     }
 
-    public void onNetworkSpeedUpdate(int i) {
+    public void onNetworkSpeedUpdate(int i2) {
         IVideoPlayerCallback iVideoPlayerCallback = this.mVideoPlayerCallback;
         if (iVideoPlayerCallback != null) {
-            iVideoPlayerCallback.onNetworkSpeedUpdate(i);
+            iVideoPlayerCallback.onNetworkSpeedUpdate(i2);
         }
     }
 
@@ -231,17 +231,17 @@ public class VideoPlayerCallbackBaseManager {
         }
     }
 
-    public void onUpdateProgress(int i, int i2, int i3) {
+    public void onUpdateProgress(int i2, int i3, int i4) {
         IVideoPlayerCallback iVideoPlayerCallback = this.mVideoPlayerCallback;
         if (iVideoPlayerCallback != null) {
-            iVideoPlayerCallback.onUpdateProgress(i, i2, i3);
+            iVideoPlayerCallback.onUpdateProgress(i2, i3, i4);
         }
     }
 
-    public void onVideoSizeChanged(int i, int i2) {
+    public void onVideoSizeChanged(int i2, int i3) {
         IVideoPlayerCallback iVideoPlayerCallback = this.mVideoPlayerCallback;
         if (iVideoPlayerCallback != null) {
-            iVideoPlayerCallback.onVideoSizeChanged(i, i2);
+            iVideoPlayerCallback.onVideoSizeChanged(i2, i3);
         }
     }
 

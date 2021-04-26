@@ -1,7 +1,7 @@
 package com.google.gson;
 
-import d.h.d.b.h;
-import d.h.d.d.b;
+import com.google.gson.internal.Streams;
+import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.math.BigDecimal;
@@ -109,9 +109,9 @@ public abstract class JsonElement {
     public String toString() {
         try {
             StringWriter stringWriter = new StringWriter();
-            b bVar = new b(stringWriter);
-            bVar.I(true);
-            h.b(this, bVar);
+            JsonWriter jsonWriter = new JsonWriter(stringWriter);
+            jsonWriter.setLenient(true);
+            Streams.write(this, jsonWriter);
             return stringWriter.toString();
         } catch (IOException e2) {
             throw new AssertionError(e2);

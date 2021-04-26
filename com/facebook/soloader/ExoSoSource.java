@@ -31,9 +31,9 @@ public final class ExoSoSource extends UnpackingSoSource {
             @Override // com.facebook.soloader.UnpackingSoSource.InputDsoIterator
             public UnpackingSoSource.InputDso next() throws IOException {
                 FileDso[] fileDsoArr = ExoUnpacker.this.mDsos;
-                int i = this.mCurrentDso;
-                this.mCurrentDso = i + 1;
-                FileDso fileDso = fileDsoArr[i];
+                int i2 = this.mCurrentDso;
+                this.mCurrentDso = i2 + 1;
+                FileDso fileDso = fileDsoArr[i2];
                 FileInputStream fileInputStream = new FileInputStream(fileDso.backingFile);
                 try {
                     return new UnpackingSoSource.InputDso(fileDso, fileInputStream);
@@ -60,10 +60,10 @@ public final class ExoSoSource extends UnpackingSoSource {
             LinkedHashSet linkedHashSet = new LinkedHashSet();
             String[] supportedAbis = SysUtil.getSupportedAbis();
             int length = supportedAbis.length;
-            int i = 0;
             int i2 = 0;
-            loop0: while (i2 < length) {
-                String str = supportedAbis[i2];
+            int i3 = 0;
+            loop0: while (i3 < length) {
+                String str = supportedAbis[i3];
                 File file2 = new File(file, str);
                 if (file2.isDirectory()) {
                     linkedHashSet.add(str);
@@ -80,25 +80,25 @@ public final class ExoSoSource extends UnpackingSoSource {
                                         if (indexOf == -1) {
                                             break loop0;
                                         }
-                                        String str2 = readLine.substring(i, indexOf) + ".so";
+                                        String str2 = readLine.substring(i2, indexOf) + ".so";
                                         int size = arrayList.size();
-                                        int i3 = 0;
+                                        int i4 = 0;
                                         while (true) {
-                                            if (i3 >= size) {
+                                            if (i4 >= size) {
                                                 z = false;
                                                 break;
-                                            } else if (((FileDso) arrayList.get(i3)).name.equals(str2)) {
+                                            } else if (((FileDso) arrayList.get(i4)).name.equals(str2)) {
                                                 z = true;
                                                 break;
                                             } else {
-                                                i3++;
+                                                i4++;
                                             }
                                         }
                                         if (!z) {
                                             String substring = readLine.substring(indexOf + 1);
                                             arrayList.add(new FileDso(str2, substring, new File(file2, substring)));
                                         }
-                                        i = 0;
+                                        i2 = 0;
                                     }
                                 } else {
                                     bufferedReader.close();
@@ -112,8 +112,8 @@ public final class ExoSoSource extends UnpackingSoSource {
                         continue;
                     }
                 }
-                i2++;
-                i = 0;
+                i3++;
+                i2 = 0;
             }
             unpackingSoSource.setSoSourceAbis((String[]) linkedHashSet.toArray(new String[linkedHashSet.size()]));
             this.mDsos = (FileDso[]) arrayList.toArray(new FileDso[arrayList.size()]);

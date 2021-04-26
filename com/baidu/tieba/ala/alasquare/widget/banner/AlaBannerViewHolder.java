@@ -9,9 +9,9 @@ public abstract class AlaBannerViewHolder<T> extends RecyclerView.ViewHolder {
         b(view);
     }
 
-    public abstract void a(int i, T t);
+    public abstract void a(int i2, T t);
 
     public abstract void b(View view);
 
-    public abstract void c(int i);
+    public abstract void c(int i2);
 }

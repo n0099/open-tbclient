@@ -32,11 +32,11 @@ public class RGStateOverview extends RGState {
         b.a().Q().o();
         b.a().G().b(true);
         MapBound T = b.a().T();
-        MapStatus i = b.a().G().i();
-        if (i != null) {
-            MapStatus.Builder builder = new MapStatus.Builder(i);
+        MapStatus i2 = b.a().G().i();
+        if (i2 != null) {
+            MapStatus.Builder builder = new MapStatus.Builder(i2);
             builder.overlook(0.0f);
-            WinRound winRound = i.winRound;
+            WinRound winRound = i2.winRound;
             builder.targetScreen(new Point((winRound.right + winRound.left) / 2, ((winRound.top + winRound.bottom) / 2) - ((int) 0)));
             if (T != null) {
                 float a2 = b.a().G().a(T, com.baidu.platform.comapi.wnplatform.o.b.b.a().b(), com.baidu.platform.comapi.wnplatform.o.b.b.a().c() - b.a().Q().n());

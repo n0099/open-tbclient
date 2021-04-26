@@ -58,8 +58,8 @@ public class MemoryInfo implements b, Serializable {
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("mFds");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    String optString = optJSONArray.optString(i);
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    String optString = optJSONArray.optString(i2);
                     if (optString != null && !optString.isEmpty()) {
                         this.mFds.add(optString);
                     }
@@ -67,8 +67,8 @@ public class MemoryInfo implements b, Serializable {
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("mJavaThreads");
             if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    JSONObject optJSONObject = optJSONArray2.optJSONObject(i2);
+                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                    JSONObject optJSONObject = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject != null) {
                         ThreadInfo threadInfo = new ThreadInfo();
                         threadInfo.parseJson(optJSONObject);
@@ -78,8 +78,8 @@ public class MemoryInfo implements b, Serializable {
             }
             JSONArray optJSONArray3 = jSONObject.optJSONArray("mNativeThreads");
             if (optJSONArray3 != null && optJSONArray3.length() > 0) {
-                for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                    JSONObject optJSONObject2 = optJSONArray3.optJSONObject(i3);
+                for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
+                    JSONObject optJSONObject2 = optJSONArray3.optJSONObject(i4);
                     if (optJSONObject2 != null) {
                         ThreadInfo threadInfo2 = new ThreadInfo();
                         threadInfo2.parseJson(optJSONObject2);
@@ -91,8 +91,8 @@ public class MemoryInfo implements b, Serializable {
             if (optJSONArray4 == null || optJSONArray4.length() <= 0) {
                 return;
             }
-            for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                JSONObject optJSONObject3 = optJSONArray4.optJSONObject(i4);
+            for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
+                JSONObject optJSONObject3 = optJSONArray4.optJSONObject(i5);
                 if (optJSONObject3 != null) {
                     ThreadInfo threadInfo3 = new ThreadInfo();
                     threadInfo3.parseJson(optJSONObject3);

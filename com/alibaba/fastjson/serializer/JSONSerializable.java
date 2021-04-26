@@ -4,5 +4,5 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 /* loaded from: classes.dex */
 public interface JSONSerializable {
-    void write(JSONSerializer jSONSerializer, Object obj, Type type, int i) throws IOException;
+    void write(JSONSerializer jSONSerializer, Object obj, Type type, int i2) throws IOException;
 }

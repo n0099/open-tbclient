@@ -6,153 +6,153 @@ import java.util.StringTokenizer;
 public abstract class f implements g.a.a.b {
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f68707h = true;
+    public static boolean f67563h = true;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f68708a;
+    public int f67564a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68709b;
+    public String f67565b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68710c;
+    public String f67566c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Class f68711d;
+    public Class f67567d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f68712e;
+    public a f67568e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f68713f;
+    public String f67569f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ClassLoader f68714g = null;
+    public ClassLoader f67570g = null;
 
     /* loaded from: classes7.dex */
     public interface a {
-        void a(int i, String str);
+        void a(int i2, String str);
 
-        String get(int i);
+        String get(int i2);
     }
 
     /* loaded from: classes7.dex */
     public static final class b implements a {
 
         /* renamed from: a  reason: collision with root package name */
-        public SoftReference f68715a;
+        public SoftReference f67571a;
 
         public b() {
             c();
         }
 
         @Override // g.a.b.b.f.a
-        public void a(int i, String str) {
+        public void a(int i2, String str) {
             String[] b2 = b();
             if (b2 == null) {
                 b2 = c();
             }
-            b2[i] = str;
+            b2[i2] = str;
         }
 
         public final String[] b() {
-            return (String[]) this.f68715a.get();
+            return (String[]) this.f67571a.get();
         }
 
         public final String[] c() {
             String[] strArr = new String[3];
-            this.f68715a = new SoftReference(strArr);
+            this.f67571a = new SoftReference(strArr);
             return strArr;
         }
 
         @Override // g.a.b.b.f.a
-        public String get(int i) {
+        public String get(int i2) {
             String[] b2 = b();
             if (b2 == null) {
                 return null;
             }
-            return b2[i];
+            return b2[i2];
         }
     }
 
-    public f(int i, String str, Class cls) {
-        this.f68708a = -1;
-        this.f68708a = i;
-        this.f68709b = str;
-        this.f68711d = cls;
+    public f(int i2, String str, Class cls) {
+        this.f67564a = -1;
+        this.f67564a = i2;
+        this.f67565b = str;
+        this.f67567d = cls;
     }
 
     public abstract String a(h hVar);
 
-    public int b(int i) {
-        return Integer.parseInt(c(i), 16);
+    public int b(int i2) {
+        return Integer.parseInt(c(i2), 16);
     }
 
-    public String c(int i) {
-        int indexOf = this.f68713f.indexOf(45);
-        int i2 = 0;
+    public String c(int i2) {
+        int indexOf = this.f67569f.indexOf(45);
+        int i3 = 0;
         while (true) {
-            int i3 = i - 1;
-            if (i <= 0) {
+            int i4 = i2 - 1;
+            if (i2 <= 0) {
                 break;
             }
-            i2 = indexOf + 1;
-            indexOf = this.f68713f.indexOf(45, i2);
-            i = i3;
+            i3 = indexOf + 1;
+            indexOf = this.f67569f.indexOf(45, i3);
+            i2 = i4;
         }
         if (indexOf == -1) {
-            indexOf = this.f68713f.length();
+            indexOf = this.f67569f.length();
         }
-        return this.f68713f.substring(i2, indexOf);
+        return this.f67569f.substring(i3, indexOf);
     }
 
-    public Class d(int i) {
-        return g.a.b.b.b.b(c(i), h());
+    public Class d(int i2) {
+        return g.a.b.b.b.b(c(i2), h());
     }
 
-    public Class[] e(int i) {
-        StringTokenizer stringTokenizer = new StringTokenizer(c(i), ":");
+    public Class[] e(int i2) {
+        StringTokenizer stringTokenizer = new StringTokenizer(c(i2), ":");
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
-        for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = g.a.b.b.b.b(stringTokenizer.nextToken(), h());
+        for (int i3 = 0; i3 < countTokens; i3++) {
+            clsArr[i3] = g.a.b.b.b.b(stringTokenizer.nextToken(), h());
         }
         return clsArr;
     }
 
     public Class f() {
-        if (this.f68711d == null) {
-            this.f68711d = d(2);
+        if (this.f67567d == null) {
+            this.f67567d = d(2);
         }
-        return this.f68711d;
+        return this.f67567d;
     }
 
     public String g() {
-        if (this.f68710c == null) {
-            this.f68710c = f().getName();
+        if (this.f67566c == null) {
+            this.f67566c = f().getName();
         }
-        return this.f68710c;
+        return this.f67566c;
     }
 
     public final ClassLoader h() {
-        if (this.f68714g == null) {
-            this.f68714g = getClass().getClassLoader();
+        if (this.f67570g == null) {
+            this.f67570g = getClass().getClassLoader();
         }
-        return this.f68714g;
+        return this.f67570g;
     }
 
     public int i() {
-        if (this.f68708a == -1) {
-            this.f68708a = b(0);
+        if (this.f67564a == -1) {
+            this.f67564a = b(0);
         }
-        return this.f68708a;
+        return this.f67564a;
     }
 
     public String j() {
-        if (this.f68709b == null) {
-            this.f68709b = c(1);
+        if (this.f67565b == null) {
+            this.f67565b = c(1);
         }
-        return this.f68709b;
+        return this.f67565b;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x001e  */
@@ -162,21 +162,21 @@ public abstract class f implements g.a.a.b {
     */
     public String k(h hVar) {
         String str;
-        if (f68707h) {
-            a aVar = this.f68712e;
+        if (f67563h) {
+            a aVar = this.f67568e;
             if (aVar == null) {
                 try {
-                    this.f68712e = new b();
+                    this.f67568e = new b();
                 } catch (Throwable unused) {
-                    f68707h = false;
+                    f67563h = false;
                 }
             } else {
-                str = aVar.get(hVar.f68725f);
+                str = aVar.get(hVar.f67582f);
                 if (str == null) {
                     str = a(hVar);
                 }
-                if (f68707h) {
-                    this.f68712e.a(hVar.f68725f, str);
+                if (f67563h) {
+                    this.f67568e.a(hVar.f67582f, str);
                 }
                 return str;
             }
@@ -184,12 +184,12 @@ public abstract class f implements g.a.a.b {
         str = null;
         if (str == null) {
         }
-        if (f68707h) {
+        if (f67563h) {
         }
         return str;
     }
 
     public final String toString() {
-        return k(h.f68719h);
+        return k(h.f67575h);
     }
 }

@@ -41,13 +41,13 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$ChunkInfo, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6437e;
+        public int f6625e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6438f;
+        public long f6626f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f6439g;
+        public long f6627g;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -93,24 +93,24 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         /* renamed from: n */
         public RpcMetaPb$ChunkInfo buildPartial() {
             RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo = new RpcMetaPb$ChunkInfo(this);
-            int i = this.f6437e;
-            int i2 = (i & 1) != 1 ? 0 : 1;
-            rpcMetaPb$ChunkInfo.streamId = this.f6438f;
-            if ((i & 2) == 2) {
-                i2 |= 2;
+            int i2 = this.f6625e;
+            int i3 = (i2 & 1) != 1 ? 0 : 1;
+            rpcMetaPb$ChunkInfo.streamId = this.f6626f;
+            if ((i2 & 2) == 2) {
+                i3 |= 2;
             }
-            rpcMetaPb$ChunkInfo.chunkId = this.f6439g;
-            rpcMetaPb$ChunkInfo.bitField0 = i2;
+            rpcMetaPb$ChunkInfo.chunkId = this.f6627g;
+            rpcMetaPb$ChunkInfo.bitField0 = i3;
             return rpcMetaPb$ChunkInfo;
         }
 
         public b o() {
             super.clear();
-            this.f6438f = 0L;
-            int i = this.f6437e & (-2);
-            this.f6437e = i;
-            this.f6439g = 0L;
-            this.f6437e = i & (-3);
+            this.f6626f = 0L;
+            int i2 = this.f6625e & (-2);
+            this.f6625e = i2;
+            this.f6627g = 0L;
+            this.f6625e = i2 & (-3);
             return this;
         }
 
@@ -131,11 +131,11 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         }
 
         public boolean s() {
-            return (this.f6437e & 2) == 2;
+            return (this.f6625e & 2) == 2;
         }
 
         public boolean t() {
-            return (this.f6437e & 1) == 1;
+            return (this.f6625e & 1) == 1;
         }
 
         public b u(RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo) {
@@ -186,14 +186,14 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         }
 
         public b w(long j) {
-            this.f6437e |= 2;
-            this.f6439g = j;
+            this.f6625e |= 2;
+            this.f6627g = j;
             return this;
         }
 
         public b x(long j) {
-            this.f6437e |= 1;
-            this.f6438f = j;
+            this.f6625e |= 1;
+            this.f6626f = j;
             return this;
         }
 
@@ -256,9 +256,9 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
 
     @Override // com.google.protobuf.MessageLite
     public int getSerializedSize() {
-        int i = this.memoizedSerializedSize;
-        if (i != -1) {
-            return i;
+        int i2 = this.memoizedSerializedSize;
+        if (i2 != -1) {
+            return i2;
         }
         int computeInt64Size = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.streamId) : 0;
         if ((this.bitField0 & 2) == 2) {

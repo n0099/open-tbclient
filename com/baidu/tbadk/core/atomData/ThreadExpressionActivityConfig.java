@@ -8,9 +8,9 @@ public class ThreadExpressionActivityConfig extends IntentConfig {
     public static final String IS_HOST = "is_host";
     public static final String IS_LIKED = "is_liked";
 
-    public ThreadExpressionActivityConfig(Context context, String str, boolean z, int i, boolean z2, String str2, String str3, long j) {
+    public ThreadExpressionActivityConfig(Context context, String str, boolean z, int i2, boolean z2, String str2, String str3, long j) {
         super(context);
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
         getIntent().putExtra("thread_id", str);
         getIntent().putExtra(IS_HOST, z);

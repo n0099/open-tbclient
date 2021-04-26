@@ -9,20 +9,20 @@ public interface a extends IInterface {
 
     /* renamed from: com.baidu.sofire.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static abstract class AbstractBinderC0161a extends Binder implements a {
+    public static abstract class AbstractBinderC0156a extends Binder implements a {
 
         /* renamed from: com.baidu.sofire.j.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0162a implements a {
+        public static class C0157a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static a f11486a;
+            public static a f11311a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f11487b;
+            public IBinder f11312b;
 
-            public C0162a(IBinder iBinder) {
-                this.f11487b = iBinder;
+            public C0157a(IBinder iBinder) {
+                this.f11312b = iBinder;
             }
 
             @Override // com.baidu.sofire.j.a
@@ -34,11 +34,11 @@ public interface a extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeString(str3);
-                    if (this.f11487b.transact(1, obtain, obtain2, 0) || AbstractBinderC0161a.a() == null) {
+                    if (this.f11312b.transact(1, obtain, obtain2, 0) || AbstractBinderC0156a.a() == null) {
                         obtain2.readException();
                         return obtain2.readString();
                     }
-                    return AbstractBinderC0161a.a().a(str, str2, str3);
+                    return AbstractBinderC0156a.a().a(str, str2, str3);
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -47,12 +47,12 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                return this.f11487b;
+                return this.f11312b;
             }
         }
 
         public static a a() {
-            return C0162a.f11486a;
+            return C0157a.f11311a;
         }
 
         public static a a(IBinder iBinder) {
@@ -60,14 +60,14 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0162a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0157a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
-            if (i != 1) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) {
+            if (i2 != 1) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString("com.heytap.openid.IOpenID");
                 return true;

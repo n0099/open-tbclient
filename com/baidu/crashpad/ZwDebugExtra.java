@@ -10,9 +10,9 @@ public class ZwDebugExtra {
         ZwCrashpad.clearCrashKey(str);
     }
 
-    public static void crashIntentionally(int i) {
+    public static void crashIntentionally(int i2) {
         if (debugModel) {
-            ZwCrashpad.crashIntentionally(i);
+            ZwCrashpad.crashIntentionally(i2);
         }
     }
 

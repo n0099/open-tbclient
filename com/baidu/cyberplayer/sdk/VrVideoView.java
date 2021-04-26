@@ -12,11 +12,11 @@ import android.widget.FrameLayout;
 import com.baidu.cyberplayer.sdk.CyberVRRenderProvider;
 import com.baidu.cyberplayer.sdk.b.a;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class VrVideoView extends com.baidu.cyberplayer.sdk.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public CyberVRRenderProvider f4877a;
+    public CyberVRRenderProvider f4997a;
 
     public VrVideoView(Context context) {
         super(context);
@@ -28,8 +28,8 @@ public class VrVideoView extends com.baidu.cyberplayer.sdk.b.a {
         initVR();
     }
 
-    public VrVideoView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public VrVideoView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a(context);
         initVR();
     }
@@ -38,17 +38,17 @@ public class VrVideoView extends com.baidu.cyberplayer.sdk.b.a {
         return ((ActivityManager) context.getSystemService("activity")).getDeviceConfigurationInfo().reqGlEsVersion >= 131072;
     }
 
-    public CyberVRRenderProvider a(int i, int i2, int i3) {
+    public CyberVRRenderProvider a(int i2, int i3, int i4) {
         CyberVRRenderProvider cyberVRRenderProvider = null;
         try {
-            cyberVRRenderProvider = d.a(this.f4894b);
-            cyberVRRenderProvider.displayMode(i2).interactiveMode(i).projectionMode(i3).asVideo(new CyberVRRenderProvider.IOnSurfaceReadyCallback() { // from class: com.baidu.cyberplayer.sdk.VrVideoView.2
+            cyberVRRenderProvider = d.a(this.f5014b);
+            cyberVRRenderProvider.displayMode(i3).interactiveMode(i2).projectionMode(i4).asVideo(new CyberVRRenderProvider.IOnSurfaceReadyCallback() { // from class: com.baidu.cyberplayer.sdk.VrVideoView.2
                 @Override // com.baidu.cyberplayer.sdk.CyberVRRenderProvider.IOnSurfaceReadyCallback
                 public void onSurfaceReady(Surface surface) {
                     VrVideoView.this.a(1, "surface ready");
-                    VrVideoView.this.f4895c = surface;
-                    if (VrVideoView.this.f4900h != null) {
-                        VrVideoView.this.f4900h.setSurface(surface);
+                    VrVideoView.this.f5015c = surface;
+                    if (VrVideoView.this.f5020h != null) {
+                        VrVideoView.this.f5020h.setSurface(surface);
                     } else {
                         VrVideoView.this.e();
                     }
@@ -59,9 +59,9 @@ public class VrVideoView extends com.baidu.cyberplayer.sdk.b.a {
                 }
             }).ifNotSupport(new CyberVRRenderProvider.INotSupportCallback() { // from class: com.baidu.cyberplayer.sdk.VrVideoView.1
                 @Override // com.baidu.cyberplayer.sdk.CyberVRRenderProvider.INotSupportCallback
-                public void onNotSupport(int i4) {
+                public void onNotSupport(int i5) {
                     if (VrVideoView.this.w != null) {
-                        VrVideoView.this.w.onInfo(1, i4, null);
+                        VrVideoView.this.w.onInfo(1, i5, null);
                     }
                 }
             }).pinchEnabled(false);
@@ -73,86 +73,86 @@ public class VrVideoView extends com.baidu.cyberplayer.sdk.b.a {
     }
 
     public void a() {
-        CyberVRRenderProvider cyberVRRenderProvider = this.f4877a;
+        CyberVRRenderProvider cyberVRRenderProvider = this.f4997a;
         if (cyberVRRenderProvider == null) {
             CyberLog.e("VrVideoView", "initVRlLib failed, because BDVRRenderDelegate object is null");
             return;
         }
-        int i = this.O;
-        if (i == 1) {
-            cyberVRRenderProvider.init((SurfaceView) this.f4896d);
-        } else if (i == 2) {
-            cyberVRRenderProvider.init((TextureView) this.f4896d);
+        int i2 = this.O;
+        if (i2 == 1) {
+            cyberVRRenderProvider.init((SurfaceView) this.f5016d);
+        } else if (i2 == 2) {
+            cyberVRRenderProvider.init((TextureView) this.f5016d);
         } else {
             a(4, "GLView invalid type");
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.b.a
-    public void a(int i, int i2, int i3, int i4) {
-        if (this.f4877a == null) {
-            super.a(i, i2, i3, i4);
+    public void a(int i2, int i3, int i4, int i5) {
+        if (this.f4997a == null) {
+            super.a(i2, i3, i4, i5);
             return;
         }
-        if (i4 > 0 && i3 > 0) {
-            if (i3 > i4) {
-                i = (i * i3) / i4;
+        if (i5 > 0 && i4 > 0) {
+            if (i4 > i5) {
+                i2 = (i2 * i4) / i5;
             } else {
-                i2 = (i2 * i4) / i3;
+                i3 = (i3 * i5) / i4;
             }
         }
-        this.f4877a.onTextureResize(i, i2);
-        a(1, String.format("onTextureResize,w=%d,h=%d", Integer.valueOf(i), Integer.valueOf(i2)));
-        this.Q = i;
-        this.R = i2;
+        this.f4997a.onTextureResize(i2, i3);
+        a(1, String.format("onTextureResize,w=%d,h=%d", Integer.valueOf(i2), Integer.valueOf(i3)));
+        this.Q = i2;
+        this.R = i3;
     }
 
     @Override // com.baidu.cyberplayer.sdk.b.a
-    public boolean a(int i) {
-        if (super.a(i)) {
+    public boolean a(int i2) {
+        if (super.a(i2)) {
             return true;
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
-        if (i == 1) {
+        if (i2 == 1) {
             View gLSurfaceView = new GLSurfaceView(getContext());
-            this.f4896d = gLSurfaceView;
+            this.f5016d = gLSurfaceView;
             addView(gLSurfaceView, 0, layoutParams);
             return true;
         }
         return false;
     }
 
-    public boolean a(int i, int i2, int i3, int i4, int i5) {
-        a(1, String.format("playerType:" + i + " interactiveMode:" + i2 + " displayMode:" + i3 + " projectionMode:" + i4 + " viewType:" + i5, new Object[0]));
-        this.f4898f = false;
-        this.i = i;
-        this.L = i2;
-        this.M = i3;
-        this.N = i4;
-        this.O = i5;
-        CyberVRRenderProvider a2 = a(i2, i3, i4);
-        this.f4877a = a2;
+    public boolean a(int i2, int i3, int i4, int i5, int i6) {
+        a(1, String.format("playerType:" + i2 + " interactiveMode:" + i3 + " displayMode:" + i4 + " projectionMode:" + i5 + " viewType:" + i6, new Object[0]));
+        this.f5018f = false;
+        this.f5021i = i2;
+        this.L = i3;
+        this.M = i4;
+        this.N = i5;
+        this.O = i6;
+        CyberVRRenderProvider a2 = a(i3, i4, i5);
+        this.f4997a = a2;
         if (a2 == null) {
             CyberLog.e("VrVideoView", "initVR failed. Please check the log.");
             return false;
         }
-        b(i5);
+        b(i6);
         a();
-        return b(this.f4894b);
+        return b(this.f5014b);
     }
 
     @Override // com.baidu.cyberplayer.sdk.b.a
     public boolean b() {
-        return this.f4898f || this.f4877a != null;
+        return this.f5018f || this.f4997a != null;
     }
 
     @Override // com.baidu.cyberplayer.sdk.b.a
     public void destroyRender() {
-        CyberVRRenderProvider cyberVRRenderProvider = this.f4877a;
+        CyberVRRenderProvider cyberVRRenderProvider = this.f4997a;
         if (cyberVRRenderProvider != null) {
             cyberVRRenderProvider.onDestroy();
-            this.f4877a = null;
+            this.f4997a = null;
             this.S = a.i.PAUSED;
         }
     }
@@ -162,8 +162,8 @@ public class VrVideoView extends com.baidu.cyberplayer.sdk.b.a {
     }
 
     public boolean initVR() {
-        if (this.i == 0) {
-            this.i = 1;
+        if (this.f5021i == 0) {
+            this.f5021i = 1;
         }
         if (this.L == 0) {
             this.L = 5;
@@ -177,12 +177,12 @@ public class VrVideoView extends com.baidu.cyberplayer.sdk.b.a {
         if (this.O == 0) {
             this.O = 1;
         }
-        a(1, String.format("playerType:" + this.i + " interactiveMode:" + this.L + " displayMode:" + this.M + " sourceType:" + this.P + " viewType:" + this.O, new Object[0]));
-        return a(this.i, this.L, this.M, this.N, this.O);
+        a(1, String.format("playerType:" + this.f5021i + " interactiveMode:" + this.L + " displayMode:" + this.M + " sourceType:" + this.P + " viewType:" + this.O, new Object[0]));
+        return a(this.f5021i, this.L, this.M, this.N, this.O);
     }
 
     public void onOrientationChanged() {
-        CyberVRRenderProvider cyberVRRenderProvider = this.f4877a;
+        CyberVRRenderProvider cyberVRRenderProvider = this.f4997a;
         if (cyberVRRenderProvider != null) {
             cyberVRRenderProvider.onOrientationChanged();
         }
@@ -190,7 +190,7 @@ public class VrVideoView extends com.baidu.cyberplayer.sdk.b.a {
 
     @Override // com.baidu.cyberplayer.sdk.b.a
     public void pauseRender() {
-        CyberVRRenderProvider cyberVRRenderProvider = this.f4877a;
+        CyberVRRenderProvider cyberVRRenderProvider = this.f4997a;
         if (cyberVRRenderProvider == null || this.S != a.i.RESUMED) {
             return;
         }
@@ -199,7 +199,7 @@ public class VrVideoView extends com.baidu.cyberplayer.sdk.b.a {
     }
 
     public void pinchEnabled(boolean z) {
-        CyberVRRenderProvider cyberVRRenderProvider = this.f4877a;
+        CyberVRRenderProvider cyberVRRenderProvider = this.f4997a;
         if (cyberVRRenderProvider != null) {
             cyberVRRenderProvider.pinchEnabled(z);
         }
@@ -207,7 +207,7 @@ public class VrVideoView extends com.baidu.cyberplayer.sdk.b.a {
 
     @Override // com.baidu.cyberplayer.sdk.b.a
     public void resumeRender() {
-        CyberVRRenderProvider cyberVRRenderProvider = this.f4877a;
+        CyberVRRenderProvider cyberVRRenderProvider = this.f4997a;
         if (cyberVRRenderProvider == null || this.S != a.i.PAUSED) {
             return;
         }
@@ -215,53 +215,53 @@ public class VrVideoView extends com.baidu.cyberplayer.sdk.b.a {
         this.S = a.i.RESUMED;
     }
 
-    public void setDisplayMode(int i) {
-        this.M = i;
-        switchDisplayMode(i);
+    public void setDisplayMode(int i2) {
+        this.M = i2;
+        switchDisplayMode(i2);
     }
 
     public void setFov(float f2, float f3, float f4) {
-        CyberVRRenderProvider cyberVRRenderProvider = this.f4877a;
+        CyberVRRenderProvider cyberVRRenderProvider = this.f4997a;
         if (cyberVRRenderProvider != null) {
             cyberVRRenderProvider.setFov(f2, f3, f4);
         }
     }
 
-    public void setInteractiveMode(int i) {
-        this.L = i;
-        switchInteractiveMode(i);
+    public void setInteractiveMode(int i2) {
+        this.L = i2;
+        switchInteractiveMode(i2);
     }
 
-    public void setProjectionMode(int i) {
-        this.N = i;
-        switchProjectionMode(i);
+    public void setProjectionMode(int i2) {
+        this.N = i2;
+        switchProjectionMode(i2);
     }
 
-    public void setSourceType(int i) {
-        this.P = i;
+    public void setSourceType(int i2) {
+        this.P = i2;
     }
 
-    public void switchDisplayMode(int i) {
-        CyberVRRenderProvider cyberVRRenderProvider = this.f4877a;
+    public void switchDisplayMode(int i2) {
+        CyberVRRenderProvider cyberVRRenderProvider = this.f4997a;
         if (cyberVRRenderProvider != null) {
-            this.M = i;
-            cyberVRRenderProvider.switchDisplayMode(i);
+            this.M = i2;
+            cyberVRRenderProvider.switchDisplayMode(i2);
         }
     }
 
-    public void switchInteractiveMode(int i) {
-        CyberVRRenderProvider cyberVRRenderProvider = this.f4877a;
+    public void switchInteractiveMode(int i2) {
+        CyberVRRenderProvider cyberVRRenderProvider = this.f4997a;
         if (cyberVRRenderProvider != null) {
-            this.L = i;
-            cyberVRRenderProvider.switchInteractiveMode(i);
+            this.L = i2;
+            cyberVRRenderProvider.switchInteractiveMode(i2);
         }
     }
 
-    public void switchProjectionMode(int i) {
-        CyberVRRenderProvider cyberVRRenderProvider = this.f4877a;
+    public void switchProjectionMode(int i2) {
+        CyberVRRenderProvider cyberVRRenderProvider = this.f4997a;
         if (cyberVRRenderProvider != null) {
-            this.N = i;
-            cyberVRRenderProvider.switchProjectionMode(i);
+            this.N = i2;
+            cyberVRRenderProvider.switchProjectionMode(i2);
         }
     }
 }

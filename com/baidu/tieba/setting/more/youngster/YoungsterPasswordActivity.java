@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.youngster.YoungsterPasswordView;
 import com.baidu.tieba.R;
-import d.b.c.e.m.e;
-/* loaded from: classes4.dex */
+import d.a.c.e.m.e;
+/* loaded from: classes5.dex */
 public class YoungsterPasswordActivity extends BaseActivity {
     public Runnable finishWithResult = new a();
     public View mBack;
@@ -20,7 +20,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
     public String mPassword;
     public YoungsterPasswordView mYoungsterPasswordView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -31,29 +31,29 @@ public class YoungsterPasswordActivity extends BaseActivity {
         }
     }
 
-    private void initByType(int i) {
-        if (i == 1 || i == 2) {
+    private void initByType(int i2) {
+        if (i2 == 1 || i2 == 2) {
             this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_settings_open_title));
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_settings_close_title));
-        } else if (i == 4 || i == 5) {
+        } else if (i2 == 4 || i2 == 5) {
             this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_setting));
         }
-        this.mYoungsterPasswordView.j(i);
+        this.mYoungsterPasswordView.i(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.mYoungsterPasswordView.k();
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        this.mYoungsterPasswordView.j();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.mBack) {
-            this.mYoungsterPasswordView.h();
+            this.mYoungsterPasswordView.g();
             e.a().postDelayed(this.finishWithResult, 200L);
         }
     }
@@ -95,7 +95,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
         super.onResume();
         YoungsterPasswordView youngsterPasswordView = this.mYoungsterPasswordView;
         if (youngsterPasswordView != null) {
-            youngsterPasswordView.l();
+            youngsterPasswordView.k();
         }
     }
 }

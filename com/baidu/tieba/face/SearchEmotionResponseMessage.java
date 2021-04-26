@@ -2,7 +2,7 @@ package com.baidu.tieba.face;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
-import d.b.j0.k0.c.a;
+import d.a.j0.k0.c.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -12,8 +12,8 @@ import org.json.JSONObject;
 public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
     public a mData;
 
-    public SearchEmotionResponseMessage(int i) {
-        super(i);
+    public SearchEmotionResponseMessage(int i2) {
+        super(i2);
     }
 
     private List<EmotionImageData> parseImageData(JSONArray jSONArray) {
@@ -21,9 +21,9 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < jSONArray.length(); i++) {
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             try {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                JSONObject jSONObject = jSONArray.getJSONObject(i2);
                 EmotionImageData emotionImageData = new EmotionImageData();
                 emotionImageData.setPicUrl(jSONObject.optString("pic_url"));
                 emotionImageData.setThumbUrl(jSONObject.optString("thumbnail"));
@@ -39,7 +39,7 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {

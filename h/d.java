@@ -1,11 +1,10 @@
 package h;
 
-import h.o.a.m;
+import h.o.a.l;
+import h.o.a.o;
 import h.o.a.p;
-import h.o.a.q;
+import h.o.a.s;
 import h.o.a.t;
-import h.o.a.u;
-import h.o.a.v;
 import java.util.concurrent.TimeUnit;
 import rx.exceptions.OnErrorFailedException;
 import rx.functions.Actions;
@@ -22,7 +21,7 @@ import rx.schedulers.Schedulers;
 public class d<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final a<T> f68833e;
+    public final a<T> f67696e;
 
     /* loaded from: classes7.dex */
     public interface a<T> extends h.n.b<j<? super T>> {
@@ -33,18 +32,18 @@ public class d<T> {
     }
 
     public d(a<T> aVar) {
-        this.f68833e = aVar;
+        this.f67696e = aVar;
     }
 
-    public static <T> k C(j<? super T> jVar, d<T> dVar) {
+    public static <T> k A(j<? super T> jVar, d<T> dVar) {
         if (jVar != null) {
-            if (dVar.f68833e != null) {
+            if (dVar.f67696e != null) {
                 jVar.onStart();
                 if (!(jVar instanceof h.q.c)) {
                     jVar = new h.q.c(jVar);
                 }
                 try {
-                    h.r.c.p(dVar, dVar.f68833e).call(jVar);
+                    h.r.c.p(dVar, dVar.f67696e).call(jVar);
                     return h.r.c.o(jVar);
                 } catch (Throwable th) {
                     h.m.a.e(th);
@@ -68,99 +67,81 @@ public class d<T> {
         throw new IllegalArgumentException("subscriber can not be null");
     }
 
-    public static d<Long> J(long j, TimeUnit timeUnit) {
-        return K(j, timeUnit, Schedulers.computation());
+    public static d<Long> G(long j, TimeUnit timeUnit) {
+        return H(j, timeUnit, Schedulers.computation());
     }
 
-    public static d<Long> K(long j, TimeUnit timeUnit, g gVar) {
-        return c(new h.o.a.k(j, timeUnit, gVar));
+    public static d<Long> H(long j, TimeUnit timeUnit, g gVar) {
+        return b(new h.o.a.j(j, timeUnit, gVar));
     }
 
-    public static <T> d<T> c(a<T> aVar) {
+    public static <T> d<T> b(a<T> aVar) {
         return new d<>(h.r.c.h(aVar));
     }
 
-    public static <T> d<T> f() {
+    public static <T> d<T> e() {
         return EmptyObservableHolder.instance();
     }
 
-    public static <T> d<T> i(Iterable<? extends T> iterable) {
-        return c(new OnSubscribeFromIterable(iterable));
+    public static <T> d<T> h(Iterable<? extends T> iterable) {
+        return b(new OnSubscribeFromIterable(iterable));
     }
 
-    public static <T> d<T> j(T t) {
-        return ScalarSynchronousObservable.M(t);
+    public static <T> d<T> i(T t) {
+        return ScalarSynchronousObservable.J(t);
     }
 
-    public static <T> d<T> m(Iterable<? extends d<? extends T>> iterable) {
-        return n(i(iterable));
+    public static <T> d<T> l(Iterable<? extends d<? extends T>> iterable) {
+        return m(h(iterable));
     }
 
-    public static <T> d<T> n(d<? extends d<? extends T>> dVar) {
+    public static <T> d<T> m(d<? extends d<? extends T>> dVar) {
         if (dVar.getClass() == ScalarSynchronousObservable.class) {
-            return ((ScalarSynchronousObservable) dVar).P(UtilityFunctions.b());
+            return ((ScalarSynchronousObservable) dVar).M(UtilityFunctions.b());
         }
-        return (d<T>) dVar.k(OperatorMerge.b(false));
+        return (d<T>) dVar.j(OperatorMerge.b(false));
     }
 
-    public static <T> d<T> o() {
+    public static <T> d<T> n() {
         return NeverObservableHolder.instance();
     }
 
-    public final k A(e<? super T> eVar) {
-        if (eVar instanceof j) {
-            return B((j) eVar);
-        }
-        if (eVar != null) {
-            return B(new h.o.d.d(eVar));
-        }
-        throw new NullPointerException("observer is null");
-    }
-
-    public final k B(j<? super T> jVar) {
-        return C(jVar, this);
-    }
-
-    public final k D(h.n.b<? super T> bVar) {
+    public final k B(h.n.b<? super T> bVar) {
         if (bVar != null) {
-            return B(new h.o.d.b(bVar, InternalObservableUtils.ERROR_NOT_IMPLEMENTED, Actions.a()));
+            return z(new h.o.d.b(bVar, InternalObservableUtils.ERROR_NOT_IMPLEMENTED, Actions.a()));
         }
         throw new IllegalArgumentException("onNext can not be null");
     }
 
-    public final k E(h.n.b<? super T> bVar, h.n.b<Throwable> bVar2) {
+    public final k C(h.n.b<? super T> bVar, h.n.b<Throwable> bVar2) {
         if (bVar != null) {
             if (bVar2 != null) {
-                return B(new h.o.d.b(bVar, bVar2, Actions.a()));
+                return z(new h.o.d.b(bVar, bVar2, Actions.a()));
             }
             throw new IllegalArgumentException("onError can not be null");
         }
         throw new IllegalArgumentException("onNext can not be null");
     }
 
-    public final d<T> F(g gVar) {
+    public final d<T> D(g gVar) {
         if (this instanceof ScalarSynchronousObservable) {
-            return ((ScalarSynchronousObservable) this).Q(gVar);
+            return ((ScalarSynchronousObservable) this).N(gVar);
         }
-        return c(new t(this, gVar));
+        return b(new s(this, gVar));
     }
 
-    public final d<T> G(h.n.f<? super T, Boolean> fVar) {
-        return (d<T>) k(new u(fVar));
+    public final d<T> E(long j, TimeUnit timeUnit) {
+        return F(j, timeUnit, null, Schedulers.computation());
     }
 
-    public final d<T> H(long j, TimeUnit timeUnit) {
-        return I(j, timeUnit, null, Schedulers.computation());
+    public final d<T> F(long j, TimeUnit timeUnit, d<? extends T> dVar, g gVar) {
+        return (d<T>) j(new t(j, timeUnit, dVar, gVar));
     }
 
-    public final d<T> I(long j, TimeUnit timeUnit, d<? extends T> dVar, g gVar) {
-        return (d<T>) k(new v(j, timeUnit, dVar, gVar));
-    }
-
-    public final k L(j<? super T> jVar) {
+    public final k I(j<? super T> jVar) {
         try {
             jVar.onStart();
-            h.r.c.p(this, this.f68833e).call(jVar);
+            h.r.c.p(this, this.f67696e).call(jVar);
             return h.r.c.o(jVar);
         } catch (Throwable th) {
             h.m.a.e(th);
@@ -177,92 +158,89 @@ public class d<T> {
     }
 
     public final <R> d<R> a(Class<R> cls) {
-        return k(new m(cls));
+        return j(new l(cls));
     }
 
-    public final <R> d<R> b(h.n.f<? super T, ? extends d<? extends R>> fVar) {
-        if (this instanceof ScalarSynchronousObservable) {
-            return ((ScalarSynchronousObservable) this).P(fVar);
-        }
-        return c(new h.o.a.e(this, fVar, 2, 0));
+    public final d<T> c(h.n.b<? super Throwable> bVar) {
+        return b(new h.o.a.e(this, new h.o.d.a(Actions.a(), bVar, Actions.a())));
     }
 
-    public final d<T> d(h.n.b<? super Throwable> bVar) {
-        return c(new h.o.a.f(this, new h.o.d.a(Actions.a(), bVar, Actions.a())));
+    public final d<T> d(h.n.b<? super T> bVar) {
+        return b(new h.o.a.e(this, new h.o.d.a(bVar, Actions.a(), Actions.a())));
     }
 
-    public final d<T> e(h.n.b<? super T> bVar) {
-        return c(new h.o.a.f(this, new h.o.d.a(bVar, Actions.a(), Actions.a())));
-    }
-
-    public final d<T> g(h.n.f<? super T, Boolean> fVar) {
-        return c(new h.o.a.g(this, fVar));
+    public final d<T> f(h.n.f<? super T, Boolean> fVar) {
+        return b(new h.o.a.f(this, fVar));
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: h.n.f<? super T, ? extends h.d<? extends R>> */
     /* JADX WARN: Multi-variable type inference failed */
-    public final <R> d<R> h(h.n.f<? super T, ? extends d<? extends R>> fVar) {
+    public final <R> d<R> g(h.n.f<? super T, ? extends d<? extends R>> fVar) {
         if (getClass() == ScalarSynchronousObservable.class) {
-            return ((ScalarSynchronousObservable) this).P(fVar);
+            return ((ScalarSynchronousObservable) this).M(fVar);
         }
-        return n(l(fVar));
+        return m(k(fVar));
     }
 
-    public final <R> d<R> k(b<? extends R, ? super T> bVar) {
-        return c(new h.o.a.h(this.f68833e, bVar));
+    public final <R> d<R> j(b<? extends R, ? super T> bVar) {
+        return b(new h.o.a.g(this.f67696e, bVar));
     }
 
-    public final <R> d<R> l(h.n.f<? super T, ? extends R> fVar) {
-        return c(new h.o.a.i(this, fVar));
+    public final <R> d<R> k(h.n.f<? super T, ? extends R> fVar) {
+        return b(new h.o.a.h(this, fVar));
     }
 
-    public final d<T> p(g gVar) {
-        return q(gVar, h.o.d.g.f69092g);
+    public final d<T> o(g gVar) {
+        return p(gVar, h.o.d.f.f67950g);
     }
 
-    public final d<T> q(g gVar, int i) {
-        return r(gVar, false, i);
+    public final d<T> p(g gVar, int i2) {
+        return q(gVar, false, i2);
     }
 
-    public final d<T> r(g gVar, boolean z, int i) {
+    public final d<T> q(g gVar, boolean z, int i2) {
         if (this instanceof ScalarSynchronousObservable) {
-            return ((ScalarSynchronousObservable) this).Q(gVar);
+            return ((ScalarSynchronousObservable) this).N(gVar);
         }
-        return (d<T>) k(new p(gVar, z, i));
+        return (d<T>) j(new o(gVar, z, i2));
     }
 
-    public final <R> d<R> s(Class<R> cls) {
-        return g(InternalObservableUtils.isInstanceOf(cls)).a(cls);
+    public final <R> d<R> r(Class<R> cls) {
+        return f(InternalObservableUtils.isInstanceOf(cls)).a(cls);
     }
 
-    public final d<T> t() {
-        return (d<T>) k(q.b());
+    public final d<T> s() {
+        return (d<T>) j(p.b());
     }
 
-    public final h.p.a<T> u() {
-        return OperatorReplay.N(this);
+    public final h.p.a<T> t() {
+        return OperatorReplay.K(this);
     }
 
-    public final h.p.a<T> v(int i) {
-        return OperatorReplay.O(this, i);
+    public final h.p.a<T> u(int i2) {
+        return OperatorReplay.L(this, i2);
     }
 
-    public final h.p.a<T> w(int i, long j, TimeUnit timeUnit, g gVar) {
-        if (i >= 0) {
-            return OperatorReplay.Q(this, j, timeUnit, gVar, i);
+    public final h.p.a<T> v(int i2, long j, TimeUnit timeUnit, g gVar) {
+        if (i2 >= 0) {
+            return OperatorReplay.N(this, j, timeUnit, gVar, i2);
         }
         throw new IllegalArgumentException("bufferSize < 0");
     }
 
-    public final h.p.a<T> x(long j, TimeUnit timeUnit, g gVar) {
-        return OperatorReplay.P(this, j, timeUnit, gVar);
+    public final h.p.a<T> w(long j, TimeUnit timeUnit, g gVar) {
+        return OperatorReplay.M(this, j, timeUnit, gVar);
     }
 
-    public final d<T> y() {
-        return h.o.a.j.b(this);
+    public final d<T> x() {
+        return h.o.a.i.b(this);
     }
 
-    public final k z() {
-        return B(new h.o.d.b(Actions.a(), InternalObservableUtils.ERROR_NOT_IMPLEMENTED, Actions.a()));
+    public final k y() {
+        return z(new h.o.d.b(Actions.a(), InternalObservableUtils.ERROR_NOT_IMPLEMENTED, Actions.a()));
+    }
+
+    public final k z(j<? super T> jVar) {
+        return A(jVar, this);
     }
 }

@@ -19,27 +19,27 @@ import java.util.jar.JarFile;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile DexClassLoader f8838a = null;
+    public static volatile DexClassLoader f9153a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f8839b = false;
+    public static volatile boolean f9154b = false;
 
     /* loaded from: classes2.dex */
     public static class a extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f8840a;
+        public Context f9155a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.baidu.mobstat.a f8841b;
+        public com.baidu.mobstat.a f9156b;
 
         public a(Context context, com.baidu.mobstat.a aVar) {
-            this.f8840a = context;
-            this.f8841b = aVar;
+            this.f9155a = context;
+            this.f9156b = aVar;
         }
 
         private void a(Context context) {
-            this.f8841b.a(context, System.currentTimeMillis());
+            this.f9156b.a(context, System.currentTimeMillis());
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:9:0x003d, code lost:
@@ -81,22 +81,22 @@ public class x {
                 } catch (Exception unused) {
                 }
             }
-            return aa.f8448c + "?" + sb.toString();
+            return aa.f8750c + "?" + sb.toString();
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             try {
-                int i = aa.f8446a ? 3 : 10;
+                int i2 = aa.f8748a ? 3 : 10;
                 bb c2 = bb.c();
-                c2.a("start version check in " + i + "s");
-                Thread.sleep((long) (i * 1000));
+                c2.a("start version check in " + i2 + "s");
+                Thread.sleep((long) (i2 * 1000));
                 a();
-                a(this.f8840a);
+                a(this.f9155a);
             } catch (Exception e2) {
                 bb.c().a(e2);
             }
-            boolean unused = x.f8839b = false;
+            boolean unused = x.f9154b = false;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:28:0x00ef A[Catch: all -> 0x0109, TryCatch #5 {, blocks: (B:3:0x0001, B:32:0x00fb, B:4:0x0030, B:12:0x00cb, B:24:0x00df, B:25:0x00e2, B:26:0x00e3, B:28:0x00ef, B:29:0x00f2, B:31:0x00f8), top: B:44:0x0001 }] */
@@ -107,8 +107,8 @@ public class x {
         private synchronized void a() throws Exception {
             FileOutputStream fileOutputStream;
             bb.c().a("start get config and download jar");
-            Context context = this.f8840a;
-            com.baidu.mobstat.a aVar = this.f8841b;
+            Context context = this.f9155a;
+            com.baidu.mobstat.a aVar = this.f9156b;
             String b2 = b(context);
             bb.c().c("update req url is:" + b2);
             HttpURLConnection d2 = bo.d(context, b2);
@@ -134,7 +134,7 @@ public class x {
                             e = e2;
                             bb.c().b(e);
                             bu.a(fileOutputStream);
-                            DexClassLoader unused = x.f8838a = null;
+                            DexClassLoader unused = x.f9153a = null;
                             u.a();
                             if (!TextUtils.isEmpty(headerField)) {
                             }
@@ -159,7 +159,7 @@ public class x {
                 }
                 bu.a(fileOutputStream);
             }
-            DexClassLoader unused2 = x.f8838a = null;
+            DexClassLoader unused2 = x.f9153a = null;
             u.a();
             if (!TextUtils.isEmpty(headerField)) {
                 aVar.a(context, headerField);
@@ -173,18 +173,18 @@ public class x {
     }
 
     public static boolean b(Context context, String str) {
-        int i;
+        int i2;
         String b2 = b(str);
         if (TextUtils.isEmpty(b2)) {
             return false;
         }
         try {
-            i = Integer.valueOf(b2).intValue();
+            i2 = Integer.valueOf(b2).intValue();
         } catch (Exception e2) {
             bb.c().b(e2);
-            i = 0;
+            i2 = 0;
         }
-        return i >= 4;
+        return i2 >= 4;
     }
 
     public static boolean c(Context context, String str) {
@@ -277,8 +277,8 @@ public class x {
 
     public static synchronized DexClassLoader a(Context context) {
         synchronized (x.class) {
-            if (f8838a != null) {
-                return f8838a;
+            if (f9153a != null) {
+                return f9153a;
             }
             File fileStreamPath = context.getFileStreamPath(".remote.jar");
             if (fileStreamPath == null || fileStreamPath.isFile()) {
@@ -296,11 +296,11 @@ public class x {
                     return null;
                 } else {
                     try {
-                        f8838a = new DexClassLoader(fileStreamPath.getAbsolutePath(), context.getDir("outdex", 0).getAbsolutePath(), null, context.getClassLoader());
+                        f9153a = new DexClassLoader(fileStreamPath.getAbsolutePath(), context.getDir("outdex", 0).getAbsolutePath(), null, context.getClassLoader());
                     } catch (Exception e2) {
                         bb.c().a(e2);
                     }
-                    return f8838a;
+                    return f9153a;
                 }
             }
             return null;
@@ -309,7 +309,7 @@ public class x {
 
     public static synchronized void a(Context context, com.baidu.mobstat.a aVar) {
         synchronized (x.class) {
-            if (f8839b) {
+            if (f9154b) {
                 return;
             }
             if (!bw.q(context)) {
@@ -319,7 +319,7 @@ public class x {
             } else {
                 bb.c().a("can start update config");
                 new a(context, aVar).start();
-                f8839b = true;
+                f9154b = true;
             }
         }
     }

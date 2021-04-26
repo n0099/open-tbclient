@@ -5,100 +5,110 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
 import com.kwad.sdk.R;
-import com.kwad.sdk.reward.a.e;
+import com.kwad.sdk.reward.a.f;
 import com.kwad.sdk.reward.d;
 /* loaded from: classes6.dex */
 public class b extends d implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f36801b;
+    public View f34539b;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f36803d;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Handler f36802c = new Handler(Looper.getMainLooper());
+    public boolean f34541d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f36804e = new e() { // from class: com.kwad.sdk.reward.b.c.b.b.1
-        @Override // com.kwad.sdk.reward.a.e
+    public long f34542e;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Handler f34540c = new Handler(Looper.getMainLooper());
+
+    /* renamed from: f  reason: collision with root package name */
+    public f f34543f = new f() { // from class: com.kwad.sdk.reward.b.c.b.b.1
+        @Override // com.kwad.sdk.reward.a.f
         public void a() {
-            long P = com.kwad.sdk.core.config.c.P() * 1000;
-            if (P == 0 || !b.this.f36803d) {
+            if (((d) b.this).f34594a.s) {
+                return;
+            }
+            long j = b.this.f34542e;
+            if (j == 0 || !b.this.f34541d) {
                 b.this.e();
             } else {
-                b.this.f36802c.postDelayed(new Runnable() { // from class: com.kwad.sdk.reward.b.c.b.b.1.1
+                b.this.f34540c.postDelayed(new Runnable() { // from class: com.kwad.sdk.reward.b.c.b.b.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (b.this.m() == null || b.this.m().isFinishing()) {
+                        if (b.this.j() == null || b.this.j().isFinishing()) {
                             return;
                         }
                         b.this.e();
-                        b.this.f36801b.setAlpha(0.0f);
-                        b.this.f36801b.animate().alpha(1.0f).setDuration(500L).start();
+                        b.this.f34539b.setAlpha(0.0f);
+                        b.this.f34539b.animate().alpha(1.0f).setDuration(500L).start();
                     }
-                }, P);
+                }, j);
             }
         }
     };
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        this.f36801b.setVisibility(0);
-        this.f36801b.setOnClickListener(this);
+    public b(long j) {
+        this.f34542e = j;
     }
 
-    private void f() {
-        Activity activity = ((d) this).f36842a.f36607g;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e() {
+        this.f34539b.setVisibility(0);
+        this.f34539b.setOnClickListener(this);
+    }
+
+    private void m() {
+        Activity activity = ((d) this).f34594a.f34322g;
         if (activity != null) {
             activity.finish();
         }
     }
 
-    private void g() {
-        ((d) this).f36842a.f36602b.a(false);
+    private void n() {
+        ((d) this).f34594a.f34317b.a(false);
     }
 
-    private void h() {
-        ((d) this).f36842a.f36602b.e();
+    private void o() {
+        ((d) this).f34594a.f34317b.e();
     }
 
     public b a(boolean z) {
-        this.f36803d = z;
+        this.f34541d = z;
         return this;
     }
 
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        ((d) this).f36842a.n.add(this.f36804e);
+        ((d) this).f34594a.a(this.f34543f);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public void b_() {
-        super.b_();
-        ((d) this).f36842a.n.remove(this.f36804e);
-        this.f36802c.removeCallbacksAndMessages(null);
+    public void b() {
+        super.b();
+        this.f34539b = a(R.id.ksad_end_close_btn);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f36801b = b(R.id.ksad_end_close_btn);
+        ((d) this).f34594a.b(this.f34543f);
+        this.f34540c.removeCallbacksAndMessages(null);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void d() {
         super.d();
-        this.f36802c.removeCallbacksAndMessages(null);
+        this.f34540c.removeCallbacksAndMessages(null);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f36801b) {
-            h();
-            g();
-            f();
+        if (view == this.f34539b) {
+            o();
+            n();
+            m();
         }
     }
 }

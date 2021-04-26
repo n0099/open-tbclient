@@ -35,11 +35,11 @@ public class ByteBufferCodec implements ObjectSerializer, ObjectDeserializer {
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         ByteBuffer byteBuffer = (ByteBuffer) obj;
         byte[] array = byteBuffer.array();
         SerializeWriter serializeWriter = jSONSerializer.out;
-        serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+        serializeWriter.write(123);
         serializeWriter.writeFieldName("array");
         serializeWriter.writeByteArray(array);
         serializeWriter.writeFieldValue(',', Constants.EXTRA_CONFIG_LIMIT, byteBuffer.limit());

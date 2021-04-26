@@ -11,14 +11,14 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<PoiDetailSearchResult> CREATOR = new b();
 
     /* renamed from: a  reason: collision with root package name */
-    public List<PoiDetailInfo> f7249a;
+    public List<PoiDetailInfo> f7505a;
 
     public PoiDetailSearchResult() {
     }
 
     public PoiDetailSearchResult(Parcel parcel) {
         super(parcel);
-        this.f7249a = parcel.createTypedArrayList(PoiDetailInfo.CREATOR);
+        this.f7505a = parcel.createTypedArrayList(PoiDetailInfo.CREATOR);
     }
 
     public PoiDetailSearchResult(SearchResult.ERRORNO errorno) {
@@ -31,32 +31,32 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
     }
 
     public List<PoiDetailInfo> getPoiDetailInfoList() {
-        return this.f7249a;
+        return this.f7505a;
     }
 
     public void setPoiDetailInfoList(List<PoiDetailInfo> list) {
-        this.f7249a = list;
+        this.f7505a = list;
     }
 
     public String toString() {
-        List<PoiDetailInfo> list = this.f7249a;
+        List<PoiDetailInfo> list = this.f7505a;
         if (list == null || list.isEmpty()) {
             return "PoiDetailSearchResult is null";
         }
         StringBuffer stringBuffer = new StringBuffer("PoiDetailSearchResult:");
-        for (int i = 0; i < this.f7249a.size(); i++) {
+        for (int i2 = 0; i2 < this.f7505a.size(); i2++) {
             stringBuffer.append(" ");
-            stringBuffer.append(i);
+            stringBuffer.append(i2);
             stringBuffer.append(" ");
-            PoiDetailInfo poiDetailInfo = this.f7249a.get(i);
+            PoiDetailInfo poiDetailInfo = this.f7505a.get(i2);
             stringBuffer.append(poiDetailInfo != null ? poiDetailInfo.toString() : StringUtil.NULL_STRING);
         }
         return stringBuffer.toString();
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
-        parcel.writeTypedList(this.f7249a);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
+        parcel.writeTypedList(this.f7505a);
     }
 }

@@ -12,15 +12,15 @@ import java.util.List;
 public class b extends BaseBean<QRCodeWhiteListResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26454a;
+    public String f27261a;
 
     public b(Context context) {
         super(context);
-        this.f26454a = "";
+        this.f27261a = "";
     }
 
     public void a(String str) {
-        this.f26454a = str;
+        this.f27261a = str;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -31,10 +31,10 @@ public class b extends BaseBean<QRCodeWhiteListResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        if (TextUtils.isEmpty(this.f26454a)) {
-            this.f26454a = "";
+        if (TextUtils.isEmpty(this.f27261a)) {
+            this.f27261a = "";
         }
-        arrayList.add(new RestNameValuePair("cate[whitelist]", this.f26454a));
+        arrayList.add(new RestNameValuePair("cate[whitelist]", this.f27261a));
         return arrayList;
     }
 

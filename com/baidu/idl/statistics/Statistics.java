@@ -46,8 +46,8 @@ public class Statistics {
         public String errmsg;
         public int errno;
 
-        public StatisticsResult(int i, String str) {
-            this.errno = i;
+        public StatisticsResult(int i2, String str) {
+            this.errno = i2;
             this.errmsg = str;
         }
     }
@@ -106,8 +106,8 @@ public class Statistics {
             this.workerHandler = new Handler(this.workerThread.getLooper()) { // from class: com.baidu.idl.statistics.Statistics.1
                 @Override // android.os.Handler
                 public void handleMessage(Message message) {
-                    int i = message.what;
-                    if (i == 1 || i == 2) {
+                    int i2 = message.what;
+                    if (i2 == 1 || i2 == 2) {
                         FileUtil.savePropertiesFile(Statistics.this.asFile, Statistics.this.as);
                     }
                 }
@@ -151,8 +151,8 @@ public class Statistics {
 
                                 /* JADX DEBUG: Method merged with bridge method */
                                 @Override // com.baidu.idl.util.NetUtil.RequestAdapter
-                                public void onResponse(int i, StatisticsResult statisticsResult, Exception exc) {
-                                    if (i != 0) {
+                                public void onResponse(int i2, StatisticsResult statisticsResult, Exception exc) {
+                                    if (i2 != 0) {
                                         StuLogEx.e(Statistics.TAG, exc.getMessage(), exc);
                                     } else if (statisticsResult.errno != 0) {
                                         StuLogEx.e(Statistics.TAG, statisticsResult.errmsg);

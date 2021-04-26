@@ -10,30 +10,30 @@ import java.nio.channels.FileLock;
 public final class bo implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f41394a;
+    public final /* synthetic */ Context f38940a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ hj f939a;
 
     public bo(Context context, hj hjVar) {
-        this.f41394a = context;
+        this.f38940a = context;
         this.f939a = hjVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         RandomAccessFile randomAccessFile;
-        synchronized (bn.f41393a) {
+        synchronized (bn.f38939a) {
             FileLock fileLock = null;
             try {
                 try {
-                    File file = new File(this.f41394a.getFilesDir(), "tiny_data.lock");
-                    com.xiaomi.push.y.m628a(file);
+                    File file = new File(this.f38940a.getFilesDir(), "tiny_data.lock");
+                    com.xiaomi.push.y.m631a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         try {
                             fileLock = randomAccessFile.getChannel().lock();
-                            bn.c(this.f41394a, this.f939a);
+                            bn.c(this.f38940a, this.f939a);
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();

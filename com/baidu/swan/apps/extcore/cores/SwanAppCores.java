@@ -23,8 +23,8 @@ public class SwanAppCores extends SwanAppIPCData {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public SwanAppCores[] newArray(int i) {
-            return new SwanAppCores[i];
+        public SwanAppCores[] newArray(int i2) {
+            return new SwanAppCores[i2];
         }
     }
 
@@ -58,9 +58,9 @@ public class SwanAppCores extends SwanAppIPCData {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.mSwanCoreVersion, i);
-        parcel.writeParcelable(this.mExtensionCore, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeParcelable(this.mSwanCoreVersion, i2);
+        parcel.writeParcelable(this.mExtensionCore, i2);
     }
 
     public SwanAppCores() {

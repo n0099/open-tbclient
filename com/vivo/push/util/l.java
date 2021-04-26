@@ -14,29 +14,29 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class l extends AsyncTask<String, Void, List<Bitmap>> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39940a;
+    public Context f37545a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InsideNotificationItem f39941b;
+    public InsideNotificationItem f37546b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f39942c;
+    public long f37547c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f39943d;
+    public boolean f37548d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39944e = 0;
+    public int f37549e = 0;
 
     public l(Context context, InsideNotificationItem insideNotificationItem, long j, boolean z) {
-        this.f39940a = context;
-        this.f39941b = insideNotificationItem;
-        this.f39942c = j;
-        this.f39943d = z;
+        this.f37545a = context;
+        this.f37546b = insideNotificationItem;
+        this.f37547c = j;
+        this.f37548d = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,16 +61,16 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
     public List<Bitmap> doInBackground(String... strArr) {
         InputStream inputStream;
         Bitmap bitmap;
-        this.f39944e = ClientConfigManagerImpl.getInstance(this.f39940a).getNotifyStyle();
+        this.f37549e = ClientConfigManagerImpl.getInstance(this.f37545a).getNotifyStyle();
         InputStream inputStream2 = null;
-        if (!this.f39943d) {
+        if (!this.f37548d) {
             p.d("ImageDownTask", "bitmap is not display by forbid net");
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < 2; i++) {
-            String str = strArr[i];
-            p.d("ImageDownTask", "imgUrl=" + str + " i=" + i);
+        for (int i2 = 0; i2 < 2; i2++) {
+            String str = strArr[i2];
+            p.d("ImageDownTask", "imgUrl=" + str + " i=" + i2);
             if (!TextUtils.isEmpty(str)) {
                 try {
                     HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
@@ -119,7 +119,7 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
                     th = th2;
                 }
                 arrayList.add(bitmap);
-            } else if (i == 0) {
+            } else if (i2 == 0) {
                 arrayList.add(null);
             }
         }
@@ -132,9 +132,9 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
         List<Bitmap> list2 = list;
         super.onPostExecute(list2);
         p.c("ImageDownTask", "onPostExecute");
-        if (this.f39941b != null) {
-            w.b().a("com.vivo.push.notify_key", this.f39942c);
-            NotifyAdapterUtil.pushNotification(this.f39940a, list2, this.f39941b, this.f39942c, this.f39944e);
+        if (this.f37546b != null) {
+            w.b().a("com.vivo.push.notify_key", this.f37547c);
+            NotifyAdapterUtil.pushNotification(this.f37545a, list2, this.f37546b, this.f37547c, this.f37549e);
         }
     }
 }

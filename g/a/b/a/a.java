@@ -17,8 +17,8 @@ public final class a {
         return new Float(f2);
     }
 
-    public static Object e(int i) {
-        return new Integer(i);
+    public static Object e(int i2) {
+        return new Integer(i2);
     }
 
     public static Object f(long j) {

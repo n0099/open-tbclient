@@ -24,8 +24,8 @@ public abstract class AbsPlugin implements IPlugin {
         if (subscribeEvent == null || subscribeEvent.length <= 0) {
             return;
         }
-        for (int i : subscribeEvent) {
-            this.mCourier.register(i, this);
+        for (int i2 : subscribeEvent) {
+            this.mCourier.register(i2, this);
         }
     }
 

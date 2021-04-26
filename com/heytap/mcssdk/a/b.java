@@ -9,8 +9,8 @@ import com.heytap.mcssdk.utils.LogUtil;
 /* loaded from: classes6.dex */
 public final class b extends c {
     @Override // com.heytap.mcssdk.a.d
-    public final Message a(Context context, int i, Intent intent) {
-        if (4105 == i) {
+    public final Message a(Context context, int i2, Intent intent) {
+        if (4105 == i2) {
             return a(intent);
         }
         return null;

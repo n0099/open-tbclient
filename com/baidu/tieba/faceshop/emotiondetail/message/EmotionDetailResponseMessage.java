@@ -8,12 +8,12 @@ import org.json.JSONObject;
 public class EmotionDetailResponseMessage extends JsonHttpResponsedMessage {
     public EmotionDetailData data;
 
-    public EmotionDetailResponseMessage(int i) {
-        super(i);
+    public EmotionDetailResponseMessage(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {

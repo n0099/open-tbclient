@@ -102,27 +102,27 @@ public class IMMarkMsgReadedMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        if (i == 0) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+        if (i2 == 0) {
             DBManager.getInstance(context).deleteCmdMsg(getUUID());
             setNeedReSend(false);
         } else {
-            if (i != 1004 && i != 1001 && i != 4001) {
-                int i2 = this.mReSendCount;
-                if (i2 >= 3) {
+            if (i2 != 1004 && i2 != 1001 && i2 != 4001) {
+                int i3 = this.mReSendCount;
+                if (i3 >= 3) {
                     setNeedReSend(false);
                     DBManager.getInstance(context).deleteCmdMsg(getUUID());
                 } else {
-                    this.mReSendCount = i2 + 1;
+                    this.mReSendCount = i3 + 1;
                     setNeedReSend(true);
                 }
             } else {
                 setNeedReSend(false);
-                LoginManager.getInstance(context).triggleLogoutListener(i, str);
+                LoginManager.getInstance(context).triggleLogoutListener(i2, str);
             }
             DBManager.getInstance(context).updateCmdMsgSendStatus(getUUID(), 1);
         }
-        super.handleMessageResult(context, jSONObject, i, str);
+        super.handleMessageResult(context, jSONObject, i2, str);
     }
 
     @Override // com.baidu.android.imsdk.request.Message

@@ -5,33 +5,33 @@ import com.baidu.platform.comapi.walknavi.d.a.d.b;
 public class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ boolean f9540a;
+    public final /* synthetic */ boolean f9897a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ h f9541b;
+    public final /* synthetic */ h f9898b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ b.C0123b f9542c;
+    public final /* synthetic */ b.C0123b f9899c;
 
     public f(b.C0123b c0123b, boolean z, h hVar) {
-        this.f9542c = c0123b;
-        this.f9540a = z;
-        this.f9541b = hVar;
+        this.f9899c = c0123b;
+        this.f9897a = z;
+        this.f9898b = hVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         g gVar;
         g gVar2;
-        if (this.f9540a) {
-            gVar = b.this.f9530d;
+        if (this.f9897a) {
+            gVar = b.this.f9887d;
             gVar.b(com.baidu.platform.comapi.walknavi.d.a.g.b.b());
-            gVar2 = b.this.f9530d;
-            gVar2.a(this.f9541b.f9544a);
+            gVar2 = b.this.f9887d;
+            gVar2.a(this.f9898b.f9901a);
         }
-        if (this.f9542c.b()) {
+        if (this.f9899c.b()) {
             return;
         }
-        b.this.a(this.f9540a, true);
+        b.this.a(this.f9897a, true);
     }
 }

@@ -16,17 +16,19 @@ import com.baidu.tieba.R;
 public class AutoScrollTextView extends TextView implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f16386e;
+    public float f16611e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f16387f;
+    public float f16612f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f16388g;
+    public float f16613g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f16389h;
-    public float i;
+    public float f16614h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public float f16615i;
     public boolean j;
     public Paint k;
     public String l;
@@ -51,14 +53,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             /* renamed from: b */
-            public SavedState[] newArray(int i) {
-                return new SavedState[i];
+            public SavedState[] newArray(int i2) {
+                return new SavedState[i2];
             }
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            super.writeToParcel(parcel, i);
+        public void writeToParcel(Parcel parcel, int i2) {
+            super.writeToParcel(parcel, i2);
             parcel.writeBooleanArray(new boolean[]{this.isStarting});
             parcel.writeFloat(this.step);
         }
@@ -80,11 +82,11 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context) {
         super(context);
-        this.f16386e = 0.0f;
-        this.f16387f = 0.0f;
-        this.f16388g = 0.0f;
-        this.f16389h = 0.0f;
-        this.i = 0.0f;
+        this.f16611e = 0.0f;
+        this.f16612f = 0.0f;
+        this.f16613g = 0.0f;
+        this.f16614h = 0.0f;
+        this.f16615i = 0.0f;
         this.j = false;
         this.k = null;
         this.l = "";
@@ -97,16 +99,16 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         paint.setColor(-1);
         String charSequence = getText().toString();
         this.l = charSequence;
-        this.f16386e = this.k.measureText(charSequence);
+        this.f16611e = this.k.measureText(charSequence);
         float width = getWidth();
-        this.f16387f = width;
+        this.f16612f = width;
         if (width == 0.0f && windowManager != null) {
-            this.f16387f = windowManager.getDefaultDisplay().getWidth();
+            this.f16612f = windowManager.getDefaultDisplay().getWidth();
         }
-        float f2 = this.f16386e;
-        this.f16388g = f2;
-        this.f16389h = f2;
-        this.i = f2 * 2.0f;
+        float f2 = this.f16611e;
+        this.f16613g = f2;
+        this.f16614h = f2;
+        this.f16615i = f2 * 2.0f;
         getTextSize();
     }
 
@@ -138,16 +140,16 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
             float f2 = this.n;
             if (f2 > 0.5f) {
                 setWidth((int) ((f2 - 0.5f) * 3000.0f));
-                canvas.drawText(this.l, this.f16389h - this.f16388g, getTextSize() + 2.7f, this.k);
+                canvas.drawText(this.l, this.f16614h - this.f16613g, getTextSize() + 2.7f, this.k);
                 return;
             }
             return;
         }
-        canvas.drawText(this.l, this.f16389h - this.f16388g, getTextSize() + 2.7f, this.k);
-        float dimensionPixelOffset = this.f16388g + TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3);
-        this.f16388g = dimensionPixelOffset;
-        if (dimensionPixelOffset > this.i) {
-            this.f16388g = this.f16386e;
+        canvas.drawText(this.l, this.f16614h - this.f16613g, getTextSize() + 2.7f, this.k);
+        float dimensionPixelOffset = this.f16613g + TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3);
+        this.f16613g = dimensionPixelOffset;
+        if (dimensionPixelOffset > this.f16615i) {
+            this.f16613g = this.f16611e;
         }
         invalidate();
     }
@@ -160,14 +162,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         }
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
-        this.f16388g = savedState.step;
+        this.f16613g = savedState.step;
         this.j = savedState.isStarting;
     }
 
     @Override // android.widget.TextView, android.view.View
     public Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.step = this.f16388g;
+        savedState.step = this.f16613g;
         savedState.isStarting = this.j;
         return savedState;
     }
@@ -178,11 +180,11 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f16386e = 0.0f;
-        this.f16387f = 0.0f;
-        this.f16388g = 0.0f;
-        this.f16389h = 0.0f;
-        this.i = 0.0f;
+        this.f16611e = 0.0f;
+        this.f16612f = 0.0f;
+        this.f16613g = 0.0f;
+        this.f16614h = 0.0f;
+        this.f16615i = 0.0f;
         this.j = false;
         this.k = null;
         this.l = "";

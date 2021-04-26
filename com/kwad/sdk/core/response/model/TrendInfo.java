@@ -2,8 +2,6 @@ package com.kwad.sdk.core.response.model;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.core.scene.URLPackage;
-import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -11,18 +9,18 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class TrendInfo implements com.kwad.sdk.core.b, Serializable {
+public class TrendInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static Comparator<TrendInfo> mTrendsComparator = new Comparator<TrendInfo>() { // from class: com.kwad.sdk.core.response.model.TrendInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(TrendInfo trendInfo, TrendInfo trendInfo2) {
-            int i = trendInfo.rank;
-            int i2 = trendInfo2.rank;
-            if (i == i2) {
+            int i2 = trendInfo.rank;
+            int i3 = trendInfo2.rank;
+            if (i2 == i3) {
                 return 0;
             }
-            return i > i2 ? 1 : -1;
+            return i2 > i3 ? 1 : -1;
         }
     };
     public static final long serialVersionUID = 8690126962689904212L;
@@ -39,9 +37,9 @@ public class TrendInfo implements com.kwad.sdk.core.b, Serializable {
         ArrayList arrayList = new ArrayList();
         try {
             JSONArray jSONArray = new JSONArray(str);
-            for (int i = 0; i < jSONArray.length(); i++) {
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 TrendInfo trendInfo = new TrendInfo();
-                trendInfo.parseJson(new JSONObject(jSONArray.optString(i)));
+                trendInfo.parseJson(new JSONObject(jSONArray.optString(i2)));
                 arrayList.add(trendInfo);
             }
         } catch (Exception e2) {
@@ -52,41 +50,13 @@ public class TrendInfo implements com.kwad.sdk.core.b, Serializable {
 
     public static String toString(@NonNull List<TrendInfo> list) {
         JSONArray jSONArray = new JSONArray();
-        for (int i = 0; i < list.size(); i++) {
-            jSONArray.put(list.get(i).toJson().toString());
+        for (int i2 = 0; i2 < list.size(); i2++) {
+            jSONArray.put(list.get(i2).toJson().toString());
         }
         return jSONArray.toString();
     }
 
     public boolean equals(@Nullable Object obj) {
         return (obj instanceof TrendInfo) && ((TrendInfo) obj).trendId == this.trendId;
-    }
-
-    public void parseJson(@Nullable JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        this.trendId = jSONObject.optLong(URLPackage.KEY_TREND_ID);
-        this.name = jSONObject.optString("name");
-        this.viewCount = jSONObject.optLong("viewCount");
-        this.offlineTime = jSONObject.optLong("offlineTime");
-        this.photoCount = jSONObject.optInt("photoCount");
-        this.coverUrl = jSONObject.optString("coverUrl");
-        this.iconUrl = jSONObject.optString("iconUrl");
-        this.rank = jSONObject.optInt("rank");
-    }
-
-    @Override // com.kwad.sdk.core.b
-    public JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, URLPackage.KEY_TREND_ID, this.trendId);
-        o.a(jSONObject, "name", this.name);
-        o.a(jSONObject, "viewCount", this.viewCount);
-        o.a(jSONObject, "offlineTime", this.offlineTime);
-        o.a(jSONObject, "photoCount", this.photoCount);
-        o.a(jSONObject, "coverUrl", this.coverUrl);
-        o.a(jSONObject, "iconUrl", this.iconUrl);
-        o.a(jSONObject, "rank", this.rank);
-        return jSONObject;
     }
 }

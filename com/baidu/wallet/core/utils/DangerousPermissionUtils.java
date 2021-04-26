@@ -21,107 +21,107 @@ public class DangerousPermissionUtils {
     public static final String DPU_SOURCE_LANGBRIDGE = "wallet_langbridge";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23961a = "dangerous_permission_utils";
+    public static final String f24709a = "dangerous_permission_utils";
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, DangerousPermission> f23962b;
+    public Map<String, DangerousPermission> f24710b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f23963c;
+    public WeakReference<Activity> f24711c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String[] f23964d;
+    public String[] f24712d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23965e;
+    public int f24713e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f23966f;
+    public boolean f24714f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaiduWalletUtils.IRequestPermissionCallBack f23967g;
+    public BaiduWalletUtils.IRequestPermissionCallBack f24715g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DangerousPermissionDialog f23968h;
+    public DangerousPermissionDialog f24716h;
 
     /* loaded from: classes5.dex */
     public static class DangerousPermission {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f23975a = "dp_";
+        public static final String f24723a = "dp_";
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f23976b;
+        public Context f24724b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f23977c;
+        public String f24725c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f23978d;
+        public String f24726d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f23979e;
+        public String f24727e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f23980f;
+        public String f24728f;
 
         public DangerousPermission(Context context, String str, String str2, String str3, String str4) {
-            this.f23976b = context.getApplicationContext();
-            this.f23977c = str;
-            this.f23978d = str2;
-            this.f23979e = str3;
-            this.f23980f = str4;
+            this.f24724b = context.getApplicationContext();
+            this.f24725c = str;
+            this.f24726d = str2;
+            this.f24727e = str3;
+            this.f24728f = str4;
         }
 
         public boolean a() {
-            Context context = this.f23976b;
-            return ((Boolean) SharedPreferencesUtils.getParam(context, DangerousPermissionUtils.f23961a, f23975a + this.f23977c, Boolean.FALSE)).booleanValue();
+            Context context = this.f24724b;
+            return ((Boolean) SharedPreferencesUtils.getParam(context, DangerousPermissionUtils.f24709a, f24723a + this.f24725c, Boolean.FALSE)).booleanValue();
         }
 
         public void b() {
-            Context context = this.f23976b;
-            SharedPreferencesUtils.setParam(context, DangerousPermissionUtils.f23961a, f23975a + this.f23977c, Boolean.TRUE);
+            Context context = this.f24724b;
+            SharedPreferencesUtils.setParam(context, DangerousPermissionUtils.f24709a, f24723a + this.f24725c, Boolean.TRUE);
         }
 
         public String c() {
-            return TextUtils.isEmpty(this.f23980f) ? ResUtils.getString(this.f23976b, this.f23979e) : this.f23980f;
+            return TextUtils.isEmpty(this.f24728f) ? ResUtils.getString(this.f24724b, this.f24727e) : this.f24728f;
         }
 
         public String d() {
             String str;
             try {
-                str = new JSONObject(this.f23978d).optString("positive");
+                str = new JSONObject(this.f24726d).optString("positive");
             } catch (Exception e2) {
                 e2.printStackTrace();
                 str = "";
             }
-            return TextUtils.isEmpty(str) ? ResUtils.getString(this.f23976b, "wallet_base_permission_positive") : str;
+            return TextUtils.isEmpty(str) ? ResUtils.getString(this.f24724b, "wallet_base_permission_positive") : str;
         }
 
         public String e() {
             String str;
             try {
-                str = new JSONObject(this.f23978d).optString("negative");
+                str = new JSONObject(this.f24726d).optString("negative");
             } catch (Exception e2) {
                 e2.printStackTrace();
                 str = "";
             }
-            return TextUtils.isEmpty(str) ? ResUtils.getString(this.f23976b, "wallet_base_permission_negative") : str;
+            return TextUtils.isEmpty(str) ? ResUtils.getString(this.f24724b, "wallet_base_permission_negative") : str;
         }
 
         public String getPermission() {
-            return this.f23977c;
+            return this.f24725c;
         }
 
         public String getTitle() {
             String str;
             try {
-                str = new JSONObject(this.f23978d).optString("title");
+                str = new JSONObject(this.f24726d).optString("title");
             } catch (Exception e2) {
                 e2.printStackTrace();
                 str = "";
             }
-            return TextUtils.isEmpty(str) ? ResUtils.getString(this.f23976b, "wallet_base_permission_title") : str;
+            return TextUtils.isEmpty(str) ? ResUtils.getString(this.f24724b, "wallet_base_permission_title") : str;
         }
     }
 
@@ -152,11 +152,11 @@ public class DangerousPermissionUtils {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static DangerousPermissionUtils f23981a = new DangerousPermissionUtils();
+        public static DangerousPermissionUtils f24729a = new DangerousPermissionUtils();
     }
 
     public static DangerousPermissionUtils getInstance() {
-        return a.f23981a;
+        return a.f24729a;
     }
 
     public void requestPermissionsDialog(String str, Activity activity, String[] strArr, BaiduWalletUtils.IRequestPermissionCallBack iRequestPermissionCallBack) {
@@ -168,15 +168,15 @@ public class DangerousPermissionUtils {
             }
             return;
         }
-        this.f23963c = new WeakReference<>(activity);
-        this.f23964d = strArr;
-        this.f23965e = -1;
-        this.f23966f = true;
-        this.f23967g = iRequestPermissionCallBack;
-        DangerousPermissionDialog dangerousPermissionDialog = this.f23968h;
+        this.f24711c = new WeakReference<>(activity);
+        this.f24712d = strArr;
+        this.f24713e = -1;
+        this.f24714f = true;
+        this.f24715g = iRequestPermissionCallBack;
+        DangerousPermissionDialog dangerousPermissionDialog = this.f24716h;
         if (dangerousPermissionDialog != null) {
             dangerousPermissionDialog.dismiss();
-            this.f23968h = null;
+            this.f24716h = null;
         }
         a();
     }
@@ -185,17 +185,17 @@ public class DangerousPermissionUtils {
     }
 
     private void a(Context context) {
-        if (this.f23962b != null || context == null) {
+        if (this.f24710b != null || context == null) {
             return;
         }
         HashMap hashMap = new HashMap();
-        this.f23962b = hashMap;
+        this.f24710b = hashMap;
         hashMap.put("android.permission.READ_CONTACTS", new DangerousPermission(context, "android.permission.READ_CONTACTS", SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_read_contacts", SdkInitResponse.getInstance().permission_dialog_contacts));
-        this.f23962b.put("android.permission.ACCESS_FINE_LOCATION", new DangerousPermission(context, "android.permission.ACCESS_FINE_LOCATION", SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_access_fine_location", SdkInitResponse.getInstance().permission_dialog_location));
-        this.f23962b.put(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new DangerousPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE, SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_access_camera", SdkInitResponse.getInstance().permission_dialog_camera));
-        this.f23962b.put(PermissionRequest.RESOURCE_AUDIO_CAPTURE, new DangerousPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE, SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_record_audio", SdkInitResponse.getInstance().permission_dialog_audio));
-        this.f23962b.put(StorageUtils.EXTERNAL_STORAGE_PERMISSION, new DangerousPermission(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION, SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_external_storage", SdkInitResponse.getInstance().permission_dialog_storage));
-        this.f23962b.put("android.permission.READ_EXTERNAL_STORAGE", new DangerousPermission(context, "android.permission.READ_EXTERNAL_STORAGE", SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_external_storage", SdkInitResponse.getInstance().permission_dialog_storage));
+        this.f24710b.put("android.permission.ACCESS_FINE_LOCATION", new DangerousPermission(context, "android.permission.ACCESS_FINE_LOCATION", SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_access_fine_location", SdkInitResponse.getInstance().permission_dialog_location));
+        this.f24710b.put(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new DangerousPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE, SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_access_camera", SdkInitResponse.getInstance().permission_dialog_camera));
+        this.f24710b.put(PermissionRequest.RESOURCE_AUDIO_CAPTURE, new DangerousPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE, SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_record_audio", SdkInitResponse.getInstance().permission_dialog_audio));
+        this.f24710b.put(StorageUtils.EXTERNAL_STORAGE_PERMISSION, new DangerousPermission(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION, SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_external_storage", SdkInitResponse.getInstance().permission_dialog_storage));
+        this.f24710b.put("android.permission.READ_EXTERNAL_STORAGE", new DangerousPermission(context, "android.permission.READ_EXTERNAL_STORAGE", SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_external_storage", SdkInitResponse.getInstance().permission_dialog_storage));
     }
 
     private boolean a(String str) {
@@ -213,19 +213,19 @@ public class DangerousPermissionUtils {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        int i = this.f23965e + 1;
-        this.f23965e = i;
-        String[] strArr = this.f23964d;
-        if (i >= strArr.length) {
+        int i2 = this.f24713e + 1;
+        this.f24713e = i2;
+        String[] strArr = this.f24712d;
+        if (i2 >= strArr.length) {
             a(true);
             return;
         }
-        final DangerousPermission dangerousPermission = this.f23962b.get(strArr[i]);
+        final DangerousPermission dangerousPermission = this.f24710b.get(strArr[i2]);
         if (dangerousPermission == null) {
             a();
             return;
         }
-        Activity activity = this.f23963c.get();
+        Activity activity = this.f24711c.get();
         if (activity == null) {
             a(false);
             return;
@@ -236,9 +236,9 @@ public class DangerousPermissionUtils {
         dangerousPermissionDialog.setNegativeBtn(dangerousPermission.e(), new View.OnClickListener() { // from class: com.baidu.wallet.core.utils.DangerousPermissionUtils.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DangerousPermissionUtils.this.f23966f = false;
-                if (DangerousPermissionUtils.this.f23967g != null) {
-                    DangerousPermissionUtils.this.f23967g.requestResult(dangerousPermission.getPermission(), Boolean.FALSE);
+                DangerousPermissionUtils.this.f24714f = false;
+                if (DangerousPermissionUtils.this.f24715g != null) {
+                    DangerousPermissionUtils.this.f24715g.requestResult(dangerousPermission.getPermission(), Boolean.FALSE);
                 }
                 dangerousPermissionDialog.dismiss();
                 DangerousPermissionUtils.this.a();
@@ -247,27 +247,27 @@ public class DangerousPermissionUtils {
         dangerousPermissionDialog.setPositiveBtn(dangerousPermission.d(), new View.OnClickListener() { // from class: com.baidu.wallet.core.utils.DangerousPermissionUtils.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (DangerousPermissionUtils.this.f23967g != null) {
-                    DangerousPermissionUtils.this.f23967g.requestResult(dangerousPermission.getPermission(), Boolean.TRUE);
+                if (DangerousPermissionUtils.this.f24715g != null) {
+                    DangerousPermissionUtils.this.f24715g.requestResult(dangerousPermission.getPermission(), Boolean.TRUE);
                 }
                 dangerousPermissionDialog.dismiss();
                 DangerousPermissionUtils.this.a();
             }
         });
-        this.f23968h = dangerousPermissionDialog;
+        this.f24716h = dangerousPermissionDialog;
         dangerousPermissionDialog.show();
-        BaiduWalletUtils.IRequestPermissionCallBack iRequestPermissionCallBack = this.f23967g;
+        BaiduWalletUtils.IRequestPermissionCallBack iRequestPermissionCallBack = this.f24715g;
         if (iRequestPermissionCallBack != null) {
             iRequestPermissionCallBack.isShow(dangerousPermission.getPermission(), Boolean.TRUE);
         }
     }
 
     private void a(boolean z) {
-        BaiduWalletUtils.IRequestPermissionCallBack iRequestPermissionCallBack = this.f23967g;
+        BaiduWalletUtils.IRequestPermissionCallBack iRequestPermissionCallBack = this.f24715g;
         if (iRequestPermissionCallBack != null) {
-            iRequestPermissionCallBack.isAllAgree(Boolean.valueOf(z && this.f23966f));
+            iRequestPermissionCallBack.isAllAgree(Boolean.valueOf(z && this.f24714f));
         }
-        this.f23968h = null;
-        this.f23967g = null;
+        this.f24716h = null;
+        this.f24715g = null;
     }
 }

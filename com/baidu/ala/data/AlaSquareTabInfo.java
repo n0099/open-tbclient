@@ -20,8 +20,8 @@ public class AlaSquareTabInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public AlaSquareTabInfo[] newArray(int i) {
-            return new AlaSquareTabInfo[i];
+        public AlaSquareTabInfo[] newArray(int i2) {
+            return new AlaSquareTabInfo[i2];
         }
     };
     public String bitmapWHRatio;
@@ -54,13 +54,13 @@ public class AlaSquareTabInfo implements Parcelable {
         }
         int length = optJSONArray.length();
         this.sortTypeList = new ArrayList(length);
-        for (int i = 0; i < length; i++) {
-            this.sortTypeList.add(optJSONArray.optString(i));
+        for (int i2 = 0; i2 < length; i2++) {
+            this.sortTypeList.add(optJSONArray.optString(i2));
         }
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.id);
         parcel.writeString(this.name);
         parcel.writeString(this.iconUrl);

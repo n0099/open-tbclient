@@ -15,22 +15,24 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.c.e.m.e;
+import d.a.c.e.m.e;
 /* loaded from: classes5.dex */
 public class BdTopToast extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f21719e;
+    public View f22365e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BottomShadowLinearLayout f21720f;
+    public BottomShadowLinearLayout f22366f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f21721g;
+    public ImageView f22367g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21722h;
-    public Animation i;
+    public TextView f22368h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Animation f22369i;
     public Animation j;
     public Runnable k;
     public int l;
@@ -69,9 +71,9 @@ public class BdTopToast extends LinearLayout {
         }
     }
 
-    public BdTopToast(Context context, int i) {
+    public BdTopToast(Context context, int i2) {
         this(context);
-        this.l = i;
+        this.l = i2;
     }
 
     public final void c() {
@@ -82,18 +84,18 @@ public class BdTopToast extends LinearLayout {
     public final void d() {
         setOrientation(1);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.f21719e = new View(getContext());
-            addView(this.f21719e, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
+            this.f22365e = new View(getContext());
+            addView(this.f22365e, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
         }
         LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-        this.f21720f = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
-        this.f21721g = (ImageView) findViewById(R.id.bd_top_toast_icon);
-        this.f21722h = (TextView) findViewById(R.id.bd_top_toast_content);
+        this.f22366f = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+        this.f22367g = (ImageView) findViewById(R.id.bd_top_toast_icon);
+        this.f22368h = (TextView) findViewById(R.id.bd_top_toast_content);
         e();
     }
 
     public final void e() {
-        this.i = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.f22369i = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
         Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
         this.j = loadAnimation;
         loadAnimation.setAnimationListener(new a());
@@ -101,15 +103,15 @@ public class BdTopToast extends LinearLayout {
     }
 
     public void f() {
-        SkinManager.setBackgroundColor(this.f21719e, R.color.CAM_X0207);
+        SkinManager.setBackgroundColor(this.f22365e, R.color.CAM_X0207);
         if (this.m) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f21721g, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, null);
-            SkinManager.setViewTextColor(this.f21722h, R.color.CAM_X0302);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22367g, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, null);
+            SkinManager.setViewTextColor(this.f22368h, R.color.CAM_X0302);
         } else {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f21721g, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, null);
-            SkinManager.setViewTextColor(this.f21722h, R.color.CAM_X0301);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22367g, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, null);
+            SkinManager.setViewTextColor(this.f22368h, R.color.CAM_X0301);
         }
-        this.f21720f.b();
+        this.f22366f.b();
     }
 
     public final void g() {
@@ -118,7 +120,7 @@ public class BdTopToast extends LinearLayout {
     }
 
     public BdTopToast h(String str) {
-        this.f21722h.setText(str);
+        this.f22368h.setText(str);
         return this;
     }
 
@@ -137,7 +139,7 @@ public class BdTopToast extends LinearLayout {
         g();
         viewGroup.addView(this, -1, -2);
         f();
-        startAnimation(this.i);
+        startAnimation(this.f22369i);
         if (this.l >= 0) {
             e.a().postDelayed(this.k, this.l);
         } else {
@@ -153,8 +155,8 @@ public class BdTopToast extends LinearLayout {
         this(context, attributeSet, 0);
     }
 
-    public BdTopToast(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BdTopToast(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.l = -1;
         d();
     }

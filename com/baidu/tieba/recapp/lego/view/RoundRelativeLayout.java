@@ -8,50 +8,50 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-/* loaded from: classes4.dex */
+import d.a.c.e.p.l;
+/* loaded from: classes3.dex */
 public class RoundRelativeLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f20479e;
+    public float f21023e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f20480f;
+    public Path f21024f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f20481g;
+    public RectF f21025g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float[] f20482h;
+    public float[] f21026h;
 
     public RoundRelativeLayout(Context context) {
         super(context);
         float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-        this.f20479e = g2;
-        this.f20482h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
+        this.f21023e = g2;
+        this.f21026h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
         a();
     }
 
     public final void a() {
         setWillNotDraw(false);
-        this.f20480f = new Path();
-        this.f20481g = new RectF();
+        this.f21024f = new Path();
+        this.f21025g = new RectF();
     }
 
     public final void b() {
-        this.f20480f.addRoundRect(this.f20481g, this.f20482h, Path.Direction.CW);
+        this.f21024f.addRoundRect(this.f21025g, this.f21026h, Path.Direction.CW);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        canvas.clipPath(this.f20480f);
+        canvas.clipPath(this.f21024f);
         super.draw(canvas);
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        this.f20481g.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
+        this.f21025g.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
         b();
     }
 
@@ -59,9 +59,9 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (fArr == null || fArr.length <= 0) {
             return;
         }
-        this.f20482h = new float[fArr.length];
-        for (int i = 0; i < fArr.length; i++) {
-            this.f20482h[i] = fArr[i];
+        this.f21026h = new float[fArr.length];
+        for (int i2 = 0; i2 < fArr.length; i2++) {
+            this.f21026h[i2] = fArr[i2];
         }
         b();
         invalidate();
@@ -70,16 +70,16 @@ public class RoundRelativeLayout extends RelativeLayout {
     public RoundRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-        this.f20479e = g2;
-        this.f20482h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
+        this.f21023e = g2;
+        this.f21026h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
         a();
     }
 
-    public RoundRelativeLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public RoundRelativeLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-        this.f20479e = g2;
-        this.f20482h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
+        this.f21023e = g2;
+        this.f21026h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
         a();
     }
 }

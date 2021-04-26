@@ -26,8 +26,8 @@ public abstract class NotifyMessageHandler {
         JSONArray jSONArray = new JSONArray();
         try {
             JSONArray jSONArray2 = jSONObject.getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES);
-            for (int i = 0; i < jSONArray2.length(); i++) {
-                jSONArray.put(jSONArray2.getJSONObject(i));
+            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                jSONArray.put(jSONArray2.getJSONObject(i2));
             }
         } catch (JSONException e2) {
             LogUtils.e(TAG, "Exception ", e2);
@@ -52,14 +52,14 @@ public abstract class NotifyMessageHandler {
         long j;
         SyncStrategy generate;
         LogUtils.i(TAG, "handleMessage Deliver:" + jSONObject.toString());
-        int i = jSONObject.getInt("category");
-        if (i == 0 && jSONObject.has("msgid")) {
+        int i2 = jSONObject.getInt("category");
+        if (i2 == 0 && jSONObject.has("msgid")) {
             try {
                 j = jSONObject.getLong("msgid");
             } catch (JSONException e2) {
                 LogUtils.i(TAG, "JSONException:" + e2.getMessage());
             }
-            if (i != 0 || i == 2) {
+            if (i2 != 0 || i2 == 2) {
                 generate = Generator.generate(context, 5);
                 if (generate == null) {
                     if (j != -1) {
@@ -71,11 +71,11 @@ public abstract class NotifyMessageHandler {
                     }
                 }
                 return;
-            } else if (i == 1) {
+            } else if (i2 == 1) {
                 long j2 = jSONObject.getLong("contacter");
                 long j3 = jSONObject.getLong("msgid");
                 LogUtils.i(TAG, "msgid : " + j3);
-                SyncGroupMessageService.getInstance().execute(context, i, j2, j3, 2);
+                SyncGroupMessageService.getInstance().execute(context, i2, j2, j3, 2);
                 return;
             } else {
                 LogUtils.e(TAG, "handleDeliverMessage category error!!");
@@ -83,7 +83,7 @@ public abstract class NotifyMessageHandler {
             }
         }
         j = -1;
-        if (i != 0) {
+        if (i2 != 0) {
         }
         generate = Generator.generate(context, 5);
         if (generate == null) {

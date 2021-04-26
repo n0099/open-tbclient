@@ -2,7 +2,7 @@ package com.baidu.tbadk.img;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.tencent.open.SocialConstants;
-import d.b.i0.b0.c;
+import d.a.i0.b0.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -12,8 +12,8 @@ import org.json.JSONObject;
 public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
     public List<c> mEmotionList;
 
-    public GetEmotionInfosResponseMessage(int i) {
-        super(i);
+    public GetEmotionInfosResponseMessage(int i2) {
+        super(i2);
     }
 
     private void parseEmotionImages(JSONArray jSONArray) {
@@ -21,9 +21,9 @@ public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
             return;
         }
         this.mEmotionList = new ArrayList();
-        for (int i = 0; i < jSONArray.length(); i++) {
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             try {
-                this.mEmotionList.add(c.a(jSONArray.getJSONObject(i)));
+                this.mEmotionList.add(c.a(jSONArray.getJSONObject(i2)));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -31,7 +31,7 @@ public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {

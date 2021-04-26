@@ -2,10 +2,10 @@ package com.google.common.hash;
 
 import com.google.common.hash.BloomFilterStrategies;
 import com.google.common.primitives.SignedBytes;
-import d.h.c.a.k;
-import d.h.c.a.n;
-import d.h.c.a.o;
-import d.h.c.g.b;
+import d.g.c.a.k;
+import d.g.c.a.n;
+import d.g.c.a.o;
+import d.g.c.g.b;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -29,7 +29,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         public final Strategy strategy;
 
         public SerialForm(BloomFilter<T> bloomFilter) {
-            this.data = BloomFilterStrategies.a.g(bloomFilter.bits.f31187a);
+            this.data = BloomFilterStrategies.a.g(bloomFilter.bits.f32165a);
             this.numHashFunctions = bloomFilter.numHashFunctions;
             this.funnel = bloomFilter.funnel;
             this.strategy = bloomFilter.strategy;
@@ -42,15 +42,15 @@ public final class BloomFilter<T> implements o<T>, Serializable {
 
     /* loaded from: classes6.dex */
     public interface Strategy extends Serializable {
-        <T> boolean mightContain(T t, Funnel<? super T> funnel, int i, BloomFilterStrategies.a aVar);
+        <T> boolean mightContain(T t, Funnel<? super T> funnel, int i2, BloomFilterStrategies.a aVar);
 
         int ordinal();
 
-        <T> boolean put(T t, Funnel<? super T> funnel, int i, BloomFilterStrategies.a aVar);
+        <T> boolean put(T t, Funnel<? super T> funnel, int i2, BloomFilterStrategies.a aVar);
     }
 
-    public static <T> BloomFilter<T> create(Funnel<? super T> funnel, int i, double d2) {
-        return create(funnel, i, d2);
+    public static <T> BloomFilter<T> create(Funnel<? super T> funnel, int i2, double d2) {
+        return create(funnel, i2, d2);
     }
 
     public static long optimalNumOfBits(long j, double d2) {
@@ -65,8 +65,8 @@ public final class BloomFilter<T> implements o<T>, Serializable {
     }
 
     public static <T> BloomFilter<T> readFrom(InputStream inputStream, Funnel<? super T> funnel) throws IOException {
-        int i;
         int i2;
+        int i3;
         int readInt;
         n.q(inputStream, "InputStream");
         n.q(funnel, "Funnel");
@@ -75,36 +75,36 @@ public final class BloomFilter<T> implements o<T>, Serializable {
             DataInputStream dataInputStream = new DataInputStream(inputStream);
             byte readByte = dataInputStream.readByte();
             try {
-                i2 = b.c(dataInputStream.readByte());
+                i3 = b.c(dataInputStream.readByte());
             } catch (RuntimeException e2) {
                 e = e2;
-                i2 = -1;
+                i3 = -1;
             }
             try {
                 readInt = dataInputStream.readInt();
             } catch (RuntimeException e3) {
                 e = e3;
                 b2 = readByte;
-                i = -1;
-                throw new IOException("Unable to deserialize BloomFilter from InputStream. strategyOrdinal: " + ((int) b2) + " numHashFunctions: " + i2 + " dataLength: " + i, e);
+                i2 = -1;
+                throw new IOException("Unable to deserialize BloomFilter from InputStream. strategyOrdinal: " + ((int) b2) + " numHashFunctions: " + i3 + " dataLength: " + i2, e);
             }
             try {
                 BloomFilterStrategies bloomFilterStrategies = BloomFilterStrategies.values()[readByte];
                 long[] jArr = new long[readInt];
-                for (int i3 = 0; i3 < readInt; i3++) {
-                    jArr[i3] = dataInputStream.readLong();
+                for (int i4 = 0; i4 < readInt; i4++) {
+                    jArr[i4] = dataInputStream.readLong();
                 }
-                return new BloomFilter<>(new BloomFilterStrategies.a(jArr), i2, funnel, bloomFilterStrategies);
+                return new BloomFilter<>(new BloomFilterStrategies.a(jArr), i3, funnel, bloomFilterStrategies);
             } catch (RuntimeException e4) {
                 e = e4;
                 b2 = readByte;
-                i = readInt;
-                throw new IOException("Unable to deserialize BloomFilter from InputStream. strategyOrdinal: " + ((int) b2) + " numHashFunctions: " + i2 + " dataLength: " + i, e);
+                i2 = readInt;
+                throw new IOException("Unable to deserialize BloomFilter from InputStream. strategyOrdinal: " + ((int) b2) + " numHashFunctions: " + i3 + " dataLength: " + i2, e);
             }
         } catch (RuntimeException e5) {
             e = e5;
-            i = -1;
             i2 = -1;
+            i3 = -1;
         }
     }
 
@@ -112,7 +112,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         return new SerialForm(this);
     }
 
-    @Override // d.h.c.a.o
+    @Override // d.g.c.a.o
     @Deprecated
     public boolean apply(T t) {
         return mightContain(t);
@@ -120,7 +120,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
 
     public long approximateElementCount() {
         double b2 = this.bits.b();
-        return d.h.c.f.a.c(((-Math.log1p(-(this.bits.a() / b2))) * b2) / this.numHashFunctions, RoundingMode.HALF_UP);
+        return d.g.c.f.a.c(((-Math.log1p(-(this.bits.a() / b2))) * b2) / this.numHashFunctions, RoundingMode.HALF_UP);
     }
 
     public long bitSize() {
@@ -131,7 +131,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         return new BloomFilter<>(this.bits.c(), this.numHashFunctions, this.funnel, this.strategy);
     }
 
-    @Override // d.h.c.a.o
+    @Override // d.g.c.a.o
     public boolean equals(Object obj) {
         if (obj == this) {
             return true;
@@ -178,18 +178,18 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
         dataOutputStream.writeByte(SignedBytes.a(this.strategy.ordinal()));
         dataOutputStream.writeByte(b.a(this.numHashFunctions));
-        dataOutputStream.writeInt(this.bits.f31187a.length());
-        for (int i = 0; i < this.bits.f31187a.length(); i++) {
-            dataOutputStream.writeLong(this.bits.f31187a.get(i));
+        dataOutputStream.writeInt(this.bits.f32165a.length());
+        for (int i2 = 0; i2 < this.bits.f32165a.length(); i2++) {
+            dataOutputStream.writeLong(this.bits.f32165a.get(i2));
         }
     }
 
-    public BloomFilter(BloomFilterStrategies.a aVar, int i, Funnel<? super T> funnel, Strategy strategy) {
-        n.f(i > 0, "numHashFunctions (%s) must be > 0", i);
-        n.f(i <= 255, "numHashFunctions (%s) must be <= 255", i);
+    public BloomFilter(BloomFilterStrategies.a aVar, int i2, Funnel<? super T> funnel, Strategy strategy) {
+        n.f(i2 > 0, "numHashFunctions (%s) must be > 0", i2);
+        n.f(i2 <= 255, "numHashFunctions (%s) must be <= 255", i2);
         n.p(aVar);
         this.bits = aVar;
-        this.numHashFunctions = i;
+        this.numHashFunctions = i2;
         n.p(funnel);
         this.funnel = funnel;
         n.p(strategy);
@@ -202,12 +202,12 @@ public final class BloomFilter<T> implements o<T>, Serializable {
 
     public static <T> BloomFilter<T> create(Funnel<? super T> funnel, long j, double d2, Strategy strategy) {
         n.p(funnel);
-        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        n.h(i >= 0, "Expected insertions (%s) must be >= 0", j);
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        n.h(i2 >= 0, "Expected insertions (%s) must be >= 0", j);
         n.k(d2 > 0.0d, "False positive probability (%s) must be > 0.0", Double.valueOf(d2));
         n.k(d2 < 1.0d, "False positive probability (%s) must be < 1.0", Double.valueOf(d2));
         n.p(strategy);
-        if (i == 0) {
+        if (i2 == 0) {
             j = 1;
         }
         long optimalNumOfBits = optimalNumOfBits(j, d2);
@@ -218,8 +218,8 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         }
     }
 
-    public static <T> BloomFilter<T> create(Funnel<? super T> funnel, int i) {
-        return create(funnel, i);
+    public static <T> BloomFilter<T> create(Funnel<? super T> funnel, int i2) {
+        return create(funnel, i2);
     }
 
     public static <T> BloomFilter<T> create(Funnel<? super T> funnel, long j) {

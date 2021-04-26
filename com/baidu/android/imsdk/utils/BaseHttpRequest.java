@@ -67,9 +67,9 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
         return this.mUUId;
     }
 
-    public abstract void onFailure(int i, byte[] bArr, Throwable th);
+    public abstract void onFailure(int i2, byte[] bArr, Throwable th);
 
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
     }
 
     public void saveRequestToDB(Context context, BaseHttpRequest baseHttpRequest, String str) {
@@ -79,13 +79,13 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
         this.mUUId = str;
     }
 
-    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
+    public Pair<Integer, String> transErrorCode(int i2, byte[] bArr, Throwable th) {
         String str = bArr != null ? new String(bArr) : "";
-        if (th == null && i != 1005) {
-            str = "http response is error! response code:" + i;
-            i = 1011;
+        if (th == null && i2 != 1005) {
+            str = "http response is error! response code:" + i2;
+            i2 = 1011;
         }
-        return new Pair<>(Integer.valueOf(i), str);
+        return new Pair<>(Integer.valueOf(i2), str);
     }
 
     public BaseHttpRequest(boolean z) {

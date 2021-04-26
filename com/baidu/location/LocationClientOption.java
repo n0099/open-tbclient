@@ -14,7 +14,7 @@ public final class LocationClientOption {
     public static final int NetWorkFirst = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    public LocationMode f6482a;
+    public LocationMode f6699a;
     public String addrType;
     public float autoNotifyLocSensitivity;
     public int autoNotifyMaxInterval;
@@ -46,21 +46,21 @@ public final class LocationClientOption {
     public /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f6483a;
+        public static final /* synthetic */ int[] f6700a;
 
         static {
             int[] iArr = new int[LocationMode.values().length];
-            f6483a = iArr;
+            f6700a = iArr;
             try {
                 iArr[LocationMode.Hight_Accuracy.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f6483a[LocationMode.Battery_Saving.ordinal()] = 2;
+                f6700a[LocationMode.Battery_Saving.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f6483a[LocationMode.Device_Sensors.ordinal()] = 3;
+                f6700a[LocationMode.Device_Sensors.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -140,7 +140,7 @@ public final class LocationClientOption {
         this.isIgnoreCacheException = locationClientOption.isIgnoreCacheException;
         this.isIgnoreKillProcess = locationClientOption.isIgnoreKillProcess;
         this.enableSimulateGps = locationClientOption.enableSimulateGps;
-        this.f6482a = locationClientOption.f6482a;
+        this.f6699a = locationClientOption.f6699a;
         this.isNeedAptag = locationClientOption.isNeedAptag;
         this.isNeedAptagd = locationClientOption.isNeedAptagd;
         this.isNeedPoiRegion = locationClientOption.isNeedPoiRegion;
@@ -188,7 +188,7 @@ public final class LocationClientOption {
     }
 
     public LocationMode getLocationMode() {
-        return this.f6482a;
+        return this.f6699a;
     }
 
     public int getPriority() {
@@ -224,7 +224,7 @@ public final class LocationClientOption {
     }
 
     public boolean optionEquals(LocationClientOption locationClientOption) {
-        return this.coorType.equals(locationClientOption.coorType) && this.addrType.equals(locationClientOption.addrType) && this.openGps == locationClientOption.openGps && this.scanSpan == locationClientOption.scanSpan && this.timeOut == locationClientOption.timeOut && this.prodName.equals(locationClientOption.prodName) && this.location_change_notify == locationClientOption.location_change_notify && this.priority == locationClientOption.priority && this.disableLocCache == locationClientOption.disableLocCache && this.isIgnoreCacheException == locationClientOption.isIgnoreCacheException && this.isNeedNewVersionRgc == locationClientOption.isNeedNewVersionRgc && this.isIgnoreKillProcess == locationClientOption.isIgnoreKillProcess && this.isNeedAptag == locationClientOption.isNeedAptag && this.isNeedAptagd == locationClientOption.isNeedAptagd && this.isNeedPoiRegion == locationClientOption.isNeedPoiRegion && this.isNeedRegular == locationClientOption.isNeedRegular && this.mIsNeedDeviceDirect == locationClientOption.mIsNeedDeviceDirect && this.autoNotifyMaxInterval == locationClientOption.autoNotifyMaxInterval && this.autoNotifyLocSensitivity == locationClientOption.autoNotifyLocSensitivity && this.autoNotifyMinTimeInterval == locationClientOption.autoNotifyMinTimeInterval && this.autoNotifyMinDistance == locationClientOption.autoNotifyMinDistance && this.wifiCacheTimeOut == locationClientOption.wifiCacheTimeOut && this.isNeedAltitude == locationClientOption.isNeedAltitude && this.f6482a == locationClientOption.f6482a;
+        return this.coorType.equals(locationClientOption.coorType) && this.addrType.equals(locationClientOption.addrType) && this.openGps == locationClientOption.openGps && this.scanSpan == locationClientOption.scanSpan && this.timeOut == locationClientOption.timeOut && this.prodName.equals(locationClientOption.prodName) && this.location_change_notify == locationClientOption.location_change_notify && this.priority == locationClientOption.priority && this.disableLocCache == locationClientOption.disableLocCache && this.isIgnoreCacheException == locationClientOption.isIgnoreCacheException && this.isNeedNewVersionRgc == locationClientOption.isNeedNewVersionRgc && this.isIgnoreKillProcess == locationClientOption.isIgnoreKillProcess && this.isNeedAptag == locationClientOption.isNeedAptag && this.isNeedAptagd == locationClientOption.isNeedAptagd && this.isNeedPoiRegion == locationClientOption.isNeedPoiRegion && this.isNeedRegular == locationClientOption.isNeedRegular && this.mIsNeedDeviceDirect == locationClientOption.mIsNeedDeviceDirect && this.autoNotifyMaxInterval == locationClientOption.autoNotifyMaxInterval && this.autoNotifyLocSensitivity == locationClientOption.autoNotifyLocSensitivity && this.autoNotifyMinTimeInterval == locationClientOption.autoNotifyMinTimeInterval && this.autoNotifyMinDistance == locationClientOption.autoNotifyMinDistance && this.wifiCacheTimeOut == locationClientOption.wifiCacheTimeOut && this.isNeedAltitude == locationClientOption.isNeedAltitude && this.f6699a == locationClientOption.f6699a;
     }
 
     @Deprecated
@@ -267,20 +267,20 @@ public final class LocationClientOption {
     }
 
     public void setLocationMode(LocationMode locationMode) {
-        int i = AnonymousClass1.f6483a[locationMode.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass1.f6700a[locationMode.ordinal()];
+        if (i2 == 1) {
             this.openGps = true;
             this.priority = 1;
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             this.openGps = false;
             this.priority = 2;
-        } else if (i != 3) {
+        } else if (i2 != 3) {
             throw new IllegalArgumentException("Illegal this mode : " + locationMode);
         } else {
             this.priority = 3;
             this.openGps = true;
         }
-        this.f6482a = locationMode;
+        this.f6699a = locationMode;
     }
 
     public void setLocationNotify(boolean z) {
@@ -299,28 +299,28 @@ public final class LocationClientOption {
         setOpenAutoNotifyMode(0, 0, 1);
     }
 
-    public void setOpenAutoNotifyMode(int i, int i2, int i3) {
+    public void setOpenAutoNotifyMode(int i2, int i3, int i4) {
         float f2;
-        int i4 = TiebaStatic.MAX_COST_VALUE;
-        if (i > 180000) {
-            i4 = i + 1000;
+        int i5 = TiebaStatic.MAX_COST_VALUE;
+        if (i2 > 180000) {
+            i5 = i2 + 1000;
         }
-        if (i4 < 10000) {
-            throw new IllegalArgumentException("Illegal this maxLocInterval : " + i4 + " , maxLocInterval must >= 10000");
+        if (i5 < 10000) {
+            throw new IllegalArgumentException("Illegal this maxLocInterval : " + i5 + " , maxLocInterval must >= 10000");
         }
-        if (i3 == 1) {
+        if (i4 == 1) {
             f2 = 0.5f;
-        } else if (i3 == 2) {
+        } else if (i4 == 2) {
             f2 = 0.3f;
-        } else if (i3 != 3) {
-            throw new IllegalArgumentException("Illegal this locSensitivity : " + i3);
+        } else if (i4 != 3) {
+            throw new IllegalArgumentException("Illegal this locSensitivity : " + i4);
         } else {
             f2 = 0.1f;
         }
         this.autoNotifyLocSensitivity = f2;
-        this.autoNotifyMaxInterval = i4;
-        this.autoNotifyMinTimeInterval = i;
-        this.autoNotifyMinDistance = i2;
+        this.autoNotifyMaxInterval = i5;
+        this.autoNotifyMinTimeInterval = i2;
+        this.autoNotifyMinDistance = i3;
     }
 
     public void setOpenGps(boolean z) {
@@ -328,9 +328,9 @@ public final class LocationClientOption {
     }
 
     @Deprecated
-    public void setPriority(int i) {
-        if (i == 1 || i == 2) {
-            this.priority = i;
+    public void setPriority(int i2) {
+        if (i2 == 1 || i2 == 2) {
+            this.priority = i2;
         }
     }
 
@@ -341,8 +341,8 @@ public final class LocationClientOption {
         this.prodName = str;
     }
 
-    public void setScanSpan(int i) {
-        this.scanSpan = i;
+    public void setScanSpan(int i2) {
+        this.scanSpan = i2;
     }
 
     @Deprecated
@@ -356,13 +356,13 @@ public final class LocationClientOption {
         this.serviceName = str;
     }
 
-    public void setTimeOut(int i) {
-        this.timeOut = i;
+    public void setTimeOut(int i2) {
+        this.timeOut = i2;
     }
 
-    public void setWifiCacheTimeOut(int i) {
-        if (i >= 10000) {
-            this.wifiCacheTimeOut = i;
+    public void setWifiCacheTimeOut(int i2) {
+        if (i2 >= 10000) {
+            this.wifiCacheTimeOut = i2;
         }
     }
 }

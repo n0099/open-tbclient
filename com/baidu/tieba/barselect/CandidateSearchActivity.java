@@ -27,18 +27,18 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.model.CandidateSearchHttpResMsg;
 import com.baidu.tieba.barselect.model.CandidateSearchSocketResMsg;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import d.b.c.e.p.k;
-import d.b.c.e.p.l;
+import d.a.c.e.p.k;
+import d.a.c.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class CandidateSearchActivity extends BaseActivity {
-    public List<d.b.j0.v.b.a> dataList;
+    public List<d.a.j0.v.b.a> dataList;
     public CandidateSearchAdapter mAdapter;
     public TextView mButtonCancelSearch;
     public ImageView mButtonDel;
     public String mForumId;
-    public d.b.j0.v.d.a mModel;
+    public d.a.j0.v.d.a mModel;
     public NavigationBar mNavigationBar;
     public View mNavigationCustomView;
     public View mNoDataView;
@@ -46,7 +46,7 @@ public class CandidateSearchActivity extends BaseActivity {
     public ImageView mSearchIcon;
     public EditText mSearchbox;
     public View.OnClickListener mOnClickListener = new a();
-    public d.b.c.c.g.a mDataResListener = new b(CmdConfigHttp.CMD_CANDIDATE_SEARCH, 309641);
+    public d.a.c.c.g.a mDataResListener = new b(CmdConfigHttp.CMD_CANDIDATE_SEARCH, 309641);
     public TextView.OnEditorActionListener mOnEditorActionListener = new c();
     public HttpMessageListener mVoteListener = new d(CmdConfigHttp.CMD_BAR_VOTE);
     public TextWatcher mTextWatcher = new e();
@@ -74,17 +74,17 @@ public class CandidateSearchActivity extends BaseActivity {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends d.b.c.c.g.a {
-        public b(int i, int i2) {
-            super(i, i2);
+    public class b extends d.a.c.c.g.a {
+        public b(int i2, int i3) {
+            super(i2, i3);
         }
 
-        @Override // d.b.c.c.g.a
+        @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null) {
                 return;
             }
-            d.b.j0.v.b.a aVar = null;
+            d.a.j0.v.b.a aVar = null;
             if (responsedMessage instanceof CandidateSearchHttpResMsg) {
                 aVar = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
             } else if (responsedMessage instanceof CandidateSearchSocketResMsg) {
@@ -116,10 +116,10 @@ public class CandidateSearchActivity extends BaseActivity {
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
-        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            if (i == 3) {
+        public boolean onEditorAction(TextView textView, int i2, KeyEvent keyEvent) {
+            if (i2 == 3) {
                 if (CandidateSearchActivity.this.mSearchbox.getText() != null && !TextUtils.isEmpty(CandidateSearchActivity.this.mSearchbox.getText().toString()) && !TextUtils.isEmpty(CandidateSearchActivity.this.mForumId)) {
-                    CandidateSearchActivity.this.mModel.a(d.b.c.e.m.b.d(CandidateSearchActivity.this.mSearchbox.getText().toString(), 0), d.b.c.e.m.b.f(CandidateSearchActivity.this.mForumId, 0L));
+                    CandidateSearchActivity.this.mModel.a(d.a.c.e.m.b.d(CandidateSearchActivity.this.mSearchbox.getText().toString(), 0), d.a.c.e.m.b.f(CandidateSearchActivity.this.mForumId, 0L));
                 }
                 return true;
             }
@@ -129,8 +129,8 @@ public class CandidateSearchActivity extends BaseActivity {
 
     /* loaded from: classes4.dex */
     public class d extends HttpMessageListener {
-        public d(int i) {
-            super(i);
+        public d(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -141,20 +141,20 @@ public class CandidateSearchActivity extends BaseActivity {
             }
             int error = httpResponsedMessage.getError();
             if (error == 0) {
-                l.K(TbadkCoreApplication.getInst(), R.string.bar_manager_vote_success);
+                l.L(TbadkCoreApplication.getInst(), R.string.bar_manager_vote_success);
                 if (CandidateSearchActivity.this.dataList != null) {
-                    for (d.b.j0.v.b.a aVar : CandidateSearchActivity.this.dataList) {
+                    for (d.a.j0.v.b.a aVar : CandidateSearchActivity.this.dataList) {
                         aVar.k = true;
                     }
                 }
             } else if (error == 3250023) {
-                d.b.j0.d3.n0.f.b(error, "", null);
+                d.a.j0.d3.n0.f.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    d.b.j0.d3.n0.f.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    d.a.j0.d3.n0.f.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
-                l.L(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
+                l.M(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
             } else {
                 BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
                 blockPopInfoData.block_info = k.isEmpty(httpResponsedMessage.getErrorString()) ? TbadkCoreApplication.getInst().getString(R.string.block_user_tip) : httpResponsedMessage.getErrorString();
@@ -177,11 +177,11 @@ public class CandidateSearchActivity extends BaseActivity {
         }
 
         @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
 
         @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
     }
 
@@ -197,7 +197,7 @@ public class CandidateSearchActivity extends BaseActivity {
             }
             CandidateSearchActivity.this.mSearchbox.requestFocus();
             CandidateSearchActivity candidateSearchActivity = CandidateSearchActivity.this;
-            l.J(candidateSearchActivity, candidateSearchActivity.mSearchbox);
+            l.K(candidateSearchActivity, candidateSearchActivity.mSearchbox);
         }
     }
 
@@ -221,9 +221,9 @@ public class CandidateSearchActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
         SkinManager.setViewTextColor(this.mNoDataView, R.color.CAM_X0109);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mSearchIcon, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0109, null);
         this.mSearchbox.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
@@ -249,14 +249,14 @@ public class CandidateSearchActivity extends BaseActivity {
         this.mRecyclerView.setAdapter(candidateSearchAdapter);
         registerListener(this.mDataResListener);
         registerListener(this.mVoteListener);
-        this.mModel = new d.b.j0.v.d.a(getPageContext());
-        d.b.c.e.m.e.a().postDelayed(this.mShowKeyboardRunnable, 100L);
+        this.mModel = new d.a.j0.v.d.a(getPageContext());
+        d.a.c.e.m.e.a().postDelayed(this.mShowKeyboardRunnable, 100L);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.c.e.m.e.a().removeCallbacks(this.mShowKeyboardRunnable);
+        d.a.c.e.m.e.a().removeCallbacks(this.mShowKeyboardRunnable);
     }
 
     public void setDelButtonVisible(boolean z) {

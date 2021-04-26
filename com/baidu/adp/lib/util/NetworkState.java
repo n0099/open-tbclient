@@ -12,9 +12,9 @@ public class NetworkState implements Serializable {
     public NetworkState() {
     }
 
-    public NetworkState(int i, int i2, long j, long j2) {
-        this.mLastNetState = i;
-        this.mCurNetState = i2;
+    public NetworkState(int i2, int i3, long j, long j2) {
+        this.mLastNetState = i2;
+        this.mCurNetState = i3;
         this.mlastChangedTime = j;
         this.mCurChangedTime = j2;
     }

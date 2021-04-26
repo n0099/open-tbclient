@@ -47,7 +47,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
 
         @Override // com.baidu.searchbox.player.helper.OrientationHelper.IOrientationChange
-        public void onOrientationChanged(int i) {
+        public void onOrientationChanged(int i2) {
             if (UniversalPlayer.isOrientationLock()) {
                 return;
             }
@@ -57,10 +57,10 @@ public class UniversalPlayer extends BDVideoPlayer {
             }
             if (!UniversalPlayer.this.isFullMode()) {
                 this.mIsLandscape = false;
-                if (OrientationHelper.isPortrait(i)) {
+                if (OrientationHelper.isPortrait(i2)) {
                     this.mIsPortrait = true;
                 }
-                if (this.mIsPortrait && OrientationHelper.isLandscape(i) && UniversalPlayer.this.mPlayerContainer.getVisibility() == 0 && System.currentTimeMillis() - this.mChangedTime > 1000) {
+                if (this.mIsPortrait && OrientationHelper.isLandscape(i2) && UniversalPlayer.this.mPlayerContainer.getVisibility() == 0 && System.currentTimeMillis() - this.mChangedTime > 1000) {
                     this.mChangedTime = System.currentTimeMillis();
                     UniversalPlayer.this.switchToFull(0);
                     this.mIsPortrait = false;
@@ -69,13 +69,13 @@ public class UniversalPlayer extends BDVideoPlayer {
                 return;
             }
             this.mIsPortrait = false;
-            if (OrientationHelper.isReverseLandscape(i)) {
+            if (OrientationHelper.isReverseLandscape(i2)) {
                 this.mIsLandscape = true;
                 BdActivityUtils.requestLandscape(UniversalPlayer.this.getActivity(), true);
-            } else if (OrientationHelper.isLandscape(i)) {
+            } else if (OrientationHelper.isLandscape(i2)) {
                 this.mIsLandscape = true;
                 BdActivityUtils.requestLandscape(UniversalPlayer.this.getActivity(), false);
-            } else if (OrientationHelper.isPortrait(i) && this.mIsLandscape && System.currentTimeMillis() - this.mChangedTime > 1000) {
+            } else if (OrientationHelper.isPortrait(i2) && this.mIsLandscape && System.currentTimeMillis() - this.mChangedTime > 1000) {
                 this.mChangedTime = System.currentTimeMillis();
                 UniversalPlayer.this.switchToHalf(0);
                 this.mIsLandscape = false;
@@ -281,12 +281,12 @@ public class UniversalPlayer extends BDVideoPlayer {
     }
 
     @PublicMethod
-    public void switchToFull(int i) {
+    public void switchToFull(int i2) {
         switchToFull();
     }
 
     @PublicMethod
-    public void switchToHalf(int i) {
+    public void switchToHalf(int i2) {
         switchToHalf();
     }
 
@@ -300,9 +300,9 @@ public class UniversalPlayer extends BDVideoPlayer {
     @PublicMethod
     public int findLayerIndex(Class cls) {
         int childCount = this.mLayerContainer.getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            if (this.mLayerContainer.getChildAt(i).getClass() == cls) {
-                return i;
+        for (int i2 = 0; i2 < childCount; i2++) {
+            if (this.mLayerContainer.getChildAt(i2).getClass() == cls) {
+                return i2;
             }
         }
         return -1;

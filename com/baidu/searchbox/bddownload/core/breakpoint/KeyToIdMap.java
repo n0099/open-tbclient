@@ -16,10 +16,10 @@ public class KeyToIdMap {
         this(new HashMap(), new SparseArray());
     }
 
-    public void add(@NonNull DownloadTask downloadTask, int i) {
+    public void add(@NonNull DownloadTask downloadTask, int i2) {
         String generateKey = generateKey(downloadTask);
-        this.keyToIdMap.put(generateKey, Integer.valueOf(i));
-        this.idToKeyMap.put(i, generateKey);
+        this.keyToIdMap.put(generateKey, Integer.valueOf(i2));
+        this.idToKeyMap.put(i2, generateKey);
     }
 
     public String generateKey(@NonNull DownloadTask downloadTask) {
@@ -35,11 +35,11 @@ public class KeyToIdMap {
         return null;
     }
 
-    public void remove(int i) {
-        String str = this.idToKeyMap.get(i);
+    public void remove(int i2) {
+        String str = this.idToKeyMap.get(i2);
         if (str != null) {
             this.keyToIdMap.remove(str);
-            this.idToKeyMap.remove(i);
+            this.idToKeyMap.remove(i2);
         }
     }
 

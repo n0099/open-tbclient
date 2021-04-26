@@ -1,5 +1,6 @@
 package android.support.v4.os;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcel;
@@ -7,7 +8,8 @@ import android.os.Parcelable;
 import android.os.RemoteException;
 import android.support.v4.os.IResultReceiver;
 import androidx.annotation.RestrictTo;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@SuppressLint({"BanParcelableUsage"})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ResultReceiver implements Parcelable {
     public static final Parcelable.Creator<ResultReceiver> CREATOR = new Parcelable.Creator<ResultReceiver>() { // from class: android.support.v4.os.ResultReceiver.1
@@ -21,8 +23,8 @@ public class ResultReceiver implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public ResultReceiver[] newArray(int i) {
-            return new ResultReceiver[i];
+        public ResultReceiver[] newArray(int i2) {
+            return new ResultReceiver[i2];
         }
     };
     public final Handler mHandler;
@@ -35,13 +37,13 @@ public class ResultReceiver implements Parcelable {
         }
 
         @Override // android.support.v4.os.IResultReceiver
-        public void send(int i, Bundle bundle) {
+        public void send(int i2, Bundle bundle) {
             ResultReceiver resultReceiver = ResultReceiver.this;
             Handler handler = resultReceiver.mHandler;
             if (handler != null) {
-                handler.post(new MyRunnable(i, bundle));
+                handler.post(new MyRunnable(i2, bundle));
             } else {
-                resultReceiver.onReceiveResult(i, bundle);
+                resultReceiver.onReceiveResult(i2, bundle);
             }
         }
     }
@@ -51,8 +53,8 @@ public class ResultReceiver implements Parcelable {
         public final int mResultCode;
         public final Bundle mResultData;
 
-        public MyRunnable(int i, Bundle bundle) {
-            this.mResultCode = i;
+        public MyRunnable(int i2, Bundle bundle) {
+            this.mResultCode = i2;
             this.mResultData = bundle;
         }
 
@@ -72,31 +74,31 @@ public class ResultReceiver implements Parcelable {
         return 0;
     }
 
-    public void onReceiveResult(int i, Bundle bundle) {
+    public void onReceiveResult(int i2, Bundle bundle) {
     }
 
-    public void send(int i, Bundle bundle) {
+    public void send(int i2, Bundle bundle) {
         if (this.mLocal) {
             Handler handler = this.mHandler;
             if (handler != null) {
-                handler.post(new MyRunnable(i, bundle));
+                handler.post(new MyRunnable(i2, bundle));
                 return;
             } else {
-                onReceiveResult(i, bundle);
+                onReceiveResult(i2, bundle);
                 return;
             }
         }
         IResultReceiver iResultReceiver = this.mReceiver;
         if (iResultReceiver != null) {
             try {
-                iResultReceiver.send(i, bundle);
+                iResultReceiver.send(i2, bundle);
             } catch (RemoteException unused) {
             }
         }
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         synchronized (this) {
             if (this.mReceiver == null) {
                 this.mReceiver = new MyResultReceiver();

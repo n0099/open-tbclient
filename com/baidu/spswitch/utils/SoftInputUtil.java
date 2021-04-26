@@ -45,17 +45,17 @@ public class SoftInputUtil {
             this.mPanelHeightTarget = iPanelHeightTarget;
         }
 
-        private void calculateSoftInputHeight(int i) {
+        private void calculateSoftInputHeight(int i2) {
             int abs;
             View view;
             if (SoftInputUtil.DEBUG) {
                 Log.d(SoftInputUtil.TAG, "****** calculateSoftInputHeight ******");
             }
             if (SoftInputUtil.DEBUG) {
-                Log.d(SoftInputUtil.TAG, "displayHeight: " + i + ", previousDisplayHeight: " + this.mPreviousDisplayHeight);
+                Log.d(SoftInputUtil.TAG, "displayHeight: " + i2 + ", previousDisplayHeight: " + this.mPreviousDisplayHeight);
             }
             if (this.mPreviousDisplayHeight == 0) {
-                this.mPreviousDisplayHeight = i;
+                this.mPreviousDisplayHeight = i2;
                 int validPanelHeight = SoftInputUtil.getValidPanelHeight(getContext());
                 if (SoftInputUtil.DEBUG) {
                     Log.d(SoftInputUtil.TAG, "previous display height = 0, refresh Height : " + validPanelHeight);
@@ -63,12 +63,12 @@ public class SoftInputUtil {
                 this.mPanelHeightTarget.refreshHeight(validPanelHeight);
             }
             if (SPSwitchConflictUtil.isHandleByPlaceholder(this.mContentView.getContext())) {
-                abs = ((View) this.mContentView.getParent()).getHeight() - i;
+                abs = ((View) this.mContentView.getParent()).getHeight() - i2;
                 if (SoftInputUtil.DEBUG) {
-                    Log.d(SoftInputUtil.TAG, "handle by placeholder, action bar overlay layout height " + view.getHeight() + ", display height: " + i + ", softInputHeight: " + abs);
+                    Log.d(SoftInputUtil.TAG, "handle by placeholder, action bar overlay layout height " + view.getHeight() + ", display height: " + i2 + ", softInputHeight: " + abs);
                 }
             } else {
-                abs = Math.abs(i - this.mPreviousDisplayHeight);
+                abs = Math.abs(i2 - this.mPreviousDisplayHeight);
             }
             if (abs <= SoftInputUtil.getMinSoftInputHeight(getContext())) {
                 if (SoftInputUtil.DEBUG) {
@@ -80,7 +80,7 @@ public class SoftInputUtil {
                 }
                 return;
             }
-            Log.d(SoftInputUtil.TAG, String.format("pre display height: %d, display height: %d, softinput: %d ", Integer.valueOf(this.mPreviousDisplayHeight), Integer.valueOf(i), Integer.valueOf(abs)));
+            Log.d(SoftInputUtil.TAG, String.format("pre display height: %d, display height: %d, softinput: %d ", Integer.valueOf(this.mPreviousDisplayHeight), Integer.valueOf(i2), Integer.valueOf(abs)));
             if (SoftInputUtil.saveSoftInputHeight(getContext(), abs)) {
                 int validPanelHeight2 = SoftInputUtil.getValidPanelHeight(getContext());
                 if (this.mPanelHeightTarget.getHeight() != validPanelHeight2) {
@@ -94,7 +94,7 @@ public class SoftInputUtil {
             }
         }
 
-        private void calculateSoftInputShowing(int i) {
+        private void calculateSoftInputShowing(int i2) {
             boolean z;
             if (SoftInputUtil.DEBUG) {
                 Log.d(SoftInputUtil.TAG, "###### calculateSoftInputShowing ######");
@@ -102,13 +102,13 @@ public class SoftInputUtil {
             View view = (View) this.mContentView.getParent();
             int height = view.getHeight() - view.getPaddingTop();
             if (SPSwitchConflictUtil.isHandleByPlaceholder(this.mContentView.getContext())) {
-                z = height > i;
+                z = height > i2;
             } else {
-                int i2 = this.maxOverlayLayoutHeight;
-                if (i2 == 0) {
+                int i3 = this.maxOverlayLayoutHeight;
+                if (i3 == 0) {
                     z = this.mLastSoftInputShowing;
                 } else {
-                    z = i < i2 - SoftInputUtil.getMinSoftInputHeight(getContext());
+                    z = i2 < i3 - SoftInputUtil.getMinSoftInputHeight(getContext());
                 }
                 this.maxOverlayLayoutHeight = Math.max(this.maxOverlayLayoutHeight, height);
             }
@@ -117,7 +117,7 @@ public class SoftInputUtil {
             }
             if (this.mLastSoftInputShowing != z) {
                 if (SoftInputUtil.DEBUG) {
-                    Log.d(SoftInputUtil.TAG, String.format("displayHeight %d, actionBarOverlayLayoutHeight %d, softinput showing: %B", Integer.valueOf(i), Integer.valueOf(height), Boolean.valueOf(z)));
+                    Log.d(SoftInputUtil.TAG, String.format("displayHeight %d, actionBarOverlayLayoutHeight %d, softinput showing: %B", Integer.valueOf(i2), Integer.valueOf(height), Boolean.valueOf(z)));
                 }
                 this.mPanelHeightTarget.onSoftInputShowing(z);
                 OnSoftInputShowingListener onSoftInputShowingListener = this.mSoftInputShowingListener;
@@ -134,34 +134,34 @@ public class SoftInputUtil {
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            int i;
+            int i2;
             View childAt = this.mContentView.getChildAt(0);
             Rect rect = new Rect();
             if (childAt == null) {
                 if (SoftInputUtil.DEBUG) {
                     Log.d(SoftInputUtil.TAG, "SoftInputUtil, user root view not ready so ignore layout changed");
                 }
-                i = -1;
+                i2 = -1;
             } else if (!SPSwitchConflictUtil.isHandleByPlaceholder(this.mContentView.getContext()) && (!ViewUtil.isSystemUILayoutFullScreen(this.mActivity) || !ViewUtil.isFitsSystemWindows(this.mActivity))) {
-                i = childAt.getHeight();
+                i2 = childAt.getHeight();
                 if (SoftInputUtil.DEBUG) {
                     Log.d(SoftInputUtil.TAG, "#onGlobalLayout#, displayHeight calc by userRootView.getHeight()");
                 }
             } else {
                 childAt.getWindowVisibleDisplayFrame(rect);
-                i = rect.bottom - rect.top;
+                i2 = rect.bottom - rect.top;
                 if (SoftInputUtil.DEBUG) {
                     Log.d(SoftInputUtil.TAG, "#onGlobalLayout#, displayHeight calc by getWindowVisibleDisplayFrame");
                 }
             }
-            if (i == -1) {
+            if (i2 == -1) {
                 return;
             }
             if (SoftInputUtil.DEBUG) {
-                Log.d(SoftInputUtil.TAG, "displayHeight: " + i);
+                Log.d(SoftInputUtil.TAG, "displayHeight: " + i2);
             }
-            calculateSoftInputHeight(i);
-            calculateSoftInputShowing(i);
+            calculateSoftInputHeight(i2);
+            calculateSoftInputShowing(i2);
         }
     }
 
@@ -230,13 +230,13 @@ public class SoftInputUtil {
         ((InputMethodManager) view.getContext().getSystemService("input_method")).hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-    public static boolean saveSoftInputHeight(Context context, int i) {
-        if (sLastSaveSoftInputHeight != i && i >= 0) {
-            sLastSaveSoftInputHeight = i;
+    public static boolean saveSoftInputHeight(Context context, int i2) {
+        if (sLastSaveSoftInputHeight != i2 && i2 >= 0) {
+            sLastSaveSoftInputHeight = i2;
             if (DEBUG) {
-                Log.d(TAG, "save softInput height: " + i);
+                Log.d(TAG, "save softInput height: " + i2);
             }
-            return SoftInputSharedPreferences.save(context, i);
+            return SoftInputSharedPreferences.save(context, i2);
         }
         return false;
     }

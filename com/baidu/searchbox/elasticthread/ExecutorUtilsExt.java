@@ -17,23 +17,23 @@ public class ExecutorUtilsExt {
     public static final int TASK_PRIORITY_SERIAL = 4;
     public static final int TASK_PRIORITY_USER_RELATED = 1;
 
-    public static void delayPostOnElastic(@NonNull Runnable runnable, @NonNull String str, int i, long j) {
-        int i2;
+    public static void delayPostOnElastic(@NonNull Runnable runnable, @NonNull String str, int i2, long j) {
+        int i3;
         if (runnable == null) {
             Log.w(TAG, "received a null task ");
             return;
         }
-        if (i == 0 || i == 1 || i == 2 || i == 3) {
-            i2 = i;
+        if (i2 == 0 || i2 == 1 || i2 == 2 || i2 == 3) {
+            i3 = i2;
         } else {
-            Log.w(TAG, "illegal priority " + i);
-            i2 = 3;
+            Log.w(TAG, "illegal priority " + i2);
+            i3 = 3;
         }
         ElasticConfig.updateConfig();
         if (ElasticConfig.elasticExecutorDisabled()) {
             BackupExecutors.getInstance().postThreadPoolTask(runnable, j);
         } else {
-            ElasticTaskScheduler.getInstance().postConcurrentTaskDelay(runnable, getStandardTaskName(str, ELASTIC_TASK_NAME_PREFIX), i2, j);
+            ElasticTaskScheduler.getInstance().postConcurrentTaskDelay(runnable, getStandardTaskName(str, ELASTIC_TASK_NAME_PREFIX), i3, j);
         }
     }
 
@@ -51,11 +51,11 @@ public class ExecutorUtilsExt {
     }
 
     @Deprecated
-    public static Executor getElasticExecutor(String str, int i) {
+    public static Executor getElasticExecutor(String str, int i2) {
         if (ElasticConfig.elasticExecutorDisabled()) {
             return BackupExecutors.getInstance().getThreadPoolExecutor();
         }
-        return new ElasticExecutor(str, i);
+        return new ElasticExecutor(str, i2);
     }
 
     @Deprecated
@@ -83,8 +83,8 @@ public class ExecutorUtilsExt {
         return str3.length() > 256 ? str3.substring(0, 255) : str3;
     }
 
-    public static void postOnElastic(@NonNull Runnable runnable, @NonNull String str, int i) {
-        delayPostOnElastic(runnable, str, i, 0L);
+    public static void postOnElastic(@NonNull Runnable runnable, @NonNull String str, int i2) {
+        delayPostOnElastic(runnable, str, i2, 0L);
     }
 
     @Deprecated

@@ -16,7 +16,7 @@ public final class a {
 
     public static void a(Context context, boolean z) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("pst", 4);
-        String str = z ? SapiOptions.t : "disabled";
+        String str = z ? SapiOptions.KEY_CACHE_ENABLED : "disabled";
         SharedPreferences.Editor edit = sharedPreferences.edit();
         edit.putString("s_e", str);
         edit.commit();

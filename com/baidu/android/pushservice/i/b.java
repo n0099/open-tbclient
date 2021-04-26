@@ -30,13 +30,13 @@ import org.apache.http.protocol.HTTP;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f3364b;
+    public static b f3398b;
 
     /* renamed from: a  reason: collision with root package name */
-    public OkHttpClient f3365a = a();
+    public OkHttpClient f3399a = a();
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f3366c;
+    public Context f3400c;
 
     /* loaded from: classes.dex */
     public class a implements Interceptor {
@@ -82,14 +82,14 @@ public class b {
     }
 
     public b(Context context) {
-        this.f3366c = context;
+        this.f3400c = context;
     }
 
     public static b a(Context context) {
-        if (f3364b == null) {
-            f3364b = new b(context);
+        if (f3398b == null) {
+            f3398b = new b(context);
         }
-        return f3364b;
+        return f3398b;
     }
 
     private OkHttpClient a() {
@@ -108,9 +108,9 @@ public class b {
     public String[] a(byte[] bArr) {
         try {
             a.c a2 = a.c.a(bArr);
-            if (this.f3365a.pingIntervalMillis() != a2.i()) {
-                this.f3365a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS);
-                this.f3365a = this.f3365a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS).build();
+            if (this.f3399a.pingIntervalMillis() != a2.i()) {
+                this.f3399a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS);
+                this.f3399a = this.f3399a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS).build();
             }
             return new String[]{String.valueOf(a2.d()), a2.f()};
         } catch (InvalidProtocolBufferException unused) {
@@ -125,15 +125,15 @@ public class b {
         }
         a.C0053a.C0054a build = e2.a(str).build();
         long currentTimeMillis = System.currentTimeMillis();
-        return a.C0053a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.i.a.a(this.f3366c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+        return a.C0053a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.i.a.a(this.f3400c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
     }
 
     public void a(Map<String, String> map, byte[] bArr, String str, final c cVar) {
         Request a2 = a(bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 1000.0d)));
-        if (this.f3365a == null) {
-            this.f3365a = a();
+        if (this.f3399a == null) {
+            this.f3399a = a();
         }
-        this.f3365a.newCall(a2).enqueue(new Callback() { // from class: com.baidu.android.pushservice.i.b.1
+        this.f3399a.newCall(a2).enqueue(new Callback() { // from class: com.baidu.android.pushservice.i.b.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 String str2 = "Request error :" + iOException.toString();
@@ -146,19 +146,19 @@ public class b {
             @Override // okhttp3.Callback
             public void onResponse(Call call, Response response) {
                 String str2 = "ok";
-                int i = 0;
+                int i2 = 0;
                 try {
                     if (response.body() != null) {
                         String[] a3 = b.this.a(response.body().bytes());
-                        i = Integer.valueOf(a3[0]).intValue();
+                        i2 = Integer.valueOf(a3[0]).intValue();
                         str2 = a3[1];
                     }
                 } catch (IOException unused) {
                 } catch (Throwable th) {
-                    cVar.a(i, "ok");
+                    cVar.a(i2, "ok");
                     throw th;
                 }
-                cVar.a(i, str2);
+                cVar.a(i2, str2);
             }
         });
     }

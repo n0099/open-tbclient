@@ -9,14 +9,14 @@ import org.json.JSONObject;
 public class HWPushHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f40524a = false;
+    public static boolean f38039a = false;
 
     public static void convertMessage(Intent intent) {
         i.a(intent);
     }
 
     public static boolean hasNetwork(Context context) {
-        return i.m117a(context);
+        return i.m120a(context);
     }
 
     public static boolean isHmsTokenSynced(Context context) {
@@ -34,7 +34,7 @@ public class HWPushHelper {
     }
 
     public static boolean needConnect() {
-        return f40524a;
+        return f38039a;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x002a, code lost:
@@ -49,16 +49,16 @@ public class HWPushHelper {
             try {
                 JSONArray jSONArray = new JSONArray(str);
                 if (jSONArray.length() > 0) {
-                    int i = 0;
+                    int i2 = 0;
                     while (true) {
-                        if (i >= jSONArray.length()) {
+                        if (i2 >= jSONArray.length()) {
                             break;
                         }
-                        JSONObject jSONObject = jSONArray.getJSONObject(i);
+                        JSONObject jSONObject = jSONArray.getJSONObject(i2);
                         if (jSONObject.has("pushMsg")) {
                             break;
                         }
-                        i++;
+                        i2++;
                     }
                 }
             } catch (Exception e2) {
@@ -100,8 +100,8 @@ public class HWPushHelper {
         }
     }
 
-    public static void reportError(String str, int i) {
-        i.a(str, i);
+    public static void reportError(String str, int i2) {
+        i.a(str, i2);
     }
 
     public static synchronized void setConnectTime(Context context) {
@@ -117,7 +117,7 @@ public class HWPushHelper {
     }
 
     public static void setNeedConnect(boolean z) {
-        f40524a = z;
+        f38039a = z;
     }
 
     public static synchronized boolean shouldGetToken(Context context) {

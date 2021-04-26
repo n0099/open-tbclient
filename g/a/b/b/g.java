@@ -3,22 +3,22 @@ package g.a.b.b;
 public class g implements g.a.a.c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f68716a;
+    public String f67572a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f68717b;
+    public int f67573b;
 
-    public g(Class cls, String str, int i) {
-        this.f68716a = str;
-        this.f68717b = i;
+    public g(Class cls, String str, int i2) {
+        this.f67572a = str;
+        this.f67573b = i2;
     }
 
     public String a() {
-        return this.f68716a;
+        return this.f67572a;
     }
 
     public int b() {
-        return this.f68717b;
+        return this.f67573b;
     }
 
     public String toString() {

@@ -12,14 +12,14 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RequestParams {
     public static String ENCODING = "UTF-8";
     public ConcurrentHashMap<String, FileWrapper> fileParams;
     public ConcurrentHashMap<String, String> urlParams;
     public ConcurrentHashMap<String, ArrayList<String>> urlParamsWithArray;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class FileWrapper {
         public String contentType;
         public String fileName;
@@ -101,13 +101,13 @@ public class RequestParams {
                 sb.append("&");
             }
             ArrayList<String> value = entry3.getValue();
-            for (int i = 0; i < value.size(); i++) {
-                if (i != 0) {
+            for (int i2 = 0; i2 < value.size(); i2++) {
+                if (i2 != 0) {
                     sb.append("&");
                 }
                 sb.append(entry3.getKey());
                 sb.append("=");
-                sb.append(value.get(i));
+                sb.append(value.get(i2));
             }
         }
         return sb.toString();
@@ -157,8 +157,8 @@ public class RequestParams {
         if (length % 2 != 0) {
             throw new IllegalArgumentException("Supplied arguments must be even");
         }
-        for (int i = 0; i < length; i += 2) {
-            put(String.valueOf(objArr[i]), String.valueOf(objArr[i + 1]));
+        for (int i2 = 0; i2 < length; i2 += 2) {
+            put(String.valueOf(objArr[i2]), String.valueOf(objArr[i2 + 1]));
         }
     }
 }

@@ -5,15 +5,15 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.swan.apps.res.ui.ShimmerFrameLayout;
-import d.b.h0.a.e;
-import d.b.h0.a.q1.b.d.b;
+import d.a.h0.a.e;
+import d.a.h0.a.q1.b.d.b;
 /* loaded from: classes3.dex */
 public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView> {
     public ImageView w;
     public int x;
 
     /* loaded from: classes3.dex */
-    public class a implements d.b.h0.a.x1.a {
+    public class a implements d.a.h0.a.x1.a {
         public a() {
         }
     }
@@ -23,7 +23,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.h0.a.q1.b.d.b
+    @Override // d.a.h0.a.q1.b.d.b
     public BdShimmerView getLoadingView() {
         return this;
     }
@@ -31,21 +31,21 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        d.b.h0.a.w0.a.z().f(this, new a());
+        d.a.h0.a.w0.a.z().f(this, new a());
     }
 
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        d.b.h0.a.w0.a.z().g(this);
+        d.a.h0.a.w0.a.z().g(this);
     }
 
     public void setPageResources() {
         v();
     }
 
-    public void setType(int i) {
-        this.x = i;
+    public void setType(int i2) {
+        this.x = i2;
         v();
     }
 
@@ -56,9 +56,9 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
     }
 
     public final void v() {
-        int i = this.x;
-        if (i != 0) {
-            if (i != 1) {
+        int i2 = this.x;
+        if (i2 != 0) {
+            if (i2 != 1) {
                 return;
             }
             this.w.setImageDrawable(getResources().getDrawable(e.aiapps_white_shimmer_loading));
@@ -67,7 +67,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
         }
         this.w.setImageDrawable(getResources().getDrawable(e.aiapps_black_shimmer_loading));
         ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
-        if (d.b.h0.a.w0.a.z().a()) {
+        if (d.a.h0.a.w0.a.z().a()) {
             maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
         }
         setMaskShape(maskShape);
@@ -77,8 +77,8 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
         this(context, attributeSet, 0);
     }
 
-    public BdShimmerView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BdShimmerView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         u(context);
     }
 }

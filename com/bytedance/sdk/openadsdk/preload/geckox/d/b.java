@@ -1,5 +1,6 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.d;
 
+import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
 import com.bytedance.sdk.openadsdk.preload.b.j;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import java.util.List;
@@ -19,13 +20,13 @@ public class b extends j<UpdatePackage, UpdatePackage> {
             return "full";
         }
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "start full update, channel:", updatePackage.getChannel());
-        return "patch";
+        return SchemeDescPatchListener.PATCH;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.b.j
     public String a(com.bytedance.sdk.openadsdk.preload.b.b<UpdatePackage> bVar, UpdatePackage updatePackage, Throwable th, String str) {
-        if ("patch".equals(str)) {
+        if (SchemeDescPatchListener.PATCH.equals(str)) {
             com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "start full update, channel:", updatePackage.getChannel());
             return "full";
         }

@@ -23,7 +23,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
     public a webSocketClient;
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
-    public void close(int i, String str) {
+    public void close(int i2, String str) {
         a aVar = this.webSocketClient;
         if (aVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("webSocketClient");
@@ -49,10 +49,10 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         final Map<String, String> headers = webSocketRequest.getHeaders();
         this.webSocketClient = new a(create, aVar, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
             @Override // g.c.e.a
-            public void onClose(int i, String str2, boolean z) {
+            public void onClose(int i2, String str2, boolean z) {
                 IWebSocketListener iWebSocketListener2 = IWebSocketListener.this;
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("code", i);
+                jSONObject.put("code", i2);
                 if (str2 == null) {
                     str2 = "";
                 }
@@ -72,12 +72,12 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
 
             @Override // g.c.e.a
             public void onOpen(h hVar) {
-                Iterator<String> d2;
+                Iterator<String> g2;
                 HashMap hashMap = new HashMap();
-                if (hVar != null && (d2 = hVar.d()) != null) {
-                    while (d2.hasNext()) {
-                        String next = d2.next();
-                        hashMap.put(next, hVar.h(next));
+                if (hVar != null && (g2 = hVar.g()) != null) {
+                    while (g2.hasNext()) {
+                        String next = g2.next();
+                        hashMap.put(next, hVar.d(next));
                     }
                 }
                 IWebSocketListener.this.onOpen(hashMap);

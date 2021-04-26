@@ -83,11 +83,11 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     @NonNull
-    public static Bitmap createBitmap(int i, int i2, @Nullable Bitmap.Config config) {
+    public static Bitmap createBitmap(int i2, int i3, @Nullable Bitmap.Config config) {
         if (config == null) {
             config = DEFAULT_CONFIG;
         }
-        return Bitmap.createBitmap(i, i2, config);
+        return Bitmap.createBitmap(i2, i3, config);
     }
 
     private void dump() {
@@ -124,13 +124,13 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     @Nullable
-    private synchronized Bitmap getDirtyOrNull(int i, int i2, @Nullable Bitmap.Config config) {
+    private synchronized Bitmap getDirtyOrNull(int i2, int i3, @Nullable Bitmap.Config config) {
         Bitmap bitmap;
         assertNotHardwareConfig(config);
-        bitmap = this.strategy.get(i, i2, config != null ? config : DEFAULT_CONFIG);
+        bitmap = this.strategy.get(i2, i3, config != null ? config : DEFAULT_CONFIG);
         if (bitmap == null) {
             if (Log.isLoggable(TAG, 3)) {
-                Log.d(TAG, "Missing bitmap=" + this.strategy.logBitmap(i, i2, config));
+                Log.d(TAG, "Missing bitmap=" + this.strategy.logBitmap(i2, i3, config));
             }
             this.misses++;
         } else {
@@ -140,7 +140,7 @@ public class LruBitmapPool implements BitmapPool {
             normalize(bitmap);
         }
         if (Log.isLoggable(TAG, 2)) {
-            Log.v(TAG, "Get bitmap=" + this.strategy.logBitmap(i, i2, config));
+            Log.v(TAG, "Get bitmap=" + this.strategy.logBitmap(i2, i3, config));
         }
         dump();
         return bitmap;
@@ -188,43 +188,27 @@ public class LruBitmapPool implements BitmapPool {
         trimToSize(0L);
     }
 
-    public long evictionCount() {
-        return this.evictions;
-    }
-
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
     @NonNull
-    public Bitmap get(int i, int i2, Bitmap.Config config) {
-        Bitmap dirtyOrNull = getDirtyOrNull(i, i2, config);
+    public Bitmap get(int i2, int i3, Bitmap.Config config) {
+        Bitmap dirtyOrNull = getDirtyOrNull(i2, i3, config);
         if (dirtyOrNull != null) {
             dirtyOrNull.eraseColor(0);
             return dirtyOrNull;
         }
-        return createBitmap(i, i2, config);
-    }
-
-    public long getCurrentSize() {
-        return this.currentSize;
+        return createBitmap(i2, i3, config);
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
     @NonNull
-    public Bitmap getDirty(int i, int i2, Bitmap.Config config) {
-        Bitmap dirtyOrNull = getDirtyOrNull(i, i2, config);
-        return dirtyOrNull == null ? createBitmap(i, i2, config) : dirtyOrNull;
+    public Bitmap getDirty(int i2, int i3, Bitmap.Config config) {
+        Bitmap dirtyOrNull = getDirtyOrNull(i2, i3, config);
+        return dirtyOrNull == null ? createBitmap(i2, i3, config) : dirtyOrNull;
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
     public long getMaxSize() {
         return this.maxSize;
-    }
-
-    public long hitCount() {
-        return this.hits;
-    }
-
-    public long missCount() {
-        return this.misses;
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
@@ -267,13 +251,13 @@ public class LruBitmapPool implements BitmapPool {
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
     @SuppressLint({"InlinedApi"})
-    public void trimMemory(int i) {
+    public void trimMemory(int i2) {
         if (Log.isLoggable(TAG, 3)) {
-            Log.d(TAG, "trimMemory, level=" + i);
+            Log.d(TAG, "trimMemory, level=" + i2);
         }
-        if (i >= 40 || (Build.VERSION.SDK_INT >= 23 && i >= 20)) {
+        if (i2 >= 40) {
             clearMemory();
-        } else if (i >= 20 || i == 15) {
+        } else if (i2 >= 20 || i2 == 15) {
             trimToSize(getMaxSize() / 2);
         }
     }

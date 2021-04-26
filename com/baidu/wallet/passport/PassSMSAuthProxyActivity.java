@@ -19,7 +19,7 @@ public class PassSMSAuthProxyActivity extends BaseActivity {
         activity.startActivity(new Intent(activity, PassSMSAuthProxyActivity.class));
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Window window = getWindow();

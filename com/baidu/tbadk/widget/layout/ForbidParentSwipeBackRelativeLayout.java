@@ -28,7 +28,7 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
         super(context, attributeSet);
     }
 
-    public ForbidParentSwipeBackRelativeLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ForbidParentSwipeBackRelativeLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

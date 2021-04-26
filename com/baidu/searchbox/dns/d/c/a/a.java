@@ -8,7 +8,7 @@ public class a extends c {
         super(str);
     }
 
-    public a(int i, int i2, String str) {
-        super(i, i2, str);
+    public a(int i2, int i3, String str) {
+        super(i2, i3, str);
     }
 }

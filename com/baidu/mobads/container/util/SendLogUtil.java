@@ -115,8 +115,8 @@ public class SendLogUtil {
             return this;
         }
 
-        public Builder appendType(int i) {
-            this.mType = i;
+        public Builder appendType(int i2) {
+            this.mType = i2;
             return this;
         }
 
@@ -177,10 +177,10 @@ public class SendLogUtil {
             return this;
         }
 
-        public Builder append(String str, int i) {
+        public Builder append(String str, int i2) {
             String str2;
             try {
-                str2 = String.valueOf(i);
+                str2 = String.valueOf(i2);
             } catch (Exception unused) {
                 str2 = "-1";
             }
@@ -222,25 +222,25 @@ public class SendLogUtil {
         new OAdURLConnection(1, addParameters(str, hashMap)).asynLoad();
     }
 
-    public static void sendCookieLog(Context context, int i, int i2, String str, String str2) {
+    public static void sendCookieLog(Context context, int i2, int i3, String str, String str2) {
         try {
-            Builder.create(context).appendType(i).append("subtype", i2).append("spbaiduid", str).append("cookiebaiduid", str2).append("logversion", "1").send();
+            Builder.create(context).appendType(i2).append("subtype", i3).append("spbaiduid", str).append("cookiebaiduid", str2).append("logversion", "1").send();
         } catch (Exception e2) {
             RemoteXAdLogger.getInstance().d(e2.getMessage());
         }
     }
 
-    public static void sendExpLpLog(Context context, int i, HashMap<String, String> hashMap) {
+    public static void sendExpLpLog(Context context, int i2, HashMap<String, String> hashMap) {
         try {
-            Builder.create(context).appendType(i).append(hashMap).send();
+            Builder.create(context).appendType(i2).append(hashMap).send();
         } catch (Exception e2) {
             RemoteXAdLogger.getInstance().d(e2.getMessage());
         }
     }
 
-    public static void sendLog(Context context, int i, String str, String str2) {
+    public static void sendLog(Context context, int i2, String str, String str2) {
         try {
-            Builder.create(context).appendType(i).append("reason", str).append("url", str2).append("m_start_request", START_REQUEST_TIME).append("m_end_request", END_REQUEST_TIME).send();
+            Builder.create(context).appendType(i2).append("reason", str).append("url", str2).append("m_start_request", START_REQUEST_TIME).append("m_end_request", END_REQUEST_TIME).send();
         } catch (Exception e2) {
             RemoteXAdLogger.getInstance().d(e2.getMessage());
         }

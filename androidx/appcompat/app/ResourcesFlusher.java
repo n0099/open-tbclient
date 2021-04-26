@@ -15,21 +15,21 @@ public class ResourcesFlusher {
     public static boolean sDrawableCacheFieldFetched;
     public static Field sResourcesImplField;
     public static boolean sResourcesImplFieldFetched;
-    public static Class sThemedResourceCacheClazz;
+    public static Class<?> sThemedResourceCacheClazz;
     public static boolean sThemedResourceCacheClazzFetched;
     public static Field sThemedResourceCache_mUnthemedEntriesField;
     public static boolean sThemedResourceCache_mUnthemedEntriesFieldFetched;
 
     public static void flush(@NonNull Resources resources) {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 28) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 28) {
             return;
         }
-        if (i >= 24) {
+        if (i2 >= 24) {
             flushNougats(resources);
-        } else if (i >= 23) {
+        } else if (i2 >= 23) {
             flushMarshmallows(resources);
-        } else if (i >= 21) {
+        } else if (i2 >= 21) {
             flushLollipops(resources);
         }
     }
@@ -147,7 +147,7 @@ public class ResourcesFlusher {
             }
             sThemedResourceCacheClazzFetched = true;
         }
-        Class cls = sThemedResourceCacheClazz;
+        Class<?> cls = sThemedResourceCacheClazz;
         if (cls == null) {
             return;
         }

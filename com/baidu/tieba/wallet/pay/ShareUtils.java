@@ -9,8 +9,8 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import d.b.c.e.p.a;
-import d.b.c.e.p.l;
+import d.a.c.e.p.a;
+import d.a.c.e.p.l;
 /* loaded from: classes5.dex */
 public class ShareUtils {
     public static void share(final Activity activity, String str, String str2, String str3, String str4, String str5) {
@@ -24,7 +24,7 @@ public class ShareUtils {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.a(ShareItem.this.t);
-                l.L(activity, view.getResources().getString(R.string.copy_pb_url_success));
+                l.M(activity, view.getResources().getString(R.string.copy_pb_url_success));
             }
         });
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));

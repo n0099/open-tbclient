@@ -12,20 +12,20 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.faceshop.emotioncenter.message.EmotionCenterResponseMessage;
-import d.b.j0.l0.y.d.b;
+import d.a.j0.l0.y.d.b;
 /* loaded from: classes4.dex */
 public class EmotionCenterModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15442e;
+    public int f15595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f15443f;
+    public final HttpMessageListener f15596f;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -41,10 +41,10 @@ public class EmotionCenterModel extends BdBaseModel {
                 if (bVar == null || (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) == null) {
                     return;
                 }
-                if (EmotionCenterModel.this.f15442e == 1) {
-                    bVar.U(emotionCenterResponseMessage.data);
+                if (EmotionCenterModel.this.f15595e == 1) {
+                    bVar.h0(emotionCenterResponseMessage.data);
                 } else {
-                    bVar.f(emotionCenterResponseMessage.data);
+                    bVar.T(emotionCenterResponseMessage.data);
                 }
             }
         }
@@ -52,12 +52,12 @@ public class EmotionCenterModel extends BdBaseModel {
 
     public EmotionCenterModel(TbPageContext<BaseFragmentActivity> tbPageContext) {
         super(tbPageContext);
-        this.f15442e = 1;
-        this.f15443f = new a(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
+        this.f15595e = 1;
+        this.f15596f = new a(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
         registerTask();
-        this.f15443f.setTag(getUniqueId());
-        this.f15443f.setSelfListener(true);
-        registerListener(this.f15443f);
+        this.f15596f.setTag(getUniqueId());
+        this.f15596f.setSelfListener(true);
+        registerListener(this.f15596f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -79,16 +79,16 @@ public class EmotionCenterModel extends BdBaseModel {
 
     public void t(b bVar) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
-        int i = this.f15442e + 1;
-        this.f15442e = i;
-        httpMessage.addParam(Config.PACKAGE_NAME, i);
+        int i2 = this.f15595e + 1;
+        this.f15595e = i2;
+        httpMessage.addParam(Config.PACKAGE_NAME, i2);
         httpMessage.addParam("rn", 10);
         httpMessage.setExtra(bVar);
         sendMessage(httpMessage);
     }
 
     public void u(b bVar) {
-        this.f15442e = 1;
+        this.f15595e = 1;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);
         httpMessage.addParam("rn", 10);

@@ -11,15 +11,15 @@ import com.baidu.sapi2.result.QrAppLoginResult;
 import com.baidu.sapi2.result.QrLoginResult;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.QrLoginAction;
-import d.b.y.a.f;
-import d.b.y.a.g;
+import d.a.y.a.f;
+import d.a.y.a.g;
 /* loaded from: classes2.dex */
 public class QrLoginActivity extends BaseActivity {
     public static final String EXTRA_BOOLEAN_FINISH_PAGE = "EXTRA_BOOLEAN_FINISH_PAGE";
     public static final String EXTRA_STRING_QR_LOGIN_URL = "EXTRA_STRING_QR_LOGIN_URL";
-    public String p;
-    public boolean q;
-    public QrLoginResult r = new QrLoginResult();
+    public String t;
+    public boolean u;
+    public QrLoginResult v = new QrLoginResult();
 
     private void finishActivity() {
         a(true);
@@ -28,14 +28,14 @@ public class QrLoginActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
-        this.p = getIntent().getStringExtra(EXTRA_STRING_QR_LOGIN_URL);
-        this.q = getIntent().getBooleanExtra(EXTRA_BOOLEAN_FINISH_PAGE, true);
-        if (SapiUtils.isQrLoginSchema(this.p)) {
+        this.t = getIntent().getStringExtra(EXTRA_STRING_QR_LOGIN_URL);
+        this.u = getIntent().getBooleanExtra(EXTRA_BOOLEAN_FINISH_PAGE, true);
+        if (SapiUtils.isQrLoginSchema(this.t)) {
             return;
         }
         Toast.makeText(this, "抱歉，您扫描的二维码有误，请重新扫描", 0).show();
-        this.r.setResultCode(-204);
-        this.r.setResultMsg("参数错误，请稍后再试");
+        this.v.setResultCode(-204);
+        this.v.setResultMsg("参数错误，请稍后再试");
         finishActivity();
     }
 
@@ -66,9 +66,9 @@ public class QrLoginActivity extends BaseActivity {
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onSuccess(QrAppLoginResult qrAppLoginResult) {
             }
-        }, this.p, QrLoginAction.CANCEL.getName());
-        this.r.setResultCode(-301);
-        this.r.setResultMsg("您已取消操作");
+        }, this.t, QrLoginAction.CANCEL.getName());
+        this.v.setResultCode(-301);
+        this.v.setResultMsg("您已取消操作");
         finishActivity();
     }
 
@@ -81,8 +81,8 @@ public class QrLoginActivity extends BaseActivity {
             setupViews();
         } catch (Throwable th) {
             reportWebviewError(th);
-            this.r.setResultCode(-202);
-            this.r.setResultMsg("网络连接失败，请检查网络设置");
+            this.v.setResultCode(-202);
+            this.v.setResultMsg("网络连接失败，请检查网络设置");
             finishActivity();
         }
     }
@@ -120,14 +120,14 @@ public class QrLoginActivity extends BaseActivity {
         this.sapiWebView.loadQrLogin(new SapiWebView.QrLoginCallback() { // from class: com.baidu.sapi2.activity.QrLoginActivity.3
             @Override // com.baidu.sapi2.SapiWebView.QrLoginCallback
             public void loginStatusChange(boolean z) {
-                QrLoginResult qrLoginResult = QrLoginActivity.this.r;
+                QrLoginResult qrLoginResult = QrLoginActivity.this.v;
                 qrLoginResult.loginStatusChange = z;
                 qrLoginResult.setResultCode(0);
-                QrLoginActivity.this.r.setResultMsg("成功");
+                QrLoginActivity.this.v.setResultMsg("成功");
                 QrLoginActivity qrLoginActivity = QrLoginActivity.this;
-                qrLoginActivity.a(qrLoginActivity.q);
+                qrLoginActivity.a(qrLoginActivity.u);
             }
-        }, this.p, false);
+        }, this.t, false);
     }
 
     private void a() {
@@ -147,7 +147,7 @@ public class QrLoginActivity extends BaseActivity {
         }
         QrLoginCallback qrLoginCallback = CoreViewRouter.getInstance().getQrLoginCallback();
         if (qrLoginCallback != null) {
-            qrLoginCallback.onFinish(this.r);
+            qrLoginCallback.onFinish(this.v);
         }
         if (z) {
             finish();

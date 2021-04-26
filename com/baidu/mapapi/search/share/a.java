@@ -14,7 +14,7 @@ public final class a implements Parcelable.Creator<ShareUrlResult> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public ShareUrlResult[] newArray(int i) {
-        return new ShareUrlResult[i];
+    public ShareUrlResult[] newArray(int i2) {
+        return new ShareUrlResult[i2];
     }
 }

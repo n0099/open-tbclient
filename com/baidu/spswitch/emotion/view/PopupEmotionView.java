@@ -60,8 +60,8 @@ public class PopupEmotionView extends FrameLayout {
         init(context);
     }
 
-    public PopupEmotionView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public PopupEmotionView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         init(context);
     }
 }

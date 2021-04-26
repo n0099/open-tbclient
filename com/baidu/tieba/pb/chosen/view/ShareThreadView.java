@@ -9,22 +9,24 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.k;
+import d.a.c.e.p.k;
 /* loaded from: classes3.dex */
 public final class ShareThreadView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f19172e;
+    public LinearLayout f19628e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditText f19173f;
+    public EditText f19629f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f19174g;
+    public TbImageView f19630g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f19175h;
-    public TextView i;
+    public TextView f19631h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f19632i;
 
     public ShareThreadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -32,41 +34,41 @@ public final class ShareThreadView extends LinearLayout {
     }
 
     public void a() {
-        this.f19172e.setFocusable(true);
-        this.f19172e.setFocusableInTouchMode(true);
-        this.f19172e.requestFocus();
+        this.f19628e.setFocusable(true);
+        this.f19628e.setFocusableInTouchMode(true);
+        this.f19628e.requestFocus();
     }
 
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.thread_to_group_share_view, this);
         setOrientation(1);
-        this.f19172e = (LinearLayout) findViewById(R.id.share_content);
+        this.f19628e = (LinearLayout) findViewById(R.id.share_content);
         TextView textView = (TextView) findViewById(R.id.share_title_view);
-        this.i = textView;
+        this.f19632i = textView;
         SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-        this.f19173f = (EditText) findViewById(R.id.chat_msg);
-        this.f19174g = (TbImageView) findViewById(R.id.chat_group_img);
-        this.f19175h = (TextView) findViewById(R.id.chat_group_desc);
-        SkinManager.setViewTextColor(this.f19173f, R.color.CAM_X0105, 2);
-        SkinManager.setViewTextColor(this.f19175h, R.color.CAM_X0106, 1);
-        this.f19173f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-        this.f19173f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        this.f19629f = (EditText) findViewById(R.id.chat_msg);
+        this.f19630g = (TbImageView) findViewById(R.id.chat_group_img);
+        this.f19631h = (TextView) findViewById(R.id.chat_group_desc);
+        SkinManager.setViewTextColor(this.f19629f, R.color.CAM_X0105, 2);
+        SkinManager.setViewTextColor(this.f19631h, R.color.CAM_X0106, 1);
+        this.f19629f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        this.f19629f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
         a();
     }
 
     public void c(String str, boolean z) {
-        TbImageView tbImageView = this.f19174g;
+        TbImageView tbImageView = this.f19630g;
         if (tbImageView != null) {
-            tbImageView.W(str, z ? 17 : 18, false);
+            tbImageView.V(str, z ? 17 : 18, false);
         }
     }
 
     public EditText getChatMsgView() {
-        return this.f19173f;
+        return this.f19629f;
     }
 
     public String getLeaveMsg() {
-        EditText editText = this.f19173f;
+        EditText editText = this.f19629f;
         if (editText != null) {
             return k.charSequence2String(editText.getText(), null);
         }
@@ -74,14 +76,14 @@ public final class ShareThreadView extends LinearLayout {
     }
 
     public void setDesc(String str) {
-        TextView textView = this.f19175h;
+        TextView textView = this.f19631h;
         if (textView != null) {
             textView.setText(str);
         }
     }
 
     public void setTitle(String str) {
-        TextView textView = this.i;
+        TextView textView = this.f19632i;
         if (textView != null) {
             textView.setText(str);
         }

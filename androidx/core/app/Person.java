@@ -2,6 +2,7 @@ package androidx.core.app;
 
 import android.app.Person;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -104,7 +105,7 @@ public class Person {
 
     @NonNull
     @RequiresApi(28)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static Person fromAndroidPerson(@NonNull android.app.Person person) {
         return new Builder().setName(person.getName()).setIcon(person.getIcon() != null ? IconCompat.createFromIcon(person.getIcon()) : null).setUri(person.getUri()).setKey(person.getKey()).setBot(person.isBot()).setImportant(person.isImportant()).build();
     }
@@ -113,6 +114,13 @@ public class Person {
     public static Person fromBundle(@NonNull Bundle bundle) {
         Bundle bundle2 = bundle.getBundle("icon");
         return new Builder().setName(bundle.getCharSequence("name")).setIcon(bundle2 != null ? IconCompat.createFromBundle(bundle2) : null).setUri(bundle.getString("uri")).setKey(bundle.getString("key")).setBot(bundle.getBoolean(IS_BOT_KEY)).setImportant(bundle.getBoolean(IS_IMPORTANT_KEY)).build();
+    }
+
+    @NonNull
+    @RequiresApi(22)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static Person fromPersistableBundle(@NonNull PersistableBundle persistableBundle) {
+        return new Builder().setName(persistableBundle.getString("name")).setUri(persistableBundle.getString("uri")).setKey(persistableBundle.getString("key")).setBot(persistableBundle.getBoolean(IS_BOT_KEY)).setImportant(persistableBundle.getBoolean(IS_IMPORTANT_KEY)).build();
     }
 
     @Nullable
@@ -145,7 +153,7 @@ public class Person {
 
     @NonNull
     @RequiresApi(28)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public android.app.Person toAndroidPerson() {
         return new Person.Builder().setName(getName()).setIcon(getIcon() != null ? getIcon().toIcon() : null).setUri(getUri()).setKey(getKey()).setBot(isBot()).setImportant(isImportant()).build();
     }
@@ -166,5 +174,19 @@ public class Person {
         bundle.putBoolean(IS_BOT_KEY, this.mIsBot);
         bundle.putBoolean(IS_IMPORTANT_KEY, this.mIsImportant);
         return bundle;
+    }
+
+    @NonNull
+    @RequiresApi(22)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public PersistableBundle toPersistableBundle() {
+        PersistableBundle persistableBundle = new PersistableBundle();
+        CharSequence charSequence = this.mName;
+        persistableBundle.putString("name", charSequence != null ? charSequence.toString() : null);
+        persistableBundle.putString("uri", this.mUri);
+        persistableBundle.putString("key", this.mKey);
+        persistableBundle.putBoolean(IS_BOT_KEY, this.mIsBot);
+        persistableBundle.putBoolean(IS_IMPORTANT_KEY, this.mIsImportant);
+        return persistableBundle;
     }
 }

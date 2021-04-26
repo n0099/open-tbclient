@@ -16,20 +16,20 @@ public class BucketsBitmapPool extends BasePool<Bitmap> implements BitmapPool {
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public int getBucketedSize(int i) {
-        return i;
+    public int getBucketedSize(int i2) {
+        return i2;
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public int getSizeInBytes(int i) {
-        return i;
+    public int getSizeInBytes(int i2) {
+        return i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public Bitmap alloc(int i) {
-        return Bitmap.createBitmap(1, (int) Math.ceil(i / 2.0d), Bitmap.Config.RGB_565);
+    public Bitmap alloc(int i2) {
+        return Bitmap.createBitmap(1, (int) Math.ceil(i2 / 2.0d), Bitmap.Config.RGB_565);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

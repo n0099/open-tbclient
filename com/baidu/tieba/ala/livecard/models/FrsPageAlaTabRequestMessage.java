@@ -7,15 +7,15 @@ public class FrsPageAlaTabRequestMessage extends HttpMessage {
     public String mForumId;
     public String mForumName;
 
-    public FrsPageAlaTabRequestMessage(int i, String str, String str2, int i2) {
-        super(i);
+    public FrsPageAlaTabRequestMessage(int i2, String str, String str2, int i3) {
+        super(i2);
         this.mForumName = null;
         this.mForumId = null;
         this.mForumName = str;
         this.mForumId = str2;
         addParam("forum_name", str);
         addParam("forum_id", str2);
-        addParam(Config.PACKAGE_NAME, i2);
+        addParam(Config.PACKAGE_NAME, i3);
     }
 
     public String getForumId() {

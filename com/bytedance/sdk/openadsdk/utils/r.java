@@ -16,7 +16,7 @@ public class r {
         }
     }
 
-    public static String a(android.webkit.WebView webView, int i) {
+    public static String a(android.webkit.WebView webView, int i2) {
         if (webView == null) {
             return "";
         }
@@ -24,6 +24,6 @@ public class r {
         if (TextUtils.isEmpty(userAgentString)) {
             return "";
         }
-        return userAgentString + " open_news open_news_u_s/" + i;
+        return userAgentString + " open_news open_news_u_s/" + i2;
     }
 }

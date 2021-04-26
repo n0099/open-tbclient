@@ -17,7 +17,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import d.b.c.e.m.e;
+import d.a.c.e.m.e;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -100,8 +100,8 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
         SkinManager.setImageResource(this.errorImage, R.drawable.new_pic_emotion_05);
         SkinManager.setViewTextColor(this.errorInstallFail, R.color.CAM_X0108);
         SkinManager.setBackgroundColor(this.parent, R.color.CAM_X0201);
@@ -118,7 +118,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
         } else if (view == this.btn) {
             PluginStatus pluginStatus = this.status;
             if (pluginStatus != null && pluginStatus.getErrorCode() == 100) {
-                d.b.c.h.h.a.b().u(true);
+                d.a.c.h.h.a.b().u(true);
             }
             showLoadingDialog(getResources().getString(R.string.waiting));
             e.a().postDelayed(new a(), 2000L);

@@ -82,16 +82,16 @@ public class TaskScheduler {
         }
     }
 
-    public void submit(BaseTask baseTask, int i) {
+    public void submit(BaseTask baseTask, int i2) {
         FutureTask submitTask;
         if (baseTask != null) {
             try {
                 baseTask.setTaskAddTime(System.currentTimeMillis());
-                if (i == 1) {
+                if (i2 == 1) {
                     submitTask = submitTask(this.mHighPoolExecutor, baseTask);
-                } else if (i == 2) {
+                } else if (i2 == 2) {
                     submitTask = submitTask(this.mMiddlePoolExecutor, baseTask);
-                } else if (i != 3) {
+                } else if (i2 != 3) {
                     submitTask = submitTask(this.mMiddlePoolExecutor, baseTask);
                 } else {
                     submitTask = submitTask(this.mDownloadPoolExecutor, baseTask);

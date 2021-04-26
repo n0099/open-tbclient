@@ -16,7 +16,7 @@ public class a implements b {
     }
 
     @Override // g.c.g.b
-    public void c(Framedata framedata) throws InvalidDataException {
+    public void c(Framedata framedata) {
     }
 
     @Override // g.c.g.b
@@ -37,19 +37,19 @@ public class a implements b {
     }
 
     @Override // g.c.g.b
-    public void f(Framedata framedata) {
+    public void f(Framedata framedata) throws InvalidDataException {
     }
 
     @Override // g.c.g.b
-    public void g(Framedata framedata) throws InvalidDataException {
-        if (framedata.a() || framedata.b() || framedata.d()) {
-            throw new InvalidFrameException("bad rsv RSV1: " + framedata.a() + " RSV2: " + framedata.b() + " RSV3: " + framedata.d());
-        }
-    }
-
-    @Override // g.c.g.b
-    public String h() {
+    public String g() {
         return "";
+    }
+
+    @Override // g.c.g.b
+    public void h(Framedata framedata) throws InvalidDataException {
+        if (framedata.b() || framedata.c() || framedata.e()) {
+            throw new InvalidFrameException("bad rsv RSV1: " + framedata.b() + " RSV2: " + framedata.c() + " RSV3: " + framedata.e());
+        }
     }
 
     public int hashCode() {

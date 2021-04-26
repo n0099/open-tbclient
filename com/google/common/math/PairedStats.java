@@ -1,9 +1,9 @@
 package com.google.common.math;
 
-import d.h.c.a.j;
-import d.h.c.a.k;
-import d.h.c.a.n;
-import d.h.c.f.d;
+import d.g.c.a.j;
+import d.g.c.a.k;
+import d.g.c.a.n;
+import d.g.c.f.d;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

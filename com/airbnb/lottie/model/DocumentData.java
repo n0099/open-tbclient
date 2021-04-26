@@ -5,35 +5,19 @@ import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class DocumentData {
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String f1579a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final String f1580b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final float f1581c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final Justification f1582d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final int f1583e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final float f1584f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final float f1585g;
+    public final float baselineShift;
     @ColorInt
-
-    /* renamed from: h  reason: collision with root package name */
-    public final int f1586h;
+    public final int color;
+    public final String fontName;
+    public final Justification justification;
+    public final float lineHeight;
+    public final float size;
     @ColorInt
-    public final int i;
-    public final float j;
-    public final boolean k;
+    public final int strokeColor;
+    public final boolean strokeOverFill;
+    public final float strokeWidth;
+    public final String text;
+    public final int tracking;
 
     /* loaded from: classes.dex */
     public enum Justification {
@@ -42,23 +26,23 @@ public class DocumentData {
         CENTER
     }
 
-    public DocumentData(String str, String str2, float f2, Justification justification, int i, float f3, float f4, @ColorInt int i2, @ColorInt int i3, float f5, boolean z) {
-        this.f1579a = str;
-        this.f1580b = str2;
-        this.f1581c = f2;
-        this.f1582d = justification;
-        this.f1583e = i;
-        this.f1584f = f3;
-        this.f1585g = f4;
-        this.f1586h = i2;
-        this.i = i3;
-        this.j = f5;
-        this.k = z;
+    public DocumentData(String str, String str2, float f2, Justification justification, int i2, float f3, float f4, @ColorInt int i3, @ColorInt int i4, float f5, boolean z) {
+        this.text = str;
+        this.fontName = str2;
+        this.size = f2;
+        this.justification = justification;
+        this.tracking = i2;
+        this.lineHeight = f3;
+        this.baselineShift = f4;
+        this.color = i3;
+        this.strokeColor = i4;
+        this.strokeWidth = f5;
+        this.strokeOverFill = z;
     }
 
     public int hashCode() {
-        int hashCode = (((((int) ((((this.f1579a.hashCode() * 31) + this.f1580b.hashCode()) * 31) + this.f1581c)) * 31) + this.f1582d.ordinal()) * 31) + this.f1583e;
-        long floatToRawIntBits = Float.floatToRawIntBits(this.f1584f);
-        return (((hashCode * 31) + ((int) (floatToRawIntBits ^ (floatToRawIntBits >>> 32)))) * 31) + this.f1586h;
+        int hashCode = (((((int) ((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size)) * 31) + this.justification.ordinal()) * 31) + this.tracking;
+        long floatToRawIntBits = Float.floatToRawIntBits(this.lineHeight);
+        return (((hashCode * 31) + ((int) (floatToRawIntBits ^ (floatToRawIntBits >>> 32)))) * 31) + this.color;
     }
 }

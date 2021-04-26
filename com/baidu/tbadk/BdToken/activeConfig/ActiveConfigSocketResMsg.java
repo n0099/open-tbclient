@@ -2,7 +2,7 @@ package com.baidu.tbadk.BdToken.activeConfig;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.a.z.b;
+import d.a.i0.a.z.b;
 import tbclient.ActiveConfig.ActiveConfigResIdl;
 import tbclient.Error;
 /* loaded from: classes3.dex */
@@ -19,7 +19,7 @@ public class ActiveConfigSocketResMsg extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         ActiveConfigResIdl activeConfigResIdl = (ActiveConfigResIdl) new Wire(new Class[0]).parseFrom(bArr, ActiveConfigResIdl.class);
         if (activeConfigResIdl != null) {
             Error error = activeConfigResIdl.error;

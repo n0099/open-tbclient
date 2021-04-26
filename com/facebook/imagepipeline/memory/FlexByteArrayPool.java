@@ -22,8 +22,8 @@ public class FlexByteArrayPool {
         }
 
         @Override // com.facebook.imagepipeline.memory.BasePool
-        public Bucket<byte[]> newBucket(int i) {
-            return new OOMSoftReferenceBucket(getSizeInBytes(i), this.mPoolParams.maxNumThreads, 0);
+        public Bucket<byte[]> newBucket(int i2) {
+            return new OOMSoftReferenceBucket(getSizeInBytes(i2), this.mPoolParams.maxNumThreads, 0);
         }
     }
 
@@ -39,8 +39,8 @@ public class FlexByteArrayPool {
         };
     }
 
-    public CloseableReference<byte[]> get(int i) {
-        return CloseableReference.of(this.mDelegatePool.get(i), this.mResourceReleaser);
+    public CloseableReference<byte[]> get(int i2) {
+        return CloseableReference.of(this.mDelegatePool.get(i2), this.mResourceReleaser);
     }
 
     public int getMinBufferSize() {

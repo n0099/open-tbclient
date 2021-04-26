@@ -21,8 +21,8 @@ public class WebSettingsAdapter {
         return this.mBoundaryInterface.getSafeBrowsingEnabled();
     }
 
-    public void setDisabledActionModeMenuItems(int i) {
-        this.mBoundaryInterface.setDisabledActionModeMenuItems(i);
+    public void setDisabledActionModeMenuItems(int i2) {
+        this.mBoundaryInterface.setDisabledActionModeMenuItems(i2);
     }
 
     public void setOffscreenPreRaster(boolean z) {

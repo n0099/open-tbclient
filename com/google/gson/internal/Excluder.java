@@ -5,10 +5,12 @@ import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
-import d.h.d.a.d;
-import d.h.d.a.e;
-import d.h.d.c.a;
-import d.h.d.d.b;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.Since;
+import com.google.gson.annotations.Until;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -16,96 +18,24 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
 public final class Excluder implements TypeAdapterFactory, Cloneable {
-    public static final Excluder k = new Excluder();
+    public static final Excluder DEFAULT = new Excluder();
+    public static final double IGNORE_VERSIONS = -1.0d;
+    public boolean requireExpose;
+    public double version = -1.0d;
+    public int modifiers = 136;
+    public boolean serializeInnerClasses = true;
+    public List<ExclusionStrategy> serializationStrategies = Collections.emptyList();
+    public List<ExclusionStrategy> deserializationStrategies = Collections.emptyList();
 
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f31294h;
-
-    /* renamed from: e  reason: collision with root package name */
-    public double f31291e = -1.0d;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f31292f = 136;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f31293g = true;
-    public List<ExclusionStrategy> i = Collections.emptyList();
-    public List<ExclusionStrategy> j = Collections.emptyList();
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: b */
-    public Excluder clone() {
-        try {
-            return (Excluder) super.clone();
-        } catch (CloneNotSupportedException e2) {
-            throw new AssertionError(e2);
-        }
-    }
-
-    public Excluder c() {
-        Excluder clone = clone();
-        clone.f31293g = false;
-        return clone;
-    }
-
-    @Override // com.google.gson.TypeAdapterFactory
-    public <T> TypeAdapter<T> create(final Gson gson, final a<T> aVar) {
-        Class<? super T> c2 = aVar.c();
-        boolean e2 = e(c2);
-        final boolean z = e2 || f(c2, true);
-        final boolean z2 = e2 || f(c2, false);
-        if (z || z2) {
-            return new TypeAdapter<T>() { // from class: com.google.gson.internal.Excluder.1
-
-                /* renamed from: a  reason: collision with root package name */
-                public TypeAdapter<T> f31295a;
-
-                public final TypeAdapter<T> a() {
-                    TypeAdapter<T> typeAdapter = this.f31295a;
-                    if (typeAdapter != 0) {
-                        return typeAdapter;
-                    }
-                    TypeAdapter<T> delegateAdapter = gson.getDelegateAdapter(Excluder.this, aVar);
-                    this.f31295a = delegateAdapter;
-                    return delegateAdapter;
-                }
-
-                /* JADX WARN: Type inference failed for: r2v1, types: [T, java.lang.Object] */
-                @Override // com.google.gson.TypeAdapter
-                public T read(d.h.d.d.a aVar2) throws IOException {
-                    if (z2) {
-                        aVar2.W();
-                        return null;
-                    }
-                    return a().read(aVar2);
-                }
-
-                @Override // com.google.gson.TypeAdapter
-                public void write(b bVar, T t) throws IOException {
-                    if (z) {
-                        bVar.B();
-                    } else {
-                        a().write(bVar, t);
-                    }
-                }
-            };
-        }
-        return null;
-    }
-
-    public boolean d(Class<?> cls, boolean z) {
-        return e(cls) || f(cls, z);
-    }
-
-    public final boolean e(Class<?> cls) {
-        if (this.f31291e == -1.0d || n((d) cls.getAnnotation(d.class), (e) cls.getAnnotation(e.class))) {
-            return (!this.f31293g && j(cls)) || i(cls);
+    private boolean excludeClassChecks(Class<?> cls) {
+        if (this.version == -1.0d || isValidVersion((Since) cls.getAnnotation(Since.class), (Until) cls.getAnnotation(Until.class))) {
+            return (!this.serializeInnerClasses && isInnerClass(cls)) || isAnonymousOrLocal(cls);
         }
         return true;
     }
 
-    public final boolean f(Class<?> cls, boolean z) {
-        for (ExclusionStrategy exclusionStrategy : z ? this.i : this.j) {
+    private boolean excludeClassInStrategy(Class<?> cls, boolean z) {
+        for (ExclusionStrategy exclusionStrategy : z ? this.serializationStrategies : this.deserializationStrategies) {
             if (exclusionStrategy.shouldSkipClass(cls)) {
                 return true;
             }
@@ -113,15 +43,92 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         return false;
     }
 
-    public boolean g(Field field, boolean z) {
-        d.h.d.a.a aVar;
-        if ((this.f31292f & field.getModifiers()) != 0) {
+    private boolean isAnonymousOrLocal(Class<?> cls) {
+        return !Enum.class.isAssignableFrom(cls) && (cls.isAnonymousClass() || cls.isLocalClass());
+    }
+
+    private boolean isInnerClass(Class<?> cls) {
+        return cls.isMemberClass() && !isStatic(cls);
+    }
+
+    private boolean isStatic(Class<?> cls) {
+        return (cls.getModifiers() & 8) != 0;
+    }
+
+    private boolean isValidSince(Since since) {
+        return since == null || since.value() <= this.version;
+    }
+
+    private boolean isValidUntil(Until until) {
+        return until == null || until.value() > this.version;
+    }
+
+    private boolean isValidVersion(Since since, Until until) {
+        return isValidSince(since) && isValidUntil(until);
+    }
+
+    @Override // com.google.gson.TypeAdapterFactory
+    public <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> typeToken) {
+        Class<? super T> rawType = typeToken.getRawType();
+        boolean excludeClassChecks = excludeClassChecks(rawType);
+        final boolean z = excludeClassChecks || excludeClassInStrategy(rawType, true);
+        final boolean z2 = excludeClassChecks || excludeClassInStrategy(rawType, false);
+        if (z || z2) {
+            return new TypeAdapter<T>() { // from class: com.google.gson.internal.Excluder.1
+                public TypeAdapter<T> delegate;
+
+                private TypeAdapter<T> delegate() {
+                    TypeAdapter<T> typeAdapter = this.delegate;
+                    if (typeAdapter != 0) {
+                        return typeAdapter;
+                    }
+                    TypeAdapter<T> delegateAdapter = gson.getDelegateAdapter(Excluder.this, typeToken);
+                    this.delegate = delegateAdapter;
+                    return delegateAdapter;
+                }
+
+                /* JADX WARN: Type inference failed for: r2v1, types: [T, java.lang.Object] */
+                @Override // com.google.gson.TypeAdapter
+                public T read(JsonReader jsonReader) throws IOException {
+                    if (z2) {
+                        jsonReader.skipValue();
+                        return null;
+                    }
+                    return delegate().read(jsonReader);
+                }
+
+                @Override // com.google.gson.TypeAdapter
+                public void write(JsonWriter jsonWriter, T t) throws IOException {
+                    if (z) {
+                        jsonWriter.nullValue();
+                    } else {
+                        delegate().write(jsonWriter, t);
+                    }
+                }
+            };
+        }
+        return null;
+    }
+
+    public Excluder disableInnerClassSerialization() {
+        Excluder m40clone = m40clone();
+        m40clone.serializeInnerClasses = false;
+        return m40clone;
+    }
+
+    public boolean excludeClass(Class<?> cls, boolean z) {
+        return excludeClassChecks(cls) || excludeClassInStrategy(cls, z);
+    }
+
+    public boolean excludeField(Field field, boolean z) {
+        Expose expose;
+        if ((this.modifiers & field.getModifiers()) != 0) {
             return true;
         }
-        if ((this.f31291e == -1.0d || n((d) field.getAnnotation(d.class), (e) field.getAnnotation(e.class))) && !field.isSynthetic()) {
-            if (!this.f31294h || ((aVar = (d.h.d.a.a) field.getAnnotation(d.h.d.a.a.class)) != null && (!z ? !aVar.deserialize() : !aVar.serialize()))) {
-                if ((this.f31293g || !j(field.getType())) && !i(field.getType())) {
-                    List<ExclusionStrategy> list = z ? this.i : this.j;
+        if ((this.version == -1.0d || isValidVersion((Since) field.getAnnotation(Since.class), (Until) field.getAnnotation(Until.class))) && !field.isSynthetic()) {
+            if (!this.requireExpose || ((expose = (Expose) field.getAnnotation(Expose.class)) != null && (!z ? !expose.deserialize() : !expose.serialize()))) {
+                if ((this.serializeInnerClasses || !isInnerClass(field.getType())) && !isAnonymousOrLocal(field.getType())) {
+                    List<ExclusionStrategy> list = z ? this.serializationStrategies : this.deserializationStrategies;
                     if (list.isEmpty()) {
                         return false;
                     }
@@ -140,63 +147,49 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         return true;
     }
 
-    public Excluder h() {
-        Excluder clone = clone();
-        clone.f31294h = true;
-        return clone;
+    public Excluder excludeFieldsWithoutExposeAnnotation() {
+        Excluder m40clone = m40clone();
+        m40clone.requireExpose = true;
+        return m40clone;
     }
 
-    public final boolean i(Class<?> cls) {
-        return !Enum.class.isAssignableFrom(cls) && (cls.isAnonymousClass() || cls.isLocalClass());
-    }
-
-    public final boolean j(Class<?> cls) {
-        return cls.isMemberClass() && !k(cls);
-    }
-
-    public final boolean k(Class<?> cls) {
-        return (cls.getModifiers() & 8) != 0;
-    }
-
-    public final boolean l(d dVar) {
-        return dVar == null || dVar.value() <= this.f31291e;
-    }
-
-    public final boolean m(e eVar) {
-        return eVar == null || eVar.value() > this.f31291e;
-    }
-
-    public final boolean n(d dVar, e eVar) {
-        return l(dVar) && m(eVar);
-    }
-
-    public Excluder o(ExclusionStrategy exclusionStrategy, boolean z, boolean z2) {
-        Excluder clone = clone();
+    public Excluder withExclusionStrategy(ExclusionStrategy exclusionStrategy, boolean z, boolean z2) {
+        Excluder m40clone = m40clone();
         if (z) {
-            ArrayList arrayList = new ArrayList(this.i);
-            clone.i = arrayList;
+            ArrayList arrayList = new ArrayList(this.serializationStrategies);
+            m40clone.serializationStrategies = arrayList;
             arrayList.add(exclusionStrategy);
         }
         if (z2) {
-            ArrayList arrayList2 = new ArrayList(this.j);
-            clone.j = arrayList2;
+            ArrayList arrayList2 = new ArrayList(this.deserializationStrategies);
+            m40clone.deserializationStrategies = arrayList2;
             arrayList2.add(exclusionStrategy);
         }
-        return clone;
+        return m40clone;
     }
 
-    public Excluder p(int... iArr) {
-        Excluder clone = clone();
-        clone.f31292f = 0;
-        for (int i : iArr) {
-            clone.f31292f = i | clone.f31292f;
+    public Excluder withModifiers(int... iArr) {
+        Excluder m40clone = m40clone();
+        m40clone.modifiers = 0;
+        for (int i2 : iArr) {
+            m40clone.modifiers = i2 | m40clone.modifiers;
         }
-        return clone;
+        return m40clone;
     }
 
-    public Excluder q(double d2) {
-        Excluder clone = clone();
-        clone.f31291e = d2;
-        return clone;
+    public Excluder withVersion(double d2) {
+        Excluder m40clone = m40clone();
+        m40clone.version = d2;
+        return m40clone;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public Excluder m40clone() {
+        try {
+            return (Excluder) super.clone();
+        } catch (CloneNotSupportedException e2) {
+            throw new AssertionError(e2);
+        }
     }
 }

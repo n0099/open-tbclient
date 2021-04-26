@@ -6,8 +6,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaSharedPrefHelper;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.c.e.p.m;
-import d.b.c.e.p.q;
+import d.a.c.e.p.m;
+import d.a.c.e.p.q;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -31,8 +31,8 @@ public class DownloaderHelper {
             } else if (arrayList == null || arrayList.size() <= 0 || (listFiles = new File(str).listFiles()) == null || listFiles.length == 0) {
                 return true;
             } else {
-                for (int i = 0; i < listFiles.length; i++) {
-                    if (!listFiles[i].isDirectory() && !arrayList.contains(getFileMd5(listFiles[i]))) {
+                for (int i2 = 0; i2 < listFiles.length; i2++) {
+                    if (!listFiles[i2].isDirectory() && !arrayList.contains(getFileMd5(listFiles[i2]))) {
                         return true;
                     }
                 }
@@ -47,11 +47,11 @@ public class DownloaderHelper {
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 int length = listFiles.length;
-                for (int i = 0; i < length; i++) {
-                    if (listFiles[i].isFile()) {
-                        listFiles[i].delete();
+                for (int i2 = 0; i2 < length; i2++) {
+                    if (listFiles[i2].isFile()) {
+                        listFiles[i2].delete();
                     } else {
-                        cleanDir(listFiles[i]);
+                        cleanDir(listFiles[i2]);
                     }
                 }
             }
@@ -81,9 +81,9 @@ public class DownloaderHelper {
         try {
             JSONArray jSONArray = new JSONArray(string);
             ArrayList<String> arrayList2 = new ArrayList<>();
-            for (int i = 0; i < jSONArray.length(); i++) {
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 try {
-                    String str2 = (String) jSONArray.opt(i);
+                    String str2 = (String) jSONArray.opt(i2);
                     if (str2 != null) {
                         arrayList2.add(str2);
                     }

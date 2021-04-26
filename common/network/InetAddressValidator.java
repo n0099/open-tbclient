@@ -62,33 +62,33 @@ public class InetAddressValidator implements Serializable {
                 if (split.length > 8) {
                     return false;
                 }
-                int i = 0;
                 int i2 = 0;
-                for (int i3 = 0; i3 < split.length; i3++) {
-                    String str2 = split[i3];
+                int i3 = 0;
+                for (int i4 = 0; i4 < split.length; i4++) {
+                    String str2 = split[i4];
                     if (str2.length() == 0) {
-                        if (i2 + 1 > 1) {
+                        if (i3 + 1 > 1) {
                             return false;
                         }
-                    } else if (i3 == split.length - 1 && str2.contains(".")) {
+                    } else if (i4 == split.length - 1 && str2.contains(".")) {
                         if (!isValidInet4Address(str2)) {
                             return false;
                         }
-                        i += 2;
-                        i2 = 0;
+                        i2 += 2;
+                        i3 = 0;
                     } else if (str2.length() > 4) {
                         return false;
                     } else {
                         try {
                             int parseInt = Integer.parseInt(str2, 16);
-                            i2 = (parseInt >= 0 && parseInt <= 65535) ? 0 : 0;
+                            i3 = (parseInt >= 0 && parseInt <= 65535) ? 0 : 0;
                         } catch (NumberFormatException unused) {
                         }
                         return false;
                     }
-                    i++;
+                    i2++;
                 }
-                return i <= 8 && (i >= 8 || contains);
+                return i2 <= 8 && (i2 >= 8 || contains);
             }
             return false;
         }

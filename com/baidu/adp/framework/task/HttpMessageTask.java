@@ -4,8 +4,7 @@ import android.net.Uri;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.kwai.video.player.KsMediaMeta;
-import d.b.c.c.j.e;
+import d.a.c.c.j.e;
 /* loaded from: classes.dex */
 public class HttpMessageTask extends MessageTask {
     public e mConnectTimeOut;
@@ -31,8 +30,8 @@ public class HttpMessageTask extends MessageTask {
         public abstract boolean c();
     }
 
-    public HttpMessageTask(int i, String str) {
-        super(i);
+    public HttpMessageTask(int i2, String str) {
+        super(i2);
         this.mConnectTimeOut = null;
         this.mUrl = null;
         this.mMethod = HTTP_METHOD.POST;
@@ -49,10 +48,10 @@ public class HttpMessageTask extends MessageTask {
             return;
         }
         Uri parse = Uri.parse(this.mUrl);
-        if (StringUtils.isNull(parse.getQueryParameter("cmd")) || !StringUtils.isNull(parse.getQueryParameter(KsMediaMeta.KSM_KEY_FORMAT))) {
+        if (StringUtils.isNull(parse.getQueryParameter("cmd")) || !StringUtils.isNull(parse.getQueryParameter("format"))) {
             return;
         }
-        this.mUrl = parse.buildUpon().appendQueryParameter(KsMediaMeta.KSM_KEY_FORMAT, "protobuf").toString();
+        this.mUrl = parse.buildUpon().appendQueryParameter("format", "protobuf").toString();
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask

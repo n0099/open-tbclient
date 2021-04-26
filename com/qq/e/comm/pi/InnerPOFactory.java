@@ -16,7 +16,7 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface InnerPOFactory {
-    void config(int i, String str);
+    void config(int i2, String str);
 
     SVSD getAPKDownloadServiceDelegate(Service service);
 

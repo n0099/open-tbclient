@@ -34,7 +34,7 @@ public class PlayerUbcFlowStatisticsManager {
         return iUbcFlow == null ? new PlayerEmptyFlow() : iUbcFlow;
     }
 
-    public void goBackOrForeground(boolean z, int i) {
+    public void goBackOrForeground(boolean z, int i2) {
         if (z) {
             if (BDVideoPlayerUbcHelper.sPlayerCurrentSpreed != 1.0f) {
                 getFlow(IUbcFlow.TYPE_SPEED_DURATION_FLOW).createFlow();
@@ -45,8 +45,8 @@ public class PlayerUbcFlowStatisticsManager {
         upSpeedDurationFlow();
     }
 
-    public void onInfo(int i, int i2, Object obj) {
-        if (i == 904 || i == 956) {
+    public void onInfo(int i2, int i3, Object obj) {
+        if (i2 == 904 || i2 == 956) {
             this.mIsShowFirstFrame = true;
             if (BDVideoPlayerUbcHelper.sPlayerCurrentSpreed != 1.0f) {
                 getFlow(IUbcFlow.TYPE_SPEED_DURATION_FLOW).createFlow();
@@ -54,7 +54,7 @@ public class PlayerUbcFlowStatisticsManager {
         }
     }
 
-    public void onPlayerEnd(int i) {
+    public void onPlayerEnd(int i2) {
         this.mIsShowFirstFrame = false;
         upSpeedDurationFlow();
     }
@@ -69,7 +69,7 @@ public class PlayerUbcFlowStatisticsManager {
         this.mIsShowFirstFrame = false;
     }
 
-    public void onPlayerStop(int i) {
+    public void onPlayerStop(int i2) {
         this.mIsShowFirstFrame = false;
         upSpeedDurationFlow();
     }

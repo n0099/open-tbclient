@@ -9,7 +9,7 @@ public interface c {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(c cVar, int i);
+        void a(c cVar, int i2);
     }
 
     /* loaded from: classes5.dex */
@@ -19,13 +19,13 @@ public interface c {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0315c {
-        boolean a(c cVar, int i, int i2);
+    public interface InterfaceC0308c {
+        boolean a(c cVar, int i2, int i3);
     }
 
     /* loaded from: classes5.dex */
     public interface d {
-        boolean b(c cVar, int i, int i2);
+        boolean b(c cVar, int i2, int i3);
     }
 
     /* loaded from: classes5.dex */
@@ -40,7 +40,7 @@ public interface c {
 
     /* loaded from: classes5.dex */
     public interface g {
-        void a(c cVar, int i, int i2, int i3, int i4);
+        void a(c cVar, int i2, int i3, int i4, int i5);
     }
 
     void a(float f2, float f3) throws Throwable;
@@ -48,7 +48,7 @@ public interface c {
     void a(long j) throws Throwable;
 
     @Deprecated
-    void a(Context context, int i) throws Throwable;
+    void a(Context context, int i2) throws Throwable;
 
     void a(Surface surface) throws Throwable;
 
@@ -58,7 +58,7 @@ public interface c {
 
     void a(b bVar);
 
-    void a(InterfaceC0315c interfaceC0315c);
+    void a(InterfaceC0308c interfaceC0308c);
 
     void a(d dVar);
 

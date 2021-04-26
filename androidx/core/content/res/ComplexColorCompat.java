@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParserException;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class ComplexColorCompat {
     public static final String LOG_TAG = "ComplexColorCompat";
@@ -22,16 +22,16 @@ public final class ComplexColorCompat {
     public final ColorStateList mColorStateList;
     public final Shader mShader;
 
-    public ComplexColorCompat(Shader shader, ColorStateList colorStateList, @ColorInt int i) {
+    public ComplexColorCompat(Shader shader, ColorStateList colorStateList, @ColorInt int i2) {
         this.mShader = shader;
         this.mColorStateList = colorStateList;
-        this.mColor = i;
+        this.mColor = i2;
     }
 
     @NonNull
-    public static ComplexColorCompat createFromXml(@NonNull Resources resources, @ColorRes int i, @Nullable Resources.Theme theme) throws IOException, XmlPullParserException {
+    public static ComplexColorCompat createFromXml(@NonNull Resources resources, @ColorRes int i2, @Nullable Resources.Theme theme) throws IOException, XmlPullParserException {
         int next;
-        XmlResourceParser xml = resources.getXml(i);
+        XmlResourceParser xml = resources.getXml(i2);
         AttributeSet asAttributeSet = Xml.asAttributeSet(xml);
         do {
             next = xml.next();
@@ -66,9 +66,9 @@ public final class ComplexColorCompat {
     }
 
     @Nullable
-    public static ComplexColorCompat inflate(@NonNull Resources resources, @ColorRes int i, @Nullable Resources.Theme theme) {
+    public static ComplexColorCompat inflate(@NonNull Resources resources, @ColorRes int i2, @Nullable Resources.Theme theme) {
         try {
-            return createFromXml(resources, i, theme);
+            return createFromXml(resources, i2, theme);
         } catch (Exception e2) {
             Log.e(LOG_TAG, "Failed to inflate ComplexColor.", e2);
             return null;
@@ -106,8 +106,8 @@ public final class ComplexColorCompat {
         return false;
     }
 
-    public void setColor(@ColorInt int i) {
-        this.mColor = i;
+    public void setColor(@ColorInt int i2) {
+        this.mColor = i2;
     }
 
     public boolean willDraw() {
@@ -118,7 +118,7 @@ public final class ComplexColorCompat {
         return new ComplexColorCompat(null, colorStateList, colorStateList.getDefaultColor());
     }
 
-    public static ComplexColorCompat from(@ColorInt int i) {
-        return new ComplexColorCompat(null, null, i);
+    public static ComplexColorCompat from(@ColorInt int i2) {
+        return new ComplexColorCompat(null, null, i2);
     }
 }

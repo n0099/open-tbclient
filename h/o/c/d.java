@@ -9,23 +9,25 @@ import rx.internal.schedulers.GenericScheduledExecutorServiceFactory;
 public final class d implements h {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ScheduledExecutorService[] f69053f = new ScheduledExecutorService[0];
+    public static final ScheduledExecutorService[] f67910f = new ScheduledExecutorService[0];
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ScheduledExecutorService f69054g;
+    public static final ScheduledExecutorService f67911g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final d f69055h;
-    public static int i;
+    public static final d f67912h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static int f67913i;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<ScheduledExecutorService[]> f69056e = new AtomicReference<>(f69053f);
+    public final AtomicReference<ScheduledExecutorService[]> f67914e = new AtomicReference<>(f67910f);
 
     static {
         ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(0);
-        f69054g = newScheduledThreadPool;
+        f67911g = newScheduledThreadPool;
         newScheduledThreadPool.shutdown();
-        f69055h = new d();
+        f67912h = new d();
     }
 
     public d() {
@@ -33,15 +35,15 @@ public final class d implements h {
     }
 
     public static ScheduledExecutorService a() {
-        ScheduledExecutorService[] scheduledExecutorServiceArr = f69055h.f69056e.get();
-        if (scheduledExecutorServiceArr == f69053f) {
-            return f69054g;
+        ScheduledExecutorService[] scheduledExecutorServiceArr = f67912h.f67914e.get();
+        if (scheduledExecutorServiceArr == f67910f) {
+            return f67911g;
         }
-        int i2 = i + 1;
+        int i2 = f67913i + 1;
         if (i2 >= scheduledExecutorServiceArr.length) {
             i2 = 0;
         }
-        i = i2;
+        f67913i = i2;
         return scheduledExecutorServiceArr[i2];
     }
 
@@ -50,12 +52,12 @@ public final class d implements h {
         ScheduledExecutorService[] scheduledExecutorServiceArr;
         ScheduledExecutorService[] scheduledExecutorServiceArr2;
         do {
-            scheduledExecutorServiceArr = this.f69056e.get();
-            scheduledExecutorServiceArr2 = f69053f;
+            scheduledExecutorServiceArr = this.f67914e.get();
+            scheduledExecutorServiceArr2 = f67910f;
             if (scheduledExecutorServiceArr == scheduledExecutorServiceArr2) {
                 return;
             }
-        } while (!this.f69056e.compareAndSet(scheduledExecutorServiceArr, scheduledExecutorServiceArr2));
+        } while (!this.f67914e.compareAndSet(scheduledExecutorServiceArr, scheduledExecutorServiceArr2));
         for (ScheduledExecutorService scheduledExecutorService : scheduledExecutorServiceArr) {
             g.d(scheduledExecutorService);
             scheduledExecutorService.shutdownNow();
@@ -76,7 +78,7 @@ public final class d implements h {
         for (int i3 = 0; i3 < availableProcessors; i3++) {
             scheduledExecutorServiceArr[i3] = GenericScheduledExecutorServiceFactory.create();
         }
-        if (!this.f69056e.compareAndSet(f69053f, scheduledExecutorServiceArr)) {
+        if (!this.f67914e.compareAndSet(f67910f, scheduledExecutorServiceArr)) {
             while (i2 < availableProcessors) {
                 scheduledExecutorServiceArr[i2].shutdownNow();
                 i2++;

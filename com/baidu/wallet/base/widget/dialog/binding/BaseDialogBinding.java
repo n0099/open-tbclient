@@ -80,7 +80,7 @@ public class BaseDialogBinding extends BaseBinding<BaseDialogModel> {
         if (((BaseDialogModel) t10).negativeBtnClickListener != null) {
             this.negativeButton.setOnClickListener(((BaseDialogModel) t10).negativeBtnClickListener);
         }
-        int i = 8;
+        int i2 = 8;
         this.btnLayouts.setVisibility(((BaseDialogModel) this.viewModel).hideButtons ? 8 : 0);
         this.positiveButton.setVisibility(((BaseDialogModel) this.viewModel).hidePositiveBtn ? 8 : 0);
         this.negativeButton.setVisibility(((BaseDialogModel) this.viewModel).hideNegativeBtn ? 8 : 0);
@@ -102,8 +102,8 @@ public class BaseDialogBinding extends BaseBinding<BaseDialogModel> {
         View view = this.btnLine;
         T t12 = this.viewModel;
         if (!((BaseDialogModel) t12).hideNegativeBtn && !((BaseDialogModel) t12).hidePositiveBtn) {
-            i = 0;
+            i2 = 0;
         }
-        view.setVisibility(i);
+        view.setVisibility(i2);
     }
 }

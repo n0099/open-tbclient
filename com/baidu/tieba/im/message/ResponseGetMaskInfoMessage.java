@@ -37,7 +37,7 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetMaskInfoResIdl getMaskInfoResIdl = (GetMaskInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMaskInfoResIdl.class);
         setError(getMaskInfoResIdl.error.errorno.intValue());
         setErrorString(getMaskInfoResIdl.error.usermsg);
@@ -52,12 +52,12 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
             this.list = dataRes2.list;
             List<UserInfo> list = dataRes2.users;
             int size = list != null ? list.size() : 0;
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i3 = 0; i3 < size; i3++) {
                 BlackListItemData blackListItemData = new BlackListItemData();
-                blackListItemData.u(list.get(i2).portrait);
-                blackListItemData.setUserId(list.get(i2).uid.longValue());
-                blackListItemData.setUserName(list.get(i2).name);
-                blackListItemData.v(list.get(i2).nameShow);
+                blackListItemData.u(list.get(i3).portrait);
+                blackListItemData.setUserId(list.get(i3).uid.longValue());
+                blackListItemData.setUserName(list.get(i3).name);
+                blackListItemData.v(list.get(i3).nameShow);
                 this.blackList.add(blackListItemData);
             }
         }

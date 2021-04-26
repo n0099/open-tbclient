@@ -22,16 +22,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.appcompat.view.menu.ShowableListMenu;
 import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.view.ActionProvider;
+import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ActivityChooserView extends ViewGroup implements ActivityChooserModel.ActivityChooserModelClient {
-    public static final String LOG_TAG = "ActivityChooserView";
     public final View mActivityChooserContent;
     public final Drawable mActivityChooserContentBackground;
     public final ActivityChooserViewAdapter mAdapter;
@@ -94,8 +96,8 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
 
         @Override // android.widget.Adapter
-        public Object getItem(int i) {
-            int itemViewType = getItemViewType(i);
+        public Object getItem(int i2) {
+            int itemViewType = getItemViewType(i2);
             if (itemViewType != 0) {
                 if (itemViewType == 1) {
                     return null;
@@ -103,19 +105,19 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                 throw new IllegalArgumentException();
             }
             if (!this.mShowDefaultActivity && this.mDataModel.getDefaultActivity() != null) {
-                i++;
+                i2++;
             }
-            return this.mDataModel.getActivity(i);
+            return this.mDataModel.getActivity(i2);
         }
 
         @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            return i;
+        public long getItemId(int i2) {
+            return i2;
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
-        public int getItemViewType(int i) {
-            return (this.mShowFooterView && i == getCount() - 1) ? 1 : 0;
+        public int getItemViewType(int i2) {
+            return (this.mShowFooterView && i2 == getCount() - 1) ? 1 : 0;
         }
 
         public boolean getShowDefaultActivity() {
@@ -123,8 +125,8 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            int itemViewType = getItemViewType(i);
+        public View getView(int i2, View view, ViewGroup viewGroup) {
+            int itemViewType = getItemViewType(i2);
             if (itemViewType != 0) {
                 if (itemViewType == 1) {
                     if (view == null || view.getId() != 1) {
@@ -141,10 +143,10 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                 view = LayoutInflater.from(ActivityChooserView.this.getContext()).inflate(R.layout.abc_activity_chooser_view_list_item, viewGroup, false);
             }
             PackageManager packageManager = ActivityChooserView.this.getContext().getPackageManager();
-            ResolveInfo resolveInfo = (ResolveInfo) getItem(i);
+            ResolveInfo resolveInfo = (ResolveInfo) getItem(i2);
             ((ImageView) view.findViewById(R.id.icon)).setImageDrawable(resolveInfo.loadIcon(packageManager));
             ((TextView) view.findViewById(R.id.title)).setText(resolveInfo.loadLabel(packageManager));
-            if (this.mShowDefaultActivity && i == 0 && this.mHighlightDefaultActivity) {
+            if (this.mShowDefaultActivity && i2 == 0 && this.mHighlightDefaultActivity) {
                 view.setActivated(true);
             } else {
                 view.setActivated(false);
@@ -158,20 +160,20 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
 
         public int measureContentWidth() {
-            int i = this.mMaxActivityCount;
+            int i2 = this.mMaxActivityCount;
             this.mMaxActivityCount = Integer.MAX_VALUE;
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
             int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(0, 0);
             int count = getCount();
             View view = null;
-            int i2 = 0;
-            for (int i3 = 0; i3 < count; i3++) {
-                view = getView(i3, view, null);
+            int i3 = 0;
+            for (int i4 = 0; i4 < count; i4++) {
+                view = getView(i4, view, null);
                 view.measure(makeMeasureSpec, makeMeasureSpec2);
-                i2 = Math.max(i2, view.getMeasuredWidth());
+                i3 = Math.max(i3, view.getMeasuredWidth());
             }
-            this.mMaxActivityCount = i;
-            return i2;
+            this.mMaxActivityCount = i2;
+            return i3;
         }
 
         public void setDataModel(ActivityChooserModel activityChooserModel) {
@@ -186,9 +188,9 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             notifyDataSetChanged();
         }
 
-        public void setMaxActivityCount(int i) {
-            if (this.mMaxActivityCount != i) {
-                this.mMaxActivityCount = i;
+        public void setMaxActivityCount(int i2) {
+            if (this.mMaxActivityCount != i2) {
+                this.mMaxActivityCount = i2;
                 notifyDataSetChanged();
             }
         }
@@ -250,8 +252,8 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            int itemViewType = ((ActivityChooserViewAdapter) adapterView.getAdapter()).getItemViewType(i);
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+            int itemViewType = ((ActivityChooserViewAdapter) adapterView.getAdapter()).getItemViewType(i2);
             if (itemViewType != 0) {
                 if (itemViewType == 1) {
                     ActivityChooserView.this.showPopupUnchecked(Integer.MAX_VALUE);
@@ -262,16 +264,16 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             ActivityChooserView.this.dismissPopup();
             ActivityChooserView activityChooserView = ActivityChooserView.this;
             if (activityChooserView.mIsSelectingDefaultActivity) {
-                if (i > 0) {
-                    activityChooserView.mAdapter.getDataModel().setDefaultActivity(i);
+                if (i2 > 0) {
+                    activityChooserView.mAdapter.getDataModel().setDefaultActivity(i2);
                     return;
                 }
                 return;
             }
             if (!activityChooserView.mAdapter.getShowDefaultActivity()) {
-                i++;
+                i2++;
             }
-            Intent chooseActivity = ActivityChooserView.this.mAdapter.getDataModel().chooseActivity(i);
+            Intent chooseActivity = ActivityChooserView.this.mAdapter.getDataModel().chooseActivity(i2);
             if (chooseActivity != null) {
                 chooseActivity.addFlags(524288);
                 ActivityChooserView.this.getContext().startActivity(chooseActivity);
@@ -293,7 +295,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public static class InnerLayout extends LinearLayout {
         public static final int[] TINT_ATTRS = {16842964};
@@ -306,7 +308,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
     }
 
-    public ActivityChooserView(Context context) {
+    public ActivityChooserView(@NonNull Context context) {
         this(context, null);
     }
 
@@ -372,8 +374,8 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.mActivityChooserContent.layout(0, 0, i3 - i, i4 - i2);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        this.mActivityChooserContent.layout(0, 0, i4 - i2, i5 - i3);
         if (isShowingPopup()) {
             return;
         }
@@ -381,12 +383,12 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         View view = this.mActivityChooserContent;
         if (this.mDefaultActivityButton.getVisibility() != 0) {
-            i2 = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i2), 1073741824);
+            i3 = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i3), 1073741824);
         }
-        measureChild(view, i, i2);
+        measureChild(view, i2, i3);
         setMeasuredDimension(view.getMeasuredWidth(), view.getMeasuredHeight());
     }
 
@@ -399,27 +401,27 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
     }
 
-    public void setDefaultActionButtonContentDescription(int i) {
-        this.mDefaultActionButtonContentDescription = i;
+    public void setDefaultActionButtonContentDescription(int i2) {
+        this.mDefaultActionButtonContentDescription = i2;
     }
 
-    public void setExpandActivityOverflowButtonContentDescription(int i) {
-        this.mExpandActivityOverflowButtonImage.setContentDescription(getContext().getString(i));
+    public void setExpandActivityOverflowButtonContentDescription(int i2) {
+        this.mExpandActivityOverflowButtonImage.setContentDescription(getContext().getString(i2));
     }
 
     public void setExpandActivityOverflowButtonDrawable(Drawable drawable) {
         this.mExpandActivityOverflowButtonImage.setImageDrawable(drawable);
     }
 
-    public void setInitialActivityCount(int i) {
-        this.mInitialActivityCount = i;
+    public void setInitialActivityCount(int i2) {
+        this.mInitialActivityCount = i2;
     }
 
     public void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener) {
         this.mOnDismissListener = onDismissListener;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setProvider(ActionProvider actionProvider) {
         this.mProvider = actionProvider;
     }
@@ -437,18 +439,18 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v15 */
     /* JADX WARN: Type inference failed for: r0v6 */
-    /* JADX WARN: Type inference failed for: r0v7, types: [boolean, int] */
-    public void showPopupUnchecked(int i) {
+    /* JADX WARN: Type inference failed for: r0v7, types: [int, boolean] */
+    public void showPopupUnchecked(int i2) {
         if (this.mAdapter.getDataModel() != null) {
             getViewTreeObserver().addOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
             ?? r0 = this.mDefaultActivityButton.getVisibility() == 0 ? 1 : 0;
             int activityCount = this.mAdapter.getActivityCount();
-            if (i != Integer.MAX_VALUE && activityCount > i + r0) {
+            if (i2 != Integer.MAX_VALUE && activityCount > i2 + r0) {
                 this.mAdapter.setShowFooterView(true);
-                this.mAdapter.setMaxActivityCount(i - 1);
+                this.mAdapter.setMaxActivityCount(i2 - 1);
             } else {
                 this.mAdapter.setShowFooterView(false);
-                this.mAdapter.setMaxActivityCount(i);
+                this.mAdapter.setMaxActivityCount(i2);
             }
             ListPopupWindow listPopupWindow = getListPopupWindow();
             if (listPopupWindow.isShowing()) {
@@ -498,12 +500,12 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
     }
 
-    public ActivityChooserView(Context context, AttributeSet attributeSet) {
+    public ActivityChooserView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public ActivityChooserView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ActivityChooserView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mModelDataSetObserver = new DataSetObserver() { // from class: androidx.appcompat.widget.ActivityChooserView.1
             @Override // android.database.DataSetObserver
             public void onChanged() {
@@ -534,7 +536,8 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             }
         };
         this.mInitialActivityCount = 4;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ActivityChooserView, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ActivityChooserView, i2, 0);
+        ViewCompat.saveAttributeDataForStyleable(this, context, R.styleable.ActivityChooserView, attributeSet, obtainStyledAttributes, i2, 0);
         this.mInitialActivityCount = obtainStyledAttributes.getInt(R.styleable.ActivityChooserView_initialActivityCount, 4);
         Drawable drawable = obtainStyledAttributes.getDrawable(R.styleable.ActivityChooserView_expandActivityOverflowButtonDrawable);
         obtainStyledAttributes.recycle();

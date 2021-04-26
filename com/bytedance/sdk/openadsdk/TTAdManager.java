@@ -9,7 +9,7 @@ public interface TTAdManager {
 
     String getBiddingToken(AdSlot adSlot);
 
-    String getBiddingToken(AdSlot adSlot, boolean z, int i);
+    String getBiddingToken(AdSlot adSlot, boolean z, int i2);
 
     @Deprecated
     TTGlobalAppDownloadController getGlobalAppDownloadController(Context context);
@@ -19,7 +19,7 @@ public interface TTAdManager {
     @Deprecated
     TTAdManager isUseTextureView(boolean z);
 
-    boolean onlyVerityPlayable(String str, int i, String str2, String str3, String str4);
+    boolean onlyVerityPlayable(String str, int i2, String str2, String str3, String str4);
 
     @Deprecated
     TTAdManager openDebugMode();
@@ -66,7 +66,7 @@ public interface TTAdManager {
     TTAdManager setTTSecAbs(TTSecAbs tTSecAbs);
 
     @Deprecated
-    TTAdManager setTitleBarTheme(int i);
+    TTAdManager setTitleBarTheme(int i2);
 
     boolean tryShowInstallDialogWhenExit(Activity activity, ExitInstallListener exitInstallListener);
 }

@@ -13,15 +13,15 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class ParamsUtil implements NoProguard {
-    public static HttpCookie a(String str, String str2, String str3) {
+    public static String addExtras(String str, Map<String, String> map) {
+        return str + SapiUtils.mapToUrlParams(map, str.contains("?"));
+    }
+
+    public static HttpCookie buidCookie(String str, String str2, String str3) {
         HttpCookie httpCookie = new HttpCookie(str, str2);
         httpCookie.setDomain(str3);
         httpCookie.setPath("/");
         return httpCookie;
-    }
-
-    public static String addExtras(String str, Map<String, String> map) {
-        return str + SapiUtils.mapToUrlParams(map, str.contains("?"));
     }
 
     public static String buildH5CommonParams(SapiConfiguration sapiConfiguration) {
@@ -39,14 +39,14 @@ public class ParamsUtil implements NoProguard {
             }
             return arrayList;
         }
-        arrayList.add(a("cuid", SapiUtils.getClientId(sapiConfiguration.context), wapDomain));
+        arrayList.add(buidCookie("cuid", SapiUtils.getClientId(sapiConfiguration.context), wapDomain));
         String deviceInfo = SapiContext.getInstance().getDeviceInfo();
         if (deviceInfo == null) {
             deviceInfo = "";
         }
-        arrayList.add(a("DVIF", deviceInfo, wapDomain));
-        arrayList.add(a("HISTORY", SapiUtils.getCookie(sapiConfiguration.environment.getWap(), "HISTORY"), wapDomain));
-        arrayList.add(a("BAIDUID", SapiUtils.getCookie("https://baidu.com", "BAIDUID"), wapDomain));
+        arrayList.add(buidCookie("DVIF", deviceInfo, wapDomain));
+        arrayList.add(buidCookie("HISTORY", SapiUtils.getCookie(sapiConfiguration.environment.getWap(), "HISTORY"), wapDomain));
+        arrayList.add(buidCookie("BAIDUID", SapiUtils.getCookie("https://baidu.com", "BAIDUID"), wapDomain));
         return arrayList;
     }
 
@@ -83,7 +83,7 @@ public class ParamsUtil implements NoProguard {
     }
 
     public static String getUrlTwitterLogin(SapiConfiguration sapiConfiguration) {
-        String str = sapiConfiguration.environment.getURL() + g.f11090f;
+        String str = sapiConfiguration.environment.getURL() + SapiEnv.SOCIAL_START_URI;
         HashMap hashMap = new HashMap();
         hashMap.put("type", String.valueOf(SocialType.TWITTER.getType()));
         hashMap.put("tpl", sapiConfiguration.tpl);
@@ -96,7 +96,7 @@ public class ParamsUtil implements NoProguard {
         hashMap.put("display", "native");
         hashMap.put("act", "optional");
         hashMap.put("supportGuestAccount", "1");
-        hashMap.put(com.alipay.sdk.cons.b.f1883h, sapiConfiguration.twitterAppKey);
+        hashMap.put(com.alipay.sdk.cons.b.f1831h, sapiConfiguration.twitterAppKey);
         hashMap.put("client", "android");
         hashMap.put("clientfrom", "native");
         return str + SapiUtils.mapToUrlParams(hashMap, false);

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PushManager {
     public static final String DEFAULT_REQUEST_ID = "1";
     public static final Object SLOCK = new Object();
@@ -160,12 +160,12 @@ public class PushManager {
         LocalAliasTagsManager.getInstance(p.a().h()).setLocalTags(arrayList);
     }
 
-    public void setMode(int i) {
-        p.a().b(i);
+    public void setMode(int i2) {
+        p.a().b(i2);
     }
 
-    public void setNotifyStyle(int i) {
-        p.a().c(i);
+    public void setNotifyStyle(int i2) {
+        p.a().c(i2);
     }
 
     public void setSystemModel(boolean z) {
@@ -219,9 +219,9 @@ public class PushManager {
         p.a().a(iPushActionListener);
     }
 
-    public void reset(int i) {
+    public void reset(int i2) {
         if (com.vivo.push.util.p.a()) {
-            p.a().a(i);
+            p.a().a(i2);
         }
     }
 

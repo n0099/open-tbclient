@@ -65,14 +65,14 @@ public final class DecodeHelper<Transcode> {
             this.cacheKeys.clear();
             List<ModelLoader.LoadData<?>> loadData = getLoadData();
             int size = loadData.size();
-            for (int i = 0; i < size; i++) {
-                ModelLoader.LoadData<?> loadData2 = loadData.get(i);
+            for (int i2 = 0; i2 < size; i2++) {
+                ModelLoader.LoadData<?> loadData2 = loadData.get(i2);
                 if (!this.cacheKeys.contains(loadData2.sourceKey)) {
                     this.cacheKeys.add(loadData2.sourceKey);
                 }
-                for (int i2 = 0; i2 < loadData2.alternateKeys.size(); i2++) {
-                    if (!this.cacheKeys.contains(loadData2.alternateKeys.get(i2))) {
-                        this.cacheKeys.add(loadData2.alternateKeys.get(i2));
+                for (int i3 = 0; i3 < loadData2.alternateKeys.size(); i3++) {
+                    if (!this.cacheKeys.contains(loadData2.alternateKeys.get(i3))) {
+                        this.cacheKeys.add(loadData2.alternateKeys.get(i3));
                     }
                 }
             }
@@ -98,8 +98,8 @@ public final class DecodeHelper<Transcode> {
             this.loadData.clear();
             List modelLoaders = this.glideContext.getRegistry().getModelLoaders(this.model);
             int size = modelLoaders.size();
-            for (int i = 0; i < size; i++) {
-                ModelLoader.LoadData<?> buildLoadData = ((ModelLoader) modelLoaders.get(i)).buildLoadData(this.model, this.width, this.height, this.options);
+            for (int i2 = 0; i2 < size; i2++) {
+                ModelLoader.LoadData<?> buildLoadData = ((ModelLoader) modelLoaders.get(i2)).buildLoadData(this.model, this.width, this.height, this.options);
                 if (buildLoadData != null) {
                     this.loadData.add(buildLoadData);
                 }
@@ -185,12 +185,12 @@ public final class DecodeHelper<Transcode> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: java.lang.Class<R> */
     /* JADX WARN: Multi-variable type inference failed */
-    public <R> void init(GlideContext glideContext, Object obj, Key key, int i, int i2, DiskCacheStrategy diskCacheStrategy, Class<?> cls, Class<R> cls2, Priority priority, Options options, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, DecodeJob.DiskCacheProvider diskCacheProvider) {
+    public <R> void init(GlideContext glideContext, Object obj, Key key, int i2, int i3, DiskCacheStrategy diskCacheStrategy, Class<?> cls, Class<R> cls2, Priority priority, Options options, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, DecodeJob.DiskCacheProvider diskCacheProvider) {
         this.glideContext = glideContext;
         this.model = obj;
         this.signature = key;
-        this.width = i;
-        this.height = i2;
+        this.width = i2;
+        this.height = i3;
         this.diskCacheStrategy = diskCacheStrategy;
         this.resourceClass = cls;
         this.diskCacheProvider = diskCacheProvider;
@@ -213,8 +213,8 @@ public final class DecodeHelper<Transcode> {
     public boolean isSourceKey(Key key) {
         List<ModelLoader.LoadData<?>> loadData = getLoadData();
         int size = loadData.size();
-        for (int i = 0; i < size; i++) {
-            if (loadData.get(i).sourceKey.equals(key)) {
+        for (int i2 = 0; i2 < size; i2++) {
+            if (loadData.get(i2).sourceKey.equals(key)) {
                 return true;
             }
         }

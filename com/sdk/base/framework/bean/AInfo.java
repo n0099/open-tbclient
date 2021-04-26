@@ -5,14 +5,14 @@ import com.sdk.base.framework.f.c.a;
 public class AInfo {
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38885c;
+    public int f36469c;
     public String md5;
     public String n;
     public String pk;
     public String v;
 
     public int getC() {
-        return this.f38885c;
+        return this.f36469c;
     }
 
     public String getMd5() {
@@ -31,8 +31,8 @@ public class AInfo {
         return this.v;
     }
 
-    public void setC(int i) {
-        this.f38885c = i;
+    public void setC(int i2) {
+        this.f36469c = i2;
     }
 
     public void setMd5(String str) {

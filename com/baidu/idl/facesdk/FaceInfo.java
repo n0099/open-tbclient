@@ -11,11 +11,11 @@ public class FaceInfo {
     public float mConf;
     public int mWidth;
 
-    public FaceInfo(int i, int i2, int i3, int i4, float f2) {
-        this.mWidth = i;
-        this.mAngle = i2;
-        this.mCenter_y = i3;
-        this.mCenter_x = i4;
+    public FaceInfo(int i2, int i3, int i4, int i5, float f2) {
+        this.mWidth = i2;
+        this.mAngle = i3;
+        this.mCenter_y = i4;
+        this.mCenter_x = i5;
         this.mConf = f2;
         this.landmarks = null;
         this.face_id = 0;
@@ -26,28 +26,28 @@ public class FaceInfo {
         double d2 = (this.mAngle * 3.14159d) / 180.0d;
         double cos = Math.cos(d2);
         double sin = Math.sin(d2);
-        int i = this.mWidth;
-        int i2 = (int) ((this.mCenter_x + ((i * cos) / 2.0d)) - ((i * sin) / 2.0d));
-        int i3 = (int) (this.mCenter_y + ((sin * i) / 2.0d) + ((cos * i) / 2.0d));
+        int i2 = this.mWidth;
+        int i3 = (int) ((this.mCenter_x + ((i2 * cos) / 2.0d)) - ((i2 * sin) / 2.0d));
+        int i4 = (int) (this.mCenter_y + ((sin * i2) / 2.0d) + ((cos * i2) / 2.0d));
         double d3 = (this.mAngle * 3.14159d) / 180.0d;
         double cos2 = Math.cos(d3) * 0.5d;
         double sin2 = Math.sin(d3) * 0.5d;
         if (iArr2 == null || iArr2.length == 0) {
             iArr2 = new int[8];
         }
-        double d4 = i2;
-        int i4 = this.mWidth;
-        iArr2[0] = (int) ((d4 - (i4 * sin2)) - (i4 * cos2));
-        double d5 = i3;
-        iArr2[1] = (int) (((i4 * cos2) + d5) - (i4 * sin2));
-        iArr2[2] = (int) ((d4 + (i4 * sin2)) - (i4 * cos2));
-        iArr2[3] = (int) ((d5 - (cos2 * i4)) - (sin2 * i4));
-        int i5 = i2 * 2;
-        iArr2[4] = i5 - iArr2[0];
+        double d4 = i3;
+        int i5 = this.mWidth;
+        iArr2[0] = (int) ((d4 - (i5 * sin2)) - (i5 * cos2));
+        double d5 = i4;
+        iArr2[1] = (int) (((i5 * cos2) + d5) - (i5 * sin2));
+        iArr2[2] = (int) ((d4 + (i5 * sin2)) - (i5 * cos2));
+        iArr2[3] = (int) ((d5 - (cos2 * i5)) - (sin2 * i5));
         int i6 = i3 * 2;
-        iArr2[5] = i6 - iArr2[1];
-        iArr2[6] = i5 - iArr2[2];
-        iArr2[7] = i6 - iArr2[3];
+        iArr2[4] = i6 - iArr2[0];
+        int i7 = i4 * 2;
+        iArr2[5] = i7 - iArr2[1];
+        iArr2[6] = i6 - iArr2[2];
+        iArr2[7] = i7 - iArr2[3];
     }
 
     public int get_leftEyeState() {
@@ -104,24 +104,24 @@ public class FaceInfo {
         return iArr != null && iArr.length == 11 && 1 == iArr[3];
     }
 
-    public FaceInfo(int i, int i2, int i3, int i4, float f2, int i5, int[] iArr) {
-        this.mWidth = i;
-        this.mAngle = i2;
-        this.mCenter_y = i3;
-        this.mCenter_x = i4;
+    public FaceInfo(int i2, int i3, int i4, int i5, float f2, int i6, int[] iArr) {
+        this.mWidth = i2;
+        this.mAngle = i3;
+        this.mCenter_y = i4;
+        this.mCenter_x = i5;
         this.mConf = f2;
         this.landmarks = iArr;
-        this.face_id = i5;
+        this.face_id = i6;
     }
 
-    public FaceInfo(int i, int i2, int i3, int i4, float f2, int i5, int[] iArr, float[] fArr, int[] iArr2) {
-        this.mWidth = i;
-        this.mAngle = i2;
-        this.mCenter_y = i3;
-        this.mCenter_x = i4;
+    public FaceInfo(int i2, int i3, int i4, int i5, float f2, int i6, int[] iArr, float[] fArr, int[] iArr2) {
+        this.mWidth = i2;
+        this.mAngle = i3;
+        this.mCenter_y = i4;
+        this.mCenter_x = i5;
         this.mConf = f2;
         this.landmarks = iArr;
-        this.face_id = i5;
+        this.face_id = i6;
         this.headPose = fArr;
         this.is_live = iArr2;
     }

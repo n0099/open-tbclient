@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.animated.base;
 
 import android.graphics.Bitmap;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public interface AnimatedImageFrame {
     void dispose();
 
@@ -15,5 +15,5 @@ public interface AnimatedImageFrame {
 
     int getYOffset();
 
-    void renderFrame(int i, int i2, Bitmap bitmap);
+    void renderFrame(int i2, int i3, Bitmap bitmap);
 }

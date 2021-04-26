@@ -92,10 +92,10 @@ public class LPVideoLayout extends RelativeLayout implements View.OnClickListene
                 if (duration > 0) {
                     LPVideoLayout.this.seekBar.setMax(duration);
                     LPVideoLayout.this.seekBar.setProgress(lastPosition);
-                    int i = duration / 1000;
-                    long j = i % 60;
-                    long j2 = (i / 60) % 60;
-                    long j3 = (i / 3600) % 24;
+                    int i2 = duration / 1000;
+                    long j = i2 % 60;
+                    long j2 = (i2 / 60) % 60;
+                    long j3 = (i2 / 3600) % 24;
                     if (lastPosition == 0) {
                         if (j3 > 0) {
                             LPVideoLayout.this.textElapsed.setText("00:00:00");
@@ -309,12 +309,12 @@ public class LPVideoLayout extends RelativeLayout implements View.OnClickListene
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
     }
 
     @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+    public void onProgressChanged(SeekBar seekBar, int i2, boolean z) {
         Log.d(TAG, "onProgressChanged");
     }
 

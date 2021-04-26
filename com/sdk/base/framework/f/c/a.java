@@ -11,10 +11,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38926a = "com.sdk.base.framework.f.c.a";
+    public static final String f36511a = "com.sdk.base.framework.f.c.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f38927b = f.f38904b;
+    public static final boolean f36512b = f.f36488b;
 
     public static String a(Object obj) {
         try {
@@ -29,8 +29,8 @@ public class a {
                         JSONArray jSONArray = new JSONArray();
                         ArrayList arrayList = (ArrayList) obj2;
                         if (arrayList != null) {
-                            for (int i = 0; i < arrayList.size(); i++) {
-                                Object obj3 = arrayList.get(i);
+                            for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                                Object obj3 = arrayList.get(i2);
                                 Class<?> cls = obj3.getClass();
                                 if (cls.equals(KInfo.class)) {
                                     Field[] declaredFields2 = cls.getDeclaredFields();
@@ -52,7 +52,7 @@ public class a {
             }
             return jSONObject.toString();
         } catch (Exception e2) {
-            c.b(f38926a, e2.getMessage(), Boolean.valueOf(f38927b));
+            c.b(f36511a, e2.getMessage(), Boolean.valueOf(f36512b));
             return null;
         }
     }

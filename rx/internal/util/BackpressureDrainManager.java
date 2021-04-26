@@ -115,11 +115,11 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
             try {
                 a aVar = this.actual;
                 while (true) {
-                    int i = 0;
+                    int i2 = 0;
                     while (true) {
-                        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                        int i3 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
                         try {
-                            if (i2 > 0 || z2) {
+                            if (i3 > 0 || z2) {
                                 if (z2) {
                                     if (aVar.peek() == null) {
                                         aVar.a(this.exception);
@@ -132,7 +132,7 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
                                         return;
                                     }
                                     j--;
-                                    i++;
+                                    i2++;
                                 }
                             }
                             try {

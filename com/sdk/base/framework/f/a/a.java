@@ -22,10 +22,10 @@ import java.util.Stack;
 public class a extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38922a = "com.sdk.base.framework.f.a.a";
+    public static final String f36507a = "com.sdk.base.framework.f.a.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f38923b = f.f38904b;
+    public static boolean f36508b = f.f36488b;
 
     static {
         new Stack();
@@ -60,7 +60,7 @@ public class a extends com.sdk.base.framework.f.a {
             }
             return null;
         } catch (Exception e2) {
-            c.b(f38922a, e2.getMessage(), Boolean.valueOf(f38923b));
+            c.b(f36507a, e2.getMessage(), Boolean.valueOf(f36508b));
             return null;
         }
     }
@@ -75,7 +75,7 @@ public class a extends com.sdk.base.framework.f.a {
         try {
             return Build.VERSION.SDK_INT;
         } catch (Exception e2) {
-            c.b(f38922a, e2.getMessage(), Boolean.valueOf(f38923b));
+            c.b(f36507a, e2.getMessage(), Boolean.valueOf(f36508b));
             return -1;
         }
     }
@@ -91,7 +91,7 @@ public class a extends com.sdk.base.framework.f.a {
             }
             return -1;
         } catch (Exception e2) {
-            c.b(f38922a, e2.getMessage(), Boolean.valueOf(f38923b));
+            c.b(f36507a, e2.getMessage(), Boolean.valueOf(f36508b));
             return -1;
         }
     }
@@ -108,20 +108,20 @@ public class a extends com.sdk.base.framework.f.a {
             }
             return (T) bundle.get(str);
         } catch (Exception e2) {
-            c.a(f38922a, e2.getMessage(), Boolean.valueOf(f38923b));
+            c.a(f36507a, e2.getMessage(), Boolean.valueOf(f36508b));
             return null;
         }
     }
 
     public static String c(Context context) {
         if (context == null) {
-            c.c(f38922a, "mContext 为空", Boolean.valueOf(f38923b));
+            c.c(f36507a, "mContext 为空", Boolean.valueOf(f36508b));
             return null;
         }
         try {
             return context.getPackageName();
         } catch (Exception e2) {
-            c.b(f38922a, e2.getMessage(), Boolean.valueOf(f38923b));
+            c.b(f36507a, e2.getMessage(), Boolean.valueOf(f36508b));
             return null;
         }
     }
@@ -132,14 +132,14 @@ public class a extends com.sdk.base.framework.f.a {
 
     public static String d(Context context) {
         if (context == null) {
-            com.sdk.base.framework.f.a.a(f38922a, "getAppLable", "mContext 为空", f38923b);
+            com.sdk.base.framework.f.a.a(f36507a, "getAppLable", "mContext 为空", f36508b);
             return null;
         }
         try {
             PackageManager packageManager = context.getPackageManager();
             return packageManager.getApplicationLabel(packageManager.getApplicationInfo(context.getPackageName(), 128)).toString();
         } catch (Exception e2) {
-            c.b(f38922a, e2.getMessage(), Boolean.valueOf(f38923b));
+            c.b(f36507a, e2.getMessage(), Boolean.valueOf(f36508b));
             return null;
         }
     }
@@ -149,25 +149,25 @@ public class a extends com.sdk.base.framework.f.a {
         try {
             packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
         } catch (PackageManager.NameNotFoundException e2) {
-            c.b(f38922a, e2.getMessage(), Boolean.valueOf(f38923b));
+            c.b(f36507a, e2.getMessage(), Boolean.valueOf(f36508b));
             packageInfo = null;
         }
         if (packageInfo != null) {
-            int i = packageInfo.applicationInfo.flags;
+            int i2 = packageInfo.applicationInfo.flags;
             try {
                 byte[] byteArray = packageInfo.signatures[0].toByteArray();
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 messageDigest.update(byteArray);
                 byte[] digest = messageDigest.digest();
                 String str = "";
-                for (int i2 = 0; i2 < digest.length; i2++) {
-                    if (i2 != 0) {
+                for (int i3 = 0; i3 < digest.length; i3++) {
+                    if (i3 != 0) {
                         StringBuilder sb = new StringBuilder();
                         sb.append(str);
                         sb.append(":");
                         str = sb.toString();
                     }
-                    String hexString = Integer.toHexString(digest[i2] & 255);
+                    String hexString = Integer.toHexString(digest[i3] & 255);
                     if (hexString.length() == 1) {
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append(str);
@@ -178,7 +178,7 @@ public class a extends com.sdk.base.framework.f.a {
                 }
                 return str;
             } catch (Exception e3) {
-                c.b(f38922a, e3.getMessage(), Boolean.valueOf(f38923b));
+                c.b(f36507a, e3.getMessage(), Boolean.valueOf(f36508b));
                 return null;
             }
         }

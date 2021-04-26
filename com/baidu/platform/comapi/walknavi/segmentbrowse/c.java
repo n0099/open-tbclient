@@ -14,32 +14,32 @@ import java.util.HashMap;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f9725a = 0;
+    public static int f10085a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f9726b = -1;
+    public static int f10086b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f9727c = -1;
+    public static int f10087c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f9728d = 99999;
+    public static int f10088d = 99999;
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f9730f = null;
+    public static a f10090f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f9731g = -1;
+    public static int f10091g = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static b f9729e = b.FIRST_GUIDANCE;
+    public static b f10089e = b.FIRST_GUIDANCE;
 
     /* renamed from: h  reason: collision with root package name */
-    public static HashMap<Integer, a> f9732h = new HashMap<>();
+    public static HashMap<Integer, a> f10092h = new HashMap<>();
 
     public static void a(a aVar) {
-        f9730f = aVar;
-        HashMap<Integer, a> hashMap = f9732h;
+        f10090f = aVar;
+        HashMap<Integer, a> hashMap = f10092h;
         if (hashMap != null) {
             hashMap.put(Integer.valueOf(a()), aVar);
         }
@@ -48,21 +48,21 @@ public class c {
     }
 
     public static int b() {
-        return f9731g + 1;
+        return f10091g + 1;
     }
 
     public static int c() {
-        return f9731g - 1;
+        return f10091g - 1;
     }
 
     public static a d() {
-        return f9732h.get(Integer.valueOf(f9731g));
+        return f10092h.get(Integer.valueOf(f10091g));
     }
 
-    public static double e(int i) {
-        if (i > 30 || i <= 0) {
-            if (i > 150 || i <= 30) {
-                return i > 150 ? 2.0d : -1.0d;
+    public static double e(int i2) {
+        if (i2 > 30 || i2 <= 0) {
+            if (i2 > 150 || i2 <= 30) {
+                return i2 > 150 ? 2.0d : -1.0d;
             }
             return 1.5d;
         }
@@ -70,23 +70,23 @@ public class c {
     }
 
     public static a e() {
-        return a(f9731g, -1);
+        return a(f10091g, -1);
     }
 
     public static a f() {
-        return a(f9731g, 1);
+        return a(f10091g, 1);
     }
 
     public static int g() {
-        return f9727c;
+        return f10087c;
     }
 
     public static int h() {
-        return f9728d;
+        return f10088d;
     }
 
     public static double i() {
-        a a2 = a(f9731g, -2);
+        a a2 = a(f10091g, -2);
         if (a2 == null || a2.d() < 0) {
             return -1.0d;
         }
@@ -94,7 +94,7 @@ public class c {
     }
 
     public static double j() {
-        a a2 = a(f9731g, -1);
+        a a2 = a(f10091g, -1);
         if (a2 == null || a2.d() < 0) {
             return -1.0d;
         }
@@ -102,14 +102,14 @@ public class c {
     }
 
     public static double k() {
-        if (f9732h.get(Integer.valueOf(f9731g)) == null || f9732h.get(Integer.valueOf(f9731g)).d() < 0) {
+        if (f10092h.get(Integer.valueOf(f10091g)) == null || f10092h.get(Integer.valueOf(f10091g)).d() < 0) {
             return -1.0d;
         }
-        return e(f9732h.get(Integer.valueOf(f9731g)).d());
+        return e(f10092h.get(Integer.valueOf(f10091g)).d());
     }
 
     public static double l() {
-        a a2 = a(f9731g, 1);
+        a a2 = a(f10091g, 1);
         if (a2 == null || a2.d() < 0) {
             return -1.0d;
         }
@@ -120,28 +120,28 @@ public class c {
         if (i() == -1.0d) {
             return -1;
         }
-        return (int) (i() * f9725a);
+        return (int) (i() * f10085a);
     }
 
     public static int n() {
         if (j() == -1.0d) {
             return -1;
         }
-        return (int) (j() * f9725a);
+        return (int) (j() * f10085a);
     }
 
     public static int o() {
         if (k() == -1.0d) {
             return -1;
         }
-        return (int) (k() * f9725a);
+        return (int) (k() * f10085a);
     }
 
     public static int p() {
         if (l() == -1.0d) {
             return -1;
         }
-        return (int) (l() * f9725a);
+        return (int) (l() * f10085a);
     }
 
     public static double q() {
@@ -149,52 +149,52 @@ public class c {
     }
 
     public static void r() {
-        f9731g = -1;
-        f9727c = -1;
-        f9728d = 99999;
-        f9729e = b.FIRST_GUIDANCE;
-        f9726b = -1;
-        HashMap<Integer, a> hashMap = f9732h;
+        f10091g = -1;
+        f10087c = -1;
+        f10088d = 99999;
+        f10089e = b.FIRST_GUIDANCE;
+        f10086b = -1;
+        HashMap<Integer, a> hashMap = f10092h;
         if (hashMap != null) {
             hashMap.clear();
         }
     }
 
     public static b s() {
-        return f9729e;
+        return f10089e;
     }
 
-    public static void b(int i) {
-        if (f9727c != -1 || i == -1) {
+    public static void b(int i2) {
+        if (f10087c != -1 || i2 == -1) {
             return;
         }
-        f9727c = i;
+        f10087c = i2;
     }
 
-    public static void c(int i) {
-        if (f9728d != 99999 || i == -1) {
+    public static void c(int i2) {
+        if (f10088d != 99999 || i2 == -1) {
             return;
         }
-        f9728d = i;
+        f10088d = i2;
     }
 
-    public static a d(int i) {
-        HashMap<Integer, a> hashMap = f9732h;
-        if (hashMap == null || hashMap.size() < 1 || !f9732h.containsKey(Integer.valueOf(i))) {
+    public static a d(int i2) {
+        HashMap<Integer, a> hashMap = f10092h;
+        if (hashMap == null || hashMap.size() < 1 || !f10092h.containsKey(Integer.valueOf(i2))) {
             return null;
         }
-        com.baidu.platform.comapi.wnplatform.d.a.a("route hashmap", f9732h.toString());
-        return f9732h.get(Integer.valueOf(i));
+        com.baidu.platform.comapi.wnplatform.d.a.a("route hashmap", f10092h.toString());
+        return f10092h.get(Integer.valueOf(i2));
     }
 
-    public static void f(int i) {
+    public static void f(int i2) {
         int b2 = com.baidu.platform.comapi.wnplatform.o.b.b.a().b();
         int c2 = com.baidu.platform.comapi.wnplatform.o.b.b.a().c();
         int n = com.baidu.platform.comapi.walknavi.b.a().Q().n();
-        MapBound f2 = com.baidu.platform.comapi.walknavi.b.a().f(i);
-        MapStatus i2 = com.baidu.platform.comapi.walknavi.b.a().G().i();
-        if (i2 != null) {
-            MapStatus.Builder builder = new MapStatus.Builder(i2);
+        MapBound f2 = com.baidu.platform.comapi.walknavi.b.a().f(i2);
+        MapStatus i3 = com.baidu.platform.comapi.walknavi.b.a().G().i();
+        if (i3 != null) {
+            MapStatus.Builder builder = new MapStatus.Builder(i3);
             builder.rotate(0.0f);
             builder.overlook(0.0f);
             if (f2 != null) {
@@ -208,16 +208,16 @@ public class c {
             }
             com.baidu.platform.comapi.walknavi.b.a().G().a(builder.build(), 500);
         }
-        com.baidu.platform.comapi.walknavi.b.a().D().e(i);
+        com.baidu.platform.comapi.walknavi.b.a().D().e(i2);
     }
 
     public static int a() {
-        return f9731g;
+        return f10091g;
     }
 
-    public static void a(int i) {
-        f9731g = i;
-        b(i);
+    public static void a(int i2) {
+        f10091g = i2;
+        b(i2);
         f();
         e();
     }
@@ -226,48 +226,48 @@ public class c {
         Paint paint = new Paint();
         paint.setTextSize(com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b.a(context, 17.0f));
         int measureText = (int) paint.measureText("任");
-        double d2 = (f9725a * 0.7d) / measureText;
+        double d2 = (f10085a * 0.7d) / measureText;
         com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "singleCharwidth:" + measureText);
         com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "num:" + d2);
         return (int) d2;
     }
 
-    public static a a(int i, int i2) {
-        HashMap<Integer, a> hashMap = f9732h;
+    public static a a(int i2, int i3) {
+        HashMap<Integer, a> hashMap = f10092h;
         if (hashMap != null) {
-            int i3 = i + i2;
-            if (hashMap.containsKey(Integer.valueOf(i3))) {
-                return f9732h.get(Integer.valueOf(i3));
+            int i4 = i2 + i3;
+            if (hashMap.containsKey(Integer.valueOf(i4))) {
+                return f10092h.get(Integer.valueOf(i4));
             }
         }
         a aVar = new a();
         Bundle bundle = new Bundle();
-        com.baidu.platform.comapi.wnplatform.d.a.a("uid******offset", "uid**" + i + "offset" + i2);
-        com.baidu.platform.comapi.walknavi.b.a().D().a(i, i2, bundle);
+        com.baidu.platform.comapi.wnplatform.d.a.a("uid******offset", "uid**" + i2 + "offset" + i3);
+        com.baidu.platform.comapi.walknavi.b.a().D().a(i2, i3, bundle);
         if (bundle.containsKey("uid")) {
             aVar.b(bundle.getInt("uid"));
             aVar.b(bundle.getString("usGuideText"));
             aVar.a(e.a(bundle, false));
             aVar.b(e.a(bundle));
-            int i4 = bundle.getInt("nParagraphLength");
+            int i5 = bundle.getInt("nParagraphLength");
             if (bundle.containsKey("enGuideType")) {
                 String a2 = com.baidu.platform.comapi.wnplatform.h.c.a(RouteGuideKind.values()[bundle.getInt("enGuideType")]);
-                if (i4 == 0 && a2.equals("wn_dest.png")) {
+                if (i5 == 0 && a2.equals("wn_dest.png")) {
                     aVar.a(20);
                     c(bundle.getInt("uid"));
                 } else {
-                    aVar.a(i4);
+                    aVar.a(i5);
                 }
                 aVar.a(a2);
             }
             com.baidu.platform.comapi.wnplatform.d.a.a("getRouteMessageModelByUid", "wroutemessagemodel" + aVar.toString());
-            f9732h.put(Integer.valueOf(i + i2), aVar);
+            f10092h.put(Integer.valueOf(i2 + i3), aVar);
             return aVar;
         }
         return null;
     }
 
     public static void a(b bVar) {
-        f9729e = bVar;
+        f10089e = bVar;
     }
 }

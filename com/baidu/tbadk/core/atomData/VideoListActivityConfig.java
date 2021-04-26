@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.b.c.e.p.k;
+import d.a.c.e.p.k;
 /* loaded from: classes3.dex */
 public class VideoListActivityConfig extends IntentConfig {
     public static final String KEY_FORUM_ID = "KEY_FORUM_ID";

@@ -35,10 +35,10 @@ public class BIMRtcSendMsg extends Message {
     public int mSdkVersion;
     public IStatusListener mStatusListener;
 
-    public BIMRtcSendMsg(Context context, int i, String str, String str2) {
+    public BIMRtcSendMsg(Context context, int i2, String str, String str2) {
         this.mContext = context;
         this.mRtcInfo = str2;
-        this.mAction = i;
+        this.mAction = i2;
         this.mRoomId = str;
     }
 
@@ -91,10 +91,10 @@ public class BIMRtcSendMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
         StringBuilder sb = new StringBuilder();
         sb.append("error :");
-        sb.append(i);
+        sb.append(i2);
         sb.append(", msg :");
         sb.append(str);
         sb.append(", objStr :");
@@ -102,10 +102,10 @@ public class BIMRtcSendMsg extends Message {
         LogUtils.w(TAG, sb.toString());
         if (this.mAction != 100) {
             BIMRtcTrack.RequestBuilder method = new BIMRtcTrack.RequestBuilder(this.mContext).method("230");
-            method.requestId("" + this.mAction).requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).errorCode(i).aliasId(501210L).ext(trackRequestExt()).build();
+            method.requestId("" + this.mAction).requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).errorCode(i2).aliasId(501210L).ext(trackRequestExt()).build();
         }
         String str2 = null;
-        if (i == 0 && jSONObject != null) {
+        if (i2 == 0 && jSONObject != null) {
             str2 = jSONObject.optString(PmsConstant.Statistic.STATISTIC_ERRMSG);
             if (jSONObject.has(RtcConstants.EXTRA_RTC_INFO)) {
                 try {
@@ -134,37 +134,37 @@ public class BIMRtcSendMsg extends Message {
                 }
             }
         }
-        super.handleMessageResult(context, jSONObject, i, str);
-        onResult(i, str2);
+        super.handleMessageResult(context, jSONObject, i2, str);
+        onResult(i2, str2);
     }
 
-    public void onResult(int i, String str) {
+    public void onResult(int i2, String str) {
         BIMRtcInfo bIMInviteRtcInfo;
-        int i2 = this.mAction;
-        if (i2 == 80) {
+        int i3 = this.mAction;
+        if (i3 == 80) {
             bIMInviteRtcInfo = new BIMInviteRtcInfo(this.mContext);
-        } else if (i2 == 84) {
+        } else if (i3 == 84) {
             bIMInviteRtcInfo = new BIMAnswerRtcInfo();
-        } else if (i2 == 88) {
+        } else if (i3 == 88) {
             bIMInviteRtcInfo = new BIMCloseRoomRtcInfo();
-        } else if (i2 == 90) {
+        } else if (i3 == 90) {
             bIMInviteRtcInfo = new BIMFetchStateRtcInfo(str);
-        } else if (i2 != 91) {
+        } else if (i3 != 91) {
             bIMInviteRtcInfo = new BIMRtcInfo();
         } else {
             bIMInviteRtcInfo = new BIMFetchSignalRtcInfo();
         }
         BIMRtcManager bIMRtcManager = BIMRtcManager.getInstance(this.mContext);
-        int i3 = this.mAction;
-        bIMRtcManager.onRtcRequestResult(i3, bIMInviteRtcInfo.toRtcInfo(i3, this.mRoomId, this.mRtcInfo), i, str, this.mListenerKey);
+        int i4 = this.mAction;
+        bIMRtcManager.onRtcRequestResult(i4, bIMInviteRtcInfo.toRtcInfo(i4, this.mRoomId, this.mRtcInfo), i2, str, this.mListenerKey);
     }
 
     public void setListener(IStatusListener iStatusListener) {
         this.mStatusListener = iStatusListener;
     }
 
-    public BIMRtcSendMsg(Context context, int i, String str, String str2, String str3) {
-        this(context, i, str, str2);
+    public BIMRtcSendMsg(Context context, int i2, String str, String str2, String str3) {
+        this(context, i2, str, str2);
         initCommonParameter(context);
         this.mListenerKey = str3;
         setNeedReplay(true);

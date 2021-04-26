@@ -3,7 +3,7 @@ package com.facebook.drawee.drawable;
 import android.graphics.drawable.Drawable;
 import androidx.core.view.ViewCompat;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DrawableUtils {
     @Nullable
     public static Drawable cloneDrawable(Drawable drawable) {
@@ -28,23 +28,23 @@ public class DrawableUtils {
         drawable.setState(drawable2.getState());
     }
 
-    public static int getOpacityFromColor(int i) {
-        int i2 = i >>> 24;
-        if (i2 == 255) {
+    public static int getOpacityFromColor(int i2) {
+        int i3 = i2 >>> 24;
+        if (i3 == 255) {
             return -1;
         }
-        return i2 == 0 ? -2 : -3;
+        return i3 == 0 ? -2 : -3;
     }
 
-    public static int multiplyColorAlpha(int i, int i2) {
-        if (i2 == 255) {
-            return i;
+    public static int multiplyColorAlpha(int i2, int i3) {
+        if (i3 == 255) {
+            return i2;
         }
-        if (i2 == 0) {
-            return i & ViewCompat.MEASURED_SIZE_MASK;
+        if (i3 == 0) {
+            return i2 & ViewCompat.MEASURED_SIZE_MASK;
         }
-        int i3 = i2 + (i2 >> 7);
-        return (i & ViewCompat.MEASURED_SIZE_MASK) | ((((i >>> 24) * i3) >> 8) << 24);
+        int i4 = i3 + (i3 >> 7);
+        return (i2 & ViewCompat.MEASURED_SIZE_MASK) | ((((i2 >>> 24) * i4) >> 8) << 24);
     }
 
     public static void setCallbacks(@Nullable Drawable drawable, @Nullable Drawable.Callback callback, @Nullable TransformCallback transformCallback) {

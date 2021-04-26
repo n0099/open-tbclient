@@ -167,10 +167,10 @@ public class ProdAdRequestInfo extends BasicAdRequestInfo implements IAdInterLis
             JSONObject jSONObject = new JSONObject(parse.getQueryParameter("jsonObj"));
             AdTaskType adTaskType = AdTaskType.getAdTaskType(host);
             if ("bdsdk".equals(scheme)) {
-                int i = AnonymousClass1.$SwitchMap$com$baidu$mobads$container$adrequest$AdTaskType[adTaskType.ordinal()];
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i == 3 && this.adProdTemplate != null) {
+                int i2 = AnonymousClass1.$SwitchMap$com$baidu$mobads$container$adrequest$AdTaskType[adTaskType.ordinal()];
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 == 3 && this.adProdTemplate != null) {
                             this.adProdTemplate.handleEvent(jSONObject, map);
                         }
                     } else if (this.adProdTemplate != null) {

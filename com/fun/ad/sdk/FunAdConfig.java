@@ -61,8 +61,8 @@ public final class FunAdConfig {
             return this;
         }
 
-        public Builder setTitleBarTheme(int i) {
-            this.titleBarTheme = i;
+        public Builder setTitleBarTheme(int i2) {
+            this.titleBarTheme = i2;
             return this;
         }
 

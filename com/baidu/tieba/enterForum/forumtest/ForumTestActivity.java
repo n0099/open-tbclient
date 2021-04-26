@@ -30,16 +30,16 @@ import com.baidu.tbadk.switchs.ShareSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.forumtest.js.ForumTestWebView;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.i0.r.s.h;
-import d.b.i0.r.s.j;
-import d.b.i0.r.s.l;
-import d.b.i0.z0.q;
+import d.a.i0.r.s.h;
+import d.a.i0.r.s.j;
+import d.a.i0.r.s.l;
+import d.a.i0.z0.q;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ForumTestActivity extends BaseActivity implements d.b.j0.i0.e.a.b {
+public class ForumTestActivity extends BaseActivity implements d.a.j0.i0.e.a.b {
     public j mMoreDialog;
     public List<h> mMoreDialogDataList;
     public l mMoreDialogView;
@@ -67,16 +67,16 @@ public class ForumTestActivity extends BaseActivity implements d.b.j0.i0.e.a.b {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f15050e;
+        public final /* synthetic */ ShareItem f15171e;
 
         public b(ShareItem shareItem) {
-            this.f15050e = shareItem;
+            this.f15171e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.c.e.p.a.a(this.f15050e.t);
-            d.b.c.e.p.l.L(ForumTestActivity.this, view.getResources().getString(R.string.copy_pb_url_success));
+            d.a.c.e.p.a.a(this.f15171e.t);
+            d.a.c.e.p.l.M(ForumTestActivity.this, view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
 
@@ -85,7 +85,7 @@ public class ForumTestActivity extends BaseActivity implements d.b.j0.i0.e.a.b {
         public c() {
         }
 
-        @Override // d.b.i0.r.s.l.c
+        @Override // d.a.i0.r.s.l.c
         public void onClick() {
             ForumTestActivity.this.hideMoreDialog();
         }
@@ -96,7 +96,7 @@ public class ForumTestActivity extends BaseActivity implements d.b.j0.i0.e.a.b {
         public d() {
         }
 
-        @Override // d.b.i0.r.s.l.d
+        @Override // d.a.i0.r.s.l.d
         public void onClick() {
             ForumTestActivity forumTestActivity = ForumTestActivity.this;
             forumTestActivity.saveImage(forumTestActivity.mWebView.getHitTestResult().getExtra());
@@ -109,14 +109,14 @@ public class ForumTestActivity extends BaseActivity implements d.b.j0.i0.e.a.b {
         public e() {
         }
 
-        @Override // d.b.i0.z0.q.a
-        public void onError(int i, String str) {
-            d.b.c.e.p.l.K(TbadkCoreApplication.getInst(), R.string.tb_webview_download_image_success_tip);
+        @Override // d.a.i0.z0.q.a
+        public void onError(int i2, String str) {
+            d.a.c.e.p.l.L(TbadkCoreApplication.getInst(), R.string.tb_webview_download_image_success_tip);
         }
 
-        @Override // d.b.i0.z0.q.a
+        @Override // d.a.i0.z0.q.a
         public void onSuccess(String str) {
-            d.b.c.e.p.l.K(TbadkCoreApplication.getInst(), R.string.save_success);
+            d.a.c.e.p.l.L(TbadkCoreApplication.getInst(), R.string.save_success);
         }
     }
 
@@ -204,7 +204,7 @@ public class ForumTestActivity extends BaseActivity implements d.b.j0.i0.e.a.b {
         this.mMoreDialog.l();
     }
 
-    @Override // d.b.j0.i0.e.a.b
+    @Override // d.a.j0.i0.e.a.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if ("share".equals(str2)) {
@@ -252,8 +252,8 @@ public class ForumTestActivity extends BaseActivity implements d.b.j0.i0.e.a.b {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         SkinManager.setBackgroundColor(this.mStatusBarView, R.color.CAM_X0201);
     }
 
@@ -279,7 +279,7 @@ public class ForumTestActivity extends BaseActivity implements d.b.j0.i0.e.a.b {
     public void onDestroy() {
         ForumTestWebView forumTestWebView = this.mWebView;
         if (forumTestWebView != null) {
-            forumTestWebView.loadDataWithBaseURL(null, "", SapiWebView.K, "utf-8", null);
+            forumTestWebView.loadDataWithBaseURL(null, "", SapiWebView.DATA_MIME_TYPE, "utf-8", null);
             this.mWebView.clearHistory();
             ((ViewGroup) this.mWebView.getParent()).removeView(this.mWebView);
             this.mWebView.destroy();
@@ -289,12 +289,12 @@ public class ForumTestActivity extends BaseActivity implements d.b.j0.i0.e.a.b {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.mWebView.canGoBack()) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4 && this.mWebView.canGoBack()) {
             this.mWebView.goBack();
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

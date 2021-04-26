@@ -22,7 +22,7 @@ public final class TypeReference implements KType {
     public final KClassifier classifier;
     public final boolean isMarkedNullable;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
     /* loaded from: classes7.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
@@ -36,9 +36,11 @@ public final class TypeReference implements KType {
         }
     }
 
-    public TypeReference(KClassifier kClassifier, List<KTypeProjection> list, boolean z) {
-        this.classifier = kClassifier;
-        this.arguments = list;
+    public TypeReference(KClassifier classifier, List<KTypeProjection> arguments, boolean z) {
+        Intrinsics.checkNotNullParameter(classifier, "classifier");
+        Intrinsics.checkNotNullParameter(arguments, "arguments");
+        this.classifier = classifier;
+        this.arguments = arguments;
         this.isMarkedNullable = z;
     }
 
@@ -116,13 +118,13 @@ public final class TypeReference implements KType {
         }
         KVariance variance = kTypeProjection.getVariance();
         if (variance != null) {
-            int i = WhenMappings.$EnumSwitchMapping$0[variance.ordinal()];
-            if (i == 1) {
+            int i2 = WhenMappings.$EnumSwitchMapping$0[variance.ordinal()];
+            if (i2 == 1) {
                 return valueOf;
             }
-            if (i == 2) {
+            if (i2 == 2) {
                 return "in " + valueOf;
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 return "out " + valueOf;
             }
         }

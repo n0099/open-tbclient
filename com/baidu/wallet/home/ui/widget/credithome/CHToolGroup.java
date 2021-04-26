@@ -16,33 +16,33 @@ import java.util.List;
 public class CHToolGroup extends BaseItemLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f24382a;
+    public final int f25136a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FlowLayout f24383b;
+    public FlowLayout f25137b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f24384c;
+    public NetImageView f25138c;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<BaseItemView> f24385e;
+    public List<BaseItemView> f25139e;
 
     public CHToolGroup(Context context) {
         super(context);
-        this.f24382a = 4;
-        this.f24385e = new ArrayList();
+        this.f25136a = 4;
+        this.f25139e = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f24385e;
+        return this.f25139e;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_tools_layout"), this);
-        this.f24383b = (FlowLayout) findViewById(ResUtils.id(getContext(), "ch_tools_layout"));
-        this.f24384c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tools_bg"));
+        this.f25137b = (FlowLayout) findViewById(ResUtils.id(getContext(), "ch_tools_layout"));
+        this.f25138c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tools_bg"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -56,24 +56,24 @@ public class CHToolGroup extends BaseItemLayout {
     public void refreshData() {
         HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
         int length = dataItemArr.length <= 4 ? dataItemArr.length : 4;
-        this.f24383b.setHorizontalChildNum(length);
-        this.f24383b.setHorizontalSpacing(0);
-        this.f24383b.setChildViewHeight(DisplayUtils.dip2px(getContext(), 80.0f));
-        for (int i = 0; i < length; i++) {
-            if (dataItemArr[i] != null) {
+        this.f25137b.setHorizontalChildNum(length);
+        this.f25137b.setHorizontalSpacing(0);
+        this.f25137b.setChildViewHeight(DisplayUtils.dip2px(getContext(), 80.0f));
+        for (int i2 = 0; i2 < length; i2++) {
+            if (dataItemArr[i2] != null) {
                 CHToolItem cHToolItem = new CHToolItem(getContext());
-                cHToolItem.setData(dataItemArr[i], getWalletInterface());
-                this.f24383b.addView(cHToolItem);
-                this.f24385e.add(cHToolItem);
+                cHToolItem.setData(dataItemArr[i2], getWalletInterface());
+                this.f25137b.addView(cHToolItem);
+                this.f25139e.add(cHToolItem);
             }
         }
-        NetImageView netImageView = this.f24384c;
+        NetImageView netImageView = this.f25138c;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.mConfigData.group_background);
     }
 
     public CHToolGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24382a = 4;
-        this.f24385e = new ArrayList();
+        this.f25136a = 4;
+        this.f25139e = new ArrayList();
     }
 }

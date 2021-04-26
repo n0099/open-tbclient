@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.sapi2.views.SmsLoginView;
-import d.b.h0.a.i2.w;
-import d.b.h0.b.e;
+import d.a.h0.a.i2.w;
+import d.a.h0.b.e;
 /* loaded from: classes3.dex */
 public class AccountSmsLoginView extends SmsLoginView {
     public Context s;
@@ -62,8 +62,8 @@ public class AccountSmsLoginView extends SmsLoginView {
         n();
     }
 
-    public AccountSmsLoginView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public AccountSmsLoginView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.s = context;
         n();
     }

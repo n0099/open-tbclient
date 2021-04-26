@@ -45,21 +45,21 @@ public final class ArraysKt___ArraysJvmKt$asList$3 extends AbstractList<Integer>
         return -1;
     }
 
-    public boolean contains(int i) {
-        return ArraysKt___ArraysKt.contains(this.$this_asList, i);
+    public boolean contains(int i2) {
+        return ArraysKt___ArraysKt.contains(this.$this_asList, i2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.collections.AbstractList, java.util.List
-    public Integer get(int i) {
-        return Integer.valueOf(this.$this_asList[i]);
+    public Integer get(int i2) {
+        return Integer.valueOf(this.$this_asList[i2]);
     }
 
-    public int indexOf(int i) {
-        return ArraysKt___ArraysKt.indexOf(this.$this_asList, i);
+    public int indexOf(int i2) {
+        return ArraysKt___ArraysKt.indexOf(this.$this_asList, i2);
     }
 
-    public int lastIndexOf(int i) {
-        return ArraysKt___ArraysKt.lastIndexOf(this.$this_asList, i);
+    public int lastIndexOf(int i2) {
+        return ArraysKt___ArraysKt.lastIndexOf(this.$this_asList, i2);
     }
 }

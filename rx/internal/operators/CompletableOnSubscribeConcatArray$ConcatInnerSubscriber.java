@@ -22,13 +22,13 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         if (!this.sd.isUnsubscribed() && getAndIncrement() == 0) {
             b[] bVarArr = this.sources;
             while (!this.sd.isUnsubscribed()) {
-                int i = this.index;
-                this.index = i + 1;
-                if (i == bVarArr.length) {
+                int i2 = this.index;
+                this.index = i2 + 1;
+                if (i2 == bVarArr.length) {
                     this.actual.onCompleted();
                     return;
                 }
-                bVarArr[i].j(this);
+                bVarArr[i2].j(this);
                 if (decrementAndGet() == 0) {
                     return;
                 }

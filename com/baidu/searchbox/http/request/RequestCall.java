@@ -78,17 +78,17 @@ public class RequestCall implements Cancelable {
                     newBuilder.dns((Dns) newCloneHttpDns);
                 }
             }
-            int i = this.httpRequest.connectionTimeout;
-            if (i > 0) {
-                newBuilder.connectTimeout(i, TimeUnit.MILLISECONDS);
-            }
-            int i2 = this.httpRequest.readTimeout;
+            int i2 = this.httpRequest.connectionTimeout;
             if (i2 > 0) {
-                newBuilder.readTimeout(i2, TimeUnit.MILLISECONDS);
+                newBuilder.connectTimeout(i2, TimeUnit.MILLISECONDS);
             }
-            int i3 = this.httpRequest.writeTimeout;
+            int i3 = this.httpRequest.readTimeout;
             if (i3 > 0) {
-                newBuilder.writeTimeout(i3, TimeUnit.MILLISECONDS);
+                newBuilder.readTimeout(i3, TimeUnit.MILLISECONDS);
+            }
+            int i4 = this.httpRequest.writeTimeout;
+            if (i4 > 0) {
+                newBuilder.writeTimeout(i4, TimeUnit.MILLISECONDS);
             }
             IAsyncRequestParamsHandler iAsyncRequestParamsHandler = this.httpRequest.paramsHandler;
             if (iAsyncRequestParamsHandler != null) {
@@ -133,9 +133,9 @@ public class RequestCall implements Cancelable {
         }
     }
 
-    private void recordStatusCode(Request request, int i, String str) {
-        if (request != null && StatusCodeException.isStatusCodeMatched(i)) {
-            StatusCodeException statusCodeException = new StatusCodeException(String.format(StatusCodeException.ERROR_MSG_FORMATED, Integer.valueOf(i), str));
+    private void recordStatusCode(Request request, int i2, String str) {
+        if (request != null && StatusCodeException.isStatusCodeMatched(i2)) {
+            StatusCodeException statusCodeException = new StatusCodeException(String.format(StatusCodeException.ERROR_MSG_FORMATED, Integer.valueOf(i2), str));
             try {
                 if (this.httpRequest.networkStat != null) {
                     this.httpRequest.networkStat.onException(request, statusCodeException);

@@ -14,7 +14,7 @@ public final class e implements Parcelable.Creator<PoiIndoorResult> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public PoiIndoorResult[] newArray(int i) {
-        return new PoiIndoorResult[i];
+    public PoiIndoorResult[] newArray(int i2) {
+        return new PoiIndoorResult[i2];
     }
 }

@@ -12,22 +12,22 @@ public final class b implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f26247a = new b();
+        public static b f27051a = new b();
     }
 
     public b() {
     }
 
     public static b a() {
-        return a.f26247a;
+        return a.f27051a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.apollon.beans.IBeanFactory
     /* renamed from: a */
-    public BaseBean<?> getBean(Context context, int i, String str) {
+    public BaseBean<?> getBean(Context context, int i2, String str) {
         BaseBean<?> dVar;
-        switch (i) {
+        switch (i2) {
             case 515:
                 dVar = new d(context);
                 break;

@@ -29,7 +29,7 @@ public class HttpRequestPublishModule {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.enabled = jSONObject.optBoolean(SapiOptions.t);
+                this.enabled = jSONObject.optBoolean(SapiOptions.KEY_CACHE_ENABLED);
                 this.text = jSONObject.optString("text");
                 this.time = jSONObject.optInt("time");
                 this.points = jSONObject.optInt("points");
@@ -51,7 +51,7 @@ public class HttpRequestPublishModule {
                 e2 = e3;
             }
             try {
-                jSONObject.put(SapiOptions.t, this.enabled);
+                jSONObject.put(SapiOptions.KEY_CACHE_ENABLED, this.enabled);
                 jSONObject.put("text", this.text);
                 jSONObject.put("time", this.time);
                 jSONObject.put("points", this.points);

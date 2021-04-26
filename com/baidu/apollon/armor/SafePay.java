@@ -18,62 +18,62 @@ public final class SafePay {
     public static final int SIG_RSA_SHA512 = 13;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3536a = false;
+    public static final boolean f3575a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3537b = "SafePay";
+    public static final String f3576b = "SafePay";
 
     /* renamed from: c  reason: collision with root package name */
-    public static SafePay f3538c = null;
+    public static SafePay f3577c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f3539d = true;
+    public static boolean f3578d = true;
 
     static {
         try {
             System.loadLibrary("bd_wsp_v1_1");
         } catch (UnsatisfiedLinkError e2) {
-            f3539d = false;
-            Log.e(f3537b, "load library failed, " + e2.getMessage());
+            f3578d = false;
+            Log.e(f3576b, "load library failed, " + e2.getMessage());
         }
     }
 
     public static synchronized SafePay getInstance() {
         SafePay safePay;
         synchronized (SafePay.class) {
-            if (f3538c == null) {
+            if (f3577c == null) {
                 SafePay safePay2 = new SafePay();
-                f3538c = safePay2;
+                f3577c = safePay2;
                 try {
                     safePay2.init();
                 } catch (Throwable unused) {
                 }
             }
-            safePay = f3538c;
+            safePay = f3577c;
         }
         return safePay;
     }
 
     public static String unicodeDecode(String str) {
-        int i;
+        int i2;
         StringBuilder sb = new StringBuilder();
         int length = str.length();
-        int i2 = 0;
-        while (i2 < length) {
-            char charAt = str.charAt(i2);
-            if (charAt == '\\' && (i = i2 + 1) != length && str.charAt(i) == 'u') {
-                int i3 = i2 + 2;
-                i2 += 6;
-                sb.append((char) Integer.parseInt(str.substring(i3, i2), 16));
+        int i3 = 0;
+        while (i3 < length) {
+            char charAt = str.charAt(i3);
+            if (charAt == '\\' && (i2 = i3 + 1) != length && str.charAt(i2) == 'u') {
+                int i4 = i3 + 2;
+                i3 += 6;
+                sb.append((char) Integer.parseInt(str.substring(i4, i3), 16));
             } else {
                 sb.append(charAt);
-                i2++;
+                i3++;
             }
         }
         return sb.toString();
     }
 
-    public native void clearKeyboard(int i);
+    public native void clearKeyboard(int i2);
 
     public native String decrypt(String str);
 
@@ -98,13 +98,13 @@ public final class SafePay {
 
     public native String getA(long j);
 
-    public native String getB(int i);
+    public native String getB(int i2);
 
-    public native String getC(int i);
+    public native String getC(int i2);
 
-    public native String getDyKey(byte[] bArr, byte[] bArr2, int i, int i2);
+    public native String getDyKey(byte[] bArr, byte[] bArr2, int i2, int i3);
 
-    public native String getSafeStr(int i);
+    public native String getSafeStr(int i2);
 
     public native String getToken();
 
@@ -122,7 +122,7 @@ public final class SafePay {
 
     public native void init();
 
-    public native int inputKeyboardChar(int i, char c2, int i2);
+    public native int inputKeyboardChar(int i2, char c2, int i3);
 
     public native String localDecrypt(String str);
 
@@ -151,12 +151,12 @@ public final class SafePay {
     public native String mapScancode(String str);
 
     public boolean prepareCompleted() {
-        return f3539d;
+        return f3578d;
     }
 
     public native String rsaDecrypt(String str);
 
-    public native int rsaVerify(int i, int i2, int i3, byte[] bArr, byte[] bArr2);
+    public native int rsaVerify(int i2, int i3, int i4, byte[] bArr, byte[] bArr2);
 
     public native String tokenDecrypt(String str);
 

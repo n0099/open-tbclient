@@ -45,7 +45,7 @@ public class DeleteThreadHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         String parseToString = parseToString(bArr);
         if (TextUtils.isEmpty(parseToString)) {
             return;
@@ -62,8 +62,8 @@ public class DeleteThreadHttpResponseMessage extends TbHttpResponsedMessage {
             JSONArray optJSONArray = optJSONObject.optJSONArray("del_fail");
             this.failItems = new ArrayList<>();
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    this.failItems.add(optJSONArray.optString(i2));
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    this.failItems.add(optJSONArray.optString(i3));
                 }
             }
             JSONArray optJSONArray2 = optJSONObject.optJSONArray("del_success");
@@ -71,8 +71,8 @@ public class DeleteThreadHttpResponseMessage extends TbHttpResponsedMessage {
             if (optJSONArray2 == null || optJSONArray2.length() <= 0) {
                 return;
             }
-            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                this.successItems.add(optJSONArray2.optString(i3));
+            for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
+                this.successItems.add(optJSONArray2.optString(i4));
             }
         }
     }

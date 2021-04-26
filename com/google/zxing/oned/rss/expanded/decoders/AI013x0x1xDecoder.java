@@ -16,43 +16,43 @@ public final class AI013x0x1xDecoder extends AI01weightDecoder {
         this.firstAIdigits = str;
     }
 
-    private void encodeCompressedDate(StringBuilder sb, int i) {
-        int extractNumericValueFromBitArray = getGeneralDecoder().extractNumericValueFromBitArray(i, 16);
+    private void encodeCompressedDate(StringBuilder sb, int i2) {
+        int extractNumericValueFromBitArray = getGeneralDecoder().extractNumericValueFromBitArray(i2, 16);
         if (extractNumericValueFromBitArray == 38400) {
             return;
         }
         sb.append('(');
         sb.append(this.dateCode);
         sb.append(')');
-        int i2 = extractNumericValueFromBitArray % 32;
-        int i3 = extractNumericValueFromBitArray / 32;
-        int i4 = (i3 % 12) + 1;
-        int i5 = i3 / 12;
+        int i3 = extractNumericValueFromBitArray % 32;
+        int i4 = extractNumericValueFromBitArray / 32;
+        int i5 = (i4 % 12) + 1;
+        int i6 = i4 / 12;
+        if (i6 / 10 == 0) {
+            sb.append('0');
+        }
+        sb.append(i6);
         if (i5 / 10 == 0) {
             sb.append('0');
         }
         sb.append(i5);
-        if (i4 / 10 == 0) {
+        if (i3 / 10 == 0) {
             sb.append('0');
         }
-        sb.append(i4);
-        if (i2 / 10 == 0) {
-            sb.append('0');
-        }
-        sb.append(i2);
+        sb.append(i3);
     }
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder
-    public void addWeightCode(StringBuilder sb, int i) {
+    public void addWeightCode(StringBuilder sb, int i2) {
         sb.append('(');
         sb.append(this.firstAIdigits);
-        sb.append(i / 100000);
+        sb.append(i2 / 100000);
         sb.append(')');
     }
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder
-    public int checkWeight(int i) {
-        return i % 100000;
+    public int checkWeight(int i2) {
+        return i2 % 100000;
     }
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AbstractExpandedDecoder

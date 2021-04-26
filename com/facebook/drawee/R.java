@@ -1,8 +1,8 @@
 package com.facebook.drawee;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class R {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class attr {
         public static final int actualImageResource = 0x7f040024;
         public static final int actualImageScaleType = 0x7f040025;
@@ -34,25 +34,25 @@ public final class R {
         public static final int roundingBorderColor = 0x7f04035f;
         public static final int roundingBorderPadding = 0x7f040360;
         public static final int roundingBorderWidth = 0x7f040361;
-        public static final int svgImage = 0x7f040459;
+        public static final int svgImage = 0x7f0404c6;
         public static final int viewAspectRatio = 0x7f040489;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class id {
-        public static final int center = 0x7f090637;
-        public static final int centerCrop = 0x7f09063b;
-        public static final int centerInside = 0x7f09063c;
-        public static final int fitBottomStart = 0x7f090b01;
-        public static final int fitCenter = 0x7f090b02;
-        public static final int fitEnd = 0x7f090b03;
-        public static final int fitStart = 0x7f090b04;
-        public static final int fitXY = 0x7f090b05;
-        public static final int focusCrop = 0x7f090b2c;
-        public static final int none = 0x7f0916aa;
+        public static final int center = 0x7f090662;
+        public static final int centerCrop = 0x7f090666;
+        public static final int centerInside = 0x7f090667;
+        public static final int fitBottomStart = 0x7f090b37;
+        public static final int fitCenter = 0x7f090b38;
+        public static final int fitEnd = 0x7f090b39;
+        public static final int fitStart = 0x7f090b3a;
+        public static final int fitXY = 0x7f090b3c;
+        public static final int focusCrop = 0x7f090b65;
+        public static final int none = 0x7f0915ed;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class styleable {
         public static final int GenericDraweeHierarchy_actualImageScaleType = 0x00000000;
         public static final int GenericDraweeHierarchy_backgroundImage = 0x00000001;
@@ -113,9 +113,9 @@ public final class R {
         public static final int SimpleDraweeView_roundingBorderColor = 0x0000001b;
         public static final int SimpleDraweeView_roundingBorderPadding = 0x0000001c;
         public static final int SimpleDraweeView_roundingBorderWidth = 0x0000001d;
-        public static final int SimpleDraweeView_svgImage = 0x0000001e;
-        public static final int SimpleDraweeView_viewAspectRatio = 0x0000001f;
+        public static final int SimpleDraweeView_svgImage = 0x0000001f;
+        public static final int SimpleDraweeView_viewAspectRatio = 0x0000001e;
         public static final int[] GenericDraweeHierarchy = {com.baidu.tieba.R.attr.actualImageScaleType, com.baidu.tieba.R.attr.backgroundImage, com.baidu.tieba.R.attr.fadeDuration, com.baidu.tieba.R.attr.failureImage, com.baidu.tieba.R.attr.failureImageScaleType, com.baidu.tieba.R.attr.overlayImage, com.baidu.tieba.R.attr.placeholderImage, com.baidu.tieba.R.attr.placeholderImageScaleType, com.baidu.tieba.R.attr.pressedStateOverlayImage, com.baidu.tieba.R.attr.progressBarAutoRotateInterval, com.baidu.tieba.R.attr.progressBarImage, com.baidu.tieba.R.attr.progressBarImageScaleType, com.baidu.tieba.R.attr.retryImage, com.baidu.tieba.R.attr.retryImageScaleType, com.baidu.tieba.R.attr.roundAsCircle, com.baidu.tieba.R.attr.roundBottomEnd, com.baidu.tieba.R.attr.roundBottomLeft, com.baidu.tieba.R.attr.roundBottomRight, com.baidu.tieba.R.attr.roundBottomStart, com.baidu.tieba.R.attr.roundTopEnd, com.baidu.tieba.R.attr.roundTopLeft, com.baidu.tieba.R.attr.roundTopRight, com.baidu.tieba.R.attr.roundTopStart, com.baidu.tieba.R.attr.roundWithOverlayColor, com.baidu.tieba.R.attr.roundedCornerRadius, com.baidu.tieba.R.attr.roundingBorderColor, com.baidu.tieba.R.attr.roundingBorderPadding, com.baidu.tieba.R.attr.roundingBorderWidth, com.baidu.tieba.R.attr.viewAspectRatio};
-        public static final int[] SimpleDraweeView = {com.baidu.tieba.R.attr.actualImageResource, com.baidu.tieba.R.attr.actualImageScaleType, com.baidu.tieba.R.attr.actualImageUri, com.baidu.tieba.R.attr.backgroundImage, com.baidu.tieba.R.attr.fadeDuration, com.baidu.tieba.R.attr.failureImage, com.baidu.tieba.R.attr.failureImageScaleType, com.baidu.tieba.R.attr.overlayImage, com.baidu.tieba.R.attr.placeholderImage, com.baidu.tieba.R.attr.placeholderImageScaleType, com.baidu.tieba.R.attr.pressedStateOverlayImage, com.baidu.tieba.R.attr.progressBarAutoRotateInterval, com.baidu.tieba.R.attr.progressBarImage, com.baidu.tieba.R.attr.progressBarImageScaleType, com.baidu.tieba.R.attr.retryImage, com.baidu.tieba.R.attr.retryImageScaleType, com.baidu.tieba.R.attr.roundAsCircle, com.baidu.tieba.R.attr.roundBottomEnd, com.baidu.tieba.R.attr.roundBottomLeft, com.baidu.tieba.R.attr.roundBottomRight, com.baidu.tieba.R.attr.roundBottomStart, com.baidu.tieba.R.attr.roundTopEnd, com.baidu.tieba.R.attr.roundTopLeft, com.baidu.tieba.R.attr.roundTopRight, com.baidu.tieba.R.attr.roundTopStart, com.baidu.tieba.R.attr.roundWithOverlayColor, com.baidu.tieba.R.attr.roundedCornerRadius, com.baidu.tieba.R.attr.roundingBorderColor, com.baidu.tieba.R.attr.roundingBorderPadding, com.baidu.tieba.R.attr.roundingBorderWidth, com.baidu.tieba.R.attr.svgImage, com.baidu.tieba.R.attr.viewAspectRatio};
+        public static final int[] SimpleDraweeView = {com.baidu.tieba.R.attr.actualImageResource, com.baidu.tieba.R.attr.actualImageScaleType, com.baidu.tieba.R.attr.actualImageUri, com.baidu.tieba.R.attr.backgroundImage, com.baidu.tieba.R.attr.fadeDuration, com.baidu.tieba.R.attr.failureImage, com.baidu.tieba.R.attr.failureImageScaleType, com.baidu.tieba.R.attr.overlayImage, com.baidu.tieba.R.attr.placeholderImage, com.baidu.tieba.R.attr.placeholderImageScaleType, com.baidu.tieba.R.attr.pressedStateOverlayImage, com.baidu.tieba.R.attr.progressBarAutoRotateInterval, com.baidu.tieba.R.attr.progressBarImage, com.baidu.tieba.R.attr.progressBarImageScaleType, com.baidu.tieba.R.attr.retryImage, com.baidu.tieba.R.attr.retryImageScaleType, com.baidu.tieba.R.attr.roundAsCircle, com.baidu.tieba.R.attr.roundBottomEnd, com.baidu.tieba.R.attr.roundBottomLeft, com.baidu.tieba.R.attr.roundBottomRight, com.baidu.tieba.R.attr.roundBottomStart, com.baidu.tieba.R.attr.roundTopEnd, com.baidu.tieba.R.attr.roundTopLeft, com.baidu.tieba.R.attr.roundTopRight, com.baidu.tieba.R.attr.roundTopStart, com.baidu.tieba.R.attr.roundWithOverlayColor, com.baidu.tieba.R.attr.roundedCornerRadius, com.baidu.tieba.R.attr.roundingBorderColor, com.baidu.tieba.R.attr.roundingBorderPadding, com.baidu.tieba.R.attr.roundingBorderWidth, com.baidu.tieba.R.attr.viewAspectRatio, com.baidu.tieba.R.attr.svgImage};
     }
 }

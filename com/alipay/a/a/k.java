@@ -12,8 +12,8 @@ public final class k implements i {
             org.json.alipay.a aVar = (org.json.alipay.a) obj;
             HashSet hashSet = new HashSet();
             Class cls = type instanceof ParameterizedType ? ((ParameterizedType) type).getActualTypeArguments()[0] : Object.class;
-            for (int i = 0; i < aVar.a(); i++) {
-                hashSet.add(e.a(aVar.a(i), cls));
+            for (int i2 = 0; i2 < aVar.a(); i2++) {
+                hashSet.add(e.a(aVar.a(i2), cls));
             }
             return hashSet;
         }

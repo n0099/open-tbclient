@@ -16,8 +16,8 @@ public class StoryMessage implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public StoryMessage[] newArray(int i) {
-            return new StoryMessage[i];
+        public StoryMessage[] newArray(int i2) {
+            return new StoryMessage[i2];
         }
     };
     public Uri imageUri;
@@ -55,9 +55,9 @@ public class StoryMessage implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.imageUri, i);
-        parcel.writeParcelable(this.videoUri, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeParcelable(this.imageUri, i2);
+        parcel.writeParcelable(this.videoUri, i2);
     }
 
     public StoryMessage(Parcel parcel) {

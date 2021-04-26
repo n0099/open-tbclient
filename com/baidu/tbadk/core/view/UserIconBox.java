@@ -17,17 +17,19 @@ import java.util.List;
 public class UserIconBox extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.c.e.k.b<TbImageView> f13224e;
+    public d.a.c.e.k.b<TbImageView> f13179e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f13225f;
+    public Context f13180f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13226g;
+    public boolean f13181g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13227h;
-    public int i;
+    public int f13182h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f13183i;
     public boolean j;
 
     /* loaded from: classes3.dex */
@@ -41,26 +43,26 @@ public class UserIconBox extends LinearLayout {
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
-            if (!(view2 instanceof TbImageView) || UserIconBox.this.f13224e == null) {
+            if (!(view2 instanceof TbImageView) || UserIconBox.this.f13179e == null) {
                 return;
             }
-            UserIconBox.this.f13224e.e((TbImageView) view2);
+            UserIconBox.this.f13179e.e((TbImageView) view2);
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements d.b.c.e.k.c<TbImageView> {
+    public static class b implements d.a.c.e.k.c<TbImageView> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f13229a;
+        public final /* synthetic */ Context f13185a;
 
         public b(Context context) {
-            this.f13229a = context;
+            this.f13185a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.b.c.e.k.c
+        @Override // d.a.c.e.k.c
         public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             e(tbImageView2);
@@ -69,7 +71,7 @@ public class UserIconBox extends LinearLayout {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.b.c.e.k.c
+        @Override // d.a.c.e.k.c
         public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             h(tbImageView2);
@@ -81,7 +83,7 @@ public class UserIconBox extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.c.e.k.c
+        @Override // d.a.c.e.k.c
         /* renamed from: f */
         public void b(TbImageView tbImageView) {
             tbImageView.setBackgroundResource(0);
@@ -91,10 +93,10 @@ public class UserIconBox extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.c.e.k.c
+        @Override // d.a.c.e.k.c
         /* renamed from: g */
         public TbImageView d() {
-            return new TbImageView(this.f13229a);
+            return new TbImageView(this.f13185a);
         }
 
         public TbImageView h(TbImageView tbImageView) {
@@ -108,106 +110,106 @@ public class UserIconBox extends LinearLayout {
 
     /* loaded from: classes3.dex */
     public interface c<T extends View> {
-        d.b.c.e.k.b<TbImageView> getUserIconPool();
+        d.a.c.e.k.b<TbImageView> getUserIconPool();
     }
 
     public UserIconBox(Context context) {
         super(context);
-        this.f13224e = null;
-        this.f13226g = true;
+        this.f13179e = null;
+        this.f13181g = true;
         f(context);
     }
 
-    public static d.b.c.e.k.b<TbImageView> c(Context context, int i) {
-        return new d.b.c.e.k.b<>(new b(context), i, 0);
+    public static d.a.c.e.k.b<TbImageView> c(Context context, int i2) {
+        return new d.a.c.e.k.b<>(new b(context), i2, 0);
     }
 
-    public final boolean b(int i) {
-        if (i <= 0) {
+    public final boolean b(int i2) {
+        if (i2 <= 0) {
             return false;
         }
         int childCount = getChildCount();
-        if (i == childCount) {
+        if (i2 == childCount) {
             return true;
         }
-        int i2 = i - childCount;
-        if (i2 > 0) {
-            for (int i3 = 0; i3 < i2; i3++) {
-                addView(d(this.f13225f));
+        int i3 = i2 - childCount;
+        if (i3 > 0) {
+            for (int i4 = 0; i4 < i3; i4++) {
+                addView(d(this.f13180f));
             }
         } else {
-            removeViews(i, Math.abs(i2));
+            removeViews(i2, Math.abs(i3));
         }
         return true;
     }
 
     public final TbImageView d(Context context) {
-        d.b.c.e.k.b<TbImageView> bVar = this.f13224e;
+        d.a.c.e.k.b<TbImageView> bVar = this.f13179e;
         TbImageView b2 = bVar != null ? bVar.b() : null;
         return (b2 == null || b2.getParent() != null) ? new TbImageView(context) : b2;
     }
 
-    public final LinearLayout.LayoutParams e(int i, int i2, int i3) {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i2);
-        layoutParams.leftMargin = i3;
+    public final LinearLayout.LayoutParams e(int i2, int i3, int i4) {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, i3);
+        layoutParams.leftMargin = i4;
         return layoutParams;
     }
 
     public final void f(Context context) {
-        this.f13225f = context;
+        this.f13180f = context;
         setOrientation(0);
         setGravity(16);
-        Context context2 = this.f13225f;
+        Context context2 = this.f13180f;
         if (context2 instanceof c) {
-            this.f13224e = ((c) context2).getUserIconPool();
+            this.f13179e = ((c) context2).getUserIconPool();
         }
         setOnHierarchyChangeListener(new a());
     }
 
-    public void g(List<IconData> list, int i, int i2, int i3, int i4) {
-        h(list, i, i2, i3, i4, false);
+    public void g(List<IconData> list, int i2, int i3, int i4, int i5) {
+        h(list, i2, i3, i4, i5, false);
     }
 
-    public void h(List<IconData> list, int i, int i2, int i3, int i4, boolean z) {
+    public void h(List<IconData> list, int i2, int i3, int i4, int i5, boolean z) {
         if (list == null) {
             setVisibility(8);
             return;
         }
-        int min = Math.min(i, ListUtils.getCount(list));
+        int min = Math.min(i2, ListUtils.getCount(list));
         if (min == 1 && TextUtils.isEmpty(list.get(0).getIcon())) {
             setVisibility(8);
             return;
         }
-        this.f13227h = i2;
-        this.i = i4;
+        this.f13182h = i3;
+        this.f13183i = i5;
         this.j = z;
-        this.f13227h = i2;
+        this.f13182h = i3;
         if (!b(min)) {
             setVisibility(8);
         } else if (min > 0) {
             setVisibility(0);
-            for (int i5 = 0; i5 < min; i5++) {
-                View childAt = getChildAt(i5);
+            for (int i6 = 0; i6 < min; i6++) {
+                View childAt = getChildAt(i6);
                 if (childAt instanceof TbImageView) {
-                    if (StringUtils.isNull(list.get(i5).getIcon())) {
+                    if (StringUtils.isNull(list.get(i6).getIcon())) {
                         childAt.setVisibility(8);
                     } else {
                         childAt.setVisibility(0);
                         TbImageView tbImageView = (TbImageView) childAt;
                         tbImageView.setDefaultResource(R.drawable.icon_moren);
-                        if (i5 == 0 && z) {
-                            tbImageView.setLayoutParams(e(i2, i3, 0));
+                        if (i6 == 0 && z) {
+                            tbImageView.setLayoutParams(e(i3, i4, 0));
                         } else {
-                            tbImageView.setLayoutParams(e(i2, i3, i4));
+                            tbImageView.setLayoutParams(e(i3, i4, i5));
                         }
-                        tbImageView.setTag(list.get(i5).getIcon());
-                        if (!StringUtils.isNull(list.get(i5).getIconName())) {
-                            tbImageView.setContentDescription(list.get(i5).getIconName());
+                        tbImageView.setTag(list.get(i6).getIcon());
+                        if (!StringUtils.isNull(list.get(i6).getIconName())) {
+                            tbImageView.setContentDescription(list.get(i6).getIconName());
                         }
                         tbImageView.setClickable(false);
-                        tbImageView.setAutoChangeStyle(this.f13226g);
+                        tbImageView.setAutoChangeStyle(this.f13181g);
                         tbImageView.setImageDrawable(null);
-                        tbImageView.T(list.get(i5).getIcon(), 21, i2, i3, false);
+                        tbImageView.R(list.get(i6).getIcon(), 21, i3, i4, false);
                     }
                 }
             }
@@ -216,10 +218,10 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    public void i(int i) {
+    public void i(int i2) {
         int childCount = getChildCount();
-        for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = getChildAt(i2);
+        for (int i3 = 0; i3 < childCount; i3++) {
+            View childAt = getChildAt(i3);
             if (childAt instanceof TbImageView) {
                 ((TbImageView) childAt).setIsNight(TbadkCoreApplication.getInst().getSkinType() == 1);
             }
@@ -227,23 +229,23 @@ public class UserIconBox extends LinearLayout {
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        int i5;
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        int i6;
+        super.onLayout(z, i2, i3, i4, i5);
         int measuredWidth = getMeasuredWidth();
         int childCount = getChildCount();
         boolean z2 = false;
-        int i6 = 0;
-        for (int i7 = 0; i7 < childCount; i7++) {
-            View childAt = getChildAt(i7);
+        int i7 = 0;
+        for (int i8 = 0; i8 < childCount; i8++) {
+            View childAt = getChildAt(i8);
             if (!z2) {
-                if (i7 == 0 && this.j) {
-                    i5 = this.f13227h;
+                if (i8 == 0 && this.j) {
+                    i6 = this.f13182h;
                 } else {
-                    i5 = this.f13227h + this.i;
+                    i6 = this.f13182h + this.f13183i;
                 }
-                i6 += i5;
-                if (i6 > measuredWidth) {
+                i7 += i6;
+                if (i7 > measuredWidth) {
                     z2 = true;
                 }
             }
@@ -254,13 +256,13 @@ public class UserIconBox extends LinearLayout {
     }
 
     public void setAutoChangedStyle(boolean z) {
-        this.f13226g = z;
+        this.f13181g = z;
     }
 
     public UserIconBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13224e = null;
-        this.f13226g = true;
+        this.f13179e = null;
+        this.f13181g = true;
         f(context);
     }
 }

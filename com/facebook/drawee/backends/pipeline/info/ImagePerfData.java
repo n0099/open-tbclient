@@ -4,7 +4,7 @@ import com.facebook.common.internal.Objects;
 import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ImagePerfData {
     public static final int UNSET = -1;
     @Nullable
@@ -34,7 +34,7 @@ public class ImagePerfData {
     public final long mVisibilityEventTimeMs;
     public final int mVisibilityState;
 
-    public ImagePerfData(@Nullable String str, @Nullable String str2, @Nullable ImageRequest imageRequest, @Nullable Object obj, @Nullable ImageInfo imageInfo, long j, long j2, long j3, long j4, long j5, long j6, long j7, int i, boolean z, int i2, int i3, int i4, long j8, long j9, @Nullable String str3) {
+    public ImagePerfData(@Nullable String str, @Nullable String str2, @Nullable ImageRequest imageRequest, @Nullable Object obj, @Nullable ImageInfo imageInfo, long j, long j2, long j3, long j4, long j5, long j6, long j7, int i2, boolean z, int i3, int i4, int i5, long j8, long j9, @Nullable String str3) {
         this.mControllerId = str;
         this.mRequestId = str2;
         this.mImageRequest = imageRequest;
@@ -47,11 +47,11 @@ public class ImagePerfData {
         this.mControllerCancelTimeMs = j5;
         this.mImageRequestStartTimeMs = j6;
         this.mImageRequestEndTimeMs = j7;
-        this.mImageOrigin = i;
+        this.mImageOrigin = i2;
         this.mIsPrefetch = z;
-        this.mOnScreenWidthPx = i2;
-        this.mOnScreenHeightPx = i3;
-        this.mVisibilityState = i4;
+        this.mOnScreenWidthPx = i3;
+        this.mOnScreenHeightPx = i4;
+        this.mVisibilityState = i5;
         this.mVisibilityEventTimeMs = j8;
         this.mInvisibilityEventTimeMs = j9;
         this.mComponentTag = str3;

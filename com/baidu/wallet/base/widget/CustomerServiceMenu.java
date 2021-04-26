@@ -15,13 +15,13 @@ public class CustomerServiceMenu extends BdMenu implements NoProguard {
     public static final int WITHDRAW_RECORD = 100005;
     public static final int WITHDRAW_SERVICE = 100006;
 
-    public CustomerServiceMenu(View view, int i) {
+    public CustomerServiceMenu(View view, int i2) {
         super(view);
-        if (i == 100001) {
+        if (i2 == 100001) {
             add(TRANSFER_RECORD, ResUtils.string(this.mContext, "wallet_transfer_record"), ResUtils.drawable(this.mContext, "wallet_base_view_record"));
-        } else if (i == 100003) {
+        } else if (i2 == 100003) {
             add(CHARGE_RECORD, ResUtils.string(this.mContext, "bd_wallet_balance_charge_records"), ResUtils.drawable(this.mContext, "wallet_base_view_record"));
-        } else if (i == 100005) {
+        } else if (i2 == 100005) {
             add(WITHDRAW_RECORD, ResUtils.string(this.mContext, "bd_wallet_balance_withdraw_records"), ResUtils.drawable(this.mContext, "wallet_base_view_record"));
         }
         setDismissOnClick(true);

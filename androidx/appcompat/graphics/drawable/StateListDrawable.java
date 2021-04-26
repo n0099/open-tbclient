@@ -1,5 +1,6 @@
 package androidx.appcompat.graphics.drawable;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -11,14 +12,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R;
-import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.graphics.drawable.DrawableContainer;
+import androidx.appcompat.resources.R;
+import androidx.appcompat.widget.ResourceManagerInternal;
 import androidx.core.content.res.TypedArrayUtils;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@SuppressLint({"RestrictedAPI"})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class StateListDrawable extends DrawableContainer {
     public static final boolean DEBUG = false;
@@ -46,19 +48,19 @@ public class StateListDrawable extends DrawableContainer {
         }
 
         @Override // androidx.appcompat.graphics.drawable.DrawableContainer.DrawableContainerState
-        public void growArray(int i, int i2) {
-            super.growArray(i, i2);
-            int[][] iArr = new int[i2];
-            System.arraycopy(this.mStateSets, 0, iArr, 0, i);
+        public void growArray(int i2, int i3) {
+            super.growArray(i2, i3);
+            int[][] iArr = new int[i3];
+            System.arraycopy(this.mStateSets, 0, iArr, 0, i2);
             this.mStateSets = iArr;
         }
 
         public int indexOfStateSet(int[] iArr) {
             int[][] iArr2 = this.mStateSets;
             int childCount = getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                if (StateSet.stateSetMatches(iArr2[i], iArr)) {
-                    return i;
+            for (int i2 = 0; i2 < childCount; i2++) {
+                if (StateSet.stateSetMatches(iArr2[i2], iArr)) {
+                    return i2;
                 }
             }
             return -1;
@@ -108,7 +110,7 @@ public class StateListDrawable extends DrawableContainer {
             if (next2 == 2 && depth2 <= depth && xmlPullParser.getName().equals("item")) {
                 TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R.styleable.StateListDrawableItem);
                 int resourceId = obtainAttributes.getResourceId(R.styleable.StateListDrawableItem_android_drawable, -1);
-                Drawable drawable = resourceId > 0 ? AppCompatResources.getDrawable(context, resourceId) : null;
+                Drawable drawable = resourceId > 0 ? ResourceManagerInternal.get().getDrawable(context, resourceId) : null;
                 obtainAttributes.recycle();
                 int[] extractStateSet = extractStateSet(attributeSet);
                 if (drawable == null) {
@@ -122,7 +124,7 @@ public class StateListDrawable extends DrawableContainer {
                             drawable = Drawable.createFromXmlInner(resources, xmlPullParser, attributeSet);
                         }
                     } else {
-                        throw new XmlPullParserException(xmlPullParser.getPositionDescription() + ": <item> tag requires a 'drawable' attribute or child tag defining a drawable");
+                        throw new XmlPullParserException(xmlPullParser.getPositionDescription() + AnimatedStateListDrawableCompat.ITEM_MISSING_DRAWABLE_ERROR);
                     }
                 }
                 stateListState.addStateSet(extractStateSet, drawable);
@@ -165,27 +167,27 @@ public class StateListDrawable extends DrawableContainer {
     public int[] extractStateSet(AttributeSet attributeSet) {
         int attributeCount = attributeSet.getAttributeCount();
         int[] iArr = new int[attributeCount];
-        int i = 0;
-        for (int i2 = 0; i2 < attributeCount; i2++) {
-            int attributeNameResource = attributeSet.getAttributeNameResource(i2);
+        int i2 = 0;
+        for (int i3 = 0; i3 < attributeCount; i3++) {
+            int attributeNameResource = attributeSet.getAttributeNameResource(i3);
             if (attributeNameResource != 0 && attributeNameResource != 16842960 && attributeNameResource != 16843161) {
-                int i3 = i + 1;
-                if (!attributeSet.getAttributeBooleanValue(i2, false)) {
+                int i4 = i2 + 1;
+                if (!attributeSet.getAttributeBooleanValue(i3, false)) {
                     attributeNameResource = -attributeNameResource;
                 }
-                iArr[i] = attributeNameResource;
-                i = i3;
+                iArr[i2] = attributeNameResource;
+                i2 = i4;
             }
         }
-        return StateSet.trimStateSet(iArr, i);
+        return StateSet.trimStateSet(iArr, i2);
     }
 
     public int getStateCount() {
         return this.mStateListState.getChildCount();
     }
 
-    public Drawable getStateDrawable(int i) {
-        return this.mStateListState.getChild(i);
+    public Drawable getStateDrawable(int i2) {
+        return this.mStateListState.getChild(i2);
     }
 
     public int getStateDrawableIndex(int[] iArr) {
@@ -196,8 +198,8 @@ public class StateListDrawable extends DrawableContainer {
         return this.mStateListState;
     }
 
-    public int[] getStateSet(int i) {
-        return this.mStateListState.mStateSets[i];
+    public int[] getStateSet(int i2) {
+        return this.mStateListState.mStateSets[i2];
     }
 
     public void inflate(@NonNull Context context, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {

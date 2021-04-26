@@ -8,16 +8,16 @@ import android.os.Message;
 public class VMsg {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7946a = "VMsg";
+    public static final String f8233a = "VMsg";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f7947b;
+    public static Handler f8234b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HandlerThread f7948c;
+    public static HandlerThread f8235c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static VMsg f7949d = new VMsg();
+    public static VMsg f8236d = new VMsg();
 
     /* loaded from: classes2.dex */
     public static class a extends Handler {
@@ -34,31 +34,31 @@ public class VMsg {
 
     public static native void InitClass(Object obj);
 
-    public static native void OnUserCommand1(int i, int i2, int i3, long j);
+    public static native void OnUserCommand1(int i2, int i3, int i4, long j);
 
     public static void destroy() {
-        f7948c.quit();
-        f7948c = null;
-        f7947b.removeCallbacksAndMessages(null);
-        f7947b = null;
+        f8235c.quit();
+        f8235c = null;
+        f8234b.removeCallbacksAndMessages(null);
+        f8234b = null;
     }
 
     public static VMsg getInstance() {
-        return f7949d;
+        return f8236d;
     }
 
     public static void init() {
         HandlerThread handlerThread = new HandlerThread("VIMsgThread");
-        f7948c = handlerThread;
+        f8235c = handlerThread;
         handlerThread.start();
-        f7947b = new a(f7948c.getLooper());
+        f8234b = new a(f8235c.getLooper());
     }
 
-    public static void postMessage(int i, int i2, int i3, long j) {
-        Handler handler = f7947b;
+    public static void postMessage(int i2, int i3, int i4, long j) {
+        Handler handler = f8234b;
         if (handler == null) {
             return;
         }
-        Message.obtain(handler, i, i2, i3, j == 0 ? null : Long.valueOf(j)).sendToTarget();
+        Message.obtain(handler, i2, i3, i4, j == 0 ? null : Long.valueOf(j)).sendToTarget();
     }
 }

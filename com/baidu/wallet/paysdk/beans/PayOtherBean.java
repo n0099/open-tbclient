@@ -16,18 +16,18 @@ import java.util.List;
 public class PayOtherBean<T> extends OtherBean<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f25160a;
+    public long f25930a;
 
     public PayOtherBean(Context context) {
         super(context);
-        this.f25160a = 0L;
+        this.f25930a = 0L;
     }
 
-    private void a(int i) {
-        long currentTimeMillis = System.currentTimeMillis() - this.f25160a;
+    private void a(int i2) {
+        long currentTimeMillis = System.currentTimeMillis() - this.f25930a;
         try {
             String path = new URL(getUrl()).getPath();
-            List<String> collectData = StatHelper.collectData(path, i + "");
+            List<String> collectData = StatHelper.collectData(path, i2 + "");
             HashMap hashMap = new HashMap();
             hashMap.put("duration", Long.valueOf(currentTimeMillis));
             StatisticManager.onEventWithValues(PayStatServiceEvent.CALL_INTERFACE, collectData, hashMap);
@@ -44,11 +44,11 @@ public class PayOtherBean<T> extends OtherBean<T> {
     @Override // com.baidu.wallet.core.beans.OtherBean, com.baidu.apollon.beans.ApollonBean
     public <T, E> void executeAndHandleResponse(Class<T> cls, Class<E> cls2) {
         super.executeAndHandleResponse(cls, cls2);
-        int i = this.mRetCode;
-        if (i == -1) {
-            i = -2;
+        int i2 = this.mRetCode;
+        if (i2 == -1) {
+            i2 = -2;
         }
-        a(i);
+        a(i2);
     }
 
     @Override // com.baidu.wallet.core.beans.NetworkBean
@@ -97,7 +97,7 @@ public class PayOtherBean<T> extends OtherBean<T> {
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public <T, E> void execBean(Class<T> cls, Class<E> cls2) {
-        this.f25160a = System.currentTimeMillis();
+        this.f25930a = System.currentTimeMillis();
         super.execBean(cls, cls2);
     }
 }

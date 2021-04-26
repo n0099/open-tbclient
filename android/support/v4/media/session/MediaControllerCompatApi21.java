@@ -22,7 +22,7 @@ public class MediaControllerCompatApi21 {
 
     /* loaded from: classes.dex */
     public interface Callback {
-        void onAudioInfoChanged(int i, int i2, int i3, int i4, int i5);
+        void onAudioInfoChanged(int i2, int i3, int i4, int i5, int i6);
 
         void onExtrasChanged(Bundle bundle);
 
@@ -207,8 +207,8 @@ public class MediaControllerCompatApi21 {
         }
     }
 
-    public static void adjustVolume(Object obj, int i, int i2) {
-        ((MediaController) obj).adjustVolume(i, i2);
+    public static void adjustVolume(Object obj, int i2, int i3) {
+        ((MediaController) obj).adjustVolume(i2, i3);
     }
 
     public static Object createCallback(Callback callback) {
@@ -291,8 +291,8 @@ public class MediaControllerCompatApi21 {
         activity.setMediaController((MediaController) obj);
     }
 
-    public static void setVolumeTo(Object obj, int i, int i2) {
-        ((MediaController) obj).setVolumeTo(i, i2);
+    public static void setVolumeTo(Object obj, int i2, int i3) {
+        ((MediaController) obj).setVolumeTo(i2, i3);
     }
 
     public static void unregisterCallback(Object obj, Object obj2) {

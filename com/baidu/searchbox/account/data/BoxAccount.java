@@ -70,8 +70,8 @@ public class BoxAccount {
             return this.renickname;
         }
 
-        public void setErrorCode(int i) {
-            this.errorCode = i;
+        public void setErrorCode(int i2) {
+            this.errorCode = i2;
         }
 
         public void setErrorMsg(String str) {
@@ -158,11 +158,11 @@ public class BoxAccount {
     }
 
     public String getGenderText() {
-        int i = this.gender;
-        if (i == 1) {
+        int i2 = this.gender;
+        if (i2 == 1) {
             return AccountConstants.MALE_TEXT;
         }
-        if (i == 0) {
+        if (i2 == 0) {
             return AccountConstants.FEMALE_TEXT;
         }
         return null;
@@ -248,8 +248,8 @@ public class BoxAccount {
         this.addressSwitch = z;
     }
 
-    public void setAge(int i) {
-        this.age = i;
+    public void setAge(int i2) {
+        this.age = i2;
     }
 
     public void setBaijiahao(boolean z) {
@@ -284,16 +284,16 @@ public class BoxAccount {
         this.errorBean = errorBean;
     }
 
-    public void setExpiryTime(int i) {
-        this.expiryTime = i;
+    public void setExpiryTime(int i2) {
+        this.expiryTime = i2;
     }
 
     public void setExtFields(HashMap<String, String> hashMap) {
         this.extFields = hashMap;
     }
 
-    public void setGender(int i) {
-        this.gender = i;
+    public void setGender(int i2) {
+        this.gender = i2;
     }
 
     public void setHoroscope(String str) {
@@ -312,8 +312,8 @@ public class BoxAccount {
         this.isLay = str;
     }
 
-    public void setLevel(int i) {
-        this.level = i;
+    public void setLevel(int i2) {
+        this.level = i2;
     }
 
     public void setNickname(String str) {
@@ -360,8 +360,8 @@ public class BoxAccount {
         this.uk = str;
     }
 
-    public void setVip(int i) {
-        this.vip = i;
+    public void setVip(int i2) {
+        this.vip = i2;
     }
 
     public JSONObject toJson() {

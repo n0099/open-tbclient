@@ -1,19 +1,19 @@
 package com.baidu.wallet.paysdk.b;
 /* loaded from: classes5.dex */
 public class c {
-    public static j a(int i) {
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
+    public static j a(int i2) {
+        if (i2 != 0) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 == 3) {
                         return new d();
                     }
-                    if (i == 5) {
+                    if (i2 == 5) {
                         return new e();
                     }
-                    if (i != 6) {
-                        if (i != 7) {
-                            if (i != 9) {
+                    if (i2 != 6) {
+                        if (i2 != 7) {
+                            if (i2 != 9) {
                                 return new b();
                             }
                             return new f();

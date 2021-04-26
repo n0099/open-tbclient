@@ -12,9 +12,9 @@ public class PlaybackStateCompatApi22 {
         return ((PlaybackState) obj).getExtras();
     }
 
-    public static Object newInstance(int i, long j, long j2, float f2, long j3, CharSequence charSequence, long j4, List<Object> list, long j5, Bundle bundle) {
+    public static Object newInstance(int i2, long j, long j2, float f2, long j3, CharSequence charSequence, long j4, List<Object> list, long j5, Bundle bundle) {
         PlaybackState.Builder builder = new PlaybackState.Builder();
-        builder.setState(i, j, f2, j4);
+        builder.setState(i2, j, f2, j4);
         builder.setBufferedPosition(j2);
         builder.setActions(j3);
         builder.setErrorMessage(charSequence);

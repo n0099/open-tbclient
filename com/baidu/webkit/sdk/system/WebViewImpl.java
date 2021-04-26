@@ -49,8 +49,8 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
 
         @Override // android.webkit.WebView.FindListener
-        public void onFindResultReceived(int i, int i2, boolean z) {
-            this.mListener.onFindResultReceived(i, i2, z);
+        public void onFindResultReceived(int i2, int i3, boolean z) {
+            this.mListener.onFindResultReceived(i2, i3, z);
         }
     }
 
@@ -151,12 +151,12 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final Picture captureHistoryPicture(int i, int i2, int i3) {
+    public final Picture captureHistoryPicture(int i2, int i3, int i4) {
         return null;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final Picture capturePicture(int i, int i2, boolean z) {
+    public final Picture capturePicture(int i2, int i3, boolean z) {
         return super.capturePicture();
     }
 
@@ -189,7 +189,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void cutdownUserData(int i) {
+    public final void cutdownUserData(int i2) {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
@@ -197,7 +197,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void dumpViewHierarchyWithProperties(BufferedWriter bufferedWriter, int i) {
+    public final void dumpViewHierarchyWithProperties(BufferedWriter bufferedWriter, int i2) {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
@@ -247,7 +247,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final View findHierarchyView(String str, int i) {
+    public final View findHierarchyView(String str, int i2) {
         return null;
     }
 
@@ -352,7 +352,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final Object getUserData(int i, int i2) {
+    public final Object getUserData(int i2, int i3) {
         return null;
     }
 
@@ -487,7 +487,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void notifyUnsafeInvolved(int i, String str) {
+    public final void notifyUnsafeInvolved(int i2, String str) {
     }
 
     @Override // android.webkit.WebView, android.view.View
@@ -501,10 +501,10 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, android.view.View
-    public final void onOverScrolled(int i, int i2, boolean z, boolean z2) {
+    public final void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
         WebView.PrivateAccess privateAccess = this.mWebViewPrivateAccess;
         if (privateAccess != null) {
-            privateAccess.onOverScrolled(i, i2, z, z2);
+            privateAccess.onOverScrolled(i2, i3, z, z2);
         }
     }
 
@@ -543,10 +543,10 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, android.view.View
-    public final void onScrollChanged(int i, int i2, int i3, int i4) {
+    public final void onScrollChanged(int i2, int i3, int i4, int i5) {
         WebView.PrivateAccess privateAccess = this.mWebViewPrivateAccess;
         if (privateAccess != null) {
-            privateAccess.onScrollChanged(i, i2, i3, i4);
+            privateAccess.onScrollChanged(i2, i3, i4, i5);
         }
     }
 
@@ -655,7 +655,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void setBottomControlsHeight(int i) {
+    public final void setBottomControlsHeight(int i2) {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
@@ -663,7 +663,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void setDefaultViewSize(int i, int i2) {
+    public final void setDefaultViewSize(int i2, int i3) {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
@@ -698,9 +698,9 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(26)
-    public final void setRendererPriorityPolicy(int i, boolean z) {
+    public final void setRendererPriorityPolicy(int i2, boolean z) {
         if (Build.VERSION.SDK_INT >= 26) {
-            super.setRendererPriorityPolicy(i, z);
+            super.setRendererPriorityPolicy(i2, z);
         }
     }
 
@@ -710,7 +710,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void setStatusBar(View view, int i) {
+    public final void setStatusBar(View view, int i2) {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
@@ -718,11 +718,11 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void setTopControlsHeight(int i, boolean z) {
+    public final void setTopControlsHeight(int i2, boolean z) {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void setUserData(int i, int i2, Object obj) {
+    public final void setUserData(int i2, int i3, Object obj) {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
@@ -742,7 +742,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void setWebViewMargin(int i, int i2, int i3, int i4) {
+    public final void setWebViewMargin(int i2, int i3, int i4, int i5) {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
@@ -750,7 +750,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void setWebViewPagerSize(int i, int i2) {
+    public final void setWebViewPagerSize(int i2, int i3) {
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
@@ -779,12 +779,12 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         return super.onInterceptTouchEvent(motionEvent);
     }
 
-    public final void super_onOverScrolled(int i, int i2, boolean z, boolean z2) {
-        super.onOverScrolled(i, i2, z, z2);
+    public final void super_onOverScrolled(int i2, int i3, boolean z, boolean z2) {
+        super.onOverScrolled(i2, i3, z, z2);
     }
 
-    public final void super_onScrollChanged(int i, int i2, int i3, int i4) {
-        super.onScrollChanged(i, i2, i3, i4);
+    public final void super_onScrollChanged(int i2, int i3, int i4, int i5) {
+        super.onScrollChanged(i2, i3, i4, i5);
     }
 
     public final boolean super_onTouchEvent(MotionEvent motionEvent) {
@@ -808,7 +808,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void updateTopControlOffset(int i) {
+    public final void updateTopControlOffset(int i2) {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider

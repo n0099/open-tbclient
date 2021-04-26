@@ -2,57 +2,57 @@ package com.kwad.sdk.draw.b;
 
 import android.widget.TextView;
 import com.kwad.sdk.R;
+import com.kwad.sdk.contentalliance.detail.video.d;
 import com.kwad.sdk.contentalliance.detail.video.e;
-import com.kwad.sdk.contentalliance.detail.video.f;
 /* loaded from: classes6.dex */
 public class c extends com.kwad.sdk.draw.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f34968b;
+    public TextView f33939b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f34969c = new f() { // from class: com.kwad.sdk.draw.b.c.1
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-        public void a(int i, int i2) {
-            c.this.f34968b.setVisibility(0);
+    public d f33940c = new e() { // from class: com.kwad.sdk.draw.b.c.1
+        @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
+        public void a(int i2, int i3) {
+            c.this.f33939b.setVisibility(0);
         }
 
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-        public void b() {
-            c.this.f34968b.setVisibility(8);
+        @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
+        public void c() {
+            c.this.f33939b.setVisibility(8);
         }
 
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
+        @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void d() {
-            c.this.f34968b.setVisibility(8);
+            c.this.f33939b.setVisibility(8);
         }
     };
 
     @Override // com.kwad.sdk.draw.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         TextView textView;
-        int i;
+        int i2;
         super.a();
-        if (com.ksad.download.d.b.a(o())) {
-            textView = this.f34968b;
-            i = 8;
+        if (com.ksad.download.d.b.a(l())) {
+            textView = this.f33939b;
+            i2 = 8;
         } else {
-            textView = this.f34968b;
-            i = 0;
+            textView = this.f33939b;
+            i2 = 0;
         }
-        textView.setVisibility(i);
-        ((com.kwad.sdk.draw.a.a) this).f34906a.f34911e.a(this.f34969c);
+        textView.setVisibility(i2);
+        ((com.kwad.sdk.draw.a.a) this).f33875a.f33880e.a(this.f33940c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public void b_() {
-        super.b_();
-        ((com.kwad.sdk.draw.a.a) this).f34906a.f34911e.b(this.f34969c);
+    public void b() {
+        super.b();
+        this.f33939b = (TextView) a(R.id.ksad_video_fail_tip);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f34968b = (TextView) b(R.id.ksad_video_fail_tip);
+        ((com.kwad.sdk.draw.a.a) this).f33875a.f33880e.b(this.f33940c);
     }
 }

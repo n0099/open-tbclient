@@ -106,7 +106,7 @@ public class NetworkInfoAuto {
         }
 
         public void setNetInfo(NetworkStatus networkStatus, final Reply<SetNetInfoResult> reply) {
-            new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterNetworkInfo.setNetInfo", new StandardMessageCodec()).send(networkStatus.toMap(), new BasicMessageChannel.Reply() { // from class: d.b.j0.m0.a.e.a
+            new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterNetworkInfo.setNetInfo", new StandardMessageCodec()).send(networkStatus.toMap(), new BasicMessageChannel.Reply() { // from class: d.a.j0.m0.a.e.a
                 @Override // io.flutter.plugin.common.BasicMessageChannel.Reply
                 public final void reply(Object obj) {
                     NetworkInfoAuto.FlutterNetworkInfo.Reply.this.reply(NetworkInfoAuto.SetNetInfoResult.fromMap((HashMap) obj));

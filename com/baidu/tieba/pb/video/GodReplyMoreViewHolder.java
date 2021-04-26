@@ -9,21 +9,21 @@ import com.baidu.tieba.R;
 public class GodReplyMoreViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f19649a;
+    public TextView f20132a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f19650b;
+    public View f20133b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f19651c;
+    public int f20134c;
 
     public GodReplyMoreViewHolder(View view) {
         super(view);
-        this.f19651c = 3;
-        this.f19649a = (TextView) view.findViewById(R.id.look_more_view);
-        this.f19650b = view.findViewById(R.id.divider_line_above_more_god_replays);
-        SkinManager.setViewTextColor(this.f19649a, R.color.CAM_X0106);
-        SkinManager.setBackgroundResource(this.f19649a, R.drawable.more_all);
-        SkinManager.setBackgroundResource(this.f19650b, R.color.CAM_X0204);
+        this.f20134c = 3;
+        this.f20132a = (TextView) view.findViewById(R.id.look_more_view);
+        this.f20133b = view.findViewById(R.id.divider_line_above_more_god_replays);
+        SkinManager.setViewTextColor(this.f20132a, R.color.CAM_X0106);
+        SkinManager.setBackgroundResource(this.f20132a, R.drawable.more_all);
+        SkinManager.setBackgroundResource(this.f20133b, R.color.CAM_X0204);
     }
 }

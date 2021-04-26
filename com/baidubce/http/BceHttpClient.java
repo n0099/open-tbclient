@@ -96,12 +96,12 @@ public class BceHttpClient {
         return (T) execute(internalRequest, cls, httpResponseHandlerArr, null);
     }
 
-    public long getDelayBeforeNextRetryInMillis(InternalRequest internalRequest, BceClientException bceClientException, int i, RetryPolicy retryPolicy) {
-        int i2 = i - 1;
-        if (i2 >= retryPolicy.getMaxErrorRetry()) {
+    public long getDelayBeforeNextRetryInMillis(InternalRequest internalRequest, BceClientException bceClientException, int i2, RetryPolicy retryPolicy) {
+        int i3 = i2 - 1;
+        if (i3 >= retryPolicy.getMaxErrorRetry()) {
             return -1L;
         }
-        return Math.min(retryPolicy.getMaxDelayInMillis(), retryPolicy.getDelayBeforeNextRetryInMillis(bceClientException, i2));
+        return Math.min(retryPolicy.getMaxDelayInMillis(), retryPolicy.getDelayBeforeNextRetryInMillis(bceClientException, i3));
     }
 
     public BceHttpClient(BceClientConfiguration bceClientConfiguration, OkHttpClient okHttpClient, Signer signer) {
@@ -130,7 +130,7 @@ public class BceHttpClient {
         }
         BceCredentials bceCredentials = credentials;
         long j = 0;
-        int i = 1;
+        int i2 = 1;
         while (true) {
             try {
                 j = Calendar.getInstance().getTimeInMillis();
@@ -169,7 +169,7 @@ public class BceHttpClient {
                 bceHttpResponse.getHeader("Date");
                 T newInstance = cls.newInstance();
                 int length = httpResponseHandlerArr.length;
-                for (int i2 = 0; i2 < length && !httpResponseHandlerArr[i2].handle(bceHttpResponse, newInstance); i2++) {
+                for (int i3 = 0; i3 < length && !httpResponseHandlerArr[i3].handle(bceHttpResponse, newInstance); i3++) {
                 }
                 return newInstance;
             } catch (BceServiceException e5) {
@@ -189,15 +189,15 @@ public class BceHttpClient {
                     }
                 }
                 BLog.warn("Unable to execute HTTP request");
-                delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
+                delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i2, this.config.getRetryPolicy());
                 if (delayBeforeNextRetryInMillis >= 0) {
-                    BLog.warn("Retriable error detected, will retry in " + delayBeforeNextRetryInMillis + " ms, attempt number: " + i);
+                    BLog.warn("Retriable error detected, will retry in " + delayBeforeNextRetryInMillis + " ms, attempt number: " + i2);
                     try {
                         Thread.sleep(delayBeforeNextRetryInMillis);
                         if (internalRequest.getContent() != null) {
                             internalRequest.getContent().restart();
                         }
-                        i++;
+                        i2++;
                     } catch (InterruptedException e6) {
                         throw new BceClientException("Delay interrupted", e6);
                     }
@@ -208,7 +208,7 @@ public class BceHttpClient {
                 e = e7;
                 bceServiceException = e;
                 BLog.warn("Unable to execute HTTP request");
-                delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
+                delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i2, this.config.getRetryPolicy());
                 if (delayBeforeNextRetryInMillis >= 0) {
                 }
             } catch (Exception e8) {
@@ -219,11 +219,11 @@ public class BceHttpClient {
                     bceServiceException = new BceClientException("Unable to execute HTTP request", e);
                 }
                 BLog.warn("Unable to execute HTTP request");
-                delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
+                delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i2, this.config.getRetryPolicy());
                 if (delayBeforeNextRetryInMillis >= 0) {
                 }
             }
-            i++;
+            i2++;
         }
     }
 

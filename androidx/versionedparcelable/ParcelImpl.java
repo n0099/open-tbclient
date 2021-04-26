@@ -1,8 +1,10 @@
 package androidx.versionedparcelable;
 
+import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.RestrictTo;
+@SuppressLint({"BanParcelableUsage"})
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class ParcelImpl implements Parcelable {
@@ -17,8 +19,8 @@ public class ParcelImpl implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public ParcelImpl[] newArray(int i) {
-            return new ParcelImpl[i];
+        public ParcelImpl[] newArray(int i2) {
+            return new ParcelImpl[i2];
         }
     };
     public final VersionedParcelable mParcel;
@@ -37,7 +39,7 @@ public class ParcelImpl implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         new VersionedParcelParcel(parcel).writeVersionedParcelable(this.mParcel);
     }
 

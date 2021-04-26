@@ -15,43 +15,43 @@ import java.util.ArrayList;
 public class bg {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f8663a;
+    public static volatile boolean f8974a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f8664b;
+    public static volatile boolean f8975b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f8665c;
+    public static volatile boolean f8976c;
 
     public static String a() {
         return "https://dxp.baidu.com/vizParser";
     }
 
-    public static boolean a(int i) {
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
+    public static boolean a(int i2) {
+        if (i2 != 0) {
+            if (i2 != 1) {
+                if (i2 != 2) {
                     return false;
                 }
-                return f8665c;
+                return f8976c;
             }
-            return f8664b;
+            return f8975b;
         }
-        return f8663a;
+        return f8974a;
     }
 
-    public static String b(int i) {
-        return i != 0 ? i != 1 ? i != 2 ? "" : "mtj_auto.config" : "mtj_autoTracker.js" : "mtj_vizParser.js";
+    public static String b(int i2) {
+        return i2 != 0 ? i2 != 1 ? i2 != 2 ? "" : "mtj_auto.config" : "mtj_autoTracker.js" : "mtj_vizParser.js";
     }
 
-    public static void a(int i, boolean z) {
-        if (i == 0) {
-            f8663a = z;
-        } else if (i == 1) {
-            f8664b = z;
-        } else if (i != 2) {
+    public static void a(int i2, boolean z) {
+        if (i2 == 0) {
+            f8974a = z;
+        } else if (i2 == 1) {
+            f8975b = z;
+        } else if (i2 != 2) {
         } else {
-            f8665c = z;
+            f8976c = z;
         }
     }
 
@@ -70,16 +70,16 @@ public class bg {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized boolean a(Context context, String str, int i, boolean z) {
+    public static synchronized boolean a(Context context, String str, int i2, boolean z) {
         synchronized (bg.class) {
             boolean z2 = true;
-            if (a(i)) {
+            if (a(i2)) {
                 return true;
             }
             if (context == null) {
                 return false;
             }
-            String a2 = a(context, str, i);
+            String a2 = a(context, str, i2);
             if (TextUtils.isEmpty(a2)) {
                 return false;
             }
@@ -91,7 +91,7 @@ public class bg {
                 bh c3 = bh.c();
                 c3.a("requestUrl:" + a2);
             }
-            String b2 = b(i);
+            String b2 = b(i2);
             if (TextUtils.isEmpty(b2)) {
                 return false;
             }
@@ -100,7 +100,7 @@ public class bg {
                 httpURLConnection = bo.d(context, a2);
                 httpURLConnection.connect();
                 long j = 0;
-                if (i == 1) {
+                if (i2 == 1) {
                     try {
                         j = Long.valueOf(httpURLConnection.getHeaderField("X-INTERVAL")).longValue();
                     } catch (Exception unused) {
@@ -117,10 +117,10 @@ public class bg {
                     c5.a("contentLength:" + contentLength + " fileName:" + b2);
                 }
                 if (responseCode == 200) {
-                    if (i == 1) {
+                    if (i2 == 1) {
                         bq.a().a(context, System.currentTimeMillis());
                         bq.a().b(context, j);
-                    } else if (i == 2) {
+                    } else if (i2 == 2) {
                         bq.a().c(context, System.currentTimeMillis());
                     }
                     if (contentLength > 0) {
@@ -133,7 +133,7 @@ public class bg {
                         }
                     }
                     try {
-                        a(i, true);
+                        a(i2, true);
                     } catch (Exception unused3) {
                     }
                 } else {
@@ -145,10 +145,10 @@ public class bg {
         }
     }
 
-    public static String a(Context context, String str, int i) {
-        if (i != 0) {
-            if (i != 1) {
-                return i != 2 ? "" : a(context, str);
+    public static String a(Context context, String str, int i2) {
+        if (i2 != 0) {
+            if (i2 != 1) {
+                return i2 != 2 ? "" : a(context, str);
             }
             return a(context);
         }

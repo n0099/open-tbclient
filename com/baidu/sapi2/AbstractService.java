@@ -1,7 +1,6 @@
 package com.baidu.sapi2;
 
 import android.text.TextUtils;
-import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
@@ -10,9 +9,7 @@ import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class AbstractService implements NoProguard {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f10094a = "3";
+    public static final String API_V3 = "3";
     public SapiConfiguration configuration;
     public String versionName;
 
@@ -30,12 +27,6 @@ public abstract class AbstractService implements NoProguard {
         httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
         httpHashMapWrap.put("sdk_version", "3");
         return httpHashMapWrap;
-    }
-
-    public void cancelRequest(HttpClientWrap httpClientWrap) {
-        if (httpClientWrap != null) {
-            httpClientWrap.cancelRequest();
-        }
     }
 
     public int getErrorCode(String str) {
@@ -67,7 +58,7 @@ public abstract class AbstractService implements NoProguard {
         sapiAccount.displayname = jSONObject.optString("displayname");
         sapiAccount.username = jSONObject.optString("uname");
         sapiAccount.stoken = jSONObject.optString("stoken");
-        sapiAccount.ptoken = jSONObject.optString(SapiAccount.f10190h);
+        sapiAccount.ptoken = jSONObject.optString(SapiAccount.SAPI_ACCOUNT_PTOKEN);
         sapiAccount.extra = jSONObject.toString();
         sapiAccount.app = SapiUtils.getAppName(this.configuration.context);
         return sapiAccount;

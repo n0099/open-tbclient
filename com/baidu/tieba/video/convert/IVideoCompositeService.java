@@ -40,7 +40,7 @@ public interface IVideoCompositeService extends IInterface {
             }
 
             @Override // com.baidu.tieba.video.convert.IVideoCompositeService
-            public int addSticker(String str, String str2, String str3, boolean z, int i, int i2, int i3, int i4) throws RemoteException {
+            public int addSticker(String str, String str2, String str3, boolean z, int i2, int i3, int i4, int i5) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -49,10 +49,10 @@ public interface IVideoCompositeService extends IInterface {
                     obtain.writeString(str2);
                     obtain.writeString(str3);
                     obtain.writeInt(z ? 1 : 0);
-                    obtain.writeInt(i);
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
                     obtain.writeInt(i4);
+                    obtain.writeInt(i5);
                     this.mRemote.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
@@ -123,26 +123,26 @@ public interface IVideoCompositeService extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 == 1) {
                 parcel.enforceInterface(DESCRIPTOR);
                 setIVideoConvertListener(IVideoConvertListener.Stub.asInterface(parcel.readStrongBinder()));
                 parcel2.writeNoException();
                 return true;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 parcel.enforceInterface(DESCRIPTOR);
                 abortConvert();
                 parcel2.writeNoException();
                 return true;
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 parcel.enforceInterface(DESCRIPTOR);
                 boolean isConvertRunning = isConvertRunning();
                 parcel2.writeNoException();
                 parcel2.writeInt(isConvertRunning ? 1 : 0);
                 return true;
-            } else if (i != 4) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 4) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString(DESCRIPTOR);
                 return true;
@@ -158,7 +158,7 @@ public interface IVideoCompositeService extends IInterface {
 
     void abortConvert() throws RemoteException;
 
-    int addSticker(String str, String str2, String str3, boolean z, int i, int i2, int i3, int i4) throws RemoteException;
+    int addSticker(String str, String str2, String str3, boolean z, int i2, int i3, int i4, int i5) throws RemoteException;
 
     boolean isConvertRunning() throws RemoteException;
 

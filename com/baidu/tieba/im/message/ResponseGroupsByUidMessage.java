@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.squareup.wire.Wire;
-import d.b.i0.r.r.a;
+import d.a.i0.r.r.a;
 import java.util.ArrayList;
 import java.util.List;
 import protobuf.GroupInfo;
@@ -44,13 +44,13 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
         return this.groups;
     }
 
-    public ResponseGroupsByUidMessage(int i) {
-        super(i);
+    public ResponseGroupsByUidMessage(int i2) {
+        super(i2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void beforeDispatchInBackGround(int i, byte[] bArr) {
+    public void beforeDispatchInBackGround(int i2, byte[] bArr) {
         if (getError() != 0) {
             return;
         }
@@ -64,7 +64,7 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         QueryGroupsByUidResIdl queryGroupsByUidResIdl = (QueryGroupsByUidResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryGroupsByUidResIdl.class);
         setError(queryGroupsByUidResIdl.error.errorno.intValue());
         setErrorString(queryGroupsByUidResIdl.error.usermsg);

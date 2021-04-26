@@ -10,12 +10,12 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class EditListBox extends AbstractFullBox {
     public static final String TYPE = "elst";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
     public List<Entry> entries;
 
     static {
@@ -39,7 +39,7 @@ public class EditListBox extends AbstractFullBox {
         parseVersionAndFlags(byteBuffer);
         int l2i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
         this.entries = new LinkedList();
-        for (int i = 0; i < l2i; i++) {
+        for (int i2 = 0; i2 < l2i; i2++) {
             this.entries.add(new Entry(this, byteBuffer));
         }
     }
@@ -79,7 +79,7 @@ public class EditListBox extends AbstractFullBox {
         return "EditListBox{entries=" + this.entries + '}';
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         public EditListBox editListBox;
         public double mediaRate;

@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.i0.s.c.h0;
+import d.a.c.e.p.l;
+import d.a.i0.s.c.h0;
 /* loaded from: classes4.dex */
 public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     public NavigationBar mNavigationBar;
@@ -62,10 +62,10 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == 0) {
                 if (CreateForumActivity.this.mEditName.hasFocus()) {
-                    l.w(CreateForumActivity.this.getPageContext().getPageActivity(), CreateForumActivity.this.mEditName);
+                    l.x(CreateForumActivity.this.getPageContext().getPageActivity(), CreateForumActivity.this.mEditName);
                 }
                 if (CreateForumActivity.this.mEditVcode.hasFocus()) {
-                    l.w(CreateForumActivity.this.getPageContext().getPageActivity(), CreateForumActivity.this.mEditVcode);
+                    l.x(CreateForumActivity.this.getPageContext().getPageActivity(), CreateForumActivity.this.mEditVcode);
                     return false;
                 }
                 return false;
@@ -78,25 +78,25 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     public class c extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f16645a;
+        public String f16894a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f16646b;
+        public String f16895b;
 
         /* renamed from: c  reason: collision with root package name */
-        public NetWork f16647c = null;
+        public NetWork f16896c = null;
 
         public c(String str, String str2) {
-            this.f16645a = null;
-            this.f16646b = null;
-            this.f16645a = str;
-            this.f16646b = str2;
+            this.f16894a = null;
+            this.f16895b = null;
+            this.f16894a = str;
+            this.f16895b = str2;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            NetWork netWork = this.f16647c;
+            NetWork netWork = this.f16896c;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -113,13 +113,13 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         public String doInBackground(String... strArr) {
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/c/forum/create");
-                this.f16647c = netWork;
+                this.f16896c = netWork;
                 netWork.getNetContext().getRequest().mIsNeedTbs = true;
-                this.f16647c.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f16645a);
-                this.f16647c.addPostData("vcode", this.f16646b);
-                this.f16647c.addPostData("vcode_md5", CreateForumActivity.this.mVcode_md5);
-                this.f16647c.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
-                this.f16647c.postNetData();
+                this.f16896c.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f16894a);
+                this.f16896c.addPostData("vcode", this.f16895b);
+                this.f16896c.addPostData("vcode_md5", CreateForumActivity.this.mVcode_md5);
+                this.f16896c.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+                this.f16896c.postNetData();
                 return null;
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -132,13 +132,13 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         public void onPostExecute(String str) {
             super.onPostExecute((c) str);
             CreateForumActivity.this.mCreateTask = null;
-            if (this.f16647c.getNetContext().getResponse().isRequestSuccess()) {
-                CreateForumSuccessActivity.startActivity(CreateForumActivity.this.getPageContext().getPageActivity(), this.f16645a);
+            if (this.f16896c.getNetContext().getResponse().isRequestSuccess()) {
+                CreateForumSuccessActivity.startActivity(CreateForumActivity.this.getPageContext().getPageActivity(), this.f16894a);
                 CreateForumActivity.this.finish();
                 return;
             }
-            CreateForumActivity.this.showToast(this.f16647c.getErrorString());
-            if (this.f16647c.isNetSuccess()) {
+            CreateForumActivity.this.showToast(this.f16896c.getErrorString());
+            if (this.f16896c.isNetSuccess()) {
                 CreateForumActivity.this.startImageTask();
             }
         }
@@ -148,14 +148,14 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     public class d extends BdAsyncTask<String, Integer, Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f16649a;
+        public NetWork f16898a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f16650b;
+        public volatile boolean f16899b;
 
         public d() {
-            this.f16649a = null;
-            this.f16650b = false;
+            this.f16898a = null;
+            this.f16899b = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -164,22 +164,22 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         public Bitmap doInBackground(String... strArr) {
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/anti/vcode");
-                this.f16649a = netWork;
+                this.f16898a = netWork;
                 netWork.addPostData("fid", "0");
-                this.f16649a.addPostData("pub_type", "0");
-                this.f16649a.addPostData("fname", "");
-                this.f16649a.addPostData("tid", "0");
-                String postNetData = this.f16649a.postNetData();
-                if (this.f16649a.getNetContext().getResponse().isRequestSuccess()) {
+                this.f16898a.addPostData("pub_type", "0");
+                this.f16898a.addPostData("fname", "");
+                this.f16898a.addPostData("tid", "0");
+                String postNetData = this.f16898a.postNetData();
+                if (this.f16898a.getNetContext().getResponse().isRequestSuccess()) {
                     h0 h0Var = new h0();
                     h0Var.e(postNetData);
                     if (h0Var.c() != null && h0Var.c().length() > 0) {
                         CreateForumActivity.this.mVcode_md5 = h0Var.b();
-                        if (this.f16650b) {
+                        if (this.f16899b) {
                             return null;
                         }
                         NetWork netWork2 = new NetWork(h0Var.c());
-                        this.f16649a = netWork2;
+                        this.f16898a = netWork2;
                         return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                     }
                 }
@@ -192,8 +192,8 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            this.f16650b = true;
-            NetWork netWork = this.f16649a;
+            this.f16899b = true;
+            NetWork netWork = this.f16898a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -285,13 +285,13 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void changeSkinType(int i) {
-        super.changeSkinType(i);
+    public void changeSkinType(int i2) {
+        super.changeSkinType(i2);
         getLayoutMode().j(this.mRootView);
-        d.b.i0.s0.a.a(getPageContext(), this.mRootView);
+        d.a.i0.s0.a.a(getPageContext(), this.mRootView);
         NavigationBar navigationBar = this.mNavigationBar;
         if (navigationBar != null) {
-            navigationBar.onChangeSkinType(getPageContext(), i);
+            navigationBar.onChangeSkinType(getPageContext(), i2);
         }
         NoNetworkView noNetworkView = this.mNoNetView;
         if (noNetworkView == null || noNetworkView.getVisibility() != 0) {

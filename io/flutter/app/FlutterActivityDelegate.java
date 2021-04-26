@@ -204,8 +204,8 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Flu
     }
 
     @Override // io.flutter.plugin.common.PluginRegistry.ActivityResultListener
-    public boolean onActivityResult(int i, int i2, Intent intent) {
-        return this.flutterView.getPluginRegistry().onActivityResult(i, i2, intent);
+    public boolean onActivityResult(int i2, int i3, Intent intent) {
+        return this.flutterView.getPluginRegistry().onActivityResult(i2, i3, intent);
     }
 
     @Override // io.flutter.app.FlutterActivityEvents
@@ -307,8 +307,8 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Flu
     }
 
     @Override // io.flutter.plugin.common.PluginRegistry.RequestPermissionsResultListener
-    public boolean onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        return this.flutterView.getPluginRegistry().onRequestPermissionsResult(i, strArr, iArr);
+    public boolean onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+        return this.flutterView.getPluginRegistry().onRequestPermissionsResult(i2, strArr, iArr);
     }
 
     @Override // io.flutter.app.FlutterActivityEvents
@@ -333,8 +333,8 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Flu
     }
 
     @Override // android.content.ComponentCallbacks2
-    public void onTrimMemory(int i) {
-        if (i == 10) {
+    public void onTrimMemory(int i2) {
+        if (i2 == 10) {
             this.flutterView.onMemoryPressure();
         }
     }

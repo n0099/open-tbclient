@@ -177,11 +177,11 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    private Class<? extends ProtoEnum> getEnumClass(int i) {
+    private Class<? extends ProtoEnum> getEnumClass(int i2) {
         Extension<ExtendableMessage<?>, ?> extension;
-        FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i));
+        FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i2));
         Class<? extends ProtoEnum> cls = fieldInfo == null ? null : fieldInfo.enumType;
-        return (cls != null || (extension = getExtension(i)) == null) ? cls : extension.getEnumType();
+        return (cls != null || (extension = getExtension(i2)) == null) ? cls : extension.getEnumType();
     }
 
     private <E extends ProtoEnum> int getEnumSize(E e2) {
@@ -207,17 +207,17 @@ public final class MessageAdapter<M extends Message> {
         return null;
     }
 
-    private Extension<ExtendableMessage<?>, ?> getExtension(int i) {
+    private Extension<ExtendableMessage<?>, ?> getExtension(int i2) {
         ExtensionRegistry extensionRegistry = this.wire.registry;
         if (extensionRegistry == null) {
             return null;
         }
-        return extensionRegistry.getExtension(this.messageType, i);
+        return extensionRegistry.getExtension(this.messageType, i2);
     }
 
     private <T extends ExtendableMessage<?>> int getExtensionsSerializedSize(ExtensionMap<T> extensionMap) {
         int serializedSize;
-        int i = 0;
+        int i2 = 0;
         for (Extension<T, ?> extension : extensionMap.getExtensions()) {
             Object obj = extensionMap.get(extension);
             int tag = extension.getTag();
@@ -232,9 +232,9 @@ public final class MessageAdapter<M extends Message> {
             } else {
                 serializedSize = getSerializedSize(tag, obj, datatype);
             }
-            i += serializedSize;
+            i2 += serializedSize;
         }
-        return i;
+        return i2;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: java.lang.Class<com.squareup.wire.Message> */
@@ -242,11 +242,11 @@ public final class MessageAdapter<M extends Message> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: java.lang.Class<com.squareup.wire.Message> */
     /* JADX DEBUG: Type inference failed for r0v5. Raw type applied. Possible types: java.lang.Class<? extends com.squareup.wire.Message>, java.lang.Class<com.squareup.wire.Message> */
     /* JADX WARN: Multi-variable type inference failed */
-    private Class<Message> getMessageClass(int i) {
+    private Class<Message> getMessageClass(int i2) {
         Extension<ExtendableMessage<?>, ?> extension;
-        FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i));
+        FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i2));
         Class<Message> cls = fieldInfo == null ? 0 : fieldInfo.messageType;
-        return (cls != 0 || (extension = getExtension(i)) == null) ? cls : extension.getMessageType();
+        return (cls != 0 || (extension = getExtension(i2)) == null) ? cls : extension.getMessageType();
     }
 
     private <M extends Message> int getMessageSize(M m) {
@@ -273,22 +273,22 @@ public final class MessageAdapter<M extends Message> {
         return null;
     }
 
-    private int getPackedSize(List<?> list, int i, Message.Datatype datatype) {
+    private int getPackedSize(List<?> list, int i2, Message.Datatype datatype) {
         Iterator<?> it = list.iterator();
-        int i2 = 0;
+        int i3 = 0;
         while (it.hasNext()) {
-            i2 += getSerializedSizeNoTag(it.next(), datatype);
+            i3 += getSerializedSizeNoTag(it.next(), datatype);
         }
-        return WireOutput.varint32Size(WireOutput.makeTag(i, WireType.LENGTH_DELIMITED)) + WireOutput.varint32Size(i2) + i2;
+        return WireOutput.varint32Size(WireOutput.makeTag(i2, WireType.LENGTH_DELIMITED)) + WireOutput.varint32Size(i3) + i3;
     }
 
-    private int getRepeatedSize(List<?> list, int i, Message.Datatype datatype) {
+    private int getRepeatedSize(List<?> list, int i2, Message.Datatype datatype) {
         Iterator<?> it = list.iterator();
-        int i2 = 0;
+        int i3 = 0;
         while (it.hasNext()) {
-            i2 += getSerializedSize(i, it.next(), datatype);
+            i3 += getSerializedSize(i2, it.next(), datatype);
         }
-        return i2;
+        return i3;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.squareup.wire.MessageAdapter<M extends com.squareup.wire.Message> */
@@ -338,12 +338,12 @@ public final class MessageAdapter<M extends Message> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: com.squareup.wire.Wire */
     /* JADX WARN: Multi-variable type inference failed */
-    private Message readMessage(WireInput wireInput, int i) throws IOException {
+    private Message readMessage(WireInput wireInput, int i2) throws IOException {
         int readVarint32 = wireInput.readVarint32();
         if (wireInput.recursionDepth < 64) {
             int pushLimit = wireInput.pushLimit(readVarint32);
             wireInput.recursionDepth++;
-            Message read = this.wire.messageAdapter(getMessageClass(i)).read(wireInput);
+            Message read = this.wire.messageAdapter(getMessageClass(i2)).read(wireInput);
             wireInput.checkLastTagWas(0);
             wireInput.recursionDepth--;
             wireInput.popLimit(pushLimit);
@@ -352,16 +352,16 @@ public final class MessageAdapter<M extends Message> {
         throw new IOException("Wire recursion limit exceeded");
     }
 
-    private void readUnknownField(Message.Builder builder, WireInput wireInput, int i, WireType wireType) throws IOException {
+    private void readUnknownField(Message.Builder builder, WireInput wireInput, int i2, WireType wireType) throws IOException {
         switch ($SWITCH_TABLE$com$squareup$wire$WireType()[wireType.ordinal()]) {
             case 1:
-                builder.addVarint(i, wireInput.readVarint64());
+                builder.addVarint(i2, wireInput.readVarint64());
                 return;
             case 2:
-                builder.addFixed64(i, wireInput.readFixed64());
+                builder.addFixed64(i2, wireInput.readFixed64());
                 return;
             case 3:
-                builder.addLengthDelimited(i, wireInput.readBytes(wireInput.readVarint32()));
+                builder.addLengthDelimited(i2, wireInput.readBytes(wireInput.readVarint32()));
                 return;
             case 4:
                 wireInput.skipGroup();
@@ -369,14 +369,14 @@ public final class MessageAdapter<M extends Message> {
             case 5:
                 return;
             case 6:
-                builder.addFixed32(i, wireInput.readFixed32());
+                builder.addFixed32(i2, wireInput.readFixed32());
                 return;
             default:
                 throw new RuntimeException("Unsupported wire type: " + wireType);
         }
     }
 
-    private Object readValue(WireInput wireInput, int i, Message.Datatype datatype) throws IOException {
+    private Object readValue(WireInput wireInput, int i2, Message.Datatype datatype) throws IOException {
         switch ($SWITCH_TABLE$com$squareup$wire$Message$Datatype()[datatype.ordinal()]) {
             case 1:
             case 3:
@@ -391,7 +391,7 @@ public final class MessageAdapter<M extends Message> {
             case 7:
                 return wireInput.readVarint32() != 0 ? Boolean.TRUE : Boolean.FALSE;
             case 8:
-                EnumAdapter enumAdapter = this.wire.enumAdapter(getEnumClass(i));
+                EnumAdapter enumAdapter = this.wire.enumAdapter(getEnumClass(i2));
                 int readVarint32 = wireInput.readVarint32();
                 try {
                     return enumAdapter.fromInt(readVarint32);
@@ -403,7 +403,7 @@ public final class MessageAdapter<M extends Message> {
             case 10:
                 return wireInput.readBytes();
             case 11:
-                return readMessage(wireInput, i);
+                return readMessage(wireInput, i2);
             case 12:
             case 13:
                 return Integer.valueOf(wireInput.readFixed32());
@@ -425,23 +425,23 @@ public final class MessageAdapter<M extends Message> {
 
     private int utf8Length(String str) {
         int length = str.length();
-        int i = 0;
         int i2 = 0;
-        while (i < length) {
-            char charAt = str.charAt(i);
+        int i3 = 0;
+        while (i2 < length) {
+            char charAt = str.charAt(i2);
             if (charAt <= 127) {
-                i2++;
+                i3++;
             } else if (charAt <= 2047) {
-                i2 += 2;
+                i3 += 2;
             } else if (Character.isHighSurrogate(charAt)) {
-                i2 += 4;
-                i++;
+                i3 += 4;
+                i2++;
             } else {
-                i2 += 3;
+                i3 += 3;
             }
-            i++;
+            i2++;
         }
-        return i2;
+        return i3;
     }
 
     private <E extends ProtoEnum> void writeEnum(E e2, WireOutput wireOutput) throws IOException {
@@ -471,29 +471,29 @@ public final class MessageAdapter<M extends Message> {
         this.wire.messageAdapter(m.getClass()).write(m, wireOutput);
     }
 
-    private void writePacked(WireOutput wireOutput, List<?> list, int i, Message.Datatype datatype) throws IOException {
+    private void writePacked(WireOutput wireOutput, List<?> list, int i2, Message.Datatype datatype) throws IOException {
         Iterator<?> it = list.iterator();
-        int i2 = 0;
+        int i3 = 0;
         while (it.hasNext()) {
-            i2 += getSerializedSizeNoTag(it.next(), datatype);
+            i3 += getSerializedSizeNoTag(it.next(), datatype);
         }
-        wireOutput.writeTag(i, WireType.LENGTH_DELIMITED);
-        wireOutput.writeVarint32(i2);
+        wireOutput.writeTag(i2, WireType.LENGTH_DELIMITED);
+        wireOutput.writeVarint32(i3);
         Iterator<?> it2 = list.iterator();
         while (it2.hasNext()) {
             writeValueNoTag(wireOutput, it2.next(), datatype);
         }
     }
 
-    private void writeRepeated(WireOutput wireOutput, List<?> list, int i, Message.Datatype datatype) throws IOException {
+    private void writeRepeated(WireOutput wireOutput, List<?> list, int i2, Message.Datatype datatype) throws IOException {
         Iterator<?> it = list.iterator();
         while (it.hasNext()) {
-            writeValue(wireOutput, i, it.next(), datatype);
+            writeValue(wireOutput, i2, it.next(), datatype);
         }
     }
 
-    private void writeValue(WireOutput wireOutput, int i, Object obj, Message.Datatype datatype) throws IOException {
-        wireOutput.writeTag(i, datatype.wireType());
+    private void writeValue(WireOutput wireOutput, int i2, Object obj, Message.Datatype datatype) throws IOException {
+        wireOutput.writeTag(i2, datatype.wireType());
         writeValueNoTag(wireOutput, obj, datatype);
     }
 
@@ -581,29 +581,29 @@ public final class MessageAdapter<M extends Message> {
     public int getSerializedSize(M m) {
         ExtensionMap<T> extensionMap;
         int serializedSize;
-        int i = 0;
+        int i2 = 0;
         for (FieldInfo fieldInfo : getFields()) {
             Object fieldValue = getFieldValue(m, fieldInfo);
             if (fieldValue != null) {
-                int i2 = fieldInfo.tag;
+                int i3 = fieldInfo.tag;
                 Message.Datatype datatype = fieldInfo.datatype;
                 Message.Label label = fieldInfo.label;
                 if (label.isRepeated()) {
                     if (label.isPacked()) {
-                        serializedSize = getPackedSize((List) fieldValue, i2, datatype);
+                        serializedSize = getPackedSize((List) fieldValue, i3, datatype);
                     } else {
-                        serializedSize = getRepeatedSize((List) fieldValue, i2, datatype);
+                        serializedSize = getRepeatedSize((List) fieldValue, i3, datatype);
                     }
                 } else {
-                    serializedSize = getSerializedSize(i2, fieldValue, datatype);
+                    serializedSize = getSerializedSize(i3, fieldValue, datatype);
                 }
-                i += serializedSize;
+                i2 += serializedSize;
             }
         }
         if ((m instanceof ExtendableMessage) && (extensionMap = ((ExtendableMessage) m).extensionMap) != 0) {
-            i += getExtensionsSerializedSize(extensionMap);
+            i2 += getExtensionsSerializedSize(extensionMap);
         }
-        return i + m.getUnknownFieldsSerializedSize();
+        return i2 + m.getUnknownFieldsSerializedSize();
     }
 
     public Message.Builder<M> newBuilder() {
@@ -626,9 +626,9 @@ public final class MessageAdapter<M extends Message> {
             Storage storage = new Storage(null);
             while (true) {
                 int readTag = wireInput.readTag();
-                int i = readTag >> 3;
+                int i2 = readTag >> 3;
                 WireType valueOf = WireType.valueOf(readTag);
-                if (i == 0) {
+                if (i2 == 0) {
                     for (Integer num : storage.getTags()) {
                         int intValue = num.intValue();
                         if (this.fieldInfoMap.get(Integer.valueOf(intValue)) != null) {
@@ -639,16 +639,16 @@ public final class MessageAdapter<M extends Message> {
                     }
                     return newInstance.build(true);
                 }
-                FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i));
+                FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i2));
                 if (fieldInfo != null) {
                     Message.Datatype datatype2 = fieldInfo.datatype;
                     label = fieldInfo.label;
                     datatype = datatype2;
                     extension = null;
                 } else {
-                    Extension<ExtendableMessage<?>, ?> extension2 = getExtension(i);
+                    Extension<ExtendableMessage<?>, ?> extension2 = getExtension(i2);
                     if (extension2 == null) {
-                        readUnknownField(newInstance, wireInput, i, valueOf);
+                        readUnknownField(newInstance, wireInput, i2, valueOf);
                     } else {
                         Message.Datatype datatype3 = extension2.getDatatype();
                         extension = extension2;
@@ -665,11 +665,11 @@ public final class MessageAdapter<M extends Message> {
                         if (wireInput.getPosition() >= j) {
                             break;
                         }
-                        Object readValue = readValue(wireInput, i, datatype);
+                        Object readValue = readValue(wireInput, i2, datatype);
                         if (datatype == Message.Datatype.ENUM && (readValue instanceof Integer)) {
-                            newInstance.addVarint(i, ((Integer) readValue).intValue());
+                            newInstance.addVarint(i2, ((Integer) readValue).intValue());
                         } else {
-                            storage.add(i, readValue);
+                            storage.add(i2, readValue);
                         }
                     }
                     wireInput.popLimit(pushLimit);
@@ -677,15 +677,15 @@ public final class MessageAdapter<M extends Message> {
                         throw new IOException("Packed data had wrong length!");
                     }
                 } else {
-                    Object readValue2 = readValue(wireInput, i, datatype);
+                    Object readValue2 = readValue(wireInput, i2, datatype);
                     if (datatype == Message.Datatype.ENUM && (readValue2 instanceof Integer)) {
-                        newInstance.addVarint(i, ((Integer) readValue2).intValue());
+                        newInstance.addVarint(i2, ((Integer) readValue2).intValue());
                     } else if (label.isRepeated()) {
-                        storage.add(i, readValue2);
+                        storage.add(i2, readValue2);
                     } else if (extension != null) {
                         setExtension((ExtendableMessage.ExtendableBuilder) newInstance, extension, readValue2);
                     } else {
-                        setBuilderField(newInstance, i, readValue2);
+                        setBuilderField(newInstance, i2, readValue2);
                     }
                 }
             }
@@ -696,9 +696,9 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    public void setBuilderField(Message.Builder<M> builder, int i, Object obj) {
+    public void setBuilderField(Message.Builder<M> builder, int i2, Object obj) {
         try {
-            this.fieldInfoMap.get(Integer.valueOf(i)).builderMethod.set(builder, obj);
+            this.fieldInfoMap.get(Integer.valueOf(i2)).builderMethod.set(builder, obj);
         } catch (Exception e2) {
             throw new AssertionError(e2);
         }
@@ -744,17 +744,17 @@ public final class MessageAdapter<M extends Message> {
         for (FieldInfo fieldInfo : getFields()) {
             Object fieldValue = getFieldValue(m, fieldInfo);
             if (fieldValue != null) {
-                int i = fieldInfo.tag;
+                int i2 = fieldInfo.tag;
                 Message.Datatype datatype = fieldInfo.datatype;
                 Message.Label label = fieldInfo.label;
                 if (label.isRepeated()) {
                     if (label.isPacked()) {
-                        writePacked(wireOutput, (List) fieldValue, i, datatype);
+                        writePacked(wireOutput, (List) fieldValue, i2, datatype);
                     } else {
-                        writeRepeated(wireOutput, (List) fieldValue, i, datatype);
+                        writeRepeated(wireOutput, (List) fieldValue, i2, datatype);
                     }
                 } else {
-                    writeValue(wireOutput, i, fieldValue, datatype);
+                    writeValue(wireOutput, i2, fieldValue, datatype);
                 }
             }
         }
@@ -772,17 +772,17 @@ public final class MessageAdapter<M extends Message> {
             this.map = new LinkedHashMap();
         }
 
-        public void add(int i, Object obj) {
-            List<Object> list = this.map.get(Integer.valueOf(i));
+        public void add(int i2, Object obj) {
+            List<Object> list = this.map.get(Integer.valueOf(i2));
             if (list == null) {
                 list = new ArrayList<>();
-                this.map.put(Integer.valueOf(i), list);
+                this.map.put(Integer.valueOf(i2), list);
             }
             list.add(obj);
         }
 
-        public List<Object> get(int i) {
-            return this.map.get(Integer.valueOf(i));
+        public List<Object> get(int i2) {
+            return this.map.get(Integer.valueOf(i2));
         }
 
         public Set<Integer> getTags() {
@@ -815,8 +815,8 @@ public final class MessageAdapter<M extends Message> {
 
         /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.lang.Class<?> */
         /* JADX WARN: Multi-variable type inference failed */
-        public FieldInfo(int i, String str, Message.Datatype datatype, Message.Label label, Class<?> cls, Field field, Field field2) {
-            this.tag = i;
+        public FieldInfo(int i2, String str, Message.Datatype datatype, Message.Label label, Class<?> cls, Field field, Field field2) {
+            this.tag = i2;
             this.name = str;
             this.datatype = datatype;
             this.label = label;
@@ -834,12 +834,12 @@ public final class MessageAdapter<M extends Message> {
             this.builderMethod = field2;
         }
 
-        public /* synthetic */ FieldInfo(int i, String str, Message.Datatype datatype, Message.Label label, Class cls, Field field, Field field2, FieldInfo fieldInfo) {
-            this(i, str, datatype, label, cls, field, field2);
+        public /* synthetic */ FieldInfo(int i2, String str, Message.Datatype datatype, Message.Label label, Class cls, Field field, Field field2, FieldInfo fieldInfo) {
+            this(i2, str, datatype, label, cls, field, field2);
         }
     }
 
-    private int getSerializedSize(int i, Object obj, Message.Datatype datatype) {
-        return WireOutput.varintTagSize(i) + getSerializedSizeNoTag(obj, datatype);
+    private int getSerializedSize(int i2, Object obj, Message.Datatype datatype) {
+        return WireOutput.varintTagSize(i2) + getSerializedSizeNoTag(obj, datatype);
     }
 }

@@ -13,22 +13,22 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.WeakHashMap;
 /* loaded from: classes5.dex */
-public class a extends d.c.c.b.b.a {
+public class a extends d.b.c.b.b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f29129b;
+    public static String f30023b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakHashMap<String, String> f29130c = new WeakHashMap<>();
+    public WeakHashMap<String, String> f30024c = new WeakHashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.b.a f29131d = new com.bytedance.sdk.openadsdk.b.d();
+    public final com.bytedance.sdk.openadsdk.b.a f30025d = new com.bytedance.sdk.openadsdk.b.d();
 
     public static a a() {
         return new a();
     }
 
-    @Override // d.c.c.b.b.a, d.c.c.b.b.d.h
+    @Override // d.b.c.b.b.a, d.b.c.b.b.d.h
     public Bitmap b(String str) {
         FileInputStream fileInputStream;
         Bitmap b2 = super.b(str);
@@ -74,7 +74,7 @@ public class a extends d.c.c.b.b.a {
         return b2;
     }
 
-    @Override // d.c.c.b.b.a, d.c.c.b.b.d.h
+    @Override // d.b.c.b.b.a, d.b.c.b.b.d.h
     public void a(String str, Bitmap bitmap, byte[] bArr) {
         if (bitmap == null) {
             return;
@@ -97,7 +97,7 @@ public class a extends d.c.c.b.b.a {
                     if (file2.exists() && file2.length() > 0) {
                         file2.renameTo(file);
                     }
-                    this.f29131d.a(file);
+                    this.f30025d.a(file);
                     fileOutputStream2.close();
                 } catch (Throwable th) {
                     th = th;
@@ -127,23 +127,23 @@ public class a extends d.c.c.b.b.a {
     }
 
     public static String b() {
-        if (TextUtils.isEmpty(f29129b)) {
-            File file = new File(d.c.c.b.a.h(p.a()), "diskImage");
+        if (TextUtils.isEmpty(f30023b)) {
+            File file = new File(d.b.c.b.a.h(p.a()), "diskImage");
             file.mkdirs();
-            f29129b = file.getAbsolutePath();
+            f30023b = file.getAbsolutePath();
         }
-        return f29129b;
+        return f30023b;
     }
 
-    @Override // d.c.c.b.b.a, d.c.c.b.b.d.h
-    public String a(String str, int i, int i2, ImageView.ScaleType scaleType) {
+    @Override // d.b.c.b.b.a, d.b.c.b.b.d.h
+    public String a(String str, int i2, int i3, ImageView.ScaleType scaleType) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String str2 = this.f29130c.get(str);
+        String str2 = this.f30024c.get(str);
         if (TextUtils.isEmpty(str2)) {
             String a2 = j.a(str);
-            this.f29130c.put(str, a2);
+            this.f30024c.put(str, a2);
             return a2;
         }
         return str2;

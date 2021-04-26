@@ -5,6 +5,7 @@ import java.util.Collections;
 import kotlin.SinceKotlin;
 import kotlin.collections.ArraysKt___ArraysKt;
 import kotlin.reflect.KClass;
+import kotlin.reflect.KClassifier;
 import kotlin.reflect.KDeclarationContainer;
 import kotlin.reflect.KFunction;
 import kotlin.reflect.KMutableProperty0;
@@ -14,7 +15,9 @@ import kotlin.reflect.KProperty0;
 import kotlin.reflect.KProperty1;
 import kotlin.reflect.KProperty2;
 import kotlin.reflect.KType;
+import kotlin.reflect.KTypeParameter;
 import kotlin.reflect.KTypeProjection;
+import kotlin.reflect.KVariance;
 /* loaded from: classes7.dex */
 public class Reflection {
     public static final KClass[] EMPTY_K_CLASS_ARRAY;
@@ -52,14 +55,15 @@ public class Reflection {
             return EMPTY_K_CLASS_ARRAY;
         }
         KClass[] kClassArr = new KClass[length];
-        for (int i = 0; i < length; i++) {
-            kClassArr[i] = getOrCreateKotlinClass(clsArr[i]);
+        for (int i2 = 0; i2 < length; i2++) {
+            kClassArr[i2] = getOrCreateKotlinClass(clsArr[i2]);
         }
         return kClassArr;
     }
 
-    public static KDeclarationContainer getOrCreateKotlinPackage(Class cls, String str) {
-        return factory.getOrCreateKotlinPackage(cls, str);
+    @SinceKotlin(version = "1.4")
+    public static KDeclarationContainer getOrCreateKotlinPackage(Class cls) {
+        return factory.getOrCreateKotlinPackage(cls, "");
     }
 
     public static KMutableProperty0 mutableProperty0(MutablePropertyReference0 mutablePropertyReference0) {
@@ -75,8 +79,8 @@ public class Reflection {
     }
 
     @SinceKotlin(version = "1.4")
-    public static KType nullableTypeOf(Class cls) {
-        return factory.typeOf(getOrCreateKotlinClass(cls), Collections.emptyList(), true);
+    public static KType nullableTypeOf(KClassifier kClassifier) {
+        return factory.typeOf(kClassifier, Collections.emptyList(), true);
     }
 
     public static KProperty0 property0(PropertyReference0 propertyReference0) {
@@ -97,8 +101,18 @@ public class Reflection {
     }
 
     @SinceKotlin(version = "1.4")
-    public static KType typeOf(Class cls) {
-        return factory.typeOf(getOrCreateKotlinClass(cls), Collections.emptyList(), false);
+    public static void setUpperBounds(KTypeParameter kTypeParameter, KType kType) {
+        factory.setUpperBounds(kTypeParameter, Collections.singletonList(kType));
+    }
+
+    @SinceKotlin(version = "1.4")
+    public static KType typeOf(KClassifier kClassifier) {
+        return factory.typeOf(kClassifier, Collections.emptyList(), false);
+    }
+
+    @SinceKotlin(version = "1.4")
+    public static KTypeParameter typeParameter(Object obj, String str, KVariance kVariance, boolean z) {
+        return factory.typeParameter(obj, str, kVariance, z);
     }
 
     public static KClass createKotlinClass(Class cls, String str) {
@@ -109,14 +123,33 @@ public class Reflection {
         return factory.getOrCreateKotlinClass(cls, str);
     }
 
+    public static KDeclarationContainer getOrCreateKotlinPackage(Class cls, String str) {
+        return factory.getOrCreateKotlinPackage(cls, str);
+    }
+
     @SinceKotlin(version = "1.4")
-    public static KType nullableTypeOf(Class cls, KTypeProjection kTypeProjection) {
-        return factory.typeOf(getOrCreateKotlinClass(cls), Collections.singletonList(kTypeProjection), true);
+    public static KType nullableTypeOf(Class cls) {
+        return factory.typeOf(getOrCreateKotlinClass(cls), Collections.emptyList(), true);
     }
 
     @SinceKotlin(version = "1.3")
     public static String renderLambdaToString(FunctionBase functionBase) {
         return factory.renderLambdaToString(functionBase);
+    }
+
+    @SinceKotlin(version = "1.4")
+    public static void setUpperBounds(KTypeParameter kTypeParameter, KType... kTypeArr) {
+        factory.setUpperBounds(kTypeParameter, ArraysKt___ArraysKt.toList(kTypeArr));
+    }
+
+    @SinceKotlin(version = "1.4")
+    public static KType typeOf(Class cls) {
+        return factory.typeOf(getOrCreateKotlinClass(cls), Collections.emptyList(), false);
+    }
+
+    @SinceKotlin(version = "1.4")
+    public static KType nullableTypeOf(Class cls, KTypeProjection kTypeProjection) {
+        return factory.typeOf(getOrCreateKotlinClass(cls), Collections.singletonList(kTypeProjection), true);
     }
 
     @SinceKotlin(version = "1.4")

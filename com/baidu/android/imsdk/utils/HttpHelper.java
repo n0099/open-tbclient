@@ -57,9 +57,9 @@ public class HttpHelper {
 
     /* loaded from: classes.dex */
     public interface ResponseHandler {
-        void onFailure(int i, byte[] bArr, Throwable th);
+        void onFailure(int i2, byte[] bArr, Throwable th);
 
-        void onSuccess(int i, byte[] bArr);
+        void onSuccess(int i2, byte[] bArr);
     }
 
     /* loaded from: classes.dex */
@@ -75,8 +75,8 @@ public class HttpHelper {
             return this.mErrorMsg;
         }
 
-        public void setErrorCode(int i) {
-            this.mErrorCode = i;
+        public void setErrorCode(int i2) {
+            this.mErrorCode = i2;
         }
 
         public void setErrorMsg(String str) {
@@ -99,10 +99,10 @@ public class HttpHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static HttpURLConnection createConnection(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
+    public static HttpURLConnection createConnection(int i2, String str, byte[] bArr, Map<String, String> map, int i3, int i4) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         String str2;
         HttpURLConnection httpURLConnection;
-        if ((i & 1) != 0) {
+        if ((i2 & 1) != 0) {
             if (bArr != null && bArr.length > 0) {
                 str2 = str + "?" + new String(bArr);
                 LogUtils.d(TAG, "requestUrl:" + str2);
@@ -111,7 +111,7 @@ public class HttpHelper {
                     LogUtils.e(TAG, "HttpURLConnection is null");
                 }
                 setConnectionHeader(str, httpURLConnection, map);
-                setConnectionParametersForRequest(httpURLConnection, i, bArr, false, i2, i3);
+                setConnectionParametersForRequest(httpURLConnection, i2, bArr, false, i3, i4);
                 return httpURLConnection;
             }
         } else if (bArr != null && bArr.length > 0) {
@@ -123,17 +123,17 @@ public class HttpHelper {
         if (httpURLConnection == null) {
         }
         setConnectionHeader(str, httpURLConnection, map);
-        setConnectionParametersForRequest(httpURLConnection, i, bArr, false, i2, i3);
+        setConnectionParametersForRequest(httpURLConnection, i2, bArr, false, i3, i4);
         return httpURLConnection;
     }
 
-    public static void dealResonsResult(int i, InputStream inputStream, ResponseHandler responseHandler) {
+    public static void dealResonsResult(int i2, InputStream inputStream, ResponseHandler responseHandler) {
         byte[] dealResonsResult = dealResonsResult(inputStream);
         String str = new String(dealResonsResult);
         String str2 = TAG;
         LogUtils.d(str2, "request response : " + str);
         if (dealResonsResult != null && dealResonsResult.length != 0) {
-            responseHandler.onSuccess(i, dealResonsResult);
+            responseHandler.onSuccess(i2, dealResonsResult);
         } else {
             responseHandler.onFailure(-10, "IOException for inputStream".getBytes(), new IOException("IOException for inputStream"));
         }
@@ -156,17 +156,17 @@ public class HttpHelper {
                 TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.utils.HttpHelper.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        int i;
+                        int i2;
                         try {
                             if (!Request.this.getMethod().equals("GET") && !Request.this.getMethod().equals("POST") && !Request.this.getMethod().equals(HttpPut.METHOD_NAME)) {
                                 responseHandler.onFailure(1005, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes(), null);
                             }
                             if (Request.this.getMethod().equals("GET")) {
-                                i = 1;
+                                i2 = 1;
                             } else {
-                                i = Request.this.getMethod().equals("POST") ? 16 : 256;
+                                i2 = Request.this.getMethod().equals("POST") ? 16 : 256;
                             }
-                            HttpExecutor.getInstance().execute(i, Request.this.getHost(), Request.this.getRequestParameter(), Request.this.getHeaders(), Request.this.getContentType(), responseHandler);
+                            HttpExecutor.getInstance().execute(i2, Request.this.getHost(), Request.this.getRequestParameter(), Request.this.getHeaders(), Request.this.getContentType(), responseHandler);
                         } catch (Exception e2) {
                             LogUtils.e(HttpHelper.TAG, "Http Unknown exception :", e2);
                             responseHandler.onFailure(-1003, "Http Unknown exception".getBytes(), e2);
@@ -198,17 +198,17 @@ public class HttpHelper {
         }
     }
 
-    public static void setConnectionParametersForRequest(HttpURLConnection httpURLConnection, int i, byte[] bArr, boolean z, int i2, int i3) throws IOException {
+    public static void setConnectionParametersForRequest(HttpURLConnection httpURLConnection, int i2, byte[] bArr, boolean z, int i3, int i4) throws IOException {
         httpURLConnection.setDoInput(true);
-        httpURLConnection.setConnectTimeout(i2);
+        httpURLConnection.setConnectTimeout(i3);
         if (z) {
             httpURLConnection.setRequestProperty(Headers.CONTENT_ENCODING, AsyncHttpClient.ENCODING_GZIP);
         }
-        httpURLConnection.setReadTimeout(i3);
-        if (i == 1) {
+        httpURLConnection.setReadTimeout(i4);
+        if (i2 == 1) {
             httpURLConnection.setRequestMethod("GET");
-        } else if (i != 16) {
-            if (i == 256) {
+        } else if (i2 != 16) {
+            if (i2 == 256) {
                 if (bArr == null || bArr.length <= 0) {
                     return;
                 }
@@ -276,11 +276,11 @@ public class HttpHelper {
         }
     }
 
-    public static void executor(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
+    public static void executor(int i2, String str, byte[] bArr, Map<String, String> map, int i3, int i4, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         HttpURLConnection httpURLConnection;
         InputStream inputStream = null;
         try {
-            httpURLConnection = createConnection(i, str, bArr, map, i2, i3);
+            httpURLConnection = createConnection(i2, str, bArr, map, i3, i4);
             try {
                 int responseCode = httpURLConnection.getResponseCode();
                 if (responseCode != -1) {

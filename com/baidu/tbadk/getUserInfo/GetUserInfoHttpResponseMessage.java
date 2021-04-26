@@ -4,16 +4,16 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.z.a;
-import d.b.i0.z.b;
+import d.a.i0.z.a;
+import d.a.i0.z.b;
 import tbclient.Error;
 import tbclient.GetUserInfo.GetUserInfoResIdl;
 /* loaded from: classes3.dex */
 public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
     public a mData;
 
-    public GetUserInfoHttpResponseMessage(int i) {
-        super(i);
+    public GetUserInfoHttpResponseMessage(int i2) {
+        super(i2);
     }
 
     public a getData() {
@@ -22,8 +22,8 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        super.afterDispatchInBackGround(i, (int) bArr);
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+        super.afterDispatchInBackGround(i2, (int) bArr);
         a aVar = this.mData;
         if (aVar != null && aVar.a() != null) {
             b.a().e(this.mData.a());
@@ -34,10 +34,10 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetUserInfoResIdl getUserInfoResIdl;
         Error error;
-        super.decodeInBackGround(i, bArr);
+        super.decodeInBackGround(i2, bArr);
         if (bArr == null || (error = (getUserInfoResIdl = (GetUserInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetUserInfoResIdl.class)).error) == null) {
             return;
         }

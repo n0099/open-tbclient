@@ -11,7 +11,7 @@ import java.util.Enumeration;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PropertyBoxParserImpl extends AbstractBoxParser {
     public static String[] EMPTY_STRING_ARRAY = new String[0];
     public String clazzName;
@@ -68,18 +68,18 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
             if (this.param.length > 0) {
                 Class<?>[] clsArr = new Class[this.param.length];
                 Object[] objArr = new Object[this.param.length];
-                for (int i = 0; i < this.param.length; i++) {
-                    if (Constants.USER_TYPE_KEY.equals(this.param[i])) {
-                        objArr[i] = bArr;
-                        clsArr[i] = byte[].class;
-                    } else if ("type".equals(this.param[i])) {
-                        objArr[i] = str;
-                        clsArr[i] = String.class;
-                    } else if ("parent".equals(this.param[i])) {
-                        objArr[i] = str2;
-                        clsArr[i] = String.class;
+                for (int i2 = 0; i2 < this.param.length; i2++) {
+                    if (Constants.USER_TYPE_KEY.equals(this.param[i2])) {
+                        objArr[i2] = bArr;
+                        clsArr[i2] = byte[].class;
+                    } else if ("type".equals(this.param[i2])) {
+                        objArr[i2] = str;
+                        clsArr[i2] = String.class;
+                    } else if ("parent".equals(this.param[i2])) {
+                        objArr[i2] = str2;
+                        clsArr[i2] = String.class;
                     } else {
-                        throw new InternalError("No such param: " + this.param[i]);
+                        throw new InternalError("No such param: " + this.param[i2]);
                     }
                 }
                 return (Box) cls.getConstructor(clsArr).newInstance(objArr);

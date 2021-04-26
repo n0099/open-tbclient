@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.j0.v3.l.e;
+import d.a.j0.v3.k.e;
 /* loaded from: classes5.dex */
 public class AlbumActivity extends BaseFragmentActivity implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
     public e albumView;
@@ -57,19 +57,19 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i2 == -1) {
-            this.albumView.I(intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i3 == -1) {
+            this.albumView.G(intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        SkinManager.setBackgroundColor(this.mStatebarView, R.color.CAM_X0201, i);
+    public void onChangeSkinType(int i2) {
+        SkinManager.setBackgroundColor(this.mStatebarView, R.color.CAM_X0201, i2);
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.onViewChangeSkinType(i);
+            eVar.onViewChangeSkinType(i2);
         }
     }
 
@@ -81,7 +81,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
@@ -89,8 +89,8 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         this.mStatebarView = findViewById(R.id.statebar_view);
         this.canUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
         checkStyleImmersiveStickyStatusBarForBg();
-        int i = R.id.fragment;
-        this.albumView = new e(this, bundle, i, i);
+        int i2 = R.id.fragment;
+        this.albumView = new e(this, bundle, i2, i2);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -102,24 +102,24 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         }
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.x();
+            eVar.v();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
-            this.albumView.w();
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4) {
+            this.albumView.u();
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.y();
+            eVar.w();
         }
         super.onPause();
     }
@@ -129,16 +129,16 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         super.onResume();
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.A();
+            eVar.y();
         }
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.B(bundle);
+            eVar.z(bundle);
         }
     }
 
@@ -147,7 +147,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         super.onStart();
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.E();
+            eVar.A();
         }
     }
 
@@ -156,7 +156,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         super.onStop();
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.F();
+            eVar.B();
         }
     }
 }

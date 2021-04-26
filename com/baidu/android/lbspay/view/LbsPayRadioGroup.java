@@ -37,24 +37,24 @@ public class LbsPayRadioGroup extends LinearLayout {
     }
 
     @SuppressLint({"NewApi"})
-    public LbsPayRadioGroup(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public LbsPayRadioGroup(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.checkedViewClickListener = new CheckedViewClickListener();
         setOrientation(1);
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view, int i2, ViewGroup.LayoutParams layoutParams) {
         if (ChannelViewBase.class.isInstance(view)) {
             view.setOnClickListener(this.checkedViewClickListener);
         }
-        super.addView(view, i, layoutParams);
+        super.addView(view, i2, layoutParams);
     }
 
     public void changeChannelDivide() {
         int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = getChildAt(i);
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = getChildAt(i2);
             if ((childAt instanceof ChannelView) && childAt.getVisibility() == 0) {
                 ((ChannelView) childAt).setDividerMargin((int) ResUtils.getDimension(getContext(), "lbspay_cashier_item_marginleft"));
             }
@@ -74,8 +74,8 @@ public class LbsPayRadioGroup extends LinearLayout {
             return;
         }
         int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = getChildAt(i);
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = getChildAt(i2);
             if (ChannelViewBase.class.isInstance(childAt)) {
                 if (channelViewBase == childAt) {
                     this.checkedView = channelViewBase;
@@ -112,8 +112,8 @@ public class LbsPayRadioGroup extends LinearLayout {
 
     public void showAllChannels() {
         int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = getChildAt(i);
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = getChildAt(i2);
             if (ChannelViewBase.class.isInstance(childAt)) {
                 childAt.setVisibility(0);
             }
@@ -123,8 +123,8 @@ public class LbsPayRadioGroup extends LinearLayout {
 
     public void updateBaiduPayDesc(NewCashierContent.IBaseChannel iBaseChannel) {
         int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = getChildAt(i);
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = getChildAt(i2);
             if (ChannelViewBase.class.isInstance(childAt) && (childAt.getTag() instanceof NewCashierContent.IBaseChannel) && 126 == ((NewCashierContent.IBaseChannel) childAt.getTag()).getChanelId()) {
                 ((ChannelViewBase) childAt).setChannel(iBaseChannel);
                 childAt.setTag(iBaseChannel);

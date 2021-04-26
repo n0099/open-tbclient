@@ -1,9 +1,9 @@
 package com.baidu.swan.facade.provider.processor;
 
-import d.b.h0.d.i.a.a;
-import d.b.h0.d.i.a.b;
-import d.b.h0.d.i.a.c;
-import d.b.h0.d.i.a.d;
+import d.a.h0.d.i.a.a;
+import d.a.h0.d.i.a.b;
+import d.a.h0.d.i.a.c;
+import d.a.h0.d.i.a.d;
 /* loaded from: classes3.dex */
 public enum ProcessorInfo {
     PARAMS(d.class, "params"),
@@ -19,10 +19,10 @@ public enum ProcessorInfo {
         this.mPath = str;
     }
 
-    public static Class<? extends a> getProcessorClass(int i) {
+    public static Class<? extends a> getProcessorClass(int i2) {
         ProcessorInfo[] values;
         for (ProcessorInfo processorInfo : values()) {
-            if (processorInfo != null && processorInfo.getMatcherCode() == i) {
+            if (processorInfo != null && processorInfo.getMatcherCode() == i2) {
                 return processorInfo.getProcessorClass();
             }
         }

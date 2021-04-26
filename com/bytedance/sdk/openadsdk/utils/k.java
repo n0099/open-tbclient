@@ -62,8 +62,8 @@ public class k {
         }
     }
 
-    public static void a(int i) {
-        a("splash_storage_from", i);
+    public static void a(int i2) {
+        a("splash_storage_from", i2);
     }
 
     public static void a(long j) {
@@ -85,15 +85,15 @@ public class k {
         }
     }
 
-    public static void a(String str, int i) {
+    public static void a(String str, int i2) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
         try {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                com.bytedance.sdk.openadsdk.multipro.d.a.a(str, Integer.valueOf(i));
+                com.bytedance.sdk.openadsdk.multipro.d.a.a(str, Integer.valueOf(i2));
             } else {
-                af.a("", com.bytedance.sdk.openadsdk.core.p.a()).a(str, i);
+                af.a("", com.bytedance.sdk.openadsdk.core.p.a()).a(str, i2);
             }
         } catch (Throwable unused) {
         }

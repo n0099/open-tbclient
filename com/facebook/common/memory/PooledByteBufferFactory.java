@@ -2,17 +2,17 @@ package com.facebook.common.memory;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface PooledByteBufferFactory {
-    PooledByteBuffer newByteBuffer(int i);
+    PooledByteBuffer newByteBuffer(int i2);
 
     PooledByteBuffer newByteBuffer(InputStream inputStream) throws IOException;
 
-    PooledByteBuffer newByteBuffer(InputStream inputStream, int i) throws IOException;
+    PooledByteBuffer newByteBuffer(InputStream inputStream, int i2) throws IOException;
 
     PooledByteBuffer newByteBuffer(byte[] bArr);
 
     PooledByteBufferOutputStream newOutputStream();
 
-    PooledByteBufferOutputStream newOutputStream(int i);
+    PooledByteBufferOutputStream newOutputStream(int i2);
 }

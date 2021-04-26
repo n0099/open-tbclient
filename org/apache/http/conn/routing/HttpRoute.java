@@ -24,7 +24,7 @@ public final class HttpRoute implements RouteInfo {
     }
 
     @Override // org.apache.http.conn.routing.RouteInfo
-    public final HttpHost getHopTarget(int i) {
+    public final HttpHost getHopTarget(int i2) {
         throw new RuntimeException("Stub!");
     }
 

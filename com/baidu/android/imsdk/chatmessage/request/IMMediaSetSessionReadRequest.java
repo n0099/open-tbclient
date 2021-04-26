@@ -80,8 +80,8 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         LogUtils.d(TAG, "onFailure error = " + transErrorCode.first + " errormsg = " + ((String) transErrorCode.second));
         IMediaSetSessionReadListener iMediaSetSessionReadListener = (IMediaSetSessionReadListener) ListenerManager.getInstance().removeListener(this.mKey);
         if (iMediaSetSessionReadListener != null) {
@@ -90,23 +90,23 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
-        int i2;
+    public void onSuccess(int i2, byte[] bArr) {
+        int i3;
         String str;
         String str2 = new String(bArr);
         LogUtils.d(TAG, "onSuccess resultContent = " + str2);
         try {
             JSONObject jSONObject = new JSONObject(str2);
-            i2 = jSONObject.optInt("error_code", 0);
+            i3 = jSONObject.optInt("error_code", 0);
             str = jSONObject.optString("error_msg");
         } catch (JSONException e2) {
             LogUtils.e(TAG, "IMMediaSetSessionReadRequest JSONException", e2);
-            i2 = 1010;
+            i3 = 1010;
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
         }
         IMediaSetSessionReadListener iMediaSetSessionReadListener = (IMediaSetSessionReadListener) ListenerManager.getInstance().removeListener(this.mKey);
         if (iMediaSetSessionReadListener != null) {
-            iMediaSetSessionReadListener.onMediaSetSessionReadResult(i2, str);
+            iMediaSetSessionReadListener.onMediaSetSessionReadResult(i3, str);
         }
     }
 
@@ -115,14 +115,14 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
         return super.shouldAbort();
     }
 
-    public IMMediaSetSessionReadRequest(Context context, long j, int i, long j2, String str, long j3, String str2) {
+    public IMMediaSetSessionReadRequest(Context context, long j, int i2, long j2, String str, long j3, String str2) {
         this.mContactorType = -2;
         this.mContactorPauid = -1L;
         this.mContext = context;
         this.mContacter = j;
         this.mLastTime = j3;
         this.mKey = str2;
-        this.mContactorType = i;
+        this.mContactorType = i2;
         this.mContactorPauid = j2;
         this.mContactorThirdid = str;
     }

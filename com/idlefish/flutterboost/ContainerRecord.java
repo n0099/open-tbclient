@@ -104,14 +104,14 @@ public class ContainerRecord implements IContainerRecord {
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
     public void onAppear() {
         Utils.assertCallOnMainThread();
-        int i = this.mState;
-        if (i != 1 && i != 3) {
+        int i2 = this.mState;
+        if (i2 != 1 && i2 != 3) {
             Debuger.exception("state error");
         }
         this.mState = 2;
@@ -133,8 +133,8 @@ public class ContainerRecord implements IContainerRecord {
     @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
     public void onBackPressed() {
         Utils.assertCallOnMainThread();
-        int i = this.mState;
-        if (i == 0 || i == 4) {
+        int i2 = this.mState;
+        if (i2 == 0 || i2 == 4) {
             Debuger.exception("state error");
         }
         HashMap hashMap = new HashMap();
@@ -148,8 +148,8 @@ public class ContainerRecord implements IContainerRecord {
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
-    public void onContainerResult(int i, int i2, Map<String, Object> map) {
-        this.mManager.setContainerResult(this, i, i2, map);
+    public void onContainerResult(int i2, int i3, Map<String, Object> map) {
+        this.mManager.setContainerResult(this, i2, i3, map);
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
@@ -165,8 +165,8 @@ public class ContainerRecord implements IContainerRecord {
     @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
     public void onDestroy() {
         Utils.assertCallOnMainThread();
-        int i = this.mState;
-        if (i != 3 && i != 1) {
+        int i2 = this.mState;
+        if (i2 != 3 && i2 != 1) {
             Debuger.exception("state error");
         }
         this.mState = 4;
@@ -215,11 +215,11 @@ public class ContainerRecord implements IContainerRecord {
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
-    public void onTrimMemory(int i) {
+    public void onTrimMemory(int i2) {
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IContainerRecord

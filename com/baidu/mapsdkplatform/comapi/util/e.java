@@ -17,32 +17,32 @@ import java.util.Scanner;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f7915a;
+    public static volatile e f8201a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7916b = false;
+    public boolean f8202b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f7917c = true;
+    public boolean f8203c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<d> f7918d = new ArrayList();
+    public final List<d> f8204d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public d f7919e = null;
+    public d f8205e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7920f;
+    public String f8206f;
 
     public static e a() {
-        if (f7915a == null) {
+        if (f8201a == null) {
             synchronized (e.class) {
-                if (f7915a == null) {
-                    f7915a = new e();
+                if (f8201a == null) {
+                    f8201a = new e();
                 }
             }
         }
-        return f7915a;
+        return f8201a;
     }
 
     private boolean a(String str) {
@@ -70,7 +70,7 @@ public final class e {
         try {
             StorageManager storageManager = (StorageManager) context.getSystemService("storage");
             Method method = storageManager.getClass().getMethod("getVolumeList", new Class[0]);
-            int i = 1;
+            int i2 = 1;
             Method method2 = storageManager.getClass().getMethod("getVolumeState", String.class);
             Class<?> cls = Class.forName("android.os.storage.StorageVolume");
             Method method3 = cls.getMethod("isRemovable", new Class[0]);
@@ -78,41 +78,41 @@ public final class e {
             Object[] objArr2 = (Object[]) method.invoke(storageManager, new Object[0]);
             if (objArr2 != null) {
                 int length = objArr2.length;
-                int i2 = 0;
+                int i3 = 0;
                 while (true) {
-                    if (i2 >= length) {
+                    if (i3 >= length) {
                         break;
                     }
-                    Object obj = objArr2[i2];
+                    Object obj = objArr2[i3];
                     String str = (String) method4.invoke(obj, new Object[0]);
                     if (str == null || str.length() <= 0) {
                         objArr = objArr2;
                     } else {
                         objArr = objArr2;
-                        Object[] objArr3 = new Object[i];
+                        Object[] objArr3 = new Object[i2];
                         objArr3[0] = str;
                         if ("mounted".equals(method2.invoke(storageManager, objArr3))) {
                             boolean z2 = !((Boolean) method3.invoke(obj, new Object[0])).booleanValue();
                             if (Build.VERSION.SDK_INT <= 19 && a(str)) {
-                                this.f7918d.add(new d(str, !z2, z2 ? "内置存储卡" : "外置存储卡", context));
+                                this.f8204d.add(new d(str, !z2, z2 ? "内置存储卡" : "外置存储卡", context));
                             } else if (Build.VERSION.SDK_INT >= 19) {
                                 if (new File(str + File.separator + "BaiduMapSDKNew").exists() && str.equals(context.getSharedPreferences("map_pref", 0).getString("PREFFERED_SD_CARD", ""))) {
-                                    this.f7920f = str + File.separator + "BaiduMapSDKNew";
+                                    this.f8206f = str + File.separator + "BaiduMapSDKNew";
                                 }
                             }
                         }
                     }
-                    i2++;
+                    i3++;
                     objArr2 = objArr;
-                    i = 1;
+                    i2 = 1;
                 }
                 if (Build.VERSION.SDK_INT >= 19) {
                     File[] externalFilesDirs = context.getExternalFilesDirs(null);
                     ArrayList arrayList = new ArrayList();
-                    arrayList.addAll(this.f7918d);
-                    for (int i3 = 0; i3 < externalFilesDirs.length && externalFilesDirs[i3] != null; i3++) {
-                        String absolutePath = externalFilesDirs[i3].getAbsolutePath();
-                        Iterator<d> it = this.f7918d.iterator();
+                    arrayList.addAll(this.f8204d);
+                    for (int i4 = 0; i4 < externalFilesDirs.length && externalFilesDirs[i4] != null; i4++) {
+                        String absolutePath = externalFilesDirs[i4].getAbsolutePath();
+                        Iterator<d> it = this.f8204d.iterator();
                         while (true) {
                             if (it.hasNext()) {
                                 if (absolutePath.startsWith(it.next().a())) {
@@ -129,8 +129,8 @@ public final class e {
                             arrayList.add(new d(absolutePath, true, "外置存储卡", context));
                         }
                     }
-                    this.f7918d.clear();
-                    this.f7918d.addAll(arrayList);
+                    this.f8204d.clear();
+                    this.f8204d.addAll(arrayList);
                 }
             }
         } catch (Exception e2) {
@@ -192,12 +192,12 @@ public final class e {
                     scanner.close();
                 }
                 String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-                this.f7918d.add(new d(absolutePath, false, "Auto", context));
+                this.f8204d.add(new d(absolutePath, false, "Auto", context));
                 for (String str2 : arrayList) {
                     if (arrayList2.contains(str2) && !str2.equals(absolutePath)) {
                         File file3 = new File(str2);
                         if (file3.exists() && file3.isDirectory() && file3.canWrite()) {
-                            this.f7918d.add(new d(str2, false, "Auto", context));
+                            this.f8204d.add(new d(str2, false, "Auto", context));
                         }
                     }
                 }
@@ -214,10 +214,10 @@ public final class e {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(Context context) {
-        if (this.f7916b) {
+        if (this.f8202b) {
             return;
         }
-        this.f7916b = true;
+        this.f8202b = true;
         try {
             if (Build.VERSION.SDK_INT >= 14) {
                 c(context);
@@ -231,54 +231,54 @@ public final class e {
         } catch (Exception e3) {
             e3.printStackTrace();
         }
-        if (this.f7918d.size() > 0) {
+        if (this.f8204d.size() > 0) {
             r2 = null;
-            int i = 0;
-            for (d dVar : this.f7918d) {
+            int i2 = 0;
+            for (d dVar : this.f8204d) {
                 if (new File(dVar.b()).exists()) {
-                    i++;
+                    i2++;
                     r2 = dVar;
                 }
             }
-            if (i == 0) {
+            if (i2 == 0) {
                 d b2 = b(context);
-                this.f7919e = b2;
+                this.f8205e = b2;
                 if (b2 == null) {
-                    for (d dVar2 : this.f7918d) {
+                    for (d dVar2 : this.f8204d) {
                         if (a(context, dVar2)) {
-                            this.f7919e = dVar2;
+                            this.f8205e = dVar2;
                             break;
                         }
                     }
                 }
-                if (this.f7919e == null) {
-                    this.f7919e = this.f7918d.get(0);
+                if (this.f8205e == null) {
+                    this.f8205e = this.f8204d.get(0);
                 }
             } else {
-                if (i != 1) {
-                    this.f7919e = b(context);
+                if (i2 != 1) {
+                    this.f8205e = b(context);
                 } else if (a(context, dVar2)) {
-                    this.f7919e = dVar2;
+                    this.f8205e = dVar2;
                     break;
                 }
-                if (this.f7919e == null) {
+                if (this.f8205e == null) {
                 }
             }
             e3.printStackTrace();
         }
         try {
-            if (this.f7919e == null || !a(this.f7919e.a())) {
-                this.f7917c = false;
-                this.f7919e = new d(context);
-                this.f7918d.clear();
-                this.f7918d.add(this.f7919e);
+            if (this.f8205e == null || !a(this.f8205e.a())) {
+                this.f8203c = false;
+                this.f8205e = new d(context);
+                this.f8204d.clear();
+                this.f8204d.add(this.f8205e);
                 return;
             }
-            File file = new File(this.f7919e.b());
+            File file = new File(this.f8205e.b());
             if (!file.exists()) {
                 file.mkdirs();
             }
-            File file2 = new File(this.f7919e.c());
+            File file2 = new File(this.f8205e.c());
             if (!file2.exists()) {
                 file2.mkdirs();
             }
@@ -303,7 +303,7 @@ public final class e {
     }
 
     public d b() {
-        return this.f7919e;
+        return this.f8205e;
     }
 
     public d b(Context context) {
@@ -311,7 +311,7 @@ public final class e {
         if (string == null || string.length() <= 0) {
             return null;
         }
-        for (d dVar : this.f7918d) {
+        for (d dVar : this.f8204d) {
             if (dVar.a().equals(string)) {
                 return dVar;
             }

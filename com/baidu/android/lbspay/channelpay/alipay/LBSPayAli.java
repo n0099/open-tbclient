@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.net.Uri;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.lbspay.LBSPayResult;
 import com.baidu.android.lbspay.channelpay.IChannelPay;
 import com.baidu.wallet.core.NoProguard;
@@ -29,11 +28,11 @@ public class LBSPayAli implements NoProguard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSPayAli f2641a = new LBSPayAli();
+        public static LBSPayAli f2638a = new LBSPayAli();
     }
 
     public static LBSPayAli getInstance() {
-        return a.f2641a;
+        return a.f2638a;
     }
 
     private void handleError() {
@@ -88,7 +87,7 @@ public class LBSPayAli implements NoProguard {
         if (ALI_AUTH_PAY.equals(this.mServiceType)) {
             if (this.mChannelPay != null) {
                 if (AUTHPAY_SUCCESS_HOST.equals(host)) {
-                    if (ExifInterface.GPS_DIRECTION_TRUE.equals(data.getQueryParameter("is_success")) && "TRADE_SUCCESS".equals(data.getQueryParameter("trade_status"))) {
+                    if ("T".equals(data.getQueryParameter("is_success")) && "TRADE_SUCCESS".equals(data.getQueryParameter("trade_status"))) {
                         this.mChannelPay.paySuccess(data.getQuery());
                     } else {
                         this.mChannelPay.payError(Result.RESULT_FAILED, "支付失败");
@@ -104,7 +103,7 @@ public class LBSPayAli implements NoProguard {
             }
         } else if (ALI_AUTH_SIGN.equals(this.mServiceType)) {
             if (AUTHPAY_SUCCESS_HOST.equals(host)) {
-                if (ExifInterface.GPS_DIRECTION_TRUE.equals(data.getQueryParameter("is_success"))) {
+                if ("T".equals(data.getQueryParameter("is_success"))) {
                     LBSPayResult.payResult(null, 0, data.getQuery());
                 } else {
                     LBSPayResult.payResult(null, 2, data.getQuery());
@@ -123,8 +122,8 @@ public class LBSPayAli implements NoProguard {
         List<PackageInfo> installedPackages = activity.getPackageManager().getInstalledPackages(0);
         ArrayList arrayList = new ArrayList();
         if (installedPackages != null) {
-            for (int i = 0; i < installedPackages.size(); i++) {
-                arrayList.add(installedPackages.get(i).packageName);
+            for (int i2 = 0; i2 < installedPackages.size(); i2++) {
+                arrayList.add(installedPackages.get(i2).packageName);
             }
         }
         return arrayList.contains(str);

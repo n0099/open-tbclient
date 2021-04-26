@@ -8,6 +8,7 @@ import android.util.Log;
 import android.util.SparseArray;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
+import androidx.core.graphics.drawable.IconCompat;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,7 +35,6 @@ public class NotificationCompatJellybean {
     public static final String KEY_SHOWS_USER_INTERFACE = "showsUserInterface";
     public static final String KEY_TITLE = "title";
     public static final String TAG = "NotificationCompat";
-    public static Class<?> sActionClass;
     public static Field sActionIconField;
     public static Field sActionIntentField;
     public static Field sActionTitleField;
@@ -48,13 +48,13 @@ public class NotificationCompatJellybean {
     public static SparseArray<Bundle> buildActionExtrasMap(List<Bundle> list) {
         int size = list.size();
         SparseArray<Bundle> sparseArray = null;
-        for (int i = 0; i < size; i++) {
-            Bundle bundle = list.get(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            Bundle bundle = list.get(i2);
             if (bundle != null) {
                 if (sparseArray == null) {
                     sparseArray = new SparseArray<>();
                 }
-                sparseArray.put(i, bundle);
+                sparseArray.put(i2, bundle);
             }
         }
         return sparseArray;
@@ -67,10 +67,9 @@ public class NotificationCompatJellybean {
         try {
             if (sActionsField == null) {
                 Class<?> cls = Class.forName("android.app.Notification$Action");
-                sActionClass = cls;
                 sActionIconField = cls.getDeclaredField("icon");
-                sActionTitleField = sActionClass.getDeclaredField("title");
-                sActionIntentField = sActionClass.getDeclaredField(KEY_ACTION_INTENT);
+                sActionTitleField = cls.getDeclaredField("title");
+                sActionIntentField = cls.getDeclaredField(KEY_ACTION_INTENT);
                 Field declaredField = Notification.class.getDeclaredField(NotificationCompat.WearableExtender.KEY_ACTIONS);
                 sActionsField = declaredField;
                 declaredField.setAccessible(true);
@@ -94,7 +93,7 @@ public class NotificationCompatJellybean {
                 hashSet.add(it.next());
             }
         }
-        return new RemoteInput(bundle.getString(KEY_RESULT_KEY), bundle.getCharSequence(KEY_LABEL), bundle.getCharSequenceArray(KEY_CHOICES), bundle.getBoolean(KEY_ALLOW_FREE_FORM_INPUT), bundle.getBundle("extras"), hashSet);
+        return new RemoteInput(bundle.getString(KEY_RESULT_KEY), bundle.getCharSequence(KEY_LABEL), bundle.getCharSequenceArray(KEY_CHOICES), bundle.getBoolean(KEY_ALLOW_FREE_FORM_INPUT), 0, bundle.getBundle("extras"), hashSet);
     }
 
     public static RemoteInput[] fromBundleArray(Bundle[] bundleArr) {
@@ -102,22 +101,22 @@ public class NotificationCompatJellybean {
             return null;
         }
         RemoteInput[] remoteInputArr = new RemoteInput[bundleArr.length];
-        for (int i = 0; i < bundleArr.length; i++) {
-            remoteInputArr[i] = fromBundle(bundleArr[i]);
+        for (int i2 = 0; i2 < bundleArr.length; i2++) {
+            remoteInputArr[i2] = fromBundle(bundleArr[i2]);
         }
         return remoteInputArr;
     }
 
-    public static NotificationCompat.Action getAction(Notification notification, int i) {
+    public static NotificationCompat.Action getAction(Notification notification, int i2) {
         SparseArray sparseParcelableArray;
         synchronized (sActionsLock) {
             try {
                 try {
                     Object[] actionObjectsLocked = getActionObjectsLocked(notification);
                     if (actionObjectsLocked != null) {
-                        Object obj = actionObjectsLocked[i];
+                        Object obj = actionObjectsLocked[i2];
                         Bundle extras = getExtras(notification);
-                        return readAction(sActionIconField.getInt(obj), (CharSequence) sActionTitleField.get(obj), (PendingIntent) sActionIntentField.get(obj), (extras == null || (sparseParcelableArray = extras.getSparseParcelableArray(NotificationCompatExtras.EXTRA_ACTION_EXTRAS)) == null) ? null : (Bundle) sparseParcelableArray.get(i));
+                        return readAction(sActionIconField.getInt(obj), (CharSequence) sActionTitleField.get(obj), (PendingIntent) sActionIntentField.get(obj), (extras == null || (sparseParcelableArray = extras.getSparseParcelableArray(NotificationCompatExtras.EXTRA_ACTION_EXTRAS)) == null) ? null : (Bundle) sparseParcelableArray.get(i2));
                     }
                 } catch (IllegalAccessException e2) {
                     Log.e(TAG, "Unable to access notification actions", e2);
@@ -141,7 +140,7 @@ public class NotificationCompatJellybean {
 
     public static NotificationCompat.Action getActionFromBundle(Bundle bundle) {
         Bundle bundle2 = bundle.getBundle("extras");
-        return new NotificationCompat.Action(bundle.getInt("icon"), bundle.getCharSequence("title"), (PendingIntent) bundle.getParcelable(KEY_ACTION_INTENT), bundle.getBundle("extras"), fromBundleArray(getBundleArrayFromBundle(bundle, KEY_REMOTE_INPUTS)), fromBundleArray(getBundleArrayFromBundle(bundle, KEY_DATA_ONLY_REMOTE_INPUTS)), bundle2 != null ? bundle2.getBoolean(EXTRA_ALLOW_GENERATED_REPLIES, false) : false, bundle.getInt(KEY_SEMANTIC_ACTION), bundle.getBoolean(KEY_SHOWS_USER_INTERFACE));
+        return new NotificationCompat.Action(bundle.getInt("icon"), bundle.getCharSequence("title"), (PendingIntent) bundle.getParcelable(KEY_ACTION_INTENT), bundle.getBundle("extras"), fromBundleArray(getBundleArrayFromBundle(bundle, KEY_REMOTE_INPUTS)), fromBundleArray(getBundleArrayFromBundle(bundle, KEY_DATA_ONLY_REMOTE_INPUTS)), bundle2 != null ? bundle2.getBoolean(EXTRA_ALLOW_GENERATED_REPLIES, false) : false, bundle.getInt(KEY_SEMANTIC_ACTION), bundle.getBoolean(KEY_SHOWS_USER_INTERFACE), false);
     }
 
     public static Object[] getActionObjectsLocked(Notification notification) {
@@ -172,7 +171,8 @@ public class NotificationCompatJellybean {
     public static Bundle getBundleForAction(NotificationCompat.Action action) {
         Bundle bundle;
         Bundle bundle2 = new Bundle();
-        bundle2.putInt("icon", action.getIcon());
+        IconCompat iconCompat = action.getIconCompat();
+        bundle2.putInt("icon", iconCompat != null ? iconCompat.getResId() : 0);
         bundle2.putCharSequence("title", action.getTitle());
         bundle2.putParcelable(KEY_ACTION_INTENT, action.getActionIntent());
         if (action.getExtras() != null) {
@@ -222,7 +222,7 @@ public class NotificationCompatJellybean {
         }
     }
 
-    public static NotificationCompat.Action readAction(int i, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle) {
+    public static NotificationCompat.Action readAction(int i2, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle) {
         RemoteInput[] remoteInputArr;
         RemoteInput[] remoteInputArr2;
         boolean z;
@@ -235,7 +235,7 @@ public class NotificationCompatJellybean {
             remoteInputArr2 = null;
             z = false;
         }
-        return new NotificationCompat.Action(i, charSequence, pendingIntent, bundle, remoteInputArr, remoteInputArr2, z, 0, true);
+        return new NotificationCompat.Action(i2, charSequence, pendingIntent, bundle, remoteInputArr, remoteInputArr2, z, 0, true, false);
     }
 
     public static Bundle toBundle(RemoteInput remoteInput) {
@@ -261,14 +261,15 @@ public class NotificationCompatJellybean {
             return null;
         }
         Bundle[] bundleArr = new Bundle[remoteInputArr.length];
-        for (int i = 0; i < remoteInputArr.length; i++) {
-            bundleArr[i] = toBundle(remoteInputArr[i]);
+        for (int i2 = 0; i2 < remoteInputArr.length; i2++) {
+            bundleArr[i2] = toBundle(remoteInputArr[i2]);
         }
         return bundleArr;
     }
 
     public static Bundle writeActionAndGetExtras(Notification.Builder builder, NotificationCompat.Action action) {
-        builder.addAction(action.getIcon(), action.getTitle(), action.getActionIntent());
+        IconCompat iconCompat = action.getIconCompat();
+        builder.addAction(iconCompat != null ? iconCompat.getResId() : 0, action.getTitle(), action.getActionIntent());
         Bundle bundle = new Bundle(action.getExtras());
         if (action.getRemoteInputs() != null) {
             bundle.putParcelableArray(NotificationCompatExtras.EXTRA_REMOTE_INPUTS, toBundleArray(action.getRemoteInputs()));

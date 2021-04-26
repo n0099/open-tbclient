@@ -11,7 +11,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GenericDraweeHierarchyBuilder {
     public static final int DEFAULT_FADE_DURATION = 150;
     public ColorFilter mActualImageColorFilter;
@@ -206,8 +206,8 @@ public class GenericDraweeHierarchyBuilder {
         return this;
     }
 
-    public GenericDraweeHierarchyBuilder setFadeDuration(int i) {
-        this.mFadeDuration = i;
+    public GenericDraweeHierarchyBuilder setFadeDuration(int i2) {
+        this.mFadeDuration = i2;
         return this;
     }
 
@@ -286,23 +286,23 @@ public class GenericDraweeHierarchyBuilder {
         return this;
     }
 
-    public GenericDraweeHierarchyBuilder setFailureImage(int i) {
-        this.mFailureImage = this.mResources.getDrawable(i);
+    public GenericDraweeHierarchyBuilder setFailureImage(int i2) {
+        this.mFailureImage = this.mResources.getDrawable(i2);
         return this;
     }
 
-    public GenericDraweeHierarchyBuilder setPlaceholderImage(int i) {
-        this.mPlaceholderImage = this.mResources.getDrawable(i);
+    public GenericDraweeHierarchyBuilder setPlaceholderImage(int i2) {
+        this.mPlaceholderImage = this.mResources.getDrawable(i2);
         return this;
     }
 
-    public GenericDraweeHierarchyBuilder setProgressBarImage(int i) {
-        this.mProgressBarImage = this.mResources.getDrawable(i);
+    public GenericDraweeHierarchyBuilder setProgressBarImage(int i2) {
+        this.mProgressBarImage = this.mResources.getDrawable(i2);
         return this;
     }
 
-    public GenericDraweeHierarchyBuilder setRetryImage(int i) {
-        this.mRetryImage = this.mResources.getDrawable(i);
+    public GenericDraweeHierarchyBuilder setRetryImage(int i2) {
+        this.mRetryImage = this.mResources.getDrawable(i2);
         return this;
     }
 
@@ -330,26 +330,26 @@ public class GenericDraweeHierarchyBuilder {
         return this;
     }
 
-    public GenericDraweeHierarchyBuilder setFailureImage(int i, @Nullable ScalingUtils.ScaleType scaleType) {
-        this.mFailureImage = this.mResources.getDrawable(i);
+    public GenericDraweeHierarchyBuilder setFailureImage(int i2, @Nullable ScalingUtils.ScaleType scaleType) {
+        this.mFailureImage = this.mResources.getDrawable(i2);
         this.mFailureImageScaleType = scaleType;
         return this;
     }
 
-    public GenericDraweeHierarchyBuilder setPlaceholderImage(int i, @Nullable ScalingUtils.ScaleType scaleType) {
-        this.mPlaceholderImage = this.mResources.getDrawable(i);
+    public GenericDraweeHierarchyBuilder setPlaceholderImage(int i2, @Nullable ScalingUtils.ScaleType scaleType) {
+        this.mPlaceholderImage = this.mResources.getDrawable(i2);
         this.mPlaceholderImageScaleType = scaleType;
         return this;
     }
 
-    public GenericDraweeHierarchyBuilder setProgressBarImage(int i, @Nullable ScalingUtils.ScaleType scaleType) {
-        this.mProgressBarImage = this.mResources.getDrawable(i);
+    public GenericDraweeHierarchyBuilder setProgressBarImage(int i2, @Nullable ScalingUtils.ScaleType scaleType) {
+        this.mProgressBarImage = this.mResources.getDrawable(i2);
         this.mProgressBarImageScaleType = scaleType;
         return this;
     }
 
-    public GenericDraweeHierarchyBuilder setRetryImage(int i, @Nullable ScalingUtils.ScaleType scaleType) {
-        this.mRetryImage = this.mResources.getDrawable(i);
+    public GenericDraweeHierarchyBuilder setRetryImage(int i2, @Nullable ScalingUtils.ScaleType scaleType) {
+        this.mRetryImage = this.mResources.getDrawable(i2);
         this.mRetryImageScaleType = scaleType;
         return this;
     }

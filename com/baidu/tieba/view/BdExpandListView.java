@@ -48,9 +48,9 @@ public class BdExpandListView extends BdTypeListView {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a();
+        void a(float f2);
 
-        void b(float f2);
+        void b();
 
         void onRefresh();
     }
@@ -59,18 +59,18 @@ public class BdExpandListView extends BdTypeListView {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f21717a;
+        public int f22363a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f21718b;
+        public int f22364b;
 
-        public c(int i, int i2, int i3, int i4) {
-            this.f21717a = i2;
-            this.f21718b = i4;
+        public c(int i2, int i3, int i4, int i5) {
+            this.f22363a = i3;
+            this.f22364b = i5;
         }
 
         public int a(float f2) {
-            return (int) (this.f21717a + (f2 / 2.5f));
+            return (int) (this.f22363a + (f2 / 2.5f));
         }
     }
 
@@ -120,8 +120,8 @@ public class BdExpandListView extends BdTypeListView {
         this.T = true;
         Scroller scroller = this.O;
         int originalHeight = getOriginalHeight();
-        int i = this.V;
-        scroller.startScroll(0, originalHeight + i, 0, -i, 200);
+        int i2 = this.V;
+        scroller.startScroll(0, originalHeight + i2, 0, -i2, 200);
         L();
         invalidate();
         this.c0.removeCallbacks(this.f0);
@@ -133,7 +133,7 @@ public class BdExpandListView extends BdTypeListView {
         float f3 = 360.0f - ((f2 * 360.0f) / this.V);
         b bVar = this.W;
         if (bVar != null) {
-            bVar.b(f3);
+            bVar.a(f3);
         }
     }
 
@@ -148,15 +148,15 @@ public class BdExpandListView extends BdTypeListView {
         if (this.S == null) {
             return;
         }
-        if (this.P.getHeight() >= this.S.f21718b - (this.V / 2)) {
+        if (this.P.getHeight() >= this.S.f22364b - (this.V / 2)) {
             L();
         } else {
             b bVar = this.W;
             if (bVar != null) {
-                bVar.a();
+                bVar.b();
             }
         }
-        this.O.startScroll(0, this.P.getHeight(), 0, this.S.f21717a - this.P.getHeight(), 200);
+        this.O.startScroll(0, this.P.getHeight(), 0, this.S.f22363a - this.P.getHeight(), 200);
         invalidate();
     }
 
@@ -201,16 +201,16 @@ public class BdExpandListView extends BdTypeListView {
                         if (this.P.getParent() == this && this.S != null && this.P.isShown() && this.P.getTop() >= 0 && Math.abs(f2) >= this.U && this.a0 > 400) {
                             int a2 = this.S.a(this.R - this.Q);
                             c cVar = this.S;
-                            if (a2 > cVar.f21717a && a2 <= cVar.f21718b) {
+                            if (a2 > cVar.f22363a && a2 <= cVar.f22364b) {
                                 this.T = true;
                                 setClickEventEnabled(false);
                                 this.P.setLayoutParams(new AbsListView.LayoutParams(this.P.getWidth(), a2));
-                                K(a2 - this.S.f21717a);
+                                K(a2 - this.S.f22363a);
                             } else {
                                 c cVar2 = this.S;
-                                if (a2 <= cVar2.f21717a) {
+                                if (a2 <= cVar2.f22363a) {
                                     this.T = false;
-                                } else if (a2 > cVar2.f21718b) {
+                                } else if (a2 > cVar2.f22364b) {
                                     this.T = true;
                                     setClickEventEnabled(false);
                                 } else {
@@ -229,7 +229,7 @@ public class BdExpandListView extends BdTypeListView {
                 } else {
                     b bVar = this.W;
                     if (bVar != null) {
-                        bVar.a();
+                        bVar.b();
                     }
                 }
                 this.c0.removeCallbacks(this.f0);
@@ -267,7 +267,7 @@ public class BdExpandListView extends BdTypeListView {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void setExpandView(View view, int i) {
+    public void setExpandView(View view, int i2) {
         this.P = view;
     }
 

@@ -23,8 +23,8 @@ public class BdSailorWebBackForwardList implements INoProGuard {
         return null;
     }
 
-    public BdSailorWebHistoryItem getItemAtIndex(int i) {
-        return new BdSailorWebHistoryItem(this.mBackForwardList.getItemAtIndex(i));
+    public BdSailorWebHistoryItem getItemAtIndex(int i2) {
+        return new BdSailorWebHistoryItem(this.mBackForwardList.getItemAtIndex(i2));
     }
 
     public int getSize() {

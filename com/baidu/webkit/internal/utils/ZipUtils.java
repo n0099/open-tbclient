@@ -88,8 +88,8 @@ public class ZipUtils implements INoProGuard {
         if (str != null) {
             str = str + "/";
         }
-        for (int i = 0; i < strArr.length; i++) {
-            stack.push(str != null ? str + strArr[i] : strArr[i]);
+        for (int i2 = 0; i2 < strArr.length; i2++) {
+            stack.push(str != null ? str + strArr[i2] : strArr[i2]);
         }
     }
 

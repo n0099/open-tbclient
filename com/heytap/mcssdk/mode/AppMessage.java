@@ -54,24 +54,24 @@ public class AppMessage extends Message {
         return 4098;
     }
 
-    public void setBalanceTime(int i) {
-        this.mBalanceTime = i;
+    public void setBalanceTime(int i2) {
+        this.mBalanceTime = i2;
     }
 
     public void setContent(String str) {
         this.mContent = str;
     }
 
-    public void setDistinctBycontent(int i) {
-        this.mDistinctBycontent = i;
+    public void setDistinctBycontent(int i2) {
+        this.mDistinctBycontent = i2;
     }
 
     public void setEndDate(long j) {
         this.mEndDate = j;
     }
 
-    public void setForcedDelivery(int i) {
-        this.mForcedDelivery = i;
+    public void setForcedDelivery(int i2) {
+        this.mForcedDelivery = i2;
     }
 
     public void setRule(String str) {

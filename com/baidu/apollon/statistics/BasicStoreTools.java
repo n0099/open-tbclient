@@ -7,23 +7,23 @@ public class BasicStoreTools {
     public static final String STAT_LAST_SENDDATA = "stat__lastdata";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3846b = "stat_strategy";
+    public static final String f3897b = "stat_strategy";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3847c = "last_evt_id";
+    public static final String f3898c = "last_evt_id";
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f3848a;
+    public final String f3899a;
 
     /* loaded from: classes.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final BasicStoreTools f3849a = new BasicStoreTools();
+        public static final BasicStoreTools f3900a = new BasicStoreTools();
     }
 
     public static BasicStoreTools getInstance() {
-        return a.f3849a;
+        return a.f3900a;
     }
 
     public String getLastData(Context context) {
@@ -33,14 +33,14 @@ public class BasicStoreTools {
     public long getLastEvtId(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("Stat_SDK_SendRem", 0);
         try {
-            return sharedPreferences.getLong(f3847c, 0L);
+            return sharedPreferences.getLong(f3898c, 0L);
         } catch (ClassCastException unused) {
-            return sharedPreferences.getInt(f3847c, 0);
+            return sharedPreferences.getInt(f3898c, 0);
         }
     }
 
     public String getStrategy(Context context) {
-        return context.getSharedPreferences("Stat_SDK_SendRem", 0).getString(f3846b, "");
+        return context.getSharedPreferences("Stat_SDK_SendRem", 0).getString(f3897b, "");
     }
 
     public void setLastData(Context context, String str) {
@@ -51,17 +51,17 @@ public class BasicStoreTools {
 
     public void setLastEvtId(Context context, long j) {
         SharedPreferences.Editor edit = context.getSharedPreferences("Stat_SDK_SendRem", 0).edit();
-        edit.putLong(f3847c, j);
+        edit.putLong(f3898c, j);
         edit.commit();
     }
 
     public void setStrategy(Context context, String str) {
         SharedPreferences.Editor edit = context.getSharedPreferences("Stat_SDK_SendRem", 0).edit();
-        edit.putString(f3846b, str);
+        edit.putString(f3897b, str);
         edit.commit();
     }
 
     public BasicStoreTools() {
-        this.f3848a = "Stat_SDK_SendRem";
+        this.f3899a = "Stat_SDK_SendRem";
     }
 }

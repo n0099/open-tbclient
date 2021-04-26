@@ -21,7 +21,7 @@ public final class ByteArrayAdapter implements ArrayAdapterInterface<byte[]> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayAdapterInterface
-    public byte[] newArray(int i) {
-        return new byte[i];
+    public byte[] newArray(int i2) {
+        return new byte[i2];
     }
 }

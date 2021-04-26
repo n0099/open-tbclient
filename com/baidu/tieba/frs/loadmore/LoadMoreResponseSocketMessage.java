@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
 import com.squareup.wire.Wire;
-import d.b.c.j.e.n;
-import d.b.i0.r.q.a2;
-import d.b.i0.r.q.n0;
-import d.b.j0.s2.d0.a;
-import d.b.j0.s2.f0.b;
+import d.a.c.j.e.n;
+import d.a.i0.r.q.a2;
+import d.a.i0.r.q.n0;
+import d.a.j0.s2.f0.a;
+import d.a.j0.s2.h0.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,7 +39,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         boolean z;
         Message<?> orginalMessage;
         ThreadListResIdl threadListResIdl = (ThreadListResIdl) new Wire(new Class[0]).parseFrom(bArr, ThreadListResIdl.class);
@@ -51,9 +51,9 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
         this.userMap = new HashMap<>();
         List<User> list = threadListResIdl.data.user_list;
         if (list != null) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
+            for (int i3 = 0; i3 < list.size(); i3++) {
                 MetaData metaData = new MetaData();
-                metaData.parserProtobuf(list.get(i2));
+                metaData.parserProtobuf(list.get(i3));
                 String userId = metaData.getUserId();
                 if (userId != null && !userId.equals("0")) {
                     this.userMap.put(metaData.getUserId(), metaData);
@@ -76,8 +76,8 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
         List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
         if (list2 != null) {
             ArrayList arrayList = new ArrayList();
-            for (int i3 = 0; i3 < list2.size(); i3++) {
-                ThreadInfo threadInfo = list2.get(i3);
+            for (int i4 = 0; i4 < list2.size(); i4++) {
+                ThreadInfo threadInfo = list2.get(i4);
                 a2 a2Var = new a2();
                 SpecHotTopicHelper.setSpecTopicIcon(j, a2Var);
                 a2Var.q4(this.userMap);
@@ -86,7 +86,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                 a2Var.D1 = z;
                 if (!TextUtils.isEmpty(a2Var.E0())) {
                     n0 n0Var = new n0();
-                    n0Var.n(a2Var.E0());
+                    n0Var.m(a2Var.E0());
                     this.threadList.add(n0Var);
                 } else {
                     this.threadList.add(a2Var);

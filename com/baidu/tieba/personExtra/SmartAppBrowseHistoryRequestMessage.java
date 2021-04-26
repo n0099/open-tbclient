@@ -2,10 +2,10 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.HistorySwan.DataReq;
 import tbclient.HistorySwan.HistorySwanReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SmartAppBrowseHistoryRequestMessage extends NetMessage {
     public SmartAppBrowseHistoryRequestMessage() {
         super(CmdConfigHttp.CMD_HISTORY_SWAN, 309638);

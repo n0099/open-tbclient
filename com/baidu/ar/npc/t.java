@@ -5,34 +5,34 @@ import java.util.HashMap;
 public class t implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f4247a;
+    public final /* synthetic */ String f4317a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f4248b;
+    public final /* synthetic */ int f4318b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ HashMap f4249c;
+    public final /* synthetic */ HashMap f4319c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ int f4250d;
+    public final /* synthetic */ int f4320d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ int f4251e;
+    public final /* synthetic */ int f4321e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ ArBridge f4252f;
+    public final /* synthetic */ ArBridge f4322f;
 
-    public t(ArBridge arBridge, String str, int i, HashMap hashMap, int i2, int i3) {
-        this.f4252f = arBridge;
-        this.f4247a = str;
-        this.f4248b = i;
-        this.f4249c = hashMap;
-        this.f4250d = i2;
-        this.f4251e = i3;
+    public t(ArBridge arBridge, String str, int i2, HashMap hashMap, int i3, int i4) {
+        this.f4322f = arBridge;
+        this.f4317a = str;
+        this.f4318b = i2;
+        this.f4319c = hashMap;
+        this.f4320d = i3;
+        this.f4321e = i4;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f4252f.nativeCreateCase(this.f4247a, this.f4248b, this.f4249c, this.f4250d, this.f4251e);
+        this.f4322f.nativeCreateCase(this.f4317a, this.f4318b, this.f4319c, this.f4320d, this.f4321e);
     }
 }

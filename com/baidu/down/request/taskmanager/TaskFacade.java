@@ -3,7 +3,7 @@ package com.baidu.down.request.taskmanager;
 import android.content.Context;
 import com.baidu.down.common.FileMsg;
 import com.baidu.down.common.TaskManagerConfiguration;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class TaskFacade {
     public static final String TAG = "TaskFacade";
     public static TaskFacade instance;
@@ -90,8 +90,8 @@ public final class TaskFacade {
         this.mBinaryTaskMng.pauseDownload(str, j);
     }
 
-    public void setMaxTask(int i) {
-        this.mBinaryTaskMng.setMaxDownloadThread(i);
+    public void setMaxTask(int i2) {
+        this.mBinaryTaskMng.setMaxDownloadThread(i2);
     }
 
     public void startAllTask() {

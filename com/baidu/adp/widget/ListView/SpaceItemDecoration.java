@@ -8,18 +8,18 @@ import androidx.recyclerview.widget.RecyclerView;
 public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2395a;
+    public int f2378a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2396b;
+    public int f2379b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2397c;
+    public int f2380c;
 
-    public SpaceItemDecoration(int i, int i2, int i3) {
-        this.f2395a = i;
-        this.f2396b = i2;
-        this.f2397c = i3;
+    public SpaceItemDecoration(int i2, int i3, int i4) {
+        this.f2378a = i2;
+        this.f2379b = i3;
+        this.f2380c = i4;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -27,23 +27,23 @@ public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (linearLayoutManager.getOrientation() == 1) {
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.top = this.f2395a;
+                rect.top = this.f2378a;
             } else {
-                rect.top = this.f2396b;
+                rect.top = this.f2379b;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                rect.bottom = this.f2397c;
+                rect.bottom = this.f2380c;
                 return;
             }
             return;
         }
         if (recyclerView.getChildAdapterPosition(view) == 0) {
-            rect.left = this.f2395a;
+            rect.left = this.f2378a;
         } else {
-            rect.left = this.f2396b;
+            rect.left = this.f2379b;
         }
         if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-            rect.right = this.f2397c;
+            rect.right = this.f2380c;
         }
     }
 }

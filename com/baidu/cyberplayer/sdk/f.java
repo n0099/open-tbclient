@@ -1,31 +1,33 @@
 package com.baidu.cyberplayer.sdk;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4970a = 0;
+    public int f5093a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4971b = 0;
+    public int f5094b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4972c = 1;
+    public int f5095c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4973d = 1;
+    public int f5096d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4974e = 0;
+    public int f5097e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4975f = 0;
+    public int f5098f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f4976g = 0;
+    public int f5099g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4977h = 0;
-    public int i = 0;
+    public int f5100h = 0;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f5101i = 0;
     public int j;
     public float[] k;
     public float[] l;
@@ -40,121 +42,121 @@ public class f {
     }
 
     public void a() {
-        this.f4970a = 0;
-        this.f4971b = 0;
-        this.f4972c = 1;
-        this.f4973d = 1;
-        this.f4974e = 0;
-        this.f4975f = 0;
-        this.f4976g = 0;
-        this.f4977h = 0;
-        this.i = 0;
+        this.f5093a = 0;
+        this.f5094b = 0;
+        this.f5095c = 1;
+        this.f5096d = 1;
+        this.f5097e = 0;
+        this.f5098f = 0;
+        this.f5099g = 0;
+        this.f5100h = 0;
+        this.f5101i = 0;
         float[] fArr = this.k;
         fArr[0] = 1.0f;
         fArr[1] = 1.0f;
         this.j = 2;
     }
 
-    public boolean a(int i) {
-        if (this.f4975f != i) {
-            this.f4975f = i;
-            this.f4976g = ((this.f4974e + 360) - i) % 360;
+    public boolean a(int i2) {
+        if (this.f5098f != i2) {
+            this.f5098f = i2;
+            this.f5099g = ((this.f5097e + 360) - i2) % 360;
             return true;
         }
         return false;
     }
 
-    public boolean a(int i, int i2) {
-        if (this.f4970a == i && this.f4971b == i2) {
+    public boolean a(int i2, int i3) {
+        if (this.f5093a == i2 && this.f5094b == i3) {
             return false;
         }
-        this.f4970a = i;
-        this.f4971b = i2;
+        this.f5093a = i2;
+        this.f5094b = i3;
         return true;
     }
 
-    public boolean a(int i, int i2, int i3, int i4) {
-        if (this.f4977h == i && i2 == this.i && this.f4972c == i3 && this.f4973d == i4) {
+    public boolean a(int i2, int i3, int i4, int i5) {
+        if (this.f5100h == i2 && i3 == this.f5101i && this.f5095c == i4 && this.f5096d == i5) {
             return false;
         }
-        this.f4977h = i;
-        this.i = i2;
-        if (i4 == 0 || i3 == 0) {
-            this.f4972c = 1;
-            this.f4973d = 1;
+        this.f5100h = i2;
+        this.f5101i = i3;
+        if (i5 == 0 || i4 == 0) {
+            this.f5095c = 1;
+            this.f5096d = 1;
         } else {
-            this.f4972c = i3;
-            this.f4973d = i4;
+            this.f5095c = i4;
+            this.f5096d = i5;
         }
         return true;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00bb, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00bc, code lost:
         if (r5 > r3) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x00ff, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0100, code lost:
         if (0.5625f > r3) goto L49;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x0106, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0107, code lost:
         if (0.75f > r3) goto L49;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x010e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x010f, code lost:
         if (0.8f > r3) goto L49;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x0110, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x0111, code lost:
         r3 = r3 / r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:61:0x0112, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x0113, code lost:
         r5 = r0 / r3;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x0117, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0118, code lost:
         if (r5 > r3) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x0120, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x0121, code lost:
         if (r5 > r3) goto L25;
      */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00b9  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00bf  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00c8  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00d1  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00da  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00e4  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x00fb  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0102  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0109  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0115  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x011a A[PHI: r4 r7 
-      PHI: (r4v1 float) = (r4v0 float), (r4v6 float) binds: [B:31:0x00b6, B:70:0x0125] A[DONT_GENERATE, DONT_INLINE]
-      PHI: (r7v2 float) = (r7v1 float), (r7v4 float) binds: [B:31:0x00b6, B:70:0x0125] A[DONT_GENERATE, DONT_INLINE]] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x011e  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00ba  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00c0  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00c9  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00d2  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00db  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00e5  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x00fc  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0103  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x010a  */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x0116  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x011b A[PHI: r4 r7 
+      PHI: (r4v1 float) = (r4v0 float), (r4v6 float) binds: [B:31:0x00b7, B:70:0x0126] A[DONT_GENERATE, DONT_INLINE]
+      PHI: (r7v2 float) = (r7v1 float), (r7v4 float) binds: [B:31:0x00b7, B:70:0x0126] A[DONT_GENERATE, DONT_INLINE]] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x011f  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void b() {
-        int i;
-        float f2;
         int i2;
+        float f2;
+        int i3;
         float f3;
         float f4;
         float f5;
         float f6;
         float f7;
-        if (this.f4970a == 0 || this.f4971b == 0 || this.f4977h == 0 || this.i == 0) {
+        if (this.f5093a == 0 || this.f5094b == 0 || this.f5100h == 0 || this.f5101i == 0) {
             return;
         }
-        int i3 = this.j;
-        boolean z = i3 == 0 || i3 == 2;
+        int i4 = this.j;
+        boolean z = i4 == 0 || i4 == 2;
         float f8 = 1.0f;
-        float f9 = (this.f4971b * 1.0f) / this.f4970a;
-        float f10 = (this.i * 1.0f) / this.f4977h;
-        int i4 = this.f4976g;
-        if ((i4 != 90 && i4 != 270) || (i = this.i) == 0) {
+        float f9 = (this.f5094b * 1.0f) / this.f5093a;
+        float f10 = (this.f5101i * 1.0f) / this.f5100h;
+        int i5 = this.f5099g;
+        if ((i5 != 90 && i5 != 270) || (i2 = this.f5101i) == 0) {
             if (z) {
-                f2 = this.f4973d * 1.0f;
-                i2 = this.f4972c;
-                f10 *= f2 / i2;
+                f2 = this.f5096d * 1.0f;
+                i3 = this.f5095c;
+                f10 *= f2 / i3;
             }
-            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f4977h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.f4972c + " mVideoSarDen:" + this.f4973d + " mSurfaceWidth:" + this.f4970a + " mSurfaceHeight:" + this.f4971b + " mDisplayMode:" + this.j);
+            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f5100h + " mVideoHeight:" + this.f5101i + " mVideoSarNum:" + this.f5095c + " mVideoSarDen:" + this.f5096d + " mSurfaceWidth:" + this.f5093a + " mSurfaceHeight:" + this.f5094b + " mDisplayMode:" + this.j);
             float f11 = 0.0f;
             switch (this.j) {
             }
@@ -166,13 +168,13 @@ public class f {
             fArr2[1] = f3;
             CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f8 + " sy:" + f4 + " translateX:" + f11 + " translateY:" + f3);
         }
-        f10 = (this.f4977h * 1.0f) / i;
+        f10 = (this.f5100h * 1.0f) / i2;
         if (z) {
-            f2 = this.f4972c * 1.0f;
-            i2 = this.f4973d;
-            f10 *= f2 / i2;
+            f2 = this.f5095c * 1.0f;
+            i3 = this.f5096d;
+            f10 *= f2 / i3;
         }
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f4977h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.f4972c + " mVideoSarDen:" + this.f4973d + " mSurfaceWidth:" + this.f4970a + " mSurfaceHeight:" + this.f4971b + " mDisplayMode:" + this.j);
+        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f5100h + " mVideoHeight:" + this.f5101i + " mVideoSarNum:" + this.f5095c + " mVideoSarDen:" + this.f5096d + " mSurfaceWidth:" + this.f5093a + " mSurfaceHeight:" + this.f5094b + " mDisplayMode:" + this.j);
         float f112 = 0.0f;
         switch (this.j) {
             case 1:
@@ -189,8 +191,8 @@ public class f {
                 f5 = 0.5625f;
                 break;
             case 6:
-                float f12 = (this.f4977h * 1.0f) / this.f4970a;
-                f4 = (this.i * 1.0f) / this.f4971b;
+                float f12 = (this.f5100h * 1.0f) / this.f5093a;
+                f4 = (this.f5101i * 1.0f) / this.f5094b;
                 f8 = f12;
                 f3 = 0.0f;
                 break;
@@ -252,18 +254,18 @@ public class f {
         CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f8 + " sy:" + f4 + " translateX:" + f112 + " translateY:" + f3);
     }
 
-    public boolean b(int i) {
-        if (this.f4974e != i) {
-            this.f4974e = i;
-            this.f4976g = ((360 - this.f4975f) + i) % 360;
+    public boolean b(int i2) {
+        if (this.f5097e != i2) {
+            this.f5097e = i2;
+            this.f5099g = ((360 - this.f5098f) + i2) % 360;
             return true;
         }
         return false;
     }
 
-    public boolean c(int i) {
-        if (this.j != i) {
-            this.j = i;
+    public boolean c(int i2) {
+        if (this.j != i2) {
+            this.j = i2;
             return true;
         }
         return false;
@@ -282,27 +284,27 @@ public class f {
     }
 
     public boolean f() {
-        int i = this.j;
-        return i == 7 || i == 8 || i == 9 || i == 10;
+        int i2 = this.j;
+        return i2 == 7 || i2 == 8 || i2 == 9 || i2 == 10;
     }
 
     public int g() {
-        return this.f4976g;
+        return this.f5099g;
     }
 
     public int h() {
-        return this.f4977h;
+        return this.f5100h;
     }
 
     public int i() {
-        return this.i;
+        return this.f5101i;
     }
 
     public int j() {
-        return this.f4970a;
+        return this.f5093a;
     }
 
     public int k() {
-        return this.f4971b;
+        return this.f5094b;
     }
 }

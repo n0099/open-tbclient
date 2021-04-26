@@ -47,11 +47,11 @@ public class FlutterActivity extends Activity implements FlutterView.Provider, P
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.eventDelegate.onActivityResult(i, i2, intent)) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        if (this.eventDelegate.onActivityResult(i2, i3, intent)) {
             return;
         }
-        super.onActivityResult(i, i2, intent);
+        super.onActivityResult(i2, i3, intent);
     }
 
     @Override // android.app.Activity
@@ -103,8 +103,8 @@ public class FlutterActivity extends Activity implements FlutterView.Provider, P
     }
 
     @Override // android.app.Activity
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        this.eventDelegate.onRequestPermissionsResult(i, strArr, iArr);
+    public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+        this.eventDelegate.onRequestPermissionsResult(i2, strArr, iArr);
     }
 
     @Override // android.app.Activity
@@ -126,8 +126,8 @@ public class FlutterActivity extends Activity implements FlutterView.Provider, P
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks2
-    public void onTrimMemory(int i) {
-        this.eventDelegate.onTrimMemory(i);
+    public void onTrimMemory(int i2) {
+        this.eventDelegate.onTrimMemory(i2);
     }
 
     @Override // android.app.Activity

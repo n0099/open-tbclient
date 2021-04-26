@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.b.j0.v0.d.b;
-import d.b.j0.x.b0;
-import d.b.j0.x.e0.h;
+import d.a.j0.v0.d.b;
+import d.a.j0.x.b0;
+import d.a.j0.x.e0.h;
 /* loaded from: classes4.dex */
-public class GodSquareRecGodAdapter extends d.b.c.j.e.a<h, ViewHolder> {
+public class GodSquareRecGodAdapter extends d.a.c.j.e.a<h, ViewHolder> {
     public TbPageContext<?> m;
     public b n;
     public b0 o;
@@ -22,11 +22,11 @@ public class GodSquareRecGodAdapter extends d.b.c.j.e.a<h, ViewHolder> {
     public class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public b f16623a;
+        public b f16872a;
 
         public ViewHolder(GodSquareRecGodAdapter godSquareRecGodAdapter, b bVar) {
-            super(bVar.m());
-            this.f16623a = bVar;
+            super(bVar.l());
+            this.f16872a = bVar;
         }
     }
 
@@ -35,50 +35,50 @@ public class GodSquareRecGodAdapter extends d.b.c.j.e.a<h, ViewHolder> {
         public a() {
         }
 
-        @Override // d.b.j0.x.b0
+        @Override // d.a.j0.x.b0
         public void a(View view, BaseCardInfo baseCardInfo) {
             h hVar;
             MetaData metaData;
-            if (view == null || GodSquareRecGodAdapter.this.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f64207e) == null || StringUtils.isNull(metaData.getUserId())) {
+            if (view == null || GodSquareRecGodAdapter.this.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f62471e) == null || StringUtils.isNull(metaData.getUserId())) {
                 return;
             }
             if (view.getId() != GodSquareRecGodAdapter.this.n.m.getId()) {
-                if (view.getId() == GodSquareRecGodAdapter.this.n.m().getId() || view.getId() == GodSquareRecGodAdapter.this.n.o.getId()) {
-                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f64207e.getUserId()));
+                if (view.getId() == GodSquareRecGodAdapter.this.n.l().getId() || view.getId() == GodSquareRecGodAdapter.this.n.o.getId()) {
+                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f62471e.getUserId()));
                     return;
                 }
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f64207e.getUserId()));
+            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f62471e.getUserId()));
         }
     }
 
     public GodSquareRecGodAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), h.i);
+        super(tbPageContext.getPageActivity(), h.f62470i);
         this.o = new a();
         this.m = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.c.j.e.a
-    /* renamed from: i0 */
-    public ViewHolder R(ViewGroup viewGroup) {
+    @Override // d.a.c.j.e.a
+    /* renamed from: f0 */
+    public ViewHolder P(ViewGroup viewGroup) {
         b bVar = new b(this.m);
         this.n = bVar;
-        bVar.v(this.m.getUniqueId());
-        this.n.q(this.o);
+        bVar.t(this.m.getUniqueId());
+        this.n.o(this.o);
         return new ViewHolder(this, this.n);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.c.j.e.a
-    /* renamed from: j0 */
-    public View X(int i, View view, ViewGroup viewGroup, h hVar, ViewHolder viewHolder) {
+    @Override // d.a.c.j.e.a
+    /* renamed from: g0 */
+    public View W(int i2, View view, ViewGroup viewGroup, h hVar, ViewHolder viewHolder) {
         b bVar;
-        if (viewHolder == null || (bVar = viewHolder.f16623a) == null) {
+        if (viewHolder == null || (bVar = viewHolder.f16872a) == null) {
             return null;
         }
-        bVar.n(hVar);
+        bVar.m(hVar);
         return viewHolder.a();
     }
 }

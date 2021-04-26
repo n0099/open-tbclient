@@ -15,19 +15,19 @@ public class AddrListPagerAdapter extends PagerAdapter {
         this.mViews = list;
     }
 
-    private int fixPositionInViewList(int i) {
+    private int fixPositionInViewList(int i2) {
         if (this.mViews == null) {
             return 0;
         }
-        if (i < 0) {
-            i = 0;
+        if (i2 < 0) {
+            i2 = 0;
         }
-        return i >= this.mViews.size() ? this.mViews.size() - 1 : i;
+        return i2 >= this.mViews.size() ? this.mViews.size() - 1 : i2;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
-        viewGroup.removeView(this.mViews.get(fixPositionInViewList(i)));
+    public void destroyItem(@NonNull ViewGroup viewGroup, int i2, @NonNull Object obj) {
+        viewGroup.removeView(this.mViews.get(fixPositionInViewList(i2)));
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -37,9 +37,9 @@ public class AddrListPagerAdapter extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     @NonNull
-    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
-        int fixPositionInViewList = fixPositionInViewList(i);
-        viewGroup.addView(this.mViews.get(i));
+    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i2) {
+        int fixPositionInViewList = fixPositionInViewList(i2);
+        viewGroup.addView(this.mViews.get(i2));
         return this.mViews.get(fixPositionInViewList);
     }
 

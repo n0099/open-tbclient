@@ -10,12 +10,12 @@ public abstract class Token {
         this.previous = token;
     }
 
-    public final Token add(int i, int i2) {
-        return new SimpleToken(this, i, i2);
+    public final Token add(int i2, int i3) {
+        return new SimpleToken(this, i2, i3);
     }
 
-    public final Token addBinaryShift(int i, int i2) {
-        return new BinaryShiftToken(this, i, i2);
+    public final Token addBinaryShift(int i2, int i3) {
+        return new BinaryShiftToken(this, i2, i3);
     }
 
     public abstract void appendTo(BitArray bitArray, byte[] bArr);

@@ -5,16 +5,16 @@ import java.util.ArrayList;
 public class BDHttpDnsResult {
 
     /* renamed from: a  reason: collision with root package name */
-    public ResolveType f4311a;
+    public ResolveType f4387a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ResolveStatus f4312b;
+    public final ResolveStatus f4388b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f4313c;
+    public ArrayList<String> f4389c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<String> f4314d;
+    public ArrayList<String> f4390d;
 
     /* loaded from: classes.dex */
     public enum ResolveStatus {
@@ -35,31 +35,31 @@ public class BDHttpDnsResult {
     }
 
     public BDHttpDnsResult(ResolveStatus resolveStatus) {
-        this.f4311a = ResolveType.RESOLVE_NONE;
-        this.f4312b = resolveStatus;
+        this.f4387a = ResolveType.RESOLVE_NONE;
+        this.f4388b = resolveStatus;
     }
 
     public BDHttpDnsResult(ResolveType resolveType, ResolveStatus resolveStatus, ArrayList<String> arrayList, ArrayList<String> arrayList2) {
-        this.f4311a = ResolveType.RESOLVE_NONE;
-        this.f4311a = resolveType;
-        this.f4312b = resolveStatus;
-        this.f4313c = arrayList;
-        this.f4314d = arrayList2;
+        this.f4387a = ResolveType.RESOLVE_NONE;
+        this.f4387a = resolveType;
+        this.f4388b = resolveStatus;
+        this.f4389c = arrayList;
+        this.f4390d = arrayList2;
     }
 
     public ArrayList<String> a() {
-        return this.f4313c;
+        return this.f4389c;
     }
 
     public ArrayList<String> b() {
-        return this.f4314d;
+        return this.f4390d;
     }
 
     public ResolveStatus c() {
-        return this.f4312b;
+        return this.f4388b;
     }
 
     public ResolveType d() {
-        return this.f4311a;
+        return this.f4387a;
     }
 }

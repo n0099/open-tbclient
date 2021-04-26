@@ -17,11 +17,11 @@ public abstract class NotificationCompatSideChannelService extends Service {
         }
 
         @Override // android.support.v4.app.INotificationSideChannel
-        public void cancel(String str, int i, String str2) throws RemoteException {
+        public void cancel(String str, int i2, String str2) throws RemoteException {
             NotificationCompatSideChannelService.this.checkPermission(Binder.getCallingUid(), str);
             long clearCallingIdentity = Binder.clearCallingIdentity();
             try {
-                NotificationCompatSideChannelService.this.cancel(str, i, str2);
+                NotificationCompatSideChannelService.this.cancel(str, i2, str2);
             } finally {
                 Binder.restoreCallingIdentity(clearCallingIdentity);
             }
@@ -39,31 +39,31 @@ public abstract class NotificationCompatSideChannelService extends Service {
         }
 
         @Override // android.support.v4.app.INotificationSideChannel
-        public void notify(String str, int i, String str2, Notification notification) throws RemoteException {
+        public void notify(String str, int i2, String str2, Notification notification) throws RemoteException {
             NotificationCompatSideChannelService.this.checkPermission(Binder.getCallingUid(), str);
             long clearCallingIdentity = Binder.clearCallingIdentity();
             try {
-                NotificationCompatSideChannelService.this.notify(str, i, str2, notification);
+                NotificationCompatSideChannelService.this.notify(str, i2, str2, notification);
             } finally {
                 Binder.restoreCallingIdentity(clearCallingIdentity);
             }
         }
     }
 
-    public abstract void cancel(String str, int i, String str2);
+    public abstract void cancel(String str, int i2, String str2);
 
     public abstract void cancelAll(String str);
 
-    public void checkPermission(int i, String str) {
-        for (String str2 : getPackageManager().getPackagesForUid(i)) {
+    public void checkPermission(int i2, String str) {
+        for (String str2 : getPackageManager().getPackagesForUid(i2)) {
             if (str2.equals(str)) {
                 return;
             }
         }
-        throw new SecurityException("NotificationSideChannelService: Uid " + i + " is not authorized for package " + str);
+        throw new SecurityException("NotificationSideChannelService: Uid " + i2 + " is not authorized for package " + str);
     }
 
-    public abstract void notify(String str, int i, String str2, Notification notification);
+    public abstract void notify(String str, int i2, String str2, Notification notification);
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {

@@ -1,178 +1,93 @@
 package com.win.opensdk;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.os.Build;
-import android.os.SystemClock;
-import android.text.TextUtils;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import kotlin.text.Typography;
-/* loaded from: classes7.dex */
-public final class X0 implements Runnable {
+import android.view.MotionEvent;
+import android.view.View;
+import com.win.opensdk.core.Info;
+import java.util.HashMap;
+/* loaded from: classes6.dex */
+public class X0 implements View.OnClickListener, View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f40214a;
+    public int f37800a;
 
-    public X0(Context context) {
-        this.f40214a = context;
+    /* renamed from: b  reason: collision with root package name */
+    public int f37801b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f37802c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f37803d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f37804e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f37805f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final /* synthetic */ Y0 f37806g;
+
+    public X0(Y0 y0) {
+        this.f37806g = y0;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(21:1|(2:2|3)|4|(4:5|6|(1:8)(1:58)|(2:9|10))|(2:12|13)|14|15|16|(1:18)|20|(1:22)|23|(1:25)(1:50)|26|(6:28|29|30|(2:31|(1:33)(1:34))|35|(5:37|38|(2:43|44)|40|41))|49|38|(0)|40|41|(1:(0))) */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x006e, code lost:
-        r0 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x006f, code lost:
-        r0.printStackTrace();
-     */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x006b A[Catch: Exception -> 0x006e, TRY_LEAVE, TryCatch #1 {Exception -> 0x006e, blocks: (B:23:0x0065, B:25:0x006b), top: B:58:0x0065 }] */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x008b  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x00a4  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00a6  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00aa  */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x011d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void run() {
-        String str;
-        String str2;
-        String str3;
-        long currentTimeMillis;
-        String str4;
-        PackageInfo packageInfo;
-        try {
-            T1.a(this.f40214a).d();
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-        Context context = this.f40214a;
-        try {
-            packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            ApplicationInfo applicationInfo = packageInfo.applicationInfo;
-            str = applicationInfo.publicSourceDir != null ? applicationInfo.publicSourceDir : applicationInfo.sourceDir;
-            try {
-                str2 = String.valueOf(packageInfo.firstInstallTime);
-            } catch (Exception e3) {
-                e = e3;
-                str2 = "";
+    public HashMap a() {
+        HashMap hashMap = new HashMap();
+        hashMap.put("dx", Integer.valueOf(this.f37800a));
+        hashMap.put("dy", Integer.valueOf(this.f37801b));
+        hashMap.put("dts", Long.valueOf(this.f37802c));
+        hashMap.put("ux", Integer.valueOf(this.f37803d));
+        hashMap.put("uy", Integer.valueOf(this.f37804e));
+        hashMap.put("uts", Long.valueOf(this.f37805f));
+        Y0 y0 = this.f37806g;
+        z.a(hashMap, y0.p, y0.q, y0.r, y0.s, y0.t, y0.u);
+        return hashMap;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            this.f37800a = (int) motionEvent.getRawX();
+            this.f37801b = (int) motionEvent.getRawY();
+            this.f37802c = System.currentTimeMillis();
+            this.f37806g.p = (int) motionEvent.getX();
+            this.f37806g.q = (int) motionEvent.getY();
+            Y0.a(this.f37806g, view);
+            return false;
+        } else if (action != 1) {
+            return false;
+        } else {
+            this.f37803d = (int) motionEvent.getRawX();
+            this.f37804e = (int) motionEvent.getRawY();
+            this.f37805f = System.currentTimeMillis();
+            this.f37806g.r = (int) motionEvent.getX();
+            this.f37806g.s = (int) motionEvent.getY();
+            Y0 y0 = this.f37806g;
+            Info info = y0.f37809c;
+            if (info == null || !o1.a(info, y0.f37814h)) {
+                return false;
             }
-        } catch (Exception e4) {
-            e = e4;
-            str = "";
-            str2 = str;
-        }
-        try {
-            str3 = String.valueOf(packageInfo.lastUpdateTime);
-        } catch (Exception e5) {
-            e = e5;
-            e.printStackTrace();
-            str3 = "";
-            String[] strArr = {str2, str3, str};
-            String str5 = strArr[0];
-            String str6 = strArr[0];
-            String str7 = strArr[2];
-            String valueOf = String.valueOf(System.currentTimeMillis() - SystemClock.elapsedRealtime());
-            String[] strArr2 = new String[0];
-            if (Build.VERSION.SDK_INT >= 21) {
+            this.f37806g.f37814h = System.currentTimeMillis();
+            Y0 y02 = this.f37806g;
+            Context context = y02.f37807a;
+            String open = y02.f37809c.getOpen();
+            Y0 y03 = this.f37806g;
+            o1.a(context, open, y03.f37809c, y03.f37813g, a().toString());
+            x0.a(this.f37806g.f37807a).a(new y0(this.f37806g.f37809c), (String) null).a("desc", a().toString()).a();
+            z.a(this.f37806g.f37809c, a().toString());
+            r rVar = this.f37806g.f37812f;
+            if (rVar != null) {
+                rVar.onClicked();
+                return false;
             }
-            String arrays = Arrays.toString(strArr2);
-            Context context2 = this.f40214a;
-            currentTimeMillis = System.currentTimeMillis() - V1.c(context2);
-            if (currentTimeMillis < 0) {
-            }
-            String str8 = null;
-            if (currentTimeMillis < 86400000) {
-            }
-            str4 = null;
-            if (!TextUtils.isEmpty(str4)) {
-            }
-            Context context3 = this.f40214a;
-            long currentTimeMillis2 = System.currentTimeMillis();
-            SharedPreferences.Editor edit = context3.getSharedPreferences("_prefs", 0).edit();
-            edit.putLong("bdts", currentTimeMillis2);
-            edit.apply();
-            Z0 a2 = a1.a(this.f40214a);
-            a2.f40235c = "{\"e\":\"bd\",\"apk_dir\":\"" + str7 + Typography.quote + ",\"istl_ts\":\"" + str5 + Typography.quote + ",\"udt_ts\":\"" + str6 + Typography.quote + ",\"open_ts\":\"" + valueOf + Typography.quote + ",\"cpu_abi\":\"" + arrays + Typography.quote + ",\"app_list\":\"" + str8 + Typography.quote + '}';
-            a2.a();
+            return false;
         }
-        String[] strArr3 = {str2, str3, str};
-        String str52 = strArr3[0];
-        String str62 = strArr3[0];
-        String str72 = strArr3[2];
-        String valueOf2 = String.valueOf(System.currentTimeMillis() - SystemClock.elapsedRealtime());
-        String[] strArr22 = new String[0];
-        if (Build.VERSION.SDK_INT >= 21) {
-            strArr22 = Build.SUPPORTED_ABIS;
-        }
-        String arrays2 = Arrays.toString(strArr22);
-        Context context22 = this.f40214a;
-        currentTimeMillis = System.currentTimeMillis() - V1.c(context22);
-        if (currentTimeMillis < 0) {
-            long currentTimeMillis3 = System.currentTimeMillis();
-            SharedPreferences.Editor edit2 = context22.getSharedPreferences("_prefs", 0).edit();
-            edit2.putLong("ck_al", currentTimeMillis3);
-            edit2.apply();
-        }
-        String str82 = null;
-        if (currentTimeMillis < 86400000) {
-            ArrayList arrayList = new ArrayList();
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("pm list package -3").getInputStream()));
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    arrayList.add(readLine.replace("package:", ""));
-                }
-            } catch (IOException unused) {
-            }
-            HashSet hashSet = new HashSet(arrayList);
-            long currentTimeMillis4 = System.currentTimeMillis();
-            SharedPreferences.Editor edit3 = context22.getSharedPreferences("_prefs", 0).edit();
-            edit3.putLong("ck_al", currentTimeMillis4);
-            edit3.apply();
-            int hashCode = hashSet.toString().hashCode();
-            if (hashCode != context22.getSharedPreferences("_prefs", 0).getInt("alh", 0)) {
-                SharedPreferences.Editor edit4 = context22.getSharedPreferences("_prefs", 0).edit();
-                edit4.putInt("alh", hashCode);
-                edit4.apply();
-                str4 = arrayList.toString();
-                if (!TextUtils.isEmpty(str4)) {
-                    try {
-                        str82 = G.a(str4);
-                    } catch (Exception unused2) {
-                        str82 = str4;
-                    }
-                }
-                Context context32 = this.f40214a;
-                long currentTimeMillis22 = System.currentTimeMillis();
-                SharedPreferences.Editor edit5 = context32.getSharedPreferences("_prefs", 0).edit();
-                edit5.putLong("bdts", currentTimeMillis22);
-                edit5.apply();
-                Z0 a22 = a1.a(this.f40214a);
-                a22.f40235c = "{\"e\":\"bd\",\"apk_dir\":\"" + str72 + Typography.quote + ",\"istl_ts\":\"" + str52 + Typography.quote + ",\"udt_ts\":\"" + str62 + Typography.quote + ",\"open_ts\":\"" + valueOf2 + Typography.quote + ",\"cpu_abi\":\"" + arrays2 + Typography.quote + ",\"app_list\":\"" + str82 + Typography.quote + '}';
-                a22.a();
-            }
-        }
-        str4 = null;
-        if (!TextUtils.isEmpty(str4)) {
-        }
-        Context context322 = this.f40214a;
-        long currentTimeMillis222 = System.currentTimeMillis();
-        SharedPreferences.Editor edit52 = context322.getSharedPreferences("_prefs", 0).edit();
-        edit52.putLong("bdts", currentTimeMillis222);
-        edit52.apply();
-        Z0 a222 = a1.a(this.f40214a);
-        a222.f40235c = "{\"e\":\"bd\",\"apk_dir\":\"" + str72 + Typography.quote + ",\"istl_ts\":\"" + str52 + Typography.quote + ",\"udt_ts\":\"" + str62 + Typography.quote + ",\"open_ts\":\"" + valueOf2 + Typography.quote + ",\"cpu_abi\":\"" + arrays2 + Typography.quote + ",\"app_list\":\"" + str82 + Typography.quote + '}';
-        a222.a();
     }
 }

@@ -62,11 +62,11 @@ public class HUDStatistics {
     public RTCBitrateTracker mVideoSendBitrateTracker = new RTCBitrateTracker();
 
     private int calculateAvgQP() {
-        int i = this.mFrameEncoded - this.mOldFrameEncoded;
-        int i2 = this.mVideoQPSum;
-        int i3 = this.mOldVideoQPSum;
-        if (i != 0) {
-            return (i2 - i3) / i;
+        int i2 = this.mFrameEncoded - this.mOldFrameEncoded;
+        int i3 = this.mVideoQPSum;
+        int i4 = this.mOldVideoQPSum;
+        if (i2 != 0) {
+            return (i3 - i4) / i2;
         }
         return 0;
     }

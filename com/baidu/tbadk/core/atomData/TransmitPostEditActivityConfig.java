@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.frs.FrsTabInfoData;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class TransmitPostEditActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
@@ -37,15 +37,15 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
     public static final String TRANSMIT_THREAD_AUTHOR_NAME_SHOW = "transmit_thread_author_name_show";
     public static final String TYPE = "type";
 
-    public TransmitPostEditActivityConfig(Context context, int i, String str, String str2, String str3, AntiData antiData, int i2, AdditionData additionData, PostPrefixData postPrefixData, String str4, OriginalThreadInfo.ShareInfo shareInfo) {
+    public TransmitPostEditActivityConfig(Context context, int i2, String str, String str2, String str3, AntiData antiData, int i3, AdditionData additionData, PostPrefixData postPrefixData, String str4, OriginalThreadInfo.ShareInfo shareInfo) {
         super(context);
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i2);
+        setRequestCode(i3);
         if (antiData != null && antiData.getIfpost() == 0 && !StringUtils.isNull(antiData.getForbid_info())) {
-            l.L(context, antiData.getForbid_info());
+            l.M(context, antiData.getForbid_info());
             return;
         }
-        getIntent().putExtra("type", i);
+        getIntent().putExtra("type", i2);
         getIntent().putExtra("forum_id", str);
         getIntent().putExtra("forum_name", str2);
         getIntent().putExtra("from", str4);
@@ -75,8 +75,8 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         }
     }
 
-    public void setCategroyId(int i) {
-        getIntent().putExtra("category_id", i);
+    public void setCategroyId(int i2) {
+        getIntent().putExtra("category_id", i2);
     }
 
     public void setForumDir(String str, String str2) {
@@ -85,9 +85,9 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         intent.putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
     }
 
-    public void setForumLevel(int i) {
+    public void setForumLevel(int i2) {
         if (getIntent() != null) {
-            getIntent().putExtra("key_write_level", i);
+            getIntent().putExtra("key_write_level", i2);
         }
     }
 
@@ -97,9 +97,9 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         }
     }
 
-    public void setPrivateThread(int i) {
+    public void setPrivateThread(int i2) {
         if (getIntent() != null) {
-            getIntent().putExtra("private_thread", i);
+            getIntent().putExtra("private_thread", i2);
         }
     }
 

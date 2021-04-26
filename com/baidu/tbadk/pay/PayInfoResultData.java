@@ -35,12 +35,12 @@ public class PayInfoResultData extends OrmObject implements Serializable {
         this.errmsg = str;
     }
 
-    public void setErrno(int i) {
-        this.errno = i;
+    public void setErrno(int i2) {
+        this.errno = i2;
     }
 
-    public void setPay_status(int i) {
-        this.pay_status = i;
+    public void setPay_status(int i2) {
+        this.pay_status = i2;
     }
 
     public void setUsermsg(String str) {

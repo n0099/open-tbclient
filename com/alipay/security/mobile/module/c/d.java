@@ -12,13 +12,13 @@ import java.util.List;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2093a = "";
+    public static String f2053a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f2094b = "";
+    public static String f2054b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f2095c = "";
+    public static String f2055c = "";
 
     public static synchronized void a(String str) {
         synchronized (d.class) {
@@ -30,9 +30,9 @@ public final class d {
 
     public static synchronized void a(String str, String str2, String str3) {
         synchronized (d.class) {
-            f2093a = str;
-            f2094b = str2;
-            f2095c = str3;
+            f2053a = str;
+            f2054b = str2;
+            f2055c = str3;
         }
     }
 
@@ -54,20 +54,20 @@ public final class d {
 
     public static synchronized void a(List<String> list) {
         synchronized (d.class) {
-            if (!com.alipay.security.mobile.module.a.a.a(f2094b) && !com.alipay.security.mobile.module.a.a.a(f2095c)) {
+            if (!com.alipay.security.mobile.module.a.a.a(f2054b) && !com.alipay.security.mobile.module.a.a.a(f2055c)) {
                 StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append(f2095c);
+                stringBuffer.append(f2055c);
                 Iterator<String> it = list.iterator();
                 while (it.hasNext()) {
                     stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR + it.next());
                 }
                 stringBuffer.append("\n");
                 try {
-                    File file = new File(f2093a);
+                    File file = new File(f2053a);
                     if (!file.exists()) {
                         file.mkdirs();
                     }
-                    File file2 = new File(f2093a, f2094b);
+                    File file2 = new File(f2053a, f2054b);
                     if (!file2.exists()) {
                         file2.createNewFile();
                     }

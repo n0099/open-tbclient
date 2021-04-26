@@ -29,6 +29,8 @@ public class ConnectTrial {
     @Nullable
     public String responseEtag;
     @Nullable
+    public String responseFileType;
+    @Nullable
     public String responseFilename;
     @NonNull
     public final DownloadTask task;
@@ -38,6 +40,11 @@ public class ConnectTrial {
     public ConnectTrial(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
         this.task = downloadTask;
         this.info = breakpointInfo;
+    }
+
+    @Nullable
+    public static String findContentType(DownloadConnection.Connected connected) {
+        return connected.getResponseHeaderField(Util.CONTENT_TYPE);
     }
 
     @Nullable
@@ -126,6 +133,7 @@ public class ConnectTrial {
             this.instanceLength = findInstanceLength(execute);
             this.responseEtag = findEtag(execute);
             this.responseFilename = findFilename(execute);
+            this.responseFileType = findContentType(execute);
             Map<String, List<String>> responseHeaderFields = execute.getResponseHeaderFields();
             if (responseHeaderFields == null) {
                 responseHeaderFields = new HashMap<>();
@@ -145,6 +153,11 @@ public class ConnectTrial {
 
     public int getResponseCode() {
         return this.responseCode;
+    }
+
+    @Nullable
+    public String getResponseContentType() {
+        return this.responseFileType;
     }
 
     @Nullable

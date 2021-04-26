@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.c.e.p.g;
-import d.b.c.e.p.m;
-import d.b.i0.r.d0.b;
+import d.a.c.e.p.g;
+import d.a.c.e.p.m;
+import d.a.i0.r.d0.b;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -26,7 +26,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FatalErrorService extends BdBaseService {
     public static final String ERROR_TYPE_KEY = "errortype";
     public static final String ERROR_TYPE_NATIVE_C = "4";
@@ -34,17 +34,17 @@ public class FatalErrorService extends BdBaseService {
     public static final int NATIVE_CRASH_DUMP_MIN_SIZE = 1024;
     public a mTask = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public Intent f20618a;
+        public Intent f21172a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NetWork f20619b = null;
+        public NetWork f21173b = null;
 
         public a(Intent intent) {
-            this.f20618a = intent;
+            this.f21172a = intent;
         }
 
         public final void b(FileWriter fileWriter, String str, String str2) {
@@ -64,7 +64,7 @@ public class FatalErrorService extends BdBaseService {
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0017 */
         public final void c(File file) {
             FileWriter fileWriter;
-            if (file == null || !file.exists() || !file.isFile() || this.f20618a == null) {
+            if (file == null || !file.exists() || !file.isFile() || this.f21172a == null) {
                 return;
             }
             FileWriter fileWriter2 = null;
@@ -87,10 +87,10 @@ public class FatalErrorService extends BdBaseService {
                 b(fileWriter, "from", TbConfig.getFrom());
                 String currentFrom = TbConfig.getCurrentFrom();
                 b(fileWriter, "current_from", currentFrom);
-                b(fileWriter, "uid", this.f20618a.getStringExtra("uid"));
+                b(fileWriter, "uid", this.f21172a.getStringExtra("uid"));
                 b(fileWriter, "client_id", TbadkCoreApplication.getClientId());
                 b(fileWriter, "imei", TbadkCoreApplication.getInst().getImei());
-                b(fileWriter, "uname", this.f20618a.getStringExtra("uname"));
+                b(fileWriter, "uname", this.f21172a.getStringExtra("uname"));
                 fileWriter.append("\n##TIEBA_NATIVE_END##\n");
                 m.h(fileWriter);
                 fileWriter2 = currentFrom;
@@ -110,7 +110,7 @@ public class FatalErrorService extends BdBaseService {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            NetWork netWork = this.f20619b;
+            NetWork netWork = this.f21173b;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -236,15 +236,15 @@ public class FatalErrorService extends BdBaseService {
                                         }
                                     }
                                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + str);
-                                    this.f20619b = netWork;
+                                    this.f21173b = netWork;
                                     netWork.addPostData("logfile", byteArray);
                                     if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
-                                        this.f20619b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
+                                        this.f21173b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
                                     }
-                                    this.f20619b.postMultiNetData();
+                                    this.f21173b.postMultiNetData();
                                     byteArrayOutputStream.close();
                                     fileInputStream.close();
-                                    if (this.f20619b.getNetContext().getResponse().isRequestSuccess()) {
+                                    if (this.f21173b.getNetContext().getResponse().isRequestSuccess()) {
                                         if (z2) {
                                             d(file);
                                         }
@@ -448,8 +448,8 @@ public class FatalErrorService extends BdBaseService {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
-        super.onStart(intent, i);
+    public void onStart(Intent intent, int i2) {
+        super.onStart(intent, i2);
         if (this.mTask == null) {
             a aVar = new a(intent);
             this.mTask = aVar;

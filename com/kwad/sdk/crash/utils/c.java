@@ -49,7 +49,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List<String> a(String[] strArr, int i) {
+    public static List<String> a(String[] strArr, int i2) {
         Process process;
         OutputStream outputStream;
         InputStream inputStream;
@@ -84,7 +84,7 @@ public class c {
                         while (true) {
                             try {
                                 String readLine = r6.readLine();
-                                if (readLine == null || arrayList.size() >= i) {
+                                if (readLine == null || arrayList.size() >= i2) {
                                     break;
                                 }
                                 arrayList.add(readLine);
@@ -127,7 +127,7 @@ public class c {
                         if (process3.exitValue() != 0) {
                             throw new IOException("Command line returned OS error code '" + process3.exitValue() + "' for command " + Arrays.asList(strArr));
                         }
-                        if (i > 0 && arrayList.isEmpty()) {
+                        if (i2 > 0 && arrayList.isEmpty()) {
                             throw new IOException("Command line did not return any info for command " + Arrays.asList(strArr));
                         }
                         b.a(inputStream);

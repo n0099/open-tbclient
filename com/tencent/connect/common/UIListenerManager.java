@@ -17,46 +17,46 @@ import org.json.JSONObject;
 public class UIListenerManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public static UIListenerManager f39488a;
+    public static UIListenerManager f37083a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, ApiTask> f39489b;
+    public Map<String, ApiTask> f37084b;
 
     /* loaded from: classes6.dex */
     public class ApiTask {
         public IUiListener mListener;
         public int mRequestCode;
 
-        public ApiTask(int i, IUiListener iUiListener) {
-            this.mRequestCode = i;
+        public ApiTask(int i2, IUiListener iUiListener) {
+            this.mRequestCode = i2;
             this.mListener = iUiListener;
         }
     }
 
     public UIListenerManager() {
         Map<String, ApiTask> synchronizedMap = Collections.synchronizedMap(new HashMap());
-        this.f39489b = synchronizedMap;
+        this.f37084b = synchronizedMap;
         if (synchronizedMap == null) {
-            this.f39489b = Collections.synchronizedMap(new HashMap());
+            this.f37084b = Collections.synchronizedMap(new HashMap());
         }
     }
 
-    private IUiListener a(int i, IUiListener iUiListener) {
-        if (i == 11101) {
+    private IUiListener a(int i2, IUiListener iUiListener) {
+        if (i2 == 11101) {
             f.e("openSDK_LOG.UIListenerManager", "登录的接口回调不能重新构建，暂时无法提供，先记录下来这种情况是否存在");
-        } else if (i == 11105) {
+        } else if (i2 == 11105) {
             f.e("openSDK_LOG.UIListenerManager", "Social Api 的接口回调需要使用param来重新构建，暂时无法提供，先记录下来这种情况是否存在");
-        } else if (i == 11106) {
+        } else if (i2 == 11106) {
             f.e("openSDK_LOG.UIListenerManager", "Social Api 的H5接口回调需要使用param来重新构建，暂时无法提供，先记录下来这种情况是否存在");
         }
         return iUiListener;
     }
 
     public static UIListenerManager getInstance() {
-        if (f39488a == null) {
-            f39488a = new UIListenerManager();
+        if (f37083a == null) {
+            f37083a = new UIListenerManager();
         }
-        return f39488a;
+        return f37083a;
     }
 
     public IUiListener getListnerWithAction(String str) {
@@ -65,9 +65,9 @@ public class UIListenerManager {
             f.e("openSDK_LOG.UIListenerManager", "getListnerWithAction action is null!");
             return null;
         }
-        synchronized (this.f39489b) {
-            apiTask = this.f39489b.get(str);
-            this.f39489b.remove(str);
+        synchronized (this.f37084b) {
+            apiTask = this.f37084b.get(str);
+            this.f37084b.remove(str);
         }
         if (apiTask == null) {
             return null;
@@ -75,10 +75,10 @@ public class UIListenerManager {
         return apiTask.mListener;
     }
 
-    public IUiListener getListnerWithRequestCode(int i) {
-        String a2 = h.a(i);
+    public IUiListener getListnerWithRequestCode(int i2) {
+        String a2 = h.a(i2);
         if (a2 == null) {
-            f.e("openSDK_LOG.UIListenerManager", "getListner action is null! rquestCode=" + i);
+            f.e("openSDK_LOG.UIListenerManager", "getListner action is null! rquestCode=" + i2);
             return null;
         }
         return getListnerWithAction(a2);
@@ -129,18 +129,18 @@ public class UIListenerManager {
         }
     }
 
-    public boolean onActivityResult(int i, int i2, Intent intent, IUiListener iUiListener) {
-        f.c("openSDK_LOG.UIListenerManager", "onActivityResult req=" + i + " res=" + i2);
-        IUiListener listnerWithRequestCode = getListnerWithRequestCode(i);
+    public boolean onActivityResult(int i2, int i3, Intent intent, IUiListener iUiListener) {
+        f.c("openSDK_LOG.UIListenerManager", "onActivityResult req=" + i2 + " res=" + i3);
+        IUiListener listnerWithRequestCode = getListnerWithRequestCode(i2);
         if (listnerWithRequestCode == null) {
             if (iUiListener != null) {
-                listnerWithRequestCode = a(i, iUiListener);
+                listnerWithRequestCode = a(i2, iUiListener);
             } else {
                 f.e("openSDK_LOG.UIListenerManager", "onActivityResult can't find the listener");
                 return false;
             }
         }
-        if (i2 != -1) {
+        if (i3 != -1) {
             listnerWithRequestCode.onCancel();
         } else if (intent == null) {
             listnerWithRequestCode.onError(new UiError(-6, "onActivityResult intent data is null.", "onActivityResult intent data is null."));
@@ -202,15 +202,15 @@ public class UIListenerManager {
         return true;
     }
 
-    public Object setListenerWithRequestcode(int i, IUiListener iUiListener) {
+    public Object setListenerWithRequestcode(int i2, IUiListener iUiListener) {
         ApiTask put;
-        String a2 = h.a(i);
+        String a2 = h.a(i2);
         if (a2 == null) {
-            f.e("openSDK_LOG.UIListenerManager", "setListener action is null! rquestCode=" + i);
+            f.e("openSDK_LOG.UIListenerManager", "setListener action is null! rquestCode=" + i2);
             return null;
         }
-        synchronized (this.f39489b) {
-            put = this.f39489b.put(a2, new ApiTask(i, iUiListener));
+        synchronized (this.f37084b) {
+            put = this.f37084b.put(a2, new ApiTask(i2, iUiListener));
         }
         if (put == null) {
             return null;
@@ -225,8 +225,8 @@ public class UIListenerManager {
             f.e("openSDK_LOG.UIListenerManager", "setListnerWithAction fail, action = " + str);
             return null;
         }
-        synchronized (this.f39489b) {
-            put = this.f39489b.put(str, new ApiTask(a2, iUiListener));
+        synchronized (this.f37084b) {
+            put = this.f37084b.put(str, new ApiTask(a2, iUiListener));
         }
         if (put == null) {
             return null;

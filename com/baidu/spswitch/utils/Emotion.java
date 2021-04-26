@@ -41,7 +41,7 @@ public class Emotion {
         if (onEmotionClickListener == null) {
             onEmotionClickListener = new BDEmotionPanelManager.OnEmotionClickListener() { // from class: com.baidu.spswitch.utils.Emotion.4
                 @Override // com.baidu.spswitch.utils.BDEmotionPanelManager.OnEmotionClickListener
-                public void onEmotionClick(EmotionType emotionType, int i, String str, String str2) {
+                public void onEmotionClick(EmotionType emotionType, int i2, String str, String str2) {
                 }
             };
         }

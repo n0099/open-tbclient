@@ -117,12 +117,12 @@ public class XAdRemoteAPKDownloadExtraInfo implements Serializable {
                     xAdRemoteAPKDownloadExtraInfo2.setLocalRelated(jSONObject.getString("filename"), jSONObject.getString(FOLDER));
                     xAdRemoteAPKDownloadExtraInfo2.targetUrl = jSONObject.optString(TARGET_URL);
                     xAdRemoteAPKDownloadExtraInfo2.setPlaceRelated(jSONObject.optString(PLACE_ID), jSONObject.optString("prod"), jSONObject.optString("appsid"));
-                    int i = jSONObject.getInt("dl");
+                    int i2 = jSONObject.getInt("dl");
                     IDownloader.DownloadStatus[] values = IDownloader.DownloadStatus.values();
                     IDownloader.DownloadStatus downloadStatus = IDownloader.DownloadStatus.NONE;
-                    for (int i2 = 0; i2 < values.length; i2++) {
-                        if (values[i2].getCode() == i) {
-                            downloadStatus = values[i2];
+                    for (int i3 = 0; i3 < values.length; i3++) {
+                        if (values[i3].getCode() == i2) {
+                            downloadStatus = values[i3];
                         }
                     }
                     xAdRemoteAPKDownloadExtraInfo2.status = downloadStatus;
@@ -148,7 +148,7 @@ public class XAdRemoteAPKDownloadExtraInfo implements Serializable {
     }
 
     public static List<String> getUndownloadedPackagesBefore(Context context, long j) {
-        int i;
+        int i2;
         ArrayList arrayList = new ArrayList();
         try {
             for (Map.Entry<String, ?> entry : context.getSharedPreferences(AdDownloadApkUtils.PKGS_PREF_DOWNLOAD, 0).getAll().entrySet()) {
@@ -157,7 +157,7 @@ public class XAdRemoteAPKDownloadExtraInfo implements Serializable {
                     String key = entry.getKey();
                     if (key.contains(KEY_SPLIT + currentProcName)) {
                         JSONObject jSONObject = new JSONObject((String) entry.getValue());
-                        if (jSONObject.getLong(CLICK_TOUCH_TIME) >= j && ((i = jSONObject.getInt("dl")) == 0 || i == 1 || i == 4)) {
+                        if (jSONObject.getLong(CLICK_TOUCH_TIME) >= j && ((i2 = jSONObject.getInt("dl")) == 0 || i2 == 1 || i2 == 4)) {
                             arrayList.add(key.substring(0, key.indexOf(KEY_SPLIT)));
                         }
                     }

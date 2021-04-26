@@ -12,7 +12,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class ar {
     public static int a(aq aqVar, hl hlVar) {
-        return aqVar.f895a.getInt(a(hlVar), as.f41340a[hlVar.ordinal()] != 1 ? 0 : 1);
+        return aqVar.f895a.getInt(a(hlVar), as.f38884a[hlVar.ordinal()] != 1 ? 0 : 1);
     }
 
     public static String a(hl hlVar) {
@@ -31,16 +31,16 @@ public class ar {
                 if (z && hqVar.f512a) {
                     arrayList.add(new Pair(Integer.valueOf(a2), null));
                 } else {
-                    int i = as.f41341b[a3.ordinal()];
-                    arrayList.add(i != 1 ? i != 2 ? i != 3 ? i != 4 ? null : new Pair(Integer.valueOf(a2), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a2), hqVar.m378a()) : new Pair(Integer.valueOf(a2), Long.valueOf(hqVar.m377a())) : new Pair(Integer.valueOf(a2), Integer.valueOf(hqVar.c())));
+                    int i2 = as.f38885b[a3.ordinal()];
+                    arrayList.add(i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? null : new Pair(Integer.valueOf(a2), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a2), hqVar.m381a()) : new Pair(Integer.valueOf(a2), Long.valueOf(hqVar.m380a())) : new Pair(Integer.valueOf(a2), Integer.valueOf(hqVar.c())));
                 }
             }
         }
         return arrayList;
     }
 
-    public static void a(aq aqVar, hl hlVar, int i) {
-        aqVar.f895a.edit().putInt(a(hlVar), i).commit();
+    public static void a(aq aqVar, hl hlVar, int i2) {
+        aqVar.f895a.edit().putInt(a(hlVar), i2).commit();
     }
 
     public static void a(aq aqVar, ic icVar) {
@@ -50,8 +50,8 @@ public class ar {
 
     public static void a(aq aqVar, id idVar) {
         for (ho hoVar : idVar.a()) {
-            if (hoVar.a() > a(aqVar, hoVar.m373a())) {
-                a(aqVar, hoVar.m373a(), hoVar.a());
+            if (hoVar.a() > a(aqVar, hoVar.m376a())) {
+                a(aqVar, hoVar.m376a(), hoVar.a());
                 aqVar.a(a(hoVar.f504a, false));
             }
         }

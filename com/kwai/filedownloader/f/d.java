@@ -5,7 +5,7 @@ import android.util.Log;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f37396a = false;
+    public static boolean f35118a = false;
 
     public static String a(Object obj) {
         StringBuilder sb = new StringBuilder();
@@ -14,13 +14,13 @@ public class d {
         return sb.toString();
     }
 
-    public static void a(int i, Object obj, String str, Object... objArr) {
-        a(i, obj, null, str, objArr);
+    public static void a(int i2, Object obj, String str, Object... objArr) {
+        a(i2, obj, null, str, objArr);
     }
 
-    public static void a(int i, Object obj, Throwable th, String str, Object... objArr) {
-        if ((i >= 5) || f37396a) {
-            Log.println(i, a(obj), f.a(str, objArr));
+    public static void a(int i2, Object obj, Throwable th, String str, Object... objArr) {
+        if ((i2 >= 5) || f35118a) {
+            Log.println(i2, a(obj), f.a(str, objArr));
             if (th != null) {
                 th.printStackTrace();
             }

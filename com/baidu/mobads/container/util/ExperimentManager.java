@@ -29,11 +29,11 @@ public class ExperimentManager {
                 JSONArray optJSONArray = new JSONObject(optString).optJSONArray(KEY_EXP_ID_ARRAY);
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        if (str.equals(optJSONArray.optString(i))) {
+                    for (int i2 = 0; i2 < length; i2++) {
+                        if (str.equals(optJSONArray.optString(i2))) {
                             return ExpHitStatus.HIT_EXP_ID;
                         }
-                        if (str2.equals(optJSONArray.optString(i))) {
+                        if (str2.equals(optJSONArray.optString(i2))) {
                             return ExpHitStatus.HIT_CTR_ID;
                         }
                     }

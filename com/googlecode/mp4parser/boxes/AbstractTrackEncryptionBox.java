@@ -13,14 +13,14 @@ import java.util.Arrays;
 import java.util.UUID;
 /* loaded from: classes6.dex */
 public abstract class AbstractTrackEncryptionBox extends AbstractFullBox {
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_7 = null;
     public int defaultAlgorithmId;
     public int defaultIvSize;
     public byte[] default_KID;
@@ -99,19 +99,19 @@ public abstract class AbstractTrackEncryptionBox extends AbstractFullBox {
 
     public int hashCode() {
         RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_7, this, this));
-        int i = ((this.defaultAlgorithmId * 31) + this.defaultIvSize) * 31;
+        int i2 = ((this.defaultAlgorithmId * 31) + this.defaultIvSize) * 31;
         byte[] bArr = this.default_KID;
-        return i + (bArr != null ? Arrays.hashCode(bArr) : 0);
+        return i2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
     }
 
-    public void setDefaultAlgorithmId(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i)));
-        this.defaultAlgorithmId = i;
+    public void setDefaultAlgorithmId(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i2)));
+        this.defaultAlgorithmId = i2;
     }
 
-    public void setDefaultIvSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i)));
-        this.defaultIvSize = i;
+    public void setDefaultIvSize(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i2)));
+        this.defaultIvSize = i2;
     }
 
     public void setDefault_KID(byte[] bArr) {

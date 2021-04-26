@@ -19,7 +19,7 @@ public interface DownloadResponse {
 
     void onDownloadPaused();
 
-    void onDownloadProgress(long j, long j2, int i);
+    void onDownloadProgress(long j, long j2, int i2);
 
     void onStarted();
 }

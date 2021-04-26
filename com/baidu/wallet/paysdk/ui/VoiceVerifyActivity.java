@@ -13,14 +13,14 @@ import com.baidu.wallet.utils.BdWalletUtils;
 /* loaded from: classes5.dex */
 public class VoiceVerifyActivity extends WalletSmsActivity {
     @Override // com.baidu.wallet.paysdk.ui.WalletSmsActivity
-    public ISmsController getController(int i) {
-        if (i == 0) {
+    public ISmsController getController(int i2) {
+        if (i2 == 0) {
             return new h();
         }
         return new i();
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.WalletSmsActivity, com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.WalletSmsActivity, com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         String voiceMsg = ((ErrorContentResponse.Verify) getIntent().getSerializableExtra(BeanConstants.EXTRA_VERIFY_VOICE_DATA)).getVoiceMsg();

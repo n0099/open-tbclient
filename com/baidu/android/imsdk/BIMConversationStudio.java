@@ -20,14 +20,14 @@ public class BIMConversationStudio extends BIMConversation {
     public String mCastUrl;
     public boolean mIsReliable;
 
-    public BIMConversationStudio(Context context, BIMManager.CATEGORY category, String str, boolean z, ChatSession chatSession, String str2, int i) {
-        super(context, category, str, chatSession, str2, i);
+    public BIMConversationStudio(Context context, BIMManager.CATEGORY category, String str, boolean z, ChatSession chatSession, String str2, int i2) {
+        super(context, category, str, chatSession, str2, i2);
         this.mCastUrl = null;
         this.mCastId = "";
         this.mIsReliable = false;
         this.mCastService = null;
         this.mCastUrl = str2;
-        this.mCastType = i;
+        this.mCastType = i2;
         this.mCastId = str;
         this.mIsReliable = z;
     }
@@ -90,17 +90,17 @@ public class BIMConversationStudio extends BIMConversation {
     }
 
     @Override // com.baidu.android.imsdk.BIMConversation
-    public void seekCastMessage(int i) {
+    public void seekCastMessage(int i2) {
         UnLoginCastService unLoginCastService = this.mCastService;
         if (unLoginCastService != null) {
-            unLoginCastService.seek(i);
+            unLoginCastService.seek(i2);
         }
     }
 
     @Override // com.baidu.android.imsdk.BIMConversation
-    public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
+    public void sendQuizOpts(long j, long j2, int i2, String str, IMcastSetListener iMcastSetListener) {
         if (this.mCastType == 2) {
-            ConversationStudioManImpl.getInstance(this.mContext).sendQuizOpts(j, j2, i, str, iMcastSetListener);
+            ConversationStudioManImpl.getInstance(this.mContext).sendQuizOpts(j, j2, i2, str, iMcastSetListener);
             return;
         }
         UnLoginCastService unLoginCastService = this.mCastService;
@@ -111,10 +111,10 @@ public class BIMConversationStudio extends BIMConversation {
     }
 
     @Override // com.baidu.android.imsdk.BIMConversation
-    public void setPullInterval(int i) {
+    public void setPullInterval(int i2) {
         UnLoginCastService unLoginCastService = this.mCastService;
         if (unLoginCastService != null) {
-            unLoginCastService.setPullInterval(i);
+            unLoginCastService.setPullInterval(i2);
         }
     }
 
@@ -124,14 +124,14 @@ public class BIMConversationStudio extends BIMConversation {
         if (this.mCastType == 2) {
             ConversationStudioManImpl.getInstance(this.mContext).beginWithCompletion(j, z, new IMcastSetListener() { // from class: com.baidu.android.imsdk.BIMConversationStudio.1
                 @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
-                public void onResult(int i, long j2, long j3) {
-                    if (i == 1316) {
+                public void onResult(int i2, long j2, long j3) {
+                    if (i2 == 1316) {
                         BIMConversationStudio.this.mCastType = 0;
                         BIMConversationStudio bIMConversationStudio = BIMConversationStudio.this;
                         bIMConversationStudio.beginWithCompletion(j, z, bIMConversationStudio.mCastListener);
                     }
                     if (BIMConversationStudio.this.mCastListener != null) {
-                        BIMConversationStudio.this.mCastListener.onResult(i, j2, j3);
+                        BIMConversationStudio.this.mCastListener.onResult(i2, j2, j3);
                     }
                 }
             });

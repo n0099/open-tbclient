@@ -18,25 +18,25 @@ public interface UrlRequest {
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public final TurbonetEngine f22547a;
+        public final TurbonetEngine f23246a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f22548b;
+        public final String f23247b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Callback f22549c;
+        public final Callback f23248c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Executor f22550d;
+        public final Executor f23249d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f22551e;
+        public String f23250e;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f22553g;
+        public boolean f23252g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f22554h;
+        public boolean f23253h;
         public UploadDataProvider k;
         public Executor l;
         public boolean m;
@@ -51,8 +51,10 @@ public interface UrlRequest {
         public String v;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ArrayList<Pair<String, String>> f22552f = new ArrayList<>();
-        public int i = 3;
+        public final ArrayList<Pair<String, String>> f23251f = new ArrayList<>();
+
+        /* renamed from: i  reason: collision with root package name */
+        public int f23254i = 3;
         public Collection<Object> j = Collections.emptyList();
 
         @Retention(RetentionPolicy.SOURCE)
@@ -71,10 +73,10 @@ public interface UrlRequest {
                 throw new NullPointerException("Executor is required.");
             }
             if (turbonetEngine != null) {
-                this.f22548b = str;
-                this.f22549c = callback;
-                this.f22550d = executor;
-                this.f22547a = turbonetEngine;
+                this.f23247b = str;
+                this.f23248c = callback;
+                this.f23249d = executor;
+                this.f23246a = turbonetEngine;
                 this.m = false;
                 this.o = false;
                 this.p = 0;
@@ -96,7 +98,7 @@ public interface UrlRequest {
                         Log.w("cronet", "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
                         return this;
                     }
-                    this.f22552f.add(Pair.create(str, str2));
+                    this.f23251f.add(Pair.create(str, str2));
                     return this;
                 }
                 throw new NullPointerException("Invalid header value.");
@@ -105,57 +107,57 @@ public interface UrlRequest {
         }
 
         public UrlRequest b() {
-            UrlRequest b2 = this.f22547a.b(this.f22548b, this.f22549c, this.f22550d, this.i, this.j, this.f22553g, this.f22554h, this.n);
-            String str = this.f22551e;
+            UrlRequest b2 = this.f23246a.b(this.f23247b, this.f23248c, this.f23249d, this.f23254i, this.j, this.f23252g, this.f23253h, this.n);
+            String str = this.f23250e;
             if (str != null) {
-                b2.g(str);
+                b2.e(str);
             }
-            Iterator<Pair<String, String>> it = this.f22552f.iterator();
+            Iterator<Pair<String, String>> it = this.f23251f.iterator();
             while (it.hasNext()) {
                 Pair<String, String> next = it.next();
                 b2.addHeader((String) next.first, (String) next.second);
             }
             UploadDataProvider uploadDataProvider = this.k;
             if (uploadDataProvider != null) {
-                b2.l(uploadDataProvider, this.l);
+                b2.i(uploadDataProvider, this.l);
             }
             if (this.m) {
-                b2.k();
+                b2.h();
             }
             if (this.o) {
-                b2.j();
+                b2.g();
             }
-            int i = this.p;
-            if (i > 0) {
-                b2.c(i);
-            }
-            int i2 = this.q;
+            int i2 = this.p;
             if (i2 > 0) {
-                b2.h(i2);
+                b2.b(i2);
             }
-            int i3 = this.r;
+            int i3 = this.q;
             if (i3 > 0) {
-                b2.e(i3);
+                b2.l(i3);
             }
-            int i4 = this.s;
+            int i4 = this.r;
             if (i4 > 0) {
-                b2.b(i4);
+                b2.c(i4);
+            }
+            int i5 = this.s;
+            if (i5 > 0) {
+                b2.a(i5);
             }
             Object obj = this.t;
             if (obj != null) {
-                b2.i(obj);
+                b2.f(obj);
             }
             if (!TextUtils.isEmpty(this.u)) {
-                b2.d(this.u);
+                b2.k(this.u);
             }
             if (!TextUtils.isEmpty(this.v)) {
-                b2.a(this.v);
+                b2.j(this.v);
             }
             return b2;
         }
 
         public Builder c() {
-            this.f22553g = true;
+            this.f23252g = true;
             return this;
         }
 
@@ -171,7 +173,7 @@ public interface UrlRequest {
 
         public Builder f(String str) {
             if (str != null) {
-                this.f22551e = str;
+                this.f23250e = str;
                 return this;
             }
             throw new NullPointerException("Method is required.");
@@ -182,26 +184,26 @@ public interface UrlRequest {
             return this;
         }
 
-        public Builder h(int i) {
-            this.r = i;
+        public Builder h(int i2) {
+            this.r = i2;
             return this;
         }
 
-        public Builder i(int i) {
-            this.q = i;
+        public Builder i(int i2) {
+            this.q = i2;
             return this;
         }
 
-        public Builder j(int i) {
-            this.p = i;
+        public Builder j(int i2) {
+            this.p = i2;
             return this;
         }
 
         public Builder k(UploadDataProvider uploadDataProvider, Executor executor) {
             if (uploadDataProvider != null) {
                 if (executor != null) {
-                    if (this.f22551e == null) {
-                        this.f22551e = "POST";
+                    if (this.f23250e == null) {
+                        this.f23250e = "POST";
                     }
                     this.k = uploadDataProvider;
                     this.l = executor;
@@ -242,8 +244,8 @@ public interface UrlRequest {
         public @interface StatusValues {
         }
 
-        public static int a(int i) {
-            switch (i) {
+        public static int a(int i2) {
+            switch (i2) {
                 case 0:
                     return 0;
                 case 1:
@@ -283,38 +285,38 @@ public interface UrlRequest {
 
     /* loaded from: classes5.dex */
     public static abstract class StatusListener {
-        public abstract void a(int i);
+        public abstract void a(int i2);
     }
 
-    void a(String str);
+    void a(int i2);
 
     void addHeader(String str, String str2);
 
-    void b(int i);
+    void b(int i2);
 
-    void c(int i);
+    void c(int i2);
 
     void cancel();
 
-    void d(String str);
+    void d();
 
-    void e(int i);
+    void e(String str);
 
-    void f();
+    void f(Object obj);
 
-    void g(String str);
+    void g();
 
     Object getTag();
 
-    void h(int i);
+    void h();
 
-    void i(Object obj);
+    void i(UploadDataProvider uploadDataProvider, Executor executor);
 
-    void j();
+    void j(String str);
 
-    void k();
+    void k(String str);
 
-    void l(UploadDataProvider uploadDataProvider, Executor executor);
+    void l(int i2);
 
     void read(ByteBuffer byteBuffer);
 

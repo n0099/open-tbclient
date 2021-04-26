@@ -8,23 +8,19 @@ public enum BindWidgetAction {
     UNBIND_MOBILE("/wp/bindwidget-unbindmobile", "解绑手机"),
     UNBIND_EMAIL("/wp/bindwidget-unbindemail", "解绑邮箱");
     
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f11052a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f11053b;
+    public String name;
+    public String uri;
 
     BindWidgetAction(String str, String str2) {
-        this.f11052a = str;
-        this.f11053b = str2;
+        this.uri = str;
+        this.name = str2;
     }
 
     public String getName() {
-        return this.f11053b;
+        return this.name;
     }
 
     public String getUri() {
-        return this.f11052a;
+        return this.uri;
     }
 }

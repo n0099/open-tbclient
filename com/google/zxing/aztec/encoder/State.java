@@ -10,33 +10,33 @@ public final class State {
     public final int mode;
     public final Token token;
 
-    public State(Token token, int i, int i2, int i3) {
+    public State(Token token, int i2, int i3, int i4) {
         this.token = token;
-        this.mode = i;
-        this.binaryShiftByteCount = i2;
-        this.bitCount = i3;
+        this.mode = i2;
+        this.binaryShiftByteCount = i3;
+        this.bitCount = i4;
     }
 
-    public State addBinaryShiftChar(int i) {
+    public State addBinaryShiftChar(int i2) {
         Token token = this.token;
-        int i2 = this.mode;
-        int i3 = this.bitCount;
-        if (i2 == 4 || i2 == 2) {
-            int i4 = HighLevelEncoder.LATCH_TABLE[i2][0];
-            int i5 = 65535 & i4;
-            int i6 = i4 >> 16;
-            token = token.add(i5, i6);
-            i3 += i6;
-            i2 = 0;
+        int i3 = this.mode;
+        int i4 = this.bitCount;
+        if (i3 == 4 || i3 == 2) {
+            int i5 = HighLevelEncoder.LATCH_TABLE[i3][0];
+            int i6 = 65535 & i5;
+            int i7 = i5 >> 16;
+            token = token.add(i6, i7);
+            i4 += i7;
+            i3 = 0;
         }
-        int i7 = this.binaryShiftByteCount;
-        State state = new State(token, i2, this.binaryShiftByteCount + 1, i3 + ((i7 == 0 || i7 == 31) ? 18 : i7 == 62 ? 9 : 8));
-        return state.binaryShiftByteCount == 2078 ? state.endBinaryShift(i + 1) : state;
+        int i8 = this.binaryShiftByteCount;
+        State state = new State(token, i3, this.binaryShiftByteCount + 1, i4 + ((i8 == 0 || i8 == 31) ? 18 : i8 == 62 ? 9 : 8));
+        return state.binaryShiftByteCount == 2078 ? state.endBinaryShift(i2 + 1) : state;
     }
 
-    public State endBinaryShift(int i) {
-        int i2 = this.binaryShiftByteCount;
-        return i2 == 0 ? this : new State(this.token.addBinaryShift(i - i2, i2), this.mode, 0, this.bitCount);
+    public State endBinaryShift(int i2) {
+        int i3 = this.binaryShiftByteCount;
+        return i3 == 0 ? this : new State(this.token.addBinaryShift(i2 - i3, i3), this.mode, 0, this.bitCount);
     }
 
     public int getBinaryShiftByteCount() {
@@ -56,34 +56,34 @@ public final class State {
     }
 
     public boolean isBetterThanOrEqualTo(State state) {
-        int i;
-        int i2 = this.bitCount + (HighLevelEncoder.LATCH_TABLE[this.mode][state.mode] >> 16);
-        int i3 = state.binaryShiftByteCount;
-        if (i3 > 0 && ((i = this.binaryShiftByteCount) == 0 || i > i3)) {
-            i2 += 10;
+        int i2;
+        int i3 = this.bitCount + (HighLevelEncoder.LATCH_TABLE[this.mode][state.mode] >> 16);
+        int i4 = state.binaryShiftByteCount;
+        if (i4 > 0 && ((i2 = this.binaryShiftByteCount) == 0 || i2 > i4)) {
+            i3 += 10;
         }
-        return i2 <= state.bitCount;
+        return i3 <= state.bitCount;
     }
 
-    public State latchAndAppend(int i, int i2) {
-        int i3 = this.bitCount;
+    public State latchAndAppend(int i2, int i3) {
+        int i4 = this.bitCount;
         Token token = this.token;
-        int i4 = this.mode;
-        if (i != i4) {
-            int i5 = HighLevelEncoder.LATCH_TABLE[i4][i];
-            int i6 = 65535 & i5;
-            int i7 = i5 >> 16;
-            token = token.add(i6, i7);
-            i3 += i7;
+        int i5 = this.mode;
+        if (i2 != i5) {
+            int i6 = HighLevelEncoder.LATCH_TABLE[i5][i2];
+            int i7 = 65535 & i6;
+            int i8 = i6 >> 16;
+            token = token.add(i7, i8);
+            i4 += i8;
         }
-        int i8 = i == 2 ? 4 : 5;
-        return new State(token.add(i2, i8), i, 0, i3 + i8);
+        int i9 = i2 == 2 ? 4 : 5;
+        return new State(token.add(i3, i9), i2, 0, i4 + i9);
     }
 
-    public State shiftAndAppend(int i, int i2) {
+    public State shiftAndAppend(int i2, int i3) {
         Token token = this.token;
-        int i3 = this.mode == 2 ? 4 : 5;
-        return new State(token.add(HighLevelEncoder.SHIFT_TABLE[this.mode][i], i3).add(i2, 5), this.mode, 0, this.bitCount + i3 + 5);
+        int i4 = this.mode == 2 ? 4 : 5;
+        return new State(token.add(HighLevelEncoder.SHIFT_TABLE[this.mode][i2], i4).add(i3, 5), this.mode, 0, this.bitCount + i4 + 5);
     }
 
     public BitArray toBitArray(byte[] bArr) {

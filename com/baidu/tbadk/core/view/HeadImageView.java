@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class HeadImageView extends TbClipImageView {
     public String A0;
@@ -51,58 +51,49 @@ public class HeadImageView extends TbClipImageView {
         setConrers(15);
     }
 
-    @Override // android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
-        if (canvas == null) {
-            return;
-        }
-        g0(canvas);
-    }
-
-    public void g0(Canvas canvas) {
+    public void d0(Canvas canvas) {
         if (!this.z0 || this.y0 <= 0) {
             return;
         }
-        int i = this.R0;
-        if (i != 0) {
-            Drawable drawable = SkinManager.getDrawable(i);
+        int i2 = this.R0;
+        if (i2 != 0) {
+            Drawable drawable = SkinManager.getDrawable(i2);
             if (drawable == null) {
                 return;
             }
-            int i2 = this.S0;
-            int i3 = this.y0;
-            int i4 = this.x0;
-            int i5 = this.T0;
-            drawable.setBounds((i2 - i3) - i4, (i5 - i3) - i4, i2 - i4, i5 - i4);
+            int i3 = this.S0;
+            int i4 = this.y0;
+            int i5 = this.x0;
+            int i6 = this.T0;
+            drawable.setBounds((i3 - i4) - i5, (i6 - i4) - i5, i3 - i5, i6 - i5);
             drawable.draw(canvas);
             return;
         }
-        int i6 = this.Q0;
-        if (i6 != 0) {
-            Drawable bjhBigVIconDrawable = UtilHelper.getBjhBigVIconDrawable(i6);
+        int i7 = this.Q0;
+        if (i7 != 0) {
+            Drawable bjhBigVIconDrawable = UtilHelper.getBjhBigVIconDrawable(i7);
             if (bjhBigVIconDrawable == null) {
                 return;
             }
-            int i7 = this.S0;
-            int i8 = this.y0;
-            int i9 = this.x0;
-            int i10 = this.T0;
-            bjhBigVIconDrawable.setBounds((i7 - i8) - i9, (i10 - i8) - i9, i7 - i9, i10 - i9);
+            int i8 = this.S0;
+            int i9 = this.y0;
+            int i10 = this.x0;
+            int i11 = this.T0;
+            bjhBigVIconDrawable.setBounds((i8 - i9) - i10, (i11 - i9) - i10, i8 - i10, i11 - i10);
             bjhBigVIconDrawable.draw(canvas);
             return;
         }
-        int i11 = this.P0;
-        if (i11 != 0) {
-            Drawable drawable2 = SkinManager.getDrawable(i11);
+        int i12 = this.P0;
+        if (i12 != 0) {
+            Drawable drawable2 = SkinManager.getDrawable(i12);
             if (drawable2 == null) {
                 return;
             }
-            int i12 = this.S0;
-            int i13 = this.y0;
-            int i14 = this.x0;
-            int i15 = this.T0;
-            drawable2.setBounds((i12 - i13) - i14, (i15 - i13) - i14, i12 - i14, i15 - i14);
+            int i13 = this.S0;
+            int i14 = this.y0;
+            int i15 = this.x0;
+            int i16 = this.T0;
+            drawable2.setBounds((i13 - i14) - i15, (i16 - i14) - i15, i13 - i15, i16 - i15);
             drawable2.draw(canvas);
             return;
         }
@@ -110,12 +101,21 @@ public class HeadImageView extends TbClipImageView {
         if (bjhBigVIconDrawable2 == null) {
             return;
         }
-        int i16 = this.S0;
-        int i17 = this.y0;
-        int i18 = this.x0;
-        int i19 = this.T0;
-        bjhBigVIconDrawable2.setBounds((i16 - i17) - i18, (i19 - i17) - i18, i16 - i18, i19 - i18);
+        int i17 = this.S0;
+        int i18 = this.y0;
+        int i19 = this.x0;
+        int i20 = this.T0;
+        bjhBigVIconDrawable2.setBounds((i17 - i18) - i19, (i20 - i18) - i19, i17 - i19, i20 - i19);
         bjhBigVIconDrawable2.draw(canvas);
+    }
+
+    @Override // android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+        if (canvas == null) {
+            return;
+        }
+        d0(canvas);
     }
 
     public AlaInfoData getAlaInfo() {
@@ -156,8 +156,8 @@ public class HeadImageView extends TbClipImageView {
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.BDImageView, android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
         this.S0 = getWidth();
         this.T0 = getHeight();
     }
@@ -166,12 +166,12 @@ public class HeadImageView extends TbClipImageView {
         this.U0 = alaInfoData;
     }
 
-    public void setBazhuIconRes(int i) {
-        this.P0 = i;
+    public void setBazhuIconRes(int i2) {
+        this.P0 = i2;
     }
 
-    public void setBjhAuthIconRes(int i) {
-        this.Q0 = i;
+    public void setBjhAuthIconRes(int i2) {
+        this.Q0 = i2;
     }
 
     public void setFName(String str) {
@@ -182,25 +182,25 @@ public class HeadImageView extends TbClipImageView {
         this.C0 = str;
     }
 
-    public void setFloor(int i) {
-        this.L0 = i;
+    public void setFloor(int i2) {
+        this.L0 = i2;
     }
 
-    public void setGodIconMargin(int i) {
+    public void setGodIconMargin(int i2) {
         setIsRound(true);
-        if (i > 0) {
-            this.x0 = l.g(getContext(), i);
+        if (i2 > 0) {
+            this.x0 = l.g(getContext(), i2);
         }
         invalidate();
     }
 
-    public void setGodIconResId(int i) {
-        this.O0 = i;
+    public void setGodIconResId(int i2) {
+        this.O0 = i2;
     }
 
-    public void setGodIconWidth(int i) {
-        if (i > 0) {
-            this.y0 = l.g(getContext(), i);
+    public void setGodIconWidth(int i2) {
+        if (i2 > 0) {
+            this.y0 = l.g(getContext(), i2);
         }
         invalidate();
     }
@@ -220,12 +220,12 @@ public class HeadImageView extends TbClipImageView {
         invalidate();
     }
 
-    public void setLiveStatus(int i) {
-        this.V0 = i;
+    public void setLiveStatus(int i2) {
+        this.V0 = i2;
     }
 
-    public void setOfficialIconResId(int i) {
-        this.R0 = i;
+    public void setOfficialIconResId(int i2) {
+        this.R0 = i2;
     }
 
     public void setShowV(boolean z) {
@@ -257,8 +257,8 @@ public class HeadImageView extends TbClipImageView {
         setContentDescription(str2);
     }
 
-    public HeadImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public HeadImageView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.x0 = 0;
         this.y0 = 0;
         this.z0 = false;

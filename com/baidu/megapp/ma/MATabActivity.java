@@ -29,7 +29,7 @@ public abstract class MATabActivity extends TabActivity {
     public void remapStartActivityIntent(Intent intent) {
     }
 
-    public void setMABottomToolBarVisibility(int i) {
-        Log.d(TAG, "setMABottomToolBarVisibility = " + i);
+    public void setMABottomToolBarVisibility(int i2) {
+        Log.d(TAG, "setMABottomToolBarVisibility = " + i2);
     }
 }

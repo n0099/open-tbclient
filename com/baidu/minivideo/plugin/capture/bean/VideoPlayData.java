@@ -23,8 +23,8 @@ public class VideoPlayData implements Jsonable, Parcelable, Serializable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public VideoPlayData[] newArray(int i) {
-            return new VideoPlayData[i];
+        public VideoPlayData[] newArray(int i2) {
+            return new VideoPlayData[i2];
         }
     };
     public int end;
@@ -90,8 +90,8 @@ public class VideoPlayData implements Jsonable, Parcelable, Serializable {
         }
     }
 
-    public void setInsertIndex(int i) {
-        this.insertIndex = i;
+    public void setInsertIndex(int i2) {
+        this.insertIndex = i2;
     }
 
     public void setMaterialId(String str) {
@@ -120,12 +120,12 @@ public class VideoPlayData implements Jsonable, Parcelable, Serializable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.videoPath);
         parcel.writeInt(this.offset);
         parcel.writeInt(this.start);
         parcel.writeInt(this.end);
-        parcel.writeParcelable(this.next, i);
+        parcel.writeParcelable(this.next, i2);
         parcel.writeByte(this.isOriginal ? (byte) 1 : (byte) 0);
         parcel.writeInt(this.insertIndex);
         parcel.writeInt(this.rotation);
@@ -134,10 +134,10 @@ public class VideoPlayData implements Jsonable, Parcelable, Serializable {
         parcel.writeString(this.mMaterialId);
     }
 
-    public VideoPlayData(String str, int i, int i2, boolean z) {
+    public VideoPlayData(String str, int i2, int i3, boolean z) {
         this.videoPath = str;
-        this.start = i;
-        this.end = i2;
+        this.start = i2;
+        this.end = i3;
         this.isOriginal = z;
     }
 

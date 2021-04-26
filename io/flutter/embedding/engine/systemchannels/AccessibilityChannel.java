@@ -83,9 +83,9 @@ public class AccessibilityChannel {
     public interface AccessibilityMessageHandler extends FlutterJNI.AccessibilityDelegate {
         void announce(@NonNull String str);
 
-        void onLongPress(int i);
+        void onLongPress(int i2);
 
-        void onTap(int i);
+        void onTap(int i2);
 
         void onTooltip(@NonNull String str);
     }
@@ -97,8 +97,8 @@ public class AccessibilityChannel {
         this.flutterJNI = flutterJNI;
     }
 
-    public void dispatchSemanticsAction(int i, @NonNull AccessibilityBridge.Action action) {
-        this.flutterJNI.dispatchSemanticsAction(i, action);
+    public void dispatchSemanticsAction(int i2, @NonNull AccessibilityBridge.Action action) {
+        this.flutterJNI.dispatchSemanticsAction(i2, action);
     }
 
     public void onAndroidAccessibilityDisabled() {
@@ -109,8 +109,8 @@ public class AccessibilityChannel {
         this.flutterJNI.setSemanticsEnabled(true);
     }
 
-    public void setAccessibilityFeatures(int i) {
-        this.flutterJNI.setAccessibilityFeatures(i);
+    public void setAccessibilityFeatures(int i2) {
+        this.flutterJNI.setAccessibilityFeatures(i2);
     }
 
     public void setAccessibilityMessageHandler(@Nullable AccessibilityMessageHandler accessibilityMessageHandler) {
@@ -118,7 +118,7 @@ public class AccessibilityChannel {
         this.flutterJNI.setAccessibilityDelegate(accessibilityMessageHandler);
     }
 
-    public void dispatchSemanticsAction(int i, @NonNull AccessibilityBridge.Action action, @Nullable Object obj) {
-        this.flutterJNI.dispatchSemanticsAction(i, action, obj);
+    public void dispatchSemanticsAction(int i2, @NonNull AccessibilityBridge.Action action, @Nullable Object obj) {
+        this.flutterJNI.dispatchSemanticsAction(i2, action, obj);
     }
 }

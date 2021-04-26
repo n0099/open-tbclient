@@ -1,5 +1,6 @@
 package androidx.appcompat.content.res;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
@@ -13,10 +14,11 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatDrawableManager;
+import androidx.appcompat.widget.ResourceManagerInternal;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ColorStateListInflaterCompat;
 import java.util.WeakHashMap;
+@SuppressLint({"RestrictedAPI"})
 /* loaded from: classes.dex */
 public final class AppCompatResources {
     public static final String LOG_TAG = "AppCompatResources";
@@ -35,51 +37,51 @@ public final class AppCompatResources {
         }
     }
 
-    public static void addColorStateListToCache(@NonNull Context context, @ColorRes int i, @NonNull ColorStateList colorStateList) {
+    public static void addColorStateListToCache(@NonNull Context context, @ColorRes int i2, @NonNull ColorStateList colorStateList) {
         synchronized (sColorStateCacheLock) {
             SparseArray<ColorStateListCacheEntry> sparseArray = sColorStateCaches.get(context);
             if (sparseArray == null) {
                 sparseArray = new SparseArray<>();
                 sColorStateCaches.put(context, sparseArray);
             }
-            sparseArray.append(i, new ColorStateListCacheEntry(colorStateList, context.getResources().getConfiguration()));
+            sparseArray.append(i2, new ColorStateListCacheEntry(colorStateList, context.getResources().getConfiguration()));
         }
     }
 
     @Nullable
-    public static ColorStateList getCachedColorStateList(@NonNull Context context, @ColorRes int i) {
+    public static ColorStateList getCachedColorStateList(@NonNull Context context, @ColorRes int i2) {
         ColorStateListCacheEntry colorStateListCacheEntry;
         synchronized (sColorStateCacheLock) {
             SparseArray<ColorStateListCacheEntry> sparseArray = sColorStateCaches.get(context);
-            if (sparseArray != null && sparseArray.size() > 0 && (colorStateListCacheEntry = sparseArray.get(i)) != null) {
+            if (sparseArray != null && sparseArray.size() > 0 && (colorStateListCacheEntry = sparseArray.get(i2)) != null) {
                 if (colorStateListCacheEntry.configuration.equals(context.getResources().getConfiguration())) {
                     return colorStateListCacheEntry.value;
                 }
-                sparseArray.remove(i);
+                sparseArray.remove(i2);
             }
             return null;
         }
     }
 
-    public static ColorStateList getColorStateList(@NonNull Context context, @ColorRes int i) {
+    public static ColorStateList getColorStateList(@NonNull Context context, @ColorRes int i2) {
         if (Build.VERSION.SDK_INT >= 23) {
-            return context.getColorStateList(i);
+            return context.getColorStateList(i2);
         }
-        ColorStateList cachedColorStateList = getCachedColorStateList(context, i);
+        ColorStateList cachedColorStateList = getCachedColorStateList(context, i2);
         if (cachedColorStateList != null) {
             return cachedColorStateList;
         }
-        ColorStateList inflateColorStateList = inflateColorStateList(context, i);
+        ColorStateList inflateColorStateList = inflateColorStateList(context, i2);
         if (inflateColorStateList != null) {
-            addColorStateListToCache(context, i, inflateColorStateList);
+            addColorStateListToCache(context, i2, inflateColorStateList);
             return inflateColorStateList;
         }
-        return ContextCompat.getColorStateList(context, i);
+        return ContextCompat.getColorStateList(context, i2);
     }
 
     @Nullable
-    public static Drawable getDrawable(@NonNull Context context, @DrawableRes int i) {
-        return AppCompatDrawableManager.get().getDrawable(context, i);
+    public static Drawable getDrawable(@NonNull Context context, @DrawableRes int i2) {
+        return ResourceManagerInternal.get().getDrawable(context, i2);
     }
 
     @NonNull
@@ -94,24 +96,24 @@ public final class AppCompatResources {
     }
 
     @Nullable
-    public static ColorStateList inflateColorStateList(Context context, int i) {
-        if (isColorInt(context, i)) {
+    public static ColorStateList inflateColorStateList(Context context, int i2) {
+        if (isColorInt(context, i2)) {
             return null;
         }
         Resources resources = context.getResources();
         try {
-            return ColorStateListInflaterCompat.createFromXml(resources, resources.getXml(i), context.getTheme());
+            return ColorStateListInflaterCompat.createFromXml(resources, resources.getXml(i2), context.getTheme());
         } catch (Exception e2) {
             Log.e(LOG_TAG, "Failed to inflate ColorStateList, leaving it to the framework", e2);
             return null;
         }
     }
 
-    public static boolean isColorInt(@NonNull Context context, @ColorRes int i) {
+    public static boolean isColorInt(@NonNull Context context, @ColorRes int i2) {
         Resources resources = context.getResources();
         TypedValue typedValue = getTypedValue();
-        resources.getValue(i, typedValue, true);
-        int i2 = typedValue.type;
-        return i2 >= 28 && i2 <= 31;
+        resources.getValue(i2, typedValue, true);
+        int i3 = typedValue.type;
+        return i3 >= 28 && i3 <= 31;
     }
 }

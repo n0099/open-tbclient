@@ -5,10 +5,12 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.core.view.ViewCompat;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ButtonBarLayout extends LinearLayout {
     public static final int PEEK_BUTTON_DP = 16;
@@ -16,22 +18,23 @@ public class ButtonBarLayout extends LinearLayout {
     public int mLastWidthSize;
     public int mMinimumHeight;
 
-    public ButtonBarLayout(Context context, AttributeSet attributeSet) {
+    public ButtonBarLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mLastWidthSize = -1;
         this.mMinimumHeight = 0;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ButtonBarLayout);
+        ViewCompat.saveAttributeDataForStyleable(this, context, R.styleable.ButtonBarLayout, attributeSet, obtainStyledAttributes, 0, 0);
         this.mAllowStacking = obtainStyledAttributes.getBoolean(R.styleable.ButtonBarLayout_allowStacking, true);
         obtainStyledAttributes.recycle();
     }
 
-    private int getNextVisibleChildIndex(int i) {
+    private int getNextVisibleChildIndex(int i2) {
         int childCount = getChildCount();
-        while (i < childCount) {
-            if (getChildAt(i).getVisibility() == 0) {
-                return i;
+        while (i2 < childCount) {
+            if (getChildAt(i2).getVisibility() == 0) {
+                return i2;
             }
-            i++;
+            i2++;
         }
         return -1;
     }
@@ -58,25 +61,25 @@ public class ButtonBarLayout extends LinearLayout {
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        int i3;
+    public void onMeasure(int i2, int i3) {
+        int i4;
         boolean z;
-        int size = View.MeasureSpec.getSize(i);
-        int i4 = 0;
+        int size = View.MeasureSpec.getSize(i2);
+        int i5 = 0;
         if (this.mAllowStacking) {
             if (size > this.mLastWidthSize && isStacked()) {
                 setStacked(false);
             }
             this.mLastWidthSize = size;
         }
-        if (isStacked() || View.MeasureSpec.getMode(i) != 1073741824) {
-            i3 = i;
+        if (isStacked() || View.MeasureSpec.getMode(i2) != 1073741824) {
+            i4 = i2;
             z = false;
         } else {
-            i3 = View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE);
+            i4 = View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE);
             z = true;
         }
-        super.onMeasure(i3, i2);
+        super.onMeasure(i4, i3);
         if (this.mAllowStacking && !isStacked()) {
             if ((getMeasuredWidthAndState() & (-16777216)) == 16777216) {
                 setStacked(true);
@@ -84,7 +87,7 @@ public class ButtonBarLayout extends LinearLayout {
             }
         }
         if (z) {
-            super.onMeasure(i, i2);
+            super.onMeasure(i2, i3);
         }
         int nextVisibleChildIndex = getNextVisibleChildIndex(0);
         if (nextVisibleChildIndex >= 0) {
@@ -96,13 +99,13 @@ public class ButtonBarLayout extends LinearLayout {
                 if (nextVisibleChildIndex2 >= 0) {
                     paddingTop += getChildAt(nextVisibleChildIndex2).getPaddingTop() + ((int) (getResources().getDisplayMetrics().density * 16.0f));
                 }
-                i4 = paddingTop;
+                i5 = paddingTop;
             } else {
-                i4 = paddingTop + getPaddingBottom();
+                i5 = paddingTop + getPaddingBottom();
             }
         }
-        if (ViewCompat.getMinimumHeight(this) != i4) {
-            setMinimumHeight(i4);
+        if (ViewCompat.getMinimumHeight(this) != i5) {
+            setMinimumHeight(i5);
         }
     }
 

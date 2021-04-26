@@ -14,27 +14,27 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import d.b.i0.r.q.a2;
-import d.b.i0.z0.l;
-import d.b.j0.b0.g;
+import d.a.i0.r.q.a2;
+import d.a.i0.z0.l;
+import d.a.j0.b0.g;
 /* loaded from: classes.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public g f4567e;
+    public g f4669e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4568f;
+    public int f4670f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f4569g;
+    public int f4671g;
 
     public UnfollowedDecorView(Context context) {
         this(context, null);
     }
 
     public void a(a2 a2Var) {
-        this.f4567e.h(a2Var);
+        this.f4669e.h(a2Var);
         if (!ThreadCardUtils.isSelf(a2Var) && a2Var.Y1()) {
             setVisibility(0);
         } else {
@@ -52,8 +52,8 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         return null;
     }
 
-    public void c() {
-        setImageDrawable(WebPManager.getPureDrawable(this.f4568f, SkinManager.getColor(this.f4569g), WebPManager.ResourceStateType.NORMAL_PRESS));
+    public void i() {
+        setImageDrawable(WebPManager.getPureDrawable(this.f4670f, SkinManager.getColor(this.f4671g), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     @Override // android.view.View.OnClickListener
@@ -61,24 +61,24 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         if (l.a()) {
             return;
         }
-        this.f4567e.n();
+        this.f4669e.n();
     }
 
-    public void setWebPResId(int i, int i2) {
-        this.f4568f = i;
-        this.f4569g = i2;
-        setImageDrawable(WebPManager.getPureDrawable(i, SkinManager.getColor(i2), WebPManager.ResourceStateType.NORMAL_PRESS));
+    public void setWebPResId(int i2, int i3) {
+        this.f4670f = i2;
+        this.f4671g = i3;
+        setImageDrawable(WebPManager.getPureDrawable(i2, SkinManager.getColor(i3), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f4568f = R.drawable.icon_pure_card_more22;
-        this.f4569g = R.color.CAM_X0111;
-        this.f4567e = new g(b((Activity) context), this);
+    public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f4670f = R.drawable.icon_pure_card_more22;
+        this.f4671g = R.color.CAM_X0111;
+        this.f4669e = new g(b((Activity) context), this);
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_more22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));

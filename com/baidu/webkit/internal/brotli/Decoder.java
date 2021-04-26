@@ -16,15 +16,15 @@ public class Decoder implements INoProGuard {
     public boolean eager;
     public final ReadableByteChannel source;
 
-    public Decoder(ReadableByteChannel readableByteChannel, int i) throws IOException {
-        if (i <= 0) {
+    public Decoder(ReadableByteChannel readableByteChannel, int i2) throws IOException {
+        if (i2 <= 0) {
             throw new IllegalArgumentException("buffer size must be positive");
         }
         if (readableByteChannel == null) {
             throw new NullPointerException("source can not be null");
         }
         this.source = readableByteChannel;
-        this.decoder = new DecoderJNI.Wrapper(i);
+        this.decoder = new DecoderJNI.Wrapper(i2);
     }
 
     public static byte[] decompress(byte[] bArr) throws IOException {
@@ -33,12 +33,12 @@ public class Decoder implements INoProGuard {
         try {
             wrapper.getInputBuffer().put(bArr);
             wrapper.push(bArr.length);
-            int i = 0;
+            int i2 = 0;
             while (wrapper.getStatus() != DecoderJNI.a.DONE) {
-                int i2 = a.f26603a[wrapper.getStatus().ordinal()];
-                if (i2 == 2) {
+                int i3 = a.f27410a[wrapper.getStatus().ordinal()];
+                if (i3 == 2) {
                     wrapper.push(0);
-                } else if (i2 != 4) {
+                } else if (i3 != 4) {
                     throw new IOException("corrupted input");
                 } else {
                     ByteBuffer pull = wrapper.pull();
@@ -46,20 +46,20 @@ public class Decoder implements INoProGuard {
                     byte[] bArr2 = new byte[remaining];
                     pull.get(bArr2);
                     arrayList.add(bArr2);
-                    i += remaining;
+                    i2 += remaining;
                 }
             }
             wrapper.destroy();
             if (arrayList.size() == 1) {
                 return (byte[]) arrayList.get(0);
             }
-            byte[] bArr3 = new byte[i];
+            byte[] bArr3 = new byte[i2];
             Iterator it = arrayList.iterator();
-            int i3 = 0;
+            int i4 = 0;
             while (it.hasNext()) {
                 byte[] bArr4 = (byte[]) it.next();
-                System.arraycopy(bArr4, 0, bArr3, i3, bArr4.length);
-                i3 += bArr4.length;
+                System.arraycopy(bArr4, 0, bArr3, i4, bArr4.length);
+                i4 += bArr4.length;
             }
             return bArr3;
         } catch (Throwable th) {
@@ -104,14 +104,14 @@ public class Decoder implements INoProGuard {
                 }
                 this.buffer = null;
             }
-            int i = a.f26603a[this.decoder.getStatus().ordinal()];
-            if (i == 1) {
+            int i2 = a.f27410a[this.decoder.getStatus().ordinal()];
+            if (i2 == 1) {
                 return -1;
             }
-            if (i == 2) {
+            if (i2 == 2) {
                 this.decoder.push(0);
-            } else if (i != 3) {
-                if (i != 4) {
+            } else if (i2 != 3) {
+                if (i2 != 4) {
                     fail("corrupted input");
                 } else {
                     this.buffer = this.decoder.pull();
@@ -134,9 +134,9 @@ public class Decoder implements INoProGuard {
         }
     }
 
-    public void discard(int i) {
+    public void discard(int i2) {
         ByteBuffer byteBuffer = this.buffer;
-        byteBuffer.position(byteBuffer.position() + i);
+        byteBuffer.position(byteBuffer.position() + i2);
         if (this.buffer.hasRemaining()) {
             return;
         }

@@ -11,9 +11,9 @@ public class SwallowResultProducer<T> implements Producer<Void> {
     public void produceResults(Consumer<Void> consumer, ProducerContext producerContext) {
         this.mInputProducer.produceResults(new DelegatingConsumer<T, Void>(consumer) { // from class: com.facebook.imagepipeline.producers.SwallowResultProducer.1
             @Override // com.facebook.imagepipeline.producers.BaseConsumer
-            public void onNewResultImpl(T t, int i) {
-                if (BaseConsumer.isLast(i)) {
-                    getConsumer().onNewResult(null, i);
+            public void onNewResultImpl(T t, int i2) {
+                if (BaseConsumer.isLast(i2)) {
+                    getConsumer().onNewResult(null, i2);
                 }
             }
         }, producerContext);

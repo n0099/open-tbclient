@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
 import com.baidu.tbadk.switchs.EncSigNewSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.StringU;
-import d.b.c.e.j.b.a;
-import d.b.c.e.p.q;
-import d.b.i0.f0.f;
-import d.b.i0.r.l.c;
-import d.b.i0.r.q.q0;
-import d.b.i0.s.a.b;
+import d.a.c.e.j.b.a;
+import d.a.c.e.p.q;
+import d.a.i0.f0.f;
+import d.a.i0.r.l.c;
+import d.a.i0.r.q.q0;
+import d.a.i0.s.a.b;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -46,8 +46,8 @@ public class NetWork {
     private void addSign() {
         StringBuffer stringBuffer = new StringBuffer(1024);
         ArrayList<BasicNameValuePair> postData = this.mNet.getPostData();
-        for (int i = 0; postData != null && i < postData.size(); i++) {
-            BasicNameValuePair basicNameValuePair = postData.get(i);
+        for (int i2 = 0; postData != null && i2 < postData.size(); i2++) {
+            BasicNameValuePair basicNameValuePair = postData.get(i2);
             if (basicNameValuePair != null) {
                 String name = basicNameValuePair.getName();
                 String value = basicNameValuePair.getValue();
@@ -55,7 +55,7 @@ public class NetWork {
                 stringBuffer.append(value);
             }
         }
-        stringBuffer.append(SIGN_SUFFIX);
+        stringBuffer.append("tiebaclient!!!");
         this.mNet.addPostData("sign", q.c(stringBuffer.toString()));
         if (this.netContext.getRequest().mNeedSig) {
             this.mNet.addPostData("sig", StringU.b(stringBuffer.toString()));
@@ -97,7 +97,7 @@ public class NetWork {
     private q0 login(String str, String str2, boolean z) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                d.b.i0.r.z.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                d.a.i0.r.z.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                 TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                 StringBuilder sb = new StringBuilder(32);
                 sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -140,7 +140,7 @@ public class NetWork {
                         }
                         c.g(accountData);
                         TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
-                        d.b.i0.r.z.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                        d.a.i0.r.z.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                         TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                         return q0Var;
                     }
@@ -167,27 +167,27 @@ public class NetWork {
         if (currentBduss != null) {
             ArrayList<BasicNameValuePair> postData = this.mNet.getPostData();
             int size = postData.size();
-            for (int i = 0; i < size; i++) {
-                BasicNameValuePair basicNameValuePair3 = postData.get(i);
+            for (int i2 = 0; i2 < size; i2++) {
+                BasicNameValuePair basicNameValuePair3 = postData.get(i2);
                 if (basicNameValuePair3.getName().equals(HttpRequest.BDUSS)) {
-                    postData.set(i, basicNameValuePair);
+                    postData.set(i2, basicNameValuePair);
                 } else if (basicNameValuePair3.getName().equals(HttpRequest.TBS)) {
-                    postData.set(i, basicNameValuePair2);
+                    postData.set(i2, basicNameValuePair2);
                 }
             }
         }
     }
 
-    private String process(int i) {
+    private String process(int i2) {
         String netString;
         this.netContext.getRequest().mNeedSig = this.mNeedSig && EncSigNewSwitch.isOn();
-        if (i == 1) {
+        if (i2 == 1) {
             if (getNetContext().getRequest().mIsNeedAddCommenParam) {
                 this.netContext.getRequest().addCommonParam(this.mNet);
             }
             addStatisticsDataParam();
             netString = this.mNet.getNetString();
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             if (getNetContext().getRequest().mIsUseCurrentBDUSS) {
                 getNetContext().getRequest().addBdussData(this.mNet);
             }
@@ -196,7 +196,7 @@ public class NetWork {
             }
             addStatisticsDataParam();
             netString = this.mNet.postNetData();
-        } else if (i != 3) {
+        } else if (i2 != 3) {
             return null;
         } else {
             if (getNetContext().getRequest().mIsUseCurrentBDUSS) {
@@ -239,31 +239,31 @@ public class NetWork {
                         this.netContext.getResponse().mErrorString = str;
                         return netString;
                     }
-                    netString = process_second(i);
+                    netString = process_second(i2);
                 } else {
                     sendLoginMessage();
                     return null;
                 }
             }
-            d.b.j0.x0.a.b(this);
+            d.a.j0.x0.a.b(this);
             return netString;
         }
     }
 
-    private String process_second(int i) {
+    private String process_second(int i2) {
         String netString;
-        int i2;
+        int i3;
         modSessionData();
-        if (i == 1) {
+        if (i2 == 1) {
             netString = this.mNet.getNetString();
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             netString = this.mNet.postNetData();
-        } else if (i != 3) {
+        } else if (i2 != 3) {
             return null;
         } else {
             netString = this.mNet.postMultiNetData();
         }
-        if (this.netContext.getResponse().isNetSuccess() && ((i2 = this.netContext.getResponse().mServerErrorCode) == 1 || i2 == 2 || i2 == 5)) {
+        if (this.netContext.getResponse().isNetSuccess() && ((i3 = this.netContext.getResponse().mServerErrorCode) == 1 || i3 == 2 || i3 == 5)) {
             sendLoginMessage();
             this.netContext.getResponse().mErrorString = "";
             return null;
@@ -273,7 +273,7 @@ public class NetWork {
 
     private void removeAccount(AccountData accountData) {
         b b2;
-        if (TextUtils.isEmpty(accountData.getID()) || (b2 = d.b.i0.s.a.a.b()) == null) {
+        if (TextUtils.isEmpty(accountData.getID()) || (b2 = d.a.i0.s.a.a.b()) == null) {
             return;
         }
         b2.c(accountData);
@@ -299,8 +299,8 @@ public class NetWork {
         }
     }
 
-    public boolean downloadFile(String str, Handler handler, int i) {
-        return downloadFile(str, handler, i, 5, 100);
+    public boolean downloadFile(String str, Handler handler, int i2) {
+        return downloadFile(str, handler, i2, 5, 100);
     }
 
     public String getErrorString() {
@@ -319,7 +319,7 @@ public class NetWork {
     }
 
     public long getNetDataSize() {
-        return this.netContext.getStat().stat.f42516b;
+        return this.netContext.getStat().stat.f39713b;
     }
 
     public int getNetErrorCode() {
@@ -444,17 +444,17 @@ public class NetWork {
         this.mNet.addPostData(basicNameValuePair);
     }
 
-    public boolean downloadFile(String str, Handler handler, int i, int i2, int i3) {
-        return downloadFile(str, handler, i, i2, i3, false);
+    public boolean downloadFile(String str, Handler handler, int i2, int i3, int i4) {
+        return downloadFile(str, handler, i2, i3, i4, false);
     }
 
     public void addPostData(String str, byte[] bArr) {
         this.mNet.addPostData(str, bArr);
     }
 
-    public boolean downloadFile(String str, Handler handler, int i, int i2, int i3, boolean z) {
+    public boolean downloadFile(String str, Handler handler, int i2, int i3, int i4, boolean z) {
         getNetContext().getRequest().addBdussData(this.mNet);
-        return this.mNet.downloadFile(str, handler, i, i2, i3, z);
+        return this.mNet.downloadFile(str, handler, i2, i3, i4, z);
     }
 
     public NetWork(String str) {

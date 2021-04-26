@@ -19,8 +19,8 @@ public final class Settings {
         Arrays.fill(this.values, 0);
     }
 
-    public int get(int i) {
-        return this.values[i];
+    public int get(int i2) {
+        return this.values[i2];
     }
 
     public boolean getEnablePush(boolean z) {
@@ -41,36 +41,36 @@ public final class Settings {
         return 65535;
     }
 
-    public int getMaxConcurrentStreams(int i) {
-        return (this.set & 16) != 0 ? this.values[4] : i;
+    public int getMaxConcurrentStreams(int i2) {
+        return (this.set & 16) != 0 ? this.values[4] : i2;
     }
 
-    public int getMaxFrameSize(int i) {
-        return (this.set & 32) != 0 ? this.values[5] : i;
+    public int getMaxFrameSize(int i2) {
+        return (this.set & 32) != 0 ? this.values[5] : i2;
     }
 
-    public int getMaxHeaderListSize(int i) {
-        return (this.set & 64) != 0 ? this.values[6] : i;
+    public int getMaxHeaderListSize(int i2) {
+        return (this.set & 64) != 0 ? this.values[6] : i2;
     }
 
-    public boolean isSet(int i) {
-        return ((1 << i) & this.set) != 0;
+    public boolean isSet(int i2) {
+        return ((1 << i2) & this.set) != 0;
     }
 
     public void merge(Settings settings) {
-        for (int i = 0; i < 10; i++) {
-            if (settings.isSet(i)) {
-                set(i, settings.get(i));
+        for (int i2 = 0; i2 < 10; i2++) {
+            if (settings.isSet(i2)) {
+                set(i2, settings.get(i2));
             }
         }
     }
 
-    public Settings set(int i, int i2) {
-        if (i >= 0) {
+    public Settings set(int i2, int i3) {
+        if (i2 >= 0) {
             int[] iArr = this.values;
-            if (i < iArr.length) {
-                this.set = (1 << i) | this.set;
-                iArr[i] = i2;
+            if (i2 < iArr.length) {
+                this.set = (1 << i2) | this.set;
+                iArr[i2] = i3;
             }
         }
         return this;

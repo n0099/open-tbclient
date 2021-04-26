@@ -12,11 +12,11 @@ public class LruMemoryCache implements MemoryCache {
     public final int maxSize;
     public int size;
 
-    public LruMemoryCache(int i) {
-        if (i <= 0) {
+    public LruMemoryCache(int i2) {
+        if (i2 <= 0) {
             throw new IllegalArgumentException("maxSize <= 0");
         }
-        this.maxSize = i;
+        this.maxSize = i2;
         this.map = new LinkedHashMap<>(0, 0.75f, true);
     }
 
@@ -30,12 +30,12 @@ public class LruMemoryCache implements MemoryCache {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void trimToSize(int i) {
+    private void trimToSize(int i2) {
         Map.Entry<String, DecodedResult> next;
         while (true) {
             synchronized (this) {
                 if (this.size >= 0 && (!this.map.isEmpty() || this.size == 0)) {
-                    if (this.size <= i || this.map.isEmpty() || (next = this.map.entrySet().iterator().next()) == null) {
+                    if (this.size <= i2 || this.map.isEmpty() || (next = this.map.entrySet().iterator().next()) == null) {
                         break;
                     }
                     String key = next.getKey();

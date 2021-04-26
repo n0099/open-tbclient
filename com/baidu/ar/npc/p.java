@@ -5,18 +5,18 @@ import com.baidu.ar.npc.ArBridge;
 public class p implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ArBridge.c f4235a;
+    public final /* synthetic */ ArBridge.c f4305a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ ArBridge f4236b;
+    public final /* synthetic */ ArBridge f4306b;
 
     public p(ArBridge arBridge, ArBridge.c cVar) {
-        this.f4236b = arBridge;
-        this.f4235a = cVar;
+        this.f4306b = arBridge;
+        this.f4305a = cVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f4235a.a(null);
+        this.f4305a.a(null);
     }
 }

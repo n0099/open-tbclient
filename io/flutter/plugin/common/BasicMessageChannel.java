@@ -81,8 +81,8 @@ public final class BasicMessageChannel<T> {
         this.codec = messageCodec;
     }
 
-    public void resizeChannelBuffer(int i) {
-        resizeChannelBuffer(this.messenger, this.name, i);
+    public void resizeChannelBuffer(int i2) {
+        resizeChannelBuffer(this.messenger, this.name, i2);
     }
 
     public void send(@Nullable T t) {
@@ -94,8 +94,8 @@ public final class BasicMessageChannel<T> {
         this.messenger.setMessageHandler(this.name, messageHandler != null ? new IncomingMessageHandler(messageHandler) : null);
     }
 
-    public static void resizeChannelBuffer(@NonNull BinaryMessenger binaryMessenger, @NonNull String str, int i) {
-        binaryMessenger.send(CHANNEL_BUFFERS_CHANNEL, ByteBuffer.wrap(String.format(Locale.US, "resize\r%s\r%d", str, Integer.valueOf(i)).getBytes(Charset.forName("UTF-8"))));
+    public static void resizeChannelBuffer(@NonNull BinaryMessenger binaryMessenger, @NonNull String str, int i2) {
+        binaryMessenger.send(CHANNEL_BUFFERS_CHANNEL, ByteBuffer.wrap(String.format(Locale.US, "resize\r%s\r%d", str, Integer.valueOf(i2)).getBytes(Charset.forName("UTF-8"))));
     }
 
     @UiThread

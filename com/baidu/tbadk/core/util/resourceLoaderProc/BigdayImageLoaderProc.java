@@ -8,12 +8,12 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
-import d.b.c.e.a.f.c;
-import d.b.c.e.l.b;
-import d.b.c.e.l.d;
-import d.b.c.e.l.e;
-import d.b.c.e.p.j;
-import d.b.c.j.d.a;
+import d.a.c.e.a.f.c;
+import d.a.c.e.l.b;
+import d.a.c.e.l.d;
+import d.a.c.e.l.e;
+import d.a.c.e.p.j;
+import d.a.c.j.d.a;
 /* loaded from: classes3.dex */
 public class BigdayImageLoaderProc implements e<a> {
     public static boolean isImageFileExist(String str) {
@@ -34,17 +34,17 @@ public class BigdayImageLoaderProc implements e<a> {
         return null;
     }
 
-    @Override // d.b.c.e.l.e
+    @Override // d.a.c.e.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         return ImageLoadSpeedRecorder.sharedInstance().getAsyncTaskParallel();
     }
 
-    @Override // d.b.c.e.l.e
+    @Override // d.a.c.e.l.e
     public int getAsyncTaskPriority() {
         return 1;
     }
 
-    @Override // d.b.c.e.l.e
+    @Override // d.a.c.e.l.e
     public boolean isNeedLoad() {
         return true;
     }
@@ -52,21 +52,21 @@ public class BigdayImageLoaderProc implements e<a> {
     public void storeLocal(String str, byte[] bArr, Object... objArr) {
     }
 
-    @Override // d.b.c.e.l.e
-    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
+    @Override // d.a.c.e.l.e
+    public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
         if (obj == null || !(obj instanceof a)) {
             return;
         }
         a aVar = (a) obj;
         if (aVar.u()) {
-            d.b.i0.a0.c.k().d(str, aVar);
+            d.a.i0.a0.c.k().d(str, aVar);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.c.e.l.e
-    public a getFromLocal(String str, String str2, int i, int i2, b bVar, Object... objArr) {
+    @Override // d.a.c.e.l.e
+    public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         byte[] bArr = new byte[0];
         c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.READ);
         cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
@@ -77,14 +77,14 @@ public class BigdayImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f42585a = diskCancelWorker;
+            bVar.f39786a = diskCancelWorker;
         }
         boolean H = j.H();
-        if (d.b.c.e.a.d.g().a(cVar)) {
-            int i3 = H ? 300 : 2000;
+        if (d.a.c.e.a.d.g().a(cVar)) {
+            int i4 = H ? 300 : 2000;
             synchronized (bArr) {
                 try {
-                    bArr.wait(i3);
+                    bArr.wait(i4);
                 } catch (InterruptedException unused) {
                 }
             }
@@ -103,36 +103,36 @@ public class BigdayImageLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.c.e.l.e
-    public a getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
-        return d.b.i0.a0.c.k().m(str);
+    @Override // d.a.c.e.l.e
+    public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
+        return d.a.i0.a0.c.k().m(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.c.e.l.e
-    public a getFromRemote(String str, String str2, int i, int i2, b bVar, Object... objArr) {
+    @Override // d.a.c.e.l.e
+    public a getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         WebClient webClient = new WebClient();
         if (bVar != null) {
-            bVar.f42585a = webClient;
+            bVar.f39786a = webClient;
         }
         byte[] downloadImageBytes = webClient.downloadImageBytes(str, false);
         boolean needCache = webClient.needCache();
-        if ((downloadImageBytes != null || webClient.getResponse().f42534a) && needCache && !webClient.isCrackPic) {
+        if ((downloadImageBytes != null || webClient.getResponse().f39732a) && needCache && !webClient.isCrackPic) {
             c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
             cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
             cVar.setData(downloadImageBytes);
             cVar.setSdCard(false);
             cVar.setSavedCache(true);
             cVar.setGif(false);
-            d.b.c.e.a.d.g().a(cVar);
+            d.a.c.e.a.d.g().a(cVar);
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(cVar);
-                bVar.f42585a = diskCancelWorker;
+                bVar.f39786a = diskCancelWorker;
             }
         }
         return null;

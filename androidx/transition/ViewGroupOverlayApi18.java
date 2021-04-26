@@ -21,11 +21,6 @@ public class ViewGroupOverlayApi18 implements ViewGroupOverlayImpl {
     }
 
     @Override // androidx.transition.ViewOverlayImpl
-    public void clear() {
-        this.mViewGroupOverlay.clear();
-    }
-
-    @Override // androidx.transition.ViewOverlayImpl
     public void remove(@NonNull Drawable drawable) {
         this.mViewGroupOverlay.remove(drawable);
     }

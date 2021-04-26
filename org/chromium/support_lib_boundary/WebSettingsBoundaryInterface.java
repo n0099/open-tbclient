@@ -7,7 +7,7 @@ public interface WebSettingsBoundaryInterface {
 
     boolean getSafeBrowsingEnabled();
 
-    void setDisabledActionModeMenuItems(int i);
+    void setDisabledActionModeMenuItems(int i2);
 
     void setOffscreenPreRaster(boolean z);
 

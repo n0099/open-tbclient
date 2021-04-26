@@ -30,8 +30,8 @@ public class BDAnimationManager {
     public void startAnimations(View view) {
         try {
             this.animationSet = new AnimationSet(true);
-            for (int i = 0; i < this.mAnimations.size(); i++) {
-                this.animationSet.addAnimation(this.mAnimations.get(i).animation);
+            for (int i2 = 0; i2 < this.mAnimations.size(); i2++) {
+                this.animationSet.addAnimation(this.mAnimations.get(i2).animation);
             }
             view.startAnimation(this.animationSet);
         } catch (Throwable th) {
@@ -43,9 +43,9 @@ public class BDAnimationManager {
         try {
             this.animatorSet = new AnimatorSet();
             ObjectAnimator objectAnimator = null;
-            for (int i = 0; i < this.mAnimations.size(); i++) {
-                BDAnimation bDAnimation = this.mAnimations.get(i);
-                if (i == 0) {
+            for (int i2 = 0; i2 < this.mAnimations.size(); i2++) {
+                BDAnimation bDAnimation = this.mAnimations.get(i2);
+                if (i2 == 0) {
                     this.animatorSet.play(bDAnimation.animator);
                 } else {
                     this.animatorSet.play(bDAnimation.animator).with(objectAnimator);

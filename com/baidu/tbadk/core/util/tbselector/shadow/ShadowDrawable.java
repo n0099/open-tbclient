@@ -80,11 +80,11 @@ public class ShadowDrawable extends Drawable {
         }
         if (this.mShape == 1) {
             RectF rectF = this.mRect;
-            int i = this.mShapeRadius;
-            canvas.drawRoundRect(rectF, i, i, this.mShadowPaint);
-            RectF rectF2 = this.mRect;
             int i2 = this.mShapeRadius;
-            canvas.drawRoundRect(rectF2, i2, i2, this.mBgPaint);
+            canvas.drawRoundRect(rectF, i2, i2, this.mShadowPaint);
+            RectF rectF2 = this.mRect;
+            int i3 = this.mShapeRadius;
+            canvas.drawRoundRect(rectF2, i3, i3, this.mBgPaint);
             return;
         }
         canvas.drawCircle(this.mRect.centerX(), this.mRect.centerY(), Math.min(this.mRect.width(), this.mRect.height()) / 2.0f, this.mShadowPaint);
@@ -110,8 +110,8 @@ public class ShadowDrawable extends Drawable {
         if (this.mShape == 1) {
             this.mRect = new RectF(rect.left + ((this.mShadowSide & 1) == 1 ? this.mShadowRadius - this.mOffsetX : -this.mShapeRadius), rect.top + ((this.mShadowSide & 16) == 16 ? this.mShadowRadius - this.mOffsetY : -this.mShapeRadius), rect.right - ((this.mShadowSide & 256) == 256 ? this.mShadowRadius + this.mOffsetX : -this.mShapeRadius), rect.bottom - ((this.mShadowSide & 4096) == 4096 ? this.mShadowRadius + this.mOffsetY : -this.mShapeRadius));
         } else {
-            int i = this.mShadowRadius;
-            this.mRect = new RectF(rect.left + i, rect.top + i, rect.right - i, rect.bottom - i);
+            int i2 = this.mShadowRadius;
+            this.mRect = new RectF(rect.left + i2, rect.top + i2, rect.right - i2, rect.bottom - i2);
         }
         int[] iArr = this.mBgColor;
         if (iArr == null || iArr.length <= 1) {
@@ -125,12 +125,12 @@ public class ShadowDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(@IntRange(from = 0, to = 255) int i) {
-        this.mShadowPaint.setAlpha(i);
+    public void setAlpha(@IntRange(from = 0, to = 255) int i2) {
+        this.mShadowPaint.setAlpha(i2);
     }
 
-    public ShadowDrawable setBgColor(@ColorRes int i) {
-        this.mBgColor[0] = SelectorHelper.getColor(i);
+    public ShadowDrawable setBgColor(@ColorRes int i2) {
+        this.mBgColor[0] = SelectorHelper.getColor(i2);
         return this;
     }
 
@@ -139,65 +139,65 @@ public class ShadowDrawable extends Drawable {
         this.mShadowPaint.setColorFilter(colorFilter);
     }
 
-    public ShadowDrawable setOffsetX(int i) {
-        this.mOffsetX = i;
-        this.mShadowPaint.setShadowLayer(this.mShadowRadius, i, this.mOffsetY, this.mShadowColor);
-        return this;
-    }
-
-    public ShadowDrawable setOffsetY(int i) {
-        this.mOffsetY = i;
-        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, i, this.mShadowColor);
-        return this;
-    }
-
-    public ShadowDrawable setShadowAlpha(@IntRange(from = 0, to = 255) int i) {
-        setAlpha(i);
-        return this;
-    }
-
-    public ShadowDrawable setShadowColor(@ColorRes int i) {
-        int color = SelectorHelper.getColor(i);
-        this.mShadowColor = color;
-        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, color);
-        return this;
-    }
-
-    public ShadowDrawable setShadowLayer(int i, int i2, int i3, int i4) {
-        int color = SelectorHelper.getColor(i);
-        this.mShadowColor = color;
-        this.mShadowRadius = i4;
+    public ShadowDrawable setOffsetX(int i2) {
         this.mOffsetX = i2;
-        this.mOffsetY = i3;
-        this.mShadowPaint.setShadowLayer(i4, i2, i3, color);
+        this.mShadowPaint.setShadowLayer(this.mShadowRadius, i2, this.mOffsetY, this.mShadowColor);
         return this;
     }
 
-    public ShadowDrawable setShadowOpacity(int i, float f2) {
-        int color = SelectorHelper.getColor(i, f2);
+    public ShadowDrawable setOffsetY(int i2) {
+        this.mOffsetY = i2;
+        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, i2, this.mShadowColor);
+        return this;
+    }
+
+    public ShadowDrawable setShadowAlpha(@IntRange(from = 0, to = 255) int i2) {
+        setAlpha(i2);
+        return this;
+    }
+
+    public ShadowDrawable setShadowColor(@ColorRes int i2) {
+        int color = SelectorHelper.getColor(i2);
         this.mShadowColor = color;
         this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, color);
         return this;
     }
 
-    public ShadowDrawable setShadowRadius(int i) {
-        this.mShadowRadius = i;
-        this.mShadowPaint.setShadowLayer(i, this.mOffsetX, this.mOffsetY, this.mShadowColor);
+    public ShadowDrawable setShadowLayer(int i2, int i3, int i4, int i5) {
+        int color = SelectorHelper.getColor(i2);
+        this.mShadowColor = color;
+        this.mShadowRadius = i5;
+        this.mOffsetX = i3;
+        this.mOffsetY = i4;
+        this.mShadowPaint.setShadowLayer(i5, i3, i4, color);
         return this;
     }
 
-    public ShadowDrawable setShadowSide(@ShadowSide int i) {
-        this.mShadowSide = i;
+    public ShadowDrawable setShadowOpacity(int i2, float f2) {
+        int color = SelectorHelper.getColor(i2, f2);
+        this.mShadowColor = color;
+        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, color);
         return this;
     }
 
-    public ShadowDrawable setShape(@Shape int i) {
-        this.mShape = i;
+    public ShadowDrawable setShadowRadius(int i2) {
+        this.mShadowRadius = i2;
+        this.mShadowPaint.setShadowLayer(i2, this.mOffsetX, this.mOffsetY, this.mShadowColor);
         return this;
     }
 
-    public ShadowDrawable setShapeRadius(int i) {
-        this.mShapeRadius = i;
+    public ShadowDrawable setShadowSide(@ShadowSide int i2) {
+        this.mShadowSide = i2;
+        return this;
+    }
+
+    public ShadowDrawable setShape(@Shape int i2) {
+        this.mShape = i2;
+        return this;
+    }
+
+    public ShadowDrawable setShapeRadius(int i2) {
+        this.mShapeRadius = i2;
         return this;
     }
 
@@ -209,8 +209,8 @@ public class ShadowDrawable extends Drawable {
     public ShadowDrawable setBgColor(@ColorRes int[] iArr) {
         int length = iArr.length;
         int[] iArr2 = new int[length];
-        for (int i = 0; i < length; i++) {
-            iArr2[i] = SelectorHelper.getColor(iArr[i]);
+        for (int i2 = 0; i2 < length; i2++) {
+            iArr2[i2] = SelectorHelper.getColor(iArr[i2]);
         }
         this.mBgColor = iArr2;
         return this;
@@ -223,19 +223,19 @@ public class ShadowDrawable extends Drawable {
         return this;
     }
 
-    public ShadowDrawable setShadowLayer(int i, float f2, int i2, int i3, int i4) {
-        this.mShadowRadius = i4;
-        this.mOffsetX = i2;
-        this.mOffsetY = i3;
-        setShadowOpacity(i, f2);
+    public ShadowDrawable setShadowLayer(int i2, float f2, int i3, int i4, int i5) {
+        this.mShadowRadius = i5;
+        this.mOffsetX = i3;
+        this.mOffsetY = i4;
+        setShadowOpacity(i2, f2);
         return this;
     }
 
     public ShadowDrawable setBgColor(String[] strArr) {
         int length = strArr.length;
         int[] iArr = new int[length];
-        for (int i = 0; i < length; i++) {
-            iArr[i] = SelectorHelper.parseColor(strArr[i]);
+        for (int i2 = 0; i2 < length; i2++) {
+            iArr[i2] = SelectorHelper.parseColor(strArr[i2]);
         }
         this.mBgColor = iArr;
         return this;

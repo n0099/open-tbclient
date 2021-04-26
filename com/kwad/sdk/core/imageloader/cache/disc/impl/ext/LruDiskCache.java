@@ -28,41 +28,41 @@ public class LruDiskCache implements DiskCache {
         this(file, null, fileNameGenerator, j, 0);
     }
 
-    public LruDiskCache(File file, File file2, FileNameGenerator fileNameGenerator, long j, int i) {
+    public LruDiskCache(File file, File file2, FileNameGenerator fileNameGenerator, long j, int i2) {
         this.bufferSize = 32768;
         this.compressFormat = DEFAULT_COMPRESS_FORMAT;
         this.compressQuality = 100;
         if (file == null) {
             throw new IllegalArgumentException("cacheDir argument must be not null");
         }
-        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i2 < 0) {
+        int i3 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i3 < 0) {
             throw new IllegalArgumentException("cacheMaxSize argument must be positive number");
         }
-        if (i < 0) {
+        if (i2 < 0) {
             throw new IllegalArgumentException("cacheMaxFileCount argument must be positive number");
         }
         if (fileNameGenerator == null) {
             throw new IllegalArgumentException("fileNameGenerator argument must be not null");
         }
-        long j2 = i2 == 0 ? Long.MAX_VALUE : j;
-        int i3 = i == 0 ? Integer.MAX_VALUE : i;
+        long j2 = i3 == 0 ? Long.MAX_VALUE : j;
+        int i4 = i2 == 0 ? Integer.MAX_VALUE : i2;
         this.reserveCacheDir = file2;
         this.fileNameGenerator = fileNameGenerator;
-        initCache(file, file2, j2, i3);
+        initCache(file, file2, j2, i4);
     }
 
     private String getKey(String str) {
         return this.fileNameGenerator.generate(str);
     }
 
-    private void initCache(File file, File file2, long j, int i) {
+    private void initCache(File file, File file2, long j, int i2) {
         try {
-            this.cache = DiskLruCache.open(file, 1, 1, j, i);
+            this.cache = DiskLruCache.open(file, 1, 1, j, i2);
         } catch (IOException e2) {
             L.e(e2);
             if (file2 != null) {
-                initCache(file2, null, j, i);
+                initCache(file2, null, j, i2);
             }
             if (this.cache == null) {
                 throw e2;
@@ -199,15 +199,15 @@ public class LruDiskCache implements DiskCache {
         }
     }
 
-    public void setBufferSize(int i) {
-        this.bufferSize = i;
+    public void setBufferSize(int i2) {
+        this.bufferSize = i2;
     }
 
     public void setCompressFormat(Bitmap.CompressFormat compressFormat) {
         this.compressFormat = compressFormat;
     }
 
-    public void setCompressQuality(int i) {
-        this.compressQuality = i;
+    public void setCompressQuality(int i2) {
+        this.compressQuality = i2;
     }
 }

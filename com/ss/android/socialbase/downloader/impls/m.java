@@ -12,21 +12,21 @@ import com.ss.android.socialbase.downloader.i.f;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.model.a;
 import com.ss.android.socialbase.downloader.model.b;
-import d.p.a.e.b.g.e;
-import d.p.a.e.b.m.o;
+import d.o.a.e.b.g.e;
+import d.o.a.e.b.m.o;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class m extends h.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39304a = m.class.getSimpleName();
+    public static final String f36894a = m.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.p.a.e.b.g.m f39305b = new o(true);
+    public final d.o.a.e.b.g.m f36895b = new o(true);
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public void a(a aVar) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
@@ -34,175 +34,175 @@ public class m extends h.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public boolean b(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public boolean b(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return false;
         }
-        return mVar.b(i);
+        return mVar.b(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void c(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void c(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.c(i);
+        mVar.c(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void d(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void d(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.d(i);
+        mVar.d(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public long e(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public long e(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return 0L;
         }
-        return mVar.e(i);
+        return mVar.e(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public int f(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public int f(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return 0;
         }
-        return mVar.f(i);
+        return mVar.f(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public boolean g(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public boolean g(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return false;
         }
-        return mVar.g(i);
+        return mVar.g(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public DownloadInfo h(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public DownloadInfo h(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return null;
         }
-        return mVar.h(i);
+        return mVar.h(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public List<b> i(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public List<b> i(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return null;
         }
-        return mVar.i(i);
+        return mVar.i(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void j(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void j(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.j(i);
+        mVar.j(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public boolean k(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public boolean k(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return false;
         }
-        return mVar.l(i);
+        return mVar.l(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void l(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void l(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.k(i);
+        mVar.k(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public int m(int i) throws RemoteException {
-        return e.c().m(i);
+    public int m(int i2) throws RemoteException {
+        return e.c().m(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public boolean n(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public boolean n(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return false;
         }
-        return mVar.n(i);
+        return mVar.n(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void o(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void o(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.o(i);
+        mVar.o(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public boolean p(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public boolean p(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return false;
         }
-        return mVar.p(i);
+        return mVar.p(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public aa q(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public aa q(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return null;
         }
-        return f.c(mVar.q(i));
+        return f.c(mVar.q(i2));
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public ag r(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public ag r(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return null;
         }
-        return f.e(mVar.r(i));
+        return f.e(mVar.r(i2));
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public g s(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public g s(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return null;
         }
-        return f.l(mVar.s(i));
+        return f.l(mVar.s(i2));
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void a(int i) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void a(int i2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.a(i);
+        mVar.a(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public DownloadInfo b(String str, String str2) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return null;
         }
@@ -211,7 +211,7 @@ public class m extends h.a {
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public List<DownloadInfo> c(String str) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return null;
         }
@@ -220,7 +220,7 @@ public class m extends h.a {
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public List<DownloadInfo> d(String str) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return null;
         }
@@ -229,7 +229,7 @@ public class m extends h.a {
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public boolean e() throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return false;
         }
@@ -237,17 +237,17 @@ public class m extends h.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void a(int i, boolean z) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void a(int i2, boolean z) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.a(i, z);
+        mVar.a(i2, z);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public List<DownloadInfo> b(String str) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return null;
         }
@@ -255,22 +255,22 @@ public class m extends h.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void c(int i, boolean z) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void c(int i2, boolean z) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.b(i, z);
+        mVar.b(i2, z);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void d(int i, boolean z) throws RemoteException {
-        e.c().r(i, z);
+    public void d(int i2, boolean z) throws RemoteException {
+        e.c().r(i2, z);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public List<DownloadInfo> e(String str) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return null;
         }
@@ -279,7 +279,7 @@ public class m extends h.a {
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public void d() throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
@@ -288,7 +288,7 @@ public class m extends h.a {
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public void a() throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
@@ -297,7 +297,7 @@ public class m extends h.a {
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public void b(List<String> list) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar != null) {
             mVar.b(list);
         }
@@ -305,7 +305,7 @@ public class m extends h.a {
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public boolean c() throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return false;
         }
@@ -314,7 +314,7 @@ public class m extends h.a {
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public List<DownloadInfo> a(String str) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return null;
         }
@@ -322,17 +322,17 @@ public class m extends h.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void b(int i, boolean z) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void b(int i2, boolean z) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.b(i, z);
+        mVar.b(i2, z);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public int a(String str, String str2) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return 0;
         }
@@ -340,17 +340,17 @@ public class m extends h.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void b(int i, int i2, i iVar, int i3, boolean z) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void b(int i2, int i3, i iVar, int i4, boolean z) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.f(i, i2, f.b(iVar), d.p.a.e.b.l.e.D0(i3), z);
+        mVar.f(i2, i3, f.b(iVar), d.o.a.e.b.l.e.D0(i4), z);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public void a(List<String> list) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
@@ -359,7 +359,7 @@ public class m extends h.a {
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public boolean b() throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return false;
         }
@@ -367,17 +367,17 @@ public class m extends h.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void a(int i, int i2, i iVar, int i3, boolean z) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void a(int i2, int i3, i iVar, int i4, boolean z) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.g(i, i2, f.b(iVar), d.p.a.e.b.l.e.D0(i3), z);
+        mVar.g(i2, i3, f.b(iVar), d.o.a.e.b.l.e.D0(i4), z);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public boolean b(DownloadInfo downloadInfo) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return false;
         }
@@ -385,26 +385,26 @@ public class m extends h.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void a(int i, int i2, i iVar, int i3, boolean z, boolean z2) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void a(int i2, int i3, i iVar, int i4, boolean z, boolean z2) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.c(i, i2, f.b(iVar), d.p.a.e.b.l.e.D0(i3), z, z2);
+        mVar.d(i2, i3, f.b(iVar), d.o.a.e.b.l.e.D0(i4), z, z2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void b(int i, List<b> list) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void b(int i2, List<b> list) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.a(i, list);
+        mVar.a(i2, list);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public boolean a(DownloadInfo downloadInfo) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return false;
         }
@@ -412,17 +412,17 @@ public class m extends h.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void a(int i, Notification notification) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void a(int i2, Notification notification) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.a(i, notification);
+        mVar.a(i2, notification);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public void a(boolean z) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
@@ -430,17 +430,17 @@ public class m extends h.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void a(int i, long j) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void a(int i2, long j) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.a(i, j);
+        mVar.a(i2, j);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public void a(b bVar) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
@@ -448,65 +448,65 @@ public class m extends h.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void a(int i, int i2, long j) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void a(int i2, int i3, long j) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.a(i, i2, j);
+        mVar.a(i2, i3, j);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void a(int i, int i2, int i3, long j) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void a(int i2, int i3, int i4, long j) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.a(i, i2, i3, j);
+        mVar.a(i2, i3, i4, j);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void a(int i, int i2, int i3, int i4) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void a(int i2, int i3, int i4, int i5) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.a(i, i2, i3, i4);
+        mVar.a(i2, i3, i4, i5);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void a(int i, List<b> list) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void a(int i2, List<b> list) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.b(i, list);
+        mVar.b(i2, list);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
     public void a(ak akVar) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.d(f.i(akVar));
+        mVar.e(f.i(akVar));
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void a(int i, int i2) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void a(int i2, int i3) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.a(i, i2);
+        mVar.a(i2, i3);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public void a(int i, aa aaVar) throws RemoteException {
-        d.p.a.e.b.g.m mVar = this.f39305b;
+    public void a(int i2, aa aaVar) throws RemoteException {
+        d.o.a.e.b.g.m mVar = this.f36895b;
         if (mVar == null) {
             return;
         }
-        mVar.b(i, f.d(aaVar));
+        mVar.c(i2, f.d(aaVar));
     }
 }

@@ -9,34 +9,36 @@ import java.lang.ref.WeakReference;
 public class CountDownTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21144e;
+    public int f21736e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21145f;
+    public String f21737f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f21146g;
+    public c f21738g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f21147h;
-    public final Runnable i;
+    public Handler f21739h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final Runnable f21740i;
 
     /* loaded from: classes5.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final WeakReference<CountDownTextView> f21148e;
+        public final WeakReference<CountDownTextView> f21741e;
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.f21148e.get();
+            CountDownTextView countDownTextView = this.f21741e.get();
             if (countDownTextView != null) {
                 countDownTextView.b(1);
             }
         }
 
         public b(CountDownTextView countDownTextView) {
-            this.f21148e = new WeakReference<>(countDownTextView);
+            this.f21741e = new WeakReference<>(countDownTextView);
         }
     }
 
@@ -47,39 +49,39 @@ public class CountDownTextView extends TextView {
 
     public CountDownTextView(Context context) {
         super(context);
-        this.f21144e = 0;
-        this.f21145f = "";
-        this.f21146g = null;
-        this.f21147h = new Handler();
-        this.i = new b();
+        this.f21736e = 0;
+        this.f21737f = "";
+        this.f21738g = null;
+        this.f21739h = new Handler();
+        this.f21740i = new b();
     }
 
-    public final void b(int i) {
-        int i2 = this.f21144e - i;
-        this.f21144e = i2;
-        if (i2 == 0) {
-            c cVar = this.f21146g;
+    public final void b(int i2) {
+        int i3 = this.f21736e - i2;
+        this.f21736e = i3;
+        if (i3 == 0) {
+            c cVar = this.f21738g;
             if (cVar != null) {
                 cVar.a(this);
             }
-            this.f21147h.removeCallbacksAndMessages(null);
+            this.f21739h.removeCallbacksAndMessages(null);
             return;
         }
-        if (i2 > 0) {
-            setText(String.format("%s %s", this.f21145f, Integer.valueOf(i2)));
+        if (i3 > 0) {
+            setText(String.format("%s %s", this.f21737f, Integer.valueOf(i3)));
         }
-        this.f21147h.removeCallbacks(this.i);
-        this.f21147h.postDelayed(this.i, 1000L);
+        this.f21739h.removeCallbacks(this.f21740i);
+        this.f21739h.postDelayed(this.f21740i, 1000L);
     }
 
     public final void c() {
-        this.f21147h.removeCallbacksAndMessages(null);
+        this.f21739h.removeCallbacksAndMessages(null);
     }
 
-    public void d(String str, int i) {
-        this.f21145f = str;
-        if (i > 0) {
-            this.f21144e = i;
+    public void d(String str, int i2) {
+        this.f21737f = str;
+        if (i2 > 0) {
+            this.f21736e = i2;
         }
     }
 
@@ -96,9 +98,9 @@ public class CountDownTextView extends TextView {
     }
 
     @Override // android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
-        if (i == 0) {
+    public void onWindowVisibilityChanged(int i2) {
+        super.onWindowVisibilityChanged(i2);
+        if (i2 == 0) {
             b(0);
         } else {
             c();
@@ -106,6 +108,6 @@ public class CountDownTextView extends TextView {
     }
 
     public void setTimeoutListener(c cVar) {
-        this.f21146g = cVar;
+        this.f21738g = cVar;
     }
 }

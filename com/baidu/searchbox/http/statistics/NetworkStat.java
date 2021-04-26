@@ -31,7 +31,7 @@ public interface NetworkStat<T> {
 
     void onStartExecute(T t, long j);
 
-    void onStatusCode(T t, int i);
+    void onStatusCode(T t, int i2);
 
-    void setNetEngine(T t, int i);
+    void setNetEngine(T t, int i2);
 }

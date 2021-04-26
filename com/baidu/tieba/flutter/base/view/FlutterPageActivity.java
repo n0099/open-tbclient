@@ -39,15 +39,15 @@ import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 import com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate;
 import com.idlefish.flutterboost.containers.FlutterSplashView;
 import com.idlefish.flutterboost.containers.ViewSplashScreen;
-import d.b.c.a.g;
-import d.b.c.a.h;
-import d.b.c.e.p.l;
-import d.b.i0.a.r;
-import d.b.i0.k0.a;
-import d.b.i0.k0.b;
-import d.b.i0.k0.d;
-import d.b.i0.k0.e;
-import d.b.i0.r.c;
+import d.a.c.a.g;
+import d.a.c.a.h;
+import d.a.c.e.p.l;
+import d.a.i0.a.r;
+import d.a.i0.k0.a;
+import d.a.i0.k0.b;
+import d.a.i0.k0.d;
+import d.a.i0.k0.e;
+import d.a.i0.r.c;
 import io.flutter.embedding.android.SplashScreen;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,7 +58,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     public static int flog = 1;
     public static Class<? extends TbPageContext> mClazz4GetPageContext = FlutterActivityPageContext.class;
     public long lastResumeTime;
-    public d.b.i0.r.a mLayoutInflateFactory;
+    public d.a.i0.r.a mLayoutInflateFactory;
     public c mLayoutMode;
     public SwipeBackLayout mSwipeBackLayout;
     public TbPageContext<T> pageContext;
@@ -96,7 +96,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         r.a(motionEvent, getPageId(), 0L);
-        d.b.j0.i3.a.getInstance().behaviorRecordEvent(motionEvent, this);
+        d.a.j0.i3.a.getInstance().behaviorRecordEvent(motionEvent, this);
         try {
             return super.dispatchTouchEvent(motionEvent);
         } catch (Exception e2) {
@@ -111,7 +111,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
 
     @Override // android.app.Activity
     public void finish() {
-        l.w(getApplicationContext(), getWindow().getDecorView());
+        l.x(getApplicationContext(), getWindow().getDecorView());
         super.finish();
         closeAnimation();
     }
@@ -130,16 +130,16 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         hashMap.put("native_view_cost", Long.valueOf(this.creatTime));
         hashMap.put("native_start_time", Long.valueOf(this.startTime));
         hashMap.put("flutter_start_time", Long.valueOf(this.flutterStartTime));
-        hashMap.put("sorce_key_list", d.b.i0.k0.c.a(getCurrentPageSourceKeyList()));
+        hashMap.put("sorce_key_list", d.a.i0.k0.c.a(getCurrentPageSourceKeyList()));
         return hashMap;
     }
 
-    @Override // d.b.i0.k0.a
+    @Override // d.a.i0.k0.a
     public String getCurrentPageKey() {
         return getContainerUrl();
     }
 
-    @Override // d.b.i0.k0.a
+    @Override // d.a.i0.k0.a
     public List<String> getCurrentPageSourceKeyList() {
         Intent intent = getIntent();
         if (intent != null) {
@@ -152,7 +152,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         return this.mLayoutMode;
     }
 
-    @Override // d.b.i0.k0.a
+    @Override // d.a.i0.k0.a
     public List<String> getNextPageSourceKeyList() {
         ArrayList arrayList;
         ArrayList arrayList2 = (ArrayList) getCurrentPageSourceKeyList();
@@ -190,20 +190,20 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         return this.pageStayDurationItem;
     }
 
-    @Override // d.b.i0.k0.a
+    @Override // d.a.i0.k0.a
     public b getPageStayFilter() {
         return new b() { // from class: com.baidu.tieba.flutter.base.view.FlutterPageActivity.2
-            @Override // d.b.i0.k0.b
+            @Override // d.a.i0.k0.b
             public boolean canStat(d dVar) {
                 return false;
             }
 
-            @Override // d.b.i0.k0.b
+            @Override // d.a.i0.k0.b
             public int getMaxCost() {
                 return e.b().c();
             }
 
-            @Override // d.b.i0.k0.b
+            @Override // d.a.i0.k0.b
             public boolean isCurrentPageCanBeAddToSourceTrace() {
                 return true;
             }
@@ -238,14 +238,14 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         String stringExtra = getIntent().getStringExtra("url");
         String[] strArr = this.ADJUST_PAN_PAGES;
         int length = strArr.length;
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            if (i < length) {
-                if (strArr[i].equals(stringExtra) && Build.VERSION.SDK_INT >= 3) {
+            if (i2 < length) {
+                if (strArr[i2].equals(stringExtra) && Build.VERSION.SDK_INT >= 3) {
                     getWindow().setSoftInputMode(32);
                     break;
                 }
-                i++;
+                i2++;
             } else {
                 break;
             }
@@ -269,13 +269,13 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             BdSocketLinkService.startService(false, "app start");
         }
         this.mLayoutMode = new c();
-        d.b.i0.r.a aVar = new d.b.i0.r.a();
+        d.a.i0.r.a aVar = new d.a.i0.r.a();
         this.mLayoutInflateFactory = aVar;
         aVar.a(this.mLayoutMode);
         TbadkCoreApplication.setIsAppRunning(true);
         TiebaStaticHelper.setCurrentActivity(FlutterPageActivity.class.getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
-        d.b.c.a.b.f().n(getPageContext().getPageActivity());
+        d.a.c.a.b.f().n(getPageContext().getPageActivity());
         if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
             z = false;
         }
@@ -296,12 +296,12 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         }
         MessageManager.getInstance().unRegisterListener(this.skinTypeChangeListener);
         super.onDestroy();
-        d.b.c.a.b.f().l(getPageContext().getPageActivity());
+        d.a.c.a.b.f().l(getPageContext().getPageActivity());
     }
 
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, android.app.Activity
     public void onPause() {
-        d.b.j0.i3.a.getInstance().onPause(this);
+        d.a.j0.i3.a.getInstance().onPause(this);
         super.onPause();
         if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
             hideFloatingWindow();
@@ -329,7 +329,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         this.flutterStartTime = System.currentTimeMillis();
         TbadkCoreApplication.getInst().AddResumeNum();
         super.onResume();
-        d.b.j0.i3.a.getInstance().onResume(this);
+        d.a.j0.i3.a.getInstance().onResume(this);
         this.lastResumeTime = System.currentTimeMillis();
         TiebaStaticHelper.setCurrentActivity(FlutterPageActivity.class.getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
@@ -375,9 +375,9 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             frameLayout.setBackgroundColor(0);
         } else {
             int identifier = b2.getIdentifier("cp_bg_line_c", "color", BdBaseApplication.getInst().getPackageName());
-            int i = TbadkCoreApplication.getInst().getSkinType() != 0 ? -16777216 : -1;
+            int i2 = TbadkCoreApplication.getInst().getSkinType() != 0 ? -16777216 : -1;
             if (identifier == 0) {
-                frameLayout.setBackgroundColor(i);
+                frameLayout.setBackgroundColor(i2);
             } else {
                 frameLayout.setBackgroundColor(SkinManager.getColor(identifier));
             }
@@ -393,7 +393,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         return new ViewSplashScreen(frameLayout);
     }
 
-    public void registerListener(d.b.c.c.g.a aVar) {
+    public void registerListener(d.a.c.c.g.a aVar) {
         if (aVar != null && aVar.getTag() == null) {
             aVar.setTag(this.mId);
         }
@@ -437,7 +437,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.TbPageContextSupport, d.b.c.a.g
+    @Override // com.baidu.tbadk.TbPageContextSupport, d.a.c.a.g
     public TbPageContext<T> getPageContext() {
         try {
             if (this.pageContext == null && mClazz4GetPageContext != null) {
@@ -449,11 +449,11 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         return this.pageContext;
     }
 
-    public void registerListener(int i, d.b.c.c.g.a aVar) {
+    public void registerListener(int i2, d.a.c.c.g.a aVar) {
         if (aVar != null && aVar.getTag() == null) {
             aVar.setTag(this.mId);
         }
-        MessageManager.getInstance().registerListener(i, aVar);
+        MessageManager.getInstance().registerListener(i2, aVar);
     }
 
     public void sendMessage(NetMessage netMessage) {
@@ -473,10 +473,10 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         MessageManager.getInstance().registerListener(messageListener);
     }
 
-    public void registerListener(int i, MessageListener<?> messageListener) {
+    public void registerListener(int i2, MessageListener<?> messageListener) {
         if (messageListener != null && messageListener.getTag() == null) {
             messageListener.setTag(this.mId);
         }
-        MessageManager.getInstance().registerListener(i, messageListener);
+        MessageManager.getInstance().registerListener(i2, messageListener);
     }
 }

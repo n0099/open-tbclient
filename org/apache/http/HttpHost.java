@@ -8,7 +8,7 @@ public final class HttpHost {
     public final int port;
     public final String schemeName;
 
-    public HttpHost(String str, int i, String str2) {
+    public HttpHost(String str, int i2, String str2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -48,7 +48,7 @@ public final class HttpHost {
         throw new RuntimeException("Stub!");
     }
 
-    public HttpHost(String str, int i) {
+    public HttpHost(String str, int i2) {
         throw new RuntimeException("Stub!");
     }
 

@@ -10,9 +10,9 @@ public enum LivenessRecogType {
     public String recogTypeName;
     public int recogTypeNum;
 
-    LivenessRecogType(String str, int i) {
+    LivenessRecogType(String str, int i2) {
         this.recogTypeName = str;
-        this.recogTypeNum = i;
+        this.recogTypeNum = i2;
     }
 
     public String getRecogTypeName() {

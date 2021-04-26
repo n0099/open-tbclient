@@ -17,44 +17,44 @@ import org.json.JSONObject;
 public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.meizu.cloud.pushsdk.handler.a f38180a;
+    public com.meizu.cloud.pushsdk.handler.a f35739a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f38181b;
+    public Context f35740b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<Integer, String> f38182c;
+    public Map<Integer, String> f35741c;
 
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         if (context == null) {
             throw new IllegalArgumentException("Context must not be null.");
         }
-        this.f38181b = context.getApplicationContext();
-        this.f38180a = aVar;
+        this.f35740b = context.getApplicationContext();
+        this.f35739a = aVar;
         HashMap hashMap = new HashMap();
-        this.f38182c = hashMap;
+        this.f35741c = hashMap;
         hashMap.put(2, "MESSAGE_TYPE_PUSH_SERVICE_V2");
-        this.f38182c.put(4, "MESSAGE_TYPE_PUSH_SERVICE_V3");
-        this.f38182c.put(16, "MESSAGE_TYPE_REGISTER");
-        this.f38182c.put(32, "MESSAGE_TYPE_UNREGISTER");
-        this.f38182c.put(8, "MESSAGE_TYPE_THROUGH");
-        this.f38182c.put(64, "MESSAGE_TYPE_NOTIFICATION_CLICK");
-        this.f38182c.put(128, "MESSAGE_TYPE_NOTIFICATION_DELETE");
-        this.f38182c.put(256, "MESSAGE_TYPE_PUSH_SWITCH_STATUS");
-        this.f38182c.put(512, "MESSAGE_TYPE_PUSH_REGISTER_STATUS");
-        this.f38182c.put(2048, "MESSAGE_TYPE_PUSH_SUBTAGS_STATUS");
-        this.f38182c.put(1024, "MESSAGE_TYPE_PUSH_UNREGISTER_STATUS");
-        this.f38182c.put(4096, "MESSAGE_TYPE_PUSH_SUBALIAS_STATUS");
-        this.f38182c.put(8192, "MESSAGE_TYPE_SCHEDULE_NOTIFICATION");
-        this.f38182c.put(16384, "MESSAGE_TYPE_RECEIVE_NOTIFY_MESSAGE");
-        this.f38182c.put(32768, "MESSAGE_TYPE_NOTIFICATION_STATE");
-        this.f38182c.put(65536, "MESSAGE_TYPE_UPLOAD_FILE_LOG");
-        this.f38182c.put(131072, "MESSAGE_TYPE_NOTIFICATION_ARRIVED");
-        this.f38182c.put(262144, "MESSAGE_TYPE_NOTIFICATION_WITHDRAW");
+        this.f35741c.put(4, "MESSAGE_TYPE_PUSH_SERVICE_V3");
+        this.f35741c.put(16, "MESSAGE_TYPE_REGISTER");
+        this.f35741c.put(32, "MESSAGE_TYPE_UNREGISTER");
+        this.f35741c.put(8, "MESSAGE_TYPE_THROUGH");
+        this.f35741c.put(64, "MESSAGE_TYPE_NOTIFICATION_CLICK");
+        this.f35741c.put(128, "MESSAGE_TYPE_NOTIFICATION_DELETE");
+        this.f35741c.put(256, "MESSAGE_TYPE_PUSH_SWITCH_STATUS");
+        this.f35741c.put(512, "MESSAGE_TYPE_PUSH_REGISTER_STATUS");
+        this.f35741c.put(2048, "MESSAGE_TYPE_PUSH_SUBTAGS_STATUS");
+        this.f35741c.put(1024, "MESSAGE_TYPE_PUSH_UNREGISTER_STATUS");
+        this.f35741c.put(4096, "MESSAGE_TYPE_PUSH_SUBALIAS_STATUS");
+        this.f35741c.put(8192, "MESSAGE_TYPE_SCHEDULE_NOTIFICATION");
+        this.f35741c.put(16384, "MESSAGE_TYPE_RECEIVE_NOTIFY_MESSAGE");
+        this.f35741c.put(32768, "MESSAGE_TYPE_NOTIFICATION_STATE");
+        this.f35741c.put(65536, "MESSAGE_TYPE_UPLOAD_FILE_LOG");
+        this.f35741c.put(131072, "MESSAGE_TYPE_NOTIFICATION_ARRIVED");
+        this.f35741c.put(262144, "MESSAGE_TYPE_NOTIFICATION_WITHDRAW");
     }
 
-    private String a(int i) {
-        return this.f38182c.get(Integer.valueOf(i));
+    private String a(int i2) {
+        return this.f35741c.get(Integer.valueOf(i2));
     }
 
     public com.meizu.cloud.pushsdk.notification.c a(T t) {
@@ -63,18 +63,18 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
 
     public abstract void a(T t, com.meizu.cloud.pushsdk.notification.c cVar);
 
-    public boolean a(int i, String str) {
+    public boolean a(int i2, String str) {
         boolean z = true;
-        if (i == 0) {
+        if (i2 == 0) {
             z = com.meizu.cloud.pushsdk.util.b.e(c(), str);
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             z = com.meizu.cloud.pushsdk.util.b.h(c(), str);
         }
         StringBuilder sb = new StringBuilder();
         sb.append(str);
-        sb.append(i == 0 ? " canNotificationMessage " : " canThroughMessage ");
+        sb.append(i2 == 0 ? " canNotificationMessage " : " canThroughMessage ");
         sb.append(z);
-        d.k.a.a.a.b("AbstractMessageHandler", sb.toString());
+        d.j.a.a.a.b("AbstractMessageHandler", sb.toString());
         return z;
     }
 
@@ -85,24 +85,24 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         }
         String k = com.meizu.cloud.pushsdk.util.b.k(c(), messageV3.getPackageName());
         boolean z = false;
-        int i = 0;
+        int i2 = 0;
         while (true) {
             if (z | TextUtils.isEmpty(k)) {
                 e.a aVar = new e.a((String) com.meizu.cloud.pushsdk.b.a.a("https://api-push.meizu.com/garcia/api/server/getPublicKey").a().a().a());
                 if (!TextUtils.isEmpty(aVar.a())) {
                     k = aVar.a();
-                    d.k.a.a.a.d("AbstractMessageHandler", "down load public key: " + k);
+                    d.j.a.a.a.d("AbstractMessageHandler", "down load public key: " + k);
                     com.meizu.cloud.pushsdk.util.b.k(c(), messageV3.getPackageName(), aVar.a());
                 }
             }
             String a3 = com.meizu.cloud.pushsdk.util.c.a(k, a2);
-            d.k.a.a.a.b("AbstractMessageHandler", "decryptSign " + a3);
+            d.j.a.a.a.b("AbstractMessageHandler", "decryptSign " + a3);
             if (!TextUtils.isEmpty(a3) && com.meizu.cloud.pushsdk.handler.a.b.e.a(a3, messageV3)) {
                 return true;
             }
-            d.k.a.a.a.b("AbstractMessageHandler", "force update public key " + i + " time");
-            i++;
-            if (i >= 2) {
+            d.j.a.a.a.b("AbstractMessageHandler", "force update public key " + i2 + " time");
+            i2++;
+            if (i2 >= 2) {
                 return false;
             }
             z = true;
@@ -113,13 +113,13 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         try {
             return c().getPackageName().equals(new JSONObject(str).getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
         } catch (Exception unused) {
-            d.k.a.a.a.b("AbstractMessageHandler", "parse notification error");
+            d.j.a.a.a.b("AbstractMessageHandler", "parse notification error");
             return false;
         }
     }
 
     public com.meizu.cloud.pushsdk.handler.a b() {
-        return this.f38180a;
+        return this.f35739a;
     }
 
     public String b(String str) {
@@ -127,7 +127,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
             JSONObject jSONObject = new JSONObject(str).getJSONObject("launcher");
             return (!jSONObject.has("pkg") || TextUtils.isEmpty(jSONObject.getString("pkg"))) ? "" : jSONObject.getString("pkg");
         } catch (Exception unused) {
-            d.k.a.a.a.b("AbstractMessageHandler", "parse desk top json error");
+            d.j.a.a.a.b("AbstractMessageHandler", "parse desk top json error");
             return "";
         }
     }
@@ -135,7 +135,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     public void b(MessageV3 messageV3) {
         com.meizu.cloud.pushsdk.notification.model.a a2 = com.meizu.cloud.pushsdk.notification.model.a.a(messageV3);
         if (a2 != null) {
-            d.k.a.a.a.b("AbstractMessageHandler", "delete notifyKey " + a2.b() + " notifyId " + a2.a());
+            d.j.a.a.a.b("AbstractMessageHandler", "delete notifyKey " + a2.b() + " notifyId " + a2.a());
             if (TextUtils.isEmpty(a2.b())) {
                 com.meizu.cloud.pushsdk.notification.c.b.c(c(), messageV3.getUploadDataPackageName(), a2.a());
             } else {
@@ -152,52 +152,52 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         String str;
         boolean z = false;
         if (a(intent)) {
-            d.k.a.a.a.b("AbstractMessageHandler", "current message Type " + a(a()));
+            d.j.a.a.a.b("AbstractMessageHandler", "current message Type " + a(a()));
             T c2 = c(intent);
             if (!g((a<T>) c2)) {
-                d.k.a.a.a.b("AbstractMessageHandler", "invalid push message");
+                d.j.a.a.a.b("AbstractMessageHandler", "invalid push message");
                 return false;
             }
-            d.k.a.a.a.b("AbstractMessageHandler", "current Handler message " + c2);
+            d.j.a.a.a.b("AbstractMessageHandler", "current Handler message " + c2);
             b((a<T>) c2);
             int d2 = d((a<T>) c2);
             boolean z2 = true;
             if (d2 != 0) {
                 if (d2 == 1) {
-                    d.k.a.a.a.b("AbstractMessageHandler", "expire notification, dont show message");
+                    d.j.a.a.a.b("AbstractMessageHandler", "expire notification, dont show message");
                 } else if (d2 == 2) {
                     str = "notification on time ,show message";
                 } else if (d2 == 3) {
-                    d.k.a.a.a.b("AbstractMessageHandler", "schedule notification");
+                    d.j.a.a.a.b("AbstractMessageHandler", "schedule notification");
                     e((a<T>) c2);
                     z = true;
                 }
                 z2 = false;
                 boolean f2 = f((a<T>) c2);
-                d.k.a.a.a.b("AbstractMessageHandler", "can send message " + f2);
+                d.j.a.a.a.b("AbstractMessageHandler", "can send message " + f2);
                 if (z && z2 && f2) {
                     a((a<T>) c2, a((a<T>) c2));
                     c((a<T>) c2);
-                    d.k.a.a.a.b("AbstractMessageHandler", "send message end ");
+                    d.j.a.a.a.b("AbstractMessageHandler", "send message end ");
                 }
             } else {
                 str = "schedule send message off, send message directly";
             }
-            d.k.a.a.a.b("AbstractMessageHandler", str);
+            d.j.a.a.a.b("AbstractMessageHandler", str);
             z = true;
             boolean f22 = f((a<T>) c2);
-            d.k.a.a.a.b("AbstractMessageHandler", "can send message " + f22);
+            d.j.a.a.a.b("AbstractMessageHandler", "can send message " + f22);
             if (z) {
                 a((a<T>) c2, a((a<T>) c2));
                 c((a<T>) c2);
-                d.k.a.a.a.b("AbstractMessageHandler", "send message end ");
+                d.j.a.a.a.b("AbstractMessageHandler", "send message end ");
             }
         }
         return z;
     }
 
     public Context c() {
-        return this.f38181b;
+        return this.f35740b;
     }
 
     public abstract T c(Intent intent);
@@ -206,7 +206,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         if (!MinSdkChecker.isSupportSetDrawableSmallIcon()) {
             b().b(c(), MzPushMessage.fromMessageV3(messageV3));
         } else if (MzSystemUtils.isRunningProcess(c(), messageV3.getUploadDataPackageName())) {
-            d.k.a.a.a.d("AbstractMessageHandler", "send notification arrived message to " + messageV3.getUploadDataPackageName());
+            d.j.a.a.a.d("AbstractMessageHandler", "send notification arrived message to " + messageV3.getUploadDataPackageName());
             Intent intent = new Intent();
             intent.putExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE, messageV3);
             intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_ARRIVED);
@@ -225,7 +225,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         String stringExtra = intent != null ? intent.getStringExtra(PushConstants.MZ_PUSH_MESSAGE_STATISTICS_IMEI_KEY) : null;
         if (TextUtils.isEmpty(stringExtra)) {
             String deviceId = MzSystemUtils.getDeviceId(c());
-            d.k.a.a.a.b("AbstractMessageHandler", "force get deviceId " + deviceId);
+            d.j.a.a.a.b("AbstractMessageHandler", "force get deviceId " + deviceId);
             return deviceId;
         }
         return stringExtra;
@@ -257,7 +257,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
 
     public String h(Intent intent) {
         String stringExtra = intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_TASK_TIMES_TAMP);
-        d.k.a.a.a.b("AbstractMessageHandler", "receive push timestamp from pushservice " + stringExtra);
+        d.j.a.a.a.b("AbstractMessageHandler", "receive push timestamp from pushservice " + stringExtra);
         return TextUtils.isEmpty(stringExtra) ? String.valueOf(System.currentTimeMillis() / 1000) : stringExtra;
     }
 

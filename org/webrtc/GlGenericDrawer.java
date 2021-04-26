@@ -29,7 +29,7 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
     public interface ShaderCallbacks {
         void onNewShader(GlShader glShader);
 
-        void onPrepareShader(GlShader glShader, float[] fArr, int i, int i2, int i3, int i4);
+        void onPrepareShader(GlShader glShader, float[] fArr, int i2, int i3, int i4, int i5);
     }
 
     /* loaded from: classes7.dex */
@@ -79,7 +79,7 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
         return sb.toString();
     }
 
-    private void prepareShader(ShaderType shaderType, float[] fArr, int i, int i2, int i3, int i4) {
+    private void prepareShader(ShaderType shaderType, float[] fArr, int i2, int i3, int i4, int i5) {
         GlShader glShader;
         if (shaderType.equals(this.currentShaderType)) {
             glShader = this.currentShader;
@@ -112,7 +112,7 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
         GLES20.glEnableVertexAttribArray(this.inTcLocation);
         GLES20.glVertexAttribPointer(this.inTcLocation, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) FULL_RECTANGLE_TEXTURE_BUFFER);
         GLES20.glUniformMatrix4fv(this.texMatrixLocation, 1, false, fArr, 0);
-        this.shaderCallbacks.onPrepareShader(glShader, fArr, i, i2, i3, i4);
+        this.shaderCallbacks.onPrepareShader(glShader, fArr, i2, i3, i4, i5);
         GlUtil.checkNoGLES2Error("Prepare shader");
     }
 
@@ -121,36 +121,36 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
     }
 
     @Override // org.webrtc.RendererCommon.GlDrawer
-    public void drawOes(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7) {
-        prepareShader(ShaderType.OES, fArr, i2, i3, i6, i7);
+    public void drawOes(int i2, float[] fArr, int i3, int i4, int i5, int i6, int i7, int i8) {
+        prepareShader(ShaderType.OES, fArr, i3, i4, i7, i8);
         GLES20.glActiveTexture(33984);
-        GLES20.glBindTexture(36197, i);
-        GLES20.glViewport(i4, i5, i6, i7);
+        GLES20.glBindTexture(36197, i2);
+        GLES20.glViewport(i5, i6, i7, i8);
         GLES20.glDrawArrays(5, 0, 4);
         GLES20.glBindTexture(36197, 0);
     }
 
     @Override // org.webrtc.RendererCommon.GlDrawer
-    public void drawRgb(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7) {
-        prepareShader(ShaderType.RGB, fArr, i2, i3, i6, i7);
+    public void drawRgb(int i2, float[] fArr, int i3, int i4, int i5, int i6, int i7, int i8) {
+        prepareShader(ShaderType.RGB, fArr, i3, i4, i7, i8);
         GLES20.glActiveTexture(33984);
-        GLES20.glBindTexture(3553, i);
-        GLES20.glViewport(i4, i5, i6, i7);
+        GLES20.glBindTexture(3553, i2);
+        GLES20.glViewport(i5, i6, i7, i8);
         GLES20.glDrawArrays(5, 0, 4);
         GLES20.glBindTexture(3553, 0);
     }
 
     @Override // org.webrtc.RendererCommon.GlDrawer
-    public void drawYuv(int[] iArr, float[] fArr, int i, int i2, int i3, int i4, int i5, int i6) {
-        prepareShader(ShaderType.YUV, fArr, i, i2, i5, i6);
-        for (int i7 = 0; i7 < 3; i7++) {
-            GLES20.glActiveTexture(33984 + i7);
-            GLES20.glBindTexture(3553, iArr[i7]);
-        }
-        GLES20.glViewport(i3, i4, i5, i6);
-        GLES20.glDrawArrays(5, 0, 4);
+    public void drawYuv(int[] iArr, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7) {
+        prepareShader(ShaderType.YUV, fArr, i2, i3, i6, i7);
         for (int i8 = 0; i8 < 3; i8++) {
-            GLES20.glActiveTexture(i8 + 33984);
+            GLES20.glActiveTexture(33984 + i8);
+            GLES20.glBindTexture(3553, iArr[i8]);
+        }
+        GLES20.glViewport(i4, i5, i6, i7);
+        GLES20.glDrawArrays(5, 0, 4);
+        for (int i9 = 0; i9 < 3; i9++) {
+            GLES20.glActiveTexture(i9 + 33984);
             GLES20.glBindTexture(3553, 0);
         }
     }

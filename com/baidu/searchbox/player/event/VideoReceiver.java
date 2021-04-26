@@ -10,6 +10,7 @@ import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.helper.NetUtils;
 import com.baidu.searchbox.player.utils.BdBatteryUtils;
 import com.baidu.searchbox.player.utils.BdVideoLog;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes2.dex */
 public class VideoReceiver extends BroadcastReceiver {
     public static final String ACTION_VOLUME_CHANGED = "android.media.VOLUME_CHANGED_ACTION";
@@ -21,7 +22,7 @@ public class VideoReceiver extends BroadcastReceiver {
 
     /* loaded from: classes2.dex */
     public interface VideoReceiverListener {
-        void onBatteryChanged(int i);
+        void onBatteryChanged(int i2);
 
         void onBluetoothHeadsetChanged(boolean z);
 
@@ -31,7 +32,7 @@ public class VideoReceiver extends BroadcastReceiver {
 
         void onScreenStatusChanged(boolean z);
 
-        void onVolumeChanged(int i);
+        void onVolumeChanged(int i2);
     }
 
     public VideoReceiver(@NonNull VideoReceiverListener videoReceiverListener) {
@@ -52,19 +53,19 @@ public class VideoReceiver extends BroadcastReceiver {
     }
 
     private void onVolumeChanged(@NonNull Context context) {
-        AudioManager audioManager = (AudioManager) context.getApplicationContext().getSystemService("audio");
+        AudioManager audioManager = (AudioManager) context.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         if (audioManager == null) {
             return;
         }
-        int i = this.mLastVolume;
+        int i2 = this.mLastVolume;
         try {
-            i = audioManager.getStreamVolume(3);
+            i2 = audioManager.getStreamVolume(3);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        if (i != this.mLastVolume) {
-            this.mLastVolume = i;
-            this.mListener.onVolumeChanged(i);
+        if (i2 != this.mLastVolume) {
+            this.mLastVolume = i2;
+            this.mListener.onVolumeChanged(i2);
         }
     }
 

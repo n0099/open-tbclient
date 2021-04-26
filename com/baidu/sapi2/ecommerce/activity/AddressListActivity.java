@@ -314,15 +314,15 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
             return;
         }
         JSONObject createAddressJsonObj = AddressConverter.createAddressJsonObj((MapObject) intent.getParcelableExtra(CREATE_ADDRESS_RESULT), (AddressSelectedBean) intent.getSerializableExtra(CREATE_REGION_RESULT));
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            if (i >= this.addrJsonObjects.size()) {
+            if (i2 >= this.addrJsonObjects.size()) {
                 break;
-            } else if (TextUtils.equals(this.addrJsonObjects.get(i).optString(AddressField.KEY_ADDR_ID), createAddressJsonObj.optString(AddressField.KEY_ADDR_ID))) {
-                this.addrJsonObjects.remove(i);
+            } else if (TextUtils.equals(this.addrJsonObjects.get(i2).optString(AddressField.KEY_ADDR_ID), createAddressJsonObj.optString(AddressField.KEY_ADDR_ID))) {
+                this.addrJsonObjects.remove(i2);
                 break;
             } else {
-                i++;
+                i2++;
             }
         }
         insertNewAddress(createAddressJsonObj);
@@ -459,10 +459,10 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void doFailure(int i, int i2, String str, String str2) {
+    public void doFailure(int i2, int i3, String str, String str2) {
         LoadingUtil.cancel();
         this.loadingView.setVisibility(8);
-        if (i != 1000) {
+        if (i2 != 1000) {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
@@ -473,20 +473,20 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void doResult(int i, Object obj, String str) {
+    public void doResult(int i2, Object obj, String str) {
         LoadingUtil.cancel();
         this.loadingView.setVisibility(8);
-        if (i == 1000) {
+        if (i2 == 1000) {
             this.addrJsonObjects = (List) obj;
             updateAddrListView();
             AddressStatUtil.statAddressOption(StatKey.ADDRLIST_LOADTIME, gapTimeFromEnter());
-        } else if (i == 1002) {
+        } else if (i2 == 1002) {
             processDelAddrResult(str);
-        } else if (i == 1003) {
+        } else if (i2 == 1003) {
             processSetAddrDefaultStatus(str);
-        } else if (i == 10001) {
+        } else if (i2 == 10001) {
             processNuoMiAddressStatus();
-        } else if (i != 10002) {
+        } else if (i2 != 10002) {
         } else {
             processUpdateNuoMiAddrStatus((List) obj);
         }
@@ -510,16 +510,16 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
     }
 
     @Override // com.baidu.sapi2.activity.BaseOptionActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, @Nullable Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (1001 == i) {
+    public void onActivityResult(int i2, int i3, @Nullable Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (1001 == i2) {
             processAddAddrResult(intent);
-        } else if (1002 == i) {
+        } else if (1002 == i2) {
             processUpdateAddrResult(intent);
         }
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         endProcess();
         super.onBackPressed();
@@ -557,7 +557,7 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
         overridePendingTransition(R.anim.sapi_sdk_anim_activity_push_bottom_in, R.anim.sapi_sdk_anim_activity_stay);
     }
 
-    @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.sapi2.activity.BaseOptionActivity, com.baidu.sapi2.activity.NaSlideActiviy, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.sapi2.activity.BaseOptionActivity, com.baidu.sapi2.activity.NaSlideActiviy, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         AddressStatUtil.statAddressOption(StatKey.ADDRLIST_ENTER);
@@ -578,8 +578,8 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        int headerViewsCount = i - this.addrListView.getHeaderViewsCount();
+    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+        int headerViewsCount = i2 - this.addrListView.getHeaderViewsCount();
         if (headerViewsCount < 0 || headerViewsCount >= this.listAdapter.getCount()) {
             return;
         }
@@ -588,37 +588,37 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (i < this.addrListView.getHeaderViewsCount()) {
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j) {
+        if (i2 < this.addrListView.getHeaderViewsCount()) {
             return false;
         }
-        this.optionJsonObj = this.listAdapter.getItem(i - this.addrListView.getHeaderViewsCount());
+        this.optionJsonObj = this.listAdapter.getItem(i2 - this.addrListView.getHeaderViewsCount());
         showOptionDialog();
         return true;
     }
 
     @Override // com.baidu.pass.ecommerce.dialog.AddrOptionDialog.OptionOnClickListener
-    public void onOptionClick(int i) {
+    public void onOptionClick(int i2) {
         JSONObject jSONObject = this.optionJsonObj;
         if (jSONObject == null) {
             return;
         }
-        if (1001 == i) {
+        if (1001 == i2) {
             ((AddressPresenter) this.presenter).setAddressDefaultStatus(jSONObject);
-        } else if (1002 == i) {
+        } else if (1002 == i2) {
             String optString = jSONObject.optString(AddressField.KEY_ADDR_ID);
             if (TextUtils.isEmpty(optString)) {
                 return;
             }
             ((AddressPresenter) this.presenter).delAddress(optString);
-        } else if (1003 == i) {
+        } else if (1003 == i2) {
             ((ClipboardManager) getSystemService("clipboard")).setPrimaryClip(ClipData.newPlainText("address", this.optionJsonObj.optString("name") + "\n" + this.optionJsonObj.optString("mobile") + "\n" + getOptionRegionStr()));
             ToastUtil.show(R.drawable.sapi_sdk_common_success_ic, "复制成功");
         }
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void showLoading(int i) {
+    public void showLoading(int i2) {
         if (isFinishing() || isDestroyed()) {
             return;
         }

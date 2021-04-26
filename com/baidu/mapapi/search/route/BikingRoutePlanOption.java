@@ -10,8 +10,8 @@ public class BikingRoutePlanOption {
         return this;
     }
 
-    public BikingRoutePlanOption ridingType(int i) {
-        this.mRidingType = i;
+    public BikingRoutePlanOption ridingType(int i2) {
+        this.mRidingType = i2;
         return this;
     }
 

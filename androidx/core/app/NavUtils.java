@@ -79,7 +79,16 @@ public final class NavUtils {
     public static String getParentActivityName(@NonNull Context context, @NonNull ComponentName componentName) throws PackageManager.NameNotFoundException {
         String string;
         String str;
-        ActivityInfo activityInfo = context.getPackageManager().getActivityInfo(componentName, 128);
+        PackageManager packageManager = context.getPackageManager();
+        int i2 = Build.VERSION.SDK_INT;
+        int i3 = 640;
+        int i4 = Build.VERSION.SDK_INT;
+        if (i4 >= 29) {
+            i3 = 269222528;
+        } else if (i4 >= 24) {
+            i3 = 787072;
+        }
+        ActivityInfo activityInfo = packageManager.getActivityInfo(componentName, i3);
         if (Build.VERSION.SDK_INT < 16 || (str = activityInfo.parentActivityName) == null) {
             Bundle bundle = activityInfo.metaData;
             if (bundle == null || (string = bundle.getString(PARENT_ACTIVITY)) == null) {

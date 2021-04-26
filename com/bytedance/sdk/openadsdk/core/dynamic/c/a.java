@@ -19,24 +19,24 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f27984e;
+    public static String f28839e;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f27985a;
+    public Context f28840a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SSWebView f27986b;
+    public SSWebView f28841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27987c;
+    public String f28842c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f27988d;
+    public c f28843d;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.dynamic.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0311a {
-        public C0311a() {
+    public class C0304a {
+        public C0304a() {
         }
 
         @JavascriptInterface
@@ -45,10 +45,10 @@ public class a {
         }
 
         @JavascriptInterface
-        public String getDomSizeFromNative(String str, String str2, String str3, boolean z, boolean z2, int i) {
+        public String getDomSizeFromNative(String str, String str2, String str3, boolean z, boolean z2, int i2) {
             double d2;
             double d3;
-            int i2;
+            int i3;
             JSONObject jSONObject = new JSONObject();
             u.f("DynamicBaseWidget", "getDomSizeFromNative String brickType==" + str2);
             u.f("DynamicBaseWidget", "getDomSizeFromNative String str==" + str);
@@ -68,11 +68,11 @@ public class a {
                 u.f("DynamicBaseWidget", "getDomSizeFromNative letterSpacing==" + optDouble2 + ",lineHeight==" + optDouble3 + ",maxWidth ==" + optDouble4 + ",totalStrLength" + d4);
                 if (z) {
                     d3 = optDouble4;
-                    int i3 = ((int) (d4 / d3)) + 1;
-                    if (!z2 || i3 < (i2 = i)) {
-                        i2 = i3;
+                    int i4 = ((int) (d4 / d3)) + 1;
+                    if (!z2 || i4 < (i3 = i2)) {
+                        i3 = i4;
                     }
-                    d2 = optDouble3 * optDouble * i2 * 1.2d;
+                    d2 = optDouble3 * optDouble * i3 * 1.2d;
                 } else {
                     d2 = optDouble3 * optDouble * 1.2d;
                     double d5 = optDouble4;
@@ -95,8 +95,8 @@ public class a {
         public String jsCoreGlobal() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("width", al.b(p.a(), al.c(a.this.f27985a)));
-                jSONObject.put("height", al.b(p.a(), al.d(a.this.f27985a)));
+                jSONObject.put("width", al.b(p.a(), al.c(a.this.f28840a)));
+                jSONObject.put("height", al.b(p.a(), al.d(a.this.f28840a)));
                 jSONObject.put(IAdRequestParam.OS, "Android");
             } catch (Exception unused) {
             }
@@ -110,33 +110,33 @@ public class a {
     }
 
     public a(@NonNull Context context) {
-        this.f27985a = context;
-        SSWebView sSWebView = new SSWebView(this.f27985a);
-        this.f27986b = sSWebView;
+        this.f28840a = context;
+        SSWebView sSWebView = new SSWebView(this.f28840a);
+        this.f28841b = sSWebView;
         if (Build.VERSION.SDK_INT >= 19) {
-            sSWebView.addJavascriptInterface(new C0311a(), "JS_DYNAMIC_LAYOUT_OBJ");
+            sSWebView.addJavascriptInterface(new C0304a(), "JS_DYNAMIC_LAYOUT_OBJ");
         }
-        this.f27986b.loadUrl("about:blank");
+        this.f28841b.loadUrl("about:blank");
         a();
     }
 
     public static String c() {
-        if (TextUtils.isEmpty(f27984e)) {
+        if (TextUtils.isEmpty(f28839e)) {
             return null;
         }
-        return "javascript:" + ("var global = Function('return this')();global.jsCoreGlobal = {width:" + al.b(p.a(), al.c(p.a())) + ",height:" + al.b(p.a(), al.d(p.a())) + ",os:'Android'};global.systemFontSizeRatioNative = 1.2;") + ("(function () {var JS_TTDYNAMIC_URL = '" + f27984e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();");
+        return "javascript:" + ("var global = Function('return this')();global.jsCoreGlobal = {width:" + al.b(p.a(), al.c(p.a())) + ",height:" + al.b(p.a(), al.d(p.a())) + ",os:'Android'};global.systemFontSizeRatioNative = 1.2;") + ("(function () {var JS_TTDYNAMIC_URL = '" + f28839e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();");
     }
 
     private void d() {
-        aa.a(this.f27985a, this.f27986b);
-        aa.a(this.f27986b);
-        this.f27986b = null;
+        aa.a(this.f28840a, this.f28841b);
+        aa.a(this.f28841b);
+        this.f28841b = null;
     }
 
     public void b(String str) {
         c cVar;
-        this.f27987c = str;
-        if (TextUtils.isEmpty(f27984e) && (cVar = this.f27988d) != null) {
+        this.f28842c = str;
+        if (TextUtils.isEmpty(f28839e) && (cVar = this.f28843d) != null) {
             cVar.a(null);
             d();
         }
@@ -144,7 +144,7 @@ public class a {
     }
 
     public static void a(String str) {
-        f27984e = str;
+        f28839e = str;
     }
 
     private void a() {
@@ -152,15 +152,15 @@ public class a {
         if (TextUtils.isEmpty(c2)) {
             return;
         }
-        t.a(this.f27986b, c2);
+        t.a(this.f28841b, c2);
     }
 
     private void b() {
-        t.a(this.f27986b, "javascript:var res = getLayoutInfo(" + this.f27987c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
+        t.a(this.f28841b, "javascript:var res = getLayoutInfo(" + this.f28842c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
     }
 
     public void a(c cVar) {
-        this.f27988d = cVar;
+        this.f28843d = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -171,7 +171,7 @@ public class a {
         } catch (Exception unused) {
             fVar = null;
         }
-        c cVar = this.f27988d;
+        c cVar = this.f28843d;
         if (cVar != null) {
             cVar.a(fVar);
         }

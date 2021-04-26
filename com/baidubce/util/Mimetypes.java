@@ -53,10 +53,10 @@ public class Mimetypes {
     }
 
     public String getMimetype(String str) {
-        int i;
+        int i2;
         int lastIndexOf = str.lastIndexOf(".");
-        if (lastIndexOf > 0 && (i = lastIndexOf + 1) < str.length()) {
-            String lowerCase = str.substring(i).toLowerCase();
+        if (lastIndexOf > 0 && (i2 = lastIndexOf + 1) < str.length()) {
+            String lowerCase = str.substring(i2).toLowerCase();
             if (this.extensionToMimetypeMap.keySet().contains(lowerCase)) {
                 String str2 = this.extensionToMimetypeMap.get(lowerCase);
                 BLog.debug("Recognised extension '" + lowerCase + "', mimetype is: '" + str2 + "'");

@@ -30,19 +30,19 @@ public final class HttpConnectionParams implements CoreConnectionPNames {
         throw new RuntimeException("Stub!");
     }
 
-    public static void setConnectionTimeout(HttpParams httpParams, int i) {
+    public static void setConnectionTimeout(HttpParams httpParams, int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public static void setLinger(HttpParams httpParams, int i) {
+    public static void setLinger(HttpParams httpParams, int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public static void setSoTimeout(HttpParams httpParams, int i) {
+    public static void setSoTimeout(HttpParams httpParams, int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public static void setSocketBufferSize(HttpParams httpParams, int i) {
+    public static void setSocketBufferSize(HttpParams httpParams, int i2) {
         throw new RuntimeException("Stub!");
     }
 

@@ -1,8 +1,6 @@
 package com.kwad.sdk.utils;
 
 import android.app.ActivityManager;
-import android.app.Application;
-import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -15,17 +13,18 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
 import android.os.Messenger;
-import android.os.Process;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.collector.AppRunningInfo;
 import com.kwad.sdk.collector.AppStatusRules;
 import com.kwad.sdk.collector.FNode;
 import com.kwad.sdk.collector.NodeFilter;
-import com.kwad.sdk.collector.a;
+import com.kwad.sdk.collector.b;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.kwad.sdk.utils.InstalledAppInfoManager;
 import java.io.File;
@@ -34,19 +33,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.lang.ref.WeakReference;
-import java.lang.reflect.Method;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
@@ -56,22 +50,23 @@ import org.json.JSONObject;
 public class AppStatusHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Handler f37056a;
+    public static Handler f34819a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f37057b = new c();
+    public static Messenger f34820b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Messenger f37058c = new Messenger(f37057b);
-
-    /* renamed from: d  reason: collision with root package name */
-    public static ServiceConnection f37059d = new ServiceConnection() { // from class: com.kwad.sdk.utils.AppStatusHelper.1
+    public static ServiceConnection f34821c = new ServiceConnection() { // from class: com.kwad.sdk.utils.AppStatusHelper.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Messenger messenger = new Messenger(iBinder);
             Message obtain = Message.obtain();
             obtain.what = 100;
-            obtain.replyTo = AppStatusHelper.f37058c;
+            if (!AppStatusHelper.j()) {
+                com.kwad.sdk.core.d.a.d("AppStatusHelper", "clientMessenger init error");
+                return;
+            }
+            obtain.replyTo = AppStatusHelper.f34820b;
             try {
                 messenger.send(obtain);
             } catch (RemoteException unused) {
@@ -83,258 +78,59 @@ public class AppStatusHelper {
         }
     };
 
+    /* renamed from: d  reason: collision with root package name */
+    public static volatile ExecutorService f34822d;
+
     /* renamed from: e  reason: collision with root package name */
-    public static volatile ExecutorService f37060e = Executors.newSingleThreadExecutor(new ThreadFactory() { // from class: com.kwad.sdk.utils.AppStatusHelper.2
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread(runnable);
-            thread.setPriority(3);
-            return thread;
-        }
-    });
+    public static volatile AppStatusRules f34823e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile AppStatusRules f37061f;
+    public static WeakReference<Context> f34824f;
 
-    /* renamed from: g  reason: collision with root package name */
-    public static WeakReference<Context> f37062g;
-
+    /* renamed from: com.kwad.sdk.utils.AppStatusHelper$2  reason: invalid class name */
     /* loaded from: classes6.dex */
-    public static class ASService extends Service {
+    public static class AnonymousClass2 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public a f37071a = new a();
+        public final /* synthetic */ Context f34825a;
 
-        /* renamed from: b  reason: collision with root package name */
-        public Messenger f37072b = new Messenger(this.f37071a);
+        public AnonymousClass2(Context context) {
+            this.f34825a = context;
+        }
 
-        /* renamed from: c  reason: collision with root package name */
-        public ASService f37073c;
-
-        /* loaded from: classes6.dex */
-        public static class a extends Handler {
-
-            /* renamed from: a  reason: collision with root package name */
-            public WeakReference<ASService> f37074a;
-
-            public a() {
-            }
-
-            @Nullable
-            public static String a() {
-                if (Build.VERSION.SDK_INT >= 28) {
-                    return Application.getProcessName();
+        @Override // java.lang.Runnable
+        public void run() {
+            com.kwad.sdk.collector.b.a(this.f34825a, new b.a() { // from class: com.kwad.sdk.utils.AppStatusHelper.2.1
+                @Override // com.kwad.sdk.collector.b.a
+                public void a(int i2, String str) {
+                    com.kwad.sdk.core.d.a.e("AppStatusHelper", "fetchAppStatusConfig onFetchError: " + str + ", code: " + i2);
                 }
-                try {
-                    Method declaredMethod = Class.forName("android.app.ActivityThread").getDeclaredMethod(Build.VERSION.SDK_INT >= 18 ? "currentProcessName" : "currentPackageName", new Class[0]);
-                    declaredMethod.setAccessible(true);
-                    return (String) declaredMethod.invoke(null, new Object[0]);
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
-                    return null;
-                }
-            }
 
-            /* JADX INFO: Access modifiers changed from: private */
-            public boolean a(Context context) {
-                String a2 = a();
-                if (a2 == null) {
-                    return false;
-                }
-                return !context.getPackageName().equals(a2);
-            }
-
-            public void a(@Nullable ASService aSService) {
-                if (aSService != null) {
-                    this.f37074a = new WeakReference<>(aSService);
-                } else {
-                    this.f37074a = null;
-                }
-            }
-
-            @Override // android.os.Handler
-            public void handleMessage(@NonNull Message message) {
-                super.handleMessage(message);
-                WeakReference<ASService> weakReference = this.f37074a;
-                final ASService aSService = weakReference != null ? weakReference.get() : null;
-                if (aSService == null) {
-                    return;
-                }
-                final Messenger messenger = message.replyTo;
-                if (message.what != 100) {
-                    return;
-                }
-                com.kwad.sdk.core.d.a.a("AppStatusHelper", "ASService: WHAT_START_WORK");
-                AppStatusHelper.a(aSService, new b() { // from class: com.kwad.sdk.utils.AppStatusHelper.ASService.a.1
-                    @Override // com.kwad.sdk.utils.AppStatusHelper.b
-                    public void a(List<AppRunningInfo> list) {
-                        com.kwad.sdk.core.d.a.a("AppStatusHelper", "ASService: onAppStatusResult: " + list.size());
-                        ArrayList arrayList = new ArrayList(list);
-                        Message obtain = Message.obtain();
-                        obtain.what = 101;
-                        Bundle bundle = new Bundle();
-                        bundle.putSerializable("data", arrayList);
-                        obtain.setData(bundle);
-                        try {
-                            messenger.send(obtain);
-                        } catch (RemoteException unused) {
-                        }
-                        aSService.stopSelf();
-                        if (a.this.a((Context) aSService)) {
-                            com.kwad.sdk.core.d.a.a("AppStatusHelper", "gotta kill myself");
-                            Process.killProcess(Process.myPid());
-                        }
+                @Override // com.kwad.sdk.collector.b.a
+                public void a(AppStatusRules appStatusRules) {
+                    appStatusRules.initStatus(AnonymousClass2.this.f34825a);
+                    AppStatusRules unused = AppStatusHelper.f34823e = appStatusRules;
+                    AppStatusHelper.b(AnonymousClass2.this.f34825a, AppStatusHelper.f34823e);
+                    AppStatusHelper.a(AnonymousClass2.this.f34825a);
+                    long obtainDefaultScanInterval = AppStatusHelper.f34823e.obtainDefaultScanInterval();
+                    if (obtainDefaultScanInterval > 0) {
+                        AppStatusHelper.b(AnonymousClass2.this.f34825a, obtainDefaultScanInterval);
+                    } else {
+                        AppStatusHelper.h(AnonymousClass2.this.f34825a);
                     }
-                });
-            }
-        }
-
-        public static boolean a(@NonNull Context context) {
-            return context.getPackageManager().queryIntentServices(new Intent(context, ASService.class), 65536).size() > 0;
-        }
-
-        public static void c(@NonNull Context context, ServiceConnection serviceConnection) {
-            context.bindService(new Intent(context, ASService.class), serviceConnection, 1);
-        }
-
-        public static void d(@NonNull Context context, ServiceConnection serviceConnection) {
-            context.unbindService(serviceConnection);
-        }
-
-        @Override // android.app.Service
-        @Nullable
-        public IBinder onBind(Intent intent) {
-            com.kwad.sdk.core.d.a.a("AppStatusHelper", "onBind");
-            return this.f37072b.getBinder();
-        }
-
-        @Override // android.app.Service
-        public void onCreate() {
-            super.onCreate();
-            this.f37073c = this;
-            this.f37071a.a(this);
-        }
-
-        @Override // android.app.Service
-        public void onDestroy() {
-            super.onDestroy();
-            this.f37073c = null;
-            this.f37071a.a((ASService) null);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class AppRunningInfo implements Serializable, Comparable<AppRunningInfo> {
-        public static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
-        public static long granularity = 60000;
-        public static final long serialVersionUID = 7014997764778342190L;
-        public long lastRunningTime = -1;
-        public String name;
-        public String packageName;
-
-        public static AppRunningInfo createInstance(InstalledAppInfoManager.AppPackageInfo appPackageInfo) {
-            AppRunningInfo appRunningInfo = new AppRunningInfo();
-            appRunningInfo.setPackageName(appPackageInfo.packageName);
-            appRunningInfo.setName(appPackageInfo.appName);
-            return appRunningInfo;
-        }
-
-        public static AppRunningInfo createInstance(String str) {
-            AppRunningInfo appRunningInfo = new AppRunningInfo();
-            appRunningInfo.setPackageName(str);
-            return appRunningInfo;
-        }
-
-        public static boolean samePackageTimeTo(AppRunningInfo appRunningInfo, AppRunningInfo appRunningInfo2) {
-            if (appRunningInfo == appRunningInfo2) {
-                return true;
-            }
-            return appRunningInfo != null && appRunningInfo2 != null && appRunningInfo.getPackageName().equals(appRunningInfo2.getPackageName()) && appRunningInfo.getLastRunningTime() == appRunningInfo2.getLastRunningTime();
-        }
-
-        public AppRunningInfo cloneNewOne() {
-            AppRunningInfo appRunningInfo = new AppRunningInfo();
-            appRunningInfo.setName(this.name);
-            appRunningInfo.setLastRunningTime(this.lastRunningTime);
-            appRunningInfo.setPackageName(this.packageName);
-            return appRunningInfo;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.lang.Comparable
-        public int compareTo(AppRunningInfo appRunningInfo) {
-            if (appRunningInfo == null) {
-                return 1;
-            }
-            int i = ((this.lastRunningTime - appRunningInfo.getLastRunningTime()) > 0L ? 1 : ((this.lastRunningTime - appRunningInfo.getLastRunningTime()) == 0L ? 0 : -1));
-            if (i == 0) {
-                return 0;
-            }
-            return i > 0 ? 1 : -1;
-        }
-
-        public boolean equals(Object obj) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || AppRunningInfo.class != obj.getClass()) {
-                return false;
-            }
-            AppRunningInfo appRunningInfo = (AppRunningInfo) obj;
-            long j = granularity;
-            if (this.lastRunningTime / j == appRunningInfo.getLastRunningTime() / j && this.name.equals(appRunningInfo.name)) {
-                return this.packageName.equals(appRunningInfo.packageName);
-            }
-            return false;
-        }
-
-        public String formatTime(long j) {
-            return format.format(new Date(j));
-        }
-
-        public String getFormattedLastRunningTime() {
-            return formatTime(getLastRunningTime());
-        }
-
-        public long getLastRunningTime() {
-            return this.lastRunningTime;
-        }
-
-        public String getName() {
-            return this.name;
-        }
-
-        public String getPackageName() {
-            return this.packageName;
-        }
-
-        public int hashCode() {
-            long j = this.lastRunningTime / granularity;
-            return (((this.name.hashCode() * 31) + this.packageName.hashCode()) * 31) + ((int) (j ^ (j >>> 32)));
-        }
-
-        public void setLastRunningTime(long j) {
-            this.lastRunningTime = j;
-        }
-
-        public void setName(String str) {
-            this.name = str;
-        }
-
-        public void setPackageName(String str) {
-            this.packageName = str;
-        }
-
-        public JSONObject toJson() {
-            JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "name", this.name);
-            o.a(jSONObject, "packageName", this.packageName);
-            o.a(jSONObject, "lastRunningTime", this.lastRunningTime);
-            return jSONObject;
-        }
-
-        public String toString() {
-            return "AppRunningInfo{packageName='" + this.packageName + "', lastRunningTime=" + formatTime(this.lastRunningTime) + '}';
+                    boolean z = AppStatusHelper.f34823e.obtainUploadConfigFileMaxSize() > 0;
+                    boolean k = AppStatusHelper.k(AnonymousClass2.this.f34825a);
+                    if (z && k) {
+                        AppStatusHelper.k();
+                        AppStatusHelper.f34822d.submit(new Runnable() { // from class: com.kwad.sdk.utils.AppStatusHelper.2.1.1
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                com.kwad.sdk.collector.i.a(AnonymousClass2.this.f34825a, AppStatusHelper.f34823e);
+                            }
+                        });
+                    }
+                }
+            });
         }
     }
 
@@ -356,25 +152,15 @@ public class AppStatusHelper {
             this.packageSet = new HashSet<>(this.installedApp.keySet());
         }
 
-        public Map<String, AppRunningInfo> createByPackages(Set<String> set) {
-            HashMap hashMap = new HashMap();
-            if (set == null) {
-                return hashMap;
-            }
-            for (String str : set) {
-                InstalledAppInfoManager.AppPackageInfo appPackageInfo = this.installedApp.get(str);
-                if (appPackageInfo != null) {
-                    hashMap.put(str, AppRunningInfo.createInstance(appPackageInfo));
-                }
-            }
-            return hashMap;
+        public HashMap<String, InstalledAppInfoManager.AppPackageInfo> getInstalledApp() {
+            return this.installedApp;
         }
 
         @Override // com.kwad.sdk.collector.NodeFilter
         public void onChildNodeCreate(FNode fNode) {
             InstalledAppInfoManager.AppPackageInfo appPackageInfo = this.installedApp.get(fNode.getRealFile().getName());
             if (appPackageInfo != null) {
-                fNode.setAppRunningInfo(AppRunningInfo.createInstance(appPackageInfo));
+                fNode.setAppRunningInfo(AppRunningInfo.createInstance(appPackageInfo, null));
             }
         }
 
@@ -385,33 +171,20 @@ public class AppStatusHelper {
     }
 
     /* loaded from: classes6.dex */
-    public static class SDCardRootNodeFilter implements NodeFilter {
-        @Override // com.kwad.sdk.collector.NodeFilter
-        public void onChildNodeCreate(FNode fNode) {
-            fNode.setAppRunningInfo(AppRunningInfo.createInstance(com.kwad.sdk.collector.b.a(fNode.getRealFile().getName())));
-        }
-
-        @Override // com.kwad.sdk.collector.NodeFilter
-        public boolean onFilterChild(File file) {
-            return com.kwad.sdk.collector.b.a(file.getName()) != null;
-        }
-    }
-
-    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f37078a;
+        public String f34832a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37079b;
+        public String f34833b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<Long> f37080c = new ArrayList();
+        public List<Long> f34834c = new ArrayList();
 
         public a(String str, String str2) {
-            this.f37078a = str;
-            this.f37079b = str2;
+            this.f34832a = str;
+            this.f34833b = str2;
         }
 
         @Nullable
@@ -453,10 +226,10 @@ public class AppStatusHelper {
 
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "appName", this.f37078a);
-            o.a(jSONObject, "packageName", this.f37079b);
+            o.a(jSONObject, "appName", this.f34832a);
+            o.a(jSONObject, "packageName", this.f34833b);
             JSONArray jSONArray = new JSONArray();
-            for (Long l : this.f37080c) {
+            for (Long l : this.f34834c) {
                 jSONArray.put(l.longValue());
             }
             o.a(jSONObject, "runningTimes", jSONArray);
@@ -464,7 +237,7 @@ public class AppStatusHelper {
         }
 
         public void a(long j) {
-            this.f37080c.add(Long.valueOf(j));
+            this.f34834c.add(Long.valueOf(j));
         }
     }
 
@@ -475,7 +248,8 @@ public class AppStatusHelper {
 
     /* loaded from: classes6.dex */
     public static class c extends Handler {
-        public c() {
+        public c(@NonNull Looper looper) {
+            super(looper);
         }
 
         public static void a(ArrayList<AppRunningInfo> arrayList) {
@@ -488,26 +262,35 @@ public class AppStatusHelper {
 
         @Override // android.os.Handler
         public void handleMessage(@NonNull Message message) {
+            ArrayList arrayList;
             super.handleMessage(message);
             if (message.what != 101) {
                 return;
             }
-            Bundle data = message.getData();
-            if (data != null) {
-                ArrayList arrayList = null;
-                try {
-                    arrayList = (ArrayList) data.getSerializable("data");
-                } catch (Exception unused) {
-                }
-                if (arrayList != null) {
+            try {
+                Bundle data = message.getData();
+                if (data != null && (arrayList = (ArrayList) data.getSerializable("data")) != null) {
                     com.kwad.sdk.core.d.a.a("AppStatusHelper", "ClientHandler: handleMessage data size: " + arrayList.size());
                     a(arrayList);
                 }
+                if (AppStatusHelper.f34824f == null || AppStatusHelper.f34824f.get() == null) {
+                    return;
+                }
+                com.kwad.sdk.collector.c.a.b((Context) AppStatusHelper.f34824f.get(), AppStatusHelper.f34821c);
+                ArrayList arrayList2 = (ArrayList) data.getSerializable("allStrategy");
+                if (arrayList2 != null) {
+                    Iterator it = arrayList2.iterator();
+                    while (it.hasNext()) {
+                        AppStatusRules.Strategy strategy = (AppStatusRules.Strategy) it.next();
+                        long needSaveLaunchTime = strategy.getNeedSaveLaunchTime();
+                        if (needSaveLaunchTime >= 0) {
+                            com.kwad.sdk.collector.g.a((Context) AppStatusHelper.f34824f.get(), strategy, needSaveLaunchTime);
+                        }
+                    }
+                }
+            } catch (Throwable th) {
+                com.kwad.sdk.core.d.a.b(th);
             }
-            if (AppStatusHelper.f37062g == null || AppStatusHelper.f37062g.get() == null) {
-                return;
-            }
-            ASService.d((Context) AppStatusHelper.f37062g.get(), AppStatusHelper.f37059d);
         }
     }
 
@@ -515,10 +298,10 @@ public class AppStatusHelper {
     public static class d implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        public b f37081a;
+        public b f34835a;
 
         public d(b bVar) {
-            this.f37081a = bVar;
+            this.f34835a = bVar;
         }
 
         @Override // com.kwad.sdk.utils.AppStatusHelper.b
@@ -527,72 +310,43 @@ public class AppStatusHelper {
             if (a2 != null) {
                 com.kwad.sdk.core.report.e.a(a2);
             }
-            b bVar = this.f37081a;
+            b bVar = this.f34835a;
             if (bVar != null) {
                 bVar.a(list);
             }
         }
     }
 
-    @WorkerThread
-    public static void a(Context context) {
-        if (f37061f == null) {
-            f37061f = g(context);
-        }
-        if (f37061f.targetNotEmpty()) {
-            com.kwad.sdk.collector.b.c();
-            com.kwad.sdk.collector.b.a(f37061f);
-        }
-        com.kwad.sdk.collector.b.a(f37061f.obtainStartTime());
-        com.kwad.sdk.collector.b.b(f37061f.obtainHistoryGranularity());
+    public static AppStatusRules a() {
+        return f34823e;
     }
 
-    public static void a(final Context context, long j) {
+    @WorkerThread
+    public static void a(Context context) {
+        if (f34823e == null) {
+            f34823e = g(context);
+        }
+    }
+
+    public static void a(Context context, long j) {
         if (context == null) {
             return;
         }
-        f37062g = new WeakReference<>(context);
+        f34824f = new WeakReference<>(context);
         if (j <= 0) {
             j = StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD;
         }
-        if (f37056a == null) {
-            f37056a = new Handler(Looper.getMainLooper());
+        if (f34819a == null) {
+            f34819a = new Handler(Looper.getMainLooper());
         }
-        f37056a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.AppStatusHelper.3
-            @Override // java.lang.Runnable
-            public void run() {
-                com.kwad.sdk.collector.a.a(context, new a.InterfaceC0376a() { // from class: com.kwad.sdk.utils.AppStatusHelper.3.1
-                    @Override // com.kwad.sdk.collector.a.InterfaceC0376a
-                    public void a(int i, String str) {
-                        com.kwad.sdk.core.d.a.d("AppStatusHelper", "fetchAppStatusConfig onFetchError: " + str + ", code: " + i);
-                    }
-
-                    @Override // com.kwad.sdk.collector.a.InterfaceC0376a
-                    public void a(AppStatusRules appStatusRules) {
-                        AppStatusRules unused = AppStatusHelper.f37061f = appStatusRules;
-                        AppStatusHelper.b(context, AppStatusHelper.f37061f);
-                        AppStatusHelper.a(context);
-                        long obtainScanInterval = AppStatusHelper.f37061f.obtainScanInterval();
-                        if (obtainScanInterval > 0) {
-                            AppStatusHelper.b(context, obtainScanInterval);
-                        } else {
-                            AppStatusHelper.h(context);
-                        }
-                    }
-                });
-            }
-        }, j);
+        f34819a.postDelayed(new AnonymousClass2(context), j);
     }
 
     public static void a(Context context, b bVar) {
         if (context == null) {
             return;
         }
-        if (Build.VERSION.SDK_INT >= 21) {
-            b(context, bVar);
-        } else {
-            c(context, bVar);
-        }
+        b(context, bVar);
     }
 
     @Nullable
@@ -615,14 +369,14 @@ public class AppStatusHelper {
     }
 
     public static void b(final Context context, final long j) {
-        if (f37056a == null) {
-            f37056a = new Handler(Looper.getMainLooper());
+        if (f34819a == null) {
+            f34819a = new Handler(Looper.getMainLooper());
         }
-        f37056a.post(new Runnable() { // from class: com.kwad.sdk.utils.AppStatusHelper.4
+        f34819a.post(new Runnable() { // from class: com.kwad.sdk.utils.AppStatusHelper.4
             @Override // java.lang.Runnable
             public void run() {
                 AppStatusHelper.h(context);
-                AppStatusHelper.f37056a.postDelayed(this, j);
+                AppStatusHelper.f34819a.postDelayed(this, j);
             }
         });
     }
@@ -650,35 +404,26 @@ public class AppStatusHelper {
     }
 
     public static void b(final Context context, final b bVar) {
-        f37060e.submit(new Runnable() { // from class: com.kwad.sdk.utils.AppStatusHelper.5
+        k();
+        f34822d.submit(new Runnable() { // from class: com.kwad.sdk.utils.AppStatusHelper.5
             @Override // java.lang.Runnable
             public void run() {
-                if (AppStatusHelper.k(context)) {
-                    com.kwad.sdk.collector.b.b();
-                    List<AppRunningInfo> j = AppStatusHelper.j(context);
-                    if (j != null) {
-                        Iterator<AppRunningInfo> it = j.iterator();
-                        while (it.hasNext()) {
-                            com.kwad.sdk.core.d.a.a("AppStatusHelper", "AppRunningInfo: " + it.next());
-                        }
-                        b bVar2 = bVar;
-                        if (bVar2 != null) {
-                            bVar2.a(j);
-                        }
-                    }
+                List j;
+                List i2;
+                HashSet hashSet = new HashSet();
+                if (Build.VERSION.SDK_INT < 21 && (i2 = AppStatusHelper.i(context)) != null) {
+                    hashSet.addAll(i2);
                 }
-            }
-        });
-    }
-
-    public static void c(final Context context, final b bVar) {
-        f37060e.submit(new Runnable() { // from class: com.kwad.sdk.utils.AppStatusHelper.6
-            @Override // java.lang.Runnable
-            public void run() {
-                List<AppRunningInfo> i = AppStatusHelper.i(context);
-                b bVar2 = bVar;
-                if (bVar2 != null) {
-                    bVar2.a(i);
+                if (!AppStatusHelper.k(context) || (j = AppStatusHelper.j(context)) == null) {
+                    return;
+                }
+                Iterator it = j.iterator();
+                while (it.hasNext()) {
+                    com.kwad.sdk.core.d.a.a("AppStatusHelper", "AppRunningInfo: " + ((AppRunningInfo) it.next()));
+                }
+                hashSet.addAll(j);
+                if (bVar != null) {
+                    bVar.a(new ArrayList(hashSet));
                 }
             }
         });
@@ -768,10 +513,10 @@ public class AppStatusHelper {
         if (context == null) {
             return;
         }
-        boolean a2 = ASService.a(context);
-        com.kwad.sdk.core.d.a.a("AppStatusHelper", "isServiceAvailable: " + a2);
-        if (a2) {
-            ASService.c(context, f37059d);
+        boolean l = l();
+        com.kwad.sdk.core.d.a.a("AppStatusHelper", "isServiceAvailable: " + l);
+        if (l) {
+            com.kwad.sdk.collector.c.a.a(context, f34821c);
         } else {
             a(context, new d(null));
         }
@@ -786,7 +531,7 @@ public class AppStatusHelper {
                 if (componentName != null) {
                     String packageName = componentName.getPackageName();
                     com.kwad.sdk.core.d.a.a("AppStatusHelper", "packageName:" + packageName);
-                    AppRunningInfo appRunningInfo = new AppRunningInfo();
+                    AppRunningInfo appRunningInfo = new AppRunningInfo(-1L);
                     appRunningInfo.setPackageName(packageName);
                     linkedList.add(appRunningInfo);
                 }
@@ -799,19 +544,55 @@ public class AppStatusHelper {
     @WorkerThread
     public static List<AppRunningInfo> j(Context context) {
         if (k(context)) {
-            PackageNameFilter packageNameFilter = new PackageNameFilter(context);
-            com.kwad.sdk.collector.b bVar = new com.kwad.sdk.collector.b();
-            if (com.kwad.sdk.collector.b.d()) {
-                a(context);
+            com.kwad.sdk.collector.d dVar = new com.kwad.sdk.collector.d();
+            if (f34823e == null) {
+                f34823e = g(context);
             }
-            List<AppRunningInfo> a2 = bVar.a(packageNameFilter);
-            AppRunningInfo.granularity = com.kwad.sdk.collector.b.a();
-            return bVar.a(a2);
+            return dVar.a(context);
         }
         return new ArrayList();
     }
 
+    public static boolean j() {
+        if (f34820b == null) {
+            try {
+                f34820b = new Messenger(new c(Looper.getMainLooper()));
+            } catch (Throwable unused) {
+            }
+        }
+        return f34820b != null;
+    }
+
+    public static synchronized void k() {
+        synchronized (AppStatusHelper.class) {
+            if (f34822d != null) {
+                return;
+            }
+            f34822d = Executors.newSingleThreadExecutor(new ThreadFactory() { // from class: com.kwad.sdk.utils.AppStatusHelper.3
+                @Override // java.util.concurrent.ThreadFactory
+                public Thread newThread(Runnable runnable) {
+                    Thread thread = new Thread(runnable);
+                    thread.setPriority(3);
+                    return thread;
+                }
+            });
+        }
+    }
+
     public static boolean k(@NonNull Context context) {
         return context.checkCallingOrSelfPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION) == 0;
+    }
+
+    public static boolean l() {
+        try {
+            Class<?> cls = Class.forName("com.kwad.sdk.api.proxy.app.ServiceProxyRemote");
+            if (cls != null) {
+                Context context = KsAdSDK.getContext();
+                return context.getPackageManager().queryIntentServices(new Intent(context, cls), 65536).size() > 0;
+            }
+        } catch (ClassNotFoundException e2) {
+            com.kwad.sdk.core.d.a.a(e2);
+        }
+        return false;
     }
 }

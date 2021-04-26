@@ -58,7 +58,7 @@ public class SubPbActivityConfig extends IntentConfig {
         super(context);
     }
 
-    public SubPbActivityConfig addBigImageData(ArrayList<String> arrayList, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z, int i) {
+    public SubPbActivityConfig addBigImageData(ArrayList<String> arrayList, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z, int i2) {
         if (concurrentHashMap != null && arrayList != null) {
             Intent intent = getIntent();
             Bundle bundle = new Bundle();
@@ -73,7 +73,7 @@ public class SubPbActivityConfig extends IntentConfig {
                     bundle.putSerializable(next, concurrentHashMap.get(next));
                 }
             }
-            bundle.putInt(SUB_KEY_IMG_OFFSET, i);
+            bundle.putInt(SUB_KEY_IMG_OFFSET, i2);
             intent.putExtra(KEY_IMG_URLS, bundle);
         }
         return this;
@@ -88,9 +88,9 @@ public class SubPbActivityConfig extends IntentConfig {
         if (intent == null || baijiahaoData == null) {
             return;
         }
-        int i = baijiahaoData.oriUgcType;
+        int i2 = baijiahaoData.oriUgcType;
         boolean z = true;
-        if (i != 1 && i != 2 && i != 3 && i != 4) {
+        if (i2 != 1 && i2 != 2 && i2 != 3 && i2 != 4) {
             z = false;
         }
         intent.putExtra("key_is_from_dynamic", z);
@@ -100,17 +100,17 @@ public class SubPbActivityConfig extends IntentConfig {
         intent.putExtra("key_ori_ugc_vid", baijiahaoData.oriUgcVid);
     }
 
-    public void setDeletedReasonInfoIsGrayCaleForum(int i) {
+    public void setDeletedReasonInfoIsGrayCaleForum(int i2) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra(KEY_DELETED_REASON_INFO_IS_GRAY_CALE_FORUM, i);
+            intent.putExtra(KEY_DELETED_REASON_INFO_IS_GRAY_CALE_FORUM, i2);
         }
     }
 
-    public void setDeletedReasonInfoIsIsBoomGrow(int i) {
+    public void setDeletedReasonInfoIsIsBoomGrow(int i2) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra(KEY_DELETED_REASON_INFO_IS_IS_BOOM_GROW, i);
+            intent.putExtra(KEY_DELETED_REASON_INFO_IS_IS_BOOM_GROW, i2);
         }
     }
 
@@ -128,10 +128,10 @@ public class SubPbActivityConfig extends IntentConfig {
         }
     }
 
-    public void setHasForumRule(int i) {
+    public void setHasForumRule(int i2) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra(KEY_HAS_FORUM_RULE, i);
+            intent.putExtra(KEY_HAS_FORUM_RULE, i2);
         }
     }
 
@@ -149,10 +149,10 @@ public class SubPbActivityConfig extends IntentConfig {
         }
     }
 
-    public void setIsManager(int i) {
+    public void setIsManager(int i2) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra(KEY_IS_MANAGER, i);
+            intent.putExtra(KEY_IS_MANAGER, i2);
         }
     }
 
@@ -184,10 +184,10 @@ public class SubPbActivityConfig extends IntentConfig {
         }
     }
 
-    public void setKeyPageStartFrom(int i) {
+    public void setKeyPageStartFrom(int i2) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra(KEY_PAGE_START_FROM, i);
+            intent.putExtra(KEY_PAGE_START_FROM, i2);
         }
     }
 
@@ -198,10 +198,10 @@ public class SubPbActivityConfig extends IntentConfig {
         }
     }
 
-    public void setUserLevel(int i) {
+    public void setUserLevel(int i2) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra(KEY_FORUM_HEAD_URL, i);
+            intent.putExtra(KEY_FORUM_HEAD_URL, i2);
         }
     }
 
@@ -220,15 +220,15 @@ public class SubPbActivityConfig extends IntentConfig {
         return createSubPbActivityConfig(str, str2, str3, z, str4, z2, null, 0);
     }
 
-    public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, String str4, boolean z2, String str5, int i) {
-        return createSubPbActivityConfig(str, str2, str3, z, str4, z2, str5, i, null);
+    public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, String str4, boolean z2, String str5, int i2) {
+        return createSubPbActivityConfig(str, str2, str3, z, str4, z2, str5, i2, null);
     }
 
-    public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, String str4, boolean z2, String str5, int i, SmallTailInfo smallTailInfo) {
-        return createSubPbActivityConfig(str, str2, str3, z, str4, z2, str5, i, null, null, false);
+    public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, String str4, boolean z2, String str5, int i2, SmallTailInfo smallTailInfo) {
+        return createSubPbActivityConfig(str, str2, str3, z, str4, z2, str5, i2, null, null, false);
     }
 
-    public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, String str4, boolean z2, String str5, int i, SmallTailInfo smallTailInfo, AntiData antiData, boolean z3) {
+    public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, String str4, boolean z2, String str5, int i2, SmallTailInfo smallTailInfo, AntiData antiData, boolean z3) {
         Intent intent = getIntent();
         intent.putExtra("thread_id", str);
         intent.putExtra("post_id", str2);
@@ -237,14 +237,14 @@ public class SubPbActivityConfig extends IntentConfig {
         intent.putExtra(KEY_SHOW_KEYBOARD, z2);
         intent.putExtra(KEY_REPLAY_NAME, str4);
         intent.putExtra(KEY_REPLAY_POST_ID, str5);
-        intent.putExtra(KEY_USER_IDENTITY, i);
+        intent.putExtra(KEY_USER_IDENTITY, i2);
         intent.putExtra(KEY_TAIL, smallTailInfo);
         intent.putExtra(KEY_ANTI, antiData);
         intent.putExtra(KEY_IS_SHOW_GO_TO_SUBJECT, z3);
         return this;
     }
 
-    public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, String str4, boolean z2, String str5, int i, SmallTailInfo smallTailInfo, AntiData antiData, boolean z3, ArrayList<IconData> arrayList) {
+    public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, String str4, boolean z2, String str5, int i2, SmallTailInfo smallTailInfo, AntiData antiData, boolean z3, ArrayList<IconData> arrayList) {
         Intent intent = getIntent();
         intent.putExtra("thread_id", str);
         intent.putExtra("post_id", str2);
@@ -253,7 +253,7 @@ public class SubPbActivityConfig extends IntentConfig {
         intent.putExtra(KEY_SHOW_KEYBOARD, z2);
         intent.putExtra(KEY_REPLAY_NAME, str4);
         intent.putExtra(KEY_REPLAY_POST_ID, str5);
-        intent.putExtra(KEY_USER_IDENTITY, i);
+        intent.putExtra(KEY_USER_IDENTITY, i2);
         intent.putExtra(KEY_TAIL, smallTailInfo);
         intent.putExtra(KEY_ANTI, antiData);
         intent.putExtra(ICON_LIST, arrayList);

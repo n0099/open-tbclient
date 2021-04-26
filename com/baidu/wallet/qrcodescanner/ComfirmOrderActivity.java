@@ -18,25 +18,25 @@ import java.io.Serializable;
 public class ComfirmOrderActivity extends BeanActivity implements View.OnClickListener {
 
     /* renamed from: g  reason: collision with root package name */
-    public static a f26367g;
+    public static a f27173g;
 
     /* renamed from: a  reason: collision with root package name */
-    public QRCodeShortUrlResponse.OrderParam f26368a;
+    public QRCodeShortUrlResponse.OrderParam f27174a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Button f26369b;
+    public Button f27175b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f26370c;
+    public TextView f27176c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f26371d;
+    public TextView f27177d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26372e;
+    public String f27178e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f26373f;
+    public TextView f27179f;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -47,7 +47,7 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
 
     public static void ComfirmScanOrderInfo(Context context, QRCodeShortUrlResponse.OrderParam orderParam, String str, a aVar) {
         Intent intent = new Intent();
-        f26367g = aVar;
+        f27173g = aVar;
         intent.setClass(context, ComfirmOrderActivity.class);
         intent.putExtra("orderinfo", orderParam);
         intent.putExtra(IMConstants.SERVICE_TYPE_ORDER, str);
@@ -55,31 +55,31 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
     }
 
     private void a() {
-        if (this.f26368a != null) {
-            TextView textView = this.f26370c;
-            textView.setText(ResUtils.getString(getActivity(), "wallet_base_unit") + StringUtils.fen2Yuan(this.f26368a.total_amount));
-            this.f26371d.setText(this.f26368a.goods_name);
-            this.f26373f.setText(this.f26368a.sp_name);
+        if (this.f27174a != null) {
+            TextView textView = this.f27176c;
+            textView.setText(ResUtils.getString(getActivity(), "wallet_base_unit") + StringUtils.fen2Yuan(this.f27174a.total_amount));
+            this.f27177d.setText(this.f27174a.goods_name);
+            this.f27179f.setText(this.f27174a.sp_name);
         }
     }
 
     public static void onOrderComfirm(boolean z) {
-        a aVar = f26367g;
+        a aVar = f27173g;
         if (aVar != null) {
             if (!z) {
                 aVar.b();
             } else {
                 aVar.a();
             }
-            f26367g = null;
+            f27173g = null;
         }
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         onOrderComfirm(false);
         super.onBackPressed();
@@ -87,16 +87,16 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f26369b) {
-            BaiduPayDelegate.getInstance().doPay(getActivity(), this.f26372e, new PayCallBack() { // from class: com.baidu.wallet.qrcodescanner.ComfirmOrderActivity.1
+        if (view == this.f27175b) {
+            BaiduPayDelegate.getInstance().doPay(getActivity(), this.f27178e, new PayCallBack() { // from class: com.baidu.wallet.qrcodescanner.ComfirmOrderActivity.1
                 @Override // com.baidu.android.pay.PayCallBack
                 public boolean isHideLoadingDialog() {
                     return false;
                 }
 
                 @Override // com.baidu.android.pay.PayCallBack
-                public void onPayResult(int i, String str) {
-                    if (i == 0) {
+                public void onPayResult(int i2, String str) {
+                    if (i2 == 0) {
                         ComfirmOrderActivity.this.finish();
                         ComfirmOrderActivity.onOrderComfirm(true);
                         return;
@@ -108,7 +108,7 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(ResUtils.layout(getActivity(), "wallet_qrscanner_confirm_pay"));
@@ -116,29 +116,29 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
         if (bundle != null) {
             Serializable serializable = bundle.getSerializable("orderinfo");
             if (serializable != null && (serializable instanceof QRCodeShortUrlResponse.OrderParam)) {
-                this.f26368a = (QRCodeShortUrlResponse.OrderParam) serializable;
+                this.f27174a = (QRCodeShortUrlResponse.OrderParam) serializable;
             }
-            this.f26372e = bundle.getString(IMConstants.SERVICE_TYPE_ORDER);
+            this.f27178e = bundle.getString(IMConstants.SERVICE_TYPE_ORDER);
         } else if (getIntent() != null) {
             Serializable serializableExtra = getIntent().getSerializableExtra("orderinfo");
             if (serializableExtra != null && (serializableExtra instanceof QRCodeShortUrlResponse.OrderParam)) {
-                this.f26368a = (QRCodeShortUrlResponse.OrderParam) serializableExtra;
+                this.f27174a = (QRCodeShortUrlResponse.OrderParam) serializableExtra;
             }
-            this.f26372e = getIntent().getStringExtra(IMConstants.SERVICE_TYPE_ORDER);
+            this.f27178e = getIntent().getStringExtra(IMConstants.SERVICE_TYPE_ORDER);
         }
-        this.f26370c = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_price"));
-        this.f26371d = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_sp"));
-        this.f26373f = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_pay"));
+        this.f27176c = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_price"));
+        this.f27177d = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_sp"));
+        this.f27179f = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_pay"));
         Button button = (Button) findViewById(ResUtils.id(getActivity(), "ebpay_to_pay"));
-        this.f26369b = button;
+        this.f27175b = button;
         button.setOnClickListener(this);
         a();
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("orderinfo", this.f26368a);
-        bundle.putString(IMConstants.SERVICE_TYPE_ORDER, this.f26372e);
+        bundle.putSerializable("orderinfo", this.f27174a);
+        bundle.putString(IMConstants.SERVICE_TYPE_ORDER, this.f27178e);
         super.onSaveInstanceState(bundle);
     }
 }

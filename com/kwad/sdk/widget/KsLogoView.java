@@ -10,19 +10,21 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
+import com.kwad.sdk.core.response.b.a;
+import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes6.dex */
 public class KsLogoView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f37196a;
+    public TextView f34944a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f37197b;
+    public ImageView f34945b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f37198c;
+    public boolean f34946c;
 
     public KsLogoView(Context context) {
         super(context);
@@ -34,53 +36,71 @@ public class KsLogoView extends LinearLayout {
         a(context);
     }
 
-    public KsLogoView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public KsLogoView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        a(context);
+    }
+
+    public KsLogoView(Context context, boolean z) {
+        super(context);
+        if (z) {
+            setBackgroundResource(R.drawable.ksad_splash_logo_bg);
+        }
         a(context);
     }
 
     private void a(Context context) {
         TextView textView;
-        int i;
+        int i2;
         LinearLayout.inflate(context, R.layout.ksad_logo_layout, this);
-        this.f37196a = (TextView) findViewById(R.id.ksad_logo_text);
-        this.f37197b = (ImageView) findViewById(R.id.ksad_logo_icon);
+        this.f34944a = (TextView) findViewById(R.id.ksad_logo_text);
+        this.f34945b = (ImageView) findViewById(R.id.ksad_logo_icon);
         boolean z = getBackground() == null;
-        this.f37198c = z;
+        this.f34946c = z;
         if (z) {
-            this.f37197b.setImageDrawable(context.getResources().getDrawable(R.drawable.ksad_logo_gray));
-            textView = this.f37196a;
-            i = -6513508;
+            this.f34945b.setImageDrawable(context.getResources().getDrawable(R.drawable.ksad_logo_gray));
+            textView = this.f34944a;
+            i2 = -6513508;
         } else {
-            this.f37197b.setImageDrawable(context.getResources().getDrawable(R.drawable.ksad_logo_white));
-            textView = this.f37196a;
-            i = -1711276033;
+            this.f34945b.setImageDrawable(context.getResources().getDrawable(R.drawable.ksad_logo_white));
+            textView = this.f34944a;
+            i2 = -1711276033;
         }
-        textView.setTextColor(i);
+        textView.setTextColor(i2);
     }
 
     public void a(AdTemplate adTemplate) {
         View findViewById = findViewById(R.id.ksad_logo_container);
-        AdInfo j = com.kwad.sdk.core.response.b.c.j(adTemplate);
-        if (TextUtils.isEmpty(j.adBaseInfo.adSourceDescription)) {
-            this.f37196a.setVisibility(8);
+        AdInfo g2 = c.g(adTemplate);
+        if (TextUtils.isEmpty(g2.adBaseInfo.adSourceDescription)) {
+            this.f34944a.setVisibility(8);
+            this.f34944a.setText("");
         } else {
-            this.f37196a.setText(com.kwad.sdk.core.response.b.a.v(j));
-            this.f37196a.setVisibility(0);
+            this.f34944a.setText(a.t(g2));
+            this.f34944a.setVisibility(0);
         }
-        String str = this.f37198c ? j.adBaseInfo.adGrayMarkIcon : j.adBaseInfo.adMarkIcon;
+        String str = this.f34946c ? g2.adBaseInfo.adGrayMarkIcon : g2.adBaseInfo.adMarkIcon;
         if (TextUtils.isEmpty(str)) {
-            this.f37197b.setVisibility(8);
+            this.f34945b.setVisibility(8);
+            this.f34945b.setImageDrawable(null);
         } else {
-            KSImageLoader.loadFeeImage(this.f37197b, str, adTemplate);
-            this.f37197b.setVisibility(0);
+            KSImageLoader.loadFeeImage(this.f34945b, str, adTemplate);
+            this.f34945b.setVisibility(0);
         }
         findViewById.setVisibility(0);
-        if (TextUtils.isEmpty(str) && TextUtils.isEmpty(j.adBaseInfo.adSourceDescription)) {
-            this.f37196a.setVisibility(0);
-            this.f37196a.setText(com.kwad.sdk.core.response.b.a.v(j));
-            this.f37197b.setVisibility(0);
-            this.f37197b.setImageDrawable(getContext().getResources().getDrawable(this.f37198c ? R.drawable.ksad_logo_gray : R.drawable.ksad_logo_white));
+        if (TextUtils.isEmpty(str) && TextUtils.isEmpty(g2.adBaseInfo.adSourceDescription)) {
+            this.f34944a.setVisibility(0);
+            this.f34944a.setText(a.t(g2));
+            this.f34945b.setVisibility(0);
+            this.f34945b.setImageDrawable(getContext().getResources().getDrawable(this.f34946c ? R.drawable.ksad_logo_gray : R.drawable.ksad_logo_white));
         }
+    }
+
+    public ImageView getIcon() {
+        return this.f34945b;
+    }
+
+    public TextView getTextView() {
+        return this.f34944a;
     }
 }

@@ -9,53 +9,55 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.j0.t.j.c.a;
+import d.a.j0.t.j.c.a;
 /* loaded from: classes4.dex */
 public class AlaPersonCenterFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f14707e;
+    public TbPageContext f14787e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14708f;
+    public String f14788f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14709g;
+    public String f14789g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f14710h;
-    public a i;
+    public String f14790h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public a f14791i;
 
     public void E0(String str) {
     }
 
     public void F0(String str) {
-        this.f14708f = str;
+        this.f14788f = str;
     }
 
     public void G0(String str) {
-        this.f14709g = str;
+        this.f14789g = str;
     }
 
     public void H0(String str) {
-        this.f14710h = str;
+        this.f14790h = str;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public void changeSkinType(int i) {
-        super.changeSkinType(i);
-        a aVar = this.i;
+    public void changeSkinType(int i2) {
+        super.changeSkinType(i2);
+        a aVar = this.f14791i;
         if (aVar != null) {
-            aVar.m(i);
+            aVar.m(i2);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        a aVar = this.i;
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        a aVar = this.f14791i;
         if (aVar != null) {
-            aVar.m(i);
+            aVar.m(i2);
         }
     }
 
@@ -68,21 +70,21 @@ public class AlaPersonCenterFragment extends BaseFragment {
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
-        this.f14707e = pageContext;
+        this.f14787e = pageContext;
         a aVar = new a(pageContext, true);
-        this.i = aVar;
-        aVar.s(this.f14709g);
-        this.i.r(this.f14708f);
-        this.i.t(this.f14710h);
+        this.f14791i = aVar;
+        aVar.s(this.f14789g);
+        this.f14791i.r(this.f14788f);
+        this.f14791i.t(this.f14790h);
         if (getArguments() != null) {
-            this.i.k(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), true);
+            this.f14791i.k(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), true);
         }
-        return this.i.i();
+        return this.f14791i.i();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
-        this.i.o();
+        this.f14791i.o();
         super.onDestroy();
     }
 
@@ -95,7 +97,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.i.l();
+            this.f14791i.l();
         }
     }
 

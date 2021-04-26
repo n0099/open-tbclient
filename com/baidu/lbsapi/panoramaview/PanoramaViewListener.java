@@ -11,7 +11,7 @@ public interface PanoramaViewListener {
 
     void onLoadPanoramaError(String str);
 
-    void onMessage(String str, int i);
+    void onMessage(String str, int i2);
 
     void onMoveEnd();
 

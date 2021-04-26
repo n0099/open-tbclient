@@ -5,29 +5,29 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class PbNewLocationInfoView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13567e;
+    public int f13560e;
 
     public PbNewLocationInfoView(Context context) {
         this(context, null);
     }
 
     public int getState() {
-        return this.f13567e;
+        return this.f13560e;
     }
 
-    public void setState(int i, String str) {
-        this.f13567e = i;
-        if (i == 1) {
+    public void setState(int i2, String str) {
+        this.f13560e = i2;
+        if (i2 == 1) {
             if (str == null) {
                 str = getResources().getString(R.string.location_loading);
             }
             setText(str);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             if (str == null) {
                 str = getResources().getString(R.string.location_default);
             }

@@ -59,8 +59,8 @@ public class BceHttpResponse {
     public Map<String, String> getHeaders() {
         okhttp3.Headers headers = getHttpResponse().headers();
         HashMap hashMap = new HashMap();
-        for (int i = 0; i < headers.size(); i++) {
-            hashMap.put(headers.name(i), headers.value(i));
+        for (int i2 = 0; i2 < headers.size(); i2++) {
+            hashMap.put(headers.name(i2), headers.value(i2));
         }
         return hashMap;
     }

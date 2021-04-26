@@ -28,7 +28,7 @@ public final class OkHostnameVerifier implements HostnameVerifier {
         return arrayList;
     }
 
-    public static List<String> getSubjectAltNames(X509Certificate x509Certificate, int i) {
+    public static List<String> getSubjectAltNames(X509Certificate x509Certificate, int i2) {
         Integer num;
         String str;
         ArrayList arrayList = new ArrayList();
@@ -38,7 +38,7 @@ public final class OkHostnameVerifier implements HostnameVerifier {
                 return Collections.emptyList();
             }
             for (List<?> list : subjectAlternativeNames) {
-                if (list != null && list.size() >= 2 && (num = (Integer) list.get(0)) != null && num.intValue() == i && (str = (String) list.get(1)) != null) {
+                if (list != null && list.size() >= 2 && (num = (Integer) list.get(0)) != null && num.intValue() == i2 && (str = (String) list.get(1)) != null) {
                     arrayList.add(str);
                 }
             }
@@ -61,8 +61,8 @@ public final class OkHostnameVerifier implements HostnameVerifier {
     private boolean verifyIpAddress(String str, X509Certificate x509Certificate) {
         List<String> subjectAltNames = getSubjectAltNames(x509Certificate, 7);
         int size = subjectAltNames.size();
-        for (int i = 0; i < size; i++) {
-            if (str.equalsIgnoreCase(subjectAltNames.get(i))) {
+        for (int i2 = 0; i2 < size; i2++) {
+            if (str.equalsIgnoreCase(subjectAltNames.get(i2))) {
                 return true;
             }
         }

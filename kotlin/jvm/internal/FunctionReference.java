@@ -6,9 +6,11 @@ import kotlin.reflect.KFunction;
 /* loaded from: classes7.dex */
 public class FunctionReference extends CallableReference implements FunctionBase, KFunction {
     public final int arity;
+    @SinceKotlin(version = "1.4")
+    public final int flags;
 
-    public FunctionReference(int i) {
-        this.arity = i;
+    public FunctionReference(int i2) {
+        this(i2, CallableReference.NO_RECEIVER, null, null, null, 0);
     }
 
     @Override // kotlin.jvm.internal.CallableReference
@@ -23,12 +25,7 @@ public class FunctionReference extends CallableReference implements FunctionBase
         }
         if (obj instanceof FunctionReference) {
             FunctionReference functionReference = (FunctionReference) obj;
-            if (getOwner() != null ? getOwner().equals(functionReference.getOwner()) : functionReference.getOwner() == null) {
-                if (getName().equals(functionReference.getName()) && getSignature().equals(functionReference.getSignature()) && Intrinsics.areEqual(getBoundReceiver(), functionReference.getBoundReceiver())) {
-                    return true;
-                }
-            }
-            return false;
+            return Intrinsics.areEqual(getOwner(), functionReference.getOwner()) && getName().equals(functionReference.getName()) && getSignature().equals(functionReference.getSignature()) && this.flags == functionReference.flags && this.arity == functionReference.arity && Intrinsics.areEqual(getBoundReceiver(), functionReference.getBoundReceiver());
         } else if (obj instanceof KFunction) {
             return obj.equals(compute());
         } else {
@@ -86,6 +83,11 @@ public class FunctionReference extends CallableReference implements FunctionBase
         return "function " + getName() + Reflection.REFLECTION_NOT_AVAILABLE;
     }
 
+    @SinceKotlin(version = "1.1")
+    public FunctionReference(int i2, Object obj) {
+        this(i2, obj, null, null, null, 0);
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.internal.CallableReference
     @SinceKotlin(version = "1.1")
@@ -93,9 +95,10 @@ public class FunctionReference extends CallableReference implements FunctionBase
         return (KFunction) super.getReflected();
     }
 
-    @SinceKotlin(version = "1.1")
-    public FunctionReference(int i, Object obj) {
-        super(obj);
-        this.arity = i;
+    @SinceKotlin(version = "1.4")
+    public FunctionReference(int i2, Object obj, Class cls, String str, String str2, int i3) {
+        super(obj, cls, str, str2, (i3 & 1) == 1);
+        this.arity = i2;
+        this.flags = i3 >> 1;
     }
 }

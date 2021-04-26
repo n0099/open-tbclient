@@ -16,10 +16,10 @@ public interface b extends IInterface {
         public static class C0097a implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f7488a;
+            public IBinder f7755a;
 
             public C0097a(IBinder iBinder) {
-                this.f7488a = iBinder;
+                this.f7755a = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.b
@@ -29,7 +29,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IOpenClientCallback");
                     obtain.writeStrongBinder(iBinder);
-                    this.f7488a.transact(1, obtain, obtain2, 0);
+                    this.f7755a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -39,7 +39,7 @@ public interface b extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f7488a;
+                return this.f7755a;
             }
         }
 
@@ -61,10 +61,10 @@ public interface b extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i != 1) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 != 1) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString("com.baidu.mapframework.open.aidl.IOpenClientCallback");
                 return true;

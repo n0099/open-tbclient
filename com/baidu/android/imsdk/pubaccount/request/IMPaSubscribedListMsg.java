@@ -87,16 +87,16 @@ public class IMPaSubscribedListMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
         List<PaInfo> list = null;
-        if (i == 0) {
+        if (i2 == 0) {
             try {
                 JSONArray optJSONArray = jSONObject.optJSONArray("pa_info_list");
                 if (optJSONArray != null) {
                     ArrayList arrayList = new ArrayList();
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                         try {
-                            JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                            JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
                             long optLong = jSONObject2.optLong("pa_uid");
                             String optString = jSONObject2.optString("pa_nickname");
                             String optString2 = jSONObject2.optString("pa_avatar");
@@ -117,8 +117,8 @@ public class IMPaSubscribedListMsg extends Message {
                             list = arrayList;
                             LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                            super.handleMessageResult(context, jSONObject, i, str);
-                            PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
+                            super.handleMessageResult(context, jSONObject, i2, str);
+                            PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i2, str, list);
                         }
                     }
                     localSyncSubscribedPaList(context, arrayList);
@@ -127,21 +127,21 @@ public class IMPaSubscribedListMsg extends Message {
             } catch (Exception e3) {
                 e = e3;
             }
-        } else if (1001 == i) {
+        } else if (1001 == i2) {
             try {
                 str = "query from local db";
                 list = PaInfoDBManager.getInstance(context).querySubscribedPaList();
-                i = 0;
+                i2 = 0;
             } catch (Exception e4) {
                 e = e4;
-                i = 0;
+                i2 = 0;
                 LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                super.handleMessageResult(context, jSONObject, i, str);
-                PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
+                super.handleMessageResult(context, jSONObject, i2, str);
+                PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i2, str, list);
             }
         }
-        super.handleMessageResult(context, jSONObject, i, str);
-        PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
+        super.handleMessageResult(context, jSONObject, i2, str);
+        PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i2, str, list);
     }
 }

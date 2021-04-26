@@ -82,8 +82,8 @@ public class AdditionData extends OrmObject implements Serializable {
         }
     }
 
-    public void setAlreadyCount(int i) {
-        this.alreadyCount = i;
+    public void setAlreadyCount(int i2) {
+        this.alreadyCount = i2;
     }
 
     public void setCreateTime(long j) {
@@ -102,8 +102,8 @@ public class AdditionData extends OrmObject implements Serializable {
         this.postId = str;
     }
 
-    public void setTotalCount(int i) {
-        this.totalCount = i;
+    public void setTotalCount(int i2) {
+        this.totalCount = i2;
     }
 
     public void setWarnMsg(String str) {

@@ -106,8 +106,8 @@ public class WebAddress implements INoProGuard {
         this.mPath = str;
     }
 
-    public void setPort(int i) {
-        this.mPort = i;
+    public void setPort(int i2) {
+        this.mPort = i2;
     }
 
     public void setScheme(String str) {

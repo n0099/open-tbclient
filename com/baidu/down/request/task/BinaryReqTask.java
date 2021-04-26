@@ -26,15 +26,14 @@ import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.URLRegUtils;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.kwai.video.player.KsMediaMeta;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BinaryReqTask extends AbstractTask {
     public static final boolean DEBUG = false;
     public static final String TAG = "BinaryReqTask";
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class BinaryTaskHandler extends BinaryHttpResponseHandler {
         public BinaryTaskHandler() {
         }
@@ -42,8 +41,8 @@ public class BinaryReqTask extends AbstractTask {
         @Override // com.baidu.down.loopj.android.http.BinaryHttpResponseHandler
         public void onDownload(ByteArrayInfo byteArrayInfo) {
             BinaryReqTask binaryReqTask = BinaryReqTask.this;
-            int i = binaryReqTask.mStatus;
-            if (i != 1006 && i != 1004 && i != 1009) {
+            int i2 = binaryReqTask.mStatus;
+            if (i2 != 1006 && i2 != 1004 && i2 != 1009) {
                 byteArrayInfo.mkey = binaryReqTask.getTaskKey();
                 TaskFacade.getInstance(null).getBinaryTaskMng().getWriteThreadMng().loadBalanceToWrite(byteArrayInfo);
                 return;
@@ -52,7 +51,7 @@ public class BinaryReqTask extends AbstractTask {
         }
 
         @Override // com.baidu.down.loopj.android.http.AsyncHttpResponseHandler
-        public synchronized void onFailure(Throwable th, int i) {
+        public synchronized void onFailure(Throwable th, int i2) {
             if (BinaryReqTask.this.mStatus != 1006 && BinaryReqTask.this.mStatus != 1004 && BinaryReqTask.this.mStatus != 1005) {
                 BinaryReqTask.this.mStatus = 1005;
                 TaskMsg taskMsg = new TaskMsg();
@@ -63,7 +62,7 @@ public class BinaryReqTask extends AbstractTask {
                 taskMsg.transferedSize = BinaryReqTask.this.mProgressInfo.getCurrentLength();
                 taskMsg.errorStr = th.toString();
                 taskMsg.status = 1005;
-                taskMsg.failType = i;
+                taskMsg.failType = i2;
                 DownDetail downDetail = new DownDetail();
                 downDetail.domainNameAndIpInfo = BinaryReqTask.this.mTaskHandler.getDomainNameAndIpInfo();
                 downDetail.retryStrategyInfo = HttpRetryStatistic.buidTaskRetryStatistic(BinaryReqTask.this.mHttpRetryStrategyHandler.getDownDetail(), BinaryReqTask.this.mHttpRetryStrategyHandler.getDownFlowMode(), BinaryReqTask.this.mHttpRetryStrategyHandler.getDownFlowCostTime(), BinaryReqTask.this.mHttpRetryStrategyHandler.getRetryExceptionName(), BinaryReqTask.this.mHttpRetryStrategyHandler.getRequestId());
@@ -124,8 +123,8 @@ public class BinaryReqTask extends AbstractTask {
                     if (j5 >= j4) {
                         j4 = j5;
                     }
-                    int i = AbstractTask.bufferSize;
-                    long j6 = (((j4 + i) - 1) / i) * i;
+                    int i2 = AbstractTask.bufferSize;
+                    long j6 = (((j4 + i2) - 1) / i2) * i2;
                     ConnectManager.NetWorkType netWorkType = TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().getNetWorkType();
                     long j7 = AbstractTask.minSegLen;
                     while (true) {
@@ -173,19 +172,19 @@ public class BinaryReqTask extends AbstractTask {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("status", Integer.valueOf(BinaryReqTask.this.mStatus));
                 if (BinaryReqTask.this.mTotalLength <= 0) {
-                    contentValues.put("total_bytes", Long.valueOf(j));
+                    contentValues.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, Long.valueOf(j));
                 }
                 TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(BinaryReqTask.this.mDownloadId)});
             }
         }
 
         @Override // com.baidu.down.loopj.android.http.BinaryHttpResponseHandler
-        public void onPaused(int i) {
-            int i2 = BinaryReqTask.this.mStatus;
-            if (i2 == 1003 || i2 == 1008) {
+        public void onPaused(int i2) {
+            int i3 = BinaryReqTask.this.mStatus;
+            if (i3 == 1003 || i3 == 1008) {
                 return;
             }
-            if (i2 == 1006) {
+            if (i3 == 1006) {
                 TaskFacade.getInstance(null).getBinaryTaskMng().getWriteThreadMng().closeDownloadFileStream(BinaryReqTask.this.getTaskKey());
             }
             if (BinaryReqTask.this.needWriteDb) {
@@ -253,9 +252,9 @@ public class BinaryReqTask extends AbstractTask {
         boolean booleanValue = fileMsg.mNeedMuti.booleanValue();
         this.mNeedMuti = booleanValue;
         this.mKeepNameAndPath = fileMsg.mKeepNameAndPath;
-        int i = fileMsg.mMaxThread;
-        this.mMaxThread = i;
-        if (booleanValue && i < 2) {
+        int i2 = fileMsg.mMaxThread;
+        this.mMaxThread = i2;
+        if (booleanValue && i2 < 2) {
             this.mNeedMuti = false;
         }
         int max = Math.max(Math.min(DownPrefUtils.getInt(context, DownPrefUtils.PREF_CONFIG_TEST_SPEED_IP_NUM, 2), this.mMaxThread), 1);
@@ -325,22 +324,19 @@ public class BinaryReqTask extends AbstractTask {
             return 0L;
         }
         String lowerCase = str.toLowerCase();
-        if (lowerCase.contains("m")) {
-            String[] split = lowerCase.replace("m", "").split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            if (split != null && split.length > 0) {
-                j = Long.parseLong(split[0]) * 1024 * 1024;
-            }
-            if (split == null || split.length <= 1 || TextUtils.isEmpty(split[1].substring(0, 1))) {
-                return j;
-            }
-            long parseLong = Long.parseLong(split[1].substring(0, 1));
-            Long.signum(parseLong);
-            return j + (parseLong * 1024);
-        } else if (lowerCase.contains("g")) {
-            return KsMediaMeta.AV_CH_STEREO_RIGHT;
-        } else {
-            return 0L;
+        if (!lowerCase.contains("m")) {
+            return lowerCase.contains("g") ? 1073741824L : 0L;
         }
+        String[] split = lowerCase.replace("m", "").split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+        if (split != null && split.length > 0) {
+            j = Long.parseLong(split[0]) * 1024 * 1024;
+        }
+        if (split == null || split.length <= 1 || TextUtils.isEmpty(split[1].substring(0, 1))) {
+            return j;
+        }
+        long parseLong = Long.parseLong(split[1].substring(0, 1));
+        Long.signum(parseLong);
+        return j + (parseLong * 1024);
     }
 
     private void updateFromDatabase() {
@@ -366,7 +362,7 @@ public class BinaryReqTask extends AbstractTask {
         if (new File(this.mFilePath).exists()) {
             this.mProgressInfo.addSegment(0L, this.mTotalLength);
             this.mProgressInfo.updateProgress(0L, j);
-            this.mTotalLength = query.getLong(query.getColumnIndex("total_bytes"));
+            this.mTotalLength = query.getLong(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES));
         }
         query.close();
     }
@@ -521,7 +517,7 @@ public class BinaryReqTask extends AbstractTask {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void startSegment(long j, long j2, int i) {
+    public void startSegment(long j, long j2, int i2) {
         long j3;
         String noMeasuredUrl;
         HashMap hashMap = new HashMap();
@@ -545,15 +541,15 @@ public class BinaryReqTask extends AbstractTask {
         }
         this.mTaskHandler.setRunning();
         BinaryHttpResponseHandler binaryHttpResponseHandler = this.mTaskHandler;
-        if ((binaryHttpResponseHandler instanceof MultiSrcBinaryTaskHandler) && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler).isNeedMultiSrc() && i != 0 && !TextUtils.isEmpty(this.mHost)) {
+        if ((binaryHttpResponseHandler instanceof MultiSrcBinaryTaskHandler) && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler).isNeedMultiSrc() && i2 != 0 && !TextUtils.isEmpty(this.mHost)) {
             hashMap.put("Host", this.mHost);
         }
         MultiSrcRequestParams multiSrcRequestParams = new MultiSrcRequestParams();
         multiSrcRequestParams.mSegBeginPos = j;
         multiSrcRequestParams.mSegEndPos = j3;
-        if (i == 2) {
+        if (i2 == 2) {
             TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().get(this.myContext, getFastestUrl(), hashMap, null, this.mTaskHandler, multiSrcRequestParams);
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             if (this.mTaskHandler.getTestSpeedStage() == 0) {
                 noMeasuredUrl = getNoMeasuredUrl(false);
             } else {

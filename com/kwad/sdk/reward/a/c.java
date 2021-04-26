@@ -6,7 +6,7 @@ public class c implements b {
     }
 
     @Override // com.kwad.sdk.reward.a.b
-    public void a(int i, int i2) {
+    public void a(int i2, int i3) {
     }
 
     @Override // com.kwad.sdk.reward.a.b

@@ -18,27 +18,27 @@ public class b implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public b[] newArray(int i) {
-            return new b[i];
+        public b[] newArray(int i2) {
+            return new b[i2];
         }
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, List<String>> f37290a;
+    public HashMap<String, List<String>> f35008a;
 
     public b() {
     }
 
     public b(Parcel parcel) {
-        this.f37290a = parcel.readHashMap(String.class.getClassLoader());
+        this.f35008a = parcel.readHashMap(String.class.getClassLoader());
     }
 
     public HashMap<String, List<String>> a() {
-        return this.f37290a;
+        return this.f35008a;
     }
 
     public void a(String str) {
-        HashMap<String, List<String>> hashMap = this.f37290a;
+        HashMap<String, List<String>> hashMap = this.f35008a;
         if (hashMap == null) {
             return;
         }
@@ -55,13 +55,13 @@ public class b implements Parcelable {
         if (str2 == null) {
             throw new NullPointerException("value == null");
         }
-        if (this.f37290a == null) {
-            this.f37290a = new HashMap<>();
+        if (this.f35008a == null) {
+            this.f35008a = new HashMap<>();
         }
-        List<String> list = this.f37290a.get(str);
+        List<String> list = this.f35008a.get(str);
         if (list == null) {
             list = new ArrayList<>();
-            this.f37290a.put(str, list);
+            this.f35008a.put(str, list);
         }
         if (list.contains(str2)) {
             return;
@@ -75,11 +75,11 @@ public class b implements Parcelable {
     }
 
     public String toString() {
-        return this.f37290a.toString();
+        return this.f35008a.toString();
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeMap(this.f37290a);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeMap(this.f35008a);
     }
 }

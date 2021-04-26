@@ -5,10 +5,16 @@ import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.live.interfaces.DI;
 import kotlin.Metadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\bf\u0018\u0000 \f2\u00020\u0001:\u0003\f\r\u000eJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006J\u001f\u0010\n\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\u00072\u0006\u0010\u0003\u001a\u00020\tH&¢\u0006\u0004\b\n\u0010\u000b¨\u0006\u000f"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/ThirdPartAccountService;", "Lkotlin/Any;", "Lcom/baidu/searchbox/live/interfaces/service/ThirdPartAccountService$OpenAccessTokenCallback;", "callback", "", "getOpenAccessToken", "(Lcom/baidu/searchbox/live/interfaces/service/ThirdPartAccountService$OpenAccessTokenCallback;)V", "Landroid/content/Context;", "context", "Lcom/baidu/searchbox/live/interfaces/service/ThirdPartAccountService$LoginResultCallback;", "showLoginDialog", "(Landroid/content/Context;Lcom/baidu/searchbox/live/interfaces/service/ThirdPartAccountService$LoginResultCallback;)V", "Companion", "LoginResultCallback", "OpenAccessTokenCallback", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\bf\u0018\u0000 \u00112\u00020\u0001:\u0004\u0012\u0011\u0013\u0014J\u001f\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004H&¢\u0006\u0004\b\u0007\u0010\bJ\u001f\u0010\f\u001a\u00020\u00062\u0006\u0010\u0005\u001a\u00020\t2\u0006\u0010\u000b\u001a\u00020\nH&¢\u0006\u0004\b\f\u0010\rJ\u001f\u0010\u000f\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u000eH&¢\u0006\u0004\b\u000f\u0010\u0010¨\u0006\u0015"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/ThirdPartAccountService;", "Lkotlin/Any;", "Landroid/content/Context;", "context", "Lcom/baidu/searchbox/live/interfaces/service/ThirdPartAccountService$BindPhoneCallback;", "callback", "", "bindPhone", "(Landroid/content/Context;Lcom/baidu/searchbox/live/interfaces/service/ThirdPartAccountService$BindPhoneCallback;)V", "Lcom/baidu/searchbox/live/interfaces/service/ThirdPartAccountService$OpenAccessTokenCallback;", "", "forceRefresh", "getOpenAccessToken", "(Lcom/baidu/searchbox/live/interfaces/service/ThirdPartAccountService$OpenAccessTokenCallback;Z)V", "Lcom/baidu/searchbox/live/interfaces/service/ThirdPartAccountService$LoginResultCallback;", "showLoginDialog", "(Landroid/content/Context;Lcom/baidu/searchbox/live/interfaces/service/ThirdPartAccountService$LoginResultCallback;)V", "Companion", "BindPhoneCallback", "LoginResultCallback", "OpenAccessTokenCallback", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public interface ThirdPartAccountService {
     public static final Companion Companion = Companion.$$INSTANCE;
+
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\bf\u0018\u00002\u00020\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/ThirdPartAccountService$BindPhoneCallback;", "Lkotlin/Any;", "", "state", "", "onResult", "(I)V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public interface BindPhoneCallback {
+        void onResult(int i2);
+    }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0019\u0010\u0002\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/ThirdPartAccountService$Companion;", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "SERVICE_REFERENCE", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "getSERVICE_REFERENCE", "()Lcom/baidu/pyramid/runtime/service/ServiceReference;", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
@@ -48,9 +54,9 @@ public interface ThirdPartAccountService {
             public static final int CLICK_FROM_YY = 4;
         }
 
-        void onBtnClick(int i);
+        void onBtnClick(int i2);
 
-        void onResult(int i);
+        void onResult(int i2);
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\bf\u0018\u00002\u00020\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\b\u001a\u00020\u00042\u0006\u0010\u0007\u001a\u00020\u0002H&¢\u0006\u0004\b\b\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/ThirdPartAccountService$OpenAccessTokenCallback;", "Lkotlin/Any;", "", "errMsg", "", "onFailed", "(Ljava/lang/String;)V", BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, "onResult", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
@@ -61,7 +67,9 @@ public interface ThirdPartAccountService {
         void onResult(String str);
     }
 
-    void getOpenAccessToken(OpenAccessTokenCallback openAccessTokenCallback);
+    void bindPhone(Context context, BindPhoneCallback bindPhoneCallback);
+
+    void getOpenAccessToken(OpenAccessTokenCallback openAccessTokenCallback, boolean z);
 
     void showLoginDialog(Context context, LoginResultCallback loginResultCallback);
 }

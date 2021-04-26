@@ -50,7 +50,7 @@ public class PbPageReadLocalRequestMessage extends CustomMessage<Object> {
         this.postId = str;
     }
 
-    public void setUpdateType(int i) {
-        this.updateType = i;
+    public void setUpdateType(int i2) {
+        this.updateType = i2;
     }
 }

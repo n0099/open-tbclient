@@ -19,17 +19,17 @@ public class NotifyCustomerMsg extends NotifyMsg implements Parcelable, NoProGua
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public NotifyCustomerMsg[] newArray(int i) {
-            return new NotifyCustomerMsg[i];
+        public NotifyCustomerMsg[] newArray(int i2) {
+            return new NotifyCustomerMsg[i2];
         }
     };
     public long csuid;
     public String text;
 
-    public NotifyCustomerMsg(int i) {
+    public NotifyCustomerMsg(int i2) {
         this.csuid = -1L;
         this.text = "";
-        setNotifyCmd(i);
+        setNotifyCmd(i2);
     }
 
     public long getCsUid() {
@@ -58,8 +58,8 @@ public class NotifyCustomerMsg extends NotifyMsg implements Parcelable, NoProGua
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeLong(this.csuid);
         parcel.writeString(this.text);
     }

@@ -8,7 +8,6 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.smallgame.sdk.Log;
-import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -39,11 +38,11 @@ public class WebGLImage {
         this.mBasePath = str;
     }
 
-    public static byte[] compressCanvas(Bitmap bitmap, int i, int i2, String str, float f2) throws Throwable {
+    public static byte[] compressCanvas(Bitmap bitmap, int i2, int i3, String str, float f2) throws Throwable {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         Bitmap.CompressFormat compressFormat = toCompressFormat(str);
-        if (i != bitmap.getWidth() || i2 != bitmap.getHeight()) {
-            Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmap, i, i2, false);
+        if (i2 != bitmap.getWidth() || i3 != bitmap.getHeight()) {
+            Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmap, i2, i3, false);
             bitmap.recycle();
             bitmap = createScaledBitmap;
         }
@@ -66,28 +65,28 @@ public class WebGLImage {
         return str2;
     }
 
-    private native void nativeOnLoadFailed(long j, String str, int i);
+    private native void nativeOnLoadFailed(long j, String str, int i2);
 
-    private native void nativeOnLoadSuccess(long j, int i);
+    private native void nativeOnLoadSuccess(long j, int i2);
 
-    public static native boolean nativeReadPixels(long j, Bitmap bitmap, int i, int i2, int i3, int i4);
+    public static native boolean nativeReadPixels(long j, Bitmap bitmap, int i2, int i3, int i4, int i5);
 
-    private void postImageJSCallback(V8Engine v8Engine, final JSEvent jSEvent, final int i) {
+    private void postImageJSCallback(V8Engine v8Engine, final JSEvent jSEvent, final int i2) {
         v8Engine.postSuspendableTaskOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.WebGLImage.1
             @Override // java.lang.Runnable
             public void run() {
-                WebGLImage.this.invokeCallback(jSEvent, i);
+                WebGLImage.this.invokeCallback(jSEvent, i2);
             }
         });
     }
 
-    public static Bitmap readCanvas(long j, int i, int i2, int i3, int i4) {
+    public static Bitmap readCanvas(long j, int i2, int i3, int i4, int i5) {
         Bitmap bitmap;
-        if (i != -1 && i2 != -1) {
+        if (i2 != -1 && i3 != -1) {
             try {
-                bitmap = Bitmap.createBitmap(i3, i4, Bitmap.Config.ARGB_8888);
+                bitmap = Bitmap.createBitmap(i4, i5, Bitmap.Config.ARGB_8888);
                 try {
-                    if (nativeReadPixels(j, bitmap, i, i2, i3, i4)) {
+                    if (nativeReadPixels(j, bitmap, i2, i3, i4, i5)) {
                         return bitmap;
                     }
                     throw new RuntimeException("Failed to read pixels from native canvas");
@@ -184,15 +183,15 @@ public class WebGLImage {
         return Bitmap.CompressFormat.JPEG;
     }
 
-    public static String toDataURL(long j, int i, int i2, String str, float f2) {
+    public static String toDataURL(long j, int i2, int i3, String str, float f2) {
         try {
-            Bitmap readCanvas = readCanvas(j, 0, 0, i, i2);
+            Bitmap readCanvas = readCanvas(j, 0, 0, i2, i3);
             if (f2 <= 0.0f || f2 > 1.0f) {
                 f2 = 0.92f;
             }
             String validFileType = getValidFileType(str);
             String str2 = FileUtils.IMAGE_FILE_START + validFileType;
-            byte[] compressCanvas = compressCanvas(readCanvas, i, i2, validFileType, f2);
+            byte[] compressCanvas = compressCanvas(readCanvas, i2, i3, validFileType, f2);
             return WebGLImageLoader.DATA_URL + str2 + ";base64," + Base64.encodeToString(compressCanvas, 2);
         } catch (Throwable th) {
             Log.e("V8", th.getMessage(), th);
@@ -200,15 +199,15 @@ public class WebGLImage {
         }
     }
 
-    public static String toTempFilePathAsync(long j, final long j2, int i, int i2, int i3, int i4, final int i5, final int i6, final String str, final float f2, final JsFunction jsFunction, final JsFunction jsFunction2, final JsFunction jsFunction3) {
-        Log.e("V8", "toTempFilePathAsync-- " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i6 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + jsFunction + StringUtil.ARRAY_ELEMENT_SEPARATOR + jsFunction2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + jsFunction3);
+    public static String toTempFilePathAsync(long j, final long j2, int i2, int i3, int i4, int i5, final int i6, final int i7, final String str, final float f2, final JsFunction jsFunction, final JsFunction jsFunction2, final JsFunction jsFunction3) {
+        Log.e("V8", "toTempFilePathAsync-- " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i6 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i7 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + jsFunction + StringUtil.ARRAY_ELEMENT_SEPARATOR + jsFunction2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + jsFunction3);
         if (sBackgroundThread == null) {
             HandlerThread handlerThread = new HandlerThread(NotificationCompat.WearableExtender.KEY_BACKGROUND);
             sBackgroundThread = handlerThread;
             handlerThread.start();
             sHandler = new Handler(sBackgroundThread.getLooper());
         }
-        final Bitmap readCanvas = (i < 0 || i2 < 0 || i3 <= 0 || i4 <= 0 || i5 <= 0 || i6 <= 0) ? null : readCanvas(j, i, i2, i3, i4);
+        final Bitmap readCanvas = (i2 < 0 || i3 < 0 || i4 <= 0 || i5 <= 0 || i6 <= 0 || i7 <= 0) ? null : readCanvas(j, i2, i3, i4, i5);
         sHandler.post(new Runnable() { // from class: com.baidu.searchbox.v8engine.WebGLImage.2
             /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, IGET]}, finally: {[INVOKE, IGET, INVOKE, IF] complete} */
             @Override // java.lang.Runnable
@@ -236,7 +235,7 @@ public class WebGLImage {
                     }
                 }
                 if (readCanvas != null) {
-                    String saveTempFilePath = WebGLImage.saveTempFilePath(j2, WebGLImage.compressCanvas(readCanvas, i5, i6, str, f2), str);
+                    String saveTempFilePath = WebGLImage.saveTempFilePath(j2, WebGLImage.compressCanvas(readCanvas, i6, i7, str, f2), str);
                     Log.e("V8", "toTempFilePathAsync--Success: " + saveTempFilePath);
                     if (jsFunction != null) {
                         canvasResult.tempFilePath = saveTempFilePath;
@@ -256,24 +255,24 @@ public class WebGLImage {
         return null;
     }
 
-    public static String toTempFilePathInternal(long j, long j2, int i, int i2, int i3, int i4, int i5, int i6, String str, float f2, JsFunction jsFunction, JsFunction jsFunction2, JsFunction jsFunction3, boolean z) {
+    public static String toTempFilePathInternal(long j, long j2, int i2, int i3, int i4, int i5, int i6, int i7, String str, float f2, JsFunction jsFunction, JsFunction jsFunction2, JsFunction jsFunction3, boolean z) {
         String validFileType = getValidFileType(str);
         float f3 = (f2 <= 0.0f || f2 > 1.0f) ? 0.92f : f2;
         if (z) {
-            return toTempFilePathSync(j, j2, i, i2, i3, i4, i5, i6, validFileType, f3);
+            return toTempFilePathSync(j, j2, i2, i3, i4, i5, i6, i7, validFileType, f3);
         }
-        return toTempFilePathAsync(j, j2, i, i2, i3, i4, i5, i6, validFileType, f3, jsFunction, jsFunction2, jsFunction3);
+        return toTempFilePathAsync(j, j2, i2, i3, i4, i5, i6, i7, validFileType, f3, jsFunction, jsFunction2, jsFunction3);
     }
 
-    public static String toTempFilePathSync(long j, long j2, int i, int i2, int i3, int i4, int i5, int i6, String str, float f2) {
-        Log.e("V8", "toTempFilePathSync-- " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i6 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2);
+    public static String toTempFilePathSync(long j, long j2, int i2, int i3, int i4, int i5, int i6, int i7, String str, float f2) {
+        Log.e("V8", "toTempFilePathSync-- " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i6 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i7 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2);
         try {
-            if (i == -1 || i2 == -1) {
+            if (i2 == -1 || i3 == -1) {
                 throw new Exception("The x or y must be legal");
             }
-            if (i3 != -1 && i4 != -1 && i5 != -1 && i6 != -1) {
+            if (i4 != -1 && i5 != -1 && i6 != -1 && i7 != -1) {
                 try {
-                    return saveTempFilePath(j2, compressCanvas(readCanvas(j, i, i2, i3, i4), i5, i6, str, f2), str);
+                    return saveTempFilePath(j2, compressCanvas(readCanvas(j, i2, i3, i4, i5), i6, i7, str, f2), str);
                 } catch (Throwable th) {
                     th = th;
                     Log.e("V8", th.getMessage(), th);
@@ -311,19 +310,19 @@ public class WebGLImage {
         return this.mHeight;
     }
 
-    public void invokeCallback(JSEvent jSEvent, int i) {
+    public void invokeCallback(JSEvent jSEvent, int i2) {
         if (jSEvent == null || jSEvent.type == null) {
             return;
         }
         V8Engine v8Engine = V8Engine.getInstance(this.mEnginePtr);
         if (v8Engine != null && v8Engine.isPaused()) {
-            postImageJSCallback(v8Engine, jSEvent, i);
+            postImageJSCallback(v8Engine, jSEvent, i2);
         } else if (this.mNativePtr == 0) {
         } else {
-            if (jSEvent.type.equals(TrackLoadSettingsAtom.TYPE)) {
-                nativeOnLoadSuccess(this.mNativePtr, i);
+            if (jSEvent.type.equals("load")) {
+                nativeOnLoadSuccess(this.mNativePtr, i2);
             } else {
-                nativeOnLoadFailed(this.mNativePtr, this.mErrorMsg, i);
+                nativeOnLoadFailed(this.mNativePtr, this.mErrorMsg, i2);
             }
         }
     }
@@ -338,7 +337,7 @@ public class WebGLImage {
         return this.mBeforeSrc;
     }
 
-    public void onLoadFailed(int i, String str) {
+    public void onLoadFailed(int i2, String str) {
         V8Engine v8Engine;
         this.mErrorMsg = str;
         JSEvent jSEvent = new JSEvent("error", this, null);
@@ -348,23 +347,23 @@ public class WebGLImage {
             Log.e("V8", e2.getMessage(), e2);
         }
         if (v8Engine != null) {
-            postImageJSCallback(v8Engine, jSEvent, i);
+            postImageJSCallback(v8Engine, jSEvent, i2);
             Log.d(TAG, "onLoadFailed: " + str);
             return;
         }
         throw new Exception("can't get the v8engine instance.");
     }
 
-    public void onLoadSuccess(int i) {
+    public void onLoadSuccess(int i2) {
         V8Engine v8Engine;
-        JSEvent jSEvent = new JSEvent(TrackLoadSettingsAtom.TYPE, this, null);
+        JSEvent jSEvent = new JSEvent("load", this, null);
         try {
             v8Engine = V8Engine.getInstance(this.mEnginePtr);
         } catch (Exception e2) {
             Log.e("V8", e2.getMessage(), e2);
         }
         if (v8Engine != null) {
-            postImageJSCallback(v8Engine, jSEvent, i);
+            postImageJSCallback(v8Engine, jSEvent, i2);
             Log.d(TAG, "onLoadSuccess: " + this.mSrc);
             return;
         }
@@ -376,8 +375,8 @@ public class WebGLImage {
         return j != 0 && nativeLoadAsset(j, bitmap);
     }
 
-    public void setImageId(int i) {
-        this.mImageId = i;
+    public void setImageId(int i2) {
+        this.mImageId = i2;
     }
 
     public void setSrc(String str) {

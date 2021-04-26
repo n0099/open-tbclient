@@ -230,41 +230,41 @@ public class LogSystemProcessor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void stopSelfIfNeed(@NonNull final Service service, final int i) {
+    public void stopSelfIfNeed(@NonNull final Service service, final int i2) {
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.3
             @Override // java.lang.Runnable
             public void run() {
                 boolean z = true;
-                for (int i2 = 0; i2 < LogSystemProcessor.this.mUploaderStrategies.size(); i2++) {
-                    z = z && ((BaseUploaderStrategy) LogSystemProcessor.this.mUploaderStrategies.get(i2)).canStopService();
+                for (int i3 = 0; i3 < LogSystemProcessor.this.mUploaderStrategies.size(); i3++) {
+                    z = z && ((BaseUploaderStrategy) LogSystemProcessor.this.mUploaderStrategies.get(i3)).canStopService();
                     if (!z) {
                         break;
                     }
                 }
                 if (!z || LogSystemProcessor.this.mProcessExecutor.getQueue().size() != 0 || LogSystemProcessor.this.mProcessExecutor.getActiveCount() != 0) {
-                    LogSystemProcessor.this.stopSelfIfNeed(service, i);
+                    LogSystemProcessor.this.stopSelfIfNeed(service, i2);
                 } else {
-                    service.stopSelf(i);
+                    service.stopSelf(i2);
                 }
             }
         }, 60000L);
     }
 
-    public void process(@NonNull final Service service, final int i, @NonNull LogBaseObject logBaseObject) {
+    public void process(@NonNull final Service service, final int i2, @NonNull LogBaseObject logBaseObject) {
         Runnable runnable;
-        int i2 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$logsys$LogType[logBaseObject.mLogType.ordinal()];
-        if (i2 == 1 || i2 == 2) {
+        int i3 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$logsys$LogType[logBaseObject.mLogType.ordinal()];
+        if (i3 == 1 || i3 == 2) {
             if (logBaseObject instanceof LogObject) {
                 final LogObject logObject = (LogObject) logBaseObject;
                 if (TextUtils.isEmpty(logObject.getLogBasicData()) && logObject.getLogBasicDataFile() == null) {
                     if (!LLog.sDebug) {
-                        stopSelfIfNeed(service, i);
+                        stopSelfIfNeed(service, i2);
                         return;
                     }
                     throw new RuntimeException("if the logType = " + logObject.mLogType.getTypeName() + ", mLogBasicData should not be empty and mLogBasicDataFile should not be null");
                 } else if (TextUtils.isEmpty(logObject.getProcessName())) {
                     if (!LLog.sDebug) {
-                        stopSelfIfNeed(service, i);
+                        stopSelfIfNeed(service, i2);
                         return;
                     }
                     throw new RuntimeException("if the logType = " + logObject.mLogType.getTypeName() + "mProcessName should not be null or its length = 0");
@@ -330,8 +330,8 @@ public class LogSystemProcessor {
                                 sb3.append(obj2);
                                 Log.d(LogSystemProcessor.TAG, sb3.toString());
                             }
-                            for (int i3 = 0; i3 < LogSystemProcessor.this.mUploaderStrategies.size(); i3++) {
-                                BaseUploaderStrategy baseUploaderStrategy = (BaseUploaderStrategy) LogSystemProcessor.this.mUploaderStrategies.get(i3);
+                            for (int i4 = 0; i4 < LogSystemProcessor.this.mUploaderStrategies.size(); i4++) {
+                                BaseUploaderStrategy baseUploaderStrategy = (BaseUploaderStrategy) LogSystemProcessor.this.mUploaderStrategies.get(i4);
                                 if (LLog.sDebug) {
                                     Log.d(LogSystemProcessor.TAG, "uploaderStrategy = " + baseUploaderStrategy.getClass().getName());
                                 }
@@ -344,21 +344,21 @@ public class LogSystemProcessor {
                                 }
                             }
                             LogSystemProcessor.this.deleteLogFiles(logObject, obtainProcessLogFiles, generateDeviceUploadFile, file);
-                            LogSystemProcessor.this.stopSelfIfNeed(service, i);
+                            LogSystemProcessor.this.stopSelfIfNeed(service, i2);
                         }
                     };
                 }
             }
             runnable = null;
         } else {
-            if (i2 == 3) {
+            if (i3 == 3) {
                 runnable = new Runnable() { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        for (int i3 = 0; i3 < LogSystemProcessor.this.mUploaderStrategies.size(); i3++) {
-                            ((BaseUploaderStrategy) LogSystemProcessor.this.mUploaderStrategies.get(i3)).upload(service.getApplicationContext());
+                        for (int i4 = 0; i4 < LogSystemProcessor.this.mUploaderStrategies.size(); i4++) {
+                            ((BaseUploaderStrategy) LogSystemProcessor.this.mUploaderStrategies.get(i4)).upload(service.getApplicationContext());
                         }
-                        LogSystemProcessor.this.stopSelfIfNeed(service, i);
+                        LogSystemProcessor.this.stopSelfIfNeed(service, i2);
                     }
                 };
             }

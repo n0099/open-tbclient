@@ -11,7 +11,7 @@ public class Internal {
 
     /* loaded from: classes6.dex */
     public interface EnumLiteMap<T extends EnumLite> {
-        T findValueByNumber(int i);
+        T findValueByNumber(int i2);
     }
 
     public static ByteString bytesDefaultValue(String str) {

@@ -75,10 +75,10 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
     }
 
     private synchronized boolean increaseAndCheckIfLast() {
-        int i;
-        i = this.mFinishedDataSources + 1;
-        this.mFinishedDataSources = i;
-        return i == this.mDataSources.length;
+        int i2;
+        i2 = this.mFinishedDataSources + 1;
+        this.mFinishedDataSources = i2;
+        return i2 == this.mDataSources.length;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -40,8 +40,8 @@ public final class Boxing {
 
     @SinceKotlin(version = "1.3")
     @PublishedApi
-    public static final Integer boxInt(int i) {
-        return new Integer(i);
+    public static final Integer boxInt(int i2) {
+        return new Integer(i2);
     }
 
     @SinceKotlin(version = "1.3")

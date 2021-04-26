@@ -226,8 +226,8 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             setRotation(0.0f);
         }
 
-        public void setAlpha(int i) {
-            this.mAlpha = i;
+        public void setAlpha(int i2) {
+            this.mAlpha = i2;
         }
 
         public void setArrowDimensions(float f2, float f3) {
@@ -241,25 +241,25 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             }
         }
 
-        public void setBackgroundColor(int i) {
-            this.mCirclePaint.setColor(i);
+        public void setBackgroundColor(int i2) {
+            this.mCirclePaint.setColor(i2);
         }
 
         public void setCenterRadius(float f2) {
             this.mRingCenterRadius = f2;
         }
 
-        public void setColor(int i) {
-            this.mCurrentColor = i;
+        public void setColor(int i2) {
+            this.mCurrentColor = i2;
         }
 
         public void setColorFilter(ColorFilter colorFilter) {
             this.mPaint.setColorFilter(colorFilter);
         }
 
-        public void setColorIndex(int i) {
-            this.mColorIndex = i;
-            this.mCurrentColor = this.mColors[i];
+        public void setColorIndex(int i2) {
+            this.mColorIndex = i2;
+            this.mCurrentColor = this.mColors[i2];
         }
 
         public void setColors(@NonNull int[] iArr) {
@@ -317,12 +317,12 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         ring.setRotation(ring.getStartingRotation() + ((((float) (Math.floor(ring.getStartingRotation() / 0.8f) + 1.0d)) - ring.getStartingRotation()) * f2));
     }
 
-    private int evaluateColorChange(float f2, int i, int i2) {
-        int i3 = (i >> 24) & 255;
-        int i4 = (i >> 16) & 255;
-        int i5 = (i >> 8) & 255;
-        int i6 = i & 255;
-        return ((i3 + ((int) ((((i2 >> 24) & 255) - i3) * f2))) << 24) | ((i4 + ((int) ((((i2 >> 16) & 255) - i4) * f2))) << 16) | ((i5 + ((int) ((((i2 >> 8) & 255) - i5) * f2))) << 8) | (i6 + ((int) (f2 * ((i2 & 255) - i6))));
+    private int evaluateColorChange(float f2, int i2, int i3) {
+        int i4 = (i2 >> 24) & 255;
+        int i5 = (i2 >> 16) & 255;
+        int i6 = (i2 >> 8) & 255;
+        int i7 = i2 & 255;
+        return ((i4 + ((int) ((((i3 >> 24) & 255) - i4) * f2))) << 24) | ((i5 + ((int) ((((i3 >> 16) & 255) - i5) * f2))) << 16) | ((i6 + ((int) ((((i3 >> 8) & 255) - i6) * f2))) << 8) | (i7 + ((int) (f2 * ((i3 & 255) - i7))));
     }
 
     private float getRotation() {
@@ -488,8 +488,8 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        this.mRing.setAlpha(i);
+    public void setAlpha(int i2) {
+        this.mRing.setAlpha(i2);
         invalidateSelf();
     }
 
@@ -508,8 +508,8 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         invalidateSelf();
     }
 
-    public void setBackgroundColor(int i) {
-        this.mRing.setBackgroundColor(i);
+    public void setBackgroundColor(int i2) {
+        this.mRing.setBackgroundColor(i2);
         invalidateSelf();
     }
 
@@ -551,8 +551,8 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         invalidateSelf();
     }
 
-    public void setStyle(int i) {
-        if (i == 0) {
+    public void setStyle(int i2) {
+        if (i2 == 0) {
             setSizeParameters(11.0f, 3.0f, 12.0f, 6.0f);
         } else {
             setSizeParameters(7.5f, 2.5f, 10.0f, 5.0f);

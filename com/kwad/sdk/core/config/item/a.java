@@ -6,27 +6,27 @@ import org.json.JSONObject;
 public abstract class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public T f33838a;
+    public T f32853a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33839b;
+    public String f32854b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f33840c;
+    public T f32855c;
 
     public a(String str, T t) {
         this(str, t, t);
     }
 
     public a(String str, T t, T t2) {
-        this.f33839b = str;
-        this.f33840c = t;
-        this.f33838a = t2;
+        this.f32854b = str;
+        this.f32855c = t;
+        this.f32853a = t2;
         com.kwad.sdk.core.config.b.a(this);
     }
 
     public String a() {
-        return this.f33839b;
+        return this.f32854b;
     }
 
     public abstract void a(SharedPreferences.Editor editor);
@@ -34,16 +34,16 @@ public abstract class a<T> {
     public abstract void a(SharedPreferences sharedPreferences);
 
     public void a(T t) {
-        this.f33840c = t;
+        this.f32855c = t;
     }
 
     public abstract void a(JSONObject jSONObject);
 
     public T b() {
-        return this.f33840c;
+        return this.f32855c;
     }
 
     public T c() {
-        return this.f33838a;
+        return this.f32853a;
     }
 }

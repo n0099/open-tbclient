@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.avatarPendant;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.j3.d.a;
-import d.b.j0.j3.h.e;
+import d.a.j0.j3.d.a;
+import d.a.j0.j3.h.e;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
@@ -16,8 +16,8 @@ public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage
     public List<a> mAvatarPendantList;
     public e mRecommand;
 
-    public AvatarPendantListHttpResponseMessage(int i) {
-        super(i);
+    public AvatarPendantListHttpResponseMessage(int i2) {
+        super(i2);
     }
 
     public List<a> getAvatarPendantListList() {
@@ -30,7 +30,7 @@ public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetPendantByCategoryResIdl getPendantByCategoryResIdl = (GetPendantByCategoryResIdl) new Wire(new Class[0]).parseFrom(bArr, GetPendantByCategoryResIdl.class);
         if (getPendantByCategoryResIdl == null) {
             return;

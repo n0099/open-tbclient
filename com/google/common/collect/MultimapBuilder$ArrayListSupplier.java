@@ -1,7 +1,7 @@
 package com.google.common.collect;
 
-import d.h.c.a.r;
-import d.h.c.c.m;
+import d.g.c.a.r;
+import d.g.c.c.m;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +9,13 @@ import java.util.List;
 public final class MultimapBuilder$ArrayListSupplier<V> implements r<List<V>>, Serializable {
     public final int expectedValuesPerKey;
 
-    public MultimapBuilder$ArrayListSupplier(int i) {
-        m.b(i, "expectedValuesPerKey");
-        this.expectedValuesPerKey = i;
+    public MultimapBuilder$ArrayListSupplier(int i2) {
+        m.b(i2, "expectedValuesPerKey");
+        this.expectedValuesPerKey = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.h.c.a.r
+    @Override // d.g.c.a.r
     public List<V> get() {
         return new ArrayList(this.expectedValuesPerKey);
     }

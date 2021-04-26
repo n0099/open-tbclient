@@ -40,7 +40,7 @@ public final class L {
         log(4, null, str, objArr);
     }
 
-    public static void log(int i, Throwable th, String str, Object... objArr) {
+    public static void log(int i2, Throwable th, String str, Object... objArr) {
         if (writeLogs) {
             if (objArr.length > 0) {
                 str = String.format(str, objArr);
@@ -51,7 +51,7 @@ public final class L {
                 }
                 str = String.format("%1$s\n%2$s", str, Log.getStackTraceString(th));
             }
-            Log.println(i, ImageLoader.TAG, str);
+            Log.println(i2, ImageLoader.TAG, str);
         }
     }
 

@@ -5,7 +5,7 @@ import java.nio.charset.Charset;
 public final class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f38000a = Charset.forName("UTF-8");
+    public static final Charset f35551a = Charset.forName("UTF-8");
 
     public static void a(long j, long j2, long j3) {
         if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
@@ -17,9 +17,9 @@ public final class o {
         b(th);
     }
 
-    public static boolean a(byte[] bArr, int i, byte[] bArr2, int i2, int i3) {
-        for (int i4 = 0; i4 < i3; i4++) {
-            if (bArr[i4 + i] != bArr2[i4 + i2]) {
+    public static boolean a(byte[] bArr, int i2, byte[] bArr2, int i3, int i4) {
+        for (int i5 = 0; i5 < i4; i5++) {
+            if (bArr[i5 + i2] != bArr2[i5 + i3]) {
                 return false;
             }
         }

@@ -15,17 +15,17 @@ import java.util.List;
 public class CHNoticeBarGroup extends BaseItemLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f24378a;
+    public List<BaseItemView> f25132a;
     public ViewFlipper flipper;
 
     public CHNoticeBarGroup(Context context) {
         super(context);
-        this.f24378a = new ArrayList();
+        this.f25132a = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f24378a;
+        return this.f25132a;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -45,13 +45,13 @@ public class CHNoticeBarGroup extends BaseItemLayout {
     public void refreshData() {
         HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
         int length = dataItemArr.length <= 6 ? dataItemArr.length : 6;
-        for (int i = 0; i < length; i++) {
-            HomeCfgResponse.DataItem dataItem = this.mConfigData.list[i];
+        for (int i2 = 0; i2 < length; i2++) {
+            HomeCfgResponse.DataItem dataItem = this.mConfigData.list[i2];
             if (dataItem != null && !TextUtils.isEmpty(dataItem.name)) {
                 CHNoticeItem cHNoticeItem = new CHNoticeItem(getContext());
                 cHNoticeItem.setData(dataItem, this.mWalletHomeInterface);
                 this.flipper.addView(cHNoticeItem);
-                this.f24378a.add(cHNoticeItem);
+                this.f25132a.add(cHNoticeItem);
             }
         }
         if (this.mConfigData.list.length == 1) {
@@ -65,6 +65,6 @@ public class CHNoticeBarGroup extends BaseItemLayout {
 
     public CHNoticeBarGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24378a = new ArrayList();
+        this.f25132a = new ArrayList();
     }
 }

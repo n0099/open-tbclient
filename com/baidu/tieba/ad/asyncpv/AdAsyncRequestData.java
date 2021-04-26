@@ -14,15 +14,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
-import d.b.c.e.p.j;
-import d.b.j0.j1.o.k.a;
+import d.a.c.e.p.j;
+import d.a.j0.j1.o.k.a;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AdAsyncRequestData extends HttpMessage {
-    public AdAsyncRequestData(PlaceId placeId, Map<String, String> map, int i) {
+    public AdAsyncRequestData(PlaceId placeId, Map<String, String> map, int i2) {
         super(CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST);
         addCommonParams();
         addHeader("Cookie", CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME));
@@ -39,7 +39,7 @@ public class AdAsyncRequestData extends HttpMessage {
         if (!TextUtils.isEmpty(ext)) {
             addParam("ext", ext);
         }
-        addParam("ac", i);
+        addParam("ac", i2);
     }
 
     private void addCommonParams() {

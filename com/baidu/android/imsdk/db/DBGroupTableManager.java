@@ -30,9 +30,9 @@ public class DBGroupTableManager {
             @Override // com.baidu.android.imsdk.db.IResultParse
             public GroupInfo onParse(Cursor cursor) {
                 String string = cursor.getString(cursor.getColumnIndex("group_id"));
-                int i = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_ACTIVE_STATE));
+                int i2 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_ACTIVE_STATE));
                 GroupInfo groupInfo = new GroupInfo(string);
-                groupInfo.setState(i);
+                groupInfo.setState(i2);
                 return groupInfo;
             }
         }, "groupinfo", new String[]{"group_id", DBTableDefine.GroupInfoColumns.COLUMN_ACTIVE_STATE}, null, null, null, null, null, null)) != null) {

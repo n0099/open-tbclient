@@ -8,7 +8,7 @@ import android.view.SurfaceView;
 public class TopicGifView extends SurfaceView implements SurfaceHolder.Callback {
 
     /* renamed from: e  reason: collision with root package name */
-    public SurfaceHolder f17362e;
+    public SurfaceHolder f17666e;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -20,20 +20,20 @@ public class TopicGifView extends SurfaceView implements SurfaceHolder.Callback 
         }
     }
 
-    public TopicGifView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public TopicGifView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         new Thread(new a());
         a();
     }
 
     public final void a() {
         SurfaceHolder holder = getHolder();
-        this.f17362e = holder;
+        this.f17666e = holder;
         holder.addCallback(this);
     }
 
     @Override // android.view.SurfaceHolder.Callback
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
     }
 
     @Override // android.view.SurfaceHolder.Callback

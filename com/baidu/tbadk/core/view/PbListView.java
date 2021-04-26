@@ -13,8 +13,8 @@ import androidx.annotation.DrawableRes;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.c.j.e.b;
+import d.a.c.e.p.l;
+import d.a.c.j.e.b;
 /* loaded from: classes3.dex */
 public class PbListView extends b {
     public Context j;
@@ -22,20 +22,22 @@ public class PbListView extends b {
     public boolean r;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f13124f = R.drawable.new_pic_emotion_03;
+    public final int f13065f = R.drawable.new_pic_emotion_03;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f13125g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
+    public final int f13066g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f13126h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds256);
-    public final int i = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+    public final int f13067h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds256);
+
+    /* renamed from: i  reason: collision with root package name */
+    public final int f13068i = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
     public TextView k = null;
     public ProgressBar l = null;
     public View.OnClickListener m = null;
     public View n = null;
     public View o = null;
-    public int q = this.f13124f;
+    public int q = this.f13065f;
     public int s = 0;
     public String t = null;
     public LinearLayout u = null;
@@ -61,64 +63,64 @@ public class PbListView extends b {
     }
 
     public void A(String str) {
-        B(str, this.i);
+        B(str, this.f13068i);
     }
 
-    public void B(String str, int i) {
+    public void B(String str, int i2) {
         this.t = str;
         this.k.setText(str);
         this.r = false;
         this.p.setVisibility(8);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.u.getLayoutParams();
-        layoutParams.height = i;
+        layoutParams.height = i2;
         layoutParams.bottomMargin = 0;
         this.u.setLayoutParams(layoutParams);
         d(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void C(int i) {
-        this.v = i;
+    public void C(int i2) {
+        this.v = i2;
     }
 
-    public void D(String str, int i) {
+    public void D(String str, int i2) {
         this.t = str;
         this.k.setText(str);
         this.r = true;
         this.p.setVisibility(0);
-        this.q = this.f13124f;
+        this.q = this.f13065f;
         d(TbadkCoreApplication.getInst().getSkinType());
-        e(i);
+        e(i2);
         this.D = false;
     }
 
-    public void E(int i) {
-        this.k.setTextSize(0, l.g(this.j, i));
+    public void E(int i2) {
+        this.k.setTextSize(0, l.g(this.j, i2));
     }
 
-    public void F(String str, int i) {
+    public void F(String str, int i2) {
         this.t = str;
         this.k.setText(str);
         this.r = true;
         this.p.setVisibility(0);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.p.getLayoutParams();
-        layoutParams.topMargin = i;
+        layoutParams.topMargin = i2;
         this.p.setLayoutParams(layoutParams);
         d(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void G(String str, @DrawableRes int i, int i2) {
+    public void G(String str, @DrawableRes int i2, int i3) {
         this.t = str;
         this.k.setText(str);
         this.r = true;
-        this.q = i;
+        this.q = i2;
         this.p.setVisibility(0);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.p.getLayoutParams();
-        layoutParams.topMargin = i2;
-        layoutParams.bottomMargin = this.f13125g;
+        layoutParams.topMargin = i3;
+        layoutParams.bottomMargin = this.f13066g;
         this.p.setLayoutParams(layoutParams);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.u.getLayoutParams();
         layoutParams2.height = -2;
-        layoutParams2.bottomMargin = this.f13126h;
+        layoutParams2.bottomMargin = this.f13067h;
         this.u.setLayoutParams(layoutParams2);
         d(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -129,13 +131,13 @@ public class PbListView extends b {
         }
     }
 
-    public void I(int i) {
-        this.n.setVisibility(i);
+    public void I(int i2) {
+        this.n.setVisibility(i2);
     }
 
-    public void J(int i) {
+    public void J(int i2) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.o.getLayoutParams());
-        layoutParams.height = i;
+        layoutParams.height = i2;
         this.o.setLayoutParams(layoutParams);
         this.o.setVisibility(0);
     }
@@ -160,13 +162,13 @@ public class PbListView extends b {
         i();
     }
 
-    public void N(int i) {
+    public void N(int i2) {
         LinearLayout linearLayout = this.z;
         if (linearLayout == null) {
             return;
         }
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) linearLayout.getLayoutParams();
-        layoutParams.height = i;
+        layoutParams.height = i2;
         this.z.setLayoutParams(layoutParams);
         this.z.setVisibility(0);
     }
@@ -177,7 +179,7 @@ public class PbListView extends b {
         d(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.b.c.j.e.b
+    @Override // d.a.c.j.e.b
     public View a() {
         View inflate = LayoutInflater.from(this.j).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         this.n = inflate;
@@ -196,7 +198,7 @@ public class PbListView extends b {
         return this.n;
     }
 
-    @Override // d.b.c.j.e.b
+    @Override // d.a.c.j.e.b
     public void c() {
         View.OnClickListener onClickListener = this.m;
         if (onClickListener != null) {
@@ -205,49 +207,49 @@ public class PbListView extends b {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void d(int i) {
+    public void d(int i2) {
         int color;
-        int i2;
         int i3;
-        int i4 = this.B;
-        if (i4 != -1) {
-            i = i4;
+        int i4;
+        int i5 = this.B;
+        if (i5 != -1) {
+            i2 = i5;
         }
         String charSequence = this.k.getText().toString();
         boolean z = false;
         if (charSequence.equals(this.j.getText(R.string.pb_load_more))) {
-            color = SkinManager.getColor(i, R.color.CAM_X0109);
+            color = SkinManager.getColor(i2, R.color.CAM_X0109);
         } else if (charSequence.equals(this.j.getText(R.string.loading))) {
-            color = SkinManager.getColor(i, R.color.CAM_X0109);
+            color = SkinManager.getColor(i2, R.color.CAM_X0109);
         } else if (!charSequence.equals(this.j.getText(R.string.list_no_more)) && !charSequence.equals(this.j.getText(R.string.list_has_no_more)) && !charSequence.equals(this.j.getText(R.string.sub_pb_list_no_more))) {
             if (charSequence.equals(this.j.getText(R.string.list_no_more_new))) {
-                color = SkinManager.getColor(i, R.color.CAM_X0110);
+                color = SkinManager.getColor(i2, R.color.CAM_X0110);
             } else {
-                color = (charSequence.equals(this.j.getText(R.string.list_click_load_more)) || charSequence.equals(this.j.getText(R.string.really_great))) ? SkinManager.getColor(i, R.color.CAM_X0109) : 0;
+                color = (charSequence.equals(this.j.getText(R.string.list_click_load_more)) || charSequence.equals(this.j.getText(R.string.really_great))) ? SkinManager.getColor(i2, R.color.CAM_X0109) : 0;
             }
         } else {
-            color = SkinManager.getColor(i, R.color.CAM_X0109);
+            color = SkinManager.getColor(i2, R.color.CAM_X0109);
             z = true;
         }
-        if (z && (i3 = this.w) != 0) {
-            color = SkinManager.getColor(i, i3);
+        if (z && (i4 = this.w) != 0) {
+            color = SkinManager.getColor(i2, i4);
         }
-        if (color == 0 && (i2 = this.v) != 0 && !z) {
-            color = i2;
+        if (color == 0 && (i3 = this.v) != 0 && !z) {
+            color = i3;
         }
         if (color != 0) {
             this.k.setTextColor(color);
         }
-        SkinManager.setImageResource(this.y, this.x, i);
-        int i5 = this.C;
-        if (i5 == 0) {
-            SkinManager.setBackgroundResource(this.u, R.color.CAM_X0201, i);
-        } else if (i5 > 0) {
-            SkinManager.setBackgroundResource(this.u, i5, i);
+        SkinManager.setImageResource(this.y, this.x, i2);
+        int i6 = this.C;
+        if (i6 == 0) {
+            SkinManager.setBackgroundResource(this.u, R.color.CAM_X0201, i2);
+        } else if (i6 > 0) {
+            SkinManager.setBackgroundResource(this.u, i6, i2);
         }
-        int i6 = this.s;
-        if (i6 != 0) {
-            SkinManager.setBackgroundColor(this.o, i6, i);
+        int i7 = this.s;
+        if (i7 != 0) {
+            SkinManager.setBackgroundColor(this.o, i7, i2);
         }
         if (this.r) {
             SkinManager.setImageResource(this.p, this.q);
@@ -255,7 +257,7 @@ public class PbListView extends b {
         }
     }
 
-    public void e(int i) {
+    public void e(int i2) {
         int dimension = (int) this.j.getResources().getDimension(R.dimen.tbds156);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.p.getLayoutParams();
         layoutParams.topMargin = dimension;
@@ -292,15 +294,15 @@ public class PbListView extends b {
         this.p.setVisibility(8);
         i();
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.u.getLayoutParams();
-        layoutParams.height = this.i;
+        layoutParams.height = this.f13068i;
         layoutParams.bottomMargin = 0;
         this.u.setLayoutParams(layoutParams);
         d(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void k(int i) {
+    public void k(int i2) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.o.getLayoutParams());
-        layoutParams.height = i;
+        layoutParams.height = i2;
         this.o.setLayoutParams(layoutParams);
         this.o.setVisibility(0);
         this.z.setVisibility(8);
@@ -319,17 +321,17 @@ public class PbListView extends b {
         return this.r;
     }
 
-    public void n(int i) {
-        SkinManager.setBackgroundResource(this.u, i);
+    public void n(int i2) {
+        SkinManager.setBackgroundResource(this.u, i2);
     }
 
-    public void o(int i) {
-        this.C = i;
+    public void o(int i2) {
+        this.C = i2;
     }
 
-    public void p(int i) {
+    public void p(int i2) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.y.getLayoutParams();
-        layoutParams.height = i;
+        layoutParams.height = i2;
         this.y.setLayoutParams(layoutParams);
     }
 
@@ -337,9 +339,9 @@ public class PbListView extends b {
         this.n.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
     }
 
-    public void r(int i) {
+    public void r(int i2) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.u.getLayoutParams());
-        layoutParams.height = i;
+        layoutParams.height = i2;
         this.u.setLayoutParams(layoutParams);
     }
 
@@ -353,8 +355,8 @@ public class PbListView extends b {
         this.y.setLayoutParams(layoutParams);
     }
 
-    public void u(int i) {
-        this.x = i;
+    public void u(int i2) {
+        this.x = i2;
     }
 
     public void v() {
@@ -372,8 +374,8 @@ public class PbListView extends b {
         this.y.setVisibility(0);
     }
 
-    public void y(int i) {
-        this.w = i;
+    public void y(int i2) {
+        this.w = i2;
     }
 
     public void z(View.OnClickListener onClickListener) {

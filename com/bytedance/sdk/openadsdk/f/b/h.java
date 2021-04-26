@@ -75,12 +75,12 @@ public class h extends com.bytedance.sdk.openadsdk.f.a.e<JSONObject, JSONObject>
         return jSONObject2;
     }
 
-    private void a(JSONObject jSONObject, int i, String str) {
+    private void a(JSONObject jSONObject, int i2, String str) {
         if (jSONObject == null) {
             return;
         }
         try {
-            jSONObject.put("code", i);
+            jSONObject.put("code", i2);
             jSONObject.put("codeMsg", str);
         } catch (Exception unused) {
             u.b("ReportPlayableScreenshotMethod", str);

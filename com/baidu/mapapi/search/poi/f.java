@@ -14,7 +14,7 @@ public final class f implements Parcelable.Creator<PoiResult> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public PoiResult[] newArray(int i) {
-        return new PoiResult[i];
+    public PoiResult[] newArray(int i2) {
+        return new PoiResult[i2];
     }
 }

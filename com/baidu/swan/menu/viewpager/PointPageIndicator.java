@@ -12,27 +12,29 @@ import android.view.View;
 public class PointPageIndicator extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f12683e;
+    public Drawable f12586e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f12684f;
+    public Drawable f12587f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f12685g;
+    public Rect f12588g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Rect f12686h;
-    public int i;
+    public Rect f12589h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f12590i;
     public int j;
     public int k;
 
     public PointPageIndicator(Context context) {
         super(context);
-        this.f12683e = null;
-        this.f12684f = null;
-        this.f12685g = new Rect();
-        this.f12686h = new Rect();
-        this.i = 0;
+        this.f12586e = null;
+        this.f12587f = null;
+        this.f12588g = new Rect();
+        this.f12589h = new Rect();
+        this.f12590i = 0;
         this.j = 0;
         this.k = 0;
         a(context);
@@ -41,39 +43,39 @@ public class PointPageIndicator extends View {
     public final void a(Context context) {
     }
 
-    public PointPageIndicator b(int i) {
-        this.j = i;
+    public PointPageIndicator b(int i2) {
+        this.j = i2;
         invalidate();
         return this;
     }
 
-    public PointPageIndicator c(int i) {
-        if (this.k != i) {
-            this.k = i;
+    public PointPageIndicator c(int i2) {
+        if (this.k != i2) {
+            this.k = i2;
             invalidate();
         }
         return this;
     }
 
     public PointPageIndicator d(Drawable drawable, Drawable drawable2) {
-        this.f12683e = drawable;
-        this.f12684f = drawable2;
+        this.f12586e = drawable;
+        this.f12587f = drawable2;
         if (drawable instanceof BitmapDrawable) {
-            this.f12685g.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            this.f12588g.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
         if (drawable2 instanceof BitmapDrawable) {
-            this.f12686h.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+            this.f12589h.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         }
         return this;
     }
 
-    public PointPageIndicator e(int i, int i2) {
+    public PointPageIndicator e(int i2, int i3) {
         Resources resources = getResources();
-        return d(resources.getDrawable(i), resources.getDrawable(i2));
+        return d(resources.getDrawable(i2), resources.getDrawable(i3));
     }
 
-    public PointPageIndicator f(int i) {
-        this.i = i;
+    public PointPageIndicator f(int i2) {
+        this.f12590i = i2;
         return this;
     }
 
@@ -81,22 +83,22 @@ public class PointPageIndicator extends View {
     public void onDraw(Canvas canvas) {
         int width;
         super.onDraw(canvas);
-        int i = this.k;
-        if (i <= 0) {
+        int i2 = this.k;
+        if (i2 <= 0) {
             return;
         }
-        int i2 = this.i;
+        int i3 = this.f12590i;
         int height = getHeight();
         int width2 = getWidth();
-        int i3 = this.j;
-        Rect rect = this.f12685g;
-        Rect rect2 = this.f12686h;
-        Drawable drawable = this.f12683e;
-        Drawable drawable2 = this.f12684f;
-        int i4 = i - 1;
-        int width3 = (width2 - (((i2 * i4) + (rect.width() * i4)) + rect2.width())) / 2;
-        for (int i5 = 0; i5 < i; i5++) {
-            if (i5 == i3) {
+        int i4 = this.j;
+        Rect rect = this.f12588g;
+        Rect rect2 = this.f12589h;
+        Drawable drawable = this.f12586e;
+        Drawable drawable2 = this.f12587f;
+        int i5 = i2 - 1;
+        int width3 = (width2 - (((i3 * i5) + (rect.width() * i5)) + rect2.width())) / 2;
+        for (int i6 = 0; i6 < i2; i6++) {
+            if (i6 == i4) {
                 if (drawable2 != null) {
                     rect2.offsetTo(width3, (height - rect2.height()) / 2);
                     drawable2.setBounds(rect2);
@@ -111,29 +113,29 @@ public class PointPageIndicator extends View {
                 }
                 width = rect.width();
             }
-            width3 += width + i2;
+            width3 += width + i3;
         }
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12683e = null;
-        this.f12684f = null;
-        this.f12685g = new Rect();
-        this.f12686h = new Rect();
-        this.i = 0;
+        this.f12586e = null;
+        this.f12587f = null;
+        this.f12588g = new Rect();
+        this.f12589h = new Rect();
+        this.f12590i = 0;
         this.j = 0;
         this.k = 0;
         a(context);
     }
 
-    public PointPageIndicator(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f12683e = null;
-        this.f12684f = null;
-        this.f12685g = new Rect();
-        this.f12686h = new Rect();
-        this.i = 0;
+    public PointPageIndicator(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f12586e = null;
+        this.f12587f = null;
+        this.f12588g = new Rect();
+        this.f12589h = new Rect();
+        this.f12590i = 0;
         this.j = 0;
         this.k = 0;
         a(context);

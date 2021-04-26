@@ -74,9 +74,9 @@ public class WbShareToStoryActivity extends BaseActivity {
         } else {
             WbSdkProgressBar wbSdkProgressBar = new WbSdkProgressBar(this);
             this.progressBar = wbSdkProgressBar;
-            int i = this.progressColor;
-            if (i != -1) {
-                wbSdkProgressBar.setProgressColor(i);
+            int i2 = this.progressColor;
+            if (i2 != -1) {
+                wbSdkProgressBar.setProgressColor(i2);
             }
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
@@ -87,14 +87,14 @@ public class WbShareToStoryActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setCallbackActivity(int i) {
+    public void setCallbackActivity(int i2) {
         FrameLayout frameLayout = this.rootLayout;
         if (frameLayout != null) {
             frameLayout.setVisibility(8);
         }
         try {
             Intent intent = new Intent();
-            intent.putExtra(WBConstants.Response.ERRCODE, i);
+            intent.putExtra(WBConstants.Response.ERRCODE, i2);
             setResult(-1, intent);
         } catch (Exception e2) {
             LogUtil.v("weibo sdk", e2.toString());
@@ -103,8 +103,8 @@ public class WbShareToStoryActivity extends BaseActivity {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
     }
 
     @Override // com.sina.weibo.sdk.share.BaseActivity, android.app.Activity
@@ -150,14 +150,14 @@ public class WbShareToStoryActivity extends BaseActivity {
 
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
-        int i;
+        int i2;
         super.onNewIntent(intent);
         try {
-            i = intent.getIntExtra("backType", 0);
+            i2 = intent.getIntExtra("backType", 0);
         } catch (Exception unused) {
-            i = 0;
+            i2 = 0;
         }
-        if (i == 0) {
+        if (i2 == 0) {
             setCallbackActivity(1);
         } else {
             setCallbackActivity(0);

@@ -9,8 +9,9 @@ public final class ArrayByteIterator extends ByteIterator {
     public final byte[] array;
     public int index;
 
-    public ArrayByteIterator(byte[] bArr) {
-        this.array = bArr;
+    public ArrayByteIterator(byte[] array) {
+        Intrinsics.checkNotNullParameter(array, "array");
+        this.array = array;
     }
 
     @Override // java.util.Iterator
@@ -22,9 +23,9 @@ public final class ArrayByteIterator extends ByteIterator {
     public byte nextByte() {
         try {
             byte[] bArr = this.array;
-            int i = this.index;
-            this.index = i + 1;
-            return bArr[i];
+            int i2 = this.index;
+            this.index = i2 + 1;
+            return bArr[i2];
         } catch (ArrayIndexOutOfBoundsException e2) {
             this.index--;
             throw new NoSuchElementException(e2.getMessage());

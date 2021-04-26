@@ -2,8 +2,8 @@ package com.google.common.collect;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableTable;
-import d.h.c.c.c1;
-import d.h.c.c.y0;
+import d.g.c.c.c1;
+import d.g.c.c.y0;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
@@ -30,14 +30,14 @@ public final class SparseImmutableTable<R, C, V> extends RegularImmutableTable<R
         }
         int[] iArr = new int[immutableList.size()];
         int[] iArr2 = new int[immutableList.size()];
-        for (int i = 0; i < immutableList.size(); i++) {
-            y0.a<R, C, V> aVar = immutableList.get(i);
+        for (int i2 = 0; i2 < immutableList.size(); i2++) {
+            y0.a<R, C, V> aVar = immutableList.get(i2);
             R rowKey = aVar.getRowKey();
             C columnKey = aVar.getColumnKey();
             V value = aVar.getValue();
-            iArr[i] = ((Integer) k.get(rowKey)).intValue();
+            iArr[i2] = ((Integer) k.get(rowKey)).intValue();
             Map map = (Map) s.get(rowKey);
-            iArr2[i] = map.size();
+            iArr2[i2] = map.size();
             checkNoDuplicate(rowKey, columnKey, map.put(columnKey, value), value);
             ((Map) s2.get(columnKey)).put(rowKey, value);
         }
@@ -60,40 +60,40 @@ public final class SparseImmutableTable<R, C, V> extends RegularImmutableTable<R
         ImmutableMap k = Maps.k(columnKeySet());
         int[] iArr = new int[cellSet().size()];
         c1<y0.a<R, C, V>> it = cellSet().iterator();
-        int i = 0;
+        int i2 = 0;
         while (it.hasNext()) {
-            iArr[i] = ((Integer) k.get(it.next().getColumnKey())).intValue();
-            i++;
+            iArr[i2] = ((Integer) k.get(it.next().getColumnKey())).intValue();
+            i2++;
         }
         return ImmutableTable.SerializedForm.create(this, this.cellRowIndices, iArr);
     }
 
     @Override // com.google.common.collect.RegularImmutableTable
-    public y0.a<R, C, V> getCell(int i) {
-        Map.Entry<R, ImmutableMap<C, V>> entry = this.rowMap.entrySet().asList().get(this.cellRowIndices[i]);
-        Map.Entry<C, V> entry2 = entry.getValue().entrySet().asList().get(this.cellColumnInRowIndices[i]);
+    public y0.a<R, C, V> getCell(int i2) {
+        Map.Entry<R, ImmutableMap<C, V>> entry = this.rowMap.entrySet().asList().get(this.cellRowIndices[i2]);
+        Map.Entry<C, V> entry2 = entry.getValue().entrySet().asList().get(this.cellColumnInRowIndices[i2]);
         return ImmutableTable.cellOf(entry.getKey(), entry2.getKey(), entry2.getValue());
     }
 
     @Override // com.google.common.collect.RegularImmutableTable
-    public V getValue(int i) {
-        int i2 = this.cellRowIndices[i];
-        return this.rowMap.values().asList().get(i2).values().asList().get(this.cellColumnInRowIndices[i]);
+    public V getValue(int i2) {
+        int i3 = this.cellRowIndices[i2];
+        return this.rowMap.values().asList().get(i3).values().asList().get(this.cellColumnInRowIndices[i2]);
     }
 
-    @Override // com.google.common.collect.RegularImmutableTable, com.google.common.collect.ImmutableTable, d.h.c.c.y0
+    @Override // com.google.common.collect.RegularImmutableTable, com.google.common.collect.ImmutableTable, d.g.c.c.y0
     public int size() {
         return this.cellRowIndices.length;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableTable, d.h.c.c.y0
+    @Override // com.google.common.collect.ImmutableTable, d.g.c.c.y0
     public ImmutableMap<C, Map<R, V>> columnMap() {
         return ImmutableMap.copyOf((Map) this.columnMap);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableTable, d.h.c.c.y0
+    @Override // com.google.common.collect.ImmutableTable, d.g.c.c.y0
     public ImmutableMap<R, Map<C, V>> rowMap() {
         return ImmutableMap.copyOf((Map) this.rowMap);
     }

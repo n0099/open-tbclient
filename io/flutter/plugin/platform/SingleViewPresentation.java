@@ -66,16 +66,16 @@ public class SingleViewPresentation extends Presentation {
             this.childRect = new Rect();
         }
 
-        public static int atMost(int i) {
-            return View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i), Integer.MIN_VALUE);
+        public static int atMost(int i2) {
+            return View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i2), Integer.MIN_VALUE);
         }
 
         @Override // android.view.ViewGroup, android.view.View
-        public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-            for (int i5 = 0; i5 < getChildCount(); i5++) {
-                View childAt = getChildAt(i5);
+        public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+            for (int i6 = 0; i6 < getChildCount(); i6++) {
+                View childAt = getChildAt(i6);
                 WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) childAt.getLayoutParams();
-                this.viewBounds.set(i, i2, i3, i4);
+                this.viewBounds.set(i2, i3, i4, i5);
                 Gravity.apply(layoutParams.gravity, childAt.getMeasuredWidth(), childAt.getMeasuredHeight(), this.viewBounds, layoutParams.x, layoutParams.y, this.childRect);
                 Rect rect = this.childRect;
                 childAt.layout(rect.left, rect.top, rect.right, rect.bottom);
@@ -83,11 +83,11 @@ public class SingleViewPresentation extends Presentation {
         }
 
         @Override // android.view.View
-        public void onMeasure(int i, int i2) {
-            for (int i3 = 0; i3 < getChildCount(); i3++) {
-                getChildAt(i3).measure(atMost(i), atMost(i2));
+        public void onMeasure(int i2, int i3) {
+            for (int i4 = 0; i4 < getChildCount(); i4++) {
+                getChildAt(i4).measure(atMost(i2), atMost(i3));
             }
-            super.onMeasure(i, i2);
+            super.onMeasure(i2, i3);
         }
     }
 
@@ -266,12 +266,12 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    public SingleViewPresentation(Context context, Display display, PlatformViewFactory platformViewFactory, AccessibilityEventsDelegate accessibilityEventsDelegate, int i, Object obj, View.OnFocusChangeListener onFocusChangeListener) {
+    public SingleViewPresentation(Context context, Display display, PlatformViewFactory platformViewFactory, AccessibilityEventsDelegate accessibilityEventsDelegate, int i2, Object obj, View.OnFocusChangeListener onFocusChangeListener) {
         super(new ImmContext(context), display);
         this.startFocused = false;
         this.viewFactory = platformViewFactory;
         this.accessibilityEventsDelegate = accessibilityEventsDelegate;
-        this.viewId = i;
+        this.viewId = i2;
         this.createParams = obj;
         this.focusChangeListener = onFocusChangeListener;
         this.state = new PresentationState();

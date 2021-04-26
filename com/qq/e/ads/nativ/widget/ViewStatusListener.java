@@ -11,5 +11,5 @@ public interface ViewStatusListener {
 
     void onWindowFocusChanged(boolean z);
 
-    void onWindowVisibilityChanged(int i);
+    void onWindowVisibilityChanged(int i2);
 }

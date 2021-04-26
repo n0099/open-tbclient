@@ -8,20 +8,20 @@ public enum Config$CloudAnchorMode {
     
     public final int nativeCode;
 
-    Config$CloudAnchorMode(int i) {
-        this.nativeCode = i;
+    Config$CloudAnchorMode(int i2) {
+        this.nativeCode = i2;
     }
 
-    public static Config$CloudAnchorMode forNumber(int i) {
+    public static Config$CloudAnchorMode forNumber(int i2) {
         Config$CloudAnchorMode[] values;
         for (Config$CloudAnchorMode config$CloudAnchorMode : values()) {
-            if (config$CloudAnchorMode.nativeCode == i) {
+            if (config$CloudAnchorMode.nativeCode == i2) {
                 return config$CloudAnchorMode;
             }
         }
         StringBuilder sb = new StringBuilder(64);
         sb.append("Unexpected value for native AnchorHostingMode, value=");
-        sb.append(i);
+        sb.append(i2);
         throw new FatalException(sb.toString());
     }
 }

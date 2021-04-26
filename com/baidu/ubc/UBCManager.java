@@ -2,8 +2,9 @@ package com.baidu.ubc;
 
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import d.b.l0.s;
-import d.b.l0.w;
+import d.a.l0.n;
+import d.a.l0.t;
+import d.a.l0.x;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -19,19 +20,19 @@ public interface UBCManager {
 
     Flow beginFlow(String str);
 
-    Flow beginFlow(String str, int i);
+    Flow beginFlow(String str, int i2);
 
     Flow beginFlow(String str, String str2);
 
-    Flow beginFlow(String str, String str2, int i);
+    Flow beginFlow(String str, String str2, int i2);
 
     Flow beginFlow(String str, Map<String, String> map);
 
-    Flow beginFlow(String str, Map<String, String> map, int i);
+    Flow beginFlow(String str, Map<String, String> map, int i2);
 
     Flow beginFlow(String str, JSONObject jSONObject);
 
-    Flow beginFlow(String str, JSONObject jSONObject, int i);
+    Flow beginFlow(String str, JSONObject jSONObject, int i2);
 
     void flowAddEvent(Flow flow, String str);
 
@@ -63,23 +64,25 @@ public interface UBCManager {
 
     void onEvent(String str);
 
-    void onEvent(String str, int i);
+    void onEvent(String str, int i2);
 
     void onEvent(String str, String str2);
 
-    void onEvent(String str, String str2, int i);
+    void onEvent(String str, String str2, int i2);
 
     void onEvent(String str, Map<String, String> map);
 
-    void onEvent(String str, Map<String, String> map, int i);
+    void onEvent(String str, Map<String, String> map, int i2);
 
     void onEvent(String str, JSONObject jSONObject);
 
-    void onEvent(String str, JSONObject jSONObject, int i);
+    void onEvent(String str, JSONObject jSONObject, int i2);
 
-    void registerConfig(w wVar);
+    void registerConfig(x xVar);
 
-    void registerConfig(w wVar, boolean z, s sVar);
+    void registerConfig(x xVar, boolean z, t tVar);
+
+    void setDefaultConfig(n nVar);
 
     void setUBCDebug(boolean z);
 

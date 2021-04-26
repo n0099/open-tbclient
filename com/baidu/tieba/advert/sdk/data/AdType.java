@@ -8,8 +8,8 @@ public enum AdType {
     
     public int typeId;
 
-    AdType(int i) {
-        this.typeId = i;
+    AdType(int i2) {
+        this.typeId = i2;
     }
 
     public int getValue() {

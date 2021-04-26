@@ -5,18 +5,18 @@ import android.graphics.Bitmap;
 public class m implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Bitmap f4224a;
+    public final /* synthetic */ Bitmap f4293a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ l f4225b;
+    public final /* synthetic */ l f4294b;
 
     public m(l lVar, Bitmap bitmap) {
-        this.f4225b = lVar;
-        this.f4224a = bitmap;
+        this.f4294b = lVar;
+        this.f4293a = bitmap;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f4225b.f4222a.a(this.f4224a);
+        this.f4294b.f4291a.a(this.f4293a);
     }
 }

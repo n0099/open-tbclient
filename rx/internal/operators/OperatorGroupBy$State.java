@@ -5,7 +5,7 @@ import h.f;
 import h.j;
 import h.k;
 import h.o.a.a;
-import h.o.a.o;
+import h.o.a.n;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -19,15 +19,15 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
     public volatile boolean done;
     public Throwable error;
     public final K key;
-    public final o<?, K, T> parent;
+    public final n<?, K, T> parent;
     public final Queue<Object> queue = new ConcurrentLinkedQueue();
     public final AtomicBoolean cancelled = new AtomicBoolean();
     public final AtomicReference<j<? super T>> actual = new AtomicReference<>();
     public final AtomicBoolean once = new AtomicBoolean();
     public final AtomicLong requested = new AtomicLong();
 
-    public OperatorGroupBy$State(int i, o<?, K, T> oVar, K k, boolean z) {
-        this.parent = oVar;
+    public OperatorGroupBy$State(int i2, n<?, K, T> nVar, K k, boolean z) {
+        this.parent = nVar;
         this.key = k;
         this.delayError = z;
     }
@@ -78,7 +78,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         Queue<Object> queue = this.queue;
         boolean z = this.delayError;
         j<? super T> jVar = this.actual.get();
-        int i = 1;
+        int i2 = 1;
         while (true) {
             if (jVar != null) {
                 if (checkTerminated(this.done, queue.isEmpty(), jVar, z)) {
@@ -103,11 +103,11 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                     if (j != Long.MAX_VALUE) {
                         a.g(this.requested, j2);
                     }
-                    this.parent.f68937e.request(j2);
+                    this.parent.f67785e.request(j2);
                 }
             }
-            i = addAndGet(-i);
-            if (i == 0) {
+            i2 = addAndGet(-i2);
+            if (i2 == 0) {
                 return;
             }
             if (jVar == null) {
@@ -144,10 +144,10 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
 
     @Override // h.f
     public void request(long j) {
-        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i < 0) {
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i2 < 0) {
             throw new IllegalArgumentException("n >= required but it was " + j);
-        } else if (i != 0) {
+        } else if (i2 != 0) {
             a.b(this.requested, j);
             drain();
         }

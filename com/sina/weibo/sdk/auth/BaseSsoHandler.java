@@ -49,10 +49,10 @@ public class BaseSsoHandler {
         authorize(WbAuthConstants.REQUEST_CODE_SSO_AUTH, wbAuthListener, AuthType.ALL);
     }
 
-    public void authorizeCallBack(int i, int i2, Intent intent) {
-        if (32973 == i) {
-            if (i2 != -1) {
-                if (i2 == 0) {
+    public void authorizeCallBack(int i2, int i3, Intent intent) {
+        if (32973 == i2) {
+            if (i3 != -1) {
+                if (i3 == 0) {
                     this.authListener.cancel();
                     return;
                 }
@@ -93,7 +93,7 @@ public class BaseSsoHandler {
         authorize(WbAuthConstants.REQUEST_CODE_SSO_AUTH, wbAuthListener, AuthType.WebOnly);
     }
 
-    public void fillExtraIntent(Intent intent, int i) {
+    public void fillExtraIntent(Intent intent, int i2) {
     }
 
     @Deprecated
@@ -105,7 +105,7 @@ public class BaseSsoHandler {
         this.ssoRequestCode = WbAuthConstants.REQUEST_CODE_SSO_AUTH;
     }
 
-    public void startClientAuth(int i) {
+    public void startClientAuth(int i2) {
         try {
             WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this.mAuthActivity).getWbAppInfo();
             Intent intent = new Intent();
@@ -118,7 +118,7 @@ public class BaseSsoHandler {
                 this.authListener.onFailure(new WbConnectErrorMessage(WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_MESSAGE, WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_CODE));
                 return;
             }
-            fillExtraIntent(intent, i);
+            fillExtraIntent(intent, i2);
             try {
                 ((Activity) this.mAuthActivity).startActivityForResult(intent, this.ssoRequestCode);
             } catch (Exception unused) {
@@ -173,7 +173,7 @@ public class BaseSsoHandler {
         this.mAuthActivity.startActivity(intent);
     }
 
-    private void authorize(int i, WbAuthListener wbAuthListener, AuthType authType) {
+    private void authorize(int i2, WbAuthListener wbAuthListener, AuthType authType) {
         resetIntentFillData();
         if (wbAuthListener != null) {
             this.authListener = wbAuthListener;
@@ -184,7 +184,7 @@ public class BaseSsoHandler {
             boolean z = authType == AuthType.SsoOnly;
             WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this.mAuthActivity).getWbAppInfo();
             if (isWbAppInstalled() && wbAppInfo != null) {
-                startClientAuth(i);
+                startClientAuth(i2);
                 return;
             } else if (z) {
                 this.authListener.onFailure(new WbConnectErrorMessage());

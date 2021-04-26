@@ -12,25 +12,25 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.tieba.recapp.lego.view.LoopADView;
-import d.b.i0.r.k;
-/* loaded from: classes4.dex */
+import d.a.i0.r.k;
+/* loaded from: classes3.dex */
 public class AdCardLoopPicView extends AdCardBaseView {
     public View m0;
     public LoopADView n0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements LoopADView.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdCard f20458a;
+        public final /* synthetic */ AdCard f21001a;
 
         public a(AdCard adCard) {
-            this.f20458a = adCard;
+            this.f21001a = adCard;
         }
 
         @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
         public void a(TbImageView tbImageView, AdCard.b bVar) {
-            AdCardLoopPicView.this.X0(tbImageView, bVar, new AdCardBaseView.k(this.f20458a));
+            AdCardLoopPicView.this.X0(tbImageView, bVar, new AdCardBaseView.k(this.f21001a));
         }
 
         @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
@@ -79,8 +79,8 @@ public class AdCardLoopPicView extends AdCardBaseView {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView, com.baidu.tieba.lego.card.view.BaseLegoCardView
     /* renamed from: S0 */
-    public void y(AdCard adCard, int i) {
-        super.y(adCard, i);
+    public void x(AdCard adCard, int i2) {
+        super.x(adCard, i2);
         LoopADView loopADView = this.n0;
         if (loopADView == null || loopADView.getVisibility() != 0) {
             return;
@@ -88,15 +88,15 @@ public class AdCardLoopPicView extends AdCardBaseView {
         this.n0.b();
     }
 
-    public final void e1(View view, int i) {
+    public final void e1(View view, int i2) {
         if (view == null || view.getVisibility() != 0) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams instanceof RelativeLayout.LayoutParams) {
-            ((RelativeLayout.LayoutParams) layoutParams).rightMargin = i;
+            ((RelativeLayout.LayoutParams) layoutParams).rightMargin = i2;
         } else if (layoutParams instanceof LinearLayout.LayoutParams) {
-            ((LinearLayout.LayoutParams) layoutParams).rightMargin = i;
+            ((LinearLayout.LayoutParams) layoutParams).rightMargin = i2;
         }
     }
 

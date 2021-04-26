@@ -55,9 +55,9 @@ public class IMQuitCastMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
         long j = -1;
-        if (i == 0) {
+        if (i2 == 0) {
             try {
                 if (jSONObject.has("msg")) {
                     jSONObject.getString("msg");
@@ -65,7 +65,7 @@ public class IMQuitCastMsg extends Message {
                 if (jSONObject.has("mcast_id")) {
                     j = jSONObject.getLong("mcast_id");
                 } else {
-                    i = 1015;
+                    i2 = 1015;
                     str = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
                 }
                 if (j > 0) {
@@ -75,10 +75,10 @@ public class IMQuitCastMsg extends Message {
                 LogUtils.e(TAG, "handle IMQuitCastMsg exception :", e2);
             }
         }
-        int i2 = i;
+        int i3 = i2;
         String str2 = str;
-        super.handleMessageResult(context, jSONObject, i2, str2);
-        LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str2);
-        ConversationStudioManImpl.getInstance(this.mContext).onQuitCastResult(getListenerKey(), i2, str2, j);
+        super.handleMessageResult(context, jSONObject, i3, str2);
+        LogUtils.d(TAG, "errorCode:" + i3 + "  strMsg" + str2);
+        ConversationStudioManImpl.getInstance(this.mContext).onQuitCastResult(getListenerKey(), i3, str2, j);
     }
 }

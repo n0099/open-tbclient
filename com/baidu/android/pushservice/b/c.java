@@ -10,29 +10,31 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2732a;
+    public String f2731a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2733b;
+    public String f2732b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2734c;
+    public int f2733c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<e> f2735d;
+    public ArrayList<e> f2734d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<f> f2736e;
+    public ArrayList<f> f2735e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2737f;
+    public String f2736f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2738g;
+    public String f2737g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f2739h;
-    public int i = 0;
+    public a f2738h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f2739i = 0;
 
     /* loaded from: classes.dex */
     public class a {
@@ -48,13 +50,13 @@ public class c {
     }
 
     public c(Context context, String str) {
-        this.f2732a = str;
+        this.f2731a = str;
         a(context, str);
     }
 
     private void a(Context context, String str) {
         String str2;
-        int i;
+        int i2;
         String str3;
         String str4 = "apksign";
         try {
@@ -83,9 +85,9 @@ public class c {
             if (jSONObject.has("osversion")) {
                 JSONArray jSONArray = jSONObject.getJSONArray("osversion");
                 str2 = "apkversion";
-                int i2 = 0;
-                while (i2 < jSONArray.length()) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                int i3 = 0;
+                while (i3 < jSONArray.length()) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                     JSONArray jSONArray2 = jSONArray;
                     e eVar = new e();
                     String str6 = str4;
@@ -99,12 +101,12 @@ public class c {
                     } else if (string2.equalsIgnoreCase("regular")) {
                         eVar.a(2);
                         arrayList.add(eVar);
-                        i2++;
+                        i3++;
                         jSONArray = jSONArray2;
                         str4 = str6;
                     }
                     arrayList.add(eVar);
-                    i2++;
+                    i3++;
                     jSONArray = jSONArray2;
                     str4 = str6;
                 }
@@ -115,9 +117,9 @@ public class c {
             ArrayList<f> arrayList2 = new ArrayList<>();
             if (jSONObject.has("systemprop")) {
                 JSONArray jSONArray3 = jSONObject.getJSONArray("systemprop");
-                int i3 = 0;
-                while (i3 < jSONArray3.length()) {
-                    JSONObject jSONObject3 = jSONArray3.getJSONObject(i3);
+                int i4 = 0;
+                while (i4 < jSONArray3.length()) {
+                    JSONObject jSONObject3 = jSONArray3.getJSONObject(i4);
                     f fVar = new f();
                     JSONArray jSONArray4 = jSONArray3;
                     fVar.a(jSONObject3.getString("key"));
@@ -132,25 +134,25 @@ public class c {
                             fVar.a(1);
                             fVar.c(jSONObject3.getString("regular"));
                             arrayList2.add(fVar);
-                            i3++;
+                            i4++;
                             jSONArray3 = jSONArray4;
                             str5 = str3;
                         }
                     }
                     fVar.c(jSONObject3.getString("regular"));
                     arrayList2.add(fVar);
-                    i3++;
+                    i4++;
                     jSONArray3 = jSONArray4;
                     str5 = str3;
                 }
             }
             if (jSONObject.has("proxyswitch")) {
                 try {
-                    i = Integer.parseInt(jSONObject.getString("proxyswitch"));
+                    i2 = Integer.parseInt(jSONObject.getString("proxyswitch"));
                 } catch (NumberFormatException unused) {
-                    i = 0;
+                    i2 = 0;
                 }
-                b(i);
+                b(i2);
             }
             if (jSONObject.has("apkname")) {
                 b(jSONObject.getString("apkname"));
@@ -175,73 +177,73 @@ public class c {
     }
 
     public a a() {
-        return this.f2739h;
+        return this.f2738h;
     }
 
-    public void a(int i) {
-        this.f2734c = i;
+    public void a(int i2) {
+        this.f2733c = i2;
     }
 
-    public void a(int i, int i2) {
+    public void a(int i2, int i3) {
         a aVar = new a();
-        this.f2739h = aVar;
-        aVar.f2740a = i;
-        aVar.f2741b = i2;
+        this.f2738h = aVar;
+        aVar.f2740a = i2;
+        aVar.f2741b = i3;
     }
 
     public void a(String str) {
-        this.f2733b = str;
+        this.f2732b = str;
     }
 
     public void a(ArrayList<e> arrayList) {
-        this.f2735d = arrayList;
+        this.f2734d = arrayList;
     }
 
     public String b() {
-        return this.f2733b;
+        return this.f2732b;
     }
 
-    public void b(int i) {
-        this.i = i;
+    public void b(int i2) {
+        this.f2739i = i2;
     }
 
     public void b(String str) {
-        this.f2737f = str;
+        this.f2736f = str;
     }
 
     public void b(ArrayList<f> arrayList) {
-        this.f2736e = arrayList;
+        this.f2735e = arrayList;
     }
 
     public int c() {
-        return this.f2734c;
+        return this.f2733c;
     }
 
     public void c(String str) {
-        this.f2738g = str;
+        this.f2737g = str;
     }
 
     public ArrayList<e> d() {
-        return this.f2735d;
+        return this.f2734d;
     }
 
     public ArrayList<f> e() {
-        return this.f2736e;
+        return this.f2735e;
     }
 
     public String f() {
-        return this.f2737f;
+        return this.f2736f;
     }
 
     public String g() {
-        return this.f2738g;
+        return this.f2737g;
     }
 
     public int h() {
-        return this.i;
+        return this.f2739i;
     }
 
     public String toString() {
-        return this.f2732a;
+        return this.f2731a;
     }
 }

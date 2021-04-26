@@ -133,8 +133,8 @@ public class RoundRectDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        this.mPaint.setAlpha(i);
+    public void setAlpha(int i2) {
+        this.mPaint.setAlpha(i2);
     }
 
     public void setColor(@Nullable ColorStateList colorStateList) {

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.b.c.e.p.j;
+import d.a.c.e.p.j;
 /* loaded from: classes3.dex */
 public class NewUserGuideActivityConfig extends IntentConfig {
     public static final String HAS_LIEK_BAR = "has_like_bar";

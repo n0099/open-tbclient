@@ -24,8 +24,8 @@ public class H5LifeCycleCallback implements Application.ActivityLifecycleCallbac
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public H5LifeCycleCallback[] newArray(int i) {
-            return new H5LifeCycleCallback[i];
+        public H5LifeCycleCallback[] newArray(int i2) {
+            return new H5LifeCycleCallback[i2];
         }
     };
 
@@ -83,7 +83,7 @@ public class H5LifeCycleCallback implements Application.ActivityLifecycleCallbac
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.mHash);
     }
 

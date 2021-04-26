@@ -23,8 +23,8 @@ public class SchemaMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public SchemaMsg[] newArray(int i) {
-            return new SchemaMsg[i];
+        public SchemaMsg[] newArray(int i2) {
+            return new SchemaMsg[i2];
         }
     };
     public String mContent;
@@ -60,8 +60,8 @@ public class SchemaMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.mContent);
     }
 

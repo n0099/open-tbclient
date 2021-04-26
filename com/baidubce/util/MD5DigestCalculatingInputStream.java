@@ -37,10 +37,10 @@ public class MD5DigestCalculatingInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        int read = ((FilterInputStream) this).in.read(bArr, i, i2);
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
+        int read = ((FilterInputStream) this).in.read(bArr, i2, i3);
         if (read != -1) {
-            this.digest.update(bArr, i, read);
+            this.digest.update(bArr, i2, read);
         }
         return read;
     }

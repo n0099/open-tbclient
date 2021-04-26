@@ -67,17 +67,17 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final SessionCache f23935a = new SessionCache();
+            public static final SessionCache f24680a = new SessionCache();
         }
 
         public static SessionCache getInstance() {
-            return a.f23935a;
+            return a.f24680a;
         }
 
         public static synchronized void sync(SessionCache sessionCache) {
             synchronized (SessionCache.class) {
                 if (sessionCache != null) {
-                    a.f23935a.mCache = sessionCache.mCache;
+                    a.f24680a.mCache = sessionCache.mCache;
                 }
             }
         }
@@ -282,8 +282,8 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         }
         List<String> a2 = restResponseEntity.a("Set-Cookie");
         if (a2 != null) {
-            for (int i = 0; i < a2.size(); i++) {
-                String str = a2.get(i);
+            for (int i2 = 0; i2 < a2.size(); i2++) {
+                String str = a2.get(i2);
                 try {
                     String[] split = str.substring(0, str.indexOf(";")).split("=");
                     if (split.length > 0 && "token".equals(split[0]) && !TextUtils.isEmpty(split[1]) && TextUtils.isEmpty(AccountManager.getInstance(this.mContext).getBfbToken())) {

@@ -9,7 +9,9 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class b {
-    public static List<String> i = null;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static List<String> f11079i = null;
     public static boolean j = false;
 
     public static DnsParseResult a(String str, boolean z) {
@@ -18,7 +20,7 @@ public class b {
             return null;
         }
         int i2 = 0;
-        com.baidu.searchbox.dns.c.a k = new a.C0154a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
+        com.baidu.searchbox.dns.c.a k = new a.C0148a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
         com.baidu.searchbox.dns.d.a i3 = k.i();
         com.baidu.searchbox.dns.d.a.a h2 = k.h();
         int j2 = k.j();
@@ -102,8 +104,8 @@ public class b {
 
     public static synchronized void d() {
         synchronized (b.class) {
-            if (i != null && i.size() > 0) {
-                for (String str : i) {
+            if (f11079i != null && f11079i.size() > 0) {
+                for (String str : f11079i) {
                     b(str);
                 }
             }
@@ -121,11 +123,11 @@ public class b {
 
     public static synchronized void a(String str) {
         synchronized (b.class) {
-            if (i == null) {
-                i = new ArrayList(4);
+            if (f11079i == null) {
+                f11079i = new ArrayList(4);
             }
-            if (!i.contains(str)) {
-                i.add(str);
+            if (!f11079i.contains(str)) {
+                f11079i.add(str);
             }
         }
     }

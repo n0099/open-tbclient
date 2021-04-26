@@ -28,8 +28,8 @@ public class MessageV3 implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public MessageV3[] newArray(int i) {
-            return new MessageV3[i];
+        public MessageV3[] newArray(int i2) {
+            return new MessageV3[i2];
         }
     };
     public static final String TAG = "Message_V3";
@@ -97,7 +97,7 @@ public class MessageV3 implements Parcelable {
     }
 
     public static MessageV3 parse(String str, String str2, String str3, MPushMessage mPushMessage) {
-        d.k.a.a.a.b(TAG, "V2 message " + mPushMessage);
+        d.j.a.a.a.b(TAG, "V2 message " + mPushMessage);
         MessageV3 messageV3 = new MessageV3();
         messageV3.setPackageName(str);
         messageV3.setUploadDataPackageName(str);
@@ -134,11 +134,11 @@ public class MessageV3 implements Parcelable {
         }
         messageV3.setParamsMap(mPushMessage.getParams());
         String jSONObject = e.a((Map) mPushMessage.getExtra()).toString();
-        d.k.a.a.a.b(TAG, "MessageV2 extra json is " + jSONObject);
+        d.j.a.a.a.b(TAG, "MessageV2 extra json is " + jSONObject);
         if (!TextUtils.isEmpty(jSONObject)) {
             messageV3.setNotificationMessage(jSONObject);
         }
-        d.k.a.a.a.d(TAG, "parase V2 message to V3 message " + messageV3);
+        d.j.a.a.a.d(TAG, "parase V2 message to V3 message " + messageV3);
         return messageV3;
     }
 
@@ -183,7 +183,7 @@ public class MessageV3 implements Parcelable {
                     messageV3.setWebUrl(jSONObject2.getString("url"));
                 }
                 if (!jSONObject2.isNull("task_id") && TextUtils.isEmpty(str3)) {
-                    d.k.a.a.a.b(TAG, "Flyme 4 notification message by through message or taskId is null");
+                    d.j.a.a.a.b(TAG, "Flyme 4 notification message by through message or taskId is null");
                     messageV3.setTaskId(jSONObject2.getString("task_id"));
                 }
                 if (!jSONObject2.isNull("pk")) {
@@ -194,7 +194,7 @@ public class MessageV3 implements Parcelable {
                 }
             }
         } catch (JSONException e2) {
-            d.k.a.a.a.b(TAG, "parse message error " + e2.getMessage());
+            d.j.a.a.a.b(TAG, "parse message error " + e2.getMessage());
         }
         return messageV3;
     }
@@ -301,8 +301,8 @@ public class MessageV3 implements Parcelable {
         this.activity = str;
     }
 
-    public void setClickType(int i) {
-        this.clickType = i;
+    public void setClickType(int i2) {
+        this.clickType = i2;
     }
 
     public void setContent(String str) {
@@ -382,7 +382,7 @@ public class MessageV3 implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.taskId);
         parcel.writeString(this.seqId);
         parcel.writeString(this.deviceId);
@@ -399,9 +399,9 @@ public class MessageV3 implements Parcelable {
         parcel.writeMap(this.paramsMap);
         parcel.writeString(this.throughMessage);
         parcel.writeString(this.notificationMessage);
-        parcel.writeParcelable(this.mAdvanceSetting, i);
-        parcel.writeParcelable(this.mAppIconSetting, i);
-        parcel.writeParcelable(this.mNotificationStyle, i);
-        parcel.writeParcelable(this.mTimeDisplaySetting, i);
+        parcel.writeParcelable(this.mAdvanceSetting, i2);
+        parcel.writeParcelable(this.mAppIconSetting, i2);
+        parcel.writeParcelable(this.mNotificationStyle, i2);
+        parcel.writeParcelable(this.mTimeDisplaySetting, i2);
     }
 }

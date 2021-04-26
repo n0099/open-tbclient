@@ -5,17 +5,17 @@ import com.baidu.mapapi.synchronization.SyncCoordinateConverter;
 public /* synthetic */ class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f7397a;
+    public static final /* synthetic */ int[] f7661a;
 
     static {
         int[] iArr = new int[SyncCoordinateConverter.CoordType.values().length];
-        f7397a = iArr;
+        f7661a = iArr;
         try {
             iArr[SyncCoordinateConverter.CoordType.COMMON.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f7397a[SyncCoordinateConverter.CoordType.BD09LL.ordinal()] = 2;
+            f7661a[SyncCoordinateConverter.CoordType.BD09LL.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
     }

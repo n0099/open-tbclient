@@ -8,5 +8,5 @@ public interface ConnectListener {
         public static final int CODE_CONNECT_SUCCESS = 0;
     }
 
-    void onResult(int i);
+    void onResult(int i2);
 }

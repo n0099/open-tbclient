@@ -33,7 +33,7 @@ public class CpuInfo implements INoProGuard {
         Throwable th;
         IOException e2;
         File file = new File(str);
-        int i = 2;
+        int i2 = 2;
         if (file.exists()) {
             try {
                 try {
@@ -46,15 +46,15 @@ public class CpuInfo implements INoProGuard {
                                     if (!readLine.contains("neon")) {
                                         if (!readLine.contains("Atom")) {
                                             if (readLine.contains(IDevices.ABI_MIPS)) {
-                                                i = 4;
+                                                i2 = 4;
                                                 break;
                                             }
                                         } else {
-                                            i = 3;
+                                            i2 = 3;
                                             break;
                                         }
                                     } else {
-                                        i = 1;
+                                        i2 = 1;
                                         break;
                                     }
                                 } else {
@@ -66,7 +66,7 @@ public class CpuInfo implements INoProGuard {
                                 if (bufferedReader != null) {
                                     bufferedReader.close();
                                 }
-                                return i;
+                                return i2;
                             }
                         } catch (Throwable th2) {
                             th = th2;
@@ -95,7 +95,7 @@ public class CpuInfo implements INoProGuard {
                 throw th;
             }
         }
-        return i;
+        return i2;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:14:0x002a -> B:33:0x004c). Please submit an issue!!! */
@@ -161,7 +161,7 @@ public class CpuInfo implements INoProGuard {
     }
 
     public static int getCpuType() {
-        int i;
+        int i2;
         if (sCheckedCpuInfo) {
             return sCpuType;
         }
@@ -170,16 +170,16 @@ public class CpuInfo implements INoProGuard {
             String lowerCase = str.toLowerCase();
             if (!lowerCase.startsWith("arm")) {
                 if (lowerCase.startsWith("x86") || lowerCase.startsWith("i686")) {
-                    i = 3;
+                    i2 = 3;
                 } else if (lowerCase.startsWith(IDevices.ABI_MIPS)) {
-                    i = 4;
+                    i2 = 4;
                 }
-                sCpuType = i;
+                sCpuType = i2;
             } else if (supportNeon()) {
                 sCpuType = 1;
             } else {
-                i = 2;
-                sCpuType = i;
+                i2 = 2;
+                sCpuType = i2;
             }
         }
         sCheckedCpuInfo = true;

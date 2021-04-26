@@ -1,27 +1,90 @@
 package a.a.a.a;
 
-import a.a.a.a.s.e;
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.FunNativeAdInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public interface k {
-    void a();
+public class k<K, V> {
 
-    void a(l lVar);
+    /* renamed from: a  reason: collision with root package name */
+    public final HashMap<K, k<K, V>.a> f1068a = new HashMap<>();
 
-    void a(Context context, FunAdSlot funAdSlot);
+    /* renamed from: b  reason: collision with root package name */
+    public final c<?> f1069b;
 
-    boolean a(Activity activity, ViewGroup viewGroup, String str, FunNativeAdInflater funNativeAdInflater);
+    /* loaded from: classes.dex */
+    public class a {
 
-    e.a b();
+        /* renamed from: a  reason: collision with root package name */
+        public final String f1070a;
 
-    boolean c();
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f1071b;
 
-    a.a.a.a.u.o d();
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f1072c;
 
-    FunNativeAd getNativeAd(Context context, String str);
+        /* renamed from: d  reason: collision with root package name */
+        public boolean f1073d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public FunAdInteractionListener f1074e;
+
+        public a(String str, V v) {
+            this.f1070a = str;
+        }
+    }
+
+    public k(c<?> cVar) {
+        this.f1069b = cVar;
+    }
+
+    public final void a(K k) {
+        synchronized (this.f1068a) {
+            this.f1068a.remove(k);
+        }
+    }
+
+    public final void a(K k, String str, V v, FunAdInteractionListener funAdInteractionListener) {
+        synchronized (this.f1068a) {
+            k<K, V>.a aVar = this.f1068a.get(k);
+            if (aVar == null) {
+                aVar = new a(str, v);
+                this.f1068a.put(k, aVar);
+            }
+            a.a.a.a.x.f.g.c cVar = k.this.f1069b.f1013g;
+            a.a.a.a.x.f.g.c.a("ad", cVar.f1393a, "sh_start", aVar.f1071b, new Object[0]);
+            aVar.f1071b = true;
+            aVar.f1074e = funAdInteractionListener;
+        }
+    }
+
+    public final void b(K k) {
+        synchronized (this.f1068a) {
+            k<K, V>.a aVar = this.f1068a.get(k);
+            if (aVar == null) {
+                return;
+            }
+            k.this.f1069b.f1013g.a(aVar.f1073d);
+            aVar.f1073d = true;
+            FunAdInteractionListener funAdInteractionListener = aVar.f1074e;
+            if (funAdInteractionListener != null) {
+                funAdInteractionListener.onAdClicked(aVar.f1070a);
+            }
+        }
+    }
+
+    public final void c(K k) {
+        synchronized (this.f1068a) {
+            k<K, V>.a aVar = this.f1068a.get(k);
+            if (aVar == null) {
+                return;
+            }
+            k.this.f1069b.f1013g.b(aVar.f1072c);
+            aVar.f1072c = true;
+            FunAdInteractionListener funAdInteractionListener = aVar.f1074e;
+            if (funAdInteractionListener != null) {
+                funAdInteractionListener.onAdShow(aVar.f1070a);
+            }
+        }
+    }
 }

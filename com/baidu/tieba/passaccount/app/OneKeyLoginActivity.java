@@ -7,13 +7,13 @@ import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.LoginDialogActivityConfig;
 import com.baidu.tieba.R;
-import d.b.j0.b2.b.a;
-import d.b.j0.b2.b.b;
-import d.b.j0.b2.b.c;
-import d.b.j0.b2.b.d;
-import d.b.j0.b2.b.e;
-import d.b.j0.b2.b.f;
-import d.b.j0.b2.b.g;
+import d.a.j0.b2.b.a;
+import d.a.j0.b2.b.b;
+import d.a.j0.b2.b.c;
+import d.a.j0.b2.b.d;
+import d.a.j0.b2.b.e;
+import d.a.j0.b2.b.f;
+import d.a.j0.b2.b.g;
 /* loaded from: classes3.dex */
 public class OneKeyLoginActivity extends BaseActivity {
     public a controller;
@@ -25,24 +25,24 @@ public class OneKeyLoginActivity extends BaseActivity {
         this.shareModelJSONStr = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
         c cVar = new c();
         this.oneKeyLoginData = cVar;
-        cVar.f53763a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
-        this.oneKeyLoginData.f53764b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
-        this.oneKeyLoginData.f53765c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
-        this.oneKeyLoginData.f53766d = this.shareModelJSONStr;
+        cVar.f51513a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+        this.oneKeyLoginData.f51514b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
+        this.oneKeyLoginData.f51515c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
+        this.oneKeyLoginData.f51516d = this.shareModelJSONStr;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i == 25061) {
-            this.controller.c(i2);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i2 == 25061) {
+            this.controller.c(i3);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.view.a(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.view.a(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -61,6 +61,6 @@ public class OneKeyLoginActivity extends BaseActivity {
         this.view.c(this.oneKeyLoginData);
         this.controller.j(this.oneKeyLoginData);
         this.controller.i(false);
-        this.controller.k(d.b.i0.b.d.l());
+        this.controller.k(d.a.i0.b.d.l());
     }
 }

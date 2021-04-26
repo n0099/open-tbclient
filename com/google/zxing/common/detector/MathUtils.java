@@ -12,16 +12,16 @@ public final class MathUtils {
     }
 
     public static int sum(int[] iArr) {
-        int i = 0;
-        for (int i2 : iArr) {
-            i += i2;
+        int i2 = 0;
+        for (int i3 : iArr) {
+            i2 += i3;
         }
-        return i;
+        return i2;
     }
 
-    public static float distance(int i, int i2, int i3, int i4) {
-        int i5 = i - i3;
+    public static float distance(int i2, int i3, int i4, int i5) {
         int i6 = i2 - i4;
-        return (float) Math.sqrt((i5 * i5) + (i6 * i6));
+        int i7 = i3 - i5;
+        return (float) Math.sqrt((i6 * i6) + (i7 * i7));
     }
 }

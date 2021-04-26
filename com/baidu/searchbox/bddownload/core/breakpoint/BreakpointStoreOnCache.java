@@ -33,42 +33,42 @@ public class BreakpointStoreOnCache implements DownloadStore {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized int allocateId() {
-        int i;
-        int i2 = 0;
+        int i2;
         int i3 = 0;
         int i4 = 0;
+        int i5 = 0;
         while (true) {
-            i = 1;
-            if (i3 >= this.sortedOccupiedIds.size()) {
+            i2 = 1;
+            if (i4 >= this.sortedOccupiedIds.size()) {
                 break;
             }
-            Integer num = this.sortedOccupiedIds.get(i3);
+            Integer num = this.sortedOccupiedIds.get(i4);
             if (num == null) {
-                i2 = i4 + 1;
+                i3 = i5 + 1;
                 break;
             }
             int intValue = num.intValue();
-            if (i4 != 0) {
-                int i5 = i4 + 1;
-                if (intValue != i5) {
-                    i2 = i5;
+            if (i5 != 0) {
+                int i6 = i5 + 1;
+                if (intValue != i6) {
+                    i3 = i6;
                     break;
                 }
             } else if (intValue != 1) {
-                i2 = 1;
+                i3 = 1;
                 break;
             }
-            i3++;
-            i4 = intValue;
+            i4++;
+            i5 = intValue;
         }
-        if (i2 != 0) {
-            i = i2;
+        if (i3 != 0) {
+            i2 = i3;
         } else if (!this.sortedOccupiedIds.isEmpty()) {
-            i = 1 + this.sortedOccupiedIds.get(this.sortedOccupiedIds.size() - 1).intValue();
-            i3 = this.sortedOccupiedIds.size();
+            i2 = 1 + this.sortedOccupiedIds.get(this.sortedOccupiedIds.size() - 1).intValue();
+            i4 = this.sortedOccupiedIds.size();
         }
-        this.sortedOccupiedIds.add(i3, Integer.valueOf(i));
-        return i;
+        this.sortedOccupiedIds.add(i4, Integer.valueOf(i2));
+        return i2;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
@@ -90,8 +90,8 @@ public class BreakpointStoreOnCache implements DownloadStore {
             clone = this.storedInfos.clone();
         }
         int size = clone.size();
-        for (int i = 0; i < size; i++) {
-            BreakpointInfo valueAt = clone.valueAt(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            BreakpointInfo valueAt = clone.valueAt(i2);
             if (valueAt != breakpointInfo && valueAt.isSameFrom(downloadTask)) {
                 return valueAt;
             }
@@ -106,15 +106,15 @@ public class BreakpointStoreOnCache implements DownloadStore {
             return num.intValue();
         }
         int size = this.storedInfos.size();
-        for (int i = 0; i < size; i++) {
-            BreakpointInfo valueAt = this.storedInfos.valueAt(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            BreakpointInfo valueAt = this.storedInfos.valueAt(i2);
             if (valueAt != null && valueAt.isSameFrom(downloadTask)) {
                 return valueAt.id;
             }
         }
         int size2 = this.unStoredTasks.size();
-        for (int i2 = 0; i2 < size2; i2++) {
-            IdentifiedTask valueAt2 = this.unStoredTasks.valueAt(i2);
+        for (int i3 = 0; i3 < size2; i3++) {
+            IdentifiedTask valueAt2 = this.unStoredTasks.valueAt(i3);
             if (valueAt2 != null && valueAt2.compareIgnoreId(downloadTask)) {
                 return valueAt2.getId();
             }
@@ -126,13 +126,13 @@ public class BreakpointStoreOnCache implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public BreakpointInfo get(int i) {
-        return this.storedInfos.get(i);
+    public BreakpointInfo get(int i2) {
+        return this.storedInfos.get(i2);
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
     @Nullable
-    public BreakpointInfo getAfterCompleted(int i) {
+    public BreakpointInfo getAfterCompleted(int i2) {
         return null;
     }
 
@@ -143,8 +143,8 @@ public class BreakpointStoreOnCache implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public boolean isFileDirty(int i) {
-        return this.fileDirtyList.contains(Integer.valueOf(i));
+    public boolean isFileDirty(int i2) {
+        return this.fileDirtyList.contains(Integer.valueOf(i2));
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
@@ -153,56 +153,56 @@ public class BreakpointStoreOnCache implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public boolean markFileClear(int i) {
+    public boolean markFileClear(int i2) {
         boolean remove;
         synchronized (this.fileDirtyList) {
-            remove = this.fileDirtyList.remove(Integer.valueOf(i));
+            remove = this.fileDirtyList.remove(Integer.valueOf(i2));
         }
         return remove;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public boolean markFileDirty(int i) {
-        if (this.fileDirtyList.contains(Integer.valueOf(i))) {
+    public boolean markFileDirty(int i2) {
+        if (this.fileDirtyList.contains(Integer.valueOf(i2))) {
             return false;
         }
         synchronized (this.fileDirtyList) {
-            if (this.fileDirtyList.contains(Integer.valueOf(i))) {
+            if (this.fileDirtyList.contains(Integer.valueOf(i2))) {
                 return false;
             }
-            this.fileDirtyList.add(Integer.valueOf(i));
+            this.fileDirtyList.add(Integer.valueOf(i2));
             return true;
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public void onSyncToFilesystemSuccess(@NonNull BreakpointInfo breakpointInfo, int i, long j) throws IOException {
+    public void onSyncToFilesystemSuccess(@NonNull BreakpointInfo breakpointInfo, int i2, long j) throws IOException {
         BreakpointInfo breakpointInfo2 = this.storedInfos.get(breakpointInfo.id);
         if (breakpointInfo == breakpointInfo2) {
-            breakpointInfo2.getBlock(i).increaseCurrentOffset(j);
+            breakpointInfo2.getBlock(i2).increaseCurrentOffset(j);
             return;
         }
         throw new IOException("Info not on store!");
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public void onTaskEnd(int i, @NonNull EndCause endCause, @Nullable Exception exc) {
+    public void onTaskEnd(int i2, @NonNull EndCause endCause, @Nullable Exception exc) {
         if (endCause == EndCause.COMPLETED) {
-            remove(i);
+            remove(i2);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public void onTaskStart(int i) {
+    public void onTaskStart(int i2) {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public synchronized void remove(int i) {
-        this.storedInfos.remove(i);
-        if (this.unStoredTasks.get(i) == null) {
-            this.sortedOccupiedIds.remove(Integer.valueOf(i));
+    public synchronized void remove(int i2) {
+        this.storedInfos.remove(i2);
+        if (this.unStoredTasks.get(i2) == null) {
+            this.sortedOccupiedIds.remove(Integer.valueOf(i2));
         }
-        this.keyToIdMap.remove(i);
+        this.keyToIdMap.remove(i2);
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
@@ -241,8 +241,8 @@ public class BreakpointStoreOnCache implements DownloadStore {
         this.keyToIdMap = new KeyToIdMap();
         int size = sparseArray.size();
         this.sortedOccupiedIds = new ArrayList(size);
-        for (int i = 0; i < size; i++) {
-            this.sortedOccupiedIds.add(Integer.valueOf(sparseArray.valueAt(i).id));
+        for (int i2 = 0; i2 < size; i2++) {
+            this.sortedOccupiedIds.add(Integer.valueOf(sparseArray.valueAt(i2).id));
         }
         Collections.sort(this.sortedOccupiedIds);
     }

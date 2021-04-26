@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.c.e.p.l;
-import d.b.i0.z0.w;
+import d.a.c.e.p.l;
+import d.a.i0.z0.w;
 import tbclient.Lego.DataReq;
 import tbclient.Lego.LegoReqIdl;
 /* loaded from: classes4.dex */
@@ -80,20 +80,20 @@ public class LegoPageRequest extends NetMessage {
         this.lastRank = str;
     }
 
-    public void setPageType(int i) {
-        this.pageType = i;
+    public void setPageType(int i2) {
+        this.pageType = i2;
     }
 
     public void setParams(String str) {
         this.params = str;
     }
 
-    public void setPn(int i) {
-        this.pn = i;
+    public void setPn(int i2) {
+        this.pn = i2;
     }
 
-    public void setRn(int i) {
-        this.rn = i;
+    public void setRn(int i2) {
+        this.rn = i2;
     }
 
     public void setTagCode(long j) {

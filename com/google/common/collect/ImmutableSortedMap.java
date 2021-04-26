@@ -2,10 +2,10 @@ package com.google.common.collect;
 
 import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableMap;
-import d.h.c.a.n;
-import d.h.c.c.c1;
-import d.h.c.c.f0;
-import d.h.c.c.m;
+import d.g.c.a.n;
+import d.g.c.c.c1;
+import d.g.c.c.f0;
+import d.g.c.c.m;
 import java.util.AbstractMap;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -41,17 +41,17 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
     public static class a implements Comparator<Map.Entry<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Comparator f30928e;
+        public final /* synthetic */ Comparator f31889e;
 
         public a(Comparator comparator) {
-            this.f30928e = comparator;
+            this.f31889e = comparator;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(Map.Entry<K, V> entry, Map.Entry<K, V> entry2) {
-            return this.f30928e.compare(entry.getKey(), entry2.getKey());
+            return this.f31889e.compare(entry.getKey(), entry2.getKey());
         }
     }
 
@@ -59,24 +59,24 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
     public static class b<K, V> extends ImmutableMap.b<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public transient Object[] f30929e;
+        public transient Object[] f31890e;
 
         /* renamed from: f  reason: collision with root package name */
-        public transient Object[] f30930f;
+        public transient Object[] f31891f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final Comparator<? super K> f30931g;
+        public final Comparator<? super K> f31892g;
 
         public b(Comparator<? super K> comparator) {
             this(comparator, 4);
         }
 
-        private void b(int i) {
-            Object[] objArr = this.f30929e;
-            if (i > objArr.length) {
-                int e2 = ImmutableCollection.b.e(objArr.length, i);
-                this.f30929e = Arrays.copyOf(this.f30929e, e2);
-                this.f30930f = Arrays.copyOf(this.f30930f, e2);
+        private void b(int i2) {
+            Object[] objArr = this.f31890e;
+            if (i2 > objArr.length) {
+                int e2 = ImmutableCollection.b.e(objArr.length, i2);
+                this.f31890e = Arrays.copyOf(this.f31890e, e2);
+                this.f31891f = Arrays.copyOf(this.f31891f, e2);
             }
         }
 
@@ -111,36 +111,36 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
         @Override // com.google.common.collect.ImmutableMap.b
         /* renamed from: h */
         public ImmutableSortedMap<K, V> a() {
-            int i;
-            int i2 = this.f30892c;
-            if (i2 != 0) {
-                if (i2 == 1) {
-                    return ImmutableSortedMap.of(this.f30931g, this.f30929e[0], this.f30930f[0]);
+            int i2;
+            int i3 = this.f31851c;
+            if (i3 != 0) {
+                if (i3 == 1) {
+                    return ImmutableSortedMap.of(this.f31892g, this.f31890e[0], this.f31891f[0]);
                 }
-                Object[] copyOf = Arrays.copyOf(this.f30929e, i2);
-                Arrays.sort(copyOf, this.f30931g);
-                Object[] objArr = new Object[this.f30892c];
-                for (int i3 = 0; i3 < this.f30892c; i3++) {
-                    if (i3 > 0) {
-                        if (this.f30931g.compare(copyOf[i3 - 1], copyOf[i3]) == 0) {
-                            throw new IllegalArgumentException("keys required to be distinct but compared as equal: " + copyOf[i] + " and " + copyOf[i3]);
+                Object[] copyOf = Arrays.copyOf(this.f31890e, i3);
+                Arrays.sort(copyOf, this.f31892g);
+                Object[] objArr = new Object[this.f31851c];
+                for (int i4 = 0; i4 < this.f31851c; i4++) {
+                    if (i4 > 0) {
+                        if (this.f31892g.compare(copyOf[i4 - 1], copyOf[i4]) == 0) {
+                            throw new IllegalArgumentException("keys required to be distinct but compared as equal: " + copyOf[i2] + " and " + copyOf[i4]);
                         }
                     }
-                    objArr[Arrays.binarySearch(copyOf, this.f30929e[i3], this.f30931g)] = this.f30930f[i3];
+                    objArr[Arrays.binarySearch(copyOf, this.f31890e[i4], this.f31892g)] = this.f31891f[i4];
                 }
-                return new ImmutableSortedMap<>(new RegularImmutableSortedSet(ImmutableList.asImmutableList(copyOf), this.f30931g), ImmutableList.asImmutableList(objArr));
+                return new ImmutableSortedMap<>(new RegularImmutableSortedSet(ImmutableList.asImmutableList(copyOf), this.f31892g), ImmutableList.asImmutableList(objArr));
             }
-            return ImmutableSortedMap.emptyMap(this.f30931g);
+            return ImmutableSortedMap.emptyMap(this.f31892g);
         }
 
         public b<K, V> i(K k, V v) {
-            b(this.f30892c + 1);
+            b(this.f31851c + 1);
             m.a(k, v);
-            Object[] objArr = this.f30929e;
-            int i = this.f30892c;
-            objArr[i] = k;
-            this.f30930f[i] = v;
-            this.f30892c = i + 1;
+            Object[] objArr = this.f31890e;
+            int i2 = this.f31851c;
+            objArr[i2] = k;
+            this.f31891f[i2] = v;
+            this.f31851c = i2 + 1;
             return this;
         }
 
@@ -159,11 +159,11 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
             return this;
         }
 
-        public b(Comparator<? super K> comparator, int i) {
+        public b(Comparator<? super K> comparator, int i2) {
             n.p(comparator);
-            this.f30931g = comparator;
-            this.f30929e = new Object[i];
-            this.f30930f = new Object[i];
+            this.f31892g = comparator;
+            this.f31890e = new Object[i2];
+            this.f31891f = new Object[i2];
         }
     }
 
@@ -222,14 +222,14 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
         return fromEntries(comparator, z, entryArr, entryArr.length);
     }
 
-    private ImmutableSortedMap<K, V> getSubMap(int i, int i2) {
-        if (i == 0 && i2 == size()) {
+    private ImmutableSortedMap<K, V> getSubMap(int i2, int i3) {
+        if (i2 == 0 && i3 == size()) {
             return this;
         }
-        if (i == i2) {
+        if (i2 == i3) {
             return emptyMap(comparator());
         }
-        return new ImmutableSortedMap<>(this.keySet.getSubSet(i, i2), this.valueList.subList(i, i2));
+        return new ImmutableSortedMap<>(this.keySet.getSubSet(i2, i3), this.valueList.subList(i2, i3));
     }
 
     public static <K extends Comparable<?>, V> b<K, V> naturalOrder() {
@@ -285,8 +285,8 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // java.util.List
-                    public Map.Entry<K, V> get(int i) {
-                        return new AbstractMap.SimpleImmutableEntry(ImmutableSortedMap.this.keySet.asList().get(i), ImmutableSortedMap.this.valueList.get(i));
+                    public Map.Entry<K, V> get(int i2) {
+                        return new AbstractMap.SimpleImmutableEntry(ImmutableSortedMap.this.keySet.asList().get(i2), ImmutableSortedMap.this.valueList.get(i2));
                     }
                 };
             }
@@ -485,7 +485,7 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableMap, java.util.Map, d.h.c.c.k
+    @Override // com.google.common.collect.ImmutableMap, java.util.Map, d.g.c.c.k
     public ImmutableCollection<V> values() {
         return this.valueList;
     }
@@ -495,34 +495,34 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
         return copyOfInternal(map, comparator);
     }
 
-    public static <K, V> ImmutableSortedMap<K, V> fromEntries(Comparator<? super K> comparator, boolean z, Map.Entry<K, V>[] entryArr, int i) {
-        if (i != 0) {
-            if (i != 1) {
-                Object[] objArr = new Object[i];
-                Object[] objArr2 = new Object[i];
+    public static <K, V> ImmutableSortedMap<K, V> fromEntries(Comparator<? super K> comparator, boolean z, Map.Entry<K, V>[] entryArr, int i2) {
+        if (i2 != 0) {
+            if (i2 != 1) {
+                Object[] objArr = new Object[i2];
+                Object[] objArr2 = new Object[i2];
                 if (z) {
-                    for (int i2 = 0; i2 < i; i2++) {
-                        K key = entryArr[i2].getKey();
-                        V value = entryArr[i2].getValue();
+                    for (int i3 = 0; i3 < i2; i3++) {
+                        K key = entryArr[i3].getKey();
+                        V value = entryArr[i3].getValue();
                         m.a(key, value);
-                        objArr[i2] = key;
-                        objArr2[i2] = value;
+                        objArr[i3] = key;
+                        objArr2[i3] = value;
                     }
                 } else {
-                    Arrays.sort(entryArr, 0, i, new a(comparator));
+                    Arrays.sort(entryArr, 0, i2, new a(comparator));
                     Object key2 = entryArr[0].getKey();
                     objArr[0] = key2;
                     objArr2[0] = entryArr[0].getValue();
                     m.a(objArr[0], objArr2[0]);
-                    int i3 = 1;
-                    while (i3 < i) {
-                        Object key3 = entryArr[i3].getKey();
-                        V value2 = entryArr[i3].getValue();
+                    int i4 = 1;
+                    while (i4 < i2) {
+                        Object key3 = entryArr[i4].getKey();
+                        V value2 = entryArr[i4].getValue();
                         m.a(key3, value2);
-                        objArr[i3] = key3;
-                        objArr2[i3] = value2;
-                        ImmutableMap.checkNoConflict(comparator.compare(key2, key3) != 0, "key", entryArr[i3 - 1], entryArr[i3]);
-                        i3++;
+                        objArr[i4] = key3;
+                        objArr2[i4] = value2;
+                        ImmutableMap.checkNoConflict(comparator.compare(key2, key3) != 0, "key", entryArr[i4 - 1], entryArr[i4]);
+                        i4++;
                         key2 = key3;
                     }
                 }

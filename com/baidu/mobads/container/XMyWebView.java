@@ -64,7 +64,7 @@ public class XMyWebView extends XSafeWebView {
 
     /* loaded from: classes2.dex */
     public interface KeyDownListener {
-        boolean onKeyDown(int i, KeyEvent keyEvent);
+        boolean onKeyDown(int i2, KeyEvent keyEvent);
     }
 
     /* loaded from: classes2.dex */
@@ -305,20 +305,20 @@ public class XMyWebView extends XSafeWebView {
     }
 
     @Override // android.webkit.WebView, android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         KeyDownListener keyDownListener = this.mKeyDownListener;
         if (keyDownListener == null) {
             return false;
         }
-        return keyDownListener.onKeyDown(i, keyEvent);
+        return keyDownListener.onKeyDown(i2, keyEvent);
     }
 
     @Override // android.webkit.WebView, android.view.View
-    public void onOverScrolled(int i, int i2, boolean z, boolean z2) {
+    public void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
         boolean z3 = true;
-        this.isScrollY = z2 && i2 == 0;
-        this.isScrollX = (z && i == 0) ? false : false;
-        super.onOverScrolled(i, i2, z, z2);
+        this.isScrollY = z2 && i3 == 0;
+        this.isScrollX = (z && i2 == 0) ? false : false;
+        super.onOverScrolled(i2, i3, z, z2);
     }
 
     public void setConfigs(JSONObject jSONObject) {

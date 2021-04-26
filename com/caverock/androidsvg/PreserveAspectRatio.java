@@ -1,20 +1,20 @@
 package com.caverock.androidsvg;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PreserveAspectRatio {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final PreserveAspectRatio f30237c = new PreserveAspectRatio(Alignment.None, null);
+    public static final PreserveAspectRatio f31156c = new PreserveAspectRatio(Alignment.None, null);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final PreserveAspectRatio f30238d = new PreserveAspectRatio(Alignment.XMidYMid, Scale.Meet);
+    public static final PreserveAspectRatio f31157d = new PreserveAspectRatio(Alignment.XMidYMid, Scale.Meet);
 
     /* renamed from: a  reason: collision with root package name */
-    public Alignment f30239a;
+    public Alignment f31158a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Scale f30240b;
+    public Scale f31159b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum Alignment {
         None,
         XMinYMin,
@@ -28,7 +28,7 @@ public class PreserveAspectRatio {
         XMaxYMax
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum Scale {
         Meet,
         Slice
@@ -50,16 +50,16 @@ public class PreserveAspectRatio {
     }
 
     public PreserveAspectRatio(Alignment alignment, Scale scale) {
-        this.f30239a = alignment;
-        this.f30240b = scale;
+        this.f31158a = alignment;
+        this.f31159b = scale;
     }
 
     public Alignment a() {
-        return this.f30239a;
+        return this.f31158a;
     }
 
     public Scale b() {
-        return this.f30240b;
+        return this.f31159b;
     }
 
     public boolean equals(Object obj) {
@@ -68,7 +68,7 @@ public class PreserveAspectRatio {
         }
         if (obj != null && PreserveAspectRatio.class == obj.getClass()) {
             PreserveAspectRatio preserveAspectRatio = (PreserveAspectRatio) obj;
-            return this.f30239a == preserveAspectRatio.f30239a && this.f30240b == preserveAspectRatio.f30240b;
+            return this.f31158a == preserveAspectRatio.f31158a && this.f31159b == preserveAspectRatio.f31159b;
         }
         return false;
     }

@@ -5,57 +5,57 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.view.View;
 import android.widget.RelativeLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39652a = a.class.getName();
+    public static final String f37254a = a.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f39653b;
+    public Rect f37255b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39654c;
+    public boolean f37256c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC0535a f39655d;
+    public InterfaceC0479a f37257d;
 
     /* renamed from: com.tencent.open.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0535a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0479a {
         void a();
 
-        void a(int i);
+        void a(int i2);
     }
 
     public a(Context context) {
         super(context);
-        this.f39653b = null;
-        this.f39654c = false;
-        this.f39655d = null;
+        this.f37255b = null;
+        this.f37256c = false;
+        this.f37257d = null;
         if (0 == 0) {
-            this.f39653b = new Rect();
+            this.f37255b = new Rect();
         }
     }
 
-    public void a(InterfaceC0535a interfaceC0535a) {
-        this.f39655d = interfaceC0535a;
+    public void a(InterfaceC0479a interfaceC0479a) {
+        this.f37257d = interfaceC0479a;
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        int size = View.MeasureSpec.getSize(i2);
+    public void onMeasure(int i2, int i3) {
+        int size = View.MeasureSpec.getSize(i3);
         Activity activity = (Activity) getContext();
-        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f39653b);
-        int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f39653b.top) - size;
-        InterfaceC0535a interfaceC0535a = this.f39655d;
-        if (interfaceC0535a != null && size != 0) {
+        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f37255b);
+        int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f37255b.top) - size;
+        InterfaceC0479a interfaceC0479a = this.f37257d;
+        if (interfaceC0479a != null && size != 0) {
             if (height > 100) {
-                interfaceC0535a.a((Math.abs(this.f39653b.height()) - getPaddingBottom()) - getPaddingTop());
+                interfaceC0479a.a((Math.abs(this.f37255b.height()) - getPaddingBottom()) - getPaddingTop());
             } else {
-                interfaceC0535a.a();
+                interfaceC0479a.a();
             }
         }
-        super.onMeasure(i, i2);
+        super.onMeasure(i2, i3);
     }
 }

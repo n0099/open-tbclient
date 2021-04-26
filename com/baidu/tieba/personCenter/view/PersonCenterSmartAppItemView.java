@@ -25,25 +25,25 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.k;
-import d.b.j0.g2.e.c;
-import d.b.j0.g2.e.l;
-import d.b.j0.g2.e.m;
-import d.b.j0.s.a;
-/* loaded from: classes3.dex */
+import d.a.c.e.p.k;
+import d.a.j0.g2.e.c;
+import d.a.j0.g2.e.l;
+import d.a.j0.g2.e.m;
+import d.a.j0.s.a;
+/* loaded from: classes4.dex */
 public class PersonCenterSmartAppItemView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public HeadImageView f19965e;
+    public HeadImageView f20471e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f19966f;
+    public TextView f20472f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f19967g;
+    public ImageView f20473g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f19968h;
+    public c f20474h;
 
     public PersonCenterSmartAppItemView(Context context) {
         this(context, null);
@@ -53,27 +53,27 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
         if (cVar == null) {
             return;
         }
-        this.f19968h = cVar;
-        this.f19967g.setVisibility(8);
+        this.f20474h = cVar;
+        this.f20473g.setVisibility(8);
         if (cVar instanceof m) {
             m mVar = (m) cVar;
-            this.f19965e.X(mVar.c(), 10, false, false);
+            this.f20471e.W(mVar.c(), 10, false, false);
             String g2 = mVar.g();
             if (!k.isEmpty(g2)) {
-                this.f19966f.setText(UtilHelper.getFixedText(g2, 5));
+                this.f20472f.setText(UtilHelper.getFixedText(g2, 5));
             } else {
-                this.f19966f.setText(R.string.intelligent_smart_app);
+                this.f20472f.setText(R.string.intelligent_smart_app);
             }
             if (cVar.getType() == 1) {
-                SkinManager.setImageResource(this.f19967g, R.drawable.icon_personal_recommend);
-                this.f19967g.setVisibility(0);
+                SkinManager.setImageResource(this.f20473g, R.drawable.icon_personal_recommend);
+                this.f20473g.setVisibility(0);
             } else {
-                this.f19967g.setVisibility(8);
+                this.f20473g.setVisibility(8);
             }
             setOnClickListener(this);
         } else if (cVar instanceof l) {
-            SkinManager.setImageResource(this.f19965e, R.drawable.icon_personal_more);
-            this.f19966f.setText(R.string.more);
+            SkinManager.setImageResource(this.f20471e, R.drawable.icon_personal_more);
+            this.f20472f.setText(R.string.more);
             setOnClickListener(this);
         }
     }
@@ -89,12 +89,12 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     }
 
     public void c() {
-        SkinManager.setViewTextColor(this.f19966f, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f20472f, R.color.CAM_X0105);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        c cVar = this.f19968h;
+        c cVar = this.f20474h;
         if (cVar instanceof m) {
             m mVar = (m) cVar;
             if (!a.b(mVar.b(), mVar.f(), "1191000600000000", mVar.e())) {
@@ -123,13 +123,13 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
         int action = motionEvent.getAction();
         if (action == 0) {
             SkinManager.setBackgroundColor(this, R.color.cp_bg_line_d_alpha50);
-            SkinManager.setViewTextColor(this.f19966f, R.color.cp_cont_b_alpha50);
+            SkinManager.setViewTextColor(this.f20472f, R.color.cp_cont_b_alpha50);
         } else if (action == 1) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f19966f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f20472f, R.color.CAM_X0105);
         } else if (action == 3) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f19966f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f20472f, R.color.CAM_X0105);
         }
         return super.onTouchEvent(motionEvent);
     }
@@ -138,16 +138,16 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
         this(context, attributeSet, 0);
     }
 
-    public PersonCenterSmartAppItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public PersonCenterSmartAppItemView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         LayoutInflater.from(context).inflate(R.layout.person_center_smart_app_item_layout, (ViewGroup) this, true);
         HeadImageView headImageView = (HeadImageView) findViewById(R.id.iv_person_center_smart_app_page_item_avatar);
-        this.f19965e = headImageView;
+        this.f20471e = headImageView;
         headImageView.setIsRound(true);
-        this.f19965e.setDefaultResource(R.color.CAM_X0204);
-        this.f19965e.setPlaceHolder(1);
-        this.f19966f = (TextView) findViewById(R.id.tv_person_center_smart_app_page_item_name);
-        this.f19967g = (ImageView) findViewById(R.id.lv_person_center_smart_app_page_item_recommend);
+        this.f20471e.setDefaultResource(R.color.CAM_X0204);
+        this.f20471e.setPlaceHolder(1);
+        this.f20472f = (TextView) findViewById(R.id.tv_person_center_smart_app_page_item_name);
+        this.f20473g = (ImageView) findViewById(R.id.lv_person_center_smart_app_page_item_recommend);
         c();
     }
 }

@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class c extends b<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f27235a = new AtomicBoolean(false);
+    public AtomicBoolean f28059a = new AtomicBoolean(false);
 
     @Override // com.bytedance.sdk.openadsdk.c.b
     public void b() {
@@ -14,7 +14,7 @@ public class c extends b<a> {
 
     @Override // com.bytedance.sdk.openadsdk.c.b
     public void a() {
-        if (this.f27235a.getAndSet(true)) {
+        if (this.f28059a.getAndSet(true)) {
             return;
         }
         com.bytedance.sdk.openadsdk.multipro.c.a.c();
@@ -23,10 +23,10 @@ public class c extends b<a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.c.b
     public void a(@NonNull a aVar) {
-        if (!this.f27235a.get()) {
+        if (!this.f28059a.get()) {
             a();
         }
-        if (this.f27235a.get()) {
+        if (this.f28059a.get()) {
             com.bytedance.sdk.openadsdk.multipro.c.a.a(aVar.a());
         }
     }

@@ -31,23 +31,25 @@ public class i {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28129a;
+    public String f28989a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28130b;
+    public String f28990b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28131c;
+    public boolean f28991c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28132d;
+    public String f28992d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28133e;
-    public TTGlobalAppDownloadListener i;
+    public String f28993e;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TTGlobalAppDownloadListener f28997i;
     public TTDownloadEventLogger n;
     public TTSecAbs o;
     public String[] p;
@@ -59,13 +61,13 @@ public class i {
     public com.bytedance.sdk.openadsdk.core.g.c w;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28134f = 0;
+    public int f28994f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f28135g = true;
+    public boolean f28995g = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f28136h = false;
+    public boolean f28996h = false;
     public final Set<Integer> j = Collections.synchronizedSet(new HashSet());
     public boolean k = false;
     public Bitmap l = null;
@@ -114,8 +116,8 @@ public class i {
 
     @NonNull
     public TTCustomController e() {
-        if (m.f28153b != null) {
-            return m.f28153b;
+        if (m.f29015b != null) {
+            return m.f29015b;
         }
         TTCustomController tTCustomController = this.q;
         return tTCustomController == null ? x : tTCustomController;
@@ -133,7 +135,7 @@ public class i {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", Constants.APP_ID, (String) null);
         }
-        return this.f28129a;
+        return this.f28989a;
     }
 
     public void h() {
@@ -152,14 +154,14 @@ public class i {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "name", (String) null);
         }
-        return this.f28130b;
+        return this.f28990b;
     }
 
     public boolean j() {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "is_paid", false);
         }
-        return this.f28131c;
+        return this.f28991c;
     }
 
     @Nullable
@@ -167,7 +169,7 @@ public class i {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "keywords", (String) null);
         }
-        return this.f28132d;
+        return this.f28992d;
     }
 
     @Nullable
@@ -175,21 +177,21 @@ public class i {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "extra_data", (String) null);
         }
-        return this.f28133e;
+        return this.f28993e;
     }
 
     public int m() {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "title_bar_theme", 0);
         }
-        return this.f28134f;
+        return this.f28994f;
     }
 
     public boolean n() {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "allow_show_notify", true);
         }
-        return this.f28135g;
+        return this.f28995g;
     }
 
     public TTDownloadEventLogger o() {
@@ -244,7 +246,7 @@ public class i {
     }
 
     public boolean w() {
-        return "5001121".equals(this.f28129a);
+        return "5001121".equals(this.f28989a);
     }
 
     public boolean x() {
@@ -275,7 +277,7 @@ public class i {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "name", str);
         }
-        this.f28130b = str;
+        this.f28990b = str;
     }
 
     public void c(@Nullable String str) {
@@ -283,7 +285,7 @@ public class i {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "keywords", str);
         }
-        this.f28132d = str;
+        this.f28992d = str;
     }
 
     public void a(TTCustomController tTCustomController) {
@@ -341,14 +343,14 @@ public class i {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "is_paid", Boolean.valueOf(z));
         }
-        this.f28131c = z;
+        this.f28991c = z;
     }
 
     public void c(boolean z) {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "allow_show_notify", Boolean.valueOf(z));
         }
-        this.f28135g = z;
+        this.f28995g = z;
     }
 
     public void a(@NonNull String str) {
@@ -356,7 +358,7 @@ public class i {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", Constants.APP_ID, str);
         }
-        this.f28129a = str;
+        this.f28989a = str;
     }
 
     public void d(@Nullable String str) {
@@ -364,7 +366,7 @@ public class i {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "extra_data", str);
         }
-        this.f28133e = str;
+        this.f28993e = str;
     }
 
     public static void h(String str) {
@@ -374,7 +376,7 @@ public class i {
         com.bytedance.sdk.openadsdk.utils.z.a(str.length() <= 1000, "data超长, 最长为1000");
     }
 
-    public boolean b(int i) {
+    public boolean b(int i2) {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             String b2 = com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "network_state", (String) null);
             if (TextUtils.isEmpty(b2)) {
@@ -383,7 +385,7 @@ public class i {
             String[] split = b2.split(",");
             if (split.length > 0) {
                 for (String str : split) {
-                    if (!TextUtils.isEmpty(str) && String.valueOf(i).equals(str)) {
+                    if (!TextUtils.isEmpty(str) && String.valueOf(i2).equals(str)) {
                         return true;
                     }
                 }
@@ -391,25 +393,25 @@ public class i {
             }
             return false;
         }
-        return this.j.contains(Integer.valueOf(i));
+        return this.j.contains(Integer.valueOf(i2));
     }
 
-    public void a(int i) {
+    public void a(int i2) {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "title_bar_theme", Integer.valueOf(i));
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "title_bar_theme", Integer.valueOf(i2));
         }
-        this.f28134f = i;
+        this.f28994f = i2;
     }
 
     public void d(boolean z) {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "allow_lp_when_screen_lock", Boolean.valueOf(z));
         }
-        this.f28136h = z;
+        this.f28996h = z;
     }
 
     public void a(TTGlobalAppDownloadListener tTGlobalAppDownloadListener) {
-        this.i = tTGlobalAppDownloadListener;
+        this.f28997i = tTGlobalAppDownloadListener;
     }
 
     public void a(TTDownloadEventLogger tTDownloadEventLogger) {
@@ -426,8 +428,8 @@ public class i {
         }
         try {
             this.j.clear();
-            for (int i : iArr) {
-                this.j.add(Integer.valueOf(i));
+            for (int i2 : iArr) {
+                this.j.add(Integer.valueOf(i2));
             }
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 if (!this.j.isEmpty()) {
@@ -459,15 +461,15 @@ public class i {
     public void a(String[] strArr) {
         if (com.bytedance.sdk.openadsdk.multipro.b.b() && strArr != null && strArr.length > 0) {
             StringBuilder sb = new StringBuilder();
-            int i = 0;
+            int i2 = 0;
             for (String str : strArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    int i2 = i + 1;
-                    if (i > 0) {
+                    int i3 = i2 + 1;
+                    if (i2 > 0) {
                         sb.append(",");
                     }
                     sb.append(str);
-                    i = i2;
+                    i2 = i3;
                 }
             }
             String sb2 = sb.toString();
@@ -498,21 +500,21 @@ public class i {
     }
 
     public static String a(String str, long j) {
-        JSONObject i;
+        JSONObject i2;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            i = i(str);
+            i2 = i(str);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        if (i == null) {
+        if (i2 == null) {
             com.bytedance.sdk.openadsdk.utils.u.b("GlobalInfo", "without cache key=", str);
             return null;
         }
-        if (System.currentTimeMillis() - i.getLong("time") <= j) {
-            String string = i.getString("value");
+        if (System.currentTimeMillis() - i2.getLong("time") <= j) {
+            String string = i2.getString("value");
             com.bytedance.sdk.openadsdk.utils.u.b("GlobalInfo", "use cache key=", str, " value = ", string);
             return string;
         }

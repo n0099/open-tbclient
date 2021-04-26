@@ -127,9 +127,9 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
             if (oAdRemoteApkDownloaderObserver != null && oAdRemoteApkDownloaderObserver.getDownloadInfo() != null) {
                 return oAdRemoteApkDownloaderObserver.getDownloadInfo().notifID;
             }
-            int i = NOTIF_INC;
-            NOTIF_INC = i + 1;
-            return i;
+            int i2 = NOTIF_INC;
+            NOTIF_INC = i2 + 1;
+            return i2;
         }
     }
 
@@ -153,7 +153,7 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
             str4 = str3;
         }
         String str5 = "正在下载 " + str4;
-        int i = 17301633;
+        int i2 = 17301633;
         IDownloader.DownloadStatus downloadStatus = this.mExtraInfo.status;
         if (downloadStatus == IDownloader.DownloadStatus.COMPLETED) {
             str4 = this.mExtraInfo.status.getMessage() + ": " + str4;
@@ -199,10 +199,10 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
                 if (proxyCustomNotification == null) {
                     if (Build.VERSION.SDK_INT >= 26) {
                         this.mExtraInfo.notifBuilder = new Notification.Builder(this.mContext, "down");
-                        return ((Notification.Builder) this.mExtraInfo.notifBuilder).setContentTitle(str4).setContentText(str).setTicker(str5).setSmallIcon(i).setContentIntent(activity).setAutoCancel(z).setProgress(100, this.mExtraInfo.progress, false).build();
+                        return ((Notification.Builder) this.mExtraInfo.notifBuilder).setContentTitle(str4).setContentText(str).setTicker(str5).setSmallIcon(i2).setContentIntent(activity).setAutoCancel(z).setProgress(100, this.mExtraInfo.progress, false).build();
                     }
                     this.mExtraInfo.notifBuilder = new Notification.Builder(this.mContext);
-                    return ((Notification.Builder) this.mExtraInfo.notifBuilder).setContentTitle(str4).setContentText(str).setTicker(str5).setSmallIcon(i).setContentIntent(activity).setAutoCancel(z).setProgress(100, this.mExtraInfo.progress, false).build();
+                    return ((Notification.Builder) this.mExtraInfo.notifBuilder).setContentTitle(str4).setContentText(str).setTicker(str5).setSmallIcon(i2).setContentIntent(activity).setAutoCancel(z).setProgress(100, this.mExtraInfo.progress, false).build();
                 }
                 return proxyCustomNotification;
             }
@@ -211,7 +211,7 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
                 xAdRemoteAPKDownloadExtraInfo2.notifBuilder = new Notification();
             }
             Notification notification = (Notification) this.mExtraInfo.notifBuilder;
-            notification.icon = i;
+            notification.icon = i2;
             notification.flags |= 16;
             notification.tickerText = str5;
             notification.contentIntent = activity;
@@ -223,7 +223,7 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
             }
         }
         str = str2;
-        i = 17301634;
+        i2 = 17301634;
         Intent intent2 = new Intent(this.mContext, AppUtils.getShellActivityClass());
         intent2.putExtra("activityImplName", IReflectionInfo.DOWNLOAD_TASK_ACTIVITY);
         boolean z2 = true;
@@ -247,7 +247,7 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
         String str3;
         String str4;
         boolean z;
-        int i;
+        int i2;
         String str5;
         String str6 = xAdRemoteAPKDownloadExtraInfo.mTitle;
         String str7 = xAdRemoteAPKDownloadExtraInfo.mAppName;
@@ -257,30 +257,30 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
         String str8 = str6;
         String str9 = "正在下载 " + str8;
         IDownloader.DownloadStatus downloadStatus = xAdRemoteAPKDownloadExtraInfo.status;
-        int i2 = 17301634;
+        int i3 = 17301634;
         String str10 = "暂停";
         if (downloadStatus != IDownloader.DownloadStatus.INITING) {
             if (downloadStatus == IDownloader.DownloadStatus.DOWNLOADING) {
-                int i3 = xAdRemoteAPKDownloadExtraInfo.progress;
-                str2 = "下载进度: " + i3 + "%  应用大小: " + getFormattedSize(xAdRemoteAPKDownloadExtraInfo.contentLength);
-                i = i3;
+                int i4 = xAdRemoteAPKDownloadExtraInfo.progress;
+                str2 = "下载进度: " + i4 + "%  应用大小: " + getFormattedSize(xAdRemoteAPKDownloadExtraInfo.contentLength);
+                i2 = i4;
                 str5 = str9;
                 z = false;
-                i2 = 17301633;
-                return invokeCustomNotification(context, str, str5, this.mNotificationIcon, str8, str2, null, z, i, i2, str10, pendingIntent);
+                i3 = 17301633;
+                return invokeCustomNotification(context, str, str5, this.mNotificationIcon, str8, str2, null, z, i2, i3, str10, pendingIntent);
             }
             if (downloadStatus == IDownloader.DownloadStatus.PAUSED) {
                 str10 = "继续";
                 str5 = "已为您暂停下载, 请点击继续下载";
                 str2 = str5;
                 z = false;
-                i = xAdRemoteAPKDownloadExtraInfo.progress;
+                i2 = xAdRemoteAPKDownloadExtraInfo.progress;
             } else if (downloadStatus == IDownloader.DownloadStatus.ERROR) {
                 str2 = "稍后点击这里重新下载";
                 str5 = "已为您暂停下载, 请点击重新下载";
                 str10 = "下载";
                 z = false;
-                i = -1;
+                i2 = -1;
             } else if (downloadStatus == IDownloader.DownloadStatus.COMPLETED) {
                 if (this.isInstallComplete) {
                     str3 = "安装完成, 请点击打开";
@@ -292,22 +292,22 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
                 str2 = str3;
                 str10 = str4;
                 z = true;
-                i = -1;
+                i2 = -1;
                 str5 = str9;
             } else {
                 str2 = null;
             }
-            return invokeCustomNotification(context, str, str5, this.mNotificationIcon, str8, str2, null, z, i, i2, str10, pendingIntent);
+            return invokeCustomNotification(context, str, str5, this.mNotificationIcon, str8, str2, null, z, i2, i3, str10, pendingIntent);
         }
         str2 = "下载准备中";
         str5 = str9;
         z = false;
-        i = -1;
-        i2 = 17301633;
-        return invokeCustomNotification(context, str, str5, this.mNotificationIcon, str8, str2, null, z, i, i2, str10, pendingIntent);
+        i2 = -1;
+        i3 = 17301633;
+        return invokeCustomNotification(context, str, str5, this.mNotificationIcon, str8, str2, null, z, i2, i3, str10, pendingIntent);
     }
 
-    private Notification invokeCustomNotification(Context context, String str, String str2, Bitmap bitmap, String str3, String str4, String str5, boolean z, int i, int i2, String str6, PendingIntent pendingIntent) {
+    private Notification invokeCustomNotification(Context context, String str, String str2, Bitmap bitmap, String str3, String str4, String str5, boolean z, int i2, int i3, String str6, PendingIntent pendingIntent) {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("context", context);
@@ -318,8 +318,8 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
             jSONObject.put("content", str4);
             jSONObject.put("status", str5);
             jSONObject.put("autoCancel", z);
-            jSONObject.put("progress", i);
-            jSONObject.put("smallIcon", i2);
+            jSONObject.put("progress", i2);
+            jSONObject.put("smallIcon", i3);
             jSONObject.put("action", str6);
             jSONObject.put("pendingIntent", pendingIntent);
             ICommonModuleObj moduleObj = AppConfigImp.getInstance().getModuleObj();
@@ -481,7 +481,7 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
                 XAdRemoteSDKCountly.getInstance().onAPKDownloadComplete(this.mContext, this.mExtraInfo);
                 if (localApkFileInfo != null && !TextUtils.isEmpty(localApkFileInfo.packageName) && XAdSDKRemoteExp.LiteInc.mPkgName.equals(localApkFileInfo.packageName)) {
                     FileUtils.copyFile(str3, this.mExtraInfo.outputFolder + EncryptUtils.getMD5(XAdSDKRemoteExp.LiteInc.mPkgName) + ".apk");
-                    SendLogUtil.Builder.create(this.mContext).appendType(SDKLogTypeConstants.EXPTYPE_LITEINC_CP).appendAppSid(this.mExtraInfo.getAppsid()).append(XAdRemoteAPKDownloadExtraInfo.QK, this.mExtraInfo.queryKey).append(XAdRemoteAPKDownloadExtraInfo.ADID, this.mExtraInfo.mAdid).append("act", "0").append(XAdRemoteAPKDownloadExtraInfo.BUYER, this.mExtraInfo.mBuyer).append("lastPath", !TextUtils.isEmpty(this.mExtraInfo.mUrl) ? Uri.parse(this.mExtraInfo.mUrl).getLastPathSegment() : "").append("evt", c.f1862c).send();
+                    SendLogUtil.Builder.create(this.mContext).appendType(SDKLogTypeConstants.EXPTYPE_LITEINC_CP).appendAppSid(this.mExtraInfo.getAppsid()).append(XAdRemoteAPKDownloadExtraInfo.QK, this.mExtraInfo.queryKey).append(XAdRemoteAPKDownloadExtraInfo.ADID, this.mExtraInfo.mAdid).append("act", "0").append(XAdRemoteAPKDownloadExtraInfo.BUYER, this.mExtraInfo.mBuyer).append("lastPath", !TextUtils.isEmpty(this.mExtraInfo.mUrl) ? Uri.parse(this.mExtraInfo.mUrl).getLastPathSegment() : "").append("evt", c.f1808c).send();
                 }
             } else if (downloadStatus == IDownloader.DownloadStatus.ERROR) {
                 xAdRemoteAPKDownloadExtraInfo3.targetUrl = iDownloader.getTargetURL();

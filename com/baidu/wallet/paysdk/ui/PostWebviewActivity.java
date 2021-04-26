@@ -17,7 +17,7 @@ import com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity;
 public class PostWebviewActivity extends DxmPayBaseActivity {
 
     /* renamed from: a  reason: collision with root package name */
-    public SafeWebView f25835a;
+    public SafeWebView f26619a;
 
     /* loaded from: classes5.dex */
     public class a extends SafeWebView.SafeChromeClient {
@@ -55,12 +55,12 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
         return SDKBaseActivity.BottomBarType.NONE;
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         super.onBackPressed();
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         byte[] bArr;
         String str;
@@ -76,21 +76,21 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
             bArr = null;
             str = "";
         }
-        this.f25835a = (SafeWebView) findViewById(ResUtils.id(getActivity(), "cust_webview"));
+        this.f26619a = (SafeWebView) findViewById(ResUtils.id(getActivity(), "cust_webview"));
         if (TextUtils.isEmpty(str2)) {
-            this.f25835a.setWebChromeClient(new a());
+            this.f26619a.setWebChromeClient(new a());
         }
-        this.f25835a.getSettings().setJavaScriptEnabled(true);
+        this.f26619a.getSettings().setJavaScriptEnabled(true);
         if (Build.VERSION.SDK_INT <= 18) {
-            this.f25835a.getSettings().setSavePassword(false);
+            this.f26619a.getSettings().setSavePassword(false);
         }
-        this.f25835a.setScrollBarStyle(0);
-        this.f25835a.clearCache(false);
-        this.f25835a.resumeTimers();
+        this.f26619a.setScrollBarStyle(0);
+        this.f26619a.clearCache(false);
+        this.f26619a.resumeTimers();
         if (Build.VERSION.SDK_INT >= 11) {
-            this.f25835a.removeJavascriptInterface("searchBoxJavaBridge_");
-            this.f25835a.removeJavascriptInterface("accessibility");
-            this.f25835a.removeJavascriptInterface("accessibilityTraversal");
+            this.f26619a.removeJavascriptInterface("searchBoxJavaBridge_");
+            this.f26619a.removeJavascriptInterface("accessibility");
+            this.f26619a.removeJavascriptInterface("accessibilityTraversal");
         }
         if (bArr != null) {
             try {
@@ -98,11 +98,11 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
                 e2.printStackTrace();
             }
             if (bArr.length != 0) {
-                this.f25835a.postUrl(str.trim(), bArr);
+                this.f26619a.postUrl(str.trim(), bArr);
                 a(str2);
             }
         }
-        this.f25835a.loadUrl(str.trim());
+        this.f26619a.loadUrl(str.trim());
         a(str2);
     }
 

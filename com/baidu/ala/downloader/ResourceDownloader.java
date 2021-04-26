@@ -8,9 +8,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigCustom;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.download.DownloadData;
-import d.b.c.e.p.j;
-import d.b.i0.v.c;
-import d.b.i0.v.d;
+import d.a.c.e.p.j;
+import d.a.i0.v.c;
+import d.a.i0.v.d;
 import java.io.File;
 import java.util.Vector;
 /* loaded from: classes.dex */
@@ -80,14 +80,14 @@ public class ResourceDownloader {
             downloadData.setCheck(str6);
             downloadData.setType(19);
             downloadData.setCallback(new c() { // from class: com.baidu.ala.downloader.ResourceDownloader.2
-                @Override // d.b.i0.v.c
-                public void onFileDownloadFailed(DownloadData downloadData2, int i, String str9) {
+                @Override // d.a.i0.v.c
+                public void onFileDownloadFailed(DownloadData downloadData2, int i2, String str9) {
                     ResourceDownloader.removeDownloadingResId(downloadData2.getId());
                     ResourceDownloader.sendDownloadStatusMessage(5, downloadData2);
                     BdLog.e("failed to donwload dynamic zip" + str9);
                 }
 
-                @Override // d.b.i0.v.c
+                @Override // d.a.i0.v.c
                 public void onFileDownloadSucceed(final DownloadData downloadData2) {
                     new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.ala.downloader.ResourceDownloader.2.1
                         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -130,18 +130,18 @@ public class ResourceDownloader {
                     }.execute(new Void[0]);
                 }
 
-                @Override // d.b.i0.v.c
+                @Override // d.a.i0.v.c
                 public boolean onFileDownloaded(DownloadData downloadData2) {
                     ResourceDownloader.sendDownloadStatusMessage(3, downloadData2);
                     return true;
                 }
 
-                @Override // d.b.i0.v.c
+                @Override // d.a.i0.v.c
                 public void onFileUpdateProgress(DownloadData downloadData2) {
                     ResourceDownloader.sendDownloadStatusMessage(2, downloadData2);
                 }
 
-                @Override // d.b.i0.v.c
+                @Override // d.a.i0.v.c
                 public boolean onPreDownload(DownloadData downloadData2) {
                     if (j.H() || z) {
                         ResourceDownloader.sendDownloadStatusMessage(1, downloadData2);
@@ -184,9 +184,9 @@ public class ResourceDownloader {
         }
     }
 
-    public static void sendDownloadStatusMessage(int i, DownloadData downloadData) {
+    public static void sendDownloadStatusMessage(int i2, DownloadData downloadData) {
         WrapDownloadData wrapDownloadData = new WrapDownloadData();
-        wrapDownloadData.status = i;
+        wrapDownloadData.status = i2;
         wrapDownloadData.data = downloadData;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_RES_ZIP_DOWNLOADED_STATUS, wrapDownloadData));
     }

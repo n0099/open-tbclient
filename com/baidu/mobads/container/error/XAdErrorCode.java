@@ -12,7 +12,7 @@ public enum XAdErrorCode {
     SETTINGS_ERROR(1030002, "设置问题"),
     REQUEST_PARAM_ERROR(1040001, "请求参数问题"),
     REQUEST_URL_TOO_LONG(1040002, "请求串过长"),
-    REQUEST_TIMEOUT(1040003, OneKeyLoginResult.m),
+    REQUEST_TIMEOUT(1040003, OneKeyLoginResult.ONE_KEY_LOGIN_MSG_CONNECTION_TIMEOUT),
     REQUEST_STATUS_CODE_ERROR(1040004, "状态码异常"),
     RESPONSE_PARSE_FAILED(3010001, "清单解析失败"),
     RESPONSE_FIELD_LESS(3010002, "清单缺少字段"),
@@ -42,8 +42,8 @@ public enum XAdErrorCode {
     public int code;
     public String msg;
 
-    XAdErrorCode(int i, String str) {
-        this.code = i;
+    XAdErrorCode(int i2, String str) {
+        this.code = i2;
         this.msg = str;
     }
 

@@ -12,34 +12,34 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TrackRunBox extends AbstractFullBox {
     public static final String TYPE = "trun";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_10 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_11 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_12 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_13 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_14 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_15 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_16 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_17 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_18 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_19 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_8 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_9 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_10 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_11 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_12 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_13 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_14 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_15 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_16 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_17 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_18 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_19 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_9 = null;
     public int dataOffset;
     public List<Entry> entries;
     public SampleFlags firstSampleFlags;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         public long sampleCompositionTimeOffset;
         public long sampleDuration;
@@ -65,8 +65,8 @@ public class TrackRunBox extends AbstractFullBox {
             return this.sampleSize;
         }
 
-        public void setSampleCompositionTimeOffset(int i) {
-            this.sampleCompositionTimeOffset = i;
+        public void setSampleCompositionTimeOffset(int i2) {
+            this.sampleCompositionTimeOffset = i2;
         }
 
         public void setSampleDuration(long j) {
@@ -85,11 +85,11 @@ public class TrackRunBox extends AbstractFullBox {
             return "Entry{sampleDuration=" + this.sampleDuration + ", sampleSize=" + this.sampleSize + ", sampleFlags=" + this.sampleFlags + ", sampleCompositionTimeOffset=" + this.sampleCompositionTimeOffset + '}';
         }
 
-        public Entry(long j, long j2, SampleFlags sampleFlags, int i) {
+        public Entry(long j, long j2, SampleFlags sampleFlags, int i2) {
             this.sampleDuration = j;
             this.sampleSize = j2;
             this.sampleFlags = sampleFlags;
-            this.sampleCompositionTimeOffset = i;
+            this.sampleCompositionTimeOffset = i2;
         }
     }
 
@@ -138,7 +138,7 @@ public class TrackRunBox extends AbstractFullBox {
         if ((getFlags() & 4) == 4) {
             this.firstSampleFlags = new SampleFlags(byteBuffer);
         }
-        for (int i = 0; i < readUInt32; i++) {
+        for (int i2 = 0; i2 < readUInt32; i2++) {
             Entry entry = new Entry();
             if ((getFlags() & 256) == 256) {
                 entry.sampleDuration = IsoTypeReader.readUInt32(byteBuffer);
@@ -231,8 +231,8 @@ public class TrackRunBox extends AbstractFullBox {
         if (isSampleCompositionTimeOffsetPresent()) {
             int size = this.entries.size();
             long[] jArr = new long[size];
-            for (int i = 0; i < size; i++) {
-                jArr[i] = this.entries.get(i).getSampleCompositionTimeOffset();
+            for (int i2 = 0; i2 < size; i2++) {
+                jArr[i2] = this.entries.get(i2).getSampleCompositionTimeOffset();
             }
             return jArr;
         }
@@ -274,14 +274,14 @@ public class TrackRunBox extends AbstractFullBox {
         return (getFlags() & 512) == 512;
     }
 
-    public void setDataOffset(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i)));
-        if (i == -1) {
+    public void setDataOffset(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i2)));
+        if (i2 == -1) {
             setFlags(getFlags() & 16777214);
         } else {
             setFlags(getFlags() | 1);
         }
-        this.dataOffset = i;
+        this.dataOffset = i2;
     }
 
     public void setDataOffsetPresent(boolean z) {

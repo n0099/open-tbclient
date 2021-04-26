@@ -18,6 +18,7 @@ import com.baidu.smallgame.sdk.permission.PermissionProxy;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
 import java.util.List;
+import kotlinx.coroutines.DebugKt;
 @Keep
 /* loaded from: classes.dex */
 public class DuXRSessionFace {
@@ -55,16 +56,16 @@ public class DuXRSessionFace {
         }
 
         @Override // com.baidu.smallgame.sdk.permission.PermissionListener
-        public void onPermissionResult(String str, int i) {
-            if (i == 0) {
-                Log.i(DuXRSessionFace.TAG, "Permission ok!@ permissionState:" + i);
+        public void onPermissionResult(String str, int i2) {
+            if (i2 == 0) {
+                Log.i(DuXRSessionFace.TAG, "Permission ok!@ permissionState:" + i2);
                 DuXRSessionFace.this.initAlgoModule();
                 return;
             }
-            int i2 = i + 1000;
+            int i3 = i2 + 1000;
             DuXRSessionFace duXRSessionFace = DuXRSessionFace.this;
-            duXRSessionFace.sessionCreateFail(duXRSessionFace.mNativeSessionHandle, i2);
-            Log.i(DuXRSessionFace.TAG, "Permission fail:" + i2);
+            duXRSessionFace.sessionCreateFail(duXRSessionFace.mNativeSessionHandle, i3);
+            Log.i(DuXRSessionFace.TAG, "Permission fail:" + i3);
         }
     }
 
@@ -225,21 +226,21 @@ public class DuXRSessionFace {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void sessionCreateFail(long j, int i);
+    public native void sessionCreateFail(long j, int i2);
 
     /* JADX INFO: Access modifiers changed from: private */
     public native void sessionCreateSuccess(long j);
 
-    private void setOptimalPreviewSize(List<Camera.Size> list, int i, int i2) {
+    private void setOptimalPreviewSize(List<Camera.Size> list, int i2, int i3) {
         if (list == null) {
             return;
         }
-        double d2 = i / i2;
+        double d2 = i2 / i3;
         Camera.Size size = null;
         double d3 = Double.MAX_VALUE;
         for (Camera.Size size2 : list) {
-            if (Math.abs((size2.width / size2.height) - d2) <= 0.1d && Math.abs(size2.height - i2) < d3) {
-                d3 = Math.abs(size2.height - i2);
+            if (Math.abs((size2.width / size2.height) - d2) <= 0.1d && Math.abs(size2.height - i3) < d3) {
+                d3 = Math.abs(size2.height - i3);
                 size = size2;
             }
         }
@@ -266,7 +267,7 @@ public class DuXRSessionFace {
             Camera.Parameters parameters = cameraInstance.getParameters();
             parameters.setPreviewSize(this.mPreviewWidth, this.mPreviewHeight);
             if (!z) {
-                parameters.setFocusMode("auto");
+                parameters.setFocusMode(DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
                 parameters.setFocusMode("continuous-picture");
             }
             this.mCamera.setParameters(parameters);
@@ -291,17 +292,17 @@ public class DuXRSessionFace {
         return fArr;
     }
 
-    public void startSession(int i, int i2, int i3) {
-        this.mPreviewWidth = i;
-        this.mPreviewHeight = i2;
+    public void startSession(int i2, int i3, int i4) {
+        this.mPreviewWidth = i2;
+        this.mPreviewHeight = i3;
         Context context = getContext();
         this.mContext = context;
         if (context == null) {
             sessionCreateFail(this.mNativeSessionHandle, 1000);
             return;
         }
-        this.mTextureId = i3;
-        PermissionProxy permissionProxy = d.b.e0.a.a.o;
+        this.mTextureId = i4;
+        PermissionProxy permissionProxy = d.a.e0.a.a.o;
         if (permissionProxy != null) {
             permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new a());
         } else {

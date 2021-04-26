@@ -21,16 +21,16 @@ public class JfifUtil {
     public static final int MARKER_SOS = 218;
     public static final int MARKER_TEM = 1;
 
-    public static int getAutoRotateAngleFromOrientation(int i) {
-        return TiffUtil.getAutoRotateAngleFromOrientation(i);
+    public static int getAutoRotateAngleFromOrientation(int i2) {
+        return TiffUtil.getAutoRotateAngleFromOrientation(i2);
     }
 
     public static int getOrientation(byte[] bArr) {
         return getOrientation(new ByteArrayInputStream(bArr));
     }
 
-    public static boolean isSOFn(int i) {
-        switch (i) {
+    public static boolean isSOFn(int i2) {
+        switch (i2) {
             case 192:
             case 193:
             case 194:
@@ -58,24 +58,24 @@ public class JfifUtil {
         if (moveToMarker(inputStream, 225) && (readPackedInt = StreamProcessor.readPackedInt(inputStream, 2, false) - 2) > 6) {
             int readPackedInt2 = StreamProcessor.readPackedInt(inputStream, 4, false);
             int readPackedInt3 = StreamProcessor.readPackedInt(inputStream, 2, false);
-            int i = (readPackedInt - 4) - 2;
+            int i2 = (readPackedInt - 4) - 2;
             if (readPackedInt2 == 1165519206 && readPackedInt3 == 0) {
-                return i;
+                return i2;
             }
         }
         return 0;
     }
 
-    public static boolean moveToMarker(InputStream inputStream, int i) throws IOException {
+    public static boolean moveToMarker(InputStream inputStream, int i2) throws IOException {
         Preconditions.checkNotNull(inputStream);
         while (StreamProcessor.readPackedInt(inputStream, 1, false) == 255) {
-            int i2 = 255;
-            while (i2 == 255) {
-                i2 = StreamProcessor.readPackedInt(inputStream, 1, false);
+            int i3 = 255;
+            while (i3 == 255) {
+                i3 = StreamProcessor.readPackedInt(inputStream, 1, false);
             }
-            if ((i != 192 || !isSOFn(i2)) && i2 != i) {
-                if (i2 != 216 && i2 != 1) {
-                    if (i2 == 217 || i2 == 218) {
+            if ((i2 != 192 || !isSOFn(i3)) && i3 != i2) {
+                if (i3 != 216 && i3 != 1) {
+                    if (i3 == 217 || i3 == 218) {
                         break;
                     }
                     inputStream.skip(StreamProcessor.readPackedInt(inputStream, 2, false) - 2);

@@ -18,30 +18,30 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
-import d.b.y.a.f;
+import d.a.y.a.f;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class GrantWebActivity extends BaseActivity {
-    public static final String u = GrantWebActivity.class.getSimpleName();
-    public static final String v = "openapp";
-    public static final String w = "/passport/grantweb";
-    public String p;
-    public String q;
-    public String r;
-    public String s;
+    public static final String A = "/passport/grantweb";
+    public static final String y = GrantWebActivity.class.getSimpleName();
+    public static final String z = "openapp";
     public String t;
+    public String u;
+    public String v;
+    public String w;
+    public String x;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        boolean z;
+        boolean z2;
         if (SapiAccountManager.getCheckUrlIsAvailablelister() != null) {
-            if (TextUtils.isEmpty(this.r)) {
-                this.r = this.q;
+            if (TextUtils.isEmpty(this.v)) {
+                this.v = this.u;
             }
-            z = SapiAccountManager.getCheckUrlIsAvailablelister().onCheckUrlIsAvailable(this.r);
+            z2 = SapiAccountManager.getCheckUrlIsAvailablelister().onCheckUrlIsAvailable(this.v);
         } else {
-            z = false;
+            z2 = false;
         }
         String str = SapiAccountManager.getInstance().getConfignation().environment.getWap() + "/passport/login";
         HashMap hashMap = new HashMap();
@@ -49,17 +49,17 @@ public class GrantWebActivity extends BaseActivity {
         hashMap.put("clientfrom", "native");
         hashMap.put("suppcheck", "1");
         hashMap.put("adapter", "3");
-        hashMap.put("channel_id", this.p);
-        hashMap.put("wap_tpl", this.t);
+        hashMap.put("channel_id", this.t);
+        hashMap.put("wap_tpl", this.x);
         hashMap.put("tpl", SapiAccountManager.getInstance().getConfignation().tpl);
-        hashMap.put("u", this.q);
-        if (z && !"true".equals(this.s)) {
+        hashMap.put("u", this.u);
+        if (z2 && !"true".equals(this.w)) {
             hashMap.put("force", "false");
         } else {
             hashMap.put("force", "true");
         }
         String str2 = str + SapiUtils.mapToUrlParams(hashMap, false) + "#app_auth";
-        Log.d(u, "url = " + str2);
+        Log.d(y, "url = " + str2);
         SapiWebView sapiWebView = this.sapiWebView;
         if (sapiWebView != null) {
             sapiWebView.loadUrl(str2);
@@ -71,13 +71,13 @@ public class GrantWebActivity extends BaseActivity {
         super.init();
         Uri data = getIntent().getData();
         if (data != null) {
-            this.p = data.getQueryParameter("channel_id");
-            this.q = data.getQueryParameter("u");
-            this.r = data.getQueryParameter("nu");
-            this.s = data.getQueryParameter("force");
-            this.t = data.getQueryParameter("wap_tpl");
+            this.t = data.getQueryParameter("channel_id");
+            this.u = data.getQueryParameter("u");
+            this.v = data.getQueryParameter("nu");
+            this.w = data.getQueryParameter("force");
+            this.x = data.getQueryParameter("wap_tpl");
         }
-        if (TextUtils.isEmpty(this.p)) {
+        if (TextUtils.isEmpty(this.t)) {
             finish();
         }
     }
@@ -111,7 +111,7 @@ public class GrantWebActivity extends BaseActivity {
 
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
-        String str = u;
+        String str = y;
         Log.d(str, this + " onNewIntent");
         if (SapiAccountManager.getInstance().isLogin() && !TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
             e();
@@ -140,8 +140,8 @@ public class GrantWebActivity extends BaseActivity {
             });
             this.sapiWebView.setAuthorizationListener(new AuthorizationListener() { // from class: com.baidu.sapi2.activity.GrantWebActivity.3
                 @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-                public void onFailed(int i, String str) {
-                    Log.d(GrantWebActivity.u, "GrantWebPage login failed");
+                public void onFailed(int i2, String str) {
+                    Log.d(GrantWebActivity.y, "GrantWebPage login failed");
                     GrantWebActivity.this.finish();
                 }
 
@@ -153,19 +153,19 @@ public class GrantWebActivity extends BaseActivity {
             });
             this.sapiWebView.setGrantWebCallback(new SapiJsCallBacks.GrantWebCallback() { // from class: com.baidu.sapi2.activity.GrantWebActivity.4
                 @Override // com.baidu.sapi2.SapiJsCallBacks.GrantWebCallback
-                public void onGrant(int i) {
-                    if (i == 0) {
-                        Log.d(GrantWebActivity.u, "after grant web, then back to wap");
+                public void onGrant(int i2) {
+                    if (i2 == 0) {
+                        Log.d(GrantWebActivity.y, "after grant web, then back to wap");
                         GrantWebActivity.this.finish();
                         return;
                     }
-                    Log.d(GrantWebActivity.u, "after grant web, still stay in app");
+                    Log.d(GrantWebActivity.y, "after grant web, still stay in app");
                     if (SapiAccountManager.getCheckUrlIsAvailablelister() != null) {
-                        if (TextUtils.isEmpty(GrantWebActivity.this.r)) {
+                        if (TextUtils.isEmpty(GrantWebActivity.this.v)) {
                             GrantWebActivity grantWebActivity = GrantWebActivity.this;
-                            grantWebActivity.r = grantWebActivity.q;
+                            grantWebActivity.v = grantWebActivity.u;
                         }
-                        SapiAccountManager.getCheckUrlIsAvailablelister().handleWebPageUrl(GrantWebActivity.this.r);
+                        SapiAccountManager.getCheckUrlIsAvailablelister().handleWebPageUrl(GrantWebActivity.this.v);
                     }
                     GrantWebActivity.this.finish();
                 }
@@ -208,7 +208,7 @@ public class GrantWebActivity extends BaseActivity {
         if (TextUtils.isEmpty(packageName)) {
             packageName = "";
         }
-        return v.equals(scheme) && packageName.equals(host) && w.equals(path);
+        return z.equals(scheme) && packageName.equals(host) && A.equals(path);
     }
 
     private boolean d() {
@@ -223,8 +223,8 @@ public class GrantWebActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
-        final boolean z2 = SapiAccountManager.getInstance().getConfignation().supportFaceLogin;
+    public void a(boolean z2) {
+        final boolean z3 = SapiAccountManager.getInstance().getConfignation().supportFaceLogin;
         SapiAccountManager.getInstance().getConfignation().supportFaceLogin = false;
         LoginActivity.supportShareLogin = false;
         WebLoginDTO webLoginDTO = new WebLoginDTO();
@@ -234,7 +234,7 @@ public class GrantWebActivity extends BaseActivity {
         webLoginDTO.config = config;
         webLoginDTO.businessType = 2005;
         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-        if (z && currentAccount != null) {
+        if (z2 && currentAccount != null) {
             webLoginDTO.encryptedId = currentAccount.uid;
             webLoginDTO.preSetUname = currentAccount.displayname;
         }
@@ -243,7 +243,7 @@ public class GrantWebActivity extends BaseActivity {
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onFailure(WebAuthResult webAuthResult) {
                 LoginActivity.supportShareLogin = true;
-                SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z2;
+                SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z3;
                 GrantWebActivity.this.finish();
             }
 
@@ -253,7 +253,7 @@ public class GrantWebActivity extends BaseActivity {
                 GrantWebActivity.this.e();
                 SapiAccountManager.getGlobalCallback().onLoginStatusChange();
                 LoginActivity.supportShareLogin = true;
-                SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z2;
+                SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z3;
             }
         }, webLoginDTO);
     }

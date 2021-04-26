@@ -4,9 +4,9 @@ public class DataCharacter {
     public final int checksumPortion;
     public final int value;
 
-    public DataCharacter(int i, int i2) {
-        this.value = i;
-        this.checksumPortion = i2;
+    public DataCharacter(int i2, int i3) {
+        this.value = i2;
+        this.checksumPortion = i3;
     }
 
     public final boolean equals(Object obj) {

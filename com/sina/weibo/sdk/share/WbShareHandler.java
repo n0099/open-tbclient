@@ -98,12 +98,12 @@ public class WbShareHandler {
         if (wbShareCallback == null || intent == null || (extras = intent.getExtras()) == null) {
             return;
         }
-        int i = extras.getInt(WBConstants.Response.ERRCODE, -1);
-        if (i == 0) {
+        int i2 = extras.getInt(WBConstants.Response.ERRCODE, -1);
+        if (i2 == 0) {
             wbShareCallback.onWbShareSuccess();
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             wbShareCallback.onWbShareCancel();
-        } else if (i != 2) {
+        } else if (i2 != 2) {
         } else {
             wbShareCallback.onWbShareFail();
         }
@@ -120,12 +120,12 @@ public class WbShareHandler {
         return true;
     }
 
-    public void setProgressColor(int i) {
-        this.progressColor = i;
+    public void setProgressColor(int i2) {
+        this.progressColor = i2;
     }
 
-    public void setProgressId(int i) {
-        this.progressId = i;
+    public void setProgressId(int i2) {
+        this.progressId = i2;
     }
 
     public void shareMessage(WeiboMultiMessage weiboMultiMessage, boolean z) {

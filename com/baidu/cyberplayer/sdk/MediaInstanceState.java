@@ -6,36 +6,38 @@ import android.view.Surface;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.util.Map;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MediaInstanceState {
     public static final int INSTANCE_STATE_ACTIVE = 1;
     public static final int INSTANCE_STATE_INACTIVE = 0;
     public Map<String, String> A;
 
     /* renamed from: a  reason: collision with root package name */
-    public CyberPlayerManager.OnPreparedListener f4868a;
+    public CyberPlayerManager.OnPreparedListener f4987a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CyberPlayerManager.OnCompletionListener f4869b;
+    public CyberPlayerManager.OnCompletionListener f4988b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CyberPlayerManager.OnBufferingUpdateListener f4870c;
+    public CyberPlayerManager.OnBufferingUpdateListener f4989c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CyberPlayerManager.OnSeekCompleteListener f4871d;
+    public CyberPlayerManager.OnSeekCompleteListener f4990d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CyberPlayerManager.OnVideoSizeChangedListener f4872e;
+    public CyberPlayerManager.OnVideoSizeChangedListener f4991e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CyberPlayerManager.OnInfoListener f4873f;
+    public CyberPlayerManager.OnInfoListener f4992f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CyberPlayerManager.OnMediaSourceChangedListener f4874g;
+    public CyberPlayerManager.OnMediaSourceChangedListener f4993g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Surface f4875h;
-    public CyberPlayerManager.HttpDNS i;
+    public Surface f4994h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public CyberPlayerManager.HttpDNS f4995i;
     public Uri z;
     public int j = -1;
     public int k = 0;
@@ -58,7 +60,7 @@ public class MediaInstanceState {
     public String D = null;
 
     public CyberPlayerManager.HttpDNS dns() {
-        return this.i;
+        return this.f4995i;
     }
 
     public String getClarityInfo() {
@@ -91,17 +93,17 @@ public class MediaInstanceState {
 
     public int getInstanceStaticsCount(boolean z) {
         if (z) {
-            int i = this.x + 1;
-            this.x = i;
-            return i;
+            int i2 = this.x + 1;
+            this.x = i2;
+            return i2;
         }
-        int i2 = this.y + 1;
-        this.y = i2;
-        return i2;
+        int i3 = this.y + 1;
+        this.y = i3;
+        return i3;
     }
 
     public Surface getInstanceSurface() {
-        return this.f4875h;
+        return this.f4994h;
     }
 
     public Uri getInstanceUri() {
@@ -119,42 +121,42 @@ public class MediaInstanceState {
     }
 
     public CyberPlayerManager.OnBufferingUpdateListener getOnBufferingUpdateListener() {
-        return this.f4870c;
+        return this.f4989c;
     }
 
     public CyberPlayerManager.OnCompletionListener getOnCompletionListener() {
-        return this.f4869b;
+        return this.f4988b;
     }
 
     public CyberPlayerManager.OnInfoListener getOnInfoListener() {
-        return this.f4873f;
+        return this.f4992f;
     }
 
     public CyberPlayerManager.OnMediaSourceChangedListener getOnMediaSourceChangedListener() {
-        return this.f4874g;
+        return this.f4993g;
     }
 
     public CyberPlayerManager.OnPreparedListener getOnPreparedListener() {
-        return this.f4868a;
+        return this.f4987a;
     }
 
     public CyberPlayerManager.OnSeekCompleteListener getOnSeekCompleteListener() {
-        return this.f4871d;
+        return this.f4990d;
     }
 
     public CyberPlayerManager.OnVideoSizeChangedListener getOnVideoSizeChangedListener() {
-        return this.f4872e;
+        return this.f4991e;
     }
 
     public String getPlayJson() {
         return this.D;
     }
 
-    public boolean getPlayStateByType(int i) {
-        if (i == 0) {
+    public boolean getPlayStateByType(int i2) {
+        if (i2 == 0) {
             return this.r;
         }
-        if (i == 1) {
+        if (i2 == 1) {
             return this.s;
         }
         return false;
@@ -177,15 +179,15 @@ public class MediaInstanceState {
     }
 
     public void release() {
-        this.f4868a = null;
-        this.f4873f = null;
-        this.f4871d = null;
-        this.f4870c = null;
-        this.f4872e = null;
-        this.f4868a = null;
-        this.f4874g = null;
-        this.f4875h = null;
-        this.i = null;
+        this.f4987a = null;
+        this.f4992f = null;
+        this.f4990d = null;
+        this.f4989c = null;
+        this.f4991e = null;
+        this.f4987a = null;
+        this.f4993g = null;
+        this.f4994h = null;
+        this.f4995i = null;
         this.A = null;
         this.z = null;
     }
@@ -194,36 +196,36 @@ public class MediaInstanceState {
         this.C = str;
     }
 
-    public void setMediaSourceRank(int i) {
-        this.B = i;
+    public void setMediaSourceRank(int i2) {
+        this.B = i2;
     }
 
     public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
-        this.f4870c = onBufferingUpdateListener;
+        this.f4989c = onBufferingUpdateListener;
     }
 
     public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
-        this.f4869b = onCompletionListener;
+        this.f4988b = onCompletionListener;
     }
 
     public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
-        this.f4873f = onInfoListener;
+        this.f4992f = onInfoListener;
     }
 
     public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
-        this.f4874g = onMediaSourceChangedListener;
+        this.f4993g = onMediaSourceChangedListener;
     }
 
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
-        this.f4868a = onPreparedListener;
+        this.f4987a = onPreparedListener;
     }
 
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {
-        this.f4871d = onSeekCompleteListener;
+        this.f4990d = onSeekCompleteListener;
     }
 
     public void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener) {
-        this.f4872e = onVideoSizeChangedListener;
+        this.f4991e = onVideoSizeChangedListener;
     }
 
     public void setPlayJson(String str) {
@@ -236,30 +238,30 @@ public class MediaInstanceState {
         this.A = map;
     }
 
-    public void updateDecoderMode(int i) {
-        this.p = i;
+    public void updateDecoderMode(int i2) {
+        this.p = i2;
     }
 
     public void updateDns(CyberPlayerManager.HttpDNS httpDNS) {
-        this.i = httpDNS;
+        this.f4995i = httpDNS;
     }
 
     public void updateDownLoadSpeed(long j) {
         this.o = j;
     }
 
-    public void updateInstanceDecodeMode(int i) {
-        this.p = i;
+    public void updateInstanceDecodeMode(int i2) {
+        this.p = i2;
     }
 
-    public void updateInstanceState(int i) {
-        this.w = i;
+    public void updateInstanceState(int i2) {
+        this.w = i2;
     }
 
-    public void updatePlayStateByType(int i, boolean z) {
-        if (i == 0) {
+    public void updatePlayStateByType(int i2, boolean z) {
+        if (i2 == 0) {
             this.r = z;
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             this.s = z;
         }
     }
@@ -276,15 +278,15 @@ public class MediaInstanceState {
         this.v = z;
     }
 
-    public void updateSeekPos(int i, int i2) {
-        if (i >= i2 - 100) {
-            i = 0;
+    public void updateSeekPos(int i2, int i3) {
+        if (i2 >= i3 - 100) {
+            i2 = 0;
         }
-        this.j = i;
-        this.k = i2;
+        this.j = i2;
+        this.k = i3;
     }
 
     public void updateSurface(Surface surface) {
-        this.f4875h = surface;
+        this.f4994h = surface;
     }
 }

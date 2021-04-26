@@ -74,10 +74,10 @@ public class BaiduRIM {
             }
             RouterManager.getInstance().route(context.getApplicationContext(), new RouterRequest().action(obj2).data((HashMap) map), new RouterCallback() { // from class: com.baidu.fsg.api.BaiduRIM.1
                 @Override // com.baidu.fsg.base.router.RouterCallback
-                public void onResult(int i, HashMap hashMap2) {
+                public void onResult(int i2, HashMap hashMap2) {
                     RimServiceCallback rimServiceCallback2 = rimServiceCallback;
                     if (rimServiceCallback2 != null) {
-                        rimServiceCallback2.onResult(i, hashMap2);
+                        rimServiceCallback2.onResult(i2, hashMap2);
                     }
                 }
             });

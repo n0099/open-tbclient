@@ -52,13 +52,13 @@ public class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
             if (max > 1) {
                 int intrinsicWidth = this.mTickMark.getIntrinsicWidth();
                 int intrinsicHeight = this.mTickMark.getIntrinsicHeight();
-                int i = intrinsicWidth >= 0 ? intrinsicWidth / 2 : 1;
-                int i2 = intrinsicHeight >= 0 ? intrinsicHeight / 2 : 1;
-                this.mTickMark.setBounds(-i, -i2, i, i2);
+                int i2 = intrinsicWidth >= 0 ? intrinsicWidth / 2 : 1;
+                int i3 = intrinsicHeight >= 0 ? intrinsicHeight / 2 : 1;
+                this.mTickMark.setBounds(-i2, -i3, i2, i3);
                 float width = ((this.mView.getWidth() - this.mView.getPaddingLeft()) - this.mView.getPaddingRight()) / max;
                 int save = canvas.save();
                 canvas.translate(this.mView.getPaddingLeft(), this.mView.getHeight() / 2);
-                for (int i3 = 0; i3 <= max; i3++) {
+                for (int i4 = 0; i4 <= max; i4++) {
                     this.mTickMark.draw(canvas);
                     canvas.translate(width, 0.0f);
                 }
@@ -97,9 +97,11 @@ public class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
     }
 
     @Override // androidx.appcompat.widget.AppCompatProgressBarHelper
-    public void loadFromAttributes(AttributeSet attributeSet, int i) {
-        super.loadFromAttributes(attributeSet, i);
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.AppCompatSeekBar, i, 0);
+    public void loadFromAttributes(AttributeSet attributeSet, int i2) {
+        super.loadFromAttributes(attributeSet, i2);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.AppCompatSeekBar, i2, 0);
+        SeekBar seekBar = this.mView;
+        ViewCompat.saveAttributeDataForStyleable(seekBar, seekBar.getContext(), R.styleable.AppCompatSeekBar, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i2, 0);
         Drawable drawableIfKnown = obtainStyledAttributes.getDrawableIfKnown(R.styleable.AppCompatSeekBar_android_thumb);
         if (drawableIfKnown != null) {
             this.mView.setThumb(drawableIfKnown);

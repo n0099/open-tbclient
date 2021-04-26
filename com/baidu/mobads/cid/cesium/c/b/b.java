@@ -11,25 +11,25 @@ import java.util.Random;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f8150a = c(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+    public static final int[] f8443a = c(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f8151b;
+    public final int f8444b;
 
-    public b(int i) {
-        this.f8151b = i;
+    public b(int i2) {
+        this.f8444b = i2;
     }
 
-    public static int a(int i, int i2) {
-        return (i >>> (-i2)) | (i << i2);
+    public static int a(int i2, int i3) {
+        return (i2 >>> (-i3)) | (i2 << i3);
     }
 
     private void a(byte[] bArr, byte[] bArr2, ByteBuffer byteBuffer, ByteBuffer byteBuffer2) {
         int remaining = byteBuffer2.remaining();
-        int i = (remaining / 64) + 1;
-        for (int i2 = 0; i2 < i; i2++) {
-            ByteBuffer a2 = a(bArr, bArr2, this.f8151b + i2);
-            if (i2 == i - 1) {
+        int i2 = (remaining / 64) + 1;
+        for (int i3 = 0; i3 < i2; i3++) {
+            ByteBuffer a2 = a(bArr, bArr2, this.f8444b + i3);
+            if (i3 == i2 - 1) {
                 a.a(byteBuffer, byteBuffer2, a2, remaining % 64);
             } else {
                 a.a(byteBuffer, byteBuffer2, a2, 64);
@@ -38,7 +38,7 @@ public class b {
     }
 
     public static void a(int[] iArr) {
-        for (int i = 0; i < 10; i++) {
+        for (int i2 = 0; i2 < 10; i2++) {
             a(iArr, 0, 4, 8, 12);
             a(iArr, 1, 5, 9, 13);
             a(iArr, 2, 6, 10, 14);
@@ -50,21 +50,21 @@ public class b {
         }
     }
 
-    public static void a(int[] iArr, int i, int i2, int i3, int i4) {
-        iArr[i] = iArr[i] + iArr[i2];
-        iArr[i4] = a(iArr[i4] ^ iArr[i], 16);
-        iArr[i3] = iArr[i3] + iArr[i4];
-        iArr[i2] = a(iArr[i2] ^ iArr[i3], 12);
-        iArr[i] = iArr[i] + iArr[i2];
-        iArr[i4] = a(iArr[i] ^ iArr[i4], 8);
-        iArr[i3] = iArr[i3] + iArr[i4];
-        iArr[i2] = a(iArr[i2] ^ iArr[i3], 7);
+    public static void a(int[] iArr, int i2, int i3, int i4, int i5) {
+        iArr[i2] = iArr[i2] + iArr[i3];
+        iArr[i5] = a(iArr[i5] ^ iArr[i2], 16);
+        iArr[i4] = iArr[i4] + iArr[i5];
+        iArr[i3] = a(iArr[i3] ^ iArr[i4], 12);
+        iArr[i2] = iArr[i2] + iArr[i3];
+        iArr[i5] = a(iArr[i2] ^ iArr[i5], 8);
+        iArr[i4] = iArr[i4] + iArr[i5];
+        iArr[i3] = a(iArr[i3] ^ iArr[i4], 7);
     }
 
     public static void a(int[] iArr, int[] iArr2) {
-        int[] iArr3 = f8150a;
+        int[] iArr3 = f8443a;
         System.arraycopy(iArr3, 0, iArr, 0, iArr3.length);
-        System.arraycopy(iArr2, 0, iArr, f8150a.length, 8);
+        System.arraycopy(iArr2, 0, iArr, f8443a.length, 8);
     }
 
     public static int[] c(byte[] bArr) {
@@ -78,12 +78,12 @@ public class b {
         return 12;
     }
 
-    public ByteBuffer a(byte[] bArr, byte[] bArr2, int i) {
-        int[] a2 = a(c(bArr), c(bArr2), i);
+    public ByteBuffer a(byte[] bArr, byte[] bArr2, int i2) {
+        int[] a2 = a(c(bArr), c(bArr2), i2);
         int[] iArr = (int[]) a2.clone();
         a(iArr);
-        for (int i2 = 0; i2 < a2.length; i2++) {
-            a2[i2] = a2[i2] + iArr[i2];
+        for (int i3 = 0; i3 < a2.length; i3++) {
+            a2[i3] = a2[i3] + iArr[i3];
         }
         ByteBuffer order = ByteBuffer.allocate(64).order(ByteOrder.LITTLE_ENDIAN);
         order.asIntBuffer().put(a2, 0, 16);
@@ -126,11 +126,11 @@ public class b {
         throw new GeneralSecurityException("data too long");
     }
 
-    public int[] a(int[] iArr, int[] iArr2, int i) {
+    public int[] a(int[] iArr, int[] iArr2, int i2) {
         if (iArr.length == a() / 4) {
             int[] iArr3 = new int[16];
             a(iArr3, iArr2);
-            iArr3[12] = i;
+            iArr3[12] = i2;
             System.arraycopy(iArr, 0, iArr3, 13, iArr.length);
             return iArr3;
         }

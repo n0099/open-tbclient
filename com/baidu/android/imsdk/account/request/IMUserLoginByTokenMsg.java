@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import d.b.r.a;
+import d.a.r.a;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -103,14 +103,14 @@ public class IMUserLoginByTokenMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        LogUtils.d(this.TAG, "handleLoginMsg errCode: " + i + " msg:" + str);
-        if (i == 410) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+        LogUtils.d(this.TAG, "handleLoginMsg errCode: " + i2 + " msg:" + str);
+        if (i2 == 410) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
         String str2 = "-1";
-        if (i == 0) {
+        if (i2 == 0) {
             try {
                 Utility.writeLoginFlag(this.mContext, "17Y", "Read LoginMsg response");
                 sRetrytimes = 0;
@@ -134,35 +134,35 @@ public class IMUserLoginByTokenMsg extends Message {
                 Utility.setUploadIMTrack(this.mContext, jSONObject.optInt("client_upload_log_switch", 1));
                 JSONArray optJSONArray = jSONObject.optJSONArray("log_switch");
                 if (optJSONArray != null) {
-                    int i2 = 0;
+                    int i3 = 0;
                     while (true) {
-                        if (i2 < optJSONArray.length()) {
-                            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
+                        if (i3 < optJSONArray.length()) {
+                            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i3);
                             if (jSONObject2 != null && jSONObject2.optInt("id", -1) == 501100) {
                                 Utility.setUploadIMInitTrack(this.mContext, jSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0));
                                 break;
                             }
-                            i2++;
+                            i3++;
                         } else {
                             break;
                         }
                     }
                 }
-                if (!a.f65510e) {
+                if (!a.f63831e) {
                     ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                 }
             } catch (Exception e2) {
                 LogUtils.e(this.TAG, "handle login msg exception :", e2);
             }
-        } else if (110 != i && 7 != i && 23 != i) {
+        } else if (110 != i2 && 7 != i2 && 23 != i2) {
             sRetrytimes++;
         } else {
             Utility.logout(this.mContext, null);
             sRetrytimes = 0;
         }
-        super.handleMessageResult(context, jSONObject, i, str);
-        AccountManagerImpl.getInstance(this.mContext).onLoginResult(getListenerKey(), i, str, this.mIsInternalLogin);
-        new IMTrack.RequestBuilder(this.mContext).method(String.valueOf(AccountManagerImpl.getInstance(context).getAppOpenType())).requestId(str2).requestTime(Utility.getLoginCallTime(this.mContext)).responseTime(currentTimeMillis).errorCode(i).aliasId(501101L).build();
+        super.handleMessageResult(context, jSONObject, i2, str);
+        AccountManagerImpl.getInstance(this.mContext).onLoginResult(getListenerKey(), i2, str, this.mIsInternalLogin);
+        new IMTrack.RequestBuilder(this.mContext).method(String.valueOf(AccountManagerImpl.getInstance(context).getAppOpenType())).requestId(str2).requestTime(Utility.getLoginCallTime(this.mContext)).responseTime(currentTimeMillis).errorCode(i2).aliasId(501101L).build();
     }
 
     public void setTail(long j) {

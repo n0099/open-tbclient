@@ -7,31 +7,31 @@ import com.baidu.ufosdk.UfoSDK;
 public final class bs implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f22790a;
+    public final /* synthetic */ FeedbackInputActivity f23500a;
 
     public bs(FeedbackInputActivity feedbackInputActivity) {
-        this.f22790a = feedbackInputActivity;
+        this.f23500a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Handler handler;
-        int i;
+        int i2;
         Handler handler2;
-        com.baidu.ufosdk.e.a.a(this.f22790a.getApplicationContext());
+        com.baidu.ufosdk.e.a.a(this.f23500a.getApplicationContext());
         if (UfoSDK.clientid.length() != 0) {
-            handler = this.f22790a.aK;
-            i = 1;
+            handler = this.f23500a.aK;
+            i2 = 1;
         } else {
-            handler = this.f22790a.aK;
-            i = 4;
+            handler = this.f23500a.aK;
+            i2 = 4;
         }
-        handler.obtainMessage(i, null).sendToTarget();
-        Context applicationContext = this.f22790a.getApplicationContext();
+        handler.obtainMessage(i2, null).sendToTarget();
+        Context applicationContext = this.f23500a.getApplicationContext();
         String str = UfoSDK.clientid;
         String c2 = com.baidu.ufosdk.e.a.c(applicationContext);
         if (c2 != null) {
-            handler2 = this.f22790a.aK;
+            handler2 = this.f23500a.aK;
             handler2.obtainMessage(0, c2).sendToTarget();
         }
     }

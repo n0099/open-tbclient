@@ -163,7 +163,7 @@ public class ParserConfig {
 
     /* loaded from: classes.dex */
     public interface AutoTypeCheckHandler {
-        Class<?> handler(String str, Class<?> cls, int i);
+        Class<?> handler(String str, Class<?> cls, int i2);
     }
 
     static {
@@ -700,7 +700,7 @@ public class ParserConfig {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Class<?> checkAutoType(String str, Class<?> cls, int i) {
+    public Class<?> checkAutoType(String str, Class<?> cls, int i2) {
         boolean z;
         long charAt;
         InputStream inputStream;
@@ -714,14 +714,14 @@ public class ParserConfig {
         }
         if (this.autoTypeCheckHandlers != null) {
             for (AutoTypeCheckHandler autoTypeCheckHandler : this.autoTypeCheckHandlers) {
-                Class<?> handler = autoTypeCheckHandler.handler(str, cls, i);
+                Class<?> handler = autoTypeCheckHandler.handler(str, cls, i2);
                 if (handler != null) {
                     return handler;
                 }
             }
         }
-        int i2 = Feature.SafeMode.mask;
-        if (!((!this.safeMode && (i & i2) == 0 && (i2 & JSON.DEFAULT_PARSER_FEATURE) == 0) ? false : true)) {
+        int i3 = Feature.SafeMode.mask;
+        if (!((!this.safeMode && (i2 & i3) == 0 && (i3 & JSON.DEFAULT_PARSER_FEATURE) == 0) ? false : true)) {
             if (str.length() < 192 && str.length() >= 3) {
                 if (cls != null) {
                     long fnv1a_64 = TypeUtils.fnv1a_64(cls.getName());
@@ -736,29 +736,29 @@ public class ParserConfig {
                                 boolean z4 = Arrays.binarySearch(INTERNAL_WHITELIST_HASHCODES, fnv1a_642) >= 0;
                                 if (this.internalDenyHashCodes != null) {
                                     long j = charAt2;
-                                    int i3 = 3;
-                                    while (i3 < replace.length()) {
-                                        long charAt3 = (j ^ replace.charAt(i3)) * 1099511628211L;
+                                    int i4 = 3;
+                                    while (i4 < replace.length()) {
+                                        long charAt3 = (j ^ replace.charAt(i4)) * 1099511628211L;
                                         if (Arrays.binarySearch(this.internalDenyHashCodes, charAt3) >= 0) {
                                             throw new JSONException("autoType is not support. " + str);
                                         }
-                                        i3++;
+                                        i4++;
                                         j = charAt3;
                                     }
                                 }
                                 if (!z4 && (this.autoTypeSupport || z)) {
                                     long j2 = charAt2;
-                                    int i4 = 3;
-                                    while (i4 < replace.length()) {
+                                    int i5 = 3;
+                                    while (i5 < replace.length()) {
                                         long j3 = charAt2;
-                                        j2 = (replace.charAt(i4) ^ j2) * 1099511628211L;
+                                        j2 = (replace.charAt(i5) ^ j2) * 1099511628211L;
                                         if (Arrays.binarySearch(this.acceptHashCodes, j2) >= 0 && (loadClass = TypeUtils.loadClass(str, this.defaultClassLoader, true)) != null) {
                                             return loadClass;
                                         }
                                         if (Arrays.binarySearch(this.denyHashCodes, j2) >= 0 && TypeUtils.getClassFromMapping(str) == null && Arrays.binarySearch(this.acceptHashCodes, fnv1a_642) < 0) {
                                             throw new JSONException("autoType is not support. " + str);
                                         }
-                                        i4++;
+                                        i5++;
                                         charAt2 = j3;
                                     }
                                 }
@@ -780,9 +780,9 @@ public class ParserConfig {
                                     throw new JSONException("type not match. " + str + LoadErrorCode.TOKEN_NEXT + cls.getName());
                                 }
                                 if (!this.autoTypeSupport) {
-                                    int i5 = 3;
-                                    while (i5 < replace.length()) {
-                                        long charAt4 = (j4 ^ replace.charAt(i5)) * 1099511628211L;
+                                    int i6 = 3;
+                                    while (i6 < replace.length()) {
+                                        long charAt4 = (j4 ^ replace.charAt(i6)) * 1099511628211L;
                                         if (Arrays.binarySearch(this.denyHashCodes, charAt4) < 0) {
                                             if (Arrays.binarySearch(this.acceptHashCodes, charAt4) >= 0) {
                                                 Class<?> loadClass2 = TypeUtils.loadClass(str, this.defaultClassLoader, true);
@@ -794,7 +794,7 @@ public class ParserConfig {
                                                 }
                                                 throw new JSONException("type not match. " + str + LoadErrorCode.TOKEN_NEXT + cls.getName());
                                             }
-                                            i5++;
+                                            i6++;
                                             j4 = charAt4;
                                         } else {
                                             throw new JSONException("autoType is not support. " + str);
@@ -821,7 +821,7 @@ public class ParserConfig {
                                                         inputStream2 = resourceAsStream;
                                                         IOUtils.close(inputStream2);
                                                         z2 = false;
-                                                        int i6 = Feature.SupportAutoType.mask;
+                                                        int i7 = Feature.SupportAutoType.mask;
                                                         if (this.autoTypeSupport) {
                                                         }
                                                         if (!z3) {
@@ -836,7 +836,7 @@ public class ParserConfig {
                                                     inputStream2 = resourceAsStream;
                                                     IOUtils.close(inputStream2);
                                                     z2 = false;
-                                                    int i62 = Feature.SupportAutoType.mask;
+                                                    int i72 = Feature.SupportAutoType.mask;
                                                     if (this.autoTypeSupport) {
                                                     }
                                                     if (!z3) {
@@ -865,8 +865,8 @@ public class ParserConfig {
                                     th = th2;
                                     inputStream = null;
                                 }
-                                int i622 = Feature.SupportAutoType.mask;
-                                z3 = (this.autoTypeSupport && (i & i622) == 0 && (JSON.DEFAULT_PARSER_FEATURE & i622) == 0) ? false : true;
+                                int i722 = Feature.SupportAutoType.mask;
+                                z3 = (this.autoTypeSupport && (i2 & i722) == 0 && (JSON.DEFAULT_PARSER_FEATURE & i722) == 0) ? false : true;
                                 if (!z3 || z2 || z) {
                                     classFromMapping = TypeUtils.loadClass(str, this.defaultClassLoader, !z3 || z2);
                                 }
@@ -925,14 +925,14 @@ public class ParserConfig {
         this.safeMode = SAFE_MODE;
         this.denyHashCodes = new long[]{-9164606388214699518L, -8720046426850100497L, -8649961213709896794L, -8165637398350707645L, -8109300701639721088L, -7966123100503199569L, -7921218830998286408L, -7775351613326101303L, -7768608037458185275L, -7766605818834748097L, -6835437086156813536L, -6316154655839304624L, -6179589609550493385L, -6149093380703242441L, -6025144546313590215L, -5939269048541779808L, -5885964883385605994L, -5764804792063216819L, -5472097725414717105L, -5194641081268104286L, -5076846148177416215L, -4837536971810737970L, -4703320437989596122L, -4608341446948126581L, -4537258998789938600L, -4438775680185074100L, -4314457471973557243L, -4150995715611818742L, -4082057040235125754L, -3975378478825053783L, -3935185854875733362L, -3319207949486691020L, -3077205613010077203L, -3053747177772160511L, -2995060141064716555L, -2825378362173150292L, -2533039401923731906L, -2439930098895578154L, -2378990704010641148L, -2364987994247679115L, -2262244760619952081L, -2192804397019347313L, -2095516571388852610L, -1872417015366588117L, -1650485814983027158L, -1589194880214235129L, -965955008570215305L, -905177026366752536L, -831789045734283466L, -582813228520337988L, -254670111376247151L, -219577392946377768L, -190281065685395680L, -26639035867733124L, -9822483067882491L, 4750336058574309L, 33238344207745342L, 156405680656087946L, 218512992947536312L, 313864100207897507L, 386461436234701831L, 823641066473609950L, 1073634739308289776L, 1153291637701043748L, 1203232727967308606L, 1214780596910349029L, 1459860845934817624L, 1502845958873959152L, 1534439610567445754L, 1698504441317515818L, 1818089308493370394L, 2078113382421334967L, 2164696723069287854L, 2622551729063269307L, 2653453629929770569L, 2660670623866180977L, 2731823439467737506L, 2836431254737891113L, 2930861374593775110L, 3085473968517218653L, 3089451460101527857L, 3114862868117605599L, 3129395579983849527L, 3256258368248066264L, 3452379460455804429L, 3547627781654598988L, 3637939656440441093L, 3688179072722109200L, 3718352661124136681L, 3730752432285826863L, 3794316665763266033L, 4000049462512838776L, 4046190361520671643L, 4147696707147271408L, 4193204392725694463L, 4241163808635564644L, 4254584350247334433L, 4814658433570175913L, 4841947709850912914L, 4904007817188630457L, 5100336081510080343L, 5274044858141538265L, 5347909877633654828L, 5450448828334921485L, 5474268165959054640L, 5545425291794704408L, 5596129856135573697L, 5688200883751798389L, 5751393439502795295L, 5944107969236155580L, 6007332606592876737L, 6280357960959217660L, 6456855723474196908L, 6511035576063254270L, 6534946468240507089L, 6584624952928234050L, 6734240326434096246L, 6742705432718011780L, 6854854816081053523L, 7045245923763966215L, 7123326897294507060L, 7179336928365889465L, 7240293012336844478L, 7347653049056829645L, 7375862386996623731L, 7442624256860549330L, 7617522210483516279L, 7658177784286215602L, 8055461369741094911L, 8389032537095247355L, 8409640769019589119L, 8488266005336625107L, 8537233257283452655L, 8838294710098435315L, 9140390920032557669L, 9140416208800006522L};
         long[] jArr = new long[AUTO_TYPE_ACCEPT_LIST.length];
-        int i = 0;
+        int i2 = 0;
         while (true) {
             String[] strArr = AUTO_TYPE_ACCEPT_LIST;
-            if (i >= strArr.length) {
+            if (i2 >= strArr.length) {
                 break;
             }
-            jArr[i] = TypeUtils.fnv1a_64(strArr[i]);
-            i++;
+            jArr[i2] = TypeUtils.fnv1a_64(strArr[i2]);
+            i2++;
         }
         Arrays.sort(jArr);
         this.acceptHashCodes = jArr;
@@ -996,9 +996,9 @@ public class ParserConfig {
         String replace = cls.getName().replace('$', IStringUtil.EXTENSION_SEPARATOR);
         if (replace.startsWith("java.awt.") && AwtCodec.support(cls) && !awtError) {
             String[] strArr = {"java.awt.Point", "java.awt.Font", "java.awt.Rectangle", "java.awt.Color"};
-            for (int i = 0; i < 4; i++) {
+            for (int i2 = 0; i2 < 4; i2++) {
                 try {
-                    String str = strArr[i];
+                    String str = strArr[i2];
                     if (str.equals(replace)) {
                         Type cls2 = Class.forName(str);
                         ObjectDeserializer objectDeserializer4 = AwtCodec.instance;
@@ -1015,8 +1015,8 @@ public class ParserConfig {
             try {
                 if (replace.startsWith("java.time.")) {
                     String[] strArr2 = {"java.time.LocalDateTime", "java.time.LocalDate", "java.time.LocalTime", "java.time.ZonedDateTime", "java.time.OffsetDateTime", "java.time.OffsetTime", "java.time.ZoneOffset", "java.time.ZoneRegion", "java.time.ZoneId", "java.time.Period", "java.time.Duration", "java.time.Instant"};
-                    for (int i2 = 0; i2 < 12; i2++) {
-                        String str2 = strArr2[i2];
+                    for (int i3 = 0; i3 < 12; i3++) {
+                        String str2 = strArr2[i3];
                         if (str2.equals(replace)) {
                             Type cls3 = Class.forName(str2);
                             ObjectDeserializer objectDeserializer5 = Jdk8DateCodec.instance;
@@ -1026,8 +1026,8 @@ public class ParserConfig {
                     }
                 } else if (replace.startsWith("java.util.Optional")) {
                     String[] strArr3 = {"java.util.Optional", "java.util.OptionalDouble", "java.util.OptionalInt", "java.util.OptionalLong"};
-                    for (int i3 = 0; i3 < 4; i3++) {
-                        String str3 = strArr3[i3];
+                    for (int i4 = 0; i4 < 4; i4++) {
+                        String str3 = strArr3[i4];
                         if (str3.equals(replace)) {
                             Type cls4 = Class.forName(str3);
                             ObjectDeserializer objectDeserializer6 = OptionalCodec.instance;
@@ -1044,8 +1044,8 @@ public class ParserConfig {
             try {
                 if (replace.startsWith("org.joda.time.")) {
                     String[] strArr4 = {"org.joda.time.DateTime", "org.joda.time.LocalDate", "org.joda.time.LocalDateTime", "org.joda.time.LocalTime", "org.joda.time.Instant", "org.joda.time.Period", "org.joda.time.Duration", "org.joda.time.DateTimeZone", "org.joda.time.format.DateTimeFormatter"};
-                    for (int i4 = 0; i4 < 9; i4++) {
-                        String str4 = strArr4[i4];
+                    for (int i5 = 0; i5 < 9; i5++) {
+                        String str4 = strArr4[i5];
                         if (str4.equals(replace)) {
                             Type cls5 = Class.forName(str4);
                             objectDeserializer3 = JodaCodec.instance;
@@ -1061,8 +1061,8 @@ public class ParserConfig {
         if (!guavaError && replace.startsWith("com.google.common.collect.")) {
             try {
                 String[] strArr5 = {"com.google.common.collect.HashMultimap", "com.google.common.collect.LinkedListMultimap", "com.google.common.collect.LinkedHashMultimap", "com.google.common.collect.ArrayListMultimap", "com.google.common.collect.TreeMultimap"};
-                for (int i5 = 0; i5 < 5; i5++) {
-                    String str5 = strArr5[i5];
+                for (int i6 = 0; i6 < 5; i6++) {
+                    String str5 = strArr5[i6];
                     if (str5.equals(replace)) {
                         Type cls6 = Class.forName(str5);
                         objectDeserializer3 = GuavaCodec.instance;

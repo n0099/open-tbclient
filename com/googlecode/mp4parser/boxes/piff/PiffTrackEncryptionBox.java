@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.boxes.piff;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.boxes.AbstractTrackEncryptionBox;
@@ -8,7 +7,7 @@ import g.a.a.a;
 import g.a.b.b.b;
 /* loaded from: classes6.dex */
 public class PiffTrackEncryptionBox extends AbstractTrackEncryptionBox {
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
 
     static {
         ajc$preClinit();
@@ -31,6 +30,6 @@ public class PiffTrackEncryptionBox extends AbstractTrackEncryptionBox {
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public byte[] getUserType() {
-        return new byte[]{-119, 116, -37, ExifInterface.MARKER_SOF14, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, -25, 76, 81, -124, -7, 113, 72, -7, -120, 37, 84};
+        return new byte[]{-119, 116, -37, -50, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, -25, 76, 81, -124, -7, 113, 72, -7, -120, 37, 84};
     }
 }

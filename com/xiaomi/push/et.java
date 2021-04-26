@@ -13,7 +13,7 @@ import com.xiaomi.push.service.XMJobService;
 public class et implements er.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public JobScheduler f40842a;
+    public JobScheduler f38361a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f334a;
@@ -23,13 +23,13 @@ public class et implements er.a {
 
     public et(Context context) {
         this.f334a = context;
-        this.f40842a = (JobScheduler) context.getSystemService("jobscheduler");
+        this.f38361a = (JobScheduler) context.getSystemService("jobscheduler");
     }
 
     @Override // com.xiaomi.push.er.a
     public void a() {
         this.f335a = false;
-        this.f40842a.cancel(1);
+        this.f38361a.cancel(1);
     }
 
     public void a(long j) {
@@ -40,7 +40,7 @@ public class et implements er.a {
         builder.setPersisted(false);
         JobInfo build = builder.build();
         com.xiaomi.channel.commonutils.logger.b.c("schedule Job = " + build.getId() + " in " + j);
-        this.f40842a.schedule(builder.build());
+        this.f38361a.schedule(builder.build());
     }
 
     @Override // com.xiaomi.push.er.a

@@ -63,7 +63,7 @@ public class UMHGuideGroup extends BaseItemLayout {
         if (configData == null || (dataItemArr = configData.list) == null || dataItemArr.length < 1) {
             return;
         }
-        int i = 3;
+        int i2 = 3;
         this.mGridLayout.setColumnCount(3);
         this.mGridLayout.setHorizontalSpacing(0);
         this.mGridLayout.setVerticalSpacing(0);
@@ -75,14 +75,14 @@ public class UMHGuideGroup extends BaseItemLayout {
         int length = dataItemArr2.length;
         if (length < 3) {
             this.mGridLayout.setVisibility(8);
-            i = 0;
+            i2 = 0;
         } else if (length >= 6) {
-            i = 6;
+            i2 = 6;
         }
-        for (int i2 = 0; i2 < i; i2++) {
-            if (dataItemArr2[i2] != null) {
+        for (int i3 = 0; i3 < i2; i3++) {
+            if (dataItemArr2[i3] != null) {
                 UMHGuideItem uMHGuideItem = new UMHGuideItem(getContext());
-                uMHGuideItem.setData(dataItemArr2[i2], getWalletInterface());
+                uMHGuideItem.setData(dataItemArr2[i3], getWalletInterface());
                 this.mGridLayout.addView(uMHGuideItem);
             }
         }

@@ -7,11 +7,11 @@ import org.apache.http.HttpRequestInterceptor;
 public interface HttpRequestInterceptorList {
     void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor);
 
-    void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i);
+    void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i2);
 
     void clearRequestInterceptors();
 
-    HttpRequestInterceptor getRequestInterceptor(int i);
+    HttpRequestInterceptor getRequestInterceptor(int i2);
 
     int getRequestInterceptorCount();
 

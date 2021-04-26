@@ -6,10 +6,10 @@ import com.baidu.apollon.restnet.rest.d;
 public class CometHttpRequestInterceptor extends EbpayHttpRequestInterceptor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f23927a = 60000;
+    public static final int f24672a = 60000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23928b = "CometHttpRequestInterceptor";
+    public static final String f24673b = "CometHttpRequestInterceptor";
 
     @Override // com.baidu.wallet.core.beans.EbpayHttpRequestInterceptor, com.baidu.apollon.restnet.rest.RestHttpRequestInterceptor
     public void intercept(Context context, d dVar) {

@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import d.b.h0.a.k;
-import d.b.h0.g.i0.f.c;
+import d.a.h0.a.k;
+import d.a.h0.g.i0.f.c;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +24,7 @@ public final class SoUtils {
     public static final String SO_EVENT_ID_NEW_SO = "25";
     public static final String SO_EVENT_ID_V8_SO = "26";
     public static final String TAG = "SoUtils";
-    public static final boolean DEBUG = k.f45772a;
+    public static final boolean DEBUG = k.f43101a;
     public static a sUbcImpl = new c();
     public static String[] uris = {"lib/armeabi", "lib/arm64-v8a"};
 
@@ -33,10 +33,10 @@ public final class SoUtils {
         void onEvent(String str, String str2);
     }
 
-    public static long copyStream(InputStream inputStream, OutputStream outputStream, int i) {
+    public static long copyStream(InputStream inputStream, OutputStream outputStream, int i2) {
         if (inputStream != null && outputStream != null) {
             try {
-                byte[] bArr = new byte[i * 1024];
+                byte[] bArr = new byte[i2 * 1024];
                 long j = 0;
                 while (true) {
                     int read = inputStream.read(bArr);
@@ -78,8 +78,8 @@ public final class SoUtils {
         return str;
     }
 
-    public static String getUriName(String str, int i) {
-        return uris[i] + File.separator + str;
+    public static String getUriName(String str, int i2) {
+        return uris[i2] + File.separator + str;
     }
 
     public static boolean hasGingerbread() {

@@ -17,7 +17,7 @@ public class AnnotationSerializer implements ObjectSerializer {
     public static volatile Method sun_AnnotationType_members;
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         JSONException jSONException;
         Class<?>[] interfaces = obj.getClass().getInterfaces();
         if (interfaces.length == 1 && interfaces[0].isAnnotation()) {

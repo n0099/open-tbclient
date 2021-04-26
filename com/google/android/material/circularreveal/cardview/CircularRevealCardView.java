@@ -5,12 +5,14 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.circularreveal.CircularRevealHelper;
 import com.google.android.material.circularreveal.CircularRevealWidget;
 /* loaded from: classes6.dex */
-public class CircularRevealCardView extends CardView implements CircularRevealWidget {
+public class CircularRevealCardView extends MaterialCardView implements CircularRevealWidget {
+    @NonNull
     public final CircularRevealHelper helper;
 
     public CircularRevealCardView(Context context) {
@@ -79,8 +81,8 @@ public class CircularRevealCardView extends CardView implements CircularRevealWi
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
-    public void setCircularRevealScrimColor(@ColorInt int i) {
-        this.helper.setCircularRevealScrimColor(i);
+    public void setCircularRevealScrimColor(@ColorInt int i2) {
+        this.helper.setCircularRevealScrimColor(i2);
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget

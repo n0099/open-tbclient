@@ -80,15 +80,15 @@ public class SpeechRecognitionDialog extends Dialog {
         }
         String substring = str.substring(1, lineStartAndEnd.get(0).y);
         String substring2 = str.substring((str.length() - lineStartAndEnd.get(0).y) - 1);
-        textView.setText(ELLIPSIS_NORMAL + substring + substring2);
+        textView.setText("…" + substring + substring2);
     }
 
-    private List<Point> getLineStartAndEnd(TextPaint textPaint, CharSequence charSequence, int i) {
-        StaticLayout staticLayout = new StaticLayout(charSequence, textPaint, i, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true);
+    private List<Point> getLineStartAndEnd(TextPaint textPaint, CharSequence charSequence, int i2) {
+        StaticLayout staticLayout = new StaticLayout(charSequence, textPaint, i2, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true);
         int lineCount = staticLayout.getLineCount();
         ArrayList arrayList = new ArrayList();
-        for (int i2 = 0; i2 < lineCount; i2++) {
-            arrayList.add(new Point(staticLayout.getLineStart(i2), staticLayout.getLineEnd(i2)));
+        for (int i3 = 0; i3 < lineCount; i3++) {
+            arrayList.add(new Point(staticLayout.getLineStart(i3), staticLayout.getLineEnd(i3)));
         }
         return arrayList;
     }
@@ -177,16 +177,16 @@ public class SpeechRecognitionDialog extends Dialog {
         this.resetCallback = resetCallback;
     }
 
-    public void setRippleAmplitude(int i) {
+    public void setRippleAmplitude(int i2) {
         VoiceSinWaveView voiceSinWaveView = this.voiceSinWaveView;
         if (voiceSinWaveView != null) {
-            voiceSinWaveView.changeVolume(i);
+            voiceSinWaveView.changeVolume(i2);
         }
     }
 
-    public void setStopSpeechLayout(int i) {
+    public void setStopSpeechLayout(int i2) {
         RelativeLayout relativeLayout;
-        if (i == 0) {
+        if (i2 == 0) {
             this.stopSpeechLayout.setBackgroundResource(R.drawable.sapi_sdk_stop_speech_layout_rounded_coener);
             this.stopSpeechLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.pass.ecommerce.view.SpeechRecognitionDialog.3
                 @Override // android.view.View.OnClickListener
@@ -196,8 +196,8 @@ public class SpeechRecognitionDialog extends Dialog {
             });
             this.stopSpeechTx.setText(R.string.sapi_sdk_speech_recognition_error_interrupt_content);
             this.stopSpeechTx.setVisibility(0);
-        } else if (i != 1) {
-            if (i != 2 || (relativeLayout = this.stopSpeechLayout) == null || this.microphoneImage == null || this.stopSpeechTx == null) {
+        } else if (i2 != 1) {
+            if (i2 != 2 || (relativeLayout = this.stopSpeechLayout) == null || this.microphoneImage == null || this.stopSpeechTx == null) {
                 return;
             }
             relativeLayout.setClickable(false);
@@ -219,7 +219,7 @@ public class SpeechRecognitionDialog extends Dialog {
         this.stopSpeechLister = stopSpeechLister;
     }
 
-    public void showErrorPage(int i) {
+    public void showErrorPage(int i2) {
         RelativeLayout relativeLayout = this.tipsAreaLayout;
         if (relativeLayout != null && this.voiceParentLayout != null) {
             relativeLayout.setVisibility(8);
@@ -254,7 +254,7 @@ public class SpeechRecognitionDialog extends Dialog {
                     SpeechRecognitionDialog.this.dismiss();
                 }
             });
-            switch (i) {
+            switch (i2) {
                 case AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_INTERRUPT /* -506 */:
                     textView.setText(R.string.sapi_sdk_speech_recognition_error_interrupt_title);
                     textView2.setText(R.string.sapi_sdk_speech_recognition_error_interrupt_tips);

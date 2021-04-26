@@ -10,20 +10,20 @@ public class c {
     public static class a extends Application {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f32166a;
+        public final Context f32577a;
 
         public a(Context context) {
-            this.f32166a = context;
+            this.f32577a = context;
         }
 
         @Override // android.content.ContextWrapper, android.content.Context
         public Context getApplicationContext() {
-            return this.f32166a;
+            return this.f32577a;
         }
 
         @Override // android.content.ContextWrapper, android.content.Context
         public ApplicationInfo getApplicationInfo() {
-            return this.f32166a.getApplicationInfo();
+            return this.f32577a.getApplicationInfo();
         }
     }
 

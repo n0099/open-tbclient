@@ -14,7 +14,7 @@ public final class g implements Parcelable.Creator<IndoorRouteLine> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public IndoorRouteLine[] newArray(int i) {
-        return new IndoorRouteLine[i];
+    public IndoorRouteLine[] newArray(int i2) {
+        return new IndoorRouteLine[i2];
     }
 }

@@ -45,43 +45,43 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5036a = ".video_cache";
+    public static String f5163a = ".video_cache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5037b = "last_file_cache_time";
+    public static String f5164b = "last_file_cache_time";
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f5038c = 86400000;
+    public static long f5165c = 86400000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f5039d = 536870912;
+    public static long f5166d = 536870912;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile int f5040e = -1;
+    public static volatile int f5167e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile int f5041f = -1;
+    public static volatile int f5168f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile String f5042g;
+    public static volatile String f5169g;
 
     public static long a(Boolean bool) {
         if (bool.booleanValue() || r()) {
-            long i = d.i();
-            d.f();
             long i2 = d.i();
-            CyberCfgManager.getInstance().setPrefLong(f5037b, System.currentTimeMillis());
+            d.f();
+            long i3 = d.i();
+            CyberCfgManager.getInstance().setPrefLong(f5164b, System.currentTimeMillis());
             StringBuilder sb = new StringBuilder();
             sb.append("delete file success,  beforeSpace = ");
-            sb.append(i);
-            sb.append(" afterSpace = ");
             sb.append(i2);
+            sb.append(" afterSpace = ");
+            sb.append(i3);
             sb.append(" deleteSpaceSize = ");
-            long j = i - i2;
+            long j = i2 - i3;
             sb.append(j);
             CyberLog.i("sdk_Utils", sb.toString());
             return j;
@@ -126,7 +126,7 @@ public class n {
     }
 
     public static String a(File file) {
-        int i;
+        int i2;
         if (file != null && file.isFile()) {
             byte[] bArr = new byte[1024];
             try {
@@ -143,9 +143,9 @@ public class n {
                 byte[] digest = messageDigest.digest();
                 char[] charArray = "0123456789abcdef".toCharArray();
                 StringBuilder sb = new StringBuilder(digest.length * 2);
-                for (i = 0; i < digest.length; i++) {
-                    sb.append(charArray[(digest[i] >> 4) & 15]);
-                    sb.append(charArray[digest[i] & 15]);
+                for (i2 = 0; i2 < digest.length; i2++) {
+                    sb.append(charArray[(digest[i2] >> 4) & 15]);
+                    sb.append(charArray[digest[i2] & 15]);
                 }
                 return sb.toString();
             } catch (Exception e2) {
@@ -163,9 +163,9 @@ public class n {
                 byte[] digest = messageDigest.digest();
                 char[] charArray = "0123456789abcdef".toCharArray();
                 StringBuilder sb = new StringBuilder(digest.length * 2);
-                for (int i = 0; i < digest.length; i++) {
-                    sb.append(charArray[(digest[i] >> 4) & 15]);
-                    sb.append(charArray[digest[i] & 15]);
+                for (int i2 = 0; i2 < digest.length; i2++) {
+                    sb.append(charArray[(digest[i2] >> 4) & 15]);
+                    sb.append(charArray[digest[i2] & 15]);
                 }
                 return sb.toString();
             } catch (Exception e2) {
@@ -179,31 +179,31 @@ public class n {
         try {
             byte[] bytes = str.getBytes();
             byte[] bArr2 = new byte[256];
-            for (int i = 0; i < 256; i++) {
-                bArr2[i] = (byte) i;
+            for (int i2 = 0; i2 < 256; i2++) {
+                bArr2[i2] = (byte) i2;
             }
-            int i2 = 0;
             int i3 = 0;
-            for (int i4 = 0; i4 < 256; i4++) {
-                i3 = ((bytes[i2] & 255) + bArr2[i4] + i3) & 255;
-                byte b2 = bArr2[i4];
-                bArr2[i4] = bArr2[i3];
-                bArr2[i3] = b2;
-                i2 = (i2 + 1) % bytes.length;
+            int i4 = 0;
+            for (int i5 = 0; i5 < 256; i5++) {
+                i4 = ((bytes[i3] & 255) + bArr2[i5] + i4) & 255;
+                byte b2 = bArr2[i5];
+                bArr2[i5] = bArr2[i4];
+                bArr2[i4] = b2;
+                i3 = (i3 + 1) % bytes.length;
             }
             int length = bArr.length;
             byte[] bArr3 = new byte[length];
             int length2 = bArr.length;
             if (length2 <= length) {
-                int i5 = 0;
                 int i6 = 0;
-                for (int i7 = 0; i7 < length2; i7++) {
-                    i5 = (i5 + 1) & 255;
-                    i6 = (bArr2[i5] + i6) & 255;
-                    byte b3 = bArr2[i5];
-                    bArr2[i5] = bArr2[i6];
-                    bArr2[i6] = b3;
-                    bArr3[i7] = (byte) (bArr[i7] ^ bArr2[(bArr2[i5] + bArr2[i6]) & 255]);
+                int i7 = 0;
+                for (int i8 = 0; i8 < length2; i8++) {
+                    i6 = (i6 + 1) & 255;
+                    i7 = (bArr2[i6] + i7) & 255;
+                    byte b3 = bArr2[i6];
+                    bArr2[i6] = bArr2[i7];
+                    bArr2[i7] = b3;
+                    bArr3[i8] = (byte) (bArr[i8] ^ bArr2[(bArr2[i6] + bArr2[i7]) & 255]);
                 }
                 return new String(bArr3, "utf-8");
             }
@@ -298,8 +298,8 @@ public class n {
         if (str == null || arrayList == null) {
             return;
         }
-        for (int i = 0; i < arrayList.size(); i++) {
-            a(str + File.separator + arrayList.get(i));
+        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+            a(str + File.separator + arrayList.get(i2));
         }
     }
 
@@ -552,26 +552,26 @@ public class n {
     }
 
     public static String l() {
-        if (TextUtils.isEmpty(f5042g)) {
-            f5042g = t();
-            if (TextUtils.isEmpty(f5042g)) {
-                f5042g = u();
+        if (TextUtils.isEmpty(f5169g)) {
+            f5169g = t();
+            if (TextUtils.isEmpty(f5169g)) {
+                f5169g = u();
             }
-            return f5042g;
+            return f5169g;
         }
-        return f5042g;
+        return f5169g;
     }
 
     public static boolean m() {
-        if (f5040e < 0) {
+        if (f5167e < 0) {
             Context applicationContext = CyberPlayerManager.getApplicationContext();
             if (applicationContext == null || applicationContext.getPackageName().equals(l())) {
-                f5040e = 1;
+                f5167e = 1;
             } else {
-                f5040e = 0;
+                f5167e = 0;
             }
         }
-        return f5040e == 1;
+        return f5167e == 1;
     }
 
     public static boolean n() {
@@ -598,10 +598,10 @@ public class n {
     /* JADX DEBUG: Multi-variable search result rejected for r0v13, resolved type: int */
     /* JADX WARN: Multi-variable type inference failed */
     public static String o() {
-        if (f5041f < 0) {
-            f5041f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
+        if (f5168f < 0) {
+            f5168f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
         }
-        return f5041f == 1 ? "arm64-v8a" : "armeabi-v7a";
+        return f5168f == 1 ? "arm64-v8a" : "armeabi-v7a";
     }
 
     public static String p() {
@@ -611,7 +611,7 @@ public class n {
         String str = "";
         try {
             byte[] bArr = new byte[1024];
-            RandomAccessFile randomAccessFile = new RandomAccessFile("/proc/cpuinfo", r.f7699a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile("/proc/cpuinfo", r.f7975a);
             randomAccessFile.read(bArr);
             String str2 = new String(bArr);
             int indexOf = str2.indexOf(0);
@@ -624,17 +624,17 @@ public class n {
     }
 
     public static long q() {
-        return CyberCfgManager.getInstance().getCfgLongValue("file_cache_max_size", f5039d);
+        return CyberCfgManager.getInstance().getCfgLongValue("file_cache_max_size", f5166d);
     }
 
     public static boolean r() {
         try {
-            long prefLong = CyberCfgManager.getInstance().getPrefLong(f5037b, 0L);
+            long prefLong = CyberCfgManager.getInstance().getPrefLong(f5164b, 0L);
             long currentTimeMillis = System.currentTimeMillis();
             if (prefLong > 0) {
                 return (((currentTimeMillis - prefLong) > s() ? 1 : ((currentTimeMillis - prefLong) == s() ? 0 : -1)) > 0) || ((d.i() > q() ? 1 : (d.i() == q() ? 0 : -1)) > 0);
             }
-            CyberCfgManager.getInstance().setPrefLong(f5037b, currentTimeMillis);
+            CyberCfgManager.getInstance().setPrefLong(f5164b, currentTimeMillis);
             return false;
         } catch (Exception | OutOfMemoryError unused) {
             return true;
@@ -642,7 +642,7 @@ public class n {
     }
 
     public static long s() {
-        return CyberCfgManager.getInstance().getCfgLongValue("file_cache_delete_interval", f5038c);
+        return CyberCfgManager.getInstance().getCfgLongValue("file_cache_delete_interval", f5165c);
     }
 
     public static String t() {

@@ -12,22 +12,24 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.VideoCloudSetting;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes5.dex */
 public class NewVoteCountDownView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21840e;
+    public Context f22498e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f21841f;
+    public TextView f22499f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f21842g;
+    public View f22500g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f21843h;
-    public View i;
+    public View f22501h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public View f22502i;
     public TextView j;
     public TextView k;
     public TextView l;
@@ -72,17 +74,17 @@ public class NewVoteCountDownView extends LinearLayout {
     }
 
     public final void c() {
-        this.f21841f = (TextView) findViewById(R.id.prefix_count_down_view);
-        this.f21842g = findViewById(R.id.day_num_container);
-        this.f21843h = findViewById(R.id.hour_num_container);
-        this.i = findViewById(R.id.minute_num_container);
+        this.f22499f = (TextView) findViewById(R.id.prefix_count_down_view);
+        this.f22500g = findViewById(R.id.day_num_container);
+        this.f22501h = findViewById(R.id.hour_num_container);
+        this.f22502i = findViewById(R.id.minute_num_container);
         this.j = (TextView) findViewById(R.id.day_num_count_down_view);
         this.k = (TextView) findViewById(R.id.hour_num_count_down_view);
         this.l = (TextView) findViewById(R.id.minute_num_count_down_view);
     }
 
     public final void d() {
-        this.f21840e = getContext();
+        this.f22498e = getContext();
         setOrientation(0);
         setClipToPadding(false);
         setClipChildren(false);
@@ -102,15 +104,15 @@ public class NewVoteCountDownView extends LinearLayout {
         }
     }
 
-    public void f(int i) {
-        SkinManager.setViewTextColor(this.f21841f, R.color.CAM_X0105, 1, i);
-        SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1, i);
-        SkinManager.setBackgroundResource(this.f21842g, R.drawable.bg_gradient_round, i);
-        SkinManager.setBackgroundResource(this.f21843h, R.drawable.bg_gradient_round, i);
-        SkinManager.setBackgroundResource(this.i, R.drawable.bg_gradient_round, i);
-        SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1, i);
-        SkinManager.setViewTextColor(this.k, R.color.CAM_X0101, 1, i);
-        SkinManager.setViewTextColor(this.l, R.color.CAM_X0101, 1, i);
+    public void f(int i2) {
+        SkinManager.setViewTextColor(this.f22499f, R.color.CAM_X0105, 1, i2);
+        SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1, i2);
+        SkinManager.setBackgroundResource(this.f22500g, R.drawable.bg_gradient_round, i2);
+        SkinManager.setBackgroundResource(this.f22501h, R.drawable.bg_gradient_round, i2);
+        SkinManager.setBackgroundResource(this.f22502i, R.drawable.bg_gradient_round, i2);
+        SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1, i2);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0101, 1, i2);
+        SkinManager.setViewTextColor(this.l, R.color.CAM_X0101, 1, i2);
     }
 
     public final void g(long j) {

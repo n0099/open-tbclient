@@ -30,8 +30,8 @@ public class GameShareData implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public GameShareData[] newArray(int i) {
-            return new GameShareData[i];
+        public GameShareData[] newArray(int i2) {
+            return new GameShareData[i2];
         }
     }
 
@@ -60,7 +60,7 @@ public class GameShareData implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.gameIconUrl);
         parcel.writeString(this.gameName);
         parcel.writeString(this.gameDescription);

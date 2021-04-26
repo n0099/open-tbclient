@@ -39,14 +39,14 @@ public class TrendFeedResultData extends BaseResultData implements com.kwad.sdk.
                 str = "adInfo is null";
             }
         }
-        com.kwad.sdk.core.d.a.d(TAG, str);
+        com.kwad.sdk.core.d.a.e(TAG, str);
         return true;
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData
     public boolean isDataEmpty() {
         if (this.adTemplateList.isEmpty()) {
-            com.kwad.sdk.core.d.a.d(TAG, "adTemplateList is empty");
+            com.kwad.sdk.core.d.a.e(TAG, "adTemplateList is empty");
             return true;
         }
         return false;
@@ -67,8 +67,8 @@ public class TrendFeedResultData extends BaseResultData implements com.kwad.sdk.
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return;
             }
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
                     AdTemplate adTemplate = new AdTemplate();
                     adTemplate.parseJson(optJSONObject);

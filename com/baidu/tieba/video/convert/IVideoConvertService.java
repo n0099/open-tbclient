@@ -82,12 +82,12 @@ public interface IVideoConvertService extends IInterface {
             }
 
             @Override // com.baidu.tieba.video.convert.IVideoConvertService
-            public void setConvertType(int i) throws RemoteException {
+            public void setConvertType(int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    obtain.writeInt(i);
+                    obtain.writeInt(i2);
                     this.mRemote.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
@@ -133,31 +133,31 @@ public interface IVideoConvertService extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 == 1) {
                 parcel.enforceInterface(DESCRIPTOR);
                 int doConvert = doConvert(parcel.readString(), parcel.readString());
                 parcel2.writeNoException();
                 parcel2.writeInt(doConvert);
                 return true;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 parcel.enforceInterface(DESCRIPTOR);
                 setConvertType(parcel.readInt());
                 parcel2.writeNoException();
                 return true;
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 parcel.enforceInterface(DESCRIPTOR);
                 setIVideoConvertListener(IVideoConvertListener.Stub.asInterface(parcel.readStrongBinder()));
                 parcel2.writeNoException();
                 return true;
-            } else if (i == 4) {
+            } else if (i2 == 4) {
                 parcel.enforceInterface(DESCRIPTOR);
                 abortConvert();
                 parcel2.writeNoException();
                 return true;
-            } else if (i != 5) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 5) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString(DESCRIPTOR);
                 return true;
@@ -177,7 +177,7 @@ public interface IVideoConvertService extends IInterface {
 
     boolean isConvertRunning() throws RemoteException;
 
-    void setConvertType(int i) throws RemoteException;
+    void setConvertType(int i2) throws RemoteException;
 
     void setIVideoConvertListener(IVideoConvertListener iVideoConvertListener) throws RemoteException;
 }

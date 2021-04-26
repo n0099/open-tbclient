@@ -7,11 +7,11 @@ import java.io.ByteArrayOutputStream;
 /* loaded from: classes5.dex */
 public final class q {
     public static int a(BitmapFactory.Options options) {
-        int i = options.outHeight;
-        int i2 = options.outWidth;
-        if (i > 800 || i2 > 480) {
-            int min = Math.min(Math.round(i / 800.0f), Math.round(i2 / 480.0f));
-            while ((i2 * i) / (min * min) > 768000.0f) {
+        int i2 = options.outHeight;
+        int i3 = options.outWidth;
+        if (i2 > 800 || i3 > 480) {
+            int min = Math.min(Math.round(i2 / 800.0f), Math.round(i3 / 480.0f));
+            while ((i3 * i2) / (min * min) > 768000.0f) {
                 min++;
             }
             return min;

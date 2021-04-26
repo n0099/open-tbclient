@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.model.SystemHelpSettingModel;
-import d.b.i0.r.s.a;
-import d.b.j0.v2.c.h;
-/* loaded from: classes4.dex */
+import d.a.i0.r.s.a;
+import d.a.j0.v2.c.h;
+/* loaded from: classes5.dex */
 public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingActivity> implements BdSwitchView.b {
-    public d.b.i0.r.s.a mBdAlertDialog;
+    public d.a.i0.r.s.a mBdAlertDialog;
     public h mView = null;
     public SystemHelpSettingModel mModel = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends BaseActivity<SystemHelpSettingActivity>.LoadDataCallBack {
         public a() {
             super();
@@ -46,10 +46,10 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,24 +60,24 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements a.e {
         public c() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements a.e {
         public d() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             SystemHelpSettingActivity systemHelpSettingActivity = SystemHelpSettingActivity.this;
             systemHelpSettingActivity.showLoadingDialog(systemHelpSettingActivity.getPageContext().getString(R.string.deleting));
             SystemHelpSettingActivity.this.mModel.w();
@@ -85,24 +85,24 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements a.e {
         public e() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements a.e {
         public f() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             aVar.dismiss();
             SystemHelpSettingActivity systemHelpSettingActivity = SystemHelpSettingActivity.this;
             systemHelpSettingActivity.showLoadingDialog(systemHelpSettingActivity.getPageContext().getString(R.string.deleting));
@@ -115,7 +115,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
     }
 
     private void refreshNew() {
-        this.mView.k().i();
+        this.mView.j().i();
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
@@ -123,25 +123,25 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         if (view == null) {
             return;
         }
-        if (view.equals(this.mView.i())) {
+        if (view.equals(this.mView.h())) {
             if (BdSwitchView.SwitchState.ON == switchState) {
                 this.mModel.z(true);
             } else {
                 this.mModel.z(false);
             }
-        } else if (view == this.mView.l()) {
+        } else if (view == this.mView.k()) {
             if (BdSwitchView.SwitchState.ON == switchState) {
-                d.b.i0.r.d0.b.j().t("prefs_save_paled_video", true);
+                d.a.i0.r.d0.b.j().t("prefs_save_paled_video", true);
             } else {
-                d.b.i0.r.d0.b.j().t("prefs_save_paled_video", false);
+                d.a.i0.r.d0.b.j().t("prefs_save_paled_video", false);
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mView.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mView.onChangeSkinType(i2);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
@@ -156,17 +156,17 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                 if (TextUtils.isEmpty(this.mView.e().getTip())) {
                     showToast(R.string.no_cache_delete);
                 } else {
-                    this.mBdAlertDialog = new d.b.i0.r.s.a(getPageContext().getPageActivity()).setMessageId(R.string.alert_clear_all_cache).setPositiveButton(R.string.alert_yes_button, new d()).setNegativeButton(R.string.cancel, new c()).create(getPageContext()).show();
+                    this.mBdAlertDialog = new d.a.i0.r.s.a(getPageContext().getPageActivity()).setMessageId(R.string.alert_clear_all_cache).setPositiveButton(R.string.alert_yes_button, new d()).setNegativeButton(R.string.cancel, new c()).create(getPageContext()).show();
                 }
             }
         } else if (view == this.mView.f()) {
             if (this.mModel == null) {
                 return;
             }
-            this.mBdAlertDialog = new d.b.i0.r.s.a(getPageContext().getPageActivity()).setMessageId(R.string.alert_clear_cache).setPositiveButton(R.string.alert_yes_button, new f()).setNegativeButton(R.string.cancel, new e()).create(getPageContext()).show();
-        } else if (view == this.mView.k()) {
+            this.mBdAlertDialog = new d.a.i0.r.s.a(getPageContext().getPageActivity()).setMessageId(R.string.alert_clear_cache).setPositiveButton(R.string.alert_yes_button, new f()).setNegativeButton(R.string.cancel, new e()).create(getPageContext()).show();
+        } else if (view == this.mView.j()) {
             sendMessage(new CustomMessage(2002001, new PluginCenterActivityConfig(getPageContext().getPageActivity())));
-        } else if (view == this.mView.h() && TbadkCoreApplication.getInst().isMainProcess(false)) {
+        } else if (view == this.mView.g() && TbadkCoreApplication.getInst().isMainProcess(false)) {
             MessageManager.getInstance().runTask(2921514, null, null);
         }
     }
@@ -177,14 +177,14 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         this.mView = new h(this);
         this.mModel = new SystemHelpSettingModel(this);
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.mView.i().i();
+            this.mView.h().i();
         } else {
-            this.mView.i().f();
+            this.mView.h().f();
         }
-        if (d.b.i0.r.d0.b.j().g("prefs_save_paled_video", true)) {
-            this.mView.l().i();
+        if (d.a.i0.r.d0.b.j().g("prefs_save_paled_video", true)) {
+            this.mView.k().i();
         } else {
-            this.mView.l().f();
+            this.mView.k().f();
         }
         this.mView.e().setTip(getPageContext().getString(R.string.calc_cache_size));
         this.mView.e().b();
@@ -194,7 +194,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        d.b.i0.r.s.a aVar = this.mBdAlertDialog;
+        d.a.i0.r.s.a aVar = this.mBdAlertDialog;
         if (aVar != null && aVar.isShowing()) {
             this.mBdAlertDialog.dismiss();
         }

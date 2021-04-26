@@ -21,13 +21,13 @@ public final class JSONReaderScanner extends JSONLexerBase {
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase
-    public final String addSymbol(int i, int i2, int i3, SymbolTable symbolTable) {
-        return symbolTable.addSymbol(this.buf, i, i2, i3);
+    public final String addSymbol(int i2, int i3, int i4, SymbolTable symbolTable) {
+        return symbolTable.addSymbol(this.buf, i2, i3, i4);
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase
-    public final void arrayCopy(int i, char[] cArr, int i2, int i3) {
-        System.arraycopy(this.buf, i, cArr, i2, i3);
+    public final void arrayCopy(int i2, char[] cArr, int i3, int i4) {
+        System.arraycopy(this.buf, i2, cArr, i3, i4);
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase, com.alibaba.fastjson.parser.JSONLexer
@@ -40,8 +40,8 @@ public final class JSONReaderScanner extends JSONLexerBase {
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase
     public final boolean charArrayCompare(char[] cArr) {
-        for (int i = 0; i < cArr.length; i++) {
-            if (charAt(this.bp + i) != cArr[i]) {
+        for (int i2 = 0; i2 < cArr.length; i2++) {
+            if (charAt(this.bp + i2) != cArr[i2]) {
                 return false;
             }
         }
@@ -49,33 +49,33 @@ public final class JSONReaderScanner extends JSONLexerBase {
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase
-    public final char charAt(int i) {
-        int i2 = this.bufLength;
-        if (i >= i2) {
-            if (i2 == -1) {
-                return i < this.sp ? this.buf[i] : JSONLexer.EOI;
+    public final char charAt(int i2) {
+        int i3 = this.bufLength;
+        if (i2 >= i3) {
+            if (i3 == -1) {
+                return i2 < this.sp ? this.buf[i2] : JSONLexer.EOI;
             }
-            int i3 = this.bp;
-            if (i3 == 0) {
+            int i4 = this.bp;
+            if (i4 == 0) {
                 char[] cArr = this.buf;
                 int length = (cArr.length * 3) / 2;
                 char[] cArr2 = new char[length];
-                System.arraycopy(cArr, i3, cArr2, 0, i2);
-                int i4 = this.bufLength;
+                System.arraycopy(cArr, i4, cArr2, 0, i3);
+                int i5 = this.bufLength;
                 try {
-                    this.bufLength += this.reader.read(cArr2, i4, length - i4);
+                    this.bufLength += this.reader.read(cArr2, i5, length - i5);
                     this.buf = cArr2;
                 } catch (IOException e2) {
                     throw new JSONException(e2.getMessage(), e2);
                 }
             } else {
-                int i5 = i2 - i3;
-                if (i5 > 0) {
+                int i6 = i3 - i4;
+                if (i6 > 0) {
                     char[] cArr3 = this.buf;
-                    System.arraycopy(cArr3, i3, cArr3, 0, i5);
+                    System.arraycopy(cArr3, i4, cArr3, 0, i6);
                 }
                 try {
-                    int read = this.reader.read(this.buf, i5, this.buf.length - i5);
+                    int read = this.reader.read(this.buf, i6, this.buf.length - i6);
                     this.bufLength = read;
                     if (read == 0) {
                         throw new JSONException("illegal state, textLength is zero");
@@ -83,17 +83,17 @@ public final class JSONReaderScanner extends JSONLexerBase {
                     if (read == -1) {
                         return JSONLexer.EOI;
                     }
-                    this.bufLength = read + i5;
-                    int i6 = this.bp;
-                    i -= i6;
-                    this.np -= i6;
+                    this.bufLength = read + i6;
+                    int i7 = this.bp;
+                    i2 -= i7;
+                    this.np -= i7;
                     this.bp = 0;
                 } catch (IOException e3) {
                     throw new JSONException(e3.getMessage(), e3);
                 }
             }
         }
-        return this.buf[i];
+        return this.buf[i2];
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase, com.alibaba.fastjson.parser.JSONLexer, java.io.Closeable, java.lang.AutoCloseable
@@ -108,54 +108,54 @@ public final class JSONReaderScanner extends JSONLexerBase {
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase
-    public final void copyTo(int i, int i2, char[] cArr) {
-        System.arraycopy(this.buf, i, cArr, 0, i2);
+    public final void copyTo(int i2, int i3, char[] cArr) {
+        System.arraycopy(this.buf, i2, cArr, 0, i3);
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase, com.alibaba.fastjson.parser.JSONLexer
     public final BigDecimal decimalValue() {
-        int i = this.np;
-        if (i == -1) {
-            i = 0;
+        int i2 = this.np;
+        if (i2 == -1) {
+            i2 = 0;
         }
-        char charAt = charAt((this.sp + i) - 1);
-        int i2 = this.sp;
+        char charAt = charAt((this.sp + i2) - 1);
+        int i3 = this.sp;
         if (charAt == 'L' || charAt == 'S' || charAt == 'B' || charAt == 'F' || charAt == 'D') {
-            i2--;
+            i3--;
         }
-        if (i2 <= 65535) {
-            return new BigDecimal(this.buf, i, i2, MathContext.UNLIMITED);
+        if (i3 <= 65535) {
+            return new BigDecimal(this.buf, i2, i3, MathContext.UNLIMITED);
         }
         throw new JSONException("decimal overflow");
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase
-    public final int indexOf(char c2, int i) {
-        int i2 = i - this.bp;
+    public final int indexOf(char c2, int i2) {
+        int i3 = i2 - this.bp;
         while (true) {
-            char charAt = charAt(this.bp + i2);
+            char charAt = charAt(this.bp + i3);
             if (c2 == charAt) {
-                return i2 + this.bp;
+                return i3 + this.bp;
             }
             if (charAt == 26) {
                 return -1;
             }
-            i2++;
+            i3++;
         }
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase, com.alibaba.fastjson.parser.JSONLexer
     public final boolean isBlankInput() {
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            char c2 = this.buf[i];
+            char c2 = this.buf[i2];
             if (c2 == 26) {
                 this.token = 20;
                 return true;
             } else if (!JSONLexerBase.isWhitespace(c2)) {
                 return false;
             } else {
-                i++;
+                i2++;
             }
         }
     }
@@ -163,10 +163,10 @@ public final class JSONReaderScanner extends JSONLexerBase {
     @Override // com.alibaba.fastjson.parser.JSONLexerBase
     public boolean isEOF() {
         if (this.bufLength != -1) {
-            int i = this.bp;
+            int i2 = this.bp;
             char[] cArr = this.buf;
-            if (i != cArr.length) {
-                return this.ch == 26 && i + 1 >= cArr.length;
+            if (i2 != cArr.length) {
+                return this.ch == 26 && i2 + 1 >= cArr.length;
             }
             return true;
         }
@@ -175,32 +175,32 @@ public final class JSONReaderScanner extends JSONLexerBase {
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase, com.alibaba.fastjson.parser.JSONLexer
     public final char next() {
-        int i = this.bp + 1;
-        this.bp = i;
-        int i2 = this.bufLength;
-        if (i >= i2) {
-            if (i2 == -1) {
+        int i2 = this.bp + 1;
+        this.bp = i2;
+        int i3 = this.bufLength;
+        if (i2 >= i3) {
+            if (i3 == -1) {
                 return JSONLexer.EOI;
             }
-            int i3 = this.sp;
-            if (i3 > 0) {
-                int i4 = i2 - i3;
-                if (this.ch == '\"' && i4 > 0) {
-                    i4--;
+            int i4 = this.sp;
+            if (i4 > 0) {
+                int i5 = i3 - i4;
+                if (this.ch == '\"' && i5 > 0) {
+                    i5--;
                 }
                 char[] cArr = this.buf;
-                System.arraycopy(cArr, i4, cArr, 0, this.sp);
+                System.arraycopy(cArr, i5, cArr, 0, this.sp);
             }
             this.np = -1;
-            int i5 = this.sp;
-            this.bp = i5;
+            int i6 = this.sp;
+            this.bp = i6;
             try {
-                int length = this.buf.length - i5;
+                int length = this.buf.length - i6;
                 if (length == 0) {
                     char[] cArr2 = new char[this.buf.length * 2];
                     System.arraycopy(this.buf, 0, cArr2, 0, this.buf.length);
                     this.buf = cArr2;
-                    length = cArr2.length - i5;
+                    length = cArr2.length - i6;
                 }
                 int read = this.reader.read(this.buf, this.bp, length);
                 this.bufLength = read;
@@ -212,37 +212,37 @@ public final class JSONReaderScanner extends JSONLexerBase {
                     return JSONLexer.EOI;
                 }
                 this.bufLength = read + this.bp;
-                i = i5;
+                i2 = i6;
             } catch (IOException e2) {
                 throw new JSONException(e2.getMessage(), e2);
             }
         }
-        char c2 = this.buf[i];
+        char c2 = this.buf[i2];
         this.ch = c2;
         return c2;
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase, com.alibaba.fastjson.parser.JSONLexer
     public final String numberString() {
-        int i = this.np;
-        if (i == -1) {
-            i = 0;
+        int i2 = this.np;
+        if (i2 == -1) {
+            i2 = 0;
         }
-        char charAt = charAt((this.sp + i) - 1);
-        int i2 = this.sp;
+        char charAt = charAt((this.sp + i2) - 1);
+        int i3 = this.sp;
         if (charAt == 'L' || charAt == 'S' || charAt == 'B' || charAt == 'F' || charAt == 'D') {
-            i2--;
+            i3--;
         }
-        return new String(this.buf, i, i2);
+        return new String(this.buf, i2, i3);
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase, com.alibaba.fastjson.parser.JSONLexer
     public final String stringVal() {
         if (!this.hasSpecial) {
-            int i = this.np + 1;
-            if (i >= 0) {
-                if (i <= this.buf.length - this.sp) {
-                    return new String(this.buf, i, this.sp);
+            int i2 = this.np + 1;
+            if (i2 >= 0) {
+                if (i2 <= this.buf.length - this.sp) {
+                    return new String(this.buf, i2, this.sp);
                 }
                 throw new IllegalStateException();
             }
@@ -252,40 +252,40 @@ public final class JSONReaderScanner extends JSONLexerBase {
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase
-    public final String subString(int i, int i2) {
-        if (i2 >= 0) {
-            return new String(this.buf, i, i2);
+    public final String subString(int i2, int i3) {
+        if (i3 >= 0) {
+            return new String(this.buf, i2, i3);
         }
-        throw new StringIndexOutOfBoundsException(i2);
+        throw new StringIndexOutOfBoundsException(i3);
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase
-    public final char[] sub_chars(int i, int i2) {
-        if (i2 >= 0) {
-            if (i == 0) {
+    public final char[] sub_chars(int i2, int i3) {
+        if (i3 >= 0) {
+            if (i2 == 0) {
                 return this.buf;
             }
-            char[] cArr = new char[i2];
-            System.arraycopy(this.buf, i, cArr, 0, i2);
+            char[] cArr = new char[i3];
+            System.arraycopy(this.buf, i2, cArr, 0, i3);
             return cArr;
         }
-        throw new StringIndexOutOfBoundsException(i2);
+        throw new StringIndexOutOfBoundsException(i3);
     }
 
-    public JSONReaderScanner(String str, int i) {
-        this(new StringReader(str), i);
+    public JSONReaderScanner(String str, int i2) {
+        this(new StringReader(str), i2);
     }
 
-    public JSONReaderScanner(char[] cArr, int i) {
-        this(cArr, i, JSON.DEFAULT_PARSER_FEATURE);
+    public JSONReaderScanner(char[] cArr, int i2) {
+        this(cArr, i2, JSON.DEFAULT_PARSER_FEATURE);
     }
 
     public JSONReaderScanner(Reader reader) {
         this(reader, JSON.DEFAULT_PARSER_FEATURE);
     }
 
-    public JSONReaderScanner(Reader reader, int i) {
-        super(i);
+    public JSONReaderScanner(Reader reader, int i2) {
+        super(i2);
         this.reader = reader;
         char[] cArr = BUF_LOCAL.get();
         this.buf = cArr;
@@ -307,7 +307,7 @@ public final class JSONReaderScanner extends JSONLexerBase {
         }
     }
 
-    public JSONReaderScanner(char[] cArr, int i, int i2) {
-        this(new CharArrayReader(cArr, 0, i), i2);
+    public JSONReaderScanner(char[] cArr, int i2, int i3) {
+        this(new CharArrayReader(cArr, 0, i2), i3);
     }
 }

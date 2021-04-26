@@ -52,11 +52,11 @@ public class ChannelBaiduPay extends AbstractChannelPay {
         return str2;
     }
 
-    public void handlepayResult(int i, String str) {
+    public void handlepayResult(int i2, String str) {
         CashierDataNew cashierDataNew;
-        if (i == 0) {
+        if (i2 == 0) {
             paySuccess(getNotify(str));
-        } else if (i != 1) {
+        } else if (i2 != 1) {
             payCancel();
             WeakReference<Activity> weakReference = this.mWeakReference;
             Activity activity = weakReference == null ? null : weakReference.get();
@@ -112,8 +112,8 @@ public class ChannelBaiduPay extends AbstractChannelPay {
                             }
 
                             @Override // com.baidu.android.pay.PayCallBack
-                            public void onPayResult(int i, String str3) {
-                                ChannelBaiduPay.this.handlepayResult(i, str3);
+                            public void onPayResult(int i2, String str3) {
+                                ChannelBaiduPay.this.handlepayResult(i2, str3);
                             }
                         }, hashMap, getPayContent.sdk_info, null);
                     }
@@ -126,8 +126,8 @@ public class ChannelBaiduPay extends AbstractChannelPay {
                         }
 
                         @Override // com.baidu.android.pay.PayCallBack
-                        public void onPayResult(int i, String str3) {
-                            ChannelBaiduPay.this.handlepayResult(i, str3);
+                        public void onPayResult(int i2, String str3) {
+                            ChannelBaiduPay.this.handlepayResult(i2, str3);
                         }
                     }, hashMap);
                 }

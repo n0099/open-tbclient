@@ -16,16 +16,16 @@ public class RegexValidator implements Serializable {
         if (str == null) {
             return false;
         }
-        int i = 0;
+        int i2 = 0;
         while (true) {
             Pattern[] patternArr = this.patterns;
-            if (i >= patternArr.length) {
+            if (i2 >= patternArr.length) {
                 return false;
             }
-            if (patternArr[i].matcher(str).matches()) {
+            if (patternArr[i2].matcher(str).matches()) {
                 return true;
             }
-            i++;
+            i2++;
         }
     }
 
@@ -33,36 +33,36 @@ public class RegexValidator implements Serializable {
         if (str == null) {
             return null;
         }
-        int i = 0;
         int i2 = 0;
+        int i3 = 0;
         while (true) {
             Pattern[] patternArr = this.patterns;
-            if (i2 >= patternArr.length) {
+            if (i3 >= patternArr.length) {
                 return null;
             }
-            Matcher matcher = patternArr[i2].matcher(str);
+            Matcher matcher = patternArr[i3].matcher(str);
             if (matcher.matches()) {
                 int groupCount = matcher.groupCount();
                 String[] strArr = new String[groupCount];
-                while (i < groupCount) {
-                    int i3 = i + 1;
-                    strArr[i] = matcher.group(i3);
-                    i = i3;
+                while (i2 < groupCount) {
+                    int i4 = i2 + 1;
+                    strArr[i2] = matcher.group(i4);
+                    i2 = i4;
                 }
                 return strArr;
             }
-            i2++;
+            i3++;
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("RegexValidator{");
-        for (int i = 0; i < this.patterns.length; i++) {
-            if (i > 0) {
+        for (int i2 = 0; i2 < this.patterns.length; i2++) {
+            if (i2 > 0) {
                 sb.append(",");
             }
-            sb.append(this.patterns[i].pattern());
+            sb.append(this.patterns[i2].pattern());
         }
         sb.append("}");
         return sb.toString();
@@ -72,30 +72,30 @@ public class RegexValidator implements Serializable {
         if (str == null) {
             return null;
         }
-        int i = 0;
         int i2 = 0;
+        int i3 = 0;
         while (true) {
             Pattern[] patternArr = this.patterns;
-            if (i2 >= patternArr.length) {
+            if (i3 >= patternArr.length) {
                 return null;
             }
-            Matcher matcher = patternArr[i2].matcher(str);
+            Matcher matcher = patternArr[i3].matcher(str);
             if (matcher.matches()) {
                 int groupCount = matcher.groupCount();
                 if (groupCount == 1) {
                     return matcher.group(1);
                 }
                 StringBuilder sb = new StringBuilder();
-                while (i < groupCount) {
-                    i++;
-                    String group = matcher.group(i);
+                while (i2 < groupCount) {
+                    i2++;
+                    String group = matcher.group(i2);
                     if (group != null) {
                         sb.append(group);
                     }
                 }
                 return sb.toString();
             }
-            i2++;
+            i3++;
         }
     }
 
@@ -110,12 +110,12 @@ public class RegexValidator implements Serializable {
     public RegexValidator(String[] strArr, boolean z) {
         if (strArr != null && strArr.length != 0) {
             this.patterns = new Pattern[strArr.length];
-            int i = z ? 0 : 2;
-            for (int i2 = 0; i2 < strArr.length; i2++) {
-                if (strArr[i2] != null && strArr[i2].length() != 0) {
-                    this.patterns[i2] = Pattern.compile(strArr[i2], i);
+            int i2 = z ? 0 : 2;
+            for (int i3 = 0; i3 < strArr.length; i3++) {
+                if (strArr[i3] != null && strArr[i3].length() != 0) {
+                    this.patterns[i3] = Pattern.compile(strArr[i3], i2);
                 } else {
-                    throw new IllegalArgumentException("Regular expression[" + i2 + "] is missing");
+                    throw new IllegalArgumentException("Regular expression[" + i3 + "] is missing");
                 }
             }
             return;

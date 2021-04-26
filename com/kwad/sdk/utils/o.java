@@ -20,8 +20,8 @@ public class o {
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
-            for (int i = 0; i < jSONArray.length(); i++) {
-                Object obj = jSONArray.get(i);
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                Object obj = jSONArray.get(i2);
                 if (obj != null) {
                     arrayList.add(obj);
                 }
@@ -71,9 +71,9 @@ public class o {
         }
     }
 
-    public static void a(JSONObject jSONObject, String str, int i) {
+    public static void a(JSONObject jSONObject, String str, int i2) {
         try {
-            jSONObject.put(str, i);
+            jSONObject.put(str, i2);
         } catch (JSONException unused) {
         }
     }
@@ -109,13 +109,18 @@ public class o {
         JSONArray jSONArray = new JSONArray();
         boolean z = false;
         for (Object obj : list) {
-            if (!(obj instanceof com.kwad.sdk.core.b)) {
-                if (!(obj instanceof String)) {
-                    break;
-                }
+            if (obj instanceof com.kwad.sdk.core.b) {
+                a(jSONArray, ((com.kwad.sdk.core.b) obj).toJson());
+            } else if ((obj instanceof String) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof JSONObject) || (obj instanceof JSONArray) || (obj instanceof Double) || (obj instanceof Boolean)) {
                 jSONArray.put(obj);
             } else {
-                a(jSONArray, ((com.kwad.sdk.core.b) obj).toJson());
+                if (!(obj instanceof Float)) {
+                    break;
+                }
+                try {
+                    jSONArray.put(((Float) obj).floatValue());
+                } catch (JSONException unused) {
+                }
             }
             z = true;
         }
@@ -125,23 +130,29 @@ public class o {
     }
 
     public static void a(JSONObject jSONObject, String str, JSONArray jSONArray) {
-        try {
-            jSONObject.put(str, jSONArray);
-        } catch (JSONException unused) {
+        if (jSONArray != null && jSONObject != null && !TextUtils.isEmpty(str)) {
+            try {
+                jSONObject.put(str, jSONArray);
+            } catch (JSONException unused) {
+            }
         }
     }
 
     public static void a(JSONObject jSONObject, String str, JSONObject jSONObject2) {
-        try {
-            jSONObject.put(str, jSONObject2);
-        } catch (JSONException unused) {
+        if (jSONObject2 != null && jSONObject != null && !TextUtils.isEmpty(str)) {
+            try {
+                jSONObject.put(str, jSONObject2);
+            } catch (JSONException unused) {
+            }
         }
     }
 
     public static void a(JSONObject jSONObject, String str, boolean z) {
-        try {
-            jSONObject.put(str, z);
-        } catch (JSONException unused) {
+        if (jSONObject != null && !TextUtils.isEmpty(str)) {
+            try {
+                jSONObject.put(str, z);
+            } catch (JSONException unused) {
+            }
         }
     }
 

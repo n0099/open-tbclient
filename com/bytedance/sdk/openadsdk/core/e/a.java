@@ -38,29 +38,31 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a implements TTNativeAd {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28015a;
+    public int f28872a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TTNativeExpressAd f28016b;
+    public TTNativeExpressAd f28873b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f28017c;
+    public ViewGroup f28874c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f28018d;
+    public View f28875d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f28019e;
+    public float f28876e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f28020f;
+    public float f28877f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final o f28021g;
+    public final o f28878g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final l f28022h;
-    public final Context i;
+    public final l f28879h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final Context f28880i;
     public TTAdDislike j;
     public DownloadStatusController k;
     public int l;
@@ -70,24 +72,24 @@ public class a implements TTNativeAd {
     public TTNativeAd.ExpressRenderListener p;
     public TTNativeAd.AdInteractionListener q;
 
-    public a(@NonNull Context context, @NonNull l lVar, int i, AdSlot adSlot) {
+    public a(@NonNull Context context, @NonNull l lVar, int i2, AdSlot adSlot) {
         z.a(lVar, "materialMeta不能为null");
-        this.f28022h = lVar;
-        this.i = context;
-        this.l = i;
+        this.f28879h = lVar;
+        this.f28880i = context;
+        this.l = i2;
         this.m = adSlot;
-        this.f28021g = new o(context, this, lVar, a(i));
-        this.f28016b = a(this.f28022h);
+        this.f28878g = new o(context, this, lVar, a(i2));
+        this.f28873b = a(this.f28879h);
         b();
     }
 
-    private String a(int i) {
-        return i != 1 ? i != 2 ? i != 5 ? i != 6 ? i != 9 ? "embeded_ad" : "draw_ad" : "stream" : "embeded_ad" : "interaction" : "banner_ad";
+    private String a(int i2) {
+        return i2 != 1 ? i2 != 2 ? i2 != 5 ? i2 != 6 ? i2 != 9 ? "embeded_ad" : "draw_ad" : "stream" : "embeded_ad" : "interaction" : "banner_ad";
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public void destroy() {
-        TTNativeExpressAd tTNativeExpressAd = this.f28016b;
+        TTNativeExpressAd tTNativeExpressAd = this.f28873b;
         if (tTNativeExpressAd != null) {
             tTNativeExpressAd.destroy();
         }
@@ -95,7 +97,7 @@ public class a implements TTNativeAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public Bitmap getAdLogo() {
-        return BitmapFactory.decodeResource(this.i.getResources(), ad.d(p.a(), "tt_ad_logo_small_rectangle"));
+        return BitmapFactory.decodeResource(this.f28880i.getResources(), ad.d(p.a(), "tt_ad_logo_small_rectangle"));
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
@@ -105,45 +107,45 @@ public class a implements TTNativeAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public int getAppCommentNum() {
-        if (this.f28022h.an() != null) {
-            return this.f28022h.an().f();
+        if (this.f28879h.an() != null) {
+            return this.f28879h.an().f();
         }
         return 0;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public int getAppScore() {
-        if (this.f28022h.an() != null) {
-            return this.f28022h.an().e();
+        if (this.f28879h.an() != null) {
+            return this.f28879h.an().e();
         }
         return 0;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public int getAppSize() {
-        if (this.f28022h.an() != null) {
-            return this.f28022h.an().g();
+        if (this.f28879h.an() != null) {
+            return this.f28879h.an().g();
         }
         return 0;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public String getButtonText() {
-        return this.f28022h.al();
+        return this.f28879h.al();
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public String getDescription() {
-        if (!TextUtils.isEmpty(this.f28022h.aj())) {
-            return this.f28022h.aj();
+        if (!TextUtils.isEmpty(this.f28879h.aj())) {
+            return this.f28879h.aj();
         }
-        return this.f28022h.ak();
+        return this.f28879h.ak();
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public TTAdDislike getDislikeDialog(Activity activity) {
-        if (this.f28016b != null && this.o.get()) {
-            return this.f28016b.getDislikeDialog(activity);
+        if (this.f28873b != null && this.o.get()) {
+            return this.f28873b.getDislikeDialog(activity);
         }
         if (this.j == null) {
             a(activity);
@@ -155,8 +157,8 @@ public class a implements TTNativeAd {
     public DownloadStatusController getDownloadStatusController() {
         o oVar;
         final com.bytedance.sdk.openadsdk.downloadnew.core.a a2;
-        if (this.f28016b == null || !this.n.get()) {
-            if (this.k == null && (oVar = this.f28021g) != null && (a2 = oVar.a()) != null) {
+        if (this.f28873b == null || !this.n.get()) {
+            if (this.k == null && (oVar = this.f28878g) != null && (a2 = oVar.a()) != null) {
                 this.k = new DownloadStatusController() { // from class: com.bytedance.sdk.openadsdk.core.e.a.2
                     @Override // com.bytedance.sdk.openadsdk.DownloadStatusController
                     public void cancelDownload() {
@@ -176,7 +178,7 @@ public class a implements TTNativeAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public List<FilterWord> getFilterWords() {
-        l lVar = this.f28022h;
+        l lVar = this.f28879h;
         if (lVar == null) {
             return null;
         }
@@ -185,17 +187,17 @@ public class a implements TTNativeAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public TTImage getIcon() {
-        if (this.f28022h.aa() == null) {
+        if (this.f28879h.aa() == null) {
             return null;
         }
-        return k.a(this.f28022h.aa());
+        return k.a(this.f28879h.aa());
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public List<TTImage> getImageList() {
         ArrayList arrayList = new ArrayList();
-        if (this.f28022h.af() != null && !this.f28022h.af().isEmpty()) {
-            for (k kVar : this.f28022h.af()) {
+        if (this.f28879h.af() != null && !this.f28879h.af().isEmpty()) {
+            for (k kVar : this.f28879h.af()) {
                 arrayList.add(k.a(kVar));
             }
         }
@@ -204,7 +206,7 @@ public class a implements TTNativeAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public int getImageMode() {
-        l lVar = this.f28022h;
+        l lVar = this.f28879h;
         if (lVar == null) {
             return -1;
         }
@@ -213,7 +215,7 @@ public class a implements TTNativeAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public int getInteractionType() {
-        l lVar = this.f28022h;
+        l lVar = this.f28879h;
         if (lVar == null) {
             return -1;
         }
@@ -222,7 +224,7 @@ public class a implements TTNativeAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public Map<String, Object> getMediaExtraInfo() {
-        l lVar = this.f28022h;
+        l lVar = this.f28879h;
         if (lVar != null) {
             return lVar.ay();
         }
@@ -231,7 +233,7 @@ public class a implements TTNativeAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public PersonalizationPrompt getPersonalizationPrompt() {
-        l lVar = this.f28022h;
+        l lVar = this.f28879h;
         if (lVar == null) {
             return null;
         }
@@ -240,27 +242,27 @@ public class a implements TTNativeAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public String getSource() {
-        return this.f28022h.Y();
+        return this.f28879h.Y();
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public String getTitle() {
-        if (this.f28022h.an() != null && !TextUtils.isEmpty(this.f28022h.an().c())) {
-            return this.f28022h.an().c();
+        if (this.f28879h.an() != null && !TextUtils.isEmpty(this.f28879h.an().c())) {
+            return this.f28879h.an().c();
         }
         if (!TextUtils.isEmpty(getSource())) {
             return getSource();
         }
-        return this.f28022h.aj();
+        return this.f28879h.aj();
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public TTImage getVideoCoverImage() {
-        l lVar = this.f28022h;
+        l lVar = this.f28879h;
         if (lVar == null || lVar.X() == null) {
             return null;
         }
-        return new TTImage(this.f28022h.X().b(), this.f28022h.X().c(), this.f28022h.X().h(), 0.0d);
+        return new TTImage(this.f28879h.X().b(), this.f28879h.X().c(), this.f28879h.X().h(), 0.0d);
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
@@ -268,7 +270,7 @@ public class a implements TTNativeAd {
         boolean z = false;
         z.a(viewGroup != null || this.o.get(), "container不能为null");
         z.a((view != null || this.o.get()) ? true : true, "clickView不能为null");
-        this.f28017c = viewGroup;
+        this.f28874c = viewGroup;
         ArrayList arrayList = new ArrayList(1);
         arrayList.add(view);
         registerViewForInteraction(viewGroup, arrayList, null, adInteractionListener);
@@ -282,14 +284,14 @@ public class a implements TTNativeAd {
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public void setActivityForDownloadApp(@NonNull Activity activity) {
         if (activity != null) {
-            this.f28021g.a(activity);
+            this.f28878g.a(activity);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public void setDislikeCallback(Activity activity, TTAdDislike.DislikeInteractionCallback dislikeInteractionCallback) {
         TTNativeExpressAd tTNativeExpressAd;
-        if (dislikeInteractionCallback == null || activity == null || (tTNativeExpressAd = this.f28016b) == null) {
+        if (dislikeInteractionCallback == null || activity == null || (tTNativeExpressAd = this.f28873b) == null) {
             return;
         }
         tTNativeExpressAd.setDislikeCallback(activity, dislikeInteractionCallback);
@@ -297,7 +299,7 @@ public class a implements TTNativeAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public void setDislikeDialog(TTDislikeDialogAbstract tTDislikeDialogAbstract) {
-        TTNativeExpressAd tTNativeExpressAd = this.f28016b;
+        TTNativeExpressAd tTNativeExpressAd = this.f28873b;
         if (tTNativeExpressAd != null) {
             tTNativeExpressAd.setDislikeDialog(tTDislikeDialogAbstract);
         }
@@ -306,8 +308,8 @@ public class a implements TTNativeAd {
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public void setDownloadListener(TTAppDownloadListener tTAppDownloadListener) {
         z.a(tTAppDownloadListener, "downloadListener不能为null");
-        this.f28021g.a(tTAppDownloadListener);
-        TTNativeExpressAd tTNativeExpressAd = this.f28016b;
+        this.f28878g.a(tTAppDownloadListener);
+        TTNativeExpressAd tTNativeExpressAd = this.f28873b;
         if (tTNativeExpressAd != null) {
             tTNativeExpressAd.setDownloadListener(tTAppDownloadListener);
         }
@@ -320,60 +322,60 @@ public class a implements TTNativeAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public void showInteractionExpressAd(Activity activity) {
-        TTNativeExpressAd tTNativeExpressAd = this.f28016b;
+        TTNativeExpressAd tTNativeExpressAd = this.f28873b;
         if (tTNativeExpressAd != null) {
             tTNativeExpressAd.showInteractionExpressAd(activity);
         }
     }
 
     private void c() {
-        ViewGroup viewGroup = this.f28017c;
-        if (viewGroup == null || this.f28016b == null || this.f28018d == null) {
+        ViewGroup viewGroup = this.f28874c;
+        if (viewGroup == null || this.f28873b == null || this.f28875d == null) {
             return;
         }
         viewGroup.removeAllViews();
-        if (this.f28018d.getParent() != null) {
-            ((ViewGroup) this.f28018d.getParent()).removeAllViews();
+        if (this.f28875d.getParent() != null) {
+            ((ViewGroup) this.f28875d.getParent()).removeAllViews();
         }
-        this.f28017c.addView(this.f28018d);
+        this.f28874c.addView(this.f28875d);
     }
 
     private void b() {
         TTNativeAd.ExpressRenderListener expressRenderListener;
-        if (this.f28016b == null) {
+        if (this.f28873b == null) {
             TTNativeAd.ExpressRenderListener expressRenderListener2 = this.p;
             if (expressRenderListener2 != null) {
-                expressRenderListener2.onRenderSuccess(this.f28017c, this.m.getExpressViewAcceptedWidth(), this.m.getExpressViewAcceptedHeight(), false);
+                expressRenderListener2.onRenderSuccess(this.f28874c, this.m.getExpressViewAcceptedWidth(), this.m.getExpressViewAcceptedHeight(), false);
             }
         } else if (this.n.get() && (expressRenderListener = this.p) != null) {
-            expressRenderListener.onRenderSuccess(this.f28018d, this.f28019e, this.f28020f, this.o.get());
+            expressRenderListener.onRenderSuccess(this.f28875d, this.f28876e, this.f28877f, this.o.get());
         } else {
-            this.f28016b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.core.e.a.3
+            this.f28873b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.core.e.a.3
                 @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-                public void onAdClicked(View view, int i) {
+                public void onAdClicked(View view, int i2) {
                     if (a.this.q != null) {
                         a.this.q.onAdClicked(view, a.this);
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-                public void onAdShow(View view, int i) {
+                public void onAdShow(View view, int i2) {
                     if (a.this.q != null) {
                         a.this.q.onAdShow(a.this);
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-                public void onRenderFail(View view, String str, int i) {
+                public void onRenderFail(View view, String str, int i2) {
                     a.this.n.set(true);
                     a aVar = a.this;
-                    aVar.f28018d = aVar.f28017c;
+                    aVar.f28875d = aVar.f28874c;
                     a aVar2 = a.this;
-                    aVar2.f28019e = aVar2.m.getExpressViewAcceptedWidth();
+                    aVar2.f28876e = aVar2.m.getExpressViewAcceptedWidth();
                     a aVar3 = a.this;
-                    aVar3.f28020f = aVar3.m.getExpressViewAcceptedHeight();
+                    aVar3.f28877f = aVar3.m.getExpressViewAcceptedHeight();
                     if (a.this.p != null) {
-                        a.this.p.onRenderSuccess(a.this.f28017c, a.this.m.getExpressViewAcceptedWidth(), a.this.m.getExpressViewAcceptedHeight(), false);
+                        a.this.p.onRenderSuccess(a.this.f28874c, a.this.m.getExpressViewAcceptedWidth(), a.this.m.getExpressViewAcceptedHeight(), false);
                     }
                 }
 
@@ -381,15 +383,15 @@ public class a implements TTNativeAd {
                 public void onRenderSuccess(View view, float f2, float f3) {
                     a.this.n.set(true);
                     a.this.o.set(true);
-                    a.this.f28018d = view;
-                    a.this.f28019e = f2;
-                    a.this.f28020f = f3;
+                    a.this.f28875d = view;
+                    a.this.f28876e = f2;
+                    a.this.f28877f = f3;
                     if (a.this.p != null) {
                         a.this.p.onRenderSuccess(view, f2, f3, true);
                     }
                 }
             });
-            this.f28016b.render();
+            this.f28873b.render();
         }
     }
 
@@ -397,14 +399,14 @@ public class a implements TTNativeAd {
         LinkedList linkedList = new LinkedList();
         if (list != null && !list.isEmpty()) {
             int size = list.size();
-            for (int i = 0; i < size; i++) {
-                linkedList.add(list.get(i));
+            for (int i2 = 0; i2 < size; i2++) {
+                linkedList.add(list.get(i2));
             }
         }
         if (list2 != null && !list2.isEmpty()) {
             int size2 = list2.size();
-            for (int i2 = 0; i2 < size2; i2++) {
-                linkedList.add(list2.get(i2));
+            for (int i3 = 0; i3 < size2; i3++) {
+                linkedList.add(list2.get(i3));
             }
         }
         return linkedList;
@@ -413,7 +415,7 @@ public class a implements TTNativeAd {
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public TTAdDislike getDislikeDialog(final TTDislikeDialogAbstract tTDislikeDialogAbstract) {
         if (tTDislikeDialogAbstract != null) {
-            tTDislikeDialogAbstract.setMaterialMeta(this.f28022h);
+            tTDislikeDialogAbstract.setMaterialMeta(this.f28879h);
             return new TTAdDislike() { // from class: com.bytedance.sdk.openadsdk.core.e.a.1
                 @Override // com.bytedance.sdk.openadsdk.TTAdDislike
                 public void sendDislikeSource(String str) {
@@ -435,7 +437,7 @@ public class a implements TTNativeAd {
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTAdDislike
-                public void showDislikeDialog(int i) {
+                public void showDislikeDialog(int i2) {
                 }
             };
         }
@@ -447,22 +449,22 @@ public class a implements TTNativeAd {
         z.a(viewGroup != null || this.o.get(), "container不能为null");
         z.a(list != null || this.o.get(), "clickView不能为null");
         z.a(list.size() > 0, "clickViews数量必须大于等于1");
-        this.f28017c = viewGroup;
+        this.f28874c = viewGroup;
         registerViewForInteraction(viewGroup, list, list2, null, adInteractionListener);
     }
 
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r4v2, types: [android.content.Context] */
     private void a(Activity activity) {
-        Context context = this.i;
+        Context context = this.f28880i;
         Activity activity2 = activity;
         if (context instanceof Activity) {
             activity2 = activity;
             if (!((Activity) context).isFinishing()) {
-                activity2 = this.i;
+                activity2 = this.f28880i;
             }
         }
-        this.j = new b(activity2, this.f28022h, a(this.l));
+        this.j = new b(activity2, this.f28879h, a(this.l));
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
@@ -470,12 +472,12 @@ public class a implements TTNativeAd {
         z.a(viewGroup != null || this.o.get(), "container不能为null");
         z.a(list != null || this.o.get(), "clickView不能为null");
         z.a(list.size() > 0, "clickViews数量必须大于等于1");
-        this.f28017c = viewGroup;
+        this.f28874c = viewGroup;
         registerViewForInteraction(viewGroup, null, list, list2, view, adInteractionListener);
     }
 
     private void a(boolean z) {
-        c c2 = c.b().a(this.l).c(String.valueOf(ak.d(this.f28022h.ap())));
+        c c2 = c.b().a(this.l).c(String.valueOf(ak.d(this.f28879h.ap())));
         if (z) {
             com.bytedance.sdk.openadsdk.h.a.a().i(c2);
         } else {
@@ -485,12 +487,12 @@ public class a implements TTNativeAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd
     public void registerViewForInteraction(@NonNull ViewGroup viewGroup, @NonNull List<View> list, @NonNull List<View> list2, @Nullable List<View> list3, @Nullable View view, TTNativeAd.AdInteractionListener adInteractionListener) {
-        int i;
+        int i2;
         boolean z = false;
         z.a(viewGroup != null || this.o.get(), "container不能为null");
         z.a(list2 != null || this.o.get(), "clickView不能为null");
         z.a(list2.size() > 0, "clickViews数量必须大于等于1");
-        this.f28017c = viewGroup;
+        this.f28874c = viewGroup;
         this.q = adInteractionListener;
         if (list3 != null && list3.size() > 0) {
             z = true;
@@ -500,51 +502,51 @@ public class a implements TTNativeAd {
             list3 = a(list2, list3);
         }
         List<View> list4 = list3;
-        if (this.o.get() && ((i = this.l) == 5 || i == 1)) {
+        if (this.o.get() && ((i2 = this.l) == 5 || i2 == 1)) {
             c();
         }
         if (this.o.get()) {
             return;
         }
-        this.f28021g.a(viewGroup, list, list2, list4, view, adInteractionListener);
+        this.f28878g.a(viewGroup, list, list2, list4, view, adInteractionListener);
     }
 
     private boolean a() {
-        l lVar = this.f28022h;
+        l lVar = this.f28879h;
         if (lVar == null || lVar.Z() == 5) {
             return false;
         }
-        if (this.f28015a == 0) {
-            this.f28015a = ak.d(this.f28022h.ap());
+        if (this.f28872a == 0) {
+            this.f28872a = ak.d(this.f28879h.ap());
         }
-        return p.h().d(this.f28015a) == 1;
+        return p.h().d(this.f28872a) == 1;
     }
 
     private TTNativeExpressAd a(l lVar) {
-        l lVar2 = this.f28022h;
+        l lVar2 = this.f28879h;
         if (lVar2 == null || lVar2.d() != 2) {
             return null;
         }
-        int i = this.l;
-        if (i == 1) {
+        int i2 = this.l;
+        if (i2 == 1) {
             if (lVar.X() != null) {
-                return new com.bytedance.sdk.openadsdk.core.bannerexpress.c(this.i, lVar, this.m);
+                return new com.bytedance.sdk.openadsdk.core.bannerexpress.c(this.f28880i, lVar, this.m);
             }
-            return new com.bytedance.sdk.openadsdk.core.bannerexpress.b(this.i, lVar, this.m);
-        } else if (i == 2) {
+            return new com.bytedance.sdk.openadsdk.core.bannerexpress.b(this.f28880i, lVar, this.m);
+        } else if (i2 == 2) {
             if (lVar.X() != null) {
-                return new com.bytedance.sdk.openadsdk.core.c.c(this.i, lVar, this.m);
+                return new com.bytedance.sdk.openadsdk.core.c.c(this.f28880i, lVar, this.m);
             }
-            return new com.bytedance.sdk.openadsdk.core.c.b(this.i, lVar, this.m);
-        } else if (i != 5) {
-            if (i != 9) {
+            return new com.bytedance.sdk.openadsdk.core.c.b(this.f28880i, lVar, this.m);
+        } else if (i2 != 5) {
+            if (i2 != 9) {
                 return null;
             }
-            return new m(this.i, lVar, this.m);
+            return new m(this.f28880i, lVar, this.m);
         } else if (lVar.X() != null) {
-            return new com.bytedance.sdk.openadsdk.core.nativeexpress.o(this.i, lVar, this.m);
+            return new com.bytedance.sdk.openadsdk.core.nativeexpress.o(this.f28880i, lVar, this.m);
         } else {
-            return new com.bytedance.sdk.openadsdk.core.nativeexpress.k(this.i, lVar, this.m);
+            return new com.bytedance.sdk.openadsdk.core.nativeexpress.k(this.f28880i, lVar, this.m);
         }
     }
 }

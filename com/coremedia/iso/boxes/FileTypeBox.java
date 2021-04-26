@@ -12,15 +12,15 @@ import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FileTypeBox extends AbstractBox {
     public static final String TYPE = "ftyp";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
     public List<String> compatibleBrands;
     public String majorBrand;
     public long minorVersion;
@@ -50,7 +50,7 @@ public class FileTypeBox extends AbstractBox {
         this.minorVersion = IsoTypeReader.readUInt32(byteBuffer);
         int remaining = byteBuffer.remaining() / 4;
         this.compatibleBrands = new LinkedList();
-        for (int i = 0; i < remaining; i++) {
+        for (int i2 = 0; i2 < remaining; i2++) {
             this.compatibleBrands.add(IsoTypeReader.read4cc(byteBuffer));
         }
     }
@@ -94,9 +94,9 @@ public class FileTypeBox extends AbstractBox {
         this.majorBrand = str;
     }
 
-    public void setMinorVersion(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_2, this, this, g.a.b.a.a.e(i)));
-        this.minorVersion = i;
+    public void setMinorVersion(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_2, this, this, g.a.b.a.a.e(i2)));
+        this.minorVersion = i2;
     }
 
     @DoNotParseDetail

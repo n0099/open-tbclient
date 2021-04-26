@@ -8,35 +8,35 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.attention.AttentionView;
 import com.baidu.tieba.lately.LatelyView;
-import d.b.j0.d;
+import d.a.j0.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class SelectForumPagerAdapter extends PagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<SelectForumActivity> f14131a;
+    public TbPageContext<SelectForumActivity> f14181a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<d> f14132b;
+    public List<d> f14182b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14133c = -1;
+    public int f14183c = -1;
 
     public SelectForumPagerAdapter(TbPageContext tbPageContext) {
-        this.f14131a = tbPageContext;
+        this.f14181a = tbPageContext;
         ArrayList arrayList = new ArrayList();
-        this.f14132b = arrayList;
-        arrayList.add(new LatelyView(this.f14131a.getPageActivity()));
-        this.f14132b.add(new AttentionView(this.f14131a.getPageActivity()));
+        this.f14182b = arrayList;
+        arrayList.add(new LatelyView(this.f14181a.getPageActivity()));
+        this.f14182b.add(new AttentionView(this.f14181a.getPageActivity()));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.viewpager.widget.PagerAdapter
     @NonNull
     /* renamed from: b */
-    public d instantiateItem(@NonNull ViewGroup viewGroup, int i) {
-        d dVar = (d) ListUtils.getItem(this.f14132b, i);
+    public d instantiateItem(@NonNull ViewGroup viewGroup, int i2) {
+        d dVar = (d) ListUtils.getItem(this.f14182b, i2);
         if (dVar instanceof View) {
             View view = (View) dVar;
             if (view.getParent() != null) {
@@ -47,31 +47,31 @@ public class SelectForumPagerAdapter extends PagerAdapter {
         return dVar;
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
-        super.destroyItem(viewGroup, i, obj);
-    }
-
-    public void e() {
-        for (d dVar : this.f14132b) {
+    public void c() {
+        for (d dVar : this.f14182b) {
             dVar.onDestroy();
         }
     }
 
-    public void f() {
-        for (d dVar : this.f14132b) {
+    public void d() {
+        for (d dVar : this.f14182b) {
             dVar.a();
         }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public int getCount() {
-        return ListUtils.getCount(this.f14132b);
+    public void destroyItem(@NonNull ViewGroup viewGroup, int i2, @NonNull Object obj) {
+        super.destroyItem(viewGroup, i2, obj);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public CharSequence getPageTitle(int i) {
-        return ListUtils.getItem(this.f14132b, i) == null ? "" : ((d) ListUtils.getItem(this.f14132b, i)).getTitle();
+    public int getCount() {
+        return ListUtils.getCount(this.f14182b);
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public CharSequence getPageTitle(int i2) {
+        return ListUtils.getItem(this.f14182b, i2) == null ? "" : ((d) ListUtils.getItem(this.f14182b, i2)).getTitle();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -80,13 +80,13 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
-        super.setPrimaryItem(viewGroup, i, obj);
-        if (this.f14133c == i) {
+    public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i2, @NonNull Object obj) {
+        super.setPrimaryItem(viewGroup, i2, obj);
+        if (this.f14183c == i2) {
             return;
         }
-        this.f14133c = i;
-        d dVar = (d) ListUtils.getItem(this.f14132b, i);
+        this.f14183c = i2;
+        d dVar = (d) ListUtils.getItem(this.f14182b, i2);
         if (dVar != null) {
             dVar.c(null);
         }

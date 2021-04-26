@@ -19,7 +19,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseLocalPersonListMessage;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseNetPersonListMessage;
-import d.b.i0.r.q.g1;
+import d.a.i0.r.q.g1;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class PersonListModel extends BdBaseModel<PersonListActivity> {
@@ -29,20 +29,22 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public CustomMessageListener customListener;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18766e;
+    public boolean f19200e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18767f;
+    public String f19201f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18768g;
+    public int f19202g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f18769h;
+    public c f19203h;
     public HttpMessageListener httpListener;
-    public int i;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f19204i;
     public PersonListActivity j;
-    public d.b.i0.s.e.a k;
+    public d.a.i0.s.e.a k;
     public int l;
     public int m;
     public String n;
@@ -51,8 +53,8 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,28 +68,28 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 if (statusCode != 200 || error != 0) {
-                    if (PersonListModel.this.f18769h != null) {
+                    if (PersonListModel.this.f19203h != null) {
                         if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                             errorString = PersonListModel.this.j.getResources().getString(R.string.neterror);
                         } else {
                             errorString = httpResponsedMessage.getErrorString();
                         }
-                        PersonListModel.this.f18769h.b(errorString, false);
+                        PersonListModel.this.f19203h.b(errorString, false);
                         return;
                     }
                     return;
                 }
                 g1 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
                 if (data != null) {
-                    if (!StringUtils.isNull(data.f51541g)) {
-                        PersonListModel.this.n = data.f51541g;
-                        PersonListModel.this.m = data.f51542h;
+                    if (!StringUtils.isNull(data.f49168g)) {
+                        PersonListModel.this.n = data.f49168g;
+                        PersonListModel.this.m = data.f49169h;
                     }
-                    data.f51542h = PersonListModel.this.m;
-                    data.f51541g = PersonListModel.this.n;
+                    data.f49169h = PersonListModel.this.m;
+                    data.f49168g = PersonListModel.this.n;
                 }
-                if (PersonListModel.this.f18769h != null) {
-                    PersonListModel.this.f18769h.a(data, false);
+                if (PersonListModel.this.f19203h != null) {
+                    PersonListModel.this.f19203h.a(data, false);
                 }
             }
         }
@@ -95,8 +97,8 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
 
     /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -105,20 +107,20 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
                 g1 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
                 if (data2 == null) {
-                    if (PersonListModel.this.f18769h != null) {
-                        PersonListModel.this.f18769h.b("", true);
+                    if (PersonListModel.this.f19203h != null) {
+                        PersonListModel.this.f19203h.b("", true);
                         return;
                     }
                     return;
                 }
-                if (!StringUtils.isNull(data2.f51541g)) {
-                    PersonListModel.this.n = data2.f51541g;
-                    PersonListModel.this.m = data2.f51542h;
+                if (!StringUtils.isNull(data2.f49168g)) {
+                    PersonListModel.this.n = data2.f49168g;
+                    PersonListModel.this.m = data2.f49169h;
                 }
-                data2.f51542h = PersonListModel.this.m;
-                data2.f51541g = PersonListModel.this.n;
-                if (PersonListModel.this.f18769h != null) {
-                    PersonListModel.this.f18769h.a(data2, true);
+                data2.f49169h = PersonListModel.this.m;
+                data2.f49168g = PersonListModel.this.n;
+                if (PersonListModel.this.f19203h != null) {
+                    PersonListModel.this.f19203h.a(data2, true);
                 }
             }
         }
@@ -135,54 +137,54 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public static class d extends BdAsyncTask<Void, Void, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18772a;
+        public String f19207a;
 
         public d(String str) {
-            this.f18772a = str;
+            this.f19207a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public String doInBackground(Void... voidArr) {
-            if (this.f18772a == null) {
+            if (this.f19207a == null) {
                 return null;
             }
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.FOLLOW_ERR_URL);
-            netWork.addPostData("portrait", this.f18772a);
+            netWork.addPostData("portrait", this.f19207a);
             return netWork.postNetData();
         }
     }
 
     public PersonListModel(PersonListActivity personListActivity, c cVar) {
         super(personListActivity.getPageContext());
-        this.i = 0;
+        this.f19204i = 0;
         this.l = 0;
         this.httpListener = new a(CmdConfigHttp.PIC_PERSONAL_LIST);
         this.customListener = new b(2001188);
         this.j = personListActivity;
-        d.b.i0.s.e.a aVar = new d.b.i0.s.e.a(personListActivity.getPageContext());
+        d.a.i0.s.e.a aVar = new d.a.i0.s.e.a(personListActivity.getPageContext());
         this.k = aVar;
         aVar.k(this.mLoadDataCallBack);
-        this.f18766e = true;
-        this.f18767f = null;
-        this.f18769h = cVar;
+        this.f19200e = true;
+        this.f19201f = null;
+        this.f19203h = cVar;
     }
 
     public int A() {
-        return this.i;
+        return this.f19204i;
     }
 
-    public void B(int i) {
-        this.l = i;
-        this.i = 0;
+    public void B(int i2) {
+        this.l = i2;
+        this.f19204i = 0;
         E();
     }
 
     public void C() {
         String str;
         MessageManager messageManager = MessageManager.getInstance();
-        if (this.f18766e) {
+        if (this.f19200e) {
             str = TbConfig.SERVER_ADDRESS + "c/u/follow/followList";
         } else {
             str = TbConfig.SERVER_ADDRESS + "c/u/fans/page";
@@ -201,39 +203,39 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public void E() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_PERSONAL_LIST);
         HashMap hashMap = new HashMap();
-        if (this.f18766e) {
+        if (this.f19200e) {
             httpMessage.setTag(FOLLOWME);
         } else {
             httpMessage.setTag(MYFOLLOW);
         }
-        String str = this.f18767f;
+        String str = this.f19201f;
         if (str != null && !str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            httpMessage.addParam("uid", this.f18767f);
+            httpMessage.addParam("uid", this.f19201f);
         }
-        hashMap.put("id", String.valueOf(this.f18767f));
-        int i = this.i;
-        if (i != 0) {
-            int i2 = i + 1;
-            this.i = i2;
-            httpMessage.addParam(Config.PACKAGE_NAME, String.valueOf(i2));
+        hashMap.put("id", String.valueOf(this.f19201f));
+        int i2 = this.f19204i;
+        if (i2 != 0) {
+            int i3 = i2 + 1;
+            this.f19204i = i3;
+            httpMessage.addParam(Config.PACKAGE_NAME, String.valueOf(i3));
         }
         httpMessage.addParam("tab", this.l);
-        hashMap.put("page", String.valueOf(this.i));
+        hashMap.put("page", String.valueOf(this.f19204i));
         hashMap.put("pageid", String.valueOf(getUniqueId().getId()));
         httpMessage.setExtra(hashMap);
         sendMessage(httpMessage);
     }
 
     public void F(String str) {
-        this.f18767f = str;
+        this.f19201f = str;
     }
 
     public void G(boolean z) {
-        this.f18766e = z;
+        this.f19200e = z;
     }
 
-    public void H(int i) {
-        this.i = i;
+    public void H(int i2) {
+        this.f19204i = i2;
     }
 
     public void I(String str) {
@@ -251,19 +253,19 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     }
 
     public String getId() {
-        return this.f18767f;
+        return this.f19201f;
     }
 
     public int getSex() {
-        return this.f18768g;
+        return this.f19202g;
     }
 
-    public void setSex(int i) {
-        this.f18768g = i;
+    public void setSex(int i2) {
+        this.f19202g = i2;
     }
 
     public boolean y() {
-        return this.f18766e;
+        return this.f19200e;
     }
 
     public int z() {

@@ -4,26 +4,26 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.c.a.f;
+import d.a.c.a.f;
 /* loaded from: classes4.dex */
 public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16557e;
+    public int f16804e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f16558f;
+    public b f16805f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.c.c.g.a f16559g;
+    public d.a.c.c.g.a f16806g;
 
     /* loaded from: classes4.dex */
-    public class a extends d.b.c.c.g.a {
-        public a(int i, int i2) {
-            super(i, i2);
+    public class a extends d.a.c.c.g.a {
+        public a(int i2, int i3) {
+            super(i2, i3);
         }
 
-        @Override // d.b.c.c.g.a
+        @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null) {
                 return;
@@ -31,12 +31,12 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
             boolean z = responsedMessage instanceof FreeGiftChanceHttpResponseMessage;
             if (z || (responsedMessage instanceof FreeGiftChanceSocketResponseMessage)) {
                 if (z) {
-                    FreeGiftChanceModel.this.f16557e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
+                    FreeGiftChanceModel.this.f16804e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
                 } else if (responsedMessage instanceof FreeGiftChanceSocketResponseMessage) {
-                    FreeGiftChanceModel.this.f16557e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
+                    FreeGiftChanceModel.this.f16804e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
                 }
-                if (FreeGiftChanceModel.this.f16558f != null) {
-                    FreeGiftChanceModel.this.f16558f.a(responsedMessage.getError(), responsedMessage.getErrorString(), FreeGiftChanceModel.this.f16557e);
+                if (FreeGiftChanceModel.this.f16805f != null) {
+                    FreeGiftChanceModel.this.f16805f.a(responsedMessage.getError(), responsedMessage.getErrorString(), FreeGiftChanceModel.this.f16804e);
                 }
             }
         }
@@ -44,12 +44,12 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(int i, String str, int i2);
+        void a(int i2, String str, int i3);
     }
 
     public FreeGiftChanceModel(f<GiftTabActivity> fVar) {
         super(fVar);
-        this.f16559g = new a(CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
+        this.f16806g = new a(CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
         registerListener();
         registerTask();
     }
@@ -65,12 +65,12 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     }
 
     public final void registerListener() {
-        registerListener(this.f16559g);
+        registerListener(this.f16806g);
     }
 
     public final void registerTask() {
-        d.b.j0.d3.d0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
-        d.b.j0.d3.d0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
+        d.a.j0.d3.d0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
+        d.a.j0.d3.d0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
     }
 
     public void v(String str) {
@@ -80,6 +80,6 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     }
 
     public void w(b bVar) {
-        this.f16558f = bVar;
+        this.f16805f = bVar;
     }
 }

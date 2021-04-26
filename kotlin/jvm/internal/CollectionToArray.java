@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import kotlin.Metadata;
-import kotlin.TypeCastException;
 import kotlin.jvm.JvmName;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
@@ -19,34 +18,35 @@ public final class CollectionToArray {
 
     @JvmName(name = "toArray")
     public static final Object[] toArray(Collection<?> collection) {
+        Intrinsics.checkNotNullParameter(collection, "collection");
         int size = collection.size();
         if (size != 0) {
             Iterator<?> it = collection.iterator();
             if (it.hasNext()) {
                 Object[] objArr = new Object[size];
-                int i = 0;
+                int i2 = 0;
                 while (true) {
-                    int i2 = i + 1;
-                    objArr[i] = it.next();
-                    if (i2 >= objArr.length) {
+                    int i3 = i2 + 1;
+                    objArr[i2] = it.next();
+                    if (i3 >= objArr.length) {
                         if (!it.hasNext()) {
                             return objArr;
                         }
-                        int i3 = ((i2 * 3) + 1) >>> 1;
-                        if (i3 <= i2) {
-                            if (i2 >= 2147483645) {
+                        int i4 = ((i3 * 3) + 1) >>> 1;
+                        if (i4 <= i3) {
+                            if (i3 >= 2147483645) {
                                 throw new OutOfMemoryError();
                             }
-                            i3 = MAX_SIZE;
+                            i4 = MAX_SIZE;
                         }
-                        objArr = Arrays.copyOf(objArr, i3);
-                        Intrinsics.checkExpressionValueIsNotNull(objArr, "Arrays.copyOf(result, newSize)");
+                        objArr = Arrays.copyOf(objArr, i4);
+                        Intrinsics.checkNotNullExpressionValue(objArr, "Arrays.copyOf(result, newSize)");
                     } else if (!it.hasNext()) {
-                        Object[] copyOf = Arrays.copyOf(objArr, i2);
-                        Intrinsics.checkExpressionValueIsNotNull(copyOf, "Arrays.copyOf(result, size)");
+                        Object[] copyOf = Arrays.copyOf(objArr, i3);
+                        Intrinsics.checkNotNullExpressionValue(copyOf, "Arrays.copyOf(result, size)");
                         return copyOf;
                     }
-                    i = i2;
+                    i2 = i3;
                 }
             }
         }
@@ -68,28 +68,28 @@ public final class CollectionToArray {
         if (!it.hasNext()) {
             return function0.invoke();
         }
-        int i = 0;
+        int i2 = 0;
         ?? r3 = function1.invoke(Integer.valueOf(size));
         while (true) {
-            int i2 = i + 1;
-            r3[i] = it.next();
-            if (i2 >= r3.length) {
+            int i3 = i2 + 1;
+            r3[i2] = it.next();
+            if (i3 >= r3.length) {
                 if (!it.hasNext()) {
                     return r3;
                 }
-                int i3 = ((i2 * 3) + 1) >>> 1;
-                if (i3 <= i2) {
-                    if (i2 >= 2147483645) {
+                int i4 = ((i3 * 3) + 1) >>> 1;
+                if (i4 <= i3) {
+                    if (i3 >= 2147483645) {
                         throw new OutOfMemoryError();
                     }
-                    i3 = MAX_SIZE;
+                    i4 = MAX_SIZE;
                 }
-                r3 = Arrays.copyOf((Object[]) r3, i3);
-                Intrinsics.checkExpressionValueIsNotNull(r3, "Arrays.copyOf(result, newSize)");
+                r3 = Arrays.copyOf((Object[]) r3, i4);
+                Intrinsics.checkNotNullExpressionValue(r3, "Arrays.copyOf(result, newSize)");
             } else if (!it.hasNext()) {
-                return function2.invoke(r3, Integer.valueOf(i2));
+                return function2.invoke(r3, Integer.valueOf(i3));
             }
-            i = i2;
+            i2 = i3;
             r3 = r3;
         }
     }
@@ -97,9 +97,10 @@ public final class CollectionToArray {
     @JvmName(name = "toArray")
     public static final Object[] toArray(Collection<?> collection, Object[] objArr) {
         Object[] objArr2;
+        Intrinsics.checkNotNullParameter(collection, "collection");
         if (objArr != null) {
             int size = collection.size();
-            int i = 0;
+            int i2 = 0;
             if (size == 0) {
                 if (objArr.length > 0) {
                     objArr[0] = null;
@@ -120,36 +121,36 @@ public final class CollectionToArray {
             } else {
                 Object newInstance = Array.newInstance(objArr.getClass().getComponentType(), size);
                 if (newInstance == null) {
-                    throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<kotlin.Any?>");
+                    throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<kotlin.Any?>");
                 }
                 objArr2 = (Object[]) newInstance;
             }
             while (true) {
-                int i2 = i + 1;
-                objArr2[i] = it.next();
-                if (i2 >= objArr2.length) {
+                int i3 = i2 + 1;
+                objArr2[i2] = it.next();
+                if (i3 >= objArr2.length) {
                     if (!it.hasNext()) {
                         return objArr2;
                     }
-                    int i3 = ((i2 * 3) + 1) >>> 1;
-                    if (i3 <= i2) {
-                        if (i2 >= 2147483645) {
+                    int i4 = ((i3 * 3) + 1) >>> 1;
+                    if (i4 <= i3) {
+                        if (i3 >= 2147483645) {
                             throw new OutOfMemoryError();
                         }
-                        i3 = MAX_SIZE;
+                        i4 = MAX_SIZE;
                     }
-                    objArr2 = Arrays.copyOf(objArr2, i3);
-                    Intrinsics.checkExpressionValueIsNotNull(objArr2, "Arrays.copyOf(result, newSize)");
+                    objArr2 = Arrays.copyOf(objArr2, i4);
+                    Intrinsics.checkNotNullExpressionValue(objArr2, "Arrays.copyOf(result, newSize)");
                 } else if (!it.hasNext()) {
                     if (objArr2 == objArr) {
-                        objArr[i2] = null;
+                        objArr[i3] = null;
                         return objArr;
                     }
-                    Object[] copyOf = Arrays.copyOf(objArr2, i2);
-                    Intrinsics.checkExpressionValueIsNotNull(copyOf, "Arrays.copyOf(result, size)");
+                    Object[] copyOf = Arrays.copyOf(objArr2, i3);
+                    Intrinsics.checkNotNullExpressionValue(copyOf, "Arrays.copyOf(result, size)");
                     return copyOf;
                 }
-                i = i2;
+                i2 = i3;
             }
         } else {
             throw null;

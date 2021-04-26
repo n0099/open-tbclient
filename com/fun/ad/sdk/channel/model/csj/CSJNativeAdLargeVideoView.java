@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.channel.model.csj;
 
-import a.a.a.a.r.b.a.b;
+import a.a.a.a.t.b.a.b;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -16,7 +16,7 @@ import com.fun.ad.sdk.R;
 public final class CSJNativeAdLargeVideoView extends b {
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f30531f;
+    public FrameLayout f31464f;
 
     public CSJNativeAdLargeVideoView(Context context) {
         super(context);
@@ -26,11 +26,11 @@ public final class CSJNativeAdLargeVideoView extends b {
         super(context, attributeSet);
     }
 
-    public CSJNativeAdLargeVideoView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public CSJNativeAdLargeVideoView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 
-    @Override // a.a.a.a.r.b.a.b
+    @Override // a.a.a.a.t.b.a.b
     public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
         super.a(activity, tTNativeAd, adInteractionListener);
         View adView = tTNativeAd.getAdView();
@@ -42,30 +42,30 @@ public final class CSJNativeAdLargeVideoView extends b {
                 TTFeedAd tTFeedAd = (TTFeedAd) tTNativeAd;
                 int adViewHeight = tTFeedAd.getAdViewHeight();
                 int adViewWidth = tTFeedAd.getAdViewWidth();
-                ViewGroup.LayoutParams layoutParams = this.f30531f.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.f31464f.getLayoutParams();
                 layoutParams.width = adViewWidth;
                 layoutParams.height = adViewHeight;
-                this.f30531f.setLayoutParams(layoutParams);
-                this.f30531f.requestLayout();
+                this.f31464f.setLayoutParams(layoutParams);
+                this.f31464f.requestLayout();
             }
-            this.f30531f.removeAllViews();
-            this.f30531f.addView(adView);
+            this.f31464f.removeAllViews();
+            this.f31464f.addView(adView);
         }
     }
 
-    @Override // a.a.a.a.r.b.a.b, android.view.View
+    @Override // a.a.a.a.t.b.a.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30531f = (FrameLayout) findViewById(R.id.ad_video);
+        this.f31464f = (FrameLayout) findViewById(R.id.ad_video);
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30531f.getLayoutParams();
-        int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
-        layoutParams.width = i5;
-        layoutParams.height = (int) (i5 / 1.78f);
-        this.f30531f.setLayoutParams(layoutParams);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f31464f.getLayoutParams();
+        int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
+        layoutParams.width = i6;
+        layoutParams.height = (int) (i6 / 1.78f);
+        this.f31464f.setLayoutParams(layoutParams);
     }
 }

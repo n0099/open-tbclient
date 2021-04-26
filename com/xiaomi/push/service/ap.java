@@ -11,7 +11,7 @@ import android.text.TextUtils;
 public class ap {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f41338a;
+    public static String f38882a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final String[] f894a = {"com.mi.globalbrowser", "com.android.browser"};
@@ -21,7 +21,7 @@ public class ap {
             try {
                 return Settings.Global.getInt(contentResolver, "user_aggregate", 0);
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m55a("get user aggregate failed, " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m58a("get user aggregate failed, " + e2);
             }
         }
         return 0;
@@ -59,9 +59,9 @@ public class ap {
 
     public static void a(Context context, Intent intent) {
         String str;
-        int i = -1;
+        int i2 = -1;
         while (true) {
-            str = i < 0 ? f41338a : f894a[i];
+            str = i2 < 0 ? f38882a : f894a[i2];
             if (!TextUtils.isEmpty(str)) {
                 intent.setPackage(str);
                 try {
@@ -69,17 +69,17 @@ public class ap {
                         break;
                     }
                 } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.m55a("not found xm browser:" + e2);
+                    com.xiaomi.channel.commonutils.logger.b.m58a("not found xm browser:" + e2);
                 }
             }
-            i++;
-            if (i >= f894a.length) {
+            i2++;
+            if (i2 >= f894a.length) {
                 str = null;
                 break;
             }
         }
         intent.setPackage(str);
-        f41338a = str;
+        f38882a = str;
     }
 
     public static boolean a(Notification.Builder builder, boolean z) {
@@ -92,7 +92,7 @@ public class ap {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m583a(ContentResolver contentResolver) {
+    public static boolean m586a(ContentResolver contentResolver) {
         int a2 = a(contentResolver);
         return a2 == 1 || a2 == 2;
     }

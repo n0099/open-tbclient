@@ -13,7 +13,7 @@ public class HttpHandlerWrap {
         return this.executCallbackInChildThread;
     }
 
-    public void onFailure(Throwable th, int i, String str) {
+    public void onFailure(Throwable th, int i2, String str) {
     }
 
     public void onFinish() {
@@ -22,11 +22,11 @@ public class HttpHandlerWrap {
     public void onStart() {
     }
 
-    public void onSuccess(int i, String str) {
+    public void onSuccess(int i2, String str) {
     }
 
-    public void onSuccess(int i, String str, HashMap<String, String> hashMap) {
-        onSuccess(i, str);
+    public void onSuccess(int i2, String str, HashMap<String, String> hashMap) {
+        onSuccess(i2, str);
     }
 
     public HttpHandlerWrap(Looper looper) {

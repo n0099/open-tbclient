@@ -245,7 +245,7 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
         this(authInfo, webRequestType, str, 0, str2, str3, context);
     }
 
-    public ShareWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, int i, String str2, String str3, Context context) {
-        super(authInfo, webRequestType, str, i, str2, str3, context);
+    public ShareWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, int i2, String str2, String str3, Context context) {
+        super(authInfo, webRequestType, str, i2, str2, str3, context);
     }
 }

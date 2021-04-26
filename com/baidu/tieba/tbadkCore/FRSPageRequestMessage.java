@@ -3,8 +3,8 @@ package com.baidu.tieba.tbadkCore;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Message;
-import d.b.i0.z0.w;
-import d.b.j0.s2.d0.a;
+import d.a.i0.z0.w;
+import d.a.j0.s2.f0.a;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes5.dex */
@@ -110,28 +110,28 @@ public class FRSPageRequestMessage extends NetMessage {
         return this.needCache;
     }
 
-    public void setCallFrom(int i) {
-        this.callFrom = i;
+    public void setCallFrom(int i2) {
+        this.callFrom = i2;
     }
 
-    public void setCategoryId(int i) {
-        this.categoryId = i;
+    public void setCategoryId(int i2) {
+        this.categoryId = i2;
     }
 
-    public void setCid(int i) {
-        this.cid = i;
+    public void setCid(int i2) {
+        this.cid = i2;
     }
 
-    public void setCtime(int i) {
-        this.ctime = i;
+    public void setCtime(int i2) {
+        this.ctime = i2;
     }
 
-    public void setDataSize(int i) {
-        this.dataSize = i;
+    public void setDataSize(int i2) {
+        this.dataSize = i2;
     }
 
-    public void setIsGood(int i) {
-        this.isGood = i;
+    public void setIsGood(int i2) {
+        this.isGood = i2;
     }
 
     public void setKw(String str) {
@@ -146,48 +146,48 @@ public class FRSPageRequestMessage extends NetMessage {
         this.needCache = z;
     }
 
-    public void setNetError(int i) {
-        this.netError = i;
+    public void setNetError(int i2) {
+        this.netError = i2;
     }
 
-    public void setPn(int i) {
-        this.pn = i;
+    public void setPn(int i2) {
+        this.pn = i2;
     }
 
-    public void setRn(int i) {
-        this.rn = i;
+    public void setRn(int i2) {
+        this.rn = i2;
     }
 
     public void setScrDip(double d2) {
         this.scrDip = d2;
     }
 
-    public void setScrH(int i) {
-        this.scrH = i;
+    public void setScrH(int i2) {
+        this.scrH = i2;
     }
 
-    public void setScrW(int i) {
-        this.scrW = i;
+    public void setScrW(int i2) {
+        this.scrW = i2;
     }
 
-    public void setStParam(int i) {
-        this.stParam = i;
+    public void setStParam(int i2) {
+        this.stParam = i2;
     }
 
     public void setStType(String str) {
         this.stType = str;
     }
 
-    public void setUpdateType(int i) {
-        this.updateType = i;
+    public void setUpdateType(int i2) {
+        this.updateType = i2;
     }
 
-    public void setWithGroup(int i) {
-        this.withGroup = i;
+    public void setWithGroup(int i2) {
+        this.withGroup = i2;
     }
 
-    public void setqType(int i) {
-        this.qType = i;
+    public void setqType(int i2) {
+        this.qType = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

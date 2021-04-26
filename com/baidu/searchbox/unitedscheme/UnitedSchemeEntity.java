@@ -1,6 +1,7 @@
 package com.baidu.searchbox.unitedscheme;
 
 import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import java.util.HashMap;
@@ -65,10 +66,13 @@ public class UnitedSchemeEntity implements Cloneable {
             if (z) {
                 this.mPathLevel++;
             }
-            int i = this.mPathLevel;
-            String[] strArr = this.mPaths;
-            if (i < strArr.length) {
-                return strArr[i];
+            int i2 = this.mPathLevel;
+            if (i2 >= 0) {
+                String[] strArr = this.mPaths;
+                if (i2 < strArr.length) {
+                    return strArr[i2];
+                }
+                return null;
             }
             return null;
         }
@@ -126,7 +130,11 @@ public class UnitedSchemeEntity implements Cloneable {
         if (uri == null || str == null || str2 == null) {
             return;
         }
-        Uri parse = Uri.parse(uri.toString().replace(str, str2));
+        String replace = uri.toString().replace(str, str2);
+        if (TextUtils.isEmpty(replace)) {
+            return;
+        }
+        Uri parse = Uri.parse(replace);
         this.mUri = parse;
         this.mPaths = UnitedSchemeUtility.getPaths(parse);
     }
@@ -153,10 +161,12 @@ public class UnitedSchemeEntity implements Cloneable {
         this.mPathLevel = -1;
         this.mOnlyVerify = false;
         this.callbackInvoked = false;
-        this.mSource = str;
-        this.mUri = uri;
-        this.mPaths = UnitedSchemeUtility.getPaths(uri);
-        this.mParams = UnitedSchemeUtility.getParams(uri.toString());
+        if (uri != null) {
+            this.mSource = str;
+            this.mUri = uri;
+            this.mPaths = UnitedSchemeUtility.getPaths(uri);
+            this.mParams = UnitedSchemeUtility.getParams(uri.toString());
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -175,9 +185,11 @@ public class UnitedSchemeEntity implements Cloneable {
         this.mPathLevel = -1;
         this.mOnlyVerify = false;
         this.callbackInvoked = false;
-        this.mUri = uri;
-        this.mSource = str;
-        this.mPaths = strArr;
-        this.mParams = hashMap;
+        if (uri != null) {
+            this.mUri = uri;
+            this.mSource = str;
+            this.mPaths = strArr;
+            this.mParams = hashMap;
+        }
     }
 }

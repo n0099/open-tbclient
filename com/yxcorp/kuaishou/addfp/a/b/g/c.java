@@ -6,10 +6,10 @@ import android.os.Parcel;
 public final class c implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f41489a;
+    public IBinder f39035a;
 
     public c(IBinder iBinder) {
-        this.f41489a = iBinder;
+        this.f39035a = iBinder;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.g.a
@@ -18,7 +18,7 @@ public final class c implements a {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
-            this.f41489a.transact(1, obtain, obtain2, 0);
+            this.f39035a.transact(1, obtain, obtain2, 0);
             obtain2.readException();
             return obtain2.readString();
         } finally {
@@ -29,6 +29,6 @@ public final class c implements a {
 
     @Override // android.os.IInterface
     public final IBinder asBinder() {
-        return this.f41489a;
+        return this.f39035a;
     }
 }

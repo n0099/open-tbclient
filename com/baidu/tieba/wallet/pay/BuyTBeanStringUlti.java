@@ -5,18 +5,18 @@ import android.text.TextUtils;
 import android.text.style.CharacterStyle;
 /* loaded from: classes5.dex */
 public class BuyTBeanStringUlti {
-    public static String formatTBeanNum(int i) {
-        if (i < 0) {
-            i = 0;
+    public static String formatTBeanNum(int i2) {
+        if (i2 < 0) {
+            i2 = 0;
         }
-        String valueOf = String.valueOf(i);
-        if (i >= 1000000) {
-            float f2 = i / 10000.0f;
-            int i2 = i / 10000;
-            if (f2 > i2) {
+        String valueOf = String.valueOf(i2);
+        if (i2 >= 1000000) {
+            float f2 = i2 / 10000.0f;
+            int i3 = i2 / 10000;
+            if (f2 > i3) {
                 return String.format("%.1f", Float.valueOf(f2));
             }
-            return i2 + "";
+            return i3 + "";
         }
         return valueOf;
     }

@@ -19,15 +19,15 @@ public class WXEmojiPageSharedObject implements WXMediaMessage.IMediaObject {
     public WXEmojiPageSharedObject() {
     }
 
-    public WXEmojiPageSharedObject(int i, int i2, String str, String str2, String str3, String str4, int i3, String str5) {
-        this.tid = i2;
+    public WXEmojiPageSharedObject(int i2, int i3, String str, String str2, String str3, String str4, int i4, String str5) {
+        this.tid = i3;
         this.title = str;
         this.desc = str2;
         this.iconUrl = str3;
         this.secondUrl = str4;
-        this.pageType = i3;
+        this.pageType = i4;
         this.url = str5;
-        this.type = i;
+        this.type = i2;
     }
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject

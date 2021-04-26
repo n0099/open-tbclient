@@ -8,11 +8,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
+import com.google.android.material.badge.BadgeDrawable;
 /* loaded from: classes7.dex */
 public final class NotificationClickedActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public BroadcastReceiver f40529a;
+    public BroadcastReceiver f38044a;
 
     /* renamed from: a  reason: collision with other field name */
     public Handler f54a;
@@ -39,7 +40,7 @@ public final class NotificationClickedActivity extends Activity {
         WindowManager.LayoutParams attributes = window.getAttributes();
         attributes.height = 1;
         attributes.width = 1;
-        attributes.gravity = 8388659;
+        attributes.gravity = BadgeDrawable.TOP_START;
         window.setAttributes(attributes);
         Handler handler = new Handler();
         this.f54a = handler;
@@ -47,7 +48,7 @@ public final class NotificationClickedActivity extends Activity {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("action_clicked_activity_finish");
         ac acVar = new ac(this);
-        this.f40529a = acVar;
+        this.f38044a = acVar;
         try {
             registerReceiver(acVar, intentFilter, d.a(this), null);
         } catch (Exception unused) {
@@ -60,7 +61,7 @@ public final class NotificationClickedActivity extends Activity {
         super.onDestroy();
         this.f54a.removeCallbacksAndMessages(null);
         try {
-            unregisterReceiver(this.f40529a);
+            unregisterReceiver(this.f38044a);
         } catch (Exception unused) {
         }
     }

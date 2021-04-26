@@ -1,0 +1,206 @@
+package d.a.i0.r.f0;
+
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
+@SuppressLint({"ResourceAsColor"})
+/* loaded from: classes3.dex */
+public class d {
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f48845a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f48846b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f48847c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ViewGroup.LayoutParams f48848d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f48849e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Runnable f48850f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public FrameLayout f48851g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f48852h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f48853i;
+    public ViewTreeObserver.OnGlobalLayoutListener j;
+    public int k;
+
+    /* loaded from: classes3.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public a() {
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            d.this.k();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements Runnable {
+        public b() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            d.this.l();
+        }
+    }
+
+    public d(Activity activity) {
+        this.f48845a = 3;
+        int i2 = R.color.CAM_X0201;
+        this.f48852h = i2;
+        this.f48853i = false;
+        this.j = null;
+        this.k = 0;
+        h(activity, i2, true);
+    }
+
+    public static d c(Activity activity) {
+        return new d(activity);
+    }
+
+    public static d d(Activity activity, int i2, boolean z) {
+        return new d(activity, i2, z);
+    }
+
+    public static d e(Activity activity, boolean z) {
+        return new d(activity, z);
+    }
+
+    public final int f() {
+        Rect rect = new Rect();
+        this.f48846b.getWindowVisibleDisplayFrame(rect);
+        return rect.bottom;
+    }
+
+    public final void g(int i2) {
+        if (this.f48850f != null) {
+            d.a.c.e.m.e.a().removeCallbacks(this.f48850f);
+            this.f48850f = null;
+        }
+        this.f48850f = new b();
+        d.a.c.e.m.e.a().postDelayed(this.f48850f, i2);
+    }
+
+    public final void h(Activity activity, int i2, boolean z) {
+        this.f48852h = i2;
+        this.f48853i = z;
+        FrameLayout frameLayout = (FrameLayout) activity.findViewById(16908290);
+        this.f48851g = frameLayout;
+        if (z) {
+            SkinManager.setBackgroundColor(frameLayout, i2);
+        } else {
+            SkinManager.setBackgroundColor(frameLayout, i2, 0);
+        }
+        View childAt = this.f48851g.getChildAt(0);
+        this.f48846b = childAt;
+        if (childAt == null) {
+            return;
+        }
+        this.j = new a();
+        this.f48846b.getViewTreeObserver().addOnGlobalLayoutListener(this.j);
+        this.f48848d = this.f48846b.getLayoutParams();
+    }
+
+    public void i() {
+        if (this.f48850f != null) {
+            d.a.c.e.m.e.a().removeCallbacks(this.f48850f);
+            this.f48850f = null;
+        }
+        View view = this.f48846b;
+        if (view != null) {
+            view.getViewTreeObserver().removeGlobalOnLayoutListener(this.j);
+            this.j = null;
+        }
+        this.f48846b = null;
+        this.f48851g = null;
+    }
+
+    public void j(int i2) {
+        FrameLayout frameLayout;
+        if (this.f48853i) {
+            if (i2 != this.f48845a && (frameLayout = this.f48851g) != null) {
+                SkinManager.setBackgroundColor(frameLayout, this.f48852h);
+            }
+            this.f48845a = i2;
+        }
+    }
+
+    public final void k() {
+        View view = this.f48846b;
+        if (view == null) {
+            return;
+        }
+        int height = view.getHeight();
+        if (height > this.f48849e) {
+            this.f48849e = height;
+        }
+        int f2 = f();
+        int i2 = this.k;
+        if (i2 > 0 && i2 <= this.f48848d.height) {
+            f2 -= i2;
+        }
+        if (f2 != this.f48847c) {
+            int i3 = this.f48849e;
+            int i4 = i3 - f2;
+            if (i4 == 0) {
+                this.f48848d.height = i3;
+                l();
+            } else if (i4 > 200) {
+                this.f48848d.height = i3 - i4;
+                g(200);
+                if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i4) && i4 < (this.f48849e * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i4) {
+                    TbadkCoreApplication.getInst().setKeyboardHeight(i4);
+                }
+            }
+            this.f48847c = f2;
+        }
+    }
+
+    public final void l() {
+        this.f48846b.requestLayout();
+    }
+
+    public void m(int i2) {
+        this.k = i2;
+    }
+
+    public d(Activity activity, boolean z) {
+        this.f48845a = 3;
+        int i2 = R.color.CAM_X0201;
+        this.f48852h = i2;
+        this.f48853i = false;
+        this.j = null;
+        this.k = 0;
+        h(activity, i2, z);
+    }
+
+    public d(Activity activity, int i2, boolean z) {
+        this.f48845a = 3;
+        this.f48852h = R.color.CAM_X0201;
+        this.f48853i = false;
+        this.j = null;
+        this.k = 0;
+        h(activity, i2, z);
+    }
+}

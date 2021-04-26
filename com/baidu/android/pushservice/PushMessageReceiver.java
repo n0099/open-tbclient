@@ -33,11 +33,11 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
     public static class a extends Handler {
 
         /* renamed from: d  reason: collision with root package name */
-        public final WeakReference<Context> f2680d;
+        public final WeakReference<Context> f2678d;
 
         public a(Context context) {
             super(context.getMainLooper());
-            this.f2680d = new WeakReference<>(context);
+            this.f2678d = new WeakReference<>(context);
         }
     }
 
@@ -49,15 +49,15 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         
 
         /* renamed from: d  reason: collision with root package name */
-        public int f2685d;
+        public int f2683d;
 
-        b(int i) {
-            this.f2685d = i;
+        b(int i2) {
+            this.f2683d = i2;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
-            return this.f2685d;
+            return this.f2683d;
         }
     }
 
@@ -194,7 +194,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         }
     }
 
-    private void handleXiaomiMessageCallBack(Context context, MiPushMessage miPushMessage, int i) {
+    private void handleXiaomiMessageCallBack(Context context, MiPushMessage miPushMessage, int i2) {
         try {
             String content = miPushMessage.getContent();
             com.baidu.android.pushservice.message.i iVar = new com.baidu.android.pushservice.message.i();
@@ -204,20 +204,20 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
             } else {
                 content = iVar.b(context, content);
             }
-            if (i == b.MSG_CLICKED.a() || !m.l(context, iVar.j)) {
+            if (i2 == b.MSG_CLICKED.a() || !m.l(context, iVar.j)) {
                 if (iVar.k == l.MSG_TYPE_APPSTAT_COMMAND.b()) {
                     m.k(context);
                 } else if (iVar.k == l.MSG_TYPE_PRIVATE_MESSAGE.b() || iVar.k == l.MSG_TYPE_MULTI_PRIVATE.b() || iVar.k == l.MSG_TYPE_SINGLE_PRIVATE.b() || iVar.k == l.MSG_TYPE_MULTI_PRIVATE_NOTIFICATION.b() || iVar.k == l.MSG_TYPE_SINGLE_PUBLIC.b() || iVar.k == l.MSG_TYPE_MULTI_PUBLIC.b()) {
-                    if (i == b.MSG_PASS.a()) {
+                    if (i2 == b.MSG_PASS.a()) {
                         onMessage(context, content, null, 0);
-                    } else if (i == b.MSG_ARRIVED.a()) {
+                    } else if (i2 == b.MSG_ARRIVED.a()) {
                         onNotificationArrived(context, miPushMessage.getTitle(), miPushMessage.getDescription(), content);
-                    } else if (i == b.MSG_CLICKED.a()) {
+                    } else if (i2 == b.MSG_CLICKED.a()) {
                         onNotificationClicked(context, miPushMessage.getTitle(), miPushMessage.getDescription(), content);
                     }
                 }
             }
-            if (msgFromXMConsole || i != b.MSG_CLICKED.a()) {
+            if (msgFromXMConsole || i2 != b.MSG_CLICKED.a()) {
                 return;
             }
             new b.a(context).a("2").b(iVar.j).a(System.currentTimeMillis()).b(601010L).a();
@@ -236,30 +236,30 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         }
     }
 
-    public static void sendCallback(Context context, Intent intent, int i, boolean z) {
+    public static void sendCallback(Context context, Intent intent, int i2, boolean z) {
         int intExtra = intent.getIntExtra("baidu_message_type", -1);
         intent.getAction();
         if (intExtra == l.MSG_TYPE_APP_PRIORITY.b()) {
             if (z) {
-                m.a(context, intent.getStringExtra("message_id"), i);
+                m.a(context, intent.getStringExtra("message_id"), i2);
             }
         } else if (intent.getBooleanExtra("bdpush_deliver_NO_CALLBACK", false)) {
         } else {
             if (TextUtils.equals(context.getPackageName(), intent.getStringExtra("bd.cross.request.SOURCE_PACKAGE"))) {
                 intent.putExtra("bd.cross.request.COMMAND_TYPE", "bd.cross.command.MESSAGE_ACK");
-                intent.putExtra("bd.cross.request.RESULT_CODE", i);
+                intent.putExtra("bd.cross.request.RESULT_CODE", i2);
                 com.baidu.android.pushservice.j.b.a(intent);
             }
         }
     }
 
-    public abstract void onBind(Context context, int i, String str, String str2, String str3, String str4);
+    public abstract void onBind(Context context, int i2, String str, String str2, String str3, String str4);
 
-    public abstract void onDelTags(Context context, int i, List<String> list, List<String> list2, String str);
+    public abstract void onDelTags(Context context, int i2, List<String> list, List<String> list2, String str);
 
-    public abstract void onListTags(Context context, int i, List<String> list, String str);
+    public abstract void onListTags(Context context, int i2, List<String> list, String str);
 
-    public abstract void onMessage(Context context, String str, String str2, int i);
+    public abstract void onMessage(Context context, String str, String str2, int i2);
 
     public abstract void onNotificationArrived(Context context, String str, String str2, String str3);
 
@@ -416,8 +416,8 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                                 }
                                 arrayList = new ArrayList();
                                 arrayList2 = new ArrayList();
-                                for (int i = 0; i < jSONArray.length(); i++) {
-                                    JSONObject jSONObject4 = jSONArray.getJSONObject(i);
+                                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                                    JSONObject jSONObject4 = jSONArray.getJSONObject(i2);
                                     String string6 = jSONObject4.getString("tag");
                                     if (jSONObject4.getInt("result") == 0) {
                                         arrayList.add(string6);
@@ -446,8 +446,8 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                             }
                             ArrayList arrayList3 = new ArrayList();
                             ArrayList arrayList4 = new ArrayList();
-                            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                                JSONObject jSONObject7 = jSONArray2.getJSONObject(i2);
+                            for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
+                                JSONObject jSONObject7 = jSONArray2.getJSONObject(i3);
                                 String string8 = jSONObject7.getString("tag");
                                 if (jSONObject7.getInt("result") == 0) {
                                     arrayList3.add(string8);
@@ -635,8 +635,8 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     final a aVar = new a(context) { // from class: com.baidu.android.pushservice.PushMessageReceiver.1
                         @Override // android.os.Handler
                         public void handleMessage(Message message) {
-                            if (this.f2680d.get() != null) {
-                                PushMessageReceiver.this.onMessage(this.f2680d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
+                            if (this.f2678d.get() != null) {
+                                PushMessageReceiver.this.onMessage(this.f2678d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
                                 PushMessageReceiver.sendCallback(context, intent, 10, false);
                             }
                         }
@@ -668,7 +668,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         }
     }
 
-    public abstract void onSetTags(Context context, int i, List<String> list, List<String> list2, String str);
+    public abstract void onSetTags(Context context, int i2, List<String> list, List<String> list2, String str);
 
-    public abstract void onUnbind(Context context, int i, String str);
+    public abstract void onUnbind(Context context, int i2, String str);
 }

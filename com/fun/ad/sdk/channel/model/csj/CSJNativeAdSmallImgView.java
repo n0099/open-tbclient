@@ -1,7 +1,7 @@
 package com.fun.ad.sdk.channel.model.csj;
 
-import a.a.a.a.r.b.a.b;
-import a.a.a.a.v.d;
+import a.a.a.a.t.b.a.b;
+import a.a.a.a.x.d;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
@@ -18,27 +18,27 @@ import java.util.List;
 public final class CSJNativeAdSmallImgView extends b {
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f30532f;
+    public ImageView f31465f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f30533g;
+    public float f31466g;
 
     public CSJNativeAdSmallImgView(Context context) {
         super(context);
-        this.f30533g = 1.78f;
+        this.f31466g = 1.78f;
     }
 
     public CSJNativeAdSmallImgView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f30533g = 1.78f;
+        this.f31466g = 1.78f;
     }
 
-    public CSJNativeAdSmallImgView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f30533g = 1.78f;
+    public CSJNativeAdSmallImgView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f31466g = 1.78f;
     }
 
-    @Override // a.a.a.a.r.b.a.b
+    @Override // a.a.a.a.t.b.a.b
     public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
         TTImage tTImage;
         super.a(activity, tTNativeAd, adInteractionListener);
@@ -47,10 +47,10 @@ public final class CSJNativeAdSmallImgView extends b {
             return;
         }
         d.b("CSJNativeAdView ttImage width: " + tTImage.getWidth() + ", height: " + tTImage.getHeight(), new Object[0]);
-        this.f30533g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
+        this.f31466g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
         Context context = getContext();
         String imageUrl = tTImage.getImageUrl();
-        ImageView imageView = this.f30532f;
+        ImageView imageView = this.f31465f;
         if (context == null) {
             d.b("GlideHelper: context is null when load: " + imageUrl, new Object[0]);
         } else if (context instanceof Activity) {
@@ -66,19 +66,19 @@ public final class CSJNativeAdSmallImgView extends b {
         d.b("CSJNativeAdView ttImage url: " + tTImage.getImageUrl(), new Object[0]);
     }
 
-    @Override // a.a.a.a.r.b.a.b, android.view.View
+    @Override // a.a.a.a.t.b.a.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30532f = (ImageView) findViewById(R.id.ad_img);
+        this.f31465f = (ImageView) findViewById(R.id.ad_img);
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30532f.getLayoutParams();
-        int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
-        layoutParams.width = i5;
-        layoutParams.height = (int) (i5 / this.f30533g);
-        this.f30532f.setLayoutParams(layoutParams);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f31465f.getLayoutParams();
+        int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
+        layoutParams.width = i6;
+        layoutParams.height = (int) (i6 / this.f31466g);
+        this.f31465f.setLayoutParams(layoutParams);
     }
 }

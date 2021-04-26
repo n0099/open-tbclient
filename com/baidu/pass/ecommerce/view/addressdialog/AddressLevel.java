@@ -10,8 +10,8 @@ public enum AddressLevel {
     public String name;
     public int value;
 
-    AddressLevel(int i, String str) {
-        this.value = i;
+    AddressLevel(int i2, String str) {
+        this.value = i2;
         this.name = str;
     }
 

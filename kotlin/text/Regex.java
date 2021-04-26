@@ -36,24 +36,27 @@ public final class Regex implements Serializable {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final int ensureUnicodeCase(int i) {
-            return (i & 2) != 0 ? i | 64 : i;
+        public final int ensureUnicodeCase(int i2) {
+            return (i2 & 2) != 0 ? i2 | 64 : i2;
         }
 
-        public final String escape(String str) {
-            String quote = Pattern.quote(str);
-            Intrinsics.checkExpressionValueIsNotNull(quote, "Pattern.quote(literal)");
+        public final String escape(String literal) {
+            Intrinsics.checkNotNullParameter(literal, "literal");
+            String quote = Pattern.quote(literal);
+            Intrinsics.checkNotNullExpressionValue(quote, "Pattern.quote(literal)");
             return quote;
         }
 
-        public final String escapeReplacement(String str) {
-            String quoteReplacement = Matcher.quoteReplacement(str);
-            Intrinsics.checkExpressionValueIsNotNull(quoteReplacement, "Matcher.quoteReplacement(literal)");
+        public final String escapeReplacement(String literal) {
+            Intrinsics.checkNotNullParameter(literal, "literal");
+            String quoteReplacement = Matcher.quoteReplacement(literal);
+            Intrinsics.checkNotNullExpressionValue(quoteReplacement, "Matcher.quoteReplacement(literal)");
             return quoteReplacement;
         }
 
-        public final Regex fromLiteral(String str) {
-            return new Regex(str, RegexOption.LITERAL);
+        public final Regex fromLiteral(String literal) {
+            Intrinsics.checkNotNullParameter(literal, "literal");
+            return new Regex(literal, RegexOption.LITERAL);
         }
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -80,14 +83,15 @@ public final class Regex implements Serializable {
             }
         }
 
-        public Serialized(String str, int i) {
-            this.pattern = str;
-            this.flags = i;
+        public Serialized(String pattern, int i2) {
+            Intrinsics.checkNotNullParameter(pattern, "pattern");
+            this.pattern = pattern;
+            this.flags = i2;
         }
 
         private final Object readResolve() {
             Pattern compile = Pattern.compile(this.pattern, this.flags);
-            Intrinsics.checkExpressionValueIsNotNull(compile, "Pattern.compile(pattern, flags)");
+            Intrinsics.checkNotNullExpressionValue(compile, "Pattern.compile(pattern, flags)");
             return new Regex(compile);
         }
 
@@ -101,49 +105,56 @@ public final class Regex implements Serializable {
     }
 
     @PublishedApi
-    public Regex(Pattern pattern) {
-        this.nativePattern = pattern;
+    public Regex(Pattern nativePattern) {
+        Intrinsics.checkNotNullParameter(nativePattern, "nativePattern");
+        this.nativePattern = nativePattern;
     }
 
-    public static /* synthetic */ MatchResult find$default(Regex regex, CharSequence charSequence, int i, int i2, Object obj) {
-        if ((i2 & 2) != 0) {
-            i = 0;
+    public static /* synthetic */ MatchResult find$default(Regex regex, CharSequence charSequence, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i2 = 0;
         }
-        return regex.find(charSequence, i);
+        return regex.find(charSequence, i2);
     }
 
-    public static /* synthetic */ Sequence findAll$default(Regex regex, CharSequence charSequence, int i, int i2, Object obj) {
-        if ((i2 & 2) != 0) {
-            i = 0;
+    public static /* synthetic */ Sequence findAll$default(Regex regex, CharSequence charSequence, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i2 = 0;
         }
-        return regex.findAll(charSequence, i);
+        return regex.findAll(charSequence, i2);
     }
 
-    public static /* synthetic */ List split$default(Regex regex, CharSequence charSequence, int i, int i2, Object obj) {
-        if ((i2 & 2) != 0) {
-            i = 0;
+    public static /* synthetic */ List split$default(Regex regex, CharSequence charSequence, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i2 = 0;
         }
-        return regex.split(charSequence, i);
+        return regex.split(charSequence, i2);
     }
 
     private final Object writeReplace() {
         String pattern = this.nativePattern.pattern();
-        Intrinsics.checkExpressionValueIsNotNull(pattern, "nativePattern.pattern()");
+        Intrinsics.checkNotNullExpressionValue(pattern, "nativePattern.pattern()");
         return new Serialized(pattern, this.nativePattern.flags());
     }
 
-    public final boolean containsMatchIn(CharSequence charSequence) {
-        return this.nativePattern.matcher(charSequence).find();
+    public final boolean containsMatchIn(CharSequence input) {
+        Intrinsics.checkNotNullParameter(input, "input");
+        return this.nativePattern.matcher(input).find();
     }
 
-    public final MatchResult find(CharSequence charSequence, int i) {
-        Matcher matcher = this.nativePattern.matcher(charSequence);
-        Intrinsics.checkExpressionValueIsNotNull(matcher, "nativePattern.matcher(input)");
-        return RegexKt.access$findNext(matcher, i, charSequence);
+    public final MatchResult find(CharSequence input, int i2) {
+        Intrinsics.checkNotNullParameter(input, "input");
+        Matcher matcher = this.nativePattern.matcher(input);
+        Intrinsics.checkNotNullExpressionValue(matcher, "nativePattern.matcher(input)");
+        return RegexKt.access$findNext(matcher, i2, input);
     }
 
-    public final Sequence<MatchResult> findAll(CharSequence charSequence, int i) {
-        return SequencesKt__SequencesKt.generateSequence((Function0) new Regex$findAll$1(this, charSequence, i), (Function1) Regex$findAll$2.INSTANCE);
+    public final Sequence<MatchResult> findAll(CharSequence input, int i2) {
+        Intrinsics.checkNotNullParameter(input, "input");
+        if (i2 >= 0 && i2 <= input.length()) {
+            return SequencesKt__SequencesKt.generateSequence((Function0) new Regex$findAll$1(this, input, i2), (Function1) Regex$findAll$2.INSTANCE);
+        }
+        throw new IndexOutOfBoundsException("Start index out of bounds: " + i2 + ", input length: " + input.length());
     }
 
     /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: java.util.Set<? extends kotlin.text.RegexOption>, java.util.Set<kotlin.text.RegexOption> */
@@ -156,59 +167,66 @@ public final class Regex implements Serializable {
         EnumSet allOf = EnumSet.allOf(RegexOption.class);
         CollectionsKt__MutableCollectionsKt.retainAll(allOf, new Regex$fromInt$$inlined$apply$lambda$1(flags));
         Set<RegexOption> unmodifiableSet = Collections.unmodifiableSet(allOf);
-        Intrinsics.checkExpressionValueIsNotNull(unmodifiableSet, "Collections.unmodifiable…mask == it.value }\n    })");
+        Intrinsics.checkNotNullExpressionValue(unmodifiableSet, "Collections.unmodifiable…mask == it.value }\n    })");
         this._options = unmodifiableSet;
         return unmodifiableSet;
     }
 
     public final String getPattern() {
         String pattern = this.nativePattern.pattern();
-        Intrinsics.checkExpressionValueIsNotNull(pattern, "nativePattern.pattern()");
+        Intrinsics.checkNotNullExpressionValue(pattern, "nativePattern.pattern()");
         return pattern;
     }
 
-    public final MatchResult matchEntire(CharSequence charSequence) {
-        Matcher matcher = this.nativePattern.matcher(charSequence);
-        Intrinsics.checkExpressionValueIsNotNull(matcher, "nativePattern.matcher(input)");
-        return RegexKt.access$matchEntire(matcher, charSequence);
+    public final MatchResult matchEntire(CharSequence input) {
+        Intrinsics.checkNotNullParameter(input, "input");
+        Matcher matcher = this.nativePattern.matcher(input);
+        Intrinsics.checkNotNullExpressionValue(matcher, "nativePattern.matcher(input)");
+        return RegexKt.access$matchEntire(matcher, input);
     }
 
-    public final boolean matches(CharSequence charSequence) {
-        return this.nativePattern.matcher(charSequence).matches();
+    public final boolean matches(CharSequence input) {
+        Intrinsics.checkNotNullParameter(input, "input");
+        return this.nativePattern.matcher(input).matches();
     }
 
-    public final String replace(CharSequence charSequence, String str) {
-        String replaceAll = this.nativePattern.matcher(charSequence).replaceAll(str);
-        Intrinsics.checkExpressionValueIsNotNull(replaceAll, "nativePattern.matcher(in…).replaceAll(replacement)");
+    public final String replace(CharSequence input, String replacement) {
+        Intrinsics.checkNotNullParameter(input, "input");
+        Intrinsics.checkNotNullParameter(replacement, "replacement");
+        String replaceAll = this.nativePattern.matcher(input).replaceAll(replacement);
+        Intrinsics.checkNotNullExpressionValue(replaceAll, "nativePattern.matcher(in…).replaceAll(replacement)");
         return replaceAll;
     }
 
-    public final String replaceFirst(CharSequence charSequence, String str) {
-        String replaceFirst = this.nativePattern.matcher(charSequence).replaceFirst(str);
-        Intrinsics.checkExpressionValueIsNotNull(replaceFirst, "nativePattern.matcher(in…replaceFirst(replacement)");
+    public final String replaceFirst(CharSequence input, String replacement) {
+        Intrinsics.checkNotNullParameter(input, "input");
+        Intrinsics.checkNotNullParameter(replacement, "replacement");
+        String replaceFirst = this.nativePattern.matcher(input).replaceFirst(replacement);
+        Intrinsics.checkNotNullExpressionValue(replaceFirst, "nativePattern.matcher(in…replaceFirst(replacement)");
         return replaceFirst;
     }
 
-    public final List<String> split(CharSequence charSequence, int i) {
-        int i2 = 0;
-        if (i >= 0) {
-            Matcher matcher = this.nativePattern.matcher(charSequence);
-            if (matcher.find() && i != 1) {
-                ArrayList arrayList = new ArrayList(i > 0 ? RangesKt___RangesKt.coerceAtMost(i, 10) : 10);
-                int i3 = i - 1;
+    public final List<String> split(CharSequence input, int i2) {
+        Intrinsics.checkNotNullParameter(input, "input");
+        int i3 = 0;
+        if (i2 >= 0) {
+            Matcher matcher = this.nativePattern.matcher(input);
+            if (matcher.find() && i2 != 1) {
+                ArrayList arrayList = new ArrayList(i2 > 0 ? RangesKt___RangesKt.coerceAtMost(i2, 10) : 10);
+                int i4 = i2 - 1;
                 do {
-                    arrayList.add(charSequence.subSequence(i2, matcher.start()).toString());
-                    i2 = matcher.end();
-                    if (i3 >= 0 && arrayList.size() == i3) {
+                    arrayList.add(input.subSequence(i3, matcher.start()).toString());
+                    i3 = matcher.end();
+                    if (i4 >= 0 && arrayList.size() == i4) {
                         break;
                     }
                 } while (matcher.find());
-                arrayList.add(charSequence.subSequence(i2, charSequence.length()).toString());
+                arrayList.add(input.subSequence(i3, input.length()).toString());
                 return arrayList;
             }
-            return CollectionsKt__CollectionsJVMKt.listOf(charSequence.toString());
+            return CollectionsKt__CollectionsJVMKt.listOf(input.toString());
         }
-        throw new IllegalArgumentException(("Limit must be non-negative, but was " + i + IStringUtil.EXTENSION_SEPARATOR).toString());
+        throw new IllegalArgumentException(("Limit must be non-negative, but was " + i2 + IStringUtil.EXTENSION_SEPARATOR).toString());
     }
 
     public final Pattern toPattern() {
@@ -217,7 +235,7 @@ public final class Regex implements Serializable {
 
     public String toString() {
         String pattern = this.nativePattern.toString();
-        Intrinsics.checkExpressionValueIsNotNull(pattern, "nativePattern.toString()");
+        Intrinsics.checkNotNullExpressionValue(pattern, "nativePattern.toString()");
         return pattern;
     }
 
@@ -225,57 +243,62 @@ public final class Regex implements Serializable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Regex(String str) {
+    public Regex(String pattern) {
         this(r2);
-        Pattern compile = Pattern.compile(str);
-        Intrinsics.checkExpressionValueIsNotNull(compile, "Pattern.compile(pattern)");
+        Intrinsics.checkNotNullParameter(pattern, "pattern");
+        Pattern compile = Pattern.compile(pattern);
+        Intrinsics.checkNotNullExpressionValue(compile, "Pattern.compile(pattern)");
     }
 
-    public final String replace(CharSequence charSequence, Function1<? super MatchResult, ? extends CharSequence> function1) {
-        int i = 0;
-        MatchResult find$default = find$default(this, charSequence, 0, 2, null);
+    public final String replace(CharSequence input, Function1<? super MatchResult, ? extends CharSequence> transform) {
+        Intrinsics.checkNotNullParameter(input, "input");
+        Intrinsics.checkNotNullParameter(transform, "transform");
+        int i2 = 0;
+        MatchResult find$default = find$default(this, input, 0, 2, null);
         if (find$default != null) {
-            int length = charSequence.length();
+            int length = input.length();
             StringBuilder sb = new StringBuilder(length);
             do {
-                if (find$default == null) {
-                    Intrinsics.throwNpe();
-                }
-                sb.append(charSequence, i, find$default.getRange().getStart().intValue());
-                sb.append(function1.invoke(find$default));
-                i = find$default.getRange().getEndInclusive().intValue() + 1;
+                Intrinsics.checkNotNull(find$default);
+                sb.append(input, i2, find$default.getRange().getStart().intValue());
+                sb.append(transform.invoke(find$default));
+                i2 = find$default.getRange().getEndInclusive().intValue() + 1;
                 find$default = find$default.next();
-                if (i >= length) {
+                if (i2 >= length) {
                     break;
                 }
             } while (find$default != null);
-            if (i < length) {
-                sb.append(charSequence, i, length);
+            if (i2 < length) {
+                sb.append(input, i2, length);
             }
             String sb2 = sb.toString();
-            Intrinsics.checkExpressionValueIsNotNull(sb2, "sb.toString()");
+            Intrinsics.checkNotNullExpressionValue(sb2, "sb.toString()");
             return sb2;
         }
-        return charSequence.toString();
+        return input.toString();
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Regex(String str, RegexOption regexOption) {
+    public Regex(String pattern, RegexOption option) {
         this(r2);
-        Pattern compile = Pattern.compile(str, Companion.ensureUnicodeCase(regexOption.getValue()));
-        Intrinsics.checkExpressionValueIsNotNull(compile, "Pattern.compile(pattern,…nicodeCase(option.value))");
+        Intrinsics.checkNotNullParameter(pattern, "pattern");
+        Intrinsics.checkNotNullParameter(option, "option");
+        Pattern compile = Pattern.compile(pattern, Companion.ensureUnicodeCase(option.getValue()));
+        Intrinsics.checkNotNullExpressionValue(compile, "Pattern.compile(pattern,…nicodeCase(option.value))");
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Regex(String str, Set<? extends RegexOption> set) {
+    public Regex(String pattern, Set<? extends RegexOption> options) {
         this(r2);
-        Pattern compile = Pattern.compile(str, Companion.ensureUnicodeCase(RegexKt.access$toInt(set)));
-        Intrinsics.checkExpressionValueIsNotNull(compile, "Pattern.compile(pattern,…odeCase(options.toInt()))");
+        Intrinsics.checkNotNullParameter(pattern, "pattern");
+        Intrinsics.checkNotNullParameter(options, "options");
+        Pattern compile = Pattern.compile(pattern, Companion.ensureUnicodeCase(RegexKt.access$toInt(options)));
+        Intrinsics.checkNotNullExpressionValue(compile, "Pattern.compile(pattern,…odeCase(options.toInt()))");
     }
 }

@@ -26,10 +26,13 @@ public class BundleInfo implements IBundleInfo {
     public String name;
     public String packageName;
     public String signature;
+    public int silence;
+    public int silenceUpdate;
     public long size;
     public int type;
     public long updateV;
     public int versionCode;
+    public int wifiOnly;
     public boolean broken = false;
     public boolean visible = true;
     public boolean removable = false;
@@ -63,11 +66,13 @@ public class BundleInfo implements IBundleInfo {
         bundleInfo.setNeedRemove(iBundleInfo.isNeedRemove());
         bundleInfo.setAbi(iBundleInfo.getAbi());
         bundleInfo.setExt(iBundleInfo.getExt());
+        bundleInfo.setSilence(iBundleInfo.getSilence());
+        bundleInfo.setSilenceUpdate(iBundleInfo.getSilenceUpdate());
+        bundleInfo.setWifiOnly(iBundleInfo.getWifiOnly());
         return bundleInfo;
     }
 
     public static List<BundleInfo> toBundleInfoList(Cursor cursor) {
-        int i;
         int i2;
         int i3;
         int i4;
@@ -77,6 +82,8 @@ public class BundleInfo implements IBundleInfo {
         int i8;
         int i9;
         int i10;
+        int i11;
+        int i12;
         ArrayList arrayList;
         ArrayList arrayList2 = new ArrayList();
         if (cursor == null) {
@@ -106,32 +113,35 @@ public class BundleInfo implements IBundleInfo {
         int columnIndex20 = cursor.getColumnIndex("need_remove");
         int columnIndex21 = cursor.getColumnIndex("abi");
         int columnIndex22 = cursor.getColumnIndex("ext");
+        int columnIndex23 = cursor.getColumnIndex("silence");
+        int columnIndex24 = cursor.getColumnIndex("silence_update");
+        int columnIndex25 = cursor.getColumnIndex("wifionly");
         try {
             if (cursor.moveToFirst()) {
-                int i11 = columnIndex22;
+                int i13 = columnIndex25;
                 while (true) {
                     String string = cursor.getString(columnIndex);
                     if (TextUtils.isEmpty(string)) {
-                        i = columnIndex;
-                        i2 = columnIndex3;
-                        arrayList = arrayList3;
-                        i5 = columnIndex17;
-                        i10 = i11;
-                        i4 = columnIndex15;
-                        int i12 = columnIndex16;
-                        i3 = columnIndex2;
-                        i8 = columnIndex20;
+                        i2 = columnIndex;
+                        i3 = columnIndex3;
+                        i6 = columnIndex17;
+                        i10 = columnIndex22;
+                        i12 = i13;
+                        i5 = columnIndex15;
+                        i11 = columnIndex20;
                         i9 = columnIndex19;
-                        i7 = columnIndex18;
-                        i6 = i12;
+                        i8 = columnIndex18;
+                        i7 = columnIndex16;
+                        i4 = columnIndex2;
+                        arrayList = arrayList3;
                     } else {
-                        i = columnIndex;
+                        i2 = columnIndex;
                         BundleInfo bundleInfo = new BundleInfo();
                         bundleInfo.setPackageName(string);
                         bundleInfo.setVersionCode(cursor.getInt(columnIndex2));
                         bundleInfo.setApkPath(cursor.getString(columnIndex3));
-                        int i13 = columnIndex2;
-                        i2 = columnIndex3;
+                        int i14 = columnIndex2;
+                        i3 = columnIndex3;
                         bundleInfo.setUpdateV(cursor.getLong(columnIndex4));
                         bundleInfo.setMinVersion(cursor.getInt(columnIndex5));
                         bundleInfo.setType(cursor.getInt(columnIndex6));
@@ -143,29 +153,38 @@ public class BundleInfo implements IBundleInfo {
                         bundleInfo.setName(cursor.getString(columnIndex12));
                         bundleInfo.setDescription(cursor.getString(columnIndex13));
                         bundleInfo.setDownloadUrl(cursor.getString(columnIndex14));
-                        int i14 = columnIndex15;
-                        bundleInfo.setIconUrl(cursor.getString(i14));
-                        int i15 = columnIndex16;
-                        i3 = i13;
-                        bundleInfo.setDependence(cursor.getString(i15));
-                        int i16 = columnIndex17;
+                        int i15 = columnIndex15;
+                        bundleInfo.setIconUrl(cursor.getString(i15));
+                        int i16 = columnIndex16;
                         i4 = i14;
-                        i5 = i16;
-                        bundleInfo.setVisible(cursor.getInt(i16) == 1);
-                        int i17 = columnIndex18;
-                        i6 = i15;
-                        bundleInfo.setRemovable(cursor.getInt(i17) == 1);
-                        int i18 = columnIndex19;
-                        i7 = i17;
-                        bundleInfo.setSize(cursor.getLong(i18));
-                        i8 = columnIndex20;
-                        i9 = i18;
-                        bundleInfo.setNeedRemove(cursor.getInt(i8) == 1);
-                        int i19 = columnIndex21;
-                        bundleInfo.setAbi(cursor.getInt(i19));
-                        columnIndex21 = i19;
-                        i10 = i11;
+                        bundleInfo.setDependence(cursor.getString(i16));
+                        int i17 = columnIndex17;
+                        i5 = i15;
+                        i6 = i17;
+                        bundleInfo.setVisible(cursor.getInt(i17) == 1);
+                        int i18 = columnIndex18;
+                        i7 = i16;
+                        bundleInfo.setRemovable(cursor.getInt(i18) == 1);
+                        int i19 = columnIndex19;
+                        i8 = i18;
+                        bundleInfo.setSize(cursor.getLong(i19));
+                        int i20 = columnIndex20;
+                        i9 = i19;
+                        bundleInfo.setNeedRemove(cursor.getInt(i20) == 1);
+                        int i21 = columnIndex21;
+                        bundleInfo.setAbi(cursor.getInt(i21));
+                        columnIndex21 = i21;
+                        i10 = columnIndex22;
                         bundleInfo.setExt(cursor.getString(i10));
+                        i11 = i20;
+                        int i22 = columnIndex23;
+                        bundleInfo.setSilence(cursor.getInt(i22));
+                        columnIndex23 = i22;
+                        int i23 = columnIndex24;
+                        bundleInfo.setSilenceUpdate(cursor.getInt(i23));
+                        columnIndex24 = i23;
+                        i12 = i13;
+                        bundleInfo.setWifiOnly(cursor.getInt(i12));
                         arrayList = arrayList3;
                         try {
                             arrayList.add(bundleInfo);
@@ -176,18 +195,18 @@ public class BundleInfo implements IBundleInfo {
                     if (!cursor.moveToNext()) {
                         return arrayList;
                     }
+                    i13 = i12;
                     arrayList3 = arrayList;
-                    i11 = i10;
-                    columnIndex15 = i4;
-                    columnIndex = i;
-                    columnIndex3 = i2;
-                    columnIndex17 = i5;
-                    int i20 = i9;
-                    columnIndex20 = i8;
-                    columnIndex2 = i3;
-                    columnIndex16 = i6;
-                    columnIndex18 = i7;
-                    columnIndex19 = i20;
+                    columnIndex22 = i10;
+                    columnIndex2 = i4;
+                    columnIndex16 = i7;
+                    columnIndex18 = i8;
+                    columnIndex19 = i9;
+                    columnIndex = i2;
+                    columnIndex3 = i3;
+                    columnIndex20 = i11;
+                    columnIndex15 = i5;
+                    columnIndex17 = i6;
                 }
             }
         } catch (SQLiteDatabaseCorruptException unused2) {
@@ -223,6 +242,9 @@ public class BundleInfo implements IBundleInfo {
         contentValues.put("need_remove", Boolean.valueOf(bundleInfo.isNeedRemove()));
         contentValues.put("abi", Integer.valueOf(bundleInfo.getAbi()));
         contentValues.put("ext", bundleInfo.getExt());
+        contentValues.put("silence", Integer.valueOf(bundleInfo.getSilence()));
+        contentValues.put("silence_update", Integer.valueOf(bundleInfo.getSilenceUpdate()));
+        contentValues.put("wifionly", Integer.valueOf(bundleInfo.getWifiOnly()));
         return contentValues;
     }
 
@@ -242,6 +264,9 @@ public class BundleInfo implements IBundleInfo {
         bundleInfo.setRemovable(bundleInfo2.isRemovable());
         bundleInfo.setNeedRemove(bundleInfo2.isNeedRemove());
         bundleInfo.setExt(bundleInfo2.getExt());
+        bundleInfo.setSilence(bundleInfo2.getSilence());
+        bundleInfo.setSilenceUpdate(bundleInfo2.getSilenceUpdate());
+        bundleInfo.setWifiOnly(bundleInfo2.getWifiOnly());
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
@@ -305,6 +330,16 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
+    public int getSilence() {
+        return this.silence;
+    }
+
+    @Override // com.baidu.nps.pm.IBundleInfo
+    public int getSilenceUpdate() {
+        return this.silenceUpdate;
+    }
+
+    @Override // com.baidu.nps.pm.IBundleInfo
     public long getSize() {
         return this.size;
     }
@@ -322,6 +357,11 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getVersionCode() {
         return this.versionCode;
+    }
+
+    @Override // com.baidu.nps.pm.IBundleInfo
+    public int getWifiOnly() {
+        return this.wifiOnly;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
@@ -355,8 +395,8 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setAbi(int i) {
-        this.abi = i;
+    public void setAbi(int i2) {
+        this.abi = i2;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
@@ -410,8 +450,8 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setMinVersion(int i) {
-        this.minVersion = i;
+    public void setMinVersion(int i2) {
+        this.minVersion = i2;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
@@ -440,13 +480,23 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
+    public void setSilence(int i2) {
+        this.silence = i2;
+    }
+
+    @Override // com.baidu.nps.pm.IBundleInfo
+    public void setSilenceUpdate(int i2) {
+        this.silenceUpdate = i2;
+    }
+
+    @Override // com.baidu.nps.pm.IBundleInfo
     public void setSize(long j) {
         this.size = j;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
@@ -455,13 +505,18 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setVersionCode(int i) {
-        this.versionCode = i;
+    public void setVersionCode(int i2) {
+        this.versionCode = i2;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setVisible(boolean z) {
         this.visible = z;
+    }
+
+    @Override // com.baidu.nps.pm.IBundleInfo
+    public void setWifiOnly(int i2) {
+        this.wifiOnly = i2;
     }
 
     public Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j) {
@@ -528,6 +583,9 @@ public class BundleInfo implements IBundleInfo {
         bundleInfo.setNeedRemove(contentValues.getAsBoolean("need_remove").booleanValue());
         bundleInfo.setAbi(contentValues.getAsInteger("abi").intValue());
         bundleInfo.setExt(contentValues.getAsString("ext"));
+        bundleInfo.setSilence(contentValues.getAsInteger("silence").intValue());
+        bundleInfo.setSilenceUpdate(contentValues.getAsInteger("silence_update").intValue());
+        bundleInfo.setWifiOnly(contentValues.getAsInteger("wifionly").intValue());
         return bundleInfo;
     }
 
@@ -559,6 +617,9 @@ public class BundleInfo implements IBundleInfo {
         contentValues.put("need_remove", Boolean.valueOf(iBundleInfo.isNeedRemove()));
         contentValues.put("abi", Integer.valueOf(iBundleInfo.getAbi()));
         contentValues.put("ext", iBundleInfo.getExt());
+        contentValues.put("silence", Integer.valueOf(iBundleInfo.getSilence()));
+        contentValues.put("silence_update", Integer.valueOf(iBundleInfo.getSilenceUpdate()));
+        contentValues.put("wifionly", Integer.valueOf(iBundleInfo.getWifiOnly()));
         return contentValues;
     }
 }

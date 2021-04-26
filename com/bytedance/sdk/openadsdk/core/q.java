@@ -15,14 +15,14 @@ public interface q<T> {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(int i, String str);
+        void a(int i2, String str);
 
         void a(com.bytedance.sdk.openadsdk.core.d.a aVar);
     }
 
     /* loaded from: classes5.dex */
     public interface c {
-        void a(int i, String str);
+        void a(int i2, String str);
 
         void a(r.c cVar);
     }
@@ -35,9 +35,9 @@ public interface q<T> {
 
     String a(AdSlot adSlot);
 
-    String a(AdSlot adSlot, boolean z, int i);
+    String a(AdSlot adSlot, boolean z, int i2);
 
-    void a(AdSlot adSlot, com.bytedance.sdk.openadsdk.core.d.m mVar, int i, b bVar);
+    void a(AdSlot adSlot, com.bytedance.sdk.openadsdk.core.d.m mVar, int i2, b bVar);
 
     void a(com.bytedance.sdk.openadsdk.core.d.l lVar, List<FilterWord> list);
 
@@ -45,5 +45,5 @@ public interface q<T> {
 
     void a(JSONObject jSONObject, c cVar);
 
-    boolean a(JSONObject jSONObject, int i);
+    boolean a(JSONObject jSONObject, int i2);
 }

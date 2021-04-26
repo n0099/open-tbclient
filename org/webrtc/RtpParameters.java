@@ -22,8 +22,8 @@ public class RtpParameters {
         public int payloadType;
 
         @CalledByNative("Codec")
-        public Codec(int i, String str, MediaStreamTrack.MediaType mediaType, Integer num, Integer num2, Map<String, String> map) {
-            this.payloadType = i;
+        public Codec(int i2, String str, MediaStreamTrack.MediaType mediaType, Integer num, Integer num2, Map<String, String> map) {
+            this.payloadType = i2;
             this.name = str;
             this.kind = mediaType;
             this.clockRate = num;
@@ -128,9 +128,9 @@ public class RtpParameters {
         public final String uri;
 
         @CalledByNative("HeaderExtension")
-        public HeaderExtension(String str, int i, boolean z) {
+        public HeaderExtension(String str, int i2, boolean z) {
             this.uri = str;
-            this.id = i;
+            this.id = i2;
             this.encrypted = z;
         }
 

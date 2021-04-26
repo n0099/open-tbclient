@@ -8,7 +8,7 @@ public interface c {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void a(c cVar, int i);
+        void a(c cVar, int i2);
     }
 
     /* loaded from: classes6.dex */
@@ -18,13 +18,13 @@ public interface c {
 
     /* renamed from: com.kwad.sdk.core.video.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0408c {
-        boolean a(c cVar, int i, int i2);
+    public interface InterfaceC0382c {
+        boolean a(c cVar, int i2, int i3);
     }
 
     /* loaded from: classes6.dex */
     public interface d {
-        boolean a(c cVar, int i, int i2);
+        boolean a(c cVar, int i2, int i3);
     }
 
     /* loaded from: classes6.dex */
@@ -44,10 +44,8 @@ public interface c {
 
     /* loaded from: classes6.dex */
     public interface h {
-        void a(c cVar, int i, int i2);
+        void a(c cVar, int i2, int i3);
     }
-
-    void a(float f2);
 
     void a(float f2, float f3);
 
@@ -55,13 +53,13 @@ public interface c {
 
     void a(Surface surface);
 
-    void a(@NonNull com.kwad.sdk.contentalliance.detail.video.d dVar);
+    void a(@NonNull com.kwad.sdk.contentalliance.detail.video.c cVar);
 
     void a(a aVar);
 
     void a(b bVar);
 
-    void a(InterfaceC0408c interfaceC0408c);
+    void a(InterfaceC0382c interfaceC0382c);
 
     void a(d dVar);
 
@@ -73,7 +71,7 @@ public interface c {
 
     void a(boolean z);
 
-    void b(int i);
+    void b(int i2);
 
     boolean e();
 
@@ -85,15 +83,13 @@ public interface c {
 
     int i();
 
-    boolean j();
+    long j();
 
     long k();
 
-    long l();
+    void l();
 
     void m();
 
-    void n();
-
-    int o();
+    int n();
 }

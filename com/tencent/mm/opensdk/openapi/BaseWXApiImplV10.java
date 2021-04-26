@@ -74,8 +74,8 @@ public class BaseWXApiImplV10 implements IWXAPI {
         if (bArr == null || bArr.length == 0 || bArr2 == null || bArr2.length == 0) {
             str = "checkSumConsistent fail, invalid arguments";
         } else if (bArr.length == bArr2.length) {
-            for (int i = 0; i < bArr.length; i++) {
-                if (bArr[i] != bArr2[i]) {
+            for (int i2 = 0; i2 < bArr.length; i2++) {
+                if (bArr[i2] != bArr2[i2]) {
                     return false;
                 }
             }
@@ -631,12 +631,12 @@ public class BaseWXApiImplV10 implements IWXAPI {
             this.appId = str;
         }
         Log.d("MicroMsg.SDK.WXApiImplV10", "register app " + this.context.getPackageName());
-        a.C0527a c0527a = new a.C0527a();
-        c0527a.f39524a = "com.tencent.mm";
-        c0527a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-        c0527a.content = "weixin://registerapp?appid=" + this.appId;
-        c0527a.f39525b = j;
-        return a.a(this.context, c0527a);
+        a.C0471a c0471a = new a.C0471a();
+        c0471a.f37119a = "com.tencent.mm";
+        c0471a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+        c0471a.content = "weixin://registerapp?appid=" + this.appId;
+        c0471a.f37120b = j;
+        return a.a(this.context, c0471a);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:115:0x020a  */
@@ -822,10 +822,10 @@ public class BaseWXApiImplV10 implements IWXAPI {
             return;
         }
         Log.d("MicroMsg.SDK.WXApiImplV10", "unregister app " + this.context.getPackageName());
-        a.C0527a c0527a = new a.C0527a();
-        c0527a.f39524a = "com.tencent.mm";
-        c0527a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-        c0527a.content = "weixin://unregisterapp?appid=" + this.appId;
-        a.a(this.context, c0527a);
+        a.C0471a c0471a = new a.C0471a();
+        c0471a.f37119a = "com.tencent.mm";
+        c0471a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+        c0471a.content = "weixin://unregisterapp?appid=" + this.appId;
+        a.a(this.context, c0471a);
     }
 }

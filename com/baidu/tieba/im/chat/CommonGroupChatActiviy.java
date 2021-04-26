@@ -30,7 +30,7 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonGroupMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.im.model.PvCacheModel;
-import d.b.c.c.g.c;
+import d.a.c.c.g.c;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,8 +41,8 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
 
     /* loaded from: classes4.dex */
     public class a extends c {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,8 +80,8 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
 
     /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -226,24 +226,24 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
     /* JADX WARN: Code restructure failed: missing block: B:20:0x002e, code lost:
         r0 = r0.getContent();
      */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.b.c.e.h.a
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.a.c.e.h.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onItemViewClick(View view, int i, int i2, long j) {
+    public void onItemViewClick(View view, int i2, int i3, long j) {
         ChatMessage msg;
         MsglistModel msglistModel;
         ChatMessage msg2;
         String content;
-        super.onItemViewClick(view, i, i2, j);
-        if (i == 2) {
-            ChatMessage msg3 = this.mListModel.getMsg(i2);
+        super.onItemViewClick(view, i2, i3, j);
+        if (i2 == 2) {
+            ChatMessage msg3 = this.mListModel.getMsg(i3);
             if (msg3 == null || msg3.getUserInfo() == null) {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), msg3.getUserInfo().getUserId(), msg3.getUserInfo().getUserName(), null, AddFriendActivityConfig.TYPE_IM_GROUP)));
-        } else if (i != 4) {
-            if (i == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg2 = msglistModel.getMsg(i2)) != null && d.b.j0.e1.w.c.q(msg2) && content != null) {
+        } else if (i2 != 4) {
+            if (i2 == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg2 = msglistModel.getMsg(i3)) != null && d.a.j0.e1.w.c.q(msg2) && content != null) {
                 JSONObject jSONObject = null;
                 try {
                     try {
@@ -262,9 +262,9 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                     sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(getPageContext().getContext(), jSONObject.optString("pid"), jSONObject.optString("packet_name"), jSONObject.optString("icon"), jSONObject.optString("url_s"), optString, jSONObject.optString("face_name"), 3, jSONObject.optInt("size_width"), jSONObject.optInt("size_height"))));
                 }
             }
-        } else if (isExStorageOk() && (msg = this.mListModel.getMsg(i2)) != null && d.b.j0.e1.w.c.s(msg)) {
-            String f2 = d.b.j0.e1.w.c.f(msg.getContent(), true);
-            String f3 = d.b.j0.e1.w.c.f(msg.getContent(), false);
+        } else if (isExStorageOk() && (msg = this.mListModel.getMsg(i3)) != null && d.a.j0.e1.w.c.s(msg)) {
+            String f2 = d.a.j0.e1.w.c.f(msg.getContent(), true);
+            String f3 = d.a.j0.e1.w.c.f(msg.getContent(), false);
             if (f2 == null) {
                 return;
             }
@@ -276,9 +276,9 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.b.c.e.h.b
-    public void onItemViewLongClick(View view, int i, int i2, long j) {
-        super.onItemViewLongClick(view, i, i2, j);
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.a.c.e.h.b
+    public void onItemViewLongClick(View view, int i2, int i3, long j) {
+        super.onItemViewLongClick(view, i2, i3, j);
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
@@ -324,7 +324,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         String stringExtra = intent.getStringExtra(GroupChatActivityConfig.GROUP_OBJ_TP);
         String valueOf = String.valueOf(groupData.getGroupId());
         if (!PvCacheModel.getInstance().isSameDay(valueOf)) {
-            new d.b.j0.e1.w.a(TbConfig.ST_TYPE_IM, stringExtra, valueOf).start();
+            new d.a.j0.e1.w.a(TbConfig.ST_TYPE_IM, stringExtra, valueOf).start();
             TiebaStatic.eventStat(TbadkApplication.getInst().getApp(), TbConfig.ST_TYPE_IM, "", 1, "obj_tp", stringExtra, "group_id", valueOf);
             PvCacheModel.getInstance().addCacheData(valueOf, Long.valueOf(System.currentTimeMillis()));
         }

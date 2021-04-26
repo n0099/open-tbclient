@@ -5,7 +5,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 /* loaded from: classes2.dex */
 public class MultipartHashMapWrap extends MultipartHashMap {
     public MultipartHashMapWrap() {
-        putAll(Utils.a());
+        putAll(Utils.buildCommonParams());
     }
 
     @Override // com.baidu.pass.http.HttpHashMap

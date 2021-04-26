@@ -29,27 +29,27 @@ public class GetM3u8Request extends FileMessageHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
         String str = TAG;
-        LogUtils.e(str, "onFailure " + i);
+        LogUtils.e(str, "onFailure " + i2);
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener != null && (removeListener instanceof GetM3u8CallBack)) {
-            ((GetM3u8CallBack) removeListener).onResult(i, null);
+            ((GetM3u8CallBack) removeListener).onResult(i2, null);
             return;
         }
         LogUtils.e(TAG, "GetM3u8Request listener is null ");
-        UnLoginCastService.getInstance(this.mContext).handleOnM3u8Callback(i, null);
+        UnLoginCastService.getInstance(this.mContext).handleOnM3u8Callback(i2, null);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener != null && (removeListener instanceof GetM3u8CallBack)) {
-            ((GetM3u8CallBack) removeListener).onResult(i, bArr);
+            ((GetM3u8CallBack) removeListener).onResult(i2, bArr);
             return;
         }
         LogUtils.e(TAG, "GetM3u8Request listener is null ");
-        UnLoginCastService.getInstance(this.mContext).handleOnM3u8Callback(i, null);
+        UnLoginCastService.getInstance(this.mContext).handleOnM3u8Callback(i2, null);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

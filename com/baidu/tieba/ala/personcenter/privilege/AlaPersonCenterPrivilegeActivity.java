@@ -36,8 +36,8 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
         if (ListUtils.isEmpty(this.mFragmentList)) {
             return;
         }
@@ -45,12 +45,12 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
         while (it.hasNext()) {
             AbsFragment next = it.next();
             if (next != null) {
-                next.onActivityResult(i, i2, intent);
+                next.onActivityResult(i2, i3, intent);
             }
         }
     }
 
-    @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
     }

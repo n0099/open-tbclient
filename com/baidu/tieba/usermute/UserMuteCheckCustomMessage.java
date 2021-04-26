@@ -8,7 +8,7 @@ public class UserMuteCheckCustomMessage extends CustomMessage {
     public long userIdF;
     public long userIdT;
 
-    public UserMuteCheckCustomMessage(int i) {
-        super(i);
+    public UserMuteCheckCustomMessage(int i2) {
+        super(i2);
     }
 }

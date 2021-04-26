@@ -13,13 +13,13 @@ import org.json.JSONObject;
 public class aj {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ByteBuffer f8475c = ByteBuffer.allocate(0);
+    public static final ByteBuffer f8777c = ByteBuffer.allocate(0);
 
     /* renamed from: a  reason: collision with root package name */
-    public a f8476a;
+    public a f8778a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f8477b;
+    public b f8779b;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -40,10 +40,10 @@ public class aj {
     }
 
     public aj(URI uri, a aVar) throws c {
-        this.f8476a = aVar;
+        this.f8778a = aVar;
         try {
             b bVar = new b(uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
-            this.f8477b = bVar;
+            this.f8779b = bVar;
             bVar.c();
         } catch (InterruptedException e2) {
             throw new c(e2);
@@ -70,11 +70,11 @@ public class aj {
     }
 
     public boolean b() {
-        return (this.f8477b.f() || this.f8477b.g() || this.f8477b.e()) ? false : true;
+        return (this.f8779b.f() || this.f8779b.g() || this.f8779b.e()) ? false : true;
     }
 
     public void a() {
-        b bVar = this.f8477b;
+        b bVar = this.f8779b;
         if (bVar != null) {
             bVar.d();
         }
@@ -82,8 +82,8 @@ public class aj {
 
     /* loaded from: classes2.dex */
     public class b extends cc {
-        public b(URI uri, int i, Socket socket) throws InterruptedException {
-            super(uri, new cf(), null, i);
+        public b(URI uri, int i2, Socket socket) throws InterruptedException {
+            super(uri, new cf(), null, i2);
             a(socket);
         }
 
@@ -92,8 +92,8 @@ public class aj {
             if (bd.c().b()) {
                 bd.c().a("onOpen");
             }
-            if (aj.this.f8476a != null) {
-                aj.this.f8476a.a();
+            if (aj.this.f8778a != null) {
+                aj.this.f8778a.a();
             }
         }
 
@@ -124,18 +124,18 @@ public class aj {
             }
             if (str2.equals("deploy")) {
                 try {
-                    aj.this.f8476a.a(((JSONObject) jSONObject.get("data")).toString());
+                    aj.this.f8778a.a(((JSONObject) jSONObject.get("data")).toString());
                     return;
                 } catch (Exception unused3) {
                     return;
                 }
             }
-            int i = -1;
+            int i2 = -1;
             try {
-                i = ((Integer) ((JSONObject) jSONObject.get("data")).get("status")).intValue();
+                i2 = ((Integer) ((JSONObject) jSONObject.get("data")).get("status")).intValue();
             } catch (Exception unused4) {
             }
-            switch (i) {
+            switch (i2) {
                 case 801020:
                     bc.c().a("autotrace: connect established");
                     am.a().a(2);
@@ -151,8 +151,8 @@ public class aj {
                 case 801024:
                     bc.c().a("autotrace: connect confirm");
                     am.a().a(3);
-                    if (aj.this.f8476a != null) {
-                        aj.this.f8476a.b();
+                    if (aj.this.f8778a != null) {
+                        aj.this.f8778a.b();
                         return;
                     }
                     return;
@@ -160,7 +160,7 @@ public class aj {
         }
 
         @Override // com.baidu.mobstat.cc
-        public void a(int i, String str, boolean z) {
+        public void a(int i2, String str, boolean z) {
             if (bd.c().b()) {
                 bd c2 = bd.c();
                 c2.a("onClose,  reason:" + str + ", remote:" + z);
@@ -169,8 +169,8 @@ public class aj {
             c3.a("autotrace: connect closed, server:" + z + " reason:" + str);
             am a2 = am.a();
             a2.a(5, "remote:" + z + "|reason:" + str);
-            if (aj.this.f8476a != null) {
-                aj.this.f8476a.a(z);
+            if (aj.this.f8778a != null) {
+                aj.this.f8778a.a(z);
             }
         }
 
@@ -183,8 +183,8 @@ public class aj {
     }
 
     public void a(JSONObject jSONObject) throws NotYetConnectedException {
-        if (this.f8477b != null) {
-            this.f8477b.a(jSONObject.toString().getBytes());
+        if (this.f8779b != null) {
+            this.f8779b.a(jSONObject.toString().getBytes());
         }
     }
 }

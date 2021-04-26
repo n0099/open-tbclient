@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.index;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.AddTaskScores.AddTaskScoresReqIdl;
 import tbclient.AddTaskScores.DataReq;
 /* loaded from: classes3.dex */
@@ -35,8 +35,8 @@ public class GetTaskScoresRequestMessage extends NetMessage {
         return this.userId;
     }
 
-    public void setTaskId(int i) {
-        this.taskId = i;
+    public void setTaskId(int i2) {
+        this.taskId = i2;
     }
 
     public void setUserId(long j) {

@@ -2,24 +2,23 @@ package com.tencent.open.a;
 
 import android.text.format.Time;
 import android.util.Log;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.others.IStringUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f39602a = new h();
+    public static final h f37203a = new h();
 
-    public final String a(int i) {
-        return i != 1 ? i != 2 ? i != 4 ? i != 8 ? i != 16 ? i != 32 ? "-" : ExifInterface.GPS_MEASUREMENT_IN_PROGRESS : ExifInterface.LONGITUDE_EAST : ExifInterface.LONGITUDE_WEST : "I" : "D" : ExifInterface.GPS_MEASUREMENT_INTERRUPTED;
+    public final String a(int i2) {
+        return i2 != 1 ? i2 != 2 ? i2 != 4 ? i2 != 8 ? i2 != 16 ? i2 != 32 ? "-" : "A" : "E" : "W" : "I" : "D" : "V";
     }
 
-    public String a(int i, Thread thread, long j, String str, String str2, Throwable th) {
+    public String a(int i2, Thread thread, long j, String str, String str2, Throwable th) {
         long j2 = j % 1000;
         Time time = new Time();
         time.set(j);
         StringBuilder sb = new StringBuilder();
-        sb.append(a(i));
+        sb.append(a(i2));
         sb.append('/');
         sb.append(time.format("%Y-%m-%d %H:%M:%S"));
         sb.append(IStringUtil.EXTENSION_SEPARATOR);

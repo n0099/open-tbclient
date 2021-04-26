@@ -50,9 +50,9 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         @Nullable
         Drawable getThemeUpIndicator();
 
-        void setActionBarDescription(@StringRes int i);
+        void setActionBarDescription(@StringRes int i2);
 
-        void setActionBarUpIndicator(Drawable drawable, @StringRes int i);
+        void setActionBarUpIndicator(Drawable drawable, @StringRes int i2);
     }
 
     @Deprecated
@@ -108,9 +108,9 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
             copyBounds(this.mTmpRect);
             canvas.save();
             boolean z = ViewCompat.getLayoutDirection(ActionBarDrawerToggle.this.mActivity.getWindow().getDecorView()) == 1;
-            int i = z ? -1 : 1;
+            int i2 = z ? -1 : 1;
             float width = this.mTmpRect.width();
-            canvas.translate((-this.mOffset) * width * this.mPosition * i, 0.0f);
+            canvas.translate((-this.mOffset) * width * this.mPosition * i2, 0.0f);
             if (z && !this.mHasMirroring) {
                 canvas.translate(width, 0.0f);
                 canvas.scale(-1.0f, 1.0f);
@@ -134,8 +134,8 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
-    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, @DrawableRes int i, @StringRes int i2, @StringRes int i3) {
-        this(activity, drawerLayout, !assumeMaterial(activity), i, i2, i3);
+    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, @DrawableRes int i2, @StringRes int i3, @StringRes int i4) {
+        this(activity, drawerLayout, !assumeMaterial(activity), i2, i3, i4);
     }
 
     public static boolean assumeMaterial(Context context) {
@@ -166,14 +166,14 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         return drawable2;
     }
 
-    private void setActionBarDescription(int i) {
+    private void setActionBarDescription(int i2) {
         Delegate delegate = this.mActivityImpl;
         if (delegate != null) {
-            delegate.setActionBarDescription(i);
+            delegate.setActionBarDescription(i2);
         } else if (Build.VERSION.SDK_INT >= 18) {
             ActionBar actionBar = this.mActivity.getActionBar();
             if (actionBar != null) {
-                actionBar.setHomeActionContentDescription(i);
+                actionBar.setHomeActionContentDescription(i2);
             }
         } else {
             if (this.mSetIndicatorInfo == null) {
@@ -182,7 +182,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
             if (this.mSetIndicatorInfo.mSetHomeAsUpIndicator != null) {
                 try {
                     ActionBar actionBar2 = this.mActivity.getActionBar();
-                    this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i));
+                    this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i2));
                     actionBar2.setSubtitle(actionBar2.getSubtitle());
                 } catch (Exception e2) {
                     Log.w(TAG, "Couldn't set content description via JB-MR2 API", e2);
@@ -191,15 +191,15 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
-    private void setActionBarUpIndicator(Drawable drawable, int i) {
+    private void setActionBarUpIndicator(Drawable drawable, int i2) {
         Delegate delegate = this.mActivityImpl;
         if (delegate != null) {
-            delegate.setActionBarUpIndicator(drawable, i);
+            delegate.setActionBarUpIndicator(drawable, i2);
         } else if (Build.VERSION.SDK_INT >= 18) {
             ActionBar actionBar = this.mActivity.getActionBar();
             if (actionBar != null) {
                 actionBar.setHomeAsUpIndicator(drawable);
-                actionBar.setHomeActionContentDescription(i);
+                actionBar.setHomeActionContentDescription(i2);
             }
         } else {
             if (this.mSetIndicatorInfo == null) {
@@ -210,7 +210,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
                 try {
                     ActionBar actionBar2 = this.mActivity.getActionBar();
                     this.mSetIndicatorInfo.mSetHomeAsUpIndicator.invoke(actionBar2, drawable);
-                    this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i));
+                    this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i2));
                     return;
                 } catch (Exception e2) {
                     Log.w(TAG, "Couldn't set home-as-up indicator via JB-MR2 API", e2);
@@ -267,7 +267,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
-    public void onDrawerStateChanged(int i) {
+    public void onDrawerStateChanged(int i2) {
     }
 
     public boolean onOptionsItemSelected(MenuItem menuItem) {
@@ -318,7 +318,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
-    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, boolean z, @DrawableRes int i, @StringRes int i2, @StringRes int i3) {
+    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, boolean z, @DrawableRes int i2, @StringRes int i3, @StringRes int i4) {
         this.mDrawerIndicatorEnabled = true;
         this.mActivity = activity;
         if (activity instanceof DelegateProvider) {
@@ -327,17 +327,17 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
             this.mActivityImpl = null;
         }
         this.mDrawerLayout = drawerLayout;
-        this.mDrawerImageResource = i;
-        this.mOpenDrawerContentDescRes = i2;
-        this.mCloseDrawerContentDescRes = i3;
+        this.mDrawerImageResource = i2;
+        this.mOpenDrawerContentDescRes = i3;
+        this.mCloseDrawerContentDescRes = i4;
         this.mHomeAsUpIndicator = getThemeUpIndicator();
-        this.mDrawerImage = ContextCompat.getDrawable(activity, i);
+        this.mDrawerImage = ContextCompat.getDrawable(activity, i2);
         SlideDrawable slideDrawable = new SlideDrawable(this.mDrawerImage);
         this.mSlider = slideDrawable;
         slideDrawable.setOffset(z ? 0.33333334f : 0.0f);
     }
 
-    public void setHomeAsUpIndicator(int i) {
-        setHomeAsUpIndicator(i != 0 ? ContextCompat.getDrawable(this.mActivity, i) : null);
+    public void setHomeAsUpIndicator(int i2) {
+        setHomeAsUpIndicator(i2 != 0 ? ContextCompat.getDrawable(this.mActivity, i2) : null);
     }
 }

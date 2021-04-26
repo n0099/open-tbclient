@@ -8,14 +8,14 @@ public enum ArrowDirection {
     
     public int value;
 
-    ArrowDirection(int i) {
-        this.value = i;
+    ArrowDirection(int i2) {
+        this.value = i2;
     }
 
-    public static ArrowDirection fromInt(int i) {
+    public static ArrowDirection fromInt(int i2) {
         ArrowDirection[] values;
         for (ArrowDirection arrowDirection : values()) {
-            if (i == arrowDirection.getValue()) {
+            if (i2 == arrowDirection.getValue()) {
                 return arrowDirection;
             }
         }

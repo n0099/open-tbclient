@@ -20,10 +20,10 @@ import java.util.Enumeration;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38928a = "com.sdk.base.framework.f.d.a";
+    public static final String f36513a = "com.sdk.base.framework.f.d.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f38929b = Boolean.valueOf(f.f38904b);
+    public static final Boolean f36514b = Boolean.valueOf(f.f36488b);
 
     public static String a() {
         try {
@@ -62,8 +62,8 @@ public class a {
         String[] split;
         try {
             for (String str2 : new URL(str).getHost().split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) {
-                for (int i = 0; i < str2.length(); i++) {
-                    if (!Character.isDigit(str2.charAt(i))) {
+                for (int i2 = 0; i2 < str2.length(); i2++) {
+                    if (!Character.isDigit(str2.charAt(i2))) {
                         return false;
                     }
                 }
@@ -95,7 +95,7 @@ public class a {
     public static String b(Context context) {
         String defaultUserAgent;
         int length;
-        int i;
+        int i2;
         if (Build.VERSION.SDK_INT >= 17) {
             try {
                 defaultUserAgent = WebSettings.getDefaultUserAgent(context);
@@ -103,8 +103,8 @@ public class a {
             }
             StringBuilder sb = new StringBuilder();
             length = defaultUserAgent.length();
-            for (i = 0; i < length; i++) {
-                char charAt = defaultUserAgent.charAt(i);
+            for (i2 = 0; i2 < length; i2++) {
+                char charAt = defaultUserAgent.charAt(i2);
                 if (charAt <= 31 || charAt >= 127) {
                     sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
                 } else {
@@ -116,7 +116,7 @@ public class a {
         defaultUserAgent = System.getProperty("http.agent");
         StringBuilder sb2 = new StringBuilder();
         length = defaultUserAgent.length();
-        while (i < length) {
+        while (i2 < length) {
         }
         return sb2.toString();
     }
@@ -132,7 +132,7 @@ public class a {
                     }
                 }
             } catch (Throwable th) {
-                c.b(f38928a, th.getMessage(), f38929b);
+                c.b(f36513a, th.getMessage(), f36514b);
             }
         }
         return null;

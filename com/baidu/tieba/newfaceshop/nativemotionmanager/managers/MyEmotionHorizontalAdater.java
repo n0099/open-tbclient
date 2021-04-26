@@ -9,41 +9,43 @@ import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.horizonalList.widget.AbsHListView;
 import com.baidu.tieba.horizonalList.widget.HListView;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.view.EmotionManageHorizontalView;
-import d.b.j0.y1.h.d.a;
+import d.a.j0.y1.h.d.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MyEmotionHorizontalAdater extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<EmotionPackageData> f18971e;
+    public List<EmotionPackageData> f19418e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<a.C1749a> f18972f;
+    public List<a.C1686a> f19419f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext f18973g;
+    public TbPageContext f19420g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f18974h;
-    public int i;
+    public int f19421h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f19422i;
 
     /* loaded from: classes3.dex */
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public EmotionManageHorizontalView f18975a;
+        public EmotionManageHorizontalView f19423a;
 
         public EmotionGridViewHolder(View view) {
             super(view);
-            this.f18975a = (EmotionManageHorizontalView) view;
+            this.f19423a = (EmotionManageHorizontalView) view;
         }
 
-        public void c(EmotionPackageData emotionPackageData, int i) {
-            EmotionManageHorizontalView emotionManageHorizontalView = this.f18975a;
+        public void c(EmotionPackageData emotionPackageData, int i2) {
+            EmotionManageHorizontalView emotionManageHorizontalView = this.f19423a;
             if (emotionManageHorizontalView == null || emotionPackageData == null) {
                 return;
             }
-            emotionManageHorizontalView.setData(emotionPackageData, i);
+            emotionManageHorizontalView.setData(emotionPackageData, i2);
         }
     }
 
@@ -51,48 +53,48 @@ public class MyEmotionHorizontalAdater extends BaseAdapter {
     public class a implements AbsHListView.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f18976a;
+        public final /* synthetic */ int f19424a;
 
-        public a(int i) {
-            this.f18976a = i;
+        public a(int i2) {
+            this.f19424a = i2;
         }
 
         @Override // com.baidu.tieba.horizonalList.widget.AbsHListView.i
-        public void a(AbsHListView absHListView, int i, int i2, int i3) {
-            a.C1749a c1749a;
-            int i4 = this.f18976a;
-            if (i4 < 0 || i4 >= MyEmotionHorizontalAdater.this.f18972f.size() || (c1749a = (a.C1749a) MyEmotionHorizontalAdater.this.f18972f.get(this.f18976a)) == null) {
+        public void a(AbsHListView absHListView, int i2, int i3, int i4) {
+            a.C1686a c1686a;
+            int i5 = this.f19424a;
+            if (i5 < 0 || i5 >= MyEmotionHorizontalAdater.this.f19419f.size() || (c1686a = (a.C1686a) MyEmotionHorizontalAdater.this.f19419f.get(this.f19424a)) == null) {
                 return;
             }
             int left = absHListView.getChildCount() > 0 ? absHListView.getChildAt(0).getLeft() : 0;
-            c1749a.f64581b = i;
-            c1749a.f64582c = left;
+            c1686a.f62861b = i2;
+            c1686a.f62862c = left;
         }
 
         @Override // com.baidu.tieba.horizonalList.widget.AbsHListView.i
-        public void b(AbsHListView absHListView, int i) {
+        public void b(AbsHListView absHListView, int i2) {
         }
     }
 
-    public MyEmotionHorizontalAdater(List<EmotionPackageData> list, List<a.C1749a> list2, TbPageContext tbPageContext) {
-        this.f18971e = list;
-        this.f18972f = list2;
-        this.f18973g = tbPageContext;
+    public MyEmotionHorizontalAdater(List<EmotionPackageData> list, List<a.C1686a> list2, TbPageContext tbPageContext) {
+        this.f19418e = list;
+        this.f19419f = list2;
+        this.f19420g = tbPageContext;
         c();
     }
 
     public int b() {
-        return this.f18974h;
+        return this.f19421h;
     }
 
     public final void c() {
-        this.f18974h = 0;
-        this.i = 0;
-        for (EmotionPackageData emotionPackageData : this.f18971e) {
+        this.f19421h = 0;
+        this.f19422i = 0;
+        for (EmotionPackageData emotionPackageData : this.f19418e) {
             if (emotionPackageData.ishasdownload) {
-                this.f18974h++;
+                this.f19421h++;
             } else {
-                this.i++;
+                this.f19422i++;
             }
         }
     }
@@ -103,24 +105,24 @@ public class MyEmotionHorizontalAdater extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f18971e.size();
+        return this.f19418e.size();
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return this.f18971e.get(i);
+    public Object getItem(int i2) {
+        return this.f19418e.get(i2);
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
+    public long getItemId(int i2) {
+        return i2;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i2, View view, ViewGroup viewGroup) {
         EmotionGridViewHolder emotionGridViewHolder;
         if (view == null) {
-            view = new EmotionManageHorizontalView(this.f18973g);
+            view = new EmotionManageHorizontalView(this.f19420g);
             view.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             emotionGridViewHolder = new EmotionGridViewHolder(view);
             view.setTag(emotionGridViewHolder);
@@ -130,13 +132,13 @@ public class MyEmotionHorizontalAdater extends BaseAdapter {
         if (emotionGridViewHolder == null) {
             emotionGridViewHolder = (EmotionGridViewHolder) view.getTag();
         }
-        emotionGridViewHolder.c(this.f18971e.get(i), this.i);
-        HListView listView = emotionGridViewHolder.f18975a.getListView();
-        a.C1749a c1749a = this.f18972f.get(i);
-        if (c1749a != null) {
-            listView.setSelectionFromLeft(c1749a.f64581b, c1749a.f64582c);
+        emotionGridViewHolder.c(this.f19418e.get(i2), this.f19422i);
+        HListView listView = emotionGridViewHolder.f19423a.getListView();
+        a.C1686a c1686a = this.f19419f.get(i2);
+        if (c1686a != null) {
+            listView.setSelectionFromLeft(c1686a.f62861b, c1686a.f62862c);
         }
-        listView.setOnScrollListener(new a(i));
+        listView.setOnScrollListener(new a(i2));
         return view;
     }
 }

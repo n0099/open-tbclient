@@ -12,8 +12,8 @@ import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
-import d.b.c.e.p.l;
-import d.b.j0.u3.c;
+import d.a.c.e.p.l;
+import d.a.j0.u3.c;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class FloorImageTextViewNew extends AbsFloorImageTextView {
@@ -52,7 +52,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
 
     @Override // com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView
     public void f(ImageUrlData imageUrlData) {
-        this.f13390e = imageUrlData;
+        this.f13362e = imageUrlData;
         JSONArray jSONArray = null;
         if (imageUrlData != null) {
             try {
@@ -81,9 +81,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         }
         if (((Integer) pair.second).intValue() > 2) {
             if (i()) {
-                this.p = s + AbsFloorImageTextView.f13389h + AbsFloorImageTextView.i;
+                this.p = s + AbsFloorImageTextView.f13360h + AbsFloorImageTextView.f13361i;
             } else {
-                this.p = r + AbsFloorImageTextView.f13389h + AbsFloorImageTextView.i;
+                this.p = r + AbsFloorImageTextView.f13360h + AbsFloorImageTextView.f13361i;
             }
         } else {
             this.p = -2;
@@ -101,21 +101,21 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         this.n.S = true;
         EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.scrollview);
         this.o = editorScrollView;
-        editorScrollView.setPadding(0, l.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.i);
-        this.o.setOnTouchListener(this.f13392g);
+        editorScrollView.setPadding(0, l.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.f13361i);
+        this.o.setOnTouchListener(this.f13364g);
         ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(TbadkApplication.getInst(), R.dimen.tbds174);
         setVisibility(8);
     }
 
     public final boolean i() {
         float h2 = l.h(getContext());
-        int i = l.i(getContext());
+        int i2 = l.i(getContext());
         int k = l.k(getContext());
         double d2 = h2;
-        int i2 = (d2 > 3.0d ? 1 : (d2 == 3.0d ? 0 : -1));
-        if (i2 != 0 || k < 1920 || i < 2049) {
-            if (i2 != 0 || k < 1080 || i < 2280) {
-                return d2 == 3.5d && i >= 2434;
+        int i3 = (d2 > 3.0d ? 1 : (d2 == 3.0d ? 0 : -1));
+        if (i3 != 0 || k < 1920 || i2 < 2049) {
+            if (i3 != 0 || k < 1080 || i2 < 2280) {
+                return d2 == 3.5d && i2 >= 2434;
             }
             return true;
         }

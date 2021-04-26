@@ -3,7 +3,7 @@ package com.davemorrissey.labs.subscaleview;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.net.Uri;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ImageSource {
     public static final String ASSET_SCHEME = "file:///android_asset/";
     public static final String FILE_SCHEME = "file:///";
@@ -38,8 +38,8 @@ public final class ImageSource {
         throw new NullPointerException("Bitmap must not be null");
     }
 
-    public static ImageSource resource(int i) {
-        return new ImageSource(i);
+    public static ImageSource resource(int i2) {
+        return new ImageSource(i2);
     }
 
     private void setInvariants() {
@@ -64,10 +64,10 @@ public final class ImageSource {
         throw new NullPointerException("Uri must not be null");
     }
 
-    public ImageSource dimensions(int i, int i2) {
+    public ImageSource dimensions(int i2, int i3) {
         if (this.bitmap == null) {
-            this.sWidth = i;
-            this.sHeight = i2;
+            this.sWidth = i2;
+            this.sHeight = i3;
         }
         setInvariants();
         return this;
@@ -134,10 +134,10 @@ public final class ImageSource {
         this.tile = true;
     }
 
-    public ImageSource(int i) {
+    public ImageSource(int i2) {
         this.bitmap = null;
         this.uri = null;
-        this.resource = Integer.valueOf(i);
+        this.resource = Integer.valueOf(i2);
         this.tile = true;
     }
 }

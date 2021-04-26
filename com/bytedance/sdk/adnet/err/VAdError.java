@@ -1,6 +1,6 @@
 package com.bytedance.sdk.adnet.err;
 
-import d.c.c.b.d.k;
+import d.b.c.b.d.k;
 /* loaded from: classes5.dex */
 public class VAdError extends Exception {
     public static final int CACHE_DISPATCH_FAIL_CODE = 607;
@@ -17,10 +17,10 @@ public class VAdError extends Exception {
     public static final int UNSUPPORT_ENCODE_FAIL_CODE = 604;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f26931a;
+    public int f27747a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f26932b;
+    public long f27748b;
     public final k networkResponse;
 
     public VAdError(k kVar) {
@@ -28,41 +28,41 @@ public class VAdError extends Exception {
     }
 
     public int getErrorCode() {
-        return this.f26931a;
+        return this.f27747a;
     }
 
     public long getNetworkTimeMs() {
-        return this.f26932b;
+        return this.f27748b;
     }
 
-    public void setErrorCode(int i) {
-        this.f26931a = i;
+    public void setErrorCode(int i2) {
+        this.f27747a = i2;
     }
 
     public void setNetworkTimeMs(long j) {
-        this.f26932b = j;
+        this.f27748b = j;
     }
 
-    public VAdError(int i) {
+    public VAdError(int i2) {
         this.networkResponse = null;
-        this.f26931a = i;
+        this.f27747a = i2;
     }
 
-    public VAdError(String str, int i) {
+    public VAdError(String str, int i2) {
         super(str);
         this.networkResponse = null;
-        this.f26931a = i;
+        this.f27747a = i2;
     }
 
-    public VAdError(String str, Throwable th, int i) {
+    public VAdError(String str, Throwable th, int i2) {
         super(str, th);
         this.networkResponse = null;
-        this.f26931a = i;
+        this.f27747a = i2;
     }
 
-    public VAdError(Throwable th, int i) {
+    public VAdError(Throwable th, int i2) {
         super(th);
         this.networkResponse = null;
-        this.f26931a = i;
+        this.f27747a = i2;
     }
 }

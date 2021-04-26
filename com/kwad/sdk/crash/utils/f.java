@@ -52,15 +52,15 @@ import org.json.JSONObject;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final File f34876a = new File("/proc/self/fd");
+    public static final File f33843a = new File("/proc/self/fd");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f34877b = new File("/proc/self/task");
+    public static final File f33844b = new File("/proc/self/task");
 
     public static int a() {
         File[] listFiles;
-        Objects.requireNonNull(f34876a);
-        if (f34876a.exists() && f34876a.isDirectory() && (listFiles = f34876a.listFiles()) != null) {
+        Objects.requireNonNull(f33843a);
+        if (f33843a.exists() && f33843a.isDirectory() && (listFiles = f33843a.listFiles()) != null) {
             return listFiles.length;
         }
         return 0;
@@ -133,13 +133,13 @@ public final class f {
         return a(stackTraceElementArr, 0);
     }
 
-    public static String a(StackTraceElement[] stackTraceElementArr, int i) {
+    public static String a(StackTraceElement[] stackTraceElementArr, int i2) {
         if (stackTraceElementArr == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         for (StackTraceElement stackTraceElement : stackTraceElementArr) {
-            for (int i2 = 0; i2 < i; i2++) {
+            for (int i3 = 0; i3 < i2; i3++) {
                 sb.append(TrackUI.SEPERATOR);
             }
             sb.append("at ");
@@ -154,13 +154,13 @@ public final class f {
         exceptionMessage.mVersionCode = com.kwad.sdk.crash.d.a().e();
     }
 
-    public static void a(ExceptionMessage exceptionMessage, int i) {
+    public static void a(ExceptionMessage exceptionMessage, int i2) {
         com.kwad.sdk.crash.f g2 = com.kwad.sdk.crash.d.a().g();
         if (g2 == null) {
             com.kwad.sdk.core.d.a.a("tag", "getter is null!");
             return;
         }
-        com.kwad.sdk.crash.model.message.a a2 = g2.a(i);
+        com.kwad.sdk.crash.model.message.a a2 = g2.a(i2);
         if (a2 != null) {
             exceptionMessage.mCustomMsg = a2.toString();
         }
@@ -183,7 +183,7 @@ public final class f {
         exceptionMessage.mCurrentTimeStamp = System.currentTimeMillis();
         exceptionMessage.mUsageTimeMills = com.kwad.sdk.crash.d.a().h();
         exceptionMessage.mAbi = AbiUtil.b() ? "arm64" : "arm";
-        exceptionMessage.mVersionConflict = TextUtils.equals(exceptionMessage.mVersionCode, "3.3.9");
+        exceptionMessage.mVersionConflict = TextUtils.equals(exceptionMessage.mVersionCode, "3.3.8.3");
         exceptionMessage.mBuildConfigInfo = b(context);
         a(exceptionMessage);
         b(exceptionMessage, context);
@@ -195,11 +195,15 @@ public final class f {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             diskInfo.mDataTotalGB = BigDecimal.valueOf(((float) (statFs.getTotalBytes() >> 20)) / 1024.0f).setScale(2, 4).floatValue();
-            diskInfo.mDataAvailableGB = BigDecimal.valueOf(((float) (statFs.getAvailableBytes() >> 20)) / 1024.0f).setScale(2, 4).floatValue();
+            if (!com.kwad.sdk.core.config.c.a(1024L)) {
+                diskInfo.mDataAvailableGB = BigDecimal.valueOf(((float) (statFs.getAvailableBytes() >> 20)) / 1024.0f).setScale(2, 4).floatValue();
+            }
             if ("mounted".equals(Environment.getExternalStorageState()) && (externalStorageDirectory = Environment.getExternalStorageDirectory()) != null) {
                 StatFs statFs2 = new StatFs(externalStorageDirectory.getPath());
                 diskInfo.mExternalStorageTotalGB = BigDecimal.valueOf(((float) (statFs2.getTotalBytes() >> 20)) / 1024.0f).setScale(2, 4).floatValue();
-                diskInfo.mExternalStorageAvailableGB = BigDecimal.valueOf(((float) (statFs2.getAvailableBytes() >> 20)) / 1024.0f).setScale(2, 4).floatValue();
+                if (!com.kwad.sdk.core.config.c.a(1024L)) {
+                    diskInfo.mExternalStorageAvailableGB = BigDecimal.valueOf(((float) (statFs2.getAvailableBytes() >> 20)) / 1024.0f).setScale(2, 4).floatValue();
+                }
             }
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
@@ -211,17 +215,17 @@ public final class f {
         List<String> list;
         String canonicalPath;
         SystemUtil.a c2 = SystemUtil.c();
-        c2.f34872e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        c2.f34868a = SystemUtil.a();
+        c2.f33839e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        c2.f33835a = SystemUtil.a();
         long pss = Debug.getPss();
-        c2.f34871d = pss;
-        memoryInfo.mTotalMB = (int) (c2.f34868a / 1048576);
-        memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f34817a / 1048576.0d);
-        memoryInfo.mJavaHeapMB = (int) (c2.f34872e / 1048576);
-        memoryInfo.mVssMB = (int) (c2.f34869b / 1024);
-        memoryInfo.mRssMB = (int) (c2.f34870c / 1024);
+        c2.f33838d = pss;
+        memoryInfo.mTotalMB = (int) (c2.f33835a / 1048576);
+        memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f33783a / 1048576.0d);
+        memoryInfo.mJavaHeapMB = (int) (c2.f33839e / 1048576);
+        memoryInfo.mVssMB = (int) (c2.f33836b / 1024);
+        memoryInfo.mRssMB = (int) (c2.f33837c / 1024);
         memoryInfo.mPssMB = (int) (pss / 1024);
-        memoryInfo.mThreadsCount = c2.f34873f;
+        memoryInfo.mThreadsCount = c2.f33840f;
         memoryInfo.mFdCount = a();
         if (context != null) {
             memoryInfo.mAvailableMB = (int) (SystemUtil.b(context) / 1048576);
@@ -230,7 +234,7 @@ public final class f {
         if (memoryInfo.mFdCount > 800) {
             exceptionMessage.mCrashType = exceptionMessage.getTypeFdOOM();
             exceptionMessage.mFdOverflow = "True";
-            File[] listFiles = f34876a.listFiles();
+            File[] listFiles = f33843a.listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
                     try {
@@ -250,7 +254,7 @@ public final class f {
             }
         }
         exceptionMessage.mThreadOverflow = "False";
-        if (c2.f34873f > 400) {
+        if (c2.f33840f > 400) {
             exceptionMessage.mCrashType = exceptionMessage.getTypeThreadOOM();
             exceptionMessage.mThreadOverflow = "True";
             a(memoryInfo);
@@ -267,7 +271,7 @@ public final class f {
     }
 
     public static void a(MemoryInfo memoryInfo) {
-        File[] listFiles = f34877b.listFiles();
+        File[] listFiles = f33844b.listFiles();
         if (listFiles == null) {
             return;
         }
@@ -428,7 +432,7 @@ public final class f {
     public static String b(Context context) {
         StringBuilder sb = new StringBuilder();
         try {
-            sb.append("BuildConfig Version Name: 3.3.9\n");
+            sb.append("BuildConfig Version Name: 3.3.8.3\n");
             sb.append("PackageInfo CodePath: " + context.getPackageCodePath() + "\n");
             sb.append("PackageInfo ResPath: " + context.getPackageResourcePath() + "\n");
             sb.append("DexPath: " + c(context) + "\n");
@@ -451,12 +455,12 @@ public final class f {
             com.kwad.sdk.core.d.a.b(e2);
             absolutePath = parentFile.getAbsolutePath();
         }
-        if (com.kwad.sdk.crash.c.f34818b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f34819c.matcher(absolutePath).matches()) {
+        if (com.kwad.sdk.crash.c.f33784b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f33785c.matcher(absolutePath).matches()) {
             exceptionMessage.mVirtualApp = context.getPackageName();
             return;
         }
-        Matcher matcher = com.kwad.sdk.crash.c.f34820d.matcher(absolutePath);
-        Matcher matcher2 = com.kwad.sdk.crash.c.f34821e.matcher(absolutePath);
+        Matcher matcher = com.kwad.sdk.crash.c.f33786d.matcher(absolutePath);
+        Matcher matcher2 = com.kwad.sdk.crash.c.f33787e.matcher(absolutePath);
         if (matcher.matches()) {
             group = matcher.group(1);
         } else if (!matcher2.matches()) {
@@ -502,7 +506,7 @@ public final class f {
             String obj = classLoader.toString();
             StringBuilder sb2 = new StringBuilder();
             sb2.append("ClassLoader ");
-            int i = 0;
+            int i2 = 0;
             sb2.append(0);
             sb2.append(ZeusCrashHandler.NAME_SEPERATOR);
             sb2.append(obj);
@@ -512,10 +516,10 @@ public final class f {
                     break;
                 }
                 classLoader = classLoader.getParent();
-                i++;
+                i2++;
                 sb2 = new StringBuilder();
                 sb2.append("\nClassLoader ");
-                sb2.append(i);
+                sb2.append(i2);
                 sb2.append(ZeusCrashHandler.NAME_SEPERATOR);
                 sb2.append(classLoader.toString());
             }

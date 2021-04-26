@@ -13,10 +13,10 @@ import android.view.animation.TranslateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.Scroller;
 import com.baidu.tieba.R;
-import d.b.j0.d3.k0.d;
+import d.a.j0.d3.k0.d;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.c, View.OnLongClickListener {
+public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.c, View.OnLongClickListener {
     public boolean A;
     public View B;
     public int C;
@@ -30,17 +30,19 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
     public Runnable K;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseAdapter f21045e;
+    public BaseAdapter f21629e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21046f;
+    public View f21630f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21047g;
+    public int f21631g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.j0.d3.k0.a f21048h;
-    public int i;
+    public d.a.j0.d3.k0.a f21632h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f21633i;
     public int j;
     public int k;
     public int l;
@@ -67,18 +69,18 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
         @Override // java.lang.Runnable
         public void run() {
             int max;
-            if (DragHorizonScrollView.this.i == 0) {
+            if (DragHorizonScrollView.this.f21633i == 0) {
                 DragHorizonScrollView.this.p.forceFinished(true);
                 return;
             }
             Scroller scroller = DragHorizonScrollView.this.p;
             boolean computeScrollOffset = scroller.computeScrollOffset();
             int currX = scroller.getCurrX();
-            int i = DragHorizonScrollView.this.C - currX;
-            if (i > 0) {
-                max = Math.min(((DragHorizonScrollView.this.getWidth() - DragHorizonScrollView.this.getPaddingLeft()) - DragHorizonScrollView.this.getPaddingRight()) - 1, i);
+            int i2 = DragHorizonScrollView.this.C - currX;
+            if (i2 > 0) {
+                max = Math.min(((DragHorizonScrollView.this.getWidth() - DragHorizonScrollView.this.getPaddingLeft()) - DragHorizonScrollView.this.getPaddingRight()) - 1, i2);
             } else {
-                max = Math.max(-(((DragHorizonScrollView.this.getWidth() - DragHorizonScrollView.this.getPaddingLeft()) - DragHorizonScrollView.this.getPaddingRight()) - 1), i);
+                max = Math.max(-(((DragHorizonScrollView.this.getWidth() - DragHorizonScrollView.this.getPaddingLeft()) - DragHorizonScrollView.this.getPaddingRight()) - 1), i2);
             }
             DragHorizonScrollView.this.w(-max);
             if (computeScrollOffset) {
@@ -99,9 +101,9 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
         public void run() {
             DragHorizonScrollView.this.F = false;
             int childCount = DragHorizonScrollView.this.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                if (DragHorizonScrollView.this.getChildAt(i) != null) {
-                    DragHorizonScrollView.this.getChildAt(i).clearAnimation();
+            for (int i2 = 0; i2 < childCount; i2++) {
+                if (DragHorizonScrollView.this.getChildAt(i2) != null) {
+                    DragHorizonScrollView.this.getChildAt(i2).clearAnimation();
                 }
             }
             if (DragHorizonScrollView.this.o()) {
@@ -120,7 +122,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
 
     /* loaded from: classes5.dex */
     public interface c {
-        void a(int i, int i2);
+        void a(int i2, int i3);
     }
 
     public DragHorizonScrollView(Context context) {
@@ -134,39 +136,39 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
         r(context);
     }
 
-    public final void A(int i, int i2) {
-        if (i == i2) {
+    public final void A(int i2, int i3) {
+        if (i2 == i3) {
             return;
         }
-        View childAt = getChildAt(i);
-        View childAt2 = getChildAt(i2);
+        View childAt = getChildAt(i2);
+        View childAt2 = getChildAt(i3);
         if (childAt == null || childAt2 == null) {
             return;
         }
-        if (i < i2) {
-            detachViewFromParent(i);
-            int i3 = -childAt.getMeasuredWidth();
+        if (i2 < i3) {
+            detachViewFromParent(i2);
+            int i4 = -childAt.getMeasuredWidth();
             int left = childAt2.getLeft() - childAt.getLeft();
-            while (i < i2) {
-                View childAt3 = getChildAt(i);
+            while (i2 < i3) {
+                View childAt3 = getChildAt(i2);
                 if (childAt3 != null) {
-                    childAt3.offsetLeftAndRight(i3);
-                    TranslateAnimation translateAnimation = new TranslateAnimation(-i3, 0.0f, 0.0f, 0.0f);
+                    childAt3.offsetLeftAndRight(i4);
+                    TranslateAnimation translateAnimation = new TranslateAnimation(-i4, 0.0f, 0.0f, 0.0f);
                     translateAnimation.setDuration(300L);
                     translateAnimation.setFillAfter(true);
                     childAt3.startAnimation(translateAnimation);
                 }
-                i++;
+                i2++;
             }
-            attachViewToParent(childAt, i2, childAt.getLayoutParams());
+            attachViewToParent(childAt, i3, childAt.getLayoutParams());
             childAt.offsetLeftAndRight(left);
             return;
         }
-        detachViewFromParent(i);
+        detachViewFromParent(i2);
         int measuredWidth = childAt.getMeasuredWidth();
         int left2 = childAt2.getLeft() - childAt.getLeft();
-        for (int i4 = i2; i4 < i; i4++) {
-            View childAt4 = getChildAt(i4);
+        for (int i5 = i3; i5 < i2; i5++) {
+            View childAt4 = getChildAt(i5);
             if (childAt4 != null) {
                 childAt4.offsetLeftAndRight(measuredWidth);
                 TranslateAnimation translateAnimation2 = new TranslateAnimation(-measuredWidth, 0.0f, 0.0f, 0.0f);
@@ -175,29 +177,29 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
                 childAt4.startAnimation(translateAnimation2);
             }
         }
-        attachViewToParent(childAt, i2, childAt.getLayoutParams());
+        attachViewToParent(childAt, i3, childAt.getLayoutParams());
         childAt.offsetLeftAndRight(left2);
     }
 
-    @Override // d.b.j0.d3.k0.d
+    @Override // d.a.j0.d3.k0.d
     public void a(Rect rect) {
         View childAt;
         int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            if (i != this.f21047g && (childAt = getChildAt(i)) != this.B) {
+        for (int i2 = 0; i2 < childCount; i2++) {
+            if (i2 != this.f21631g && (childAt = getChildAt(i2)) != this.B) {
                 childAt.getHitRect(this.q);
                 if (this.q.contains((rect.left + rect.right) / 2, (rect.top + rect.bottom) / 2)) {
-                    int i2 = this.f21047g;
-                    A(i2, i);
-                    z(i2, i);
-                    this.f21047g = i;
+                    int i3 = this.f21631g;
+                    A(i3, i2);
+                    z(i3, i2);
+                    this.f21631g = i2;
                     return;
                 }
             }
         }
     }
 
-    @Override // d.b.j0.d3.k0.d
+    @Override // d.a.j0.d3.k0.d
     public void b() {
         if (this.u) {
             return;
@@ -208,7 +210,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
         invalidate();
     }
 
-    @Override // d.b.j0.d3.k0.d
+    @Override // d.a.j0.d3.k0.d
     public void c() {
         if (!this.o.isFinished()) {
             this.o.forceFinished(true);
@@ -219,11 +221,11 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
 
     @Override // android.view.View
     public void computeScroll() {
-        d.b.j0.d3.k0.a aVar;
+        d.a.j0.d3.k0.a aVar;
         if (this.o.computeScrollOffset()) {
             scrollTo(this.o.getCurrX(), 0);
             postInvalidateDelayed(16L);
-            if ((this.u || this.v) && (aVar = this.f21048h) != null) {
+            if ((this.u || this.v) && (aVar = this.f21632h) != null) {
                 aVar.i();
                 return;
             }
@@ -233,7 +235,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
         this.v = false;
     }
 
-    @Override // d.b.j0.d3.k0.d
+    @Override // d.a.j0.d3.k0.d
     public void d() {
         if (this.v) {
             return;
@@ -246,13 +248,13 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
         invalidate();
     }
 
-    @Override // d.b.j0.d3.k0.d
+    @Override // d.a.j0.d3.k0.d
     public void e() {
         y();
     }
 
     public BaseAdapter getAdapter() {
-        return this.f21045e;
+        return this.f21629e;
     }
 
     public int getMaxItemNum() {
@@ -314,10 +316,10 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         int childCount = getChildCount();
-        for (int i5 = 0; i5 < childCount; i5++) {
-            View childAt = getChildAt(i5);
+        for (int i6 = 0; i6 < childCount; i6++) {
+            View childAt = getChildAt(i6);
             if (childAt != this.B) {
                 this.E.add(childAt);
             }
@@ -326,7 +328,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
         int paddingLeft = getPaddingLeft() + this.x;
         if (this.I) {
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds32);
-            if (this.i > 0) {
+            if (this.f21633i > 0) {
                 View v = v(0);
                 t(v, this.j, this.k);
                 paddingLeft = ((getMeasuredWidth() - v.getMeasuredWidth()) + dimensionPixelSize) / 2;
@@ -343,8 +345,8 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
                 paddingLeft = ((getMeasuredWidth() - this.B.getMeasuredWidth()) + dimensionPixelSize) / 2;
             }
         }
-        for (int i6 = 0; i6 < this.i; i6++) {
-            View v2 = v(i6);
+        for (int i7 = 0; i7 < this.f21633i; i7++) {
+            View v2 = v(i7);
             if (v2 != null && v2.getVisibility() != 8) {
                 ViewGroup.LayoutParams layoutParams2 = v2.getLayoutParams();
                 if (layoutParams2 == null) {
@@ -375,7 +377,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
             int paddingTop2 = getPaddingTop();
             int measuredWidth4 = this.B.getMeasuredWidth() + paddingLeft;
             this.B.layout(paddingLeft, paddingTop2, measuredWidth4, this.B.getMeasuredHeight() + paddingTop2);
-            if (this.i == this.z) {
+            if (this.f21633i == this.z) {
                 paddingLeft = measuredWidth4 - this.B.getMeasuredWidth();
                 this.D = false;
             } else {
@@ -400,58 +402,58 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
         }
         this.H = true;
         int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            if (getChildAt(i) != null) {
-                getChildAt(i).clearAnimation();
+        for (int i2 = 0; i2 < childCount; i2++) {
+            if (getChildAt(i2) != null) {
+                getChildAt(i2).clearAnimation();
             }
         }
-        this.f21048h.h(view, null);
-        this.f21046f = view;
-        this.f21047g = indexOfChild(view);
+        this.f21632h.h(view, null);
+        this.f21630f = view;
+        this.f21631g = indexOfChild(view);
         return true;
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        int i3;
+    public void onMeasure(int i2, int i3) {
         int i4;
-        int mode = View.MeasureSpec.getMode(i);
-        int mode2 = View.MeasureSpec.getMode(i2);
-        int size = View.MeasureSpec.getSize(i);
-        int size2 = View.MeasureSpec.getSize(i2);
-        BaseAdapter baseAdapter = this.f21045e;
+        int i5;
+        int mode = View.MeasureSpec.getMode(i2);
+        int mode2 = View.MeasureSpec.getMode(i3);
+        int size = View.MeasureSpec.getSize(i2);
+        int size2 = View.MeasureSpec.getSize(i3);
+        BaseAdapter baseAdapter = this.f21629e;
         int count = baseAdapter == null ? 0 : baseAdapter.getCount();
-        this.i = count;
+        this.f21633i = count;
         int min = Math.min(this.z, count);
-        this.i = min;
+        this.f21633i = min;
         if (min <= 0 || !(mode == 0 || mode2 == 0)) {
-            i3 = 0;
             i4 = 0;
+            i5 = 0;
         } else {
             View v = v(0);
-            t(v, i, i2);
-            i4 = v.getMeasuredWidth();
-            i3 = v.getMeasuredHeight();
+            t(v, i2, i3);
+            i5 = v.getMeasuredWidth();
+            i4 = v.getMeasuredHeight();
         }
         if (mode == 0) {
-            size = getPaddingLeft() + getPaddingRight() + i4;
+            size = getPaddingLeft() + getPaddingRight() + i5;
         }
         if (mode2 == 0) {
-            size2 = getPaddingTop() + getPaddingBottom() + i3;
+            size2 = getPaddingTop() + getPaddingBottom() + i4;
         }
         if (mode == Integer.MIN_VALUE || mode2 == Integer.MIN_VALUE) {
-            int[] u = u(0, -1, i, i2);
+            int[] u = u(0, -1, i2, i3);
             if (mode == Integer.MIN_VALUE) {
-                size = ViewGroup.resolveSize(u[0], i);
+                size = ViewGroup.resolveSize(u[0], i2);
                 this.G = true;
             }
             if (mode2 == Integer.MIN_VALUE) {
-                size2 = ViewGroup.resolveSize(u[1], i2);
+                size2 = ViewGroup.resolveSize(u[1], i3);
             }
         }
         setMeasuredDimension(size, size2);
-        this.j = i;
-        this.k = i2;
+        this.j = i2;
+        this.k = i3;
     }
 
     @Override // android.view.View
@@ -475,10 +477,10 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
                 int xVelocity = (int) velocityTracker.getXVelocity();
                 if (Math.abs(xVelocity) > this.s) {
                     removeCallbacks(this.K);
-                    int i = -xVelocity;
-                    int i2 = i < 0 ? Integer.MAX_VALUE : 0;
-                    this.C = i2;
-                    this.p.fling(i2, 0, i, 0, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
+                    int i2 = -xVelocity;
+                    int i3 = i2 < 0 ? Integer.MAX_VALUE : 0;
+                    this.C = i3;
+                    this.p.fling(i3, 0, i2, 0, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
                     post(this.K);
                 }
                 VelocityTracker velocityTracker2 = this.r;
@@ -521,13 +523,13 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
             this.l -= measuredWidth;
             this.D = true;
         }
-        this.i--;
+        this.f21633i--;
         removeViewInLayout(view);
         this.E.add(view);
         int childCount = getChildCount();
         if (childCount > 1) {
-            for (int i = indexOfChild; i < childCount; i++) {
-                View childAt = getChildAt(i);
+            for (int i2 = indexOfChild; i2 < childCount; i2++) {
+                View childAt = getChildAt(i2);
                 if (childAt != null) {
                     childAt.offsetLeftAndRight(-measuredWidth);
                     TranslateAnimation translateAnimation = new TranslateAnimation(measuredWidth, 0.0f, 0.0f, 0.0f);
@@ -550,8 +552,8 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
     }
 
     public final void r(Context context) {
-        this.f21046f = null;
-        this.f21047g = -1;
+        this.f21630f = null;
+        this.f21631g = -1;
         ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
         this.n = viewConfiguration.getScaledTouchSlop();
         this.s = viewConfiguration.getScaledMinimumFlingVelocity();
@@ -567,7 +569,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
     }
 
     public void setAdapter(BaseAdapter baseAdapter, boolean z) {
-        this.f21045e = baseAdapter;
+        this.f21629e = baseAdapter;
         this.o.forceFinished(true);
         this.p.forceFinished(true);
         if (!this.A && z) {
@@ -584,13 +586,13 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
         this.I = z;
     }
 
-    @Override // d.b.j0.d3.k0.c
-    public void setDragController(d.b.j0.d3.k0.a aVar) {
-        this.f21048h = aVar;
+    @Override // d.a.j0.d3.k0.c
+    public void setDragController(d.a.j0.d3.k0.a aVar) {
+        this.f21632h = aVar;
     }
 
-    public void setMaxItemNum(int i) {
-        this.z = i;
+    public void setMaxItemNum(int i2) {
+        this.z = i2;
     }
 
     public void setNeedRecomputeAddView(boolean z) {
@@ -601,52 +603,52 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
         this.w = cVar;
     }
 
-    public void setPadding(int i) {
-        this.y = i;
+    public void setPadding(int i2) {
+        this.y = i2;
     }
 
-    public void setStartEndSpace(int i) {
-        this.x = i;
+    public void setStartEndSpace(int i2) {
+        this.x = i2;
     }
 
-    public final void t(View view, int i, int i2) {
+    public final void t(View view, int i2, int i3) {
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new ViewGroup.LayoutParams(-2, -2);
             view.setLayoutParams(layoutParams);
         }
-        view.measure(ViewGroup.getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight(), layoutParams.width), ViewGroup.getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom(), layoutParams.height));
+        view.measure(ViewGroup.getChildMeasureSpec(i2, getPaddingLeft() + getPaddingRight(), layoutParams.width), ViewGroup.getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom(), layoutParams.height));
     }
 
-    public final int[] u(int i, int i2, int i3, int i4) {
+    public final int[] u(int i2, int i3, int i4, int i5) {
         int[] iArr = new int[2];
-        if (this.f21045e == null) {
+        if (this.f21629e == null) {
             iArr[0] = getPaddingLeft() + getPaddingRight();
             iArr[1] = getPaddingTop() + getPaddingBottom();
             return iArr;
         }
         int paddingLeft = getPaddingLeft() + getPaddingRight();
         int paddingTop = getPaddingTop() + getPaddingBottom();
-        if (i2 == -1) {
-            i2 = this.i - 1;
+        if (i3 == -1) {
+            i3 = this.f21633i - 1;
         }
-        while (i <= i2) {
-            View v = v(i);
+        while (i2 <= i3) {
+            View v = v(i2);
             if (v.getVisibility() != 8) {
-                t(v, i3, i4);
+                t(v, i4, i5);
                 paddingLeft += v.getMeasuredWidth();
                 paddingTop = Math.max(v.getMeasuredHeight(), paddingTop);
             }
-            i++;
+            i2++;
         }
         iArr[0] = paddingLeft;
         iArr[1] = paddingTop;
         return iArr;
     }
 
-    public final View v(int i) {
+    public final View v(int i2) {
         View remove = this.E.size() > 0 ? this.E.remove(0) : null;
-        View view = this.f21045e.getView(i, remove, this);
+        View view = this.f21629e.getView(i2, remove, this);
         if (view != remove) {
             this.E.add(remove);
         }
@@ -656,51 +658,51 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.j0.d3.k0.
         return view;
     }
 
-    public final void w(int i) {
-        scrollBy(x(i), 0);
+    public final void w(int i2) {
+        scrollBy(x(i2), 0);
         invalidate();
     }
 
-    public final int x(int i) {
-        if (i == 0) {
+    public final int x(int i2) {
+        if (i2 == 0) {
             return 0;
         }
-        boolean z = i > 0;
+        boolean z = i2 > 0;
         int scrollX = getScrollX();
-        int i2 = scrollX + i;
-        return z ? i2 > p() ? p() - scrollX : i : i2 < 0 ? -scrollX : i;
+        int i3 = scrollX + i2;
+        return z ? i3 > p() ? p() - scrollX : i2 : i3 < 0 ? -scrollX : i2;
     }
 
     public final void y() {
         removeCallbacks(this.K);
         this.o.forceFinished(true);
         this.p.forceFinished(true);
-        View view = this.f21046f;
+        View view = this.f21630f;
         if (view != null) {
             view.setVisibility(0);
-            this.f21046f = null;
+            this.f21630f = null;
         }
-        this.f21047g = -1;
+        this.f21631g = -1;
         this.u = false;
         this.v = false;
         int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            if (getChildAt(i) != null) {
-                getChildAt(i).clearAnimation();
+        for (int i2 = 0; i2 < childCount; i2++) {
+            if (getChildAt(i2) != null) {
+                getChildAt(i2).clearAnimation();
             }
         }
         this.H = false;
     }
 
-    public final void z(int i, int i2) {
+    public final void z(int i2, int i3) {
         c cVar = this.w;
         if (cVar != null) {
-            cVar.a(i, i2);
+            cVar.a(i2, i3);
         }
     }
 
-    public DragHorizonScrollView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public DragHorizonScrollView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.q = new Rect();
         this.z = 10;
         this.E = new ArrayList<>();

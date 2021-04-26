@@ -19,50 +19,50 @@ public class BaselineLayout extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         int childCount = getChildCount();
         int paddingLeft = getPaddingLeft();
-        int paddingRight = ((i3 - i) - getPaddingRight()) - paddingLeft;
+        int paddingRight = ((i4 - i2) - getPaddingRight()) - paddingLeft;
         int paddingTop = getPaddingTop();
-        for (int i5 = 0; i5 < childCount; i5++) {
-            View childAt = getChildAt(i5);
+        for (int i6 = 0; i6 < childCount; i6++) {
+            View childAt = getChildAt(i6);
             if (childAt.getVisibility() != 8) {
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
-                int i6 = ((paddingRight - measuredWidth) / 2) + paddingLeft;
+                int i7 = ((paddingRight - measuredWidth) / 2) + paddingLeft;
                 int baseline = (this.baseline == -1 || childAt.getBaseline() == -1) ? paddingTop : (this.baseline + paddingTop) - childAt.getBaseline();
-                childAt.layout(i6, baseline, measuredWidth + i6, measuredHeight + baseline);
+                childAt.layout(i7, baseline, measuredWidth + i7, measuredHeight + baseline);
             }
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         int childCount = getChildCount();
-        int i3 = 0;
         int i4 = 0;
         int i5 = 0;
-        int i6 = -1;
+        int i6 = 0;
         int i7 = -1;
-        for (int i8 = 0; i8 < childCount; i8++) {
-            View childAt = getChildAt(i8);
+        int i8 = -1;
+        for (int i9 = 0; i9 < childCount; i9++) {
+            View childAt = getChildAt(i9);
             if (childAt.getVisibility() != 8) {
-                measureChild(childAt, i, i2);
+                measureChild(childAt, i2, i3);
                 int baseline = childAt.getBaseline();
                 if (baseline != -1) {
-                    i6 = Math.max(i6, baseline);
-                    i7 = Math.max(i7, childAt.getMeasuredHeight() - baseline);
+                    i7 = Math.max(i7, baseline);
+                    i8 = Math.max(i8, childAt.getMeasuredHeight() - baseline);
                 }
-                i4 = Math.max(i4, childAt.getMeasuredWidth());
-                i3 = Math.max(i3, childAt.getMeasuredHeight());
-                i5 = View.combineMeasuredStates(i5, childAt.getMeasuredState());
+                i5 = Math.max(i5, childAt.getMeasuredWidth());
+                i4 = Math.max(i4, childAt.getMeasuredHeight());
+                i6 = View.combineMeasuredStates(i6, childAt.getMeasuredState());
             }
         }
-        if (i6 != -1) {
-            i3 = Math.max(i3, Math.max(i7, getPaddingBottom()) + i6);
-            this.baseline = i6;
+        if (i7 != -1) {
+            i4 = Math.max(i4, Math.max(i8, getPaddingBottom()) + i7);
+            this.baseline = i7;
         }
-        setMeasuredDimension(View.resolveSizeAndState(Math.max(i4, getSuggestedMinimumWidth()), i, i5), View.resolveSizeAndState(Math.max(i3, getSuggestedMinimumHeight()), i2, i5 << 16));
+        setMeasuredDimension(View.resolveSizeAndState(Math.max(i5, getSuggestedMinimumWidth()), i2, i6), View.resolveSizeAndState(Math.max(i4, getSuggestedMinimumHeight()), i3, i6 << 16));
     }
 
     public BaselineLayout(Context context, AttributeSet attributeSet) {
@@ -70,8 +70,8 @@ public class BaselineLayout extends ViewGroup {
         this.baseline = -1;
     }
 
-    public BaselineLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BaselineLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.baseline = -1;
     }
 }

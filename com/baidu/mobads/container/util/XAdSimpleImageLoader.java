@@ -47,10 +47,10 @@ public class XAdSimpleImageLoader {
 
     public static int caculateInSampleSize(BitmapFactory.Options options, ImageView imageView) {
         ImageSize generateImageViewSize = generateImageViewSize(imageView);
-        int i = options.outWidth;
-        int i2 = options.outHeight;
-        if (i > generateImageViewSize.width || i2 > generateImageViewSize.height) {
-            return Math.max(Math.round((i * 1.0f) / generateImageViewSize.width), Math.round((i2 * 1.0f) / generateImageViewSize.height));
+        int i2 = options.outWidth;
+        int i3 = options.outHeight;
+        if (i2 > generateImageViewSize.width || i3 > generateImageViewSize.height) {
+            return Math.max(Math.round((i2 * 1.0f) / generateImageViewSize.width), Math.round((i3 * 1.0f) / generateImageViewSize.height));
         }
         return 1;
     }

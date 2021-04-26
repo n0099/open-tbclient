@@ -8,7 +8,6 @@ import android.graphics.ColorSpace;
 import android.graphics.Rect;
 import android.os.Build;
 import androidx.core.util.Pools;
-import androidx.exifinterface.media.ExifInterface;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.logging.FLog;
@@ -34,13 +33,13 @@ public abstract class DefaultDecoder implements PlatformDecoder {
     @Nullable
     public final PreverificationHelper mPreverificationHelper;
     public static final Class<?> TAG = DefaultDecoder.class;
-    public static final byte[] EOI_TAIL = {-1, ExifInterface.MARKER_EOI};
+    public static final byte[] EOI_TAIL = {-1, -39};
 
-    public DefaultDecoder(BitmapPool bitmapPool, int i, Pools.SynchronizedPool synchronizedPool) {
+    public DefaultDecoder(BitmapPool bitmapPool, int i2, Pools.SynchronizedPool synchronizedPool) {
         this.mPreverificationHelper = Build.VERSION.SDK_INT >= 26 ? new PreverificationHelper() : null;
         this.mBitmapPool = bitmapPool;
         this.mDecodeBuffers = synchronizedPool;
-        for (int i2 = 0; i2 < i; i2++) {
+        for (int i3 = 0; i3 < i2; i3++) {
             this.mDecodeBuffers.release(ByteBuffer.allocate(16384));
         }
     }
@@ -57,11 +56,11 @@ public abstract class DefaultDecoder implements PlatformDecoder {
         BitmapRegionDecoder bitmapRegionDecoder;
         PreverificationHelper preverificationHelper;
         Preconditions.checkNotNull(inputStream);
-        int i = options.outWidth;
-        int i2 = options.outHeight;
+        int i2 = options.outWidth;
+        int i3 = options.outHeight;
         if (rect != null) {
-            i = rect.width() / options.inSampleSize;
-            i2 = rect.height() / options.inSampleSize;
+            i2 = rect.width() / options.inSampleSize;
+            i3 = rect.height() / options.inSampleSize;
         }
         boolean z2 = Build.VERSION.SDK_INT >= 26 && (preverificationHelper = this.mPreverificationHelper) != null && preverificationHelper.shouldUseHardwareBitmapConfig(options.inPreferredConfig);
         BitmapRegionDecoder bitmapRegionDecoder2 = null;
@@ -72,7 +71,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
             if (rect != null && z2) {
                 options.inPreferredConfig = Bitmap.Config.ARGB_8888;
             }
-            bitmap = this.mBitmapPool.get(getBitmapSize(i, i2, options));
+            bitmap = this.mBitmapPool.get(getBitmapSize(i2, i3, options));
             if (bitmap == null) {
                 throw new NullPointerException("BitmapPool.get returned null");
             }
@@ -90,7 +89,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
                 options.inTempStorage = acquire.array();
                 if (rect != null && bitmap != null) {
                     try {
-                        bitmap.reconfigure(i, i2, options.inPreferredConfig);
+                        bitmap.reconfigure(i2, i3, options.inPreferredConfig);
                         bitmapRegionDecoder = BitmapRegionDecoder.newInstance(inputStream, true);
                         try {
                             try {
@@ -208,18 +207,18 @@ public abstract class DefaultDecoder implements PlatformDecoder {
     }
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference<Bitmap> decodeJPEGFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i) {
-        return decodeJPEGFromEncodedImageWithColorSpace(encodedImage, config, rect, i, false);
+    public CloseableReference<Bitmap> decodeJPEGFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i2) {
+        return decodeJPEGFromEncodedImageWithColorSpace(encodedImage, config, rect, i2, false);
     }
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i, boolean z) {
-        boolean isCompleteAt = encodedImage.isCompleteAt(i);
+    public CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i2, boolean z) {
+        boolean isCompleteAt = encodedImage.isCompleteAt(i2);
         BitmapFactory.Options decodeOptionsForStream = getDecodeOptionsForStream(encodedImage, config);
         TailAppendingInputStream inputStream = encodedImage.getInputStream();
         Preconditions.checkNotNull(inputStream);
-        if (encodedImage.getSize() > i) {
-            inputStream = new LimitedInputStream(inputStream, i);
+        if (encodedImage.getSize() > i2) {
+            inputStream = new LimitedInputStream(inputStream, i2);
         }
         if (!isCompleteAt) {
             inputStream = new TailAppendingInputStream(inputStream, EOI_TAIL);
@@ -229,7 +228,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
             return decodeFromStream(inputStream, decodeOptionsForStream, rect, z);
         } catch (RuntimeException e2) {
             if (z2) {
-                return decodeJPEGFromEncodedImageWithColorSpace(encodedImage, Bitmap.Config.ARGB_8888, rect, i, z);
+                return decodeJPEGFromEncodedImageWithColorSpace(encodedImage, Bitmap.Config.ARGB_8888, rect, i2, z);
             }
             throw e2;
         }
@@ -239,5 +238,5 @@ public abstract class DefaultDecoder implements PlatformDecoder {
         return decodeFromStream(inputStream, options, rect, false);
     }
 
-    public abstract int getBitmapSize(int i, int i2, BitmapFactory.Options options);
+    public abstract int getBitmapSize(int i2, int i3, BitmapFactory.Options options);
 }

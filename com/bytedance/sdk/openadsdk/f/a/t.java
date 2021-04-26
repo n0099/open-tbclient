@@ -13,24 +13,24 @@ import java.util.Set;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<String> f29048a;
+    public final Set<String> f29940a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<String> f29049b;
+    public final Set<String> f29941b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final v f29050c = q.f29036a;
+    public final v f29942c = q.f29928a;
 
     /* renamed from: d  reason: collision with root package name */
-    public final u f29051d;
+    public final u f29943d;
 
     /* renamed from: e  reason: collision with root package name */
-    public k.b f29052e;
+    public k.b f29944e;
 
     public t(@Nullable u uVar, @NonNull Set<String> set, @NonNull Set<String> set2) {
-        this.f29051d = uVar;
-        this.f29048a = new LinkedHashSet(set);
-        this.f29049b = new LinkedHashSet(set2);
+        this.f29943d = uVar;
+        this.f29940a = new LinkedHashSet(set);
+        this.f29941b = new LinkedHashSet(set2);
     }
 
     @MainThread
@@ -41,16 +41,16 @@ public class t {
         if (host == null) {
             return null;
         }
-        w wVar = this.f29049b.contains(bVar.a()) ? w.PUBLIC : null;
-        for (String str2 : this.f29048a) {
+        w wVar = this.f29941b.contains(bVar.a()) ? w.PUBLIC : null;
+        for (String str2 : this.f29940a) {
             if (!parse.getHost().equals(str2)) {
                 if (host.endsWith("." + str2)) {
                 }
             }
             wVar = w.PRIVATE;
         }
-        if (wVar == null && this.f29052e != null && this.f29052e.a(str)) {
-            if (this.f29052e.a(str, bVar.a())) {
+        if (wVar == null && this.f29944e != null && this.f29944e.a(str)) {
+            if (this.f29944e.a(str, bVar.a())) {
                 return null;
             }
             wVar = w.PRIVATE;
@@ -73,11 +73,11 @@ public class t {
     }
 
     public void a(@Nullable k.b bVar) {
-        this.f29052e = bVar;
+        this.f29944e = bVar;
     }
 
     public void a(v.a aVar) {
-        v vVar = this.f29050c;
+        v vVar = this.f29942c;
         if (vVar != null) {
             vVar.a(aVar);
         }
@@ -85,19 +85,19 @@ public class t {
 
     private w a(@NonNull String str, @NonNull b bVar, boolean z) {
         u uVar;
-        if (!z || (uVar = this.f29051d) == null) {
+        if (!z || (uVar = this.f29943d) == null) {
             return null;
         }
-        u.c a2 = uVar.a(str, this.f29048a);
-        if (a2.f29066c.contains(bVar.a())) {
+        u.c a2 = uVar.a(str, this.f29940a);
+        if (a2.f29958c.contains(bVar.a())) {
             return null;
         }
-        if (a2.f29065b.contains(bVar.a())) {
+        if (a2.f29957b.contains(bVar.a())) {
             return w.PRIVATE;
         }
-        if (a2.f29064a.compareTo(bVar.b()) < 0) {
+        if (a2.f29956a.compareTo(bVar.b()) < 0) {
             return null;
         }
-        return a2.f29064a;
+        return a2.f29956a;
     }
 }

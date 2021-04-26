@@ -20,8 +20,8 @@ public abstract class LruBucketsPoolBackend<T> implements PoolBackend<T> {
 
     @Override // com.facebook.imagepipeline.memory.PoolBackend
     @Nullable
-    public T get(int i) {
-        return maybeRemoveFromCurrentItems(this.mMap.acquire(i));
+    public T get(int i2) {
+        return maybeRemoveFromCurrentItems(this.mMap.acquire(i2));
     }
 
     @Override // com.facebook.imagepipeline.memory.PoolBackend

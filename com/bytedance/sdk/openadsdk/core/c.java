@@ -37,8 +37,8 @@ public class c {
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("creatives");
             if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    com.bytedance.sdk.openadsdk.core.d.l b2 = b(optJSONArray.optJSONObject(i), adSlot, mVar);
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    com.bytedance.sdk.openadsdk.core.d.l b2 = b(optJSONArray.optJSONObject(i2), adSlot, mVar);
                     if (b2 != null && a(b2)) {
                         aVar.a(b2);
                     }
@@ -78,7 +78,7 @@ public class c {
         lVar.g(jSONObject.optInt("video_adaptation", 0));
         lVar.f(jSONObject.optInt("feed_video_opentype", 0));
         lVar.b(jSONObject.optJSONObject("session_params"));
-        lVar.c(jSONObject.optInt("render_control", mVar != null ? mVar.f27890e : 1));
+        lVar.c(jSONObject.optInt("render_control", mVar != null ? mVar.f28739e : 1));
         if (optJSONObject != null) {
             com.bytedance.sdk.openadsdk.core.d.k kVar = new com.bytedance.sdk.openadsdk.core.d.k();
             kVar.a(optJSONObject.optString("url"));
@@ -101,9 +101,9 @@ public class c {
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("image");
         if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 com.bytedance.sdk.openadsdk.core.d.k kVar3 = new com.bytedance.sdk.openadsdk.core.d.k();
-                JSONObject optJSONObject4 = optJSONArray.optJSONObject(i);
+                JSONObject optJSONObject4 = optJSONArray.optJSONObject(i2);
                 kVar3.a(optJSONObject4.optString("url"));
                 kVar3.b(optJSONObject4.optInt("height"));
                 kVar3.a(optJSONObject4.optInt("width"));
@@ -113,25 +113,25 @@ public class c {
         }
         JSONArray optJSONArray2 = jSONObject.optJSONArray("show_url");
         if (optJSONArray2 != null) {
-            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                lVar.ah().add(optJSONArray2.optString(i2));
+            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                lVar.ah().add(optJSONArray2.optString(i3));
             }
         }
         JSONArray optJSONArray3 = jSONObject.optJSONArray("click_url");
         if (optJSONArray3 != null) {
-            for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                lVar.ai().add(optJSONArray3.optString(i3));
+            for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
+                lVar.ai().add(optJSONArray3.optString(i4));
             }
         }
         JSONObject optJSONObject5 = jSONObject.optJSONObject("click_area");
         if (optJSONObject5 != null) {
             com.bytedance.sdk.openadsdk.core.d.e eVar = new com.bytedance.sdk.openadsdk.core.d.e();
-            eVar.f27816a = optJSONObject5.optBoolean("click_upper_content_area", true);
-            eVar.f27817b = optJSONObject5.optBoolean("click_upper_non_content_area", true);
-            eVar.f27818c = optJSONObject5.optBoolean("click_lower_content_area", true);
-            eVar.f27819d = optJSONObject5.optBoolean("click_lower_non_content_area", true);
-            eVar.f27820e = optJSONObject5.optBoolean("click_button_area", true);
-            eVar.f27821f = optJSONObject5.optBoolean("click_video_area", true);
+            eVar.f28659a = optJSONObject5.optBoolean("click_upper_content_area", true);
+            eVar.f28660b = optJSONObject5.optBoolean("click_upper_non_content_area", true);
+            eVar.f28661c = optJSONObject5.optBoolean("click_lower_content_area", true);
+            eVar.f28662d = optJSONObject5.optBoolean("click_lower_non_content_area", true);
+            eVar.f28663e = optJSONObject5.optBoolean("click_button_area", true);
+            eVar.f28664f = optJSONObject5.optBoolean("click_video_area", true);
             lVar.a(eVar);
         }
         JSONObject optJSONObject6 = jSONObject.optJSONObject("adslot");
@@ -154,8 +154,8 @@ public class c {
         lVar.a(h(optJSONObject8));
         JSONArray optJSONArray4 = jSONObject.optJSONArray("filter_words");
         if (optJSONArray4 != null) {
-            for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                FilterWord d2 = d(optJSONArray4.optJSONObject(i4));
+            for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
+                FilterWord d2 = d(optJSONArray4.optJSONObject(i5));
                 if (d2 != null && d2.isValid()) {
                     lVar.a(d2);
                 }
@@ -244,8 +244,8 @@ public class c {
             filterWord.setIsSelected(jSONObject.optBoolean("is_selected"));
             JSONArray optJSONArray = jSONObject.optJSONArray("options");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    FilterWord d2 = d(optJSONArray.optJSONObject(i));
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    FilterWord d2 = d(optJSONArray.optJSONObject(i2));
                     if (d2 != null && d2.isValid()) {
                         filterWord.addOption(d2);
                     }
@@ -445,8 +445,8 @@ public class c {
         JSONArray optJSONArray = jSONObject.optJSONArray("permissions");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             cVar.a(optJSONArray);
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
                     cVar.a(optJSONObject.optString(IdCardActivity.RESULT_PERMISSION_KEY), optJSONObject.optString("permission_desc"));
                 }

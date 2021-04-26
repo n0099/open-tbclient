@@ -2,11 +2,11 @@ package com.baidu.tieba.screenlocknotify.loadmore;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.u2.e.a;
+import d.a.j0.u2.e.a;
 import tbclient.Error;
 import tbclient.GetMoreMsg.DataRes;
 import tbclient.GetMoreMsg.GetMoreMsgResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMessage {
     public a loadMoreData;
 
@@ -20,7 +20,7 @@ public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMess
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetMoreMsgResIdl getMoreMsgResIdl = (GetMoreMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMoreMsgResIdl.class);
         if (getMoreMsgResIdl == null) {
             return;

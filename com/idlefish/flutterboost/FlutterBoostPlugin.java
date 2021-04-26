@@ -344,15 +344,15 @@ public class FlutterBoostPlugin implements FlutterPlugin {
             public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
                 Object[] array;
                 Object[] array2;
-                int i = 0;
+                int i2 = 0;
                 if (!methodCall.method.equals("__event__")) {
                     synchronized (FlutterBoostPlugin.this.mMethodCallHandlers) {
                         array = FlutterBoostPlugin.this.mMethodCallHandlers.toArray();
                     }
                     int length = array.length;
-                    while (i < length) {
-                        ((MethodChannel.MethodCallHandler) array[i]).onMethodCall(methodCall, result);
-                        i++;
+                    while (i2 < length) {
+                        ((MethodChannel.MethodCallHandler) array[i2]).onMethodCall(methodCall, result);
+                        i2++;
                     }
                     return;
                 }
@@ -364,9 +364,9 @@ public class FlutterBoostPlugin implements FlutterPlugin {
                 }
                 if (array2 != null) {
                     int length2 = array2.length;
-                    while (i < length2) {
-                        ((EventListener) array2[i]).onEvent(str, map);
-                        i++;
+                    while (i2 < length2) {
+                        ((EventListener) array2[i2]).onEvent(str, map);
+                        i2++;
                     }
                 }
             }

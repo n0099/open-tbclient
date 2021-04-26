@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.pluginBase.PluginBaseThirdFragmentActivity;
-import d.b.c.h.f.b;
+import d.a.c.h.f.b;
 /* loaded from: classes.dex */
 public class ThirdFragmentActivityProxy extends FragmentActivityProxy {
     @Override // com.baidu.adp.plugin.proxy.activity.FragmentActivityProxy

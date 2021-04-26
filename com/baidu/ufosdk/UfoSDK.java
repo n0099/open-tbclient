@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.util.Base64;
+import androidx.room.RoomMasterTable;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
@@ -65,10 +66,10 @@ public class UfoSDK {
         return intent;
     }
 
-    public static Intent getCaptureScreenAndFeedback(Context context, String str, int i) {
+    public static Intent getCaptureScreenAndFeedback(Context context, String str, int i2) {
         Intent captureScreenAndFeedback = getCaptureScreenAndFeedback(context, str);
         if (captureScreenAndFeedback != null) {
-            captureScreenAndFeedback.putExtra("extend_feedback_channel", i);
+            captureScreenAndFeedback.putExtra("extend_feedback_channel", i2);
         }
         return captureScreenAndFeedback;
     }
@@ -112,7 +113,7 @@ public class UfoSDK {
         hashMap.put("38", "邮箱/手机/QQ");
         hashMap.put("39", "您的反馈将提交我们跟进，请留下您的联系方式。");
         hashMap.put("41", "请留下您的联系方式");
-        hashMap.put("42", "咨询问题");
+        hashMap.put(RoomMasterTable.DEFAULT_ID, "咨询问题");
         hashMap.put("43", "反馈建议");
         hashMap.put("44", "感谢您的反馈，祝您生活愉快！");
         hashMap.put("46", "上传问题截图");
@@ -177,7 +178,7 @@ public class UfoSDK {
         hashMap.put("38", "Email/Tel/QQ");
         hashMap.put("39", "Your feedback will be sent to us, please leave your contact information.");
         hashMap.put("41", "Please leave your contact information");
-        hashMap.put("42", "Advisory Service");
+        hashMap.put(RoomMasterTable.DEFAULT_ID, "Advisory Service");
         hashMap.put("43", "Product Suggestion");
         hashMap.put("44", "Thank you for your feedback, wish you a happy life!");
         hashMap.put("46", "Upload problem screenshots");
@@ -209,39 +210,39 @@ public class UfoSDK {
         return intent;
     }
 
-    public static Intent getFeedbackInputIntent(Context context, int i) {
+    public static Intent getFeedbackInputIntent(Context context, int i2) {
         Intent feedbackInputIntent = getFeedbackInputIntent(context);
-        feedbackInputIntent.putExtra("feedback_channel", i);
+        feedbackInputIntent.putExtra("feedback_channel", i2);
         return feedbackInputIntent;
     }
 
-    public static Intent getFeedbackInputIntent(Context context, HashMap hashMap, int i) {
+    public static Intent getFeedbackInputIntent(Context context, HashMap hashMap, int i2) {
         setExtraData(hashMap);
-        return getFeedbackInputIntent(context, i);
+        return getFeedbackInputIntent(context, i2);
     }
 
     public static Intent getFeedbackListIntent(Context context) {
         return new Intent(context, FeedbackListActivity.class);
     }
 
-    public static Intent getFeedbackListIntent(Context context, int i) {
+    public static Intent getFeedbackListIntent(Context context, int i2) {
         Intent feedbackListIntent = getFeedbackListIntent(context);
-        feedbackListIntent.putExtra("feedback_channel", i);
+        feedbackListIntent.putExtra("feedback_channel", i2);
         return feedbackListIntent;
     }
 
-    public static Intent getFeedbackListIntent(Context context, HashMap hashMap, int i) {
+    public static Intent getFeedbackListIntent(Context context, HashMap hashMap, int i2) {
         setExtraData(hashMap);
-        return getFeedbackListIntent(context, i);
+        return getFeedbackListIntent(context, i2);
     }
 
     public static Intent getFeedbackManualIntent(Context context) {
         return new Intent(context, FeedbackEditActivity.class);
     }
 
-    public static Intent getFeedbackManualIntent(Context context, int i) {
+    public static Intent getFeedbackManualIntent(Context context, int i2) {
         Intent feedbackManualIntent = getFeedbackManualIntent(context);
-        feedbackManualIntent.putExtra("feedback_channel", i);
+        feedbackManualIntent.putExtra("feedback_channel", i2);
         return feedbackManualIntent;
     }
 
@@ -256,7 +257,7 @@ public class UfoSDK {
         return intent;
     }
 
-    public static Intent getFeedbackManualIntent(Context context, String str, int i) {
+    public static Intent getFeedbackManualIntent(Context context, String str, int i2) {
         if (context == null) {
             return null;
         }
@@ -264,7 +265,7 @@ public class UfoSDK {
         if (str.length() > 0) {
             intent.putExtra("shot", Base64.decode(str, 0));
         }
-        intent.putExtra("feedback_channel", i);
+        intent.putExtra("feedback_channel", i2);
         return intent;
     }
 
@@ -293,9 +294,9 @@ public class UfoSDK {
             hashMap.put("clientid", clientid);
             hashMap.put("appid", appid);
             hashMap.put("devid", devid);
-            hashMap.put("uid", b.f22598d);
-            hashMap.put(DpStatConstants.KEY_USER_ID, b.f22598d);
-            hashMap.put("username", b.f22596b);
+            hashMap.put("uid", b.f23300d);
+            hashMap.put(DpStatConstants.KEY_USER_ID, b.f23300d);
+            hashMap.put("username", b.f23298b);
             hashMap.put("output_style", 1);
             hashMap.put("interval", String.valueOf(b.ai));
             String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
@@ -316,15 +317,15 @@ public class UfoSDK {
         return new Intent(context, FeedbackReportActivity.class);
     }
 
-    public static Intent getFeedbackReportIntent(Context context, int i) {
+    public static Intent getFeedbackReportIntent(Context context, int i2) {
         Intent feedbackReportIntent = getFeedbackReportIntent(context);
-        feedbackReportIntent.putExtra("feedback_channel", i);
+        feedbackReportIntent.putExtra("feedback_channel", i2);
         return feedbackReportIntent;
     }
 
-    public static Intent getFeedbackReportIntent(Context context, int i, String str) {
+    public static Intent getFeedbackReportIntent(Context context, int i2, String str) {
         Intent feedbackReportIntent = getFeedbackReportIntent(context);
-        feedbackReportIntent.putExtra("feedback_channel", i);
+        feedbackReportIntent.putExtra("feedback_channel", i2);
         feedbackReportIntent.putExtra(com.xiaomi.mipush.sdk.Constants.APP_ID, str);
         return feedbackReportIntent;
     }
@@ -334,37 +335,37 @@ public class UfoSDK {
         return new Intent(context, FeedbackReportActivity.class);
     }
 
-    public static Intent getFeedbackReportIntent(Context context, ReportCallback reportCallback, HashMap hashMap, String str, int i) {
+    public static Intent getFeedbackReportIntent(Context context, ReportCallback reportCallback, HashMap hashMap, String str, int i2) {
         if (context == null) {
             return null;
         }
         b.af = reportCallback;
         setExtraData(hashMap);
         Intent intent = new Intent(context, FeedbackReportActivity.class);
-        intent.putExtra("feedback_channel", i);
+        intent.putExtra("feedback_channel", i2);
         if (str.length() > 0) {
             intent.putExtra("shot", Base64.decode(str, 0));
         }
         return intent;
     }
 
-    public static Intent getFeedbackReportIntent(Context context, HashMap hashMap, int i) {
+    public static Intent getFeedbackReportIntent(Context context, HashMap hashMap, int i2) {
         setExtraData(hashMap);
-        return getFeedbackReportIntent(context, i);
+        return getFeedbackReportIntent(context, i2);
     }
 
-    public static Intent getFeedbackReportIntent(Context context, HashMap hashMap, int i, String str) {
+    public static Intent getFeedbackReportIntent(Context context, HashMap hashMap, int i2, String str) {
         setExtraData(hashMap);
-        return getFeedbackReportIntent(context, i, str);
+        return getFeedbackReportIntent(context, i2, str);
     }
 
-    public static Intent getFeedbackReportIntent(Context context, HashMap hashMap, int i, String str, String str2) {
+    public static Intent getFeedbackReportIntent(Context context, HashMap hashMap, int i2, String str, String str2) {
         if (context == null) {
             return null;
         }
         setExtraData(hashMap);
         Intent intent = new Intent(context, FeedbackReportActivity.class);
-        intent.putExtra("feedback_channel", i);
+        intent.putExtra("feedback_channel", i2);
         intent.putExtra(com.xiaomi.mipush.sdk.Constants.APP_ID, str);
         if (str2.length() > 0) {
             intent.putExtra("shot", Base64.decode(str2, 0));
@@ -382,9 +383,9 @@ public class UfoSDK {
             hashMap.put("clientid", clientid);
             hashMap.put("appid", appid);
             hashMap.put("devid", devid);
-            hashMap.put("uid", b.f22598d);
-            hashMap.put(DpStatConstants.KEY_USER_ID, b.f22598d);
-            hashMap.put("username", b.f22596b);
+            hashMap.put("uid", b.f23300d);
+            hashMap.put(DpStatConstants.KEY_USER_ID, b.f23300d);
+            hashMap.put("username", b.f23298b);
             hashMap.put("interval", String.valueOf(b.ai));
             String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
             String a3 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=getmsglistcount", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
@@ -435,9 +436,9 @@ public class UfoSDK {
             hashMap.put("clientid", clientid);
             hashMap.put("appid", appid);
             hashMap.put("devid", devid);
-            hashMap.put("uid", b.f22598d);
-            hashMap.put(DpStatConstants.KEY_USER_ID, b.f22598d);
-            hashMap.put("username", b.f22596b);
+            hashMap.put("uid", b.f23300d);
+            hashMap.put(DpStatConstants.KEY_USER_ID, b.f23300d);
+            hashMap.put("username", b.f23298b);
             hashMap.put("output_style", 1);
             hashMap.put("interval", String.valueOf(b.ai));
             String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
@@ -489,16 +490,16 @@ public class UfoSDK {
         return new Intent(context, FeedbackFacePageActivity.class);
     }
 
-    public static Intent getStartFaqIntent(Context context, int i, int i2) {
+    public static Intent getStartFaqIntent(Context context, int i2, int i3) {
         Intent startFaqIntent = getStartFaqIntent(context);
-        startFaqIntent.putExtra("feedback_channel", i);
-        startFaqIntent.putExtra("faq_channel", i2);
+        startFaqIntent.putExtra("feedback_channel", i2);
+        startFaqIntent.putExtra("faq_channel", i3);
         return startFaqIntent;
     }
 
-    public static Intent getStartFaqIntent(Context context, HashMap hashMap, int i, int i2) {
+    public static Intent getStartFaqIntent(Context context, HashMap hashMap, int i2, int i3) {
         setExtraData(hashMap);
-        return getStartFaqIntent(context, i, i2);
+        return getStartFaqIntent(context, i2, i3);
     }
 
     public static void init(Context context) {
@@ -530,19 +531,19 @@ public class UfoSDK {
                 if (string.contains(b2)) {
                     com.baidu.ufosdk.f.c.c("--UfoSDK:212 -- today : " + b2 + "; lastStart : " + startStr);
                     if (string.equals(b2 + "-enable")) {
-                        int i = sharedPreferences.getInt("editFeedbackViewUV", 0);
-                        int i2 = sharedPreferences.getInt("editFeedbackViewFromRobotUV", 0);
-                        int i3 = sharedPreferences.getInt("editFeedbackViewFromFaqUV", 0);
-                        int i4 = sharedPreferences.getInt("robotUv", 0);
-                        if (i != 0 || i2 != 0 || i3 != 0 || i4 != 0) {
-                            new Thread(new d(i, i2, i3, i4)).start();
+                        int i2 = sharedPreferences.getInt("editFeedbackViewUV", 0);
+                        int i3 = sharedPreferences.getInt("editFeedbackViewFromRobotUV", 0);
+                        int i4 = sharedPreferences.getInt("editFeedbackViewFromFaqUV", 0);
+                        int i5 = sharedPreferences.getInt("robotUv", 0);
+                        if (i2 != 0 || i3 != 0 || i4 != 0 || i5 != 0) {
+                            new Thread(new d(i2, i3, i4, i5)).start();
                         }
                     }
                 } else {
-                    int i5 = sharedPreferences.getInt("editFeedbackViewUV", 0);
-                    int i6 = sharedPreferences.getInt("editFeedbackViewFromRobotUV", 0);
-                    int i7 = sharedPreferences.getInt("editFeedbackViewFromFaqUV", 0);
-                    int i8 = sharedPreferences.getInt("robotUv", 0);
+                    int i6 = sharedPreferences.getInt("editFeedbackViewUV", 0);
+                    int i7 = sharedPreferences.getInt("editFeedbackViewFromRobotUV", 0);
+                    int i8 = sharedPreferences.getInt("editFeedbackViewFromFaqUV", 0);
+                    int i9 = sharedPreferences.getInt("robotUv", 0);
                     SharedPreferences.Editor edit = sharedPreferences.edit();
                     edit.putBoolean("robotUv_has", false);
                     edit.putBoolean("editFeedbackViewUV_has", false);
@@ -550,14 +551,14 @@ public class UfoSDK {
                     edit.putBoolean("editFeedbackViewFromRobotUV_has", false);
                     edit.commit();
                     com.baidu.ufosdk.f.c.a("--UfoSDK:182 -- edit.commit()");
-                    if (i5 == 0 && i6 == 0 && i7 == 0 && i8 == 0) {
+                    if (i6 == 0 && i7 == 0 && i8 == 0 && i9 == 0) {
                         com.baidu.ufosdk.f.c.a("--UfoSDK:203 -- all zero!!");
                         startStr = b2 + "-enable";
                         edit.putString("lastStart", b2 + "-enable");
                         edit.commit();
                     } else {
                         com.baidu.ufosdk.f.c.a("--UfoSDK:189 -- not all zero!!");
-                        new Thread(new c(i5, i6, i7, i8)).start();
+                        new Thread(new c(i6, i7, i8, i9)).start();
                     }
                 }
                 if (clientid.length() == 0) {
@@ -576,7 +577,7 @@ public class UfoSDK {
     }
 
     public static void openLogcatSwitch() {
-        b.f22595a = true;
+        b.f23297a = true;
     }
 
     public static void openRobotAnswer() {
@@ -597,19 +598,19 @@ public class UfoSDK {
     }
 
     public static void setBackbtnText(String str) {
-        b.i = str;
+        b.f23305i = str;
     }
 
-    public static void setBackbtnTextColor(int i) {
-        b.H = i;
+    public static void setBackbtnTextColor(int i2) {
+        b.H = i2;
     }
 
     public static void setBaiduCuid(String str) {
-        b.f22597c = str;
+        b.f23299c = str;
     }
 
-    public static void setChatThreadTime(int i) {
-        b.ah = i;
+    public static void setChatThreadTime(int i2) {
+        b.ah = i2;
     }
 
     public static void setChatViewTextSize(float f2) {
@@ -621,11 +622,11 @@ public class UfoSDK {
     }
 
     public static void setCurrentUserIcon(Bitmap bitmap) {
-        b.f22601g = bitmap;
+        b.f23303g = bitmap;
     }
 
     public static void setCustomLocation(String str) {
-        b.f22602h = str;
+        b.f23304h = str;
     }
 
     public static void setCustomText(String str, String str2) {
@@ -640,11 +641,11 @@ public class UfoSDK {
     }
 
     public static void setExtraData(Map map) {
-        b.f22600f = com.baidu.ufosdk.c.a.a(map);
+        b.f23302f = com.baidu.ufosdk.c.a.a(map);
     }
 
-    public static void setFaceBottomEntrance(int i) {
-        b.q = i;
+    public static void setFaceBottomEntrance(int i2) {
+        b.q = i2;
     }
 
     public static void setFaceBottomTextSize(float f2) {
@@ -679,32 +680,32 @@ public class UfoSDK {
         b.S = f2;
     }
 
-    public static void setListBgColor(int i) {
-        b.D = i;
+    public static void setListBgColor(int i2) {
+        b.D = i2;
     }
 
     public static void setListDeleteTextSize(float f2) {
         b.Y = f2;
     }
 
-    public static void setListDividerColor(int i) {
-        b.G = i;
+    public static void setListDividerColor(int i2) {
+        b.G = i2;
     }
 
-    public static void setListTimeTextColor(int i) {
-        b.F = i;
+    public static void setListTimeTextColor(int i2) {
+        b.F = i2;
     }
 
-    public static void setListTitleTextColor(int i) {
-        b.E = i;
+    public static void setListTitleTextColor(int i2) {
+        b.E = i2;
     }
 
     public static void setListTitleTextSize(float f2) {
         b.W = f2;
     }
 
-    public static void setLogLevel(int i) {
-        b.o = i;
+    public static void setLogLevel(int i2) {
+        b.o = i2;
     }
 
     public static void setMyFeedbackBtnTextSize(float f2) {
@@ -731,16 +732,16 @@ public class UfoSDK {
         b.P = f2;
     }
 
-    public static void setReloadBtnTxtColor(int i) {
-        b.w = i;
+    public static void setReloadBtnTxtColor(int i2) {
+        b.w = i2;
     }
 
     public static void setReloadTextSize(float f2) {
         b.O = f2;
     }
 
-    public static void setReloadTxtColor(int i) {
-        b.x = i;
+    public static void setReloadTxtColor(int i2) {
+        b.x = i2;
     }
 
     public static void setReportCallBack(ReportCallback reportCallback) {
@@ -751,16 +752,16 @@ public class UfoSDK {
         b.ac = resumeCallBack;
     }
 
-    public static void setRightBtnTextColor(int i) {
-        b.s = i;
+    public static void setRightBtnTextColor(int i2) {
+        b.s = i2;
     }
 
-    public static void setRootBackgroundColor(int i) {
-        b.z = i;
+    public static void setRootBackgroundColor(int i2) {
+        b.z = i2;
     }
 
-    public static void setSentBtnTextColor(int i) {
-        b.v = i;
+    public static void setSentBtnTextColor(int i2) {
+        b.v = i2;
     }
 
     public static void setSolvedReplyText(String str) {
@@ -775,43 +776,43 @@ public class UfoSDK {
         b.ag = aVar;
     }
 
-    public static void setTabBgTextColor(int i) {
-        b.u = i;
+    public static void setTabBgTextColor(int i2) {
+        b.u = i2;
     }
 
-    public static void setTabDefultTextColor(int i) {
-        b.t = i;
+    public static void setTabDefultTextColor(int i2) {
+        b.t = i2;
     }
 
     public static void setTimeViewTextSize(float f2) {
         b.Q = f2;
     }
 
-    public static void setTitleBarColor(int i) {
-        b.A = i;
+    public static void setTitleBarColor(int i2) {
+        b.A = i2;
     }
 
     public static void setTitleHelpAndFeedbackTextSize(float f2) {
         b.T = f2;
     }
 
-    public static void setTitleTextColor(int i) {
-        b.r = i;
+    public static void setTitleTextColor(int i2) {
+        b.r = i2;
     }
 
-    public static void setToggleUpTextColor(int i) {
-        b.J = i;
+    public static void setToggleUpTextColor(int i2) {
+        b.J = i2;
     }
 
     public static void setUserId(String str) {
-        b.f22598d = str;
+        b.f23300d = str;
     }
 
     public static void setUserName(String str) {
-        b.f22596b = str;
+        b.f23298b = str;
     }
 
-    public static void setUserStatus(int i) {
-        b.f22599e = i;
+    public static void setUserStatus(int i2) {
+        b.f23301e = i2;
     }
 }

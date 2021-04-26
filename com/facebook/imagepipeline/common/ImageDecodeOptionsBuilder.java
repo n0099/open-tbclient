@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.facebook.imagepipeline.decoder.ImageDecoder;
 import com.facebook.imagepipeline.transformation.BitmapTransformation;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ImageDecodeOptionsBuilder {
     @Nullable
     public BitmapTransformation mBitmapTransformation;
@@ -102,8 +102,8 @@ public class ImageDecodeOptionsBuilder {
         return this;
     }
 
-    public ImageDecodeOptionsBuilder setMinDecodeIntervalMs(int i) {
-        this.mMinDecodeIntervalMs = i;
+    public ImageDecodeOptionsBuilder setMinDecodeIntervalMs(int i2) {
+        this.mMinDecodeIntervalMs = i2;
         return this;
     }
 

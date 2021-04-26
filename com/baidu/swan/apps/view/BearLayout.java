@@ -17,29 +17,31 @@ import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.model.SwanAppBearInfo;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
 import com.facebook.drawee.view.SimpleDraweeView;
-import d.b.h0.a.e;
-import d.b.h0.a.f;
-import d.b.h0.a.g;
-import d.b.h0.a.h;
-import d.b.h0.a.k;
+import d.a.h0.a.e;
+import d.a.h0.a.f;
+import d.a.h0.a.g;
+import d.a.h0.a.h;
+import d.a.h0.a.k;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes3.dex */
 public class BearLayout extends LinearLayout {
-    public static final boolean n = k.f45772a;
+    public static final boolean n = k.f43101a;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f12332e;
+    public TextView f12205e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SimpleDraweeView f12333f;
+    public SimpleDraweeView f12206f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdBaseImageView f12334g;
+    public BdBaseImageView f12207g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f12335h;
-    public TextView i;
+    public FrameLayout f12208h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f12209i;
     public BdBaseImageView j;
     public boolean k;
     public d l;
@@ -49,15 +51,15 @@ public class BearLayout extends LinearLayout {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppBearInfo f12336e;
+        public final /* synthetic */ SwanAppBearInfo f12210e;
 
         public a(SwanAppBearInfo swanAppBearInfo) {
-            this.f12336e = swanAppBearInfo;
+            this.f12210e = swanAppBearInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            BearLayout.this.j(this.f12336e.bearHomeUrl);
+            BearLayout.this.j(this.f12210e.bearHomeUrl);
         }
     }
 
@@ -65,24 +67,24 @@ public class BearLayout extends LinearLayout {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.a.j2.a f12338e;
+        public final /* synthetic */ d.a.h0.a.j2.a f12212e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppBearInfo f12339f;
+        public final /* synthetic */ SwanAppBearInfo f12213f;
 
-        public b(d.b.h0.a.j2.a aVar, SwanAppBearInfo swanAppBearInfo) {
-            this.f12338e = aVar;
-            this.f12339f = swanAppBearInfo;
+        public b(d.a.h0.a.j2.a aVar, SwanAppBearInfo swanAppBearInfo) {
+            this.f12212e = aVar;
+            this.f12213f = swanAppBearInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!BearLayout.this.k) {
                 BearLayout.this.l();
-                this.f12338e.b();
+                this.f12212e.b();
                 return;
             }
-            BearLayout.this.j(this.f12339f.bearHomeUrl);
+            BearLayout.this.j(this.f12213f.bearHomeUrl);
         }
     }
 
@@ -90,49 +92,49 @@ public class BearLayout extends LinearLayout {
     public class c implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f12341a;
+        public final /* synthetic */ Context f12215a;
 
         public c(Context context) {
-            this.f12341a = context;
+            this.f12215a = context;
         }
 
         @Override // com.baidu.swan.apps.view.BearLayout.d
-        public void a(String str) {
+        public void a(boolean z) {
+            BearLayout.this.k = z;
+            if (BearLayout.this.j == null || BearLayout.this.f12209i == null) {
+                return;
+            }
+            BearLayout.this.j.clearAnimation();
+            BearLayout.this.j.setVisibility(4);
+            BearLayout.this.f12209i.setVisibility(0);
+            TextView textView = BearLayout.this.f12209i;
+            BearLayout bearLayout = BearLayout.this;
+            textView.setText(z ? bearLayout.m.getText(h.aiapps_bear_btn_navigate) : bearLayout.m.getText(h.aiapps_bear_btn_follow));
+            TextView textView2 = BearLayout.this.f12209i;
+            Context context = this.f12215a;
+            textView2.setTextColor(z ? context.getResources().getColor(d.a.h0.a.c.aiapps_black_text) : context.getResources().getColor(d.a.h0.a.c.aiapps_white_text));
+            BearLayout.this.f12208h.setBackgroundResource(z ? e.aiapps_bear_paw_enter_btn : e.aiapps_bear_paw_follow_btn);
+        }
+
+        @Override // com.baidu.swan.apps.view.BearLayout.d
+        public void b(String str) {
             if (BearLayout.n) {
                 Log.d("BearLayout", str);
             }
-            if (BearLayout.this.j == null || BearLayout.this.i == null) {
+            if (BearLayout.this.j == null || BearLayout.this.f12209i == null) {
                 return;
             }
             BearLayout.this.j.clearAnimation();
             BearLayout.this.j.setVisibility(4);
-            BearLayout.this.i.setVisibility(0);
-        }
-
-        @Override // com.baidu.swan.apps.view.BearLayout.d
-        public void b(boolean z) {
-            BearLayout.this.k = z;
-            if (BearLayout.this.j == null || BearLayout.this.i == null) {
-                return;
-            }
-            BearLayout.this.j.clearAnimation();
-            BearLayout.this.j.setVisibility(4);
-            BearLayout.this.i.setVisibility(0);
-            TextView textView = BearLayout.this.i;
-            BearLayout bearLayout = BearLayout.this;
-            textView.setText(z ? bearLayout.m.getText(h.aiapps_bear_btn_navigate) : bearLayout.m.getText(h.aiapps_bear_btn_follow));
-            TextView textView2 = BearLayout.this.i;
-            Context context = this.f12341a;
-            textView2.setTextColor(z ? context.getResources().getColor(d.b.h0.a.c.aiapps_black_text) : context.getResources().getColor(d.b.h0.a.c.aiapps_white_text));
-            BearLayout.this.f12335h.setBackgroundResource(z ? e.aiapps_bear_paw_enter_btn : e.aiapps_bear_paw_follow_btn);
+            BearLayout.this.f12209i.setVisibility(0);
         }
     }
 
     /* loaded from: classes3.dex */
     public interface d {
-        void a(String str);
+        void a(boolean z);
 
-        void b(boolean z);
+        void b(String str);
     }
 
     public BearLayout(Context context) {
@@ -141,14 +143,14 @@ public class BearLayout extends LinearLayout {
     }
 
     private void setVipLogo(String str) {
-        if (this.f12334g == null) {
+        if (this.f12207g == null) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            this.f12334g.setVisibility(8);
+            this.f12207g.setVisibility(8);
             return;
         }
-        int i = e.aiapps_follow_vip_golden;
+        int i2 = e.aiapps_follow_vip_golden;
         char c2 = 65535;
         int hashCode = str.hashCode();
         if (hashCode != 1567) {
@@ -176,14 +178,14 @@ public class BearLayout extends LinearLayout {
             c2 = 3;
         }
         if (c2 == 1) {
-            i = e.aiapps_follow_vip_blue;
+            i2 = e.aiapps_follow_vip_blue;
         } else if (c2 == 2) {
-            i = e.aiapps_follow_vip_yellow;
+            i2 = e.aiapps_follow_vip_yellow;
         } else if (c2 == 3) {
-            i = e.aiapps_follow_vip_authentication;
+            i2 = e.aiapps_follow_vip_authentication;
         }
-        this.f12334g.setVisibility(0);
-        this.f12334g.setImageDrawable(this.m.getResources().getDrawable(i));
+        this.f12207g.setVisibility(0);
+        this.f12207g.setImageDrawable(this.m.getResources().getDrawable(i2));
     }
 
     public d getCallback() {
@@ -206,21 +208,21 @@ public class BearLayout extends LinearLayout {
         SchemeRouter.invoke(getContext(), "baiduboxapp://v1/easybrowse/open?url=" + str + "&newbrowser=1&forbidautorotate=1");
     }
 
-    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, d.b.h0.a.j2.a aVar) {
+    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, d.a.h0.a.j2.a aVar) {
         this.m = context;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(g.aiapps_bear_layout, this);
         linearLayout.setOnClickListener(new a(swanAppBearInfo));
         TextView textView = (TextView) linearLayout.findViewById(f.bear_account_name);
-        this.f12332e = textView;
+        this.f12205e = textView;
         textView.setText(swanAppBearInfo.bearName);
         SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(f.bear_account_logo);
-        this.f12333f = simpleDraweeView;
+        this.f12206f = simpleDraweeView;
         simpleDraweeView.setImageURI(swanAppBearInfo.bearLogo);
-        this.f12334g = (BdBaseImageView) linearLayout.findViewById(f.bear_account_vip_logo);
+        this.f12207g = (BdBaseImageView) linearLayout.findViewById(f.bear_account_vip_logo);
         setVipLogo(swanAppBearInfo.bearVipType);
-        this.f12335h = (FrameLayout) linearLayout.findViewById(f.bear_account_follow_background);
+        this.f12208h = (FrameLayout) linearLayout.findViewById(f.bear_account_follow_background);
         TextView textView2 = (TextView) linearLayout.findViewById(f.bear_account_follow_btn);
-        this.i = textView2;
+        this.f12209i = textView2;
         textView2.setOnClickListener(new b(aVar, swanAppBearInfo));
         BdBaseImageView bdBaseImageView = (BdBaseImageView) linearLayout.findViewById(f.bear_account_loading_progress);
         this.j = bdBaseImageView;
@@ -230,7 +232,7 @@ public class BearLayout extends LinearLayout {
 
     public final void l() {
         TextView textView;
-        if (this.j == null || (textView = this.i) == null) {
+        if (this.j == null || (textView = this.f12209i) == null) {
             return;
         }
         textView.setVisibility(4);

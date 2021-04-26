@@ -29,7 +29,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class DownloadManager {
     public static final String ACTION_WEBSUITE_PROGRESS_CHANGE = "com.baidu.appsearch.websuite.download.PROGRESS_CHANGE";
     public static final String ACTION_WEBSUITE_STATE_CHANGE = "com.baidu.appsearch.websuite.download.STATE_CHANGE";
@@ -89,19 +89,19 @@ public final class DownloadManager {
         }
 
         @Override // com.baidu.down.common.TaskObserver
-        public void onDownloadFail(String str, long j, long j2, String str2, String str3, int i, DownDetail downDetail) {
+        public void onDownloadFail(String str, long j, long j2, String str2, String str3, int i2, DownDetail downDetail) {
             Download download = (Download) DownloadManager.this.mDownloadMap.get(Long.valueOf(j));
             if (download != null) {
                 if (j2 <= download.getTotalbytes().longValue()) {
                     download.setCurrentbytes(Long.valueOf(j2));
                 }
                 download.setFailedReason(str3);
-                download.setFailedType(Integer.valueOf(i));
+                download.setFailedType(Integer.valueOf(i2));
                 if (downDetail != null) {
                     download.mDownDetail = downDetail;
                 }
                 if (DownloadManager.DEBUG) {
-                    Log.i("DownloadManager", "failed_type : " + i + ", filePath: " + str2 + ", failreason : " + str3 + ", downDetail" + download.mDownDetail);
+                    Log.i("DownloadManager", "failed_type : " + i2 + ", filePath: " + str2 + ", failreason : " + str3 + ", downDetail" + download.mDownDetail);
                     StringBuilder sb = new StringBuilder();
                     sb.append("mDownDetail:");
                     sb.append(download.mDownDetail.toString());
@@ -113,7 +113,7 @@ public final class DownloadManager {
         }
 
         @Override // com.baidu.down.common.TaskObserverInterface
-        public void onDownloadMsgType(String str, long j, int i, Object obj) {
+        public void onDownloadMsgType(String str, long j, int i2, Object obj) {
         }
 
         @Override // com.baidu.down.common.TaskObserver
@@ -262,17 +262,17 @@ public final class DownloadManager {
         }
     };
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface DownloadItemFilter {
         boolean filter(Download download);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface OnProgressChangeListener {
-        void onProgressChanged(long j, int i, long j2);
+        void onProgressChanged(long j, int i2, long j2);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface OnStateChangeListener {
         void onStateChanged(long j, Download download);
     }
@@ -370,12 +370,12 @@ public final class DownloadManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void notifyProgressChange(long j, int i) {
+    public void notifyProgressChange(long j, int i2) {
         if (DEBUG && getDownloadInfo(j) != null) {
-            Log.d("DownloadManager", "notifyProgressChange downloadId " + j + " percentage " + i);
+            Log.d("DownloadManager", "notifyProgressChange downloadId " + j + " percentage " + i2);
         }
         this.mProgressNotifyDownloadId = j;
-        this.mProgressNotifyPercentage = i;
+        this.mProgressNotifyPercentage = i2;
         this.mHandler.removeCallbacks(this.mProgressNotifyRunnable);
         this.mHandler.post(this.mProgressNotifyRunnable);
     }
@@ -662,8 +662,8 @@ public final class DownloadManager {
         DownloadConstants.mDebug = z;
     }
 
-    public void setMaxDownloadTask(int i) {
-        this.mTaskManager.setMaxDownloadThread((i <= 0 || i > 3) ? 3 : 3);
+    public void setMaxDownloadTask(int i2) {
+        this.mTaskManager.setMaxDownloadThread((i2 <= 0 || i2 > 3) ? 3 : 3);
     }
 
     public long start(String str) {

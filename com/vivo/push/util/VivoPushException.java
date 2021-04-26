@@ -1,5 +1,5 @@
 package com.vivo.push.util;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class VivoPushException extends Exception {
     public static final int REASON_CODE_ACCESS = 10000;
     public int mReasonCode;
@@ -12,8 +12,8 @@ public class VivoPushException extends Exception {
         return this.mReasonCode;
     }
 
-    public VivoPushException(int i, String str) {
+    public VivoPushException(int i2, String str) {
         super(str);
-        this.mReasonCode = i;
+        this.mReasonCode = i2;
     }
 }

@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.j;
-import d.b.c.e.p.l;
-import d.b.j0.v2.d.a;
+import d.a.c.e.p.j;
+import d.a.c.e.p.l;
+import d.a.j0.v2.d.a;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.b {
     public static final int ACCEPT_MSG = 0;
     public static final int MASK_TYPE = 6;
@@ -83,12 +83,12 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
             this.mAdapter.notifyDataSetChanged();
             return;
         }
-        for (int i = 0; i < this.list.size(); i++) {
-            if (this.list.get(i).uid == j) {
+        for (int i2 = 0; i2 < this.list.size(); i2++) {
+            if (this.list.get(i2).uid == j) {
                 if (z) {
-                    this.list.get(i).is_on = 1;
+                    this.list.get(i2).is_on = 1;
                 } else {
-                    this.list.get(i).is_on = 0;
+                    this.list.get(i2).is_on = 0;
                 }
             }
         }
@@ -106,12 +106,12 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0205, i);
-        this.mNoDataView.f(getPageContext(), i);
-        this.mNetworkView.c(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0205, i2);
+        this.mNoDataView.f(getPageContext(), i2);
+        this.mNetworkView.c(getPageContext(), i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

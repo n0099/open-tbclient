@@ -18,12 +18,12 @@ public abstract class bn {
         a(context).edit().remove(str).commit();
     }
 
-    public int a(Context context, String str, int i) {
-        return a(context).getInt(str, i);
+    public int a(Context context, String str, int i2) {
+        return a(context).getInt(str, i2);
     }
 
-    public void b(Context context, String str, int i) {
-        a(context).edit().putInt(str, i).commit();
+    public void b(Context context, String str, int i2) {
+        a(context).edit().putInt(str, i2).commit();
     }
 
     public long a(Context context, String str, long j) {

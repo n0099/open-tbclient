@@ -11,17 +11,17 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.faceshop.emotioncenter.message.EmotionCenterResponseMessage;
-import d.b.j0.l0.y.d.b;
+import d.a.j0.l0.y.d.b;
 /* loaded from: classes4.dex */
 public class EmotionChangeModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f15445e;
+    public final HttpMessageListener f15598e;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
-        public a(EmotionChangeModel emotionChangeModel, int i) {
-            super(i);
+        public a(EmotionChangeModel emotionChangeModel, int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -37,18 +37,18 @@ public class EmotionChangeModel extends BdBaseModel {
                 if (bVar == null || (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) == null) {
                     return;
                 }
-                bVar.B(emotionCenterResponseMessage.data);
+                bVar.a0(emotionCenterResponseMessage.data);
             }
         }
     }
 
     public EmotionChangeModel(TbPageContext<BaseFragmentActivity> tbPageContext) {
         super(tbPageContext);
-        this.f15445e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
+        this.f15598e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
         registerTask();
-        this.f15445e.setTag(getUniqueId());
-        this.f15445e.setSelfListener(true);
-        registerListener(this.f15445e);
+        this.f15598e.setTag(getUniqueId());
+        this.f15598e.setSelfListener(true);
+        registerListener(this.f15598e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

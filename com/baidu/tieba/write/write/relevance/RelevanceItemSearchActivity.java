@@ -7,7 +7,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import d.b.i0.t0.a;
+import d.a.i0.t0.a;
 /* loaded from: classes5.dex */
 public class RelevanceItemSearchActivity extends SuspendedActivity {
     public RelevanceItemSearchView mSearchView;
@@ -45,9 +45,9 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         }
         int[] iArr = {0, 0};
         view.getLocationInWindow(iArr);
-        int i = iArr[0];
-        int i2 = iArr[1];
-        return motionEvent.getX() <= ((float) i) || motionEvent.getX() >= ((float) (view.getWidth() + i)) || motionEvent.getY() <= ((float) i2) || motionEvent.getY() >= ((float) (view.getHeight() + i2));
+        int i2 = iArr[0];
+        int i3 = iArr[1];
+        return motionEvent.getX() <= ((float) i2) || motionEvent.getX() >= ((float) (view.getWidth() + i2)) || motionEvent.getY() <= ((float) i3) || motionEvent.getY() >= ((float) (view.getHeight() + i3));
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity

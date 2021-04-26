@@ -6,7 +6,7 @@ import android.text.method.TransformationMethod;
 import android.view.View;
 import androidx.annotation.RestrictTo;
 import java.util.Locale;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class AllCapsTransformationMethod implements TransformationMethod {
     public Locale mLocale;
@@ -24,6 +24,6 @@ public class AllCapsTransformationMethod implements TransformationMethod {
     }
 
     @Override // android.text.method.TransformationMethod
-    public void onFocusChanged(View view, CharSequence charSequence, boolean z, int i, Rect rect) {
+    public void onFocusChanged(View view, CharSequence charSequence, boolean z, int i2, Rect rect) {
     }
 }

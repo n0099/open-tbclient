@@ -9,20 +9,20 @@ public class b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f26011a = new b();
+        public static b f26804a = new b();
     }
 
     public static b a() {
-        return a.f26011a;
+        return a.f26804a;
     }
 
     public b() {
     }
 
-    public a.b a(int i, Context context) {
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
+    public a.b a(int i2, Context context) {
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 != 3) {
                     return null;
                 }
                 return new c(context);

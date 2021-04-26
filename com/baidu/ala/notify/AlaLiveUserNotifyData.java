@@ -31,8 +31,8 @@ public class AlaLiveUserNotifyData {
     }
 
     public boolean isSuperGuardian() {
-        int i = this.notify_type;
-        return i == 1 || i == 2;
+        int i2 = this.notify_type;
+        return i2 == 1 || i2 == 2;
     }
 
     public void parseJson(JSONObject jSONObject) {

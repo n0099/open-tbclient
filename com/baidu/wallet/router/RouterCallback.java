@@ -14,5 +14,5 @@ public interface RouterCallback extends NoProguard {
     public static final String KEY_ERROR_MSG = "errorMsg";
     public static final String KEY_VALUE = "value";
 
-    void onResult(int i, HashMap hashMap);
+    void onResult(int i2, HashMap hashMap);
 }

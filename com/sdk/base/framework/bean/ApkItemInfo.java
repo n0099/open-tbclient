@@ -95,8 +95,8 @@ public class ApkItemInfo {
         this.icon = drawable;
     }
 
-    public void setIsSystemApp(int i) {
-        this.isSystemApp = i;
+    public void setIsSystemApp(int i2) {
+        this.isSystemApp = i2;
     }
 
     public void setLable(CharSequence charSequence) {
@@ -111,8 +111,8 @@ public class ApkItemInfo {
         this.pkName = str;
     }
 
-    public void setVersionCode(int i) {
-        this.versionCode = i;
+    public void setVersionCode(int i2) {
+        this.versionCode = i2;
     }
 
     public void setVersionName(String str) {

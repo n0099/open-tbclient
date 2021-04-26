@@ -12,26 +12,26 @@ public class PMStatisticApi implements IStatistic {
     }
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEnd(String str, int i) {
-        PayStatisticsUtil.onEventEnd(str, i);
+    public void onEventEnd(String str, int i2) {
+        PayStatisticsUtil.onEventEnd(str, i2);
     }
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEndWithValue(String str, int i, String str2) {
-        PayStatisticsUtil.onEventEndWithValue(str, i, str2);
+    public void onEventEndWithValue(String str, int i2, String str2) {
+        PayStatisticsUtil.onEventEndWithValue(str, i2, str2);
     }
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEndWithValues(String str, int i, Collection<String> collection) {
-        PayStatisticsUtil.onEventEndWithValues(str, i, collection);
+    public void onEventEndWithValues(String str, int i2, Collection<String> collection) {
+        PayStatisticsUtil.onEventEndWithValues(str, i2, collection);
     }
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEndWithValues(String str, int i, Collection<String> collection, Map<String, Object> map) {
+    public void onEventEndWithValues(String str, int i2, Collection<String> collection, Map<String, Object> map) {
     }
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEndWithValues(String str, int i, Collection<String> collection, Map<String, Object> map, String str2) {
+    public void onEventEndWithValues(String str, int i2, Collection<String> collection, Map<String, Object> map, String str2) {
     }
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
@@ -68,18 +68,18 @@ public class PMStatisticApi implements IStatistic {
     }
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEnd(String str, int i, String str2) {
-        PayStatisticsUtil.onEventEnd(str, i, str2);
+    public void onEventEnd(String str, int i2, String str2) {
+        PayStatisticsUtil.onEventEnd(str, i2, str2);
     }
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEndWithValue(String str, int i, String str2, String str3) {
-        PayStatisticsUtil.onEventEndWithValue(str, i, str2, str3);
+    public void onEventEndWithValue(String str, int i2, String str2, String str3) {
+        PayStatisticsUtil.onEventEndWithValue(str, i2, str2, str3);
     }
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEndWithValues(String str, int i, Collection<String> collection, String str2) {
-        PayStatisticsUtil.onEventEndWithValues(str, i, collection, str2);
+    public void onEventEndWithValues(String str, int i2, Collection<String> collection, String str2) {
+        PayStatisticsUtil.onEventEndWithValues(str, i2, collection, str2);
     }
 
     @Override // com.baidu.wallet.statistics.api.IStatistic

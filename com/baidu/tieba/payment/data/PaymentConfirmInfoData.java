@@ -17,6 +17,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
     public static final class GoodsInfo extends OrmObject implements Serializable {
         public static final int NAME_LENGTH_MAX = 7;
         public static final long serialVersionUID = 3616864478965520380L;
+        public int currency;
         public int goods_duration;
         public String goods_name;
         public int goods_num;
@@ -24,6 +25,10 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         public String goods_unit;
         public int goods_user_level;
         public long tdou_num;
+
+        public int getCurrency() {
+            return this.currency;
+        }
 
         public int getGoods_duration() {
             return this.goods_duration;
@@ -55,16 +60,20 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             return this.tdou_num;
         }
 
-        public void setGoods_duration(int i) {
-            this.goods_duration = i;
+        public void setCurrency(int i2) {
+            this.currency = i2;
+        }
+
+        public void setGoods_duration(int i2) {
+            this.goods_duration = i2;
         }
 
         public void setGoods_name(String str) {
             this.goods_name = str;
         }
 
-        public void setGoods_num(int i) {
-            this.goods_num = i;
+        public void setGoods_num(int i2) {
+            this.goods_num = i2;
         }
 
         public void setGoods_pic(String str) {
@@ -75,8 +84,8 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             this.goods_unit = str;
         }
 
-        public void setGoods_user_level(int i) {
-            this.goods_user_level = i;
+        public void setGoods_user_level(int i2) {
+            this.goods_user_level = i2;
         }
 
         public void setTdou_num(long j) {
@@ -152,28 +161,28 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
                 return this.tip_exist;
             }
 
-            public void setGettdou_cashier(int i) {
-                this.gettdou_cashier = i;
+            public void setGettdou_cashier(int i2) {
+                this.gettdou_cashier = i2;
             }
 
             public void setMember(Member member) {
                 this.member = member;
             }
 
-            public void setPay_cashier(int i) {
-                this.pay_cashier = i;
+            public void setPay_cashier(int i2) {
+                this.pay_cashier = i2;
             }
 
-            public void setPurchase(int i) {
-                this.purchase = i;
+            public void setPurchase(int i2) {
+                this.purchase = i2;
             }
 
-            public void setTip_days(int i) {
-                this.tip_days = i;
+            public void setTip_days(int i2) {
+                this.tip_days = i2;
             }
 
-            public void setTip_exist(int i) {
-                this.tip_exist = i;
+            public void setTip_exist(int i2) {
+                this.tip_exist = i2;
             }
         }
 
@@ -221,8 +230,8 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             this.order_id = str;
         }
 
-        public void setPay_type(int i) {
-            this.pay_type = i;
+        public void setPay_type(int i2) {
+            this.pay_type = i2;
         }
 
         public void setScene_id(long j) {
@@ -249,6 +258,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         /* loaded from: classes3.dex */
         public static final class UserScores extends OrmObject implements Serializable {
             public static final long serialVersionUID = -667999598567432177L;
+            public int currency;
             public int level;
             public int limit;
             public int scores_fetch;
@@ -256,6 +266,10 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             public long scores_other;
             public long scores_total;
             public long update_time;
+
+            public int getCurrency() {
+                return this.currency;
+            }
 
             public int getLevel() {
                 return this.level;
@@ -285,16 +299,20 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
                 return this.update_time;
             }
 
-            public void setLevel(int i) {
-                this.level = i;
+            public void setCurrency(int i2) {
+                this.currency = i2;
             }
 
-            public void setLimit(int i) {
-                this.limit = i;
+            public void setLevel(int i2) {
+                this.level = i2;
             }
 
-            public void setScores_fetch(int i) {
-                this.scores_fetch = i;
+            public void setLimit(int i2) {
+                this.limit = i2;
+            }
+
+            public void setScores_fetch(int i2) {
+                this.scores_fetch = i2;
             }
 
             public void setScores_money(long j) {

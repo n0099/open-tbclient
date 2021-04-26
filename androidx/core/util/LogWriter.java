@@ -3,7 +3,8 @@ package androidx.core.util;
 import android.util.Log;
 import androidx.annotation.RestrictTo;
 import java.io.Writer;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+@Deprecated
 /* loaded from: classes.dex */
 public class LogWriter extends Writer {
     public StringBuilder mBuilder = new StringBuilder(128);
@@ -32,9 +33,9 @@ public class LogWriter extends Writer {
     }
 
     @Override // java.io.Writer
-    public void write(char[] cArr, int i, int i2) {
-        for (int i3 = 0; i3 < i2; i3++) {
-            char c2 = cArr[i + i3];
+    public void write(char[] cArr, int i2, int i3) {
+        for (int i4 = 0; i4 < i3; i4++) {
+            char c2 = cArr[i2 + i4];
             if (c2 == '\n') {
                 flushBuilder();
             } else {

@@ -10,15 +10,15 @@ import java.util.List;
 public class WrapLineLayout extends ViewGroup {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<List<View>> f13264e;
+    public List<List<View>> f13222e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<Integer> f13265f;
+    public List<Integer> f13223f;
 
     public WrapLineLayout(Context context) {
         super(context);
-        this.f13264e = new ArrayList();
-        this.f13265f = new ArrayList();
+        this.f13222e = new ArrayList();
+        this.f13223f = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -32,44 +32,44 @@ public class WrapLineLayout extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.f13264e.clear();
-        this.f13265f.clear();
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        this.f13222e.clear();
+        this.f13223f.clear();
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         ArrayList arrayList = new ArrayList();
         int childCount = getChildCount();
-        int i5 = 0;
         int i6 = 0;
-        for (int i7 = 0; i7 < childCount; i7++) {
-            View childAt = getChildAt(i7);
+        int i7 = 0;
+        for (int i8 = 0; i8 < childCount; i8++) {
+            View childAt = getChildAt(i8);
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) childAt.getLayoutParams();
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
-            if (marginLayoutParams.leftMargin + measuredWidth + marginLayoutParams.rightMargin + i6 > width) {
-                this.f13265f.add(Integer.valueOf(i5));
-                this.f13264e.add(arrayList);
+            if (marginLayoutParams.leftMargin + measuredWidth + marginLayoutParams.rightMargin + i7 > width) {
+                this.f13223f.add(Integer.valueOf(i6));
+                this.f13222e.add(arrayList);
                 arrayList = new ArrayList();
-                i6 = 0;
+                i7 = 0;
             }
-            i6 += measuredWidth + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin;
-            i5 = Math.max(i5, measuredHeight + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin);
+            i7 += measuredWidth + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin;
+            i6 = Math.max(i6, measuredHeight + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin);
             arrayList.add(childAt);
         }
-        this.f13265f.add(Integer.valueOf(i5));
-        this.f13264e.add(arrayList);
+        this.f13223f.add(Integer.valueOf(i6));
+        this.f13222e.add(arrayList);
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int size = this.f13264e.size();
-        for (int i8 = 0; i8 < size; i8++) {
-            List<View> list = this.f13264e.get(i8);
-            int intValue = this.f13265f.get(i8).intValue();
-            for (int i9 = 0; i9 < list.size(); i9++) {
-                View view = list.get(i9);
+        int size = this.f13222e.size();
+        for (int i9 = 0; i9 < size; i9++) {
+            List<View> list = this.f13222e.get(i9);
+            int intValue = this.f13223f.get(i9).intValue();
+            for (int i10 = 0; i10 < list.size(); i10++) {
+                View view = list.get(i10);
                 if (view.getVisibility() != 8) {
                     ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-                    int i10 = marginLayoutParams2.leftMargin + paddingLeft;
-                    int i11 = marginLayoutParams2.topMargin + paddingTop;
-                    view.layout(i10, i11, view.getMeasuredWidth() + i10, view.getMeasuredHeight() + i11);
+                    int i11 = marginLayoutParams2.leftMargin + paddingLeft;
+                    int i12 = marginLayoutParams2.topMargin + paddingTop;
+                    view.layout(i11, i12, view.getMeasuredWidth() + i11, view.getMeasuredHeight() + i12);
                     paddingLeft += view.getMeasuredWidth() + marginLayoutParams2.rightMargin + marginLayoutParams2.leftMargin;
                 }
             }
@@ -79,52 +79,52 @@ public class WrapLineLayout extends ViewGroup {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        int size = View.MeasureSpec.getSize(i);
-        int size2 = View.MeasureSpec.getSize(i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        int size = View.MeasureSpec.getSize(i2);
+        int size2 = View.MeasureSpec.getSize(i3);
         int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
-        int mode = View.MeasureSpec.getMode(i);
-        int mode2 = View.MeasureSpec.getMode(i2);
+        int mode = View.MeasureSpec.getMode(i2);
+        int mode2 = View.MeasureSpec.getMode(i3);
         int childCount = getChildCount();
-        int i3 = 0;
         int i4 = 0;
         int i5 = 0;
         int i6 = 0;
         int i7 = 0;
-        while (i3 < childCount) {
-            View childAt = getChildAt(i3);
-            measureChild(childAt, i, i2);
+        int i8 = 0;
+        while (i4 < childCount) {
+            View childAt = getChildAt(i4);
+            measureChild(childAt, i2, i3);
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) childAt.getLayoutParams();
-            int i8 = size;
+            int i9 = size;
             int measuredWidth = childAt.getMeasuredWidth() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin;
-            int i9 = size2;
+            int i10 = size2;
             int measuredHeight = childAt.getMeasuredHeight() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin;
-            int i10 = i4 + measuredWidth;
-            if (i10 > paddingLeft) {
-                i5 = Math.max(i4, measuredWidth);
-                i7 += i6;
-                i4 = measuredWidth;
-                i6 = measuredHeight;
+            int i11 = i5 + measuredWidth;
+            if (i11 > paddingLeft) {
+                i6 = Math.max(i5, measuredWidth);
+                i8 += i7;
+                i5 = measuredWidth;
+                i7 = measuredHeight;
             } else {
-                i6 = Math.max(i6, measuredHeight);
-                i4 = i10;
+                i7 = Math.max(i7, measuredHeight);
+                i5 = i11;
             }
-            if (i3 == childCount - 1) {
-                i7 += i6;
-                i5 = Math.max(i5, i4);
+            if (i4 == childCount - 1) {
+                i8 += i7;
+                i6 = Math.max(i6, i5);
             }
-            i7 = i7 + getPaddingTop() + getPaddingBottom();
-            i3++;
-            size2 = i9;
-            size = i8;
+            i8 = i8 + getPaddingTop() + getPaddingBottom();
+            i4++;
+            size2 = i10;
+            size = i9;
         }
-        int i11 = size;
-        int i12 = size2;
+        int i12 = size;
+        int i13 = size2;
         if (mode == 1073741824) {
-            i5 = i11;
+            i6 = i12;
         }
-        setMeasuredDimension(i5, mode2 == 1073741824 ? i12 : i7);
+        setMeasuredDimension(i6, mode2 == 1073741824 ? i13 : i8);
     }
 
     @Override // android.view.ViewGroup
@@ -134,7 +134,7 @@ public class WrapLineLayout extends ViewGroup {
 
     public WrapLineLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13264e = new ArrayList();
-        this.f13265f = new ArrayList();
+        this.f13222e = new ArrayList();
+        this.f13223f = new ArrayList();
     }
 }

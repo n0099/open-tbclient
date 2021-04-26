@@ -10,10 +10,10 @@ import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import com.baidu.tieba.im.message.chat.GroupChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import d.b.c.e.m.b;
-import d.b.c.e.p.k;
-import d.b.j0.e1.s.a;
-import d.b.j0.e1.w.c;
+import d.a.c.e.m.b;
+import d.a.c.e.p.k;
+import d.a.j0.e1.s.a;
+import d.a.j0.e1.w.c;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class CommonMsgPojo extends OrmObject implements Serializable {
@@ -207,40 +207,40 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         this.create_time = j;
     }
 
-    public void setCustomGroupType(int i) {
-        this.customGroupType = i;
+    public void setCustomGroupType(int i2) {
+        this.customGroupType = i2;
     }
 
     public void setExt(String str) {
         this.ext = str;
     }
 
-    public void setFollowStatus(int i) {
-        this.followStatus = i;
+    public void setFollowStatus(int i2) {
+        this.followStatus = i2;
     }
 
     public void setGid(String str) {
         this.gid = str;
     }
 
-    public void setIsFriend(int i) {
-        this.isFriend = i;
+    public void setIsFriend(int i2) {
+        this.isFriend = i2;
     }
 
-    public void setIs_delete(int i) {
-        this.is_delete = i;
+    public void setIs_delete(int i2) {
+        this.is_delete = i2;
     }
 
     public void setMid(long j) {
         this.mid = j;
     }
 
-    public void setMsg_status(int i) {
-        this.msg_status = i;
+    public void setMsg_status(int i2) {
+        this.msg_status = i2;
     }
 
-    public void setMsg_type(int i) {
-        this.msg_type = i;
+    public void setMsg_type(int i2) {
+        this.msg_type = i2;
     }
 
     public void setPrivate(boolean z) {
@@ -251,8 +251,8 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         this.pushIds = str;
     }
 
-    public void setRead_flag(int i) {
-        this.read_flag = i;
+    public void setRead_flag(int i2) {
+        this.read_flag = i2;
     }
 
     public void setRid(long j) {
@@ -446,7 +446,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.i);
+                this.gid = String.valueOf(a.f53799i);
             } else if (chatMessage instanceof OfficialChatMessage) {
                 this.gid = String.valueOf(a.j);
             }

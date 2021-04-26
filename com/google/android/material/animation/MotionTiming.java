@@ -27,14 +27,15 @@ public class MotionTiming {
         this.duration = j2;
     }
 
-    public static MotionTiming createFromAnimator(ValueAnimator valueAnimator) {
+    @NonNull
+    public static MotionTiming createFromAnimator(@NonNull ValueAnimator valueAnimator) {
         MotionTiming motionTiming = new MotionTiming(valueAnimator.getStartDelay(), valueAnimator.getDuration(), getInterpolatorCompat(valueAnimator));
         motionTiming.repeatCount = valueAnimator.getRepeatCount();
         motionTiming.repeatMode = valueAnimator.getRepeatMode();
         return motionTiming;
     }
 
-    public static TimeInterpolator getInterpolatorCompat(ValueAnimator valueAnimator) {
+    public static TimeInterpolator getInterpolatorCompat(@NonNull ValueAnimator valueAnimator) {
         TimeInterpolator interpolator = valueAnimator.getInterpolator();
         if (!(interpolator instanceof AccelerateDecelerateInterpolator) && interpolator != null) {
             if (interpolator instanceof AccelerateInterpolator) {
@@ -45,7 +46,7 @@ public class MotionTiming {
         return AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR;
     }
 
-    public void apply(Animator animator) {
+    public void apply(@NonNull Animator animator) {
         animator.setStartDelay(getDelay());
         animator.setDuration(getDuration());
         animator.setInterpolator(getInterpolator());
@@ -56,16 +57,16 @@ public class MotionTiming {
         }
     }
 
-    public boolean equals(Object obj) {
+    public boolean equals(@Nullable Object obj) {
         if (this == obj) {
             return true;
         }
-        if (obj == null || MotionTiming.class != obj.getClass()) {
+        if (obj instanceof MotionTiming) {
+            MotionTiming motionTiming = (MotionTiming) obj;
+            if (getDelay() == motionTiming.getDelay() && getDuration() == motionTiming.getDuration() && getRepeatCount() == motionTiming.getRepeatCount() && getRepeatMode() == motionTiming.getRepeatMode()) {
+                return getInterpolator().getClass().equals(motionTiming.getInterpolator().getClass());
+            }
             return false;
-        }
-        MotionTiming motionTiming = (MotionTiming) obj;
-        if (getDelay() == motionTiming.getDelay() && getDuration() == motionTiming.getDuration() && getRepeatCount() == motionTiming.getRepeatCount() && getRepeatMode() == motionTiming.getRepeatMode()) {
-            return getInterpolator().getClass().equals(motionTiming.getInterpolator().getClass());
         }
         return false;
     }
@@ -78,6 +79,7 @@ public class MotionTiming {
         return this.duration;
     }
 
+    @Nullable
     public TimeInterpolator getInterpolator() {
         TimeInterpolator timeInterpolator = this.interpolator;
         return timeInterpolator != null ? timeInterpolator : AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR;
@@ -95,6 +97,7 @@ public class MotionTiming {
         return (((((((((int) (getDelay() ^ (getDelay() >>> 32))) * 31) + ((int) (getDuration() ^ (getDuration() >>> 32)))) * 31) + getInterpolator().getClass().hashCode()) * 31) + getRepeatCount()) * 31) + getRepeatMode();
     }
 
+    @NonNull
     public String toString() {
         return '\n' + MotionTiming.class.getName() + '{' + Integer.toHexString(System.identityHashCode(this)) + " delay: " + getDelay() + " duration: " + getDuration() + " interpolator: " + getInterpolator().getClass() + " repeatCount: " + getRepeatCount() + " repeatMode: " + getRepeatMode() + "}\n";
     }

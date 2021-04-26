@@ -18,8 +18,8 @@ public class TimeDisplaySetting implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public TimeDisplaySetting[] newArray(int i) {
-            return new TimeDisplaySetting[i];
+        public TimeDisplaySetting[] newArray(int i2) {
+            return new TimeDisplaySetting[i2];
         }
     };
     public static final String END_SHOW_TIME = "et";
@@ -46,7 +46,7 @@ public class TimeDisplaySetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                d.k.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                d.j.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -74,7 +74,7 @@ public class TimeDisplaySetting implements Parcelable {
             return timeDisplaySetting;
         }
         str = "no such tag time_display_setting";
-        d.k.a.a.a.b(TAG, str);
+        d.j.a.a.a.b(TAG, str);
         return timeDisplaySetting;
     }
 
@@ -112,7 +112,7 @@ public class TimeDisplaySetting implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeByte(this.isTimeDisplay ? (byte) 1 : (byte) 0);
         parcel.writeString(this.startShowTime);
         parcel.writeString(this.endShowTime);

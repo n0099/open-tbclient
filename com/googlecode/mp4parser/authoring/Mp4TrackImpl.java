@@ -48,8 +48,8 @@ public class Mp4TrackImpl extends AbstractTrack {
         long j;
         Iterator it2;
         SampleFlags defaultSampleFlags;
-        int i;
-        int i2 = 0;
+        int i2;
+        int i3 = 0;
         this.syncSamples = new long[0];
         long trackId = trackBox.getTrackHeaderBox().getTrackId();
         this.samples = new SampleList(trackBox, isoFileArr);
@@ -92,14 +92,14 @@ public class Mp4TrackImpl extends AbstractTrack {
                                     while (it4.hasNext()) {
                                         TrackRunBox trackRunBox = (TrackRunBox) it4.next();
                                         TrackFragmentHeaderBox trackFragmentHeaderBox = ((TrackFragmentBox) trackRunBox.getParent()).getTrackFragmentHeaderBox();
-                                        int i3 = 1;
+                                        int i4 = 1;
                                         boolean z = true;
                                         for (TrackRunBox.Entry entry : trackRunBox.getEntries()) {
                                             if (trackRunBox.isSampleDurationPresent()) {
                                                 if (arrayList.size() != 0) {
                                                     it = it3;
                                                     if (((TimeToSampleBox.Entry) arrayList.get(arrayList.size() - 1)).getDelta() == entry.getSampleDuration()) {
-                                                        TimeToSampleBox.Entry entry2 = (TimeToSampleBox.Entry) arrayList.get(arrayList.size() - i3);
+                                                        TimeToSampleBox.Entry entry2 = (TimeToSampleBox.Entry) arrayList.get(arrayList.size() - i4);
                                                         j = trackId;
                                                         it2 = it4;
                                                         entry2.setCount(entry2.getCount() + 1);
@@ -123,16 +123,16 @@ public class Mp4TrackImpl extends AbstractTrack {
                                             if (trackRunBox.isSampleCompositionTimeOffsetPresent()) {
                                                 if (this.compositionTimeEntries.size() != 0) {
                                                     List<CompositionTimeToSample.Entry> list = this.compositionTimeEntries;
-                                                    i = 1;
+                                                    i2 = 1;
                                                     if (list.get(list.size() - 1).getOffset() == entry.getSampleCompositionTimeOffset()) {
                                                         List<CompositionTimeToSample.Entry> list2 = this.compositionTimeEntries;
                                                         CompositionTimeToSample.Entry entry3 = list2.get(list2.size() - 1);
                                                         entry3.setCount(entry3.getCount() + 1);
                                                     }
                                                 } else {
-                                                    i = 1;
+                                                    i2 = 1;
                                                 }
-                                                this.compositionTimeEntries.add(new CompositionTimeToSample.Entry(i, CastUtils.l2i(entry.getSampleCompositionTimeOffset())));
+                                                this.compositionTimeEntries.add(new CompositionTimeToSample.Entry(i2, CastUtils.l2i(entry.getSampleCompositionTimeOffset())));
                                             }
                                             if (trackRunBox.isSampleFlagsPresent()) {
                                                 defaultSampleFlags = entry.getSampleFlags();
@@ -150,18 +150,18 @@ public class Mp4TrackImpl extends AbstractTrack {
                                             it3 = it;
                                             it4 = it2;
                                             trackId = j;
-                                            i3 = 1;
+                                            i4 = 1;
                                             z = false;
                                         }
                                     }
                                 }
                             }
-                            i2 = 0;
+                            i3 = 0;
                         }
                         long[] jArr = this.syncSamples;
                         long[] jArr2 = new long[jArr.length + linkedList.size()];
                         this.syncSamples = jArr2;
-                        System.arraycopy(jArr, i2, jArr2, i2, jArr.length);
+                        System.arraycopy(jArr, i3, jArr2, i3, jArr.length);
                         int length = jArr.length;
                         for (Long l : linkedList) {
                             this.syncSamples[length] = l.longValue();

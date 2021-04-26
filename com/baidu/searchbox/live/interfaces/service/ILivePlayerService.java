@@ -25,15 +25,15 @@ public interface ILivePlayerService {
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public static final class DefaultImpls {
-        public static /* synthetic */ void initPlayerEvn$default(ILivePlayerService iLivePlayerService, CyberPlayerManager.InstallListener installListener, int i, int i2, Object obj) {
+        public static /* synthetic */ void initPlayerEvn$default(ILivePlayerService iLivePlayerService, CyberPlayerManager.InstallListener installListener, int i2, int i3, Object obj) {
             if (obj == null) {
-                if ((i2 & 1) != 0) {
+                if ((i3 & 1) != 0) {
                     installListener = null;
                 }
-                if ((i2 & 2) != 0) {
-                    i = 1;
+                if ((i3 & 2) != 0) {
+                    i2 = 1;
                 }
-                iLivePlayerService.initPlayerEvn(installListener, i);
+                iLivePlayerService.initPlayerEvn(installListener, i2);
                 return;
             }
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: initPlayerEvn");
@@ -44,5 +44,5 @@ public interface ILivePlayerService {
 
     LivePlayer createPlayer(String str);
 
-    void initPlayerEvn(CyberPlayerManager.InstallListener installListener, int i);
+    void initPlayerEvn(CyberPlayerManager.InstallListener installListener, int i2);
 }

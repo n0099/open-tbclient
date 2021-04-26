@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PressedTextView extends TextView {
     public PressedTextView(Context context) {
         super(context);
@@ -24,7 +24,7 @@ public class PressedTextView extends TextView {
         super(context, attributeSet);
     }
 
-    public PressedTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public PressedTextView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

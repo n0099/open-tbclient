@@ -9,13 +9,13 @@ import java.util.TreeSet;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f37870a;
+    public final String[] f35419a;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<String> f37871a = new ArrayList(20);
+        public final List<String> f35420a = new ArrayList(20);
 
         private void c(String str, String str2) {
             if (str == null) {
@@ -25,20 +25,20 @@ public final class c {
                 throw new IllegalArgumentException("name is empty");
             }
             int length = str.length();
-            for (int i = 0; i < length; i++) {
-                char charAt = str.charAt(i);
+            for (int i2 = 0; i2 < length; i2++) {
+                char charAt = str.charAt(i2);
                 if (charAt <= 31 || charAt >= 127) {
-                    throw new IllegalArgumentException(String.format("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i), str));
+                    throw new IllegalArgumentException(String.format("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i2), str));
                 }
             }
             if (str2 == null) {
                 throw new IllegalArgumentException("value == null");
             }
             int length2 = str2.length();
-            for (int i2 = 0; i2 < length2; i2++) {
-                char charAt2 = str2.charAt(i2);
+            for (int i3 = 0; i3 < length2; i3++) {
+                char charAt2 = str2.charAt(i3);
                 if (charAt2 <= 31 || charAt2 >= 127) {
-                    throw new IllegalArgumentException(String.format("Unexpected char %#04x at %d in %s value: %s", Integer.valueOf(charAt2), Integer.valueOf(i2), str, str2));
+                    throw new IllegalArgumentException(String.format("Unexpected char %#04x at %d in %s value: %s", Integer.valueOf(charAt2), Integer.valueOf(i3), str, str2));
                 }
             }
         }
@@ -53,18 +53,18 @@ public final class c {
         }
 
         public a b(String str, String str2) {
-            this.f37871a.add(str);
-            this.f37871a.add(str2.trim());
+            this.f35420a.add(str);
+            this.f35420a.add(str2.trim());
             return this;
         }
     }
 
     public c(a aVar) {
-        this.f37870a = (String[]) aVar.f37871a.toArray(new String[aVar.f37871a.size()]);
+        this.f35419a = (String[]) aVar.f35420a.toArray(new String[aVar.f35420a.size()]);
     }
 
     public c(String[] strArr) {
-        this.f37870a = strArr;
+        this.f35419a = strArr;
     }
 
     public static c a(String... strArr) {
@@ -72,15 +72,15 @@ public final class c {
             throw new IllegalArgumentException("Expected alternating header names and values");
         }
         String[] strArr2 = (String[]) strArr.clone();
-        for (int i = 0; i < strArr2.length; i++) {
-            if (strArr2[i] == null) {
+        for (int i2 = 0; i2 < strArr2.length; i2++) {
+            if (strArr2[i2] == null) {
                 throw new IllegalArgumentException("Headers cannot be null");
             }
-            strArr2[i] = strArr2[i].trim();
+            strArr2[i2] = strArr2[i2].trim();
         }
-        for (int i2 = 0; i2 < strArr2.length; i2 += 2) {
-            String str = strArr2[i2];
-            String str2 = strArr2[i2 + 1];
+        for (int i3 = 0; i3 < strArr2.length; i3 += 2) {
+            String str = strArr2[i3];
+            String str2 = strArr2[i3 + 1];
             if (str.length() == 0 || str.indexOf(0) != -1 || str2.indexOf(0) != -1) {
                 throw new IllegalArgumentException("Unexpected header: " + str + ": " + str2);
             }
@@ -98,43 +98,43 @@ public final class c {
     }
 
     public int a() {
-        return this.f37870a.length / 2;
+        return this.f35419a.length / 2;
     }
 
-    public String a(int i) {
-        return this.f37870a[i * 2];
+    public String a(int i2) {
+        return this.f35419a[i2 * 2];
     }
 
     public String a(String str) {
-        return a(this.f37870a, str);
+        return a(this.f35419a, str);
     }
 
-    public String b(int i) {
-        return this.f37870a[(i * 2) + 1];
+    public String b(int i2) {
+        return this.f35419a[(i2 * 2) + 1];
     }
 
     public Set<String> b() {
         TreeSet treeSet = new TreeSet(String.CASE_INSENSITIVE_ORDER);
         int a2 = a();
-        for (int i = 0; i < a2; i++) {
-            treeSet.add(a(i));
+        for (int i2 = 0; i2 < a2; i2++) {
+            treeSet.add(a(i2));
         }
         return Collections.unmodifiableSet(treeSet);
     }
 
     public a c() {
         a aVar = new a();
-        Collections.addAll(aVar.f37871a, this.f37870a);
+        Collections.addAll(aVar.f35420a, this.f35419a);
         return aVar;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         int a2 = a();
-        for (int i = 0; i < a2; i++) {
-            sb.append(a(i));
+        for (int i2 = 0; i2 < a2; i2++) {
+            sb.append(a(i2));
             sb.append(": ");
-            sb.append(b(i));
+            sb.append(b(i2));
             sb.append("\n");
         }
         return sb.toString();

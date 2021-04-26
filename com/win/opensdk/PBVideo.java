@@ -1,79 +1,83 @@
 package com.win.opensdk;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+import com.win.opensdk.activitys.H5Activity;
+/* loaded from: classes6.dex */
 public class PBVideo implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40152a;
+    public String f37738a;
 
     /* renamed from: b  reason: collision with root package name */
-    public m2 f40153b;
+    public I1 f37739b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PBVideoListener f40154c;
+    public PBVideoListener f37740c;
 
     public PBVideo(Context context, String str) {
         Context applicationContext = context.getApplicationContext();
-        this.f40152a = str;
-        m2 m2Var = new m2(applicationContext, str);
-        this.f40153b = m2Var;
-        m2Var.f40366h = new o(this);
+        this.f37738a = str;
+        I1 i1 = new I1(applicationContext, str);
+        this.f37739b = i1;
+        i1.f37668h = new o(this);
     }
 
     public void destroy() {
-        m2 m2Var = this.f40153b;
-        m2Var.f40363e = false;
-        m2Var.f40361c = false;
-        m2Var.f40362d = false;
-        n1 n1Var = m2Var.i;
-        if (n1Var != null) {
-            n1Var.a();
+        I1 i1 = this.f37739b;
+        i1.f37665e = false;
+        i1.f37663c = false;
+        i1.f37664d = false;
+        K0 k0 = i1.f37669i;
+        if (k0 != null) {
+            k0.a();
         }
     }
 
     public String getPid() {
-        return this.f40152a;
+        return this.f37738a;
     }
 
     public boolean isReady() {
-        m2 m2Var = this.f40153b;
-        return m2Var.a() || m2Var.e();
+        I1 i1 = this.f37739b;
+        if (!i1.a()) {
+            if (!(i1.f37664d && !i1.f37665e && i1.b() && !i1.f37666f.isShown() && i1.f37666f.isEffective())) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void load() {
-        m2 m2Var = this.f40153b;
-        if (m2Var.b() && m2Var.f40364f.isEffective() && !m2Var.f40364f.isShown()) {
-            m2Var.a(m2Var.f40364f);
+        I1 i1 = this.f37739b;
+        if (i1.b() && i1.f37666f.isEffective() && !i1.f37666f.isShown()) {
+            i1.a(i1.f37666f);
             return;
         }
-        if (m2Var.i == null) {
-            m2Var.i = new n1(m2Var.f40360b, m2Var.f40359a, F.Video);
+        if (i1.f37669i == null) {
+            i1.f37669i = new K0(i1.f37662b, i1.f37661a, y.Video);
         }
-        m2Var.i.f40374g = new j2(m2Var);
-        m2Var.i.b();
+        i1.f37669i.f37686g = new G1(i1);
+        i1.f37669i.b();
     }
 
     public void setVideoListener(PBVideoListener pBVideoListener) {
-        this.f40154c = pBVideoListener;
+        this.f37740c = pBVideoListener;
     }
 
     public void show() {
-        m2 m2Var = this.f40153b;
-        if (!G.g(m2Var.f40360b)) {
-            PBVideoListener pBVideoListener = m2Var.f40366h;
+        I1 i1 = this.f37739b;
+        if (!z.d(i1.f37662b)) {
+            PBVideoListener pBVideoListener = i1.f37668h;
             if (pBVideoListener != null) {
                 pBVideoListener.onRewardedShowFail(PBError.NO_NETWORK.getMsg());
             }
-        } else if (m2Var.c()) {
-            if (m2Var.a() && m2Var.b()) {
-                m2Var.f40361c = false;
-                B2.a().a(B2.a(m2Var.f40364f.getTraceid(), m2Var.f40364f.getId(), m2Var.f40364f.getPid()), m2Var.f40365g);
-                m2Var.f();
-            }
-        } else if (m2Var.d() && m2Var.e() && m2Var.b()) {
-            m2Var.f40362d = false;
-            m2Var.f();
+        } else if (i1.c() && i1.a() && i1.b()) {
+            i1.f37663c = false;
+            W1.a().a(W1.a(i1.f37666f.getTraceid(), i1.f37666f.getId(), i1.f37666f.getPid()), i1.f37667g);
+            i1.f37666f.setShown(true);
+            x.a().a(W1.a(i1.f37666f.getTraceid(), i1.f37666f.getId(), i1.f37661a), i1.f37666f);
+            H5Activity.a(i1.f37662b, i1.f37666f, i1.f37661a);
+            f1.a(i1.f37666f.getId() + i1.f37661a, i1);
         }
     }
 }

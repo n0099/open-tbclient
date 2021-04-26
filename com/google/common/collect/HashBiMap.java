@@ -1,11 +1,11 @@
 package com.google.common.collect;
 
 import com.google.common.collect.ImmutableCollection;
-import d.h.c.a.n;
-import d.h.c.c.e0;
-import d.h.c.c.k;
-import d.h.c.c.m;
-import d.h.c.c.r0;
+import d.g.c.a.n;
+import d.g.c.c.e0;
+import d.g.c.c.k;
+import d.g.c.c.m;
+import d.g.c.c.r0;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -43,7 +43,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
     public static class Inverse<K, V> extends AbstractMap<V, K> implements k<V, K>, Serializable {
 
         /* renamed from: e  reason: collision with root package name */
-        public transient Set<Map.Entry<V, K>> f30863e;
+        public transient Set<Map.Entry<V, K>> f31821e;
         public final HashBiMap<K, V> forward;
 
         public Inverse(HashBiMap<K, V> hashBiMap) {
@@ -72,16 +72,16 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
 
         @Override // java.util.AbstractMap, java.util.Map
         public Set<Map.Entry<V, K>> entrySet() {
-            Set<Map.Entry<V, K>> set = this.f30863e;
+            Set<Map.Entry<V, K>> set = this.f31821e;
             if (set == null) {
                 d dVar = new d(this.forward);
-                this.f30863e = dVar;
+                this.f31821e = dVar;
                 return dVar;
             }
             return set;
         }
 
-        @Override // d.h.c.c.k
+        @Override // d.g.c.c.k
         public K forcePut(V v, K k) {
             return this.forward.putInverse(v, k, true);
         }
@@ -91,7 +91,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
             return this.forward.getInverse(obj);
         }
 
-        @Override // d.h.c.c.k
+        @Override // d.g.c.c.k
         public k<K, V> inverse() {
             return this.forward;
         }
@@ -117,124 +117,124 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.AbstractMap, java.util.Map, d.h.c.c.k
+        @Override // java.util.AbstractMap, java.util.Map, d.g.c.c.k
         public Set<K> values() {
             return this.forward.keySet();
         }
     }
 
     /* loaded from: classes6.dex */
-    public final class a extends d.h.c.c.b<K, V> {
+    public final class a extends d.g.c.c.b<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f30864e;
+        public final K f31822e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f30865f;
+        public int f31823f;
 
-        public a(int i) {
-            this.f30864e = HashBiMap.this.keys[i];
-            this.f30865f = i;
+        public a(int i2) {
+            this.f31822e = HashBiMap.this.keys[i2];
+            this.f31823f = i2;
         }
 
         public void a() {
-            int i = this.f30865f;
-            if (i != -1) {
+            int i2 = this.f31823f;
+            if (i2 != -1) {
                 HashBiMap hashBiMap = HashBiMap.this;
-                if (i <= hashBiMap.size && d.h.c.a.k.a(hashBiMap.keys[i], this.f30864e)) {
+                if (i2 <= hashBiMap.size && d.g.c.a.k.a(hashBiMap.keys[i2], this.f31822e)) {
                     return;
                 }
             }
-            this.f30865f = HashBiMap.this.findEntryByKey(this.f30864e);
+            this.f31823f = HashBiMap.this.findEntryByKey(this.f31822e);
         }
 
-        @Override // d.h.c.c.b, java.util.Map.Entry
+        @Override // d.g.c.c.b, java.util.Map.Entry
         public K getKey() {
-            return this.f30864e;
+            return this.f31822e;
         }
 
-        @Override // d.h.c.c.b, java.util.Map.Entry
+        @Override // d.g.c.c.b, java.util.Map.Entry
         public V getValue() {
             a();
-            int i = this.f30865f;
-            if (i == -1) {
+            int i2 = this.f31823f;
+            if (i2 == -1) {
                 return null;
             }
-            return HashBiMap.this.values[i];
+            return HashBiMap.this.values[i2];
         }
 
-        @Override // d.h.c.c.b, java.util.Map.Entry
+        @Override // d.g.c.c.b, java.util.Map.Entry
         public V setValue(V v) {
             a();
-            int i = this.f30865f;
-            if (i == -1) {
-                return (V) HashBiMap.this.put(this.f30864e, v);
+            int i2 = this.f31823f;
+            if (i2 == -1) {
+                return (V) HashBiMap.this.put(this.f31822e, v);
             }
-            V v2 = HashBiMap.this.values[i];
-            if (d.h.c.a.k.a(v2, v)) {
+            V v2 = HashBiMap.this.values[i2];
+            if (d.g.c.a.k.a(v2, v)) {
                 return v;
             }
-            HashBiMap.this.replaceValueInEntry(this.f30865f, v, false);
+            HashBiMap.this.replaceValueInEntry(this.f31823f, v, false);
             return v2;
         }
     }
 
     /* loaded from: classes6.dex */
-    public static final class b<K, V> extends d.h.c.c.b<V, K> {
+    public static final class b<K, V> extends d.g.c.c.b<V, K> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final HashBiMap<K, V> f30867e;
+        public final HashBiMap<K, V> f31825e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final V f30868f;
+        public final V f31826f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f30869g;
+        public int f31827g;
 
-        public b(HashBiMap<K, V> hashBiMap, int i) {
-            this.f30867e = hashBiMap;
-            this.f30868f = hashBiMap.values[i];
-            this.f30869g = i;
+        public b(HashBiMap<K, V> hashBiMap, int i2) {
+            this.f31825e = hashBiMap;
+            this.f31826f = hashBiMap.values[i2];
+            this.f31827g = i2;
         }
 
         public final void a() {
-            int i = this.f30869g;
-            if (i != -1) {
-                HashBiMap<K, V> hashBiMap = this.f30867e;
-                if (i <= hashBiMap.size && d.h.c.a.k.a(this.f30868f, hashBiMap.values[i])) {
+            int i2 = this.f31827g;
+            if (i2 != -1) {
+                HashBiMap<K, V> hashBiMap = this.f31825e;
+                if (i2 <= hashBiMap.size && d.g.c.a.k.a(this.f31826f, hashBiMap.values[i2])) {
                     return;
                 }
             }
-            this.f30869g = this.f30867e.findEntryByValue(this.f30868f);
+            this.f31827g = this.f31825e.findEntryByValue(this.f31826f);
         }
 
-        @Override // d.h.c.c.b, java.util.Map.Entry
+        @Override // d.g.c.c.b, java.util.Map.Entry
         public V getKey() {
-            return this.f30868f;
+            return this.f31826f;
         }
 
-        @Override // d.h.c.c.b, java.util.Map.Entry
+        @Override // d.g.c.c.b, java.util.Map.Entry
         public K getValue() {
             a();
-            int i = this.f30869g;
-            if (i == -1) {
+            int i2 = this.f31827g;
+            if (i2 == -1) {
                 return null;
             }
-            return this.f30867e.keys[i];
+            return this.f31825e.keys[i2];
         }
 
-        @Override // d.h.c.c.b, java.util.Map.Entry
+        @Override // d.g.c.c.b, java.util.Map.Entry
         public K setValue(K k) {
             a();
-            int i = this.f30869g;
-            if (i == -1) {
-                return this.f30867e.putInverse(this.f30868f, k, false);
+            int i2 = this.f31827g;
+            if (i2 == -1) {
+                return this.f31825e.putInverse(this.f31826f, k, false);
             }
-            K k2 = this.f30867e.keys[i];
-            if (d.h.c.a.k.a(k2, k)) {
+            K k2 = this.f31825e.keys[i2];
+            if (d.g.c.a.k.a(k2, k)) {
                 return k;
             }
-            this.f30867e.replaceKeyInEntry(this.f30869g, k, false);
+            this.f31825e.replaceKeyInEntry(this.f31827g, k, false);
             return k2;
         }
     }
@@ -248,8 +248,8 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.HashBiMap.g
         /* renamed from: b */
-        public Map.Entry<K, V> a(int i) {
-            return new a(i);
+        public Map.Entry<K, V> a(int i2) {
+            return new a(i2);
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -259,7 +259,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                 Object key = entry.getKey();
                 Object value = entry.getValue();
                 int findEntryByKey = HashBiMap.this.findEntryByKey(key);
-                return findEntryByKey != -1 && d.h.c.a.k.a(value, HashBiMap.this.values[findEntryByKey]);
+                return findEntryByKey != -1 && d.g.c.a.k.a(value, HashBiMap.this.values[findEntryByKey]);
             }
             return false;
         }
@@ -272,7 +272,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                 Object value = entry.getValue();
                 int d2 = e0.d(key);
                 int findEntryByKey = HashBiMap.this.findEntryByKey(key, d2);
-                if (findEntryByKey == -1 || !d.h.c.a.k.a(value, HashBiMap.this.values[findEntryByKey])) {
+                if (findEntryByKey == -1 || !d.g.c.a.k.a(value, HashBiMap.this.values[findEntryByKey])) {
                     return false;
                 }
                 HashBiMap.this.removeEntryKeyHashKnown(findEntryByKey, d2);
@@ -291,8 +291,8 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.HashBiMap.g
         /* renamed from: b */
-        public Map.Entry<V, K> a(int i) {
-            return new b(this.f30873e, i);
+        public Map.Entry<V, K> a(int i2) {
+            return new b(this.f31831e, i2);
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -301,8 +301,8 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                 Map.Entry entry = (Map.Entry) obj;
                 Object key = entry.getKey();
                 Object value = entry.getValue();
-                int findEntryByValue = this.f30873e.findEntryByValue(key);
-                return findEntryByValue != -1 && d.h.c.a.k.a(this.f30873e.keys[findEntryByValue], value);
+                int findEntryByValue = this.f31831e.findEntryByValue(key);
+                return findEntryByValue != -1 && d.g.c.a.k.a(this.f31831e.keys[findEntryByValue], value);
             }
             return false;
         }
@@ -314,11 +314,11 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                 Object key = entry.getKey();
                 Object value = entry.getValue();
                 int d2 = e0.d(key);
-                int findEntryByValue = this.f30873e.findEntryByValue(key, d2);
-                if (findEntryByValue == -1 || !d.h.c.a.k.a(this.f30873e.keys[findEntryByValue], value)) {
+                int findEntryByValue = this.f31831e.findEntryByValue(key, d2);
+                if (findEntryByValue == -1 || !d.g.c.a.k.a(this.f31831e.keys[findEntryByValue], value)) {
                     return false;
                 }
-                this.f30873e.removeEntryValueHashKnown(findEntryByValue, d2);
+                this.f31831e.removeEntryValueHashKnown(findEntryByValue, d2);
                 return true;
             }
             return false;
@@ -332,8 +332,8 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         }
 
         @Override // com.google.common.collect.HashBiMap.g
-        public K a(int i) {
-            return HashBiMap.this.keys[i];
+        public K a(int i2) {
+            return HashBiMap.this.keys[i2];
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -360,8 +360,8 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         }
 
         @Override // com.google.common.collect.HashBiMap.g
-        public V a(int i) {
-            return HashBiMap.this.values[i];
+        public V a(int i2) {
+            return HashBiMap.this.values[i2];
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -385,32 +385,32 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
     public static abstract class g<K, V, T> extends AbstractSet<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final HashBiMap<K, V> f30873e;
+        public final HashBiMap<K, V> f31831e;
 
         /* loaded from: classes6.dex */
         public class a implements Iterator<T> {
 
             /* renamed from: e  reason: collision with root package name */
-            public int f30874e;
+            public int f31832e;
 
             /* renamed from: f  reason: collision with root package name */
-            public int f30875f = -1;
+            public int f31833f = -1;
 
             /* renamed from: g  reason: collision with root package name */
-            public int f30876g;
+            public int f31834g;
 
             /* renamed from: h  reason: collision with root package name */
-            public int f30877h;
+            public int f31835h;
 
             public a() {
-                this.f30874e = g.this.f30873e.firstInInsertionOrder;
-                HashBiMap<K, V> hashBiMap = g.this.f30873e;
-                this.f30876g = hashBiMap.modCount;
-                this.f30877h = hashBiMap.size;
+                this.f31832e = g.this.f31831e.firstInInsertionOrder;
+                HashBiMap<K, V> hashBiMap = g.this.f31831e;
+                this.f31834g = hashBiMap.modCount;
+                this.f31835h = hashBiMap.size;
             }
 
             public final void a() {
-                if (g.this.f30873e.modCount != this.f30876g) {
+                if (g.this.f31831e.modCount != this.f31834g) {
                     throw new ConcurrentModificationException();
                 }
             }
@@ -418,16 +418,16 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
             @Override // java.util.Iterator
             public boolean hasNext() {
                 a();
-                return this.f30874e != -2 && this.f30877h > 0;
+                return this.f31832e != -2 && this.f31835h > 0;
             }
 
             @Override // java.util.Iterator
             public T next() {
                 if (hasNext()) {
-                    T t = (T) g.this.a(this.f30874e);
-                    this.f30875f = this.f30874e;
-                    this.f30874e = g.this.f30873e.nextInInsertionOrder[this.f30874e];
-                    this.f30877h--;
+                    T t = (T) g.this.a(this.f31832e);
+                    this.f31833f = this.f31832e;
+                    this.f31832e = g.this.f31831e.nextInInsertionOrder[this.f31832e];
+                    this.f31835h--;
                     return t;
                 }
                 throw new NoSuchElementException();
@@ -436,25 +436,25 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
             @Override // java.util.Iterator
             public void remove() {
                 a();
-                m.e(this.f30875f != -1);
-                g.this.f30873e.removeEntry(this.f30875f);
-                if (this.f30874e == g.this.f30873e.size) {
-                    this.f30874e = this.f30875f;
+                m.e(this.f31833f != -1);
+                g.this.f31831e.removeEntry(this.f31833f);
+                if (this.f31832e == g.this.f31831e.size) {
+                    this.f31832e = this.f31833f;
                 }
-                this.f30875f = -1;
-                this.f30876g = g.this.f30873e.modCount;
+                this.f31833f = -1;
+                this.f31834g = g.this.f31831e.modCount;
             }
         }
 
         public g(HashBiMap<K, V> hashBiMap) {
-            this.f30873e = hashBiMap;
+            this.f31831e = hashBiMap;
         }
 
-        public abstract T a(int i);
+        public abstract T a(int i2);
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public void clear() {
-            this.f30873e.clear();
+            this.f31831e.clear();
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
@@ -464,90 +464,90 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            return this.f30873e.size;
+            return this.f31831e.size;
         }
     }
 
-    public HashBiMap(int i) {
-        init(i);
+    public HashBiMap(int i2) {
+        init(i2);
     }
 
-    private int bucket(int i) {
-        return i & (this.hashTableKToV.length - 1);
+    private int bucket(int i2) {
+        return i2 & (this.hashTableKToV.length - 1);
     }
 
     public static <K, V> HashBiMap<K, V> create() {
         return create(16);
     }
 
-    public static int[] createFilledWithAbsent(int i) {
-        int[] iArr = new int[i];
+    public static int[] createFilledWithAbsent(int i2) {
+        int[] iArr = new int[i2];
         Arrays.fill(iArr, -1);
         return iArr;
     }
 
-    private void deleteFromTableKToV(int i, int i2) {
-        n.d(i != -1);
-        int bucket = bucket(i2);
+    private void deleteFromTableKToV(int i2, int i3) {
+        n.d(i2 != -1);
+        int bucket = bucket(i3);
         int[] iArr = this.hashTableKToV;
-        if (iArr[bucket] == i) {
+        if (iArr[bucket] == i2) {
             int[] iArr2 = this.nextInBucketKToV;
-            iArr[bucket] = iArr2[i];
-            iArr2[i] = -1;
+            iArr[bucket] = iArr2[i2];
+            iArr2[i2] = -1;
             return;
         }
-        int i3 = iArr[bucket];
-        int i4 = this.nextInBucketKToV[i3];
+        int i4 = iArr[bucket];
+        int i5 = this.nextInBucketKToV[i4];
         while (true) {
-            int i5 = i4;
-            int i6 = i3;
-            i3 = i5;
-            if (i3 == -1) {
-                throw new AssertionError("Expected to find entry with key " + this.keys[i]);
-            } else if (i3 == i) {
+            int i6 = i5;
+            int i7 = i4;
+            i4 = i6;
+            if (i4 == -1) {
+                throw new AssertionError("Expected to find entry with key " + this.keys[i2]);
+            } else if (i4 == i2) {
                 int[] iArr3 = this.nextInBucketKToV;
-                iArr3[i6] = iArr3[i];
-                iArr3[i] = -1;
+                iArr3[i7] = iArr3[i2];
+                iArr3[i2] = -1;
                 return;
             } else {
-                i4 = this.nextInBucketKToV[i3];
+                i5 = this.nextInBucketKToV[i4];
             }
         }
     }
 
-    private void deleteFromTableVToK(int i, int i2) {
-        n.d(i != -1);
-        int bucket = bucket(i2);
+    private void deleteFromTableVToK(int i2, int i3) {
+        n.d(i2 != -1);
+        int bucket = bucket(i3);
         int[] iArr = this.hashTableVToK;
-        if (iArr[bucket] == i) {
+        if (iArr[bucket] == i2) {
             int[] iArr2 = this.nextInBucketVToK;
-            iArr[bucket] = iArr2[i];
-            iArr2[i] = -1;
+            iArr[bucket] = iArr2[i2];
+            iArr2[i2] = -1;
             return;
         }
-        int i3 = iArr[bucket];
-        int i4 = this.nextInBucketVToK[i3];
+        int i4 = iArr[bucket];
+        int i5 = this.nextInBucketVToK[i4];
         while (true) {
-            int i5 = i4;
-            int i6 = i3;
-            i3 = i5;
-            if (i3 == -1) {
-                throw new AssertionError("Expected to find entry with value " + this.values[i]);
-            } else if (i3 == i) {
+            int i6 = i5;
+            int i7 = i4;
+            i4 = i6;
+            if (i4 == -1) {
+                throw new AssertionError("Expected to find entry with value " + this.values[i2]);
+            } else if (i4 == i2) {
                 int[] iArr3 = this.nextInBucketVToK;
-                iArr3[i6] = iArr3[i];
-                iArr3[i] = -1;
+                iArr3[i7] = iArr3[i2];
+                iArr3[i2] = -1;
                 return;
             } else {
-                i4 = this.nextInBucketVToK[i3];
+                i5 = this.nextInBucketVToK[i4];
             }
         }
     }
 
-    private void ensureCapacity(int i) {
+    private void ensureCapacity(int i2) {
         int[] iArr = this.nextInBucketKToV;
-        if (iArr.length < i) {
-            int e2 = ImmutableCollection.b.e(iArr.length, i);
+        if (iArr.length < i2) {
+            int e2 = ImmutableCollection.b.e(iArr.length, i2);
             this.keys = (K[]) Arrays.copyOf(this.keys, e2);
             this.values = (V[]) Arrays.copyOf(this.values, e2);
             this.nextInBucketKToV = expandAndFillWithAbsent(this.nextInBucketKToV, e2);
@@ -555,108 +555,108 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
             this.prevInInsertionOrder = expandAndFillWithAbsent(this.prevInInsertionOrder, e2);
             this.nextInInsertionOrder = expandAndFillWithAbsent(this.nextInInsertionOrder, e2);
         }
-        if (this.hashTableKToV.length < i) {
-            int a2 = e0.a(i, 1.0d);
+        if (this.hashTableKToV.length < i2) {
+            int a2 = e0.a(i2, 1.0d);
             this.hashTableKToV = createFilledWithAbsent(a2);
             this.hashTableVToK = createFilledWithAbsent(a2);
-            for (int i2 = 0; i2 < this.size; i2++) {
-                int bucket = bucket(e0.d(this.keys[i2]));
+            for (int i3 = 0; i3 < this.size; i3++) {
+                int bucket = bucket(e0.d(this.keys[i3]));
                 int[] iArr2 = this.nextInBucketKToV;
                 int[] iArr3 = this.hashTableKToV;
-                iArr2[i2] = iArr3[bucket];
-                iArr3[bucket] = i2;
-                int bucket2 = bucket(e0.d(this.values[i2]));
+                iArr2[i3] = iArr3[bucket];
+                iArr3[bucket] = i3;
+                int bucket2 = bucket(e0.d(this.values[i3]));
                 int[] iArr4 = this.nextInBucketVToK;
                 int[] iArr5 = this.hashTableVToK;
-                iArr4[i2] = iArr5[bucket2];
-                iArr5[bucket2] = i2;
+                iArr4[i3] = iArr5[bucket2];
+                iArr5[bucket2] = i3;
             }
         }
     }
 
-    public static int[] expandAndFillWithAbsent(int[] iArr, int i) {
+    public static int[] expandAndFillWithAbsent(int[] iArr, int i2) {
         int length = iArr.length;
-        int[] copyOf = Arrays.copyOf(iArr, i);
-        Arrays.fill(copyOf, length, i, -1);
+        int[] copyOf = Arrays.copyOf(iArr, i2);
+        Arrays.fill(copyOf, length, i2, -1);
         return copyOf;
     }
 
-    private void insertIntoTableKToV(int i, int i2) {
-        n.d(i != -1);
-        int bucket = bucket(i2);
+    private void insertIntoTableKToV(int i2, int i3) {
+        n.d(i2 != -1);
+        int bucket = bucket(i3);
         int[] iArr = this.nextInBucketKToV;
         int[] iArr2 = this.hashTableKToV;
-        iArr[i] = iArr2[bucket];
-        iArr2[bucket] = i;
+        iArr[i2] = iArr2[bucket];
+        iArr2[bucket] = i2;
     }
 
-    private void insertIntoTableVToK(int i, int i2) {
-        n.d(i != -1);
-        int bucket = bucket(i2);
+    private void insertIntoTableVToK(int i2, int i3) {
+        n.d(i2 != -1);
+        int bucket = bucket(i3);
         int[] iArr = this.nextInBucketVToK;
         int[] iArr2 = this.hashTableVToK;
-        iArr[i] = iArr2[bucket];
-        iArr2[bucket] = i;
+        iArr[i2] = iArr2[bucket];
+        iArr2[bucket] = i2;
     }
 
-    private void moveEntryToIndex(int i, int i2) {
-        int i3;
+    private void moveEntryToIndex(int i2, int i3) {
         int i4;
-        if (i == i2) {
+        int i5;
+        if (i2 == i3) {
             return;
         }
-        int i5 = this.prevInInsertionOrder[i];
-        int i6 = this.nextInInsertionOrder[i];
-        setSucceeds(i5, i2);
-        setSucceeds(i2, i6);
+        int i6 = this.prevInInsertionOrder[i2];
+        int i7 = this.nextInInsertionOrder[i2];
+        setSucceeds(i6, i3);
+        setSucceeds(i3, i7);
         K[] kArr = this.keys;
-        K k = kArr[i];
+        K k = kArr[i2];
         V[] vArr = this.values;
-        V v = vArr[i];
-        kArr[i2] = k;
-        vArr[i2] = v;
+        V v = vArr[i2];
+        kArr[i3] = k;
+        vArr[i3] = v;
         int bucket = bucket(e0.d(k));
         int[] iArr = this.hashTableKToV;
-        if (iArr[bucket] == i) {
-            iArr[bucket] = i2;
+        if (iArr[bucket] == i2) {
+            iArr[bucket] = i3;
         } else {
-            int i7 = iArr[bucket];
-            int i8 = this.nextInBucketKToV[i7];
+            int i8 = iArr[bucket];
+            int i9 = this.nextInBucketKToV[i8];
             while (true) {
-                int i9 = i8;
-                i3 = i7;
-                i7 = i9;
-                if (i7 == i) {
+                int i10 = i9;
+                i4 = i8;
+                i8 = i10;
+                if (i8 == i2) {
                     break;
                 }
-                i8 = this.nextInBucketKToV[i7];
+                i9 = this.nextInBucketKToV[i8];
             }
-            this.nextInBucketKToV[i3] = i2;
+            this.nextInBucketKToV[i4] = i3;
         }
         int[] iArr2 = this.nextInBucketKToV;
-        iArr2[i2] = iArr2[i];
-        iArr2[i] = -1;
+        iArr2[i3] = iArr2[i2];
+        iArr2[i2] = -1;
         int bucket2 = bucket(e0.d(v));
         int[] iArr3 = this.hashTableVToK;
-        if (iArr3[bucket2] == i) {
-            iArr3[bucket2] = i2;
+        if (iArr3[bucket2] == i2) {
+            iArr3[bucket2] = i3;
         } else {
-            int i10 = iArr3[bucket2];
-            int i11 = this.nextInBucketVToK[i10];
+            int i11 = iArr3[bucket2];
+            int i12 = this.nextInBucketVToK[i11];
             while (true) {
-                int i12 = i11;
-                i4 = i10;
-                i10 = i12;
-                if (i10 == i) {
+                int i13 = i12;
+                i5 = i11;
+                i11 = i13;
+                if (i11 == i2) {
                     break;
                 }
-                i11 = this.nextInBucketVToK[i10];
+                i12 = this.nextInBucketVToK[i11];
             }
-            this.nextInBucketVToK[i4] = i2;
+            this.nextInBucketVToK[i5] = i3;
         }
         int[] iArr4 = this.nextInBucketVToK;
-        iArr4[i2] = iArr4[i];
-        iArr4[i] = -1;
+        iArr4[i3] = iArr4[i2];
+        iArr4[i2] = -1;
     }
 
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
@@ -667,72 +667,72 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void replaceKeyInEntry(int i, K k, boolean z) {
-        n.d(i != -1);
+    public void replaceKeyInEntry(int i2, K k, boolean z) {
+        n.d(i2 != -1);
         int d2 = e0.d(k);
         int findEntryByKey = findEntryByKey(k, d2);
-        int i2 = this.lastInInsertionOrder;
-        int i3 = -2;
+        int i3 = this.lastInInsertionOrder;
+        int i4 = -2;
         if (findEntryByKey != -1) {
             if (z) {
-                i2 = this.prevInInsertionOrder[findEntryByKey];
-                i3 = this.nextInInsertionOrder[findEntryByKey];
+                i3 = this.prevInInsertionOrder[findEntryByKey];
+                i4 = this.nextInInsertionOrder[findEntryByKey];
                 removeEntryKeyHashKnown(findEntryByKey, d2);
-                if (i == this.size) {
-                    i = findEntryByKey;
+                if (i2 == this.size) {
+                    i2 = findEntryByKey;
                 }
             } else {
                 throw new IllegalArgumentException("Key already present in map: " + k);
             }
         }
-        if (i2 == i) {
-            i2 = this.prevInInsertionOrder[i];
-        } else if (i2 == this.size) {
-            i2 = findEntryByKey;
+        if (i3 == i2) {
+            i3 = this.prevInInsertionOrder[i2];
+        } else if (i3 == this.size) {
+            i3 = findEntryByKey;
         }
-        if (i3 == i) {
-            findEntryByKey = this.nextInInsertionOrder[i];
-        } else if (i3 != this.size) {
-            findEntryByKey = i3;
+        if (i4 == i2) {
+            findEntryByKey = this.nextInInsertionOrder[i2];
+        } else if (i4 != this.size) {
+            findEntryByKey = i4;
         }
-        setSucceeds(this.prevInInsertionOrder[i], this.nextInInsertionOrder[i]);
-        deleteFromTableKToV(i, e0.d(this.keys[i]));
-        this.keys[i] = k;
-        insertIntoTableKToV(i, e0.d(k));
-        setSucceeds(i2, i);
-        setSucceeds(i, findEntryByKey);
+        setSucceeds(this.prevInInsertionOrder[i2], this.nextInInsertionOrder[i2]);
+        deleteFromTableKToV(i2, e0.d(this.keys[i2]));
+        this.keys[i2] = k;
+        insertIntoTableKToV(i2, e0.d(k));
+        setSucceeds(i3, i2);
+        setSucceeds(i2, findEntryByKey);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void replaceValueInEntry(int i, V v, boolean z) {
-        n.d(i != -1);
+    public void replaceValueInEntry(int i2, V v, boolean z) {
+        n.d(i2 != -1);
         int d2 = e0.d(v);
         int findEntryByValue = findEntryByValue(v, d2);
         if (findEntryByValue != -1) {
             if (z) {
                 removeEntryValueHashKnown(findEntryByValue, d2);
-                if (i == this.size) {
-                    i = findEntryByValue;
+                if (i2 == this.size) {
+                    i2 = findEntryByValue;
                 }
             } else {
                 throw new IllegalArgumentException("Value already present in map: " + v);
             }
         }
-        deleteFromTableVToK(i, e0.d(this.values[i]));
-        this.values[i] = v;
-        insertIntoTableVToK(i, d2);
+        deleteFromTableVToK(i2, e0.d(this.values[i2]));
+        this.values[i2] = v;
+        insertIntoTableVToK(i2, d2);
     }
 
-    private void setSucceeds(int i, int i2) {
-        if (i == -2) {
-            this.firstInInsertionOrder = i2;
-        } else {
-            this.nextInInsertionOrder[i] = i2;
-        }
+    private void setSucceeds(int i2, int i3) {
         if (i2 == -2) {
-            this.lastInInsertionOrder = i;
+            this.firstInInsertionOrder = i3;
         } else {
-            this.prevInInsertionOrder[i2] = i;
+            this.nextInInsertionOrder[i2] = i3;
+        }
+        if (i3 == -2) {
+            this.lastInInsertionOrder = i2;
+        } else {
+            this.prevInInsertionOrder[i3] = i2;
         }
     }
 
@@ -778,13 +778,13 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         return set;
     }
 
-    public int findEntry(Object obj, int i, int[] iArr, int[] iArr2, Object[] objArr) {
-        int i2 = iArr[bucket(i)];
-        while (i2 != -1) {
-            if (d.h.c.a.k.a(objArr[i2], obj)) {
-                return i2;
+    public int findEntry(Object obj, int i2, int[] iArr, int[] iArr2, Object[] objArr) {
+        int i3 = iArr[bucket(i2)];
+        while (i3 != -1) {
+            if (d.g.c.a.k.a(objArr[i3], obj)) {
+                return i3;
             }
-            i2 = iArr2[i2];
+            i3 = iArr2[i3];
         }
         return -1;
     }
@@ -797,7 +797,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         return findEntryByValue(obj, e0.d(obj));
     }
 
-    @Override // d.h.c.c.k
+    @Override // d.g.c.c.k
     public V forcePut(K k, V v) {
         return put(k, v, true);
     }
@@ -819,23 +819,23 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         return this.keys[findEntryByValue];
     }
 
-    public void init(int i) {
-        m.b(i, "expectedSize");
-        int a2 = e0.a(i, 1.0d);
+    public void init(int i2) {
+        m.b(i2, "expectedSize");
+        int a2 = e0.a(i2, 1.0d);
         this.size = 0;
-        this.keys = (K[]) new Object[i];
-        this.values = (V[]) new Object[i];
+        this.keys = (K[]) new Object[i2];
+        this.values = (V[]) new Object[i2];
         this.hashTableKToV = createFilledWithAbsent(a2);
         this.hashTableVToK = createFilledWithAbsent(a2);
-        this.nextInBucketKToV = createFilledWithAbsent(i);
-        this.nextInBucketVToK = createFilledWithAbsent(i);
+        this.nextInBucketKToV = createFilledWithAbsent(i2);
+        this.nextInBucketVToK = createFilledWithAbsent(i2);
         this.firstInInsertionOrder = -2;
         this.lastInInsertionOrder = -2;
-        this.prevInInsertionOrder = createFilledWithAbsent(i);
-        this.nextInInsertionOrder = createFilledWithAbsent(i);
+        this.prevInInsertionOrder = createFilledWithAbsent(i2);
+        this.nextInInsertionOrder = createFilledWithAbsent(i2);
     }
 
-    @Override // d.h.c.c.k
+    @Override // d.g.c.c.k
     public k<V, K> inverse() {
         k<V, K> kVar = this.inverse;
         if (kVar == null) {
@@ -867,31 +867,31 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         int findEntryByValue = findEntryByValue(v, d2);
         if (findEntryByValue != -1) {
             K k2 = this.keys[findEntryByValue];
-            if (d.h.c.a.k.a(k2, k)) {
+            if (d.g.c.a.k.a(k2, k)) {
                 return k;
             }
             replaceKeyInEntry(findEntryByValue, k, z);
             return k2;
         }
-        int i = this.lastInInsertionOrder;
+        int i2 = this.lastInInsertionOrder;
         int d3 = e0.d(k);
         int findEntryByKey = findEntryByKey(k, d3);
         if (!z) {
             n.k(findEntryByKey == -1, "Key already present: %s", k);
         } else if (findEntryByKey != -1) {
-            i = this.prevInInsertionOrder[findEntryByKey];
+            i2 = this.prevInInsertionOrder[findEntryByKey];
             removeEntryKeyHashKnown(findEntryByKey, d3);
         }
         ensureCapacity(this.size + 1);
         K[] kArr = this.keys;
-        int i2 = this.size;
-        kArr[i2] = k;
-        this.values[i2] = v;
-        insertIntoTableKToV(i2, d3);
+        int i3 = this.size;
+        kArr[i3] = k;
+        this.values[i3] = v;
+        insertIntoTableKToV(i3, d3);
         insertIntoTableVToK(this.size, d2);
-        int i3 = i == -2 ? this.firstInInsertionOrder : this.nextInInsertionOrder[i];
-        setSucceeds(i, this.size);
-        setSucceeds(this.size, i3);
+        int i4 = i2 == -2 ? this.firstInInsertionOrder : this.nextInInsertionOrder[i2];
+        setSucceeds(i2, this.size);
+        setSucceeds(this.size, i4);
         this.size++;
         this.modCount++;
         return null;
@@ -909,16 +909,16 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         return v;
     }
 
-    public void removeEntry(int i) {
-        removeEntryKeyHashKnown(i, e0.d(this.keys[i]));
+    public void removeEntry(int i2) {
+        removeEntryKeyHashKnown(i2, e0.d(this.keys[i2]));
     }
 
-    public void removeEntryKeyHashKnown(int i, int i2) {
-        removeEntry(i, i2, e0.d(this.values[i]));
+    public void removeEntryKeyHashKnown(int i2, int i3) {
+        removeEntry(i2, i3, e0.d(this.values[i2]));
     }
 
-    public void removeEntryValueHashKnown(int i, int i2) {
-        removeEntry(i, e0.d(this.keys[i]), i2);
+    public void removeEntryValueHashKnown(int i2, int i3) {
+        removeEntry(i2, e0.d(this.keys[i2]), i3);
     }
 
     public K removeInverse(Object obj) {
@@ -937,30 +937,30 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         return this.size;
     }
 
-    public static <K, V> HashBiMap<K, V> create(int i) {
-        return new HashBiMap<>(i);
+    public static <K, V> HashBiMap<K, V> create(int i2) {
+        return new HashBiMap<>(i2);
     }
 
-    private void removeEntry(int i, int i2, int i3) {
-        n.d(i != -1);
-        deleteFromTableKToV(i, i2);
-        deleteFromTableVToK(i, i3);
-        setSucceeds(this.prevInInsertionOrder[i], this.nextInInsertionOrder[i]);
-        moveEntryToIndex(this.size - 1, i);
+    private void removeEntry(int i2, int i3, int i4) {
+        n.d(i2 != -1);
+        deleteFromTableKToV(i2, i3);
+        deleteFromTableVToK(i2, i4);
+        setSucceeds(this.prevInInsertionOrder[i2], this.nextInInsertionOrder[i2]);
+        moveEntryToIndex(this.size - 1, i2);
         K[] kArr = this.keys;
-        int i4 = this.size;
-        kArr[i4 - 1] = null;
-        this.values[i4 - 1] = null;
-        this.size = i4 - 1;
+        int i5 = this.size;
+        kArr[i5 - 1] = null;
+        this.values[i5 - 1] = null;
+        this.size = i5 - 1;
         this.modCount++;
     }
 
-    public int findEntryByKey(Object obj, int i) {
-        return findEntry(obj, i, this.hashTableKToV, this.nextInBucketKToV, this.keys);
+    public int findEntryByKey(Object obj, int i2) {
+        return findEntry(obj, i2, this.hashTableKToV, this.nextInBucketKToV, this.keys);
     }
 
-    public int findEntryByValue(Object obj, int i) {
-        return findEntry(obj, i, this.hashTableVToK, this.nextInBucketVToK, this.values);
+    public int findEntryByValue(Object obj, int i2) {
+        return findEntry(obj, i2, this.hashTableVToK, this.nextInBucketVToK, this.values);
     }
 
     public V put(K k, V v, boolean z) {
@@ -968,7 +968,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         int findEntryByKey = findEntryByKey(k, d2);
         if (findEntryByKey != -1) {
             V v2 = this.values[findEntryByKey];
-            if (d.h.c.a.k.a(v2, v)) {
+            if (d.g.c.a.k.a(v2, v)) {
                 return v;
             }
             replaceValueInEntry(findEntryByKey, v, z);
@@ -983,10 +983,10 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         }
         ensureCapacity(this.size + 1);
         K[] kArr = this.keys;
-        int i = this.size;
-        kArr[i] = k;
-        this.values[i] = v;
-        insertIntoTableKToV(i, d2);
+        int i2 = this.size;
+        kArr[i2] = k;
+        this.values[i2] = v;
+        insertIntoTableKToV(i2, d2);
         insertIntoTableVToK(this.size, d3);
         setSucceeds(this.lastInInsertionOrder, this.size);
         setSucceeds(this.size, -2);
@@ -996,7 +996,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.AbstractMap, java.util.Map, d.h.c.c.k
+    @Override // java.util.AbstractMap, java.util.Map, d.g.c.c.k
     public Set<V> values() {
         Set<V> set = this.valueSet;
         if (set == null) {

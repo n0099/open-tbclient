@@ -28,19 +28,19 @@ public interface FloatingService {
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public static final class DefaultImpls {
-        public static /* synthetic */ Notification getFloatingNotification$default(FloatingService floatingService, Context context, int i, String str, String str2, String str3, String str4, int i2, Object obj) {
+        public static /* synthetic */ Notification getFloatingNotification$default(FloatingService floatingService, Context context, int i2, String str, String str2, String str3, String str4, int i3, Object obj) {
             if (obj == null) {
-                if ((i2 & 4) != 0) {
+                if ((i3 & 4) != 0) {
                     str = FloatingServiceKt.NOTIFICATION_CHANNEL_ID;
                 }
-                return floatingService.getFloatingNotification(context, i, str, str2, str3, str4);
+                return floatingService.getFloatingNotification(context, i2, str, str2, str3, str4);
             }
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: getFloatingNotification");
         }
 
-        public static /* synthetic */ void reportFloatingAuthClickLater$default(FloatingService floatingService, String str, int i, Object obj) {
+        public static /* synthetic */ void reportFloatingAuthClickLater$default(FloatingService floatingService, String str, int i2, Object obj) {
             if (obj == null) {
-                if ((i & 1) != 0) {
+                if ((i2 & 1) != 0) {
                     str = null;
                 }
                 floatingService.reportFloatingAuthClickLater(str);
@@ -49,9 +49,9 @@ public interface FloatingService {
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: reportFloatingAuthClickLater");
         }
 
-        public static /* synthetic */ void reportFloatingAuthClickOpen$default(FloatingService floatingService, String str, int i, Object obj) {
+        public static /* synthetic */ void reportFloatingAuthClickOpen$default(FloatingService floatingService, String str, int i2, Object obj) {
             if (obj == null) {
-                if ((i & 1) != 0) {
+                if ((i2 & 1) != 0) {
                     str = null;
                 }
                 floatingService.reportFloatingAuthClickOpen(str);
@@ -60,9 +60,9 @@ public interface FloatingService {
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: reportFloatingAuthClickOpen");
         }
 
-        public static /* synthetic */ void reportFloatingAuthShow$default(FloatingService floatingService, String str, int i, Object obj) {
+        public static /* synthetic */ void reportFloatingAuthShow$default(FloatingService floatingService, String str, int i2, Object obj) {
             if (obj == null) {
-                if ((i & 1) != 0) {
+                if ((i2 & 1) != 0) {
                     str = null;
                 }
                 floatingService.reportFloatingAuthShow(str);
@@ -92,7 +92,7 @@ public interface FloatingService {
 
     boolean getFloatingAbState();
 
-    Notification getFloatingNotification(Context context, int i, String str, String str2, String str3, String str4);
+    Notification getFloatingNotification(Context context, int i2, String str, String str2, String str3, String str4);
 
     boolean getSettingSwitcherState();
 

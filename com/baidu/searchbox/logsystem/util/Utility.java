@@ -18,7 +18,6 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.alipay.sdk.encrypt.a;
-import com.baidu.ala.view.AlaAttentionManager;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.RomUtils;
@@ -71,7 +70,7 @@ public class Utility {
         if (j <= 0) {
             return String.valueOf(j);
         }
-        long j2 = (long) AlaAttentionManager.ALA_LIVE_PUSH_REMIND_TIME_INTERVAL;
+        long j2 = 86400000;
         long j3 = j / j2;
         long j4 = j - (j2 * j3);
         long j5 = 3600000;
@@ -109,7 +108,7 @@ public class Utility {
         while (true) {
             Map.Entry<String, String> next = it.next();
             sb.append(next.getKey());
-            sb.append(a.f1922h);
+            sb.append(a.f1873h);
             sb.append(next.getValue());
             if (!it.hasNext()) {
                 sb.append('}');
@@ -195,14 +194,14 @@ public class Utility {
                 str2 = str4.replace("_", "-");
             }
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            int i = displayMetrics.widthPixels;
-            int i2 = displayMetrics.heightPixels;
+            int i2 = displayMetrics.widthPixels;
+            int i3 = displayMetrics.heightPixels;
             float f2 = displayMetrics.density;
             FileWriter fileWriter2 = new FileWriter(file, true);
             try {
                 StringBuilder sb = new StringBuilder();
                 sb.append("Devices info = ");
-                sb.append(replace + "_" + replace2 + "_" + valueOf + "_" + str2 + "_" + i + "*" + i2 + "*" + f2);
+                sb.append(replace + "_" + replace2 + "_" + valueOf + "_" + str2 + "_" + i2 + "*" + i3 + "*" + f2);
                 fileWriter2.write(sb.toString());
                 fileWriter2.write("\nRuntime.getRuntime().availableProcessors() = " + Runtime.getRuntime().availableProcessors());
                 fileWriter2.write("\nRomName = " + RomUtils.getName() + ", RomVersion = " + RomUtils.getVersion());
@@ -549,11 +548,11 @@ public class Utility {
         }
         try {
             fileWriter.write("threads count:" + keySet.size() + "\n");
-            int i = 0;
+            int i2 = 0;
             for (Thread thread : keySet) {
                 if (thread != null) {
                     StringBuilder sb = new StringBuilder();
-                    sb.append(i);
+                    sb.append(i2);
                     sb.append(":");
                     sb.append(thread.getName());
                     sb.append("\n");
@@ -568,7 +567,7 @@ public class Utility {
                     }
                     sb.append("\n");
                     fileWriter.write(sb.toString());
-                    i++;
+                    i2++;
                 }
             }
             fileWriter.flush();
@@ -618,13 +617,13 @@ public class Utility {
     /* JADX WARN: Type inference failed for: r8v1 */
     /* JADX WARN: Type inference failed for: r8v13 */
     /* JADX WARN: Type inference failed for: r8v4, types: [java.io.Closeable] */
-    public static final Pair<String, Boolean> readFile(@NonNull File file, int i) {
+    public static final Pair<String, Boolean> readFile(@NonNull File file, int i2) {
         ?? r8;
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         byte[] bArr;
         FileInputStream fileInputStream2 = null;
-        if (i <= 0) {
+        if (i2 <= 0) {
             return null;
         }
         try {
@@ -653,13 +652,13 @@ public class Utility {
             byteArrayOutputStream = new ByteArrayOutputStream();
             try {
                 Boolean bool = new Boolean(false);
-                int i2 = 0;
+                int i3 = 0;
                 while (true) {
                     int read = fileInputStream.read(bArr);
                     if (read != -1) {
-                        if (i - i2 >= read) {
+                        if (i2 - i3 >= read) {
                             byteArrayOutputStream.write(bArr, 0, read);
-                            i2 += read;
+                            i3 += read;
                         } else {
                             byteArrayOutputStream.write(bArr, 0, read);
                             bool = new Boolean(true);

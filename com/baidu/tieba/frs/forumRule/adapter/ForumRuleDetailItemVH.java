@@ -8,60 +8,60 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import d.b.i0.b1.m.a;
-import d.b.i0.r.u.c;
+import d.a.i0.b1.m.a;
+import d.a.i0.r.u.c;
 /* loaded from: classes4.dex */
 public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f15944a;
+    public Context f16137a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f15945b;
+    public View f16138b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EMTextView f15946c;
+    public EMTextView f16139c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbRichTextView f15947d;
+    public TbRichTextView f16140d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f15948e;
+    public boolean f16141e;
 
     public ForumRuleDetailItemVH(Context context, View view) {
         super(view);
-        this.f15944a = context;
-        this.f15945b = view;
+        this.f16137a = context;
+        this.f16138b = view;
         b(view);
     }
 
     public final void b(View view) {
-        this.f15946c = (EMTextView) view.findViewById(R.id.forum_rule_item_title);
+        this.f16139c = (EMTextView) view.findViewById(R.id.forum_rule_item_title);
         TbRichTextView tbRichTextView = (TbRichTextView) view.findViewById(R.id.forum_rule_item_content);
-        this.f15947d = tbRichTextView;
+        this.f16140d = tbRichTextView;
         tbRichTextView.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
-        a layoutStrategy = this.f15947d.getLayoutStrategy();
+        a layoutStrategy = this.f16140d.getLayoutStrategy();
         layoutStrategy.o(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds28), 1.0f);
-        this.f15947d.setLayoutStrategy(layoutStrategy);
+        this.f16140d.setLayoutStrategy(layoutStrategy);
         c();
     }
 
     public void c() {
-        if (this.f15948e) {
-            c d2 = c.d(this.f15946c);
+        if (this.f16141e) {
+            c d2 = c.d(this.f16139c);
             d2.v(R.string.F_X02);
             d2.q(R.color.CAM_X0301);
-            this.f15947d.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
+            this.f16140d.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
             return;
         }
-        c d3 = c.d(this.f15946c);
+        c d3 = c.d(this.f16139c);
         d3.v(R.string.F_X02);
         d3.q(R.color.CAM_X0105);
-        this.f15947d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        this.f16140d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
     }
 
     public void d(boolean z) {
-        this.f15948e = z;
+        this.f16141e = z;
         c();
     }
 }

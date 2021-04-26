@@ -8,7 +8,7 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.io.FileDescriptor;
 import java.util.Map;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class PlayerProvider {
     public abstract void changeProxyDynamic(String str, boolean z);
 
@@ -46,7 +46,7 @@ public abstract class PlayerProvider {
 
     public abstract void seekTo(long j);
 
-    public void sendCommand(int i, int i2, long j, String str) {
+    public void sendCommand(int i2, int i3, long j, String str) {
     }
 
     public void setClarityInfo(String str) {
@@ -103,12 +103,12 @@ public abstract class PlayerProvider {
 
     public abstract void setVolume(float f2, float f3);
 
-    public abstract void setWakeMode(Context context, int i);
+    public abstract void setWakeMode(Context context, int i2);
 
     public abstract void start();
 
     public abstract void stop();
 
-    public void switchMediaSource(int i) {
+    public void switchMediaSource(int i2) {
     }
 }

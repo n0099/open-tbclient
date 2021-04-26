@@ -9,8 +9,8 @@ public class SapiResponse {
         this.errorMsg = "";
     }
 
-    public SapiResponse(int i, String str) {
-        this.errorCode = i;
+    public SapiResponse(int i2, String str) {
+        this.errorCode = i2;
         this.errorMsg = str;
     }
 }

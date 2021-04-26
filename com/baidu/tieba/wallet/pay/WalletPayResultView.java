@@ -20,8 +20,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard;
-import d.b.c.a.d;
-import d.b.c.e.p.l;
+import com.baidu.tieba.wallet.CurrencySwitchUtil;
+import d.a.c.a.d;
+import d.a.c.e.p.l;
 /* loaded from: classes5.dex */
 public class WalletPayResultView extends d implements IWalletPayResultView {
     public BaseActivity mActivity;
@@ -46,13 +47,13 @@ public class WalletPayResultView extends d implements IWalletPayResultView {
         initUI();
     }
 
-    private SpannableString buildTBeanText(int i) {
-        String formatTBeanNum = BuyTBeanStringUlti.formatTBeanNum(i);
+    private SpannableString buildTBeanText(int i2) {
+        String formatTBeanNum = BuyTBeanStringUlti.formatTBeanNum(i2);
         String str = this.mActivity.getPageContext().getPageActivity().getString(R.string.tbean_get) + "[image]" + formatTBeanNum;
-        Bitmap bitmap = SkinManager.getBitmap(R.drawable.icon_huobi_tdou);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
-        bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
-        d.b.i0.b1.d dVar = new d.b.i0.b1.d(bitmapDrawable);
+        Bitmap moneyIconBitmap = CurrencySwitchUtil.getMoneyIconBitmap();
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(moneyIconBitmap);
+        bitmapDrawable.setBounds(0, 0, moneyIconBitmap.getWidth(), moneyIconBitmap.getHeight());
+        d.a.i0.b1.d dVar = new d.a.i0.b1.d(bitmapDrawable);
         dVar.b(l.g(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
         dVar.c(l.g(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
         SpannableString spannableString = new SpannableString(str);
@@ -126,7 +127,7 @@ public class WalletPayResultView extends d implements IWalletPayResultView {
         }
     }
 
-    @Override // d.b.c.a.d
+    @Override // d.a.c.a.d
     public void destroy() {
         LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard = this.mRootLayout;
         if (linearLayoutDetectsSoftKeyboard != null) {
@@ -143,9 +144,9 @@ public class WalletPayResultView extends d implements IWalletPayResultView {
     }
 
     @Override // com.baidu.tieba.wallet.pay.IWalletPayResultView
-    public void onChangeSkinType(int i) {
-        this.mActivity.getLayoutMode().k(i == 1);
+    public void onChangeSkinType(int i2) {
+        this.mActivity.getLayoutMode().k(i2 == 1);
         this.mActivity.getLayoutMode().j(this.mRootLayout);
-        this.mNavigationBar.onChangeSkinType(this.mActivity.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.mActivity.getPageContext(), i2);
     }
 }

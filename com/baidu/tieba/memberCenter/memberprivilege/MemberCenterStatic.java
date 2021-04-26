@@ -56,7 +56,7 @@ import com.baidu.tieba.memberCenter.tail.message.SetTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.SetTailSocketResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailSocketResponseMessage;
-import d.b.i0.z0.n0;
+import d.a.i0.z0.n0;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class MemberCenterStatic {
@@ -71,15 +71,15 @@ public class MemberCenterStatic {
             if (strArr != null && strArr.length != 0) {
                 String str4 = strArr[0];
                 if (str4.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_CARD_BOX_MEMBER_BUY) && str4.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_CARD_BOX_MEMBER_BUY_ASSIST)) {
-                    if (!d.b.c.e.p.j.z()) {
+                    if (!d.a.c.e.p.j.z()) {
                         BdToast.c(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.neterror)).q();
                     } else if (ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
-                        Bundle i = n0.i(str4);
+                        Bundle i2 = n0.i(str4);
                         str = "";
-                        if (i != null) {
-                            String string = !d.b.c.e.p.k.isEmpty(i.getString(CardBoxMemberPayActivityConfig.PACKET_ID)) ? i.getString(CardBoxMemberPayActivityConfig.PACKET_ID) : "";
-                            str3 = !d.b.c.e.p.k.isEmpty(i.getString(MemberPayStatistic.REFER_PAGE)) ? i.getString(MemberPayStatistic.REFER_PAGE) : "";
-                            str2 = d.b.c.e.p.k.isEmpty(i.getString(MemberPayStatistic.CLICK_ZONE)) ? "" : i.getString(MemberPayStatistic.CLICK_ZONE);
+                        if (i2 != null) {
+                            String string = !d.a.c.e.p.k.isEmpty(i2.getString(CardBoxMemberPayActivityConfig.PACKET_ID)) ? i2.getString(CardBoxMemberPayActivityConfig.PACKET_ID) : "";
+                            str3 = !d.a.c.e.p.k.isEmpty(i2.getString(MemberPayStatistic.REFER_PAGE)) ? i2.getString(MemberPayStatistic.REFER_PAGE) : "";
+                            str2 = d.a.c.e.p.k.isEmpty(i2.getString(MemberPayStatistic.CLICK_ZONE)) ? "" : i2.getString(MemberPayStatistic.CLICK_ZONE);
                             str = string;
                         } else {
                             str2 = "";
@@ -103,7 +103,7 @@ public class MemberCenterStatic {
             if (strArr != null && strArr.length != 0) {
                 String str = strArr[0];
                 if (!StringUtils.isNull(str) && str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_EXCHANGE)) {
-                    if (!d.b.c.e.p.j.z()) {
+                    if (!d.a.c.e.p.j.z()) {
                         BdToast.c(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.neterror)).q();
                     } else if (ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
                         String currentPortrait = TbadkCoreApplication.getCurrentPortrait();
@@ -140,22 +140,22 @@ public class MemberCenterStatic {
     /* loaded from: classes3.dex */
     public static class d implements CustomMessageTask.CustomRunnable<Context> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.b.i0.w.m> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<d.a.i0.w.m> run(CustomMessage<Context> customMessage) {
             if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2001342, new d.b.j0.r1.h.e.a(customMessage.getData(), 1));
+            return new CustomResponsedMessage<>(2001342, new d.a.j0.r1.h.e.a(customMessage.getData(), 1));
         }
     }
 
     /* loaded from: classes3.dex */
     public static class e implements CustomMessageTask.CustomRunnable<Context> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.b.i0.w.m> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<d.a.i0.w.m> run(CustomMessage<Context> customMessage) {
             if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2001343, new d.b.j0.r1.h.d.b(customMessage.getData()));
+            return new CustomResponsedMessage<>(2001343, new d.a.j0.r1.h.d.b(customMessage.getData()));
         }
     }
 
@@ -163,7 +163,7 @@ public class MemberCenterStatic {
     public static class f implements CustomMessageTask.CustomRunnable<String> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<Object> run(CustomMessage<String> customMessage) {
-            return new CustomResponsedMessage<>(2001294, new d.b.j0.r1.g.b());
+            return new CustomResponsedMessage<>(2001294, new d.a.j0.r1.g.b());
         }
     }
 
@@ -174,7 +174,7 @@ public class MemberCenterStatic {
             if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof TbPageContext)) {
                 BubbleListModel bubbleListModel = new BubbleListModel(customMessage.getData());
                 bubbleListModel.y();
-                bubbleListModel.B(0, d.b.c.e.p.l.k(customMessage.getData().getPageActivity()), d.b.c.e.p.l.i(customMessage.getData().getPageActivity()));
+                bubbleListModel.B(0, d.a.c.e.p.l.k(customMessage.getData().getPageActivity()), d.a.c.e.p.l.i(customMessage.getData().getPageActivity()));
             }
             return null;
         }
@@ -207,11 +207,11 @@ public class MemberCenterStatic {
     /* loaded from: classes3.dex */
     public static class i implements CustomMessageTask.CustomRunnable<Context> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.b.i0.w.m> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<d.a.i0.w.m> run(CustomMessage<Context> customMessage) {
             if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2001339, new d.b.j0.r1.b.b(customMessage.getData()));
+            return new CustomResponsedMessage<>(2001339, new d.a.j0.r1.b.b(customMessage.getData()));
         }
     }
 
@@ -248,29 +248,29 @@ public class MemberCenterStatic {
     public static class l implements UrlManager.UrlDealListener {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
-            Bundle i;
-            int i2;
+            Bundle i2;
+            int i3;
             if (tbPageContext != null && strArr != null && strArr.length != 0) {
                 String str = strArr[0];
-                if (!StringUtils.isNull(str) && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.PAY_MEMBER_PAGE) && (i = n0.i(str)) != null && tbPageContext.getPageActivity() != null) {
+                if (!StringUtils.isNull(str) && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.PAY_MEMBER_PAGE) && (i2 = n0.i(str)) != null && tbPageContext.getPageActivity() != null) {
                     AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
                     int vipStatus = (currentAccountInfo == null || currentAccountInfo.getVipInfo() == null) ? 0 : currentAccountInfo.getVipInfo().getVipStatus();
-                    String string = i.getString("fromtype");
-                    String string2 = i.getString(MemberPayStatistic.REFER_PAGE);
-                    String string3 = i.getString(MemberPayStatistic.CLICK_ZONE);
+                    String string = i2.getString("fromtype");
+                    String string2 = i2.getString(MemberPayStatistic.REFER_PAGE);
+                    String string3 = i2.getString(MemberPayStatistic.CLICK_ZONE);
                     if (!StringUtils.isNull(string)) {
                         if (string.equals(TbadkCoreStatisticKey.TAIL_PAY_MEMBER_SUCCESS)) {
-                            i2 = 6;
+                            i3 = 6;
                         } else if (string.equals(TbadkCoreStatisticKey.BUBBLE_PAY_MEMBER_SUCCESS)) {
-                            i2 = 7;
+                            i3 = 7;
                         }
-                        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), vipStatus, false, i2, d.b.c.e.m.b.d(i.getString(MemberPayActivityConfig.FROM_SCENE), 0));
+                        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), vipStatus, false, i3, d.a.c.e.m.b.d(i2.getString(MemberPayActivityConfig.FROM_SCENE), 0));
                         memberPayActivityConfig.setReferPageClickZone(string2, string3);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
                         return 0;
                     }
-                    i2 = 0;
-                    MemberPayActivityConfig memberPayActivityConfig2 = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), vipStatus, false, i2, d.b.c.e.m.b.d(i.getString(MemberPayActivityConfig.FROM_SCENE), 0));
+                    i3 = 0;
+                    MemberPayActivityConfig memberPayActivityConfig2 = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), vipStatus, false, i3, d.a.c.e.m.b.d(i2.getString(MemberPayActivityConfig.FROM_SCENE), 0));
                     memberPayActivityConfig2.setReferPageClickZone(string2, string3);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig2));
                     return 0;
@@ -364,7 +364,7 @@ public class MemberCenterStatic {
                 UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
                 return;
             } else {
-                d.b.c.e.p.l.K(tbPageContext.getPageActivity(), R.string.pluginstatus_tip_unknown);
+                d.a.c.e.p.l.L(tbPageContext.getPageActivity(), R.string.pluginstatus_tip_unknown);
                 return;
             }
         }
@@ -378,8 +378,8 @@ public class MemberCenterStatic {
     }
 
     public static void c(int i2, int i3, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
-        d.b.j0.d3.d0.a.h(i3, cls2, false, false);
-        d.b.j0.d3.d0.a.c(i3, i2, str, cls, false, false, false, false);
+        d.a.j0.d3.d0.a.h(i3, cls2, false, false);
+        d.a.j0.d3.d0.a.c(i3, i2, str, cls, false, false, false, false);
     }
 
     public static void d() {

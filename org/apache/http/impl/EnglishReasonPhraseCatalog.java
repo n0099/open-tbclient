@@ -12,7 +12,7 @@ public class EnglishReasonPhraseCatalog implements ReasonPhraseCatalog {
     }
 
     @Override // org.apache.http.ReasonPhraseCatalog
-    public String getReason(int i, Locale locale) {
+    public String getReason(int i2, Locale locale) {
         throw new RuntimeException("Stub!");
     }
 }

@@ -16,8 +16,8 @@ public class BitmapCounterConfig {
             return this.mMaxBitmapCount;
         }
 
-        public Builder setMaxBitmapCount(int i) {
-            this.mMaxBitmapCount = i;
+        public Builder setMaxBitmapCount(int i2) {
+            this.mMaxBitmapCount = i2;
             return this;
         }
 
@@ -39,7 +39,7 @@ public class BitmapCounterConfig {
         return this.mMaxBitmapCount;
     }
 
-    public void setMaxBitmapCount(int i) {
-        this.mMaxBitmapCount = i;
+    public void setMaxBitmapCount(int i2) {
+        this.mMaxBitmapCount = i2;
     }
 }

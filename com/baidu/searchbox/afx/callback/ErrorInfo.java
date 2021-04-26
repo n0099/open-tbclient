@@ -22,8 +22,8 @@ public class ErrorInfo {
     public String mGlVersion;
     public String mTimeStamp;
 
-    public ErrorInfo(int i, String str, Exception exc, String str2, String str3, String str4, String str5) {
-        this.mErrorCode = i;
+    public ErrorInfo(int i2, String str, Exception exc, String str2, String str3, String str4, String str5) {
+        this.mErrorCode = i2;
         this.mErrorMsg = str;
         this.mE = exc;
         this.mEndTime = str2;

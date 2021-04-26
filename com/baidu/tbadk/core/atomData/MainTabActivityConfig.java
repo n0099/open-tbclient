@@ -32,14 +32,14 @@ public class MainTabActivityConfig extends IntentConfig {
         return this;
     }
 
-    public MainTabActivityConfig createNewUserCfg(int i, boolean z, boolean z2) {
+    public MainTabActivityConfig createNewUserCfg(int i2, boolean z, boolean z2) {
         Intent intent = getIntent();
         intent.setFlags(603979776);
         if (!(getContext() instanceof Activity)) {
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
-        if (i >= 0) {
-            intent.putExtra("locate_type", i);
+        if (i2 >= 0) {
+            intent.putExtra("locate_type", i2);
         }
         intent.putExtra("is_new_user", z);
         intent.putExtra("close_dialog", true);
@@ -47,20 +47,20 @@ public class MainTabActivityConfig extends IntentConfig {
         return this;
     }
 
-    public MainTabActivityConfig createNormalCfg(int i) {
-        return createNewUserCfg(i, false, false);
+    public MainTabActivityConfig createNormalCfg(int i2) {
+        return createNewUserCfg(i2, false, false);
     }
 
-    public MainTabActivityConfig createRefreshCfg(int i, boolean z) {
+    public MainTabActivityConfig createRefreshCfg(int i2, boolean z) {
         Intent intent = getIntent();
         intent.setFlags(603979776);
-        if (i != 200 && i != 12) {
+        if (i2 != 200 && i2 != 12) {
             intent.putExtra(FrsActivityConfig.KEY_REFRESH, true);
         } else {
             intent.putExtra(FrsActivityConfig.KEY_REFRESH, false);
         }
-        if (i >= 0) {
-            intent.putExtra("locate_type", i);
+        if (i2 >= 0) {
+            intent.putExtra("locate_type", i2);
         }
         if (z) {
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
@@ -75,16 +75,16 @@ public class MainTabActivityConfig extends IntentConfig {
         }
     }
 
-    public void setPushFollowUpAction(int i) {
+    public void setPushFollowUpAction(int i2) {
         if (getIntent() != null) {
-            getIntent().putExtra(PUSH_FOLLOW_UP_ACTION, i);
+            getIntent().putExtra(PUSH_FOLLOW_UP_ACTION, i2);
         }
     }
 
-    public void setSubTab(int i, String str) {
+    public void setSubTab(int i2, String str) {
         if (getIntent() != null) {
             if (str == null) {
-                getIntent().putExtra("sub_locate_type", i);
+                getIntent().putExtra("sub_locate_type", i2);
             } else {
                 getIntent().putExtra("sub_locate_type", str);
             }
@@ -101,11 +101,11 @@ public class MainTabActivityConfig extends IntentConfig {
         getIntent().putExtra(TARGET_SCHEME, str);
     }
 
-    public MainTabActivityConfig createNormalCfg(int i, boolean z) {
-        return createNewUserCfg(i, false, z);
+    public MainTabActivityConfig createNormalCfg(int i2, boolean z) {
+        return createNewUserCfg(i2, false, z);
     }
 
-    public MainTabActivityConfig createNewUserCfg(int i, boolean z) {
-        return createNewUserCfg(i, z, false);
+    public MainTabActivityConfig createNewUserCfg(int i2, boolean z) {
+        return createNewUserCfg(i2, z, false);
     }
 }

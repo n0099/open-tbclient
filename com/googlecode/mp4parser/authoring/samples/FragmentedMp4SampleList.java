@@ -88,15 +88,15 @@ public class FragmentedMp4SampleList extends AbstractList<Sample> {
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public int size() {
-        int i = this.size_;
-        if (i != -1) {
-            return i;
+        int i2 = this.size_;
+        if (i2 != -1) {
+            return i2;
         }
-        int i2 = 0;
+        int i3 = 0;
         for (MovieFragmentBox movieFragmentBox : this.topLevel.getBoxes(MovieFragmentBox.class)) {
             for (TrackFragmentBox trackFragmentBox : movieFragmentBox.getBoxes(TrackFragmentBox.class)) {
                 if (trackFragmentBox.getTrackFragmentHeaderBox().getTrackId() == this.trackBox.getTrackHeaderBox().getTrackId()) {
-                    i2 = (int) (i2 + ((TrackRunBox) trackFragmentBox.getBoxes(TrackRunBox.class).get(0)).getSampleCount());
+                    i3 = (int) (i3 + ((TrackRunBox) trackFragmentBox.getBoxes(TrackRunBox.class).get(0)).getSampleCount());
                 }
             }
         }
@@ -104,30 +104,30 @@ public class FragmentedMp4SampleList extends AbstractList<Sample> {
             for (MovieFragmentBox movieFragmentBox2 : isoFile.getBoxes(MovieFragmentBox.class)) {
                 for (TrackFragmentBox trackFragmentBox2 : movieFragmentBox2.getBoxes(TrackFragmentBox.class)) {
                     if (trackFragmentBox2.getTrackFragmentHeaderBox().getTrackId() == this.trackBox.getTrackHeaderBox().getTrackId()) {
-                        i2 = (int) (i2 + ((TrackRunBox) trackFragmentBox2.getBoxes(TrackRunBox.class).get(0)).getSampleCount());
+                        i3 = (int) (i3 + ((TrackRunBox) trackFragmentBox2.getBoxes(TrackRunBox.class).get(0)).getSampleCount());
                     }
                 }
             }
         }
-        this.size_ = i2;
-        return i2;
+        this.size_ = i3;
+        return i3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
-    public Sample get(int i) {
+    public Sample get(int i2) {
         long offset;
         long defaultSampleSize;
         long defaultSampleSize2;
         Sample sample;
         SoftReference<Sample>[] softReferenceArr = this.sampleCache;
-        if (softReferenceArr[i] == null || (sample = softReferenceArr[i].get()) == null) {
-            int i2 = i + 1;
-            int i3 = 1;
+        if (softReferenceArr[i2] == null || (sample = softReferenceArr[i2].get()) == null) {
+            int i3 = i2 + 1;
+            int i4 = 1;
             for (TrackFragmentBox trackFragmentBox : allFragments()) {
                 int trafSize = getTrafSize(trackFragmentBox);
-                if (i2 >= i3 && i2 < i3 + trafSize) {
-                    int i4 = i2 - i3;
+                if (i3 >= i4 && i3 < i4 + trafSize) {
+                    int i5 = i3 - i4;
                     MovieFragmentBox movieFragmentBox = (MovieFragmentBox) trackFragmentBox.getParent();
                     TrackRunBox trackRunBox = (TrackRunBox) trackFragmentBox.getBoxes(TrackRunBox.class).get(0);
                     long dataOffset = trackRunBox.isDataOffsetPresent() ? 0 + trackRunBox.getDataOffset() : 0L;
@@ -138,9 +138,9 @@ public class FragmentedMp4SampleList extends AbstractList<Sample> {
                         offset = movieFragmentBox.getOffset();
                     }
                     long j = dataOffset + offset;
-                    for (int i5 = 0; i5 < i4; i5++) {
+                    for (int i6 = 0; i6 < i5; i6++) {
                         if (trackRunBox.isSampleSizePresent()) {
-                            defaultSampleSize2 = entries.get(i5).getSampleSize();
+                            defaultSampleSize2 = entries.get(i6).getSampleSize();
                         } else if (trackFragmentBox.getTrackFragmentHeaderBox().hasDefaultSampleSize()) {
                             defaultSampleSize2 = trackFragmentBox.getTrackFragmentHeaderBox().getDefaultSampleSize();
                         } else {
@@ -154,7 +154,7 @@ public class FragmentedMp4SampleList extends AbstractList<Sample> {
                         j += defaultSampleSize2;
                     }
                     if (trackRunBox.isSampleSizePresent()) {
-                        defaultSampleSize = entries.get(i4).getSampleSize();
+                        defaultSampleSize = entries.get(i5).getSampleSize();
                     } else if (trackFragmentBox.getTrackFragmentHeaderBox().hasDefaultSampleSize()) {
                         defaultSampleSize = trackFragmentBox.getTrackFragmentHeaderBox().getDefaultSampleSize();
                     } else {
@@ -166,10 +166,10 @@ public class FragmentedMp4SampleList extends AbstractList<Sample> {
                         }
                     }
                     SampleImpl sampleImpl = new SampleImpl(j, defaultSampleSize, movieFragmentBox.getParent());
-                    this.sampleCache[i] = new SoftReference<>(sampleImpl);
+                    this.sampleCache[i2] = new SoftReference<>(sampleImpl);
                     return sampleImpl;
                 }
-                i3 += trafSize;
+                i4 += trafSize;
             }
             return null;
         }

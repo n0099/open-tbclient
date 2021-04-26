@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public interface AnimatedDrawableBackend {
     void dropCaches();
 
@@ -15,15 +15,15 @@ public interface AnimatedDrawableBackend {
 
     int getDurationMs();
 
-    int getDurationMsForFrame(int i);
+    int getDurationMsForFrame(int i2);
 
     int getFrameCount();
 
     int getFrameForPreview();
 
-    int getFrameForTimestampMs(int i);
+    int getFrameForTimestampMs(int i2);
 
-    AnimatedDrawableFrameInfo getFrameInfo(int i);
+    AnimatedDrawableFrameInfo getFrameInfo(int i2);
 
     int getHeight();
 
@@ -32,17 +32,17 @@ public interface AnimatedDrawableBackend {
     int getMemoryUsage();
 
     @Nullable
-    CloseableReference<Bitmap> getPreDecodedFrame(int i);
+    CloseableReference<Bitmap> getPreDecodedFrame(int i2);
 
     int getRenderedHeight();
 
     int getRenderedWidth();
 
-    int getTimestampMsForFrame(int i);
+    int getTimestampMsForFrame(int i2);
 
     int getWidth();
 
-    boolean hasPreDecodedFrame(int i);
+    boolean hasPreDecodedFrame(int i2);
 
-    void renderFrame(int i, Canvas canvas);
+    void renderFrame(int i2, Canvas canvas);
 }

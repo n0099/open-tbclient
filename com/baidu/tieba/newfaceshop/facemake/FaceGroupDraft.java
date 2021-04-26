@@ -30,8 +30,8 @@ public class FaceGroupDraft implements Serializable {
         this.mFailMsg = str;
     }
 
-    public void setForumId(int i) {
-        this.mForumId = i;
+    public void setForumId(int i2) {
+        this.mForumId = i2;
     }
 
     public void setList(List<FaceData> list) {

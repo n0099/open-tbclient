@@ -6,8 +6,6 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.view.Surface;
 import com.baidu.searchbox.afx.recode.QueuedMuxer;
-import com.kwai.video.player.KsMediaMeta;
-import com.kwai.video.player.misc.IMediaFormat;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import org.webrtc.HardwareVideoEncoder;
@@ -36,9 +34,9 @@ public class VideoTrackTranscoder {
     public final int mTrackIndex;
     public long mWrittenPresentationTimeUs;
 
-    public VideoTrackTranscoder(MediaExtractor mediaExtractor, int i, MediaFormat mediaFormat, QueuedMuxer queuedMuxer) {
+    public VideoTrackTranscoder(MediaExtractor mediaExtractor, int i2, MediaFormat mediaFormat, QueuedMuxer queuedMuxer) {
         this.mExtractor = mediaExtractor;
-        this.mTrackIndex = i;
+        this.mTrackIndex = i2;
         this.mOutputFormat = mediaFormat;
         this.mMuxer = queuedMuxer;
     }
@@ -90,10 +88,10 @@ public class VideoTrackTranscoder {
         } else if (dequeueOutputBuffer != -1) {
             if (this.mActualOutputFormat != null) {
                 MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
-                int i = bufferInfo.flags;
-                if ((i & 4) != 0) {
+                int i2 = bufferInfo.flags;
+                if ((i2 & 4) != 0) {
                     this.mIsEncoderEOS = true;
-                    bufferInfo.set(0, 0, 0L, i);
+                    bufferInfo.set(0, 0, 0L, i2);
                 }
                 MediaCodec.BufferInfo bufferInfo2 = this.mBufferInfo;
                 if ((bufferInfo2.flags & 2) != 0) {
@@ -173,14 +171,14 @@ public class VideoTrackTranscoder {
 
     public void setup(Mp4Info mp4Info) throws IOException {
         this.mExtractor.selectTrack(this.mTrackIndex);
-        MediaCodec createEncoderByType = MediaCodec.createEncoderByType(this.mOutputFormat.getString(IMediaFormat.KEY_MIME));
+        MediaCodec createEncoderByType = MediaCodec.createEncoderByType(this.mOutputFormat.getString("mime"));
         this.mEncoder = createEncoderByType;
         try {
             createEncoderByType.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
         } catch (IllegalStateException e2) {
             e2.printStackTrace();
             this.mOutputFormat.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, 1);
-            this.mOutputFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, mp4Info.getBitrate());
+            this.mOutputFormat.setInteger("bitrate", mp4Info.getBitrate());
             this.mEncoder.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
         }
         InputSurface inputSurface = new InputSurface(this.mEncoder.createInputSurface());
@@ -193,7 +191,7 @@ public class VideoTrackTranscoder {
         if (trackFormat.containsKey("rotation-degrees")) {
             trackFormat.setInteger("rotation-degrees", 0);
         }
-        this.mDecoder = MediaCodec.createDecoderByType(trackFormat.getString(IMediaFormat.KEY_MIME));
+        this.mDecoder = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
         OutputSurface outputSurface = new OutputSurface();
         this.mDecoderOutputSurfaceWrapper = outputSurface;
         this.mDecoder.configure(trackFormat, outputSurface.getSurface(), (MediaCrypto) null, 0);

@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 public abstract class MyDb extends SQLiteOpenHelper {
     public SQLiteDatabase mDb;
 
-    public MyDb(Context context, String str, int i) {
-        super(context, str, (SQLiteDatabase.CursorFactory) null, i);
+    public MyDb(Context context, String str, int i2) {
+        super(context, str, (SQLiteDatabase.CursorFactory) null, i2);
         try {
             this.mDb = getWritableDatabase();
         } catch (SQLiteException e2) {

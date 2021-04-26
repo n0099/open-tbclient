@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final z f8850a = new z();
+    public static final z f9166a = new z();
 
     private void c(Context context) {
         bb.c().a("collectAPWithStretegy 1");
@@ -56,10 +56,10 @@ public class z {
         long currentTimeMillis = System.currentTimeMillis();
         y a2 = y.a(context);
         long a3 = a2.a(g.APP_TRACE_HIS);
-        long i = a2.i();
+        long i2 = a2.i();
         bb c2 = bb.c();
-        c2.a("now time: " + currentTimeMillis + ": last time: " + a3 + "; time interval: " + i);
-        if (a3 == 0 || currentTimeMillis - a3 > i) {
+        c2.a("now time: " + currentTimeMillis + ": last time: " + a3 + "; time interval: " + i2);
+        if (a3 == 0 || currentTimeMillis - a3 > i2) {
             bb.c().a("collectAPPTraceWithStretegy 2");
             c.b(context, false);
         }
@@ -84,14 +84,14 @@ public class z {
         JSONObject a2 = h.a(context);
         bb c2 = bb.c();
         c2.a("header: " + a2);
-        int i = 0;
+        int i2 = 0;
         while (a()) {
-            int i2 = i + 1;
-            if (i > 0) {
+            int i3 = i2 + 1;
+            if (i2 > 0) {
                 h.c(a2);
             }
             b(context, a2);
-            i = i2;
+            i2 = i3;
         }
     }
 
@@ -107,9 +107,9 @@ public class z {
                 c(context);
             }
             String str = android.os.Build.MANUFACTURER;
-            int i = Build.VERSION.SDK_INT;
+            int i2 = Build.VERSION.SDK_INT;
             boolean z = false;
-            if (!TextUtils.isEmpty(str) && RomUtils.MANUFACTURER_HUAWEI.equals(str.trim().toLowerCase()) && i >= 28) {
+            if (!TextUtils.isEmpty(str) && RomUtils.MANUFACTURER_HUAWEI.equals(str.trim().toLowerCase()) && i2 >= 28) {
                 z = true;
             }
             if (!k.APP_LIST.b(10000) && !z) {
@@ -118,7 +118,7 @@ public class z {
             if (!k.APP_TRACE.b(10000) && !z) {
                 e(context);
             }
-            if (ab.f8453e && !k.APP_APK.b(10000) && !z) {
+            if (ab.f8755e && !k.APP_APK.b(10000) && !z) {
                 f(context);
             }
             boolean q = bw.q(context);
@@ -140,10 +140,10 @@ public class z {
 
     private void b(Context context, JSONObject jSONObject) {
         JSONObject jSONObject2 = new JSONObject();
-        int i = 0;
+        int i2 = 0;
         try {
             jSONObject2.put(Config.HEADER_PART, jSONObject);
-            i = 0 + jSONObject.toString().length();
+            i2 = 0 + jSONObject.toString().length();
         } catch (JSONException e2) {
             bb.c().a(e2);
         }
@@ -156,7 +156,7 @@ public class z {
             if (jSONArray.length() > 0) {
                 try {
                     jSONObject2.put("app_mem3", jSONArray);
-                    i += jSONArray.toString().length();
+                    i2 += jSONArray.toString().length();
                 } catch (JSONException e3) {
                     bb.c().a(e3);
                 }
@@ -172,7 +172,7 @@ public class z {
         if (jSONArray2.length() > 0) {
             try {
                 jSONObject2.put("app_apk3", jSONArray2);
-                i += jSONArray2.toString().length();
+                i2 += jSONArray2.toString().length();
             } catch (JSONException e4) {
                 bb.c().a(e4);
             }
@@ -187,7 +187,7 @@ public class z {
         if (jSONArray3.length() > 0) {
             try {
                 jSONObject2.put("app_change3", jSONArray3);
-                i += jSONArray3.toString().length();
+                i2 += jSONArray3.toString().length();
             } catch (JSONException e5) {
                 bb.c().a(e5);
             }
@@ -202,7 +202,7 @@ public class z {
         if (jSONArray4.length() > 0) {
             try {
                 jSONObject2.put("app_trace3", jSONArray4);
-                i += jSONArray4.toString().length();
+                i2 += jSONArray4.toString().length();
             } catch (JSONException e6) {
                 bb.c().a(e6);
             }
@@ -217,13 +217,13 @@ public class z {
         if (jSONArray5.length() > 0) {
             try {
                 jSONObject2.put("app_list3", jSONArray5);
-                i += jSONArray5.toString().length();
+                i2 += jSONArray5.toString().length();
             } catch (JSONException e7) {
                 bb.c().a(e7);
             }
         }
         bb.c().a("AP_LIST");
-        List<String> a6 = k.AP_LIST.a(Config.MAX_CACHE_JSON_CAPACITY - i);
+        List<String> a6 = k.AP_LIST.a(Config.MAX_CACHE_JSON_CAPACITY - i2);
         JSONArray jSONArray6 = new JSONArray();
         for (String str5 : a6) {
             bb.c().a(str5);
@@ -232,13 +232,13 @@ public class z {
         if (jSONArray6.length() > 0) {
             try {
                 jSONObject2.put("ap_list3", jSONArray6);
-                i += jSONArray6.toString().length();
+                i2 += jSONArray6.toString().length();
             } catch (JSONException e8) {
                 bb.c().a(e8);
             }
         }
         bb c2 = bb.c();
-        c2.a("log in bytes is almost :" + i);
+        c2.a("log in bytes is almost :" + i2);
         JSONArray jSONArray7 = new JSONArray();
         jSONArray7.put(jSONObject2);
         JSONObject jSONObject3 = new JSONObject();
@@ -252,9 +252,9 @@ public class z {
 
     private void a(JSONObject jSONObject) {
         ac acVar = new ac(jSONObject);
-        ab.f8450b = acVar.f8454a;
-        ab.f8451c = acVar.f8455b;
-        ab.f8452d = acVar.f8456c;
+        ab.f8752b = acVar.f8756a;
+        ab.f8753c = acVar.f8757b;
+        ab.f8754d = acVar.f8758c;
     }
 
     public void a(Context context, String str) {

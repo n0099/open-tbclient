@@ -29,10 +29,10 @@ import java.nio.ByteOrder;
 public class Session {
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.h.b.a.g f30645b = new d.h.b.a.g();
+    public final d.g.b.a.g f31580b = new d.g.b.a.g();
 
     /* renamed from: a  reason: collision with root package name */
-    public long f30644a = 0;
+    public long f31579a = 0;
 
     /* loaded from: classes6.dex */
     public enum Feature {
@@ -41,8 +41,8 @@ public class Session {
         
         public final int nativeCode;
 
-        Feature(int i) {
-            this.nativeCode = i;
+        Feature(int i2) {
+            this.nativeCode = i2;
         }
     }
 
@@ -52,9 +52,9 @@ public class Session {
         
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30648b = 0;
+        public final int f31583b = 0;
 
-        a(int i) {
+        a(int i2) {
         }
     }
 
@@ -91,12 +91,12 @@ public class Session {
         public final Class<? extends Exception> k;
         public final String l;
 
-        b(int i, Class cls) {
-            this(i, cls, null);
+        b(int i2, Class cls) {
+            this(i2, cls, null);
         }
 
-        b(int i, Class cls, String str) {
-            this.j = i;
+        b(int i2, Class cls, String str) {
+            this.j = i2;
             this.k = cls;
             this.l = str;
         }
@@ -115,7 +115,7 @@ public class Session {
 
     private native void nativeConfigure(long j, long j2);
 
-    private native long nativeCreateAnchor(long j, d.h.b.a.a aVar);
+    private native long nativeCreateAnchor(long j, d.g.b.a.a aVar);
 
     public static native long nativeCreateSession(Context context);
 
@@ -143,22 +143,22 @@ public class Session {
 
     private native int nativeSetCameraConfig(long j, long j2);
 
-    private native void nativeSetCameraTextureName(long j, int i);
+    private native void nativeSetCameraTextureName(long j, int i2);
 
-    private native void nativeSetDisplayGeometry(long j, int i, int i2, int i3);
+    private native void nativeSetDisplayGeometry(long j, int i2, int i3, int i4);
 
     private native void nativeUpdate(long j, long j2);
 
     public void finalize() throws Throwable {
-        long j = this.f30644a;
+        long j = this.f31579a;
         if (j != 0) {
             nativeDestroySession(j);
-            this.f30644a = 0L;
+            this.f31579a = 0L;
         }
         super.finalize();
     }
 
-    public native long[] nativeAcquireAllTrackables(long j, int i);
+    public native long[] nativeAcquireAllTrackables(long j, int i2);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* JADX WARN: Unknown enum class pattern. Please report as an issue! */
@@ -166,57 +166,59 @@ public class Session {
     public static abstract class c {
 
         /* renamed from: g  reason: collision with root package name */
-        public static final c f30662g;
-        public static final /* synthetic */ c[] i;
+        public static final c f31598g;
+
+        /* renamed from: i  reason: collision with root package name */
+        public static final /* synthetic */ c[] f31599i;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30663b;
+        public final int f31600b;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Class<?> f30664h;
+        public final Class<?> f31601h;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final c f30658c = new ad("BASE_TRACKABLE", 0, 1095893248, d.h.b.a.b.class);
+        public static final c f31594c = new ad("BASE_TRACKABLE", 0, 1095893248, d.g.b.a.b.class);
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f30657a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
+        public static final c f31593a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
 
         /* renamed from: d  reason: collision with root package name */
-        public static final c f30659d = new af("PLANE", 2, 1095893249, Plane.class);
+        public static final c f31595d = new af("PLANE", 2, 1095893249, Plane.class);
 
         /* renamed from: e  reason: collision with root package name */
-        public static final c f30660e = new ag("POINT", 3, 1095893250, Point.class);
+        public static final c f31596e = new ag("POINT", 3, 1095893250, Point.class);
 
         /* renamed from: f  reason: collision with root package name */
-        public static final c f30661f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
+        public static final c f31597f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
 
         static {
             ai aiVar = new ai("FACE", 5, 1095893253, AugmentedFace.class);
-            f30662g = aiVar;
-            i = new c[]{f30658c, f30657a, f30659d, f30660e, f30661f, aiVar};
+            f31598g = aiVar;
+            f31599i = new c[]{f31594c, f31593a, f31595d, f31596e, f31597f, aiVar};
         }
 
         public c(String str, int i2, int i3, Class cls) {
-            this.f30663b = i3;
-            this.f30664h = cls;
+            this.f31600b = i3;
+            this.f31601h = cls;
         }
 
-        public static c a(Class<? extends d.h.b.a.b> cls) {
+        public static c a(Class<? extends d.g.b.a.b> cls) {
             c[] values;
             for (c cVar : values()) {
-                Class<?> cls2 = cVar.f30664h;
+                Class<?> cls2 = cVar.f31601h;
                 if (cls2 != null && cls2.equals(cls)) {
                     return cVar;
                 }
             }
-            return f30657a;
+            return f31593a;
         }
 
         public static c[] values() {
-            return (c[]) i.clone();
+            return (c[]) f31599i.clone();
         }
 
-        public abstract d.h.b.a.b a(long j, Session session);
+        public abstract d.g.b.a.b a(long j, Session session);
 
         public /* synthetic */ c(String str, int i2, int i3, Class cls, byte b2) {
             this(str, i2, i3, cls);

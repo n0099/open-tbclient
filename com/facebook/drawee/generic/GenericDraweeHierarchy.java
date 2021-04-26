@@ -18,7 +18,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.interfaces.SettableDraweeHierarchy;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     public static final int ACTUAL_IMAGE_INDEX = 2;
     public static final int BACKGROUND_IMAGE_INDEX = 0;
@@ -36,14 +36,14 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     public final RootDrawable mTopLevelDrawable;
 
     public GenericDraweeHierarchy(GenericDraweeHierarchyBuilder genericDraweeHierarchyBuilder) {
-        int i = 0;
+        int i2 = 0;
         if (FrescoSystrace.isTracing()) {
             FrescoSystrace.beginSection("GenericDraweeHierarchy()");
         }
         this.mResources = genericDraweeHierarchyBuilder.getResources();
         this.mRoundingParams = genericDraweeHierarchyBuilder.getRoundingParams();
         this.mActualImageWrapper = new ForwardingDrawable(this.mEmptyActualImageDrawable);
-        int i2 = 1;
+        int i3 = 1;
         int size = (genericDraweeHierarchyBuilder.getOverlays() != null ? genericDraweeHierarchyBuilder.getOverlays().size() : 1) + (genericDraweeHierarchyBuilder.getPressedStateOverlay() != null ? 1 : 0);
         Drawable[] drawableArr = new Drawable[size + 6];
         drawableArr[0] = buildBranch(genericDraweeHierarchyBuilder.getBackground(), null);
@@ -55,13 +55,13 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         if (size > 0) {
             if (genericDraweeHierarchyBuilder.getOverlays() != null) {
                 for (Drawable drawable : genericDraweeHierarchyBuilder.getOverlays()) {
-                    drawableArr[i + 6] = buildBranch(drawable, null);
-                    i++;
+                    drawableArr[i2 + 6] = buildBranch(drawable, null);
+                    i2++;
                 }
-                i2 = i;
+                i3 = i2;
             }
             if (genericDraweeHierarchyBuilder.getPressedStateOverlay() != null) {
-                drawableArr[i2 + 6] = buildBranch(genericDraweeHierarchyBuilder.getPressedStateOverlay(), null);
+                drawableArr[i3 + 6] = buildBranch(genericDraweeHierarchyBuilder.getPressedStateOverlay(), null);
             }
         }
         FadeDrawable fadeDrawable = new FadeDrawable(drawableArr);
@@ -88,9 +88,9 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         return WrappingUtils.maybeWrapWithScaleType(WrappingUtils.maybeApplyLeafRounding(drawable, this.mRoundingParams, this.mResources), scaleType);
     }
 
-    private void fadeInLayer(int i) {
-        if (i >= 0) {
-            this.mFadeDrawable.fadeInLayer(i);
+    private void fadeInLayer(int i2) {
+        if (i2 >= 0) {
+            this.mFadeDrawable.fadeInLayer(i2);
         }
     }
 
@@ -102,30 +102,30 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         fadeOutLayer(5);
     }
 
-    private void fadeOutLayer(int i) {
-        if (i >= 0) {
-            this.mFadeDrawable.fadeOutLayer(i);
+    private void fadeOutLayer(int i2) {
+        if (i2 >= 0) {
+            this.mFadeDrawable.fadeOutLayer(i2);
         }
     }
 
-    private DrawableParent getParentDrawableAtIndex(int i) {
-        DrawableParent drawableParentForIndex = this.mFadeDrawable.getDrawableParentForIndex(i);
+    private DrawableParent getParentDrawableAtIndex(int i2) {
+        DrawableParent drawableParentForIndex = this.mFadeDrawable.getDrawableParentForIndex(i2);
         if (drawableParentForIndex.getDrawable() instanceof MatrixDrawable) {
             drawableParentForIndex = (MatrixDrawable) drawableParentForIndex.getDrawable();
         }
         return drawableParentForIndex.getDrawable() instanceof ScaleTypeDrawable ? (ScaleTypeDrawable) drawableParentForIndex.getDrawable() : drawableParentForIndex;
     }
 
-    private ScaleTypeDrawable getScaleTypeDrawableAtIndex(int i) {
-        DrawableParent parentDrawableAtIndex = getParentDrawableAtIndex(i);
+    private ScaleTypeDrawable getScaleTypeDrawableAtIndex(int i2) {
+        DrawableParent parentDrawableAtIndex = getParentDrawableAtIndex(i2);
         if (parentDrawableAtIndex instanceof ScaleTypeDrawable) {
             return (ScaleTypeDrawable) parentDrawableAtIndex;
         }
         return WrappingUtils.wrapChildWithScaleType(parentDrawableAtIndex, ScalingUtils.ScaleType.FIT_XY);
     }
 
-    private boolean hasScaleTypeDrawableAtIndex(int i) {
-        return getParentDrawableAtIndex(i) instanceof ScaleTypeDrawable;
+    private boolean hasScaleTypeDrawableAtIndex(int i2) {
+        return getParentDrawableAtIndex(i2) instanceof ScaleTypeDrawable;
     }
 
     private void resetActualImages() {
@@ -144,12 +144,12 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         }
     }
 
-    private void setChildDrawableAtIndex(int i, @Nullable Drawable drawable) {
+    private void setChildDrawableAtIndex(int i2, @Nullable Drawable drawable) {
         if (drawable == null) {
-            this.mFadeDrawable.setDrawable(i, null);
+            this.mFadeDrawable.setDrawable(i2, null);
             return;
         }
-        getParentDrawableAtIndex(i).setDrawable(WrappingUtils.maybeApplyLeafRounding(drawable, this.mRoundingParams, this.mResources));
+        getParentDrawableAtIndex(i2).setDrawable(WrappingUtils.maybeApplyLeafRounding(drawable, this.mRoundingParams, this.mResources));
     }
 
     private void setProgress(float f2) {
@@ -239,8 +239,8 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         this.mTopLevelDrawable.setControllerOverlay(drawable);
     }
 
-    public void setFadeDuration(int i) {
-        this.mFadeDrawable.setTransitionDuration(i);
+    public void setFadeDuration(int i2) {
+        this.mFadeDrawable.setTransitionDuration(i2);
     }
 
     @Override // com.facebook.drawee.interfaces.SettableDraweeHierarchy
@@ -274,9 +274,9 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         this.mFadeDrawable.endBatchMode();
     }
 
-    public void setOverlayImage(int i, @Nullable Drawable drawable) {
-        Preconditions.checkArgument(i >= 0 && i + 6 < this.mFadeDrawable.getNumberOfLayers(), "The given index does not correspond to an overlay image.");
-        setChildDrawableAtIndex(i + 6, drawable);
+    public void setOverlayImage(int i2, @Nullable Drawable drawable) {
+        Preconditions.checkArgument(i2 >= 0 && i2 + 6 < this.mFadeDrawable.getNumberOfLayers(), "The given index does not correspond to an overlay image.");
+        setChildDrawableAtIndex(i2 + 6, drawable);
     }
 
     public void setPlaceholderImage(@Nullable Drawable drawable) {
@@ -311,8 +311,8 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     public void setRoundingParams(@Nullable RoundingParams roundingParams) {
         this.mRoundingParams = roundingParams;
         WrappingUtils.updateOverlayColorRounding(this.mTopLevelDrawable, roundingParams);
-        for (int i = 0; i < this.mFadeDrawable.getNumberOfLayers(); i++) {
-            WrappingUtils.updateLeafRounding(getParentDrawableAtIndex(i), this.mRoundingParams, this.mResources);
+        for (int i2 = 0; i2 < this.mFadeDrawable.getNumberOfLayers(); i2++) {
+            WrappingUtils.updateLeafRounding(getParentDrawableAtIndex(i2), this.mRoundingParams, this.mResources);
         }
     }
 
@@ -340,40 +340,40 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         getScaleTypeDrawableAtIndex(4).setScaleType(scaleType);
     }
 
-    public void setFailureImage(int i) {
-        setFailureImage(this.mResources.getDrawable(i));
+    public void setFailureImage(int i2) {
+        setFailureImage(this.mResources.getDrawable(i2));
     }
 
-    public void setPlaceholderImage(int i) {
-        setPlaceholderImage(this.mResources.getDrawable(i));
+    public void setPlaceholderImage(int i2) {
+        setPlaceholderImage(this.mResources.getDrawable(i2));
     }
 
-    public void setProgressBarImage(int i) {
-        setProgressBarImage(this.mResources.getDrawable(i));
+    public void setProgressBarImage(int i2) {
+        setProgressBarImage(this.mResources.getDrawable(i2));
     }
 
-    public void setRetryImage(int i) {
-        setRetryImage(this.mResources.getDrawable(i));
+    public void setRetryImage(int i2) {
+        setRetryImage(this.mResources.getDrawable(i2));
     }
 
-    public void setFailureImage(int i, ScalingUtils.ScaleType scaleType) {
-        setFailureImage(this.mResources.getDrawable(i), scaleType);
+    public void setFailureImage(int i2, ScalingUtils.ScaleType scaleType) {
+        setFailureImage(this.mResources.getDrawable(i2), scaleType);
     }
 
     public void setOverlayImage(@Nullable Drawable drawable) {
         setOverlayImage(0, drawable);
     }
 
-    public void setPlaceholderImage(int i, ScalingUtils.ScaleType scaleType) {
-        setPlaceholderImage(this.mResources.getDrawable(i), scaleType);
+    public void setPlaceholderImage(int i2, ScalingUtils.ScaleType scaleType) {
+        setPlaceholderImage(this.mResources.getDrawable(i2), scaleType);
     }
 
-    public void setProgressBarImage(int i, ScalingUtils.ScaleType scaleType) {
-        setProgressBarImage(this.mResources.getDrawable(i), scaleType);
+    public void setProgressBarImage(int i2, ScalingUtils.ScaleType scaleType) {
+        setProgressBarImage(this.mResources.getDrawable(i2), scaleType);
     }
 
-    public void setRetryImage(int i, ScalingUtils.ScaleType scaleType) {
-        setRetryImage(this.mResources.getDrawable(i), scaleType);
+    public void setRetryImage(int i2, ScalingUtils.ScaleType scaleType) {
+        setRetryImage(this.mResources.getDrawable(i2), scaleType);
     }
 
     @Override // com.facebook.drawee.interfaces.SettableDraweeHierarchy

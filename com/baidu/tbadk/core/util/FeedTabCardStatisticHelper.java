@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.util;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.i0.r.q.a2;
-import d.b.i0.r.q.v0;
+import d.a.i0.r.q.a2;
+import d.a.i0.r.q.v0;
 /* loaded from: classes3.dex */
 public class FeedTabCardStatisticHelper {
     public static final String KEY_TAB_FEED_PICTURE_TEXT_THREAD_BIG_PICTURE_CLICK = "c13632";
@@ -69,8 +69,8 @@ public class FeedTabCardStatisticHelper {
         if (v0Var == null) {
             return null;
         }
-        int i = v0Var.n;
-        if (i != 2 && i != 6 && i != 8) {
+        int i2 = v0Var.n;
+        if (i2 != 2 && i2 != 6 && i2 != 8) {
             statisticItem = new StatisticItem(KEY_TAB_FEED_PICTURE_TEXT_THREAD_NEG_FEEDBACK_CLICK);
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
         } else {

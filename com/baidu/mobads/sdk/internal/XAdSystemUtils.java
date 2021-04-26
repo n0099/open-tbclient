@@ -20,7 +20,7 @@ public class XAdSystemUtils {
         return shareInstance;
     }
 
-    private Boolean isXTypeConnected(Context context, int i) {
+    private Boolean isXTypeConnected(Context context, int i2) {
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             boolean z = true;
@@ -29,7 +29,7 @@ public class XAdSystemUtils {
                 return Boolean.FALSE;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo == null || activeNetworkInfo.getType() != i || !activeNetworkInfo.isConnected()) {
+            if (activeNetworkInfo == null || activeNetworkInfo.getType() != i2 || !activeNetworkInfo.isConnected()) {
                 z = false;
             }
             return Boolean.valueOf(z);

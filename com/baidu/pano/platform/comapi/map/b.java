@@ -5,7 +5,7 @@ public interface b {
 
     void a(String str);
 
-    void a(String str, int i, byte[] bArr, int i2);
+    void a(String str, int i2, byte[] bArr, int i3);
 
     void a(String str, boolean z);
 

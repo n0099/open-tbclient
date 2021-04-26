@@ -28,5 +28,5 @@ public interface MemoryCache {
 
     void setSizeMultiplier(float f2);
 
-    void trimMemory(int i);
+    void trimMemory(int i2);
 }

@@ -10,8 +10,8 @@ public class b {
         return AppOpsManager.permissionToOp(str);
     }
 
-    public static int a(Context context, String str, int i, String str2) {
-        return ((AppOpsManager) context.getSystemService(AppOpsManager.class)).noteOp(str, i, str2);
+    public static int a(Context context, String str, int i2, String str2) {
+        return ((AppOpsManager) context.getSystemService(AppOpsManager.class)).noteOp(str, i2, str2);
     }
 
     public static int a(Context context, String str, String str2) {

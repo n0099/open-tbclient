@@ -15,42 +15,42 @@ public enum FieldEncoding {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f38992a;
+        public static final /* synthetic */ int[] f36577a;
 
         static {
             int[] iArr = new int[FieldEncoding.values().length];
-            f38992a = iArr;
+            f36577a = iArr;
             try {
                 iArr[FieldEncoding.VARINT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f38992a[FieldEncoding.FIXED32.ordinal()] = 2;
+                f36577a[FieldEncoding.FIXED32.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f38992a[FieldEncoding.FIXED64.ordinal()] = 3;
+                f36577a[FieldEncoding.FIXED64.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f38992a[FieldEncoding.LENGTH_DELIMITED.ordinal()] = 4;
+                f36577a[FieldEncoding.LENGTH_DELIMITED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
     }
 
-    FieldEncoding(int i) {
-        this.value = i;
+    FieldEncoding(int i2) {
+        this.value = i2;
     }
 
-    public static FieldEncoding get(int i) throws IOException {
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 5) {
+    public static FieldEncoding get(int i2) throws IOException {
+        if (i2 != 0) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 == 5) {
                         return FIXED32;
                     }
-                    throw new ProtocolException("Unexpected FieldEncoding: " + i);
+                    throw new ProtocolException("Unexpected FieldEncoding: " + i2);
                 }
                 return LENGTH_DELIMITED;
             }
@@ -60,11 +60,11 @@ public enum FieldEncoding {
     }
 
     public ProtoAdapter<?> rawProtoAdapter() {
-        int i = a.f38992a[ordinal()];
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i == 4) {
+        int i2 = a.f36577a[ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 != 3) {
+                    if (i2 == 4) {
                         return ProtoAdapter.BYTES;
                     }
                     throw new AssertionError();

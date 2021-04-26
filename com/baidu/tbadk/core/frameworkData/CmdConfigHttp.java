@@ -59,6 +59,7 @@ public class CmdConfigHttp {
     public static final int CMD_CONCERN_CHECK_RED_NOTIFY = 1003344;
     public static final int CMD_CONCERN_PAGE = 1003343;
     public static final int CMD_CONCERN_UNREAD_TIP = 1003387;
+    public static final int CMD_CURRENCY_SWITCH_REQUEST = 1003492;
     public static final int CMD_CUSTOM_ALS = 1003195;
     public static final int CMD_DAILY_PAGE = 1003413;
     public static final int CMD_DEFAULT_GIFT_LIST = 1003045;

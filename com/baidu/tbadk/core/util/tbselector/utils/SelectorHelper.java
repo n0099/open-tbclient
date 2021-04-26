@@ -10,39 +10,39 @@ import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import d.b.j0.d3.c;
+import d.a.j0.d3.c;
 /* loaded from: classes3.dex */
 public class SelectorHelper {
     public static int dip2px(float f2) {
         return (int) ((f2 * getResources().getDisplayMetrics().density) + 0.5f);
     }
 
-    public static int getColor(@ColorRes int i) {
-        return SkinManager.getColor(i);
+    public static int getColor(@ColorRes int i2) {
+        return SkinManager.getColor(i2);
     }
 
-    public static Drawable getColorDrawable(@ColorRes int i) {
-        return new ColorDrawable(getColor(i));
+    public static Drawable getColorDrawable(@ColorRes int i2) {
+        return new ColorDrawable(getColor(i2));
     }
 
     public static Context getContext() {
         return TbadkCoreApplication.getInst();
     }
 
-    public static int getDimens(@DimenRes int i) {
-        return getResources().getDimensionPixelSize(i);
+    public static int getDimens(@DimenRes int i2) {
+        return getResources().getDimensionPixelSize(i2);
     }
 
-    public static Drawable getDrawable(@DrawableRes int i) {
-        return SkinManager.getDrawable(i);
+    public static Drawable getDrawable(@DrawableRes int i2) {
+        return SkinManager.getDrawable(i2);
     }
 
     public static Resources getResources() {
         return getContext().getResources();
     }
 
-    public static boolean isColorInvalid(int i) {
-        return i == Integer.MAX_VALUE;
+    public static boolean isColorInvalid(int i2) {
+        return i2 == Integer.MAX_VALUE;
     }
 
     public static int parseColor(String str) {
@@ -61,12 +61,12 @@ public class SelectorHelper {
         return Integer.MAX_VALUE;
     }
 
-    public static int getColor(@ColorRes int i, float f2) {
-        return c.a(SkinManager.getColor(i), f2);
+    public static int getColor(@ColorRes int i2, float f2) {
+        return c.a(SkinManager.getColor(i2), f2);
     }
 
-    public static Drawable getColorDrawable(@ColorRes int i, float f2) {
-        return new ColorDrawable(getColor(i, f2));
+    public static Drawable getColorDrawable(@ColorRes int i2, float f2) {
+        return new ColorDrawable(getColor(i2, f2));
     }
 
     public static Drawable getColorDrawable(String str) {

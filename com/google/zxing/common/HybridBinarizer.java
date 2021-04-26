@@ -17,111 +17,111 @@ public final class HybridBinarizer extends GlobalHistogramBinarizer {
         super(luminanceSource);
     }
 
-    public static int[][] calculateBlackPoints(byte[] bArr, int i, int i2, int i3, int i4) {
-        int[][] iArr = (int[][]) Array.newInstance(int.class, i2, i);
-        for (int i5 = 0; i5 < i2; i5++) {
-            int i6 = i5 << 3;
-            int i7 = i4 - 8;
-            if (i6 > i7) {
-                i6 = i7;
+    public static int[][] calculateBlackPoints(byte[] bArr, int i2, int i3, int i4, int i5) {
+        int[][] iArr = (int[][]) Array.newInstance(int.class, i3, i2);
+        for (int i6 = 0; i6 < i3; i6++) {
+            int i7 = i6 << 3;
+            int i8 = i5 - 8;
+            if (i7 > i8) {
+                i7 = i8;
             }
-            for (int i8 = 0; i8 < i; i8++) {
-                int i9 = i8 << 3;
-                int i10 = i3 - 8;
-                if (i9 > i10) {
-                    i9 = i10;
+            for (int i9 = 0; i9 < i2; i9++) {
+                int i10 = i9 << 3;
+                int i11 = i4 - 8;
+                if (i10 > i11) {
+                    i10 = i11;
                 }
-                int i11 = (i6 * i3) + i9;
-                int i12 = 0;
+                int i12 = (i7 * i4) + i10;
                 int i13 = 0;
                 int i14 = 0;
-                int i15 = 255;
-                while (i12 < 8) {
-                    for (int i16 = 0; i16 < 8; i16++) {
-                        int i17 = bArr[i11 + i16] & 255;
-                        i13 += i17;
-                        if (i17 < i15) {
-                            i15 = i17;
+                int i15 = 0;
+                int i16 = 255;
+                while (i13 < 8) {
+                    for (int i17 = 0; i17 < 8; i17++) {
+                        int i18 = bArr[i12 + i17] & 255;
+                        i14 += i18;
+                        if (i18 < i16) {
+                            i16 = i18;
                         }
-                        if (i17 > i14) {
-                            i14 = i17;
+                        if (i18 > i15) {
+                            i15 = i18;
                         }
                     }
-                    if (i14 - i15 <= 24) {
-                        i12++;
-                        i11 += i3;
+                    if (i15 - i16 <= 24) {
+                        i13++;
+                        i12 += i4;
                     }
                     while (true) {
-                        i12++;
-                        i11 += i3;
-                        if (i12 < 8) {
-                            for (int i18 = 0; i18 < 8; i18++) {
-                                i13 += bArr[i11 + i18] & 255;
+                        i13++;
+                        i12 += i4;
+                        if (i13 < 8) {
+                            for (int i19 = 0; i19 < 8; i19++) {
+                                i14 += bArr[i12 + i19] & 255;
                             }
                         }
                     }
-                    i12++;
-                    i11 += i3;
+                    i13++;
+                    i12 += i4;
                 }
-                int i19 = i13 >> 6;
-                if (i14 - i15 <= 24) {
-                    i19 = i15 / 2;
-                    if (i5 > 0 && i8 > 0) {
-                        int i20 = i5 - 1;
-                        int i21 = i8 - 1;
-                        int i22 = ((iArr[i20][i8] + (iArr[i5][i21] * 2)) + iArr[i20][i21]) / 4;
-                        if (i15 < i22) {
-                            i19 = i22;
+                int i20 = i14 >> 6;
+                if (i15 - i16 <= 24) {
+                    i20 = i16 / 2;
+                    if (i6 > 0 && i9 > 0) {
+                        int i21 = i6 - 1;
+                        int i22 = i9 - 1;
+                        int i23 = ((iArr[i21][i9] + (iArr[i6][i22] * 2)) + iArr[i21][i22]) / 4;
+                        if (i16 < i23) {
+                            i20 = i23;
                         }
-                        iArr[i5][i8] = i19;
+                        iArr[i6][i9] = i20;
                     }
                 }
-                iArr[i5][i8] = i19;
+                iArr[i6][i9] = i20;
             }
         }
         return iArr;
     }
 
-    public static void calculateThresholdForBlock(byte[] bArr, int i, int i2, int i3, int i4, int[][] iArr, BitMatrix bitMatrix) {
-        for (int i5 = 0; i5 < i2; i5++) {
-            int i6 = i5 << 3;
-            int i7 = i4 - 8;
-            if (i6 > i7) {
-                i6 = i7;
+    public static void calculateThresholdForBlock(byte[] bArr, int i2, int i3, int i4, int i5, int[][] iArr, BitMatrix bitMatrix) {
+        for (int i6 = 0; i6 < i3; i6++) {
+            int i7 = i6 << 3;
+            int i8 = i5 - 8;
+            if (i7 > i8) {
+                i7 = i8;
             }
-            for (int i8 = 0; i8 < i; i8++) {
-                int i9 = i8 << 3;
-                int i10 = i3 - 8;
-                if (i9 <= i10) {
-                    i10 = i9;
+            for (int i9 = 0; i9 < i2; i9++) {
+                int i10 = i9 << 3;
+                int i11 = i4 - 8;
+                if (i10 <= i11) {
+                    i11 = i10;
                 }
-                int cap = cap(i8, 2, i - 3);
-                int cap2 = cap(i5, 2, i2 - 3);
-                int i11 = 0;
-                for (int i12 = -2; i12 <= 2; i12++) {
-                    int[] iArr2 = iArr[cap2 + i12];
-                    i11 += iArr2[cap - 2] + iArr2[cap - 1] + iArr2[cap] + iArr2[cap + 1] + iArr2[cap + 2];
+                int cap = cap(i9, 2, i2 - 3);
+                int cap2 = cap(i6, 2, i3 - 3);
+                int i12 = 0;
+                for (int i13 = -2; i13 <= 2; i13++) {
+                    int[] iArr2 = iArr[cap2 + i13];
+                    i12 += iArr2[cap - 2] + iArr2[cap - 1] + iArr2[cap] + iArr2[cap + 1] + iArr2[cap + 2];
                 }
-                thresholdBlock(bArr, i10, i6, i11 / 25, i3, bitMatrix);
+                thresholdBlock(bArr, i11, i7, i12 / 25, i4, bitMatrix);
             }
         }
     }
 
-    public static int cap(int i, int i2, int i3) {
-        return i < i2 ? i2 : i > i3 ? i3 : i;
+    public static int cap(int i2, int i3, int i4) {
+        return i2 < i3 ? i3 : i2 > i4 ? i4 : i2;
     }
 
-    public static void thresholdBlock(byte[] bArr, int i, int i2, int i3, int i4, BitMatrix bitMatrix) {
-        int i5 = (i2 * i4) + i;
-        int i6 = 0;
-        while (i6 < 8) {
-            for (int i7 = 0; i7 < 8; i7++) {
-                if ((bArr[i5 + i7] & 255) <= i3) {
-                    bitMatrix.set(i + i7, i2 + i6);
+    public static void thresholdBlock(byte[] bArr, int i2, int i3, int i4, int i5, BitMatrix bitMatrix) {
+        int i6 = (i3 * i5) + i2;
+        int i7 = 0;
+        while (i7 < 8) {
+            for (int i8 = 0; i8 < 8; i8++) {
+                if ((bArr[i6 + i8] & 255) <= i4) {
+                    bitMatrix.set(i2 + i8, i3 + i7);
                 }
             }
-            i6++;
-            i5 += i4;
+            i7++;
+            i6 += i5;
         }
     }
 
@@ -141,19 +141,19 @@ public final class HybridBinarizer extends GlobalHistogramBinarizer {
         int height = luminanceSource.getHeight();
         if (width >= 40 && height >= 40) {
             byte[] matrix = luminanceSource.getMatrix();
-            int i = width >> 3;
+            int i2 = width >> 3;
             if ((width & 7) != 0) {
-                i++;
+                i2++;
             }
-            int i2 = i;
-            int i3 = height >> 3;
+            int i3 = i2;
+            int i4 = height >> 3;
             if ((height & 7) != 0) {
-                i3++;
+                i4++;
             }
-            int i4 = i3;
-            int[][] calculateBlackPoints = calculateBlackPoints(matrix, i2, i4, width, height);
+            int i5 = i4;
+            int[][] calculateBlackPoints = calculateBlackPoints(matrix, i3, i5, width, height);
             BitMatrix bitMatrix2 = new BitMatrix(width, height);
-            calculateThresholdForBlock(matrix, i2, i4, width, height, calculateBlackPoints, bitMatrix2);
+            calculateThresholdForBlock(matrix, i3, i5, width, height, calculateBlackPoints, bitMatrix2);
             this.matrix = bitMatrix2;
         } else {
             this.matrix = super.getBlackMatrix();

@@ -26,20 +26,20 @@ public class TypeReference<T> {
         this.type = type2;
     }
 
-    private Type handlerParameterizedType(ParameterizedType parameterizedType, Type[] typeArr, int i) {
+    private Type handlerParameterizedType(ParameterizedType parameterizedType, Type[] typeArr, int i2) {
         Class<?> cls = getClass();
         Type rawType = parameterizedType.getRawType();
         Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
-        for (int i2 = 0; i2 < actualTypeArguments.length; i2++) {
-            if ((actualTypeArguments[i2] instanceof TypeVariable) && i < typeArr.length) {
-                actualTypeArguments[i2] = typeArr[i];
-                i++;
+        for (int i3 = 0; i3 < actualTypeArguments.length; i3++) {
+            if ((actualTypeArguments[i3] instanceof TypeVariable) && i2 < typeArr.length) {
+                actualTypeArguments[i3] = typeArr[i2];
+                i2++;
             }
-            if (actualTypeArguments[i2] instanceof GenericArrayType) {
-                actualTypeArguments[i2] = TypeUtils.checkPrimitiveArray((GenericArrayType) actualTypeArguments[i2]);
+            if (actualTypeArguments[i3] instanceof GenericArrayType) {
+                actualTypeArguments[i3] = TypeUtils.checkPrimitiveArray((GenericArrayType) actualTypeArguments[i3]);
             }
-            if (actualTypeArguments[i2] instanceof ParameterizedType) {
-                actualTypeArguments[i2] = handlerParameterizedType((ParameterizedType) actualTypeArguments[i2], typeArr, i);
+            if (actualTypeArguments[i3] instanceof ParameterizedType) {
+                actualTypeArguments[i3] = handlerParameterizedType((ParameterizedType) actualTypeArguments[i3], typeArr, i2);
             }
         }
         return new ParameterizedTypeImpl(actualTypeArguments, cls, rawType);
@@ -63,17 +63,17 @@ public class TypeReference<T> {
         ParameterizedType parameterizedType = (ParameterizedType) ((ParameterizedType) cls.getGenericSuperclass()).getActualTypeArguments()[0];
         Type rawType = parameterizedType.getRawType();
         Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
-        int i = 0;
-        for (int i2 = 0; i2 < actualTypeArguments.length; i2++) {
-            if ((actualTypeArguments[i2] instanceof TypeVariable) && i < typeArr.length) {
-                actualTypeArguments[i2] = typeArr[i];
-                i++;
+        int i2 = 0;
+        for (int i3 = 0; i3 < actualTypeArguments.length; i3++) {
+            if ((actualTypeArguments[i3] instanceof TypeVariable) && i2 < typeArr.length) {
+                actualTypeArguments[i3] = typeArr[i2];
+                i2++;
             }
-            if (actualTypeArguments[i2] instanceof GenericArrayType) {
-                actualTypeArguments[i2] = TypeUtils.checkPrimitiveArray((GenericArrayType) actualTypeArguments[i2]);
+            if (actualTypeArguments[i3] instanceof GenericArrayType) {
+                actualTypeArguments[i3] = TypeUtils.checkPrimitiveArray((GenericArrayType) actualTypeArguments[i3]);
             }
-            if (actualTypeArguments[i2] instanceof ParameterizedType) {
-                actualTypeArguments[i2] = handlerParameterizedType((ParameterizedType) actualTypeArguments[i2], typeArr, i);
+            if (actualTypeArguments[i3] instanceof ParameterizedType) {
+                actualTypeArguments[i3] = handlerParameterizedType((ParameterizedType) actualTypeArguments[i3], typeArr, i2);
             }
         }
         ParameterizedTypeImpl parameterizedTypeImpl = new ParameterizedTypeImpl(actualTypeArguments, cls, rawType);

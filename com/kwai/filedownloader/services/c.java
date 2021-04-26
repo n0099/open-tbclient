@@ -7,52 +7,52 @@ import com.kwai.filedownloader.f.c;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f37487a;
+    public final a f35209a;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public c.InterfaceC0463c f37488a;
+        public c.InterfaceC0408c f35210a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Integer f37489b;
+        public Integer f35211b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c.e f37490c;
+        public c.e f35212c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.b f37491d;
+        public c.b f35213d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a f37492e;
+        public c.a f35214e;
 
         /* renamed from: f  reason: collision with root package name */
-        public c.d f37493f;
+        public c.d f35215f;
 
-        public a a(int i) {
-            if (i > 0) {
-                this.f37489b = Integer.valueOf(i);
+        public a a(int i2) {
+            if (i2 > 0) {
+                this.f35211b = Integer.valueOf(i2);
             }
             return this;
         }
 
         public a a(c.b bVar) {
-            this.f37491d = bVar;
+            this.f35213d = bVar;
             return this;
         }
 
         public String toString() {
-            return com.kwai.filedownloader.f.f.a("component: database[%s], maxNetworkCount[%s], outputStream[%s], connection[%s], connectionCountAdapter[%s]", this.f37488a, this.f37489b, this.f37490c, this.f37491d, this.f37492e);
+            return com.kwai.filedownloader.f.f.a("component: database[%s], maxNetworkCount[%s], outputStream[%s], connection[%s], connectionCountAdapter[%s]", this.f35210a, this.f35211b, this.f35212c, this.f35213d, this.f35214e);
         }
     }
 
     public c() {
-        this.f37487a = null;
+        this.f35209a = null;
     }
 
     public c(a aVar) {
-        this.f37487a = aVar;
+        this.f35209a = aVar;
     }
 
     private c.d g() {
@@ -60,7 +60,7 @@ public class c {
     }
 
     private int h() {
-        return com.kwai.filedownloader.f.e.a().f37401e;
+        return com.kwai.filedownloader.f.e.a().f35123e;
     }
 
     private com.kwai.filedownloader.b.a i() {
@@ -81,9 +81,9 @@ public class c {
 
     public int a() {
         Integer num;
-        a aVar = this.f37487a;
-        if (aVar != null && (num = aVar.f37489b) != null) {
-            if (com.kwai.filedownloader.f.d.f37396a) {
+        a aVar = this.f35209a;
+        if (aVar != null && (num = aVar.f35211b) != null) {
+            if (com.kwai.filedownloader.f.d.f35118a) {
                 com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize maxNetworkThreadCount: %d", num);
             }
             return com.kwai.filedownloader.f.e.a(num.intValue());
@@ -92,14 +92,14 @@ public class c {
     }
 
     public com.kwai.filedownloader.b.a b() {
-        c.InterfaceC0463c interfaceC0463c;
-        a aVar = this.f37487a;
-        if (aVar == null || (interfaceC0463c = aVar.f37488a) == null) {
+        c.InterfaceC0408c interfaceC0408c;
+        a aVar = this.f35209a;
+        if (aVar == null || (interfaceC0408c = aVar.f35210a) == null) {
             return i();
         }
-        com.kwai.filedownloader.b.a a2 = interfaceC0463c.a();
+        com.kwai.filedownloader.b.a a2 = interfaceC0408c.a();
         if (a2 != null) {
-            if (com.kwai.filedownloader.f.d.f37396a) {
+            if (com.kwai.filedownloader.f.d.f35118a) {
                 com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize database: %s", a2);
             }
             return a2;
@@ -109,9 +109,9 @@ public class c {
 
     public c.e c() {
         c.e eVar;
-        a aVar = this.f37487a;
-        if (aVar != null && (eVar = aVar.f37490c) != null) {
-            if (com.kwai.filedownloader.f.d.f37396a) {
+        a aVar = this.f35209a;
+        if (aVar != null && (eVar = aVar.f35212c) != null) {
+            if (com.kwai.filedownloader.f.d.f35118a) {
                 com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize output stream: %s", eVar);
             }
             return eVar;
@@ -121,9 +121,9 @@ public class c {
 
     public c.b d() {
         c.b bVar;
-        a aVar = this.f37487a;
-        if (aVar != null && (bVar = aVar.f37491d) != null) {
-            if (com.kwai.filedownloader.f.d.f37396a) {
+        a aVar = this.f35209a;
+        if (aVar != null && (bVar = aVar.f35213d) != null) {
+            if (com.kwai.filedownloader.f.d.f35118a) {
                 com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize connection creator: %s", bVar);
             }
             return bVar;
@@ -133,9 +133,9 @@ public class c {
 
     public c.a e() {
         c.a aVar;
-        a aVar2 = this.f37487a;
-        if (aVar2 != null && (aVar = aVar2.f37492e) != null) {
-            if (com.kwai.filedownloader.f.d.f37396a) {
+        a aVar2 = this.f35209a;
+        if (aVar2 != null && (aVar = aVar2.f35214e) != null) {
+            if (com.kwai.filedownloader.f.d.f35118a) {
                 com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize connection count adapter: %s", aVar);
             }
             return aVar;
@@ -145,9 +145,9 @@ public class c {
 
     public c.d f() {
         c.d dVar;
-        a aVar = this.f37487a;
-        if (aVar != null && (dVar = aVar.f37493f) != null) {
-            if (com.kwai.filedownloader.f.d.f37396a) {
+        a aVar = this.f35209a;
+        if (aVar != null && (dVar = aVar.f35215f) != null) {
+            if (com.kwai.filedownloader.f.d.f35118a) {
                 com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize id generator: %s", dVar);
             }
             return dVar;

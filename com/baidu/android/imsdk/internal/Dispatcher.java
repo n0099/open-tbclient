@@ -39,16 +39,16 @@ public class Dispatcher {
             return this.type;
         }
 
-        public void setCategory(int i) {
-            this.category = i;
+        public void setCategory(int i2) {
+            this.category = i2;
         }
 
         public void setContacter(long j) {
             this.contacter = j;
         }
 
-        public void setType(int i) {
-            this.type = i;
+        public void setType(int i2) {
+            this.type = i2;
         }
     }
 
@@ -56,20 +56,20 @@ public class Dispatcher {
     public static abstract class MsgListener {
         public int type = 0;
 
-        public abstract void dealMessage(int i, ChatMsg chatMsg);
+        public abstract void dealMessage(int i2, ChatMsg chatMsg);
 
-        public abstract void dealMessage(int i, ArrayList<ChatMsg> arrayList);
+        public abstract void dealMessage(int i2, ArrayList<ChatMsg> arrayList);
 
         public int getType() {
             return this.type;
         }
 
-        public void setType(int i) {
-            this.type = i;
+        public void setType(int i2) {
+            this.type = i2;
         }
     }
 
-    public static void dispatchMesageToCentain(int i, ArrayList<ChatMsg> arrayList) {
+    public static void dispatchMesageToCentain(int i2, ArrayList<ChatMsg> arrayList) {
         String str = TAG;
         StringBuilder sb = new StringBuilder();
         sb.append("start dispatchMesageToCentain");
@@ -92,11 +92,11 @@ public class Dispatcher {
             }
         }
         for (Map.Entry entry : hashMap.entrySet()) {
-            dispatchMesageToCentainType(i, listenerMap.get(entry.getKey()), (ArrayList) hashMap.get(entry.getKey()));
+            dispatchMesageToCentainType(i2, listenerMap.get(entry.getKey()), (ArrayList) hashMap.get(entry.getKey()));
         }
     }
 
-    public static void dispatchMesageToCentainType(int i, ArrayList<MsgListener> arrayList, ArrayList<ChatMsg> arrayList2) {
+    public static void dispatchMesageToCentainType(int i2, ArrayList<MsgListener> arrayList, ArrayList<ChatMsg> arrayList2) {
         String str;
         String str2 = TAG;
         StringBuilder sb = new StringBuilder();
@@ -122,16 +122,16 @@ public class Dispatcher {
             while (it2.hasNext()) {
                 ChatMsg next2 = it2.next();
                 if (next2.getCategory() != 0 && next2.getCategory() != 1 && next2.getNotifyCmd() == next.getType()) {
-                    next.dealMessage(i, next2);
+                    next.dealMessage(i2, next2);
                 }
             }
             if (arrayList2.get(0).getCategory() == 0 || arrayList2.get(0).getCategory() == 1) {
-                next.dealMessage(i, arrayList2);
+                next.dealMessage(i2, arrayList2);
             }
         }
     }
 
-    public static void dispatchMessage(Context context, int i, ArrayList<ChatMsg> arrayList) {
+    public static void dispatchMessage(Context context, int i2, ArrayList<ChatMsg> arrayList) {
         List<MsgListener> list;
         String str = TAG;
         StringBuilder sb = new StringBuilder();
@@ -145,7 +145,7 @@ public class Dispatcher {
         if (list2 != null && list2.size() > 0) {
             for (MsgListener msgListener : allMsgListeners) {
                 LogUtils.d(TAG, "deal allMsgListeners message");
-                msgListener.dealMessage(i, arrayList);
+                msgListener.dealMessage(i2, arrayList);
             }
         }
         ArrayList<ChatMsg> arrayList2 = new ArrayList<>();
@@ -165,10 +165,10 @@ public class Dispatcher {
         LogUtils.d(str2, "normalAll dispatcher : msgs2.size() : " + arrayList2.size());
         if (arrayList2.size() > 0 && (list = normalALL) != null && list.size() > 0) {
             for (MsgListener msgListener2 : normalALL) {
-                msgListener2.dealMessage(i, arrayList2);
+                msgListener2.dealMessage(i2, arrayList2);
             }
         }
-        dispatchMesageToCentain(i, arrayList);
+        dispatchMesageToCentain(i2, arrayList);
     }
 
     public static void registerListener(Event event, MsgListener msgListener) {

@@ -7,9 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.ViewCompat;
 import com.google.android.material.R;
+import com.google.android.material.color.MaterialColors;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes6.dex */
 public class SnackbarContentLayout extends LinearLayout implements ContentViewCallback {
@@ -18,38 +21,38 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
     public int maxWidth;
     public TextView messageView;
 
-    public SnackbarContentLayout(Context context) {
+    public SnackbarContentLayout(@NonNull Context context) {
         this(context, null);
     }
 
-    public static void updateTopBottomPadding(View view, int i, int i2) {
+    public static void updateTopBottomPadding(@NonNull View view, int i2, int i3) {
         if (ViewCompat.isPaddingRelative(view)) {
-            ViewCompat.setPaddingRelative(view, ViewCompat.getPaddingStart(view), i, ViewCompat.getPaddingEnd(view), i2);
+            ViewCompat.setPaddingRelative(view, ViewCompat.getPaddingStart(view), i2, ViewCompat.getPaddingEnd(view), i3);
         } else {
-            view.setPadding(view.getPaddingLeft(), i, view.getPaddingRight(), i2);
+            view.setPadding(view.getPaddingLeft(), i2, view.getPaddingRight(), i3);
         }
     }
 
-    private boolean updateViewsWithinLayout(int i, int i2, int i3) {
+    private boolean updateViewsWithinLayout(int i2, int i3, int i4) {
         boolean z;
-        if (i != getOrientation()) {
-            setOrientation(i);
+        if (i2 != getOrientation()) {
+            setOrientation(i2);
             z = true;
         } else {
             z = false;
         }
-        if (this.messageView.getPaddingTop() == i2 && this.messageView.getPaddingBottom() == i3) {
+        if (this.messageView.getPaddingTop() == i3 && this.messageView.getPaddingBottom() == i4) {
             return z;
         }
-        updateTopBottomPadding(this.messageView, i2, i3);
+        updateTopBottomPadding(this.messageView, i3, i4);
         return true;
     }
 
     @Override // com.google.android.material.snackbar.ContentViewCallback
-    public void animateContentIn(int i, int i2) {
+    public void animateContentIn(int i2, int i3) {
         this.messageView.setAlpha(0.0f);
-        long j = i2;
-        long j2 = i;
+        long j = i3;
+        long j2 = i2;
         this.messageView.animate().alpha(1.0f).setDuration(j).setStartDelay(j2).start();
         if (this.actionView.getVisibility() == 0) {
             this.actionView.setAlpha(0.0f);
@@ -58,10 +61,10 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
     }
 
     @Override // com.google.android.material.snackbar.ContentViewCallback
-    public void animateContentOut(int i, int i2) {
+    public void animateContentOut(int i2, int i3) {
         this.messageView.setAlpha(1.0f);
-        long j = i2;
-        long j2 = i;
+        long j = i3;
+        long j2 = i2;
         this.messageView.animate().alpha(0.0f).setDuration(j).setStartDelay(j2).start();
         if (this.actionView.getVisibility() == 0) {
             this.actionView.setAlpha(1.0f);
@@ -97,14 +100,14 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
         if (this.maxWidth > 0) {
             int measuredWidth = getMeasuredWidth();
-            int i3 = this.maxWidth;
-            if (measuredWidth > i3) {
-                i = View.MeasureSpec.makeMeasureSpec(i3, 1073741824);
-                super.onMeasure(i, i2);
+            int i4 = this.maxWidth;
+            if (measuredWidth > i4) {
+                i2 = View.MeasureSpec.makeMeasureSpec(i4, 1073741824);
+                super.onMeasure(i2, i3);
             }
         }
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.design_snackbar_padding_vertical_2lines);
@@ -117,11 +120,21 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
             }
         }
         if (z) {
-            super.onMeasure(i, i2);
+            super.onMeasure(i2, i3);
         }
     }
 
-    public SnackbarContentLayout(Context context, AttributeSet attributeSet) {
+    public void setMaxInlineActionWidth(int i2) {
+        this.maxInlineActionWidth = i2;
+    }
+
+    public void updateActionTextColorAlphaIfNeeded(float f2) {
+        if (f2 != 1.0f) {
+            this.actionView.setTextColor(MaterialColors.layer(MaterialColors.getColor(this, R.attr.colorSurface), this.actionView.getCurrentTextColor(), f2));
+        }
+    }
+
+    public SnackbarContentLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SnackbarLayout);
         this.maxWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.SnackbarLayout_android_maxWidth, -1);

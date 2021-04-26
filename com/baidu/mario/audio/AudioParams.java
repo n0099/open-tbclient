@@ -63,31 +63,31 @@ public class AudioParams {
         return ((((((((this.mAudioSource + 31) * 31) + this.mSampleRate) * 31) + this.mChannelConfig) * 31) + this.mAudioFormat) * 31) + this.mFrameSize;
     }
 
-    public void setAudioBufferSize(int i) {
-        this.mAudioBufferSize = i;
+    public void setAudioBufferSize(int i2) {
+        this.mAudioBufferSize = i2;
     }
 
-    public void setAudioFormat(int i) {
-        this.mAudioFormat = i;
+    public void setAudioFormat(int i2) {
+        this.mAudioFormat = i2;
     }
 
-    public void setAudioSource(int i) {
-        this.mAudioSource = i;
+    public void setAudioSource(int i2) {
+        this.mAudioSource = i2;
     }
 
-    public void setChannelConfig(int i) {
-        this.mChannelConfig = i;
+    public void setChannelConfig(int i2) {
+        this.mChannelConfig = i2;
     }
 
-    public void setFrameBufferCount(int i) {
-        this.mFrameBufferCount = i;
+    public void setFrameBufferCount(int i2) {
+        this.mFrameBufferCount = i2;
     }
 
-    public void setFrameSize(int i) {
-        this.mFrameSize = i;
+    public void setFrameSize(int i2) {
+        this.mFrameSize = i2;
     }
 
-    public void setSampleRate(int i) {
-        this.mSampleRate = i;
+    public void setSampleRate(int i2) {
+        this.mSampleRate = i2;
     }
 }

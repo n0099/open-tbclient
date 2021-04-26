@@ -21,8 +21,8 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public GroupStarJoinMsg[] newArray(int i) {
-            return new GroupStarJoinMsg[i];
+        public GroupStarJoinMsg[] newArray(int i2) {
+            return new GroupStarJoinMsg[i2];
         }
     };
     public int groupnum;
@@ -57,14 +57,14 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
             this.groupnum = jSONObject.optInt("group_num");
             JSONArray jSONArray = jSONObject.getJSONArray("member");
             this.memberbuid = new ArrayList<>();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                this.memberbuid.add(String.valueOf(jSONArray.getLong(i)));
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                this.memberbuid.add(String.valueOf(jSONArray.getLong(i2)));
             }
             if (jSONObject.has("del_member")) {
                 this.memPushoutBuids = new ArrayList<>();
                 JSONArray jSONArray2 = jSONObject.getJSONArray("del_member");
-                for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                    this.memPushoutBuids.add(String.valueOf(jSONArray2.getLong(i2)));
+                for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
+                    this.memPushoutBuids.add(String.valueOf(jSONArray2.getLong(i3)));
                 }
             }
             return true;
@@ -75,8 +75,8 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeInt(this.groupnum);
         parcel.writeList(this.memberbuid);
         parcel.writeList(this.memPushoutBuids);

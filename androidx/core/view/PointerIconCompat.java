@@ -44,21 +44,21 @@ public final class PointerIconCompat {
         return new PointerIconCompat(null);
     }
 
-    public static PointerIconCompat getSystemIcon(Context context, int i) {
+    public static PointerIconCompat getSystemIcon(Context context, int i2) {
         if (Build.VERSION.SDK_INT >= 24) {
-            return new PointerIconCompat(PointerIcon.getSystemIcon(context, i));
+            return new PointerIconCompat(PointerIcon.getSystemIcon(context, i2));
         }
         return new PointerIconCompat(null);
     }
 
-    public static PointerIconCompat load(Resources resources, int i) {
+    public static PointerIconCompat load(Resources resources, int i2) {
         if (Build.VERSION.SDK_INT >= 24) {
-            return new PointerIconCompat(PointerIcon.load(resources, i));
+            return new PointerIconCompat(PointerIcon.load(resources, i2));
         }
         return new PointerIconCompat(null);
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public Object getPointerIcon() {
         return this.mPointerIcon;
     }

@@ -40,7 +40,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
     public interface ExtendableMessageOrBuilder<MessageType extends ExtendableMessage> extends MessageLiteOrBuilder {
         <Type> Type getExtension(GeneratedExtension<MessageType, Type> generatedExtension);
 
-        <Type> Type getExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i);
+        <Type> Type getExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i2);
 
         <Type> int getExtensionCount(GeneratedExtension<MessageType, List<Type>> generatedExtension);
 
@@ -55,8 +55,8 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         public final int number;
         public final WireFormat.FieldType type;
 
-        public /* synthetic */ ExtensionDescriptor(Internal.EnumLiteMap enumLiteMap, int i, WireFormat.FieldType fieldType, boolean z, boolean z2, AnonymousClass1 anonymousClass1) {
-            this(enumLiteMap, i, fieldType, z, z2);
+        public /* synthetic */ ExtensionDescriptor(Internal.EnumLiteMap enumLiteMap, int i2, WireFormat.FieldType fieldType, boolean z, boolean z2, AnonymousClass1 anonymousClass1) {
+            this(enumLiteMap, i2, fieldType, z, z2);
         }
 
         @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
@@ -94,9 +94,9 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             return this.isRepeated;
         }
 
-        public ExtensionDescriptor(Internal.EnumLiteMap<?> enumLiteMap, int i, WireFormat.FieldType fieldType, boolean z, boolean z2) {
+        public ExtensionDescriptor(Internal.EnumLiteMap<?> enumLiteMap, int i2, WireFormat.FieldType fieldType, boolean z, boolean z2) {
             this.enumTypeMap = enumLiteMap;
-            this.number = i;
+            this.number = i2;
             this.type = fieldType;
             this.isRepeated = z;
             this.isPacked = z2;
@@ -180,12 +180,12 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
     public GeneratedMessageLite() {
     }
 
-    public static <ContainingType extends MessageLite, Type> GeneratedExtension<ContainingType, Type> newRepeatedGeneratedExtension(ContainingType containingtype, MessageLite messageLite, Internal.EnumLiteMap<?> enumLiteMap, int i, WireFormat.FieldType fieldType, boolean z) {
-        return new GeneratedExtension<>(containingtype, Collections.emptyList(), messageLite, new ExtensionDescriptor(enumLiteMap, i, fieldType, true, z, null), null);
+    public static <ContainingType extends MessageLite, Type> GeneratedExtension<ContainingType, Type> newRepeatedGeneratedExtension(ContainingType containingtype, MessageLite messageLite, Internal.EnumLiteMap<?> enumLiteMap, int i2, WireFormat.FieldType fieldType, boolean z) {
+        return new GeneratedExtension<>(containingtype, Collections.emptyList(), messageLite, new ExtensionDescriptor(enumLiteMap, i2, fieldType, true, z, null), null);
     }
 
-    public static <ContainingType extends MessageLite, Type> GeneratedExtension<ContainingType, Type> newSingularGeneratedExtension(ContainingType containingtype, Type type, MessageLite messageLite, Internal.EnumLiteMap<?> enumLiteMap, int i, WireFormat.FieldType fieldType) {
-        return new GeneratedExtension<>(containingtype, type, messageLite, new ExtensionDescriptor(enumLiteMap, i, fieldType, false, false, null), null);
+    public static <ContainingType extends MessageLite, Type> GeneratedExtension<ContainingType, Type> newSingularGeneratedExtension(ContainingType containingtype, Type type, MessageLite messageLite, Internal.EnumLiteMap<?> enumLiteMap, int i2, WireFormat.FieldType fieldType) {
+        return new GeneratedExtension<>(containingtype, type, messageLite, new ExtensionDescriptor(enumLiteMap, i2, fieldType, false, false, null), null);
     }
 
     @Override // com.google.protobuf.MessageLite
@@ -196,8 +196,8 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
     public void makeExtensionsImmutable() {
     }
 
-    public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
-        return codedInputStream.skipField(i);
+    public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i2) throws IOException {
+        return codedInputStream.skipField(i2);
     }
 
     public Object writeReplace() throws ObjectStreamException {
@@ -220,7 +220,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             if (this.extensionsIsMutable) {
                 return;
             }
-            this.extensions = this.extensions.m39clone();
+            this.extensions = this.extensions.m41clone();
             this.extensionsIsMutable = true;
         }
 
@@ -278,9 +278,9 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
 
         /* JADX WARN: Type inference failed for: r1v0, types: [com.google.protobuf.MessageLite, com.google.protobuf.GeneratedMessageLite] */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder
-        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
+        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i2) throws IOException {
             ensureExtensionsIsMutable();
-            return GeneratedMessageLite.parseUnknownField(this.extensions, getDefaultInstanceForType(), codedInputStream, extensionRegistryLite, i);
+            return GeneratedMessageLite.parseUnknownField(this.extensions, getDefaultInstanceForType(), codedInputStream, extensionRegistryLite, i2);
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.google.protobuf.GeneratedMessageLite$GeneratedExtension<MessageType extends com.google.protobuf.GeneratedMessageLite$ExtendableMessage<MessageType>, Type> */
@@ -301,15 +301,15 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
-        public final <Type> Type getExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i) {
+        public final <Type> Type getExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i2) {
             verifyExtensionContainingType(generatedExtension);
-            return (Type) this.extensions.getRepeatedField(generatedExtension.descriptor, i);
+            return (Type) this.extensions.getRepeatedField(generatedExtension.descriptor, i2);
         }
 
-        public final <Type> BuilderType setExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i, Type type) {
+        public final <Type> BuilderType setExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i2, Type type) {
             verifyExtensionContainingType(generatedExtension);
             ensureExtensionsIsMutable();
-            this.extensions.setRepeatedField(generatedExtension.descriptor, i, type);
+            this.extensions.setRepeatedField(generatedExtension.descriptor, i2, type);
             return this;
         }
 
@@ -334,10 +334,10 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
                 this(z);
             }
 
-            public void writeUntil(int i, CodedOutputStream codedOutputStream) throws IOException {
+            public void writeUntil(int i2, CodedOutputStream codedOutputStream) throws IOException {
                 while (true) {
                     Map.Entry<ExtensionDescriptor, Object> entry = this.next;
-                    if (entry == null || entry.getKey().getNumber() >= i) {
+                    if (entry == null || entry.getKey().getNumber() >= i2) {
                         return;
                     }
                     ExtensionDescriptor key = this.next.getKey();
@@ -423,8 +423,8 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite
-        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
-            return GeneratedMessageLite.parseUnknownField(this.extensions, getDefaultInstanceForType(), codedInputStream, extensionRegistryLite, i);
+        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i2) throws IOException {
+            return GeneratedMessageLite.parseUnknownField(this.extensions, getDefaultInstanceForType(), codedInputStream, extensionRegistryLite, i2);
         }
 
         public ExtendableMessage(ExtendableBuilder<MessageType, ?> extendableBuilder) {
@@ -432,9 +432,9 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
-        public final <Type> Type getExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i) {
+        public final <Type> Type getExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i2) {
             verifyExtensionContainingType(generatedExtension);
-            return (Type) this.extensions.getRepeatedField(generatedExtension.descriptor, i);
+            return (Type) this.extensions.getRepeatedField(generatedExtension.descriptor, i2);
         }
     }
 
@@ -446,12 +446,12 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static <MessageType extends MessageLite> boolean parseUnknownField(FieldSet<ExtensionDescriptor> fieldSet, MessageType messagetype, CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
+    public static <MessageType extends MessageLite> boolean parseUnknownField(FieldSet<ExtensionDescriptor> fieldSet, MessageType messagetype, CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i2) throws IOException {
         boolean z;
         Object build;
         MessageLite messageLite;
-        int tagWireType = WireFormat.getTagWireType(i);
-        GeneratedExtension findLiteExtensionByNumber = extensionRegistryLite.findLiteExtensionByNumber(messagetype, WireFormat.getTagFieldNumber(i));
+        int tagWireType = WireFormat.getTagWireType(i2);
+        GeneratedExtension findLiteExtensionByNumber = extensionRegistryLite.findLiteExtensionByNumber(messagetype, WireFormat.getTagFieldNumber(i2));
         boolean z2 = false;
         if (findLiteExtensionByNumber != null) {
             if (tagWireType == FieldSet.getWireFormatForFieldType(findLiteExtensionByNumber.descriptor.getLiteType(), false)) {
@@ -461,8 +461,8 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             }
             if (z2) {
                 if (!z) {
-                    int i2 = AnonymousClass1.$SwitchMap$com$google$protobuf$WireFormat$JavaType[findLiteExtensionByNumber.descriptor.getLiteJavaType().ordinal()];
-                    if (i2 == 1) {
+                    int i3 = AnonymousClass1.$SwitchMap$com$google$protobuf$WireFormat$JavaType[findLiteExtensionByNumber.descriptor.getLiteJavaType().ordinal()];
+                    if (i3 == 1) {
                         MessageLite.Builder builder = null;
                         if (!findLiteExtensionByNumber.descriptor.isRepeated() && (messageLite = (MessageLite) fieldSet.getField(findLiteExtensionByNumber.descriptor)) != null) {
                             builder = messageLite.toBuilder();
@@ -476,7 +476,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
                             codedInputStream.readMessage(builder, extensionRegistryLite);
                         }
                         build = builder.build();
-                    } else if (i2 != 2) {
+                    } else if (i3 != 2) {
                         build = FieldSet.readPrimitiveField(codedInputStream, findLiteExtensionByNumber.descriptor.getLiteType());
                     } else {
                         build = findLiteExtensionByNumber.descriptor.getEnumType().findValueByNumber(codedInputStream.readEnum());
@@ -508,7 +508,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
                 }
                 return true;
             }
-            return codedInputStream.skipField(i);
+            return codedInputStream.skipField(i2);
         }
         z = false;
         z2 = true;
@@ -530,8 +530,8 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
 
         public abstract BuilderType mergeFrom(MessageType messagetype);
 
-        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
-            return codedInputStream.skipField(i);
+        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i2) throws IOException {
+            return codedInputStream.skipField(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */

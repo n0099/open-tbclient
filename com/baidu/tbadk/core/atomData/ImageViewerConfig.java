@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
-import d.b.i0.r.q.a2;
+import d.a.i0.r.q.a2;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
@@ -69,20 +69,22 @@ public class ImageViewerConfig extends IntentConfig {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<String> f12862a;
+        public ArrayList<String> f12776a;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12864c;
+        public String f12778c;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f12867f;
+        public boolean f12781f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f12868g;
+        public String f12782g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f12869h;
-        public ConcurrentHashMap<String, ImageUrlData> i;
+        public boolean f12783h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public ConcurrentHashMap<String, ImageUrlData> f12784i;
         public boolean j;
         public boolean k;
         public a2 m;
@@ -94,13 +96,13 @@ public class ImageViewerConfig extends IntentConfig {
         public boolean u;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f12863b = 0;
+        public int f12777b = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f12865d = "";
+        public String f12779d = "";
 
         /* renamed from: e  reason: collision with root package name */
-        public String f12866e = "";
+        public String f12780e = "";
         public boolean l = false;
         public boolean p = true;
         public boolean s = true;
@@ -110,13 +112,13 @@ public class ImageViewerConfig extends IntentConfig {
             return this;
         }
 
-        public b B(int i) {
-            this.f12863b = i;
+        public b B(int i2) {
+            this.f12777b = i2;
             return this;
         }
 
         public b C(boolean z) {
-            this.f12867f = z;
+            this.f12781f = z;
             return this;
         }
 
@@ -136,7 +138,7 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b G(boolean z) {
-            this.f12869h = z;
+            this.f12783h = z;
             return this;
         }
 
@@ -156,7 +158,7 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b K(String str) {
-            this.f12868g = str;
+            this.f12782g = str;
             return this;
         }
 
@@ -182,7 +184,7 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b P(String str) {
-            this.f12866e = str;
+            this.f12780e = str;
             return this;
         }
 
@@ -191,22 +193,22 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b w(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
-            this.i = concurrentHashMap;
+            this.f12784i = concurrentHashMap;
             return this;
         }
 
         public b x(ArrayList<String> arrayList) {
-            this.f12862a = arrayList;
+            this.f12776a = arrayList;
             return this;
         }
 
         public b y(String str) {
-            this.f12865d = str;
+            this.f12779d = str;
             return this;
         }
 
         public b z(String str) {
-            this.f12864c = str;
+            this.f12778c = str;
             return this;
         }
     }
@@ -218,32 +220,32 @@ public class ImageViewerConfig extends IntentConfig {
             return;
         }
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
-        if (bVar.f12862a != null && bVar.f12862a.size() > 0) {
+        if (bVar.f12776a != null && bVar.f12776a.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
-            intent.putStringArrayListExtra("url", bVar.f12862a);
-            intent.putExtra("index", bVar.f12863b);
+            intent.putStringArrayListExtra("url", bVar.f12776a);
+            intent.putExtra("index", bVar.f12777b);
             intent.putExtra("is_pv", true);
             intent.putExtra(PV_TYPE, "pb");
-            intent.putExtra(PARAM_IS_CDN, bVar.f12867f);
-            intent.putExtra("fname", bVar.f12864c);
-            intent.putExtra("fid", bVar.f12865d);
-            intent.putExtra("tid", bVar.f12866e);
-            intent.putExtra(LAST_ID, bVar.f12868g);
-            intent.putExtra(REVERSE_MODE, bVar.f12869h);
-            intent.putExtra(ASSIST_URLS, bVar.i);
+            intent.putExtra(PARAM_IS_CDN, bVar.f12781f);
+            intent.putExtra("fname", bVar.f12778c);
+            intent.putExtra("fid", bVar.f12779d);
+            intent.putExtra("tid", bVar.f12780e);
+            intent.putExtra(LAST_ID, bVar.f12782g);
+            intent.putExtra(REVERSE_MODE, bVar.f12783h);
+            intent.putExtra(ASSIST_URLS, bVar.f12784i);
             intent.putExtra(IS_SHOW_AD, bVar.j);
             intent.putExtra(NEED_BROADCAST, bVar.k);
             intent.putExtra(SEE_HOST, bVar.l);
-            int size = bVar.f12862a.size();
-            for (int i = 0; i < size; i++) {
-                String str = (String) bVar.f12862a.get(i);
+            int size = bVar.f12776a.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                String str = (String) bVar.f12776a.get(i2);
                 if (!StringUtils.isNull(str)) {
-                    ImageUrlData imageUrlData = bVar.i != null ? (ImageUrlData) bVar.i.get(str) : null;
+                    ImageUrlData imageUrlData = bVar.f12784i != null ? (ImageUrlData) bVar.f12784i.get(str) : null;
                     if (imageUrlData == null) {
                         imageUrlData = new ImageUrlData();
                         imageUrlData.imageUrl = str;
                     }
-                    imageUrlData.overAllIndex = i + 1;
+                    imageUrlData.overAllIndex = i2 + 1;
                 }
             }
             TbadkCoreApplication.getInst();

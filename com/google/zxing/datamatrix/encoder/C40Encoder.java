@@ -1,17 +1,17 @@
 package com.google.zxing.datamatrix.encoder;
 /* loaded from: classes6.dex */
 public class C40Encoder implements Encoder {
-    private int backtrackOneCharacter(EncoderContext encoderContext, StringBuilder sb, StringBuilder sb2, int i) {
+    private int backtrackOneCharacter(EncoderContext encoderContext, StringBuilder sb, StringBuilder sb2, int i2) {
         int length = sb.length();
-        sb.delete(length - i, length);
+        sb.delete(length - i2, length);
         encoderContext.pos--;
         int encodeChar = encodeChar(encoderContext.getCurrentChar(), sb2);
         encoderContext.resetSymbolInfo();
         return encodeChar;
     }
 
-    public static String encodeToCodewords(CharSequence charSequence, int i) {
-        int charAt = (charSequence.charAt(i) * 1600) + (charSequence.charAt(i + 1) * '(') + charSequence.charAt(i + 2) + 1;
+    public static String encodeToCodewords(CharSequence charSequence, int i2) {
+        int charAt = (charSequence.charAt(i2) * 1600) + (charSequence.charAt(i2 + 1) * '(') + charSequence.charAt(i2 + 2) + 1;
         return new String(new char[]{(char) (charAt / 256), (char) (charAt % 256)});
     }
 

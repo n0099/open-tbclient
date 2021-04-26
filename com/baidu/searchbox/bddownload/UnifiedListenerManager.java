@@ -16,40 +16,40 @@ public class UnifiedListenerManager {
     public final List<Integer> autoRemoveListenerIdList = new ArrayList();
     public final DownloadListener hostListener = new DownloadListener() { // from class: com.baidu.searchbox.bddownload.UnifiedListenerManager.1
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void connectEnd(@NonNull DownloadTask downloadTask, int i, int i2, @NonNull Map<String, List<String>> map) {
+        public void connectEnd(@NonNull DownloadTask downloadTask, int i2, int i3, @NonNull Map<String, List<String>> map) {
             DownloadListener[] threadSafeArray = UnifiedListenerManager.getThreadSafeArray(downloadTask, UnifiedListenerManager.this.realListenerMap);
             if (threadSafeArray == null) {
                 return;
             }
             for (DownloadListener downloadListener : threadSafeArray) {
                 if (downloadListener != null) {
-                    downloadListener.connectEnd(downloadTask, i, i2, map);
+                    downloadListener.connectEnd(downloadTask, i2, i3, map);
                 }
             }
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void connectStart(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
+        public void connectStart(@NonNull DownloadTask downloadTask, int i2, @NonNull Map<String, List<String>> map) {
             DownloadListener[] threadSafeArray = UnifiedListenerManager.getThreadSafeArray(downloadTask, UnifiedListenerManager.this.realListenerMap);
             if (threadSafeArray == null) {
                 return;
             }
             for (DownloadListener downloadListener : threadSafeArray) {
                 if (downloadListener != null) {
-                    downloadListener.connectStart(downloadTask, i, map);
+                    downloadListener.connectStart(downloadTask, i2, map);
                 }
             }
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void connectTrialEnd(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
+        public void connectTrialEnd(@NonNull DownloadTask downloadTask, int i2, @NonNull Map<String, List<String>> map) {
             DownloadListener[] threadSafeArray = UnifiedListenerManager.getThreadSafeArray(downloadTask, UnifiedListenerManager.this.realListenerMap);
             if (threadSafeArray == null) {
                 return;
             }
             for (DownloadListener downloadListener : threadSafeArray) {
                 if (downloadListener != null) {
-                    downloadListener.connectTrialEnd(downloadTask, i, map);
+                    downloadListener.connectTrialEnd(downloadTask, i2, map);
                 }
             }
         }
@@ -94,40 +94,40 @@ public class UnifiedListenerManager {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void fetchEnd(@NonNull DownloadTask downloadTask, int i, long j) {
+        public void fetchEnd(@NonNull DownloadTask downloadTask, int i2, long j) {
             DownloadListener[] threadSafeArray = UnifiedListenerManager.getThreadSafeArray(downloadTask, UnifiedListenerManager.this.realListenerMap);
             if (threadSafeArray == null) {
                 return;
             }
             for (DownloadListener downloadListener : threadSafeArray) {
                 if (downloadListener != null) {
-                    downloadListener.fetchEnd(downloadTask, i, j);
+                    downloadListener.fetchEnd(downloadTask, i2, j);
                 }
             }
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void fetchProgress(@NonNull DownloadTask downloadTask, int i, long j) {
+        public void fetchProgress(@NonNull DownloadTask downloadTask, int i2, long j) {
             DownloadListener[] threadSafeArray = UnifiedListenerManager.getThreadSafeArray(downloadTask, UnifiedListenerManager.this.realListenerMap);
             if (threadSafeArray == null) {
                 return;
             }
             for (DownloadListener downloadListener : threadSafeArray) {
                 if (downloadListener != null) {
-                    downloadListener.fetchProgress(downloadTask, i, j);
+                    downloadListener.fetchProgress(downloadTask, i2, j);
                 }
             }
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void fetchStart(@NonNull DownloadTask downloadTask, int i, long j) {
+        public void fetchStart(@NonNull DownloadTask downloadTask, int i2, long j) {
             DownloadListener[] threadSafeArray = UnifiedListenerManager.getThreadSafeArray(downloadTask, UnifiedListenerManager.this.realListenerMap);
             if (threadSafeArray == null) {
                 return;
             }
             for (DownloadListener downloadListener : threadSafeArray) {
                 if (downloadListener != null) {
-                    downloadListener.fetchStart(downloadTask, i, j);
+                    downloadListener.fetchStart(downloadTask, i2, j);
                 }
             }
         }
@@ -173,11 +173,11 @@ public class UnifiedListenerManager {
         return downloadListenerArr;
     }
 
-    public synchronized void addAutoRemoveListenersWhenTaskEnd(int i) {
-        if (this.autoRemoveListenerIdList.contains(Integer.valueOf(i))) {
+    public synchronized void addAutoRemoveListenersWhenTaskEnd(int i2) {
+        if (this.autoRemoveListenerIdList.contains(Integer.valueOf(i2))) {
             return;
         }
-        this.autoRemoveListenerIdList.add(Integer.valueOf(i));
+        this.autoRemoveListenerIdList.add(Integer.valueOf(i2));
     }
 
     public synchronized void attachAndEnqueueIfNotRun(@NonNull DownloadTask downloadTask, @NonNull DownloadListener downloadListener) {
@@ -202,8 +202,8 @@ public class UnifiedListenerManager {
         }
     }
 
-    public synchronized void detachListener(int i) {
-        this.realListenerMap.remove(i);
+    public synchronized void detachListener(int i2) {
+        this.realListenerMap.remove(i2);
     }
 
     public synchronized void enqueueTaskWithUnifiedListener(@NonNull DownloadTask downloadTask, @NonNull DownloadListener downloadListener) {
@@ -225,19 +225,19 @@ public class UnifiedListenerManager {
         return StatusUtil.isSameTaskPendingOrRunning(downloadTask);
     }
 
-    public synchronized void removeAutoRemoveListenersWhenTaskEnd(int i) {
-        this.autoRemoveListenerIdList.remove(Integer.valueOf(i));
+    public synchronized void removeAutoRemoveListenersWhenTaskEnd(int i2) {
+        this.autoRemoveListenerIdList.remove(Integer.valueOf(i2));
     }
 
     public synchronized void detachListener(DownloadListener downloadListener) {
         int size = this.realListenerMap.size();
         ArrayList<Integer> arrayList = new ArrayList();
-        for (int i = 0; i < size; i++) {
-            ArrayList<DownloadListener> valueAt = this.realListenerMap.valueAt(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            ArrayList<DownloadListener> valueAt = this.realListenerMap.valueAt(i2);
             if (valueAt != null) {
                 valueAt.remove(downloadListener);
                 if (valueAt.isEmpty()) {
-                    arrayList.add(Integer.valueOf(this.realListenerMap.keyAt(i)));
+                    arrayList.add(Integer.valueOf(this.realListenerMap.keyAt(i2)));
                 }
             }
         }

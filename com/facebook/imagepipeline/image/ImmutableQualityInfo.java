@@ -6,14 +6,14 @@ public class ImmutableQualityInfo implements QualityInfo {
     public boolean mIsOfGoodEnoughQuality;
     public int mQuality;
 
-    public ImmutableQualityInfo(int i, boolean z, boolean z2) {
-        this.mQuality = i;
+    public ImmutableQualityInfo(int i2, boolean z, boolean z2) {
+        this.mQuality = i2;
         this.mIsOfGoodEnoughQuality = z;
         this.mIsOfFullQuality = z2;
     }
 
-    public static QualityInfo of(int i, boolean z, boolean z2) {
-        return new ImmutableQualityInfo(i, z, z2);
+    public static QualityInfo of(int i2, boolean z, boolean z2) {
+        return new ImmutableQualityInfo(i2, z, z2);
     }
 
     public boolean equals(Object obj) {

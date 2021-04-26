@@ -32,11 +32,11 @@ public class SpeedControl implements VideoPlayer.FrameCallback {
         if (j3 == 0) {
             j3 = j - this.mPrevPresentUsec;
         }
-        int i = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
-        if (i < 0) {
+        int i2 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
+        if (i2 < 0) {
             Log.w(TAG, "Weird, video times went backward");
         } else {
-            if (i == 0) {
+            if (i2 == 0) {
                 Log.w(TAG, "Warning: current frame and previous frame had same timestamp");
             } else if (j3 > 10000000) {
                 j2 = 5000000;
@@ -73,7 +73,7 @@ public class SpeedControl implements VideoPlayer.FrameCallback {
         this.mLoopReset = false;
     }
 
-    public void setFixedPlaybackRate(int i) {
-        this.mFixedFrameDurationUsec = 1000000 / i;
+    public void setFixedPlaybackRate(int i2) {
+        this.mFixedFrameDurationUsec = 1000000 / i2;
     }
 }

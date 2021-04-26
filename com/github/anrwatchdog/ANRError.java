@@ -15,10 +15,10 @@ public class ANRError extends Error {
     public static class a implements Comparator<Thread> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread f30640e;
+        public final /* synthetic */ Thread f31575e;
 
         public a(Thread thread) {
-            this.f30640e = thread;
+            this.f31575e = thread;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ public class ANRError extends Error {
             if (thread == thread2) {
                 return 0;
             }
-            Thread thread3 = this.f30640e;
+            Thread thread3 = this.f31575e;
             if (thread == thread3) {
                 return 1;
             }

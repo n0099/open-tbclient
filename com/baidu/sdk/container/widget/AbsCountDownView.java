@@ -5,27 +5,27 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import d.b.d0.a.l.c;
+import d.a.d0.a.l.c;
 import java.util.concurrent.TimeUnit;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes2.dex */
 public abstract class AbsCountDownView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public long f11227e;
+    public long f11040e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f11228f;
+    public b f11041f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.d0.a.l.b f11229g;
+    public d.a.d0.a.l.b f11042g;
 
     /* loaded from: classes2.dex */
-    public class a extends d.b.d0.a.l.b {
+    public class a extends d.a.d0.a.l.b {
         public a() {
         }
 
-        @Override // d.b.d0.a.l.b
+        @Override // d.a.d0.a.l.b
         public Object b() {
             AbsCountDownView.this.d();
             return null;
@@ -36,7 +36,7 @@ public abstract class AbsCountDownView extends TextView {
     public interface b {
         void onEnd();
 
-        void onProgress(int i);
+        void onProgress(int i2);
     }
 
     public AbsCountDownView(Context context) {
@@ -44,8 +44,8 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public final void a() {
-        this.f11229g = new a();
-        c.a().d(this.f11229g, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
+        this.f11042g = new a();
+        c.a().d(this.f11042g, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
     }
 
     public void b() {
@@ -54,20 +54,20 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public void c() {
-        d.b.d0.a.l.b bVar = this.f11229g;
+        d.a.d0.a.l.b bVar = this.f11042g;
         if (bVar != null) {
             bVar.cancel();
-            this.f11229g = null;
+            this.f11042g = null;
         }
     }
 
     public abstract void d();
 
-    public void e(int i, int i2) {
+    public void e(int i2, int i3) {
     }
 
     public long getTaskPeriod() {
-        long j = this.f11227e;
+        long j = this.f11040e;
         if (j == 0) {
             return 100L;
         }
@@ -75,11 +75,11 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public void setCountdownProgressListener(b bVar) {
-        this.f11228f = bVar;
+        this.f11041f = bVar;
     }
 
     public void setTaskPeriod(long j) {
-        this.f11227e = j;
+        this.f11040e = j;
     }
 
     public abstract void setTimeMillis(long j);
@@ -88,7 +88,7 @@ public abstract class AbsCountDownView extends TextView {
         this(context, attributeSet, 0);
     }
 
-    public AbsCountDownView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public AbsCountDownView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

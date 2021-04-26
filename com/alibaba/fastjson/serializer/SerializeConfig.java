@@ -85,17 +85,17 @@ public class SerializeConfig {
 
     private final JavaBeanSerializer createASMSerializer(SerializeBeanInfo serializeBeanInfo) throws Exception {
         JavaBeanSerializer createJavaBeanSerializer = this.asmFactory.createJavaBeanSerializer(serializeBeanInfo);
-        int i = 0;
+        int i2 = 0;
         while (true) {
             FieldSerializer[] fieldSerializerArr = createJavaBeanSerializer.sortedGetters;
-            if (i >= fieldSerializerArr.length) {
+            if (i2 >= fieldSerializerArr.length) {
                 return createJavaBeanSerializer;
             }
-            Class<?> cls = fieldSerializerArr[i].fieldInfo.fieldClass;
+            Class<?> cls = fieldSerializerArr[i2].fieldInfo.fieldClass;
             if (cls.isEnum() && !(getObjectWriter(cls) instanceof EnumSerializer)) {
                 createJavaBeanSerializer.writeDirect = false;
             }
-            i++;
+            i2++;
         }
     }
 
@@ -207,13 +207,13 @@ public class SerializeConfig {
             put((Type) cls, createJavaBeanSerializer(buildBeanInfo));
         } else if (objectWriter instanceof JavaBeanSerializer) {
             SerializeBeanInfo serializeBeanInfo = ((JavaBeanSerializer) objectWriter).beanInfo;
-            int i = serializeBeanInfo.features;
+            int i2 = serializeBeanInfo.features;
             if (z) {
-                serializeBeanInfo.features = serializerFeature.mask | i;
+                serializeBeanInfo.features = serializerFeature.mask | i2;
             } else {
-                serializeBeanInfo.features = (~serializerFeature.mask) & i;
+                serializeBeanInfo.features = (~serializerFeature.mask) & i2;
             }
-            if (i == serializeBeanInfo.features || objectWriter.getClass() == JavaBeanSerializer.class) {
+            if (i2 == serializeBeanInfo.features || objectWriter.getClass() == JavaBeanSerializer.class) {
                 return;
             }
             put((Type) cls, createJavaBeanSerializer(serializeBeanInfo));
@@ -448,12 +448,12 @@ public class SerializeConfig {
                                 objectSerializer = MiscCodec.instance;
                                 put((Type) cls, objectSerializer);
                             } else {
-                                int i = 0;
+                                int i2 = 0;
                                 if (name.startsWith("java.awt.") && AwtCodec.support(cls) && !awtError) {
                                     try {
                                         String[] strArr = {"java.awt.Color", "java.awt.Font", "java.awt.Point", "java.awt.Rectangle"};
-                                        for (int i2 = 0; i2 < 4; i2++) {
-                                            String str = strArr[i2];
+                                        for (int i3 = 0; i3 < 4; i3++) {
+                                            String str = strArr[i3];
                                             if (str.equals(name)) {
                                                 Type cls4 = Class.forName(str);
                                                 objectSerializer3 = AwtCodec.instance;
@@ -468,8 +468,8 @@ public class SerializeConfig {
                                 if (!jdk8Error && (name.startsWith("java.time.") || name.startsWith("java.util.Optional") || name.equals("java.util.concurrent.atomic.LongAdder") || name.equals("java.util.concurrent.atomic.DoubleAdder"))) {
                                     try {
                                         String[] strArr2 = {"java.time.LocalDateTime", "java.time.LocalDate", "java.time.LocalTime", "java.time.ZonedDateTime", "java.time.OffsetDateTime", "java.time.OffsetTime", "java.time.ZoneOffset", "java.time.ZoneRegion", "java.time.Period", "java.time.Duration", "java.time.Instant"};
-                                        for (int i3 = 0; i3 < 11; i3++) {
-                                            String str2 = strArr2[i3];
+                                        for (int i4 = 0; i4 < 11; i4++) {
+                                            String str2 = strArr2[i4];
                                             if (str2.equals(name)) {
                                                 Type cls5 = Class.forName(str2);
                                                 ObjectSerializer objectSerializer4 = Jdk8DateCodec.instance;
@@ -478,8 +478,8 @@ public class SerializeConfig {
                                             }
                                         }
                                         String[] strArr3 = {"java.util.Optional", "java.util.OptionalDouble", "java.util.OptionalInt", "java.util.OptionalLong"};
-                                        for (int i4 = 0; i4 < 4; i4++) {
-                                            String str3 = strArr3[i4];
+                                        for (int i5 = 0; i5 < 4; i5++) {
+                                            String str3 = strArr3[i5];
                                             if (str3.equals(name)) {
                                                 Type cls6 = Class.forName(str3);
                                                 ObjectSerializer objectSerializer5 = OptionalCodec.instance;
@@ -488,8 +488,8 @@ public class SerializeConfig {
                                             }
                                         }
                                         String[] strArr4 = {"java.util.concurrent.atomic.LongAdder", "java.util.concurrent.atomic.DoubleAdder"};
-                                        for (int i5 = 0; i5 < 2; i5++) {
-                                            String str4 = strArr4[i5];
+                                        for (int i6 = 0; i6 < 2; i6++) {
+                                            String str4 = strArr4[i6];
                                             if (str4.equals(name)) {
                                                 Type cls7 = Class.forName(str4);
                                                 ObjectSerializer objectSerializer6 = AdderSerializer.instance;
@@ -504,8 +504,8 @@ public class SerializeConfig {
                                 if (!oracleJdbcError && name.startsWith("oracle.sql.")) {
                                     try {
                                         String[] strArr5 = {"oracle.sql.DATE", "oracle.sql.TIMESTAMP"};
-                                        for (int i6 = 0; i6 < 2; i6++) {
-                                            String str5 = strArr5[i6];
+                                        for (int i7 = 0; i7 < 2; i7++) {
+                                            String str5 = strArr5[i7];
                                             if (str5.equals(name)) {
                                                 Type cls8 = Class.forName(str5);
                                                 objectSerializer3 = DateCodec.instance;
@@ -530,8 +530,8 @@ public class SerializeConfig {
                                 if (!guavaError && name.startsWith("com.google.common.collect.")) {
                                     try {
                                         String[] strArr6 = {"com.google.common.collect.HashMultimap", "com.google.common.collect.LinkedListMultimap", "com.google.common.collect.LinkedHashMultimap", "com.google.common.collect.ArrayListMultimap", "com.google.common.collect.TreeMultimap"};
-                                        for (int i7 = 0; i7 < 5; i7++) {
-                                            String str6 = strArr6[i7];
+                                        for (int i8 = 0; i8 < 5; i8++) {
+                                            String str6 = strArr6[i8];
                                             if (str6.equals(name)) {
                                                 Type cls10 = Class.forName(str6);
                                                 objectSerializer3 = GuavaCodec.instance;
@@ -555,8 +555,8 @@ public class SerializeConfig {
                                     if (!jodaError && name.startsWith("org.joda.")) {
                                         try {
                                             String[] strArr7 = {"org.joda.time.LocalDate", "org.joda.time.LocalDateTime", "org.joda.time.LocalTime", "org.joda.time.Instant", "org.joda.time.DateTime", "org.joda.time.Period", "org.joda.time.Duration", "org.joda.time.DateTimeZone", "org.joda.time.UTCDateTimeZone", "org.joda.time.tz.CachedDateTimeZone", "org.joda.time.tz.FixedDateTimeZone"};
-                                            for (int i8 = 0; i8 < 11; i8++) {
-                                                String str7 = strArr7[i8];
+                                            for (int i9 = 0; i9 < 11; i9++) {
+                                                String str7 = strArr7[i9];
                                                 if (str7.equals(name)) {
                                                     Type cls11 = Class.forName(str7);
                                                     objectSerializer3 = JodaCodec.instance;
@@ -597,18 +597,18 @@ public class SerializeConfig {
                                                     int length = interfaces.length;
                                                     Class<?> cls12 = null;
                                                     while (true) {
-                                                        if (i >= length) {
+                                                        if (i2 >= length) {
                                                             cls2 = cls12;
                                                             break;
                                                         }
-                                                        Class<?> cls13 = interfaces[i];
+                                                        Class<?> cls13 = interfaces[i2];
                                                         if (!cls13.getName().startsWith("org.springframework.aop.")) {
                                                             if (cls12 != null) {
                                                                 break;
                                                             }
                                                             cls12 = cls13;
                                                         }
-                                                        i++;
+                                                        i2++;
                                                     }
                                                 }
                                                 if (cls2 != null) {
@@ -655,17 +655,17 @@ public class SerializeConfig {
         return this.serializers.put(type, objectSerializer);
     }
 
-    public SerializeConfig(int i) {
-        this(i, false);
+    public SerializeConfig(int i2) {
+        this(i2, false);
     }
 
-    public SerializeConfig(int i, boolean z) {
+    public SerializeConfig(int i2, boolean z) {
         this.asm = !ASMUtils.IS_ANDROID;
         this.typeKey = JSON.DEFAULT_TYPE_KEY;
         this.denyClasses = new long[]{4165360493669296979L, 4446674157046724083L};
         this.modules = new ArrayList();
         this.fieldBased = z;
-        this.serializers = new IdentityHashMap<>(i);
+        this.serializers = new IdentityHashMap<>(i2);
         this.mixInSerializers = new IdentityHashMap<>(16);
         try {
             if (this.asm) {

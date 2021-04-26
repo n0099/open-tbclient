@@ -38,12 +38,12 @@ public final class MultiFormatUPCEANReader extends OneDReader {
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
+    public Result decodeRow(int i2, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
         int[] findStartGuardPattern = UPCEANReader.findStartGuardPattern(bitArray);
         boolean z = false;
         for (UPCEANReader uPCEANReader : this.readers) {
             try {
-                Result decodeRow = uPCEANReader.decodeRow(i, bitArray, findStartGuardPattern, map);
+                Result decodeRow = uPCEANReader.decodeRow(i2, bitArray, findStartGuardPattern, map);
                 boolean z2 = decodeRow.getBarcodeFormat() == BarcodeFormat.EAN_13 && decodeRow.getText().charAt(0) == '0';
                 Collection collection = map == null ? null : (Collection) map.get(DecodeHintType.POSSIBLE_FORMATS);
                 z = (collection == null || collection.contains(BarcodeFormat.UPC_A)) ? true : true;

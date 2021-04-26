@@ -19,8 +19,8 @@ public interface IDownloader {
         public int code;
         public String msg;
 
-        DownloadStatus(int i, String str) {
-            this.code = i;
+        DownloadStatus(int i2, String str) {
+            this.code = i2;
             this.msg = str;
         }
 

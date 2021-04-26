@@ -29,7 +29,7 @@ public class Constraints extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -55,8 +55,8 @@ public class Constraints extends ViewGroup {
         return new ConstraintLayout.LayoutParams(layoutParams);
     }
 
-    public Constraints(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public Constraints(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         init(attributeSet);
         super.setVisibility(8);
     }
@@ -77,8 +77,8 @@ public class Constraints extends ViewGroup {
         public float translationY;
         public float translationZ;
 
-        public LayoutParams(int i, int i2) {
-            super(i, i2);
+        public LayoutParams(int i2, int i3) {
+            super(i2, i3);
             this.alpha = 1.0f;
             this.applyElevation = false;
             this.elevation = 0.0f;
@@ -128,8 +128,8 @@ public class Constraints extends ViewGroup {
             this.translationZ = 0.0f;
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ConstraintSet);
             int indexCount = obtainStyledAttributes.getIndexCount();
-            for (int i = 0; i < indexCount; i++) {
-                int index = obtainStyledAttributes.getIndex(i);
+            for (int i2 = 0; i2 < indexCount; i2++) {
+                int index = obtainStyledAttributes.getIndex(i2);
                 if (index == R.styleable.ConstraintSet_android_alpha) {
                     this.alpha = obtainStyledAttributes.getFloat(index, this.alpha);
                 } else if (index == R.styleable.ConstraintSet_android_elevation) {

@@ -16,8 +16,8 @@ import com.google.protobuf.CodedInputStream;
 public class AccountCenterExternalActivity extends AccountCenterActivity {
     public static final String EXTRA_EXTERNAL_IS_ACCOUNT_CENTER_TITLEBAR = "extra_external_is_account_center_titlebar";
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";
-    public static final String G = AccountCenterExternalActivity.class.getSimpleName();
-    public String F;
+    public static final String K = AccountCenterExternalActivity.class.getSimpleName();
+    public String J;
 
     public void finishActivity() {
         super.finish();
@@ -26,14 +26,14 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
     @Override // com.baidu.sapi2.activity.AccountCenterActivity
     public void loadAccountCenter(String str) {
         String stringExtra = getIntent().getStringExtra("extra_external_url");
-        this.F = stringExtra;
+        this.J = stringExtra;
         this.sapiWebView.loadUrl(stringExtra);
     }
 
     @Override // com.baidu.sapi2.activity.AccountCenterActivity, com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i == 1004 && i2 == -1) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i2 == 1004 && i3 == -1) {
             b();
             this.loginStatusChange = true;
         }
@@ -51,7 +51,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
             this.mIsAccountCenterTitleBar = intent.getBooleanExtra(EXTRA_EXTERNAL_IS_ACCOUNT_CENTER_TITLEBAR, false);
         }
         super.onCreate(bundle);
-        Log.d(G, "AccountCenterExternalActivity onCreate");
+        Log.d(K, "AccountCenterExternalActivity onCreate");
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.AccountCenterExternalActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
@@ -106,10 +106,10 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                 }
                 Intent intent2 = new Intent(AccountCenterExternalActivity.this, LoginActivity.class);
                 intent2.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
-                int i = result.switchAccountType;
-                if (i == 1) {
+                int i2 = result.switchAccountType;
+                if (i2 == 1) {
                     intent2.putExtra("username", result.userName);
-                } else if (i == 2) {
+                } else if (i2 == 2) {
                     if (result.loginType == 0) {
                         intent2.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME);
                     } else {

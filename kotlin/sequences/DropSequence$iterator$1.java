@@ -15,12 +15,12 @@ public final class DropSequence$iterator$1 implements Iterator<T>, KMappedMarker
     /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public DropSequence$iterator$1(DropSequence dropSequence) {
         Sequence sequence;
-        int i;
+        int i2;
         this.this$0 = dropSequence;
         sequence = dropSequence.sequence;
         this.iterator = sequence.iterator();
-        i = dropSequence.count;
-        this.left = i;
+        i2 = dropSequence.count;
+        this.left = i2;
     }
 
     private final void drop() {
@@ -56,7 +56,7 @@ public final class DropSequence$iterator$1 implements Iterator<T>, KMappedMarker
         throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 
-    public final void setLeft(int i) {
-        this.left = i;
+    public final void setLeft(int i2) {
+        this.left = i2;
     }
 }

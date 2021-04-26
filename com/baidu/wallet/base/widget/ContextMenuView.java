@@ -19,21 +19,21 @@ import java.util.List;
 public class ContextMenuView extends BdContextMenuView {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23453a = "LightappContextMenuView";
+    public static final String f24179a = "LightappContextMenuView";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float f23454b = 0.5f;
+    public static final float f24180b = 0.5f;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final float f23455c = 1.0f;
+    public static final float f24181c = 1.0f;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23456d;
+    public int f24182d;
 
     @SuppressLint({"NewApi"})
-    public ContextMenuView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f23456d = 0;
+    public ContextMenuView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f24182d = 0;
     }
 
     private View a(final BdMenuItem bdMenuItem) {
@@ -65,11 +65,11 @@ public class ContextMenuView extends BdContextMenuView {
     }
 
     public int getMaxMenuItemWidth() {
-        return this.f23456d;
+        return this.f24182d;
     }
 
     @Override // com.baidu.wallet.base.widget.BdContextMenuView
-    public String getMenuItemBackgroudResId(int i, int i2) {
+    public String getMenuItemBackgroudResId(int i2, int i3) {
         return "wallet_base_menu_bg_selector";
     }
 
@@ -95,12 +95,12 @@ public class ContextMenuView extends BdContextMenuView {
         }
         Context context = getContext();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(context, 0.5f));
-        for (int i = 0; i < size; i++) {
-            View a2 = a(list.get(i));
+        for (int i2 = 0; i2 < size; i2++) {
+            View a2 = a(list.get(i2));
             a2.measure(0, 0);
-            if (this.f23456d < a2.getMeasuredWidth()) {
+            if (this.f24182d < a2.getMeasuredWidth()) {
                 int measuredWidth = a2.getMeasuredWidth();
-                this.f23456d = measuredWidth;
+                this.f24182d = measuredWidth;
                 a2.setMinimumWidth(measuredWidth);
             }
             if (size == 1) {
@@ -108,15 +108,15 @@ public class ContextMenuView extends BdContextMenuView {
                 addView(a2);
                 return;
             }
-            if (i == 0) {
+            if (i2 == 0) {
                 a2.setBackgroundDrawable(ResUtils.getDrawable(context, "wallet_base_menu_first_item_bg"));
-            } else if (i == size - 1) {
+            } else if (i2 == size - 1) {
                 a2.setBackgroundDrawable(ResUtils.getDrawable(context, "wallet_base_menu_last_item_bg"));
             } else {
                 a2.setBackgroundDrawable(ResUtils.getDrawable(context, "wallet_base_menu_item_normal_bg"));
             }
             addView(a2);
-            if (i < size - 1) {
+            if (i2 < size - 1) {
                 addView(createSeparator(context), layoutParams);
             }
         }
@@ -125,11 +125,11 @@ public class ContextMenuView extends BdContextMenuView {
 
     public ContextMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23456d = 0;
+        this.f24182d = 0;
     }
 
     public ContextMenuView(Context context) {
         super(context);
-        this.f23456d = 0;
+        this.f24182d = 0;
     }
 }

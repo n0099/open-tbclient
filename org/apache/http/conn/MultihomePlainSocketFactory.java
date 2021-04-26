@@ -17,7 +17,7 @@ public final class MultihomePlainSocketFactory implements SocketFactory {
     }
 
     @Override // org.apache.http.conn.scheme.SocketFactory
-    public Socket connectSocket(Socket socket, String str, int i, InetAddress inetAddress, int i2, HttpParams httpParams) throws IOException {
+    public Socket connectSocket(Socket socket, String str, int i2, InetAddress inetAddress, int i3, HttpParams httpParams) throws IOException {
         throw new RuntimeException("Stub!");
     }
 

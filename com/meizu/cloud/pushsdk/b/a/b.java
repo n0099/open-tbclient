@@ -24,7 +24,7 @@ import org.json.JSONObject;
 public class b<T extends b> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37803a = "b";
+    public static final String f35347a = "b";
     public static final g w = g.a(AbstractBceClient.DEFAULT_CONTENT_TYPE);
     public static final g x = g.a("text/x-markdown; charset=utf-8");
     public static final Object z = new Object();
@@ -42,26 +42,28 @@ public class b<T extends b> {
     public Type L;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f37804b;
+    public int f35348b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.meizu.cloud.pushsdk.b.a.d f37805c;
+    public com.meizu.cloud.pushsdk.b.a.d f35349c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f37806d;
+    public int f35350d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f37807e;
+    public String f35351e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f37808f;
+    public int f35352f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Object f37809g;
+    public Object f35353g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f37810h;
-    public HashMap<String, String> i;
+    public e f35354h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public HashMap<String, String> f35355i;
     public HashMap<String, String> j;
     public HashMap<String, String> k;
     public HashMap<String, String> l;
@@ -82,29 +84,29 @@ public class b<T extends b> {
     public static /* synthetic */ class AnonymousClass2 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f37812a;
+        public static final /* synthetic */ int[] f35357a;
 
         static {
             int[] iArr = new int[e.values().length];
-            f37812a = iArr;
+            f35357a = iArr;
             try {
                 iArr[e.JSON_ARRAY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f37812a[e.JSON_OBJECT.ordinal()] = 2;
+                f35357a[e.JSON_OBJECT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f37812a[e.STRING.ordinal()] = 3;
+                f35357a[e.STRING.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f37812a[e.BITMAP.ordinal()] = 4;
+                f35357a[e.BITMAP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f37812a[e.PREFETCH.ordinal()] = 5;
+                f35357a[e.PREFETCH.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -114,36 +116,38 @@ public class b<T extends b> {
     public static class a<T extends a> {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37814b;
+        public String f35359b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Object f37815c;
+        public Object f35360c;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f37819g;
+        public String f35364g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f37820h;
+        public String f35365h;
         public Executor j;
         public String k;
 
         /* renamed from: a  reason: collision with root package name */
-        public com.meizu.cloud.pushsdk.b.a.d f37813a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
+        public com.meizu.cloud.pushsdk.b.a.d f35358a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
 
         /* renamed from: d  reason: collision with root package name */
-        public HashMap<String, String> f37816d = new HashMap<>();
+        public HashMap<String, String> f35361d = new HashMap<>();
 
         /* renamed from: e  reason: collision with root package name */
-        public HashMap<String, String> f37817e = new HashMap<>();
+        public HashMap<String, String> f35362e = new HashMap<>();
 
         /* renamed from: f  reason: collision with root package name */
-        public HashMap<String, String> f37818f = new HashMap<>();
-        public int i = 0;
+        public HashMap<String, String> f35363f = new HashMap<>();
+
+        /* renamed from: i  reason: collision with root package name */
+        public int f35366i = 0;
 
         public a(String str, String str2, String str3) {
-            this.f37814b = str;
-            this.f37819g = str2;
-            this.f37820h = str3;
+            this.f35359b = str;
+            this.f35364g = str2;
+            this.f35365h = str3;
         }
 
         public b a() {
@@ -153,41 +157,43 @@ public class b<T extends b> {
 
     /* renamed from: com.meizu.cloud.pushsdk.b.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0471b<T extends C0471b> {
+    public static class C0415b<T extends C0415b> {
 
         /* renamed from: b  reason: collision with root package name */
-        public int f37822b;
+        public int f35368b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37823c;
+        public String f35369c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Object f37824d;
+        public Object f35370d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Bitmap.Config f37825e;
+        public Bitmap.Config f35371e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f37826f;
+        public int f35372f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f37827g;
+        public int f35373g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ImageView.ScaleType f37828h;
+        public ImageView.ScaleType f35374h;
         public Executor l;
         public String m;
 
         /* renamed from: a  reason: collision with root package name */
-        public com.meizu.cloud.pushsdk.b.a.d f37821a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
-        public HashMap<String, String> i = new HashMap<>();
+        public com.meizu.cloud.pushsdk.b.a.d f35367a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
+
+        /* renamed from: i  reason: collision with root package name */
+        public HashMap<String, String> f35375i = new HashMap<>();
         public HashMap<String, String> j = new HashMap<>();
         public HashMap<String, String> k = new HashMap<>();
 
-        public C0471b(String str) {
-            this.f37822b = 0;
-            this.f37823c = str;
-            this.f37822b = 0;
+        public C0415b(String str) {
+            this.f35368b = 0;
+            this.f35369c = str;
+            this.f35368b = 0;
         }
 
         public T a(HashMap<String, String> hashMap) {
@@ -208,46 +214,48 @@ public class b<T extends b> {
     public static class c<T extends c> {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37830b;
+        public String f35377b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Object f37831c;
+        public Object f35378c;
         public Executor j;
         public String k;
         public String l;
 
         /* renamed from: a  reason: collision with root package name */
-        public com.meizu.cloud.pushsdk.b.a.d f37829a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
+        public com.meizu.cloud.pushsdk.b.a.d f35376a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
 
         /* renamed from: d  reason: collision with root package name */
-        public HashMap<String, String> f37832d = new HashMap<>();
+        public HashMap<String, String> f35379d = new HashMap<>();
 
         /* renamed from: e  reason: collision with root package name */
-        public HashMap<String, String> f37833e = new HashMap<>();
+        public HashMap<String, String> f35380e = new HashMap<>();
 
         /* renamed from: f  reason: collision with root package name */
-        public HashMap<String, String> f37834f = new HashMap<>();
+        public HashMap<String, String> f35381f = new HashMap<>();
 
         /* renamed from: g  reason: collision with root package name */
-        public HashMap<String, String> f37835g = new HashMap<>();
+        public HashMap<String, String> f35382g = new HashMap<>();
 
         /* renamed from: h  reason: collision with root package name */
-        public HashMap<String, File> f37836h = new HashMap<>();
-        public int i = 0;
+        public HashMap<String, File> f35383h = new HashMap<>();
+
+        /* renamed from: i  reason: collision with root package name */
+        public int f35384i = 0;
 
         public c(String str) {
-            this.f37830b = str;
+            this.f35377b = str;
         }
 
         public T a(String str, File file) {
-            this.f37836h.put(str, file);
+            this.f35383h.put(str, file);
             return this;
         }
 
         public T a(HashMap<String, String> hashMap) {
             if (hashMap != null) {
                 for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                    this.f37833e.put(entry.getKey(), entry.getValue());
+                    this.f35380e.put(entry.getKey(), entry.getValue());
                 }
             }
             return this;
@@ -262,32 +270,34 @@ public class b<T extends b> {
     public static class d<T extends d> {
 
         /* renamed from: b  reason: collision with root package name */
-        public int f37838b;
+        public int f35386b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37839c;
+        public String f35387c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Object f37840d;
+        public Object f35388d;
         public Executor o;
         public String p;
         public String q;
 
         /* renamed from: a  reason: collision with root package name */
-        public com.meizu.cloud.pushsdk.b.a.d f37837a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
+        public com.meizu.cloud.pushsdk.b.a.d f35385a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
 
         /* renamed from: e  reason: collision with root package name */
-        public JSONObject f37841e = null;
+        public JSONObject f35389e = null;
 
         /* renamed from: f  reason: collision with root package name */
-        public JSONArray f37842f = null;
+        public JSONArray f35390f = null;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f37843g = null;
+        public String f35391g = null;
 
         /* renamed from: h  reason: collision with root package name */
-        public byte[] f37844h = null;
-        public File i = null;
+        public byte[] f35392h = null;
+
+        /* renamed from: i  reason: collision with root package name */
+        public File f35393i = null;
         public HashMap<String, String> j = new HashMap<>();
         public HashMap<String, String> k = new HashMap<>();
         public HashMap<String, String> l = new HashMap<>();
@@ -295,9 +305,9 @@ public class b<T extends b> {
         public HashMap<String, String> n = new HashMap<>();
 
         public d(String str) {
-            this.f37838b = 1;
-            this.f37839c = str;
-            this.f37838b = 1;
+            this.f35386b = 1;
+            this.f35387c = str;
+            this.f35386b = 1;
         }
 
         public T a(HashMap<String, String> hashMap) {
@@ -315,7 +325,7 @@ public class b<T extends b> {
     }
 
     public b(a aVar) {
-        this.i = new HashMap<>();
+        this.f35355i = new HashMap<>();
         this.j = new HashMap<>();
         this.k = new HashMap<>();
         this.l = new HashMap<>();
@@ -332,23 +342,23 @@ public class b<T extends b> {
         this.J = null;
         this.K = null;
         this.L = null;
-        this.f37806d = 1;
-        this.f37804b = 0;
-        this.f37805c = aVar.f37813a;
-        this.f37807e = aVar.f37814b;
-        this.f37809g = aVar.f37815c;
-        this.p = aVar.f37819g;
-        this.q = aVar.f37820h;
-        this.i = aVar.f37816d;
-        this.m = aVar.f37817e;
-        this.n = aVar.f37818f;
-        this.D = aVar.i;
+        this.f35350d = 1;
+        this.f35348b = 0;
+        this.f35349c = aVar.f35358a;
+        this.f35351e = aVar.f35359b;
+        this.f35353g = aVar.f35360c;
+        this.p = aVar.f35364g;
+        this.q = aVar.f35365h;
+        this.f35355i = aVar.f35361d;
+        this.m = aVar.f35362e;
+        this.n = aVar.f35363f;
+        this.D = aVar.f35366i;
         this.J = aVar.j;
         this.K = aVar.k;
     }
 
-    public b(C0471b c0471b) {
-        this.i = new HashMap<>();
+    public b(C0415b c0415b) {
+        this.f35355i = new HashMap<>();
         this.j = new HashMap<>();
         this.k = new HashMap<>();
         this.l = new HashMap<>();
@@ -365,24 +375,24 @@ public class b<T extends b> {
         this.J = null;
         this.K = null;
         this.L = null;
-        this.f37806d = 0;
-        this.f37804b = c0471b.f37822b;
-        this.f37805c = c0471b.f37821a;
-        this.f37807e = c0471b.f37823c;
-        this.f37809g = c0471b.f37824d;
-        this.i = c0471b.i;
-        this.F = c0471b.f37825e;
-        this.H = c0471b.f37827g;
-        this.G = c0471b.f37826f;
-        this.I = c0471b.f37828h;
-        this.m = c0471b.j;
-        this.n = c0471b.k;
-        this.J = c0471b.l;
-        this.K = c0471b.m;
+        this.f35350d = 0;
+        this.f35348b = c0415b.f35368b;
+        this.f35349c = c0415b.f35367a;
+        this.f35351e = c0415b.f35369c;
+        this.f35353g = c0415b.f35370d;
+        this.f35355i = c0415b.f35375i;
+        this.F = c0415b.f35371e;
+        this.H = c0415b.f35373g;
+        this.G = c0415b.f35372f;
+        this.I = c0415b.f35374h;
+        this.m = c0415b.j;
+        this.n = c0415b.k;
+        this.J = c0415b.l;
+        this.K = c0415b.m;
     }
 
     public b(c cVar) {
-        this.i = new HashMap<>();
+        this.f35355i = new HashMap<>();
         this.j = new HashMap<>();
         this.k = new HashMap<>();
         this.l = new HashMap<>();
@@ -399,17 +409,17 @@ public class b<T extends b> {
         this.J = null;
         this.K = null;
         this.L = null;
-        this.f37806d = 2;
-        this.f37804b = 1;
-        this.f37805c = cVar.f37829a;
-        this.f37807e = cVar.f37830b;
-        this.f37809g = cVar.f37831c;
-        this.i = cVar.f37832d;
-        this.m = cVar.f37834f;
-        this.n = cVar.f37835g;
-        this.l = cVar.f37833e;
-        this.o = cVar.f37836h;
-        this.D = cVar.i;
+        this.f35350d = 2;
+        this.f35348b = 1;
+        this.f35349c = cVar.f35376a;
+        this.f35351e = cVar.f35377b;
+        this.f35353g = cVar.f35378c;
+        this.f35355i = cVar.f35379d;
+        this.m = cVar.f35381f;
+        this.n = cVar.f35382g;
+        this.l = cVar.f35380e;
+        this.o = cVar.f35383h;
+        this.D = cVar.f35384i;
         this.J = cVar.j;
         this.K = cVar.k;
         if (cVar.l != null) {
@@ -418,7 +428,7 @@ public class b<T extends b> {
     }
 
     public b(d dVar) {
-        this.i = new HashMap<>();
+        this.f35355i = new HashMap<>();
         this.j = new HashMap<>();
         this.k = new HashMap<>();
         this.l = new HashMap<>();
@@ -435,21 +445,21 @@ public class b<T extends b> {
         this.J = null;
         this.K = null;
         this.L = null;
-        this.f37806d = 0;
-        this.f37804b = dVar.f37838b;
-        this.f37805c = dVar.f37837a;
-        this.f37807e = dVar.f37839c;
-        this.f37809g = dVar.f37840d;
-        this.i = dVar.j;
+        this.f35350d = 0;
+        this.f35348b = dVar.f35386b;
+        this.f35349c = dVar.f35385a;
+        this.f35351e = dVar.f35387c;
+        this.f35353g = dVar.f35388d;
+        this.f35355i = dVar.j;
         this.j = dVar.k;
         this.k = dVar.l;
         this.m = dVar.m;
         this.n = dVar.n;
-        this.r = dVar.f37841e;
-        this.s = dVar.f37842f;
-        this.t = dVar.f37843g;
-        this.v = dVar.i;
-        this.u = dVar.f37844h;
+        this.r = dVar.f35389e;
+        this.s = dVar.f35390f;
+        this.t = dVar.f35391g;
+        this.v = dVar.f35393i;
+        this.u = dVar.f35392h;
         this.J = dVar.o;
         this.K = dVar.p;
         if (dVar.q != null) {
@@ -458,33 +468,33 @@ public class b<T extends b> {
     }
 
     public com.meizu.cloud.pushsdk.b.a.c a() {
-        this.f37810h = e.STRING;
+        this.f35354h = e.STRING;
         return com.meizu.cloud.pushsdk.b.e.c.a(this);
     }
 
     public com.meizu.cloud.pushsdk.b.a.c a(k kVar) {
         com.meizu.cloud.pushsdk.b.a.c<Bitmap> a2;
-        int i = AnonymousClass2.f37812a[this.f37810h.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass2.f35357a[this.f35354h.ordinal()];
+        if (i2 == 1) {
             try {
                 return com.meizu.cloud.pushsdk.b.a.c.a(new JSONArray(com.meizu.cloud.pushsdk.b.g.g.a(kVar.b().a()).h()));
             } catch (Exception e2) {
                 return com.meizu.cloud.pushsdk.b.a.c.a(com.meizu.cloud.pushsdk.b.i.b.b(new com.meizu.cloud.pushsdk.b.b.a(e2)));
             }
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             try {
                 return com.meizu.cloud.pushsdk.b.a.c.a(new JSONObject(com.meizu.cloud.pushsdk.b.g.g.a(kVar.b().a()).h()));
             } catch (Exception e3) {
                 return com.meizu.cloud.pushsdk.b.a.c.a(com.meizu.cloud.pushsdk.b.i.b.b(new com.meizu.cloud.pushsdk.b.b.a(e3)));
             }
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             try {
                 return com.meizu.cloud.pushsdk.b.a.c.a(com.meizu.cloud.pushsdk.b.g.g.a(kVar.b().a()).h());
             } catch (Exception e4) {
                 return com.meizu.cloud.pushsdk.b.a.c.a(com.meizu.cloud.pushsdk.b.i.b.b(new com.meizu.cloud.pushsdk.b.b.a(e4)));
             }
-        } else if (i != 4) {
-            if (i != 5) {
+        } else if (i2 != 4) {
+            if (i2 != 5) {
                 return null;
             }
             return com.meizu.cloud.pushsdk.b.a.c.a("prefetch");
@@ -524,7 +534,7 @@ public class b<T extends b> {
     }
 
     public com.meizu.cloud.pushsdk.b.a.c b() {
-        this.f37810h = e.BITMAP;
+        this.f35354h = e.BITMAP;
         return com.meizu.cloud.pushsdk.b.e.c.a(this);
     }
 
@@ -533,11 +543,11 @@ public class b<T extends b> {
     }
 
     public int d() {
-        return this.f37804b;
+        return this.f35348b;
     }
 
     public String e() {
-        String str = this.f37807e;
+        String str = this.f35351e;
         for (Map.Entry<String, String> entry : this.n.entrySet()) {
             str = str.replace(StringUtil.ARRAY_START + entry.getKey() + "}", String.valueOf(entry.getValue()));
         }
@@ -549,11 +559,11 @@ public class b<T extends b> {
     }
 
     public e f() {
-        return this.f37810h;
+        return this.f35354h;
     }
 
     public int g() {
-        return this.f37806d;
+        return this.f35350d;
     }
 
     public String h() {
@@ -630,7 +640,7 @@ public class b<T extends b> {
     }
 
     public j n() {
-        h.a a2 = new h.a().a(h.f37908e);
+        h.a a2 = new h.a().a(h.f35458e);
         try {
             for (Map.Entry<String, String> entry : this.l.entrySet()) {
                 a2.a(com.meizu.cloud.pushsdk.b.c.c.a("Content-Disposition", "form-data; name=\"" + entry.getKey() + "\""), j.a((g) null, entry.getValue()));
@@ -654,7 +664,7 @@ public class b<T extends b> {
     public com.meizu.cloud.pushsdk.b.c.c o() {
         c.a aVar = new c.a();
         try {
-            for (Map.Entry<String, String> entry : this.i.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f35355i.entrySet()) {
                 aVar.a(entry.getKey(), entry.getValue());
             }
         } catch (Exception e2) {
@@ -664,6 +674,6 @@ public class b<T extends b> {
     }
 
     public String toString() {
-        return "ANRequest{sequenceNumber='" + this.f37808f + ", mMethod=" + this.f37804b + ", mPriority=" + this.f37805c + ", mRequestType=" + this.f37806d + ", mUrl=" + this.f37807e + '}';
+        return "ANRequest{sequenceNumber='" + this.f35352f + ", mMethod=" + this.f35348b + ", mPriority=" + this.f35349c + ", mRequestType=" + this.f35350d + ", mUrl=" + this.f35351e + '}';
     }
 }

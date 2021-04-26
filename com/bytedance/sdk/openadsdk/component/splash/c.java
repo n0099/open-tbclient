@@ -16,8 +16,8 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.j;
 import com.bytedance.sdk.openadsdk.utils.u;
 import com.bytedance.sdk.openadsdk.utils.x;
-import d.c.c.b.b.b;
-import d.c.c.b.d.o;
+import d.b.c.b.b.b;
+import d.b.c.b.d.o;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -25,21 +25,21 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class c {
-    public static void a(l lVar, int i) {
+    public static void a(l lVar, int i2) {
         int c2 = x.c(p.a());
-        int i2 = 4;
+        int i3 = 4;
         if (c2 == 2) {
-            i2 = 2;
+            i3 = 2;
         } else if (c2 == 3) {
-            i2 = 3;
+            i3 = 3;
         } else if (c2 == 4) {
-            i2 = 1;
+            i3 = 1;
         } else if (c2 != 5) {
-            i2 = 0;
+            i3 = 0;
         }
         HashMap hashMap = new HashMap();
-        hashMap.put("splash_show_type", Integer.valueOf(i));
-        hashMap.put(DpStatConstants.KEY_NETWORK_STATUS, Integer.valueOf(i2));
+        hashMap.put("splash_show_type", Integer.valueOf(i2));
+        hashMap.put(DpStatConstants.KEY_NETWORK_STATUS, Integer.valueOf(i3));
         com.bytedance.sdk.openadsdk.c.d.b(p.a(), lVar, "splash_ad", PmsConstant.Statistic.STATISTIC_NETWORK, hashMap);
     }
 
@@ -67,10 +67,10 @@ public class c {
     }
 
     public static void a(AdSlot adSlot, boolean z, long j, long j2) {
-        int i = z ? 2 : 1;
+        int i2 = z ? 2 : 1;
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.putOpt("available_type", Integer.valueOf(i));
+            jSONObject.putOpt("available_type", Integer.valueOf(i2));
             jSONObject.putOpt("creative_check_duration", Long.valueOf(j2));
             com.bytedance.sdk.openadsdk.h.a.a().n(com.bytedance.sdk.openadsdk.h.a.c.b().a(4).c(adSlot.getCodeId()).b((int) j).b(jSONObject.toString()));
         } catch (Throwable unused) {
@@ -85,7 +85,7 @@ public class c {
         VAdError vAdError;
         long elapsedRealtime = SystemClock.elapsedRealtime() - j;
         String str = z ? z2 ? "load_video_success" : "load_video_error" : z2 ? "download_video_image_success" : "download_video_image_fail";
-        String message = (z2 || oVar == null || (vAdError = oVar.f66681c) == null) ? null : vAdError.getMessage();
+        String message = (z2 || oVar == null || (vAdError = oVar.f65082c) == null) ? null : vAdError.getMessage();
         if (z) {
             Map<String, Object> a2 = ak.a(z2, lVar, elapsedRealtime, j2, message);
             a2.put("splash_show_type", 1);
@@ -104,15 +104,15 @@ public class c {
             v X = lVar.X();
             if (X != null) {
                 final long elapsedRealtime = SystemClock.elapsedRealtime();
-                String i = X.i();
-                if (TextUtils.isEmpty(i)) {
+                String i2 = X.i();
+                if (TextUtils.isEmpty(i2)) {
                     a(elapsedRealtime, true, false, lVar, -1L, null);
                     return;
                 }
                 a(lVar, 1);
                 String l = X.l();
                 if (TextUtils.isEmpty(l)) {
-                    l = j.a(i);
+                    l = j.a(i2);
                 }
                 final String str = l;
                 final File a2 = a(p.a(), a.a(p.a()).a(String.valueOf(d2), com.bytedance.sdk.openadsdk.multipro.b.b()), str);
@@ -124,8 +124,8 @@ public class c {
                     a.a(p.a()).b(new com.bytedance.sdk.openadsdk.core.d.p(aVar, lVar, null));
                     return;
                 }
-                com.bytedance.sdk.openadsdk.i.e.c().a(i, new b.InterfaceC1827b() { // from class: com.bytedance.sdk.openadsdk.component.splash.c.1
-                    @Override // d.c.c.b.b.b.InterfaceC1827b
+                com.bytedance.sdk.openadsdk.i.e.c().a(i2, new b.InterfaceC1767b() { // from class: com.bytedance.sdk.openadsdk.component.splash.c.1
+                    @Override // d.b.c.b.b.b.InterfaceC1767b
                     public File a(String str2) {
                         try {
                             File parentFile = a2.getParentFile();
@@ -141,21 +141,21 @@ public class c {
                         }
                     }
 
-                    @Override // d.c.c.b.b.c.a
+                    @Override // d.b.c.b.b.c.a
                     public void a(long j, long j2) {
                     }
 
-                    @Override // d.c.c.b.b.b.InterfaceC1827b
+                    @Override // d.b.c.b.b.b.InterfaceC1767b
                     public File b(String str2) {
                         return a2;
                     }
 
-                    @Override // d.c.c.b.d.o.a
+                    @Override // d.b.c.b.d.o.a
                     public void b(o<File> oVar) {
-                        c.a(elapsedRealtime, true, false, lVar, oVar == null ? -2L : oVar.f66686h, oVar);
+                        c.a(elapsedRealtime, true, false, lVar, oVar == null ? -2L : oVar.f65087h, oVar);
                     }
 
-                    @Override // d.c.c.b.b.b.InterfaceC1827b
+                    @Override // d.b.c.b.b.b.InterfaceC1767b
                     public void a(String str2, File file) {
                         if (file != null) {
                             u.f("splashLoadAd", "SplashUtils preLoadVideo putFile  s " + str2 + " file " + file.getPath());
@@ -164,15 +164,15 @@ public class c {
                         }
                     }
 
-                    @Override // d.c.c.b.d.o.a
+                    @Override // d.b.c.b.d.o.a
                     public void a(o<File> oVar) {
-                        if (oVar != null && oVar.f66679a != null) {
+                        if (oVar != null && oVar.f65080a != null) {
                             a.a(p.a()).b(new com.bytedance.sdk.openadsdk.core.d.p(aVar, lVar, null));
                             a.a(p.a()).a(new com.bytedance.sdk.openadsdk.core.d.p(aVar, lVar, null));
                             c.a(elapsedRealtime, true, true, lVar, 0L, oVar);
                             return;
                         }
-                        c.a(elapsedRealtime, true, false, lVar, oVar == null ? -3L : oVar.f66686h, oVar);
+                        c.a(elapsedRealtime, true, false, lVar, oVar == null ? -3L : oVar.f65087h, oVar);
                     }
                 });
             }

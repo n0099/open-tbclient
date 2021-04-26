@@ -5,7 +5,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.CloseableReference;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AnimatedImageResult {
     @Nullable
     public List<CloseableReference<Bitmap>> mDecodedFrames;
@@ -37,9 +37,9 @@ public class AnimatedImageResult {
     }
 
     @Nullable
-    public synchronized CloseableReference<Bitmap> getDecodedFrame(int i) {
+    public synchronized CloseableReference<Bitmap> getDecodedFrame(int i2) {
         if (this.mDecodedFrames != null) {
-            return CloseableReference.cloneOrNull(this.mDecodedFrames.get(i));
+            return CloseableReference.cloneOrNull(this.mDecodedFrames.get(i2));
         }
         return null;
     }
@@ -56,10 +56,10 @@ public class AnimatedImageResult {
         return CloseableReference.cloneOrNull(this.mPreviewBitmap);
     }
 
-    public synchronized boolean hasDecodedFrame(int i) {
+    public synchronized boolean hasDecodedFrame(int i2) {
         boolean z;
         if (this.mDecodedFrames != null) {
-            z = this.mDecodedFrames.get(i) != null;
+            z = this.mDecodedFrames.get(i2) != null;
         }
         return z;
     }

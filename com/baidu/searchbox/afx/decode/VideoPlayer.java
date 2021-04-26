@@ -16,7 +16,6 @@ import com.baidu.searchbox.afx.callback.OnVideoEndedListener;
 import com.baidu.searchbox.afx.callback.OnVideoErrorListener;
 import com.baidu.searchbox.afx.callback.PlaySuccessInfo;
 import com.baidu.searchbox.afx.gl.GLTextureView;
-import com.kwai.video.player.misc.IMediaFormat;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.File;
 import java.io.FileDescriptor;
@@ -58,7 +57,7 @@ public class VideoPlayer {
 
     /* loaded from: classes2.dex */
     public interface OnInfoListener {
-        boolean onInfo(VideoPlayer videoPlayer, int i, int i2);
+        boolean onInfo(VideoPlayer videoPlayer, int i2, int i3);
     }
 
     /* loaded from: classes2.dex */
@@ -86,8 +85,8 @@ public class VideoPlayer {
 
             @Override // android.os.Handler
             public void handleMessage(Message message) {
-                int i = message.what;
-                if (i == 0) {
+                int i2 = message.what;
+                if (i2 == 0) {
                     String str = (String) message.obj;
                     OnVideoEndedListener onVideoEndedListener = this.mOnEndedListener;
                     if (onVideoEndedListener != null) {
@@ -96,7 +95,7 @@ public class VideoPlayer {
                     if (this.mOnReportListener != null) {
                         this.mOnReportListener.onSuccess(new PlaySuccessInfo(null, String.valueOf(System.currentTimeMillis() / 1000), str));
                     }
-                } else if (i != 1) {
+                } else if (i2 != 1) {
                 } else {
                     String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
                     OnReportListener onReportListener = this.mOnReportListener;
@@ -191,12 +190,12 @@ public class VideoPlayer {
     /* JADX WARN: Removed duplicated region for block: B:81:0x014b  */
     /* JADX WARN: Removed duplicated region for block: B:83:0x0150  */
     /* JADX WARN: Type inference failed for: r10v0 */
-    /* JADX WARN: Type inference failed for: r10v1, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r10v1, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r10v2 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void doExtract(MediaExtractor mediaExtractor, int i, MediaCodec mediaCodec, FrameCallback frameCallback) {
+    private void doExtract(MediaExtractor mediaExtractor, int i2, MediaCodec mediaCodec, FrameCallback frameCallback) {
         ByteBuffer[] byteBufferArr;
         boolean z;
         int dequeueInputBuffer;
@@ -205,7 +204,7 @@ public class VideoPlayer {
         long j = -1;
         ?? r10 = 0;
         long j2 = -1;
-        int i2 = 1;
+        int i3 = 1;
         boolean z2 = false;
         boolean z3 = false;
         boolean z4 = false;
@@ -232,7 +231,7 @@ public class VideoPlayer {
             }
             if (z3 || (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) < 0) {
                 byteBufferArr = inputBuffers;
-                i2 = i2;
+                i3 = i3;
             } else {
                 if (j2 == j) {
                     j2 = System.nanoTime();
@@ -242,24 +241,24 @@ public class VideoPlayer {
                 if (readSampleData < 0) {
                     byteBufferArr = inputBuffers;
                     mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                    i2 = i2;
+                    i3 = i3;
                     j2 = j3;
                     z3 = true;
                     z4 = true;
                 } else {
-                    int i3 = i2;
+                    int i4 = i3;
                     byteBufferArr = inputBuffers;
-                    if (mediaExtractor.getSampleTrackIndex() != i) {
-                        Log.w(TAG, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i);
+                    if (mediaExtractor.getSampleTrackIndex() != i2) {
+                        Log.w(TAG, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i2);
                     }
-                    if (z4 && i3 == this.mPlayFrames + 1) {
+                    if (z4 && i4 == this.mPlayFrames + 1) {
                         mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                        i2 = i3;
+                        i3 = i4;
                         j2 = j3;
                         z3 = true;
                     } else {
                         mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
-                        i2 = i3 + 1;
+                        i3 = i4 + 1;
                         mediaExtractor.advance();
                         j2 = j3;
                     }
@@ -303,7 +302,7 @@ public class VideoPlayer {
                                     if (frameCallback != null) {
                                         frameCallback.loopReset();
                                     }
-                                    i2 = 1;
+                                    i3 = 1;
                                     z3 = false;
                                 }
                             }
@@ -352,7 +351,7 @@ public class VideoPlayer {
             mediaExtractor.selectTrack(selectVideoTrackIndex);
             if (mediaCodec == null) {
                 MediaFormat trackFormat = mediaExtractor.getTrackFormat(selectVideoTrackIndex);
-                MediaCodec createDecoderByType = MediaCodec.createDecoderByType(trackFormat.getString(IMediaFormat.KEY_MIME));
+                MediaCodec createDecoderByType = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
                 Surface surface = this.mOutputSurface;
                 if (surface != null) {
                     createDecoderByType.configure(trackFormat, surface, (MediaCrypto) null, 0);
@@ -378,9 +377,9 @@ public class VideoPlayer {
 
     public static int selectVideoTrackIndex(MediaExtractor mediaExtractor) {
         int trackCount = mediaExtractor.getTrackCount();
-        for (int i = 0; i < trackCount; i++) {
-            if (mediaExtractor.getTrackFormat(i).getString(IMediaFormat.KEY_MIME).startsWith(FileUtils.VIDEO_FILE_START)) {
-                return i;
+        for (int i2 = 0; i2 < trackCount; i2++) {
+            if (mediaExtractor.getTrackFormat(i2).getString("mime").startsWith(FileUtils.VIDEO_FILE_START)) {
+                return i2;
             }
         }
         return -1;
@@ -526,13 +525,13 @@ public class VideoPlayer {
         setLoopSection(j, (long) (this.mDurationUs / 1000.0d));
     }
 
-    public void setLoopSection(int i, int i2) {
-        this.mStartFrameTimeUs = (long) ((1000.0d / this.mFps) * i * 1000.0d);
-        this.mPlayFrames = (i2 - i) + 1;
+    public void setLoopSection(int i2, int i3) {
+        this.mStartFrameTimeUs = (long) ((1000.0d / this.mFps) * i2 * 1000.0d);
+        this.mPlayFrames = (i3 - i2) + 1;
     }
 
-    public void setLoopSection(int i) {
-        setLoopSection(i, (int) ((this.mDurationUs / 1000000.0d) * this.mFps));
+    public void setLoopSection(int i2) {
+        setLoopSection(i2, (int) ((this.mDurationUs / 1000000.0d) * this.mFps));
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException {

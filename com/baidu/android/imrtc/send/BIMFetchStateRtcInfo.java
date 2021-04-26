@@ -18,9 +18,9 @@ public class BIMFetchStateRtcInfo extends BIMRtcInfo {
         public int status;
         public long uk;
 
-        public UserState(long j, int i) {
+        public UserState(long j, int i2) {
             this.uk = j;
-            this.status = i;
+            this.status = i2;
         }
     }
 
@@ -32,8 +32,8 @@ public class BIMFetchStateRtcInfo extends BIMRtcInfo {
             arrayList.clear();
             JSONArray optJSONArray = new JSONObject(str).optJSONArray("msg");
             if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject jSONObject = (JSONObject) optJSONArray.opt(i);
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    JSONObject jSONObject = (JSONObject) optJSONArray.opt(i2);
                     this.mUkStates.add(new UserState(jSONObject.optLong("uk"), jSONObject.optInt("status")));
                 }
             }
@@ -48,8 +48,8 @@ public class BIMFetchStateRtcInfo extends BIMRtcInfo {
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
-        BIMRtcInfo rtcInfo = super.toRtcInfo(i, str, str2);
+    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
+        BIMRtcInfo rtcInfo = super.toRtcInfo(i2, str, str2);
         setAction(rtcInfo.getAction());
         setRtcRoomId(rtcInfo.getRtcRoomId());
         setRtcExt(rtcInfo.getRtcExt());

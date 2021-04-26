@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import d.b.j0.j1.o.j.b;
+import d.a.j0.j1.o.j.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -20,19 +20,19 @@ public class OnePicInfoCard extends BaseCardInfo {
         this.desc = jSONObject.optString("desc", "");
         this.pic = jSONObject.optString("pic");
         this.tag = jSONObject.optString("tag", "");
-        this.tBgColor = d.b.j0.j1.o.k.b.b(jSONObject.optString("tBgColor", ""));
-        this.tBgColorN = d.b.j0.j1.o.k.b.b(jSONObject.optString("tBgColorN", ""));
+        this.tBgColor = d.a.j0.j1.o.k.b.b(jSONObject.optString("tBgColor", ""));
+        this.tBgColorN = d.a.j0.j1.o.k.b.b(jSONObject.optString("tBgColorN", ""));
         JSONArray optJSONArray = jSONObject.optJSONArray("icons");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         this.iconList = new ArrayList(length);
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
             if (optJSONObject != null) {
                 b bVar = new b();
-                bVar.f57808c = optJSONObject.optInt("type");
-                bVar.f57806a = optJSONObject.optString("url");
-                bVar.f57807b = optJSONObject.optString("urlNight");
-                bVar.f57809d = optJSONObject.optString("content", "");
+                bVar.f55774c = optJSONObject.optInt("type");
+                bVar.f55772a = optJSONObject.optString("url");
+                bVar.f55773b = optJSONObject.optString("urlNight");
+                bVar.f55775d = optJSONObject.optString("content", "");
                 this.iconList.add(bVar);
             }
         }

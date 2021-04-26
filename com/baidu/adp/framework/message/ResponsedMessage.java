@@ -1,8 +1,8 @@
 package com.baidu.adp.framework.message;
 
 import com.baidu.tbadk.core.util.TbErrInfo;
-import d.b.c.c.e.c.h;
-import d.b.c.c.i.a;
+import d.a.c.c.e.c.h;
+import d.a.c.c.i.a;
 /* loaded from: classes.dex */
 public abstract class ResponsedMessage<T> {
     public final int mCmd;
@@ -15,17 +15,17 @@ public abstract class ResponsedMessage<T> {
     public long mCostTime = 0;
     public a performanceData = new a();
 
-    public ResponsedMessage(int i) {
-        this.mCmd = i;
+    public ResponsedMessage(int i2) {
+        this.mCmd = i2;
     }
 
-    public void afterDispatchInBackGround(int i, T t) {
+    public void afterDispatchInBackGround(int i2, T t) {
     }
 
-    public void beforeDispatchInBackGround(int i, T t) {
+    public void beforeDispatchInBackGround(int i2, T t) {
     }
 
-    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
+    public abstract /* synthetic */ void decodeInBackGround(int i2, T t) throws Exception;
 
     public int getCmd() {
         return this.mCmd;
@@ -65,8 +65,8 @@ public abstract class ResponsedMessage<T> {
 
     public abstract boolean hasError();
 
-    public void onDecodeFailedInBackGround(int i, T t, int i2) throws Exception {
-        if (i2 == h.f42254c) {
+    public void onDecodeFailedInBackGround(int i2, T t, int i3) throws Exception {
+        if (i3 == h.f39441c) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }
@@ -75,12 +75,12 @@ public abstract class ResponsedMessage<T> {
         this.mCostTime = j;
     }
 
-    public void setDownSize(int i) {
-        this.mDownSize = i;
+    public void setDownSize(int i2) {
+        this.mDownSize = i2;
     }
 
-    public void setError(int i) {
-        this.mError = i;
+    public void setError(int i2) {
+        this.mError = i2;
     }
 
     public void setErrorString(String str) {

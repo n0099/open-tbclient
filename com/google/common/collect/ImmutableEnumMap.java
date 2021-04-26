@@ -1,9 +1,9 @@
 package com.google.common.collect;
 
 import com.google.common.collect.ImmutableMap;
-import d.h.c.a.n;
-import d.h.c.c.c1;
-import d.h.c.c.f0;
+import d.g.c.a.n;
+import d.g.c.c.c1;
+import d.g.c.c.f0;
 import java.io.Serializable;
 import java.lang.Enum;
 import java.util.EnumMap;
@@ -12,7 +12,7 @@ import java.util.Map;
 public final class ImmutableEnumMap<K extends Enum<K>, V> extends ImmutableMap.IteratorBasedImmutableMap<K, V> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final transient EnumMap<K, V> f30882e;
+    public final transient EnumMap<K, V> f31841e;
 
     /* loaded from: classes6.dex */
     public static class EnumSerializedForm<K extends Enum<K>, V> implements Serializable {
@@ -42,12 +42,12 @@ public final class ImmutableEnumMap<K extends Enum<K>, V> extends ImmutableMap.I
 
     @Override // com.google.common.collect.ImmutableMap, java.util.Map
     public boolean containsKey(Object obj) {
-        return this.f30882e.containsKey(obj);
+        return this.f31841e.containsKey(obj);
     }
 
     @Override // com.google.common.collect.ImmutableMap.IteratorBasedImmutableMap
     public c1<Map.Entry<K, V>> entryIterator() {
-        return Maps.G(this.f30882e.entrySet().iterator());
+        return Maps.G(this.f31841e.entrySet().iterator());
     }
 
     @Override // com.google.common.collect.ImmutableMap, java.util.Map
@@ -56,14 +56,14 @@ public final class ImmutableEnumMap<K extends Enum<K>, V> extends ImmutableMap.I
             return true;
         }
         if (obj instanceof ImmutableEnumMap) {
-            obj = ((ImmutableEnumMap) obj).f30882e;
+            obj = ((ImmutableEnumMap) obj).f31841e;
         }
-        return this.f30882e.equals(obj);
+        return this.f31841e.equals(obj);
     }
 
     @Override // com.google.common.collect.ImmutableMap, java.util.Map
     public V get(Object obj) {
-        return this.f30882e.get(obj);
+        return this.f31841e.get(obj);
     }
 
     @Override // com.google.common.collect.ImmutableMap
@@ -73,21 +73,21 @@ public final class ImmutableEnumMap<K extends Enum<K>, V> extends ImmutableMap.I
 
     @Override // com.google.common.collect.ImmutableMap
     public c1<K> keyIterator() {
-        return Iterators.x(this.f30882e.keySet().iterator());
+        return Iterators.x(this.f31841e.keySet().iterator());
     }
 
     @Override // java.util.Map
     public int size() {
-        return this.f30882e.size();
+        return this.f31841e.size();
     }
 
     @Override // com.google.common.collect.ImmutableMap
     public Object writeReplace() {
-        return new EnumSerializedForm(this.f30882e);
+        return new EnumSerializedForm(this.f31841e);
     }
 
     public ImmutableEnumMap(EnumMap<K, V> enumMap) {
-        this.f30882e = enumMap;
+        this.f31841e = enumMap;
         n.d(!enumMap.isEmpty());
     }
 }

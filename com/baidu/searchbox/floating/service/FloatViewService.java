@@ -84,8 +84,8 @@ public final class FloatViewService extends Service {
         public Companion() {
         }
 
-        public static /* bridge */ /* synthetic */ void dismiss$default(Companion companion, Context context, boolean z, int i, Object obj) {
-            if ((i & 2) != 0) {
+        public static /* bridge */ /* synthetic */ void dismiss$default(Companion companion, Context context, boolean z, int i2, Object obj) {
+            if ((i2 & 2) != 0) {
                 z = false;
             }
             companion.dismiss(context, z);
@@ -155,7 +155,7 @@ public final class FloatViewService extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(Intent intent, int i2, int i3) {
         IFloating floatingContext;
         if (Companion.getConfig() == null) {
             return 2;

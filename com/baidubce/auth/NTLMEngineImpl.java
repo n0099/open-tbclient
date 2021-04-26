@@ -1,6 +1,7 @@
 package com.baidubce.auth;
 
 import android.util.Base64;
+import androidx.core.view.DisplayCompat;
 import com.baidu.mobads.container.widget.player.PlayerEvent;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
@@ -53,16 +54,16 @@ public final class NTLMEngineImpl {
                     bArr = this.md5.digest();
                     length = bArr.length;
                 }
-                int i = 0;
-                while (i < length) {
-                    this.ipad[i] = (byte) (54 ^ bArr[i]);
-                    this.opad[i] = (byte) (92 ^ bArr[i]);
-                    i++;
+                int i2 = 0;
+                while (i2 < length) {
+                    this.ipad[i2] = (byte) (54 ^ bArr[i2]);
+                    this.opad[i2] = (byte) (92 ^ bArr[i2]);
+                    i2++;
                 }
-                while (i < 64) {
-                    this.ipad[i] = 54;
-                    this.opad[i] = 92;
-                    i++;
+                while (i2 < 64) {
+                    this.ipad[i2] = 54;
+                    this.opad[i2] = 92;
+                    i2++;
                 }
                 this.md5.reset();
                 this.md5.update(this.ipad);
@@ -81,8 +82,8 @@ public final class NTLMEngineImpl {
             this.md5.update(bArr);
         }
 
-        public void update(byte[] bArr, int i, int i2) {
-            this.md5.update(bArr, i, i2);
+        public void update(byte[] bArr, int i2, int i3) {
+            this.md5.update(bArr, i2, i3);
         }
     }
 
@@ -96,12 +97,12 @@ public final class NTLMEngineImpl {
         public byte[] dataBuffer = new byte[64];
 
         public byte[] getOutput() {
-            int i = (int) (this.count & 63);
-            int i2 = i < 56 ? 56 - i : 120 - i;
-            byte[] bArr = new byte[i2 + 8];
+            int i2 = (int) (this.count & 63);
+            int i3 = i2 < 56 ? 56 - i2 : 120 - i2;
+            byte[] bArr = new byte[i3 + 8];
             bArr[0] = ByteCompanionObject.MIN_VALUE;
-            for (int i3 = 0; i3 < 8; i3++) {
-                bArr[i2 + i3] = (byte) ((this.count * 8) >>> (i3 * 8));
+            for (int i4 = 0; i4 < 8; i4++) {
+                bArr[i3 + i4] = (byte) ((this.count * 8) >>> (i4 * 8));
             }
             update(bArr);
             byte[] bArr2 = new byte[16];
@@ -114,22 +115,22 @@ public final class NTLMEngineImpl {
 
         public void processBuffer() {
             int[] iArr = new int[16];
-            for (int i = 0; i < 16; i++) {
+            for (int i2 = 0; i2 < 16; i2++) {
                 byte[] bArr = this.dataBuffer;
-                int i2 = i * 4;
-                iArr[i] = (bArr[i2] & 255) + ((bArr[i2 + 1] & 255) << 8) + ((bArr[i2 + 2] & 255) << 16) + ((bArr[i2 + 3] & 255) << 24);
+                int i3 = i2 * 4;
+                iArr[i2] = (bArr[i3] & 255) + ((bArr[i3 + 1] & 255) << 8) + ((bArr[i3 + 2] & 255) << 16) + ((bArr[i3 + 3] & 255) << 24);
             }
-            int i3 = this.A;
-            int i4 = this.B;
-            int i5 = this.C;
-            int i6 = this.D;
+            int i4 = this.A;
+            int i5 = this.B;
+            int i6 = this.C;
+            int i7 = this.D;
             round1(iArr);
             round2(iArr);
             round3(iArr);
-            this.A += i3;
-            this.B += i4;
-            this.C += i5;
-            this.D += i6;
+            this.A += i4;
+            this.B += i5;
+            this.C += i6;
+            this.D += i7;
         }
 
         public void round1(int[] iArr) {
@@ -236,24 +237,24 @@ public final class NTLMEngineImpl {
 
         public void update(byte[] bArr) {
             byte[] bArr2;
-            int i = (int) (this.count & 63);
-            int i2 = 0;
+            int i2 = (int) (this.count & 63);
+            int i3 = 0;
             while (true) {
-                int length = (bArr.length - i2) + i;
+                int length = (bArr.length - i3) + i2;
                 bArr2 = this.dataBuffer;
                 if (length < bArr2.length) {
                     break;
                 }
-                int length2 = bArr2.length - i;
-                System.arraycopy(bArr, i2, bArr2, i, length2);
+                int length2 = bArr2.length - i2;
+                System.arraycopy(bArr, i3, bArr2, i2, length2);
                 this.count += length2;
-                i2 += length2;
+                i3 += length2;
                 processBuffer();
-                i = 0;
+                i2 = 0;
             }
-            if (i2 < bArr.length) {
-                int length3 = bArr.length - i2;
-                System.arraycopy(bArr, i2, bArr2, i, length3);
+            if (i3 < bArr.length) {
+                int length3 = bArr.length - i3;
+                System.arraycopy(bArr, i3, bArr2, i2, length3);
                 this.count += length3;
             }
         }
@@ -337,25 +338,25 @@ public final class NTLMEngineImpl {
         public int type2Flags;
         public byte[] userBytes;
 
-        public Type3Message(String str, String str2, String str3, String str4, byte[] bArr, int i, String str5, byte[] bArr2) throws NTLMEngineException {
+        public Type3Message(String str, String str2, String str3, String str4, byte[] bArr, int i2, String str5, byte[] bArr2) throws NTLMEngineException {
             byte[] lMUserSessionKey;
-            this.type2Flags = i;
+            this.type2Flags = i2;
             String convertHost = NTLMEngineImpl.convertHost(str2);
             String convertDomain = NTLMEngineImpl.convertDomain(str);
             CipherGen cipherGen = new CipherGen(convertDomain, str3, str4, bArr, str5, bArr2);
             try {
-                if ((8388608 & i) != 0 && bArr2 != null && str5 != null) {
+                if ((8388608 & i2) != 0 && bArr2 != null && str5 != null) {
                     this.ntResp = cipherGen.getNTLMv2Response();
                     this.lmResp = cipherGen.getLMv2Response();
-                    if ((i & 128) != 0) {
+                    if ((i2 & 128) != 0) {
                         lMUserSessionKey = cipherGen.getLanManagerSessionKey();
                     } else {
                         lMUserSessionKey = cipherGen.getNTLMv2UserSessionKey();
                     }
-                } else if ((524288 & i) != 0) {
+                } else if ((524288 & i2) != 0) {
                     this.ntResp = cipherGen.getNTLM2SessionResponse();
                     this.lmResp = cipherGen.getLM2SessionResponse();
-                    if ((i & 128) != 0) {
+                    if ((i2 & 128) != 0) {
                         lMUserSessionKey = cipherGen.getLanManagerSessionKey();
                     } else {
                         lMUserSessionKey = cipherGen.getNTLM2SessionResponseUserSessionKey();
@@ -363,7 +364,7 @@ public final class NTLMEngineImpl {
                 } else {
                     this.ntResp = cipherGen.getNTLMResponse();
                     this.lmResp = cipherGen.getLMResponse();
-                    if ((i & 128) != 0) {
+                    if ((i2 & 128) != 0) {
                         lMUserSessionKey = cipherGen.getLanManagerSessionKey();
                     } else {
                         lMUserSessionKey = cipherGen.getNTLMUserSessionKey();
@@ -372,15 +373,15 @@ public final class NTLMEngineImpl {
             } catch (NTLMEngineException unused) {
                 this.ntResp = new byte[0];
                 this.lmResp = cipherGen.getLMResponse();
-                if ((i & 128) != 0) {
+                if ((i2 & 128) != 0) {
                     lMUserSessionKey = cipherGen.getLanManagerSessionKey();
                 } else {
                     lMUserSessionKey = cipherGen.getLMUserSessionKey();
                 }
             }
-            if ((i & 16) == 0) {
+            if ((i2 & 16) == 0) {
                 this.sessionKey = null;
-            } else if ((i & 1073741824) != 0) {
+            } else if ((i2 & 1073741824) != 0) {
                 this.sessionKey = NTLMEngineImpl.RC4(cipherGen.getSecondaryKey(), lMUserSessionKey);
             } else {
                 this.sessionKey = lMUserSessionKey;
@@ -405,35 +406,35 @@ public final class NTLMEngineImpl {
             int length5 = this.userBytes.length;
             byte[] bArr3 = this.sessionKey;
             int length6 = bArr3 != null ? bArr3.length : 0;
-            int i = length2 + 72;
-            int i2 = i + length;
-            int i3 = i2 + length3;
-            int i4 = i3 + length5;
-            int i5 = i4 + length4;
-            prepareResponse(i5 + length6, 3);
+            int i2 = length2 + 72;
+            int i3 = i2 + length;
+            int i4 = i3 + length3;
+            int i5 = i4 + length5;
+            int i6 = i5 + length4;
+            prepareResponse(i6 + length6, 3);
             addUShort(length2);
             addUShort(length2);
             addULong(72);
             addUShort(length);
             addUShort(length);
-            addULong(i);
-            addUShort(length3);
-            addUShort(length3);
             addULong(i2);
-            addUShort(length5);
-            addUShort(length5);
+            addUShort(length3);
+            addUShort(length3);
             addULong(i3);
-            addUShort(length4);
-            addUShort(length4);
+            addUShort(length5);
+            addUShort(length5);
             addULong(i4);
-            addUShort(length6);
-            addUShort(length6);
+            addUShort(length4);
+            addUShort(length4);
             addULong(i5);
-            int i6 = this.type2Flags;
-            addULong((i6 & 4) | (i6 & 128) | (i6 & 512) | (524288 & i6) | NTLMEngineImpl.FLAG_REQUEST_VERSION | (32768 & i6) | (i6 & 32) | (i6 & 16) | (536870912 & i6) | (Integer.MIN_VALUE & i6) | (1073741824 & i6) | (8388608 & i6) | (i6 & 1));
+            addUShort(length6);
+            addUShort(length6);
+            addULong(i6);
+            int i7 = this.type2Flags;
+            addULong((i7 & 4) | (i7 & 128) | (i7 & 512) | (524288 & i7) | NTLMEngineImpl.FLAG_REQUEST_VERSION | (32768 & i7) | (i7 & 32) | (i7 & 16) | (536870912 & i7) | (Integer.MIN_VALUE & i7) | (1073741824 & i7) | (8388608 & i7) | (i7 & 1));
             addUShort(PlayerEvent.PLAY_LOADING_START);
             addULong(2600);
-            addUShort(3840);
+            addUShort(DisplayCompat.DISPLAY_SIZE_4K_WIDTH);
             addBytes(this.lmResp);
             addBytes(this.ntResp);
             addBytes(this.domainBytes);
@@ -463,16 +464,16 @@ public final class NTLMEngineImpl {
         TYPE_1_MESSAGE = new Type1Message().getResponse();
     }
 
-    public static int F(int i, int i2, int i3) {
-        return ((~i) & i3) | (i2 & i);
+    public static int F(int i2, int i3, int i4) {
+        return ((~i2) & i4) | (i3 & i2);
     }
 
-    public static int G(int i, int i2, int i3) {
-        return (i & i3) | (i & i2) | (i2 & i3);
+    public static int G(int i2, int i3, int i4) {
+        return (i2 & i4) | (i2 & i3) | (i3 & i4);
     }
 
-    public static int H(int i, int i2, int i3) {
-        return (i ^ i2) ^ i3;
+    public static int H(int i2, int i3, int i4) {
+        return (i2 ^ i3) ^ i4;
     }
 
     public static byte[] RC4(byte[] bArr, byte[] bArr2) throws NTLMEngineException {
@@ -500,17 +501,17 @@ public final class NTLMEngineImpl {
         System.arraycopy(bArr3, 0, bArr4, 8, bArr3.length);
         int length = bArr3.length + 8;
         System.arraycopy(bArr, 0, bArr4, length, 8);
-        int i = length + 8;
-        System.arraycopy(new byte[]{0, 0, 0, 0}, 0, bArr4, i, 4);
-        int i2 = i + 4;
-        System.arraycopy(bArr2, 0, bArr4, i2, bArr2.length);
-        System.arraycopy(new byte[]{0, 0, 0, 0}, 0, bArr4, i2 + bArr2.length, 4);
+        int i2 = length + 8;
+        System.arraycopy(new byte[]{0, 0, 0, 0}, 0, bArr4, i2, 4);
+        int i3 = i2 + 4;
+        System.arraycopy(bArr2, 0, bArr4, i3, bArr2.length);
+        System.arraycopy(new byte[]{0, 0, 0, 0}, 0, bArr4, i3 + bArr2.length, 4);
         return bArr4;
     }
 
-    public static Key createDESKey(byte[] bArr, int i) {
+    public static Key createDESKey(byte[] bArr, int i2) {
         byte[] bArr2 = new byte[7];
-        System.arraycopy(bArr, i, bArr2, 0, 7);
+        System.arraycopy(bArr, i2, bArr2, 0, 7);
         byte[] bArr3 = {bArr2[0], (byte) ((bArr2[0] << 7) | ((bArr2[1] & 255) >>> 1)), (byte) ((bArr2[1] << 6) | ((bArr2[2] & 255) >>> 2)), (byte) ((bArr2[2] << 5) | ((bArr2[3] & 255) >>> 3)), (byte) ((bArr2[3] << 4) | ((bArr2[4] & 255) >>> 4)), (byte) ((bArr2[4] << 3) | ((bArr2[5] & 255) >>> 5)), (byte) ((bArr2[5] << 2) | ((bArr2[6] & 255) >>> 6)), (byte) (bArr2[6] << 1)};
         oddParity(bArr3);
         return new SecretKeySpec(bArr3, "DES");
@@ -528,8 +529,8 @@ public final class NTLMEngineImpl {
         return TYPE_1_MESSAGE;
     }
 
-    public static String getType3Message(String str, String str2, String str3, String str4, byte[] bArr, int i, String str5, byte[] bArr2) throws NTLMEngineException {
-        return new Type3Message(str4, str3, str, str2, bArr, i, str5, bArr2).getResponse();
+    public static String getType3Message(String str, String str2, String str3, String str4, byte[] bArr, int i2, String str5, byte[] bArr2) throws NTLMEngineException {
+        return new Type3Message(str4, str3, str, str2, bArr, i2, str5, bArr2).getResponse();
     }
 
     public static byte[] hmacMD5(byte[] bArr, byte[] bArr2) throws NTLMEngineException {
@@ -672,19 +673,19 @@ public final class NTLMEngineImpl {
     }
 
     public static void oddParity(byte[] bArr) {
-        for (int i = 0; i < bArr.length; i++) {
-            byte b2 = bArr[i];
+        for (int i2 = 0; i2 < bArr.length; i2++) {
+            byte b2 = bArr[i2];
             if ((((b2 >>> 1) ^ ((((((b2 >>> 7) ^ (b2 >>> 6)) ^ (b2 >>> 5)) ^ (b2 >>> 4)) ^ (b2 >>> 3)) ^ (b2 >>> 2))) & 1) == 0) {
-                bArr[i] = (byte) (bArr[i] | 1);
+                bArr[i2] = (byte) (bArr[i2] | 1);
             } else {
-                bArr[i] = (byte) (bArr[i] & (-2));
+                bArr[i2] = (byte) (bArr[i2] & (-2));
             }
         }
     }
 
-    public static byte[] readSecurityBuffer(byte[] bArr, int i) throws NTLMEngineException {
-        int readUShort = readUShort(bArr, i);
-        int readULong = readULong(bArr, i + 4);
+    public static byte[] readSecurityBuffer(byte[] bArr, int i2) throws NTLMEngineException {
+        int readUShort = readUShort(bArr, i2);
+        int readULong = readULong(bArr, i2 + 4);
         if (bArr.length >= readULong + readUShort) {
             byte[] bArr2 = new byte[readUShort];
             System.arraycopy(bArr, readULong, bArr2, 0, readUShort);
@@ -693,22 +694,22 @@ public final class NTLMEngineImpl {
         throw new NTLMEngineException("NTLM authentication - buffer too small for data item");
     }
 
-    public static int readULong(byte[] bArr, int i) throws NTLMEngineException {
-        if (bArr.length >= i + 4) {
-            return ((bArr[i + 3] & 255) << 24) | (bArr[i] & 255) | ((bArr[i + 1] & 255) << 8) | ((bArr[i + 2] & 255) << 16);
+    public static int readULong(byte[] bArr, int i2) throws NTLMEngineException {
+        if (bArr.length >= i2 + 4) {
+            return ((bArr[i2 + 3] & 255) << 24) | (bArr[i2] & 255) | ((bArr[i2 + 1] & 255) << 8) | ((bArr[i2 + 2] & 255) << 16);
         }
         throw new NTLMEngineException("NTLM authentication - buffer too small for DWORD");
     }
 
-    public static int readUShort(byte[] bArr, int i) throws NTLMEngineException {
-        if (bArr.length >= i + 2) {
-            return ((bArr[i + 1] & 255) << 8) | (bArr[i] & 255);
+    public static int readUShort(byte[] bArr, int i2) throws NTLMEngineException {
+        if (bArr.length >= i2 + 2) {
+            return ((bArr[i2 + 1] & 255) << 8) | (bArr[i2] & 255);
         }
         throw new NTLMEngineException("NTLM authentication - buffer too small for WORD");
     }
 
-    public static int rotintlft(int i, int i2) {
-        return (i >>> (32 - i2)) | (i << i2);
+    public static int rotintlft(int i2, int i3) {
+        return (i2 >>> (32 - i3)) | (i2 << i3);
     }
 
     public static String stripDotSuffix(String str) {
@@ -719,11 +720,11 @@ public final class NTLMEngineImpl {
         return indexOf != -1 ? str.substring(0, indexOf) : str;
     }
 
-    public static void writeULong(byte[] bArr, int i, int i2) {
-        bArr[i2] = (byte) (i & 255);
-        bArr[i2 + 1] = (byte) ((i >> 8) & 255);
-        bArr[i2 + 2] = (byte) ((i >> 16) & 255);
-        bArr[i2 + 3] = (byte) ((i >> 24) & 255);
+    public static void writeULong(byte[] bArr, int i2, int i3) {
+        bArr[i3] = (byte) (i2 & 255);
+        bArr[i3 + 1] = (byte) ((i2 >> 8) & 255);
+        bArr[i3 + 2] = (byte) ((i2 >> 16) & 255);
+        bArr[i3 + 3] = (byte) ((i2 >> 24) & 255);
     }
 
     public String generateType1Msg(String str, String str2) throws NTLMEngineException {
@@ -747,9 +748,9 @@ public final class NTLMEngineImpl {
 
         public void addByte(byte b2) {
             byte[] bArr = this.messageContents;
-            int i = this.currentOutputPosition;
-            bArr[i] = b2;
-            this.currentOutputPosition = i + 1;
+            int i2 = this.currentOutputPosition;
+            bArr[i2] = b2;
+            this.currentOutputPosition = i2 + 1;
         }
 
         public void addBytes(byte[] bArr) {
@@ -758,22 +759,22 @@ public final class NTLMEngineImpl {
             }
             for (byte b2 : bArr) {
                 byte[] bArr2 = this.messageContents;
-                int i = this.currentOutputPosition;
-                bArr2[i] = b2;
-                this.currentOutputPosition = i + 1;
+                int i2 = this.currentOutputPosition;
+                bArr2[i2] = b2;
+                this.currentOutputPosition = i2 + 1;
             }
         }
 
-        public void addULong(int i) {
-            addByte((byte) (i & 255));
-            addByte((byte) ((i >> 8) & 255));
-            addByte((byte) ((i >> 16) & 255));
-            addByte((byte) ((i >> 24) & 255));
+        public void addULong(int i2) {
+            addByte((byte) (i2 & 255));
+            addByte((byte) ((i2 >> 8) & 255));
+            addByte((byte) ((i2 >> 16) & 255));
+            addByte((byte) ((i2 >> 24) & 255));
         }
 
-        public void addUShort(int i) {
-            addByte((byte) (i & 255));
-            addByte((byte) ((i >> 8) & 255));
+        public void addUShort(int i2) {
+            addByte((byte) (i2 & 255));
+            addByte((byte) ((i2 >> 8) & 255));
         }
 
         public int getMessageLength() {
@@ -787,68 +788,68 @@ public final class NTLMEngineImpl {
         public String getResponse() {
             byte[] bArr = this.messageContents;
             int length = bArr.length;
-            int i = this.currentOutputPosition;
-            if (length > i) {
-                byte[] bArr2 = new byte[i];
-                System.arraycopy(bArr, 0, bArr2, 0, i);
+            int i2 = this.currentOutputPosition;
+            if (length > i2) {
+                byte[] bArr2 = new byte[i2];
+                System.arraycopy(bArr, 0, bArr2, 0, i2);
                 bArr = bArr2;
             }
             return Base64.encodeToString(bArr, 2);
         }
 
-        public void prepareResponse(int i, int i2) {
-            this.messageContents = new byte[i];
+        public void prepareResponse(int i2, int i3) {
+            this.messageContents = new byte[i2];
             this.currentOutputPosition = 0;
             addBytes(NTLMEngineImpl.SIGNATURE);
-            addULong(i2);
+            addULong(i3);
         }
 
-        public byte readByte(int i) throws NTLMEngineException {
+        public byte readByte(int i2) throws NTLMEngineException {
             byte[] bArr = this.messageContents;
-            if (bArr.length >= i + 1) {
-                return bArr[i];
+            if (bArr.length >= i2 + 1) {
+                return bArr[i2];
             }
             throw new NTLMEngineException("NTLM: Message too short");
         }
 
-        public void readBytes(byte[] bArr, int i) throws NTLMEngineException {
+        public void readBytes(byte[] bArr, int i2) throws NTLMEngineException {
             byte[] bArr2 = this.messageContents;
-            if (bArr2.length >= bArr.length + i) {
-                System.arraycopy(bArr2, i, bArr, 0, bArr.length);
+            if (bArr2.length >= bArr.length + i2) {
+                System.arraycopy(bArr2, i2, bArr, 0, bArr.length);
                 return;
             }
             throw new NTLMEngineException("NTLM: Message too short");
         }
 
-        public byte[] readSecurityBuffer(int i) throws NTLMEngineException {
-            return NTLMEngineImpl.readSecurityBuffer(this.messageContents, i);
+        public byte[] readSecurityBuffer(int i2) throws NTLMEngineException {
+            return NTLMEngineImpl.readSecurityBuffer(this.messageContents, i2);
         }
 
-        public int readULong(int i) throws NTLMEngineException {
-            return NTLMEngineImpl.readULong(this.messageContents, i);
+        public int readULong(int i2) throws NTLMEngineException {
+            return NTLMEngineImpl.readULong(this.messageContents, i2);
         }
 
-        public int readUShort(int i) throws NTLMEngineException {
-            return NTLMEngineImpl.readUShort(this.messageContents, i);
+        public int readUShort(int i2) throws NTLMEngineException {
+            return NTLMEngineImpl.readUShort(this.messageContents, i2);
         }
 
-        public NTLMMessage(String str, int i) throws NTLMEngineException {
+        public NTLMMessage(String str, int i2) throws NTLMEngineException {
             this.messageContents = null;
             this.currentOutputPosition = 0;
             byte[] decode = Base64.decode(str.getBytes(NTLMEngineImpl.DEFAULT_CHARSET), 2);
             this.messageContents = decode;
             if (decode.length >= NTLMEngineImpl.SIGNATURE.length) {
-                for (int i2 = 0; i2 < NTLMEngineImpl.SIGNATURE.length; i2++) {
-                    if (this.messageContents[i2] != NTLMEngineImpl.SIGNATURE[i2]) {
+                for (int i3 = 0; i3 < NTLMEngineImpl.SIGNATURE.length; i3++) {
+                    if (this.messageContents[i3] != NTLMEngineImpl.SIGNATURE[i3]) {
                         throw new NTLMEngineException("NTLM message expected - instead got unrecognized bytes");
                     }
                 }
                 int readULong = readULong(NTLMEngineImpl.SIGNATURE.length);
-                if (readULong == i) {
+                if (readULong == i2) {
                     this.currentOutputPosition = this.messageContents.length;
                     return;
                 }
-                throw new NTLMEngineException("NTLM type " + Integer.toString(i) + " message expected - instead got type " + Integer.toString(readULong));
+                throw new NTLMEngineException("NTLM type " + Integer.toString(i2) + " message expected - instead got type " + Integer.toString(readULong));
             }
             throw new NTLMEngineException("NTLM message decoding error - packet too short");
         }
@@ -882,7 +883,7 @@ public final class NTLMEngineImpl {
             addULong(40);
             addUShort(PlayerEvent.PLAY_LOADING_START);
             addULong(2600);
-            addUShort(3840);
+            addUShort(DisplayCompat.DISPLAY_SIZE_4K_WIDTH);
             byte[] bArr = this.hostBytes;
             if (bArr != null) {
                 addBytes(bArr);
@@ -1132,8 +1133,8 @@ public final class NTLMEngineImpl {
             if (this.timestamp == null) {
                 long currentTimeMillis = (System.currentTimeMillis() + 11644473600000L) * 10000;
                 this.timestamp = new byte[8];
-                for (int i = 0; i < 8; i++) {
-                    this.timestamp[i] = (byte) currentTimeMillis;
+                for (int i2 = 0; i2 < 8; i2++) {
+                    this.timestamp[i2] = (byte) currentTimeMillis;
                     currentTimeMillis >>>= 8;
                 }
             }

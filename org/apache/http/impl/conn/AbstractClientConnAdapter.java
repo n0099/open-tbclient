@@ -96,7 +96,7 @@ public abstract class AbstractClientConnAdapter implements ManagedClientConnecti
     }
 
     @Override // org.apache.http.HttpClientConnection
-    public boolean isResponseAvailable(int i) throws IOException {
+    public boolean isResponseAvailable(int i2) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -146,7 +146,7 @@ public abstract class AbstractClientConnAdapter implements ManagedClientConnecti
     }
 
     @Override // org.apache.http.HttpConnection
-    public void setSocketTimeout(int i) {
+    public void setSocketTimeout(int i2) {
         throw new RuntimeException("Stub!");
     }
 

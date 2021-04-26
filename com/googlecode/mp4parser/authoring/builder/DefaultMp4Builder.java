@@ -63,8 +63,8 @@ public class DefaultMp4Builder implements Mp4Builder {
 
     public static long sum(int[] iArr) {
         long j = 0;
-        for (int i : iArr) {
-            j += i;
+        for (int i2 : iArr) {
+            j += i2;
         }
         return j;
     }
@@ -85,8 +85,8 @@ public class DefaultMp4Builder implements Mp4Builder {
             putSamples(next, samples);
             int size = samples.size();
             long[] jArr = new long[size];
-            for (int i = 0; i < size; i++) {
-                jArr[i] = samples.get(i).getSize();
+            for (int i2 = 0; i2 < size; i2++) {
+                jArr[i2] = samples.get(i2).getSize();
             }
             this.track2SampleSizes.put(next, jArr);
         }
@@ -108,8 +108,8 @@ public class DefaultMp4Builder implements Mp4Builder {
         long a2 = aVar.a();
         for (StaticChunkOffsetBox staticChunkOffsetBox : this.chunkOffsetBoxes) {
             long[] chunkOffsets = staticChunkOffsetBox.getChunkOffsets();
-            for (int i2 = 0; i2 < chunkOffsets.length; i2++) {
-                chunkOffsets[i2] = chunkOffsets[i2] + a2;
+            for (int i3 = 0; i3 < chunkOffsets.length; i3++) {
+                chunkOffsets[i3] = chunkOffsets[i3] + a2;
             }
         }
         return basicContainer;
@@ -204,16 +204,16 @@ public class DefaultMp4Builder implements Mp4Builder {
             Logger logger = LOG;
             logger.fine("Calculating chunk offsets for track_" + track.getTrackMetaData().getTrackId());
         }
-        int i = 0;
+        int i2 = 0;
         long j = 0;
-        while (i < iArr2.length) {
+        while (i2 < iArr2.length) {
             if (LOG.isLoggable(Level.FINER)) {
                 Logger logger2 = LOG;
                 StringBuilder sb = new StringBuilder(str2);
                 str = str2;
                 sb.append(track.getTrackMetaData().getTrackId());
                 sb.append(" chunk ");
-                sb.append(i);
+                sb.append(i2);
                 logger2.finer(sb.toString());
             } else {
                 str = str2;
@@ -224,21 +224,21 @@ public class DefaultMp4Builder implements Mp4Builder {
                     logger3.finest("Adding offsets of track_" + track3.getTrackMetaData().getTrackId());
                 }
                 int[] iArr3 = map2.get(track3);
-                int i2 = 0;
+                int i3 = 0;
                 long j2 = 0;
-                while (i2 < i) {
-                    j2 += iArr3[i2];
-                    i2++;
+                while (i3 < i2) {
+                    j2 += iArr3[i3];
+                    i3++;
                     track2 = track;
                 }
                 if (track3 == track2) {
-                    jArr[i] = j;
+                    jArr[i2] = j;
                 }
                 int l2i = CastUtils.l2i(j2);
                 while (true) {
                     iArr = iArr2;
                     staticChunkOffsetBox = staticChunkOffsetBox2;
-                    if (l2i >= iArr3[i] + j2) {
+                    if (l2i >= iArr3[i2] + j2) {
                         break;
                     }
                     j += this.track2SampleSizes.get(track3)[l2i];
@@ -251,7 +251,7 @@ public class DefaultMp4Builder implements Mp4Builder {
                 iArr2 = iArr;
                 staticChunkOffsetBox2 = staticChunkOffsetBox;
             }
-            i++;
+            i2++;
             str2 = str;
         }
         staticChunkOffsetBox2.setChunkOffsets(jArr);
@@ -263,10 +263,10 @@ public class DefaultMp4Builder implements Mp4Builder {
         SampleToChunkBox sampleToChunkBox = new SampleToChunkBox();
         sampleToChunkBox.setEntries(new LinkedList());
         long j = -2147483648L;
-        for (int i = 0; i < iArr.length; i++) {
-            if (j != iArr[i]) {
-                sampleToChunkBox.getEntries().add(new SampleToChunkBox.Entry(i + 1, iArr[i], 1L));
-                j = iArr[i];
+        for (int i2 = 0; i2 < iArr.length; i2++) {
+            if (j != iArr[i2]) {
+                sampleToChunkBox.getEntries().add(new SampleToChunkBox.Entry(i2 + 1, iArr[i2], 1L));
+                j = iArr[i2];
             }
         }
         sampleTableBox.addBox(sampleToChunkBox);
@@ -360,17 +360,17 @@ public class DefaultMp4Builder implements Mp4Builder {
         long j;
         long[] sampleNumbers = this.intersectionFinder.sampleNumbers(track);
         int[] iArr = new int[sampleNumbers.length];
-        int i = 0;
-        while (i < sampleNumbers.length) {
-            long j2 = sampleNumbers[i] - 1;
-            int i2 = i + 1;
-            if (sampleNumbers.length == i2) {
+        int i2 = 0;
+        while (i2 < sampleNumbers.length) {
+            long j2 = sampleNumbers[i2] - 1;
+            int i3 = i2 + 1;
+            if (sampleNumbers.length == i3) {
                 j = track.getSamples().size();
             } else {
-                j = sampleNumbers[i2] - 1;
+                j = sampleNumbers[i3] - 1;
             }
-            iArr[i] = CastUtils.l2i(j - j2);
-            i = i2;
+            iArr[i2] = CastUtils.l2i(j - j2);
+            i2 = i3;
         }
         return iArr;
     }
@@ -403,29 +403,29 @@ public class DefaultMp4Builder implements Mp4Builder {
     public class a implements Box {
 
         /* renamed from: e  reason: collision with root package name */
-        public List<Track> f31408e;
+        public List<Track> f32275e;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<List<Sample>> f31409f;
+        public List<List<Sample>> f32276f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Container f31410g;
+        public Container f32277g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f31411h;
+        public long f32278h;
 
         public a(DefaultMp4Builder defaultMp4Builder, Movie movie, Map<Track, int[]> map, long j) {
-            this.f31409f = new ArrayList();
-            this.f31411h = j;
-            this.f31408e = movie.getTracks();
-            for (int i = 0; i < map.values().iterator().next().length; i++) {
-                for (Track track : this.f31408e) {
+            this.f32276f = new ArrayList();
+            this.f32278h = j;
+            this.f32275e = movie.getTracks();
+            for (int i2 = 0; i2 < map.values().iterator().next().length; i2++) {
+                for (Track track : this.f32275e) {
                     int[] iArr = map.get(track);
                     long j2 = 0;
-                    for (int i2 = 0; i2 < i; i2++) {
-                        j2 += iArr[i2];
+                    for (int i3 = 0; i3 < i2; i3++) {
+                        j2 += iArr[i3];
                     }
-                    this.f31409f.add(defaultMp4Builder.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i])));
+                    this.f32276f.add(defaultMp4Builder.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i2])));
                 }
             }
         }
@@ -466,7 +466,7 @@ public class DefaultMp4Builder implements Mp4Builder {
             }
             allocate.rewind();
             writableByteChannel.write(allocate);
-            for (List<Sample> list : this.f31409f) {
+            for (List<Sample> list : this.f32276f) {
                 for (Sample sample : list) {
                     sample.writeTo(writableByteChannel);
                 }
@@ -480,12 +480,12 @@ public class DefaultMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public Container getParent() {
-            return this.f31410g;
+            return this.f32277g;
         }
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            return this.f31411h + 16;
+            return this.f32278h + 16;
         }
 
         @Override // com.coremedia.iso.boxes.Box
@@ -499,7 +499,7 @@ public class DefaultMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public void setParent(Container container) {
-            this.f31410g = container;
+            this.f32277g = container;
         }
 
         public /* synthetic */ a(DefaultMp4Builder defaultMp4Builder, Movie movie, Map map, long j, a aVar) {

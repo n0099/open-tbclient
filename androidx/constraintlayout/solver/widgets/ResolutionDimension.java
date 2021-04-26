@@ -13,9 +13,9 @@ public class ResolutionDimension extends ResolutionNode {
         this.value = 0.0f;
     }
 
-    public void resolve(int i) {
-        if (this.state == 0 || this.value != i) {
-            this.value = i;
+    public void resolve(int i2) {
+        if (this.state == 0 || this.value != i2) {
+            this.value = i2;
             if (this.state == 1) {
                 invalidate();
             }

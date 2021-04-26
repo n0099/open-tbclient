@@ -11,10 +11,10 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import d.b.c.e.m.e;
-import d.b.c.e.p.l;
-import d.b.i0.b1.m.f;
-import d.b.j0.d3.h0.m;
+import d.a.c.e.m.e;
+import d.a.c.e.p.l;
+import d.a.i0.b1.m.f;
+import d.a.j0.d3.h0.m;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -139,21 +139,21 @@ public class UrlManager {
     }
 
     public static String getParamStrBehindScheme(String str) {
-        int i;
+        int i2;
         if (StringUtils.isNull(str)) {
             return null;
         }
         int lastIndexOf = str.lastIndexOf("://");
         if (lastIndexOf < 0) {
             int lastIndexOf2 = str.lastIndexOf(":");
-            if (lastIndexOf2 >= 0 && (i = lastIndexOf2 + 1) <= str.length()) {
-                return str.substring(i);
+            if (lastIndexOf2 >= 0 && (i2 = lastIndexOf2 + 1) <= str.length()) {
+                return str.substring(i2);
             }
             return null;
         }
-        int i2 = lastIndexOf + 3;
-        if (i2 <= str.length()) {
-            return str.substring(i2);
+        int i3 = lastIndexOf + 3;
+        if (i3 <= str.length()) {
+            return str.substring(i3);
         }
         return null;
     }
@@ -179,7 +179,7 @@ public class UrlManager {
     }
 
     public void addListener(final UrlDealListener urlDealListener) {
-        if (l.B()) {
+        if (l.C()) {
             addListenerInner(urlDealListener);
         } else {
             e.a().post(new Runnable() { // from class: com.baidu.tbadk.core.util.UrlManager.2

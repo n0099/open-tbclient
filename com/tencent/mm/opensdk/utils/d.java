@@ -73,8 +73,8 @@ public final class d {
         }
     }
 
-    public static boolean a(int i) {
-        return i == 36 || i == 46;
+    public static boolean a(int i2) {
+        return i2 == 36 || i2 == 46;
     }
 
     public static boolean b(String str) {

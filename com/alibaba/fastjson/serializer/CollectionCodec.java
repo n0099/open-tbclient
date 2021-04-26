@@ -39,19 +39,19 @@ public class CollectionCodec implements ObjectSerializer, ObjectDeserializer {
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (obj == null) {
             serializeWriter.writeNull(SerializerFeature.WriteNullListAsEmpty);
             return;
         }
         Type type2 = null;
-        if (serializeWriter.isEnabled(SerializerFeature.WriteClassName) || SerializerFeature.isEnabled(i, SerializerFeature.WriteClassName)) {
+        if (serializeWriter.isEnabled(SerializerFeature.WriteClassName) || SerializerFeature.isEnabled(i2, SerializerFeature.WriteClassName)) {
             type2 = TypeUtils.getCollectionItemType(type);
         }
         Collection collection = (Collection) obj;
         SerialContext serialContext = jSONSerializer.context;
-        int i2 = 0;
+        int i3 = 0;
         jSONSerializer.setContext(serialContext, obj, obj2, 0);
         if (serializeWriter.isEnabled(SerializerFeature.WriteClassName)) {
             if (HashSet.class.isAssignableFrom(collection.getClass())) {
@@ -63,8 +63,8 @@ public class CollectionCodec implements ObjectSerializer, ObjectDeserializer {
         try {
             serializeWriter.append('[');
             for (Object obj3 : collection) {
-                int i3 = i2 + 1;
-                if (i2 != 0) {
+                int i4 = i3 + 1;
+                if (i3 != 0) {
                     serializeWriter.append(',');
                 }
                 if (obj3 == null) {
@@ -80,14 +80,14 @@ public class CollectionCodec implements ObjectSerializer, ObjectDeserializer {
                         }
                     } else {
                         ObjectSerializer objectWriter = jSONSerializer.getObjectWriter(cls);
-                        if (SerializerFeature.isEnabled(i, SerializerFeature.WriteClassName) && (objectWriter instanceof JavaBeanSerializer)) {
-                            ((JavaBeanSerializer) objectWriter).writeNoneASM(jSONSerializer, obj3, Integer.valueOf(i3 - 1), type2, i);
+                        if (SerializerFeature.isEnabled(i2, SerializerFeature.WriteClassName) && (objectWriter instanceof JavaBeanSerializer)) {
+                            ((JavaBeanSerializer) objectWriter).writeNoneASM(jSONSerializer, obj3, Integer.valueOf(i4 - 1), type2, i2);
                         } else {
-                            objectWriter.write(jSONSerializer, obj3, Integer.valueOf(i3 - 1), type2, i);
+                            objectWriter.write(jSONSerializer, obj3, Integer.valueOf(i4 - 1), type2, i2);
                         }
                     }
                 }
-                i2 = i3;
+                i3 = i4;
             }
             serializeWriter.append(']');
         } finally {

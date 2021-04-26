@@ -9,7 +9,7 @@ import java.util.Map;
 public class fj implements fx {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f40888a = false;
+    public static boolean f38410a = false;
 
     /* renamed from: a  reason: collision with other field name */
     public fl f382a;
@@ -21,7 +21,7 @@ public class fj implements fx {
     public a f381a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f40889b = null;
+    public a f38411b = null;
 
     /* renamed from: a  reason: collision with other field name */
     public fo f383a = null;
@@ -48,7 +48,7 @@ public class fj implements fx {
         public void a(fa faVar) {
             StringBuilder sb;
             String str;
-            if (fj.f40888a) {
+            if (fj.f38410a) {
                 sb = new StringBuilder();
                 sb.append("[Slim] ");
                 sb.append(fj.this.f385a.format(new Date()));
@@ -60,7 +60,7 @@ public class fj implements fx {
                 sb.append(fj.this.f385a.format(new Date()));
                 sb.append(this.f386a);
                 sb.append(" Blob [");
-                sb.append(faVar.m287a());
+                sb.append(faVar.m290a());
                 sb.append(",");
                 sb.append(faVar.a());
                 sb.append(",");
@@ -72,18 +72,18 @@ public class fj implements fx {
             if (faVar == null || faVar.a() != 99999) {
                 return;
             }
-            String m287a = faVar.m287a();
+            String m290a = faVar.m290a();
             fa faVar2 = null;
             if (!this.f387a) {
-                if ("BIND".equals(m287a)) {
-                    com.xiaomi.channel.commonutils.logger.b.m55a("build binded result for loopback.");
+                if ("BIND".equals(m290a)) {
+                    com.xiaomi.channel.commonutils.logger.b.m58a("build binded result for loopback.");
                     du.d dVar = new du.d();
                     dVar.a(true);
                     dVar.c("login success.");
                     dVar.b("success");
                     dVar.a("success");
                     fa faVar3 = new fa();
-                    faVar3.a(dVar.m266a(), (String) null);
+                    faVar3.a(dVar.m269a(), (String) null);
                     faVar3.a((short) 2);
                     faVar3.a(99999);
                     faVar3.a("BIND", (String) null);
@@ -91,20 +91,20 @@ public class fj implements fx {
                     faVar3.b(null);
                     faVar3.c(faVar.g());
                     faVar2 = faVar3;
-                } else if (!"UBND".equals(m287a) && "SECMSG".equals(m287a)) {
+                } else if (!"UBND".equals(m290a) && "SECMSG".equals(m290a)) {
                     fa faVar4 = new fa();
                     faVar4.a(99999);
                     faVar4.a("SECMSG", (String) null);
                     faVar4.c(faVar.g());
                     faVar4.a(faVar.e());
-                    faVar4.a(faVar.m289a());
+                    faVar4.a(faVar.m292a());
                     faVar4.b(faVar.f());
-                    faVar4.a(faVar.m292a(com.xiaomi.push.service.av.a().a(String.valueOf(99999), faVar.g()).f41352h), (String) null);
+                    faVar4.a(faVar.m295a(com.xiaomi.push.service.av.a().a(String.valueOf(99999), faVar.g()).f38896h), (String) null);
                     faVar2 = faVar4;
                 }
             }
             if (faVar2 != null) {
-                for (Map.Entry<fq, fl.a> entry : fj.this.f382a.m307a().entrySet()) {
+                for (Map.Entry<fq, fl.a> entry : fj.this.f382a.m310a().entrySet()) {
                     if (fj.this.f381a != entry.getKey()) {
                         entry.getValue().a(faVar2);
                     }
@@ -116,13 +116,13 @@ public class fj implements fx {
         public void a(gc gcVar) {
             StringBuilder sb;
             String str;
-            if (fj.f40888a) {
+            if (fj.f38410a) {
                 sb = new StringBuilder();
                 sb.append("[Slim] ");
                 sb.append(fj.this.f385a.format(new Date()));
                 sb.append(this.f386a);
                 sb.append(" PKT ");
-                str = gcVar.m330a();
+                str = gcVar.m333a();
             } else {
                 sb = new StringBuilder();
                 sb.append("[Slim] ");
@@ -152,12 +152,12 @@ public class fj implements fx {
 
     private void a() {
         this.f381a = new a(true);
-        this.f40889b = new a(false);
+        this.f38411b = new a(false);
         fl flVar = this.f382a;
         a aVar = this.f381a;
         flVar.a(aVar, aVar);
         fl flVar2 = this.f382a;
-        a aVar2 = this.f40889b;
+        a aVar2 = this.f38411b;
         flVar2.b(aVar2, aVar2);
         this.f383a = new fk(this);
     }

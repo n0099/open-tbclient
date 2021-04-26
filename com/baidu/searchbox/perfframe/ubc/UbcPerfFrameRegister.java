@@ -13,7 +13,7 @@ import com.baidu.searchbox.perfframe.ioc.Constant;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.ubc.UBCManager;
-import d.b.c0.b.a.a;
+import d.a.c0.b.a.a;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,7 +43,7 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
             JSONObject jSONObject2 = new JSONObject();
             if (perfExpInfo.isNeedPageTrace() && (trackUIs = perfExpInfo.getTrackUIs()) != null && trackUIs.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                int i = 1;
+                int i2 = 1;
                 int size = trackUIs.size() - 1;
                 while (true) {
                     TrackUI trackUI = trackUIs.get(size);
@@ -53,16 +53,16 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                     jSONObject3.put("page", PerfFrameTrackUIUtil.trackUI2StringPage(trackUI));
                     jSONObject3.put("event", trackUI.getEvent());
                     jSONArray.put(jSONObject3);
-                    int i2 = i + 1;
-                    if (i >= 20) {
+                    int i3 = i2 + 1;
+                    if (i2 >= 20) {
                         break;
                     }
-                    int i3 = size - 1;
+                    int i4 = size - 1;
                     if (size <= 0) {
                         break;
                     }
-                    size = i3;
-                    i = i2;
+                    size = i4;
+                    i2 = i3;
                 }
                 jSONObject2.put("pageTrace", jSONArray);
             }

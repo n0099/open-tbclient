@@ -13,8 +13,8 @@ public class ConsumptionRecordsActivityConfig extends IntentConfig {
         super(context);
     }
 
-    public ConsumptionRecordsActivityConfig(Context context, int i) {
+    public ConsumptionRecordsActivityConfig(Context context, int i2) {
         super(context);
-        getIntent().putExtra(JUMP_FRAGMENT_TYPE, i);
+        getIntent().putExtra(JUMP_FRAGMENT_TYPE, i2);
     }
 }

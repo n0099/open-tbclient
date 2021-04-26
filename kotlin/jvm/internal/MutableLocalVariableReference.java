@@ -1,5 +1,6 @@
 package kotlin.jvm.internal;
 
+import kotlin.KotlinNothingValueException;
 import kotlin.Metadata;
 import kotlin.SinceKotlin;
 import kotlin.reflect.KDeclarationContainer;
@@ -10,18 +11,18 @@ public class MutableLocalVariableReference extends MutablePropertyReference0 {
     @Override // kotlin.reflect.KProperty0
     public Object get() {
         LocalVariableReferencesKt.notSupportedError();
-        throw null;
+        throw new KotlinNothingValueException();
     }
 
     @Override // kotlin.jvm.internal.CallableReference
     public KDeclarationContainer getOwner() {
         LocalVariableReferencesKt.notSupportedError();
-        throw null;
+        throw new KotlinNothingValueException();
     }
 
     @Override // kotlin.reflect.KMutableProperty0
     public void set(Object obj) {
         LocalVariableReferencesKt.notSupportedError();
-        throw null;
+        throw new KotlinNothingValueException();
     }
 }

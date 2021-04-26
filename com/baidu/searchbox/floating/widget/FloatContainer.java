@@ -43,8 +43,8 @@ public final class FloatContainer extends FrameLayout {
         void onTouch(MotionEvent motionEvent);
     }
 
-    public /* synthetic */ FloatContainer(Config config, Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(config, context, (i2 & 4) != 0 ? null : attributeSet, (i2 & 8) != 0 ? 0 : i);
+    public /* synthetic */ FloatContainer(Config config, Context context, AttributeSet attributeSet, int i2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this(config, context, (i3 & 4) != 0 ? null : attributeSet, (i3 & 8) != 0 ? 0 : i2);
     }
 
     public void _$_clearFindViewByIdCache() {
@@ -54,14 +54,14 @@ public final class FloatContainer extends FrameLayout {
         }
     }
 
-    public View _$_findCachedViewById(int i) {
+    public View _$_findCachedViewById(int i2) {
         if (this._$_findViewCache == null) {
             this._$_findViewCache = new HashMap();
         }
-        View view = (View) this._$_findViewCache.get(Integer.valueOf(i));
+        View view = (View) this._$_findViewCache.get(Integer.valueOf(i2));
         if (view == null) {
-            View findViewById = findViewById(i);
-            this._$_findViewCache.put(Integer.valueOf(i), findViewById);
+            View findViewById = findViewById(i2);
+            this._$_findViewCache.put(Integer.valueOf(i2), findViewById);
             return findViewById;
         }
         return view;
@@ -93,8 +93,8 @@ public final class FloatContainer extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
         if (this.isCreate) {
             return;
         }
@@ -126,8 +126,8 @@ public final class FloatContainer extends FrameLayout {
         this.touchListener = touchListener;
     }
 
-    public FloatContainer(Config config, Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public FloatContainer(Config config, Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.config = config;
         this.gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.searchbox.floating.widget.FloatContainer$gestureDetector$1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener

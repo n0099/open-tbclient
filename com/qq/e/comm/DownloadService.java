@@ -12,14 +12,14 @@ import com.qq.e.comm.util.StringUtil;
 public class DownloadService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public SVSD f38636a;
+    public SVSD f36210a;
 
     private boolean a(String str) {
-        if (this.f38636a == null) {
+        if (this.f36210a == null) {
             try {
                 if (GDTADManager.getInstance().initWith(getApplicationContext(), str)) {
                     SVSD aPKDownloadServiceDelegate = GDTADManager.getInstance().getPM().getPOFactory().getAPKDownloadServiceDelegate(this);
-                    this.f38636a = aPKDownloadServiceDelegate;
+                    this.f36210a = aPKDownloadServiceDelegate;
                     aPKDownloadServiceDelegate.onCreate();
                 } else {
                     GDTLogger.report("Init GDTADManager fail in DownloadService.oncreate");
@@ -28,13 +28,13 @@ public class DownloadService extends Service {
                 th.printStackTrace();
             }
         }
-        return this.f38636a != null;
+        return this.f36210a != null;
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         GDTLogger.d("DownloadService.onBind");
-        SVSD svsd = this.f38636a;
+        SVSD svsd = this.f36210a;
         if (svsd != null) {
             return svsd.onBind(intent);
         }
@@ -43,12 +43,12 @@ public class DownloadService extends Service {
         if (StringUtil.isEmpty(stringExtra) || !a(stringExtra)) {
             return null;
         }
-        return this.f38636a.onBind(intent);
+        return this.f36210a.onBind(intent);
     }
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        SVSD svsd = this.f38636a;
+        SVSD svsd = this.f36210a;
         if (svsd != null) {
             svsd.onConfigurationChanged(configuration);
         }
@@ -61,7 +61,7 @@ public class DownloadService extends Service {
 
     @Override // android.app.Service
     public void onDestroy() {
-        SVSD svsd = this.f38636a;
+        SVSD svsd = this.f36210a;
         if (svsd != null) {
             svsd.onDestroy();
         }
@@ -69,7 +69,7 @@ public class DownloadService extends Service {
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onLowMemory() {
-        SVSD svsd = this.f38636a;
+        SVSD svsd = this.f36210a;
         if (svsd != null) {
             svsd.onLowMemory();
         }
@@ -77,16 +77,16 @@ public class DownloadService extends Service {
 
     @Override // android.app.Service
     public void onRebind(Intent intent) {
-        SVSD svsd = this.f38636a;
+        SVSD svsd = this.f36210a;
         if (svsd != null) {
             svsd.onRebind(intent);
         }
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(Intent intent, int i2, int i3) {
         if (intent == null) {
-            stopSelf(i2);
+            stopSelf(i3);
             return 2;
         }
         String stringExtra = intent.getStringExtra("GDT_APPID");
@@ -94,28 +94,28 @@ public class DownloadService extends Service {
             GDTLogger.w("Failto Start new download Service");
             return 2;
         }
-        return this.f38636a.onStartCommand(intent, i, i2);
+        return this.f36210a.onStartCommand(intent, i2, i3);
     }
 
     @Override // android.app.Service
     public void onTaskRemoved(Intent intent) {
-        SVSD svsd = this.f38636a;
+        SVSD svsd = this.f36210a;
         if (svsd != null) {
             svsd.onTaskRemoved(intent);
         }
     }
 
     @Override // android.app.Service, android.content.ComponentCallbacks2
-    public void onTrimMemory(int i) {
-        SVSD svsd = this.f38636a;
+    public void onTrimMemory(int i2) {
+        SVSD svsd = this.f36210a;
         if (svsd != null) {
-            svsd.onTrimMemory(i);
+            svsd.onTrimMemory(i2);
         }
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        SVSD svsd = this.f38636a;
+        SVSD svsd = this.f36210a;
         return svsd != null ? svsd.onUnbind(intent) : super.onUnbind(intent);
     }
 }

@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.common;
 import com.facebook.common.util.HashCodeUtil;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RotationOptions {
     public static final int DISABLE_ROTATION = -2;
     public static final int NO_ROTATION = 0;
@@ -18,12 +18,12 @@ public class RotationOptions {
     public final int mRotation;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public @interface RotationAngle {
     }
 
-    public RotationOptions(int i, boolean z) {
-        this.mRotation = i;
+    public RotationOptions(int i2, boolean z) {
+        this.mRotation = i2;
         this.mDeferUntilRendered = z;
     }
 
@@ -39,8 +39,8 @@ public class RotationOptions {
         return ROTATION_OPTIONS_DISABLE_ROTATION;
     }
 
-    public static RotationOptions forceRotation(int i) {
-        return new RotationOptions(i, false);
+    public static RotationOptions forceRotation(int i2) {
+        return new RotationOptions(i2, false);
     }
 
     public boolean canDeferUntilRendered() {

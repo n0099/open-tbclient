@@ -6,8 +6,8 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.imsdk.db.TableDefine;
-import d.b.q.g.c.a.e;
-import d.b.q.g.d.a;
+import d.a.q.g.c.a.e;
+import d.a.q.g.d.a;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.Comparator;
@@ -20,28 +20,28 @@ import org.json.JSONObject;
 public class TrustSubject {
 
     /* renamed from: g  reason: collision with root package name */
-    public static Comparator<TrustSubject> f6307g = new a();
+    public static Comparator<TrustSubject> f6491g = new a();
 
     /* renamed from: h  reason: collision with root package name */
-    public static Comparator<TrustSubject> f6308h = new b();
+    public static Comparator<TrustSubject> f6492h = new b();
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f6309a;
+    public final String f6493a;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f6312d;
+    public Context f6496d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a.C1784a f6313e;
+    public a.C1722a f6497e;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.b.q.j.a.c.a f6310b = new d.b.q.j.a.c.a();
+    public final d.a.q.j.a.c.a f6494b = new d.a.q.j.a.c.a();
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.b.q.j.a.b.a f6311c = new d.b.q.j.a.b.a();
+    public final d.a.q.j.a.b.a f6495c = new d.a.q.j.a.b.a();
 
     /* renamed from: f  reason: collision with root package name */
-    public c f6314f = new c();
+    public c f6498f = new c();
 
     /* loaded from: classes2.dex */
     public static class ConfigNotFoundException extends Exception {
@@ -64,8 +64,8 @@ public class TrustSubject {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(TrustSubject trustSubject, TrustSubject trustSubject2) {
-            int i = ((trustSubject.f6314f.k() - trustSubject2.f6314f.k()) > 0L ? 1 : ((trustSubject.f6314f.k() - trustSubject2.f6314f.k()) == 0L ? 0 : -1));
-            return i != 0 ? i > 0 ? -1 : 1 : trustSubject.f6309a.compareTo(trustSubject2.f6309a);
+            int i2 = ((trustSubject.f6498f.k() - trustSubject2.f6498f.k()) > 0L ? 1 : ((trustSubject.f6498f.k() - trustSubject2.f6498f.k()) == 0L ? 0 : -1));
+            return i2 != 0 ? i2 > 0 ? -1 : 1 : trustSubject.f6493a.compareTo(trustSubject2.f6493a);
         }
     }
 
@@ -75,8 +75,8 @@ public class TrustSubject {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(TrustSubject trustSubject, TrustSubject trustSubject2) {
-            int i = ((trustSubject.f6314f.o() - trustSubject2.f6314f.o()) > 0L ? 1 : ((trustSubject.f6314f.o() - trustSubject2.f6314f.o()) == 0L ? 0 : -1));
-            return i != 0 ? i > 0 ? -1 : 1 : trustSubject.f6309a.compareTo(trustSubject2.f6309a);
+            int i2 = ((trustSubject.f6498f.o() - trustSubject2.f6498f.o()) > 0L ? 1 : ((trustSubject.f6498f.o() - trustSubject2.f6498f.o()) == 0L ? 0 : -1));
+            return i2 != 0 ? i2 > 0 ? -1 : 1 : trustSubject.f6493a.compareTo(trustSubject2.f6493a);
         }
     }
 
@@ -84,63 +84,63 @@ public class TrustSubject {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f6315a;
+        public int f6499a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f6316b;
+        public long f6500b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f6317c;
+        public long f6501c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f6318d;
+        public long f6502d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f6319e;
+        public long f6503e;
 
         /* renamed from: f  reason: collision with root package name */
-        public e f6320f = new e();
+        public e f6504f = new e();
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f6321g = true;
+        public boolean f6505g = true;
 
         /* renamed from: h  reason: collision with root package name */
-        public Set<String> f6322h = new HashSet();
+        public Set<String> f6506h = new HashSet();
 
         public c() {
         }
 
         public long a(long j) {
-            return this.f6320f.a(j);
+            return this.f6504f.a(j);
         }
 
         public void c(Set<String> set) {
             if (set == null || set.size() == 0) {
-                if (this.f6322h.size() == 0) {
+                if (this.f6506h.size() == 0) {
                     return;
                 }
-                this.f6322h.clear();
-            } else if (this.f6322h.equals(set)) {
+                this.f6506h.clear();
+            } else if (this.f6506h.equals(set)) {
                 return;
             } else {
-                this.f6322h.clear();
-                this.f6322h.addAll(set);
+                this.f6506h.clear();
+                this.f6506h.addAll(set);
             }
-            this.f6321g = true;
+            this.f6505g = true;
         }
 
-        public boolean d(int i) {
-            if (this.f6315a != i) {
-                this.f6315a = i;
-                this.f6321g = true;
+        public boolean d(int i2) {
+            if (this.f6499a != i2) {
+                this.f6499a = i2;
+                this.f6505g = true;
                 return true;
             }
             return false;
         }
 
         public boolean e(long j, long j2) {
-            if (this.f6320f.c(j, j2)) {
-                this.f6321g = true;
+            if (this.f6504f.c(j, j2)) {
+                this.f6505g = true;
                 return true;
             }
             return false;
@@ -151,83 +151,83 @@ public class TrustSubject {
         }
 
         public int g() {
-            return this.f6315a;
+            return this.f6499a;
         }
 
         public boolean h(long j) {
-            if (this.f6316b != j) {
-                this.f6316b = j;
-                this.f6321g = true;
+            if (this.f6500b != j) {
+                this.f6500b = j;
+                this.f6505g = true;
                 return true;
             }
             return false;
         }
 
         public long i() {
-            return this.f6316b;
+            return this.f6500b;
         }
 
         public boolean j(long j) {
-            if (this.f6317c != j) {
-                this.f6317c = j;
-                this.f6321g = true;
+            if (this.f6501c != j) {
+                this.f6501c = j;
+                this.f6505g = true;
                 return true;
             }
             return false;
         }
 
         public long k() {
-            return this.f6317c;
+            return this.f6501c;
         }
 
         public boolean l(long j) {
-            if (this.f6319e != j) {
-                this.f6319e = j;
-                this.f6321g = true;
+            if (this.f6503e != j) {
+                this.f6503e = j;
+                this.f6505g = true;
                 return true;
             }
             return false;
         }
 
         public long m() {
-            return this.f6319e;
+            return this.f6503e;
         }
 
         public boolean n(long j) {
-            if (this.f6318d != j) {
-                this.f6318d = j;
+            if (this.f6502d != j) {
+                this.f6502d = j;
                 return true;
             }
             return false;
         }
 
         public long o() {
-            return this.f6318d;
+            return this.f6502d;
         }
 
         public Set<String> p() {
-            return this.f6322h;
+            return this.f6506h;
         }
 
         public boolean q() {
-            if (this.f6321g) {
+            if (this.f6505g) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, this.f6316b);
-                    jSONObject.put("version_code", this.f6315a);
-                    jSONObject.put("trust_priority", this.f6317c);
-                    jSONObject.put("quick_config_version", this.f6318d);
-                    jSONObject.put("config_version", this.f6319e);
-                    jSONObject.put("flags", this.f6320f.d());
-                    if (this.f6322h.size() > 0) {
+                    jSONObject.put(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, this.f6500b);
+                    jSONObject.put("version_code", this.f6499a);
+                    jSONObject.put("trust_priority", this.f6501c);
+                    jSONObject.put("quick_config_version", this.f6502d);
+                    jSONObject.put("config_version", this.f6503e);
+                    jSONObject.put("flags", this.f6504f.d());
+                    if (this.f6506h.size() > 0) {
                         JSONArray jSONArray = new JSONArray();
-                        for (String str : this.f6322h) {
+                        for (String str : this.f6506h) {
                             jSONArray.put(str);
                         }
                         jSONObject.put("pkg_sigs", jSONArray);
                     }
-                    TrustSubject.this.f6313e.i("ts_info", jSONObject.toString(), true);
-                    this.f6321g = false;
+                    TrustSubject.this.f6497e.i("ts_info", jSONObject.toString(), true);
+                    this.f6505g = false;
                     return true;
                 } catch (JSONException e2) {
                     e2.printStackTrace();
@@ -237,27 +237,27 @@ public class TrustSubject {
         }
 
         public void r() {
-            String g2 = TrustSubject.this.f6313e.g("ts_info", true);
+            String g2 = TrustSubject.this.f6497e.g("ts_info", true);
             if (TextUtils.isEmpty(g2)) {
                 return;
             }
             try {
                 JSONObject jSONObject = new JSONObject(g2);
-                this.f6316b = jSONObject.getLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME);
-                this.f6315a = jSONObject.getInt("version_code");
-                this.f6317c = jSONObject.getLong("trust_priority");
-                this.f6318d = jSONObject.getLong("quick_config_version");
-                this.f6319e = jSONObject.getLong("config_version");
-                this.f6320f.b(jSONObject.getLong("flags"));
-                this.f6322h.clear();
+                this.f6500b = jSONObject.getLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME);
+                this.f6499a = jSONObject.getInt("version_code");
+                this.f6501c = jSONObject.getLong("trust_priority");
+                this.f6502d = jSONObject.getLong("quick_config_version");
+                this.f6503e = jSONObject.getLong("config_version");
+                this.f6504f.b(jSONObject.getLong("flags"));
+                this.f6506h.clear();
                 JSONArray optJSONArray = jSONObject.optJSONArray("pkg_sigs");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        this.f6322h.add(optJSONArray.getString(i));
+                    for (int i2 = 0; i2 < length; i2++) {
+                        this.f6506h.add(optJSONArray.getString(i2));
                     }
                 }
-                this.f6321g = false;
+                this.f6505g = false;
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -272,10 +272,10 @@ public class TrustSubject {
         }
     }
 
-    public TrustSubject(String str, Context context, a.C1784a c1784a) {
-        this.f6312d = context;
-        this.f6309a = str;
-        this.f6313e = c1784a.f(c(str));
+    public TrustSubject(String str, Context context, a.C1722a c1722a) {
+        this.f6496d = context;
+        this.f6493a = str;
+        this.f6497e = c1722a.f(c(str));
         x();
     }
 
@@ -295,14 +295,14 @@ public class TrustSubject {
     }
 
     public c a() {
-        return this.f6314f;
+        return this.f6498f;
     }
 
-    public void d(d.b.q.g.b.e.a aVar) {
-        this.f6310b.b(aVar, true);
-        this.f6314f.f(this.f6310b.d());
-        this.f6314f.j(this.f6310b.i());
-        this.f6314f.c(this.f6310b.j());
+    public void d(d.a.q.g.b.e.a aVar) {
+        this.f6494b.b(aVar, true);
+        this.f6498f.f(this.f6494b.d());
+        this.f6498f.j(this.f6494b.i());
+        this.f6498f.c(this.f6494b.j());
     }
 
     public boolean equals(Object obj) {
@@ -312,93 +312,93 @@ public class TrustSubject {
         if (obj == null || TrustSubject.class != obj.getClass()) {
             return false;
         }
-        return this.f6309a.equals(((TrustSubject) obj).f6309a);
+        return this.f6493a.equals(((TrustSubject) obj).f6493a);
     }
 
     public void g() {
-        long a2 = this.f6311c.a();
-        this.f6314f.e(a2 > -1 ? 128L : 256L, 384L);
-        this.f6314f.n(a2);
+        long a2 = this.f6495c.a();
+        this.f6498f.e(a2 > -1 ? 128L : 256L, 384L);
+        this.f6498f.n(a2);
     }
 
     public boolean h() {
-        int d2 = this.f6311c.d();
+        int d2 = this.f6495c.d();
         if (d2 == 0) {
-            this.f6314f.e(16L, 48L);
-            this.f6314f.e(64L, 64L);
-            this.f6314f.e(4L, 12L);
+            this.f6498f.e(16L, 48L);
+            this.f6498f.e(64L, 64L);
+            this.f6498f.e(4L, 12L);
             i();
-            this.f6314f.l(this.f6311c.j());
+            this.f6498f.l(this.f6495c.j());
             return true;
         } else if (d2 != 3) {
-            this.f6314f.e(32L, 48L);
-            this.f6314f.e(0L, 64L);
+            this.f6498f.e(32L, 48L);
+            this.f6498f.e(0L, 64L);
             return false;
         } else {
-            this.f6314f.e(32L, 48L);
-            this.f6314f.e(8L, 12L);
+            this.f6498f.e(32L, 48L);
+            this.f6498f.e(8L, 12L);
             return false;
         }
     }
 
     public int hashCode() {
-        return this.f6309a.hashCode();
+        return this.f6493a.hashCode();
     }
 
     public void i() {
-        this.f6311c.h();
+        this.f6495c.h();
     }
 
     public void j() {
-        this.f6311c.i();
+        this.f6495c.i();
     }
 
     public void k() {
-        this.f6311c.f();
-        this.f6314f.e(0L, 64L);
+        this.f6495c.f();
+        this.f6498f.e(0L, 64L);
     }
 
     public void l() {
-        this.f6311c.g();
+        this.f6495c.g();
     }
 
     public String m(String str) {
-        this.f6311c.h();
-        return this.f6311c.b(str);
+        this.f6495c.h();
+        return this.f6495c.b(str);
     }
 
     public long n() {
-        return this.f6314f.f6319e;
+        return this.f6498f.f6503e;
     }
 
     public long o() {
-        return this.f6314f.k();
+        return this.f6498f.k();
     }
 
     public boolean p() {
-        return this.f6314f.o() == this.f6314f.m();
+        return this.f6498f.o() == this.f6498f.m();
     }
 
     public void q() {
         try {
-            PackageInfo packageInfo = this.f6312d.getPackageManager().getPackageInfo(this.f6309a, 0);
+            PackageInfo packageInfo = this.f6496d.getPackageManager().getPackageInfo(this.f6493a, 0);
             long j = packageInfo.lastUpdateTime;
-            int i = packageInfo.versionCode;
-            this.f6314f.h(j);
-            this.f6314f.d(i);
+            int i2 = packageInfo.versionCode;
+            this.f6498f.h(j);
+            this.f6498f.d(i2);
         } catch (PackageManager.NameNotFoundException e2) {
             e2.printStackTrace();
         }
     }
 
     public boolean r() {
-        return this.f6314f.a(12L) == 4;
+        return this.f6498f.a(12L) == 4;
     }
 
     public boolean s() {
         PackageInfo packageInfo;
         try {
-            packageInfo = this.f6312d.getPackageManager().getPackageInfo(this.f6309a, 0);
+            packageInfo = this.f6496d.getPackageManager().getPackageInfo(this.f6493a, 0);
         } catch (PackageManager.NameNotFoundException unused) {
             packageInfo = null;
         }
@@ -406,16 +406,16 @@ public class TrustSubject {
     }
 
     public Set<String> t() {
-        return new HashSet(this.f6314f.p());
+        return new HashSet(this.f6498f.p());
     }
 
     public boolean u() {
         try {
-            PackageInfo packageInfo = this.f6312d.getPackageManager().getPackageInfo(this.f6309a, 0);
+            PackageInfo packageInfo = this.f6496d.getPackageManager().getPackageInfo(this.f6493a, 0);
             long j = packageInfo.lastUpdateTime;
-            int i = packageInfo.versionCode;
-            if (this.f6314f.i() == j) {
-                return this.f6314f.g() == i;
+            int i2 = packageInfo.versionCode;
+            if (this.f6498f.i() == j) {
+                return this.f6498f.g() == i2;
             }
             return false;
         } catch (PackageManager.NameNotFoundException e2) {
@@ -425,15 +425,15 @@ public class TrustSubject {
     }
 
     public void v() {
-        this.f6314f.r();
+        this.f6498f.r();
     }
 
     public boolean w() {
-        return this.f6314f.q();
+        return this.f6498f.q();
     }
 
     public final void x() {
-        this.f6310b.c(this.f6309a, this.f6312d);
-        this.f6311c.c(this.f6309a, this.f6312d, this.f6313e);
+        this.f6494b.c(this.f6493a, this.f6496d);
+        this.f6495c.c(this.f6493a, this.f6496d, this.f6497e);
     }
 }

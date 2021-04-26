@@ -15,28 +15,28 @@ import org.json.JSONObject;
 public class PermissionCheck {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7888a = "PermissionCheck";
+    public static final String f8174a = "PermissionCheck";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f7889b = null;
+    public static Context f8175b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f7890c = null;
+    public static String f8176c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Hashtable<String, String> f7891d = null;
+    public static Hashtable<String, String> f8177d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static LBSAuthManager f7892e = null;
+    public static LBSAuthManager f8178e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static LBSAuthManagerListener f7893f = null;
+    public static LBSAuthManagerListener f8179f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static c f7894g = null;
+    public static c f8180g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f7895h = 601;
+    public static int f8181h = 601;
 
     /* loaded from: classes2.dex */
     public static class a implements LBSAuthManagerListener {
@@ -44,11 +44,11 @@ public class PermissionCheck {
         }
 
         @Override // com.baidu.lbsapi.auth.LBSAuthManagerListener
-        public void onAuthResult(int i, String str) {
+        public void onAuthResult(int i2, String str) {
             if (str == null) {
-                Log.e(PermissionCheck.f7888a, "The result is null");
+                Log.e(PermissionCheck.f8174a, "The result is null");
                 int permissionCheck = PermissionCheck.permissionCheck();
-                String str2 = PermissionCheck.f7888a;
+                String str2 = PermissionCheck.f8174a;
                 Log.d(str2, "onAuthResult try permissionCheck result is: " + permissionCheck);
                 return;
             }
@@ -56,26 +56,26 @@ public class PermissionCheck {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.has("status")) {
-                    bVar.f7896a = jSONObject.optInt("status");
+                    bVar.f8182a = jSONObject.optInt("status");
                 }
                 if (jSONObject.has("appid")) {
-                    bVar.f7898c = jSONObject.optString("appid");
+                    bVar.f8184c = jSONObject.optString("appid");
                 }
                 if (jSONObject.has("uid")) {
-                    bVar.f7897b = jSONObject.optString("uid");
+                    bVar.f8183b = jSONObject.optString("uid");
                 }
                 if (jSONObject.has("message")) {
-                    bVar.f7899d = jSONObject.optString("message");
+                    bVar.f8185d = jSONObject.optString("message");
                 }
                 if (jSONObject.has("token")) {
-                    bVar.f7900e = jSONObject.optString("token");
+                    bVar.f8186e = jSONObject.optString("token");
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            int unused = PermissionCheck.f7895h = bVar.f7896a;
-            if (PermissionCheck.f7894g != null) {
-                PermissionCheck.f7894g.a(bVar);
+            int unused = PermissionCheck.f8181h = bVar.f8182a;
+            if (PermissionCheck.f8180g != null) {
+                PermissionCheck.f8180g.a(bVar);
             }
         }
     }
@@ -84,22 +84,22 @@ public class PermissionCheck {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f7896a = 0;
+        public int f8182a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f7897b = "-1";
+        public String f8183b = "-1";
 
         /* renamed from: c  reason: collision with root package name */
-        public String f7898c = "-1";
+        public String f8184c = "-1";
 
         /* renamed from: d  reason: collision with root package name */
-        public String f7899d = "";
+        public String f8185d = "";
 
         /* renamed from: e  reason: collision with root package name */
-        public String f7900e;
+        public String f8186e;
 
         public String toString() {
-            return String.format("=============================================\n----------------- 鉴权错误信息 ------------\nsha1;package:%s\nkey:%s\nerrorcode: %d uid: %s appid %s msg: %s\n请仔细核查 SHA1、package与key申请信息是否对应，key是否删除，平台是否匹配\nerrorcode为230时，请参考论坛链接：\nhttp://bbs.lbsyun.baidu.com/forum.php?mod=viewthread&tid=106461\n=============================================\n", com.baidu.mapsdkplatform.comapi.util.a.a(PermissionCheck.f7889b), PermissionCheck.f7890c, Integer.valueOf(this.f7896a), this.f7897b, this.f7898c, this.f7899d);
+            return String.format("=============================================\n----------------- 鉴权错误信息 ------------\nsha1;package:%s\nkey:%s\nerrorcode: %d uid: %s appid %s msg: %s\n请仔细核查 SHA1、package与key申请信息是否对应，key是否删除，平台是否匹配\nerrorcode为230时，请参考论坛链接：\nhttp://bbs.lbsyun.baidu.com/forum.php?mod=viewthread&tid=106461\n=============================================\n", com.baidu.mapsdkplatform.comapi.util.a.a(PermissionCheck.f8175b), PermissionCheck.f8176c, Integer.valueOf(this.f8182a), this.f8183b, this.f8184c, this.f8185d);
         }
     }
 
@@ -109,81 +109,81 @@ public class PermissionCheck {
     }
 
     public static void destory() {
-        f7894g = null;
-        f7889b = null;
-        f7893f = null;
+        f8180g = null;
+        f8175b = null;
+        f8179f = null;
     }
 
     public static int getPermissionResult() {
-        return f7895h;
+        return f8181h;
     }
 
     public static void init(Context context) {
         ApplicationInfo applicationInfo;
         String str;
-        f7889b = context;
+        f8175b = context;
         try {
-            applicationInfo = context.getPackageManager().getApplicationInfo(f7889b.getPackageName(), 128);
+            applicationInfo = context.getPackageManager().getApplicationInfo(f8175b.getPackageName(), 128);
         } catch (PackageManager.NameNotFoundException e2) {
             e2.printStackTrace();
             applicationInfo = null;
         }
         if (applicationInfo != null) {
-            f7890c = applicationInfo.metaData.getString("com.baidu.lbsapi.API_KEY");
+            f8176c = applicationInfo.metaData.getString("com.baidu.lbsapi.API_KEY");
         }
-        if (f7891d == null) {
-            f7891d = new Hashtable<>();
+        if (f8177d == null) {
+            f8177d = new Hashtable<>();
         }
-        if (f7892e == null) {
-            f7892e = LBSAuthManager.getInstance(f7889b);
+        if (f8178e == null) {
+            f8178e = LBSAuthManager.getInstance(f8175b);
         }
-        if (f7893f == null) {
-            f7893f = new a();
+        if (f8179f == null) {
+            f8179f = new a();
         }
         try {
-            str = context.getPackageManager().getPackageInfo(f7889b.getPackageName(), 0).applicationInfo.loadLabel(f7889b.getPackageManager()).toString();
+            str = context.getPackageManager().getPackageInfo(f8175b.getPackageName(), 0).applicationInfo.loadLabel(f8175b.getPackageManager()).toString();
         } catch (Exception e3) {
             e3.printStackTrace();
             str = "";
         }
         Bundle b2 = f.b();
         if (b2 != null) {
-            f7891d.put("mb", b2.getString("mb"));
-            f7891d.put(IAdRequestParam.OS, b2.getString(IAdRequestParam.OS));
-            f7891d.put("sv", b2.getString("sv"));
-            f7891d.put("imt", "1");
-            f7891d.put("net", b2.getString("net"));
-            f7891d.put("cpu", b2.getString("cpu"));
-            f7891d.put("glr", b2.getString("glr"));
-            f7891d.put("glv", b2.getString("glv"));
-            f7891d.put("resid", b2.getString("resid"));
-            f7891d.put("appid", "-1");
-            f7891d.put("ver", "1");
-            f7891d.put("screen", String.format("(%d,%d)", Integer.valueOf(b2.getInt("screen_x")), Integer.valueOf(b2.getInt("screen_y"))));
-            f7891d.put("dpi", String.format("(%d,%d)", Integer.valueOf(b2.getInt("dpi_x")), Integer.valueOf(b2.getInt("dpi_y"))));
-            f7891d.put("pcn", b2.getString("pcn"));
-            f7891d.put("cuid", b2.getString("cuid"));
-            f7891d.put("name", str);
+            f8177d.put("mb", b2.getString("mb"));
+            f8177d.put(IAdRequestParam.OS, b2.getString(IAdRequestParam.OS));
+            f8177d.put("sv", b2.getString("sv"));
+            f8177d.put("imt", "1");
+            f8177d.put("net", b2.getString("net"));
+            f8177d.put("cpu", b2.getString("cpu"));
+            f8177d.put("glr", b2.getString("glr"));
+            f8177d.put("glv", b2.getString("glv"));
+            f8177d.put("resid", b2.getString("resid"));
+            f8177d.put("appid", "-1");
+            f8177d.put("ver", "1");
+            f8177d.put("screen", String.format("(%d,%d)", Integer.valueOf(b2.getInt("screen_x")), Integer.valueOf(b2.getInt("screen_y"))));
+            f8177d.put("dpi", String.format("(%d,%d)", Integer.valueOf(b2.getInt("dpi_x")), Integer.valueOf(b2.getInt("dpi_y"))));
+            f8177d.put("pcn", b2.getString("pcn"));
+            f8177d.put("cuid", b2.getString("cuid"));
+            f8177d.put("name", str);
         }
     }
 
     public static synchronized int permissionCheck() {
         synchronized (PermissionCheck.class) {
-            if (f7892e != null && f7893f != null && f7889b != null) {
-                int authenticate = f7892e.authenticate(false, "lbs_androidsdk", f7891d, f7893f);
+            if (f8178e != null && f8179f != null && f8175b != null) {
+                int authenticate = f8178e.authenticate(false, "lbs_androidsdk", f8177d, f8179f);
                 if (authenticate != 0) {
-                    String str = f7888a;
+                    String str = f8174a;
                     Log.e(str, "permission check result is: " + authenticate);
                 }
                 return authenticate;
             }
-            String str2 = f7888a;
-            Log.e(str2, "The authManager is: " + f7892e + "; the authCallback is: " + f7893f + "; the mContext is: " + f7889b);
+            String str2 = f8174a;
+            Log.e(str2, "The authManager is: " + f8178e + "; the authCallback is: " + f8179f + "; the mContext is: " + f8175b);
             return 0;
         }
     }
 
     public static void setPermissionCheckResultListener(c cVar) {
-        f7894g = cVar;
+        f8180g = cVar;
     }
 }

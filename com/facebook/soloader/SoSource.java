@@ -24,9 +24,9 @@ public abstract class SoSource {
         return SysUtil.getSupportedAbis();
     }
 
-    public abstract int loadLibrary(String str, int i, StrictMode.ThreadPolicy threadPolicy) throws IOException;
+    public abstract int loadLibrary(String str, int i2, StrictMode.ThreadPolicy threadPolicy) throws IOException;
 
-    public void prepare(int i) throws IOException {
+    public void prepare(int i2) throws IOException {
     }
 
     public String toString() {

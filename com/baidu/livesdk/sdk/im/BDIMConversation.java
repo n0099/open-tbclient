@@ -29,14 +29,14 @@ public class BDIMConversation implements IMConversation {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void handleSendMessageResponse(int i, ChatMsg chatMsg, SendMessageListener sendMessageListener) {
+    public void handleSendMessageResponse(int i2, ChatMsg chatMsg, SendMessageListener sendMessageListener) {
         if (sendMessageListener != null) {
             ArrayList arrayList = null;
-            if (i != 22 && i != 1024 && i != 1001) {
+            if (i2 != 22 && i2 != 1024 && i2 != 1001) {
                 arrayList = new ArrayList();
                 arrayList.add(LiveMessageParser.parseChatMsg(chatMsg));
             }
-            sendMessageListener.onSendMessageResult(i, arrayList);
+            sendMessageListener.onSendMessageResult(i2, arrayList);
         }
     }
 
@@ -44,10 +44,10 @@ public class BDIMConversation implements IMConversation {
     public void beginWithCompletion(final IMCastSetListener iMCastSetListener) {
         this.mConversation.beginWithCompletion(new IMcastSetListener() { // from class: com.baidu.livesdk.sdk.im.BDIMConversation.2
             @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
-            public void onResult(int i, long j, long j2) {
+            public void onResult(int i2, long j, long j2) {
                 IMCastSetListener iMCastSetListener2 = iMCastSetListener;
                 if (iMCastSetListener2 != null) {
-                    iMCastSetListener2.onResult(i, j, j2);
+                    iMCastSetListener2.onResult(i2, j, j2);
                 }
             }
         });
@@ -57,10 +57,10 @@ public class BDIMConversation implements IMConversation {
     public void endWithCompletion(final IMCastSetListener iMCastSetListener) {
         this.mConversation.endWithCompletion(new IMcastSetListener() { // from class: com.baidu.livesdk.sdk.im.BDIMConversation.3
             @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
-            public void onResult(int i, long j, long j2) {
+            public void onResult(int i2, long j, long j2) {
                 IMCastSetListener iMCastSetListener2 = iMCastSetListener;
                 if (iMCastSetListener2 != null) {
-                    iMCastSetListener2.onResult(i, j, j2);
+                    iMCastSetListener2.onResult(i2, j, j2);
                 }
             }
         });
@@ -84,10 +84,10 @@ public class BDIMConversation implements IMConversation {
         }
         this.mConversation.registerLiveMsgReceiveListener(j, new ILiveMsgReceiveListener() { // from class: com.baidu.livesdk.sdk.im.BDIMConversation.1
             @Override // com.baidu.android.imsdk.mcast.ILiveMsgReceiveListener
-            public void onReceiveMessage(int i, JSONArray jSONArray) {
+            public void onReceiveMessage(int i2, JSONArray jSONArray) {
                 MsgReceiveListener msgReceiveListener2 = msgReceiveListener;
                 if (msgReceiveListener2 != null) {
-                    msgReceiveListener2.onReceiveMessage(i, LiveMessageParser.getMessageList(jSONArray));
+                    msgReceiveListener2.onReceiveMessage(i2, LiveMessageParser.getMessageList(jSONArray));
                 }
             }
         });
@@ -97,31 +97,31 @@ public class BDIMConversation implements IMConversation {
     public void sendMessage(Object obj, final SendMessageStatusListener sendMessageStatusListener, final SendMessageListener sendMessageListener) {
         this.mConversation.sendMessage(LiveMessageParser.trans2ChatMsg(this.mContext, (LiveSendMessage) obj), new ISendMessageStatusListener() { // from class: com.baidu.livesdk.sdk.im.BDIMConversation.4
             @Override // com.baidu.android.imsdk.chatmessage.ISendMessageStatusListener
-            public void onSendProgress(int i, ChatMsg chatMsg) {
+            public void onSendProgress(int i2, ChatMsg chatMsg) {
                 SendMessageStatusListener sendMessageStatusListener2 = sendMessageStatusListener;
                 if (sendMessageStatusListener2 != null) {
-                    sendMessageStatusListener2.onSendProgress(i, chatMsg);
+                    sendMessageStatusListener2.onSendProgress(i2, chatMsg);
                 }
             }
 
             @Override // com.baidu.android.imsdk.chatmessage.ISendMessageStatusListener
-            public void onSendStatus(int i, ChatMsg chatMsg) {
+            public void onSendStatus(int i2, ChatMsg chatMsg) {
                 SendMessageStatusListener sendMessageStatusListener2 = sendMessageStatusListener;
                 if (sendMessageStatusListener2 != null) {
-                    sendMessageStatusListener2.onSendStatus(i, chatMsg);
+                    sendMessageStatusListener2.onSendStatus(i2, chatMsg);
                 }
             }
         }, new ISendMessageListener() { // from class: com.baidu.livesdk.sdk.im.BDIMConversation.5
             @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
-            public void onSendMessageResult(int i, ChatMsg chatMsg) {
-                BDIMConversation.this.handleSendMessageResponse(i, chatMsg, sendMessageListener);
+            public void onSendMessageResult(int i2, ChatMsg chatMsg) {
+                BDIMConversation.this.handleSendMessageResponse(i2, chatMsg, sendMessageListener);
             }
         });
     }
 
     @Override // com.baidu.livesdk.api.im.IMConversation
-    public void setPullInterval(int i) {
-        this.mConversation.setPullInterval(i);
+    public void setPullInterval(int i2) {
+        this.mConversation.setPullInterval(i2);
     }
 
     @Override // com.baidu.livesdk.api.im.IMConversation

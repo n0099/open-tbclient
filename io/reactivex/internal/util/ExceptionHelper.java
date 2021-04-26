@@ -1,12 +1,13 @@
 package io.reactivex.internal.util;
 
 import io.reactivex.exceptions.CompositeException;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ExceptionHelper {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Throwable f69250a = new Termination();
+    public static final Throwable TERMINATED = new Termination();
 
     /* loaded from: classes7.dex */
     public static final class Termination extends Throwable {
@@ -22,24 +23,53 @@ public final class ExceptionHelper {
         }
     }
 
-    public static <T> boolean a(AtomicReference<Throwable> atomicReference, Throwable th) {
+    public ExceptionHelper() {
+        throw new IllegalStateException("No instances!");
+    }
+
+    public static <T> boolean addThrowable(AtomicReference<Throwable> atomicReference, Throwable th) {
         Throwable th2;
         do {
             th2 = atomicReference.get();
-            if (th2 == f69250a) {
+            if (th2 == TERMINATED) {
                 return false;
             }
         } while (!atomicReference.compareAndSet(th2, th2 == null ? th : new CompositeException(th2, th)));
         return true;
     }
 
-    public static <T> Throwable b(AtomicReference<Throwable> atomicReference) {
+    public static List<Throwable> flatten(Throwable th) {
+        ArrayList arrayList = new ArrayList();
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.offer(th);
+        while (!arrayDeque.isEmpty()) {
+            Throwable th2 = (Throwable) arrayDeque.removeFirst();
+            if (th2 instanceof CompositeException) {
+                List<Throwable> exceptions = ((CompositeException) th2).getExceptions();
+                for (int size = exceptions.size() - 1; size >= 0; size--) {
+                    arrayDeque.offerFirst(exceptions.get(size));
+                }
+            } else {
+                arrayList.add(th2);
+            }
+        }
+        return arrayList;
+    }
+
+    public static <T> Throwable terminate(AtomicReference<Throwable> atomicReference) {
         Throwable th = atomicReference.get();
-        Throwable th2 = f69250a;
+        Throwable th2 = TERMINATED;
         return th != th2 ? atomicReference.getAndSet(th2) : th;
     }
 
-    public static RuntimeException c(Throwable th) {
+    public static <E extends Throwable> Exception throwIfThrowable(Throwable th) throws Throwable {
+        if (th instanceof Exception) {
+            return (Exception) th;
+        }
+        throw th;
+    }
+
+    public static RuntimeException wrapOrThrow(Throwable th) {
         if (!(th instanceof Error)) {
             if (th instanceof RuntimeException) {
                 return (RuntimeException) th;

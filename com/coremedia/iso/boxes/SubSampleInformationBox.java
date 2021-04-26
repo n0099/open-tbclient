@@ -10,22 +10,22 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SubSampleInformationBox extends AbstractFullBox {
     public static final String TYPE = "subs";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
     public List<SampleEntry> entries;
     public long entryCount;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class SampleEntry {
         public long sampleDelta;
         public int subsampleCount;
         public List<SubsampleEntry> subsampleEntries = new ArrayList();
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static class SubsampleEntry {
             public int discardable;
             public long reserved;
@@ -48,16 +48,16 @@ public class SubSampleInformationBox extends AbstractFullBox {
                 return this.subsampleSize;
             }
 
-            public void setDiscardable(int i) {
-                this.discardable = i;
+            public void setDiscardable(int i2) {
+                this.discardable = i2;
             }
 
             public void setReserved(long j) {
                 this.reserved = j;
             }
 
-            public void setSubsamplePriority(int i) {
-                this.subsamplePriority = i;
+            public void setSubsamplePriority(int i2) {
+                this.subsamplePriority = i2;
             }
 
             public void setSubsampleSize(long j) {
@@ -90,8 +90,8 @@ public class SubSampleInformationBox extends AbstractFullBox {
             this.sampleDelta = j;
         }
 
-        public void setSubsampleCount(int i) {
-            this.subsampleCount = i;
+        public void setSubsampleCount(int i2) {
+            this.subsampleCount = i2;
         }
 
         public String toString() {
@@ -119,11 +119,11 @@ public class SubSampleInformationBox extends AbstractFullBox {
     public void _parseDetails(ByteBuffer byteBuffer) {
         parseVersionAndFlags(byteBuffer);
         this.entryCount = IsoTypeReader.readUInt32(byteBuffer);
-        for (int i = 0; i < this.entryCount; i++) {
+        for (int i2 = 0; i2 < this.entryCount; i2++) {
             SampleEntry sampleEntry = new SampleEntry();
             sampleEntry.setSampleDelta(IsoTypeReader.readUInt32(byteBuffer));
             int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
-            for (int i2 = 0; i2 < readUInt16; i2++) {
+            for (int i3 = 0; i3 < readUInt16; i3++) {
                 SampleEntry.SubsampleEntry subsampleEntry = new SampleEntry.SubsampleEntry();
                 subsampleEntry.setSubsampleSize(getVersion() == 1 ? IsoTypeReader.readUInt32(byteBuffer) : IsoTypeReader.readUInt16(byteBuffer));
                 subsampleEntry.setSubsamplePriority(IsoTypeReader.readUInt8(byteBuffer));
@@ -158,11 +158,11 @@ public class SubSampleInformationBox extends AbstractFullBox {
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
         long j = (this.entryCount * 6) + 8;
-        int i = 0;
+        int i2 = 0;
         for (SampleEntry sampleEntry : this.entries) {
-            i += sampleEntry.getSubsampleCount() * ((getVersion() == 1 ? 4 : 2) + 1 + 1 + 4);
+            i2 += sampleEntry.getSubsampleCount() * ((getVersion() == 1 ? 4 : 2) + 1 + 1 + 4);
         }
-        return j + i;
+        return j + i2;
     }
 
     public List<SampleEntry> getEntries() {

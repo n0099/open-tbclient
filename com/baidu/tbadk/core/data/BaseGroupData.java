@@ -134,24 +134,24 @@ public class BaseGroupData extends AbstractImageProvider implements Serializable
         this.business = str;
     }
 
-    public void setCreateTime(int i) {
-        this.createTime = i;
+    public void setCreateTime(int i2) {
+        this.createTime = i2;
     }
 
-    public void setFlag(int i) {
-        this.flag = i;
+    public void setFlag(int i2) {
+        this.flag = i2;
     }
 
-    public void setForumId(int i) {
-        this.forumId = i;
+    public void setForumId(int i2) {
+        this.forumId = i2;
     }
 
     public void setGroupId(long j) {
         this.groupId = j;
     }
 
-    public void setGroupType(int i) {
-        this.groupType = i;
+    public void setGroupType(int i2) {
+        this.groupType = i2;
     }
 
     public void setIntro(String str) {
@@ -166,12 +166,12 @@ public class BaseGroupData extends AbstractImageProvider implements Serializable
         this.lng = str;
     }
 
-    public void setMaxMemberNum(int i) {
-        this.maxMemberNum = i;
+    public void setMaxMemberNum(int i2) {
+        this.maxMemberNum = i2;
     }
 
-    public void setMemberNum(int i) {
-        this.memberNum = i;
+    public void setMemberNum(int i2) {
+        this.memberNum = i2;
     }
 
     public void setName(String str) {
@@ -190,7 +190,7 @@ public class BaseGroupData extends AbstractImageProvider implements Serializable
         this.position = str;
     }
 
-    public void setStatus(int i) {
-        this.status = i;
+    public void setStatus(int i2) {
+        this.status = i2;
     }
 }

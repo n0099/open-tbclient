@@ -1,6 +1,4 @@
 package com.google.zxing.datamatrix.encoder;
-
-import com.baidu.android.imsdk.internal.Constants;
 /* loaded from: classes6.dex */
 public final class TextEncoder extends C40Encoder {
     @Override // com.google.zxing.datamatrix.encoder.C40Encoder
@@ -40,7 +38,7 @@ public final class TextEncoder extends C40Encoder {
             return 2;
         } else if (c2 >= '{' && c2 <= 127) {
             sb.append((char) 2);
-            sb.append((char) ((c2 - Constants.METHOD_IM_FRIEND_GROUP_QUERY) + 27));
+            sb.append((char) ((c2 - '{') + 27));
             return 2;
         } else if (c2 >= 128) {
             sb.append("\u0001\u001e");

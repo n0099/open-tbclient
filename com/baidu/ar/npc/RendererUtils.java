@@ -12,42 +12,42 @@ import java.nio.FloatBuffer;
 public class RendererUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float[] f4182a = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
+    public static final float[] f4251a = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float[] f4183b = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
+    public static final float[] f4252b = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
 
     /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f4184a;
+        public int f4253a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f4185b;
+        public int f4254b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f4186c;
+        public int f4255c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f4187d;
+        public int f4256d;
 
         /* renamed from: e  reason: collision with root package name */
-        public FloatBuffer f4188e;
+        public FloatBuffer f4257e;
 
         /* renamed from: f  reason: collision with root package name */
-        public FloatBuffer f4189f;
+        public FloatBuffer f4258f;
     }
 
-    public static int createFBO(int i, int i2, int i3, int i4) {
+    public static int createFBO(int i2, int i3, int i4, int i5) {
         int[] iArr = new int[1];
         GLES20.glGenRenderbuffers(1, iArr, 0);
         GLES20.glBindRenderbuffer(36161, iArr[0]);
-        GLES20.glRenderbufferStorage(36161, i4, i2, i3);
+        GLES20.glRenderbufferStorage(36161, i5, i3, i4);
         int[] iArr2 = new int[1];
         GLES20.glGenFramebuffers(1, iArr2, 0);
         GLES20.glBindFramebuffer(36160, iArr2[0]);
-        GLES20.glFramebufferTexture2D(36160, 36064, 3553, i, 0);
+        GLES20.glFramebufferTexture2D(36160, 36064, 3553, i2, 0);
         GLES20.glFramebufferRenderbuffer(36160, 36096, 36161, iArr[0]);
         GLES20.glBindFramebuffer(36160, 0);
         return iArr2[0];
@@ -73,12 +73,12 @@ public class RendererUtils {
             }
         }
         a aVar = new a();
-        aVar.f4185b = GLES20.glGetUniformLocation(glCreateProgram, "tex_sampler");
-        aVar.f4186c = GLES20.glGetAttribLocation(glCreateProgram, "a_texcoord");
-        aVar.f4187d = GLES20.glGetAttribLocation(glCreateProgram, "a_position");
-        aVar.f4188e = createVerticesBuffer(f4182a);
-        aVar.f4189f = createVerticesBuffer(f4183b);
-        aVar.f4184a = glCreateProgram;
+        aVar.f4254b = GLES20.glGetUniformLocation(glCreateProgram, "tex_sampler");
+        aVar.f4255c = GLES20.glGetAttribLocation(glCreateProgram, "a_texcoord");
+        aVar.f4256d = GLES20.glGetAttribLocation(glCreateProgram, "a_position");
+        aVar.f4257e = createVerticesBuffer(f4251a);
+        aVar.f4258f = createVerticesBuffer(f4252b);
+        aVar.f4253a = glCreateProgram;
         return aVar;
     }
 
@@ -97,8 +97,8 @@ public class RendererUtils {
         throw new RuntimeException("Number of vertices should be four.");
     }
 
-    public static int loadShader(int i, String str) {
-        int glCreateShader = GLES20.glCreateShader(i);
+    public static int loadShader(int i2, String str) {
+        int glCreateShader = GLES20.glCreateShader(i2);
         if (glCreateShader != 0) {
             GLES20.glShaderSource(glCreateShader, str);
             GLES20.glCompileShader(glCreateShader);
@@ -107,26 +107,26 @@ public class RendererUtils {
             if (iArr[0] == 0) {
                 String glGetShaderInfoLog = GLES20.glGetShaderInfoLog(glCreateShader);
                 GLES20.glDeleteShader(glCreateShader);
-                throw new RuntimeException("Could not compile shader " + i + ":" + glGetShaderInfoLog);
+                throw new RuntimeException("Could not compile shader " + i2 + ":" + glGetShaderInfoLog);
             }
         }
         return glCreateShader;
     }
 
-    public static void renderTexture(a aVar, int i, int i2, int i3) {
-        GLES20.glViewport(0, 0, i2, i3);
+    public static void renderTexture(a aVar, int i2, int i3, int i4) {
+        GLES20.glViewport(0, 0, i3, i4);
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         GLES20.glClear(16384);
-        GLES20.glUseProgram(aVar.f4184a);
+        GLES20.glUseProgram(aVar.f4253a);
         GLES20.glDisable(2929);
         GLES20.glDisable(3042);
-        GLES20.glVertexAttribPointer(aVar.f4186c, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) aVar.f4188e);
-        GLES20.glEnableVertexAttribArray(aVar.f4186c);
-        GLES20.glVertexAttribPointer(aVar.f4187d, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) aVar.f4189f);
-        GLES20.glEnableVertexAttribArray(aVar.f4187d);
+        GLES20.glVertexAttribPointer(aVar.f4255c, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) aVar.f4257e);
+        GLES20.glEnableVertexAttribArray(aVar.f4255c);
+        GLES20.glVertexAttribPointer(aVar.f4256d, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) aVar.f4258f);
+        GLES20.glEnableVertexAttribArray(aVar.f4256d);
         GLES20.glActiveTexture(33984);
-        GLES20.glBindTexture(3553, i);
-        GLES20.glUniform1i(aVar.f4185b, 0);
+        GLES20.glBindTexture(3553, i2);
+        GLES20.glUniform1i(aVar.f4254b, 0);
         GLES20.glDrawArrays(5, 0, 4);
     }
 
@@ -141,14 +141,14 @@ public class RendererUtils {
         return createTexture;
     }
 
-    public static int createTexture(int i, int i2) {
+    public static int createTexture(int i2, int i3) {
         int createTexture = createTexture();
         GLES20.glBindTexture(3553, createTexture);
         GLES20.glTexParameteri(3553, 10240, 9729);
         GLES20.glTexParameteri(3553, 10241, 9729);
         GLES20.glTexParameteri(3553, 10242, 33071);
         GLES20.glTexParameteri(3553, 10243, 33071);
-        GLES20.glTexImage2D(3553, 0, 6408, i, i2, 0, 6408, 5121, null);
+        GLES20.glTexImage2D(3553, 0, 6408, i2, i3, 0, 6408, 5121, null);
         return createTexture;
     }
 }

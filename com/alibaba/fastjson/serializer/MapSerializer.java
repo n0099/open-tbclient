@@ -2,7 +2,6 @@ package com.alibaba.fastjson.serializer;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.baidu.android.imsdk.internal.Constants;
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -19,8 +18,8 @@ public class MapSerializer extends SerializeFilterable implements ObjectSerializ
     public static final int NON_STRINGKEY_AS_STRING = SerializerFeature.of(new SerializerFeature[]{SerializerFeature.BrowserCompatible, SerializerFeature.WriteNonStringKeyAsString, SerializerFeature.BrowserSecure});
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
-        write(jSONSerializer, obj, obj2, type, i, false);
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
+        write(jSONSerializer, obj, obj2, type, i2, false);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r12v0, resolved type: com.alibaba.fastjson.serializer.SerializeWriter */
@@ -44,7 +43,7 @@ public class MapSerializer extends SerializeFilterable implements ObjectSerializ
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i, boolean z) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2, boolean z) throws IOException {
         TreeMap treeMap;
         boolean z2;
         String str;
@@ -63,8 +62,8 @@ public class MapSerializer extends SerializeFilterable implements ObjectSerializ
             return;
         }
         Map<String, Object> map = (Map) obj4;
-        int i2 = SerializerFeature.MapSortField.mask;
-        if ((serializeWriter.features & i2) != 0 || (i2 & i) != 0) {
+        int i3 = SerializerFeature.MapSortField.mask;
+        if ((serializeWriter.features & i3) != 0 || (i3 & i2) != 0) {
             if (map instanceof JSONObject) {
                 map = ((JSONObject) map).getInnerMap();
             }
@@ -81,7 +80,7 @@ public class MapSerializer extends SerializeFilterable implements ObjectSerializ
                 jSONSerializer.setContext(serialContext, obj4, obj2, 0);
                 if (!z) {
                     try {
-                        serializeWriter.write((int) Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+                        serializeWriter.write(123);
                     } catch (Throwable th) {
                         jSONSerializer.context = serialContext;
                         throw th;
@@ -187,10 +186,10 @@ public class MapSerializer extends SerializeFilterable implements ObjectSerializ
                                         str = str3;
                                         cls = cls4;
                                         z3 = true;
-                                        processValue = processValue(jSONSerializer, null, obj, JSON.toJSONString(str3), value, i);
+                                        processValue = processValue(jSONSerializer, null, obj, JSON.toJSONString(str3), value, i2);
                                         obj3 = processValue;
                                         r0 = z3;
-                                        if (obj3 != null || SerializerFeature.isEnabled(serializeWriter.features, i, SerializerFeature.WriteMapNullValue)) {
+                                        if (obj3 != null || SerializerFeature.isEnabled(serializeWriter.features, i2, SerializerFeature.WriteMapNullValue)) {
                                             if (str instanceof String) {
                                                 String str4 = str;
                                                 if (!z5) {
@@ -204,7 +203,7 @@ public class MapSerializer extends SerializeFilterable implements ObjectSerializ
                                                 if (!z5) {
                                                     serializeWriter.write(44);
                                                 }
-                                                if ((serializeWriter.isEnabled(NON_STRINGKEY_AS_STRING) || SerializerFeature.isEnabled(i, SerializerFeature.WriteNonStringKeyAsString)) && !(str instanceof Enum)) {
+                                                if ((serializeWriter.isEnabled(NON_STRINGKEY_AS_STRING) || SerializerFeature.isEnabled(i2, SerializerFeature.WriteNonStringKeyAsString)) && !(str instanceof Enum)) {
                                                     jSONSerializer.write(JSON.toJSONString(str));
                                                 } else {
                                                     jSONSerializer.write((Object) str);
@@ -225,21 +224,21 @@ public class MapSerializer extends SerializeFilterable implements ObjectSerializ
                                                     cls2 = cls6;
                                                 }
                                                 ObjectSerializer objectSerializer2 = objectSerializer;
-                                                if (SerializerFeature.isEnabled(i, SerializerFeature.WriteClassName) && (objectSerializer2 instanceof JavaBeanSerializer)) {
+                                                if (SerializerFeature.isEnabled(i2, SerializerFeature.WriteClassName) && (objectSerializer2 instanceof JavaBeanSerializer)) {
                                                     if (type instanceof ParameterizedType) {
                                                         Type[] actualTypeArguments = ((ParameterizedType) type).getActualTypeArguments();
                                                         if (actualTypeArguments.length == 2) {
                                                             type2 = actualTypeArguments[r0];
                                                             objectSerializer = objectSerializer2;
-                                                            ((JavaBeanSerializer) objectSerializer2).writeNoneASM(jSONSerializer, obj3, str, type2, i);
+                                                            ((JavaBeanSerializer) objectSerializer2).writeNoneASM(jSONSerializer, obj3, str, type2, i2);
                                                         }
                                                     }
                                                     type2 = null;
                                                     objectSerializer = objectSerializer2;
-                                                    ((JavaBeanSerializer) objectSerializer2).writeNoneASM(jSONSerializer, obj3, str, type2, i);
+                                                    ((JavaBeanSerializer) objectSerializer2).writeNoneASM(jSONSerializer, obj3, str, type2, i2);
                                                 } else {
                                                     objectSerializer = objectSerializer2;
-                                                    objectSerializer.write(jSONSerializer, obj3, str, null, i);
+                                                    objectSerializer.write(jSONSerializer, obj3, str, null, i2);
                                                 }
                                                 obj4 = obj;
                                                 cls4 = cls2;
@@ -270,7 +269,7 @@ public class MapSerializer extends SerializeFilterable implements ObjectSerializ
                             str = str3;
                             cls = cls4;
                             z3 = true;
-                            processValue = processValue(jSONSerializer, null, obj, str, value, i);
+                            processValue = processValue(jSONSerializer, null, obj, str, value, i2);
                             obj3 = processValue;
                             r0 = z3;
                             if (obj3 != null) {

@@ -1,10 +1,12 @@
 package androidx.core.app;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.collection.SimpleArrayMap;
@@ -13,13 +15,14 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 import androidx.lifecycle.ReportFragment;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ComponentActivity extends Activity implements LifecycleOwner, KeyEventDispatcher.Component {
     public SimpleArrayMap<Class<? extends ExtraData>, ExtraData> mExtraDataMap = new SimpleArrayMap<>();
     public LifecycleRegistry mLifecycleRegistry = new LifecycleRegistry(this);
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    @Deprecated
     /* loaded from: classes.dex */
     public static class ExtraData {
     }
@@ -42,17 +45,19 @@ public class ComponentActivity extends Activity implements LifecycleOwner, KeyEv
         return true;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    @Deprecated
     public <T extends ExtraData> T getExtraData(Class<T> cls) {
         return (T) this.mExtraDataMap.get(cls);
     }
 
-    @Override // androidx.lifecycle.LifecycleOwner
+    @NonNull
     public Lifecycle getLifecycle() {
         return this.mLifecycleRegistry;
     }
 
     @Override // android.app.Activity
+    @SuppressLint({"RestrictedApi"})
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         ReportFragment.injectIfNeededIn(this);
@@ -60,20 +65,21 @@ public class ComponentActivity extends Activity implements LifecycleOwner, KeyEv
 
     @Override // android.app.Activity
     @CallSuper
-    public void onSaveInstanceState(Bundle bundle) {
+    public void onSaveInstanceState(@NonNull Bundle bundle) {
         this.mLifecycleRegistry.markState(Lifecycle.State.CREATED);
         super.onSaveInstanceState(bundle);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: androidx.collection.SimpleArrayMap<java.lang.Class<? extends androidx.core.app.ComponentActivity$ExtraData>, androidx.core.app.ComponentActivity$ExtraData> */
     /* JADX WARN: Multi-variable type inference failed */
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    @Deprecated
     public void putExtraData(ExtraData extraData) {
         this.mExtraDataMap.put(extraData.getClass(), extraData);
     }
 
     @Override // androidx.core.view.KeyEventDispatcher.Component
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean superDispatchKeyEvent(KeyEvent keyEvent) {
         return super.dispatchKeyEvent(keyEvent);
     }

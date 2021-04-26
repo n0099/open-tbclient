@@ -18,61 +18,61 @@ import org.json.JSONArray;
 public class ForumRuleEditModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.b.j0.q0.q1.b.b f15957e;
+    public final d.a.j0.q0.q1.b.b f16151e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15958f;
+    public int f16152f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f15959g;
+    public HttpMessageListener f16153g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f15960h;
+    public HttpMessageListener f16154h;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseHttpRorumRuleDraftMessage)) {
-                ForumRuleEditModel.this.f15957e.draftCallback(0, null, "");
+                ForumRuleEditModel.this.f16151e.draftCallback(0, null, "");
                 return;
             }
             ResponseHttpRorumRuleDraftMessage responseHttpRorumRuleDraftMessage = (ResponseHttpRorumRuleDraftMessage) httpResponsedMessage;
             if (responseHttpRorumRuleDraftMessage != null) {
-                ForumRuleEditModel.this.f15957e.draftCallback(responseHttpRorumRuleDraftMessage.getError(), responseHttpRorumRuleDraftMessage.getData(), responseHttpRorumRuleDraftMessage.getErrorString());
+                ForumRuleEditModel.this.f16151e.draftCallback(responseHttpRorumRuleDraftMessage.getError(), responseHttpRorumRuleDraftMessage.getData(), responseHttpRorumRuleDraftMessage.getErrorString());
             }
         }
     }
 
     /* loaded from: classes4.dex */
     public class b extends HttpMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             ResponseHttpRorumRuleCommitMessage responseHttpRorumRuleCommitMessage;
-            if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseHttpRorumRuleCommitMessage) || (responseHttpRorumRuleCommitMessage = (ResponseHttpRorumRuleCommitMessage) httpResponsedMessage) == null || ForumRuleEditModel.this.f15958f == -1) {
+            if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseHttpRorumRuleCommitMessage) || (responseHttpRorumRuleCommitMessage = (ResponseHttpRorumRuleCommitMessage) httpResponsedMessage) == null || ForumRuleEditModel.this.f16152f == -1) {
                 return;
             }
-            ForumRuleEditModel.this.f15957e.commitCallback(responseHttpRorumRuleCommitMessage.getError(), responseHttpRorumRuleCommitMessage.getErrorString(), ForumRuleEditModel.this.f15958f == 1);
-            ForumRuleEditModel.this.f15958f = -1;
+            ForumRuleEditModel.this.f16151e.commitCallback(responseHttpRorumRuleCommitMessage.getError(), responseHttpRorumRuleCommitMessage.getErrorString(), ForumRuleEditModel.this.f16152f == 1);
+            ForumRuleEditModel.this.f16152f = -1;
         }
     }
 
-    public ForumRuleEditModel(TbPageContext tbPageContext, d.b.j0.q0.q1.b.b bVar, String str) {
+    public ForumRuleEditModel(TbPageContext tbPageContext, d.a.j0.q0.q1.b.b bVar, String str) {
         super(tbPageContext);
-        this.f15958f = -1;
-        this.f15959g = new a(CmdConfigHttp.CMD_FORUM_RULES_DRAFT);
-        this.f15960h = new b(CmdConfigHttp.CMD_FORUM_RULES_COMMIT);
-        this.f15957e = bVar;
+        this.f16152f = -1;
+        this.f16153g = new a(CmdConfigHttp.CMD_FORUM_RULES_DRAFT);
+        this.f16154h = new b(CmdConfigHttp.CMD_FORUM_RULES_COMMIT);
+        this.f16151e = bVar;
         x();
     }
 
@@ -93,7 +93,7 @@ public class ForumRuleEditModel extends BdBaseModel {
         httpMessage.addParam("preface", forumRuleBaseData.getPreface());
         httpMessage.addParam("rules", y(forumRuleBaseData.getList()));
         httpMessage.addParam("is_draft", z ? 1 : 0);
-        this.f15958f = z ? 1 : 0;
+        this.f16152f = z ? 1 : 0;
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
@@ -104,10 +104,10 @@ public class ForumRuleEditModel extends BdBaseModel {
     }
 
     public final void x() {
-        d.b.j0.d3.d0.a.e(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
-        d.b.j0.d3.d0.a.e(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
-        registerListener(this.f15959g);
-        registerListener(this.f15960h);
+        d.a.j0.d3.d0.a.e(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
+        d.a.j0.d3.d0.a.e(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
+        registerListener(this.f16153g);
+        registerListener(this.f16154h);
     }
 
     public final String y(List<ForumRuleBaseData.ForumRuleItemData> list) {
@@ -115,8 +115,8 @@ public class ForumRuleEditModel extends BdBaseModel {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        for (int i = 0; i < list.size(); i++) {
-            ForumRuleBaseData.ForumRuleItemData forumRuleItemData = list.get(i);
+        for (int i2 = 0; i2 < list.size(); i2++) {
+            ForumRuleBaseData.ForumRuleItemData forumRuleItemData = list.get(i2);
             if (forumRuleItemData != null) {
                 jSONArray.put(forumRuleItemData.makeJSONObject());
             }

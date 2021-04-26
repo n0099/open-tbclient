@@ -35,18 +35,18 @@ public interface ICommonDialogListener extends IInterface {
         public static class a implements ICommonDialogListener {
 
             /* renamed from: a  reason: collision with root package name */
-            public static ICommonDialogListener f26961a;
+            public static ICommonDialogListener f27779a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f26962b;
+            public IBinder f27780b;
 
             public a(IBinder iBinder) {
-                this.f26962b = iBinder;
+                this.f27780b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f26962b;
+                return this.f27780b;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ICommonDialogListener
@@ -55,7 +55,7 @@ public interface ICommonDialogListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                    if (!this.f26962b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27780b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onDialogBtnNo();
                     } else {
                         obtain2.readException();
@@ -72,7 +72,7 @@ public interface ICommonDialogListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                    if (!this.f26962b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27780b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onDialogBtnYes();
                     } else {
                         obtain2.readException();
@@ -89,7 +89,7 @@ public interface ICommonDialogListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                    if (!this.f26962b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27780b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onDialogCancel();
                     } else {
                         obtain2.readException();
@@ -117,14 +117,14 @@ public interface ICommonDialogListener extends IInterface {
         }
 
         public static ICommonDialogListener getDefaultImpl() {
-            return a.f26961a;
+            return a.f27779a;
         }
 
         public static boolean setDefaultImpl(ICommonDialogListener iCommonDialogListener) {
-            if (a.f26961a != null || iCommonDialogListener == null) {
+            if (a.f27779a != null || iCommonDialogListener == null) {
                 return false;
             }
-            a.f26961a = iCommonDialogListener;
+            a.f27779a = iCommonDialogListener;
             return true;
         }
 
@@ -134,20 +134,20 @@ public interface ICommonDialogListener extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 == 1) {
                 parcel.enforceInterface("com.bytedance.sdk.openadsdk.ICommonDialogListener");
                 onDialogBtnYes();
                 parcel2.writeNoException();
                 return true;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 parcel.enforceInterface("com.bytedance.sdk.openadsdk.ICommonDialogListener");
                 onDialogBtnNo();
                 parcel2.writeNoException();
                 return true;
-            } else if (i != 3) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 3) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString("com.bytedance.sdk.openadsdk.ICommonDialogListener");
                 return true;

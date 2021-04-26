@@ -2,11 +2,11 @@ package com.google.common.base;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.h.c.a.g;
-import d.h.c.a.k;
-import d.h.c.a.m;
-import d.h.c.a.n;
-import d.h.c.a.r;
+import d.g.c.a.g;
+import d.g.c.a.k;
+import d.g.c.a.m;
+import d.g.c.a.n;
+import d.g.c.a.r;
 import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
@@ -27,7 +27,7 @@ public final class Suppliers {
             n.j(j > 0, "duration (%s %s) must be > 0", j, timeUnit);
         }
 
-        @Override // d.h.c.a.r
+        @Override // d.g.c.a.r
         public T get() {
             long j = this.expirationNanos;
             long f2 = m.f();
@@ -65,7 +65,7 @@ public final class Suppliers {
             this.delegate = rVar;
         }
 
-        @Override // d.h.c.a.r
+        @Override // d.g.c.a.r
         public T get() {
             if (!this.initialized) {
                 synchronized (this) {
@@ -117,7 +117,7 @@ public final class Suppliers {
         }
 
         /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: F, ? super F */
-        @Override // d.h.c.a.r
+        @Override // d.g.c.a.r
         public T get() {
             return this.function.apply((F) this.supplier.get());
         }
@@ -162,7 +162,7 @@ public final class Suppliers {
             return false;
         }
 
-        @Override // d.h.c.a.r
+        @Override // d.g.c.a.r
         public T get() {
             return this.instance;
         }
@@ -186,7 +186,7 @@ public final class Suppliers {
             this.delegate = rVar;
         }
 
-        @Override // d.h.c.a.r
+        @Override // d.g.c.a.r
         public T get() {
             T t;
             synchronized (this.delegate) {

@@ -39,22 +39,22 @@ public class OAdSqlLiteAccessObj {
     public boolean isHasInfors(String str, String str2) {
         Cursor rawQuery = this.mDBHelper.getReadableDatabase().rawQuery("select count(*)  from download_info where url=? and local_file=? and process_name=?", new String[]{str, str2, this.processName});
         rawQuery.moveToFirst();
-        int i = rawQuery.getInt(0);
+        int i2 = rawQuery.getInt(0);
         rawQuery.close();
-        return i > 0;
+        return i2 > 0;
     }
 
     public List<OAdSqlLiteDownloadingInfo> query(String str, String str2) {
         ArrayList arrayList = new ArrayList();
-        int i = 0;
-        int i2 = 1;
-        int i3 = 2;
+        int i2 = 0;
+        int i3 = 1;
+        int i4 = 2;
         Cursor rawQuery = this.mDBHelper.getReadableDatabase().rawQuery("select thread_id, url, local_file, start_pos, end_pos,compelete_size from download_info where url=? and local_file=? and process_name=?", new String[]{str, str2, this.processName});
         while (rawQuery.moveToNext()) {
-            arrayList.add(new OAdSqlLiteDownloadingInfo(rawQuery.getInt(i), rawQuery.getString(i2), rawQuery.getString(i3), rawQuery.getInt(3), rawQuery.getInt(4), rawQuery.getInt(5)));
-            i = 0;
-            i2 = 1;
-            i3 = 2;
+            arrayList.add(new OAdSqlLiteDownloadingInfo(rawQuery.getInt(i2), rawQuery.getString(i3), rawQuery.getString(i4), rawQuery.getInt(3), rawQuery.getInt(4), rawQuery.getInt(5)));
+            i2 = 0;
+            i3 = 1;
+            i4 = 2;
         }
         rawQuery.close();
         return arrayList;

@@ -22,22 +22,22 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.j0.l0.s;
-import d.b.j0.y1.g.g;
+import d.a.c.e.p.l;
+import d.a.j0.l0.s;
+import d.a.j0.y1.g.g;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class UserAlbumActivity extends BaseFragmentActivity implements AbsListView.OnScrollListener, d.b.j0.y1.g.f, PopupWindow.OnDismissListener, s.d {
+public class UserAlbumActivity extends BaseFragmentActivity implements AbsListView.OnScrollListener, d.a.j0.y1.g.f, PopupWindow.OnDismissListener, s.d {
     public static int MAX_SELECT_NUM = 10;
     public g mAdapter;
     public TextView mAddAlbumTv;
-    public d.b.i0.e.a mAddData;
+    public d.a.i0.e.a mAddData;
     public int mChoosedNum;
     public GridView mGridView;
-    public d.b.i0.e.b mLoadModel;
+    public d.a.i0.e.b mLoadModel;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
     public TextView mSelectAlbumTv;
@@ -46,19 +46,19 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     public List<ImageFileInfo> mImageList = new ArrayList();
     public List<ImageFileInfo> mAllImageList = new ArrayList();
     public LinkedHashMap<String, ImageFileInfo> mChooseList = new LinkedHashMap<>();
-    public String mAlbumId = d.b.i0.e.a.f50849f;
+    public String mAlbumId = d.a.i0.e.a.f48427f;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: com.baidu.tieba.faceshop.UserAlbumActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0189a implements d.b.i0.e.c {
-            public C0189a() {
+        public class C0184a implements d.a.i0.e.c {
+            public C0184a() {
             }
 
-            @Override // d.b.i0.e.c
-            public void a(List<d.b.i0.e.a> list) {
+            @Override // d.a.i0.e.c
+            public void a(List<d.a.i0.e.a> list) {
                 if (ListUtils.isEmpty(list)) {
                     return;
                 }
@@ -72,7 +72,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                 UserAlbumActivity.this.mUserCollectAlbumListPopupWindow.l(UserAlbumActivity.this.mNavigationBar);
             }
 
-            @Override // d.b.i0.e.c
+            @Override // d.a.i0.e.c
             public void onPreLoad() {
             }
         }
@@ -85,7 +85,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
             Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_albumarrow_up);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             UserAlbumActivity.this.mSelectAlbumTv.setCompoundDrawables(null, null, drawable, null);
-            UserAlbumActivity.this.mLoadModel.g(new C0189a());
+            UserAlbumActivity.this.mLoadModel.g(new C0184a());
         }
     }
 
@@ -121,21 +121,21 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     }
 
     /* loaded from: classes4.dex */
-    public class d implements d.b.i0.e.d {
+    public class d implements d.a.i0.e.d {
         public d() {
         }
 
-        @Override // d.b.i0.e.d
-        public void a(List<d.b.i0.e.a> list, List<ImageFileInfo> list2, String str) {
+        @Override // d.a.i0.e.d
+        public void a(List<d.a.i0.e.a> list, List<ImageFileInfo> list2, String str) {
             if (!ListUtils.isEmpty(list2)) {
                 UserAlbumActivity.this.mGridView.setVisibility(0);
                 UserAlbumActivity.this.mNoDataView.setVisibility(8);
                 UserAlbumActivity.this.mAllImageList.clear();
                 UserAlbumActivity.this.mAllImageList.addAll(list2);
                 UserAlbumActivity.this.mImageList.addAll(list2);
-                UserAlbumActivity.this.mAddData = new d.b.i0.e.a();
-                UserAlbumActivity.this.mAddData.h(d.b.i0.e.a.f50849f);
-                d.b.i0.e.a aVar = UserAlbumActivity.this.mAddData;
+                UserAlbumActivity.this.mAddData = new d.a.i0.e.a();
+                UserAlbumActivity.this.mAddData.h(d.a.i0.e.a.f48427f);
+                d.a.i0.e.a aVar = UserAlbumActivity.this.mAddData;
                 aVar.i(list2.size() + "");
                 UserAlbumActivity.this.mAddData.l(UserAlbumActivity.this.getPageContext().getString(R.string.album_all));
                 UserAlbumActivity.this.mAddData.k(list2.get(0));
@@ -146,18 +146,18 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
             UserAlbumActivity.this.mNoDataView.setVisibility(0);
         }
 
-        @Override // d.b.i0.e.d
+        @Override // d.a.i0.e.d
         public void onPreLoad() {
         }
     }
 
     /* loaded from: classes4.dex */
-    public class e implements d.b.i0.a0.b {
+    public class e implements d.a.i0.a0.b {
         public e() {
         }
 
-        @Override // d.b.i0.a0.b
-        public void a(d.b.c.j.d.a aVar, String str, boolean z) {
+        @Override // d.a.i0.a0.b
+        public void a(d.a.c.j.d.a aVar, String str, boolean z) {
             TbImageView tbImageView = (TbImageView) UserAlbumActivity.this.mGridView.findViewWithTag(str);
             if (tbImageView == null || aVar == null) {
                 return;
@@ -167,12 +167,12 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     }
 
     /* loaded from: classes4.dex */
-    public class f implements d.b.i0.e.d {
+    public class f implements d.a.i0.e.d {
         public f() {
         }
 
-        @Override // d.b.i0.e.d
-        public void a(List<d.b.i0.e.a> list, List<ImageFileInfo> list2, String str) {
+        @Override // d.a.i0.e.d
+        public void a(List<d.a.i0.e.a> list, List<ImageFileInfo> list2, String str) {
             UserAlbumActivity.this.mImageList.clear();
             if (!ListUtils.isEmpty(list2)) {
                 UserAlbumActivity.this.mImageList.addAll(list2);
@@ -180,13 +180,13 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
             UserAlbumActivity.this.mAdapter.notifyDataSetChanged();
         }
 
-        @Override // d.b.i0.e.d
+        @Override // d.a.i0.e.d
         public void onPreLoad() {
         }
     }
 
     private void initSetting() {
-        this.mLoadModel = new d.b.i0.e.b(getActivity());
+        this.mLoadModel = new d.a.i0.e.b(getActivity());
         g gVar = new g(this, this.mImageList);
         this.mAdapter = gVar;
         gVar.k(getPageContext().getString(R.string.can_select_only_ten));
@@ -227,7 +227,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     }
 
     private void loadAlbumData() {
-        this.mLoadModel.i(d.b.i0.e.a.f50849f, new d());
+        this.mLoadModel.i(d.a.i0.e.a.f48427f, new d());
     }
 
     private void refreshImages() {
@@ -237,11 +237,11 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         }
         int childCount = this.mGridView.getChildCount();
         int firstVisiblePosition = this.mGridView.getFirstVisiblePosition();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = this.mGridView.getChildAt(i);
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = this.mGridView.getChildAt(i2);
             if (childAt != null) {
                 TbImageView tbImageView = (TbImageView) childAt.findViewById(R.id.image);
-                ImageFileInfo item = this.mAdapter.getItem(firstVisiblePosition + i);
+                ImageFileInfo item = this.mAdapter.getItem(firstVisiblePosition + i2);
                 if (item != null && tbImageView != null) {
                     tbImageView.setTag(item.toCachedKey(false));
                     this.mAdapter.g().e(item, new e(), false, false);
@@ -260,24 +260,24 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         this.mAddAlbumTv.setText(string);
     }
 
-    @Override // d.b.j0.y1.g.f
+    @Override // d.a.j0.y1.g.f
     public boolean canChooseMore() {
         return this.mChoosedNum < MAX_SELECT_NUM;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        getLayoutMode().k(i == 1);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        getLayoutMode().k(i2 == 1);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
     }
 
-    @Override // d.b.j0.y1.g.f
+    @Override // d.a.j0.y1.g.f
     public void onChoose() {
         this.mChoosedNum++;
         updateChoosedNum();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.user_pick_album, (ViewGroup) null);
@@ -300,8 +300,8 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         this.mSelectAlbumTv.setCompoundDrawables(null, null, drawable, null);
     }
 
-    @Override // d.b.j0.l0.s.d
-    public void onItemClick(int i, d.b.i0.e.a aVar) {
+    @Override // d.a.j0.l0.s.d
+    public void onItemClick(int i2, d.a.i0.e.a aVar) {
         if (aVar != null) {
             this.mAlbumId = aVar.b();
             this.mNavigationBar.setCenterTextTitle(aVar.g());
@@ -310,12 +310,12 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (i == 2) {
+    public void onScrollStateChanged(AbsListView absListView, int i2) {
+        if (i2 == 2) {
             this.mAdapter.l(true);
         } else if (this.mAdapter.i()) {
             this.mAdapter.l(false);
@@ -323,11 +323,11 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         }
     }
 
-    @Override // d.b.j0.y1.g.f
+    @Override // d.a.j0.y1.g.f
     public void onUnChoose() {
-        int i = this.mChoosedNum;
-        if (i > 0) {
-            this.mChoosedNum = i - 1;
+        int i2 = this.mChoosedNum;
+        if (i2 > 0) {
+            this.mChoosedNum = i2 - 1;
         }
         updateChoosedNum();
     }

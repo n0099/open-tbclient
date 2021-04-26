@@ -134,14 +134,14 @@ public final class BdZeusUtil implements INoProGuard {
     public static String getDeviceInfo() {
         String str = Build.MODEL;
         String str2 = Build.VERSION.RELEASE;
-        int i = Build.VERSION.SDK_INT;
+        int i2 = Build.VERSION.SDK_INT;
         String str3 = Build.MANUFACTURER;
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(str.replace("_", "-"));
         stringBuffer.append("_");
         stringBuffer.append(str2);
         stringBuffer.append("_");
-        stringBuffer.append(i);
+        stringBuffer.append(i2);
         stringBuffer.append("_");
         stringBuffer.append(str3.replace("_", "-"));
         return stringBuffer.toString().replace(" ", "-");

@@ -45,35 +45,35 @@ public class ImageAudioMsg {
         return this.width;
     }
 
-    public void setAudioDuration(int i) {
-        this.audioDuration = i;
+    public void setAudioDuration(int i2) {
+        this.audioDuration = i2;
     }
 
-    public void setHeigth(int i) {
-        this.heigth = i;
+    public void setHeigth(int i2) {
+        this.heigth = i2;
     }
 
-    public void setThumbHeigth(int i) {
-        this.thumbHeigth = i;
+    public void setThumbHeigth(int i2) {
+        this.thumbHeigth = i2;
     }
 
     public void setThumbUrl(String str) {
         this.thumbUrl = str;
     }
 
-    public void setThurbWidth(int i) {
-        this.thurbWidth = i;
+    public void setThurbWidth(int i2) {
+        this.thurbWidth = i2;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 
     public void setUrl(String str) {
         this.url = str;
     }
 
-    public void setWidth(int i) {
-        this.width = i;
+    public void setWidth(int i2) {
+        this.width = i2;
     }
 }

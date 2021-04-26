@@ -15,17 +15,19 @@ import com.baidu.adp.R;
 public class BdExpandImageView extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f2325e;
+    public float f2302e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f2326f;
+    public float f2303f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final float f2327g;
+    public final float f2304g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Rect f2328h;
-    public final Rect i;
+    public final Rect f2305h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final Rect f2306i;
     public int j;
     public boolean k;
     public final Paint l;
@@ -33,16 +35,16 @@ public class BdExpandImageView extends ImageView {
 
     public BdExpandImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2325e = 0.0f;
-        this.f2328h = new Rect();
-        this.i = new Rect();
+        this.f2302e = 0.0f;
+        this.f2305h = new Rect();
+        this.f2306i = new Rect();
         setScaleType(ImageView.ScaleType.MATRIX);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ExpandListView);
-        this.f2325e = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ExpandListView_expandDistance, 0) / 2.0f;
-        this.f2326f = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ExpandListView_beforeExpandHeight, 0);
+        this.f2302e = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ExpandListView_expandDistance, 0) / 2.0f;
+        this.f2303f = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ExpandListView_beforeExpandHeight, 0);
         obtainStyledAttributes.recycle();
-        int i = getResources().getDisplayMetrics().widthPixels;
-        this.f2327g = this.f2326f + (this.f2325e * 2.0f);
+        int i2 = getResources().getDisplayMetrics().widthPixels;
+        this.f2304g = this.f2303f + (this.f2302e * 2.0f);
         this.l = new Paint();
         getResources().getDisplayMetrics();
     }
@@ -54,7 +56,7 @@ public class BdExpandImageView extends ImageView {
             float intrinsicHeight = drawable.getIntrinsicHeight();
             float f2 = intrinsicHeight / 10.0f;
             this.m = f2;
-            this.j = (int) (intrinsicHeight - (((f2 * ((this.f2327g - measuredHeight) / 2.0f)) / this.f2325e) * 2.0f));
+            this.j = (int) (intrinsicHeight - (((f2 * ((this.f2304g - measuredHeight) / 2.0f)) / this.f2302e) * 2.0f));
         }
     }
 
@@ -71,28 +73,28 @@ public class BdExpandImageView extends ImageView {
         }
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        int i = this.j;
-        int i2 = (height - i) / 2;
-        this.f2328h.set(0, i2, width, i + i2);
+        int i2 = this.j;
+        int i3 = (height - i2) / 2;
+        this.f2305h.set(0, i3, width, i2 + i3);
         int width2 = getWidth();
         float f2 = width;
         float max = Math.max(width2 / f2, getHeight() / this.j);
-        int i3 = (int) (f2 * max);
-        int i4 = (i3 - width2) / 2;
-        this.i.set(-i4, 0, i3 - (i4 * 2), (int) (this.j * max));
-        canvas.drawBitmap(bitmap, this.f2328h, this.i, this.l);
+        int i4 = (int) (f2 * max);
+        int i5 = (i4 - width2) / 2;
+        this.f2306i.set(-i5, 0, i4 - (i5 * 2), (int) (this.j * max));
+        canvas.drawBitmap(bitmap, this.f2305h, this.f2306i, this.l);
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
         a();
     }
 
     @Override // android.widget.ImageView
-    public boolean setFrame(int i, int i2, int i3, int i4) {
+    public boolean setFrame(int i2, int i3, int i4, int i5) {
         this.k = true;
-        return super.setFrame(i, i2, i3, i4);
+        return super.setFrame(i2, i3, i4, i5);
     }
 
     @Override // android.widget.ImageView

@@ -1,5 +1,7 @@
 package androidx.appcompat.widget;
 
+import android.annotation.SuppressLint;
+import android.graphics.Insets;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -18,9 +20,12 @@ import androidx.core.graphics.drawable.WrappedDrawable;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.kwad.sdk.core.config.item.TipsConfigItem;
 import java.lang.reflect.Field;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@SuppressLint({"RestrictedAPI"})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class DrawableUtils {
+    public static final int[] CHECKED_STATE_SET = {16842912};
+    public static final int[] EMPTY_STATE_SET = new int[0];
     public static final Rect INSETS_NONE = new Rect();
     public static final String TAG = "DrawableUtils";
     public static final String VECTOR_DRAWABLE_CLAZZ_NAME = "android.graphics.drawable.VectorDrawable";
@@ -78,21 +83,30 @@ public class DrawableUtils {
     public static void fixVectorDrawableTinting(Drawable drawable) {
         int[] state = drawable.getState();
         if (state != null && state.length != 0) {
-            drawable.setState(ThemeUtils.EMPTY_STATE_SET);
+            drawable.setState(EMPTY_STATE_SET);
         } else {
-            drawable.setState(ThemeUtils.CHECKED_STATE_SET);
+            drawable.setState(CHECKED_STATE_SET);
         }
         drawable.setState(state);
     }
 
     public static Rect getOpticalBounds(Drawable drawable) {
         Field[] fields;
+        if (Build.VERSION.SDK_INT >= 29) {
+            Insets opticalInsets = drawable.getOpticalInsets();
+            Rect rect = new Rect();
+            rect.left = opticalInsets.left;
+            rect.right = opticalInsets.right;
+            rect.top = opticalInsets.top;
+            rect.bottom = opticalInsets.bottom;
+            return rect;
+        }
         if (sInsetsClazz != null) {
             try {
                 Drawable unwrap = DrawableCompat.unwrap(drawable);
                 Object invoke = unwrap.getClass().getMethod("getOpticalInsets", new Class[0]).invoke(unwrap, new Object[0]);
                 if (invoke != null) {
-                    Rect rect = new Rect();
+                    Rect rect2 = new Rect();
                     for (Field field : sInsetsClazz.getFields()) {
                         String name = field.getName();
                         char c2 = 65535;
@@ -123,29 +137,29 @@ public class DrawableUtils {
                                 break;
                         }
                         if (c2 == 0) {
-                            rect.left = field.getInt(invoke);
+                            rect2.left = field.getInt(invoke);
                         } else if (c2 == 1) {
-                            rect.top = field.getInt(invoke);
+                            rect2.top = field.getInt(invoke);
                         } else if (c2 == 2) {
-                            rect.right = field.getInt(invoke);
+                            rect2.right = field.getInt(invoke);
                         } else if (c2 == 3) {
-                            rect.bottom = field.getInt(invoke);
+                            rect2.bottom = field.getInt(invoke);
                         }
                     }
-                    return rect;
+                    return rect2;
                 }
             } catch (Exception unused) {
-                Log.e("DrawableUtils", "Couldn't obtain the optical insets. Ignoring.");
+                Log.e(TAG, "Couldn't obtain the optical insets. Ignoring.");
             }
         }
         return INSETS_NONE;
     }
 
-    public static PorterDuff.Mode parseTintMode(int i, PorterDuff.Mode mode) {
-        if (i != 3) {
-            if (i != 5) {
-                if (i != 9) {
-                    switch (i) {
+    public static PorterDuff.Mode parseTintMode(int i2, PorterDuff.Mode mode) {
+        if (i2 != 3) {
+            if (i2 != 5) {
+                if (i2 != 9) {
+                    switch (i2) {
                         case 14:
                             return PorterDuff.Mode.MULTIPLY;
                         case 15:

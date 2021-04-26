@@ -8,7 +8,7 @@ import com.facebook.fresco.animation.backend.AnimationBackend;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBackend> extends AnimationBackendDelegate<T> {
     @VisibleForTesting
     public static final long INACTIVITY_CHECK_POLLING_TIME_MS = 1000;
@@ -24,7 +24,7 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
     public final MonotonicClock mMonotonicClock;
     public final ScheduledExecutorService mScheduledExecutorServiceForUiThread;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface InactivityListener {
         void onInactive();
     }
@@ -72,9 +72,9 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackendDelegate, com.facebook.fresco.animation.backend.AnimationBackend
-    public boolean drawFrame(Drawable drawable, Canvas canvas, int i) {
+    public boolean drawFrame(Drawable drawable, Canvas canvas, int i2) {
         this.mLastDrawnTimeMs = this.mMonotonicClock.now();
-        boolean drawFrame = super.drawFrame(drawable, canvas, i);
+        boolean drawFrame = super.drawFrame(drawable, canvas, i2);
         maybeScheduleInactivityCheck();
         return drawFrame;
     }

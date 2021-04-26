@@ -11,34 +11,37 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, com.kwad.sdk.core.config.item.a> f33820a = new ConcurrentHashMap();
+    public static Map<String, com.kwad.sdk.core.config.item.a> f32834a = new ConcurrentHashMap();
 
     public static void a(SharedPreferences.Editor editor) {
         if (editor != null) {
-            for (String str : f33820a.keySet()) {
-                f33820a.get(str).a(editor);
+            for (String str : f32834a.keySet()) {
+                f32834a.get(str).a(editor);
             }
         }
     }
 
     public static void a(SharedPreferences sharedPreferences) {
         if (sharedPreferences != null) {
-            for (String str : f33820a.keySet()) {
-                f33820a.get(str).a(sharedPreferences);
+            for (String str : f32834a.keySet()) {
+                f32834a.get(str).a(sharedPreferences);
             }
         }
     }
 
     public static <T> void a(@NonNull com.kwad.sdk.core.config.item.a<T> aVar) {
-        f33820a.put(aVar.a(), aVar);
+        f32834a.put(aVar.a(), aVar);
     }
 
     public static void a(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        for (String str : f33820a.keySet()) {
-            f33820a.get(str).a(jSONObject);
+        for (String str : f32834a.keySet()) {
+            com.kwad.sdk.core.config.item.a aVar = f32834a.get(str);
+            if (jSONObject.has(str)) {
+                aVar.a(jSONObject);
+            }
         }
     }
 

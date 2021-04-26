@@ -14,46 +14,46 @@ public class b extends AbstractKsDrawAd {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f34914a;
+    public AdTemplate f33883a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public KsDrawAd.AdInteractionListener f34915b;
+    public KsDrawAd.AdInteractionListener f33884b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f34916c;
+    public a f33885c;
 
     public b(@NonNull AdTemplate adTemplate) {
-        this.f34914a = adTemplate;
-        KSImageLoader.preloadImage(com.kwad.sdk.core.response.b.a.U(c.j(adTemplate)).a(), this.f34914a);
+        this.f33883a = adTemplate;
+        KSImageLoader.preloadImage(com.kwad.sdk.core.response.b.a.Q(c.g(adTemplate)).a(), this.f33883a);
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsDrawAd
     @Nullable
     public View getDrawView2(Context context) {
-        if (this.f34916c == null) {
+        if (this.f33885c == null) {
             a aVar = new a(context);
-            this.f34916c = aVar;
+            this.f33885c = aVar;
             aVar.setAdInteractionListener(new KsDrawAd.AdInteractionListener() { // from class: com.kwad.sdk.draw.b.1
                 @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
                 public void onAdClicked() {
-                    if (b.this.f34915b != null) {
-                        b.this.f34915b.onAdClicked();
+                    if (b.this.f33884b != null) {
+                        b.this.f33884b.onAdClicked();
                     }
                 }
 
                 @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
                 public void onAdShow() {
-                    if (b.this.f34915b != null) {
-                        b.this.f34915b.onAdShow();
+                    if (b.this.f33884b != null) {
+                        b.this.f33884b.onAdShow();
                     }
                 }
 
                 @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
                 public void onVideoPlayEnd() {
-                    if (b.this.f34915b != null) {
+                    if (b.this.f33884b != null) {
                         try {
-                            b.this.f34915b.onVideoPlayEnd();
+                            b.this.f33884b.onVideoPlayEnd();
                         } catch (Throwable th) {
                             com.kwad.sdk.core.d.a.b(th);
                         }
@@ -62,9 +62,9 @@ public class b extends AbstractKsDrawAd {
 
                 @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
                 public void onVideoPlayError() {
-                    if (b.this.f34915b != null) {
+                    if (b.this.f33884b != null) {
                         try {
-                            b.this.f34915b.onVideoPlayError();
+                            b.this.f33884b.onVideoPlayError();
                         } catch (Throwable th) {
                             com.kwad.sdk.core.d.a.b(th);
                         }
@@ -73,9 +73,9 @@ public class b extends AbstractKsDrawAd {
 
                 @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
                 public void onVideoPlayPause() {
-                    if (b.this.f34915b != null) {
+                    if (b.this.f33884b != null) {
                         try {
-                            b.this.f34915b.onVideoPlayPause();
+                            b.this.f33884b.onVideoPlayPause();
                         } catch (Throwable th) {
                             com.kwad.sdk.core.d.a.b(th);
                         }
@@ -84,9 +84,9 @@ public class b extends AbstractKsDrawAd {
 
                 @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
                 public void onVideoPlayResume() {
-                    if (b.this.f34915b != null) {
+                    if (b.this.f33884b != null) {
                         try {
-                            b.this.f34915b.onVideoPlayResume();
+                            b.this.f33884b.onVideoPlayResume();
                         } catch (Throwable th) {
                             com.kwad.sdk.core.d.a.b(th);
                         }
@@ -95,36 +95,36 @@ public class b extends AbstractKsDrawAd {
 
                 @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
                 public void onVideoPlayStart() {
-                    if (b.this.f34915b != null) {
+                    if (b.this.f33884b != null) {
                         try {
-                            b.this.f34915b.onVideoPlayStart();
+                            b.this.f33884b.onVideoPlayStart();
                         } catch (Throwable th) {
                             com.kwad.sdk.core.d.a.b(th);
                         }
                     }
                 }
             });
-            this.f34916c.a(this.f34914a);
+            this.f33885c.a(this.f33883a);
         } else {
-            com.kwad.sdk.core.d.a.b("KSDrawAdControl", "mDrawVideoView is not null");
+            com.kwad.sdk.core.d.a.c("KSDrawAdControl", "mDrawVideoView is not null");
         }
-        return this.f34916c;
+        return this.f33885c;
     }
 
     @Override // com.kwad.sdk.api.KsDrawAd
     public int getECPM() {
-        return com.kwad.sdk.core.response.b.a.A(c.j(this.f34914a));
+        return com.kwad.sdk.core.response.b.a.x(c.g(this.f33883a));
     }
 
     @Override // com.kwad.sdk.api.KsDrawAd
     public void setAdInteractionListener(KsDrawAd.AdInteractionListener adInteractionListener) {
-        this.f34915b = adInteractionListener;
+        this.f33884b = adInteractionListener;
     }
 
     @Override // com.kwad.sdk.api.KsDrawAd
-    public void setBidEcpm(int i) {
-        AdTemplate adTemplate = this.f34914a;
-        adTemplate.mBidEcpm = i;
-        com.kwad.sdk.core.report.b.m(adTemplate);
+    public void setBidEcpm(int i2) {
+        AdTemplate adTemplate = this.f33883a;
+        adTemplate.mBidEcpm = i2;
+        com.kwad.sdk.core.report.b.l(adTemplate);
     }
 }

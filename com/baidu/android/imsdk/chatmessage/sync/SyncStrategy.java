@@ -80,10 +80,10 @@ public abstract class SyncStrategy {
             LogUtils.i(TAG, "sync startId : " + j2 + " endId : " + j3);
             ChatMsgManagerImpl.getInstance(context).fetchMsgidByMsgid(context, this.mCategory, this.mContacter, j2, j3, this.mAmountEachFetch, this.mTriggerReason, getJumpToRecent(), new IFetchMsgByIdListener() { // from class: com.baidu.android.imsdk.chatmessage.sync.SyncStrategy.1
                 @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
-                public void onFetchMsgByIdResult(int i, String str, String str2, int i2, long j4, long j5, long j6, int i3, int i4, long j7, ArrayList<ChatMsg> arrayList) {
+                public void onFetchMsgByIdResult(int i2, String str, String str2, int i3, long j4, long j5, long j6, int i4, int i5, long j7, ArrayList<ChatMsg> arrayList) {
                     String str3 = SyncStrategy.TAG;
-                    LogUtils.i(str3, "onFetchMsgByIdResult errorCode: " + i + ", maxMsgid :" + j7 + ",contacter: " + j4 + ",mContacter: " + SyncStrategy.this.mContacter + ",beginId: " + j5 + ",endId: " + j6 + ",realCount : " + i4);
-                    SyncStrategy.this.deal(i, i3, i4, j7, str2, arrayList, i2, j4);
+                    LogUtils.i(str3, "onFetchMsgByIdResult errorCode: " + i2 + ", maxMsgid :" + j7 + ",contacter: " + j4 + ",mContacter: " + SyncStrategy.this.mContacter + ",beginId: " + j5 + ",endId: " + j6 + ",realCount : " + i5);
+                    SyncStrategy.this.deal(i2, i4, i5, j7, str2, arrayList, i3, j4);
                 }
             });
         }
@@ -91,7 +91,7 @@ public abstract class SyncStrategy {
 
     public abstract boolean commitDeviceMaxNotifyMsgid();
 
-    public void deal(int i, int i2, int i3, long j, String str, ArrayList<ChatMsg> arrayList, int i4, long j2) {
+    public void deal(int i2, int i3, int i4, long j, String str, ArrayList<ChatMsg> arrayList, int i5, long j2) {
         String str2 = TAG;
         LogUtils.d(str2, "deal maxMsgid" + j + " , contactor : " + j2 + ",fetchedMsgs: " + arrayList);
         if (arrayList != null && !arrayList.isEmpty()) {
@@ -102,9 +102,9 @@ public abstract class SyncStrategy {
             String str5 = TAG;
             StringBuilder sb = new StringBuilder();
             sb.append("deal realCount");
-            sb.append(i3);
+            sb.append(i4);
             LogUtils.d(str5, sb.toString());
-            if (1 != i4) {
+            if (1 != i5) {
                 try {
                     Dispatcher.dispatchMessage(this.mContext, this.mTriggerReason, arrayList);
                 } catch (Exception e2) {
@@ -121,17 +121,17 @@ public abstract class SyncStrategy {
             }
         }
         updateData(this.mContext, j);
-        if (i == 0) {
+        if (i2 == 0) {
             updateJumpToRecent();
-        } else if (i == 603 || i == 607) {
-            DialogRecordDBManager.getInstance(this.mContext).delete(i4, j2);
+        } else if (i2 == 603 || i2 == 607) {
+            DialogRecordDBManager.getInstance(this.mContext).delete(i5, j2);
         }
-        if (syncNotifyMessageStopCondition(i, i2, i3, arrayList)) {
+        if (syncNotifyMessageStopCondition(i2, i3, i4, arrayList)) {
             commitDeviceMaxNotifyMsgid();
-            onComplete(i);
+            onComplete(i2);
             this.mState = 2;
-            int i5 = this.mTriggerReason;
-            if ((i5 == 0 || i5 == 1) && checkNeedSendSyncCompBroadcast()) {
+            int i6 = this.mTriggerReason;
+            if ((i6 == 0 || i6 == 1) && checkNeedSendSyncCompBroadcast()) {
                 SyncManager.notifySyncDone();
                 sendMsgSyncCompBroadcast();
                 ChatSessionManagerImpl.getInstance(this.mContext).onSyncComplete();
@@ -141,8 +141,8 @@ public abstract class SyncStrategy {
         }
         this.mState = 1;
         commitDeviceMaxNotifyMsgid();
-        int i6 = this.mTriggerReason;
-        if (i6 == 0 || i6 == 1) {
+        int i7 = this.mTriggerReason;
+        if (i7 == 0 || i7 == 1) {
             LogUtils.d(TAG, "fetch msg thread sleep for 6s");
             try {
                 Thread.currentThread();
@@ -160,7 +160,7 @@ public abstract class SyncStrategy {
 
     public abstract long getStartMsgid();
 
-    public void onComplete(int i) {
+    public void onComplete(int i2) {
     }
 
     public void sendMsgSyncCompBroadcast() {
@@ -170,8 +170,8 @@ public abstract class SyncStrategy {
         LogUtils.i(TAG, "sendMsgSyncCompBroadcast sync done!");
     }
 
-    public SyncStrategy setCategory(int i) {
-        this.mCategory = i;
+    public SyncStrategy setCategory(int i2) {
+        this.mCategory = i2;
         return this;
     }
 
@@ -180,7 +180,7 @@ public abstract class SyncStrategy {
         return this;
     }
 
-    public void start(int i) {
+    public void start(int i2) {
         String str = TAG;
         LogUtils.d(str, "******************start sync !************** " + this.mState);
         ChatMessageDBManager.getInstance(this.mContext).getMaxMsgid();
@@ -191,32 +191,32 @@ public abstract class SyncStrategy {
         synchronized (this.mRetryTimesSync) {
             this.mReTryTimes = 0;
         }
-        this.mTriggerReason = i;
+        this.mTriggerReason = i2;
         String str2 = TAG;
         LogUtils.d(str2, "----start sync category:" + this.mCategory + " contacter:" + this.mContacter);
         sync(this.mContext, true, -1L);
     }
 
-    public boolean syncNotifyMessageStopCondition(int i, int i2, int i3, ArrayList<ChatMsg> arrayList) {
-        if (arrayList != null && i == 0) {
+    public boolean syncNotifyMessageStopCondition(int i2, int i3, int i4, ArrayList<ChatMsg> arrayList) {
+        if (arrayList != null && i2 == 0) {
             synchronized (this.mRetryTimesSync) {
                 this.mReTryTimes = 0;
             }
-            return i3 < i2;
+            return i4 < i3;
         }
         if (this.mReTryTimes <= 2) {
             synchronized (this.mRetryTimesSync) {
                 this.mReTryTimes++;
             }
         }
-        return this.mReTryTimes > 2 || i == 1001 || i == 1004 || i == 6;
+        return this.mReTryTimes > 2 || i2 == 1001 || i2 == 1004 || i2 == 6;
     }
 
     public abstract void updateData(Context context, long j);
 
     public abstract boolean updateJumpToRecent();
 
-    public void start(int i, long j) {
+    public void start(int i2, long j) {
         String str = TAG;
         LogUtils.d(str, "******************start sync !************** " + this.mState);
         ChatMessageDBManager.getInstance(this.mContext).getMaxMsgid();
@@ -227,7 +227,7 @@ public abstract class SyncStrategy {
         synchronized (this.mRetryTimesSync) {
             this.mReTryTimes = 0;
         }
-        this.mTriggerReason = i;
+        this.mTriggerReason = i2;
         String str2 = TAG;
         LogUtils.d(str2, "----start sync category:" + this.mCategory + " contacter:" + this.mContacter);
         sync(this.mContext, true, j);

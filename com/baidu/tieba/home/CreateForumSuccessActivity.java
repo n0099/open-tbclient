@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes4.dex */
 public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessActivity> {
     public static final String FORUM_NAME_STRING = "forumname";
@@ -81,11 +81,11 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void changeSkinType(int i) {
-        super.changeSkinType(i);
-        super.changeSkinType(i);
+    public void changeSkinType(int i2) {
+        super.changeSkinType(i2);
+        super.changeSkinType(i2);
         getLayoutMode().j(this.mRootView);
-        d.b.i0.s0.a.a(getPageContext(), this.mRootView);
+        d.a.i0.s0.a.a(getPageContext(), this.mRootView);
         NoNetworkView noNetworkView = this.mNoNetView;
         if (noNetworkView != null && noNetworkView.getVisibility() == 0) {
             this.mNoNetView.c(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
@@ -96,7 +96,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         }
         NavigationBar navigationBar = this.mNavigationBar;
         if (navigationBar != null) {
-            navigationBar.onChangeSkinType(getPageContext(), i);
+            navigationBar.onChangeSkinType(getPageContext(), i2);
         }
     }
 

@@ -13,34 +13,34 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class DpSessionDatasUploader {
     @Keep
     public static final String SAILOR_MONITOR = "sailor_monitor";
 
     /* renamed from: a  reason: collision with root package name */
-    public static DpSessionDatasUploader f5090a;
+    public static DpSessionDatasUploader f5219a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f5091b = new d();
+    public d f5220b = new d();
 
     /* renamed from: c  reason: collision with root package name */
-    public d f5092c = new d("live_show_session");
+    public d f5221c = new d("live_show_session");
 
     private void a() {
-        d dVar = this.f5091b;
+        d dVar = this.f5220b;
         if (dVar != null) {
             dVar.a();
         }
-        d dVar2 = this.f5092c;
+        d dVar2 = this.f5221c;
         if (dVar2 != null) {
             dVar2.a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, String str2, int i) {
-        String a2 = a(str2, i);
+    public void a(String str, String str2, int i2) {
+        String a2 = a(str2, i2);
         if (TextUtils.isEmpty(a2)) {
             return;
         }
@@ -53,19 +53,19 @@ public final class DpSessionDatasUploader {
         if (a(m.a(a3), a2, cfgBoolValue)) {
             a();
         } else {
-            a(Base64.encode(m.a(a(str.getBytes(), false)), 2), i);
+            a(Base64.encode(m.a(a(str.getBytes(), false)), 2), i2);
         }
     }
 
-    private void a(byte[] bArr, int i) {
+    private void a(byte[] bArr, int i2) {
         d dVar;
-        if (i == 24) {
-            dVar = this.f5092c;
+        if (i2 == 24) {
+            dVar = this.f5221c;
             if (dVar == null) {
                 return;
             }
         } else {
-            dVar = this.f5091b;
+            dVar = this.f5220b;
             if (dVar == null) {
                 return;
             }
@@ -89,21 +89,21 @@ public final class DpSessionDatasUploader {
     public static synchronized DpSessionDatasUploader getInstance() {
         DpSessionDatasUploader dpSessionDatasUploader;
         synchronized (DpSessionDatasUploader.class) {
-            if (f5090a == null) {
-                f5090a = new DpSessionDatasUploader();
+            if (f5219a == null) {
+                f5219a = new DpSessionDatasUploader();
             }
-            dpSessionDatasUploader = f5090a;
+            dpSessionDatasUploader = f5219a;
         }
         return dpSessionDatasUploader;
     }
 
-    public String a(String str, int i) {
+    public String a(String str, int i2) {
         String c2 = com.baidu.cyberplayer.sdk.c.a().c();
         if (TextUtils.isEmpty(c2)) {
             return null;
         }
         String str2 = c2 + str;
-        if (i == 24) {
+        if (i2 == 24) {
             return str2 + "&upload_type=tieba_live";
         }
         return str2;
@@ -111,29 +111,29 @@ public final class DpSessionDatasUploader {
 
     public void a(Context context) {
         d dVar;
-        if (context == null || (dVar = this.f5091b) == null || this.f5092c == null) {
+        if (context == null || (dVar = this.f5220b) == null || this.f5221c == null) {
             return;
         }
         dVar.a(context);
-        this.f5092c.a(context);
+        this.f5221c.a(context);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00db */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0084, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00dd */
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0086, code lost:
         if (r10 == null) goto L15;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0086, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0088, code lost:
         r10.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b3, code lost:
         if (r10 == null) goto L15;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d4, code lost:
         if (r10 == null) goto L15;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x00e8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x00de A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x00ea A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x00e0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r10v0, types: [java.lang.CharSequence, java.lang.String] */
     /* JADX WARN: Type inference failed for: r10v1 */
     /* JADX WARN: Type inference failed for: r10v4, types: [java.net.HttpURLConnection] */
@@ -141,14 +141,14 @@ public final class DpSessionDatasUploader {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean a(byte[] bArr, String str, boolean z) {
-        int i;
+        int i2;
         HttpURLConnection httpURLConnection;
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         CyberLog.d("SessionDatasUploader", "sendStatisticsDataToServer called uploadUrl:" + ((String) str) + " isGzipCompressed:" + z);
         OutputStream outputStream = null;
-        i = -1;
+        i2 = -1;
         try {
             try {
                 httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
@@ -164,8 +164,8 @@ public final class DpSessionDatasUploader {
                     outputStream = httpURLConnection.getOutputStream();
                     outputStream.write(bArr);
                     outputStream.flush();
-                    i = httpURLConnection.getResponseCode();
-                    CyberLog.d("SessionDatasUploader", "upload response : " + i);
+                    i2 = httpURLConnection.getResponseCode();
+                    CyberLog.d("SessionDatasUploader", "upload response : " + i2);
                     if (outputStream != null) {
                         try {
                             outputStream.close();
@@ -226,7 +226,7 @@ public final class DpSessionDatasUploader {
             }
             throw th;
         }
-        return i == 200;
+        return i2 == 200;
     }
 
     @Keep
@@ -242,12 +242,12 @@ public final class DpSessionDatasUploader {
     }
 
     @Keep
-    public void upload(final String str, final String str2, final int i) {
+    public void upload(final String str, final String str2, final int i2) {
         if (com.baidu.cyberplayer.sdk.c.a().b()) {
             CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (i == 24) {
+                    if (i2 == 24) {
                         DpSessionDatasUploader.this.a(str, str2, 24);
                     }
                     DpSessionDatasUploader.this.a(str, str2, 1);

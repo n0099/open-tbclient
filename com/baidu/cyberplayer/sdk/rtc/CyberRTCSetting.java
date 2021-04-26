@@ -1,14 +1,13 @@
 package com.baidu.cyberplayer.sdk.rtc;
 
 import com.baidu.cyberplayer.sdk.Keep;
-import com.kwai.video.player.misc.KsMediaFormat;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CyberRTCSetting {
     public boolean HasVideo = true;
     public boolean HasAudio = true;
     public boolean HasData = false;
-    public String VideoCodec = KsMediaFormat.CODEC_NAME_H264;
+    public String VideoCodec = "h264";
     public String AudioCodec = "opus";
     public int AudioFrequency = 48000;
     public int AudioChannel = 1;
@@ -26,7 +25,7 @@ public class CyberRTCSetting {
     public CyberRTCVideoRenderMode VideoRenderMode = CyberRTCVideoRenderMode.CYBER_RTC_VIDEO_RENDER_MODE_INTERNAL;
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public enum CyberRTCSettingType {
         CYBER_RTC_AUDIO_PARAM_SETTINGS_ONLY_AUDIO,
         CYBER_RTC_AUDIO_PARAM_SETTINGS_AEC_DUMP,
@@ -47,7 +46,7 @@ public class CyberRTCSetting {
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public enum CyberRTCVideoRenderMode {
         CYBER_RTC_VIDEO_RENDER_MODE_EXTERNAL,
         CYBER_RTC_VIDEO_RENDER_MODE_INTERNAL

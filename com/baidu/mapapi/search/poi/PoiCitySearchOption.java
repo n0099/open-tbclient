@@ -31,13 +31,13 @@ public class PoiCitySearchOption {
         return this;
     }
 
-    public PoiCitySearchOption pageCapacity(int i) {
-        this.mPageCapacity = i;
+    public PoiCitySearchOption pageCapacity(int i2) {
+        this.mPageCapacity = i2;
         return this;
     }
 
-    public PoiCitySearchOption pageNum(int i) {
-        this.mPageNum = i;
+    public PoiCitySearchOption pageNum(int i2) {
+        this.mPageNum = i2;
         return this;
     }
 
@@ -46,8 +46,8 @@ public class PoiCitySearchOption {
         return this;
     }
 
-    public PoiCitySearchOption scope(int i) {
-        this.mScope = i;
+    public PoiCitySearchOption scope(int i2) {
+        this.mScope = i2;
         return this;
     }
 

@@ -6,7 +6,6 @@ import android.media.MediaFormat;
 import android.opengl.GLES20;
 import android.os.Bundle;
 import android.view.Surface;
-import com.kwai.video.player.KsMediaMeta;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Map;
@@ -87,12 +86,12 @@ public class HardwareVideoEncoder implements VideoEncoder {
             }
         };
 
-        public static YuvFormat valueOf(int i) {
-            if (i != 19) {
-                if (i == 21 || i == 2141391872 || i == 2141391876) {
+        public static YuvFormat valueOf(int i2) {
+            if (i2 != 19) {
+                if (i2 == 21 || i2 == 2141391872 || i2 == 2141391876) {
                     return NV12;
                 }
-                throw new IllegalArgumentException("Unsupported colorFormat: " + i);
+                throw new IllegalArgumentException("Unsupported colorFormat: " + i2);
             }
             return I420;
         }
@@ -100,7 +99,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
         public abstract void fillBuffer(ByteBuffer byteBuffer, VideoFrame.Buffer buffer);
     }
 
-    public HardwareVideoEncoder(MediaCodecWrapperFactory mediaCodecWrapperFactory, String str, VideoCodecType videoCodecType, Integer num, Integer num2, Map<String, String> map, int i, int i2, BitrateAdjuster bitrateAdjuster, EglBase14.Context context) {
+    public HardwareVideoEncoder(MediaCodecWrapperFactory mediaCodecWrapperFactory, String str, VideoCodecType videoCodecType, Integer num, Integer num2, Map<String, String> map, int i2, int i3, BitrateAdjuster bitrateAdjuster, EglBase14.Context context) {
         this.mediaCodecWrapperFactory = mediaCodecWrapperFactory;
         this.codecName = str;
         this.codecType = videoCodecType;
@@ -108,8 +107,8 @@ public class HardwareVideoEncoder implements VideoEncoder {
         this.yuvColorFormat = num2;
         this.yuvFormat = YuvFormat.valueOf(num2.intValue());
         this.params = map;
-        this.keyFrameIntervalSec = i;
-        this.forcedKeyFrameNs = TimeUnit.MILLISECONDS.toNanos(i2);
+        this.keyFrameIntervalSec = i2;
+        this.forcedKeyFrameNs = TimeUnit.MILLISECONDS.toNanos(i3);
         this.bitrateAdjuster = bitrateAdjuster;
         this.sharedContext = context;
         this.encodeThreadChecker.detachThread();
@@ -131,7 +130,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
         };
     }
 
-    private VideoCodecStatus encodeByteBuffer(VideoFrame videoFrame, VideoFrame.Buffer buffer, int i) {
+    private VideoCodecStatus encodeByteBuffer(VideoFrame videoFrame, VideoFrame.Buffer buffer, int i2) {
         this.encodeThreadChecker.checkIsOnValidThread();
         long timestampNs = (videoFrame.getTimestampNs() + 500) / 1000;
         try {
@@ -143,7 +142,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
             try {
                 fillInputBuffer(this.codec.getInputBuffers()[dequeueInputBuffer], buffer);
                 try {
-                    this.codec.queueInputBuffer(dequeueInputBuffer, 0, i, timestampNs, 0);
+                    this.codec.queueInputBuffer(dequeueInputBuffer, 0, i2, timestampNs, 0);
                     return VideoCodecStatus.OK;
                 } catch (IllegalStateException e2) {
                     Logging.e(TAG, "queueInputBuffer failed", e2);
@@ -189,7 +188,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
             int intValue = (this.useSurfaceMode ? this.surfaceColorFormat : this.yuvColorFormat).intValue();
             try {
                 MediaFormat createVideoFormat = MediaFormat.createVideoFormat(this.codecType.mimeType(), this.width, this.height);
-                createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, this.adjustedBitrate);
+                createVideoFormat.setInteger("bitrate", this.adjustedBitrate);
                 createVideoFormat.setInteger(KEY_BITRATE_MODE, 2);
                 createVideoFormat.setInteger("color-format", intValue);
                 createVideoFormat.setInteger("frame-rate", this.bitrateAdjuster.getCodecConfigFramerate());
@@ -269,14 +268,14 @@ public class HardwareVideoEncoder implements VideoEncoder {
         }
     }
 
-    private VideoCodecStatus resetCodec(int i, int i2, boolean z) {
+    private VideoCodecStatus resetCodec(int i2, int i3, boolean z) {
         this.encodeThreadChecker.checkIsOnValidThread();
         VideoCodecStatus release = release();
         if (release != VideoCodecStatus.OK) {
             return release;
         }
-        this.width = i;
-        this.height = i2;
+        this.width = i2;
+        this.height = i3;
         this.useSurfaceMode = z;
         return initEncodeInternal();
     }
@@ -420,16 +419,16 @@ public class HardwareVideoEncoder implements VideoEncoder {
 
     @Override // org.webrtc.VideoEncoder
     public VideoCodecStatus initEncode(VideoEncoder.Settings settings, VideoEncoder.Callback callback) {
-        int i;
+        int i2;
         this.encodeThreadChecker.checkIsOnValidThread();
         this.callback = callback;
         this.automaticResizeOn = settings.automaticResizeOn;
         this.width = settings.width;
         this.height = settings.height;
         this.useSurfaceMode = canUseSurface();
-        int i2 = settings.startBitrate;
-        if (i2 != 0 && (i = settings.maxFramerate) != 0) {
-            this.bitrateAdjuster.setTargets(i2 * 1000, i);
+        int i3 = settings.startBitrate;
+        if (i3 != 0 && (i2 = settings.maxFramerate) != 0) {
+            this.bitrateAdjuster.setTargets(i3 * 1000, i2);
         }
         this.adjustedBitrate = this.bitrateAdjuster.getAdjustedBitrateBps();
         Logging.d(TAG, "initEncode: " + this.width + " x " + this.height + ". @ " + settings.startBitrate + "kbps. Fps: " + settings.maxFramerate + " Use surface mode: " + this.useSurfaceMode);
@@ -497,12 +496,12 @@ public class HardwareVideoEncoder implements VideoEncoder {
     }
 
     @Override // org.webrtc.VideoEncoder
-    public VideoCodecStatus setRateAllocation(VideoEncoder.BitrateAllocation bitrateAllocation, int i) {
+    public VideoCodecStatus setRateAllocation(VideoEncoder.BitrateAllocation bitrateAllocation, int i2) {
         this.encodeThreadChecker.checkIsOnValidThread();
-        if (i > 30) {
-            i = 30;
+        if (i2 > 30) {
+            i2 = 30;
         }
-        this.bitrateAdjuster.setTargets(bitrateAllocation.getSum(), i);
+        this.bitrateAdjuster.setTargets(bitrateAllocation.getSum(), i2);
         return VideoCodecStatus.OK;
     }
 }

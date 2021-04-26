@@ -5,26 +5,26 @@ import java.io.ByteArrayOutputStream;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8191a;
+    public String f8484a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8192b;
+    public boolean f8485b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f8193c;
+    public boolean f8486c;
 
     public a(String str, boolean z, boolean z2) {
-        this.f8191a = str;
-        this.f8192b = z;
-        this.f8193c = z2;
+        this.f8484a = str;
+        this.f8485b = z;
+        this.f8486c = z2;
     }
 
-    public static int a(int i) {
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
-                        return i != 5 ? -1 : 0;
+    public static int a(int i2) {
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 != 3) {
+                    if (i2 != 4) {
+                        return i2 != 5 ? -1 : 0;
                     }
                     return 1;
                 }
@@ -36,22 +36,22 @@ public class a {
     }
 
     public String a(byte[] bArr) {
-        int i;
+        int i2;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        for (int i2 = 0; i2 < (bArr.length + 4) / 5; i2++) {
+        for (int i3 = 0; i3 < (bArr.length + 4) / 5; i3++) {
             short[] sArr = new short[5];
             int[] iArr = new int[8];
-            int i3 = 5;
-            for (int i4 = 0; i4 < 5; i4++) {
-                int i5 = (i2 * 5) + i4;
-                if (i5 < bArr.length) {
-                    sArr[i4] = (short) (bArr[i5] & 255);
+            int i4 = 5;
+            for (int i5 = 0; i5 < 5; i5++) {
+                int i6 = (i3 * 5) + i5;
+                if (i6 < bArr.length) {
+                    sArr[i5] = (short) (bArr[i6] & 255);
                 } else {
-                    sArr[i4] = 0;
-                    i3--;
+                    sArr[i5] = 0;
+                    i4--;
                 }
             }
-            int a2 = a(i3);
+            int a2 = a(i4);
             iArr[0] = (byte) ((sArr[0] >> 3) & 31);
             iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
             iArr[2] = (byte) ((sArr[1] >> 1) & 31);
@@ -60,23 +60,23 @@ public class a {
             iArr[5] = (byte) ((sArr[3] >> 2) & 31);
             iArr[6] = (byte) (((sArr[4] >> 5) & 7) | ((sArr[3] & 3) << 3));
             iArr[7] = (byte) (sArr[4] & 31);
-            int i6 = 0;
+            int i7 = 0;
             while (true) {
-                i = 8 - a2;
-                if (i6 >= i) {
+                i2 = 8 - a2;
+                if (i7 >= i2) {
                     break;
                 }
-                char charAt = this.f8191a.charAt(iArr[i6]);
-                if (this.f8193c) {
+                char charAt = this.f8484a.charAt(iArr[i7]);
+                if (this.f8486c) {
                     charAt = Character.toLowerCase(charAt);
                 }
                 byteArrayOutputStream.write(charAt);
-                i6++;
+                i7++;
             }
-            if (this.f8192b) {
-                while (i < 8) {
+            if (this.f8485b) {
+                while (i2 < 8) {
                     byteArrayOutputStream.write(61);
-                    i++;
+                    i2++;
                 }
             }
         }

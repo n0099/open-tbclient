@@ -91,8 +91,8 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
     }
 
     @Override // com.baidu.wallet.api.IWalletLoginListener
-    public void handlerWalletError(int i) {
-        if (i == 5003) {
+    public void handlerWalletError(int i2) {
+        if (i2 == 5003) {
             PassLoginUtil.getInstance().logout();
             AccountManager.getInstance(this.mContext).logout();
         }

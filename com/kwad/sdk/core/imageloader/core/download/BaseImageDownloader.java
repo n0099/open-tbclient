@@ -7,13 +7,13 @@ import android.graphics.Bitmap;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
-import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.webkit.MimeTypeMap;
 import com.kwad.sdk.core.imageloader.core.assist.ContentLengthInputStream;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.utils.IoUtils;
 import com.kwad.sdk.core.network.k;
+import com.kwad.sdk.core.network.l;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -28,7 +28,6 @@ import java.net.URL;
 public class BaseImageDownloader implements ImageDownloader {
     public static final String ALLOWED_URI_CHARS = "@#&=*+-_.,:!?()/~'%";
     public static final int BUFFER_SIZE = 32768;
-    public static final String CONTENT_CONTACTS_URI_PREFIX = "content://com.android.contacts/";
     public static final int DEFAULT_HTTP_CONNECT_TIMEOUT = 5000;
     public static final int DEFAULT_HTTP_READ_TIMEOUT = 20000;
     public static final String ERROR_UNSUPPORTED_SCHEME = "UIL doesn't support scheme(protocol) by default [%s]. You should implement this support yourself (BaseImageDownloader.getStreamFromOtherSource(...))";
@@ -80,10 +79,10 @@ public class BaseImageDownloader implements ImageDownloader {
         this(context, 5000, 20000);
     }
 
-    public BaseImageDownloader(Context context, int i, int i2) {
+    public BaseImageDownloader(Context context, int i2, int i3) {
         this.context = context.getApplicationContext();
-        this.connectTimeout = i;
-        this.readTimeout = i2;
+        this.connectTimeout = i2;
+        this.readTimeout = i3;
     }
 
     @TargetApi(8)
@@ -109,16 +108,11 @@ public class BaseImageDownloader implements ImageDownloader {
 
     public HttpURLConnection createConnection(String str, Object obj) {
         HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(Uri.encode(str, ALLOWED_URI_CHARS)).openConnection();
+        l.a(httpURLConnection);
         httpURLConnection.setRequestProperty("User-Agent", k.a());
         httpURLConnection.setConnectTimeout(this.connectTimeout);
         httpURLConnection.setReadTimeout(this.readTimeout);
         return httpURLConnection;
-    }
-
-    @TargetApi(14)
-    public InputStream getContactPhotoStream(Uri uri) {
-        ContentResolver contentResolver = this.context.getContentResolver();
-        return Build.VERSION.SDK_INT >= 14 ? ContactsContract.Contacts.openContactPhotoInputStream(contentResolver, uri, true) : ContactsContract.Contacts.openContactPhotoInputStream(contentResolver, uri);
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.download.ImageDownloader
@@ -145,19 +139,15 @@ public class BaseImageDownloader implements ImageDownloader {
     }
 
     public InputStream getStreamFromContent(String str, Object obj) {
+        Bitmap thumbnail;
         ContentResolver contentResolver = this.context.getContentResolver();
         Uri parse = Uri.parse(str);
-        if (isVideoContentUri(parse)) {
-            Bitmap thumbnail = MediaStore.Video.Thumbnails.getThumbnail(contentResolver, Long.valueOf(parse.getLastPathSegment()).longValue(), 1, null);
-            if (thumbnail != null) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                thumbnail.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);
-                return new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-            }
-        } else if (str.startsWith(CONTENT_CONTACTS_URI_PREFIX)) {
-            return getContactPhotoStream(parse);
+        if (!isVideoContentUri(parse) || (thumbnail = MediaStore.Video.Thumbnails.getThumbnail(contentResolver, Long.valueOf(parse.getLastPathSegment()).longValue(), 1, null)) == null) {
+            return contentResolver.openInputStream(parse);
         }
-        return contentResolver.openInputStream(parse);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        thumbnail.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);
+        return new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
     }
 
     public InputStream getStreamFromDrawable(String str, Object obj) {
@@ -171,7 +161,7 @@ public class BaseImageDownloader implements ImageDownloader {
 
     public InputStream getStreamFromNetwork(String str, Object obj) {
         HttpURLConnection createConnection = createConnection(str, obj);
-        for (int i = 0; createConnection.getResponseCode() / 100 == 3 && i < 5; i++) {
+        for (int i2 = 0; createConnection.getResponseCode() / 100 == 3 && i2 < 5; i2++) {
             createConnection = createConnection(createConnection.getHeaderField("Location"), obj);
         }
         try {

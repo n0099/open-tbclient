@@ -3,8 +3,8 @@ package com.baidu.mobads.cid.cesium.a;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class c {
-    public static void a(byte[] bArr, byte[] bArr2, int i) {
-        if (i < 0) {
+    public static void a(byte[] bArr, byte[] bArr2, int i2) {
+        if (i2 < 0) {
             throw new IllegalArgumentException("start should be more than zero!");
         }
         if (bArr == null || bArr.length == 0) {
@@ -16,19 +16,19 @@ public class c {
         if (bArr.length < bArr2.length) {
             throw new IllegalArgumentException("dst array length should be longer than:" + bArr2.length);
         }
-        if (bArr.length >= bArr2.length + i) {
-            System.arraycopy(bArr2, 0, bArr, i, bArr2.length);
+        if (bArr.length >= bArr2.length + i2) {
+            System.arraycopy(bArr2, 0, bArr, i2, bArr2.length);
             return;
         }
         throw new IllegalArgumentException("start should be less than:" + (bArr.length - bArr2.length));
     }
 
-    public static byte[] a(byte[] bArr, int i) {
+    public static byte[] a(byte[] bArr, int i2) {
         if (bArr == null || bArr.length == 0) {
             throw new IllegalArgumentException("original array should not be null or empty");
         }
-        if (i >= 0) {
-            return Arrays.copyOf(bArr, i);
+        if (i2 >= 0) {
+            return Arrays.copyOf(bArr, i2);
         }
         throw new IllegalArgumentException("length should be more than zero!");
     }

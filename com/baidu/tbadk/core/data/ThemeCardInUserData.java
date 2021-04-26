@@ -60,8 +60,8 @@ public class ThemeCardInUserData extends OrmObject implements Serializable {
         this.coordinate = str;
     }
 
-    public void setFreeLevel(int i) {
-        this.freeLevel = i;
+    public void setFreeLevel(int i2) {
+        this.freeLevel = i2;
     }
 
     public void parser(JSONObject jSONObject) {

@@ -6,8 +6,8 @@ public class it extends ByteArrayOutputStream {
     public it() {
     }
 
-    public it(int i) {
-        super(i);
+    public it(int i2) {
+        super(i2);
     }
 
     public int a() {
@@ -15,7 +15,7 @@ public class it extends ByteArrayOutputStream {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m501a() {
+    public byte[] m504a() {
         return ((ByteArrayOutputStream) this).buf;
     }
 }

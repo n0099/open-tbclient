@@ -7,20 +7,20 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-import d.b.h0.a.i2.z;
+import d.a.h0.a.i2.z;
 /* loaded from: classes3.dex */
 public class BdBaseImageView extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12090e;
+    public boolean f11932e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12091f;
+    public int f11933f;
 
     public BdBaseImageView(Context context) {
         super(context);
-        this.f12090e = true;
-        this.f12091f = 0;
+        this.f11932e = true;
+        this.f11933f = 0;
     }
 
     public final boolean a() {
@@ -28,43 +28,43 @@ public class BdBaseImageView extends ImageView {
     }
 
     public final boolean b() {
-        return this.f12090e || this.f12091f != z.d(getContext());
+        return this.f11932e || this.f11933f != z.d(getContext());
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
         if (b()) {
             z.b(getContext(), getDrawable());
-            this.f12091f = z.d(getContext());
-            this.f12090e = false;
+            this.f11933f = z.d(getContext());
+            this.f11932e = false;
         }
         super.draw(canvas);
     }
 
     @Override // android.widget.ImageView
-    public void setImageAlpha(int i) {
+    public void setImageAlpha(int i2) {
         if (a()) {
-            z.c(getContext(), getDrawable(), i);
+            z.c(getContext(), getDrawable(), i2);
         } else {
-            super.setImageAlpha(i);
+            super.setImageAlpha(i2);
         }
     }
 
     @Override // android.widget.ImageView
     public void setImageDrawable(@Nullable Drawable drawable) {
-        this.f12090e = true;
+        this.f11932e = true;
         super.setImageDrawable(drawable);
     }
 
     public BdBaseImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12090e = true;
-        this.f12091f = 0;
+        this.f11932e = true;
+        this.f11933f = 0;
     }
 
-    public BdBaseImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f12090e = true;
-        this.f12091f = 0;
+    public BdBaseImageView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f11932e = true;
+        this.f11933f = 0;
     }
 }

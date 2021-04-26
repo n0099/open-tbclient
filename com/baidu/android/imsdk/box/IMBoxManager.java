@@ -111,12 +111,12 @@ public final class IMBoxManager {
         return IMManager.enableDebugMode(context, z);
     }
 
-    public static ArrayList<ChatMsg> fetchMessageSync(Context context, long j, long j2, int i) {
-        return ChatMsgManager.fetchMessageSync(context, 0, j, j2, i);
+    public static ArrayList<ChatMsg> fetchMessageSync(Context context, long j, long j2, int i2) {
+        return ChatMsgManager.fetchMessageSync(context, 0, j, j2, i2);
     }
 
-    public static void forwardMessage(Context context, String str, int i, ChatMsg chatMsg, ISendMessageListener iSendMessageListener) {
-        ChatMsgManager.forwardMessage(context, str, i, chatMsg, iSendMessageListener);
+    public static void forwardMessage(Context context, String str, int i2, ChatMsg chatMsg, ISendMessageListener iSendMessageListener) {
+        ChatMsgManager.forwardMessage(context, str, i2, chatMsg, iSendMessageListener);
     }
 
     public static ArrayList<SessionClass> getAllClassType(Context context) {
@@ -145,8 +145,8 @@ public final class IMBoxManager {
     }
 
     @Deprecated
-    public static int getNewCountOfClass(Context context, int i) {
-        return ChatMessageDBManager.getInstance(context).getNewMsgCountOfClass(i);
+    public static int getNewCountOfClass(Context context, int i2) {
+        return ChatMessageDBManager.getInstance(context).getNewMsgCountOfClass(i2);
     }
 
     @Deprecated
@@ -154,8 +154,8 @@ public final class IMBoxManager {
         return (int) ChatMsgManager.getUnReadMsgCount(context, 0, j);
     }
 
-    public static void getNotificationMsgDataList(Context context, SparseArray<List<Integer>> sparseArray, long j, int i, IFetchNotificationDataListener iFetchNotificationDataListener) {
-        ChatMsgManager.getNotificationMsgDataList(context, sparseArray, j, i, iFetchNotificationDataListener);
+    public static void getNotificationMsgDataList(Context context, SparseArray<List<Integer>> sparseArray, long j, int i2, IFetchNotificationDataListener iFetchNotificationDataListener) {
+        ChatMsgManager.getNotificationMsgDataList(context, sparseArray, j, i2, iFetchNotificationDataListener);
     }
 
     public static int getNotificationPrivacy(Context context) {
@@ -174,28 +174,28 @@ public final class IMBoxManager {
         PaManager.getPaInfos(context, arrayList, iGetPaInfosListener);
     }
 
-    public static List<ChatMsg> getPaMsgByChatType(Context context, int i, int i2) {
-        return ChatMsgManager.getPaMsgByChatType(context, i, i2);
+    public static List<ChatMsg> getPaMsgByChatType(Context context, int i2, int i3) {
+        return ChatMsgManager.getPaMsgByChatType(context, i2, i3);
     }
 
-    public static void getPaMsgByChatTypeAndPaidList(Context context, List<Integer> list, List<Long> list2, long j, int i, IFetchNotificationDataListener iFetchNotificationDataListener) {
-        ChatMsgManager.getPaMsgByChatTypeAndPaidList(context, list, list2, j, i, iFetchNotificationDataListener);
+    public static void getPaMsgByChatTypeAndPaidList(Context context, List<Integer> list, List<Long> list2, long j, int i2, IFetchNotificationDataListener iFetchNotificationDataListener) {
+        ChatMsgManager.getPaMsgByChatTypeAndPaidList(context, list, list2, j, i2, iFetchNotificationDataListener);
     }
 
     public static void getPaQuickReplies(Context context, long j, IGetQuickReplyListener iGetQuickReplyListener) {
         PaManager.getPaQuickReplies(context, j, iGetQuickReplyListener);
     }
 
-    public static void getServiceNotifyMenuStatus(Context context, long j, List<Long> list, List<String> list2, int i, String str, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
-        ShieldAndTopManager.getInstance(context).getServiceNotifyMenuStatus(j, list, list2, str, i, iGetServiceNotifyMenuListener);
+    public static void getServiceNotifyMenuStatus(Context context, long j, List<Long> list, List<String> list2, int i2, String str, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
+        ShieldAndTopManager.getInstance(context).getServiceNotifyMenuStatus(j, list, list2, str, i2, iGetServiceNotifyMenuListener);
     }
 
     public static void getShield(Context context, long j, IGetShieldAndTopListener iGetShieldAndTopListener) {
         ShieldAndTopManager.getInstance(context).getOneShieldAndTopRequest(j, iGetShieldAndTopListener);
     }
 
-    public static void getSingleContacterSetting(Context context, long j, int i, IGetShieldAndTopListener iGetShieldAndTopListener) {
-        ShieldAndTopManager.getInstance(context).getSingleContacterSetting(j, i, iGetShieldAndTopListener);
+    public static void getSingleContacterSetting(Context context, long j, int i2, IGetShieldAndTopListener iGetShieldAndTopListener) {
+        ShieldAndTopManager.getInstance(context).getSingleContacterSetting(j, i2, iGetShieldAndTopListener);
     }
 
     public static void getSmartChatSession(final Context context, final List<Integer> list, final IGetSmartChatSessionListener iGetSmartChatSessionListener) {
@@ -207,16 +207,16 @@ public final class IMBoxManager {
             TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    int i;
+                    int i2;
                     ArrayList<ChatSession> chatRecords = ChatMsgManager.getChatRecords(context, list);
                     if (chatRecords != null) {
-                        i = 0;
+                        i2 = 0;
                     } else if (AccountManager.isLogin(context)) {
-                        i = LoginManager.getInstance(context).getCurrentState().equals(LoginManager.LoginState.LOGINING) ? -2 : -3;
+                        i2 = LoginManager.getInstance(context).getCurrentState().equals(LoginManager.LoginState.LOGINING) ? -2 : -3;
                     } else {
-                        i = -1;
+                        i2 = -1;
                     }
-                    iGetSmartChatSessionListener.onGetSessionResult(i, chatRecords);
+                    iGetSmartChatSessionListener.onGetSessionResult(i2, chatRecords);
                 }
             });
             return;
@@ -237,8 +237,8 @@ public final class IMBoxManager {
         ChatUserManager.getUnconcernedUserDisturb(context, iGetUnconcernedMsgListener);
     }
 
-    public static void getUserShieldList(Context context, int i, IGetUserShieldListener iGetUserShieldListener) {
-        ShieldAndTopManager.getInstance(context).getUserShieldListToShow(i, iGetUserShieldListener);
+    public static void getUserShieldList(Context context, int i2, IGetUserShieldListener iGetUserShieldListener) {
+        ShieldAndTopManager.getInstance(context).getUserShieldListToShow(i2, iGetUserShieldListener);
     }
 
     public static void getUsersProfiles(Context context, ArrayList<Long> arrayList, boolean z, IGetUsersProfileBatchListener iGetUsersProfileBatchListener) {
@@ -261,12 +261,12 @@ public final class IMBoxManager {
         synchronized (IMBoxManager.class) {
             ILoginListener iLoginListener2 = new ILoginListener() { // from class: com.baidu.android.imsdk.box.IMBoxManager.1
                 @Override // com.baidu.android.imsdk.account.ILoginListener
-                public void onLoginResult(int i, String str) {
+                public void onLoginResult(int i2, String str) {
                 }
 
                 @Override // com.baidu.android.imsdk.account.ILoginListener
-                public void onLogoutResult(int i, String str, int i2) {
-                    if (i == 0) {
+                public void onLogoutResult(int i2, String str, int i3) {
+                    if (i2 == 0) {
                         AccountManager.clearToken(context, null);
                         AccountManager.clearUid(context);
                         AccountManager.disconnect(context);
@@ -279,7 +279,7 @@ public final class IMBoxManager {
                     }
                     ILoginListener iLoginListener3 = iLoginListener;
                     if (iLoginListener3 != null) {
-                        iLoginListener3.onLogoutResult(i, str, i2);
+                        iLoginListener3.onLogoutResult(i2, str, i3);
                     }
                 }
             };
@@ -410,9 +410,9 @@ public final class IMBoxManager {
         PaManager.registerSubscriptionChangeListener(context, iSubscriptionChangeListener);
     }
 
-    public static void removeSessionByClasstype(Context context, int i) {
+    public static void removeSessionByClasstype(Context context, int i2) {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(Integer.valueOf(i));
+        arrayList.add(Integer.valueOf(i2));
         ArrayList<ChatSession> chatRecordsByClass = getChatRecordsByClass(context, arrayList);
         if (chatRecordsByClass != null) {
             Iterator<ChatSession> it = chatRecordsByClass.iterator();
@@ -432,29 +432,29 @@ public final class IMBoxManager {
         return AccountManager.setAppid(context, j);
     }
 
-    public static void setDisturb(Context context, long j, int i, IStatusListener iStatusListener) {
-        setShield(context, j, 1, i, iStatusListener);
+    public static void setDisturb(Context context, long j, int i2, IStatusListener iStatusListener) {
+        setShield(context, j, 1, i2, iStatusListener);
     }
 
     @Deprecated
-    public static void setEnv(Context context, int i) {
-        AccountManager.setEnv(context, i);
+    public static void setEnv(Context context, int i2) {
+        AccountManager.setEnv(context, i2);
     }
 
-    public static void setGroupAndStrangerDisturb(Context context, long j, int i, int i2, IStatusListener iStatusListener) {
-        ShieldAndTopManager.getInstance(context).requestDisturbAndRemind(j, 3, i, i2, iStatusListener);
+    public static void setGroupAndStrangerDisturb(Context context, long j, int i2, int i3, IStatusListener iStatusListener) {
+        ShieldAndTopManager.getInstance(context).requestDisturbAndRemind(j, 3, i2, i3, iStatusListener);
     }
 
-    public static void setGroupDisturb(Context context, String str, int i, BIMValueCallBack<String> bIMValueCallBack) {
-        GroupManagerImpl.getInstance(context).setGroupDisturb(str, i, bIMValueCallBack);
+    public static void setGroupDisturb(Context context, String str, int i2, BIMValueCallBack<String> bIMValueCallBack) {
+        GroupManagerImpl.getInstance(context).setGroupDisturb(str, i2, bIMValueCallBack);
     }
 
-    public static void setInterActiveMsgStatus(Context context, long j, long j2, int i, int i2) {
-        ChatMsgManager.setInterActiveMsgStatus(context, j, j2, i, i2);
+    public static void setInterActiveMsgStatus(Context context, long j, long j2, int i2, int i3) {
+        ChatMsgManager.setInterActiveMsgStatus(context, j, j2, i2, i3);
     }
 
-    public static void setMarkTop(Context context, long j, int i, IStatusListener iStatusListener) {
-        ShieldAndTopManager.getInstance(context).setMarkTop(j, 1, i, iStatusListener);
+    public static void setMarkTop(Context context, long j, int i2, IStatusListener iStatusListener) {
+        ShieldAndTopManager.getInstance(context).setMarkTop(j, 1, i2, iStatusListener);
     }
 
     @Deprecated
@@ -480,34 +480,34 @@ public final class IMBoxManager {
         });
     }
 
-    public static boolean setMsgReadByMsgId(Context context, long j, int i) {
+    public static boolean setMsgReadByMsgId(Context context, long j, int i2) {
         String str = TAG;
-        LogUtils.d(str, "setMsgReadByMsgId...msgid=" + j + "， setType=" + i);
-        return ChatMsgManager.setMsgReadByMsgId(context, j, i);
+        LogUtils.d(str, "setMsgReadByMsgId...msgid=" + j + "， setType=" + i2);
+        return ChatMsgManager.setMsgReadByMsgId(context, j, i2);
     }
 
-    public static void setMsgSettingSwitchStatus(Context context, int i, int i2, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
-        AccountManager.setMsgSettingSwitchStatus(context, i, i2, iSetMsgSettingSwitchListener);
+    public static void setMsgSettingSwitchStatus(Context context, int i2, int i3, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
+        AccountManager.setMsgSettingSwitchStatus(context, i2, i3, iSetMsgSettingSwitchListener);
     }
 
-    public static void setNotificationPrivacy(Context context, int i, ISetNotificationPrivacyListener iSetNotificationPrivacyListener) {
-        AccountManager.setNotificationPrivacy(context, i, iSetNotificationPrivacyListener);
+    public static void setNotificationPrivacy(Context context, int i2, ISetNotificationPrivacyListener iSetNotificationPrivacyListener) {
+        AccountManager.setNotificationPrivacy(context, i2, iSetNotificationPrivacyListener);
     }
 
-    public static void setShield(Context context, long j, int i, int i2, IStatusListener iStatusListener) {
-        ShieldAndTopManager.getInstance(context).setShield(j, i, i2, iStatusListener);
+    public static void setShield(Context context, long j, int i2, int i3, IStatusListener iStatusListener) {
+        ShieldAndTopManager.getInstance(context).setShield(j, i2, i3, iStatusListener);
     }
 
-    public static void setSubscription(Context context, long j, List<Long> list, List<String> list2, int i, String str, ISetSubscriptionListener iSetSubscriptionListener) {
-        ShieldAndTopManager.getInstance(context).setSubscription(j, list, list2, i, str, iSetSubscriptionListener);
+    public static void setSubscription(Context context, long j, List<Long> list, List<String> list2, int i2, String str, ISetSubscriptionListener iSetSubscriptionListener) {
+        ShieldAndTopManager.getInstance(context).setSubscription(j, list, list2, i2, str, iSetSubscriptionListener);
     }
 
     public static boolean setUid(Context context, String str) {
         return AccountManager.setUid(context, str);
     }
 
-    public static void setUserDisturb(Context context, long j, int i, IUserPrivacyListener iUserPrivacyListener) {
-        ChatUserManager.setUserDisturb(context, j, i, iUserPrivacyListener);
+    public static void setUserDisturb(Context context, long j, int i2, IUserPrivacyListener iUserPrivacyListener) {
+        ChatUserManager.setUserDisturb(context, j, i2, iUserPrivacyListener);
     }
 
     public static boolean stopService(Context context) {
@@ -572,7 +572,7 @@ public final class IMBoxManager {
                     if (arrayList.size() > 0) {
                         ChatUserManagerImpl.getInstance(context).updateUserIdentity(arrayList, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.box.IMBoxManager.12
                             @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-                            public void onGetUserIdentityResult(int i, List<ChatUser> list) {
+                            public void onGetUserIdentityResult(int i2, List<ChatUser> list) {
                                 for (ChatUser chatUser2 : list) {
                                     IMUserManager.getInstance(context).updateUser(chatUser2);
                                     ChatMessageDBManager.getInstance(context).updateSessionClass(chatUser2);
@@ -582,9 +582,9 @@ public final class IMBoxManager {
                     }
                     if (arrayList2.size() > 0) {
                         long[] jArr = new long[arrayList2.size()];
-                        for (int i = 0; i < arrayList2.size(); i++) {
-                            if (arrayList2.get(i) != null) {
-                                jArr[i] = ((Long) arrayList2.get(i)).longValue();
+                        for (int i2 = 0; i2 < arrayList2.size(); i2++) {
+                            if (arrayList2.get(i2) != null) {
+                                jArr[i2] = ((Long) arrayList2.get(i2)).longValue();
                             }
                         }
                         String str = TAG;
@@ -596,8 +596,8 @@ public final class IMBoxManager {
                         LogUtils.d(str2, "updateMsgUsersFromMsgCenter paIds :" + arrayList3.toString());
                         PaManagerImpl.getInstance(context).getPaInfos(arrayList3, new IGetPaInfosListener() { // from class: com.baidu.android.imsdk.box.IMBoxManager.13
                             @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
-                            public void onResult(int i2, String str3, ArrayList<PaInfo> arrayList4) {
-                                if (i2 == 0) {
+                            public void onResult(int i3, String str3, ArrayList<PaInfo> arrayList4) {
+                                if (i3 == 0) {
                                     Iterator<PaInfo> it = arrayList4.iterator();
                                     while (it.hasNext()) {
                                         PaInfo next = it.next();
@@ -618,11 +618,11 @@ public final class IMBoxManager {
         }
     }
 
-    public static void updateSubscribe(Context context, long j, int i, int i2) {
-        if (i == 0) {
-            ChatUserDBManager.getInstance(context).updateSubscribedUser(j, i2);
-        } else if (i == 7) {
-            PaInfoDBManager.getInstance(context).updateSubscribedUser(j, i2);
+    public static void updateSubscribe(Context context, long j, int i2, int i3) {
+        if (i2 == 0) {
+            ChatUserDBManager.getInstance(context).updateSubscribedUser(j, i3);
+        } else if (i2 == 7) {
+            PaInfoDBManager.getInstance(context).updateSubscribedUser(j, i3);
         }
     }
 
@@ -684,7 +684,7 @@ public final class IMBoxManager {
         }
     }
 
-    public static void getNewCountOfClass(final Context context, final int i, final IGetNewMsgCountListener iGetNewMsgCountListener) {
+    public static void getNewCountOfClass(final Context context, final int i2, final IGetNewMsgCountListener iGetNewMsgCountListener) {
         if (iGetNewMsgCountListener == null) {
             LogUtils.d(TAG, "getNewCountOfClass, listener is null! ");
         } else if (context == null) {
@@ -694,7 +694,7 @@ public final class IMBoxManager {
             TaskManager.getInstance(context).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.8
                 @Override // java.lang.Runnable
                 public void run() {
-                    IGetNewMsgCountListener.this.onGetNewMsgCount(ChatMessageDBManager.getInstance(context).getNewMsgCountOfClass(i));
+                    IGetNewMsgCountListener.this.onGetNewMsgCount(ChatMessageDBManager.getInstance(context).getNewMsgCountOfClass(i2));
                 }
             });
             AccountManagerImpl.getInstance(context);
@@ -720,23 +720,23 @@ public final class IMBoxManager {
         iGetNewMsgCountListener.onGetNewMsgCount(0);
     }
 
-    public static List<ChatMsg> getPaMsgByChatType(Context context, List<Integer> list, int i) {
-        return ChatMsgManager.getPaMsgByChatType(context, list, i);
+    public static List<ChatMsg> getPaMsgByChatType(Context context, List<Integer> list, int i2) {
+        return ChatMsgManager.getPaMsgByChatType(context, list, i2);
     }
 
-    public static boolean setAllMsgRead(Context context, int i, long j, boolean z) {
-        return ChatMsgManager.setAllMsgRead(context, i, j, z);
+    public static boolean setAllMsgRead(Context context, int i2, long j, boolean z) {
+        return ChatMsgManager.setAllMsgRead(context, i2, j, z);
     }
 
     public static boolean setMsgRead(Context context, long j, long j2, boolean z) {
         return ChatMsgManager.setMsgRead(context, 0, j, j2, z);
     }
 
-    public static long deleteMsgs(Context context, int i, long j, boolean z) {
+    public static long deleteMsgs(Context context, int i2, long j, boolean z) {
         if (BaseManager.isNullContext(context)) {
             return -1L;
         }
-        return ChatMsgManagerImpl.getInstance(context).deleteAllMsgs(i, j, z);
+        return ChatMsgManagerImpl.getInstance(context).deleteAllMsgs(i2, j, z);
     }
 
     @Deprecated

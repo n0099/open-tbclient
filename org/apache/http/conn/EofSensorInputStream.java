@@ -29,7 +29,7 @@ public class EofSensorInputStream extends InputStream implements ConnectionRelea
         throw new RuntimeException("Stub!");
     }
 
-    public void checkEOF(int i) throws IOException {
+    public void checkEOF(int i2) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -53,7 +53,7 @@ public class EofSensorInputStream extends InputStream implements ConnectionRelea
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
         throw new RuntimeException("Stub!");
     }
 

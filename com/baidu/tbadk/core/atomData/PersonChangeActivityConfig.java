@@ -12,11 +12,11 @@ public class PersonChangeActivityConfig extends IntentConfig {
     public static final String IS_FROM_PERSONINFO = "isFromPersonInfo";
     public static final String TAG_DATA = "data";
 
-    public PersonChangeActivityConfig(Context context, int i, PersonChangeData personChangeData, Boolean bool) {
+    public PersonChangeActivityConfig(Context context, int i2, PersonChangeData personChangeData, Boolean bool) {
         super(context);
         getIntent().putExtra("data", personChangeData);
         getIntent().putExtra("isFromPersonInfo", bool);
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 

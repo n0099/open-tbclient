@@ -15,22 +15,22 @@ public class TileList<T> {
         public Tile<T> mNext;
         public int mStartPosition;
 
-        public Tile(Class<T> cls, int i) {
-            this.mItems = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, i));
+        public Tile(Class<T> cls, int i2) {
+            this.mItems = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, i2));
         }
 
-        public boolean containsPosition(int i) {
-            int i2 = this.mStartPosition;
-            return i2 <= i && i < i2 + this.mItemCount;
+        public boolean containsPosition(int i2) {
+            int i3 = this.mStartPosition;
+            return i3 <= i2 && i2 < i3 + this.mItemCount;
         }
 
-        public T getByPosition(int i) {
-            return this.mItems[i - this.mStartPosition];
+        public T getByPosition(int i2) {
+            return this.mItems[i2 - this.mStartPosition];
         }
     }
 
-    public TileList(int i) {
-        this.mTileSize = i;
+    public TileList(int i2) {
+        this.mTileSize = i2;
     }
 
     public Tile<T> addOrReplace(Tile<T> tile) {
@@ -51,28 +51,28 @@ public class TileList<T> {
         this.mTiles.clear();
     }
 
-    public Tile<T> getAtIndex(int i) {
-        return this.mTiles.valueAt(i);
+    public Tile<T> getAtIndex(int i2) {
+        return this.mTiles.valueAt(i2);
     }
 
-    public T getItemAt(int i) {
+    public T getItemAt(int i2) {
         Tile<T> tile = this.mLastAccessedTile;
-        if (tile == null || !tile.containsPosition(i)) {
-            int indexOfKey = this.mTiles.indexOfKey(i - (i % this.mTileSize));
+        if (tile == null || !tile.containsPosition(i2)) {
+            int indexOfKey = this.mTiles.indexOfKey(i2 - (i2 % this.mTileSize));
             if (indexOfKey < 0) {
                 return null;
             }
             this.mLastAccessedTile = this.mTiles.valueAt(indexOfKey);
         }
-        return this.mLastAccessedTile.getByPosition(i);
+        return this.mLastAccessedTile.getByPosition(i2);
     }
 
-    public Tile<T> removeAtPos(int i) {
-        Tile<T> tile = this.mTiles.get(i);
+    public Tile<T> removeAtPos(int i2) {
+        Tile<T> tile = this.mTiles.get(i2);
         if (this.mLastAccessedTile == tile) {
             this.mLastAccessedTile = null;
         }
-        this.mTiles.delete(i);
+        this.mTiles.delete(i2);
         return tile;
     }
 

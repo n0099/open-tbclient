@@ -20,18 +20,18 @@ public final class GeneralAppIdDecoder {
         this.information = bitArray;
     }
 
-    private DecodedChar decodeAlphanumeric(int i) {
+    private DecodedChar decodeAlphanumeric(int i2) {
         char c2;
-        int extractNumericValueFromBitArray = extractNumericValueFromBitArray(i, 5);
+        int extractNumericValueFromBitArray = extractNumericValueFromBitArray(i2, 5);
         if (extractNumericValueFromBitArray == 15) {
-            return new DecodedChar(i + 5, '$');
+            return new DecodedChar(i2 + 5, '$');
         }
         if (extractNumericValueFromBitArray >= 5 && extractNumericValueFromBitArray < 15) {
-            return new DecodedChar(i + 5, (char) ((extractNumericValueFromBitArray + 48) - 5));
+            return new DecodedChar(i2 + 5, (char) ((extractNumericValueFromBitArray + 48) - 5));
         }
-        int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i, 6);
+        int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i2, 6);
         if (extractNumericValueFromBitArray2 >= 32 && extractNumericValueFromBitArray2 < 58) {
-            return new DecodedChar(i + 6, (char) (extractNumericValueFromBitArray2 + 33));
+            return new DecodedChar(i2 + 6, (char) (extractNumericValueFromBitArray2 + 33));
         }
         switch (extractNumericValueFromBitArray2) {
             case 58:
@@ -52,24 +52,24 @@ public final class GeneralAppIdDecoder {
             default:
                 throw new IllegalStateException("Decoding invalid alphanumeric value: " + extractNumericValueFromBitArray2);
         }
-        return new DecodedChar(i + 6, c2);
+        return new DecodedChar(i2 + 6, c2);
     }
 
-    private DecodedChar decodeIsoIec646(int i) throws FormatException {
+    private DecodedChar decodeIsoIec646(int i2) throws FormatException {
         char c2;
-        int extractNumericValueFromBitArray = extractNumericValueFromBitArray(i, 5);
+        int extractNumericValueFromBitArray = extractNumericValueFromBitArray(i2, 5);
         if (extractNumericValueFromBitArray == 15) {
-            return new DecodedChar(i + 5, '$');
+            return new DecodedChar(i2 + 5, '$');
         }
         if (extractNumericValueFromBitArray >= 5 && extractNumericValueFromBitArray < 15) {
-            return new DecodedChar(i + 5, (char) ((extractNumericValueFromBitArray + 48) - 5));
+            return new DecodedChar(i2 + 5, (char) ((extractNumericValueFromBitArray + 48) - 5));
         }
-        int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i, 7);
+        int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i2, 7);
         if (extractNumericValueFromBitArray2 < 64 || extractNumericValueFromBitArray2 >= 90) {
             if (extractNumericValueFromBitArray2 >= 90 && extractNumericValueFromBitArray2 < 116) {
-                return new DecodedChar(i + 7, (char) (extractNumericValueFromBitArray2 + 7));
+                return new DecodedChar(i2 + 7, (char) (extractNumericValueFromBitArray2 + 7));
             }
-            switch (extractNumericValueFromBitArray(i, 8)) {
+            switch (extractNumericValueFromBitArray(i2, 8)) {
                 case 232:
                     c2 = '!';
                     break;
@@ -119,7 +119,7 @@ public final class GeneralAppIdDecoder {
                     c2 = Typography.less;
                     break;
                 case GDiffPatcher.DATA_INT /* 248 */:
-                    c2 = a.f1922h;
+                    c2 = a.f1873h;
                     break;
                 case 249:
                     c2 = Typography.greater;
@@ -136,113 +136,113 @@ public final class GeneralAppIdDecoder {
                 default:
                     throw FormatException.getFormatInstance();
             }
-            return new DecodedChar(i + 8, c2);
+            return new DecodedChar(i2 + 8, c2);
         }
-        return new DecodedChar(i + 7, (char) (extractNumericValueFromBitArray2 + 1));
+        return new DecodedChar(i2 + 7, (char) (extractNumericValueFromBitArray2 + 1));
     }
 
-    private DecodedNumeric decodeNumeric(int i) throws FormatException {
-        int i2 = i + 7;
-        if (i2 > this.information.getSize()) {
-            int extractNumericValueFromBitArray = extractNumericValueFromBitArray(i, 4);
+    private DecodedNumeric decodeNumeric(int i2) throws FormatException {
+        int i3 = i2 + 7;
+        if (i3 > this.information.getSize()) {
+            int extractNumericValueFromBitArray = extractNumericValueFromBitArray(i2, 4);
             if (extractNumericValueFromBitArray == 0) {
                 return new DecodedNumeric(this.information.getSize(), 10, 10);
             }
             return new DecodedNumeric(this.information.getSize(), extractNumericValueFromBitArray - 1, 10);
         }
-        int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i, 7) - 8;
-        return new DecodedNumeric(i2, extractNumericValueFromBitArray2 / 11, extractNumericValueFromBitArray2 % 11);
+        int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i2, 7) - 8;
+        return new DecodedNumeric(i3, extractNumericValueFromBitArray2 / 11, extractNumericValueFromBitArray2 % 11);
     }
 
-    private boolean isAlphaOr646ToNumericLatch(int i) {
-        int i2 = i + 3;
-        if (i2 > this.information.getSize()) {
+    private boolean isAlphaOr646ToNumericLatch(int i2) {
+        int i3 = i2 + 3;
+        if (i3 > this.information.getSize()) {
             return false;
         }
-        while (i < i2) {
-            if (this.information.get(i)) {
-                return false;
-            }
-            i++;
-        }
-        return true;
-    }
-
-    private boolean isAlphaTo646ToAlphaLatch(int i) {
-        int i2;
-        if (i + 1 > this.information.getSize()) {
-            return false;
-        }
-        for (int i3 = 0; i3 < 5 && (i2 = i3 + i) < this.information.getSize(); i3++) {
-            if (i3 == 2) {
-                if (!this.information.get(i + 2)) {
-                    return false;
-                }
-            } else if (this.information.get(i2)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private boolean isNumericToAlphaNumericLatch(int i) {
-        int i2;
-        if (i + 1 > this.information.getSize()) {
-            return false;
-        }
-        for (int i3 = 0; i3 < 4 && (i2 = i3 + i) < this.information.getSize(); i3++) {
+        while (i2 < i3) {
             if (this.information.get(i2)) {
                 return false;
             }
+            i2++;
         }
         return true;
     }
 
-    private boolean isStillAlpha(int i) {
-        int extractNumericValueFromBitArray;
-        if (i + 5 > this.information.getSize()) {
+    private boolean isAlphaTo646ToAlphaLatch(int i2) {
+        int i3;
+        if (i2 + 1 > this.information.getSize()) {
             return false;
         }
-        int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i, 5);
-        if (extractNumericValueFromBitArray2 < 5 || extractNumericValueFromBitArray2 >= 16) {
-            return i + 6 <= this.information.getSize() && (extractNumericValueFromBitArray = extractNumericValueFromBitArray(i, 6)) >= 16 && extractNumericValueFromBitArray < 63;
-        }
-        return true;
-    }
-
-    private boolean isStillIsoIec646(int i) {
-        int extractNumericValueFromBitArray;
-        if (i + 5 > this.information.getSize()) {
-            return false;
-        }
-        int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i, 5);
-        if (extractNumericValueFromBitArray2 < 5 || extractNumericValueFromBitArray2 >= 16) {
-            if (i + 7 > this.information.getSize()) {
+        for (int i4 = 0; i4 < 5 && (i3 = i4 + i2) < this.information.getSize(); i4++) {
+            if (i4 == 2) {
+                if (!this.information.get(i2 + 2)) {
+                    return false;
+                }
+            } else if (this.information.get(i3)) {
                 return false;
             }
-            int extractNumericValueFromBitArray3 = extractNumericValueFromBitArray(i, 7);
+        }
+        return true;
+    }
+
+    private boolean isNumericToAlphaNumericLatch(int i2) {
+        int i3;
+        if (i2 + 1 > this.information.getSize()) {
+            return false;
+        }
+        for (int i4 = 0; i4 < 4 && (i3 = i4 + i2) < this.information.getSize(); i4++) {
+            if (this.information.get(i3)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean isStillAlpha(int i2) {
+        int extractNumericValueFromBitArray;
+        if (i2 + 5 > this.information.getSize()) {
+            return false;
+        }
+        int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i2, 5);
+        if (extractNumericValueFromBitArray2 < 5 || extractNumericValueFromBitArray2 >= 16) {
+            return i2 + 6 <= this.information.getSize() && (extractNumericValueFromBitArray = extractNumericValueFromBitArray(i2, 6)) >= 16 && extractNumericValueFromBitArray < 63;
+        }
+        return true;
+    }
+
+    private boolean isStillIsoIec646(int i2) {
+        int extractNumericValueFromBitArray;
+        if (i2 + 5 > this.information.getSize()) {
+            return false;
+        }
+        int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i2, 5);
+        if (extractNumericValueFromBitArray2 < 5 || extractNumericValueFromBitArray2 >= 16) {
+            if (i2 + 7 > this.information.getSize()) {
+                return false;
+            }
+            int extractNumericValueFromBitArray3 = extractNumericValueFromBitArray(i2, 7);
             if (extractNumericValueFromBitArray3 < 64 || extractNumericValueFromBitArray3 >= 116) {
-                return i + 8 <= this.information.getSize() && (extractNumericValueFromBitArray = extractNumericValueFromBitArray(i, 8)) >= 232 && extractNumericValueFromBitArray < 253;
+                return i2 + 8 <= this.information.getSize() && (extractNumericValueFromBitArray = extractNumericValueFromBitArray(i2, 8)) >= 232 && extractNumericValueFromBitArray < 253;
             }
             return true;
         }
         return true;
     }
 
-    private boolean isStillNumeric(int i) {
-        if (i + 7 > this.information.getSize()) {
-            return i + 4 <= this.information.getSize();
+    private boolean isStillNumeric(int i2) {
+        if (i2 + 7 > this.information.getSize()) {
+            return i2 + 4 <= this.information.getSize();
         }
-        int i2 = i;
+        int i3 = i2;
         while (true) {
-            int i3 = i + 3;
-            if (i2 < i3) {
-                if (this.information.get(i2)) {
+            int i4 = i2 + 3;
+            if (i3 < i4) {
+                if (this.information.get(i3)) {
                     return true;
                 }
-                i2++;
+                i3++;
             } else {
-                return this.information.get(i3);
+                return this.information.get(i4);
             }
         }
     }
@@ -341,17 +341,17 @@ public final class GeneralAppIdDecoder {
         return new BlockParsedResult(false);
     }
 
-    public String decodeAllCodes(StringBuilder sb, int i) throws NotFoundException, FormatException {
+    public String decodeAllCodes(StringBuilder sb, int i2) throws NotFoundException, FormatException {
         String str = null;
         while (true) {
-            DecodedInformation decodeGeneralPurposeField = decodeGeneralPurposeField(i, str);
+            DecodedInformation decodeGeneralPurposeField = decodeGeneralPurposeField(i2, str);
             String parseFieldsInGeneralPurpose = FieldParser.parseFieldsInGeneralPurpose(decodeGeneralPurposeField.getNewString());
             if (parseFieldsInGeneralPurpose != null) {
                 sb.append(parseFieldsInGeneralPurpose);
             }
             String valueOf = decodeGeneralPurposeField.isRemaining() ? String.valueOf(decodeGeneralPurposeField.getRemainingValue()) : null;
-            if (i != decodeGeneralPurposeField.getNewPosition()) {
-                i = decodeGeneralPurposeField.getNewPosition();
+            if (i2 != decodeGeneralPurposeField.getNewPosition()) {
+                i2 = decodeGeneralPurposeField.getNewPosition();
                 str = valueOf;
             } else {
                 return sb.toString();
@@ -359,12 +359,12 @@ public final class GeneralAppIdDecoder {
         }
     }
 
-    public DecodedInformation decodeGeneralPurposeField(int i, String str) throws FormatException {
+    public DecodedInformation decodeGeneralPurposeField(int i2, String str) throws FormatException {
         this.buffer.setLength(0);
         if (str != null) {
             this.buffer.append(str);
         }
-        this.current.setPosition(i);
+        this.current.setPosition(i2);
         DecodedInformation parseBlocks = parseBlocks();
         if (parseBlocks != null && parseBlocks.isRemaining()) {
             return new DecodedInformation(this.current.getPosition(), this.buffer.toString(), parseBlocks.getRemainingValue());
@@ -372,17 +372,17 @@ public final class GeneralAppIdDecoder {
         return new DecodedInformation(this.current.getPosition(), this.buffer.toString());
     }
 
-    public int extractNumericValueFromBitArray(int i, int i2) {
-        return extractNumericValueFromBitArray(this.information, i, i2);
+    public int extractNumericValueFromBitArray(int i2, int i3) {
+        return extractNumericValueFromBitArray(this.information, i2, i3);
     }
 
-    public static int extractNumericValueFromBitArray(BitArray bitArray, int i, int i2) {
-        int i3 = 0;
-        for (int i4 = 0; i4 < i2; i4++) {
-            if (bitArray.get(i + i4)) {
-                i3 |= 1 << ((i2 - i4) - 1);
+    public static int extractNumericValueFromBitArray(BitArray bitArray, int i2, int i3) {
+        int i4 = 0;
+        for (int i5 = 0; i5 < i3; i5++) {
+            if (bitArray.get(i2 + i5)) {
+                i4 |= 1 << ((i3 - i5) - 1);
             }
         }
-        return i3;
+        return i4;
     }
 }

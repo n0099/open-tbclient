@@ -8,7 +8,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 @Deprecated
 /* loaded from: classes.dex */
 public class IMEIRequestUtils {
-    @SuppressLint({"MissingPermission"})
+    @SuppressLint({"MissingPermission", "HardwareIds"})
     public static String getIMEI(String str) {
         if (AppRuntime.getAppContext() == null) {
             return str;

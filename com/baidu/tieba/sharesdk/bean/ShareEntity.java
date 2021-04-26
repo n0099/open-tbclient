@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ShareEntity implements Parcelable {
     public static final Parcelable.Creator<ShareEntity> CREATOR = new a();
     public String content;
@@ -29,7 +29,7 @@ public class ShareEntity implements Parcelable {
     public int typeShareToSmallApp = 0;
     public boolean canShareBySmartApp = true;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<ShareEntity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -65,8 +65,8 @@ public class ShareEntity implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public ShareEntity[] newArray(int i) {
-            return new ShareEntity[i];
+        public ShareEntity[] newArray(int i2) {
+            return new ShareEntity[i2];
         }
     }
 
@@ -74,8 +74,8 @@ public class ShareEntity implements Parcelable {
         this.readCount = j;
     }
 
-    public void B(int i) {
-        this.shareTo = i;
+    public void B(int i2) {
+        this.shareTo = i2;
     }
 
     public void C(Bundle bundle) {
@@ -90,8 +90,8 @@ public class ShareEntity implements Parcelable {
         this.title = str;
     }
 
-    public void F(int i) {
-        this.typeShareToSmallApp = i;
+    public void F(int i2) {
+        this.typeShareToSmallApp = i2;
     }
 
     public void G(String str) {
@@ -174,8 +174,8 @@ public class ShareEntity implements Parcelable {
 
     public boolean r() {
         if (this.shareType != 0) {
-            int i = this.shareTo;
-            return i == 8 || i == 4 || i == 3 || i == 2;
+            int i2 = this.shareTo;
+            return i2 == 8 || i2 == 4 || i2 == 3 || i2 == 2;
         }
         return false;
     }
@@ -201,15 +201,15 @@ public class ShareEntity implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.title);
         parcel.writeString(this.content);
         parcel.writeString(this.linkUrl);
         parcel.writeString(this.localFile);
         parcel.writeInt(this.shareTo);
         parcel.writeString(this.videoUrl);
-        parcel.writeParcelable(this.imageUri, i);
-        parcel.writeParcelable(this.location, i);
+        parcel.writeParcelable(this.imageUri, i2);
+        parcel.writeParcelable(this.location, i2);
         parcel.writeBundle(this.stats);
         parcel.writeInt(this.shareType);
         parcel.writeString(this.tid);
@@ -232,7 +232,7 @@ public class ShareEntity implements Parcelable {
         this.location = location;
     }
 
-    public void z(int i) {
-        this.shareType = i;
+    public void z(int i2) {
+        this.shareType = i2;
     }
 }

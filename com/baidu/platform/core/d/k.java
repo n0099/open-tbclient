@@ -22,10 +22,10 @@ import org.json.JSONObject;
 public class k extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    public SuggestAddrInfo f9978b = null;
+    public SuggestAddrInfo f10346b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f9979c;
+    public boolean f10347c;
 
     private SuggestAddrInfo a(JSONObject jSONObject) {
         JSONObject optJSONObject;
@@ -46,30 +46,30 @@ public class k extends com.baidu.platform.base.d {
                 int length = optJSONArray2.length();
                 boolean[] zArr = new boolean[length];
                 boolean[] zArr2 = new boolean[length];
-                for (int i = 0; i < length; i++) {
-                    int parseInt = Integer.parseInt(optJSONArray2.optString(i));
-                    int parseInt2 = Integer.parseInt(optJSONArray3.optString(i));
+                for (int i2 = 0; i2 < length; i2++) {
+                    int parseInt = Integer.parseInt(optJSONArray2.optString(i2));
+                    int parseInt2 = Integer.parseInt(optJSONArray3.optString(i2));
                     boolean z = true;
-                    zArr[i] = parseInt == 1;
+                    zArr[i2] = parseInt == 1;
                     if (parseInt2 != 1) {
                         z = false;
                     }
-                    zArr2[i] = z;
+                    zArr2[i2] = z;
                 }
                 SuggestAddrInfo suggestAddrInfo = new SuggestAddrInfo();
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (!zArr2[i2]) {
-                        if (zArr[i2]) {
-                            if (i2 == 0) {
+                for (int i3 = 0; i3 < length; i3++) {
+                    if (!zArr2[i3]) {
+                        if (zArr[i3]) {
+                            if (i3 == 0) {
                                 suggestAddrInfo.setSuggestStartCity(a(optJSONObject3.optJSONArray(IntentConfig.START)));
-                            } else if (i2 != length - 1 || i2 <= 0) {
+                            } else if (i3 != length - 1 || i3 <= 0) {
                                 suggestAddrInfo.setSuggestWpCity(a(optJSONObject3, "multi_waypoints"));
                             } else {
                                 suggestAddrInfo.setSuggestEndCity(a(optJSONObject3.optJSONArray(ProgressInfo.JSON_KEY_END)));
                             }
-                        } else if (i2 == 0) {
+                        } else if (i3 == 0) {
                             suggestAddrInfo.setSuggestStartNode(a(optJSONObject3.optJSONArray(IntentConfig.START), optString));
-                        } else if (i2 != length - 1 || i2 <= 0) {
+                        } else if (i3 != length - 1 || i3 <= 0) {
                             suggestAddrInfo.setSuggestWpNode(b(optJSONObject3, "multi_waypoints"));
                         } else {
                             suggestAddrInfo.setSuggestEndNode(a(optJSONObject3.optJSONArray(ProgressInfo.JSON_KEY_END), optString2));
@@ -87,8 +87,8 @@ public class k extends com.baidu.platform.base.d {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < jSONArray.length(); i++) {
-            JSONObject jSONObject = (JSONObject) jSONArray.opt(i);
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            JSONObject jSONObject = (JSONObject) jSONArray.opt(i2);
             if (jSONObject != null) {
                 CityInfo cityInfo = new CityInfo();
                 cityInfo.num = jSONObject.optInt("num");
@@ -103,8 +103,8 @@ public class k extends com.baidu.platform.base.d {
     private List<PoiInfo> a(JSONArray jSONArray, String str) {
         if (jSONArray != null) {
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject jSONObject = (JSONObject) jSONArray.opt(i);
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                JSONObject jSONObject = (JSONObject) jSONArray.opt(i2);
                 if (jSONObject != null) {
                     PoiInfo poiInfo = new PoiInfo();
                     poiInfo.address = jSONObject.optString(DuPaBInfoMsg.B_ADDR);
@@ -129,8 +129,8 @@ public class k extends com.baidu.platform.base.d {
         if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray(str)) == null) {
             return null;
         }
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            List<CityInfo> a2 = a((JSONArray) optJSONArray.opt(i));
+        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            List<CityInfo> a2 = a((JSONArray) optJSONArray.opt(i2));
             if (a2 != null) {
                 arrayList.add(a2);
             }
@@ -144,8 +144,8 @@ public class k extends com.baidu.platform.base.d {
         if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray(str)) == null) {
             return null;
         }
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            List<PoiInfo> a2 = a((JSONArray) optJSONArray.opt(i), "");
+        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            List<PoiInfo> a2 = a((JSONArray) optJSONArray.opt(i2), "");
             if (a2 != null) {
                 arrayList.add(a2);
             }
@@ -160,7 +160,7 @@ public class k extends com.baidu.platform.base.d {
                 JSONObject optJSONObject = jSONObject.optJSONObject("result");
                 if (optJSONObject != null && optJSONObject.optInt("type") == 23 && optJSONObject.optInt("error") == 0) {
                     SuggestAddrInfo a2 = a(jSONObject);
-                    this.f9978b = a2;
+                    this.f10346b = a2;
                     return a2 != null;
                 }
                 return false;
@@ -180,15 +180,15 @@ public class k extends com.baidu.platform.base.d {
         WalkingRouteResult walkingRouteResult2;
         SearchType a2 = a();
         if (b(str)) {
-            this.f9979c = true;
+            this.f10347c = true;
         } else {
-            this.f9979c = false;
+            this.f10347c = false;
         }
-        int i = l.f9980a[a2.ordinal()];
-        if (i == 1) {
+        int i2 = l.f10348a[a2.ordinal()];
+        if (i2 == 1) {
             TransitRouteResult transitRouteResult = new TransitRouteResult();
-            if (this.f9979c) {
-                transitRouteResult.setSuggestAddrInfo(this.f9978b);
+            if (this.f10347c) {
+                transitRouteResult.setSuggestAddrInfo(this.f10346b);
                 walkingRouteResult = transitRouteResult;
                 walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                 walkingRouteResult2 = walkingRouteResult;
@@ -196,10 +196,10 @@ public class k extends com.baidu.platform.base.d {
                 ((m) this).a(str, transitRouteResult);
                 walkingRouteResult2 = transitRouteResult;
             }
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             DrivingRouteResult drivingRouteResult = new DrivingRouteResult();
-            if (this.f9979c) {
-                drivingRouteResult.setSuggestAddrInfo(this.f9978b);
+            if (this.f10347c) {
+                drivingRouteResult.setSuggestAddrInfo(this.f10346b);
                 walkingRouteResult = drivingRouteResult;
                 walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                 walkingRouteResult2 = walkingRouteResult;
@@ -207,12 +207,12 @@ public class k extends com.baidu.platform.base.d {
                 ((c) this).a(str, drivingRouteResult);
                 walkingRouteResult2 = drivingRouteResult;
             }
-        } else if (i != 3) {
+        } else if (i2 != 3) {
             return null;
         } else {
             WalkingRouteResult walkingRouteResult3 = new WalkingRouteResult();
-            if (this.f9979c) {
-                walkingRouteResult3.setSuggestAddrInfo(this.f9978b);
+            if (this.f10347c) {
+                walkingRouteResult3.setSuggestAddrInfo(this.f10346b);
                 walkingRouteResult = walkingRouteResult3;
                 walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                 walkingRouteResult2 = walkingRouteResult;
@@ -230,12 +230,12 @@ public class k extends com.baidu.platform.base.d {
             return;
         }
         OnGetRoutePlanResultListener onGetRoutePlanResultListener = (OnGetRoutePlanResultListener) obj;
-        int i = l.f9980a[a().ordinal()];
-        if (i == 1) {
+        int i2 = l.f10348a[a().ordinal()];
+        if (i2 == 1) {
             onGetRoutePlanResultListener.onGetTransitRouteResult((TransitRouteResult) searchResult);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             onGetRoutePlanResultListener.onGetDrivingRouteResult((DrivingRouteResult) searchResult);
-        } else if (i != 3) {
+        } else if (i2 != 3) {
         } else {
             onGetRoutePlanResultListener.onGetWalkingRouteResult((WalkingRouteResult) searchResult);
         }

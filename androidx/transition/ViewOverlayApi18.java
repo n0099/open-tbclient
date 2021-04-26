@@ -20,11 +20,6 @@ public class ViewOverlayApi18 implements ViewOverlayImpl {
     }
 
     @Override // androidx.transition.ViewOverlayImpl
-    public void clear() {
-        this.mViewOverlay.clear();
-    }
-
-    @Override // androidx.transition.ViewOverlayImpl
     public void remove(@NonNull Drawable drawable) {
         this.mViewOverlay.remove(drawable);
     }

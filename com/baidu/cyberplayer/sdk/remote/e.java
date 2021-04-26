@@ -5,7 +5,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e implements Parcelable {
     public static final Parcelable.Creator<e> CREATOR = new Parcelable.Creator<e>() { // from class: com.baidu.cyberplayer.sdk.remote.e.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -18,37 +18,37 @@ public class e implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public e[] newArray(int i) {
-            return new e[i];
+        public e[] newArray(int i2) {
+            return new e[i2];
         }
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public Uri f5047a;
+    public Uri f5174a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f5048b;
+    public Map<String, String> f5175b;
 
     public e(Uri uri, Map<String, String> map) {
-        this.f5047a = uri;
-        this.f5048b = map;
+        this.f5174a = uri;
+        this.f5175b = map;
     }
 
     public e(Parcel parcel) {
-        this.f5047a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
-        this.f5048b = new HashMap();
+        this.f5174a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
+        this.f5175b = new HashMap();
         int readInt = parcel.readInt();
-        for (int i = 0; i < readInt; i++) {
-            this.f5048b.put(parcel.readString(), parcel.readString());
+        for (int i2 = 0; i2 < readInt; i2++) {
+            this.f5175b.put(parcel.readString(), parcel.readString());
         }
     }
 
     public Uri a() {
-        return this.f5047a;
+        return this.f5174a;
     }
 
     public Map<String, String> b() {
-        return this.f5048b;
+        return this.f5175b;
     }
 
     @Override // android.os.Parcelable
@@ -57,15 +57,15 @@ public class e implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f5047a, i);
-        Map<String, String> map = this.f5048b;
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeParcelable(this.f5174a, i2);
+        Map<String, String> map = this.f5175b;
         if (map == null || map.size() <= 0) {
             parcel.writeInt(0);
             return;
         }
-        parcel.writeInt(this.f5048b.size());
-        for (Map.Entry<String, String> entry : this.f5048b.entrySet()) {
+        parcel.writeInt(this.f5175b.size());
+        for (Map.Entry<String, String> entry : this.f5175b.entrySet()) {
             parcel.writeString(entry.getKey());
             parcel.writeString(entry.getValue());
         }

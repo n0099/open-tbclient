@@ -21,8 +21,8 @@ public class LightAppErrorModel implements NoProguard {
         return JsonUtils.toJson(this);
     }
 
-    public LightAppErrorModel(int i) {
+    public LightAppErrorModel(int i2) {
         this();
-        this.result = i;
+        this.result = i2;
     }
 }

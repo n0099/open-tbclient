@@ -28,8 +28,8 @@ public class Group extends ConstraintHelper {
     public void updatePreLayout(ConstraintLayout constraintLayout) {
         int visibility = getVisibility();
         float elevation = Build.VERSION.SDK_INT >= 21 ? getElevation() : 0.0f;
-        for (int i = 0; i < this.mCount; i++) {
-            View viewById = constraintLayout.getViewById(this.mIds[i]);
+        for (int i2 = 0; i2 < this.mCount; i2++) {
+            View viewById = constraintLayout.getViewById(this.mIds[i2]);
             if (viewById != null) {
                 viewById.setVisibility(visibility);
                 if (elevation > 0.0f && Build.VERSION.SDK_INT >= 21) {
@@ -43,7 +43,7 @@ public class Group extends ConstraintHelper {
         super(context, attributeSet);
     }
 
-    public Group(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public Group(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

@@ -47,29 +47,29 @@ public class AndroidTouchProcessor {
         this.renderer = flutterRenderer;
     }
 
-    private void addPointerForIndex(MotionEvent motionEvent, int i, int i2, int i3, ByteBuffer byteBuffer) {
+    private void addPointerForIndex(MotionEvent motionEvent, int i2, int i3, int i4, ByteBuffer byteBuffer) {
         long j;
         double d2;
         double d3;
         InputDevice.MotionRange motionRange;
-        if (i2 == -1) {
+        if (i3 == -1) {
             return;
         }
-        int pointerDeviceTypeForToolType = getPointerDeviceTypeForToolType(motionEvent.getToolType(i));
-        int i4 = motionEvent.getActionMasked() == 8 ? 1 : 0;
+        int pointerDeviceTypeForToolType = getPointerDeviceTypeForToolType(motionEvent.getToolType(i2));
+        int i5 = motionEvent.getActionMasked() == 8 ? 1 : 0;
         byteBuffer.putLong(motionEvent.getEventTime() * 1000);
-        byteBuffer.putLong(i2);
+        byteBuffer.putLong(i3);
         byteBuffer.putLong(pointerDeviceTypeForToolType);
-        byteBuffer.putLong(i4);
-        byteBuffer.putLong(motionEvent.getPointerId(i));
+        byteBuffer.putLong(i5);
+        byteBuffer.putLong(motionEvent.getPointerId(i2));
         byteBuffer.putLong(0L);
-        byteBuffer.putDouble(motionEvent.getX(i));
-        byteBuffer.putDouble(motionEvent.getY(i));
+        byteBuffer.putDouble(motionEvent.getX(i2));
+        byteBuffer.putDouble(motionEvent.getY(i2));
         byteBuffer.putDouble(0.0d);
         byteBuffer.putDouble(0.0d);
         if (pointerDeviceTypeForToolType == 1) {
             j = motionEvent.getButtonState() & 31;
-            if (j == 0 && motionEvent.getSource() == 8194 && (i2 == 4 || i2 == 5)) {
+            if (j == 0 && motionEvent.getSource() == 8194 && (i3 == 4 || i3 == 5)) {
                 j = 1;
             }
         } else {
@@ -78,7 +78,7 @@ public class AndroidTouchProcessor {
         byteBuffer.putLong(j);
         byteBuffer.putLong(0L);
         byteBuffer.putLong(0L);
-        byteBuffer.putDouble(motionEvent.getPressure(i));
+        byteBuffer.putDouble(motionEvent.getPressure(i2));
         double d4 = 1.0d;
         if (motionEvent.getDevice() == null || (motionRange = motionEvent.getDevice().getMotionRange(2)) == null) {
             d2 = 0.0d;
@@ -90,7 +90,7 @@ public class AndroidTouchProcessor {
         byteBuffer.putDouble(d2);
         byteBuffer.putDouble(d4);
         if (pointerDeviceTypeForToolType == 2) {
-            byteBuffer.putDouble(motionEvent.getAxisValue(24, i));
+            byteBuffer.putDouble(motionEvent.getAxisValue(24, i2));
             d3 = 0.0d;
             byteBuffer.putDouble(0.0d);
         } else {
@@ -98,19 +98,19 @@ public class AndroidTouchProcessor {
             byteBuffer.putDouble(0.0d);
             byteBuffer.putDouble(0.0d);
         }
-        byteBuffer.putDouble(motionEvent.getSize(i));
-        byteBuffer.putDouble(motionEvent.getToolMajor(i));
-        byteBuffer.putDouble(motionEvent.getToolMinor(i));
+        byteBuffer.putDouble(motionEvent.getSize(i2));
+        byteBuffer.putDouble(motionEvent.getToolMajor(i2));
+        byteBuffer.putDouble(motionEvent.getToolMinor(i2));
         byteBuffer.putDouble(d3);
         byteBuffer.putDouble(d3);
-        byteBuffer.putDouble(motionEvent.getAxisValue(8, i));
+        byteBuffer.putDouble(motionEvent.getAxisValue(8, i2));
         if (pointerDeviceTypeForToolType == 2) {
-            byteBuffer.putDouble(motionEvent.getAxisValue(25, i));
+            byteBuffer.putDouble(motionEvent.getAxisValue(25, i2));
         } else {
             byteBuffer.putDouble(d3);
         }
-        byteBuffer.putLong(i3);
-        if (i4 == 1) {
+        byteBuffer.putLong(i4);
+        if (i5 == 1) {
             byteBuffer.putDouble(-motionEvent.getAxisValue(10));
             byteBuffer.putDouble(-motionEvent.getAxisValue(9));
             return;
@@ -120,37 +120,37 @@ public class AndroidTouchProcessor {
     }
 
     @PointerChange
-    private int getPointerChangeForAction(int i) {
-        if (i == 0) {
+    private int getPointerChangeForAction(int i2) {
+        if (i2 == 0) {
             return 4;
         }
-        if (i == 1) {
+        if (i2 == 1) {
             return 6;
         }
-        if (i == 5) {
+        if (i2 == 5) {
             return 4;
         }
-        if (i == 6) {
+        if (i2 == 6) {
             return 6;
         }
-        if (i == 2) {
+        if (i2 == 2) {
             return 5;
         }
-        if (i == 7) {
+        if (i2 == 7) {
             return 3;
         }
-        if (i == 3) {
+        if (i2 == 3) {
             return 0;
         }
-        return i == 8 ? 3 : -1;
+        return i2 == 8 ? 3 : -1;
     }
 
     @PointerDeviceKind
-    private int getPointerDeviceTypeForToolType(int i) {
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
-                    return i != 4 ? 4 : 3;
+    private int getPointerDeviceTypeForToolType(int i2) {
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 != 3) {
+                    return i2 != 4 ? 4 : 3;
                 }
                 return 1;
             }
@@ -187,15 +187,15 @@ public class AndroidTouchProcessor {
         if (z) {
             addPointerForIndex(motionEvent, motionEvent.getActionIndex(), pointerChangeForAction, 0, allocateDirect);
         } else if (z2) {
-            for (int i = 0; i < pointerCount; i++) {
-                if (i != motionEvent.getActionIndex() && motionEvent.getToolType(i) == 1) {
-                    addPointerForIndex(motionEvent, i, 5, 1, allocateDirect);
+            for (int i2 = 0; i2 < pointerCount; i2++) {
+                if (i2 != motionEvent.getActionIndex() && motionEvent.getToolType(i2) == 1) {
+                    addPointerForIndex(motionEvent, i2, 5, 1, allocateDirect);
                 }
             }
             addPointerForIndex(motionEvent, motionEvent.getActionIndex(), pointerChangeForAction, 0, allocateDirect);
         } else {
-            for (int i2 = 0; i2 < pointerCount; i2++) {
-                addPointerForIndex(motionEvent, i2, pointerChangeForAction, 0, allocateDirect);
+            for (int i3 = 0; i3 < pointerCount; i3++) {
+                addPointerForIndex(motionEvent, i3, pointerChangeForAction, 0, allocateDirect);
             }
         }
         if (allocateDirect.position() % 224 == 0) {

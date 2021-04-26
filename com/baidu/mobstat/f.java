@@ -20,35 +20,35 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f8794a = new f();
+    public static f f9108a = new f();
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8795b = "";
+    public String f9109b = "";
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8796a;
+        public String f9110a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8797b;
+        public String f9111b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8798c;
+        public String f9112c;
 
         public a(String str, String str2, String str3) {
-            this.f8796a = str == null ? "" : str;
-            this.f8797b = str2 == null ? "" : str2;
-            this.f8798c = str3 == null ? "" : str3;
+            this.f9110a = str == null ? "" : str;
+            this.f9111b = str2 == null ? "" : str2;
+            this.f9112c = str3 == null ? "" : str3;
         }
 
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("n", this.f8796a);
-                jSONObject.put("v", this.f8797b);
-                jSONObject.put("w", this.f8798c);
+                jSONObject.put("n", this.f9110a);
+                jSONObject.put("v", this.f9111b);
+                jSONObject.put("w", this.f9112c);
                 return jSONObject;
             } catch (JSONException e2) {
                 bb.c().b(e2);
@@ -57,15 +57,15 @@ public class f {
         }
 
         public String b() {
-            return this.f8796a;
+            return this.f9110a;
         }
     }
 
-    private boolean a(int i) {
-        return i == 100 || i == 200 || i == 130;
+    private boolean a(int i2) {
+        return i2 == 100 || i2 == 200 || i2 == 130;
     }
 
-    private ArrayList<a> b(Context context, int i) {
+    private ArrayList<a> b(Context context, int i2) {
         List<ActivityManager.RunningTaskInfo> list;
         try {
             list = ((ActivityManager) context.getSystemService("activity")).getRunningTasks(50);
@@ -78,7 +78,7 @@ public class f {
         }
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (ActivityManager.RunningTaskInfo runningTaskInfo : list) {
-            if (linkedHashMap.size() > i) {
+            if (linkedHashMap.size() > i2) {
                 break;
             }
             ComponentName componentName = runningTaskInfo.topActivity;
@@ -92,15 +92,15 @@ public class f {
         return new ArrayList<>(linkedHashMap.values());
     }
 
-    private ArrayList<a> c(Context context, int i) {
+    private ArrayList<a> c(Context context, int i2) {
         String[] strArr;
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
         if (runningAppProcesses == null) {
             return new ArrayList<>();
         }
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        for (int i2 = 0; i2 < runningAppProcesses.size() && linkedHashMap.size() <= i; i2++) {
-            ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i2);
+        for (int i3 = 0; i3 < runningAppProcesses.size() && linkedHashMap.size() <= i2; i3++) {
+            ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i3);
             if (a(runningAppProcessInfo.importance) && (strArr = runningAppProcessInfo.pkgList) != null && strArr.length != 0) {
                 String str = strArr[0];
                 if (!TextUtils.isEmpty(str) && !b(context, str) && !linkedHashMap.containsKey(str)) {
@@ -115,29 +115,29 @@ public class f {
         a(context, z, z ? 1 : 20);
     }
 
-    private void a(Context context, boolean z, int i) {
-        ArrayList<a> a2 = a(context, i);
+    private void a(Context context, boolean z, int i2) {
+        ArrayList<a> a2 = a(context, i2);
         if (a2 == null || a2.size() == 0) {
             return;
         }
         if (z) {
             String b2 = a2.get(0).b();
-            if (a(b2, this.f8795b)) {
-                this.f8795b = b2;
+            if (a(b2, this.f9109b)) {
+                this.f9109b = b2;
             }
         }
         a(context, a2, z);
     }
 
-    private ArrayList<a> a(Context context, int i) {
+    private ArrayList<a> a(Context context, int i2) {
         if (Build.VERSION.SDK_INT >= 21) {
-            return c(context, i);
+            return c(context, i2);
         }
-        return b(context, i);
+        return b(context, i2);
     }
 
     private boolean a(String str, String str2) {
-        return (TextUtils.isEmpty(str) || str.equals(this.f8795b)) ? false : true;
+        return (TextUtils.isEmpty(str) || str.equals(this.f9109b)) ? false : true;
     }
 
     private String a(Context context, String str) {

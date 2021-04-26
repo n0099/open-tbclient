@@ -25,8 +25,8 @@ public class WXMiniProgramObject implements WXMediaMessage.IMediaObject {
         } else if (d.b(this.userName)) {
             str = "userName is null";
         } else {
-            int i = this.miniprogramType;
-            if (i >= 0 && i <= 2) {
+            int i2 = this.miniprogramType;
+            if (i2 >= 0 && i2 <= 2) {
                 return true;
             }
             str = "miniprogram type should between MINIPTOGRAM_TYPE_RELEASE and MINIPROGRAM_TYPE_PREVIEW";

@@ -68,10 +68,10 @@ public final class MinElf {
         return (short) (byteBuffer.get() & 255);
     }
 
-    public static void read(FileChannel fileChannel, ByteBuffer byteBuffer, int i, long j) throws IOException {
+    public static void read(FileChannel fileChannel, ByteBuffer byteBuffer, int i2, long j) throws IOException {
         int read;
         byteBuffer.position(0);
-        byteBuffer.limit(i);
+        byteBuffer.limit(i2);
         while (byteBuffer.remaining() > 0 && (read = fileChannel.read(byteBuffer, j)) != -1) {
             j += read;
         }
@@ -85,7 +85,7 @@ public final class MinElf {
     public static String[] extract_DT_NEEDED(FileChannel fileChannel) throws IOException {
         long j;
         long j2;
-        int i;
+        int i2;
         long j3;
         boolean z;
         long j4;
@@ -120,9 +120,9 @@ public final class MinElf {
                 j2 = getu16(fileChannel, allocate, 56L);
             }
             if (z2) {
-                i = getu16(fileChannel, allocate, 42L);
+                i2 = getu16(fileChannel, allocate, 42L);
             } else {
-                i = getu16(fileChannel, allocate, 54L);
+                i2 = getu16(fileChannel, allocate, 54L);
             }
             if (j2 == WebSocketProtocol.PAYLOAD_SHORT_MAX) {
                 if (z2) {
@@ -150,7 +150,7 @@ public final class MinElf {
                     j15 = getu32(fileChannel, allocate, j18 + 0);
                 }
                 if (j15 != 2) {
-                    j18 += i;
+                    j18 += i2;
                     j19++;
                 } else if (z2) {
                     j3 = getu32(fileChannel, allocate, j18 + 4);
@@ -164,7 +164,7 @@ public final class MinElf {
             }
             long j21 = j3;
             long j22 = 0;
-            int i2 = 0;
+            int i3 = 0;
             while (true) {
                 if (z2) {
                     z = z2;
@@ -175,10 +175,10 @@ public final class MinElf {
                 }
                 if (j4 == 1) {
                     j5 = j3;
-                    if (i2 == Integer.MAX_VALUE) {
+                    if (i3 == Integer.MAX_VALUE) {
                         throw new ElfError("malformed DT_NEEDED section");
                     }
-                    i2++;
+                    i3++;
                 } else {
                     j5 = j3;
                     if (j4 == 5) {
@@ -199,9 +199,9 @@ public final class MinElf {
                 } else if (j22 == 0) {
                     throw new ElfError("Dynamic section string-table not found");
                 } else {
-                    int i3 = 0;
+                    int i4 = 0;
                     while (true) {
-                        if (i3 >= j2) {
+                        if (i4 >= j2) {
                             j7 = 0;
                             break;
                         }
@@ -234,16 +234,16 @@ public final class MinElf {
                         } else {
                             j11 = j2;
                         }
-                        j += i;
-                        i3++;
+                        j += i2;
+                        i4++;
                         j2 = j11;
                         j23 = 16;
                         j20 = 0;
                     }
                     long j24 = 0;
                     if (j7 != 0) {
-                        String[] strArr = new String[i2];
-                        int i4 = 0;
+                        String[] strArr = new String[i3];
+                        int i5 = 0;
                         while (true) {
                             if (z) {
                                 j8 = getu32(fileChannel, allocate, j5 + j24);
@@ -256,15 +256,15 @@ public final class MinElf {
                                 } else {
                                     j9 = get64(fileChannel, allocate, j5 + 8);
                                 }
-                                strArr[i4] = getSz(fileChannel, allocate, j9 + j7);
-                                if (i4 == Integer.MAX_VALUE) {
+                                strArr[i5] = getSz(fileChannel, allocate, j9 + j7);
+                                if (i5 == Integer.MAX_VALUE) {
                                     throw new ElfError("malformed DT_NEEDED section");
                                 }
-                                i4++;
+                                i5++;
                             }
                             j5 += z ? 8L : 16L;
                             if (j8 == 0) {
-                                if (i4 == i2) {
+                                if (i5 == i3) {
                                     return strArr;
                                 }
                                 throw new ElfError("malformed DT_NEEDED section");

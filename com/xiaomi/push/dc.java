@@ -7,7 +7,7 @@ import java.util.Date;
 public class dc extends db.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f40738a;
+    public final /* synthetic */ int f38255a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ db f221a;
@@ -25,20 +25,20 @@ public class dc extends db.b {
     public final /* synthetic */ boolean f225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f40739b;
+    public final /* synthetic */ String f38256b;
 
     /* renamed from: b  reason: collision with other field name */
     public final /* synthetic */ Date f226b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dc(db dbVar, int i, Date date, Date date2, String str, String str2, boolean z) {
+    public dc(db dbVar, int i2, Date date, Date date2, String str, String str2, boolean z) {
         super();
         this.f221a = dbVar;
-        this.f40738a = i;
+        this.f38255a = i2;
         this.f224a = date;
         this.f226b = date2;
         this.f223a = str;
-        this.f40739b = str2;
+        this.f38256b = str2;
         this.f225a = z;
     }
 
@@ -50,7 +50,7 @@ public class dc extends db.b {
                 file.mkdirs();
                 if (file.isDirectory()) {
                     da daVar = new da();
-                    daVar.a(this.f40738a);
+                    daVar.a(this.f38255a);
                     this.f222a = daVar.a(this.f221a.f214a, this.f224a, this.f226b, file);
                 }
             } catch (NullPointerException unused) {
@@ -60,10 +60,10 @@ public class dc extends db.b {
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo227c() {
+    public void mo230c() {
         File file = this.f222a;
         if (file != null && file.exists()) {
-            this.f221a.f215a.add(new db.c(this.f223a, this.f40739b, this.f222a, this.f225a));
+            this.f221a.f215a.add(new db.c(this.f223a, this.f38256b, this.f222a, this.f225a));
         }
         this.f221a.a(0L);
     }

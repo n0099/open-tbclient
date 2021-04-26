@@ -68,15 +68,15 @@ public class TextureRender {
         return glCreateProgram;
     }
 
-    private int loadShader(int i, String str) {
-        int glCreateShader = GLES20.glCreateShader(i);
-        checkGlError("glCreateShader type=" + i);
+    private int loadShader(int i2, String str) {
+        int glCreateShader = GLES20.glCreateShader(i2);
+        checkGlError("glCreateShader type=" + i2);
         GLES20.glShaderSource(glCreateShader, str);
         GLES20.glCompileShader(glCreateShader);
         int[] iArr = new int[1];
         GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
         if (iArr[0] == 0) {
-            Log.e(TAG, "Could not compile shader " + i + ":");
+            Log.e(TAG, "Could not compile shader " + i2 + ":");
             StringBuilder sb = new StringBuilder();
             sb.append(" ");
             sb.append(GLES20.glGetShaderInfoLog(glCreateShader));
@@ -87,18 +87,18 @@ public class TextureRender {
         return glCreateShader;
     }
 
-    public static void saveFrame(String str, int i, int i2) {
+    public static void saveFrame(String str, int i2, int i3) {
         FileOutputStream fileOutputStream;
-        int i3 = i * i2;
-        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i3 * 4);
+        int i4 = i2 * i3;
+        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i4 * 4);
         allocateDirect.order(ByteOrder.LITTLE_ENDIAN);
-        GLES20.glReadPixels(0, 0, i, i2, 6408, 5121, allocateDirect);
+        GLES20.glReadPixels(0, 0, i2, i3, 6408, 5121, allocateDirect);
         allocateDirect.rewind();
-        int[] iArr = new int[i3];
+        int[] iArr = new int[i4];
         allocateDirect.asIntBuffer().get(iArr);
-        for (int i4 = 0; i4 < i3; i4++) {
-            int i5 = iArr[i4];
-            iArr[i4] = ((i5 & 255) << 16) | ((-16711936) & i5) | ((16711680 & i5) >> 16);
+        for (int i5 = 0; i5 < i4; i5++) {
+            int i6 = iArr[i5];
+            iArr[i5] = ((i6 & 255) << 16) | ((-16711936) & i6) | ((16711680 & i6) >> 16);
         }
         FileOutputStream fileOutputStream2 = null;
         try {
@@ -111,7 +111,7 @@ public class TextureRender {
             th = th;
         }
         try {
-            Bitmap createBitmap = Bitmap.createBitmap(iArr, i, i2, Bitmap.Config.ARGB_8888);
+            Bitmap createBitmap = Bitmap.createBitmap(iArr, i2, i3, Bitmap.Config.ARGB_8888);
             createBitmap.compress(Bitmap.CompressFormat.PNG, 90, fileOutputStream);
             createBitmap.recycle();
             try {
@@ -204,9 +204,9 @@ public class TextureRender {
                         if (this.muSTMatrixHandle != -1) {
                             int[] iArr = new int[1];
                             GLES20.glGenTextures(1, iArr, 0);
-                            int i = iArr[0];
-                            this.mTextureID = i;
-                            GLES20.glBindTexture(36197, i);
+                            int i2 = iArr[0];
+                            this.mTextureID = i2;
+                            GLES20.glBindTexture(36197, i2);
                             checkGlError("glBindTexture mTextureID");
                             GLES20.glTexParameterf(36197, 10241, 9728.0f);
                             GLES20.glTexParameterf(36197, 10240, 9729.0f);

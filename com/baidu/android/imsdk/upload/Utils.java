@@ -4,28 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Utils {
-    public static <T> List<List<T>> splitList(List<T> list, int i) {
-        if (list == null || list.size() < 1 || i < 1) {
+    public static <T> List<List<T>> splitList(List<T> list, int i2) {
+        if (list == null || list.size() < 1 || i2 < 1) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         int size = list.size();
-        if (size <= i) {
+        if (size <= i2) {
             arrayList.add(list);
         } else {
-            int i2 = size / i;
-            int i3 = size % i;
-            for (int i4 = 0; i4 < i2; i4++) {
+            int i3 = size / i2;
+            int i4 = size % i2;
+            for (int i5 = 0; i5 < i3; i5++) {
                 ArrayList arrayList2 = new ArrayList();
-                for (int i5 = 0; i5 < i; i5++) {
-                    arrayList2.add(list.get((i4 * i) + i5));
+                for (int i6 = 0; i6 < i2; i6++) {
+                    arrayList2.add(list.get((i5 * i2) + i6));
                 }
                 arrayList.add(arrayList2);
             }
-            if (i3 > 0) {
+            if (i4 > 0) {
                 ArrayList arrayList3 = new ArrayList();
-                for (int i6 = 0; i6 < i3; i6++) {
-                    arrayList3.add(list.get((i2 * i) + i6));
+                for (int i7 = 0; i7 < i4; i7++) {
+                    arrayList3.add(list.get((i3 * i2) + i7));
                 }
                 arrayList.add(arrayList3);
             }

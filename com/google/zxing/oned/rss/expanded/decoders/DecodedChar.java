@@ -4,8 +4,8 @@ public final class DecodedChar extends DecodedObject {
     public static final char FNC1 = '$';
     public final char value;
 
-    public DecodedChar(int i, char c2) {
-        super(i);
+    public DecodedChar(int i2, char c2) {
+        super(i2);
         this.value = c2;
     }
 

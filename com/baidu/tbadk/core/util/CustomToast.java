@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.widget.Toast;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class CustomToast {
     public static final int TOAST_DURATION = 2000;
@@ -41,7 +41,7 @@ public class CustomToast {
         this.dontShowToast = false;
     }
 
-    public void showToast(String str, int i, int i2) {
+    public void showToast(String str, int i2, int i3) {
         if (this.dontShowToast || str == null) {
             return;
         }
@@ -59,15 +59,15 @@ public class CustomToast {
                 Toast makeText = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
                 mToast = makeText;
                 makeText.setText(trim);
-                mToast.setGravity(17, 0, i2);
+                mToast.setGravity(17, 0, i3);
             }
         } else {
             Toast makeText2 = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
             mToast = makeText2;
             makeText2.setText(trim);
-            mToast.setGravity(17, 0, i2);
+            mToast.setGravity(17, 0, i3);
         }
-        mHandler.postDelayed(r, i);
+        mHandler.postDelayed(r, i2);
         mToast.show();
     }
 
@@ -75,19 +75,19 @@ public class CustomToast {
         showToast(str, 2000);
     }
 
-    public void showToast(int i) {
-        showToast(i, 2000);
+    public void showToast(int i2) {
+        showToast(i2, 2000);
     }
 
-    public void showToast(String str, int i) {
-        showToast(str, i, l.e(BdBaseApplication.getInst().getApp(), 100.0f));
+    public void showToast(String str, int i2) {
+        showToast(str, i2, l.e(BdBaseApplication.getInst().getApp(), 100.0f));
     }
 
-    public void showToast(int i, int i2) {
-        showToast(BdBaseApplication.getInst().getApp().getResources().getString(i), i2);
+    public void showToast(int i2, int i3) {
+        showToast(BdBaseApplication.getInst().getApp().getResources().getString(i2), i3);
     }
 
-    public void showToast(int i, int i2, int i3) {
-        showToast(BdBaseApplication.getInst().getApp().getResources().getString(i), i2, i3);
+    public void showToast(int i2, int i3, int i4) {
+        showToast(BdBaseApplication.getInst().getApp().getResources().getString(i2), i3, i4);
     }
 }

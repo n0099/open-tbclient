@@ -10,17 +10,19 @@ import android.widget.ScrollView;
 public class EditorScrollView extends ScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f19521e;
+    public View f19995e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19522f;
+    public boolean f19996f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19523g;
+    public int f19997g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewTreeObserver.OnScrollChangedListener f19524h;
-    public a i;
+    public ViewTreeObserver.OnScrollChangedListener f19998h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public a f19999i;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -28,46 +30,46 @@ public class EditorScrollView extends ScrollView {
 
         void b();
 
-        void c(EditorScrollView editorScrollView, int i, int i2, int i3, int i4);
+        void c(EditorScrollView editorScrollView, int i2, int i3, int i4, int i5);
     }
 
     public EditorScrollView(Context context) {
         super(context);
-        this.f19523g = 50;
+        this.f19997g = 50;
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
         if (getChildCount() > 0) {
-            this.f19521e = getChildAt(0);
+            this.f19995e = getChildAt(0);
         }
     }
 
     @Override // android.widget.ScrollView, android.view.View
-    public void onOverScrolled(int i, int i2, boolean z, boolean z2) {
-        super.onOverScrolled(i, i2, z, z2);
+    public void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
+        super.onOverScrolled(i2, i3, z, z2);
     }
 
     @Override // android.view.View
-    public void onScrollChanged(int i, int i2, int i3, int i4) {
+    public void onScrollChanged(int i2, int i3, int i4, int i5) {
         a aVar;
         a aVar2;
-        super.onScrollChanged(i, i2, i3, i4);
-        a aVar3 = this.i;
+        super.onScrollChanged(i2, i3, i4, i5);
+        a aVar3 = this.f19999i;
         if (aVar3 != null) {
-            aVar3.c(this, i, i2, i3, i4);
+            aVar3.c(this, i2, i3, i4, i5);
         }
-        if (getHeight() + i2 >= this.f19521e.getHeight() && (aVar2 = this.i) != null) {
+        if (getHeight() + i3 >= this.f19995e.getHeight() && (aVar2 = this.f19999i) != null) {
             aVar2.a();
         }
-        if ((i2 == 0 || getHeight() + i2 > this.f19521e.getHeight()) && (aVar = this.i) != null) {
+        if ((i3 == 0 || getHeight() + i3 > this.f19995e.getHeight()) && (aVar = this.f19999i) != null) {
             aVar.b();
         }
-        if (this.f19524h == null || !this.f19522f || Math.abs(i3 - i2) < this.f19523g) {
+        if (this.f19998h == null || !this.f19996f || Math.abs(i4 - i3) < this.f19997g) {
             return;
         }
-        this.f19524h.onScrollChanged();
+        this.f19998h.onScrollChanged();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x000d, code lost:
@@ -84,28 +86,28 @@ public class EditorScrollView extends ScrollView {
                 if (action != 2) {
                 }
             }
-            this.f19522f = false;
+            this.f19996f = false;
             return super.onTouchEvent(motionEvent);
         }
-        this.f19522f = true;
+        this.f19996f = true;
         return super.onTouchEvent(motionEvent);
     }
 
     public void setListener(ViewTreeObserver.OnScrollChangedListener onScrollChangedListener) {
-        this.f19524h = onScrollChangedListener;
+        this.f19998h = onScrollChangedListener;
     }
 
     public void setOnScrollChangedListener(a aVar) {
-        this.i = aVar;
+        this.f19999i = aVar;
     }
 
     public EditorScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19523g = 50;
+        this.f19997g = 50;
     }
 
-    public EditorScrollView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f19523g = 50;
+    public EditorScrollView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f19997g = 50;
     }
 }

@@ -60,8 +60,8 @@ public class ShareWebViewClient extends BaseWebViewClient {
         return false;
     }
 
-    private void sendSdkResponse(Activity activity, int i, String str) {
-        LogUtil.i("Share", "WebActivity.sendSdkResponse,errCode:" + i + ",errMsg:" + str);
+    private void sendSdkResponse(Activity activity, int i2, String str) {
+        LogUtil.i("Share", "WebActivity.sendSdkResponse,errCode:" + i2 + ",errMsg:" + str);
         Bundle extras = activity.getIntent().getExtras();
         if (extras == null || this.hasCallbacked) {
             return;
@@ -72,7 +72,7 @@ public class ShareWebViewClient extends BaseWebViewClient {
         intent.setPackage(string);
         intent.putExtras(extras);
         intent.putExtra(WBConstants.Base.APP_PKG, activity.getPackageName());
-        intent.putExtra(WBConstants.Response.ERRCODE, i);
+        intent.putExtra(WBConstants.Response.ERRCODE, i2);
         intent.putExtra(WBConstants.Response.ERRMSG, str);
         try {
             activity.startActivityForResult(intent, WBConstants.SDK_ACTIVITY_FOR_RESULT_CODE);
@@ -159,11 +159,11 @@ public class ShareWebViewClient extends BaseWebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
-    public void onReceivedError(WebView webView, int i, String str, String str2) {
-        super.onReceivedError(webView, i, str, str2);
+    public void onReceivedError(WebView webView, int i2, String str, String str2) {
+        super.onReceivedError(webView, i2, str, str2);
         WebViewRequestCallback webViewRequestCallback = this.requestCallback;
         if (webViewRequestCallback != null) {
-            webViewRequestCallback.onReceivedErrorCallBack(webView, i, str, str2);
+            webViewRequestCallback.onReceivedErrorCallBack(webView, i2, str, str2);
         }
     }
 }

@@ -5,5 +5,5 @@ public abstract class PassBiometricFactory {
         return PassBiometricDefaultFactory.getInstance();
     }
 
-    public abstract PassBiometric getBiometric(int i);
+    public abstract PassBiometric getBiometric(int i2);
 }

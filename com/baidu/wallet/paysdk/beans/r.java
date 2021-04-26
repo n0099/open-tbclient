@@ -14,11 +14,11 @@ import java.util.List;
 public class r extends BaseBean<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.datamodel.b f25219a;
+    public com.baidu.wallet.paysdk.datamodel.b f25989a;
 
     public <T> r(Context context) {
         super(context);
-        this.f25219a = (com.baidu.wallet.paysdk.datamodel.b) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_GET_SMS);
+        this.f25989a = (com.baidu.wallet.paysdk.datamodel.b) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_GET_SMS);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -29,8 +29,8 @@ public class r extends BaseBean<Object> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25219a.f25273a)));
-        arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25219a.f25274b)));
+        arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25989a.f26044a)));
+        arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25989a.f26045b)));
         arrayList.add(new RestNameValuePair("request_type", "1"));
         arrayList.add(new RestNameValuePair("token", AccountManager.getInstance(this.mContext).getBfbToken()));
         return arrayList;

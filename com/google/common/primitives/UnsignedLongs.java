@@ -1,6 +1,6 @@
 package com.google.common.primitives;
 
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.math.BigInteger;
 import java.util.Comparator;
 /* loaded from: classes6.dex */
@@ -19,9 +19,9 @@ public final class UnsignedLongs {
         @Override // java.util.Comparator
         public int compare(long[] jArr, long[] jArr2) {
             int min = Math.min(jArr.length, jArr2.length);
-            for (int i = 0; i < min; i++) {
-                if (jArr[i] != jArr2[i]) {
-                    return UnsignedLongs.a(jArr[i], jArr2[i]);
+            for (int i2 = 0; i2 < min; i2++) {
+                if (jArr[i2] != jArr2[i2]) {
+                    return UnsignedLongs.a(jArr[i2], jArr2[i2]);
                 }
             }
             return jArr.length - jArr2.length;
@@ -32,31 +32,31 @@ public final class UnsignedLongs {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final long[] f31225a = new long[37];
+        public static final long[] f32204a = new long[37];
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int[] f31226b = new int[37];
+        public static final int[] f32205b = new int[37];
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int[] f31227c = new int[37];
+        public static final int[] f32206c = new int[37];
 
         static {
             BigInteger bigInteger = new BigInteger("10000000000000000", 16);
-            for (int i = 2; i <= 36; i++) {
-                long j = i;
-                f31225a[i] = UnsignedLongs.b(-1L, j);
-                f31226b[i] = (int) UnsignedLongs.e(-1L, j);
-                f31227c[i] = bigInteger.toString(i).length() - 1;
+            for (int i2 = 2; i2 <= 36; i2++) {
+                long j = i2;
+                f32204a[i2] = UnsignedLongs.b(-1L, j);
+                f32205b[i2] = (int) UnsignedLongs.e(-1L, j);
+                f32206c[i2] = bigInteger.toString(i2).length() - 1;
             }
         }
 
-        public static boolean a(long j, int i, int i2) {
+        public static boolean a(long j, int i2, int i3) {
             if (j >= 0) {
-                long[] jArr = f31225a;
-                if (j < jArr[i2]) {
+                long[] jArr = f32204a;
+                if (j < jArr[i3]) {
                     return false;
                 }
-                return j > jArr[i2] || i > f31226b[i2];
+                return j > jArr[i3] || i2 > f32205b[i3];
             }
             return true;
         }
@@ -81,26 +81,26 @@ public final class UnsignedLongs {
         return j ^ Long.MIN_VALUE;
     }
 
-    public static long d(String str, int i) {
+    public static long d(String str, int i2) {
         n.p(str);
         if (str.length() != 0) {
-            if (i >= 2 && i <= 36) {
-                int i2 = a.f31227c[i] - 1;
+            if (i2 >= 2 && i2 <= 36) {
+                int i3 = a.f32206c[i2] - 1;
                 long j = 0;
-                for (int i3 = 0; i3 < str.length(); i3++) {
-                    int digit = Character.digit(str.charAt(i3), i);
+                for (int i4 = 0; i4 < str.length(); i4++) {
+                    int digit = Character.digit(str.charAt(i4), i2);
                     if (digit != -1) {
-                        if (i3 > i2 && a.a(j, digit, i)) {
+                        if (i4 > i3 && a.a(j, digit, i2)) {
                             throw new NumberFormatException("Too large for unsigned long: " + str);
                         }
-                        j = (j * i) + digit;
+                        j = (j * i2) + digit;
                     } else {
                         throw new NumberFormatException(str);
                     }
                 }
                 return j;
             }
-            throw new NumberFormatException("illegal radix: " + i);
+            throw new NumberFormatException("illegal radix: " + i2);
         }
         throw new NumberFormatException("empty string");
     }
@@ -123,41 +123,41 @@ public final class UnsignedLongs {
         return g(j, 10);
     }
 
-    public static String g(long j, int i) {
+    public static String g(long j, int i2) {
         long b2;
-        n.f(i >= 2 && i <= 36, "radix (%s) must be between Character.MIN_RADIX and Character.MAX_RADIX", i);
-        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i2 == 0) {
+        n.f(i2 >= 2 && i2 <= 36, "radix (%s) must be between Character.MIN_RADIX and Character.MAX_RADIX", i2);
+        int i3 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i3 == 0) {
             return "0";
         }
-        if (i2 > 0) {
-            return Long.toString(j, i);
+        if (i3 > 0) {
+            return Long.toString(j, i2);
         }
-        int i3 = 64;
+        int i4 = 64;
         char[] cArr = new char[64];
-        int i4 = i - 1;
-        if ((i & i4) == 0) {
-            int numberOfTrailingZeros = Integer.numberOfTrailingZeros(i);
+        int i5 = i2 - 1;
+        if ((i2 & i5) == 0) {
+            int numberOfTrailingZeros = Integer.numberOfTrailingZeros(i2);
             do {
-                i3--;
-                cArr[i3] = Character.forDigit(((int) j) & i4, i);
+                i4--;
+                cArr[i4] = Character.forDigit(((int) j) & i5, i2);
                 j >>>= numberOfTrailingZeros;
             } while (j != 0);
         } else {
-            if ((i & 1) == 0) {
-                b2 = (j >>> 1) / (i >>> 1);
+            if ((i2 & 1) == 0) {
+                b2 = (j >>> 1) / (i2 >>> 1);
             } else {
-                b2 = b(j, i);
+                b2 = b(j, i2);
             }
-            long j2 = i;
-            cArr[63] = Character.forDigit((int) (j - (b2 * j2)), i);
-            i3 = 63;
+            long j2 = i2;
+            cArr[63] = Character.forDigit((int) (j - (b2 * j2)), i2);
+            i4 = 63;
             while (b2 > 0) {
-                i3--;
-                cArr[i3] = Character.forDigit((int) (b2 % j2), i);
+                i4--;
+                cArr[i4] = Character.forDigit((int) (b2 % j2), i2);
                 b2 /= j2;
             }
         }
-        return new String(cArr, i3, 64 - i3);
+        return new String(cArr, i4, 64 - i4);
     }
 }

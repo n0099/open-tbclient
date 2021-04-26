@@ -6,32 +6,34 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.j0.j3.c;
+import d.a.j0.j3.c;
 import tbclient.T;
 /* loaded from: classes5.dex */
 public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     public static final int TYPE_SET_USE = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f21282e;
+    public long f21886e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21283f;
+    public int f21887f;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f21285h;
+    public b f21889h;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21284g = false;
-    public d.b.c.c.g.a i = new a(CmdConfigHttp.CMD_SET_PENDANT, 309412);
+    public boolean f21888g = false;
+
+    /* renamed from: i  reason: collision with root package name */
+    public d.a.c.c.g.a f21890i = new a(CmdConfigHttp.CMD_SET_PENDANT, 309412);
 
     /* loaded from: classes5.dex */
-    public class a extends d.b.c.c.g.a {
-        public a(int i, int i2) {
-            super(i, i2);
+    public class a extends d.a.c.c.g.a {
+        public a(int i2, int i3) {
+            super(i2, i3);
         }
 
-        @Override // d.b.c.c.g.a
+        @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null) {
                 return;
@@ -46,18 +48,18 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
                 if (z) {
                     SetPendantHttpResponse setPendantHttpResponse = (SetPendantHttpResponse) responsedMessage;
                     SetAvatarPendantModel.this.y(setPendantHttpResponse.getPendantId());
-                    SetAvatarPendantModel.this.f21283f = setPendantHttpResponse.getFreeUseLevel();
+                    SetAvatarPendantModel.this.f21887f = setPendantHttpResponse.getFreeUseLevel();
                 } else if (responsedMessage instanceof SetPendantSocketResponse) {
                     SetPendantSocketResponse setPendantSocketResponse = (SetPendantSocketResponse) responsedMessage;
                     SetAvatarPendantModel.this.y(setPendantSocketResponse.getPendantId());
-                    SetAvatarPendantModel.this.f21283f = setPendantSocketResponse.getFreeUseLevel();
+                    SetAvatarPendantModel.this.f21887f = setPendantSocketResponse.getFreeUseLevel();
                 }
-                if (SetAvatarPendantModel.this.f21285h != null) {
-                    int i = c.f58088b;
-                    if (responsedMessage.getError() == c.f58089c) {
-                        i = c.f58087a;
+                if (SetAvatarPendantModel.this.f21889h != null) {
+                    int i2 = c.f56071b;
+                    if (responsedMessage.getError() == c.f56072c) {
+                        i2 = c.f56070a;
                     }
-                    SetAvatarPendantModel.this.f21285h.onSetPendantCallback(SetAvatarPendantModel.this.f21284g, SetAvatarPendantModel.this.f21282e, SetAvatarPendantModel.this.f21283f, responsedMessage.getErrorString(), i);
+                    SetAvatarPendantModel.this.f21889h.onSetPendantCallback(SetAvatarPendantModel.this.f21888g, SetAvatarPendantModel.this.f21886e, SetAvatarPendantModel.this.f21887f, responsedMessage.getErrorString(), i2);
                 }
             }
         }
@@ -65,17 +67,17 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void onSetPendantCallback(boolean z, long j, int i, String str, int i2);
+        void onSetPendantCallback(boolean z, long j, int i2, String str, int i3);
     }
 
     public SetAvatarPendantModel() {
-        d.b.j0.d3.d0.a.h(309412, SetPendantSocketResponse.class, false, false);
-        d.b.j0.d3.d0.a.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
-        registerListener(this.i);
+        d.a.j0.d3.d0.a.h(309412, SetPendantSocketResponse.class, false, false);
+        d.a.j0.d3.d0.a.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        registerListener(this.f21890i);
     }
 
     public void A(boolean z) {
-        this.f21284g = z;
+        this.f21888g = z;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -89,22 +91,22 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.i);
+        MessageManager.getInstance().unRegisterListener(this.f21890i);
     }
 
-    public void x(long j, int i, int i2) {
+    public void x(long j, int i2, int i3) {
         SetPendantRequest setPendantRequest = new SetPendantRequest();
         setPendantRequest.setPendantId(j);
-        setPendantRequest.setType(i);
-        setPendantRequest.setFreeUseLevel(i2);
+        setPendantRequest.setType(i2);
+        setPendantRequest.setFreeUseLevel(i3);
         MessageManager.getInstance().sendMessage(setPendantRequest);
     }
 
     public void y(long j) {
-        this.f21282e = j;
+        this.f21886e = j;
     }
 
     public void z(b bVar) {
-        this.f21285h = bVar;
+        this.f21889h = bVar;
     }
 }

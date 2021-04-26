@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimmable {
     @VisibleForTesting
     public static final long PARAMS_INTERCHECK_INTERVAL_MS = TimeUnit.MINUTES.toMillis(5);
@@ -40,13 +40,13 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
     @GuardedBy("this")
     public long mLastCacheParamsCheck = SystemClock.uptimeMillis();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface CacheTrimStrategy {
         double getTrimRatio(MemoryTrimType memoryTrimType);
     }
 
     @VisibleForTesting
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Entry<K, V> {
         public int clientCount = 0;
         public boolean isOrphan = false;
@@ -67,7 +67,7 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface EntryStateObserver<K> {
         void onExclusivityChanged(K k, boolean z);
     }
@@ -212,9 +212,9 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
     }
 
     @Nullable
-    private synchronized ArrayList<Entry<K, V>> trimExclusivelyOwnedEntries(int i, int i2) {
-        int max = Math.max(i, 0);
-        int max2 = Math.max(i2, 0);
+    private synchronized ArrayList<Entry<K, V>> trimExclusivelyOwnedEntries(int i2, int i3) {
+        int max = Math.max(i2, 0);
+        int max2 = Math.max(i3, 0);
         if (this.mExclusiveEntries.getCount() <= max && this.mExclusiveEntries.getSizeInBytes() <= max2) {
             return null;
         }

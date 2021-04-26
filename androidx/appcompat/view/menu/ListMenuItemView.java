@@ -20,7 +20,7 @@ import androidx.appcompat.R;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.appcompat.widget.TintTypedArray;
 import androidx.core.view.ViewCompat;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ListMenuItemView extends LinearLayout implements MenuView.ItemView, AbsListView.SelectionBoundsAdjuster {
     public static final String TAG = "ListMenuItemView";
@@ -33,7 +33,6 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     public ImageView mIconView;
     public LayoutInflater mInflater;
     public MenuItemImpl mItemData;
-    public int mMenuType;
     public boolean mPreserveIconSpacing;
     public RadioButton mRadioButton;
     public TextView mShortcutView;
@@ -99,9 +98,8 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void initialize(MenuItemImpl menuItemImpl, int i) {
+    public void initialize(MenuItemImpl menuItemImpl, int i2) {
         this.mItemData = menuItemImpl;
-        this.mMenuType = i;
         setVisibility(menuItemImpl.isVisible() ? 0 : 8);
         setTitle(menuItemImpl.getTitleForItemView(this));
         setCheckable(menuItemImpl.isCheckable());
@@ -118,9 +116,9 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
         ViewCompat.setBackground(this, this.mBackground);
         TextView textView = (TextView) findViewById(R.id.title);
         this.mTitleView = textView;
-        int i = this.mTextAppearance;
-        if (i != -1) {
-            textView.setTextAppearance(this.mTextAppearanceContext, i);
+        int i2 = this.mTextAppearance;
+        if (i2 != -1) {
+            textView.setTextAppearance(this.mTextAppearanceContext, i2);
         }
         this.mShortcutView = (TextView) findViewById(R.id.shortcut);
         ImageView imageView = (ImageView) findViewById(R.id.submenuarrow);
@@ -133,16 +131,16 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         if (this.mIconView != null && this.mPreserveIconSpacing) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mIconView.getLayoutParams();
-            int i3 = layoutParams.height;
-            if (i3 > 0 && layoutParams2.width <= 0) {
-                layoutParams2.width = i3;
+            int i4 = layoutParams.height;
+            if (i4 > 0 && layoutParams2.width <= 0) {
+                layoutParams2.width = i4;
             }
         }
-        super.onMeasure(i, i2);
+        super.onMeasure(i2, i3);
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
@@ -247,12 +245,12 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
     public void setShortcut(boolean z, char c2) {
-        int i = (z && this.mItemData.shouldShowShortcut()) ? 0 : 8;
-        if (i == 0) {
+        int i2 = (z && this.mItemData.shouldShowShortcut()) ? 0 : 8;
+        if (i2 == 0) {
             this.mShortcutView.setText(this.mItemData.getShortcutLabel());
         }
-        if (this.mShortcutView.getVisibility() != i) {
-            this.mShortcutView.setVisibility(i);
+        if (this.mShortcutView.getVisibility() != i2) {
+            this.mShortcutView.setVisibility(i2);
         }
     }
 
@@ -273,9 +271,9 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
         return this.mForceShowIcon;
     }
 
-    public ListMenuItemView(Context context, AttributeSet attributeSet, int i) {
+    public ListMenuItemView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet);
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, R.styleable.MenuView, i, 0);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, R.styleable.MenuView, i2, 0);
         this.mBackground = obtainStyledAttributes.getDrawable(R.styleable.MenuView_android_itemBackground);
         this.mTextAppearance = obtainStyledAttributes.getResourceId(R.styleable.MenuView_android_itemTextAppearance, -1);
         this.mPreserveIconSpacing = obtainStyledAttributes.getBoolean(R.styleable.MenuView_preserveIconSpacing, false);
@@ -287,12 +285,12 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
         obtainStyledAttributes2.recycle();
     }
 
-    private void addContentView(View view, int i) {
+    private void addContentView(View view, int i2) {
         LinearLayout linearLayout = this.mContent;
         if (linearLayout != null) {
-            linearLayout.addView(view, i);
+            linearLayout.addView(view, i2);
         } else {
-            addView(view, i);
+            addView(view, i2);
         }
     }
 }

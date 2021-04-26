@@ -5,9 +5,9 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
-import d.b.c.e.d.l;
-import d.b.i0.r.q.g1;
-import d.b.i0.r.r.a;
+import d.a.c.e.d.l;
+import d.a.i0.r.q.g1;
+import d.a.i0.r.r.a;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
@@ -16,14 +16,14 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     public String mErrMsg;
     public PersonListModel mModel;
 
-    public ResponseNetPersonFollowMessage(int i) {
+    public ResponseNetPersonFollowMessage(int i2) {
         super(CmdConfigHttp.PIC_PERSONAL_LIST);
         this.mErrCode = 0;
         this.mErrMsg = "";
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0) {
@@ -53,9 +53,9 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
         PersonListModel personListModel;
-        super.afterDispatchInBackGround(i, (int) bArr);
+        super.afterDispatchInBackGround(i2, (int) bArr);
         if (getError() == 0 && (personListModel = this.mModel) != null) {
             boolean z = true;
             if (personListModel.A() == 1 && (getOrginalMessage() instanceof HttpMessage)) {

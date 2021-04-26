@@ -1,15 +1,20 @@
 package com.baidu.pass.http;
-
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
-public class a implements ThreadFactory {
+public /* synthetic */ class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicInteger f9311a = new AtomicInteger(1);
+    public static final /* synthetic */ int[] f9662a;
 
-    @Override // java.util.concurrent.ThreadFactory
-    public Thread newThread(Runnable runnable) {
-        return new Thread(runnable, "pass_net_work_request_thread # " + this.f9311a.getAndIncrement());
+    static {
+        int[] iArr = new int[Method.values().length];
+        f9662a = iArr;
+        try {
+            iArr[Method.GET.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
+        }
+        try {
+            f9662a[Method.POST.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
+        }
     }
 }

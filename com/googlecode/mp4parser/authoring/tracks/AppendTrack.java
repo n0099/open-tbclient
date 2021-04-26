@@ -270,12 +270,12 @@ public class AppendTrack extends AbstractTrack {
         }
         LinkedList linkedList2 = new LinkedList();
         for (int[] iArr : linkedList) {
-            for (int i : iArr) {
-                if (!linkedList2.isEmpty() && ((CompositionTimeToSample.Entry) linkedList2.getLast()).getOffset() == i) {
+            for (int i2 : iArr) {
+                if (!linkedList2.isEmpty() && ((CompositionTimeToSample.Entry) linkedList2.getLast()).getOffset() == i2) {
                     CompositionTimeToSample.Entry entry = (CompositionTimeToSample.Entry) linkedList2.getLast();
                     entry.setCount(entry.getCount() + 1);
                 } else {
-                    linkedList2.add(new CompositionTimeToSample.Entry(1, i));
+                    linkedList2.add(new CompositionTimeToSample.Entry(1, i2));
                 }
             }
         }
@@ -312,20 +312,20 @@ public class AppendTrack extends AbstractTrack {
     @Override // com.googlecode.mp4parser.authoring.Track
     public synchronized long[] getSampleDurations() {
         long[] jArr;
-        int i = 0;
-        for (Track track : this.tracks) {
-            i += track.getSampleDurations().length;
-        }
-        jArr = new long[i];
         int i2 = 0;
+        for (Track track : this.tracks) {
+            i2 += track.getSampleDurations().length;
+        }
+        jArr = new long[i2];
+        int i3 = 0;
         for (Track track2 : this.tracks) {
             long[] sampleDurations = track2.getSampleDurations();
             int length = sampleDurations.length;
-            int i3 = 0;
-            while (i3 < length) {
-                jArr[i2] = sampleDurations[i3];
+            int i4 = 0;
+            while (i4 < length) {
+                jArr[i3] = sampleDurations[i4];
+                i4++;
                 i3++;
-                i2++;
             }
         }
         return jArr;
@@ -350,21 +350,21 @@ public class AppendTrack extends AbstractTrack {
         if (this.tracks[0].getSyncSamples() == null || this.tracks[0].getSyncSamples().length <= 0) {
             return null;
         }
-        int i = 0;
-        for (Track track : this.tracks) {
-            i += track.getSyncSamples().length;
-        }
-        long[] jArr = new long[i];
-        long j = 0;
         int i2 = 0;
+        for (Track track : this.tracks) {
+            i2 += track.getSyncSamples().length;
+        }
+        long[] jArr = new long[i2];
+        long j = 0;
+        int i3 = 0;
         for (Track track2 : this.tracks) {
             long[] syncSamples = track2.getSyncSamples();
             int length = syncSamples.length;
-            int i3 = 0;
-            while (i3 < length) {
-                jArr[i2] = syncSamples[i3] + j;
+            int i4 = 0;
+            while (i4 < length) {
+                jArr[i3] = syncSamples[i4] + j;
+                i4++;
                 i3++;
-                i2++;
             }
             j += track2.getSamples().size();
         }

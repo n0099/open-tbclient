@@ -6,17 +6,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import d.b.h0.a.f;
-import d.b.h0.a.g;
-import d.b.h0.a.i2.h0;
-import d.b.h0.a.k;
+import d.a.h0.a.f;
+import d.a.h0.a.g;
+import d.a.h0.a.i2.h0;
+import d.a.h0.a.k;
 /* loaded from: classes3.dex */
 public class NeutralHeaderLoadingLayout extends LoadingLayout {
-    public static final boolean n = k.f45772a;
+    public static final boolean n = k.f43101a;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12204h;
-    public int i;
+    public int f12064h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f12065i;
     public int j;
     public int k;
     public View l;
@@ -26,21 +28,21 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f12205e;
+        public final /* synthetic */ Runnable f12066e;
 
         public a(Runnable runnable) {
-            this.f12205e = runnable;
+            this.f12066e = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f12205e.run();
+            this.f12066e.run();
         }
     }
 
     public NeutralHeaderLoadingLayout(Context context) {
         super(context);
-        this.f12204h = 0;
+        this.f12064h = 0;
         o();
     }
 
@@ -52,16 +54,16 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void e(int i) {
+    public void e(int i2) {
         if (n) {
-            Log.e("NeutralLoadingLayout", "pullLength = " + i);
+            Log.e("NeutralLoadingLayout", "pullLength = " + i2);
         }
         if (getState() == ILoadingLayout$State.PULL_TO_REFRESH) {
-            this.m.setAnimPercent(n(i));
+            this.m.setAnimPercent(n(i2));
         }
-        int i2 = this.j;
-        if (i > i2) {
-            setTranslationY((i2 - i) / 2);
+        int i3 = this.j;
+        if (i2 > i3) {
+            setTranslationY((i3 - i2) / 2);
         }
     }
 
@@ -89,7 +91,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getCanRefreshPullLength() {
-        return this.i;
+        return this.f12065i;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -140,12 +142,12 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         setTranslationY(0.0f);
     }
 
-    public float n(int i) {
+    public float n(int i2) {
         float f2;
-        int i2 = this.i;
-        if (i < i2) {
-            int i3 = this.f12204h;
-            f2 = i < i3 ? 0.0f : (i - i3) / (i2 - i3);
+        int i3 = this.f12065i;
+        if (i2 < i3) {
+            int i4 = this.f12064h;
+            f2 = i2 < i4 ? 0.0f : (i2 - i4) / (i3 - i4);
         } else {
             f2 = 1.0f;
         }
@@ -159,25 +161,25 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public final void o() {
         this.m = (NeutralRefreshAnimView) findViewById(f.neutral_refresh_anim_view);
         int e2 = h0.e(getContext(), 29.0f);
-        this.f12204h = e2;
-        this.i = (int) (e2 * 2.4f);
-        int i = (int) (e2 * 1.5f);
-        this.k = i;
-        this.j = i;
+        this.f12064h = e2;
+        this.f12065i = (int) (e2 * 2.4f);
+        int i2 = (int) (e2 * 1.5f);
+        this.k = i2;
+        this.j = i2;
         if (n) {
-            Log.e("NeutralLoadingLayout", "mRefreshingViewSizeInPixel" + this.f12204h);
-            Log.e("NeutralLoadingLayout", "mTriggerRefreshLength" + this.i);
+            Log.e("NeutralLoadingLayout", "mRefreshingViewSizeInPixel" + this.f12064h);
+            Log.e("NeutralLoadingLayout", "mTriggerRefreshLength" + this.f12065i);
             Log.e("NeutralLoadingLayout", "mRefreshingHeight" + this.k);
             Log.e("NeutralLoadingLayout", "mScrollStartLength" + this.j);
         }
     }
 
-    public boolean p(int i) {
+    public boolean p(int i2) {
         NeutralRefreshAnimView neutralRefreshAnimView = this.m;
         if (neutralRefreshAnimView == null) {
             return false;
         }
-        neutralRefreshAnimView.z(i);
+        neutralRefreshAnimView.z(i2);
         return true;
     }
 }

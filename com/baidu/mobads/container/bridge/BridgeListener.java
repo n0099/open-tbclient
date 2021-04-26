@@ -26,5 +26,5 @@ public interface BridgeListener {
 
     void onVisibilityChanged(boolean z);
 
-    void setVisibility(int i);
+    void setVisibility(int i2);
 }

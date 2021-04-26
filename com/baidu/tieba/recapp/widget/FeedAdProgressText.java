@@ -6,29 +6,29 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.j0.s2.i0.a;
-/* loaded from: classes4.dex */
+import d.a.j0.s2.k0.a;
+/* loaded from: classes5.dex */
 public class FeedAdProgressText extends AppCompatTextView implements a {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20600e;
+    public int f21153e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20601f;
+    public int f21154f;
 
     public FeedAdProgressText(Context context) {
         super(context);
-        this.f20600e = 100;
-        this.f20601f = 0;
+        this.f21153e = 100;
+        this.f21154f = 0;
         f(context);
     }
 
-    @Override // d.b.j0.s2.i0.a
+    @Override // d.a.j0.s2.k0.a
     public void a() {
         setTextColor(SkinManager.getColor(R.color.CAM_X0109));
     }
 
-    @Override // d.b.j0.s2.i0.a
+    @Override // d.a.j0.s2.k0.a
     public void d() {
         setTextColor(SkinManager.getColor(R.color.CAM_X0109));
     }
@@ -38,62 +38,62 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
     }
 
     public int getMax() {
-        return this.f20600e;
+        return this.f21153e;
     }
 
     public int getProgress() {
-        return this.f20601f;
+        return this.f21154f;
     }
 
-    @Override // d.b.j0.s2.i0.a
+    @Override // d.a.j0.s2.k0.a
     public void setButtonText(String str) {
         setText(str);
     }
 
-    @Override // d.b.j0.s2.i0.a
-    public void setButtonTextColor(int i) {
-        setTextColor(i);
+    @Override // d.a.j0.s2.k0.a
+    public void setButtonTextColor(int i2) {
+        setTextColor(i2);
     }
 
-    @Override // d.b.j0.s2.i0.a
-    public void setButtonTextNightColor(int i) {
+    @Override // d.a.j0.s2.k0.a
+    public void setButtonTextNightColor(int i2) {
     }
 
-    @Override // d.b.j0.s2.i0.a
-    public void setButtonTextSize(int i) {
-        setTextSize(1, i);
+    @Override // d.a.j0.s2.k0.a
+    public void setButtonTextSize(int i2) {
+        setTextSize(1, i2);
     }
 
-    public void setMax(int i) {
-        this.f20600e = i;
+    public void setMax(int i2) {
+        this.f21153e = i2;
     }
 
-    @Override // d.b.j0.s2.i0.a
-    public void setProgress(int i) {
-        if (i > this.f20600e) {
+    @Override // d.a.j0.s2.k0.a
+    public void setProgress(int i2) {
+        if (i2 > this.f21153e) {
             return;
         }
-        this.f20601f = i;
-        setText("已下载" + i + "%");
+        this.f21154f = i2;
+        setText("已下载" + i2 + "%");
     }
 
-    @Override // d.b.j0.s2.i0.a
-    public void setButtonText(String str, int i) {
-        this.f20601f = i;
+    @Override // d.a.j0.s2.k0.a
+    public void setButtonText(String str, int i2) {
+        this.f21154f = i2;
         setText(str);
     }
 
     public FeedAdProgressText(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20600e = 100;
-        this.f20601f = 0;
+        this.f21153e = 100;
+        this.f21154f = 0;
         f(context);
     }
 
-    public FeedAdProgressText(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f20600e = 100;
-        this.f20601f = 0;
+    public FeedAdProgressText(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f21153e = 100;
+        this.f21154f = 0;
         f(context);
     }
 }

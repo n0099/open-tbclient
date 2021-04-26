@@ -5,13 +5,13 @@ import java.util.Random;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f11381a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static String f11203a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public static byte[] a() {
-        char[] charArray = f11381a.toCharArray();
+        char[] charArray = f11203a.toCharArray();
         char[] cArr = new char[16];
-        for (int i = 0; i < 16; i++) {
-            cArr[i] = charArray[new Random().nextInt(62)];
+        for (int i2 = 0; i2 < 16; i2++) {
+            cArr[i2] = charArray[new Random().nextInt(62)];
         }
         return new String(cArr).getBytes();
     }

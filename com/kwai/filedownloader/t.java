@@ -5,13 +5,13 @@ import android.content.Context;
 public interface t {
     void a(Context context);
 
-    boolean a(int i);
+    boolean a(int i2);
 
-    boolean a(String str, String str2, boolean z, int i, int i2, int i3, boolean z2, com.kwai.filedownloader.d.b bVar, boolean z3);
+    boolean a(String str, String str2, boolean z, int i2, int i3, int i4, boolean z2, com.kwai.filedownloader.d.b bVar, boolean z3);
 
-    byte b(int i);
+    byte b(int i2);
 
     boolean c();
 
-    boolean c(int i);
+    boolean c(int i2);
 }

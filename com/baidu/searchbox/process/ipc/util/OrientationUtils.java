@@ -12,8 +12,8 @@ public class OrientationUtils {
     public static final boolean DEBUG = false;
     public static final String TAG = "OrientationUtils";
 
-    public static void fixedOrientation(Activity activity, int i) {
-        if (i == -1 || Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !isTranslucentOrFloating(activity) || isFixedOrientation(activity)) {
+    public static void fixedOrientation(Activity activity, int i2) {
+        if (i2 == -1 || Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !isTranslucentOrFloating(activity) || isFixedOrientation(activity)) {
             return;
         }
         try {
@@ -23,7 +23,7 @@ public class OrientationUtils {
             Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
             declaredField2.setAccessible(true);
             if (declaredField2.getInt(obj) == -1) {
-                declaredField2.setInt(obj, i);
+                declaredField2.setInt(obj, i2);
             }
         } catch (IllegalAccessException | NoSuchFieldException unused) {
         }
@@ -68,14 +68,14 @@ public class OrientationUtils {
                 Object obj = declaredField.get(activity);
                 Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
                 declaredField2.setAccessible(true);
-                int i = declaredField2.getInt(obj);
-                if (i != -1) {
+                int i2 = declaredField2.getInt(obj);
+                if (i2 != -1) {
                     try {
                         declaredField2.setInt(obj, -1);
                     } catch (IllegalAccessException | NoSuchFieldException unused) {
                     }
                 }
-                return i;
+                return i2;
             } catch (IllegalAccessException | NoSuchFieldException unused2) {
                 return -1;
             }

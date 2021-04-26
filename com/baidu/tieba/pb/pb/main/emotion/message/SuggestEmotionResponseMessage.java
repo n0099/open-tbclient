@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
-import d.b.j0.d2.k.e.a1.e.a;
+import d.a.j0.d2.k.e.a1.e.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -16,16 +16,16 @@ import org.json.JSONObject;
 public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
     public a mData;
 
-    public SuggestEmotionResponseMessage(int i) {
-        super(i);
+    public SuggestEmotionResponseMessage(int i2) {
+        super(i2);
     }
 
     private List<String> parseHotWordsData(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList();
         if (jSONArray != null) {
-            for (int i = 0; i < jSONArray.length(); i++) {
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 try {
-                    arrayList.add(jSONArray.getJSONObject(i).optString("keyword"));
+                    arrayList.add(jSONArray.getJSONObject(i2).optString("keyword"));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -40,9 +40,9 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
         }
         ArrayList arrayList = new ArrayList();
         int min = Math.min(jSONArray.length(), 10);
-        for (int i = 0; i < min; i++) {
+        for (int i2 = 0; i2 < min; i2++) {
             try {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                JSONObject jSONObject = jSONArray.getJSONObject(i2);
                 EmotionImageData emotionImageData = new EmotionImageData();
                 emotionImageData.setPicId(jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY));
                 emotionImageData.setPicUrl(jSONObject.optString("pic_url"));
@@ -69,7 +69,7 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode != 200 || error != 0 || jSONObject == null || jSONObject == null) {

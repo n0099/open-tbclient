@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.background;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.squareup.wire.Wire;
-import d.b.j0.j3.e.b;
-import d.b.j0.j3.h.e;
+import d.a.j0.j3.e.b;
+import d.a.j0.j3.h.e;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
@@ -30,7 +30,7 @@ public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetBgByCategoryResIdl getBgByCategoryResIdl = (GetBgByCategoryResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBgByCategoryResIdl.class);
         if (getBgByCategoryResIdl == null) {
             return;

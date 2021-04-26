@@ -23,8 +23,8 @@ public class l {
     public static String a(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();
         int length = bArr.length;
-        for (int i = 0; i < length; i++) {
-            stringBuffer.append(String.format("%02x", Byte.valueOf(bArr[i])));
+        for (int i2 = 0; i2 < length; i2++) {
+            stringBuffer.append(String.format("%02x", Byte.valueOf(bArr[i2])));
         }
         return stringBuffer.toString();
     }
@@ -39,11 +39,11 @@ public class l {
         }
     }
 
-    public static void a(byte[] bArr, long j, int i) {
+    public static void a(byte[] bArr, long j, int i2) {
         j.a(bArr, "Buffer must be not null!");
         boolean z = true;
         j.a(j >= 0, "Data offset must be positive!");
-        j.a((i < 0 || i > bArr.length) ? false : false, "Length must be in range [0..buffer.length]");
+        j.a((i2 < 0 || i2 > bArr.length) ? false : false, "Length must be in range [0..buffer.length]");
     }
 
     public static String b(String str) {

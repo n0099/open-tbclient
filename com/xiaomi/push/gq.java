@@ -20,7 +20,7 @@ public class gq {
     public static al f438a = new al(true);
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f40987a = -1;
+    public static volatile int f38512a = -1;
 
     /* renamed from: a  reason: collision with other field name */
     public static long f437a = System.currentTimeMillis();
@@ -41,7 +41,7 @@ public class gq {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40988a;
+        public int f38513a;
 
         /* renamed from: a  reason: collision with other field name */
         public long f443a;
@@ -50,7 +50,7 @@ public class gq {
         public String f444a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f40989b;
+        public int f38514b;
 
         /* renamed from: b  reason: collision with other field name */
         public long f445b;
@@ -58,31 +58,31 @@ public class gq {
         /* renamed from: b  reason: collision with other field name */
         public String f446b;
 
-        public a(String str, long j, int i, int i2, String str2, long j2) {
+        public a(String str, long j, int i2, int i3, String str2, long j2) {
             this.f444a = "";
             this.f443a = 0L;
-            this.f40988a = -1;
-            this.f40989b = -1;
+            this.f38513a = -1;
+            this.f38514b = -1;
             this.f446b = "";
             this.f445b = 0L;
             this.f444a = str;
             this.f443a = j;
-            this.f40988a = i;
-            this.f40989b = i2;
+            this.f38513a = i2;
+            this.f38514b = i3;
             this.f446b = str2;
             this.f445b = j2;
         }
 
         public boolean a(a aVar) {
-            return TextUtils.equals(aVar.f444a, this.f444a) && TextUtils.equals(aVar.f446b, this.f446b) && aVar.f40988a == this.f40988a && aVar.f40989b == this.f40989b && Math.abs(aVar.f443a - this.f443a) <= 5000;
+            return TextUtils.equals(aVar.f444a, this.f444a) && TextUtils.equals(aVar.f446b, this.f446b) && aVar.f38513a == this.f38513a && aVar.f38514b == this.f38514b && Math.abs(aVar.f443a - this.f443a) <= 5000;
         }
     }
 
     public static int a(Context context) {
-        if (f40987a == -1) {
-            f40987a = b(context);
+        if (f38512a == -1) {
+            f38512a = b(context);
         }
-        return f40987a;
+        return f38512a;
     }
 
     public static int a(String str) {
@@ -93,7 +93,7 @@ public class gq {
         }
     }
 
-    public static long a(int i, long j, boolean z, long j2, boolean z2) {
+    public static long a(int i2, long j, boolean z, long j2, boolean z2) {
         if (z && z2) {
             long j3 = f437a;
             f437a = j2;
@@ -101,11 +101,11 @@ public class gq {
                 return j * 2;
             }
         }
-        return (j * (i == 0 ? 13 : 11)) / 10;
+        return (j * (i2 == 0 ? 13 : 11)) / 10;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static com.xiaomi.push.providers.a m341a(Context context) {
+    public static com.xiaomi.push.providers.a m344a(Context context) {
         com.xiaomi.push.providers.a aVar = f439a;
         if (aVar != null) {
             return aVar;
@@ -116,7 +116,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m342a(Context context) {
+    public static synchronized String m345a(Context context) {
         synchronized (gq.class) {
             if (TextUtils.isEmpty(f441a)) {
                 return "";
@@ -126,8 +126,8 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m344a(Context context) {
-        f40987a = b(context);
+    public static void m347a(Context context) {
+        f38512a = b(context);
     }
 
     public static void a(Context context, String str, long j, boolean z, long j2) {
@@ -138,7 +138,7 @@ public class gq {
         }
         synchronized (f440a) {
             isEmpty = f442a.isEmpty();
-            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m342a(context) : "", j));
+            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m345a(context) : "", j));
         }
         if (isEmpty) {
             f438a.a(new gr(context), 5000L);
@@ -160,7 +160,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized void m345a(String str) {
+    public static synchronized void m348a(String str) {
         synchronized (gq.class) {
             if (!l.d() && !TextUtils.isEmpty(str)) {
                 f441a = str;
@@ -187,15 +187,15 @@ public class gq {
     public static void b(Context context, List<a> list) {
         try {
             synchronized (com.xiaomi.push.providers.a.f823a) {
-                SQLiteDatabase writableDatabase = m341a(context).getWritableDatabase();
+                SQLiteDatabase writableDatabase = m344a(context).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 for (a aVar : list) {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("package_name", aVar.f444a);
                     contentValues.put("message_ts", Long.valueOf(aVar.f443a));
-                    contentValues.put(PmsConstant.Statistic.STATISTIC_NETWORK, Integer.valueOf(aVar.f40988a));
+                    contentValues.put(PmsConstant.Statistic.STATISTIC_NETWORK, Integer.valueOf(aVar.f38513a));
                     contentValues.put("bytes", Long.valueOf(aVar.f445b));
-                    contentValues.put("rcv", Integer.valueOf(aVar.f40989b));
+                    contentValues.put("rcv", Integer.valueOf(aVar.f38514b));
                     contentValues.put("imsi", aVar.f446b);
                     writableDatabase.insert("traffic", null, contentValues);
                 }

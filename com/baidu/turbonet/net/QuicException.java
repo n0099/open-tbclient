@@ -3,9 +3,9 @@ package com.baidu.turbonet.net;
 public class QuicException extends TurbonetException {
     public final int mQuicDetailedErrorCode;
 
-    public QuicException(String str, int i, int i2) {
-        super(str, 11, i);
-        this.mQuicDetailedErrorCode = i2;
+    public QuicException(String str, int i2, int i3) {
+        super(str, 11, i2);
+        this.mQuicDetailedErrorCode = i3;
     }
 
     public int getQuicDetailedErrorCode() {

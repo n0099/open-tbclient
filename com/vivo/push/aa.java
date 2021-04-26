@@ -6,19 +6,19 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39735a;
+    public Context f37337a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f39736b;
+    public Handler f37338b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f39737c = new Object();
+    public final Object f37339c = new Object();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -33,22 +33,22 @@ public abstract class aa {
     public aa() {
         HandlerThread handlerThread = new HandlerThread(getClass().getSimpleName(), 1);
         handlerThread.start();
-        this.f39736b = new a(handlerThread.getLooper());
+        this.f37338b = new a(handlerThread.getLooper());
     }
 
     public final void a(Context context) {
-        this.f39735a = context;
+        this.f37337a = context;
     }
 
     public abstract void b(Message message);
 
     public final void a(Message message) {
-        synchronized (this.f39737c) {
-            if (this.f39736b == null) {
+        synchronized (this.f37339c) {
+            if (this.f37338b == null) {
                 String simpleName = getClass().getSimpleName();
                 com.vivo.push.util.p.e(simpleName, ("Dead worker dropping a message: " + message.what) + " (Thread " + Thread.currentThread().getId() + SmallTailInfo.EMOTION_SUFFIX);
             } else {
-                this.f39736b.sendMessage(message);
+                this.f37338b.sendMessage(message);
             }
         }
     }

@@ -8,7 +8,7 @@ import com.baidu.wallet.api.WalletApiExtListener;
 /* loaded from: classes5.dex */
 public class b implements WalletApiExtListener.LoginstatuSyncListener {
     @Override // com.baidu.wallet.api.WalletApiExtListener.LoginstatuSyncListener
-    public void onHandleWalletError(int i) {
+    public void onHandleWalletError(int i2) {
     }
 
     @Override // com.baidu.wallet.api.WalletApiExtListener.LoginstatuSyncListener

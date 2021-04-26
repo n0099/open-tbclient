@@ -11,10 +11,10 @@ public final class OnSubscribeRange$RangeProducer extends AtomicLong implements 
     public long currentIndex;
     public final int endOfRange;
 
-    public OnSubscribeRange$RangeProducer(j<? super Integer> jVar, int i, int i2) {
+    public OnSubscribeRange$RangeProducer(j<? super Integer> jVar, int i2, int i3) {
         this.childSubscriber = jVar;
-        this.currentIndex = i;
-        this.endOfRange = i2;
+        this.currentIndex = i2;
+        this.endOfRange = i3;
     }
 
     public void fastPath() {

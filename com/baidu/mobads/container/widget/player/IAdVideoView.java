@@ -16,7 +16,7 @@ public interface IAdVideoView {
 
     void onResume();
 
-    void seekTo(int i);
+    void seekTo(int i2);
 
     void setAdVideoViewListener(AdVideoViewListener adVideoViewListener);
 

@@ -33,7 +33,7 @@ public class ParentDisallowInterceptHListView extends HListView {
         super(context, attributeSet);
     }
 
-    public ParentDisallowInterceptHListView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ParentDisallowInterceptHListView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

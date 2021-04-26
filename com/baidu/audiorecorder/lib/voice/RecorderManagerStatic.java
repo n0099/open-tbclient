@@ -7,15 +7,15 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.i0.w.m;
+import d.a.i0.w.m;
 /* loaded from: classes.dex */
 public class RecorderManagerStatic {
 
     /* loaded from: classes.dex */
     public static class a implements CustomMessageTask.CustomRunnable<Activity> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.b.j0.d3.p0.a> run(CustomMessage<Activity> customMessage) {
-            return new CustomResponsedMessage<>(2001271, d.b.f.a.a.e.n());
+        public CustomResponsedMessage<d.a.j0.d3.p0.a> run(CustomMessage<Activity> customMessage) {
+            return new CustomResponsedMessage<>(2001271, d.a.f.a.a.e.n());
         }
     }
 
@@ -26,7 +26,7 @@ public class RecorderManagerStatic {
             if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2001272, new d.b.f.b.c(customMessage.getData()));
+            return new CustomResponsedMessage<>(2001272, new d.a.f.b.c(customMessage.getData()));
         }
     }
 
@@ -53,7 +53,7 @@ public class RecorderManagerStatic {
             if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2001301, new d.b.f.b.a(customMessage.getData()));
+            return new CustomResponsedMessage<>(2001301, new d.a.f.b.a(customMessage.getData()));
         }
     }
 
@@ -64,7 +64,7 @@ public class RecorderManagerStatic {
             if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2001448, new d.b.f.b.b(customMessage.getData()));
+            return new CustomResponsedMessage<>(2001448, new d.a.f.b.b(customMessage.getData()));
         }
     }
 

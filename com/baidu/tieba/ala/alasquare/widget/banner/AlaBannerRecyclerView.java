@@ -10,20 +10,20 @@ import androidx.recyclerview.widget.RecyclerView;
 public class AlaBannerRecyclerView extends RecyclerView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14628e;
+    public int f14703e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14629f;
+    public int f14704f;
 
     public AlaBannerRecyclerView(Context context) {
         super(context);
     }
 
-    public final int b(int i) {
-        if (i > 0) {
-            return Math.min(i, 3000);
+    public final int b(int i2) {
+        if (i2 > 0) {
+            return Math.min(i2, 3000);
         }
-        return Math.max(i, -3000);
+        return Math.max(i2, -3000);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:9:0x0018, code lost:
@@ -40,9 +40,9 @@ public class AlaBannerRecyclerView extends RecyclerView {
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    int i = y - this.f14628e;
-                    int i2 = x - this.f14629f;
-                    if (Math.abs(i) > ViewConfiguration.getTouchSlop() && Math.abs(i) > Math.abs(i2)) {
+                    int i2 = y - this.f14703e;
+                    int i3 = x - this.f14704f;
+                    if (Math.abs(i2) > ViewConfiguration.getTouchSlop() && Math.abs(i2) > Math.abs(i3)) {
                         getParent().requestDisallowInterceptTouchEvent(false);
                     } else {
                         getParent().requestDisallowInterceptTouchEvent(true);
@@ -51,25 +51,25 @@ public class AlaBannerRecyclerView extends RecyclerView {
             }
             getParent().requestDisallowInterceptTouchEvent(false);
         } else {
-            this.f14628e = y;
-            this.f14629f = x;
+            this.f14703e = y;
+            this.f14704f = x;
             getParent().requestDisallowInterceptTouchEvent(true);
         }
-        this.f14628e = y;
-        this.f14629f = x;
+        this.f14703e = y;
+        this.f14704f = x;
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView
-    public boolean fling(int i, int i2) {
-        return super.fling(b(i), b(i2));
+    public boolean fling(int i2, int i3) {
+        return super.fling(b(i2), b(i3));
     }
 
     public AlaBannerRecyclerView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 
-    public AlaBannerRecyclerView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public AlaBannerRecyclerView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

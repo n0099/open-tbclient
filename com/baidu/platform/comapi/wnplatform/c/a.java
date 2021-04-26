@@ -5,5 +5,5 @@ import android.os.Message;
 public interface a {
     void a(Message message);
 
-    void d(int i);
+    void d(int i2);
 }

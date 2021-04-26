@@ -65,16 +65,16 @@ public class HttpExecutor {
 
     /* loaded from: classes.dex */
     public interface ResponseHandler {
-        void onFailure(int i, String str);
+        void onFailure(int i2, String str);
 
         void onSuccess(byte[] bArr);
     }
 
-    public static void failedResponse(@NonNull ResponseHandler responseHandler, int i, String str) {
-        responseHandler.onFailure(i, str);
+    public static void failedResponse(@NonNull ResponseHandler responseHandler, int i2, String str) {
+        responseHandler.onFailure(i2, str);
         BIMRtcEvent bIMRtcEvent = BIMRtcManager.mBIMRtcEvent;
-        bIMRtcEvent.ext = "fail_err=" + i;
-        LogUtils.e("HttpExecutor", "failedResponse errorCode ：" + i + ", errorMsg :" + str);
+        bIMRtcEvent.ext = "fail_err=" + i2;
+        LogUtils.e("HttpExecutor", "failedResponse errorCode ：" + i2 + ", errorMsg :" + str);
     }
 
     public static HttpExecutor getInstance() {

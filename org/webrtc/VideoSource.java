@@ -8,18 +8,18 @@ public class VideoSource extends MediaSource {
         this.capturerObserver = new NativeCapturerObserver(nativeGetInternalSource(j));
     }
 
-    public static native void nativeAdaptOutputFormat(long j, int i, int i2, int i3, int i4, int i5);
+    public static native void nativeAdaptOutputFormat(long j, int i2, int i3, int i4, int i5, int i6);
 
     public static native long nativeGetInternalSource(long j);
 
-    public void adaptOutputFormat(int i, int i2, int i3) {
-        int max = Math.max(i, i2);
-        int min = Math.min(i, i2);
-        adaptOutputFormat(max, min, min, max, i3);
+    public void adaptOutputFormat(int i2, int i3, int i4) {
+        int max = Math.max(i2, i3);
+        int min = Math.min(i2, i3);
+        adaptOutputFormat(max, min, min, max, i4);
     }
 
-    public void adaptOutputFormat(int i, int i2, int i3, int i4, int i5) {
-        nativeAdaptOutputFormat(getNativeVideoTrackSource(), i, i2, i3, i4, i5);
+    public void adaptOutputFormat(int i2, int i3, int i4, int i5, int i6) {
+        nativeAdaptOutputFormat(getNativeVideoTrackSource(), i2, i3, i4, i5, i6);
     }
 
     public CapturerObserver getCapturerObserver() {

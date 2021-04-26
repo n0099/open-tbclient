@@ -3,21 +3,21 @@ package com.alipay.sdk.packet;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f1938a;
+    public final boolean f1890a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f1939b;
+    public final byte[] f1891b;
 
     public d(boolean z, byte[] bArr) {
-        this.f1938a = z;
-        this.f1939b = bArr;
+        this.f1890a = z;
+        this.f1891b = bArr;
     }
 
     public boolean a() {
-        return this.f1938a;
+        return this.f1890a;
     }
 
     public byte[] b() {
-        return this.f1939b;
+        return this.f1891b;
     }
 }

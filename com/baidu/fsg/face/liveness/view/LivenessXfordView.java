@@ -19,37 +19,40 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.internal.view.SupportMenu;
 /* loaded from: classes2.dex */
 public class LivenessXfordView extends FrameLayout {
     public static final String PROGRESS_PROPERTY = "progress";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f6157a = 12;
+    public static final int f6333a = 12;
     public AnimatorSet A;
     public float B;
     public float C;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f6158b;
+    public float f6334b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Xfermode f6159c;
+    public Xfermode f6335c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RectF f6160d;
+    public RectF f6336d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f6161e;
+    public RectF f6337e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6162f;
+    public int f6338f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6163g;
+    public int f6339g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f6164h;
-    public float i;
+    public float f6340h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public float f6341i;
     public Handler j;
     public Runnable k;
     public float l;
@@ -71,7 +74,7 @@ public class LivenessXfordView extends FrameLayout {
 
     public LivenessXfordView(@NonNull Context context) {
         super(context);
-        this.f6158b = -90.0f;
+        this.f6334b = -90.0f;
         this.m = true;
         this.z = true;
         a();
@@ -96,19 +99,19 @@ public class LivenessXfordView extends FrameLayout {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        RectF rectF = this.f6160d;
+        RectF rectF = this.f6336d;
         if (rectF == null || rectF.width() == 0.0f) {
             return;
         }
         if (this.z) {
-            RectF rectF2 = this.f6161e;
+            RectF rectF2 = this.f6337e;
             float f2 = rectF2.left;
             float f3 = this.l;
             canvas.drawRect(f2, f3, rectF2.right, f3 + rectF2.height(), this.u);
-            RectF rectF3 = this.f6161e;
+            RectF rectF3 = this.f6337e;
             float f4 = rectF3.left;
             float height = this.l + rectF3.height();
-            RectF rectF4 = this.f6161e;
+            RectF rectF4 = this.f6337e;
             canvas.drawLine(f4, height, rectF4.right, this.l + rectF4.height(), this.v);
         }
         if (this.y) {
@@ -116,16 +119,16 @@ public class LivenessXfordView extends FrameLayout {
         }
         int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
         canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.q);
-        canvas.drawCircle(this.f6164h, this.i, this.f6162f, this.w);
+        canvas.drawCircle(this.f6340h, this.f6341i, this.f6338f, this.w);
         canvas.restoreToCount(saveLayer);
-        canvas.drawCircle(this.f6164h, this.i, this.f6163g, this.s);
-        canvas.drawArc(this.f6161e, this.f6158b, this.progress, false, this.r);
+        canvas.drawCircle(this.f6340h, this.f6341i, this.f6339g, this.s);
+        canvas.drawArc(this.f6337e, this.f6334b, this.progress, false, this.r);
         if (this.n != null) {
             this.x.setColor(-16776961);
             canvas.drawRect(this.n, this.x);
         }
         if (this.o != null) {
-            this.x.setColor(-65536);
+            this.x.setColor(SupportMenu.CATEGORY_MASK);
             canvas.drawRect(this.o, this.x);
         }
         if (this.p != null) {
@@ -146,18 +149,18 @@ public class LivenessXfordView extends FrameLayout {
         if (rect == null || rect2 == null) {
             return;
         }
-        this.f6160d = new RectF(rect);
+        this.f6336d = new RectF(rect);
         RectF rectF = new RectF(rect2);
-        this.f6161e = rectF;
+        this.f6337e = rectF;
         this.B = rectF.top - rectF.height();
-        RectF rectF2 = this.f6161e;
+        RectF rectF2 = this.f6337e;
         this.C = rectF2.bottom - rectF2.height();
         this.l = this.B;
-        RectF rectF3 = this.f6160d;
-        this.f6164h = (rectF3.left + rectF3.right) / 2.0f;
-        this.i = (rectF3.top + rectF3.bottom) / 2.0f;
-        this.f6162f = rect.width() / 2;
-        this.f6163g = (rect.width() / 2) + ((rect2.width() - rect.width()) / 2);
+        RectF rectF3 = this.f6336d;
+        this.f6340h = (rectF3.left + rectF3.right) / 2.0f;
+        this.f6341i = (rectF3.top + rectF3.bottom) / 2.0f;
+        this.f6338f = rect.width() / 2;
+        this.f6339g = (rect.width() / 2) + ((rect2.width() - rect.width()) / 2);
         invalidate();
     }
 
@@ -252,13 +255,13 @@ public class LivenessXfordView extends FrameLayout {
         paint8.setColor(0);
         this.r.setAntiAlias(true);
         PorterDuffXfermode porterDuffXfermode = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-        this.f6159c = porterDuffXfermode;
+        this.f6335c = porterDuffXfermode;
         this.w.setXfermode(porterDuffXfermode);
         this.j = new Handler(Looper.getMainLooper());
         this.k = new Runnable() { // from class: com.baidu.fsg.face.liveness.view.LivenessXfordView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (LivenessXfordView.this.f6160d == null) {
+                if (LivenessXfordView.this.f6336d == null) {
                     LivenessXfordView.this.j.postDelayed(LivenessXfordView.this.k, 6L);
                     return;
                 }
@@ -283,7 +286,7 @@ public class LivenessXfordView extends FrameLayout {
 
     public LivenessXfordView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f6158b = -90.0f;
+        this.f6334b = -90.0f;
         this.m = true;
         this.z = true;
         a();

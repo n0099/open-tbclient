@@ -14,7 +14,7 @@ public final class c implements Parcelable.Creator<BikingRouteLine> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public BikingRouteLine[] newArray(int i) {
-        return new BikingRouteLine[i];
+    public BikingRouteLine[] newArray(int i2) {
+        return new BikingRouteLine[i2];
     }
 }

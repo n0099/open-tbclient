@@ -10,11 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
 import com.google.protobuf.CodedInputStream;
-import d.b.y.a.b;
+import d.a.y.a.b;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
@@ -24,10 +25,10 @@ public class ViewUtility implements NoProguard {
     public static class a implements View.OnTouchListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ float f11168a;
+        public final /* synthetic */ float f10964a;
 
         public a(float f2) {
-            this.f11168a = f2;
+            this.f10964a = f2;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -40,7 +41,7 @@ public class ViewUtility implements NoProguard {
                 }
                 return false;
             } else if (Build.VERSION.SDK_INT >= 11) {
-                view.setAlpha(this.f11168a);
+                view.setAlpha(this.f10964a);
                 return false;
             } else {
                 return false;
@@ -55,9 +56,9 @@ public class ViewUtility implements NoProguard {
             Field declaredField2 = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
             declaredField.setAccessible(true);
             declaredField2.setAccessible(true);
-            int i = declaredField.getInt(null);
-            int i2 = declaredField2.getInt(attributes);
-            declaredField2.setInt(attributes, z ? i2 | i : (~i) & i2);
+            int i2 = declaredField.getInt(null);
+            int i3 = declaredField2.getInt(attributes);
+            declaredField2.setInt(attributes, z ? i3 | i2 : (~i2) & i3);
             activity.getWindow().setAttributes(attributes);
             return true;
         } catch (Throwable unused) {
@@ -73,12 +74,12 @@ public class ViewUtility implements NoProguard {
         Class<?> cls = activity.getWindow().getClass();
         try {
             Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-            int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+            int i2 = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
             Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
             Window window2 = activity.getWindow();
             Object[] objArr = new Object[2];
-            objArr[0] = Integer.valueOf(z ? i : 0);
-            objArr[1] = Integer.valueOf(i);
+            objArr[0] = Integer.valueOf(z ? i2 : 0);
+            objArr[1] = Integer.valueOf(i2);
             method.invoke(window2, objArr);
             return true;
         } catch (Throwable unused) {
@@ -110,7 +111,7 @@ public class ViewUtility implements NoProguard {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void enableStatusBarTint(Activity activity, int i) {
+    public static void enableStatusBarTint(Activity activity, int i2) {
         boolean z;
         if (Build.VERSION.SDK_INT < 21) {
             return;
@@ -120,11 +121,11 @@ public class ViewUtility implements NoProguard {
             boolean z3 = SapiAccountManager.getInstance().getConfignation().isDarkMode;
             if (!z2 && !z3) {
                 z = false;
-                if (z && -1 == i) {
+                if (z && -1 == i2) {
                     if (Build.VERSION.SDK_INT >= 23) {
-                        i = activity.getResources().getColor(b.sapi_sdk_dark_mode_title_color);
+                        i2 = activity.getResources().getColor(b.sapi_sdk_dark_mode_title_color);
                     } else {
-                        i = activity.getColor(b.sapi_sdk_dark_mode_title_color);
+                        i2 = activity.getColor(b.sapi_sdk_dark_mode_title_color);
                     }
                 }
                 if (!b(activity, true)) {
@@ -133,7 +134,7 @@ public class ViewUtility implements NoProguard {
                 Window window = activity.getWindow();
                 window.addFlags(Integer.MIN_VALUE);
                 window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-                window.setStatusBarColor(i);
+                window.setStatusBarColor(i2);
                 if (Build.VERSION.SDK_INT < 23) {
                     if (!z) {
                         window.getDecorView().setSystemUiVisibility(9216);
@@ -154,11 +155,37 @@ public class ViewUtility implements NoProguard {
             Window window2 = activity.getWindow();
             window2.addFlags(Integer.MIN_VALUE);
             window2.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-            window2.setStatusBarColor(i);
+            window2.setStatusBarColor(i2);
             if (Build.VERSION.SDK_INT < 23) {
             }
         } catch (Exception e2) {
             Log.e(e2);
+        }
+    }
+
+    public static void enlargedOtherView(View view, int i2) {
+        if (view != null) {
+            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+            layoutParams.width = (int) ((layoutParams.width * i2) / 100.0f);
+            layoutParams.height = (int) ((layoutParams.height * i2) / 100.0f);
+            view.setLayoutParams(layoutParams);
+        }
+    }
+
+    public static void enlargedTextView(TextView textView, int i2) {
+        if (textView != null) {
+            textView.setTextSize(0, (textView.getTextSize() * i2) / 100.0f);
+        }
+    }
+
+    public static void enlargedViews(View view, int i2) {
+        if (view == null) {
+            return;
+        }
+        if (view instanceof TextView) {
+            enlargedTextView((TextView) view, i2);
+        } else {
+            enlargedOtherView(view, i2);
         }
     }
 
@@ -212,10 +239,10 @@ public class ViewUtility implements NoProguard {
     }
 
     public static void setTranslucentStatus(Activity activity) {
-        int i;
-        int i2 = Build.VERSION.SDK_INT;
-        if (i2 < 21) {
-            if (i2 >= 19) {
+        int i2;
+        int i3 = Build.VERSION.SDK_INT;
+        if (i3 < 21) {
+            if (i3 >= 19) {
                 Window window = activity.getWindow();
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
@@ -228,14 +255,14 @@ public class ViewUtility implements NoProguard {
         View decorView = window2.getDecorView();
         if (Build.VERSION.SDK_INT >= 23) {
             if (!(SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode)) {
-                i = 9472;
-                decorView.setSystemUiVisibility(i);
+                i2 = 9472;
+                decorView.setSystemUiVisibility(i2);
                 window2.addFlags(Integer.MIN_VALUE);
                 window2.setStatusBarColor(0);
             }
         }
-        i = 1280;
-        decorView.setSystemUiVisibility(i);
+        i2 = 1280;
+        decorView.setSystemUiVisibility(i2);
         window2.addFlags(Integer.MIN_VALUE);
         window2.setStatusBarColor(0);
     }

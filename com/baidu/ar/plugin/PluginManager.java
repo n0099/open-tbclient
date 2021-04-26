@@ -103,12 +103,12 @@ public class PluginManager {
         if (packageInfo == null || (signatureArr = packageInfo.signatures) == null) {
             return;
         }
-        int i = 0;
+        int i2 = 0;
         for (Signature signature : signatureArr) {
-            File file = new File(PluginDirHelper.getPluginSignatureFile(this.mContext, packageInfo.packageName, i));
+            File file = new File(PluginDirHelper.getPluginSignatureFile(this.mContext, packageInfo.packageName, i2));
             try {
                 Utils.writeToFile(file, signature.toByteArray());
-                i++;
+                i2++;
             } catch (Exception e2) {
                 e2.printStackTrace();
                 file.delete();

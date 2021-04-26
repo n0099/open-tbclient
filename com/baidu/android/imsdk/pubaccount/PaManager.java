@@ -20,9 +20,9 @@ public class PaManager extends BaseManager {
         PaManagerImpl.getInstance(context).clickPaQuickReply(j, str, j2, iClickPaQuickReplyListener);
     }
 
-    public static void delPaLocalInfosByPaType(Context context, int i) {
+    public static void delPaLocalInfosByPaType(Context context, int i2) {
         LogUtils.d(BaseManager.TAG, "---delPaLocalInfosByPaType---");
-        PaManagerImpl.getInstance(context).delPaLocalInfosByPaType(i);
+        PaManagerImpl.getInstance(context).delPaLocalInfosByPaType(i2);
     }
 
     public static PaInfo getPaInfo(Context context, long j) {

@@ -2,13 +2,13 @@ package com.baidu.tieba.frs.profession.permission;
 
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.q0.f2.a.b;
+import d.a.j0.q0.f2.a.b;
 import java.io.IOException;
 import tbclient.ZoneRight.ZoneRightResIdl;
 /* loaded from: classes4.dex */
 public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessage<b, ZoneRightResIdl> {
-    public ProPermissionSocketResponseMessage(int i) {
-        super(i);
+    public ProPermissionSocketResponseMessage(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
@@ -18,8 +18,8 @@ public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessag
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        super.decodeInBackGround(i, bArr);
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+        super.decodeInBackGround(i2, bArr);
         try {
             b bVar = new b();
             bVar.initByProtobuf((ZoneRightResIdl) new Wire(new Class[0]).parseFrom(bArr, ZoneRightResIdl.class));

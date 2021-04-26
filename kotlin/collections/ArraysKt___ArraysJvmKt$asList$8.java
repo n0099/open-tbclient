@@ -51,8 +51,8 @@ public final class ArraysKt___ArraysJvmKt$asList$8 extends AbstractList<Characte
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.collections.AbstractList, java.util.List
-    public Character get(int i) {
-        return Character.valueOf(this.$this_asList[i]);
+    public Character get(int i2) {
+        return Character.valueOf(this.$this_asList[i2]);
     }
 
     public int indexOf(char c2) {

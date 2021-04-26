@@ -13,13 +13,16 @@ import kotlin.text.MatchResult;
 /* loaded from: classes7.dex */
 public final class MatcherMatchResult implements MatchResult {
     public List<String> groupValues_;
-    public final MatchGroupCollection groups = new MatcherMatchResult$groups$1(this);
+    public final MatchGroupCollection groups;
     public final CharSequence input;
     public final Matcher matcher;
 
-    public MatcherMatchResult(Matcher matcher, CharSequence charSequence) {
+    public MatcherMatchResult(Matcher matcher, CharSequence input) {
+        Intrinsics.checkNotNullParameter(matcher, "matcher");
+        Intrinsics.checkNotNullParameter(input, "input");
         this.matcher = matcher;
-        this.input = charSequence;
+        this.input = input;
+        this.groups = new MatcherMatchResult$groups$1(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -73,10 +76,10 @@ public final class MatcherMatchResult implements MatchResult {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.collections.AbstractList, java.util.List
-                public String get(int i) {
+                public String get(int i2) {
                     java.util.regex.MatchResult matchResult;
                     matchResult = MatcherMatchResult.this.getMatchResult();
-                    String group = matchResult.group(i);
+                    String group = matchResult.group(i2);
                     return group != null ? group : "";
                 }
 
@@ -90,9 +93,7 @@ public final class MatcherMatchResult implements MatchResult {
             };
         }
         List<String> list = this.groupValues_;
-        if (list == null) {
-            Intrinsics.throwNpe();
-        }
+        Intrinsics.checkNotNull(list);
         return list;
     }
 
@@ -111,7 +112,7 @@ public final class MatcherMatchResult implements MatchResult {
     @Override // kotlin.text.MatchResult
     public String getValue() {
         String group = getMatchResult().group();
-        Intrinsics.checkExpressionValueIsNotNull(group, "matchResult.group()");
+        Intrinsics.checkNotNullExpressionValue(group, "matchResult.group()");
         return group;
     }
 
@@ -121,7 +122,7 @@ public final class MatcherMatchResult implements MatchResult {
         int end = getMatchResult().end() + (getMatchResult().end() == getMatchResult().start() ? 1 : 0);
         if (end <= this.input.length()) {
             Matcher matcher = this.matcher.pattern().matcher(this.input);
-            Intrinsics.checkExpressionValueIsNotNull(matcher, "matcher.pattern().matcher(input)");
+            Intrinsics.checkNotNullExpressionValue(matcher, "matcher.pattern().matcher(input)");
             findNext = RegexKt.findNext(matcher, end, this.input);
             return findNext;
         }

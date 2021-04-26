@@ -11,37 +11,39 @@ import java.util.Arrays;
 public class c implements Closeable, Flushable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f29800a = new String[128];
+    public static final String[] f30710a = new String[128];
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f29801b;
+    public static final String[] f30711b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Writer f29802c;
+    public final Writer f30712c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int[] f29803d = new int[32];
+    public int[] f30713d = new int[32];
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29804e = 0;
+    public int f30714e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f29805f;
+    public String f30715f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f29806g;
+    public String f30716g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f29807h;
-    public boolean i;
+    public boolean f30717h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f30718i;
     public String j;
     public boolean k;
 
     static {
-        for (int i = 0; i <= 31; i++) {
-            f29800a[i] = String.format("\\u%04x", Integer.valueOf(i));
+        for (int i2 = 0; i2 <= 31; i2++) {
+            f30710a[i2] = String.format("\\u%04x", Integer.valueOf(i2));
         }
-        String[] strArr = f29800a;
+        String[] strArr = f30710a;
         strArr[34] = "\\\"";
         strArr[92] = "\\\\";
         strArr[9] = "\\t";
@@ -50,7 +52,7 @@ public class c implements Closeable, Flushable {
         strArr[13] = "\\r";
         strArr[12] = "\\f";
         String[] strArr2 = (String[]) strArr.clone();
-        f29801b = strArr2;
+        f30711b = strArr2;
         strArr2[60] = "\\u003c";
         strArr2[62] = "\\u003e";
         strArr2[38] = "\\u0026";
@@ -60,19 +62,19 @@ public class c implements Closeable, Flushable {
 
     public c(Writer writer) {
         a(6);
-        this.f29806g = ":";
+        this.f30716g = ":";
         this.k = true;
         if (writer != null) {
-            this.f29802c = writer;
+            this.f30712c = writer;
             return;
         }
         throw new NullPointerException("out == null");
     }
 
-    private c a(int i, char c2) throws IOException {
+    private c a(int i2, char c2) throws IOException {
         m();
-        a(i);
-        this.f29802c.write(c2);
+        a(i2);
+        this.f30712c.write(c2);
         return this;
     }
 
@@ -85,20 +87,20 @@ public class c implements Closeable, Flushable {
     }
 
     private void k() throws IOException {
-        if (this.f29805f == null) {
+        if (this.f30715f == null) {
             return;
         }
-        this.f29802c.write(10);
-        int i = this.f29804e;
-        for (int i2 = 1; i2 < i; i2++) {
-            this.f29802c.write(this.f29805f);
+        this.f30712c.write(10);
+        int i2 = this.f30714e;
+        for (int i3 = 1; i3 < i2; i3++) {
+            this.f30712c.write(this.f30715f);
         }
     }
 
     private void l() throws IOException {
         int a2 = a();
         if (a2 == 5) {
-            this.f29802c.write(44);
+            this.f30712c.write(44);
         } else if (a2 != 3) {
             throw new IllegalStateException("Nesting problem.");
         }
@@ -112,12 +114,12 @@ public class c implements Closeable, Flushable {
             b(2);
             k();
         } else if (a2 == 2) {
-            this.f29802c.append(',');
+            this.f30712c.append(',');
             k();
         } else if (a2 != 4) {
             if (a2 != 6) {
                 if (a2 == 7) {
-                    if (!this.f29807h) {
+                    if (!this.f30717h) {
                         throw new IllegalStateException("JSON must have only one top-level value.");
                     }
                 } else {
@@ -126,31 +128,31 @@ public class c implements Closeable, Flushable {
             }
             b(7);
         } else {
-            this.f29802c.append((CharSequence) this.f29806g);
+            this.f30712c.append((CharSequence) this.f30716g);
             b(5);
         }
     }
 
     public final void b(boolean z) {
-        this.f29807h = z;
+        this.f30717h = z;
     }
 
     public final void c(String str) {
         if (str.length() == 0) {
-            this.f29805f = null;
-            this.f29806g = ":";
+            this.f30715f = null;
+            this.f30716g = ":";
             return;
         }
-        this.f29805f = str;
-        this.f29806g = ": ";
+        this.f30715f = str;
+        this.f30716g = ": ";
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f29802c.close();
-        int i = this.f29804e;
-        if (i <= 1 && (i != 1 || this.f29803d[i - 1] == 7)) {
-            this.f29804e = 0;
+        this.f30712c.close();
+        int i2 = this.f30714e;
+        if (i2 <= 1 && (i2 != 1 || this.f30713d[i2 - 1] == 7)) {
+            this.f30714e = 0;
             return;
         }
         throw new IOException("Incomplete document");
@@ -174,24 +176,24 @@ public class c implements Closeable, Flushable {
             }
         }
         m();
-        this.f29802c.write(StringUtil.NULL_STRING);
+        this.f30712c.write(StringUtil.NULL_STRING);
         return this;
     }
 
     public void flush() throws IOException {
-        if (this.f29804e != 0) {
-            this.f29802c.flush();
+        if (this.f30714e != 0) {
+            this.f30712c.flush();
             return;
         }
         throw new IllegalStateException("JsonWriter is closed.");
     }
 
     public boolean g() {
-        return this.f29807h;
+        return this.f30717h;
     }
 
     public final boolean h() {
-        return this.i;
+        return this.f30718i;
     }
 
     public final boolean i() {
@@ -208,24 +210,24 @@ public class c implements Closeable, Flushable {
         return a(3, '{');
     }
 
-    private c a(int i, int i2, char c2) throws IOException {
+    private c a(int i2, int i3, char c2) throws IOException {
         int a2 = a();
-        if (a2 != i2 && a2 != i) {
+        if (a2 != i3 && a2 != i2) {
             throw new IllegalStateException("Nesting problem.");
         }
         if (this.j == null) {
-            this.f29804e--;
-            if (a2 == i2) {
+            this.f30714e--;
+            if (a2 == i3) {
                 k();
             }
-            this.f29802c.write(c2);
+            this.f30712c.write(c2);
             return this;
         }
         throw new IllegalStateException("Dangling name: " + this.j);
     }
 
-    private void b(int i) {
-        this.f29803d[this.f29804e - 1] = i;
+    private void b(int i2) {
+        this.f30713d[this.f30714e - 1] = i2;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0034  */
@@ -233,38 +235,38 @@ public class c implements Closeable, Flushable {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void d(String str) throws IOException {
-        int i;
+        int i2;
         String str2;
-        String[] strArr = this.i ? f29801b : f29800a;
-        this.f29802c.write(34);
+        String[] strArr = this.f30718i ? f30711b : f30710a;
+        this.f30712c.write(34);
         int length = str.length();
-        int i2 = 0;
-        while (i < length) {
-            char charAt = str.charAt(i);
+        int i3 = 0;
+        while (i2 < length) {
+            char charAt = str.charAt(i2);
             if (charAt < 128) {
                 str2 = strArr[charAt];
-                i = str2 == null ? i + 1 : 0;
-                if (i2 < i) {
-                    this.f29802c.write(str, i2, i - i2);
+                i2 = str2 == null ? i2 + 1 : 0;
+                if (i3 < i2) {
+                    this.f30712c.write(str, i3, i2 - i3);
                 }
-                this.f29802c.write(str2);
-                i2 = i + 1;
+                this.f30712c.write(str2);
+                i3 = i2 + 1;
             } else {
                 if (charAt == 8232) {
                     str2 = "\\u2028";
                 } else if (charAt == 8233) {
                     str2 = "\\u2029";
                 }
-                if (i2 < i) {
+                if (i3 < i2) {
                 }
-                this.f29802c.write(str2);
-                i2 = i + 1;
+                this.f30712c.write(str2);
+                i3 = i2 + 1;
             }
         }
-        if (i2 < length) {
-            this.f29802c.write(str, i2, length - i2);
+        if (i3 < length) {
+            this.f30712c.write(str, i3, length - i3);
         }
-        this.f29802c.write(34);
+        this.f30712c.write(34);
     }
 
     public c b(String str) throws IOException {
@@ -278,29 +280,29 @@ public class c implements Closeable, Flushable {
     }
 
     public final void c(boolean z) {
-        this.i = z;
+        this.f30718i = z;
     }
 
     public c c() throws IOException {
         return a(1, 2, ']');
     }
 
-    private void a(int i) {
-        int i2 = this.f29804e;
-        int[] iArr = this.f29803d;
-        if (i2 == iArr.length) {
-            this.f29803d = Arrays.copyOf(iArr, i2 * 2);
+    private void a(int i2) {
+        int i3 = this.f30714e;
+        int[] iArr = this.f30713d;
+        if (i3 == iArr.length) {
+            this.f30713d = Arrays.copyOf(iArr, i3 * 2);
         }
-        int[] iArr2 = this.f29803d;
-        int i3 = this.f29804e;
-        this.f29804e = i3 + 1;
-        iArr2[i3] = i;
+        int[] iArr2 = this.f30713d;
+        int i4 = this.f30714e;
+        this.f30714e = i4 + 1;
+        iArr2[i4] = i2;
     }
 
     private int a() {
-        int i = this.f29804e;
-        if (i != 0) {
-            return this.f29803d[i - 1];
+        int i2 = this.f30714e;
+        if (i2 != 0) {
+            return this.f30713d[i2 - 1];
         }
         throw new IllegalStateException("JsonWriter is closed.");
     }
@@ -308,7 +310,7 @@ public class c implements Closeable, Flushable {
     public c a(String str) throws IOException {
         if (str != null) {
             if (this.j == null) {
-                if (this.f29804e != 0) {
+                if (this.f30714e != 0) {
                     this.j = str;
                     return this;
                 }
@@ -322,7 +324,7 @@ public class c implements Closeable, Flushable {
     public c a(boolean z) throws IOException {
         j();
         m();
-        this.f29802c.write(z ? "true" : "false");
+        this.f30712c.write(z ? "true" : "false");
         return this;
     }
 
@@ -332,14 +334,14 @@ public class c implements Closeable, Flushable {
         }
         j();
         m();
-        this.f29802c.write(bool.booleanValue() ? "true" : "false");
+        this.f30712c.write(bool.booleanValue() ? "true" : "false");
         return this;
     }
 
     public c a(long j) throws IOException {
         j();
         m();
-        this.f29802c.write(Long.toString(j));
+        this.f30712c.write(Long.toString(j));
         return this;
     }
 
@@ -349,11 +351,11 @@ public class c implements Closeable, Flushable {
         }
         j();
         String obj = number.toString();
-        if (!this.f29807h && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals(WalletPayViewController.DEF_CHANNEL_TITLE))) {
+        if (!this.f30717h && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals(WalletPayViewController.DEF_CHANNEL_TITLE))) {
             throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
         }
         m();
-        this.f29802c.append((CharSequence) obj);
+        this.f30712c.append((CharSequence) obj);
         return this;
     }
 }

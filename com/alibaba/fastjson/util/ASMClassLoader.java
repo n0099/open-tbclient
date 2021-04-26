@@ -67,8 +67,8 @@ public class ASMClassLoader extends ClassLoader {
 
     static {
         Class<?>[] clsArr = {JSON.class, JSONObject.class, JSONArray.class, JSONPath.class, JSONAware.class, JSONException.class, JSONPathException.class, JSONReader.class, JSONStreamAware.class, JSONWriter.class, TypeReference.class, FieldInfo.class, TypeUtils.class, IOUtils.class, IdentityHashMap.class, ParameterizedTypeImpl.class, JavaBeanInfo.class, ObjectSerializer.class, JavaBeanSerializer.class, SerializeFilterable.class, SerializeBeanInfo.class, JSONSerializer.class, SerializeWriter.class, SerializeFilter.class, Labels.class, LabelFilter.class, ContextValueFilter.class, AfterFilter.class, BeforeFilter.class, NameFilter.class, PropertyFilter.class, PropertyPreFilter.class, ValueFilter.class, SerializerFeature.class, ContextObjectSerializer.class, SerialContext.class, SerializeConfig.class, JavaBeanDeserializer.class, ParserConfig.class, DefaultJSONParser.class, JSONLexer.class, JSONLexerBase.class, ParseContext.class, JSONToken.class, SymbolTable.class, Feature.class, JSONScanner.class, JSONReaderScanner.class, AutowiredObjectDeserializer.class, ObjectDeserializer.class, ExtraProcessor.class, ExtraProcessable.class, ExtraTypeProvider.class, BeanContext.class, FieldDeserializer.class, DefaultFieldDeserializer.class};
-        for (int i = 0; i < 56; i++) {
-            Class<?> cls = clsArr[i];
+        for (int i2 = 0; i2 < 56; i2++) {
+            Class<?> cls = clsArr[i2];
             classMapping.put(cls.getName(), cls);
         }
     }
@@ -89,8 +89,8 @@ public class ASMClassLoader extends ClassLoader {
         return JSON.class.getClassLoader();
     }
 
-    public Class<?> defineClassPublic(String str, byte[] bArr, int i, int i2) throws ClassFormatError {
-        return defineClass(str, bArr, i, i2, DOMAIN);
+    public Class<?> defineClassPublic(String str, byte[] bArr, int i2, int i3) throws ClassFormatError {
+        return defineClass(str, bArr, i2, i3, DOMAIN);
     }
 
     public boolean isExternalClass(Class<?> cls) {

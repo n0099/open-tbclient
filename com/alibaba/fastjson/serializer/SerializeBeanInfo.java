@@ -12,12 +12,12 @@ public class SerializeBeanInfo {
     public final String typeKey;
     public final String typeName;
 
-    public SerializeBeanInfo(Class<?> cls, JSONType jSONType, String str, String str2, int i, FieldInfo[] fieldInfoArr, FieldInfo[] fieldInfoArr2) {
+    public SerializeBeanInfo(Class<?> cls, JSONType jSONType, String str, String str2, int i2, FieldInfo[] fieldInfoArr, FieldInfo[] fieldInfoArr2) {
         this.beanType = cls;
         this.jsonType = jSONType;
         this.typeName = str;
         this.typeKey = str2;
-        this.features = i;
+        this.features = i2;
         this.fields = fieldInfoArr;
         this.sortedFields = fieldInfoArr2;
     }

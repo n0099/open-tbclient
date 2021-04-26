@@ -80,16 +80,16 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
         if (annotation != null) {
             SerializerFeature[] serialzeFeatures3 = annotation.serialzeFeatures();
             int length = serialzeFeatures3.length;
-            int i = 0;
+            int i2 = 0;
             while (true) {
-                if (i >= length) {
+                if (i2 >= length) {
                     z = false;
                     break;
-                } else if ((serialzeFeatures3[i].getMask() & SerializerFeature.WRITE_MAP_NULL_FEATURES) != 0) {
+                } else if ((serialzeFeatures3[i2].getMask() & SerializerFeature.WRITE_MAP_NULL_FEATURES) != 0) {
                     z = true;
                     break;
                 } else {
-                    i++;
+                    i2++;
                 }
             }
             String format = annotation.format();
@@ -203,7 +203,7 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
             this.runtimeInfo = new RuntimeSerializerInfo(objectWriter, cls2);
         }
         RuntimeSerializerInfo runtimeSerializerInfo = this.runtimeInfo;
-        int i = (this.disableCircularReferenceDetect ? this.fieldInfo.serialzeFeatures | SerializerFeature.DisableCircularReferenceDetect.mask : this.fieldInfo.serialzeFeatures) | this.features;
+        int i2 = (this.disableCircularReferenceDetect ? this.fieldInfo.serialzeFeatures | SerializerFeature.DisableCircularReferenceDetect.mask : this.fieldInfo.serialzeFeatures) | this.features;
         if (obj == null) {
             SerializeWriter serializeWriter = jSONSerializer.out;
             if (this.fieldInfo.fieldClass == Object.class && serializeWriter.isEnabled(SerializerFeature.WRITE_MAP_NULL_FEATURES)) {
@@ -227,7 +227,7 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
                     return;
                 }
                 FieldInfo fieldInfo = this.fieldInfo;
-                objectSerializer3.write(jSONSerializer, null, fieldInfo.name, fieldInfo.fieldType, i);
+                objectSerializer3.write(jSONSerializer, null, fieldInfo.name, fieldInfo.fieldType, i2);
                 return;
             } else {
                 serializeWriter.writeNull(this.features, SerializerFeature.WriteNullListAsEmpty.mask);
@@ -263,17 +263,17 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
         FieldInfo fieldInfo2 = this.fieldInfo;
         if (fieldInfo2.unwrapped) {
             if (objectSerializer4 instanceof JavaBeanSerializer) {
-                ((JavaBeanSerializer) objectSerializer4).write(jSONSerializer, obj, fieldInfo2.name, fieldInfo2.fieldType, i, true);
+                ((JavaBeanSerializer) objectSerializer4).write(jSONSerializer, obj, fieldInfo2.name, fieldInfo2.fieldType, i2, true);
                 return;
             } else if (objectSerializer4 instanceof MapSerializer) {
-                ((MapSerializer) objectSerializer4).write(jSONSerializer, obj, fieldInfo2.name, fieldInfo2.fieldType, i, true);
+                ((MapSerializer) objectSerializer4).write(jSONSerializer, obj, fieldInfo2.name, fieldInfo2.fieldType, i2, true);
                 return;
             }
         }
         if ((this.features & SerializerFeature.WriteClassName.mask) != 0) {
             FieldInfo fieldInfo3 = this.fieldInfo;
             if (cls4 != fieldInfo3.fieldClass && (objectSerializer4 instanceof JavaBeanSerializer)) {
-                ((JavaBeanSerializer) objectSerializer4).write(jSONSerializer, obj, fieldInfo3.name, fieldInfo3.fieldType, i, false);
+                ((JavaBeanSerializer) objectSerializer4).write(jSONSerializer, obj, fieldInfo3.name, fieldInfo3.fieldType, i2, false);
                 return;
             }
         }
@@ -285,7 +285,7 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
             }
         }
         FieldInfo fieldInfo4 = this.fieldInfo;
-        objectSerializer4.write(jSONSerializer, obj, fieldInfo4.name, fieldInfo4.fieldType, i);
+        objectSerializer4.write(jSONSerializer, obj, fieldInfo4.name, fieldInfo4.fieldType, i2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

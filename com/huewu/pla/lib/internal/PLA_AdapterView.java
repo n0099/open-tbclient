@@ -53,10 +53,10 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     public static class b implements ContextMenu.ContextMenuInfo {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f31527a;
+        public View f32398a;
 
-        public b(View view, int i, long j) {
-            this.f31527a = view;
+        public b(View view, int i2, long j) {
+            this.f32398a = view;
         }
     }
 
@@ -64,7 +64,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     public class c extends DataSetObserver {
 
         /* renamed from: a  reason: collision with root package name */
-        public Parcelable f31528a = null;
+        public Parcelable f32399a = null;
 
         public c() {
         }
@@ -72,16 +72,16 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         @Override // android.database.DataSetObserver
         public void onChanged() {
             Parcelable parcelable;
-            d.j.a.a.a.a("data changed by onChanged()");
+            d.i.a.a.a.a("data changed by onChanged()");
             PLA_AdapterView pLA_AdapterView = PLA_AdapterView.this;
             pLA_AdapterView.mDataChanged = true;
             pLA_AdapterView.mOldItemCount = pLA_AdapterView.mItemCount;
             pLA_AdapterView.mItemCount = pLA_AdapterView.getAdapter().getCount();
-            if (PLA_AdapterView.this.getAdapter().hasStableIds() && (parcelable = this.f31528a) != null) {
+            if (PLA_AdapterView.this.getAdapter().hasStableIds() && (parcelable = this.f32399a) != null) {
                 PLA_AdapterView pLA_AdapterView2 = PLA_AdapterView.this;
                 if (pLA_AdapterView2.mOldItemCount == 0 && pLA_AdapterView2.mItemCount > 0) {
                     pLA_AdapterView2.onRestoreInstanceState(parcelable);
-                    this.f31528a = null;
+                    this.f32399a = null;
                     PLA_AdapterView.this.requestLayout();
                 }
             }
@@ -91,11 +91,11 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
 
         @Override // android.database.DataSetObserver
         public void onInvalidated() {
-            d.j.a.a.a.a("data changed by onInvalidated()");
+            d.i.a.a.a.a("data changed by onInvalidated()");
             PLA_AdapterView pLA_AdapterView = PLA_AdapterView.this;
             pLA_AdapterView.mDataChanged = true;
             if (pLA_AdapterView.getAdapter().hasStableIds()) {
-                this.f31528a = PLA_AdapterView.this.onSaveInstanceState();
+                this.f32399a = PLA_AdapterView.this.onSaveInstanceState();
             }
             PLA_AdapterView pLA_AdapterView2 = PLA_AdapterView.this;
             pLA_AdapterView2.mOldItemCount = pLA_AdapterView2.mItemCount;
@@ -109,17 +109,17 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes6.dex */
     public interface d {
-        void onItemClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j);
+        void onItemClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i2, long j);
     }
 
     /* loaded from: classes6.dex */
     public interface e {
-        boolean onItemLongClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j);
+        boolean onItemLongClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i2, long j);
     }
 
     /* loaded from: classes6.dex */
     public interface f {
-        void onItemSelected(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j);
+        void onItemSelected(PLA_AdapterView<?> pLA_AdapterView, View view, int i2, long j);
 
         void onNothingSelected(PLA_AdapterView<?> pLA_AdapterView);
     }
@@ -253,32 +253,32 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public int findSyncPosition() {
-        int i = this.mItemCount;
-        if (i != 0) {
+        int i2 = this.mItemCount;
+        if (i2 != 0) {
             long j = this.mSyncRowId;
-            int i2 = this.mSyncPosition;
+            int i3 = this.mSyncPosition;
             if (j != Long.MIN_VALUE) {
-                int i3 = i - 1;
-                int min = Math.min(i3, Math.max(0, i2));
+                int i4 = i2 - 1;
+                int min = Math.min(i4, Math.max(0, i3));
                 long uptimeMillis = SystemClock.uptimeMillis() + 100;
                 T adapter = getAdapter();
                 if (adapter != null) {
-                    int i4 = min;
-                    int i5 = i4;
+                    int i5 = min;
+                    int i6 = i5;
                     loop0: while (true) {
                         boolean z = false;
                         while (SystemClock.uptimeMillis() <= uptimeMillis) {
                             if (adapter.getItemId(min) != j) {
-                                boolean z2 = i4 == i3;
-                                boolean z3 = i5 == 0;
+                                boolean z2 = i5 == i4;
+                                boolean z3 = i6 == 0;
                                 if (z2 && z3) {
                                     break loop0;
                                 } else if (z3 || (z && !z2)) {
-                                    i4++;
-                                    min = i4;
-                                } else if (z2 || (!z && !z3)) {
-                                    i5--;
+                                    i5++;
                                     min = i5;
+                                } else if (z2 || (!z && !z3)) {
+                                    i6--;
+                                    min = i6;
                                     z = true;
                                 }
                             } else {
@@ -313,20 +313,20 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         return this.mFirstPosition;
     }
 
-    public Object getItemAtPosition(int i) {
+    public Object getItemAtPosition(int i2) {
         T adapter = getAdapter();
-        if (adapter == null || i < 0) {
+        if (adapter == null || i2 < 0) {
             return null;
         }
-        return adapter.getItem(i);
+        return adapter.getItem(i2);
     }
 
-    public long getItemIdAtPosition(int i) {
+    public long getItemIdAtPosition(int i2) {
         T adapter = getAdapter();
-        if (adapter == null || i < 0) {
+        if (adapter == null || i2 < 0) {
             return Long.MIN_VALUE;
         }
-        return adapter.getItemId(i);
+        return adapter.getItemId(i2);
     }
 
     public int getLastVisiblePosition() {
@@ -357,9 +357,9 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
             }
         }
         int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            if (getChildAt(i).equals(view)) {
-                return this.mFirstPosition + i;
+        for (int i2 = 0; i2 < childCount; i2++) {
+            if (getChildAt(i2).equals(view)) {
+                return this.mFirstPosition + i2;
             }
         }
         return -1;
@@ -397,8 +397,8 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         return false;
     }
 
-    public int lookForSelectablePosition(int i, boolean z) {
-        return i;
+    public int lookForSelectablePosition(int i2, boolean z) {
+        return i2;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -408,14 +408,14 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         this.mLayoutHeight = getHeight();
     }
 
-    public boolean performItemClick(View view, int i, long j) {
+    public boolean performItemClick(View view, int i2, long j) {
         if (this.mOnItemClickListener != null) {
             playSoundEffect(0);
-            this.mOnItemClickListener.onItemClick(this, view, i, j);
+            this.mOnItemClickListener.onItemClick(this, view, i2, j);
             return true;
         }
         return false;
@@ -427,8 +427,8 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
             this.mSyncHeight = this.mLayoutHeight;
             View childAt = getChildAt(0);
             T adapter = getAdapter();
-            int i = this.mFirstPosition;
-            if (i >= 0 && i < adapter.getCount()) {
+            int i2 = this.mFirstPosition;
+            if (i2 >= 0 && i2 < adapter.getCount()) {
                 this.mSyncRowId = adapter.getItemId(this.mFirstPosition);
             } else {
                 this.mSyncRowId = -1L;
@@ -452,7 +452,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup
-    public void removeViewAt(int i) {
+    public void removeViewAt(int i2) {
         throw new UnsupportedOperationException("removeViewAt(int) is not supported in AdapterView");
     }
 
@@ -498,10 +498,10 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         this.mOnItemSelectedListener = fVar;
     }
 
-    public abstract void setSelection(int i);
+    public abstract void setSelection(int i2);
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i) {
+    public void addView(View view, int i2) {
         throw new UnsupportedOperationException("addView(View, int) is not supported in AdapterView");
     }
 
@@ -511,7 +511,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view, int i2, ViewGroup.LayoutParams layoutParams) {
         throw new UnsupportedOperationException("addView(View, int, LayoutParams) is not supported in AdapterView");
     }
 
@@ -528,8 +528,8 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         this.mBlockLayoutRequests = false;
     }
 
-    public PLA_AdapterView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public PLA_AdapterView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mFirstPosition = 0;
         this.mSyncRowId = Long.MIN_VALUE;
         this.mNeedSync = false;

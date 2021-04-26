@@ -8,7 +8,7 @@ public class RequestGetAddressListMessage extends TbSocketMessage {
     public static final int INIT_TIMESTAMP = 0;
     public int mTimestamp;
 
-    public RequestGetAddressListMessage(int i) {
+    public RequestGetAddressListMessage(int i2) {
         super(304001);
         this.mTimestamp = 0;
     }
@@ -27,7 +27,7 @@ public class RequestGetAddressListMessage extends TbSocketMessage {
     }
 
     @Deprecated
-    public void setTimestamp(int i) {
-        this.mTimestamp = i;
+    public void setTimestamp(int i2) {
+        this.mTimestamp = i2;
     }
 }

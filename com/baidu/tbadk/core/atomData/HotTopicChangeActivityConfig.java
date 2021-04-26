@@ -11,9 +11,9 @@ public class HotTopicChangeActivityConfig extends IntentConfig {
     public static final String KEY_USE_ORIGIN_LIST = "KEY_USE_ORIGIN_LIST";
     public static final String ST_TYPE = "hot_topic_change";
 
-    public HotTopicChangeActivityConfig(Context context, int i, List<HotTopicBussinessData> list) {
+    public HotTopicChangeActivityConfig(Context context, int i2, List<HotTopicBussinessData> list) {
         super(context);
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
         getIntent().putExtra("hot_topic_forum_list", (Serializable) list);
     }

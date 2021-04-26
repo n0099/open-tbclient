@@ -9,6 +9,7 @@ import android.view.View;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+@Deprecated
 /* loaded from: classes6.dex */
 public abstract class ExpandableTransformationBehavior extends ExpandableBehavior {
     @Nullable

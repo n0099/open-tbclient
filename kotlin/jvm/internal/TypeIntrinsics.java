@@ -97,9 +97,9 @@ public class TypeIntrinsics {
         return castToSet(obj);
     }
 
-    public static Object beforeCheckcastToFunctionOfArity(Object obj, int i) {
-        if (obj != null && !isFunctionOfArity(obj, i)) {
-            throwCce(obj, "kotlin.jvm.functions.Function" + i);
+    public static Object beforeCheckcastToFunctionOfArity(Object obj, int i2) {
+        if (obj != null && !isFunctionOfArity(obj, i2)) {
+            throwCce(obj, "kotlin.jvm.functions.Function" + i2);
         }
         return obj;
     }
@@ -241,8 +241,8 @@ public class TypeIntrinsics {
         return obj instanceof Function22 ? 22 : -1;
     }
 
-    public static boolean isFunctionOfArity(Object obj, int i) {
-        return (obj instanceof Function) && getFunctionArity(obj) == i;
+    public static boolean isFunctionOfArity(Object obj, int i2) {
+        return (obj instanceof Function) && getFunctionArity(obj) == i2;
     }
 
     public static boolean isMutableCollection(Object obj) {
@@ -286,8 +286,8 @@ public class TypeIntrinsics {
         throwCce(name + " cannot be cast to " + str);
     }
 
-    public static Object beforeCheckcastToFunctionOfArity(Object obj, int i, String str) {
-        if (obj != null && !isFunctionOfArity(obj, i)) {
+    public static Object beforeCheckcastToFunctionOfArity(Object obj, int i2, String str) {
+        if (obj != null && !isFunctionOfArity(obj, i2)) {
             throwCce(str);
         }
         return obj;

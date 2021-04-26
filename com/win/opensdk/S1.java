@@ -1,25 +1,24 @@
 package com.win.opensdk;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.fun.openid.sdk.OnGetOaidListener;
-/* loaded from: classes7.dex */
-public class S1 implements OnGetOaidListener {
+import android.webkit.DownloadListener;
+import android.webkit.URLUtil;
+import com.win.opensdk.webviewbase.AdvancedWebView;
+/* loaded from: classes6.dex */
+public class S1 implements DownloadListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ T1 f40175a;
+    public final /* synthetic */ AdvancedWebView f37768a;
 
-    public S1(T1 t1) {
-        this.f40175a = t1;
+    public S1(AdvancedWebView advancedWebView) {
+        this.f37768a = advancedWebView;
     }
 
-    @Override // com.fun.openid.sdk.OnGetOaidListener
-    public void onGetOaid(String str) {
-        Context context;
-        if (!TextUtils.isEmpty(T1.f40193c) || TextUtils.isEmpty(str) || (context = this.f40175a.f40196a) == null) {
-            return;
+    @Override // android.webkit.DownloadListener
+    public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
+        String guessFileName = URLUtil.guessFileName(str, str3, str4);
+        T1 t1 = this.f37768a.f37989c;
+        if (t1 != null) {
+            t1.a(str, guessFileName, str4, j, str3, str2);
         }
-        T1.f40193c = str;
-        V1.g(context, str);
     }
 }

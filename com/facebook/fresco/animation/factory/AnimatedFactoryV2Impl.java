@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @DoNotStrip
 @NotThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AnimatedFactoryV2Impl implements AnimatedFactory {
     public static final int NUMBER_OF_FRAMES_TO_PREPARE = 3;
     @Nullable
@@ -123,7 +123,7 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
     public ImageDecoder getGifDecoder(final Bitmap.Config config) {
         return new ImageDecoder() { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.1
             @Override // com.facebook.imagepipeline.decoder.ImageDecoder
-            public CloseableImage decode(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+            public CloseableImage decode(EncodedImage encodedImage, int i2, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
                 return AnimatedFactoryV2Impl.this.getAnimatedImageFactory().decodeGif(encodedImage, imageDecodeOptions, config);
             }
         };
@@ -133,7 +133,7 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
     public ImageDecoder getWebPDecoder(final Bitmap.Config config) {
         return new ImageDecoder() { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.2
             @Override // com.facebook.imagepipeline.decoder.ImageDecoder
-            public CloseableImage decode(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+            public CloseableImage decode(EncodedImage encodedImage, int i2, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
                 return AnimatedFactoryV2Impl.this.getAnimatedImageFactory().decodeWebP(encodedImage, imageDecodeOptions, config);
             }
         };

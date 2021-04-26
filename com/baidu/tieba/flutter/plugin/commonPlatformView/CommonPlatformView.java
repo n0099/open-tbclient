@@ -12,7 +12,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.TbadkApplication;
-import d.b.j0.a3.a;
+import d.a.j0.a3.a;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -26,11 +26,11 @@ public class CommonPlatformView implements PlatformView, MethodChannel.MethodCal
     public final MethodChannel methodChannel;
     public int viewId;
     public String persistentViewId = "-1";
-    public CustomMessageListener mSelectForumCategoryListener = new CustomMessageListener(2921539) { // from class: com.baidu.tieba.flutter.plugin.commonPlatformView.CommonPlatformView.1
+    public CustomMessageListener mSelectForumCategoryListener = new CustomMessageListener(2921541) { // from class: com.baidu.tieba.flutter.plugin.commonPlatformView.CommonPlatformView.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2921539 || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof String)) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2921541 || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof String)) {
                 return;
             }
             String str = (String) customResponsedMessage.getData();
@@ -42,9 +42,9 @@ public class CommonPlatformView implements PlatformView, MethodChannel.MethodCal
     };
 
     @TargetApi(17)
-    public CommonPlatformView(Context context, BinaryMessenger binaryMessenger, int i, Map<String, Object> map) {
+    public CommonPlatformView(Context context, BinaryMessenger binaryMessenger, int i2, Map<String, Object> map) {
         creatMainView(context, map);
-        this.viewId = i;
+        this.viewId = i2;
         MethodChannel methodChannel = new MethodChannel(binaryMessenger, "common_platform_view_" + this.persistentViewId);
         this.methodChannel = methodChannel;
         methodChannel.setMethodCallHandler(this);
@@ -76,7 +76,7 @@ public class CommonPlatformView implements PlatformView, MethodChannel.MethodCal
             this.mSquareDelegate = aVar;
             aVar.e();
             this.mSquareDelegate.m();
-            this.mainView = this.mSquareDelegate.f53482d.d();
+            this.mainView = this.mSquareDelegate.f51212d.d();
         }
     }
 

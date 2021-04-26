@@ -47,22 +47,22 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
     public static final float NORMAL_ALPHA_VALUE = 1.0f;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f26341a;
+    public View f27147a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Button f26342b;
+    public Button f27148b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f26343c;
+    public View f27149c;
 
     /* renamed from: e  reason: collision with root package name */
-    public PromptDialog f26345e;
+    public PromptDialog f27151e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AnimationDrawable f26346f;
+    public AnimationDrawable f27152f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LoginBackListenerProxy f26347g;
+    public LoginBackListenerProxy f27153g;
     public boolean isViewCreated;
     public Activity mActivity;
     public MyBankCardLayout mBankLayout;
@@ -75,7 +75,7 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
     public ImageView mLoadingView;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f26344d = false;
+    public boolean f27150d = false;
     public boolean mRefreshFlag = false;
     public final View.OnClickListener mOnCardClickListener = new View.OnClickListener() { // from class: com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.1
         @Override // android.view.View.OnClickListener
@@ -93,7 +93,7 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
     public interface a {
         void bindCard();
 
-        void handleFailure(int i, int i2, String str);
+        void handleFailure(int i2, int i3, String str);
 
         void setBankCardDetectEnabled(boolean z);
 
@@ -115,52 +115,52 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
         }
         if (cardListResponse.bind_card_arr != null) {
             bindCardData(z);
-            this.f26341a.setBackgroundColor(ResUtils.getColor(this.mActivity, "bd_extend_bankcardlist_bg1"));
+            this.f27147a.setBackgroundColor(ResUtils.getColor(this.mActivity, "bd_extend_bankcardlist_bg1"));
         } else {
-            this.f26341a.setBackgroundColor(ResUtils.getColor(activity, "bd_extend_bankcardlist_bg2"));
+            this.f27147a.setBackgroundColor(ResUtils.getColor(activity, "bd_extend_bankcardlist_bg2"));
         }
         bindCustomViewData();
     }
 
     public abstract void getCacheData();
 
-    public void handleFailure(int i, int i2, String str) {
-        if (599 != i && 607 != i) {
+    public void handleFailure(int i2, int i3, String str) {
+        if (599 != i2 && 607 != i2) {
             a aVar = this.mCallback;
             if (aVar != null) {
-                aVar.handleFailure(i, i2, str);
+                aVar.handleFailure(i2, i3, str);
             }
-        } else if (i2 == 5003) {
+        } else if (i3 == 5003) {
             WalletLoginHelper.getInstance().handlerWalletError(5003);
             AccountManager.getInstance(this.mActivity.getApplicationContext()).logout();
             WalletLoginHelper.getInstance().logout(false);
             GlobalUtils.toast(this.mActivity, str);
             this.mActivity.finish();
-        } else if (i2 == 5099) {
+        } else if (i3 == 5099) {
             PromptDialog promptDialog = new PromptDialog(this.mActivity);
-            this.f26345e = promptDialog;
+            this.f27151e = promptDialog;
             promptDialog.setTitleText(ResUtils.getString(this.mActivity, "bd_wallet_base_third_login_title"));
-            this.f26345e.setMessage(str);
-            this.f26345e.setPositiveBtn(ResUtils.getString(this.mActivity, "bd_wallet_base_third_login_positive"), new View.OnClickListener() { // from class: com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.5
+            this.f27151e.setMessage(str);
+            this.f27151e.setPositiveBtn(ResUtils.getString(this.mActivity, "bd_wallet_base_third_login_positive"), new View.OnClickListener() { // from class: com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    CardListBaseFragment.this.f26345e.dismiss();
+                    CardListBaseFragment.this.f27151e.dismiss();
                     CardListBaseFragment.this.c();
                 }
             });
-            this.f26345e.setNegativeBtn(ResUtils.getString(this.mActivity, "bd_wallet_base_third_login_negative"), new View.OnClickListener() { // from class: com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.6
+            this.f27151e.setNegativeBtn(ResUtils.getString(this.mActivity, "bd_wallet_base_third_login_negative"), new View.OnClickListener() { // from class: com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.6
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    CardListBaseFragment.this.f26345e.dismiss();
+                    CardListBaseFragment.this.f27151e.dismiss();
                     CardListBaseFragment.this.mActivity.finish();
                 }
             });
-            this.f26345e.show();
-        } else if (i2 == 100035 || i2 == 100036) {
-            PassUtil.passNormalized(this.mActivity, str, i2 == 100036 ? 2 : 1, new PassUtil.PassNormalize() { // from class: com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.7
+            this.f27151e.show();
+        } else if (i3 == 100035 || i3 == 100036) {
+            PassUtil.passNormalized(this.mActivity, str, i3 == 100036 ? 2 : 1, new PassUtil.PassNormalize() { // from class: com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.7
                 @Override // com.baidu.wallet.core.utils.PassUtil.PassNormalize, com.baidu.wallet.core.utils.PassUtil.IPassNormalize
-                public boolean onNormalize(Context context, int i3, Map<String, String> map) {
-                    if (super.onNormalize(context, i3, map)) {
+                public boolean onNormalize(Context context, int i4, Map<String, String> map) {
+                    if (super.onNormalize(context, i4, map)) {
                         CardListBaseFragment.this.syncData();
                         return false;
                     }
@@ -168,7 +168,7 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
                     return false;
                 }
             });
-        } else if (i2 != 5140 && i2 != 5139) {
+        } else if (i3 != 5140 && i3 != 5139) {
             if (this.mCardListResponse == null) {
                 this.mLoadFailedView.setVisibility(0);
             }
@@ -179,11 +179,11 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
         } else {
             HashMap hashMap = new HashMap();
             hashMap.put("sdk_from", "4");
-            hashMap.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, i2 == 5140 ? HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9 : "0");
+            hashMap.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, i3 == 5140 ? HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9 : "0");
             BaiduPayDelegate.getInstance().doRNAuth(this.mActivity, hashMap, new RNAuthCallBack() { // from class: com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.8
                 @Override // com.baidu.wallet.rnauth.RNAuthCallBack
-                public void onRNAuthResult(int i3, String str2) {
-                    if (i3 == 0) {
+                public void onRNAuthResult(int i4, String str2) {
+                    if (i4 == 0) {
                         CardListBaseFragment.this.syncData();
                     } else {
                         CardListBaseFragment.this.mActivity.finish();
@@ -193,8 +193,8 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
         }
     }
 
-    public void handleResponse(int i, Object obj, String str) {
-        if ((599 == i || 607 == i) && obj != null && (obj instanceof CardListResponse)) {
+    public void handleResponse(int i2, Object obj, String str) {
+        if ((599 == i2 || 607 == i2) && obj != null && (obj instanceof CardListResponse)) {
             this.mCardListResponse = (CardListResponse) obj;
             bindData(false);
         }
@@ -206,11 +206,11 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
             return;
         }
         this.mLoadingLayout.setVisibility(8);
-        AnimationDrawable animationDrawable = this.f26346f;
+        AnimationDrawable animationDrawable = this.f27152f;
         if (animationDrawable == null || !animationDrawable.isRunning()) {
             return;
         }
-        this.f26346f.stop();
+        this.f27152f.stop();
     }
 
     public abstract void loadData();
@@ -223,7 +223,7 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecFailure(final int i, final int i2, final String str) {
+    public void onBeanExecFailure(final int i2, final int i3, final String str) {
         Activity activity = this.mActivity;
         if (activity == null) {
             return;
@@ -233,15 +233,15 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
             public void run() {
                 CardListBaseFragment cardListBaseFragment = CardListBaseFragment.this;
                 if (cardListBaseFragment.mActivity != null) {
-                    cardListBaseFragment.handleFailure(i, i2, str);
+                    cardListBaseFragment.handleFailure(i2, i3, str);
                 }
             }
         });
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecSuccess(final int i, final Object obj, final String str) {
-        a(i, obj, str);
+    public void onBeanExecSuccess(final int i2, final Object obj, final String str) {
+        a(i2, obj, str);
         Activity activity = this.mActivity;
         if (activity == null) {
             return;
@@ -251,30 +251,30 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
             public void run() {
                 CardListBaseFragment cardListBaseFragment = CardListBaseFragment.this;
                 if (cardListBaseFragment.mActivity != null) {
-                    cardListBaseFragment.handleResponse(i, obj, str);
+                    cardListBaseFragment.handleResponse(i2, obj, str);
                 }
             }
         });
     }
 
     public void onClick(View view) {
-        if (view == this.f26342b) {
-            this.f26347g = new LoginBackListenerProxy(this.mActivity, new ILoginBackListener() { // from class: com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.2
+        if (view == this.f27148b) {
+            this.f27153g = new LoginBackListenerProxy(this.mActivity, new ILoginBackListener() { // from class: com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.2
                 @Override // com.baidu.wallet.api.ILoginBackListener
-                public void onFail(int i, String str) {
-                    if (i == 603) {
-                        WalletLoginHelper.getInstance().onlyLogin(CardListBaseFragment.this.f26347g);
+                public void onFail(int i2, String str) {
+                    if (i2 == 603) {
+                        WalletLoginHelper.getInstance().onlyLogin(CardListBaseFragment.this.f27153g);
                     }
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
-                public void onSuccess(int i, String str) {
-                    CardListBaseFragment.this.f26342b.setVisibility(8);
+                public void onSuccess(int i2, String str) {
+                    CardListBaseFragment.this.f27148b.setVisibility(8);
                     CardListBaseFragment.this.syncData();
                 }
             });
-            WalletLoginHelper.getInstance().login(this.f26347g);
-        } else if (view == this.f26343c) {
+            WalletLoginHelper.getInstance().login(this.f27153g);
+        } else if (view == this.f27149c) {
             syncData();
         }
     }
@@ -349,7 +349,7 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
         this.isViewCreated = true;
         if (bundle != null) {
             boolean z = bundle.getBoolean("NeedRestoreDataFlag");
-            this.f26344d = z;
+            this.f27150d = z;
             if (z) {
                 Serializable serializable = bundle.getSerializable("CardListResponse");
                 if (serializable instanceof CardListResponse) {
@@ -357,7 +357,7 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
                     this.mCardListResponse = cardListResponse;
                     cardListResponse.storeResponse(this.mActivity);
                 } else {
-                    this.f26344d = false;
+                    this.f27150d = false;
                 }
             }
         }
@@ -373,11 +373,11 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
 
     public void showLoading() {
         this.mLoadingLayout.setVisibility(0);
-        if (this.f26346f == null) {
-            this.f26346f = (AnimationDrawable) this.mLoadingView.getDrawable();
+        if (this.f27152f == null) {
+            this.f27152f = (AnimationDrawable) this.mLoadingView.getDrawable();
         }
-        this.f26346f.stop();
-        this.f26346f.start();
+        this.f27152f.stop();
+        this.f27152f.start();
     }
 
     public void syncData() {
@@ -393,10 +393,10 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
 
     private View b() {
         ViewGroup viewGroup = (ViewGroup) this.mInflater.inflate(ResUtils.layout(this.mActivity, "wallet_base_card_list_fragment"), (ViewGroup) null);
-        this.f26341a = viewGroup.findViewById(ResUtils.id(this.mActivity, "wallet_base_card_list_page_view"));
+        this.f27147a = viewGroup.findViewById(ResUtils.id(this.mActivity, "wallet_base_card_list_page_view"));
         this.mBankLayout = (MyBankCardLayout) viewGroup.findViewById(ResUtils.id(this.mActivity, "wallet_my_bank_layout"));
         Button button = (Button) viewGroup.findViewById(ResUtils.id(this.mActivity, "wallet_login"));
-        this.f26342b = button;
+        this.f27148b = button;
         button.setOnClickListener(this);
         RelativeLayout relativeLayout = (RelativeLayout) viewGroup.findViewById(ResUtils.id(this.mActivity, "custom_container"));
         this.mCustomContainer = relativeLayout;
@@ -404,7 +404,7 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
         View findViewById = viewGroup.findViewById(ResUtils.id(this.mActivity, "bd_wallet_empty_list"));
         this.mLoadFailedView = findViewById;
         View findViewById2 = findViewById.findViewById(ResUtils.id(this.mActivity, "bd_wallet_do"));
-        this.f26343c = findViewById2;
+        this.f27149c = findViewById2;
         findViewById2.setOnClickListener(this);
         this.mLoadingLayout = (LinearLayout) viewGroup.findViewById(ResUtils.id(this.mActivity, "loading_page_layout"));
         this.mLoadingView = (ImageView) viewGroup.findViewById(ResUtils.id(this.mActivity, "img_anim"));
@@ -415,32 +415,32 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        this.f26347g = new LoginBackListenerProxy(this.mActivity, new ILoginBackListener() { // from class: com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.9
+        this.f27153g = new LoginBackListenerProxy(this.mActivity, new ILoginBackListener() { // from class: com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.9
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str) {
-                if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(CardListBaseFragment.this.f26347g);
+            public void onFail(int i2, String str) {
+                if (i2 == 603) {
+                    WalletLoginHelper.getInstance().onlyLogin(CardListBaseFragment.this.f27153g);
                 } else {
                     CardListBaseFragment.this.mActivity.finish();
                 }
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str) {
+            public void onSuccess(int i2, String str) {
                 CardListBaseFragment.this.syncData();
             }
         });
-        WalletLoginHelper.getInstance().login(this.f26347g);
+        WalletLoginHelper.getInstance().login(this.f27153g);
     }
 
     private void a() {
         CardListResponse cardListResponse;
         if (this.isViewCreated) {
-            if (this.f26344d && (cardListResponse = this.mCardListResponse) != null && cardListResponse.checkResponseValidity()) {
+            if (this.f27150d && (cardListResponse = this.mCardListResponse) != null && cardListResponse.checkResponseValidity()) {
                 bindData(true);
             } else if (!WalletLoginHelper.getInstance().isLogin()) {
                 this.mBankLayout.setData(false, null, 0, true, null);
-                this.f26342b.setVisibility(0);
+                this.f27148b.setVisibility(0);
             } else {
                 getCacheData();
                 syncData();
@@ -456,7 +456,7 @@ public abstract class CardListBaseFragment extends BaseFragment implements View.
         }
     }
 
-    private void a(int i, Object obj, String str) {
-        CardListCache.getInstance().updateCardList(i, (CardListResponse) obj);
+    private void a(int i2, Object obj, String str) {
+        CardListCache.getInstance().updateCardList(i2, (CardListResponse) obj);
     }
 }

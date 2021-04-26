@@ -2,12 +2,12 @@ package com.google.common.collect;
 
 import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableSet;
-import d.h.c.a.n;
-import d.h.c.c.c1;
-import d.h.c.c.f0;
-import d.h.c.c.j0;
-import d.h.c.c.t0;
-import d.h.c.c.u0;
+import d.g.c.a.n;
+import d.g.c.c.c1;
+import d.g.c.c.f0;
+import d.g.c.c.j0;
+import d.g.c.c.t0;
+import d.g.c.c.u0;
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
@@ -47,11 +47,11 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
     public static final class a<E> extends ImmutableSet.a<E> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final Comparator<? super E> f30937f;
+        public final Comparator<? super E> f31898f;
 
         public a(Comparator<? super E> comparator) {
             n.p(comparator);
-            this.f30937f = comparator;
+            this.f31898f = comparator;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -95,9 +95,9 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
         @Override // com.google.common.collect.ImmutableSet.a
         /* renamed from: p */
         public ImmutableSortedSet<E> l() {
-            ImmutableSortedSet<E> construct = ImmutableSortedSet.construct(this.f30937f, this.f30880b, this.f30879a);
-            this.f30880b = construct.size();
-            this.f30881c = true;
+            ImmutableSortedSet<E> construct = ImmutableSortedSet.construct(this.f31898f, this.f31839b, this.f31838a);
+            this.f31839b = construct.size();
+            this.f31840c = true;
             return construct;
         }
     }
@@ -109,25 +109,25 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
     /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.lang.Object[] */
     /* JADX DEBUG: Multi-variable search result rejected for r3v4, resolved type: java.lang.Object[] */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <E> ImmutableSortedSet<E> construct(Comparator<? super E> comparator, int i, E... eArr) {
-        if (i == 0) {
+    public static <E> ImmutableSortedSet<E> construct(Comparator<? super E> comparator, int i2, E... eArr) {
+        if (i2 == 0) {
             return emptySet(comparator);
         }
-        j0.c(eArr, i);
-        Arrays.sort(eArr, 0, i, comparator);
-        int i2 = 1;
-        for (int i3 = 1; i3 < i; i3++) {
-            Object obj = (Object) eArr[i3];
-            if (comparator.compare(obj, (Object) eArr[i2 - 1]) != 0) {
-                eArr[i2] = obj;
-                i2++;
+        j0.c(eArr, i2);
+        Arrays.sort(eArr, 0, i2, comparator);
+        int i3 = 1;
+        for (int i4 = 1; i4 < i2; i4++) {
+            Object obj = (Object) eArr[i4];
+            if (comparator.compare(obj, (Object) eArr[i3 - 1]) != 0) {
+                eArr[i3] = obj;
+                i3++;
             }
         }
-        Arrays.fill(eArr, i2, i, (Object) null);
-        if (i2 < eArr.length / 2) {
-            eArr = (E[]) Arrays.copyOf(eArr, i2);
+        Arrays.fill(eArr, i3, i2, (Object) null);
+        if (i3 < eArr.length / 2) {
+            eArr = (E[]) Arrays.copyOf(eArr, i3);
         }
-        return new RegularImmutableSortedSet(ImmutableList.asImmutableList(eArr, i2), comparator);
+        return new RegularImmutableSortedSet(ImmutableList.asImmutableList(eArr, i3), comparator);
     }
 
     /* JADX WARN: Incorrect types in method signature: <E::Ljava/lang/Comparable<-TE;>;>([TE;)Lcom/google/common/collect/ImmutableSortedSet<TE;>; */
@@ -175,7 +175,7 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
         return (E) f0.e(tailSet((ImmutableSortedSet<E>) e2, true), null);
     }
 
-    @Override // java.util.SortedSet, d.h.c.c.t0
+    @Override // java.util.SortedSet, d.g.c.c.t0
     public Comparator<? super E> comparator() {
         return this.comparator;
     }

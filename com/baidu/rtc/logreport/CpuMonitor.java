@@ -46,26 +46,26 @@ public class CpuMonitor {
         public final int size;
         public double sum;
 
-        public MovingAverage(int i) {
-            if (i <= 0) {
+        public MovingAverage(int i2) {
+            if (i2 <= 0) {
                 throw new AssertionError("Size value in MovingAverage ctor should be positive.");
             }
-            this.size = i;
-            this.circBuffer = new double[i];
+            this.size = i2;
+            this.circBuffer = new double[i2];
         }
 
         public void addValue(double d2) {
             double d3 = this.sum;
             double[] dArr = this.circBuffer;
-            int i = this.circBufferIndex;
-            double d4 = d3 - dArr[i];
+            int i2 = this.circBufferIndex;
+            double d4 = d3 - dArr[i2];
             this.sum = d4;
-            int i2 = i + 1;
-            this.circBufferIndex = i2;
-            dArr[i] = d2;
+            int i3 = i2 + 1;
+            this.circBufferIndex = i3;
+            dArr[i2] = d2;
             this.currentValue = d2;
             this.sum = d4 + d2;
-            if (i2 >= this.size) {
+            if (i3 >= this.size) {
                 this.circBufferIndex = 0;
             }
         }
@@ -155,8 +155,8 @@ public class CpuMonitor {
             sb2.append(". Cores: ");
             sb2.append(this.actualCpusPresent);
             sb2.append("( ");
-            for (int i = 0; i < this.cpusPresent; i++) {
-                sb2.append(doubleToPercent(this.curFreqScales[i]));
+            for (int i2 = 0; i2 < this.cpusPresent; i2++) {
+                sb2.append(doubleToPercent(this.curFreqScales[i2]));
                 sb2.append(" ");
             }
             sb2.append("). Battery: ");
@@ -175,7 +175,7 @@ public class CpuMonitor {
     */
     private void init() {
         String str;
-        int i;
+        int i2;
         try {
             FileReader fileReader = new FileReader("/sys/devices/system/cpu/present");
             try {
@@ -190,12 +190,12 @@ public class CpuMonitor {
         } catch (FileNotFoundException unused2) {
             str = "Cannot do CPU stats since /sys/devices/system/cpu/present is missing";
             Log.e(TAG, str);
-            int i2 = this.cpusPresent;
-            this.cpuFreqMax = new long[i2];
-            this.maxPath = new String[i2];
-            this.curPath = new String[i2];
-            this.curFreqScales = new double[i2];
-            while (i < this.cpusPresent) {
+            int i3 = this.cpusPresent;
+            this.cpuFreqMax = new long[i3];
+            this.maxPath = new String[i3];
+            this.curPath = new String[i3];
+            this.curFreqScales = new double[i3];
+            while (i2 < this.cpusPresent) {
             }
             this.lastProcStat = new ProcStat(0L, 0L, 0L);
             resetStat();
@@ -203,29 +203,29 @@ public class CpuMonitor {
         } catch (IOException unused3) {
             str = "Error closing file";
             Log.e(TAG, str);
-            int i22 = this.cpusPresent;
-            this.cpuFreqMax = new long[i22];
-            this.maxPath = new String[i22];
-            this.curPath = new String[i22];
-            this.curFreqScales = new double[i22];
-            while (i < this.cpusPresent) {
+            int i32 = this.cpusPresent;
+            this.cpuFreqMax = new long[i32];
+            this.maxPath = new String[i32];
+            this.curPath = new String[i32];
+            this.curFreqScales = new double[i32];
+            while (i2 < this.cpusPresent) {
             }
             this.lastProcStat = new ProcStat(0L, 0L, 0L);
             resetStat();
             this.initialized = true;
         }
-        int i222 = this.cpusPresent;
-        this.cpuFreqMax = new long[i222];
-        this.maxPath = new String[i222];
-        this.curPath = new String[i222];
-        this.curFreqScales = new double[i222];
-        for (i = 0; i < this.cpusPresent; i++) {
-            this.cpuFreqMax[i] = 0;
-            this.curFreqScales[i] = 0.0d;
+        int i322 = this.cpusPresent;
+        this.cpuFreqMax = new long[i322];
+        this.maxPath = new String[i322];
+        this.curPath = new String[i322];
+        this.curFreqScales = new double[i322];
+        for (i2 = 0; i2 < this.cpusPresent; i2++) {
+            this.cpuFreqMax[i2] = 0;
+            this.curFreqScales[i2] = 0.0d;
             String[] strArr = this.maxPath;
-            strArr[i] = "/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_max_freq";
+            strArr[i2] = "/sys/devices/system/cpu/cpu" + i2 + "/cpufreq/cpuinfo_max_freq";
             String[] strArr2 = this.curPath;
-            strArr2[i] = "/sys/devices/system/cpu/cpu" + i + "/cpufreq/scaling_cur_freq";
+            strArr2[i2] = "/sys/devices/system/cpu/cpu" + i2 + "/cpufreq/scaling_cur_freq";
         }
         this.lastProcStat = new ProcStat(0L, 0L, 0L);
         resetStat();
@@ -320,29 +320,29 @@ public class CpuMonitor {
             long j = 0;
             long j2 = 0;
             long j3 = 0;
-            for (int i = 0; i < this.cpusPresent; i++) {
-                this.curFreqScales[i] = 0.0d;
-                if (this.cpuFreqMax[i] == 0) {
-                    long readFreqFromFile = readFreqFromFile(this.maxPath[i]);
+            for (int i2 = 0; i2 < this.cpusPresent; i2++) {
+                this.curFreqScales[i2] = 0.0d;
+                if (this.cpuFreqMax[i2] == 0) {
+                    long readFreqFromFile = readFreqFromFile(this.maxPath[i2]);
                     if (readFreqFromFile > 0) {
-                        Log.d(TAG, "Core " + i + ". Max frequency: " + readFreqFromFile);
-                        this.cpuFreqMax[i] = readFreqFromFile;
-                        this.maxPath[i] = null;
+                        Log.d(TAG, "Core " + i2 + ". Max frequency: " + readFreqFromFile);
+                        this.cpuFreqMax[i2] = readFreqFromFile;
+                        this.maxPath[i2] = null;
                         j3 = readFreqFromFile;
                     }
                 } else {
-                    j3 = this.cpuFreqMax[i];
+                    j3 = this.cpuFreqMax[i2];
                 }
-                long readFreqFromFile2 = readFreqFromFile(this.curPath[i]);
-                int i2 = (readFreqFromFile2 > 0L ? 1 : (readFreqFromFile2 == 0L ? 0 : -1));
-                if (i2 != 0 || j3 != 0) {
-                    if (i2 > 0) {
+                long readFreqFromFile2 = readFreqFromFile(this.curPath[i2]);
+                int i3 = (readFreqFromFile2 > 0L ? 1 : (readFreqFromFile2 == 0L ? 0 : -1));
+                if (i3 != 0 || j3 != 0) {
+                    if (i3 > 0) {
                         this.actualCpusPresent++;
                     }
                     j += readFreqFromFile2;
                     j2 += j3;
                     if (j3 > 0) {
-                        this.curFreqScales[i] = readFreqFromFile2 / j3;
+                        this.curFreqScales[i2] = readFreqFromFile2 / j3;
                     }
                 }
             }

@@ -9,11 +9,11 @@ public class FramerateBitrateAdjuster extends BaseBitrateAdjuster {
     }
 
     @Override // org.webrtc.BaseBitrateAdjuster, org.webrtc.BitrateAdjuster
-    public void setTargets(int i, int i2) {
+    public void setTargets(int i2, int i3) {
         if (this.targetFps == 0) {
-            i2 = 30;
+            i3 = 30;
         }
-        super.setTargets(i, i2);
+        super.setTargets(i2, i3);
         this.targetBitrateBps = (this.targetBitrateBps * 30) / this.targetFps;
     }
 }

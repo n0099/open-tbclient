@@ -24,8 +24,8 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
         public Boolean isStarted;
         public long totalLength;
 
-        public Listener1Model(int i) {
-            this.id = i;
+        public Listener1Model(int i2) {
+            this.id = i2;
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler.ListenerModel
@@ -56,7 +56,7 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
 
     /* loaded from: classes2.dex */
     public interface TaskProgressListenerCallback {
-        void connected(@NonNull DownloadTask downloadTask, @IntRange(from = 0) int i, @IntRange(from = 0) long j, @IntRange(from = 0) long j2);
+        void connected(@NonNull DownloadTask downloadTask, @IntRange(from = 0) int i2, @IntRange(from = 0) long j, @IntRange(from = 0) long j2);
 
         void progress(@NonNull DownloadTask downloadTask, @IntRange(from = 0) long j, @IntRange(from = 0) long j2);
 
@@ -167,8 +167,8 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler.ModelCreator
-    public Listener1Model create(int i) {
-        return new Listener1Model(i);
+    public Listener1Model create(int i2) {
+        return new Listener1Model(i2);
     }
 
     public TaskProgressListenerAssist(ListenerModelHandler<Listener1Model> listenerModelHandler) {

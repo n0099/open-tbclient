@@ -3,8 +3,9 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
 import com.baidu.tbadk.TbConfig;
-import d.b.c.e.p.k;
+import d.a.c.e.p.k;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -120,7 +121,7 @@ public class VersionData implements Serializable {
             this.url = jSONObject.optString("new_version_url");
             this.newVersionRemind = jSONObject.optInt("new_version_remind", 0);
             this.newVersionDesc = jSONObject.optString("new_version_desc", null);
-            this.patch = jSONObject.optString("patch");
+            this.patch = jSONObject.optString(SchemeDescPatchListener.PATCH);
             this.patchSize = jSONObject.optString("patch_size");
             this.newVersionCode = jSONObject.optInt("new_version_code", -1);
             this.tiebaIconUrl = jSONObject.optString("tieba_iconurl", null);
@@ -141,12 +142,12 @@ public class VersionData implements Serializable {
         this.apkMD5RSA = str;
     }
 
-    public void setForceUpdate(int i) {
-        this.forceUpdate = i;
+    public void setForceUpdate(int i2) {
+        this.forceUpdate = i2;
     }
 
-    public void setHasNewVer(int i) {
-        this.hasNewVer = i;
+    public void setHasNewVer(int i2) {
+        this.hasNewVer = i2;
     }
 
     public void setNewFile(String str) {
@@ -157,8 +158,8 @@ public class VersionData implements Serializable {
         this.newVer = str;
     }
 
-    public void setNewVersionCode(int i) {
-        this.newVersionCode = i;
+    public void setNewVersionCode(int i2) {
+        this.newVersionCode = i2;
     }
 
     public void setNewVersionDesc(String str) {
@@ -177,8 +178,8 @@ public class VersionData implements Serializable {
         this.size = str;
     }
 
-    public void setStrategy(int i) {
-        this.strategy = i;
+    public void setStrategy(int i2) {
+        this.strategy = i2;
     }
 
     public void setTiebaIconUrl(String str) {

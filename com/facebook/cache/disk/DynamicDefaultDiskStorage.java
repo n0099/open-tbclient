@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DynamicDefaultDiskStorage implements DiskStorage {
     public static final Class<?> TAG = DynamicDefaultDiskStorage.class;
     public final String mBaseDirectoryName;
@@ -24,7 +24,7 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
     public final int mVersion;
 
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class State {
         @Nullable
         public final DiskStorage delegate;
@@ -38,8 +38,8 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
         }
     }
 
-    public DynamicDefaultDiskStorage(int i, Supplier<File> supplier, String str, CacheErrorLogger cacheErrorLogger) {
-        this.mVersion = i;
+    public DynamicDefaultDiskStorage(int i2, Supplier<File> supplier, String str, CacheErrorLogger cacheErrorLogger) {
+        this.mVersion = i2;
         this.mCacheErrorLogger = cacheErrorLogger;
         this.mBaseDirectoryPathSupplier = supplier;
         this.mBaseDirectoryName = str;

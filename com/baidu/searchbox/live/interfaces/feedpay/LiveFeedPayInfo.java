@@ -81,9 +81,9 @@ public final class LiveFeedPayInfo {
     }
 
     public final boolean isValid() {
-        int i;
         int i2;
-        return !TextUtils.isEmpty(this.resId) && (i = this.currentPrice) >= 0 && (i2 = this.originPrice) >= 0 && i <= i2;
+        int i3;
+        return !TextUtils.isEmpty(this.resId) && (i2 = this.currentPrice) >= 0 && (i3 = this.originPrice) >= 0 && i2 <= i3;
     }
 
     public final void setBusiness(String str) {
@@ -94,12 +94,12 @@ public final class LiveFeedPayInfo {
         this.couponID = str;
     }
 
-    public final void setCurrentPrice(int i) {
-        this.currentPrice = i;
+    public final void setCurrentPrice(int i2) {
+        this.currentPrice = i2;
     }
 
-    public final void setCutPrice(int i) {
-        this.cutPrice = i;
+    public final void setCutPrice(int i2) {
+        this.cutPrice = i2;
     }
 
     public final void setExt(String str) {
@@ -114,8 +114,8 @@ public final class LiveFeedPayInfo {
         this.from = str;
     }
 
-    public final void setOriginPrice(int i) {
-        this.originPrice = i;
+    public final void setOriginPrice(int i2) {
+        this.originPrice = i2;
     }
 
     public final void setResId(String str) {

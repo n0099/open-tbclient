@@ -13,10 +13,10 @@ public class MangaBrowserActivityConfig extends IntentConfig {
     public static final String CARTOON_ID = "cartoon_id";
     public static final String CHAPTER_ID = "chapter_id";
 
-    public MangaBrowserActivityConfig(Context context, long j, int i, int i2) {
+    public MangaBrowserActivityConfig(Context context, long j, int i2, int i3) {
         super(context);
         getIntent().putExtra("cartoon_id", j);
-        getIntent().putExtra(CHAPTER_ID, i);
-        getIntent().putExtra("from", i2);
+        getIntent().putExtra(CHAPTER_ID, i2);
+        getIntent().putExtra("from", i3);
     }
 }

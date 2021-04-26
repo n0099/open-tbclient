@@ -16,10 +16,10 @@ import java.util.Set;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f29587a;
+    public static Context f30492a;
 
     public static boolean a() {
-        if (f29587a == null || p.a() == null) {
+        if (f30492a == null || p.a() == null) {
             u.b("The context of SPHelper is null, please initialize sdk in main process");
             return false;
         }
@@ -38,12 +38,12 @@ public class a {
     }
 
     public static Context c() {
-        Context context = f29587a;
+        Context context = f30492a;
         return context == null ? p.a() : context;
     }
 
     public static String d() {
-        return e.f29591b + "/t_sp/";
+        return e.f30496b + "/t_sp/";
     }
 
     public static void c(String str, String str2) {
@@ -59,7 +59,7 @@ public class a {
     }
 
     public static void a(Context context) {
-        f29587a = context == null ? p.a() : context.getApplicationContext();
+        f30492a = context == null ? p.a() : context.getApplicationContext();
     }
 
     public static String b(String str) {
@@ -246,7 +246,7 @@ public class a {
         }
     }
 
-    public static int a(String str, String str2, int i) {
+    public static int a(String str, String str2, int i2) {
         if (a()) {
             try {
                 ContentResolver b2 = b();
@@ -258,9 +258,9 @@ public class a {
                 }
             } catch (Throwable unused) {
             }
-            return i;
+            return i2;
         }
-        return i;
+        return i2;
     }
 
     public static boolean a(String str, boolean z) {

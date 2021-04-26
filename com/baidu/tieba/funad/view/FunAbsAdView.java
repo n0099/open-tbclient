@@ -9,14 +9,14 @@ import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.fun.ad.sdk.FunNativeAd;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import d.b.j0.d3.h0.n;
-import d.b.j0.r0.a;
+import d.a.j0.d3.h0.n;
+import d.a.j0.r0.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public abstract class FunAbsAdView extends NativeAdContainer {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f16484e;
+    public String f16724e;
 
     public FunAbsAdView(Context context) {
         this(context, null, 0);
@@ -26,7 +26,7 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public abstract FrameLayout c(FunNativeAd funNativeAd);
 
-    public abstract void d(int i);
+    public abstract void d(int i2);
 
     public abstract void e(BdUniqueId bdUniqueId);
 
@@ -59,8 +59,8 @@ public abstract class FunAbsAdView extends NativeAdContainer {
         this(context, attributeSet, 0);
     }
 
-    public FunAbsAdView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public FunAbsAdView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         g(context);
     }
 }

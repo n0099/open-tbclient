@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.squareup.wire.Wire;
-import d.b.j0.j3.h.e;
+import d.a.j0.j3.h.e;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
@@ -18,8 +18,8 @@ public class BubbleListHttpResponseMessage extends TbHttpResponsedMessage {
     public List<DressItemData> mDressItemList;
     public e mRecommand;
 
-    public BubbleListHttpResponseMessage(int i) {
-        super(i);
+    public BubbleListHttpResponseMessage(int i2) {
+        super(i2);
         this.hasMore = true;
         this.isDefault = false;
     }
@@ -42,7 +42,7 @@ public class BubbleListHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetBubbleListResIdl getBubbleListResIdl = (GetBubbleListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBubbleListResIdl.class);
         if (getBubbleListResIdl == null) {
             return;

@@ -30,7 +30,7 @@ public class StackTraceElementDeserializer implements ObjectDeserializer {
             String str = null;
             String str2 = null;
             String str3 = null;
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 String scanSymbol = jSONLexer.scanSymbol(defaultJSONParser.getSymbolTable());
                 if (scanSymbol == null) {
@@ -67,9 +67,9 @@ public class StackTraceElementDeserializer implements ObjectDeserializer {
                     }
                 } else if ("lineNumber".equals(scanSymbol)) {
                     if (jSONLexer.token() == 8) {
-                        i = 0;
+                        i2 = 0;
                     } else if (jSONLexer.token() == 2) {
-                        i = jSONLexer.intValue();
+                        i2 = jSONLexer.intValue();
                     } else {
                         throw new JSONException("syntax error");
                     }

@@ -1,102 +1,83 @@
 package com.win.opensdk;
 
 import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.win.opensdk.core.Info;
-/* loaded from: classes7.dex */
+import com.win.opensdk.activitys.H5Activity;
+/* loaded from: classes6.dex */
 public class PBInterstitial implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40138a;
+    public String f37723a;
 
     /* renamed from: b  reason: collision with root package name */
-    public y0 f40139b;
+    public q0 f37724b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PBInterstitialListener f40140c;
+    public PBInterstitialListener f37725c;
 
     public PBInterstitial(Context context, String str) {
         Context applicationContext = context.getApplicationContext();
-        this.f40138a = str;
-        y0 y0Var = new y0(applicationContext, str);
-        this.f40139b = y0Var;
-        y0Var.f40497h = new e(this);
+        this.f37723a = str;
+        q0 q0Var = new q0(applicationContext, str);
+        this.f37724b = q0Var;
+        q0Var.f37929h = new e(this);
     }
 
     public void destroy() {
-        y0 y0Var = this.f40139b;
-        y0Var.f40494e = false;
-        y0Var.f40492c = false;
-        y0Var.f40493d = false;
-        n1 n1Var = y0Var.i;
-        if (n1Var != null) {
-            n1Var.a();
+        q0 q0Var = this.f37724b;
+        q0Var.f37926e = false;
+        q0Var.f37924c = false;
+        q0Var.f37925d = false;
+        K0 k0 = q0Var.f37930i;
+        if (k0 != null) {
+            k0.a();
         }
     }
 
     public String getPid() {
-        return this.f40138a;
+        return this.f37723a;
     }
 
     public boolean isReady() {
-        y0 y0Var = this.f40139b;
-        return y0Var.a() || y0Var.e();
+        q0 q0Var = this.f37724b;
+        if (!q0Var.a()) {
+            if (!(q0Var.f37925d && !q0Var.f37926e && q0Var.b() && !q0Var.f37927f.isShown() && q0Var.f37927f.isEffective())) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void load() {
-        y0 y0Var = this.f40139b;
-        if (y0Var.b() && y0Var.f40495f.isEffective() && !y0Var.f40495f.isShown()) {
-            y0Var.a(y0Var.f40495f);
+        q0 q0Var = this.f37724b;
+        if (q0Var.b() && q0Var.f37927f.isEffective() && !q0Var.f37927f.isShown()) {
+            q0Var.a(q0Var.f37927f);
             return;
         }
-        if (y0Var.i == null) {
-            y0Var.i = new n1(y0Var.f40491b, y0Var.f40490a, F.INTERSTITIAL);
+        if (q0Var.f37930i == null) {
+            q0Var.f37930i = new K0(q0Var.f37923b, q0Var.f37922a, y.INTERSTITIAL);
         }
-        y0Var.i.f40374g = new v0(y0Var);
-        y0Var.i.b();
+        q0Var.f37930i.f37686g = new o0(q0Var);
+        q0Var.f37930i.b();
     }
 
     public void setInterstitialListener(PBInterstitialListener pBInterstitialListener) {
-        this.f40140c = pBInterstitialListener;
+        this.f37725c = pBInterstitialListener;
     }
 
     public void show() {
-        Info info;
-        y0 y0Var = this.f40139b;
-        if (!G.g(y0Var.f40491b)) {
-            PBInterstitialListener pBInterstitialListener = y0Var.f40497h;
+        q0 q0Var = this.f37724b;
+        if (!z.d(q0Var.f37923b)) {
+            PBInterstitialListener pBInterstitialListener = q0Var.f37929h;
             if (pBInterstitialListener != null) {
                 pBInterstitialListener.onInterstitialShowFail(PBError.NO_NETWORK.getMsg());
             }
-        } else if (V1.l(y0Var.f40491b) != 1 || (info = y0Var.f40495f) == null || TextUtils.isEmpty(info.getLoad()) || TextUtils.isEmpty(V1.m(y0Var.f40491b)) || !y0Var.f40495f.getPid().equals(V1.m(y0Var.f40491b))) {
-            if (y0Var.c()) {
-                if (y0Var.a() && y0Var.b()) {
-                    y0Var.f40492c = false;
-                    B2.a().a(B2.a(y0Var.f40495f.getTraceid(), y0Var.f40495f.getId(), y0Var.f40495f.getPid()), y0Var.f40496g);
-                    y0Var.f();
-                }
-            } else if (y0Var.d() && y0Var.e() && y0Var.b()) {
-                y0Var.f40493d = false;
-                y0Var.f();
-            }
-        } else {
-            Context context = y0Var.f40491b;
-            String load = y0Var.f40495f.getLoad();
-            try {
-                if (!TextUtils.isEmpty(load)) {
-                    Uri parse = Uri.parse(load);
-                    if (!R1.a(context, parse, null)) {
-                        a2.a(context, parse);
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            a1.a(y0Var.f40491b).b(new b1(y0Var.f40495f)).a();
-            if (y0Var.f40495f != null) {
-                V1.a(y0Var.f40491b, y0Var.f40495f.getId() + ":" + System.currentTimeMillis(), false);
-            }
-            G.a(y0Var.f40495f);
+        } else if (q0Var.c() && q0Var.a() && q0Var.b()) {
+            q0Var.f37924c = false;
+            W1.a().a(W1.a(q0Var.f37927f.getTraceid(), q0Var.f37927f.getId(), q0Var.f37927f.getPid()), q0Var.f37928g);
+            q0Var.f37927f.setShown(true);
+            x.a().a(W1.a(q0Var.f37927f.getTraceid(), q0Var.f37927f.getId(), q0Var.f37922a), q0Var.f37927f);
+            H5Activity.a(q0Var.f37923b, q0Var.f37927f, q0Var.f37922a);
+            f1.a(q0Var.f37927f.getId() + q0Var.f37922a, q0Var);
         }
     }
 }

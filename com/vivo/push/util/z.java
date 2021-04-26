@@ -24,36 +24,36 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class z {
 
     /* renamed from: c  reason: collision with root package name */
-    public static Boolean f39969c;
+    public static Boolean f37574c;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String[] f39967a = {"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
+    public static String[] f37572a = {"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static String[] f39968b = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", StorageUtils.EXTERNAL_STORAGE_PERMISSION, "android.permission.ACCESS_WIFI_STATE", "android.permission.WAKE_LOCK", "android.permission.GET_ACCOUNTS", "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", "android.permission.GET_TASKS"};
+    public static String[] f37573b = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", StorageUtils.EXTERNAL_STORAGE_PERMISSION, "android.permission.ACCESS_WIFI_STATE", "android.permission.WAKE_LOCK", "android.permission.GET_ACCOUNTS", "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", "android.permission.GET_TASKS"};
 
     /* renamed from: d  reason: collision with root package name */
-    public static String[] f39970d = {"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
+    public static String[] f37575d = {"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
 
     /* renamed from: e  reason: collision with root package name */
-    public static String[] f39971e = {"com.vivo.push.sdk.RegistrationReceiver"};
+    public static String[] f37576e = {"com.vivo.push.sdk.RegistrationReceiver"};
 
     /* renamed from: f  reason: collision with root package name */
-    public static String[] f39972f = new String[0];
+    public static String[] f37577f = new String[0];
 
     public static boolean a(Context context) {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        Boolean bool = f39969c;
+        Boolean bool = f37574c;
         if (bool != null) {
             return bool.booleanValue();
         }
         String b2 = s.b(context);
         if (context != null && context.getPackageName().equals(b2)) {
-            f39969c = Boolean.TRUE;
+            f37574c = Boolean.TRUE;
             return true;
         } else if (context == null) {
             p.d("Utility", "isPushProcess context is null");
@@ -79,7 +79,7 @@ public final class z {
                 return false;
             }
             Boolean valueOf = Boolean.valueOf(str.contains(":pushservice"));
-            f39969c = valueOf;
+            f37574c = valueOf;
             return valueOf.booleanValue();
         }
     }
@@ -101,24 +101,24 @@ public final class z {
         boolean d2 = s.d(context, context.getPackageName());
         boolean b3 = s.b(context, context.getPackageName());
         if (d2) {
-            f39967a = new String[]{"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
-            f39968b = new String[]{"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", StorageUtils.EXTERNAL_STORAGE_PERMISSION, "android.permission.ACCESS_WIFI_STATE", "android.permission.WAKE_LOCK", "android.permission.GET_ACCOUNTS", "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", "android.permission.GET_TASKS"};
-            f39970d = new String[]{"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
-            f39971e = new String[]{"com.vivo.push.sdk.RegistrationReceiver"};
+            f37572a = new String[]{"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
+            f37573b = new String[]{"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", StorageUtils.EXTERNAL_STORAGE_PERMISSION, "android.permission.ACCESS_WIFI_STATE", "android.permission.WAKE_LOCK", "android.permission.GET_ACCOUNTS", "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", "android.permission.GET_TASKS"};
+            f37575d = new String[]{"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
+            f37576e = new String[]{"com.vivo.push.sdk.RegistrationReceiver"};
         } else if (!b3 && !c2) {
             throw new VivoPushException("AndroidManifest.xml中receiver配置项错误，详见接入文档");
         } else {
             if (b3) {
-                f39970d = new String[]{"com.vivo.push.sdk.service.CommandClientService"};
+                f37575d = new String[]{"com.vivo.push.sdk.service.CommandClientService"};
             } else {
-                f39970d = new String[]{"com.vivo.push.sdk.service.CommandService"};
+                f37575d = new String[]{"com.vivo.push.sdk.service.CommandService"};
             }
-            f39971e = new String[0];
-            f39967a = new String[0];
+            f37576e = new String[0];
+            f37572a = new String[0];
             if (c2) {
-                f39968b = new String[]{"android.permission.INTERNET", "android.permission.WRITE_SETTINGS"};
+                f37573b = new String[]{"android.permission.INTERNET", "android.permission.WRITE_SETTINGS"};
             } else {
-                f39968b = new String[]{"android.permission.INTERNET"};
+                f37573b = new String[]{"android.permission.INTERNET"};
             }
         }
         if (c2 || d2) {
@@ -161,14 +161,14 @@ public final class z {
     }
 
     public static void d(Context context, String str) throws VivoPushException {
-        if (f39972f.length <= 0) {
+        if (f37577f.length <= 0) {
             return;
         }
         try {
             if (context.getPackageManager() != null) {
                 ActivityInfo[] activityInfoArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 1).activities;
                 if (activityInfoArr != null) {
-                    for (String str2 : f39972f) {
+                    for (String str2 : f37577f) {
                         a(str2, activityInfoArr, str);
                     }
                     return;
@@ -186,7 +186,7 @@ public final class z {
             if (context.getPackageManager() != null) {
                 ActivityInfo[] activityInfoArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 2).receivers;
                 if (activityInfoArr != null) {
-                    for (String str2 : f39971e) {
+                    for (String str2 : f37576e) {
                         a(str2, activityInfoArr, str);
                     }
                     return;
@@ -211,7 +211,7 @@ public final class z {
                 p.a("Utility", "getDebugInfo error : context is null");
                 return null;
             }
-            Cursor query = context.getContentResolver().query(com.vivo.push.z.f39984d, null, null, null, null);
+            Cursor query = context.getContentResolver().query(com.vivo.push.z.f37589d, null, null, null, null);
             try {
                 if (query == null) {
                     p.a("Utility", "cursor is null");
@@ -227,8 +227,8 @@ public final class z {
                 HashMap hashMap = new HashMap();
                 while (query.moveToNext()) {
                     int columnCount = query.getColumnCount();
-                    for (int i = 0; i < columnCount; i++) {
-                        hashMap.put(query.getColumnName(i), query.getString(i));
+                    for (int i2 = 0; i2 < columnCount; i2++) {
+                        hashMap.put(query.getColumnName(i2), query.getString(i2));
                     }
                 }
                 if (query != null) {
@@ -286,20 +286,20 @@ public final class z {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void g(Context context) throws VivoPushException {
-        int i;
+        int i2;
         try {
             PackageManager packageManager = context.getPackageManager();
             if (packageManager != null) {
                 String[] strArr = packageManager.getPackageInfo(context.getPackageName(), 4096).requestedPermissions;
                 if (strArr != null) {
-                    String[] strArr2 = f39968b;
+                    String[] strArr2 = f37573b;
                     int length = strArr2.length;
-                    int i2 = 0;
-                    while (i2 < length) {
-                        String str = strArr2[i2];
+                    int i3 = 0;
+                    while (i3 < length) {
+                        String str = strArr2[i3];
                         int length2 = strArr.length;
-                        while (i < length2) {
-                            i = str.equals(strArr[i]) ? 0 : i + 1;
+                        while (i2 < length2) {
+                            i2 = str.equals(strArr[i2]) ? 0 : i2 + 1;
                         }
                         throw new VivoPushException("permission : " + str + "  check fail : " + Arrays.toString(strArr));
                     }
@@ -351,7 +351,7 @@ public final class z {
             return false;
         }
         String packageName = context.getPackageName();
-        Cursor query = context.getContentResolver().query(com.vivo.push.z.f39982b, null, "pushVersion = ? and appPkgName = ? and appCode = ? ", new String[]{"293", packageName, String.valueOf(context.getPackageManager().getPackageInfo(packageName, 0).versionCode)}, null);
+        Cursor query = context.getContentResolver().query(com.vivo.push.z.f37587b, null, "pushVersion = ? and appPkgName = ? and appCode = ? ", new String[]{"293", packageName, String.valueOf(context.getPackageManager().getPackageInfo(packageName, 0).versionCode)}, null);
         if (query == null) {
             p.a("Utility", "cursor is null");
             if (query != null) {
@@ -399,7 +399,7 @@ public final class z {
     }
 
     public static PublicKey d(Context context) {
-        Cursor query = context.getContentResolver().query(com.vivo.push.z.f39981a, null, null, null, null);
+        Cursor query = context.getContentResolver().query(com.vivo.push.z.f37586a, null, null, null, null);
         if (query == null) {
             return null;
         }
@@ -485,7 +485,7 @@ public final class z {
         if (componentInfo.applicationInfo.packageName.equals(str)) {
             return;
         }
-        for (String str2 : f39967a) {
+        for (String str2 : f37572a) {
             if (str2.equals(componentInfo.name) && !componentInfo.processName.contains(":pushservice")) {
                 throw new VivoPushException("module : " + componentInfo.name + " process :" + componentInfo.processName + "  check process fail");
             }
@@ -536,7 +536,7 @@ public final class z {
             if (context.getPackageManager() != null) {
                 ServiceInfo[] serviceInfoArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 4).services;
                 if (serviceInfoArr != null) {
-                    for (String str2 : f39970d) {
+                    for (String str2 : f37575d) {
                         a(str2, serviceInfoArr, str);
                     }
                     return;
@@ -596,7 +596,7 @@ public final class z {
             p.a("Utility", "context is null");
             return false;
         }
-        Cursor query = context.getContentResolver().query(com.vivo.push.z.f39983c, null, "appPkgName = ? and regId = ? sdkVersion = ? ", new String[]{str, str2, "293"}, null);
+        Cursor query = context.getContentResolver().query(com.vivo.push.z.f37588c, null, "appPkgName = ? and regId = ? sdkVersion = ? ", new String[]{str, str2, "293"}, null);
         if (query == null) {
             p.a("Utility", "cursor is null");
             if (query != null) {

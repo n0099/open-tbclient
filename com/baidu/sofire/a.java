@@ -18,13 +18,13 @@ public final class a {
             sb.append(h2[1]);
             b.a();
             com.baidu.sofire.core.d.a(context, 0, h2[0], h2[1], StatusCode.SERVICE_CODE_CARD_MAYBE_ERR_AND_NOT_SUPPORT);
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 Thread.sleep(500L);
-                i++;
-                new StringBuilder().append(i);
+                i2++;
+                new StringBuilder().append(i2);
                 b.a();
-                if (i > 60) {
+                if (i2 > 60) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("0", "152");
                     hashMap.put("1", h2[0]);

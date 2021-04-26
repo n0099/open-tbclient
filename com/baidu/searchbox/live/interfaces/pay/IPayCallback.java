@@ -10,5 +10,5 @@ public interface IPayCallback {
     public static final int STATE_CODE_SUCCEED = 0;
     public static final int STATE_CODE_TOKEN_FAIL = 4;
 
-    void onPayResult(int i, String str);
+    void onPayResult(int i2, String str);
 }

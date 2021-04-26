@@ -81,35 +81,35 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
         }
     }
 
-    public RTCI420Buffer(int i, int i2, ByteBuffer byteBuffer, int i3, ByteBuffer byteBuffer2, int i4, ByteBuffer byteBuffer3, int i5, Runnable runnable) {
-        this.width = i;
-        this.height = i2;
+    public RTCI420Buffer(int i2, int i3, ByteBuffer byteBuffer, int i4, ByteBuffer byteBuffer2, int i5, ByteBuffer byteBuffer3, int i6, Runnable runnable) {
+        this.width = i2;
+        this.height = i3;
         this.dataY = byteBuffer;
         this.dataU = byteBuffer2;
         this.dataV = byteBuffer3;
-        this.strideY = i3;
-        this.strideU = i4;
-        this.strideV = i5;
+        this.strideY = i4;
+        this.strideU = i5;
+        this.strideV = i6;
         this.refCountDelegate = new RefCountDelegate(runnable);
     }
 
-    public static RTCI420Buffer allocate(int i, int i2) {
-        int i3 = (i2 + 1) / 2;
-        int i4 = (i + 1) / 2;
-        int i5 = i * i2;
-        int i6 = i5 + 0;
-        int i7 = i4 * i3;
-        int i8 = i6 + i7;
-        final ByteBuffer nativeAllocateByteBuffer = JniCommon.nativeAllocateByteBuffer(i5 + (i4 * 2 * i3));
+    public static RTCI420Buffer allocate(int i2, int i3) {
+        int i4 = (i3 + 1) / 2;
+        int i5 = (i2 + 1) / 2;
+        int i6 = i2 * i3;
+        int i7 = i6 + 0;
+        int i8 = i5 * i4;
+        int i9 = i7 + i8;
+        final ByteBuffer nativeAllocateByteBuffer = JniCommon.nativeAllocateByteBuffer(i6 + (i5 * 2 * i4));
         nativeAllocateByteBuffer.position(0);
-        nativeAllocateByteBuffer.limit(i6);
+        nativeAllocateByteBuffer.limit(i7);
         ByteBuffer slice = nativeAllocateByteBuffer.slice();
-        nativeAllocateByteBuffer.position(i6);
-        nativeAllocateByteBuffer.limit(i8);
+        nativeAllocateByteBuffer.position(i7);
+        nativeAllocateByteBuffer.limit(i9);
         ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
-        nativeAllocateByteBuffer.position(i8);
-        nativeAllocateByteBuffer.limit(i8 + i7);
-        return new RTCI420Buffer(i, i2, slice, i, slice2, i4, nativeAllocateByteBuffer.slice(), i4, new Runnable() { // from class: com.baidu.rtc._$$Lambda$RTCI420Buffer$MVKNXKaN7jHpOaqK1ceHPyNb6Ts
+        nativeAllocateByteBuffer.position(i9);
+        nativeAllocateByteBuffer.limit(i9 + i8);
+        return new RTCI420Buffer(i2, i3, slice, i2, slice2, i5, nativeAllocateByteBuffer.slice(), i5, new Runnable() { // from class: com.baidu.rtc._$$Lambda$RTCI420Buffer$MVKNXKaN7jHpOaqK1ceHPyNb6Ts
             @Override // java.lang.Runnable
             public final void run() {
                 JniCommon.nativeFreeByteBuffer(nativeAllocateByteBuffer);
@@ -117,15 +117,15 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
         });
     }
 
-    public static void checkCapacity(ByteBuffer byteBuffer, int i, int i2, int i3) {
-        int i4 = (i3 * (i2 - 1)) + i;
-        if (byteBuffer.capacity() >= i4) {
+    public static void checkCapacity(ByteBuffer byteBuffer, int i2, int i3, int i4) {
+        int i5 = (i4 * (i3 - 1)) + i2;
+        if (byteBuffer.capacity() >= i5) {
             return;
         }
-        throw new IllegalArgumentException("Buffer must be at least " + i4 + " bytes, but was " + byteBuffer.capacity());
+        throw new IllegalArgumentException("Buffer must be at least " + i5 + " bytes, but was " + byteBuffer.capacity());
     }
 
-    public static RTCI420Buffer wrap(int i, int i2, ByteBuffer byteBuffer, int i3, ByteBuffer byteBuffer2, int i4, ByteBuffer byteBuffer3, int i5, Runnable runnable) {
+    public static RTCI420Buffer wrap(int i2, int i3, ByteBuffer byteBuffer, int i4, ByteBuffer byteBuffer2, int i5, ByteBuffer byteBuffer3, int i6, Runnable runnable) {
         if (byteBuffer == null || byteBuffer2 == null || byteBuffer3 == null) {
             throw new IllegalArgumentException("Data buffers cannot be null.");
         }
@@ -133,21 +133,21 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
             ByteBuffer slice = byteBuffer.slice();
             ByteBuffer slice2 = byteBuffer2.slice();
             ByteBuffer slice3 = byteBuffer3.slice();
-            int i6 = (i + 1) / 2;
             int i7 = (i2 + 1) / 2;
-            checkCapacity(slice, i, i2, i3);
-            checkCapacity(slice2, i6, i7, i4);
-            checkCapacity(slice3, i6, i7, i5);
-            return new RTCI420Buffer(i, i2, slice, i3, slice2, i4, slice3, i5, runnable);
+            int i8 = (i3 + 1) / 2;
+            checkCapacity(slice, i2, i3, i4);
+            checkCapacity(slice2, i7, i8, i5);
+            checkCapacity(slice3, i7, i8, i6);
+            return new RTCI420Buffer(i2, i3, slice, i4, slice2, i5, slice3, i6, runnable);
         }
         throw new IllegalArgumentException("Data buffers must be direct byte buffers.");
     }
 
     @Override // org.webrtc.VideoFrame.Buffer
-    public VideoFrame.Buffer cropAndScale(int i, int i2, int i3, int i4, int i5, int i6) {
+    public VideoFrame.Buffer cropAndScale(int i2, int i3, int i4, int i5, int i6, int i7) {
         try {
             if (mCropMethod != null) {
-                return (VideoFrame.Buffer) mCropMethod.invoke(mCropClass, this, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6));
+                return (VideoFrame.Buffer) mCropMethod.invoke(mCropClass, this, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7));
             }
             return null;
         } catch (IllegalAccessException e2) {

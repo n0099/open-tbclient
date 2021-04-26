@@ -4,12 +4,12 @@ import android.os.Build;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.imagepipeline.cache.CountingMemoryCache;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BitmapMemoryCacheTrimStrategy implements CountingMemoryCache.CacheTrimStrategy {
     public static final String TAG = "BitmapMemoryCacheTrimStrategy";
 
     /* renamed from: com.facebook.imagepipeline.cache.BitmapMemoryCacheTrimStrategy$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$memory$MemoryTrimType;
 
@@ -41,13 +41,13 @@ public class BitmapMemoryCacheTrimStrategy implements CountingMemoryCache.CacheT
 
     @Override // com.facebook.imagepipeline.cache.CountingMemoryCache.CacheTrimStrategy
     public double getTrimRatio(MemoryTrimType memoryTrimType) {
-        int i = AnonymousClass1.$SwitchMap$com$facebook$common$memory$MemoryTrimType[memoryTrimType.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass1.$SwitchMap$com$facebook$common$memory$MemoryTrimType[memoryTrimType.ordinal()];
+        if (i2 == 1) {
             if (Build.VERSION.SDK_INT >= 21) {
                 return MemoryTrimType.OnCloseToDalvikHeapLimit.getSuggestedTrimRatio();
             }
             return 0.0d;
-        } else if (i == 2 || i == 3 || i == 4 || i == 5) {
+        } else if (i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5) {
             return 1.0d;
         } else {
             FLog.wtf(TAG, "unknown trim type: %s", memoryTrimType);

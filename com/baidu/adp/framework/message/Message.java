@@ -14,8 +14,8 @@ public abstract class Message<T> extends OrmObject {
     public long encodedBinarySize = 0;
     public int squencedId = 0;
 
-    public Message(int i) {
-        this.mCmd = i;
+    public Message(int i2) {
+        this.mCmd = i2;
         check();
         this.clientLogID = BdStatisticsManager.getInstance().getClientLogId();
     }
@@ -26,7 +26,7 @@ public abstract class Message<T> extends OrmObject {
         }
     }
 
-    public abstract boolean checkCmd(int i);
+    public abstract boolean checkCmd(int i2);
 
     public abstract /* synthetic */ T encodeInBackGround();
 
@@ -70,8 +70,8 @@ public abstract class Message<T> extends OrmObject {
         this.mExtra = obj;
     }
 
-    public void setSquencedId(int i) {
-        this.squencedId = i;
+    public void setSquencedId(int i2) {
+        this.squencedId = i2;
     }
 
     public void setStartTime(long j) {
@@ -82,8 +82,8 @@ public abstract class Message<T> extends OrmObject {
         this.mTag = bdUniqueId;
     }
 
-    public Message(int i, BdUniqueId bdUniqueId) {
-        this.mCmd = i;
+    public Message(int i2, BdUniqueId bdUniqueId) {
+        this.mCmd = i2;
         this.mTag = bdUniqueId;
         check();
         this.clientLogID = BdStatisticsManager.getInstance().getClientLogId();

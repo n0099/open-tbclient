@@ -34,7 +34,7 @@ public final class PDF417ResultMetadata {
         this.optionalData = iArr;
     }
 
-    public void setSegmentIndex(int i) {
-        this.segmentIndex = i;
+    public void setSegmentIndex(int i2) {
+        this.segmentIndex = i2;
     }
 }

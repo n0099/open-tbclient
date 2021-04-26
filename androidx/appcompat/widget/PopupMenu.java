@@ -85,7 +85,7 @@ public class PopupMenu {
         return new SupportMenuInflater(this.mContext);
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ListView getMenuListView() {
         if (this.mPopup.isShowing()) {
             return this.mPopup.getListView();
@@ -93,12 +93,12 @@ public class PopupMenu {
         return null;
     }
 
-    public void inflate(@MenuRes int i) {
-        getMenuInflater().inflate(i, this.mMenu);
+    public void inflate(@MenuRes int i2) {
+        getMenuInflater().inflate(i2, this.mMenu);
     }
 
-    public void setGravity(int i) {
-        this.mPopup.setGravity(i);
+    public void setGravity(int i2) {
+        this.mPopup.setGravity(i2);
     }
 
     public void setOnDismissListener(@Nullable OnDismissListener onDismissListener) {
@@ -113,18 +113,18 @@ public class PopupMenu {
         this.mPopup.show();
     }
 
-    public PopupMenu(@NonNull Context context, @NonNull View view, int i) {
-        this(context, view, i, R.attr.popupMenuStyle, 0);
+    public PopupMenu(@NonNull Context context, @NonNull View view, int i2) {
+        this(context, view, i2, R.attr.popupMenuStyle, 0);
     }
 
-    public PopupMenu(@NonNull Context context, @NonNull View view, int i, @AttrRes int i2, @StyleRes int i3) {
+    public PopupMenu(@NonNull Context context, @NonNull View view, int i2, @AttrRes int i3, @StyleRes int i4) {
         this.mContext = context;
         this.mAnchor = view;
         MenuBuilder menuBuilder = new MenuBuilder(context);
         this.mMenu = menuBuilder;
         menuBuilder.setCallback(new MenuBuilder.Callback() { // from class: androidx.appcompat.widget.PopupMenu.1
             @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-            public boolean onMenuItemSelected(MenuBuilder menuBuilder2, MenuItem menuItem) {
+            public boolean onMenuItemSelected(@NonNull MenuBuilder menuBuilder2, @NonNull MenuItem menuItem) {
                 OnMenuItemClickListener onMenuItemClickListener = PopupMenu.this.mMenuItemClickListener;
                 if (onMenuItemClickListener != null) {
                     return onMenuItemClickListener.onMenuItemClick(menuItem);
@@ -133,12 +133,12 @@ public class PopupMenu {
             }
 
             @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-            public void onMenuModeChange(MenuBuilder menuBuilder2) {
+            public void onMenuModeChange(@NonNull MenuBuilder menuBuilder2) {
             }
         });
-        MenuPopupHelper menuPopupHelper = new MenuPopupHelper(context, this.mMenu, view, false, i2, i3);
+        MenuPopupHelper menuPopupHelper = new MenuPopupHelper(context, this.mMenu, view, false, i3, i4);
         this.mPopup = menuPopupHelper;
-        menuPopupHelper.setGravity(i);
+        menuPopupHelper.setGravity(i2);
         this.mPopup.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: androidx.appcompat.widget.PopupMenu.2
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {

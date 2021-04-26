@@ -18,57 +18,59 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.j0.i0.d.c;
+import d.a.c.e.p.l;
+import d.a.j0.i0.d.c;
 /* loaded from: classes4.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f15220e;
+    public LinearLayout f15357e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f15221f;
+    public TextView f15358f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f15222g;
+    public ImageView f15359g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f15223h;
-    public int i;
+    public c f15360h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f15361i;
 
     public ForumHeaderView(Context context) {
         super(context);
-        this.i = 0;
+        this.f15361i = 0;
         a();
     }
 
     public void a() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.layout_enterforum_search, (ViewGroup) this, true);
-        this.f15220e = (LinearLayout) findViewById(R.id.search_container);
-        this.f15221f = (TextView) findViewById(R.id.search_text);
-        this.f15222g = (ImageView) findViewById(R.id.search_icon);
+        this.f15357e = (LinearLayout) findViewById(R.id.search_container);
+        this.f15358f = (TextView) findViewById(R.id.search_text);
+        this.f15359g = (ImageView) findViewById(R.id.search_icon);
         setDescendantFocusability(262144);
-        this.f15220e.setOnClickListener(this);
+        this.f15357e.setOnClickListener(this);
     }
 
     public void b() {
-        c cVar = this.f15223h;
-        if (cVar != null && cVar.f57021a) {
-            if (cVar.f57023c > 0) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15222g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-                SkinManager.setViewTextColor(this.f15221f, R.color.white_alpha50);
-                SkinManager.setBackgroundResource(this.f15220e, R.drawable.enter_forum_search_ad_bg);
+        c cVar = this.f15360h;
+        if (cVar != null && cVar.f54944a) {
+            if (cVar.f54946c > 0) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15359g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                SkinManager.setViewTextColor(this.f15358f, R.color.white_alpha50);
+                SkinManager.setBackgroundResource(this.f15357e, R.drawable.enter_forum_search_ad_bg);
                 return;
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15222g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setViewTextColor(this.f15221f, R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.f15220e, R.drawable.enter_forum_search_bg);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15359g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+            SkinManager.setViewTextColor(this.f15358f, R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.f15357e, R.drawable.enter_forum_search_bg);
             return;
         }
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15222g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-        SkinManager.setViewTextColor(this.f15221f, R.color.CAM_X0109);
-        SkinManager.setBackgroundResource(this.f15220e, R.drawable.enter_forum_search_bg);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15359g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+        SkinManager.setViewTextColor(this.f15358f, R.color.CAM_X0109);
+        SkinManager.setBackgroundResource(this.f15357e, R.drawable.enter_forum_search_bg);
     }
 
     @Override // android.view.View.OnClickListener
@@ -76,7 +78,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
         if (!TbadkCoreApplication.isLogin()) {
             TiebaStatic.eventStat(getContext(), "notlogin_8", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
         }
-        if (this.i != 1) {
+        if (this.f15361i != 1) {
             TiebaStatic.log(new StatisticItem("c13367").param("obj_location", "1"));
         } else {
             TiebaStatic.log(new StatisticItem("c13648").param("uid", TbadkCoreApplication.getCurrentAccountId()));
@@ -85,32 +87,32 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         super.onMeasure(View.MeasureSpec.makeMeasureSpec(l.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(l.g(getContext(), R.dimen.tbds114), 1073741824));
     }
 
     public void setAdState(c cVar) {
-        this.f15223h = cVar;
+        this.f15360h = cVar;
         b();
     }
 
-    public void setFrom(int i) {
-        this.i = i;
+    public void setFrom(int i2) {
+        this.f15361i = i2;
     }
 
     public void setSearchHint(String str) {
-        this.f15221f.setText(str);
+        this.f15358f.setText(str);
     }
 
     public ForumHeaderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.i = 0;
+        this.f15361i = 0;
         a();
     }
 
-    public ForumHeaderView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.i = 0;
+    public ForumHeaderView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f15361i = 0;
         a();
     }
 }

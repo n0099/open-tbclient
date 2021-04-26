@@ -6,19 +6,19 @@ import java.util.List;
 public abstract class AccessibilityNodeProvider {
     public static final int HOST_VIEW_ID = -1;
 
-    public AccessibilityNodeInfo createAccessibilityNodeInfo(int i) {
+    public AccessibilityNodeInfo createAccessibilityNodeInfo(int i2) {
         return null;
     }
 
-    public List<AccessibilityNodeInfo> findAccessibilityNodeInfosByText(String str, int i) {
+    public List<AccessibilityNodeInfo> findAccessibilityNodeInfosByText(String str, int i2) {
         return null;
     }
 
-    public AccessibilityNodeInfo findFocus(int i) {
+    public AccessibilityNodeInfo findFocus(int i2) {
         return null;
     }
 
-    public boolean performAction(int i, int i2, Bundle bundle) {
+    public boolean performAction(int i2, int i3, Bundle bundle) {
         return false;
     }
 }

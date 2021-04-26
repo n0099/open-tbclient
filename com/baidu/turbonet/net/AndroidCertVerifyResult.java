@@ -12,26 +12,26 @@ import java.util.List;
 public class AndroidCertVerifyResult {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f22360a;
+    public final int f23052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f22361b;
+    public final boolean f23053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<X509Certificate> f22362c;
+    public final List<X509Certificate> f23054c;
 
-    public AndroidCertVerifyResult(int i, boolean z, List<X509Certificate> list) {
-        this.f22360a = i;
-        this.f22361b = z;
-        this.f22362c = new ArrayList(list);
+    public AndroidCertVerifyResult(int i2, boolean z, List<X509Certificate> list) {
+        this.f23052a = i2;
+        this.f23053b = z;
+        this.f23054c = new ArrayList(list);
     }
 
     @CalledByNative
     public byte[][] getCertificateChainEncoded() {
-        byte[][] bArr = new byte[this.f22362c.size()];
-        for (int i = 0; i < this.f22362c.size(); i++) {
+        byte[][] bArr = new byte[this.f23054c.size()];
+        for (int i2 = 0; i2 < this.f23054c.size(); i2++) {
             try {
-                bArr[i] = this.f22362c.get(i).getEncoded();
+                bArr[i2] = this.f23054c.get(i2).getEncoded();
             } catch (CertificateEncodingException unused) {
                 return new byte[0];
             }
@@ -41,17 +41,17 @@ public class AndroidCertVerifyResult {
 
     @CalledByNative
     public int getStatus() {
-        return this.f22360a;
+        return this.f23052a;
     }
 
     @CalledByNative
     public boolean isIssuedByKnownRoot() {
-        return this.f22361b;
+        return this.f23053b;
     }
 
-    public AndroidCertVerifyResult(int i) {
-        this.f22360a = i;
-        this.f22361b = false;
-        this.f22362c = Collections.emptyList();
+    public AndroidCertVerifyResult(int i2) {
+        this.f23052a = i2;
+        this.f23053b = false;
+        this.f23054c = Collections.emptyList();
     }
 }

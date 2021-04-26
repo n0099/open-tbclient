@@ -16,24 +16,24 @@ import javax.crypto.spec.SecretKeySpec;
 public class a implements b {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int[] f23376g = {1, 10, 100, 1000, 10000, 100000, 1000000, ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, 100000000};
+    public static final int[] f24098g = {1, 10, 100, 1000, 10000, 100000, 1000000, ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, 100000000};
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23377c;
+    public String f24099c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f23378d;
+    public long f24100d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23379e;
+    public int f24101e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f23380f;
+    public long f24102f;
 
-    public a(String str, long j, int i) {
-        this.f23377c = str;
-        this.f23378d = j;
-        this.f23379e = i;
+    public a(String str, long j, int i2) {
+        this.f24099c = str;
+        this.f24100d = j;
+        this.f24101e = i2;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.b
@@ -43,12 +43,12 @@ public class a implements b {
 
     @Override // com.baidu.wallet.base.nopassauth.b
     public void a(long j) {
-        this.f23380f = j;
+        this.f24102f = j;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.b
     public long b() {
-        return this.f23380f;
+        return this.f24102f;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.b
@@ -57,36 +57,36 @@ public class a implements b {
     }
 
     public String d() {
-        return this.f23377c;
+        return this.f24099c;
     }
 
     public long e() {
-        return this.f23378d;
+        return this.f24100d;
     }
 
     public int f() {
-        return this.f23379e;
+        return this.f24101e;
     }
 
     public void a(String str) {
-        this.f23377c = str;
+        this.f24099c = str;
     }
 
     public void b(long j) {
-        this.f23378d = j;
-        Log.d("aaa", "+++++++++HotpToken movingFactor is " + this.f23378d);
+        this.f24100d = j;
+        Log.d("aaa", "+++++++++HotpToken movingFactor is " + this.f24100d);
     }
 
-    public void a(int i) {
-        this.f23379e = i;
+    public void a(int i2) {
+        this.f24101e = i2;
     }
 
     public static byte[] b(String str) {
         int length = str.length() / 2;
         byte[] bArr = new byte[length];
-        for (int i = 0; i < length; i++) {
-            int i2 = i * 2;
-            bArr[i] = (byte) Integer.parseInt(str.substring(i2, i2 + 2), 16);
+        for (int i2 = 0; i2 < length; i2++) {
+            int i3 = i2 * 2;
+            bArr[i2] = (byte) Integer.parseInt(str.substring(i3, i3 + 2), 16);
         }
         return bArr;
     }
@@ -94,24 +94,24 @@ public class a implements b {
     @Override // com.baidu.wallet.base.nopassauth.b
     public String a(Context context) {
         byte[] bArr = new byte[8];
-        long j = this.f23378d;
-        for (int i = 7; i >= 0; i--) {
-            bArr[i] = (byte) (255 & j);
+        long j = this.f24100d;
+        for (int i2 = 7; i2 >= 0; i2--) {
+            bArr[i2] = (byte) (255 & j);
             j >>= 8;
         }
         SafePay safePay = SafePay.getInstance();
-        byte[] b2 = b(this.f23377c);
-        int[] iArr = f23376g;
-        int i2 = this.f23379e;
-        return safePay.getDyKey(b2, bArr, iArr[i2], i2);
+        byte[] b2 = b(this.f24099c);
+        int[] iArr = f24098g;
+        int i3 = this.f24101e;
+        return safePay.getDyKey(b2, bArr, iArr[i3], i3);
     }
 
-    public static String b(int i) {
+    public static String b(int i2) {
         MessageDigest messageDigest;
         long timeInMillis = Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis();
         byte[] bytes = ("" + timeInMillis).getBytes();
         try {
-            if (i == 128) {
+            if (i2 == 128) {
                 messageDigest = MessageDigest.getInstance("MD5");
             } else {
                 messageDigest = MessageDigest.getInstance("SHA1");

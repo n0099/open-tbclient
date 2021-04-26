@@ -11,8 +11,8 @@ public class PluginCenterActivityConfig extends IntentConfig {
         this(context, 0);
     }
 
-    public PluginCenterActivityConfig(Context context, int i) {
+    public PluginCenterActivityConfig(Context context, int i2) {
         super(context);
-        getIntent().putExtra("key_from_type", i);
+        getIntent().putExtra("key_from_type", i2);
     }
 }

@@ -99,11 +99,11 @@ public class BDPlayerConfig {
     }
 
     @PublicMethod
-    public static void initCyber(boolean z, int i, Map<String, String> map, CyberPlayerManager.InstallListener installListener) {
-        if (CyberPlayerManager.isCoreLoaded(i)) {
+    public static void initCyber(boolean z, int i2, Map<String, String> map, CyberPlayerManager.InstallListener installListener) {
+        if (CyberPlayerManager.isCoreLoaded(i2)) {
             return;
         }
         Context appContext = getAppContext();
-        CyberPlayerManager.install(appContext, DeviceId.getCUID(appContext), null, i, z ? BDRemotePlayerService.class : null, map, installListener);
+        CyberPlayerManager.install(appContext, DeviceId.getCUID(appContext), null, i2, z ? BDRemotePlayerService.class : null, map, installListener);
     }
 }

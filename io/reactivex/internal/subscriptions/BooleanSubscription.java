@@ -1,13 +1,13 @@
 package io.reactivex.internal.subscriptions;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import g.d.d;
 import java.util.concurrent.atomic.AtomicBoolean;
+import org.reactivestreams.Subscription;
 /* loaded from: classes7.dex */
-public final class BooleanSubscription extends AtomicBoolean implements d {
+public final class BooleanSubscription extends AtomicBoolean implements Subscription {
     public static final long serialVersionUID = -8127758972444290902L;
 
-    @Override // g.d.d
+    @Override // org.reactivestreams.Subscription
     public void cancel() {
         lazySet(true);
     }
@@ -16,7 +16,7 @@ public final class BooleanSubscription extends AtomicBoolean implements d {
         return get();
     }
 
-    @Override // g.d.d
+    @Override // org.reactivestreams.Subscription
     public void request(long j) {
         SubscriptionHelper.validate(j);
     }

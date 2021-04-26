@@ -37,7 +37,7 @@ public interface IXAdResponseInfo {
 
     void setAdInstanceList(ArrayList<IXAdInstanceInfo> arrayList);
 
-    void setAdsNum(int i);
+    void setAdsNum(int i2);
 
     void setBaiduidOfCookie(String str);
 
@@ -51,9 +51,9 @@ public interface IXAdResponseInfo {
 
     void setExtentionActionExp(String str);
 
-    void setIntIcon(int i);
+    void setIntIcon(int i2);
 
-    void setLunpan(int i);
+    void setLunpan(int i2);
 
     void setOpenPointModeForWall(Boolean bool);
 

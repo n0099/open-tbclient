@@ -1,0 +1,17 @@
+package d.r.b.a.a.g.c;
+/* loaded from: classes7.dex */
+public class a {
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f67041a;
+
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (this == obj) {
+            return true;
+        }
+        return a.class == obj.getClass() && this.f67041a == ((a) obj).f67041a;
+    }
+}

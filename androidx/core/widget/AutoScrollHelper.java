@@ -120,12 +120,12 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
             this.mStopTime = currentAnimationTimeMillis;
         }
 
-        public void setRampDownDuration(int i) {
-            this.mRampDownDuration = i;
+        public void setRampDownDuration(int i2) {
+            this.mRampDownDuration = i2;
         }
 
-        public void setRampUpDuration(int i) {
-            this.mRampUpDuration = i;
+        public void setRampUpDuration(int i2) {
+            this.mRampUpDuration = i2;
         }
 
         public void setTargetVelocity(float f2, float f3) {
@@ -190,17 +190,17 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         setRampDownDuration(500);
     }
 
-    private float computeTargetVelocity(int i, float f2, float f3, float f4) {
-        float edgeValue = getEdgeValue(this.mRelativeEdges[i], f3, this.mMaximumEdges[i], f2);
-        int i2 = (edgeValue > 0.0f ? 1 : (edgeValue == 0.0f ? 0 : -1));
-        if (i2 == 0) {
+    private float computeTargetVelocity(int i2, float f2, float f3, float f4) {
+        float edgeValue = getEdgeValue(this.mRelativeEdges[i2], f3, this.mMaximumEdges[i2], f2);
+        int i3 = (edgeValue > 0.0f ? 1 : (edgeValue == 0.0f ? 0 : -1));
+        if (i3 == 0) {
             return 0.0f;
         }
-        float f5 = this.mRelativeVelocity[i];
-        float f6 = this.mMinimumVelocity[i];
-        float f7 = this.mMaximumVelocity[i];
+        float f5 = this.mRelativeVelocity[i2];
+        float f6 = this.mMinimumVelocity[i2];
+        float f7 = this.mMaximumVelocity[i2];
         float f8 = f5 * f4;
-        if (i2 > 0) {
+        if (i3 > 0) {
             return constrain(edgeValue * f8, f6, f7);
         }
         return -constrain((-edgeValue) * f8, f6, f7);
@@ -210,16 +210,16 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return f2 > f4 ? f4 : f2 < f3 ? f3 : f2;
     }
 
-    public static int constrain(int i, int i2, int i3) {
-        return i > i3 ? i3 : i < i2 ? i2 : i;
+    public static int constrain(int i2, int i3, int i4) {
+        return i2 > i4 ? i4 : i2 < i3 ? i3 : i2;
     }
 
     private float constrainEdgeValue(float f2, float f3) {
         if (f3 == 0.0f) {
             return 0.0f;
         }
-        int i = this.mEdgeType;
-        if (i == 0 || i == 1) {
+        int i2 = this.mEdgeType;
+        if (i2 == 0 || i2 == 1) {
             if (f2 < f3) {
                 if (f2 >= 0.0f) {
                     return 1.0f - (f2 / f3);
@@ -228,7 +228,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
                     return 1.0f;
                 }
             }
-        } else if (i == 2 && f2 < 0.0f) {
+        } else if (i2 == 2 && f2 < 0.0f) {
             return f2 / (-f3);
         }
         return 0.0f;
@@ -257,23 +257,23 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
     }
 
     private void startAnimating() {
-        int i;
+        int i2;
         if (this.mRunnable == null) {
             this.mRunnable = new ScrollAnimationRunnable();
         }
         this.mAnimating = true;
         this.mNeedsReset = true;
-        if (!this.mAlreadyDelayed && (i = this.mActivationDelay) > 0) {
-            ViewCompat.postOnAnimationDelayed(this.mTarget, this.mRunnable, i);
+        if (!this.mAlreadyDelayed && (i2 = this.mActivationDelay) > 0) {
+            ViewCompat.postOnAnimationDelayed(this.mTarget, this.mRunnable, i2);
         } else {
             this.mRunnable.run();
         }
         this.mAlreadyDelayed = true;
     }
 
-    public abstract boolean canTargetScrollHorizontally(int i);
+    public abstract boolean canTargetScrollHorizontally(int i2);
 
-    public abstract boolean canTargetScrollVertically(int i);
+    public abstract boolean canTargetScrollVertically(int i2);
 
     public void cancelTargetTouch() {
         long uptimeMillis = SystemClock.uptimeMillis();
@@ -321,17 +321,17 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         }
     }
 
-    public abstract void scrollTargetBy(int i, int i2);
+    public abstract void scrollTargetBy(int i2, int i3);
 
     @NonNull
-    public AutoScrollHelper setActivationDelay(int i) {
-        this.mActivationDelay = i;
+    public AutoScrollHelper setActivationDelay(int i2) {
+        this.mActivationDelay = i2;
         return this;
     }
 
     @NonNull
-    public AutoScrollHelper setEdgeType(int i) {
-        this.mEdgeType = i;
+    public AutoScrollHelper setEdgeType(int i2) {
+        this.mEdgeType = i2;
         return this;
     }
 
@@ -373,14 +373,14 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
     }
 
     @NonNull
-    public AutoScrollHelper setRampDownDuration(int i) {
-        this.mScroller.setRampDownDuration(i);
+    public AutoScrollHelper setRampDownDuration(int i2) {
+        this.mScroller.setRampDownDuration(i2);
         return this;
     }
 
     @NonNull
-    public AutoScrollHelper setRampUpDuration(int i) {
-        this.mScroller.setRampUpDuration(i);
+    public AutoScrollHelper setRampUpDuration(int i2) {
+        this.mScroller.setRampUpDuration(i2);
         return this;
     }
 

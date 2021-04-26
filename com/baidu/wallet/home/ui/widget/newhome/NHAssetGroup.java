@@ -23,7 +23,7 @@ import java.util.List;
 public class NHAssetGroup extends BaseItemLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f24403a;
+    public List<BaseItemView> f25158a;
     public ImageView mEye;
     public NetImageView mGroupCorner;
     public MaskTextView mGroupDesc;
@@ -36,12 +36,12 @@ public class NHAssetGroup extends BaseItemLayout {
 
     public NHAssetGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24403a = new ArrayList();
+        this.f25158a = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f24403a;
+        return this.f25158a;
     }
 
     public void initItems() {
@@ -62,7 +62,7 @@ public class NHAssetGroup extends BaseItemLayout {
                     LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-1, -1);
                     layoutParams4.setMargins(dip2px, 0, dip2px2, 0);
                     this.mItemPanel.addView(nHAssetItem, layoutParams4);
-                    this.f24403a.add(nHAssetItem);
+                    this.f25158a.add(nHAssetItem);
                     return;
                 }
                 this.mItemPanel.setVisibility(0);
@@ -73,10 +73,10 @@ public class NHAssetGroup extends BaseItemLayout {
                 int displayWidth = DisplayUtils.getDisplayWidth(getContext());
                 int a2 = a(nHAssetItem2);
                 int a3 = a(nHAssetItem3);
-                int i = ((displayWidth - dip2px) - dip2px3) - dip2px2;
-                int i2 = i / 2;
-                boolean z = a2 > i2;
-                boolean z2 = a3 > i2;
+                int i2 = ((displayWidth - dip2px) - dip2px3) - dip2px2;
+                int i3 = i2 / 2;
+                boolean z = a2 > i3;
+                boolean z2 = a3 > i3;
                 LinearLayout.LayoutParams layoutParams5 = null;
                 if (z == z2) {
                     layoutParams5 = new LinearLayout.LayoutParams(0, -1);
@@ -84,7 +84,7 @@ public class NHAssetGroup extends BaseItemLayout {
                     layoutParams = new LinearLayout.LayoutParams(0, -1);
                     layoutParams.weight = 1.0f;
                 } else if (z) {
-                    if ((i - a2) - a3 <= 0) {
+                    if ((i2 - a2) - a3 <= 0) {
                         layoutParams2 = new LinearLayout.LayoutParams(0, -1);
                         layoutParams2.weight = 1.0f;
                         layoutParams3 = new LinearLayout.LayoutParams(-2, -1);
@@ -97,7 +97,7 @@ public class NHAssetGroup extends BaseItemLayout {
                     layoutParams = layoutParams3;
                 } else if (!z2) {
                     layoutParams = null;
-                } else if ((i - a2) - a3 <= 0) {
+                } else if ((i2 - a2) - a3 <= 0) {
                     layoutParams5 = new LinearLayout.LayoutParams(-2, -1);
                     layoutParams = new LinearLayout.LayoutParams(0, -1);
                     layoutParams.weight = 1.0f;
@@ -110,8 +110,8 @@ public class NHAssetGroup extends BaseItemLayout {
                 layoutParams.setMargins(dip2px3, 0, dip2px2, 0);
                 this.mItemPanel.addView(nHAssetItem2, layoutParams5);
                 this.mItemPanel.addView(nHAssetItem3, layoutParams);
-                this.f24403a.add(nHAssetItem2);
-                this.f24403a.add(nHAssetItem3);
+                this.f25158a.add(nHAssetItem2);
+                this.f25158a.add(nHAssetItem3);
                 return;
             }
         }
@@ -222,6 +222,6 @@ public class NHAssetGroup extends BaseItemLayout {
 
     public NHAssetGroup(Context context) {
         super(context);
-        this.f24403a = new ArrayList();
+        this.f25158a = new ArrayList();
     }
 }

@@ -3,16 +3,16 @@ package com.baidu.tieba.share;
 import android.content.Context;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ImplicitShareMessage extends CustomMessage<ShareItem> {
     public boolean isShowLocation;
     public int mChannel;
     public Context mContext;
 
-    public ImplicitShareMessage(Context context, int i, ShareItem shareItem, boolean z) {
+    public ImplicitShareMessage(Context context, int i2, ShareItem shareItem, boolean z) {
         super(2016567, shareItem);
         this.mContext = context;
-        this.mChannel = i;
+        this.mChannel = i2;
         this.isShowLocation = z;
     }
 

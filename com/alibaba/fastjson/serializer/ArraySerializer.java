@@ -14,7 +14,7 @@ public class ArraySerializer implements ObjectSerializer {
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public final void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public final void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (obj == null) {
             serializeWriter.writeNull(SerializerFeature.WriteNullListAsEmpty);
@@ -26,11 +26,11 @@ public class ArraySerializer implements ObjectSerializer {
         jSONSerializer.setContext(serialContext, obj, obj2, 0);
         try {
             serializeWriter.append('[');
-            for (int i2 = 0; i2 < length; i2++) {
-                if (i2 != 0) {
+            for (int i3 = 0; i3 < length; i3++) {
+                if (i3 != 0) {
                     serializeWriter.append(',');
                 }
-                Object obj3 = objArr[i2];
+                Object obj3 = objArr[i3];
                 if (obj3 == null) {
                     if (serializeWriter.isEnabled(SerializerFeature.WriteNullStringAsEmpty) && (obj instanceof String[])) {
                         serializeWriter.writeString("");
@@ -38,9 +38,9 @@ public class ArraySerializer implements ObjectSerializer {
                         serializeWriter.append((CharSequence) StringUtil.NULL_STRING);
                     }
                 } else if (obj3.getClass() == this.componentType) {
-                    this.compObjectSerializer.write(jSONSerializer, obj3, Integer.valueOf(i2), null, 0);
+                    this.compObjectSerializer.write(jSONSerializer, obj3, Integer.valueOf(i3), null, 0);
                 } else {
-                    jSONSerializer.getObjectWriter(obj3.getClass()).write(jSONSerializer, obj3, Integer.valueOf(i2), null, 0);
+                    jSONSerializer.getObjectWriter(obj3.getClass()).write(jSONSerializer, obj3, Integer.valueOf(i3), null, 0);
                 }
             }
             serializeWriter.append(']');

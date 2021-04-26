@@ -76,8 +76,8 @@ public class ActionJsonData {
         if (optJSONArray != null) {
             arrayList = new ArrayList();
             int length = optJSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                 if (optJSONObject2 != null) {
                     arrayList.add(optJSONObject2);
                 }
@@ -118,16 +118,16 @@ public class ActionJsonData {
         this.mLink = link;
     }
 
-    public void setSignIn(int i) {
-        this.mSignInStatus = i;
+    public void setSignIn(int i2) {
+        this.mSignInStatus = i2;
     }
 
-    public void setStatus(int i) {
-        this.mStatus = i;
+    public void setStatus(int i2) {
+        this.mStatus = i2;
     }
 
-    public void setVersion(int i) {
-        this.mVersion = i;
+    public void setVersion(int i2) {
+        this.mVersion = i2;
     }
 
     public static ActionJsonData fromJson(String str) {

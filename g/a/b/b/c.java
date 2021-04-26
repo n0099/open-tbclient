@@ -6,37 +6,37 @@ import g.a.a.a;
 public class c implements g.a.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f68701a;
+    public Object f67557a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f68702b;
+    public Object f67558b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object[] f68703c;
+    public Object[] f67559c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.InterfaceC1898a f68704d;
+    public a.InterfaceC1845a f67560d;
 
     /* loaded from: classes7.dex */
-    public static class a implements a.InterfaceC1898a {
+    public static class a implements a.InterfaceC1845a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f68705a;
+        public String f67561a;
 
         /* renamed from: b  reason: collision with root package name */
-        public g.a.a.b f68706b;
+        public g.a.a.b f67562b;
 
-        public a(int i, String str, g.a.a.b bVar, g.a.a.c.b bVar2) {
-            this.f68705a = str;
-            this.f68706b = bVar;
+        public a(int i2, String str, g.a.a.b bVar, g.a.a.c.b bVar2) {
+            this.f67561a = str;
+            this.f67562b = bVar;
         }
 
         public String a() {
-            return this.f68705a;
+            return this.f67561a;
         }
 
         public g.a.a.b b() {
-            return this.f68706b;
+            return this.f67562b;
         }
 
         public String c(h hVar) {
@@ -49,23 +49,23 @@ public class c implements g.a.a.a {
         }
 
         public final String toString() {
-            return c(h.f68719h);
+            return c(h.f67575h);
         }
     }
 
-    public c(a.InterfaceC1898a interfaceC1898a, Object obj, Object obj2, Object[] objArr) {
-        this.f68704d = interfaceC1898a;
-        this.f68701a = obj;
-        this.f68702b = obj2;
-        this.f68703c = objArr;
+    public c(a.InterfaceC1845a interfaceC1845a, Object obj, Object obj2, Object[] objArr) {
+        this.f67560d = interfaceC1845a;
+        this.f67557a = obj;
+        this.f67558b = obj2;
+        this.f67559c = objArr;
     }
 
     @Override // g.a.a.a
     public Object getTarget() {
-        return this.f68702b;
+        return this.f67558b;
     }
 
     public final String toString() {
-        return this.f68704d.toString();
+        return this.f67560d.toString();
     }
 }

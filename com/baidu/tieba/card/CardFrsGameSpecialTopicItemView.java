@@ -16,22 +16,24 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.c.a.j;
+import d.a.c.a.j;
 /* loaded from: classes4.dex */
 public class CardFrsGameSpecialTopicItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f14919e;
+    public RelativeLayout f15026e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f14920f;
+    public TbImageView f15027f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f14921g;
+    public TextView f15028g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f14922h;
-    public TextView i;
+    public TextView f15029h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f15030i;
     public View j;
     public View k;
     public String l;
@@ -59,18 +61,18 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
 
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_special_topic_view_item, (ViewGroup) this, true);
-        this.f14919e = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
-        this.f14920f = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
-        this.f14921g = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
-        this.f14922h = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
-        this.i = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
+        this.f15026e = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
+        this.f15027f = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
+        this.f15028g = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
+        this.f15029h = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
+        this.f15030i = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
         this.j = findViewById(R.id.divider_line_1);
         this.k = findViewById(R.id.divider_line_2);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f14919e.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f15026e.getLayoutParams();
         layoutParams.width = (dimensionPixelSize * 21) / 9;
         layoutParams.height = dimensionPixelSize;
-        this.f14919e.setLayoutParams(layoutParams);
+        this.f15026e.setLayoutParams(layoutParams);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -78,32 +80,32 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
         setOnClickListener(new a());
     }
 
-    public void c(int i) {
-        if (i == this.m) {
+    public void c(int i2) {
+        if (i2 == this.m) {
             return;
         }
-        this.m = i;
+        this.m = i2;
         SkinManager.setBackgroundResource(this.j, R.color.CAM_X0205);
         SkinManager.setBackgroundResource(this.k, R.color.CAM_X0205);
-        SkinManager.setViewTextColor(this.f14921g, R.color.CAM_X0101, 1);
-        SkinManager.setViewTextColor(this.f14922h, R.color.CAM_X0101, 1);
-        SkinManager.setViewTextColor(this.i, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f15028g, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f15029h, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f15030i, R.color.CAM_X0101, 1);
     }
 
     public TextView getSpecialTopicDscView() {
-        return this.f14922h;
+        return this.f15029h;
     }
 
     public TextView getSpecialTopicNameView() {
-        return this.f14921g;
+        return this.f15028g;
     }
 
     public TbImageView getSpecialTopicPicView() {
-        return this.f14920f;
+        return this.f15027f;
     }
 
     public TextView getSpecialTopicUpdateTimeView() {
-        return this.i;
+        return this.f15030i;
     }
 
     public void setForumId(String str) {
@@ -116,8 +118,8 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
         b(context);
     }
 
-    public CardFrsGameSpecialTopicItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public CardFrsGameSpecialTopicItemView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.m = 3;
         b(context);
     }

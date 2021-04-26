@@ -2,7 +2,7 @@ package com.baidu.tieba.userblock.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.PermissionList;
 import tbclient.SetUserBlack.DataReq;
 import tbclient.SetUserBlack.SetUserBlackReqIdl;
@@ -42,15 +42,15 @@ public class UserBlockSetRequestMessage extends NetMessage {
         this.mBlockUserId = j;
     }
 
-    public void setChat(int i) {
-        this.chat = i;
+    public void setChat(int i2) {
+        this.chat = i2;
     }
 
-    public void setFollow(int i) {
-        this.follow = i;
+    public void setFollow(int i2) {
+        this.follow = i2;
     }
 
-    public void setInteract(int i) {
-        this.interact = i;
+    public void setInteract(int i2) {
+        this.interact = i2;
     }
 }

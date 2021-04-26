@@ -39,18 +39,18 @@ public class KeyEventChannel {
             this(keyEvent.getDeviceId(), keyEvent.getFlags(), keyEvent.getUnicodeChar(0), keyEvent.getUnicodeChar(), keyEvent.getKeyCode(), ch, keyEvent.getScanCode(), keyEvent.getMetaState(), keyEvent.getSource(), keyEvent.getRepeatCount());
         }
 
-        public FlutterKeyEvent(int i, int i2, int i3, int i4, int i5, @Nullable Character ch, int i6, int i7, int i8, int i9) {
-            this.deviceId = i;
-            this.flags = i2;
-            this.plainCodePoint = i3;
-            this.codePoint = i4;
-            this.keyCode = i5;
+        public FlutterKeyEvent(int i2, int i3, int i4, int i5, int i6, @Nullable Character ch, int i7, int i8, int i9, int i10) {
+            this.deviceId = i2;
+            this.flags = i3;
+            this.plainCodePoint = i4;
+            this.codePoint = i5;
+            this.keyCode = i6;
             this.complexCharacter = ch;
-            this.scanCode = i6;
-            this.metaState = i7;
-            this.source = i8;
-            this.repeatCount = i9;
-            InputDevice device = InputDevice.getDevice(i);
+            this.scanCode = i7;
+            this.metaState = i8;
+            this.source = i9;
+            this.repeatCount = i10;
+            InputDevice device = InputDevice.getDevice(i2);
             if (device != null) {
                 if (Build.VERSION.SDK_INT >= 19) {
                     this.vendorId = device.getVendorId();

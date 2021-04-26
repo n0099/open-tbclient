@@ -68,8 +68,8 @@ public class FetchState {
         this.mLastIntermediateResultTimeMs = j;
     }
 
-    public void setOnNewResultStatusFlags(int i) {
-        this.mOnNewResultStatusFlags = i;
+    public void setOnNewResultStatusFlags(int i2) {
+        this.mOnNewResultStatusFlags = i2;
     }
 
     public void setResponseBytesRange(BytesRange bytesRange) {

@@ -162,12 +162,12 @@ public class PlatformViewsChannel {
         @NonNull
         public final String viewType;
 
-        public PlatformViewCreationRequest(int i, @NonNull String str, double d2, double d3, int i2, @Nullable ByteBuffer byteBuffer) {
-            this.viewId = i;
+        public PlatformViewCreationRequest(int i2, @NonNull String str, double d2, double d3, int i3, @Nullable ByteBuffer byteBuffer) {
+            this.viewId = i2;
             this.viewType = str;
             this.logicalWidth = d2;
             this.logicalHeight = d3;
-            this.direction = i2;
+            this.direction = i3;
             this.params = byteBuffer;
         }
     }
@@ -178,8 +178,8 @@ public class PlatformViewsChannel {
         public final double newLogicalWidth;
         public final int viewId;
 
-        public PlatformViewResizeRequest(int i, double d2, double d3) {
-            this.viewId = i;
+        public PlatformViewResizeRequest(int i2, double d2, double d3) {
+            this.viewId = i2;
             this.newLogicalWidth = d2;
             this.newLogicalHeight = d3;
         }
@@ -207,38 +207,38 @@ public class PlatformViewsChannel {
         public final float xPrecision;
         public final float yPrecision;
 
-        public PlatformViewTouch(int i, @NonNull Number number, @NonNull Number number2, int i2, int i3, @NonNull Object obj, @NonNull Object obj2, int i4, int i5, float f2, float f3, int i6, int i7, int i8, int i9) {
-            this.viewId = i;
+        public PlatformViewTouch(int i2, @NonNull Number number, @NonNull Number number2, int i3, int i4, @NonNull Object obj, @NonNull Object obj2, int i5, int i6, float f2, float f3, int i7, int i8, int i9, int i10) {
+            this.viewId = i2;
             this.downTime = number;
             this.eventTime = number2;
-            this.action = i2;
-            this.pointerCount = i3;
+            this.action = i3;
+            this.pointerCount = i4;
             this.rawPointerPropertiesList = obj;
             this.rawPointerCoords = obj2;
-            this.metaState = i4;
-            this.buttonState = i5;
+            this.metaState = i5;
+            this.buttonState = i6;
             this.xPrecision = f2;
             this.yPrecision = f3;
-            this.deviceId = i6;
-            this.edgeFlags = i7;
-            this.source = i8;
-            this.flags = i9;
+            this.deviceId = i7;
+            this.edgeFlags = i8;
+            this.source = i9;
+            this.flags = i10;
         }
     }
 
     /* loaded from: classes7.dex */
     public interface PlatformViewsHandler {
-        void clearFocus(int i);
+        void clearFocus(int i2);
 
         long createPlatformView(@NonNull PlatformViewCreationRequest platformViewCreationRequest);
 
-        void disposePlatformView(int i);
+        void disposePlatformView(int i2);
 
         void onTouch(@NonNull PlatformViewTouch platformViewTouch);
 
         void resizePlatformView(@NonNull PlatformViewResizeRequest platformViewResizeRequest, @NonNull Runnable runnable);
 
-        void setDirection(int i, int i2);
+        void setDirection(int i2, int i3);
     }
 
     public PlatformViewsChannel(@NonNull DartExecutor dartExecutor) {
@@ -253,12 +253,12 @@ public class PlatformViewsChannel {
         return stringWriter.toString();
     }
 
-    public void invokeViewFocused(int i) {
+    public void invokeViewFocused(int i2) {
         MethodChannel methodChannel = this.channel;
         if (methodChannel == null) {
             return;
         }
-        methodChannel.invokeMethod("viewFocused", Integer.valueOf(i));
+        methodChannel.invokeMethod("viewFocused", Integer.valueOf(i2));
     }
 
     public void setPlatformViewsHandler(@Nullable PlatformViewsHandler platformViewsHandler) {

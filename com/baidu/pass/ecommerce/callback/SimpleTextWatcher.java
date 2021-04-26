@@ -9,10 +9,10 @@ public class SimpleTextWatcher implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
     }
 
     @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
     }
 }

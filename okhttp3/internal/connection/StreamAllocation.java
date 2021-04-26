@@ -91,7 +91,7 @@ public final class StreamAllocation {
         return null;
     }
 
-    private RealConnection findConnection(int i, int i2, int i3, int i4, boolean z) throws IOException {
+    private RealConnection findConnection(int i2, int i3, int i4, int i5, boolean z) throws IOException {
         Socket releaseIfNoNewStreams;
         Socket socket;
         RealConnection realConnection;
@@ -163,12 +163,12 @@ public final class StreamAllocation {
             if (z3) {
                 List<Route> all = this.routeSelection.getAll();
                 int size = all.size();
-                int i5 = 0;
+                int i6 = 0;
                 while (true) {
-                    if (i5 >= size) {
+                    if (i6 >= size) {
                         break;
                     }
-                    Route route2 = all.get(i5);
+                    Route route2 = all.get(i6);
                     Internal.instance.get(this.connectionPool, this.address, this, route2);
                     if (this.connection != null) {
                         realConnection2 = this.connection;
@@ -176,7 +176,7 @@ public final class StreamAllocation {
                         z2 = true;
                         break;
                     }
-                    i5++;
+                    i6++;
                 }
             }
             if (!z2) {
@@ -193,7 +193,7 @@ public final class StreamAllocation {
             this.eventListener.connectionAcquired(this.call, realConnection2);
             return realConnection2;
         }
-        realConnection2.connect(i, i2, i3, i4, z, this.call, this.eventListener);
+        realConnection2.connect(i2, i3, i4, i5, z, this.call, this.eventListener);
         routeDatabase().connected(realConnection2.route());
         synchronized (this.connectionPool) {
             this.reportedAcquired = true;
@@ -208,9 +208,9 @@ public final class StreamAllocation {
         return realConnection2;
     }
 
-    private RealConnection findHealthyConnection(int i, int i2, int i3, int i4, boolean z, boolean z2) throws IOException {
+    private RealConnection findHealthyConnection(int i2, int i3, int i4, int i5, boolean z, boolean z2) throws IOException {
         while (true) {
-            RealConnection findConnection = findConnection(i, i2, i3, i4, z);
+            RealConnection findConnection = findConnection(i2, i3, i4, i5, z);
             synchronized (this.connectionPool) {
                 if (findConnection.successCount == 0) {
                     return findConnection;
@@ -345,9 +345,9 @@ public final class StreamAllocation {
             if (iOException instanceof StreamResetException) {
                 ErrorCode errorCode = ((StreamResetException) iOException).errorCode;
                 if (errorCode == ErrorCode.REFUSED_STREAM) {
-                    int i = this.refusedStreamCount + 1;
-                    this.refusedStreamCount = i;
-                    if (i > 1) {
+                    int i2 = this.refusedStreamCount + 1;
+                    this.refusedStreamCount = i2;
+                    if (i2 > 1) {
                         this.route = null;
                         z = true;
                     }
@@ -422,9 +422,9 @@ public final class StreamAllocation {
 
     private void release(RealConnection realConnection) {
         int size = realConnection.allocations.size();
-        for (int i = 0; i < size; i++) {
-            if (realConnection.allocations.get(i).get() == this) {
-                realConnection.allocations.remove(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            if (realConnection.allocations.get(i2).get() == this) {
+                realConnection.allocations.remove(i2);
                 return;
             }
         }

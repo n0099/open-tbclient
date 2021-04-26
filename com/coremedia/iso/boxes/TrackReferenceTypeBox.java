@@ -7,12 +7,12 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import g.a.a.a;
 import g.a.b.b.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TrackReferenceTypeBox extends AbstractBox {
     public static final String TYPE1 = "hint";
     public static final String TYPE2 = "cdsc";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
     public long[] trackIds;
 
     static {
@@ -33,8 +33,8 @@ public class TrackReferenceTypeBox extends AbstractBox {
     public void _parseDetails(ByteBuffer byteBuffer) {
         int remaining = byteBuffer.remaining() / 4;
         this.trackIds = new long[remaining];
-        for (int i = 0; i < remaining; i++) {
-            this.trackIds[i] = IsoTypeReader.readUInt32(byteBuffer);
+        for (int i2 = 0; i2 < remaining; i2++) {
+            this.trackIds[i2] = IsoTypeReader.readUInt32(byteBuffer);
         }
     }
 
@@ -60,11 +60,11 @@ public class TrackReferenceTypeBox extends AbstractBox {
         StringBuilder sb = new StringBuilder();
         sb.append("TrackReferenceTypeBox[type=");
         sb.append(getType());
-        for (int i = 0; i < this.trackIds.length; i++) {
+        for (int i2 = 0; i2 < this.trackIds.length; i2++) {
             sb.append(";trackId");
-            sb.append(i);
+            sb.append(i2);
             sb.append("=");
-            sb.append(this.trackIds[i]);
+            sb.append(this.trackIds[i2]);
         }
         sb.append("]");
         return sb.toString();

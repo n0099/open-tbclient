@@ -15,8 +15,8 @@ public class Base64InputStream extends FilterInputStream {
     public int outputEnd;
     public int outputStart;
 
-    public Base64InputStream(InputStream inputStream, int i) {
-        this(inputStream, i, false);
+    public Base64InputStream(InputStream inputStream, int i2) {
+        this(inputStream, i2, false);
     }
 
     private void refill() throws IOException {
@@ -51,7 +51,7 @@ public class Base64InputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public void mark(int i) {
+    public void mark(int i2) {
         throw new UnsupportedOperationException();
     }
 
@@ -65,13 +65,13 @@ public class Base64InputStream extends FilterInputStream {
         if (this.outputStart >= this.outputEnd) {
             refill();
         }
-        int i = this.outputStart;
-        if (i >= this.outputEnd) {
+        int i2 = this.outputStart;
+        if (i2 >= this.outputEnd) {
             return -1;
         }
         byte[] bArr = this.coder.output;
-        this.outputStart = i + 1;
-        return bArr[i] & 255;
+        this.outputStart = i2 + 1;
+        return bArr[i2] & 255;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -84,24 +84,24 @@ public class Base64InputStream extends FilterInputStream {
         if (this.outputStart >= this.outputEnd) {
             refill();
         }
-        int i = this.outputStart;
-        int i2 = this.outputEnd;
-        if (i >= i2) {
+        int i2 = this.outputStart;
+        int i3 = this.outputEnd;
+        if (i2 >= i3) {
             return 0L;
         }
-        long min = Math.min(j, i2 - i);
+        long min = Math.min(j, i3 - i2);
         this.outputStart = (int) (this.outputStart + min);
         return min;
     }
 
-    public Base64InputStream(InputStream inputStream, int i, boolean z) {
+    public Base64InputStream(InputStream inputStream, int i2, boolean z) {
         super(inputStream);
         this.eof = false;
         this.inputBuffer = new byte[2048];
         if (z) {
-            this.coder = new Base64.Encoder(i, null);
+            this.coder = new Base64.Encoder(i2, null);
         } else {
-            this.coder = new Base64.Decoder(i, null);
+            this.coder = new Base64.Decoder(i2, null);
         }
         Base64.Coder coder = this.coder;
         coder.output = new byte[coder.maxOutputSize(2048)];
@@ -110,17 +110,17 @@ public class Base64InputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
         if (this.outputStart >= this.outputEnd) {
             refill();
         }
-        int i3 = this.outputStart;
-        int i4 = this.outputEnd;
-        if (i3 >= i4) {
+        int i4 = this.outputStart;
+        int i5 = this.outputEnd;
+        if (i4 >= i5) {
             return -1;
         }
-        int min = Math.min(i2, i4 - i3);
-        System.arraycopy(this.coder.output, this.outputStart, bArr, i, min);
+        int min = Math.min(i3, i5 - i4);
+        System.arraycopy(this.coder.output, this.outputStart, bArr, i2, min);
         this.outputStart += min;
         return min;
     }

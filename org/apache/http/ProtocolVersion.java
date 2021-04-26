@@ -8,7 +8,7 @@ public class ProtocolVersion implements Serializable {
     public final int minor;
     public final String protocol;
 
-    public ProtocolVersion(String str, int i, int i2) {
+    public ProtocolVersion(String str, int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 
@@ -24,7 +24,7 @@ public class ProtocolVersion implements Serializable {
         throw new RuntimeException("Stub!");
     }
 
-    public ProtocolVersion forVersion(int i, int i2) {
+    public ProtocolVersion forVersion(int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 

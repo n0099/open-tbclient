@@ -66,9 +66,9 @@ public final class PrintHelper {
         public final int mFittingMode;
         public final String mJobName;
 
-        public PrintBitmapAdapter(String str, int i, Bitmap bitmap, OnPrintFinishCallback onPrintFinishCallback) {
+        public PrintBitmapAdapter(String str, int i2, Bitmap bitmap, OnPrintFinishCallback onPrintFinishCallback) {
             this.mJobName = str;
-            this.mFittingMode = i;
+            this.mFittingMode = i2;
             this.mBitmap = bitmap;
             this.mCallback = onPrintFinishCallback;
         }
@@ -104,11 +104,11 @@ public final class PrintHelper {
         public final String mJobName;
         public AsyncTask<Uri, Boolean, Bitmap> mLoadBitmap;
 
-        public PrintUriAdapter(String str, Uri uri, OnPrintFinishCallback onPrintFinishCallback, int i) {
+        public PrintUriAdapter(String str, Uri uri, OnPrintFinishCallback onPrintFinishCallback, int i2) {
             this.mJobName = str;
             this.mImageFile = uri;
             this.mCallback = onPrintFinishCallback;
-            this.mFittingMode = i;
+            this.mFittingMode = i2;
         }
 
         public void cancelLoad() {
@@ -214,8 +214,8 @@ public final class PrintHelper {
     }
 
     static {
-        int i = Build.VERSION.SDK_INT;
-        PRINT_ACTIVITY_RESPECTS_ORIENTATION = i < 20 || i > 23;
+        int i2 = Build.VERSION.SDK_INT;
+        PRINT_ACTIVITY_RESPECTS_ORIENTATION = i2 < 20 || i2 > 23;
         IS_MIN_MARGINS_HANDLING_CORRECT = Build.VERSION.SDK_INT != 23;
     }
 
@@ -223,8 +223,8 @@ public final class PrintHelper {
         this.mContext = context;
     }
 
-    public static Bitmap convertBitmapForColorMode(Bitmap bitmap, int i) {
-        if (i != 1) {
+    public static Bitmap convertBitmapForColorMode(Bitmap bitmap, int i2) {
+        if (i2 != 1) {
             return bitmap;
         }
         Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
@@ -250,18 +250,18 @@ public final class PrintHelper {
         return minMargins;
     }
 
-    public static Matrix getMatrix(int i, int i2, RectF rectF, int i3) {
+    public static Matrix getMatrix(int i2, int i3, RectF rectF, int i4) {
         float min;
         Matrix matrix = new Matrix();
-        float f2 = i;
+        float f2 = i2;
         float width = rectF.width() / f2;
-        if (i3 == 2) {
-            min = Math.max(width, rectF.height() / i2);
+        if (i4 == 2) {
+            min = Math.max(width, rectF.height() / i3);
         } else {
-            min = Math.min(width, rectF.height() / i2);
+            min = Math.min(width, rectF.height() / i3);
         }
         matrix.postScale(min, min);
-        matrix.postTranslate((rectF.width() - (f2 * min)) / 2.0f, (rectF.height() - (i2 * min)) / 2.0f);
+        matrix.postTranslate((rectF.width() - (f2 * min)) / 2.0f, (rectF.height() - (i3 * min)) / 2.0f);
         return matrix;
     }
 
@@ -331,21 +331,21 @@ public final class PrintHelper {
             BitmapFactory.Options options2 = new BitmapFactory.Options();
             options2.inJustDecodeBounds = true;
             loadBitmap(uri, options2);
-            int i = options2.outWidth;
-            int i2 = options2.outHeight;
-            if (i > 0 && i2 > 0) {
-                int max = Math.max(i, i2);
-                int i3 = 1;
+            int i2 = options2.outWidth;
+            int i3 = options2.outHeight;
+            if (i2 > 0 && i3 > 0) {
+                int max = Math.max(i2, i3);
+                int i4 = 1;
                 while (max > 3500) {
                     max >>>= 1;
-                    i3 <<= 1;
+                    i4 <<= 1;
                 }
-                if (i3 > 0 && Math.min(i, i2) / i3 > 0) {
+                if (i4 > 0 && Math.min(i2, i3) / i4 > 0) {
                     synchronized (this.mLock) {
                         options = new BitmapFactory.Options();
                         this.mDecodeOptions = options;
                         options.inMutable = true;
-                        options.inSampleSize = i3;
+                        options.inSampleSize = i4;
                     }
                     try {
                         Bitmap loadBitmap = loadBitmap(uri, options);
@@ -370,20 +370,20 @@ public final class PrintHelper {
         printBitmap(str, bitmap, (OnPrintFinishCallback) null);
     }
 
-    public void setColorMode(int i) {
-        this.mColorMode = i;
+    public void setColorMode(int i2) {
+        this.mColorMode = i2;
     }
 
-    public void setOrientation(int i) {
-        this.mOrientation = i;
+    public void setOrientation(int i2) {
+        this.mOrientation = i2;
     }
 
-    public void setScaleMode(int i) {
-        this.mScaleMode = i;
+    public void setScaleMode(int i2) {
+        this.mScaleMode = i2;
     }
 
     @RequiresApi(19)
-    public void writeBitmap(final PrintAttributes printAttributes, final int i, final Bitmap bitmap, final ParcelFileDescriptor parcelFileDescriptor, final CancellationSignal cancellationSignal, final PrintDocumentAdapter.WriteResultCallback writeResultCallback) {
+    public void writeBitmap(final PrintAttributes printAttributes, final int i2, final Bitmap bitmap, final ParcelFileDescriptor parcelFileDescriptor, final CancellationSignal cancellationSignal, final PrintDocumentAdapter.WriteResultCallback writeResultCallback) {
         final PrintAttributes build = IS_MIN_MARGINS_HANDLING_CORRECT ? printAttributes : copyAttributes(printAttributes).setMinMargins(new PrintAttributes.Margins(0, 0, 0, 0)).build();
         new AsyncTask<Void, Void, Throwable>() { // from class: androidx.print.PrintHelper.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -410,7 +410,7 @@ public final class PrintHelper {
                         printedPdfDocument2.close();
                         rectF = rectF2;
                     }
-                    Matrix matrix = PrintHelper.getMatrix(convertBitmapForColorMode.getWidth(), convertBitmapForColorMode.getHeight(), rectF, i);
+                    Matrix matrix = PrintHelper.getMatrix(convertBitmapForColorMode.getWidth(), convertBitmapForColorMode.getHeight(), rectF, i2);
                     if (!PrintHelper.IS_MIN_MARGINS_HANDLING_CORRECT) {
                         matrix.postTranslate(rectF.left, rectF.top);
                         startPage.getCanvas().clipRect(rectF);
@@ -488,10 +488,10 @@ public final class PrintHelper {
         PrintManager printManager = (PrintManager) this.mContext.getSystemService("print");
         PrintAttributes.Builder builder = new PrintAttributes.Builder();
         builder.setColorMode(this.mColorMode);
-        int i = this.mOrientation;
-        if (i == 1 || i == 0) {
+        int i2 = this.mOrientation;
+        if (i2 == 1 || i2 == 0) {
             builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_PORTRAIT);
         }
         printManager.print(str, printUriAdapter, builder.build());

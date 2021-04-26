@@ -11,19 +11,19 @@ import java.security.NoSuchAlgorithmException;
 public final class BitmapDescriptor {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f6858a;
+    public Bitmap f7097a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bundle f6859b;
+    public Bundle f7098b;
 
     public BitmapDescriptor(Bitmap bitmap) {
         if (bitmap != null) {
-            this.f6858a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
+            this.f7097a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
         }
     }
 
-    private Bitmap a(Bitmap bitmap, int i, int i2) {
-        Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+    private Bitmap a(Bitmap bitmap, int i2, int i3) {
+        Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         Paint paint = new Paint();
         paint.setAntiAlias(true);
@@ -33,17 +33,17 @@ public final class BitmapDescriptor {
     }
 
     public byte[] a() {
-        ByteBuffer allocate = ByteBuffer.allocate(this.f6858a.getWidth() * this.f6858a.getHeight() * 4);
-        this.f6858a.copyPixelsToBuffer(allocate);
+        ByteBuffer allocate = ByteBuffer.allocate(this.f7097a.getWidth() * this.f7097a.getHeight() * 4);
+        this.f7097a.copyPixelsToBuffer(allocate);
         return allocate.array();
     }
 
     public Bundle b() {
-        if (this.f6858a != null) {
-            if (this.f6859b == null) {
+        if (this.f7097a != null) {
+            if (this.f7098b == null) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("image_width", this.f6858a.getWidth());
-                bundle.putInt("image_height", this.f6858a.getHeight());
+                bundle.putInt("image_width", this.f7097a.getWidth());
+                bundle.putInt("image_height", this.f7097a.getHeight());
                 byte[] a2 = a();
                 bundle.putByteArray("image_data", a2);
                 MessageDigest messageDigest = null;
@@ -59,23 +59,23 @@ public final class BitmapDescriptor {
                     sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
                 }
                 bundle.putString("image_hashcode", sb.toString());
-                this.f6859b = bundle;
+                this.f7098b = bundle;
             }
-            return this.f6859b;
+            return this.f7098b;
         }
         throw new IllegalStateException("the bitmap has been recycled! you can not use it again");
     }
 
     public Bitmap getBitmap() {
-        return this.f6858a;
+        return this.f7097a;
     }
 
     public void recycle() {
-        Bitmap bitmap = this.f6858a;
+        Bitmap bitmap = this.f7097a;
         if (bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        this.f6858a.recycle();
-        this.f6858a = null;
+        this.f7097a.recycle();
+        this.f7097a = null;
     }
 }

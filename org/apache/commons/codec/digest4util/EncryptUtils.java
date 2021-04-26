@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Locale;
+@Deprecated
 /* loaded from: classes7.dex */
 public class EncryptUtils {
     public static final boolean DEBUG = false;
@@ -32,7 +34,7 @@ public class EncryptUtils {
         for (byte b2 : bArr) {
             String hexString = Integer.toHexString(b2 & 255);
             if (z) {
-                hexString = hexString.toUpperCase();
+                hexString = hexString.toUpperCase(Locale.getDefault());
             }
             if (hexString.length() == 1) {
                 sb.append("0");

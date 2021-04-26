@@ -2,7 +2,7 @@ package com.facebook.fresco.animation.bitmap.wrapper;
 
 import com.facebook.fresco.animation.backend.AnimationInformation;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AnimatedDrawableBackendAnimationInformation implements AnimationInformation {
     public final AnimatedDrawableBackend mAnimatedDrawableBackend;
 
@@ -16,8 +16,8 @@ public class AnimatedDrawableBackendAnimationInformation implements AnimationInf
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationInformation
-    public int getFrameDurationMs(int i) {
-        return this.mAnimatedDrawableBackend.getDurationMsForFrame(i);
+    public int getFrameDurationMs(int i2) {
+        return this.mAnimatedDrawableBackend.getDurationMsForFrame(i2);
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationInformation

@@ -15,14 +15,14 @@ public class PermissionManager implements NoProguard {
     public static final int REQUEST_CODE_WRITE_EXTERNAL_STORAGE = 4;
 
     @TargetApi(23)
-    public static void checkCallingPermission(Activity activity, String[] strArr, int i) {
+    public static void checkCallingPermission(Activity activity, String[] strArr, int i2) {
         if (activity == null || strArr == null) {
             return;
         }
         for (String str : strArr) {
             if (!TextUtils.isEmpty(str) && activity.checkCallingPermission(str) == -1) {
                 if (Build.VERSION.SDK_INT >= 23) {
-                    activity.requestPermissions(strArr, i);
+                    activity.requestPermissions(strArr, i2);
                 } else {
                     activity.checkSelfPermission(str);
                 }

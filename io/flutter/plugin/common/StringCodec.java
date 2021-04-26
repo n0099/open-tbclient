@@ -12,20 +12,20 @@ public final class StringCodec implements MessageCodec<String> {
     @Override // io.flutter.plugin.common.MessageCodec
     public String decodeMessage(ByteBuffer byteBuffer) {
         byte[] bArr;
-        int i;
+        int i2;
         if (byteBuffer == null) {
             return null;
         }
         int remaining = byteBuffer.remaining();
         if (byteBuffer.hasArray()) {
             bArr = byteBuffer.array();
-            i = byteBuffer.arrayOffset();
+            i2 = byteBuffer.arrayOffset();
         } else {
             bArr = new byte[remaining];
             byteBuffer.get(bArr);
-            i = 0;
+            i2 = 0;
         }
-        return new String(bArr, i, remaining, UTF8);
+        return new String(bArr, i2, remaining, UTF8);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

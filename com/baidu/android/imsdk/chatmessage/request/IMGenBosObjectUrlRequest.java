@@ -36,15 +36,15 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
     public int mOriWidth;
     public int mReqSource;
 
-    public IMGenBosObjectUrlRequest(Context context, String str, String str2, String str3, int i, int i2, int i3, String str4) {
+    public IMGenBosObjectUrlRequest(Context context, String str, String str2, String str3, int i2, int i3, int i4, String str4) {
         this.mContext = context;
         this.mKey = str4;
         this.mFilePath = str;
         this.mContentType = str2;
         this.mFormat = str3;
-        this.mReqSource = i;
-        this.mOriWidth = i2;
-        this.mOriHeight = i3;
+        this.mReqSource = i2;
+        this.mOriWidth = i3;
+        this.mOriHeight = i4;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -153,22 +153,22 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         LogUtils.d("", "IMGenBosObjectUrlRequest onFailure " + transErrorCode.first);
         ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null, null, null);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str;
         String str2;
         String str3;
         HashMap hashMap;
         String str4;
         String str5;
-        int i2;
         int i3;
+        int i4;
         String string;
         HashMap hashMap2;
         String str6 = new String(bArr);
@@ -178,7 +178,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
             JSONObject jSONObject = new JSONObject(str6);
             if (jSONObject.has("response_params")) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                i3 = jSONObject2.getInt("error_code");
+                i4 = jSONObject2.getInt("error_code");
                 str = jSONObject2.getString("authorization");
                 try {
                     str2 = jSONObject2.getString("date");
@@ -205,21 +205,21 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                         hashMap = null;
                         str4 = str;
                         str5 = str2;
-                        i2 = 1010;
-                        ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, i2, str3, str4, str5, hashMap);
+                        i3 = 1010;
+                        ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, i3, str3, str4, str5, hashMap);
                     }
                 } catch (JSONException e3) {
                     e = e3;
                     str2 = null;
                 }
             } else {
-                i3 = jSONObject.getInt("error_code");
+                i4 = jSONObject.getInt("error_code");
                 string = jSONObject.getString("error_msg");
                 str2 = null;
                 hashMap2 = null;
             }
             str3 = string;
-            i2 = i3;
+            i3 = i4;
             str4 = str7;
             str5 = str2;
             hashMap = hashMap2;
@@ -228,7 +228,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
             str = null;
             str2 = null;
         }
-        ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, i2, str3, str4, str5, hashMap);
+        ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, i3, str3, str4, str5, hashMap);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -236,17 +236,17 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
         return false;
     }
 
-    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
+    public Pair<Integer, String> transErrorCode(int i2, byte[] bArr, Throwable th) {
         String str;
         if (th != null) {
-            i = 1012;
+            i2 = 1012;
             str = Constants.ERROR_MSG_HTTP_IOEXCEPTION_ERROR;
-        } else if (i == 1005) {
+        } else if (i2 == 1005) {
             str = new String(bArr);
         } else {
-            str = "http response is error! response code:" + i;
-            i = 1011;
+            str = "http response is error! response code:" + i2;
+            i2 = 1011;
         }
-        return new Pair<>(Integer.valueOf(i), str);
+        return new Pair<>(Integer.valueOf(i2), str);
     }
 }

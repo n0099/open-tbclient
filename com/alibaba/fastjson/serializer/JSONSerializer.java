@@ -1,6 +1,5 @@
 package com.alibaba.fastjson.serializer;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.util.IOUtils;
@@ -163,7 +162,7 @@ public class JSONSerializer extends SerializeFilterable {
 
     public void println() {
         this.out.write(10);
-        for (int i = 0; i < this.indentCount; i++) {
+        for (int i2 = 0; i2 < this.indentCount; i2++) {
             this.out.write(this.indent);
         }
     }
@@ -256,7 +255,7 @@ public class JSONSerializer extends SerializeFilterable {
                         try {
                             dateFormat = generateDateFormat(str);
                         } catch (IllegalArgumentException unused) {
-                            dateFormat = generateDateFormat(str.replaceAll(ExifInterface.GPS_DIRECTION_TRUE, "'T'"));
+                            dateFormat = generateDateFormat(str.replaceAll("T", "'T'"));
                         }
                     } else {
                         String str2 = this.fastJsonConfigDateFormatPattern;
@@ -303,9 +302,9 @@ public class JSONSerializer extends SerializeFilterable {
             Collection collection = (Collection) obj;
             Iterator it = collection.iterator();
             this.out.write(91);
-            for (int i = 0; i < collection.size(); i++) {
+            for (int i2 = 0; i2 < collection.size(); i2++) {
                 Object next = it.next();
-                if (i != 0) {
+                if (i2 != 0) {
                     this.out.write(44);
                 }
                 writeWithFormat(next, str);
@@ -320,16 +319,16 @@ public class JSONSerializer extends SerializeFilterable {
         this(serializeWriter, SerializeConfig.getGlobalInstance());
     }
 
-    public void setContext(SerialContext serialContext, Object obj, Object obj2, int i) {
-        setContext(serialContext, obj, obj2, i, 0);
+    public void setContext(SerialContext serialContext, Object obj, Object obj2, int i2) {
+        setContext(serialContext, obj, obj2, i2, 0);
     }
 
-    public final void writeWithFieldName(Object obj, Object obj2, Type type, int i) {
+    public final void writeWithFieldName(Object obj, Object obj2, Type type, int i2) {
         try {
             if (obj == null) {
                 this.out.writeNull();
             } else {
-                getObjectWriter(obj.getClass()).write(this, obj, obj2, type, i);
+                getObjectWriter(obj.getClass()).write(this, obj, obj2, type, i2);
             }
         } catch (IOException e2) {
             throw new JSONException(e2.getMessage(), e2);
@@ -340,11 +339,11 @@ public class JSONSerializer extends SerializeFilterable {
         this(new SerializeWriter(), serializeConfig);
     }
 
-    public void setContext(SerialContext serialContext, Object obj, Object obj2, int i, int i2) {
+    public void setContext(SerialContext serialContext, Object obj, Object obj2, int i2, int i3) {
         if (this.out.disableCircularReferenceDetect) {
             return;
         }
-        this.context = new SerialContext(serialContext, obj, obj2, i, i2);
+        this.context = new SerialContext(serialContext, obj, obj2, i2, i3);
         if (this.references == null) {
             this.references = new IdentityHashMap<>();
         }

@@ -25,9 +25,9 @@ public class CHFinanceProductGroup extends BaseItemLayout {
             return;
         }
         int length = 3 >= dataItemArr.length ? dataItemArr.length : 3;
-        for (int i = 0; i < length; i++) {
+        for (int i2 = 0; i2 < length; i2++) {
             CHFinanceProductItem cHFinanceProductItem = new CHFinanceProductItem(getContext());
-            cHFinanceProductItem.setData(dataItemArr[i], getWalletInterface());
+            cHFinanceProductItem.setData(dataItemArr[i2], getWalletInterface());
             this.mList.addView(cHFinanceProductItem);
         }
     }

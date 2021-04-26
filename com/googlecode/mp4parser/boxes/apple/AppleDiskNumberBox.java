@@ -6,16 +6,16 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class AppleDiskNumberBox extends AppleDataBox {
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f31446a;
+    public int f32315a;
 
     /* renamed from: b  reason: collision with root package name */
-    public short f31447b;
+    public short f32316b;
 
     static {
         ajc$preClinit();
@@ -35,12 +35,12 @@ public class AppleDiskNumberBox extends AppleDataBox {
 
     public int getA() {
         RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_0, this, this));
-        return this.f31446a;
+        return this.f32315a;
     }
 
     public short getB() {
         RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_2, this, this));
-        return this.f31447b;
+        return this.f32316b;
     }
 
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
@@ -50,25 +50,25 @@ public class AppleDiskNumberBox extends AppleDataBox {
 
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
     public void parseData(ByteBuffer byteBuffer) {
-        this.f31446a = byteBuffer.getInt();
-        this.f31447b = byteBuffer.getShort();
+        this.f32315a = byteBuffer.getInt();
+        this.f32316b = byteBuffer.getShort();
     }
 
-    public void setA(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i)));
-        this.f31446a = i;
+    public void setA(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i2)));
+        this.f32315a = i2;
     }
 
     public void setB(short s) {
         RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.g(s)));
-        this.f31447b = s;
+        this.f32316b = s;
     }
 
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
     public byte[] writeData() {
         ByteBuffer allocate = ByteBuffer.allocate(6);
-        allocate.putInt(this.f31446a);
-        allocate.putShort(this.f31447b);
+        allocate.putInt(this.f32315a);
+        allocate.putShort(this.f32316b);
         return allocate.array();
     }
 }

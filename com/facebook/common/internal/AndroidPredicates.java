@@ -1,5 +1,5 @@
 package com.facebook.common.internal;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AndroidPredicates {
     public static <T> Predicate<T> False() {
         return new Predicate<T>() { // from class: com.facebook.common.internal.AndroidPredicates.2

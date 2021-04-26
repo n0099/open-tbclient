@@ -1,7 +1,7 @@
 package com.google.common.base;
 
-import d.h.c.a.g;
-import d.h.c.a.n;
+import d.g.c.a.g;
+import d.g.c.a.n;
 /* loaded from: classes6.dex */
 public enum Functions$ToStringFunction implements g<Object, String> {
     INSTANCE;
@@ -12,7 +12,7 @@ public enum Functions$ToStringFunction implements g<Object, String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.h.c.a.g
+    @Override // d.g.c.a.g
     public String apply(Object obj) {
         n.p(obj);
         return obj.toString();

@@ -13,25 +13,25 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
-import d.p.a.d.f.c;
-import d.p.a.d.f.n;
+import d.o.a.d.f.c;
+import d.o.a.d.f.n;
 /* loaded from: classes6.dex */
 public class AppPrivacyPolicyActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f39039a;
+    public ImageView f36624a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f39040b;
+    public WebView f36625b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f39041c;
+    public long f36626c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f39042d;
+    public long f36627d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f39043e;
+    public String f36628e;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -40,7 +40,7 @@ public class AppPrivacyPolicyActivity extends Activity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.p.a.d.f.f.c.c("lp_app_privacy_click_close", AppPrivacyPolicyActivity.this.f39042d);
+            d.o.a.d.f.f.c.c("lp_app_privacy_click_close", AppPrivacyPolicyActivity.this.f36627d);
             AppPrivacyPolicyActivity.this.finish();
         }
     }
@@ -68,10 +68,10 @@ public class AppPrivacyPolicyActivity extends Activity {
     }
 
     private void b() {
-        this.f39039a = (ImageView) findViewById(d.p.a.d.b.iv_privacy_back);
-        this.f39040b = (WebView) findViewById(d.p.a.d.b.privacy_webview);
-        this.f39039a.setOnClickListener(new a());
-        WebSettings settings = this.f39040b.getSettings();
+        this.f36624a = (ImageView) findViewById(d.o.a.d.b.iv_privacy_back);
+        this.f36625b = (WebView) findViewById(d.o.a.d.b.privacy_webview);
+        this.f36624a.setOnClickListener(new a());
+        WebSettings settings = this.f36625b.getSettings();
         settings.setGeolocationEnabled(true);
         settings.setDefaultFontSize(16);
         settings.setCacheMode(-1);
@@ -85,21 +85,21 @@ public class AppPrivacyPolicyActivity extends Activity {
         settings.setSupportZoom(true);
         settings.setBuiltInZoomControls(true);
         settings.setDisplayZoomControls(false);
-        this.f39040b.setWebViewClient(new b());
-        this.f39040b.setScrollBarStyle(0);
-        this.f39040b.loadUrl(this.f39043e);
+        this.f36625b.setWebViewClient(new b());
+        this.f36625b.setScrollBarStyle(0);
+        this.f36625b.loadUrl(this.f36628e);
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        d.p.a.d.f.f.c.c("lp_app_privacy_click_close", this.f39042d);
+        d.o.a.d.f.f.c.c("lp_app_privacy_click_close", this.f36627d);
         super.onBackPressed();
     }
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.p.a.d.c.ttdownloader_activity_app_privacy_policy);
+        setContentView(d.o.a.d.c.ttdownloader_activity_app_privacy_policy);
         a();
         b();
     }
@@ -111,13 +111,13 @@ public class AppPrivacyPolicyActivity extends Activity {
     }
 
     private void a() {
-        this.f39041c = getIntent().getLongExtra("app_info_id", 0L);
-        c.C1863c a2 = c.a().a(this.f39041c);
-        this.f39042d = a2.f67662b;
-        String str = a2.f67668h;
-        this.f39043e = str;
+        this.f36626c = getIntent().getLongExtra("app_info_id", 0L);
+        c.C1798c a2 = c.a().a(this.f36626c);
+        this.f36627d = a2.f66008b;
+        String str = a2.f66014h;
+        this.f36628e = str;
         if (TextUtils.isEmpty(str)) {
-            this.f39043e = n.s().optString("ad_privacy_backup_url", "https://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html");
+            this.f36628e = n.s().optString("ad_privacy_backup_url", "https://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html");
         }
     }
 }

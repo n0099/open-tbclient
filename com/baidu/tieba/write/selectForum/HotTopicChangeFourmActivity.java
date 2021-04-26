@@ -24,7 +24,7 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFourmActivity> {
     public static final int LIMIT_COUNT = 20;
-    public d.b.j0.v3.p.a mAdapter;
+    public d.a.j0.v3.o.a mAdapter;
     public List<HotTopicBussinessData> mList;
     public NavigationBar mNavigationBar;
     public BdListView mListView = null;
@@ -36,11 +36,11 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             Intent intent = new Intent();
-            intent.putExtra(IntentConfig.HOT_TOPIC_CHANGE_FOURM, i);
-            intent.putExtra(VideoListActivityConfig.KEY_FORUM_ID, ((HotTopicBussinessData) HotTopicChangeFourmActivity.this.mList.get(i)).getForumId());
-            intent.putExtra("KEY_FORUM_NAME", ((HotTopicBussinessData) HotTopicChangeFourmActivity.this.mList.get(i)).getForumName());
+            intent.putExtra(IntentConfig.HOT_TOPIC_CHANGE_FOURM, i2);
+            intent.putExtra(VideoListActivityConfig.KEY_FORUM_ID, ((HotTopicBussinessData) HotTopicChangeFourmActivity.this.mList.get(i2)).getForumId());
+            intent.putExtra("KEY_FORUM_NAME", ((HotTopicBussinessData) HotTopicChangeFourmActivity.this.mList.get(i2)).getForumName());
             HotTopicChangeFourmActivity.this.setResult(-1, intent);
             HotTopicChangeFourmActivity.this.finish();
         }
@@ -52,12 +52,12 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         SkinManager.setViewTextColor(this.mNavigationBar.setTitleText(TbadkCoreApplication.getInst().getString(R.string.change_fourm)), R.color.CAM_X0106);
         this.mListView = (BdListView) findViewById(R.id.hot_topic_listview);
-        this.mAdapter = new d.b.j0.v3.p.a(this);
+        this.mAdapter = new d.a.j0.v3.o.a(this);
         if (!this.mUseOriginList) {
             int size = this.mList.size();
             ArrayList arrayList = null;
-            for (int i = 0; i < size; i++) {
-                HotTopicBussinessData hotTopicBussinessData = this.mList.get(i);
+            for (int i2 = 0; i2 < size; i2++) {
+                HotTopicBussinessData hotTopicBussinessData = this.mList.get(i2);
                 if (hotTopicBussinessData == null || StringUtils.isNull(hotTopicBussinessData.mForumName)) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
@@ -90,9 +90,9 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

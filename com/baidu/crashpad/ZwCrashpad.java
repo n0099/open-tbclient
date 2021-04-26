@@ -51,12 +51,12 @@ public class ZwCrashpad {
         }
     }
 
-    public static void crashIntentionally(int i) {
-        if (i == 1) {
+    public static void crashIntentionally(int i2) {
+        if (i2 == 1) {
             if (mNativeIsInitialized) {
-                nativeCrashIntentionally(i);
+                nativeCrashIntentionally(i2);
             }
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             setCrashKeyValue("JavaExceptionInfo", "only for test add JavaExceptionInfo for JNI crash");
         }
     }
@@ -233,7 +233,7 @@ public class ZwCrashpad {
 
     public static native void nativeClearCrashKey(String str);
 
-    public static native void nativeCrashIntentionally(int i);
+    public static native void nativeCrashIntentionally(int i2);
 
     public static native String nativeGetEncryptKey();
 

@@ -11,16 +11,16 @@ public class FrsADImageView extends TbImageView {
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
-    public void onMeasure(int i, int i2) {
-        int size = View.MeasureSpec.getSize(i);
+    public void onMeasure(int i2, int i3) {
+        int size = View.MeasureSpec.getSize(i2);
         if (size > 0) {
-            i2 = View.MeasureSpec.makeMeasureSpec((int) (size * 0.5625f), 1073741824);
+            i3 = View.MeasureSpec.makeMeasureSpec((int) (size * 0.5625f), 1073741824);
         }
-        super.onMeasure(i, i2);
+        super.onMeasure(i2, i3);
     }
 
-    public FrsADImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public FrsADImageView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 
     public FrsADImageView(Context context, AttributeSet attributeSet) {

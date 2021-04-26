@@ -21,7 +21,7 @@ import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.XFlutterView;
 import com.idlefish.flutterboost.XPlatformPlugin;
 import com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate;
-import d.b.c.a.a;
+import d.a.c.a.a;
 import io.flutter.Log;
 import io.flutter.embedding.android.DrawableSplashScreen;
 import io.flutter.embedding.android.FlutterView;
@@ -132,9 +132,9 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         try {
             ActivityInfo activityInfo = getPackageManager().getActivityInfo(getComponentName(), 128);
             if (activityInfo.metaData != null) {
-                int i = activityInfo.metaData.getInt("io.flutter.embedding.android.NormalTheme", -1);
-                if (i != -1) {
-                    setTheme(i);
+                int i2 = activityInfo.metaData.getInt("io.flutter.embedding.android.NormalTheme", -1);
+                if (i2 != -1) {
+                    setTheme(i2);
                 }
             } else {
                 Log.d(TAG, "Using the launch theme as normal theme.");
@@ -229,8 +229,8 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        this.delegate.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        this.delegate.onActivityResult(i2, i3, intent);
     }
 
     @Override // android.app.Activity
@@ -278,8 +278,8 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
     }
 
     @Override // android.app.Activity
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        this.delegate.onRequestPermissionsResult(i, strArr, iArr);
+    public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+        this.delegate.onRequestPermissionsResult(i2, strArr, iArr);
     }
 
     @Override // android.app.Activity
@@ -303,9 +303,9 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks2
-    public void onTrimMemory(int i) {
-        super.onTrimMemory(i);
-        this.delegate.onTrimMemory(i);
+    public void onTrimMemory(int i2) {
+        super.onTrimMemory(i2);
+        this.delegate.onTrimMemory(i2);
     }
 
     @Override // android.app.Activity
@@ -335,11 +335,11 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
     }
 
     @Override // android.app.Activity
-    public void setRequestedOrientation(int i) {
-        if (a.d(this) && a.a(i)) {
+    public void setRequestedOrientation(int i2) {
+        if (a.d(this) && a.a(i2)) {
             return;
         }
-        super.setRequestedOrientation(i);
+        super.setRequestedOrientation(i2);
     }
 
     public void setSwipeBackEnable(boolean z) {

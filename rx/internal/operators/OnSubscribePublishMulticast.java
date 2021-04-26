@@ -5,9 +5,9 @@ import h.e;
 import h.f;
 import h.j;
 import h.k;
-import h.o.d.j.c;
-import h.o.d.k.f0;
-import h.o.d.k.r;
+import h.o.d.i.c;
+import h.o.d.j.f0;
+import h.o.d.j.r;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -46,10 +46,10 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
 
         @Override // h.f
         public void request(long j) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i < 0) {
+            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i2 < 0) {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
-            } else if (i != 0) {
+            } else if (i2 != 0) {
                 h.o.a.a.b(this, j);
                 this.parent.drain();
             }
@@ -67,47 +67,47 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     public static final class a<T> extends j<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final OnSubscribePublishMulticast<T> f69339e;
+        public final OnSubscribePublishMulticast<T> f68378e;
 
         public a(OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
-            this.f69339e = onSubscribePublishMulticast;
+            this.f68378e = onSubscribePublishMulticast;
         }
 
         @Override // h.e
         public void onCompleted() {
-            this.f69339e.onCompleted();
+            this.f68378e.onCompleted();
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            this.f69339e.onError(th);
+            this.f68378e.onError(th);
         }
 
         @Override // h.e
         public void onNext(T t) {
-            this.f69339e.onNext(t);
+            this.f68378e.onNext(t);
         }
 
         @Override // h.j
         public void setProducer(f fVar) {
-            this.f69339e.setProducer(fVar);
+            this.f68378e.setProducer(fVar);
         }
     }
 
-    public OnSubscribePublishMulticast(int i, boolean z) {
-        if (i > 0) {
-            this.prefetch = i;
+    public OnSubscribePublishMulticast(int i2, boolean z) {
+        if (i2 > 0) {
+            this.prefetch = i2;
             this.delayError = z;
             if (f0.b()) {
-                this.queue = new r(i);
+                this.queue = new r(i2);
             } else {
-                this.queue = new c(i);
+                this.queue = new c(i2);
             }
             this.subscribers = (PublishProducer<T>[]) EMPTY;
             this.parent = new a<>(this);
             return;
         }
-        throw new IllegalArgumentException("prefetch > 0 required but it was " + i);
+        throw new IllegalArgumentException("prefetch > 0 required but it was " + i2);
     }
 
     public boolean add(PublishProducer<T> publishProducer) {
@@ -134,7 +134,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     }
 
     public boolean checkTerminated(boolean z, boolean z2) {
-        int i = 0;
+        int i2 = 0;
         if (z) {
             if (!this.delayError) {
                 Throwable th = this.error;
@@ -142,17 +142,17 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                     this.queue.clear();
                     PublishProducer<T>[] terminate = terminate();
                     int length = terminate.length;
-                    while (i < length) {
-                        terminate[i].actual.onError(th);
-                        i++;
+                    while (i2 < length) {
+                        terminate[i2].actual.onError(th);
+                        i2++;
                     }
                     return true;
                 } else if (z2) {
                     PublishProducer<T>[] terminate2 = terminate();
                     int length2 = terminate2.length;
-                    while (i < length2) {
-                        terminate2[i].actual.onCompleted();
-                        i++;
+                    while (i2 < length2) {
+                        terminate2[i2].actual.onCompleted();
+                        i2++;
                     }
                     return true;
                 }
@@ -161,15 +161,15 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                 Throwable th2 = this.error;
                 if (th2 != null) {
                     int length3 = terminate3.length;
-                    while (i < length3) {
-                        terminate3[i].actual.onError(th2);
-                        i++;
+                    while (i2 < length3) {
+                        terminate3[i2].actual.onError(th2);
+                        i2++;
                     }
                 } else {
                     int length4 = terminate3.length;
-                    while (i < length4) {
-                        terminate3[i].actual.onCompleted();
-                        i++;
+                    while (i2 < length4) {
+                        terminate3[i2].actual.onCompleted();
+                        i2++;
                     }
                 }
                 return true;
@@ -179,12 +179,12 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     }
 
     public void drain() {
-        int i;
+        int i2;
         if (getAndIncrement() != 0) {
             return;
         }
         Queue<T> queue = this.queue;
-        int i2 = 0;
+        int i3 = 0;
         do {
             long j = Long.MAX_VALUE;
             PublishProducer<T>[] publishProducerArr = this.subscribers;
@@ -195,8 +195,8 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
             if (length != 0) {
                 long j2 = 0;
                 while (true) {
-                    i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-                    if (i == 0) {
+                    i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                    if (i2 == 0) {
                         break;
                     }
                     boolean z = this.done;
@@ -213,7 +213,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                     }
                     j2++;
                 }
-                if (i == 0 && checkTerminated(this.done, queue.isEmpty())) {
+                if (i2 == 0 && checkTerminated(this.done, queue.isEmpty())) {
                     return;
                 }
                 if (j2 != 0) {
@@ -226,8 +226,8 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                     }
                 }
             }
-            i2 = addAndGet(-i2);
-        } while (i2 != 0);
+            i3 = addAndGet(-i3);
+        } while (i3 != 0);
     }
 
     @Override // h.k
@@ -267,28 +267,28 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         synchronized (this) {
             PublishProducer<T>[] publishProducerArr3 = this.subscribers;
             if (publishProducerArr3 != TERMINATED && publishProducerArr3 != EMPTY) {
-                int i = -1;
+                int i2 = -1;
                 int length = publishProducerArr3.length;
-                int i2 = 0;
+                int i3 = 0;
                 while (true) {
-                    if (i2 >= length) {
+                    if (i3 >= length) {
                         break;
-                    } else if (publishProducerArr3[i2] == publishProducer) {
-                        i = i2;
+                    } else if (publishProducerArr3[i3] == publishProducer) {
+                        i2 = i3;
                         break;
                     } else {
-                        i2++;
+                        i3++;
                     }
                 }
-                if (i < 0) {
+                if (i2 < 0) {
                     return;
                 }
                 if (length == 1) {
                     publishProducerArr = EMPTY;
                 } else {
                     PublishProducer[] publishProducerArr4 = new PublishProducer[length - 1];
-                    System.arraycopy(publishProducerArr3, 0, publishProducerArr4, 0, i);
-                    System.arraycopy(publishProducerArr3, i + 1, publishProducerArr4, i, (length - i) - 1);
+                    System.arraycopy(publishProducerArr3, 0, publishProducerArr4, 0, i2);
+                    System.arraycopy(publishProducerArr3, i2 + 1, publishProducerArr4, i2, (length - i2) - 1);
                     publishProducerArr = publishProducerArr4;
                 }
                 this.subscribers = publishProducerArr;

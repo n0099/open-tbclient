@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.Window;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuPresenter;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public interface DecorContentParent {
     boolean canShowOverflowMenu();
@@ -22,7 +22,7 @@ public interface DecorContentParent {
 
     boolean hideOverflowMenu();
 
-    void initFeature(int i);
+    void initFeature(int i2);
 
     boolean isOverflowMenuShowPending();
 
@@ -32,17 +32,17 @@ public interface DecorContentParent {
 
     void saveToolbarHierarchyState(SparseArray<Parcelable> sparseArray);
 
-    void setIcon(int i);
+    void setIcon(int i2);
 
     void setIcon(Drawable drawable);
 
-    void setLogo(int i);
+    void setLogo(int i2);
 
     void setMenu(Menu menu, MenuPresenter.Callback callback);
 
     void setMenuPrepared();
 
-    void setUiOptions(int i);
+    void setUiOptions(int i2);
 
     void setWindowCallback(Window.Callback callback);
 

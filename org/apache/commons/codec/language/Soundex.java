@@ -28,7 +28,7 @@ public class Soundex implements StringEncoder {
     }
 
     @Deprecated
-    public void setMaxLength(int i) {
+    public void setMaxLength(int i2) {
         throw new RuntimeException("Stub!");
     }
 

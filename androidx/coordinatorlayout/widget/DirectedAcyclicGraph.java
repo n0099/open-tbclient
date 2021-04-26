@@ -25,8 +25,8 @@ public final class DirectedAcyclicGraph<T> {
             ArrayList<T> arrayList2 = this.mGraph.get(t);
             if (arrayList2 != null) {
                 int size = arrayList2.size();
-                for (int i = 0; i < size; i++) {
-                    dfs(arrayList2.get(i), arrayList, hashSet);
+                for (int i2 = 0; i2 < size; i2++) {
+                    dfs(arrayList2.get(i2), arrayList, hashSet);
                 }
             }
             hashSet.remove(t);
@@ -69,8 +69,8 @@ public final class DirectedAcyclicGraph<T> {
 
     public void clear() {
         int size = this.mGraph.size();
-        for (int i = 0; i < size; i++) {
-            ArrayList<T> valueAt = this.mGraph.valueAt(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            ArrayList<T> valueAt = this.mGraph.valueAt(i2);
             if (valueAt != null) {
                 poolList(valueAt);
             }
@@ -91,13 +91,13 @@ public final class DirectedAcyclicGraph<T> {
     public List<T> getOutgoingEdges(@NonNull T t) {
         int size = this.mGraph.size();
         ArrayList arrayList = null;
-        for (int i = 0; i < size; i++) {
-            ArrayList<T> valueAt = this.mGraph.valueAt(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            ArrayList<T> valueAt = this.mGraph.valueAt(i2);
             if (valueAt != null && valueAt.contains(t)) {
                 if (arrayList == null) {
                     arrayList = new ArrayList();
                 }
-                arrayList.add(this.mGraph.keyAt(i));
+                arrayList.add(this.mGraph.keyAt(i2));
             }
         }
         return arrayList;
@@ -108,16 +108,16 @@ public final class DirectedAcyclicGraph<T> {
         this.mSortResult.clear();
         this.mSortTmpMarked.clear();
         int size = this.mGraph.size();
-        for (int i = 0; i < size; i++) {
-            dfs(this.mGraph.keyAt(i), this.mSortResult, this.mSortTmpMarked);
+        for (int i2 = 0; i2 < size; i2++) {
+            dfs(this.mGraph.keyAt(i2), this.mSortResult, this.mSortTmpMarked);
         }
         return this.mSortResult;
     }
 
     public boolean hasOutgoingEdges(@NonNull T t) {
         int size = this.mGraph.size();
-        for (int i = 0; i < size; i++) {
-            ArrayList<T> valueAt = this.mGraph.valueAt(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            ArrayList<T> valueAt = this.mGraph.valueAt(i2);
             if (valueAt != null && valueAt.contains(t)) {
                 return true;
             }

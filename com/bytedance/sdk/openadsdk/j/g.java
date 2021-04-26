@@ -8,36 +8,36 @@ import android.os.Vibrator;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SensorManager f29247a;
+    public static SensorManager f30144a;
 
-    public static int a(int i) {
-        if (i == 0 || i == 1 || i == 2 || i == 3) {
-            return i;
+    public static int a(int i2) {
+        if (i2 == 0 || i2 == 1 || i2 == 2 || i2 == 3) {
+            return i2;
         }
         return 2;
     }
 
-    public static void a(Context context, SensorEventListener sensorEventListener, int i) {
+    public static void a(Context context, SensorEventListener sensorEventListener, int i2) {
         if (sensorEventListener == null || context == null) {
             return;
         }
         try {
             SensorManager b2 = b(context);
-            b2.registerListener(sensorEventListener, b2.getDefaultSensor(1), a(i));
+            b2.registerListener(sensorEventListener, b2.getDefaultSensor(1), a(i2));
         } catch (Throwable th) {
             d.a("SensorHub", "startListenAccelerometer error", th);
         }
     }
 
     public static SensorManager b(Context context) {
-        if (f29247a == null) {
+        if (f30144a == null) {
             synchronized (g.class) {
-                if (f29247a == null) {
-                    f29247a = (SensorManager) context.getSystemService("sensor");
+                if (f30144a == null) {
+                    f30144a = (SensorManager) context.getSystemService("sensor");
                 }
             }
         }
-        return f29247a;
+        return f30144a;
     }
 
     public static void a(Context context, SensorEventListener sensorEventListener) {
@@ -58,13 +58,13 @@ public class g {
         ((Vibrator) context.getSystemService("vibrator")).vibrate(300L);
     }
 
-    public static void b(Context context, SensorEventListener sensorEventListener, int i) {
+    public static void b(Context context, SensorEventListener sensorEventListener, int i2) {
         if (sensorEventListener == null || context == null) {
             return;
         }
         try {
             SensorManager b2 = b(context);
-            b2.registerListener(sensorEventListener, b2.getDefaultSensor(4), a(i));
+            b2.registerListener(sensorEventListener, b2.getDefaultSensor(4), a(i2));
         } catch (Throwable th) {
             d.a("SensorHub", "startListenGyroscope error", th);
         }

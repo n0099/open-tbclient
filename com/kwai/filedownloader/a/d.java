@@ -10,12 +10,12 @@ public class d {
         int e2 = bVar.e();
         String a2 = bVar.a("Location");
         ArrayList arrayList = new ArrayList();
-        int i = 0;
+        int i2 = 0;
         while (a(e2)) {
             if (a2 == null) {
                 throw new IllegalAccessException(f.a("receive %d (redirect) but the location is null with response [%s]", Integer.valueOf(e2), bVar.c()));
             }
-            if (com.kwai.filedownloader.f.d.f37396a) {
+            if (com.kwai.filedownloader.f.d.f35118a) {
                 com.kwai.filedownloader.f.d.c(d.class, "redirect to %s with %d, %s", a2, Integer.valueOf(e2), arrayList);
             }
             bVar.f();
@@ -24,8 +24,8 @@ public class d {
             bVar.d();
             e2 = bVar.e();
             a2 = bVar.a("Location");
-            i++;
-            if (i >= 10) {
+            i2++;
+            if (i2 >= 10) {
                 throw new IllegalAccessException(f.a("redirect too many times! %s", arrayList));
             }
         }
@@ -49,7 +49,7 @@ public class d {
         return a2;
     }
 
-    public static boolean a(int i) {
-        return i == 301 || i == 302 || i == 303 || i == 300 || i == 307 || i == 308;
+    public static boolean a(int i2) {
+        return i2 == 301 || i2 == 302 || i2 == 303 || i2 == 300 || i2 == 307 || i2 == 308;
     }
 }

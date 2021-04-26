@@ -19,22 +19,24 @@ import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.InviteMsgData;
-import d.b.i0.z0.n;
+import d.a.i0.z0.n;
 /* loaded from: classes4.dex */
 public final class Invite2GroupView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17845e;
+    public TextView f18178e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f17846f;
+    public TbImageView f18179f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17847g;
+    public TextView f18180g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17848h;
-    public InviteMsgData i;
+    public TextView f18181h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public InviteMsgData f18182i;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -43,8 +45,8 @@ public final class Invite2GroupView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            Context context = Invite2GroupView.this.f17848h.getContext();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2008014, new ApplyJoinGroupActivityConfig(context, "" + Invite2GroupView.this.i.getGroupId(), Invite2GroupView.this.i.getFromUid(), Invite2GroupView.this.i.getText())));
+            Context context = Invite2GroupView.this.f18181h.getContext();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2008014, new ApplyJoinGroupActivityConfig(context, "" + Invite2GroupView.this.f18182i.getGroupId(), Invite2GroupView.this.f18182i.getFromUid(), Invite2GroupView.this.f18182i.getText())));
         }
     }
 
@@ -52,19 +54,19 @@ public final class Invite2GroupView extends LinearLayout {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f17850e;
+        public final /* synthetic */ TbPageContext f18184e;
 
         public b(TbPageContext tbPageContext) {
-            this.f17850e = tbPageContext;
+            this.f18184e = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            GroupInfoActivityConfig groupInfoActivityConfig = new GroupInfoActivityConfig(Invite2GroupView.this.getContext(), Invite2GroupView.this.i.getGroupId(), 7, Invite2GroupView.this.i.getText(), Invite2GroupView.this.i.getFromUid());
-            if (this.f17850e.getOrignalPage() instanceof BaseActivity) {
-                this.f17850e.sendMessage(new CustomMessage(2008011, groupInfoActivityConfig));
-            } else if (this.f17850e.getOrignalPage() instanceof BaseFragmentActivity) {
-                this.f17850e.sendMessage(new CustomMessage(2008011, groupInfoActivityConfig));
+            GroupInfoActivityConfig groupInfoActivityConfig = new GroupInfoActivityConfig(Invite2GroupView.this.getContext(), Invite2GroupView.this.f18182i.getGroupId(), 7, Invite2GroupView.this.f18182i.getText(), Invite2GroupView.this.f18182i.getFromUid());
+            if (this.f18184e.getOrignalPage() instanceof BaseActivity) {
+                this.f18184e.sendMessage(new CustomMessage(2008011, groupInfoActivityConfig));
+            } else if (this.f18184e.getOrignalPage() instanceof BaseFragmentActivity) {
+                this.f18184e.sendMessage(new CustomMessage(2008011, groupInfoActivityConfig));
             }
         }
     }
@@ -77,7 +79,7 @@ public final class Invite2GroupView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (Invite2GroupView.this.getContext() instanceof Activity) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig((Activity) Invite2GroupView.this.getContext(), Invite2GroupView.this.i.getGroupId(), Invite2GroupView.this.i.getGroupName(), Invite2GroupView.this.i.getGroupOwnerId(), "invite add group")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig((Activity) Invite2GroupView.this.getContext(), Invite2GroupView.this.f18182i.getGroupId(), Invite2GroupView.this.f18182i.getGroupName(), Invite2GroupView.this.f18182i.getGroupOwnerId(), "invite add group")));
             }
         }
     }
@@ -86,7 +88,7 @@ public final class Invite2GroupView extends LinearLayout {
     public class d implements n<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f17853a;
+        public final /* synthetic */ TbPageContext f18187a;
 
         /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
@@ -96,17 +98,17 @@ public final class Invite2GroupView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (Invite2GroupView.this.getContext() instanceof Activity) {
-                    d.this.f17853a.showToast(R.string.has_recent_join);
+                    d.this.f18187a.showToast(R.string.has_recent_join);
                 }
             }
         }
 
         public d(TbPageContext tbPageContext) {
-            this.f17853a = tbPageContext;
+            this.f18187a = tbPageContext;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.n
+        @Override // d.a.i0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             if (bool == null) {
@@ -115,8 +117,8 @@ public final class Invite2GroupView extends LinearLayout {
             if (bool.booleanValue()) {
                 return;
             }
-            Invite2GroupView.this.f17848h.setTextColor(Invite2GroupView.this.getContext().getResources().getColor(R.color.common_color_10228));
-            Invite2GroupView.this.f17848h.setOnClickListener(new a());
+            Invite2GroupView.this.f18181h.setTextColor(Invite2GroupView.this.getContext().getResources().getColor(R.color.common_color_10228));
+            Invite2GroupView.this.f18181h.setOnClickListener(new a());
         }
     }
 
@@ -128,37 +130,37 @@ public final class Invite2GroupView extends LinearLayout {
     public final void c() {
         LayoutInflater.from(getContext()).inflate(R.layout.invite_to_group_view, this);
         setOrientation(1);
-        this.f17845e = (TextView) findViewById(R.id.chat_title);
-        this.f17846f = (TbImageView) findViewById(R.id.chat_group_img);
-        this.f17847g = (TextView) findViewById(R.id.chat_group_desc);
-        this.f17848h = (TextView) findViewById(R.id.invite_btn);
-        this.f17846f.setIsRound(false);
+        this.f18178e = (TextView) findViewById(R.id.chat_title);
+        this.f18179f = (TbImageView) findViewById(R.id.chat_group_img);
+        this.f18180g = (TextView) findViewById(R.id.chat_group_desc);
+        this.f18181h = (TextView) findViewById(R.id.invite_btn);
+        this.f18179f.setIsRound(false);
     }
 
     public final void d(TbPageContext<?> tbPageContext) {
-        this.f17848h.setEnabled(true);
-        this.f17848h.setTag(String.valueOf(this.i.getGroupId()));
-        this.f17848h.setText(R.string.i_want_attent);
-        this.f17848h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0201));
-        this.f17848h.setOnClickListener(new a());
-        this.f17845e.setText(this.i.getTitle());
-        this.f17846f.setTag(this.i.getPortrait());
-        this.f17846f.W(this.i.getPortrait(), 10, false);
-        this.f17847g.setText(this.i.getNotice());
+        this.f18181h.setEnabled(true);
+        this.f18181h.setTag(String.valueOf(this.f18182i.getGroupId()));
+        this.f18181h.setText(R.string.i_want_attent);
+        this.f18181h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0201));
+        this.f18181h.setOnClickListener(new a());
+        this.f18178e.setText(this.f18182i.getTitle());
+        this.f18179f.setTag(this.f18182i.getPortrait());
+        this.f18179f.V(this.f18182i.getPortrait(), 10, false);
+        this.f18180g.setText(this.f18182i.getNotice());
         setOnClickListener(new b(tbPageContext));
-        if (d.b.j0.e1.k.b.o().i(String.valueOf(this.i.getGroupId()), 1) != null) {
-            if (String.valueOf(this.i.getGroupId()).equals(this.f17848h.getTag())) {
-                this.f17848h.setText(R.string.i_want_talk);
-                this.f17848h.setOnClickListener(new c());
+        if (d.a.j0.e1.k.b.o().i(String.valueOf(this.f18182i.getGroupId()), 1) != null) {
+            if (String.valueOf(this.f18182i.getGroupId()).equals(this.f18181h.getTag())) {
+                this.f18181h.setText(R.string.i_want_talk);
+                this.f18181h.setOnClickListener(new c());
                 return;
             }
             return;
         }
-        d.b.j0.e1.t.b.k().m(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.i.getGroupId()), 60000L, new d(tbPageContext));
+        d.a.j0.e1.t.b.k().m(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f18182i.getGroupId()), 60000L, new d(tbPageContext));
     }
 
     public void setData(TbPageContext<?> tbPageContext, InviteMsgData inviteMsgData) {
-        this.i = inviteMsgData;
+        this.f18182i = inviteMsgData;
         d(tbPageContext);
     }
 

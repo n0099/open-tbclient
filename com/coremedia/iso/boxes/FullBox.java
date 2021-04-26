@@ -1,11 +1,11 @@
 package com.coremedia.iso.boxes;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface FullBox extends Box {
     int getFlags();
 
     int getVersion();
 
-    void setFlags(int i);
+    void setFlags(int i2);
 
-    void setVersion(int i);
+    void setVersion(int i2);
 }

@@ -41,10 +41,10 @@ public class DownloadStrategy {
         @NonNull
         public BreakpointInfo info;
 
-        public ResumeAvailableResponseCheck(@NonNull DownloadConnection.Connected connected, int i, @NonNull BreakpointInfo breakpointInfo) {
+        public ResumeAvailableResponseCheck(@NonNull DownloadConnection.Connected connected, int i2, @NonNull BreakpointInfo breakpointInfo) {
             this.connected = connected;
             this.info = breakpointInfo;
-            this.blockIndex = i;
+            this.blockIndex = i2;
         }
 
         public void inspect() throws IOException {
@@ -93,16 +93,16 @@ public class DownloadStrategy {
     }
 
     @Nullable
-    public ResumeFailedCause getPreconditionFailedCause(int i, boolean z, @NonNull BreakpointInfo breakpointInfo, @Nullable String str) {
+    public ResumeFailedCause getPreconditionFailedCause(int i2, boolean z, @NonNull BreakpointInfo breakpointInfo, @Nullable String str) {
         String etag = breakpointInfo.getEtag();
-        if (i == 412) {
+        if (i2 == 412) {
             return ResumeFailedCause.RESPONSE_PRECONDITION_FAILED;
         }
         if (Util.isEmpty(etag) || Util.isEmpty(str) || str.equals(etag)) {
-            if (i == 201 && z) {
+            if (i2 == 201 && z) {
                 return ResumeFailedCause.RESPONSE_CREATED_RANGE_NOT_FROM_0;
             }
-            if (i == 205 && z) {
+            if (i2 == 205 && z) {
                 return ResumeFailedCause.RESPONSE_RESET_RANGE_NOT_FROM_0;
             }
             return null;
@@ -154,7 +154,7 @@ public class DownloadStrategy {
         }
         if (downloadTask.isWifiRequired()) {
             if (this.isHasAccessNetworkStatePermission.booleanValue()) {
-                if (this.manager == null) {
+                if (this.manager == null && BdDownload.with().context() != null) {
                     this.manager = (ConnectivityManager) BdDownload.with().context().getSystemService("connectivity");
                 }
                 if (Util.isNetworkNotOnWifiType(this.manager)) {
@@ -166,9 +166,9 @@ public class DownloadStrategy {
         }
     }
 
-    public boolean isServerCanceled(int i, boolean z) {
-        if (i == 206 || i == 200) {
-            return i == 200 && z;
+    public boolean isServerCanceled(int i2, boolean z) {
+        if (i2 == 206 || i2 == 200) {
+            return i2 == 200 && z;
         }
         return true;
     }
@@ -180,8 +180,8 @@ public class DownloadStrategy {
         return false;
     }
 
-    public ResumeAvailableResponseCheck resumeAvailableResponseCheck(DownloadConnection.Connected connected, int i, BreakpointInfo breakpointInfo) {
-        return new ResumeAvailableResponseCheck(connected, i, breakpointInfo);
+    public ResumeAvailableResponseCheck resumeAvailableResponseCheck(DownloadConnection.Connected connected, int i2, BreakpointInfo breakpointInfo) {
+        return new ResumeAvailableResponseCheck(connected, i2, breakpointInfo);
     }
 
     public long reuseIdledSameInfoThresholdBytes() {

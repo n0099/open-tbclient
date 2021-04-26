@@ -1,17 +1,11 @@
 package com.kwad.sdk.contentalliance.refreshview;
 
-import android.animation.ValueAnimator;
-import android.content.Context;
 import android.os.Build;
-import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
-import android.view.animation.Transformation;
 import android.widget.AbsListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,89 +20,86 @@ import java.util.List;
 public abstract class RefreshLayout extends ViewGroup implements NestedScrollingChild, NestedScrollingParent {
     public float A;
     public float B;
-    public float C;
-    public float D;
-    public float E;
-    public float F;
-    public View G;
-    public boolean H;
-    public boolean I;
-    public boolean J;
-    public RefreshStyle K;
-    public View L;
-    public ValueAnimator M;
-    public com.kwad.sdk.contentalliance.refreshview.b N;
-    public b O;
-    public final Animation.AnimationListener P;
-    public d Q;
-    public c R;
-    public List<c> S;
-    public Interpolator T;
-    public Interpolator U;
-    public boolean V;
-    public boolean W;
+    public View C;
+    public boolean D;
+    public boolean E;
+    public boolean F;
+    public RefreshStyle G;
+    public View H;
+    public com.kwad.sdk.contentalliance.refreshview.a I;
+    public a J;
+    public final Animation.AnimationListener K;
+    public c L;
+    public b M;
+    public List<b> N;
+    public Interpolator O;
+    public Interpolator P;
+    public boolean Q;
+    public boolean R;
+    public final Animation S;
+    public final Animation T;
+    public boolean U;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f33340a;
-    public final Animation aa;
-    public final Animation ab;
-    public boolean ac;
+    public float f32793a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f33341b;
+    public float f32794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f33342c;
+    public View f32795c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f33343d;
+    public com.kwad.sdk.contentalliance.refreshview.b f32796d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.refreshview.d f33344e;
+    public final Animation.AnimationListener f32797e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Animation.AnimationListener f33345f;
+    public final NestedScrollingChildHelper f32798f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f33346g;
+    public final NestedScrollingParentHelper f32799g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int[] f33347h;
-    public final int[] i;
-    public final NestedScrollingChildHelper j;
-    public final NestedScrollingParentHelper k;
-    public float l;
+    public float f32800h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f32801i;
+    public boolean j;
+    public boolean k;
+    public boolean l;
     public boolean m;
     public boolean n;
     public boolean o;
-    public boolean p;
-    public boolean q;
-    public boolean r;
-    public boolean s;
+    public int p;
+    public int q;
+    public int r;
+    public int s;
     public int t;
     public int u;
-    public int v;
-    public int w;
-    public int x;
-    public int y;
+    public float v;
+    public float w;
+    public float x;
+    public float y;
     public float z;
 
-    /* renamed from: com.kwad.sdk.contentalliance.refreshview.RefreshLayout$6  reason: invalid class name */
+    /* renamed from: com.kwad.sdk.contentalliance.refreshview.RefreshLayout$2  reason: invalid class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class AnonymousClass6 {
+    public static /* synthetic */ class AnonymousClass2 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f33353a;
+        public static final /* synthetic */ int[] f32803a;
 
         static {
             int[] iArr = new int[RefreshStyle.values().length];
-            f33353a = iArr;
+            f32803a = iArr;
             try {
                 iArr[RefreshStyle.FLOAT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f33353a[RefreshStyle.PINNED.ordinal()] = 2;
+                f32803a[RefreshStyle.PINNED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -122,213 +113,54 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     }
 
     /* loaded from: classes6.dex */
-    public static class a extends ViewGroup.MarginLayoutParams {
-        public a(int i, int i2) {
-            super(i, i2);
-        }
-
-        public a(Context context, AttributeSet attributeSet) {
-            super(context, attributeSet);
-        }
-
-        public a(ViewGroup.LayoutParams layoutParams) {
-            super(layoutParams);
-        }
+    public interface a {
     }
 
     /* loaded from: classes6.dex */
     public interface b {
         void a();
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a();
 
         void a(float f2, float f3, boolean z);
 
         void b();
-
-        void c();
     }
 
     /* loaded from: classes6.dex */
-    public interface d {
+    public interface c {
         boolean a(float f2, boolean z);
     }
 
-    public RefreshLayout(Context context) {
-        this(context, null);
-    }
-
-    public RefreshLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.f33346g = "RefreshLayout";
-        this.f33347h = new int[2];
-        this.i = new int[2];
-        this.t = -1;
-        this.u = -1;
-        this.v = 300;
-        this.w = 500;
-        this.H = false;
-        this.I = false;
-        this.J = false;
-        this.K = RefreshStyle.NORMAL;
-        this.M = null;
-        this.P = new Animation.AnimationListener() { // from class: com.kwad.sdk.contentalliance.refreshview.RefreshLayout.1
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationEnd(Animation animation) {
-                if (RefreshLayout.this.r && RefreshLayout.this.O != null) {
-                    RefreshLayout.this.O.a();
-                }
-                RefreshLayout.this.n = false;
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationRepeat(Animation animation) {
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationStart(Animation animation) {
-                RefreshLayout.this.n = true;
-                RefreshLayout.this.f33344e.b();
-            }
-        };
-        this.f33345f = new Animation.AnimationListener() { // from class: com.kwad.sdk.contentalliance.refreshview.RefreshLayout.2
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationEnd(Animation animation) {
-                RefreshLayout.this.a();
-                if (RefreshLayout.this.R != null) {
-                    RefreshLayout.this.R.c();
-                }
-                if (RefreshLayout.this.S != null) {
-                    for (int i = 0; i < RefreshLayout.this.S.size(); i++) {
-                        ((c) RefreshLayout.this.S.get(i)).c();
-                    }
-                }
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationRepeat(Animation animation) {
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationStart(Animation animation) {
-                RefreshLayout.this.n = true;
-            }
-        };
-        this.T = new DecelerateInterpolator(2.0f);
-        this.U = new DecelerateInterpolator(2.0f);
-        this.W = true;
-        this.aa = new Animation() { // from class: com.kwad.sdk.contentalliance.refreshview.RefreshLayout.3
-            @Override // android.view.animation.Animation
-            public void applyTransformation(float f2, Transformation transformation) {
-                float f3;
-                RefreshLayout refreshLayout;
-                View view;
-                if (RefreshLayout.this.L == null) {
-                    return;
-                }
-                if (AnonymousClass6.f33353a[RefreshLayout.this.K.ordinal()] != 1) {
-                    refreshLayout = RefreshLayout.this;
-                    f3 = refreshLayout.f33342c;
-                    view = refreshLayout.L;
-                } else {
-                    RefreshLayout refreshLayout2 = RefreshLayout.this;
-                    f3 = refreshLayout2.f33342c + refreshLayout2.D;
-                    refreshLayout = RefreshLayout.this;
-                    view = refreshLayout.f33343d;
-                }
-                refreshLayout.a(f3, view.getTop(), f2);
-            }
-        };
-        this.ab = new Animation() { // from class: com.kwad.sdk.contentalliance.refreshview.RefreshLayout.4
-            @Override // android.view.animation.Animation
-            public void applyTransformation(float f2, Transformation transformation) {
-                RefreshLayout refreshLayout;
-                float f3;
-                View view;
-                if (RefreshLayout.this.L == null) {
-                    return;
-                }
-                if (AnonymousClass6.f33353a[RefreshLayout.this.K.ordinal()] != 1) {
-                    refreshLayout = RefreshLayout.this;
-                    f3 = 0.0f;
-                    view = refreshLayout.L;
-                } else {
-                    refreshLayout = RefreshLayout.this;
-                    f3 = refreshLayout.D;
-                    view = RefreshLayout.this.f33343d;
-                }
-                refreshLayout.a(f3, view.getTop(), f2);
-            }
-        };
-        this.ac = true;
-        this.y = ViewConfiguration.get(context).getScaledTouchSlop();
-        float f2 = getResources().getDisplayMetrics().density;
-        this.f33340a = (int) (f2 * 70.0f);
-        this.f33342c = f2 * 70.0f;
-        this.f33341b = 0.0f;
-        com.kwad.sdk.core.d.a.b("RefreshLayout", "constructor: " + this.f33341b);
-        this.D = 0.0f;
-        this.E = 1.0f;
-        this.k = new NestedScrollingParentHelper(this);
-        this.j = new NestedScrollingChildHelper(this);
-        a(attributeSet);
-        g();
-        setNestedScrollingEnabled(true);
-        ViewCompat.setChildrenDrawingOrderEnabled(this, true);
-    }
-
-    private float a(MotionEvent motionEvent, int i) {
-        int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i);
+    private float a(MotionEvent motionEvent, int i2) {
+        int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i2);
         if (findPointerIndex < 0) {
             return -1.0f;
         }
         return MotionEventCompat.getY(motionEvent, findPointerIndex);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        c();
-        this.C = 0.0f;
-        this.F = 0.0f;
-        this.f33344e.a();
-        this.f33343d.setVisibility(8);
-        this.o = false;
-        this.n = false;
-        com.kwad.sdk.core.d.a.b("RefreshLayout", "reset");
-    }
-
     private void a(float f2) {
-        float f3 = f2 - this.z;
-        if (this.o && (f3 > this.y || this.f33341b > 0.0f)) {
-            this.q = true;
-            this.B = this.z + this.y;
-        } else if (this.q) {
+        float f3 = f2 - this.v;
+        if (this.k && (f3 > this.u || this.f32793a > 0.0f)) {
+            this.m = true;
+            this.x = this.v + this.u;
+        } else if (this.m) {
         } else {
-            int i = this.y;
-            if (f3 > i) {
-                this.B = this.z + i;
-                this.q = true;
+            int i2 = this.u;
+            if (f3 > i2) {
+                this.x = this.v + i2;
+                this.m = true;
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(float f2, float f3, float f4) {
-        int i = this.x;
-        setTargetOrRefreshViewOffsetY((int) (((int) (i + ((f2 - i) * f4))) - f3));
-    }
-
     private void a(float f2, boolean z) {
         float f3;
-        this.C = f2;
-        d dVar = this.Q;
-        int i = 0;
-        if (dVar == null || !dVar.a(f2, false)) {
-            if (this.o) {
-                f3 = this.f33342c;
+        this.y = f2;
+        c cVar = this.L;
+        int i2 = 0;
+        if (cVar == null || !cVar.a(f2, false)) {
+            if (this.k) {
+                f3 = this.f32794b;
                 if (f2 <= f3) {
                     f3 = f2;
                 }
@@ -336,46 +168,46 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                     f3 = 0.0f;
                 }
             } else {
-                f3 = AnonymousClass6.f33353a[this.K.ordinal()] != 1 ? this.N.a(f2, this.f33342c) : this.D + this.N.a(f2, this.f33342c);
+                f3 = AnonymousClass2.f32803a[this.G.ordinal()] != 1 ? this.I.a(f2, this.f32794b) : this.z + this.I.a(f2, this.f32794b);
             }
-            float f4 = this.f33342c;
-            if (!this.o) {
-                if (f3 > f4 && !this.p) {
-                    this.p = true;
-                    this.f33344e.d();
-                    c cVar = this.R;
-                    if (cVar != null) {
-                        cVar.a();
+            float f4 = this.f32794b;
+            if (!this.k) {
+                if (f3 > f4 && !this.l) {
+                    this.l = true;
+                    this.f32796d.c();
+                    b bVar = this.M;
+                    if (bVar != null) {
+                        bVar.a();
                     }
-                    if (this.S != null) {
-                        while (i < this.S.size()) {
-                            this.S.get(i).a();
-                            i++;
+                    if (this.N != null) {
+                        while (i2 < this.N.size()) {
+                            this.N.get(i2).a();
+                            i2++;
                         }
                     }
-                } else if (f3 <= f4 && this.p) {
-                    this.p = false;
-                    this.f33344e.e();
-                    c cVar2 = this.R;
-                    if (cVar2 != null) {
-                        cVar2.b();
+                } else if (f3 <= f4 && this.l) {
+                    this.l = false;
+                    this.f32796d.d();
+                    b bVar2 = this.M;
+                    if (bVar2 != null) {
+                        bVar2.b();
                     }
-                    if (this.S != null) {
-                        while (i < this.S.size()) {
-                            this.S.get(i).b();
-                            i++;
+                    if (this.N != null) {
+                        while (i2 < this.N.size()) {
+                            this.N.get(i2).b();
+                            i2++;
                         }
                     }
                 }
             }
-            com.kwad.sdk.core.d.a.b("RefreshLayout", f2 + " -- " + f4 + " -- " + f3 + " -- " + this.f33341b + " -- " + this.f33342c);
-            a((int) (f3 - this.f33341b), z);
+            com.kwad.sdk.core.d.a.c("RefreshLayout", f2 + " -- " + f4 + " -- " + f3 + " -- " + this.f32793a + " -- " + this.f32794b);
+            a((int) (f3 - this.f32793a), z);
         }
     }
 
-    private void a(int i, int i2) {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f33343d.getLayoutParams();
-        this.f33343d.measure(marginLayoutParams.width == -1 ? View.MeasureSpec.makeMeasureSpec(Math.max(0, (((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight()) - marginLayoutParams.leftMargin) - marginLayoutParams.rightMargin), 1073741824) : ViewGroup.getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin, marginLayoutParams.width), marginLayoutParams.height == -1 ? View.MeasureSpec.makeMeasureSpec(Math.max(0, (((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom()) - marginLayoutParams.topMargin) - marginLayoutParams.bottomMargin), 1073741824) : ViewGroup.getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin, marginLayoutParams.height));
+    private void a(int i2, int i3) {
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f32795c.getLayoutParams();
+        this.f32795c.measure(marginLayoutParams.width == -1 ? View.MeasureSpec.makeMeasureSpec(Math.max(0, (((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight()) - marginLayoutParams.leftMargin) - marginLayoutParams.rightMargin), 1073741824) : ViewGroup.getChildMeasureSpec(i2, getPaddingLeft() + getPaddingRight() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin, marginLayoutParams.width), marginLayoutParams.height == -1 ? View.MeasureSpec.makeMeasureSpec(Math.max(0, (((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom()) - marginLayoutParams.topMargin) - marginLayoutParams.bottomMargin), 1073741824) : ViewGroup.getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin, marginLayoutParams.height));
     }
 
     /* JADX WARN: Removed duplicated region for block: B:22:0x0095  */
@@ -383,105 +215,105 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(int i, boolean z) {
+    private void a(int i2, boolean z) {
         View view;
-        if (this.L == null) {
+        if (this.H == null) {
             return;
         }
-        int i2 = AnonymousClass6.f33353a[this.K.ordinal()];
-        if (i2 == 1) {
-            this.f33343d.offsetTopAndBottom(i);
-            view = this.f33343d;
-        } else if (i2 != 2) {
-            this.L.offsetTopAndBottom(i);
-            View view2 = this.G;
+        int i3 = AnonymousClass2.f32803a[this.G.ordinal()];
+        if (i3 == 1) {
+            this.f32795c.offsetTopAndBottom(i2);
+            view = this.f32795c;
+        } else if (i3 != 2) {
+            this.H.offsetTopAndBottom(i2);
+            View view2 = this.C;
             if (view2 != null) {
-                view2.offsetTopAndBottom(i);
+                view2.offsetTopAndBottom(i2);
             } else {
-                float f2 = (i / this.E) + this.F;
-                int i3 = (int) f2;
-                this.F = f2 - i3;
-                this.f33343d.offsetTopAndBottom(i3);
+                float f2 = (i2 / this.A) + this.B;
+                int i4 = (int) f2;
+                this.B = f2 - i4;
+                this.f32795c.offsetTopAndBottom(i4);
             }
-            this.f33341b = this.L.getTop();
-            com.kwad.sdk.core.d.a.b("RefreshLayout", "refresh style" + this.f33341b);
-            com.kwad.sdk.core.d.a.b("RefreshLayout", "current offset" + this.f33341b);
-            if (AnonymousClass6.f33353a[this.K.ordinal()] == 1) {
-                com.kwad.sdk.contentalliance.refreshview.d dVar = this.f33344e;
-                float f3 = this.f33341b;
-                dVar.a(f3, f3 / this.f33342c);
-                c cVar = this.R;
-                if (cVar != null) {
-                    float f4 = this.f33341b;
-                    cVar.a(f4, f4 / this.f33342c, z);
+            this.f32793a = this.H.getTop();
+            com.kwad.sdk.core.d.a.c("RefreshLayout", "refresh style" + this.f32793a);
+            com.kwad.sdk.core.d.a.c("RefreshLayout", "current offset" + this.f32793a);
+            if (AnonymousClass2.f32803a[this.G.ordinal()] == 1) {
+                com.kwad.sdk.contentalliance.refreshview.b bVar = this.f32796d;
+                float f3 = this.f32793a;
+                bVar.a(f3, f3 / this.f32794b);
+                b bVar2 = this.M;
+                if (bVar2 != null) {
+                    float f4 = this.f32793a;
+                    bVar2.a(f4, f4 / this.f32794b, z);
                 }
-                if (this.S != null) {
-                    for (int i4 = 0; i4 < this.S.size(); i4++) {
-                        float f5 = this.f33341b;
-                        this.S.get(i4).a(f5, f5 / this.f33342c, z);
+                if (this.N != null) {
+                    for (int i5 = 0; i5 < this.N.size(); i5++) {
+                        float f5 = this.f32793a;
+                        this.N.get(i5).a(f5, f5 / this.f32794b, z);
                     }
                 }
             } else {
-                com.kwad.sdk.contentalliance.refreshview.d dVar2 = this.f33344e;
-                float f6 = this.f33341b;
-                dVar2.a(f6, (f6 - this.D) / this.f33342c);
-                c cVar2 = this.R;
-                if (cVar2 != null) {
-                    float f7 = this.f33341b;
-                    cVar2.a(f7, (f7 - this.D) / this.f33342c, z);
+                com.kwad.sdk.contentalliance.refreshview.b bVar3 = this.f32796d;
+                float f6 = this.f32793a;
+                bVar3.a(f6, (f6 - this.z) / this.f32794b);
+                b bVar4 = this.M;
+                if (bVar4 != null) {
+                    float f7 = this.f32793a;
+                    bVar4.a(f7, (f7 - this.z) / this.f32794b, z);
                 }
-                if (this.S != null) {
-                    for (int i5 = 0; i5 < this.S.size(); i5++) {
-                        float f8 = this.f33341b;
-                        this.S.get(i5).a(f8, (f8 - this.D) / this.f33342c, z);
+                if (this.N != null) {
+                    for (int i6 = 0; i6 < this.N.size(); i6++) {
+                        float f8 = this.f32793a;
+                        this.N.get(i6).a(f8, (f8 - this.z) / this.f32794b, z);
                     }
                 }
             }
-            if (this.W && this.f33343d.getVisibility() != 0) {
-                this.f33343d.setVisibility(0);
+            if (this.R && this.f32795c.getVisibility() != 0) {
+                this.f32795c.setVisibility(0);
             }
             invalidate();
         } else {
-            this.L.offsetTopAndBottom(i);
-            View view3 = this.G;
+            this.H.offsetTopAndBottom(i2);
+            View view3 = this.C;
             if (view3 != null) {
-                view3.offsetTopAndBottom(i);
+                view3.offsetTopAndBottom(i2);
             }
-            view = this.L;
+            view = this.H;
         }
-        this.f33341b = view.getTop();
-        com.kwad.sdk.core.d.a.b("RefreshLayout", "current offset" + this.f33341b);
-        if (AnonymousClass6.f33353a[this.K.ordinal()] == 1) {
+        this.f32793a = view.getTop();
+        com.kwad.sdk.core.d.a.c("RefreshLayout", "current offset" + this.f32793a);
+        if (AnonymousClass2.f32803a[this.G.ordinal()] == 1) {
         }
-        if (this.W) {
-            this.f33343d.setVisibility(0);
+        if (this.R) {
+            this.f32795c.setVisibility(0);
         }
         invalidate();
     }
 
     private void a(MotionEvent motionEvent) {
         int pointerId = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
-        this.u = pointerId;
-        this.B = a(motionEvent, pointerId) - this.C;
-        com.kwad.sdk.core.d.a.b("RefreshLayout", " onDown " + this.B);
+        this.q = pointerId;
+        this.x = a(motionEvent, pointerId) - this.y;
+        com.kwad.sdk.core.d.a.c("RefreshLayout", " onDown " + this.x);
     }
 
     private void a(boolean z, boolean z2) {
-        if (this.o != z) {
-            this.r = z2;
-            this.o = z;
+        if (this.k != z) {
+            this.n = z2;
+            this.k = z;
             if (z) {
-                b((int) this.f33341b, this.P);
+                b((int) this.f32793a, this.K);
                 return;
             }
-            this.f33344e.c();
-            postDelayed(new Runnable() { // from class: com.kwad.sdk.contentalliance.refreshview.RefreshLayout.5
+            this.f32796d.b();
+            postDelayed(new Runnable() { // from class: com.kwad.sdk.contentalliance.refreshview.RefreshLayout.1
                 @Override // java.lang.Runnable
                 public void run() {
                     RefreshLayout refreshLayout = RefreshLayout.this;
-                    refreshLayout.a((int) refreshLayout.f33341b, refreshLayout.f33345f);
+                    refreshLayout.a((int) refreshLayout.f32793a, refreshLayout.f32797e);
                 }
-            }, this.f33344e.f());
+            }, this.f32796d.e());
         }
     }
 
@@ -499,8 +331,8 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             int childCount = viewGroup.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                if (a(viewGroup.getChildAt(i))) {
+            for (int i2 = 0; i2 < childCount; i2++) {
+                if (a(viewGroup.getChildAt(i2))) {
                     return true;
                 }
             }
@@ -509,481 +341,303 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     }
 
     private int b(float f2) {
-        com.kwad.sdk.core.d.a.b("RefreshLayout", "from -- refreshing " + f2);
-        if (AnonymousClass6.f33353a[this.K.ordinal()] == 1) {
-            f2 -= this.D;
+        com.kwad.sdk.core.d.a.c("RefreshLayout", "from -- refreshing " + f2);
+        if (AnonymousClass2.f32803a[this.G.ordinal()] == 1) {
+            f2 -= this.z;
         }
-        return (int) (Math.max(0.0f, Math.min(1.0f, Math.abs(f2 - this.f33342c) / this.f33342c)) * this.w);
+        return (int) (Math.max(0.0f, Math.min(1.0f, Math.abs(f2 - this.f32794b) / this.f32794b)) * this.s);
     }
 
-    private int b(int i) {
-        return AnonymousClass6.f33353a[this.K.ordinal()] != 1 ? i + ((int) this.f33341b) : i;
+    private int b(int i2) {
+        return AnonymousClass2.f32803a[this.G.ordinal()] != 1 ? i2 + ((int) this.f32793a) : i2;
     }
 
-    private void b(int i, Animation.AnimationListener animationListener) {
+    private void b() {
+        c();
+        this.y = 0.0f;
+        this.B = 0.0f;
+        this.f32796d.a();
+        this.f32795c.setVisibility(8);
+        this.k = false;
+        this.j = false;
+        com.kwad.sdk.core.d.a.c("RefreshLayout", "reset");
+    }
+
+    private void b(int i2, Animation.AnimationListener animationListener) {
         float f2;
         clearAnimation();
-        if (b(i) <= 0) {
+        if (b(i2) <= 0) {
             animationListener.onAnimationStart(null);
             animationListener.onAnimationEnd(null);
             return;
         }
-        this.x = i;
-        this.aa.reset();
-        this.aa.setDuration(b(f2));
-        this.aa.setInterpolator(this.U);
+        this.t = i2;
+        this.S.reset();
+        this.S.setDuration(b(f2));
+        this.S.setInterpolator(this.P);
         if (animationListener != null) {
-            this.aa.setAnimationListener(animationListener);
+            this.S.setAnimationListener(animationListener);
         }
-        startAnimation(this.aa);
+        startAnimation(this.S);
     }
 
     private void b(MotionEvent motionEvent) {
         int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
-        if (MotionEventCompat.getPointerId(motionEvent, actionIndex) == this.u) {
-            this.u = MotionEventCompat.getPointerId(motionEvent, actionIndex == 0 ? 1 : 0);
+        if (MotionEventCompat.getPointerId(motionEvent, actionIndex) == this.q) {
+            this.q = MotionEventCompat.getPointerId(motionEvent, actionIndex == 0 ? 1 : 0);
         }
-        this.B = a(motionEvent, this.u) - this.C;
-        com.kwad.sdk.core.d.a.b("RefreshLayout", " onUp " + this.B);
+        this.x = a(motionEvent, this.q) - this.y;
+        com.kwad.sdk.core.d.a.c("RefreshLayout", " onUp " + this.x);
     }
 
     private int c(float f2) {
-        com.kwad.sdk.core.d.a.b("RefreshLayout", "from -- start " + f2);
-        if (f2 < this.D) {
+        com.kwad.sdk.core.d.a.c("RefreshLayout", "from -- start " + f2);
+        if (f2 < this.z) {
             return 0;
         }
-        if (AnonymousClass6.f33353a[this.K.ordinal()] == 1) {
-            f2 -= this.D;
+        if (AnonymousClass2.f32803a[this.G.ordinal()] == 1) {
+            f2 -= this.z;
         }
-        return (int) (Math.max(0.0f, Math.min(1.0f, Math.abs(f2) / this.f33342c)) * this.v);
+        return (int) (Math.max(0.0f, Math.min(1.0f, Math.abs(f2) / this.f32794b)) * this.r);
     }
 
     private void c() {
-        setTargetOrRefreshViewOffsetY((int) ((AnonymousClass6.f33353a[this.K.ordinal()] != 1 ? 0.0f : this.D) - this.f33341b));
+        setTargetOrRefreshViewOffsetY((int) ((AnonymousClass2.f32803a[this.G.ordinal()] != 1 ? 0.0f : this.z) - this.f32793a));
     }
 
-    private void g() {
-        this.N = b();
+    private void d() {
+        this.H.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
     }
 
-    private int getTargetOrRefreshViewTop() {
-        return (AnonymousClass6.f33353a[this.K.ordinal()] != 1 ? this.L : this.f33343d).getTop();
+    private void e() {
+        this.w = 0.0f;
+        this.m = false;
+        this.o = false;
+        this.q = -1;
     }
 
-    private void h() {
-        this.L.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
-    }
-
-    private void i() {
-        this.A = 0.0f;
-        this.q = false;
-        this.s = false;
-        this.u = -1;
-    }
-
-    private void j() {
-        if (this.o || this.n) {
+    private void f() {
+        if (this.k || this.j) {
             return;
         }
-        d dVar = this.Q;
-        if (dVar == null || !dVar.a(this.C, true)) {
-            if (d()) {
+        c cVar = this.L;
+        if (cVar == null || !cVar.a(this.y, true)) {
+            if (a()) {
                 a(true, true);
                 return;
             }
-            this.o = false;
-            a((int) this.f33341b, this.f33345f);
+            this.k = false;
+            a((int) this.f32793a, this.f32797e);
         }
     }
 
-    private void k() {
-        View view = this.G;
+    private void g() {
+        View view = this.C;
         if (view != null) {
             view.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
         }
     }
 
-    private void l() {
-        if (m()) {
+    private int getTargetOrRefreshViewTop() {
+        return (AnonymousClass2.f32803a[this.G.ordinal()] != 1 ? this.H : this.f32795c).getTop();
+    }
+
+    private void h() {
+        if (i()) {
             return;
         }
-        for (int i = 0; i < getChildCount(); i++) {
-            View childAt = getChildAt(i);
-            if (!childAt.equals(this.f33343d) && !childAt.equals(this.G)) {
-                this.L = childAt;
+        for (int i2 = 0; i2 < getChildCount(); i2++) {
+            View childAt = getChildAt(i2);
+            if (!childAt.equals(this.f32795c) && !childAt.equals(this.C)) {
+                this.H = childAt;
                 return;
             }
         }
     }
 
-    private boolean m() {
-        for (int i = 0; i < getChildCount(); i++) {
-            if (this.L == getChildAt(i)) {
+    private boolean i() {
+        for (int i2 = 0; i2 < getChildCount(); i2++) {
+            if (this.H == getChildAt(i2)) {
                 return true;
             }
         }
         return false;
     }
 
-    public int a(int i) {
-        int i2 = AnonymousClass6.f33353a[this.K.ordinal()];
-        return (i2 == 1 || i2 != 2) ? i + ((int) this.f33341b) : i;
+    public int a(int i2) {
+        int i3 = AnonymousClass2.f32803a[this.G.ordinal()];
+        return (i3 == 1 || i3 != 2) ? i2 + ((int) this.f32793a) : i2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.view.ViewGroup
-    /* renamed from: a */
-    public a generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        return new a(layoutParams);
-    }
-
-    public void a(int i, Animation.AnimationListener animationListener) {
+    public void a(int i2, Animation.AnimationListener animationListener) {
         float f2;
         clearAnimation();
-        if (c(i) <= 0) {
+        if (c(i2) <= 0) {
             animationListener.onAnimationStart(null);
             animationListener.onAnimationEnd(null);
             return;
         }
-        this.x = i;
-        this.ab.reset();
-        this.ab.setDuration(c(f2));
-        this.ab.setInterpolator(this.T);
+        this.t = i2;
+        this.T.reset();
+        this.T.setDuration(c(f2));
+        this.T.setInterpolator(this.O);
         if (animationListener != null) {
-            this.ab.setAnimationListener(animationListener);
+            this.T.setAnimationListener(animationListener);
         }
-        startAnimation(this.ab);
+        startAnimation(this.T);
     }
 
-    public void a(AttributeSet attributeSet) {
-        View b2 = b(attributeSet);
-        this.f33343d = b2;
-        b2.setVisibility(8);
-        View view = this.f33343d;
-        if (!(view instanceof com.kwad.sdk.contentalliance.refreshview.d)) {
-            throw new ClassCastException("the refreshView must implement the interface IRefreshStatus");
-        }
-        this.f33344e = (com.kwad.sdk.contentalliance.refreshview.d) view;
-        a c2 = c(attributeSet);
-        if (c2 == null) {
-            int i = this.f33340a;
-            c2 = new a(i, i);
-        }
-        addView(this.f33343d, c2);
-    }
-
-    public abstract View b(AttributeSet attributeSet);
-
-    public abstract com.kwad.sdk.contentalliance.refreshview.b b();
-
-    public a c(AttributeSet attributeSet) {
-        return null;
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        return layoutParams instanceof a;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.view.ViewGroup
-    /* renamed from: d */
-    public a generateLayoutParams(AttributeSet attributeSet) {
-        return new a(getContext(), attributeSet);
-    }
-
-    public boolean d() {
-        return !this.V && ((float) getTargetOrRefreshViewOffset()) > this.f33342c;
+    public boolean a() {
+        return !this.Q && ((float) getTargetOrRefreshViewOffset()) > this.f32794b;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedFling(float f2, float f3, boolean z) {
-        return this.j.dispatchNestedFling(f2, f3, z);
+        return this.f32798f.dispatchNestedFling(f2, f3, z);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreFling(float f2, float f3) {
-        return this.j.dispatchNestedPreFling(f2, f3);
+        return this.f32798f.dispatchNestedPreFling(f2, f3);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2) {
-        return this.j.dispatchNestedPreScroll(i, i2, iArr, iArr2);
+    public boolean dispatchNestedPreScroll(int i2, int i3, int[] iArr, int[] iArr2) {
+        return this.f32798f.dispatchNestedPreScroll(i2, i3, iArr, iArr2);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr) {
-        return this.j.dispatchNestedScroll(i, i2, i3, i4, iArr);
+    public boolean dispatchNestedScroll(int i2, int i3, int i4, int i5, int[] iArr) {
+        return this.f32798f.dispatchNestedScroll(i2, i3, i4, i5, iArr);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         int actionMasked;
-        if (this.ac && ((actionMasked = MotionEventCompat.getActionMasked(motionEvent)) == 1 || actionMasked == 3)) {
+        if (this.U && ((actionMasked = MotionEventCompat.getActionMasked(motionEvent)) == 1 || actionMasked == 3)) {
             onStopNestedScroll(this);
         }
-        com.kwad.sdk.core.d.a.b("RefreshLayout", "dispatch " + this.s + " isRefreshing" + this.o);
+        com.kwad.sdk.core.d.a.c("RefreshLayout", "dispatch " + this.o + " isRefreshing" + this.k);
         return super.dispatchTouchEvent(motionEvent);
-    }
-
-    public boolean e() {
-        return this.o;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.view.ViewGroup
-    /* renamed from: f */
-    public a generateDefaultLayoutParams() {
-        return new a(-2, -2);
-    }
-
-    @Override // android.view.ViewGroup
-    public int getChildDrawingOrder(int i, int i2) {
-        if (AnonymousClass6.f33353a[this.K.ordinal()] != 1) {
-            int i3 = this.t;
-            return i3 < 0 ? i2 : i2 == 0 ? i3 : i2 <= i3 ? i2 - 1 : i2;
-        }
-        int i4 = this.t;
-        return i4 < 0 ? i2 : i2 == i - 1 ? i4 : i2 >= i4 ? i2 + 1 : i2;
     }
 
     @Override // android.view.ViewGroup, androidx.core.view.NestedScrollingParent
     public int getNestedScrollAxes() {
-        return this.k.getNestedScrollAxes();
+        return this.f32799g.getNestedScrollAxes();
     }
 
     public float getRefreshTargetOffset() {
-        return this.f33342c;
+        return this.f32794b;
     }
 
     @Nullable
     public View getStateView() {
-        return this.G;
+        return this.C;
     }
 
     public int getTargetOrRefreshViewOffset() {
-        if (AnonymousClass6.f33353a[this.K.ordinal()] != 1) {
-            View view = this.L;
+        if (AnonymousClass2.f32803a[this.G.ordinal()] != 1) {
+            View view = this.H;
             if (view == null) {
                 return 0;
             }
             return view.getTop();
         }
-        return (int) (this.f33343d.getTop() - this.D);
+        return (int) (this.f32795c.getTop() - this.z);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean hasNestedScrollingParent() {
-        return this.j.hasNestedScrollingParent();
+        return this.f32798f.hasNestedScrollingParent();
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean isNestedScrollingEnabled() {
-        return this.j.isNestedScrollingEnabled();
+        return this.f32798f.isNestedScrollingEnabled();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        a();
-        this.O = null;
+        b();
+        this.J = null;
         clearAnimation();
         super.onDetachedFromWindow();
     }
 
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        l();
-        View view = this.L;
-        if (view == null) {
-            return false;
-        }
-        if (!(view instanceof com.kwad.sdk.contentalliance.refreshview.c) || ((com.kwad.sdk.contentalliance.refreshview.c) view).a()) {
-            if (AnonymousClass6.f33353a[this.K.ordinal()] != 1) {
-                if (!isEnabled() || (a(this.L) && !this.s)) {
-                    return false;
-                }
-            } else if (!isEnabled() || a(this.L) || this.o || this.m) {
-                return false;
-            }
-            int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
-            if (actionMasked != 0) {
-                if (actionMasked != 1) {
-                    if (actionMasked == 2) {
-                        int i = this.u;
-                        if (i == -1) {
-                            return false;
-                        }
-                        float a2 = a(motionEvent, i);
-                        if (a2 == -1.0f) {
-                            return false;
-                        }
-                        a(a2);
-                        ValueAnimator valueAnimator = this.M;
-                        if (valueAnimator != null && valueAnimator.isRunning()) {
-                            this.M.cancel();
-                            this.f33344e.c();
-                            a((int) this.f33341b, this.f33345f);
-                        }
-                    } else if (actionMasked != 3) {
-                        if (actionMasked == 6) {
-                            b(motionEvent);
-                        }
-                    }
-                }
-                this.q = false;
-                this.u = -1;
-            } else {
-                int pointerId = motionEvent.getPointerId(0);
-                this.u = pointerId;
-                this.q = false;
-                float a3 = a(motionEvent, pointerId);
-                if (a3 == -1.0f) {
-                    return false;
-                }
-                if (this.aa.hasEnded() && this.ab.hasEnded()) {
-                    this.n = false;
-                }
-                this.z = a3;
-                this.A = this.f33341b;
-                this.s = false;
-            }
-            return this.q;
-        }
-        return false;
-    }
-
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         View view;
         if (getChildCount() == 0) {
             return;
         }
-        l();
-        if (this.L == null) {
+        h();
+        if (this.H == null) {
             return;
         }
         int measuredWidth = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
-        if (this.L.getVisibility() != 8 || ((view = this.G) != null && view.getVisibility() != 8)) {
+        if (this.H.getVisibility() != 8 || ((view = this.C) != null && view.getVisibility() != 8)) {
             int b2 = b(getPaddingTop());
             int paddingLeft = getPaddingLeft();
             int paddingLeft2 = ((paddingLeft + measuredWidth) - getPaddingLeft()) - getPaddingRight();
             int paddingTop = ((measuredHeight + b2) - getPaddingTop()) - getPaddingBottom();
-            if (this.L.getVisibility() != 8) {
-                this.L.layout(paddingLeft, b2, paddingLeft2, paddingTop);
+            if (this.H.getVisibility() != 8) {
+                this.H.layout(paddingLeft, b2, paddingLeft2, paddingTop);
             }
-            View view2 = this.G;
+            View view2 = this.C;
             if (view2 != null && view2.getVisibility() != 8) {
-                this.G.layout(paddingLeft, b2, paddingLeft2, paddingTop);
+                this.C.layout(paddingLeft, b2, paddingLeft2, paddingTop);
             }
         }
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f33343d.getLayoutParams();
-        int a2 = (a((int) this.D) + marginLayoutParams.topMargin) - marginLayoutParams.bottomMargin;
-        this.f33343d.layout((measuredWidth - this.f33343d.getMeasuredWidth()) / 2, a2, (measuredWidth + this.f33343d.getMeasuredWidth()) / 2, this.f33343d.getMeasuredHeight() + a2);
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f32795c.getLayoutParams();
+        int a2 = (a((int) this.z) + marginLayoutParams.topMargin) - marginLayoutParams.bottomMargin;
+        this.f32795c.layout((measuredWidth - this.f32795c.getMeasuredWidth()) / 2, a2, (measuredWidth + this.f32795c.getMeasuredWidth()) / 2, this.f32795c.getMeasuredHeight() + a2);
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        l();
-        if (this.L == null) {
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        h();
+        if (this.H == null) {
             return;
         }
-        h();
-        k();
-        a(i, i2);
-        if (!this.J && !this.I) {
-            int i3 = AnonymousClass6.f33353a[this.K.ordinal()];
-            if (i3 == 1) {
-                float f2 = -this.f33343d.getMeasuredHeight();
-                this.D = f2;
-                this.f33341b = f2;
-            } else if (i3 != 2) {
-                this.f33341b = 0.0f;
-                this.D = -this.f33343d.getMeasuredHeight();
+        d();
+        g();
+        a(i2, i3);
+        if (!this.F && !this.E) {
+            int i4 = AnonymousClass2.f32803a[this.G.ordinal()];
+            if (i4 == 1) {
+                float f2 = -this.f32795c.getMeasuredHeight();
+                this.z = f2;
+                this.f32793a = f2;
+            } else if (i4 != 2) {
+                this.f32793a = 0.0f;
+                this.z = -this.f32795c.getMeasuredHeight();
             } else {
-                this.D = 0.0f;
-                this.f33341b = 0.0f;
+                this.z = 0.0f;
+                this.f32793a = 0.0f;
             }
         }
-        if (!this.J && !this.H && this.f33342c < this.f33343d.getMeasuredHeight()) {
-            this.f33342c = this.f33343d.getMeasuredHeight();
+        if (!this.F && !this.D && this.f32794b < this.f32795c.getMeasuredHeight()) {
+            this.f32794b = this.f32795c.getMeasuredHeight();
         }
-        this.J = true;
-        this.t = -1;
-        for (int i4 = 0; i4 < getChildCount(); i4++) {
-            if (getChildAt(i4) == this.f33343d) {
-                this.t = i4;
+        this.F = true;
+        this.p = -1;
+        for (int i5 = 0; i5 < getChildCount(); i5++) {
+            if (getChildAt(i5) == this.f32795c) {
+                this.p = i5;
                 return;
             }
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedFling(View view, float f2, float f3, boolean z) {
-        return dispatchNestedFling(f2, f3, z);
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedPreFling(View view, float f2, float f3) {
-        return dispatchNestedPreFling(f2, f3);
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedPreScroll(View view, int i, int i2, int[] iArr) {
-        if (i2 > 0) {
-            float f2 = this.l;
-            if (f2 > 0.0f) {
-                float f3 = i2;
-                if (f3 > f2) {
-                    iArr[1] = i2 - ((int) f2);
-                    this.l = 0.0f;
-                } else {
-                    this.l = f2 - f3;
-                    iArr[1] = i2;
-                }
-                com.kwad.sdk.core.d.a.b("RefreshLayout", "pre scroll");
-                a(this.l, false);
-            }
-        }
-        int[] iArr2 = this.f33347h;
-        if (dispatchNestedPreScroll(i - iArr[0], i2 - iArr[1], iArr2, null)) {
-            iArr[0] = iArr[0] + iArr2[0];
-            iArr[1] = iArr[1] + iArr2[1];
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScroll(View view, int i, int i2, int i3, int i4) {
-        int i5;
-        dispatchNestedScroll(i, i2, i3, i4, this.i);
-        if (i4 + this.i[1] < 0) {
-            this.l += Math.abs(i5);
-            com.kwad.sdk.core.d.a.b("RefreshLayout", "nested scroll");
-            a(this.l, true);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScrollAccepted(View view, View view2, int i) {
-        this.k.onNestedScrollAccepted(view, view2, i);
-        startNestedScroll(i & 2);
-        this.l = 0.0f;
-        this.m = true;
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onStartNestedScroll(View view, View view2, int i) {
-        return AnonymousClass6.f33353a[this.K.ordinal()] != 1 ? isEnabled() && a(this.L) && (i & 2) != 0 : isEnabled() && a(this.L) && !this.o && (i & 2) != 0;
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public void onStopNestedScroll(View view) {
-        this.k.onStopNestedScroll(view);
-        this.m = false;
-        if (this.l > 0.0f) {
-            j();
-            this.l = 0.0f;
+        this.f32799g.onStopNestedScroll(view);
+        this.f32801i = false;
+        if (this.f32800h > 0.0f) {
+            f();
+            this.f32800h = 0.0f;
         }
         stopNestedScroll();
     }
@@ -993,79 +647,79 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         float f2;
         StringBuilder sb;
         float f3;
-        l();
-        if (this.L == null) {
+        h();
+        if (this.H == null) {
             return false;
         }
-        if (AnonymousClass6.f33353a[this.K.ordinal()] != 1) {
-            if (!isEnabled() || (a(this.L) && !this.s)) {
+        if (AnonymousClass2.f32803a[this.G.ordinal()] != 1) {
+            if (!isEnabled() || (a(this.H) && !this.o)) {
                 return false;
             }
-        } else if (!isEnabled() || a(this.L) || this.m) {
+        } else if (!isEnabled() || a(this.H) || this.f32801i) {
             return false;
         }
-        if (this.K == RefreshStyle.FLOAT && (a(this.L) || this.m)) {
+        if (this.G == RefreshStyle.FLOAT && (a(this.H) || this.f32801i)) {
             return false;
         }
         int action = motionEvent.getAction();
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    int i = this.u;
-                    if (i == -1) {
+                    int i2 = this.q;
+                    if (i2 == -1) {
                         return false;
                     }
-                    float a2 = a(motionEvent, i);
+                    float a2 = a(motionEvent, i2);
                     if (a2 == -1.0f) {
                         return false;
                     }
-                    if (this.n) {
+                    if (this.j) {
                         f2 = getTargetOrRefreshViewTop();
-                        this.B = a2;
-                        this.A = f2;
+                        this.x = a2;
+                        this.w = f2;
                         sb = new StringBuilder();
                         sb.append("animatetostart overscrolly ");
                         sb.append(f2);
                         sb.append(" -- ");
-                        f3 = this.B;
+                        f3 = this.x;
                     } else {
-                        f2 = (a2 - this.B) + this.A;
+                        f2 = (a2 - this.x) + this.w;
                         sb = new StringBuilder();
                         sb.append("overscrolly ");
                         sb.append(f2);
                         sb.append(" --");
-                        sb.append(this.B);
+                        sb.append(this.x);
                         sb.append(" -- ");
-                        f3 = this.A;
+                        f3 = this.w;
                     }
                     sb.append(f3);
-                    com.kwad.sdk.core.d.a.b("RefreshLayout", sb.toString());
-                    if (this.o) {
+                    com.kwad.sdk.core.d.a.c("RefreshLayout", sb.toString());
+                    if (this.k) {
                         if (f2 > 0.0f) {
-                            if (f2 > 0.0f && f2 < this.f33342c && this.s) {
+                            if (f2 > 0.0f && f2 < this.f32794b && this.o) {
                                 motionEvent = MotionEvent.obtain(motionEvent);
                                 motionEvent.setAction(3);
-                                this.s = false;
+                                this.o = false;
                             }
-                            com.kwad.sdk.core.d.a.b("RefreshLayout", "moveSpinner refreshing -- " + this.A + " -- " + (a2 - this.B));
+                            com.kwad.sdk.core.d.a.c("RefreshLayout", "moveSpinner refreshing -- " + this.w + " -- " + (a2 - this.x));
                             a(f2, true);
-                        } else if (!this.s) {
+                        } else if (!this.o) {
                             motionEvent = MotionEvent.obtain(motionEvent);
                             motionEvent.setAction(0);
-                            this.s = true;
+                            this.o = true;
                         }
-                        this.L.dispatchTouchEvent(motionEvent);
-                        com.kwad.sdk.core.d.a.b("RefreshLayout", "moveSpinner refreshing -- " + this.A + " -- " + (a2 - this.B));
+                        this.H.dispatchTouchEvent(motionEvent);
+                        com.kwad.sdk.core.d.a.c("RefreshLayout", "moveSpinner refreshing -- " + this.w + " -- " + (a2 - this.x));
                         a(f2, true);
-                    } else if (!this.q) {
-                        com.kwad.sdk.core.d.a.b("RefreshLayout", "is not Being Dragged, init drag status");
+                    } else if (!this.m) {
+                        com.kwad.sdk.core.d.a.c("RefreshLayout", "is not Being Dragged, init drag status");
                         a(a2);
                     } else if (f2 <= 0.0f) {
-                        com.kwad.sdk.core.d.a.b("RefreshLayout", "is Being Dragged, but over scroll Y < 0");
+                        com.kwad.sdk.core.d.a.c("RefreshLayout", "is Being Dragged, but over scroll Y < 0");
                         return false;
                     } else {
                         a(f2, true);
-                        com.kwad.sdk.core.d.a.b("RefreshLayout", "moveSpinner not refreshing -- " + this.A + " -- " + (a2 - this.B));
+                        com.kwad.sdk.core.d.a.c("RefreshLayout", "moveSpinner not refreshing -- " + this.w + " -- " + (a2 - this.x));
                     }
                 } else if (action != 3) {
                     if (action == 5) {
@@ -1075,103 +729,93 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                     }
                 }
             }
-            int i2 = this.u;
-            if (i2 == -1 || a(motionEvent, i2) == -1.0f) {
-                i();
+            int i3 = this.q;
+            if (i3 == -1 || a(motionEvent, i3) == -1.0f) {
+                e();
                 return false;
-            } else if (!this.o && !this.n) {
-                i();
-                j();
+            } else if (!this.k && !this.j) {
+                e();
+                f();
                 return false;
             } else {
-                if (this.s) {
-                    this.L.dispatchTouchEvent(motionEvent);
+                if (this.o) {
+                    this.H.dispatchTouchEvent(motionEvent);
                 }
-                i();
+                e();
                 return false;
             }
         }
-        this.u = MotionEventCompat.getPointerId(motionEvent, 0);
-        this.q = false;
+        this.q = MotionEventCompat.getPointerId(motionEvent, 0);
+        this.m = false;
         return true;
     }
 
-    @Override // android.view.ViewGroup, android.view.ViewParent
-    public void requestDisallowInterceptTouchEvent(boolean z) {
-        if (Build.VERSION.SDK_INT >= 21 || !(this.L instanceof AbsListView)) {
-            View view = this.L;
-            if (view == null || ViewCompat.isNestedScrollingEnabled(view)) {
-                super.requestDisallowInterceptTouchEvent(z);
-            }
-        }
-    }
-
-    public void setAnimateToRefreshDuration(int i) {
-        this.w = i;
+    public void setAnimateToRefreshDuration(int i2) {
+        this.s = i2;
     }
 
     public void setAnimateToRefreshInterpolator(Interpolator interpolator) {
-        this.U = interpolator;
+        this.P = interpolator;
     }
 
-    public void setAnimateToStartDuration(int i) {
-        this.v = i;
+    public void setAnimateToStartDuration(int i2) {
+        this.r = i2;
     }
 
     public void setAnimateToStartInterpolator(Interpolator interpolator) {
-        this.T = interpolator;
+        this.O = interpolator;
     }
 
-    public void setDragDistanceConverter(@NonNull com.kwad.sdk.contentalliance.refreshview.b bVar) {
-        if (bVar == null) {
+    public void setDragDistanceConverter(@NonNull com.kwad.sdk.contentalliance.refreshview.a aVar) {
+        if (aVar == null) {
             throw new NullPointerException("the dragDistanceConverter can't be null");
         }
-        this.N = bVar;
+        this.I = aVar;
     }
 
     public void setIsStopNestScrollWhenUpOrCancel(boolean z) {
-        this.ac = z;
+        this.U = z;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void setNestedScrollingEnabled(boolean z) {
-        this.j.setNestedScrollingEnabled(z);
+        this.f32798f.setNestedScrollingEnabled(z);
     }
 
-    public void setOnRefreshListener(b bVar) {
-        this.O = bVar;
+    public void setOnRefreshListener(a aVar) {
+        this.J = aVar;
     }
 
-    public void setOnRefreshStatusListener(c cVar) {
-        this.R = cVar;
+    public void setOnRefreshStatusListener(b bVar) {
+        this.M = bVar;
     }
 
-    public void setOnScrollInterceptor(d dVar) {
-        this.Q = dVar;
+    public void setOnScrollInterceptor(c cVar) {
+        this.L = cVar;
     }
 
     public void setOnlySupportPull(boolean z) {
-        this.V = z;
+        this.Q = z;
     }
 
     public void setRefreshInitialOffset(float f2) {
-        this.D = f2;
-        this.I = true;
+        this.z = f2;
+        this.E = true;
         requestLayout();
     }
 
     public void setRefreshStyle(@NonNull RefreshStyle refreshStyle) {
-        this.K = refreshStyle;
+        this.G = refreshStyle;
     }
 
     public void setRefreshTargetOffset(float f2) {
-        this.f33342c = f2;
-        this.H = true;
+        this.f32794b = f2;
+        this.D = true;
         requestLayout();
     }
 
     public void setRefreshing(boolean z) {
-        if (this.o == z) {
+        if (this.k == z) {
             return;
         }
         if (!z) {
@@ -1181,29 +825,29 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         if (getAnimation() != null && !getAnimation().hasEnded()) {
             getAnimation().setAnimationListener(null);
             clearAnimation();
-            a();
+            b();
         }
-        this.o = z;
-        this.r = false;
-        b((int) this.f33341b, this.P);
+        this.k = z;
+        this.n = false;
+        b((int) this.f32793a, this.K);
     }
 
     public void setShowRefreshView(boolean z) {
         setOnlySupportPull(!z);
-        this.W = z;
+        this.R = z;
     }
 
-    public void setTargetOrRefreshViewOffsetY(int i) {
-        a(i, false);
+    public void setTargetOrRefreshViewOffsetY(int i2) {
+        a(i2, false);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean startNestedScroll(int i) {
-        return this.j.startNestedScroll(i);
+    public boolean startNestedScroll(int i2) {
+        return this.f32798f.startNestedScroll(i2);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void stopNestedScroll() {
-        this.j.stopNestedScroll();
+        this.f32798f.stopNestedScroll();
     }
 }

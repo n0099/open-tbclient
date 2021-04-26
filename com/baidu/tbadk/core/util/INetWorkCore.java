@@ -16,7 +16,7 @@ public interface INetWorkCore {
 
     void cancelNetConnect();
 
-    boolean downloadFile(String str, Handler handler, int i, int i2, int i3, boolean z);
+    boolean downloadFile(String str, Handler handler, int i2, int i3, int i4, boolean z);
 
     byte[] getNetData();
 

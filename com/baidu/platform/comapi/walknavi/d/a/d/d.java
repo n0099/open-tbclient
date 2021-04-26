@@ -7,15 +7,15 @@ import com.baidu.platform.comapi.walknavi.d.a.g.j;
 public class d implements c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b.C0123b f9536a;
+    public final /* synthetic */ b.C0123b f9893a;
 
     public d(b.C0123b c0123b) {
-        this.f9536a = c0123b;
+        this.f9893a = c0123b;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.d.a.c.a
     public boolean a() {
-        return this.f9536a.b();
+        return this.f9893a.b();
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.d.a.c.InterfaceC0122c

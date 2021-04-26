@@ -3,9 +3,9 @@ package com.bytedance.sdk.openadsdk.downloadnew.a.b;
 import android.text.TextUtils;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.core.i;
-import d.p.a.b.a.a.a;
-import d.p.a.b.a.a.b;
-import d.p.a.b.a.a.c;
+import d.o.a.b.a.a.a;
+import d.o.a.b.a.a.b;
+import d.o.a.b.a.a.c;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b {
@@ -34,7 +34,7 @@ public class b {
             bVar.w(true);
         }
         if (lVar.ao() != null) {
-            d.p.a.a.a.d.b bVar2 = new d.p.a.a.a.d.b();
+            d.o.a.a.a.d.b bVar2 = new d.o.a.a.a.d.b();
             bVar2.b(Long.valueOf(lVar.am()).longValue());
             bVar2.e(lVar.ao().a());
             bVar2.f(lVar.aj());
@@ -77,7 +77,7 @@ public class b {
             bVar.w(true);
         }
         if (lVar.ao() != null) {
-            d.p.a.a.a.d.b bVar2 = new d.p.a.a.a.d.b();
+            d.o.a.a.a.d.b bVar2 = new d.o.a.a.a.d.b();
             bVar2.b(Long.valueOf(lVar.am()).longValue());
             bVar2.e(lVar.ao().a());
             bVar2.f(lVar.aj());
@@ -108,17 +108,17 @@ public class b {
         return bVar;
     }
 
-    public static b.C1859b a(l lVar, String str) {
-        b.C1859b c1859b = new b.C1859b();
-        c1859b.b(str);
-        c1859b.f(str);
-        c1859b.i("click_start");
-        c1859b.n("click_continue");
-        c1859b.l("click_pause");
-        c1859b.t("download_failed");
-        c1859b.p("click_install");
-        c1859b.c(true);
-        c1859b.j(false);
-        return c1859b;
+    public static b.C1794b a(l lVar, String str) {
+        b.C1794b c1794b = new b.C1794b();
+        c1794b.b(str);
+        c1794b.f(str);
+        c1794b.i("click_start");
+        c1794b.n("click_continue");
+        c1794b.l("click_pause");
+        c1794b.t("download_failed");
+        c1794b.p("click_install");
+        c1794b.c(true);
+        c1794b.j(false);
+        return c1794b;
     }
 }

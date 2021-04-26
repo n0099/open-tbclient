@@ -10,5 +10,5 @@ public abstract class ImageCropCallback {
         public abstract void onImageResult(String str);
     }
 
-    public abstract void onImageCrop(Context context, Uri uri, int i, int i2, ImageCropResult imageCropResult);
+    public abstract void onImageCrop(Context context, Uri uri, int i2, int i3, ImageCropResult imageCropResult);
 }

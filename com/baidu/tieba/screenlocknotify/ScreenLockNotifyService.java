@@ -4,8 +4,8 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
-import d.b.j0.u2.b;
-/* loaded from: classes4.dex */
+import d.a.j0.u2.b;
+/* loaded from: classes5.dex */
 public class ScreenLockNotifyService extends Service {
     public b mLockReceiver = null;
 
@@ -35,7 +35,7 @@ public class ScreenLockNotifyService extends Service {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
-        super.onStart(intent, i);
+    public void onStart(Intent intent, int i2) {
+        super.onStart(intent, i2);
     }
 }

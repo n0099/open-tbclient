@@ -1,7 +1,7 @@
 package com.baidu.down.common.intercepter;
 
 import android.content.Context;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AbstractResponseIntercept implements IIntercepter<ResponseInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.down.common.intercepter.IIntercepter

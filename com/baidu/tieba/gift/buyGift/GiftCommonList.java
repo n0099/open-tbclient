@@ -8,6 +8,7 @@ import tbclient.GetGiftCommonList.DataRes;
 import tbclient.GetGiftCommonList.GetGiftCommonListResIdl;
 import tbclient.GetGiftCommonList.GiftList;
 import tbclient.GetGiftCommonList.Item;
+@Deprecated
 /* loaded from: classes4.dex */
 public class GiftCommonList implements Serializable {
     public static final long serialVersionUID = 1719387618953489739L;
@@ -49,8 +50,8 @@ public class GiftCommonList implements Serializable {
             this.list = list;
         }
 
-        public void setVersion(int i) {
-            this.version = i;
+        public void setVersion(int i2) {
+            this.version = i2;
         }
     }
 
@@ -83,8 +84,8 @@ public class GiftCommonList implements Serializable {
             return this.thumbnail_url;
         }
 
-        public void setGiftId(int i) {
-            this.gift_id = i;
+        public void setGiftId(int i2) {
+            this.gift_id = i2;
         }
 
         public void setName(String str) {
@@ -95,8 +96,8 @@ public class GiftCommonList implements Serializable {
             this.play_url = str;
         }
 
-        public void setPrice(int i) {
-            this.price = i;
+        public void setPrice(int i2) {
+            this.price = i2;
         }
 
         public void setThumbnailUrl(String str) {
@@ -122,8 +123,8 @@ public class GiftCommonList implements Serializable {
             this.name = str;
         }
 
-        public void setNum(int i) {
-            this.num = i;
+        public void setNum(int i2) {
+            this.num = i2;
         }
     }
 
@@ -153,8 +154,8 @@ public class GiftCommonList implements Serializable {
             this.item = list;
         }
 
-        public void setTypeId(int i) {
-            this.type_id = i;
+        public void setTypeId(int i2) {
+            this.type_id = i2;
         }
 
         public void setTypeName(String str) {
@@ -235,8 +236,8 @@ public class GiftCommonList implements Serializable {
         this.errmsg = str;
     }
 
-    public void setErrorNo(int i) {
-        this.errorno = i;
+    public void setErrorNo(int i2) {
+        this.errorno = i2;
     }
 
     public void setGiftInfo(GiftInfo giftInfo) {

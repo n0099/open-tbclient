@@ -1,5 +1,5 @@
 package com.baidu.down.common;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class StatisticInfo {
     public Object parameters;
     public String sid = "";

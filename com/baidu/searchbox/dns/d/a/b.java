@@ -48,16 +48,16 @@ public class b {
                     if (optJSONObject3 != null) {
                         JSONArray optJSONArray = optJSONObject3.optJSONArray("ip");
                         ArrayList arrayList3 = new ArrayList(optJSONArray.length());
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            arrayList3.add(optJSONArray.getString(i));
+                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                            arrayList3.add(optJSONArray.getString(i2));
                         }
                         JSONArray optJSONArray2 = optJSONObject3.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
                         if (optJSONArray2 == null || optJSONArray2.length() <= 0) {
                             arrayList = arrayList2;
                         } else {
                             ArrayList arrayList4 = new ArrayList(optJSONArray2.length());
-                            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                                arrayList4.add(optJSONArray2.getString(i2));
+                            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                                arrayList4.add(optJSONArray2.getString(i3));
                             }
                             arrayList = arrayList4;
                         }
@@ -89,8 +89,8 @@ public class b {
                     if (optJSONObject4 != null) {
                         JSONArray optJSONArray3 = optJSONObject4.optJSONArray("ip");
                         ArrayList arrayList5 = new ArrayList(optJSONArray3.length());
-                        for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                            arrayList5.add(optJSONArray3.getString(i3));
+                        for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
+                            arrayList5.add(optJSONArray3.getString(i4));
                         }
                         if (!arrayList5.isEmpty()) {
                             this.V.put(next2, new a(optString, optInt, str3, optLong, arrayList5, null));

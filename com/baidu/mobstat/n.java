@@ -10,8 +10,8 @@ public class n extends j {
     }
 
     @Override // com.baidu.mobstat.j
-    public ArrayList<i> a(int i, int i2) {
-        Cursor a2 = a("time", i, i2);
+    public ArrayList<i> a(int i2, int i3) {
+        Cursor a2 = a("time", i2, i3);
         ArrayList<i> a3 = a(a2);
         if (a2 != null) {
             a2.close();

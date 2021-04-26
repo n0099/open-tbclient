@@ -2,13 +2,13 @@ package com.baidu.tbadk.template.message;
 
 import android.util.Log;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import d.b.i0.x0.c.b;
+import d.a.i0.x0.c.b;
 /* loaded from: classes3.dex */
 public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
     public b mIResp;
 
-    public TemplateSocketResponsedMessage(int i) {
-        super(i);
+    public TemplateSocketResponsedMessage(int i2) {
+        super(i2);
     }
 
     private TemplateNetMessage getTemplateNetMessage() {
@@ -24,7 +24,7 @@ public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
         TemplateNetMessage templateNetMessage = getTemplateNetMessage();
         if (templateNetMessage == null || templateNetMessage.getIResp() == null) {
         }
@@ -32,7 +32,7 @@ public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void beforeDispatchInBackGround(int i, byte[] bArr) {
+    public void beforeDispatchInBackGround(int i2, byte[] bArr) {
         TemplateNetMessage templateNetMessage = getTemplateNetMessage();
         if (templateNetMessage == null || templateNetMessage.getIResp() == null) {
         }
@@ -40,7 +40,7 @@ public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         Log.i("Template", "TemplateSocketResponsedMessage-->decodeInBackGround");
         TemplateNetMessage templateNetMessage = getTemplateNetMessage();
         if (templateNetMessage == null || templateNetMessage.getIResp() == null) {
@@ -48,7 +48,7 @@ public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
         }
         b iResp = templateNetMessage.getIResp();
         this.mIResp = iResp;
-        iResp.a(i, bArr);
+        iResp.a(i2, bArr);
         setError(this.mIResp.getErrorCode());
         setErrorString(this.mIResp.b());
     }

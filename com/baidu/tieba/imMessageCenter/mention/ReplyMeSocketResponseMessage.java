@@ -1,12 +1,12 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import d.b.j0.f1.b.m;
+import d.a.j0.f1.b.m;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes4.dex */
 public class ReplyMeSocketResponseMessage extends MvcSocketResponsedMessage<m, ReplyMeResIdl> {
-    public ReplyMeSocketResponseMessage(int i) {
-        super(i);
+    public ReplyMeSocketResponseMessage(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage

@@ -3,7 +3,7 @@ package com.baidu.adp.lib.stats.upload;
 import android.text.TextUtils;
 import com.android.internal.http.multipart.Part;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import d.b.c.e.n.h.d;
+import d.a.c.e.n.h.d;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -21,27 +21,27 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<d>> {
     }
 
     public final String a(String str) {
-        d.b.c.e.a.f.d dVar = new d.b.c.e.a.f.d(this.mLogDir, str, DiskFileOperate.Action.READ);
+        d.a.c.e.a.f.d dVar = new d.a.c.e.a.f.d(this.mLogDir, str, DiskFileOperate.Action.READ);
         dVar.setSdCard(this.mUseSdCard);
         if (!this.mMustSuccess) {
             dVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
             dVar.setTrySuccessWeight(3);
         }
-        d.b.c.e.a.d.g().d(dVar);
+        d.a.c.e.a.d.g().d(dVar);
         if (dVar.isSuccess()) {
             return dVar.a();
         }
         return null;
     }
 
-    public ArrayList<String> getLogStringByIndex(int i, ArrayList<String> arrayList) {
+    public ArrayList<String> getLogStringByIndex(int i2, ArrayList<String> arrayList) {
         String[] split;
         boolean z;
         int size = arrayList != null ? arrayList.size() : 0;
-        ArrayList<d> arrayList2 = get(i);
+        ArrayList<d> arrayList2 = get(i2);
         ArrayList<String> arrayList3 = new ArrayList<>();
-        for (int i2 = 0; i2 < arrayList2.size(); i2++) {
-            String a2 = a(arrayList2.get(i2).f42664b);
+        for (int i3 = 0; i3 < arrayList2.size(); i3++) {
+            String a2 = a(arrayList2.get(i3).f39870b);
             if (!TextUtils.isEmpty(a2)) {
                 for (String str : a2.split(Part.CRLF)) {
                     if (size > 0) {
@@ -63,11 +63,11 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<d>> {
         return arrayList3;
     }
 
-    public ArrayList<String> getTrackLogStringByIndex(int i) {
-        ArrayList<d> arrayList = get(i);
+    public ArrayList<String> getTrackLogStringByIndex(int i2) {
+        ArrayList<d> arrayList = get(i2);
         ArrayList<String> arrayList2 = new ArrayList<>();
-        for (int i2 = 0; i2 < arrayList.size(); i2++) {
-            String a2 = a(arrayList.get(i2).f42664b);
+        for (int i3 = 0; i3 < arrayList.size(); i3++) {
+            String a2 = a(arrayList.get(i3).f39870b);
             if (!TextUtils.isEmpty(a2)) {
                 for (String str : a2.split(Part.CRLF)) {
                     arrayList2.add(str);

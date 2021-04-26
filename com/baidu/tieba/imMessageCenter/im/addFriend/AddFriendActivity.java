@@ -24,7 +24,7 @@ import com.baidu.tbadk.newFriends.RequestNewFriendActionLocalMessage;
 import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes4.dex */
 public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public String defaultMessage;
@@ -42,9 +42,9 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public String userId;
 
     /* loaded from: classes4.dex */
-    public class a extends d.b.c.c.g.c {
-        public a(int i) {
-            super(i);
+    public class a extends d.a.c.c.g.c {
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 int error = responseAddFriendMessage.getError();
                 String errorString = responseAddFriendMessage.getErrorString();
                 if (error == 0) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new d.b.j0.f1.a.a.a(AddFriendActivity.this.userId, AddFriendActivity.this.name)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new d.a.j0.f1.a.a.a(AddFriendActivity.this.userId, AddFriendActivity.this.name)));
                     if (AddFriendActivity.this.isLower) {
                         AddFriendActivity addFriendActivity = AddFriendActivity.this;
                         addFriendActivity.showToast(addFriendActivity.getPageContext().getPageActivity().getString(R.string.group_apply_succ), false);
@@ -67,7 +67,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 } else if (AntiHelper.m(error, errorString)) {
                     AntiHelper.u(AddFriendActivity.this.getPageContext().getPageActivity(), errorString);
                 } else {
-                    l.L(AddFriendActivity.this.getPageContext().getPageActivity(), errorString);
+                    l.M(AddFriendActivity.this.getPageContext().getPageActivity(), errorString);
                 }
             }
         }
@@ -234,13 +234,13 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         if (TextUtils.isEmpty(str)) {
             str = getPageContext().getPageActivity().getString(R.string.my_name_is) + TbadkCoreApplication.getCurrentAccountName();
         }
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestNewFriendActionLocalMessage(d.b.c.e.m.b.f(this.userId, 0L), this.name, this.portrait, str, this.st_type));
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestNewFriendActionLocalMessage(d.a.c.e.m.b.f(this.userId, 0L), this.name, this.portrait, str, this.st_type));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
         getLayoutMode().j(this.mParentView);
         this.mSayTip.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
         this.mSayBtn.setTextColor(SkinManager.getColor(R.color.CAM_X0101));

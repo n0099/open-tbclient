@@ -34,17 +34,17 @@ public class ObjectDescriptorFactory {
             if (map == null) {
                 map = new HashMap<>();
             }
-            for (int i : tags) {
-                map.put(Integer.valueOf(i), cls);
+            for (int i2 : tags) {
+                map.put(Integer.valueOf(i2), cls);
             }
             descriptorRegistry.put(Integer.valueOf(objectTypeIndication), map);
         }
     }
 
-    public static BaseDescriptor createFrom(int i, ByteBuffer byteBuffer) throws IOException {
+    public static BaseDescriptor createFrom(int i2, ByteBuffer byteBuffer) throws IOException {
         BaseDescriptor unknownDescriptor;
         int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-        Map<Integer, Class<? extends BaseDescriptor>> map = descriptorRegistry.get(Integer.valueOf(i));
+        Map<Integer, Class<? extends BaseDescriptor>> map = descriptorRegistry.get(Integer.valueOf(i2));
         if (map == null) {
             map = descriptorRegistry.get(-1);
         }
@@ -55,12 +55,12 @@ public class ObjectDescriptorFactory {
             } catch (Exception e2) {
                 Logger logger = log;
                 Level level = Level.SEVERE;
-                logger.log(level, "Couldn't instantiate BaseDescriptor class " + cls + " for objectTypeIndication " + i + " and tag " + readUInt8, (Throwable) e2);
+                logger.log(level, "Couldn't instantiate BaseDescriptor class " + cls + " for objectTypeIndication " + i2 + " and tag " + readUInt8, (Throwable) e2);
                 throw new RuntimeException(e2);
             }
         } else {
             Logger logger2 = log;
-            logger2.warning("No ObjectDescriptor found for objectTypeIndication " + Integer.toHexString(i) + " and tag " + Integer.toHexString(readUInt8) + " found: " + cls);
+            logger2.warning("No ObjectDescriptor found for objectTypeIndication " + Integer.toHexString(i2) + " and tag " + Integer.toHexString(readUInt8) + " found: " + cls);
             unknownDescriptor = new UnknownDescriptor();
         }
         unknownDescriptor.parse(readUInt8, byteBuffer);

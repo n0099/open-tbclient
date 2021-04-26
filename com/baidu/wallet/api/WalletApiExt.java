@@ -6,24 +6,24 @@ import com.baidu.wallet.passport.ThirdPartyLoginUtil;
 public class WalletApiExt {
 
     /* renamed from: a  reason: collision with root package name */
-    public static WalletApiExt f23170a;
+    public static WalletApiExt f23883a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WalletApiExtListener.SensorsAdapter f23171b;
+    public WalletApiExtListener.SensorsAdapter f23884b;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final WalletApiExt f23172a = new WalletApiExt();
+        public static final WalletApiExt f23885a = new WalletApiExt();
     }
 
     public static final WalletApiExt getInstance() {
-        return a.f23172a;
+        return a.f23885a;
     }
 
     public WalletApiExtListener.SensorsAdapter getSensorsAdapter() {
-        return this.f23171b;
+        return this.f23884b;
     }
 
     public void setLoginSyncListener(WalletApiExtListener.LoginstatuSyncListener loginstatuSyncListener) {
@@ -31,7 +31,7 @@ public class WalletApiExt {
     }
 
     public void setSensorsAdapterImpl(WalletApiExtListener.SensorsAdapter sensorsAdapter) {
-        this.f23171b = sensorsAdapter;
+        this.f23884b = sensorsAdapter;
     }
 
     public void setThirdPartyLoginImpl(WalletApiExtListener.ThirdPartyLoginInterface thirdPartyLoginInterface) {

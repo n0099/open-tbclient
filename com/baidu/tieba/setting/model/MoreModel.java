@@ -2,16 +2,16 @@ package com.baidu.tieba.setting.model;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MoreModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonChangeData f20678e;
+    public PersonChangeData f21233e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20679f;
+    public boolean f21234f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public enum TaskType {
         DO_CACHE_CLEAR,
         GET_SIZE
@@ -19,11 +19,11 @@ public class MoreModel extends BdBaseModel {
 
     public MoreModel(PersonChangeData personChangeData) {
         super(null);
-        this.f20678e = null;
-        this.f20679f = false;
-        this.f20678e = personChangeData;
+        this.f21233e = null;
+        this.f21234f = false;
+        this.f21233e = personChangeData;
         if (personChangeData == null) {
-            this.f20678e = new PersonChangeData();
+            this.f21233e = new PersonChangeData();
         }
     }
 
@@ -38,18 +38,18 @@ public class MoreModel extends BdBaseModel {
     }
 
     public PersonChangeData s() {
-        return this.f20678e;
+        return this.f21233e;
     }
 
     public boolean t() {
-        return this.f20679f;
+        return this.f21234f;
     }
 
     public void u(PersonChangeData personChangeData) {
-        this.f20678e = personChangeData;
+        this.f21233e = personChangeData;
     }
 
     public void v(boolean z) {
-        this.f20679f = z;
+        this.f21234f = z;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.tabfeed.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
-import d.b.c.j.e.n;
+import d.a.c.j.e.n;
 import tbclient.ActivityPage.SpecialColumn;
 /* loaded from: classes4.dex */
 public class SpecialColumnItemData implements n, Parcelable {
@@ -34,15 +34,15 @@ public class SpecialColumnItemData implements n, Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public SpecialColumnItemData[] newArray(int i) {
-            return new SpecialColumnItemData[i];
+        public SpecialColumnItemData[] newArray(int i2) {
+            return new SpecialColumnItemData[i2];
         }
     }
 
     public SpecialColumnItemData() {
     }
 
-    public void a(SpecialColumn specialColumn) {
+    public void c(SpecialColumn specialColumn) {
         this.specialType = specialColumn.type.intValue();
         this.threadId = specialColumn.thread_id.longValue();
         this.liveId = specialColumn.live_id.longValue();
@@ -58,13 +58,13 @@ public class SpecialColumnItemData implements n, Parcelable {
         return 0;
     }
 
-    @Override // d.b.c.j.e.n
+    @Override // d.a.c.j.e.n
     public BdUniqueId getType() {
         return TYPE;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.specialType);
         parcel.writeLong(this.threadId);
         parcel.writeLong(this.liveId);

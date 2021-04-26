@@ -21,7 +21,7 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
         super(2001106);
     }
 
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         QueryGroupsByUidResIdl queryGroupsByUidResIdl = (QueryGroupsByUidResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryGroupsByUidResIdl.class);
         setError(queryGroupsByUidResIdl.error.errorno.intValue());
         setErrorString(queryGroupsByUidResIdl.error.usermsg);
@@ -102,16 +102,16 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
         return this.groups;
     }
 
-    public void setCommonGroupNum(int i) {
-        this.commonGroupNum = i;
+    public void setCommonGroupNum(int i2) {
+        this.commonGroupNum = i2;
     }
 
     public void setCommonGroups(List<GroupInfoData> list) {
         this.commonGroups = list;
     }
 
-    public void setGroupNum(int i) {
-        this.groupNum = i;
+    public void setGroupNum(int i2) {
+        this.groupNum = i2;
     }
 
     public void setGroupPerm(GroupPermData groupPermData) {
@@ -122,7 +122,7 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
         this.groups = list;
     }
 
-    public ResponseGroupsByUidLocalMessage(int i) {
-        super(i);
+    public ResponseGroupsByUidLocalMessage(int i2) {
+        super(i2);
     }
 }

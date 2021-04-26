@@ -5,17 +5,17 @@ import com.baidu.android.common.others.lang.StringUtil;
 import java.util.Arrays;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class Objects {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class ToStringHelper {
         public final String className;
         public ValueHolder holderHead;
         public ValueHolder holderTail;
         public boolean omitNullValues;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static final class ValueHolder {
             @Nullable
             public String name;
@@ -59,7 +59,7 @@ public final class Objects {
                     String str2 = valueHolder.name;
                     if (str2 != null) {
                         sb.append(str2);
-                        sb.append(a.f1922h);
+                        sb.append(a.f1873h);
                     }
                     sb.append(valueHolder.value);
                     str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
@@ -121,12 +121,12 @@ public final class Objects {
             return addHolder(String.valueOf(f2));
         }
 
-        public ToStringHelper add(String str, int i) {
-            return addHolder(str, String.valueOf(i));
+        public ToStringHelper add(String str, int i2) {
+            return addHolder(str, String.valueOf(i2));
         }
 
-        public ToStringHelper addValue(int i) {
-            return addHolder(String.valueOf(i));
+        public ToStringHelper addValue(int i2) {
+            return addHolder(String.valueOf(i2));
         }
 
         public ToStringHelper add(String str, long j) {

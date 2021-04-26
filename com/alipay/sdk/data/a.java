@@ -13,29 +13,31 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f1892a = 3500;
+    public static final int f1842a = 3500;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1893b = "https://h5.m.taobao.com/mlapp/olist.html";
+    public static final String f1843b = "https://h5.m.taobao.com/mlapp/olist.html";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f1894c = 10;
+    public static final int f1844c = 10;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f1895d = true;
+    public static final boolean f1845d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f1896e = true;
+    public static final boolean f1846e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f1897f = 1000;
+    public static final int f1847f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f1898g = 20000;
+    public static final int f1848g = 20000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f1899h = "alipay_cashier_dynamic_config";
-    public static final String i = "timeout";
+    public static final String f1849h = "alipay_cashier_dynamic_config";
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final String f1850i = "timeout";
     public static final String j = "st_sdk_config";
     public static final String k = "tbreturl";
     public static final String l = "launchAppSwitch";
@@ -45,7 +47,7 @@ public final class a {
     public static final String p = "intercept_batch";
     public static a x;
     public int r = 3500;
-    public String s = f1893b;
+    public String s = f1843b;
     public int t = 10;
     public boolean u = true;
     public boolean v = true;
@@ -62,7 +64,7 @@ public final class a {
     }
 
     private void h() {
-        a(j.b(com.alipay.sdk.sys.b.a().b(), f1899h, null));
+        a(j.b(com.alipay.sdk.sys.b.a().b(), f1849h, null));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -75,7 +77,7 @@ public final class a {
             jSONObject.put(l, C0015a.a(f()));
             jSONObject.put(o, b());
             jSONObject.put(p, c());
-            j.a(com.alipay.sdk.sys.b.a().b(), f1899h, jSONObject.toString());
+            j.a(com.alipay.sdk.sys.b.a().b(), f1849h, jSONObject.toString());
         } catch (Exception e2) {
             com.alipay.sdk.util.c.a(e2);
         }
@@ -110,13 +112,13 @@ public final class a {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject(j);
             if (optJSONObject != null) {
                 this.r = optJSONObject.optInt("timeout", 3500);
-                this.s = optJSONObject.optString(k, f1893b).trim();
+                this.s = optJSONObject.optString(k, f1843b).trim();
                 this.t = optJSONObject.optInt(m, 10);
                 this.w = C0015a.a(optJSONObject.optJSONArray(l));
                 this.u = optJSONObject.optBoolean(o, true);
                 this.v = optJSONObject.optBoolean(p, true);
             } else {
-                com.alipay.sdk.util.c.d(com.alipay.sdk.net.a.f1925a, "config is null");
+                com.alipay.sdk.util.c.d(com.alipay.sdk.net.a.f1877a, "config is null");
             }
         } catch (Throwable th) {
             com.alipay.sdk.util.c.a(th);
@@ -128,18 +130,18 @@ public final class a {
     public static final class C0015a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f1900a;
+        public final String f1851a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f1901b;
+        public final int f1852b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f1902c;
+        public final String f1853c;
 
-        public C0015a(String str, int i, String str2) {
-            this.f1900a = str;
-            this.f1901b = i;
-            this.f1902c = str2;
+        public C0015a(String str, int i2, String str2) {
+            this.f1851a = str;
+            this.f1852b = i2;
+            this.f1853c = str2;
         }
 
         public static C0015a a(JSONObject jSONObject) {
@@ -159,8 +161,8 @@ public final class a {
             }
             ArrayList arrayList = new ArrayList();
             int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                C0015a a2 = a(jSONArray.optJSONObject(i));
+            for (int i2 = 0; i2 < length; i2++) {
+                C0015a a2 = a(jSONArray.optJSONObject(i2));
                 if (a2 != null) {
                     arrayList.add(a2);
                 }
@@ -173,7 +175,7 @@ public final class a {
                 return null;
             }
             try {
-                return new JSONObject().put(Config.PACKAGE_NAME, c0015a.f1900a).put("v", c0015a.f1901b).put("pk", c0015a.f1902c);
+                return new JSONObject().put(Config.PACKAGE_NAME, c0015a.f1851a).put("v", c0015a.f1852b).put("pk", c0015a.f1853c);
             } catch (JSONException e2) {
                 com.alipay.sdk.util.c.a(e2);
                 return null;
@@ -213,7 +215,7 @@ public final class a {
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.r = jSONObject.optInt("timeout", 3500);
-            this.s = jSONObject.optString(k, f1893b).trim();
+            this.s = jSONObject.optString(k, f1843b).trim();
             this.t = jSONObject.optInt(m, 10);
             this.w = C0015a.a(jSONObject.optJSONArray(l));
             this.u = jSONObject.optBoolean(o, true);

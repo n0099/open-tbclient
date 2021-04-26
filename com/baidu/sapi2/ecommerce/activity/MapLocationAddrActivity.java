@@ -198,10 +198,10 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
         initRecyclerView();
         this.mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() { // from class: com.baidu.sapi2.ecommerce.activity.MapLocationAddrActivity.1
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                super.onScrollStateChanged(recyclerView, i);
-                Log.d(MapLocationAddrActivity.TAG, "onScrollStateChanged newState=" + i);
-                if (i == 0 && ((MapLocationPoiPresenter) MapLocationAddrActivity.this.presenter).isHasNextPage()) {
+            public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
+                super.onScrollStateChanged(recyclerView, i2);
+                Log.d(MapLocationAddrActivity.TAG, "onScrollStateChanged newState=" + i2);
+                if (i2 == 0 && ((MapLocationPoiPresenter) MapLocationAddrActivity.this.presenter).isHasNextPage()) {
                     ((MapLocationPoiPresenter) MapLocationAddrActivity.this.presenter).queryNextPageAddrList(false);
                 }
             }
@@ -308,7 +308,7 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
         });
         this.addrMapSearchEt.addTextChangedListener(new SimpleTextWatcher() { // from class: com.baidu.sapi2.ecommerce.activity.MapLocationAddrActivity.6
             @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                 if (MapLocationAddrActivity.this.isAutoUpdateSearchContent) {
                     MapLocationAddrActivity.this.isAutoUpdateSearchContent = false;
                     return;
@@ -331,13 +331,13 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
         });
         SoftKeyBoardListener.setListener(this, new SoftKeyBoardListener.OnSoftKeyBoardChangeListener() { // from class: com.baidu.sapi2.ecommerce.activity.MapLocationAddrActivity.7
             @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
-            public void keyBoardHide(int i) {
+            public void keyBoardHide(int i2) {
                 MapLocationAddrActivity.this.isSoftKeyBoardShowing = false;
                 MapLocationAddrActivity.this.updatePanelSmallSize();
             }
 
             @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
-            public void keyBoardShow(final int i) {
+            public void keyBoardShow(final int i2) {
                 MapLocationAddrActivity.this.isSoftKeyBoardShowing = true;
                 if (MapLocationAddrActivity.this.isFocusSearchBoxEt) {
                     MapLocationAddrActivity.this.isFocusSearchBoxEt = false;
@@ -351,7 +351,7 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
                             int[] iArr = new int[2];
                             MapLocationAddrActivity.this.mSearchBox.getLocationInWindow(iArr);
                             MapLocationAddrActivity mapLocationAddrActivity = MapLocationAddrActivity.this;
-                            mapLocationAddrActivity.panelHeightOnKeyBoardShow = ((ScreenUtil.getScreenHeight(mapLocationAddrActivity) - i) - iArr[1]) + MapLocationAddrActivity.this.mSearchBox.getHeight();
+                            mapLocationAddrActivity.panelHeightOnKeyBoardShow = ((ScreenUtil.getScreenHeight(mapLocationAddrActivity) - i2) - iArr[1]) + MapLocationAddrActivity.this.mSearchBox.getHeight();
                         }
                         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) MapLocationAddrActivity.this.mapAddrEmpty.getLayoutParams();
                         layoutParams.height = MapLocationAddrActivity.this.panelHeightOnKeyBoardShow;
@@ -366,7 +366,7 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
         this.mapLocAddrAdapter.setItemClickListener(new ScrollRecyclerView.RecyclerViewItemClickListener<JSONObject>() { // from class: com.baidu.sapi2.ecommerce.activity.MapLocationAddrActivity.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.pass.ecommerce.view.ScrollRecyclerView.RecyclerViewItemClickListener
-            public void onItemClickListener(int i, JSONObject jSONObject) {
+            public void onItemClickListener(int i2, JSONObject jSONObject) {
                 MapLocationAddrActivity.this.addrMapSearchEt.clearFocus();
                 MapLocationAddrActivity.this.selectedAddrJsonObj = jSONObject;
                 ((MapLocationPoiPresenter) MapLocationAddrActivity.this.presenter).setSelectedAddrId(jSONObject.optString(SuggestAddrField.KEY_MAP_ADDRID));
@@ -409,8 +409,8 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void doFailure(int i, int i2, String str, String str2) {
-        if (1004 == i) {
+    public void doFailure(int i2, int i3, String str, String str2) {
+        if (1004 == i2) {
             this.isInitLoadComplete = true;
         }
         if (!TextUtils.isEmpty(str)) {
@@ -420,11 +420,11 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void doResult(int i, Object obj, String str) {
-        if (i == 1001) {
+    public void doResult(int i2, Object obj, String str) {
+        if (i2 == 1001) {
             processMapLocData((MyLocationData) obj);
-        } else if (i != 1004) {
-            if (i != 1005) {
+        } else if (i2 != 1004) {
+            if (i2 != 1005) {
                 return;
             }
             processMapLoc2Region((JSONObject) obj);
@@ -442,7 +442,7 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
     }
 
     @Override // com.baidu.pass.ecommerce.view.ScrollLayout.OnScrollChangedListener
-    public void onChildScroll(int i) {
+    public void onChildScroll(int i2) {
     }
 
     @Override // com.baidu.sapi2.activity.BaseOptionActivity, android.view.View.OnClickListener
@@ -480,7 +480,7 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
         }
     }
 
-    @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.sapi2.activity.BaseOptionActivity, com.baidu.sapi2.activity.NaSlideActiviy, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.sapi2.activity.BaseOptionActivity, com.baidu.sapi2.activity.NaSlideActiviy, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         try {
             super.onCreate(bundle);
@@ -547,7 +547,7 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
     }
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
+    public void onMapStatusChangeStart(MapStatus mapStatus, int i2) {
     }
 
     @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -584,8 +584,8 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void showLoading(int i) {
-        if (i != 1004) {
+    public void showLoading(int i2) {
+        if (i2 != 1004) {
             return;
         }
         this.mapAddrListLoading.setVisibility(0);

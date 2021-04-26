@@ -6,6 +6,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
 import androidx.appcompat.R;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.menu.MenuPresenter;
@@ -28,12 +29,12 @@ public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogIn
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        this.mMenu.performItemAction((MenuItemImpl) this.mPresenter.getAdapter().getItem(i), 0);
+    public void onClick(DialogInterface dialogInterface, int i2) {
+        this.mMenu.performItemAction((MenuItemImpl) this.mPresenter.getAdapter().getItem(i2), 0);
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-    public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
+    public void onCloseMenu(@NonNull MenuBuilder menuBuilder, boolean z) {
         if (z || menuBuilder == this.mMenu) {
             dismiss();
         }
@@ -49,13 +50,13 @@ public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogIn
     }
 
     @Override // android.content.DialogInterface.OnKeyListener
-    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+    public boolean onKey(DialogInterface dialogInterface, int i2, KeyEvent keyEvent) {
         Window window;
         View decorView;
         KeyEvent.DispatcherState keyDispatcherState;
         View decorView2;
         KeyEvent.DispatcherState keyDispatcherState2;
-        if (i == 82 || i == 4) {
+        if (i2 == 82 || i2 == 4) {
             if (keyEvent.getAction() == 0 && keyEvent.getRepeatCount() == 0) {
                 Window window2 = this.mDialog.getWindow();
                 if (window2 != null && (decorView2 = window2.getDecorView()) != null && (keyDispatcherState2 = decorView2.getKeyDispatcherState()) != null) {
@@ -68,11 +69,11 @@ public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogIn
                 return true;
             }
         }
-        return this.mMenu.performShortcut(i, keyEvent, 0);
+        return this.mMenu.performShortcut(i2, keyEvent, 0);
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-    public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
+    public boolean onOpenSubMenu(@NonNull MenuBuilder menuBuilder) {
         MenuPresenter.Callback callback = this.mPresenterCallback;
         if (callback != null) {
             return callback.onOpenSubMenu(menuBuilder);

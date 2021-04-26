@@ -47,7 +47,7 @@ public class NetUtil {
 
         public abstract String getURL();
 
-        public abstract void onResponse(int i, T t, Exception exc);
+        public abstract void onResponse(int i2, T t, Exception exc);
 
         public abstract T parseResponse(InputStream inputStream) throws IOException, JSONException;
     }
@@ -99,7 +99,7 @@ public class NetUtil {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static <T> void uploadData(RequestAdapter<T> requestAdapter) {
-        int i;
+        int i2;
         HttpURLConnection httpURLConnection;
         IOException e2;
         SocketTimeoutException e3;
@@ -111,7 +111,7 @@ public class NetUtil {
         InputStream inputStream = null;
         while (true) {
             boolean z = false;
-            i = 1;
+            i2 = 1;
             try {
                 httpURLConnection = (HttpURLConnection) new URL(requestAdapter.getURL()).openConnection();
                 try {
@@ -128,12 +128,12 @@ public class NetUtil {
                         if (httpURLConnection.getResponseCode() != 200) {
                             exc = new IllegalStateException("ResponseCode: " + httpURLConnection.getResponseCode());
                             obj = null;
-                            i = 4;
+                            i2 = 4;
                         } else {
                             inputStream = httpURLConnection.getInputStream();
                             obj = requestAdapter.parseResponse(inputStream);
                             exc = null;
-                            i = 0;
+                            i2 = 0;
                         }
                         if (outputStream != null) {
                             try {
@@ -193,11 +193,11 @@ public class NetUtil {
                     obj = null;
                     if (z) {
                     }
-                    requestAdapter.onResponse(i, obj, exc);
+                    requestAdapter.onResponse(i2, obj, exc);
                 } catch (IOException e5) {
                     e2 = e5;
                     e2.printStackTrace();
-                    i = 2;
+                    i2 = 2;
                     if (outputStream != null) {
                         try {
                             outputStream.close();
@@ -213,7 +213,7 @@ public class NetUtil {
                 } catch (JSONException e6) {
                     e2 = e6;
                     e2.printStackTrace();
-                    i = 3;
+                    i2 = 3;
                     if (outputStream != null) {
                         try {
                             outputStream.close();
@@ -229,7 +229,7 @@ public class NetUtil {
                 } catch (Exception e7) {
                     e2 = e7;
                     e2.printStackTrace();
-                    i = 5;
+                    i2 = 5;
                     if (outputStream != null) {
                         try {
                             outputStream.close();
@@ -261,13 +261,13 @@ public class NetUtil {
             if (z) {
                 break;
             }
-            int i2 = retryCount - 1;
+            int i3 = retryCount - 1;
             if (retryCount <= 0) {
                 break;
             }
-            retryCount = i2;
+            retryCount = i3;
             httpURLConnection2 = httpURLConnection;
         }
-        requestAdapter.onResponse(i, obj, exc);
+        requestAdapter.onResponse(i2, obj, exc);
     }
 }

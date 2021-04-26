@@ -4,8 +4,8 @@ public final class Pair extends DataCharacter {
     public int count;
     public final FinderPattern finderPattern;
 
-    public Pair(int i, int i2, FinderPattern finderPattern) {
-        super(i, i2);
+    public Pair(int i2, int i3, FinderPattern finderPattern) {
+        super(i2, i3);
         this.finderPattern = finderPattern;
     }
 

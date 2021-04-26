@@ -16,53 +16,53 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class XfordView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f6219a;
+    public Bitmap f6399a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f6220b;
+    public Paint f6400b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f6221c;
+    public Rect f6401c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Rect f6222d;
+    public Rect f6402d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Xfermode f6223e;
+    public Xfermode f6403e;
 
     public XfordView(Context context) {
         super(context);
-        this.f6219a = null;
-        this.f6220b = null;
+        this.f6399a = null;
+        this.f6400b = null;
         a();
     }
 
     private void a() {
-        if (this.f6220b == null) {
+        if (this.f6400b == null) {
             Paint paint = new Paint();
-            this.f6220b = paint;
+            this.f6400b = paint;
             paint.setColor(1711276032);
         }
-        if (this.f6219a == null) {
-            this.f6219a = BitmapFactory.decodeResource(getResources(), R.drawable.sapi_liveness_recog_face_mask);
+        if (this.f6399a == null) {
+            this.f6399a = BitmapFactory.decodeResource(getResources(), R.drawable.sapi_liveness_recog_face_mask);
         }
-        if (this.f6223e == null) {
-            this.f6223e = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
+        if (this.f6403e == null) {
+            this.f6403e = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Bitmap bitmap = this.f6219a;
+        Bitmap bitmap = this.f6399a;
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.f6219a.recycle();
-            this.f6219a = null;
+            this.f6399a.recycle();
+            this.f6399a = null;
         }
         System.gc();
-        this.f6223e = null;
-        this.f6221c = null;
-        this.f6222d = null;
+        this.f6403e = null;
+        this.f6401c = null;
+        this.f6402d = null;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -73,30 +73,30 @@ public class XfordView extends ImageView {
         int dimensionPixelSize2 = getContext().getResources().getDimensionPixelSize(R.dimen.sapi_liveness_face_round_width);
         int width = (getWidth() - dimensionPixelSize2) / 2;
         int height = (getHeight() - dimensionPixelSize) / 2;
-        if (this.f6222d == null) {
-            this.f6222d = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
+        if (this.f6402d == null) {
+            this.f6402d = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
         }
-        if (this.f6221c == null) {
-            this.f6221c = new Rect(0, 0, this.f6219a.getWidth(), this.f6219a.getHeight());
+        if (this.f6401c == null) {
+            this.f6401c = new Rect(0, 0, this.f6399a.getWidth(), this.f6399a.getHeight());
         }
-        canvas.drawBitmap(this.f6219a, this.f6221c, this.f6222d, this.f6220b);
-        this.f6220b.setXfermode(this.f6223e);
-        canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f6220b);
-        this.f6220b.setXfermode(null);
+        canvas.drawBitmap(this.f6399a, this.f6401c, this.f6402d, this.f6400b);
+        this.f6400b.setXfermode(this.f6403e);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f6400b);
+        this.f6400b.setXfermode(null);
         canvas.restoreToCount(saveLayer);
     }
 
-    public void setBgPaintColor(int i) {
-        if (this.f6220b == null) {
-            this.f6220b = new Paint();
+    public void setBgPaintColor(int i2) {
+        if (this.f6400b == null) {
+            this.f6400b = new Paint();
         }
-        this.f6220b.setColor(i);
+        this.f6400b.setColor(i2);
     }
 
     public XfordView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f6219a = null;
-        this.f6220b = null;
+        this.f6399a = null;
+        this.f6400b = null;
         a();
     }
 }

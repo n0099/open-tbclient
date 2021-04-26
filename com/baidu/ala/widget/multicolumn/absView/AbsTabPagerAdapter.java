@@ -8,7 +8,7 @@ public abstract class AbsTabPagerAdapter extends FragmentPagerAdapter {
         super(fragmentManager);
     }
 
-    public abstract int getPageType(int i);
+    public abstract int getPageType(int i2);
 
-    public abstract String getTabTitle(int i);
+    public abstract String getTabTitle(int i2);
 }

@@ -27,12 +27,12 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.SoftKeyBoardListener;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.views.ViewUtility;
-import d.b.y.a.a;
-import d.b.y.a.b;
-import d.b.y.a.d;
-import d.b.y.a.e;
-import d.b.y.a.f;
-import d.b.y.a.h;
+import d.a.y.a.a;
+import d.a.y.a.b;
+import d.a.y.a.d;
+import d.a.y.a.e;
+import d.a.y.a.f;
+import d.a.y.a.h;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public abstract class TitleActivity extends Activity implements View.OnClickListener {
@@ -40,6 +40,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     public SapiConfiguration configuration;
     public View dividerLine;
     public ImageView mBottomBackBtnIv;
+    public TextView mBottomBackTvText;
     public RelativeLayout mBottomBgLayout;
     public ImageView mBottomDividerLine;
     public ImageView mLeftBtnIv;
@@ -120,6 +121,10 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             if (relativeLayout != null) {
                 relativeLayout.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
             }
+            TextView textView = this.mBottomBackTvText;
+            if (textView != null) {
+                textView.setTextColor(getResources().getColor(b.sapi_sdk_dark_mode_edit_text_color));
+            }
             ImageView imageView2 = this.mBottomDividerLine;
             if (imageView2 != null) {
                 imageView2.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
@@ -158,13 +163,14 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             if (view == this.mRightBtn) {
                 onRightBtnClick();
                 return;
-            } else if (view == this.mBottomBackBtnIv) {
-                onBottomBackBtnClick();
-                return;
-            } else if (view == this.mRightBtnClose) {
-                onTitleRightBtnClick();
+            } else if (view != this.mBottomBackBtnIv && view != this.mBottomBackTvText) {
+                if (view == this.mRightBtnClose) {
+                    onTitleRightBtnClick();
+                    return;
+                }
                 return;
             } else {
+                onBottomBackBtnClick();
                 return;
             }
         }
@@ -200,8 +206,8 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
 
     @Override // android.app.Activity
     @TargetApi(23)
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        super.onRequestPermissionsResult(i, strArr, iArr);
+    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(i2, strArr, iArr);
     }
 
     public void onRightBtnClick() {
@@ -223,20 +229,20 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         StatService.onEvent("webview_init_error", hashMap);
     }
 
-    public void setBtnVisibility(int i, int i2, int i3) {
+    public void setBtnVisibility(int i2, int i3, int i4) {
         Button button;
         ImageView imageView;
         TextView textView;
         if (this.useTitle && (textView = this.mLeftBtnTv) != null) {
-            textView.setVisibility(i);
+            textView.setVisibility(i2);
         }
         if (this.useTitle && (imageView = this.mLeftBtnIv) != null) {
-            imageView.setVisibility(i2);
+            imageView.setVisibility(i3);
         }
         if (!this.useTitle || (button = this.mRightBtn) == null) {
             return;
         }
-        button.setVisibility(i3);
+        button.setVisibility(i4);
     }
 
     public void setLeftBtnDrawable(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
@@ -247,28 +253,28 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         textView.setCompoundDrawablesWithIntrinsicBounds(drawable, drawable2, drawable3, drawable4);
     }
 
-    public void setLeftBtnImage(int i) {
+    public void setLeftBtnImage(int i2) {
         ImageView imageView;
-        if (!this.useTitle || (imageView = this.mLeftBtnIv) == null || i == Integer.MAX_VALUE) {
+        if (!this.useTitle || (imageView = this.mLeftBtnIv) == null || i2 == Integer.MAX_VALUE) {
             return;
         }
-        imageView.setImageResource(i);
+        imageView.setImageResource(i2);
     }
 
-    public void setLeftBtnImgVisible(int i) {
+    public void setLeftBtnImgVisible(int i2) {
         ImageView imageView;
         if (!this.useTitle || (imageView = this.mLeftBtnIv) == null) {
             return;
         }
-        imageView.setVisibility(i);
+        imageView.setVisibility(i2);
     }
 
-    public void setLeftBtnLayoutVisible(int i) {
+    public void setLeftBtnLayoutVisible(int i2) {
         LinearLayout linearLayout;
         if (!this.useTitle || (linearLayout = this.mLeftBtnLayout) == null) {
             return;
         }
-        linearLayout.setVisibility(i);
+        linearLayout.setVisibility(i2);
     }
 
     public void setLeftBtnText(String str) {
@@ -279,12 +285,12 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         textView.setText(str);
     }
 
-    public void setLeftBtnTextColor(int i) {
+    public void setLeftBtnTextColor(int i2) {
         TextView textView;
         if (!this.useTitle || (textView = this.mLeftBtnTv) == null) {
             return;
         }
-        textView.setTextColor(i);
+        textView.setTextColor(i2);
     }
 
     public void setLeftBtnTextSize(float f2) {
@@ -295,56 +301,56 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         textView.setTextSize(f2);
     }
 
-    public void setLeftBtnTextVisible(int i) {
+    public void setLeftBtnTextVisible(int i2) {
         TextView textView;
         if (!this.useTitle || (textView = this.mLeftBtnTv) == null) {
             return;
         }
-        textView.setVisibility(i);
+        textView.setVisibility(i2);
     }
 
     public void setPageAnim(boolean z) {
-        int i;
         int i2;
         int i3;
         int i4;
+        int i5;
         SapiConfiguration sapiConfiguration = this.configuration;
-        int i5 = sapiConfiguration.activityOpenAnimId;
-        int i6 = sapiConfiguration.activityExitAnimId;
+        int i6 = sapiConfiguration.activityOpenAnimId;
+        int i7 = sapiConfiguration.activityExitAnimId;
         SapiWebDTO webDTO = getWebDTO();
-        if (webDTO != null && (i4 = webDTO.openEnterAnimId) != 0) {
-            i5 = i4;
+        if (webDTO != null && (i5 = webDTO.openEnterAnimId) != 0) {
+            i6 = i5;
         }
-        if (webDTO != null && (i3 = webDTO.closeExitAnimId) != 0) {
-            i6 = i3;
-        }
-        if (i5 == 0) {
-            i5 = a.sapi_sdk_slide_right_in;
+        if (webDTO != null && (i4 = webDTO.closeExitAnimId) != 0) {
+            i7 = i4;
         }
         if (i6 == 0) {
-            i6 = a.sapi_sdk_slide_right_out;
+            i6 = a.sapi_sdk_slide_right_in;
+        }
+        if (i7 == 0) {
+            i7 = a.sapi_sdk_slide_right_out;
         }
         if (z) {
-            int i7 = a.sapi_sdk_slide_left_out;
-            if (webDTO != null && (i2 = webDTO.openExitAnimId) != 0) {
-                i7 = i2;
+            int i8 = a.sapi_sdk_slide_left_out;
+            if (webDTO != null && (i3 = webDTO.openExitAnimId) != 0) {
+                i8 = i3;
             }
-            overridePendingTransition(i5, i7);
+            overridePendingTransition(i6, i8);
             return;
         }
-        int i8 = a.sapi_sdk_slide_left_in;
-        if (webDTO != null && (i = webDTO.closeEnterAnimId) != 0) {
-            i8 = i;
+        int i9 = a.sapi_sdk_slide_left_in;
+        if (webDTO != null && (i2 = webDTO.closeEnterAnimId) != 0) {
+            i9 = i2;
         }
-        overridePendingTransition(i8, i6);
+        overridePendingTransition(i9, i7);
     }
 
-    public void setRightBtnColor(int i) {
+    public void setRightBtnColor(int i2) {
         Button button;
         if (!this.useTitle || (button = this.mRightBtn) == null) {
             return;
         }
-        button.setTextColor(i);
+        button.setTextColor(i2);
     }
 
     public void setRightBtnText(String str) {
@@ -363,12 +369,12 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         button.setTextSize(f2);
     }
 
-    public void setRightBtnVisible(int i) {
+    public void setRightBtnVisible(int i2) {
         Button button;
         if (!this.useTitle || (button = this.mRightBtn) == null) {
             return;
         }
-        button.setVisibility(i);
+        button.setVisibility(i2);
     }
 
     public void setTitleDrawable(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
@@ -379,30 +385,30 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         textView.setCompoundDrawables(drawable, drawable2, drawable3, drawable4);
     }
 
-    public void setTitleLayoutBg(int i) {
+    public void setTitleLayoutBg(int i2) {
         RelativeLayout relativeLayout;
-        if (!this.useTitle || (relativeLayout = this.mTitleBgLayout) == null || i == Integer.MAX_VALUE) {
+        if (!this.useTitle || (relativeLayout = this.mTitleBgLayout) == null || i2 == Integer.MAX_VALUE) {
             return;
         }
-        relativeLayout.setBackgroundColor(i);
+        relativeLayout.setBackgroundColor(i2);
     }
 
-    public void setTitleLayoutHeight(int i) {
+    public void setTitleLayoutHeight(int i2) {
         RelativeLayout relativeLayout;
-        if (!this.useTitle || (relativeLayout = this.mTitleLayout) == null || i == Integer.MAX_VALUE) {
+        if (!this.useTitle || (relativeLayout = this.mTitleLayout) == null || i2 == Integer.MAX_VALUE) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
-        layoutParams.height = i;
+        layoutParams.height = i2;
         this.mTitleLayout.setLayoutParams(layoutParams);
     }
 
-    public void setTitleLayoutVisible(int i) {
+    public void setTitleLayoutVisible(int i2) {
         RelativeLayout relativeLayout;
         if (!this.useTitle || (relativeLayout = this.mTitleLayout) == null) {
             return;
         }
-        relativeLayout.setVisibility(i);
+        relativeLayout.setVisibility(i2);
     }
 
     public void setTitleText(String str) {
@@ -433,12 +439,12 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         textView.setTypeface(z ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
     }
 
-    public void setTitleTextColor(int i) {
+    public void setTitleTextColor(int i2) {
         TextView textView;
         if (!this.useTitle || (textView = this.mTitle) == null) {
             return;
         }
-        textView.setTextColor(i);
+        textView.setTextColor(i2);
     }
 
     public void setTitleTextSize(float f2) {
@@ -449,12 +455,12 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         textView.setTextSize(f2);
     }
 
-    public void setTitleVisible(int i) {
+    public void setTitleVisible(int i2) {
         TextView textView;
         if (!this.useTitle || (textView = this.mTitle) == null) {
             return;
         }
-        textView.setVisibility(i);
+        textView.setVisibility(i2);
     }
 
     public void setupViews() {
@@ -474,41 +480,45 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             this.mTitleBgLayout = (RelativeLayout) findViewById(e.sapi_title_bg_layout);
             this.dividerLine = findViewById(e.title_divider_line);
             this.mRightBtnClose = (ImageView) findViewById(e.title_right_close);
-            TextView textView = this.mTitle;
-            if (textView != null && this.configuration != null) {
-                textView.setTextSize(0, (textView.getTextSize() * this.configuration.textZoom) / 100.0f);
-            }
-            TextView textView2 = this.mLeftBtnTv;
-            if (textView2 != null && this.configuration != null) {
-                textView2.setTextSize(0, (textView2.getTextSize() * this.configuration.textZoom) / 100.0f);
-            }
-            Button button = this.mRightBtn;
-            if (button != null && this.configuration != null) {
-                button.setTextSize(0, (button.getTextSize() * this.configuration.textZoom) / 100.0f);
-            }
             SapiConfiguration sapiConfiguration = this.configuration;
             if (sapiConfiguration != null && sapiConfiguration.showBottomBack && this.bottomBackView == null && (viewStub = (ViewStub) findViewById(e.stub_bottom_back)) != null) {
                 this.bottomBackView = viewStub.inflate();
                 this.mBottomBackBtnIv = (ImageView) findViewById(e.sapi_bottom_back);
+                this.mBottomBackTvText = (TextView) findViewById(e.sapi_textview_back);
                 this.mBottomBgLayout = (RelativeLayout) findViewById(e.sapi_layout_bottom_back);
                 this.mBottomDividerLine = (ImageView) findViewById(e.sapi_sdk_bottom_divider_line);
                 ViewUtility.setOnClickListener(this.mBottomBackBtnIv, this);
+                ViewUtility.setOnClickListener(this.mBottomBackTvText, this);
                 ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
+                this.mBottomBackTvText.setVisibility(this.configuration.isShowBottomBackText ? 0 : 8);
             }
-            ViewUtility.setOnClickListener(this.mRightBtnClose, this);
             ViewUtility.setViewClickAlpha(this.mRightBtnClose, 0.2f);
+            ViewUtility.setViewClickAlpha(this.mLeftBtnIv, 0.2f);
+            ViewUtility.setViewClickAlpha(this.mLeftBtnTv, 0.2f);
+            ViewUtility.setViewClickAlpha(this.mRightBtn, 0.2f);
+            ViewUtility.setOnClickListener(this.mRightBtnClose, this);
             ViewUtility.setOnClickListener(this.mLeftBtnIv, this);
             ViewUtility.setOnClickListener(this.mLeftBtnTv, this);
             ViewUtility.setOnClickListener(this.mRightBtn, this);
+            SapiConfiguration sapiConfiguration2 = this.configuration;
+            if (sapiConfiguration2 != null) {
+                ViewUtility.enlargedViews(this.mLeftBtnIv, sapiConfiguration2.textZoom);
+                ViewUtility.enlargedViews(this.mLeftBtnTv, this.configuration.textZoom);
+                ViewUtility.enlargedViews(this.mTitle, this.configuration.textZoom);
+                ViewUtility.enlargedViews(this.mRightBtn, this.configuration.textZoom);
+                ViewUtility.enlargedViews(this.mRightBtnClose, this.configuration.textZoom);
+                ViewUtility.enlargedViews(this.mBottomBackBtnIv, this.configuration.textZoom);
+                ViewUtility.enlargedViews(this.mBottomBackTvText, this.configuration.textZoom);
+            }
         }
-        SapiConfiguration sapiConfiguration2 = this.configuration;
-        if (sapiConfiguration2 != null && !sapiConfiguration2.isDarkMode && sapiConfiguration2.isNightMode) {
+        SapiConfiguration sapiConfiguration3 = this.configuration;
+        if (sapiConfiguration3 != null && !sapiConfiguration3.isDarkMode && sapiConfiguration3.isNightMode) {
             ((ViewGroup) this.mTitleBgLayout.getRootView()).addView(((LayoutInflater) getSystemService("layout_inflater")).inflate(f.layout_sapi_sdk_night_mode_mask, (ViewGroup) null), new AbsoluteLayout.LayoutParams(-1, -1, 0, 0));
         }
         if (this.bottomBackView != null) {
             SoftKeyBoardListener.setListener(this, new SoftKeyBoardListener.OnSoftKeyBoardChangeListener() { // from class: com.baidu.sapi2.activity.TitleActivity.1
                 @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
-                public void keyBoardHide(int i) {
+                public void keyBoardHide(int i2) {
                     View view;
                     TitleActivity titleActivity = TitleActivity.this;
                     if (!titleActivity.realShowBottomBack || (view = titleActivity.bottomBackView) == null) {
@@ -518,7 +528,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                 }
 
                 @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
-                public void keyBoardShow(int i) {
+                public void keyBoardShow(int i2) {
                     View view = TitleActivity.this.bottomBackView;
                     if (view != null) {
                         view.setVisibility(8);
@@ -529,10 +539,10 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         configTitle();
     }
 
-    public void updateBottomBack(int i) {
+    public void updateBottomBack(int i2) {
         SapiConfiguration sapiConfiguration = this.configuration;
         if (sapiConfiguration.showBottomBack) {
-            if (i == 1) {
+            if (i2 == 1) {
                 this.realShowBottomBack = false;
                 this.bottomBackView.setVisibility(8);
                 this.mRightBtnClose.setVisibility(0);
@@ -542,7 +552,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             this.bottomBackView.setVisibility(0);
             this.mRightBtnClose.setVisibility(8);
         } else if (sapiConfiguration.showCloseBtn) {
-            if (i == 1) {
+            if (i2 == 1) {
                 this.mRightBtnClose.setVisibility(0);
                 this.mLeftBtnLayout.setVisibility(8);
                 return;
@@ -552,11 +562,11 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         }
     }
 
-    public void setTitleText(int i) {
+    public void setTitleText(int i2) {
         TextView textView;
         if (!this.useTitle || (textView = this.mTitle) == null) {
             return;
         }
-        textView.setText(getResources().getText(i));
+        textView.setText(getResources().getText(i2));
     }
 }

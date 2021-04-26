@@ -11,8 +11,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
-import d.b.c.c.g.c;
-import d.b.j0.e1.f.j.d;
+import d.a.c.c.g.c;
+import d.a.j0.e1.f.j.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryActivity> implements BdListView.p {
@@ -28,8 +28,8 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
 
         /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0199a implements Runnable {
-            public RunnableC0199a() {
+        public class RunnableC0194a implements Runnable {
+            public RunnableC0194a() {
             }
 
             @Override // java.lang.Runnable
@@ -52,22 +52,22 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
             OfficialBarHistoryActivity.this.isRefreshing = false;
             if (socketResponsedMessage == null) {
                 OfficialBarHistoryActivity.this.showToast(R.string.neterror);
-                OfficialBarHistoryActivity.this.mView.i(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.mView.j(OfficialBarHistoryActivity.this.mDataList);
             } else if (socketResponsedMessage.getError() != 0) {
                 OfficialBarHistoryActivity.this.showToast(socketResponsedMessage.getErrorString());
-                OfficialBarHistoryActivity.this.mView.i(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.mView.j(OfficialBarHistoryActivity.this.mDataList);
             } else if (socketResponsedMessage.getCmd() != 208002 || !(socketResponsedMessage instanceof ResponseHistoryMessage)) {
-                OfficialBarHistoryActivity.this.mView.i(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.mView.j(OfficialBarHistoryActivity.this.mDataList);
                 OfficialBarHistoryActivity.this.showToast(R.string.neterror);
             } else {
                 ResponseHistoryMessage responseHistoryMessage = (ResponseHistoryMessage) socketResponsedMessage;
                 if (responseHistoryMessage.getMsg().isEmpty()) {
-                    OfficialBarHistoryActivity.this.mView.i(OfficialBarHistoryActivity.this.mDataList);
+                    OfficialBarHistoryActivity.this.mView.j(OfficialBarHistoryActivity.this.mDataList);
                     return;
                 }
                 RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) responseHistoryMessage.getOrginalMessage();
                 if (requestHistoryMessage == null) {
-                    OfficialBarHistoryActivity.this.mView.i(OfficialBarHistoryActivity.this.mDataList);
+                    OfficialBarHistoryActivity.this.mView.j(OfficialBarHistoryActivity.this.mDataList);
                     return;
                 }
                 if (requestHistoryMessage.getRequestId() != 0) {
@@ -77,9 +77,9 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 }
                 OfficialBarHistoryActivity.this.mView.g(OfficialBarHistoryActivity.this.mDataList);
                 if (responseHistoryMessage.getMsg().size() == 0) {
-                    OfficialBarHistoryActivity.this.mView.i(OfficialBarHistoryActivity.this.mDataList);
+                    OfficialBarHistoryActivity.this.mView.j(OfficialBarHistoryActivity.this.mDataList);
                 } else {
-                    new Handler().post(new RunnableC0199a());
+                    new Handler().post(new RunnableC0194a());
                 }
             }
         }
@@ -110,16 +110,16 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
 
     /* JADX INFO: Access modifiers changed from: private */
     public void getNextPage() {
-        int i;
+        int i2;
         List<ResponseHistoryMessage.a> list = this.mDataList;
         if (list == null || list.isEmpty()) {
-            i = 0;
+            i2 = 0;
         } else {
             List<ResponseHistoryMessage.a> list2 = this.mDataList;
-            i = list2.get(list2.size() - 1).f17570d;
+            i2 = list2.get(list2.size() - 1).f17888d;
         }
         this.isRefreshing = true;
-        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, d.b.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), i));
+        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), i2));
     }
 
     private void initData(Bundle bundle) {
@@ -142,9 +142,9 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mView.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mView.onChangeSkinType(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

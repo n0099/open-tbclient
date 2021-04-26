@@ -35,10 +35,10 @@ public abstract class GetChatObjectInfoForRecordHandler {
         this.mUuid = str;
     }
 
-    public abstract void updateChatRecord(ChatObject chatObject, int i, int i2, Object obj);
+    public abstract void updateChatRecord(ChatObject chatObject, int i2, int i3, Object obj);
 
-    public void updateChatRecord(ChatObject chatObject, String str, int i, String str2, int i2, String str3, String str4, int i3, int i4, long j, int i5, long j2, String str5, String str6, String str7) {
-        Object[] objArr = {this.mContext, chatObject, str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, str4, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Integer.valueOf(i5), Long.valueOf(j2), str5, str6, str7};
+    public void updateChatRecord(ChatObject chatObject, String str, int i2, String str2, int i3, String str3, String str4, int i4, int i5, long j, int i6, long j2, String str5, String str6, String str7) {
+        Object[] objArr = {this.mContext, chatObject, str, Integer.valueOf(i2), str2, Integer.valueOf(i3), str3, str4, Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j), Integer.valueOf(i6), Long.valueOf(j2), str5, str6, str7};
         Class<?> cls = Integer.TYPE;
         updateChatRecord("com.baidu.android.imsdk.chatmessage.ChatMsgManager", "createChatSession", new Class[]{Context.class, ChatObject.class, String.class, cls, String.class, cls, String.class, String.class, cls, cls, Long.TYPE, Integer.TYPE, Long.TYPE, String.class, String.class, String.class}, objArr);
     }

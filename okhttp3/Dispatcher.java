@@ -47,13 +47,13 @@ public final class Dispatcher {
     }
 
     private int runningCallsForHost(RealCall.AsyncCall asyncCall) {
-        int i = 0;
+        int i2 = 0;
         for (RealCall.AsyncCall asyncCall2 : this.runningAsyncCalls) {
             if (!asyncCall2.get().forWebSocket && asyncCall2.host().equals(asyncCall.host())) {
-                i++;
+                i2++;
             }
         }
-        return i;
+        return i2;
     }
 
     public synchronized void cancelAll() {
@@ -131,21 +131,21 @@ public final class Dispatcher {
         this.idleCallback = runnable;
     }
 
-    public synchronized void setMaxRequests(int i) {
-        if (i >= 1) {
-            this.maxRequests = i;
+    public synchronized void setMaxRequests(int i2) {
+        if (i2 >= 1) {
+            this.maxRequests = i2;
             promoteCalls();
         } else {
-            throw new IllegalArgumentException("max < 1: " + i);
+            throw new IllegalArgumentException("max < 1: " + i2);
         }
     }
 
-    public synchronized void setMaxRequestsPerHost(int i) {
-        if (i >= 1) {
-            this.maxRequestsPerHost = i;
+    public synchronized void setMaxRequestsPerHost(int i2) {
+        if (i2 >= 1) {
+            this.maxRequestsPerHost = i2;
             promoteCalls();
         } else {
-            throw new IllegalArgumentException("max < 1: " + i);
+            throw new IllegalArgumentException("max < 1: " + i2);
         }
     }
 

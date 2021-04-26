@@ -31,8 +31,8 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
-import d.b.c.a.f;
-import d.b.c.e.p.l;
+import d.a.c.a.f;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class NavigationBar extends RelativeLayout {
     public View barBgView;
@@ -208,8 +208,8 @@ public class NavigationBar extends RelativeLayout {
         return view;
     }
 
-    private View getViewFromLayoutFile(int i) {
-        return LayoutInflater.from(this.mCurrentActivity).inflate(i, (ViewGroup) this, false);
+    private View getViewFromLayoutFile(int i2) {
+        return LayoutInflater.from(this.mCurrentActivity).inflate(i2, (ViewGroup) this, false);
     }
 
     private void init(Context context, AttributeSet attributeSet) {
@@ -427,22 +427,22 @@ public class NavigationBar extends RelativeLayout {
         onBackBtnOnChangeSkin(-1);
     }
 
-    public void onCenterTextOnChangeSkin(int i) {
-        if (i < 0) {
-            i = TbadkCoreApplication.getInst().getSkinType();
+    public void onCenterTextOnChangeSkin(int i2) {
+        if (i2 < 0) {
+            i2 = TbadkCoreApplication.getInst().getSkinType();
         }
-        SkinManager.setViewTextColor(this.mCenterText, R.color.CAM_X0105, 1, i);
+        SkinManager.setViewTextColor(this.mCenterText, R.color.CAM_X0105, 1, i2);
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void onChangeSkinType(f<?> fVar, int i) {
+    public void onChangeSkinType(f<?> fVar, int i2) {
         if (this.mIsCorner) {
-            SkinManager.setBackgroundResource(this, R.drawable.nav_bg_corner_shape, i);
+            SkinManager.setBackgroundResource(this, R.drawable.nav_bg_corner_shape, i2);
         } else {
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i);
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i2);
         }
-        SkinManager.setBackgroundColor(this.mBottomLine, this.mBottomLineColor, i);
-        onBackBtnOnChangeSkin(i);
+        SkinManager.setBackgroundColor(this.mBottomLine, this.mBottomLineColor, i2);
+        onBackBtnOnChangeSkin(i2);
         SkinManager.setNavbarTitleColor(this.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
         SkinManager.setNavbarTitleColor(this.mCenterText, R.color.CAM_X0105, R.color.s_navbar_title_color);
         TextView textView = this.mRegisterView;
@@ -456,7 +456,7 @@ public class NavigationBar extends RelativeLayout {
         initPadding();
         if (fVar instanceof TbPageContext) {
             TbPageContext tbPageContext = (TbPageContext) fVar;
-            tbPageContext.getLayoutMode().k(i == 1);
+            tbPageContext.getLayoutMode().k(i2 == 1);
             tbPageContext.getLayoutMode().j(this);
         }
     }
@@ -481,8 +481,8 @@ public class NavigationBar extends RelativeLayout {
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
         int measuredWidth = this.mLeftBox.getMeasuredWidth() + getPaddingLeft();
         int measuredWidth2 = this.mRightBox.getMeasuredWidth() + getPaddingRight();
         LinearLayout linearLayout = this.mCenterBox;
@@ -490,32 +490,32 @@ public class NavigationBar extends RelativeLayout {
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         View view;
-        int i3;
         int i4;
+        int i5;
         if (this.isFixedHeight) {
-            int mode = View.MeasureSpec.getMode(i2);
-            int i5 = this.mNavHeight;
+            int mode = View.MeasureSpec.getMode(i3);
+            int i6 = this.mNavHeight;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mContentLayout.getLayoutParams();
             if (Math.abs(layoutParams.topMargin) > this.mContentLayout.getHeight()) {
                 if (layoutParams.topMargin >= 0) {
-                    i3 = this.mContentLayout.getHeight();
+                    i4 = this.mContentLayout.getHeight();
                 } else {
-                    i4 = i5 - this.mContentLayout.getHeight();
-                    i2 = View.MeasureSpec.makeMeasureSpec(i4, mode);
+                    i5 = i6 - this.mContentLayout.getHeight();
+                    i3 = View.MeasureSpec.makeMeasureSpec(i5, mode);
                 }
             } else {
-                i3 = layoutParams.topMargin;
+                i4 = layoutParams.topMargin;
             }
-            i4 = i5 + i3;
-            i2 = View.MeasureSpec.makeMeasureSpec(i4, mode);
+            i5 = i6 + i4;
+            i3 = View.MeasureSpec.makeMeasureSpec(i5, mode);
         }
         if (this.isNeedAddStatusBarHeight && (view = this.mStatusBarView) != null && view.getVisibility() == 0) {
-            i2 = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i2) + UtilHelper.getStatusBarHeight(), View.MeasureSpec.getMode(i2));
+            i3 = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i3) + UtilHelper.getStatusBarHeight(), View.MeasureSpec.getMode(i3));
         }
-        super.onMeasure(i, i2);
-        this.containerWidth = View.MeasureSpec.getSize(i);
+        super.onMeasure(i2, i3);
+        this.containerWidth = View.MeasureSpec.getSize(i2);
         int measuredWidth = this.mLeftBox.getMeasuredWidth() + getPaddingLeft();
         int measuredWidth2 = this.mRightBox.getMeasuredWidth() + getPaddingRight();
         LinearLayout linearLayout = this.mCenterBox;
@@ -534,12 +534,12 @@ public class NavigationBar extends RelativeLayout {
         this.isAutoNight = z;
     }
 
-    public void setBottomLineColor(int i) {
-        this.mBottomLineColor = i;
+    public void setBottomLineColor(int i2) {
+        this.mBottomLineColor = i2;
     }
 
-    public void setBottomLineHeight(int i) {
-        this.mBottomLine.getLayoutParams().height = i;
+    public void setBottomLineHeight(int i2) {
+        this.mBottomLine.getLayoutParams().height = i2;
         requestLayout();
     }
 
@@ -555,8 +555,8 @@ public class NavigationBar extends RelativeLayout {
         return this.mCenterText;
     }
 
-    public void setContentPaddingTop(int i) {
-        this.mContentLayout.setPadding(l.e(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), i, l.e(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), l.e(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)));
+    public void setContentPaddingTop(int i2) {
+        this.mContentLayout.setPadding(l.e(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), i2, l.e(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), l.e(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)));
     }
 
     public void setCustomContent(View view) {
@@ -587,8 +587,8 @@ public class NavigationBar extends RelativeLayout {
         }
     }
 
-    public void setNavHeight(int i) {
-        this.mNavHeight = i;
+    public void setNavHeight(int i2) {
+        this.mNavHeight = i2;
     }
 
     public void setRegisterClickListener(View.OnClickListener onClickListener) {
@@ -599,15 +599,15 @@ public class NavigationBar extends RelativeLayout {
         }
     }
 
-    public void setSpecialBackground(Drawable drawable, int i) {
+    public void setSpecialBackground(Drawable drawable, int i2) {
         this.mSpecialBackgroundDrawable = drawable;
-        this.mSpecialBackgroundBackupColorId = i;
+        this.mSpecialBackgroundBackupColorId = i2;
     }
 
-    public void setStatusBarVisibility(int i) {
+    public void setStatusBarVisibility(int i2) {
         View view = this.mStatusBarView;
         if (view != null) {
-            view.setVisibility(i);
+            view.setVisibility(i2);
         }
     }
 
@@ -628,10 +628,10 @@ public class NavigationBar extends RelativeLayout {
         return addCustomView(ControlAlign.HORIZONTAL_CENTER, view, onClickListener);
     }
 
-    public void setmBackImageViewBg(int i, int i2) {
-        this.mBackImagedeepResId = i;
-        this.mBackImagelightResId = i2;
-        SkinManager.setNavbarIconSrc(this.mBackImageView, i, i2);
+    public void setmBackImageViewBg(int i2, int i3) {
+        this.mBackImagedeepResId = i2;
+        this.mBackImagelightResId = i3;
+        SkinManager.setNavbarIconSrc(this.mBackImageView, i2, i3);
     }
 
     public void showBottomLine(boolean z) {
@@ -720,14 +720,14 @@ public class NavigationBar extends RelativeLayout {
         return addTextButton(controlAlign, str, onClickListener, false);
     }
 
-    public void onBackBtnOnChangeSkin(int i) {
-        int i2;
-        if (i < 0) {
-            i = TbadkCoreApplication.getInst().getSkinType();
+    public void onBackBtnOnChangeSkin(int i2) {
+        int i3;
+        if (i2 < 0) {
+            i2 = TbadkCoreApplication.getInst().getSkinType();
         }
-        int i3 = this.mBackImagedeepResId;
-        if (i3 > 0 && (i2 = this.mBackImagelightResId) > 0) {
-            SkinManager.setNavbarIconSrc(this.mBackImageView, i3, i2, i);
+        int i4 = this.mBackImagedeepResId;
+        if (i4 > 0 && (i3 = this.mBackImagelightResId) > 0) {
+            SkinManager.setNavbarIconSrc(this.mBackImageView, i4, i3, i2);
         } else if (this.mIsClose) {
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         } else {
@@ -735,8 +735,8 @@ public class NavigationBar extends RelativeLayout {
         }
     }
 
-    public View setTitleView(int i, View.OnClickListener onClickListener) {
-        return addCustomView(ControlAlign.HORIZONTAL_CENTER, getViewFromLayoutFile(i), onClickListener);
+    public View setTitleView(int i2, View.OnClickListener onClickListener) {
+        return addCustomView(ControlAlign.HORIZONTAL_CENTER, getViewFromLayoutFile(i2), onClickListener);
     }
 
     public void showBottomLine() {
@@ -779,8 +779,8 @@ public class NavigationBar extends RelativeLayout {
         return addTextButton;
     }
 
-    public View addCustomView(ControlAlign controlAlign, int i, View.OnClickListener onClickListener) {
-        return addCustomView(controlAlign, getViewFromLayoutFile(i), onClickListener);
+    public View addCustomView(ControlAlign controlAlign, int i2, View.OnClickListener onClickListener) {
+        return addCustomView(controlAlign, getViewFromLayoutFile(i2), onClickListener);
     }
 
     public TextView addTextButtonByDefTextColor(ControlAlign controlAlign, String str, View.OnClickListener onClickListener, boolean z) {
@@ -800,23 +800,23 @@ public class NavigationBar extends RelativeLayout {
         return this.mTextTitle;
     }
 
-    public void onBackBtnOnChangeSkin(int i, @ColorRes int i2) {
-        int i3;
-        if (i < 0) {
-            i = TbadkCoreApplication.getInst().getSkinType();
+    public void onBackBtnOnChangeSkin(int i2, @ColorRes int i3) {
+        int i4;
+        if (i2 < 0) {
+            i2 = TbadkCoreApplication.getInst().getSkinType();
         }
-        int i4 = this.mBackImagedeepResId;
-        if (i4 > 0 && (i3 = this.mBackImagelightResId) > 0) {
-            SkinManager.setNavbarIconSrc(this.mBackImageView, i4, i3, i);
+        int i5 = this.mBackImagedeepResId;
+        if (i5 > 0 && (i4 = this.mBackImagelightResId) > 0) {
+            SkinManager.setNavbarIconSrc(this.mBackImageView, i5, i4, i2);
         } else if (this.mIsClose) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, i2, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, i3, null);
         } else {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.ic_icon_pure_topbar_return40_svg, i2, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.ic_icon_pure_topbar_return40_svg, i3, null);
         }
     }
 
-    public TextView setTitleText(int i) {
-        return setTitleText(this.mCurrentActivity.getString(i));
+    public TextView setTitleText(int i2) {
+        return setTitleText(this.mCurrentActivity.getString(i2));
     }
 
     public NavigationBar(Context context, AttributeSet attributeSet) {
@@ -836,8 +836,8 @@ public class NavigationBar extends RelativeLayout {
         init(context, attributeSet);
     }
 
-    public NavigationBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public NavigationBar(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mClickIsVaild = true;
         this.isAutoNight = true;
         this.isFixedHeight = true;

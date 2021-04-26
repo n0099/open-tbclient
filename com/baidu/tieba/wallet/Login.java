@@ -6,14 +6,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tbadk.core.atomData.ConsumptionRecordsActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.wallet.api.ILoginBackListener;
 import com.baidu.wallet.api.IWalletListener;
-import d.b.i0.l.a;
+import d.a.i0.l.a;
 /* loaded from: classes5.dex */
 public class Login extends LightAppListenerImpl implements IWalletListener {
     public CustomMessageListener mAccountChangedListener = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.wallet.Login.1
@@ -53,7 +52,7 @@ public class Login extends LightAppListenerImpl implements IWalletListener {
         } else if (UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_BUY.equals(str)) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.mContext, 0)));
         } else if ("tdoudiscount:".equals(str)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BuyTBeanActivityConfig(this.mContext, 0L)));
+            CurrencyJumpHelper.schemaGotoBuyBean(this.mContext);
         } else {
             a.s(this.mContext, true, str);
         }

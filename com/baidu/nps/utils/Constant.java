@@ -1,12 +1,30 @@
 package com.baidu.nps.utils;
 /* loaded from: classes2.dex */
 public class Constant {
+    public static final int ALLOW_SILENCE_CODE = 1;
+    public static final int ALLOW_SILENCE_UPDATE_CODE = 1;
+    public static final int ALLOW_WIFIONLY_CODE = 1;
 
     /* loaded from: classes2.dex */
     public static class ABI {
         public static final int ABI_32 = 1;
         public static final int ABI_64 = 2;
         public static final int ABI_ALL = 3;
+    }
+
+    /* loaded from: classes2.dex */
+    public static class AUTHORIZATION {
+
+        /* loaded from: classes2.dex */
+        public static class RESULT {
+            public static final int CANCEL = 2;
+            public static final int CONFIRM = 1;
+        }
+
+        /* loaded from: classes2.dex */
+        public static class TYPE {
+            public static final int UPDATE_MOBILE_CONFIRM = 1;
+        }
     }
 
     /* loaded from: classes2.dex */
@@ -28,6 +46,7 @@ public class Constant {
         public static final int RET_CLASS_LOAD_ERROR = 18;
         public static final int RET_COPY_ERROR = 11;
         public static final int RET_DOWNLOAD_BUNDLE_GROUP_NULL_ERROR = 26;
+        public static final int RET_DOWNLOAD_NETWOKR_ERROR = 51;
         public static final int RET_DOWNLOAD_NO_DATA = 3;
         public static final int RET_DOWNLOAD_RETBUNDLE_NULL_ERROR = 31;
         public static final int RET_DOWNLOAD_SUCCESS = 2;
@@ -71,6 +90,7 @@ public class Constant {
 
         /* loaded from: classes2.dex */
         public static class ID {
+            public static final int LOAD_COMPONENT_CLASS = 2;
             public static final int PKG_MGR_UBI_PARSE_TIMESTAMP = 1;
         }
     }
@@ -93,8 +113,8 @@ public class Constant {
 
     /* loaded from: classes2.dex */
     public static class MSG {
-        public static String retMsgBundleNotReady(int i) {
-            return i != 41 ? i != 44 ? i != 46 ? "unkown errcode" : "bundle is broken" : "bundle need to force update" : "bundle is ready";
+        public static String retMsgBundleNotReady(int i2) {
+            return i2 != 41 ? i2 != 44 ? i2 != 46 ? "unkown errcode" : "bundle is broken" : "bundle need to force update" : "bundle is ready";
         }
 
         public static String retMsgErrParam(String str, String str2) {
@@ -111,6 +131,12 @@ public class Constant {
     }
 
     /* loaded from: classes2.dex */
+    public static class PLUGIN {
+        public static final int ALLOW_BACKGROUND_CODE = 0;
+        public static final int ALLOW_DIRECTLY_CODE = 1;
+    }
+
+    /* loaded from: classes2.dex */
     public static class STATUS {
         public static final int PKG_AVAILABLE = 43;
         public static final int PKG_BROKEN = 46;
@@ -123,6 +149,7 @@ public class Constant {
 
     /* loaded from: classes2.dex */
     public static class TAG {
+        public static final String PARAM_DOWNLOAD_TYPE = "param_download_type";
         public static final String PARAM_PKG_NAME = "param_pkg_name";
         public static final String PARAM_PKG_STUS = "param_pkg_status";
         public static final String PARAM_VALUE = "param_value";

@@ -8,12 +8,12 @@ import com.googlecode.mp4parser.util.CastUtils;
 import g.a.a.a;
 import g.a.b.b.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SyncSampleBox extends AbstractFullBox {
     public static final String TYPE = "stss";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
     public long[] sampleNumber;
 
     static {
@@ -36,8 +36,8 @@ public class SyncSampleBox extends AbstractFullBox {
         parseVersionAndFlags(byteBuffer);
         int l2i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
         this.sampleNumber = new long[l2i];
-        for (int i = 0; i < l2i; i++) {
-            this.sampleNumber[i] = IsoTypeReader.readUInt32(byteBuffer);
+        for (int i2 = 0; i2 < l2i; i2++) {
+            this.sampleNumber[i2] = IsoTypeReader.readUInt32(byteBuffer);
         }
     }
 

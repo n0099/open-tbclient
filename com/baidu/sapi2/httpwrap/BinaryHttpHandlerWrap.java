@@ -9,7 +9,7 @@ public class BinaryHttpHandlerWrap extends HttpHandlerWrap {
         super(looper);
     }
 
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
     }
 
     public BinaryHttpHandlerWrap(Looper looper, String[] strArr) {

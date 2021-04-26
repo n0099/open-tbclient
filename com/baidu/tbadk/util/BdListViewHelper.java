@@ -8,12 +8,12 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class BdListViewHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f13700a = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
+    public static final int f13704a = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
 
     /* loaded from: classes3.dex */
     public enum HeadType {
@@ -27,25 +27,25 @@ public class BdListViewHelper {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f13701a;
+        public static final /* synthetic */ int[] f13705a;
 
         static {
             int[] iArr = new int[HeadType.values().length];
-            f13701a = iArr;
+            f13705a = iArr;
             try {
                 iArr[HeadType.DEFAULT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f13701a[HeadType.HASTAB.ordinal()] = 2;
+                f13705a[HeadType.HASTAB.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f13701a[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
+                f13705a[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f13701a[HeadType.TIP.ordinal()] = 4;
+                f13705a[HeadType.TIP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -53,11 +53,11 @@ public class BdListViewHelper {
 
     public static int a(HeadType headType) {
         Context context = TbadkCoreApplication.getInst().getContext();
-        int i = a.f13701a[headType.ordinal()];
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
+        int i2 = a.f13705a[headType.ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 != 3) {
+                    if (i2 != 4) {
                         return UtilHelper.getLightStatusBarHeight() + l.g(context, R.dimen.ds88);
                     }
                     return l.g(context, R.dimen.ds56);

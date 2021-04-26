@@ -8,13 +8,13 @@ public enum hl {
     /* renamed from: a  reason: collision with other field name */
     public final int f492a;
 
-    hl(int i) {
-        this.f492a = i;
+    hl(int i2) {
+        this.f492a = i2;
     }
 
-    public static hl a(int i) {
-        if (i != 1) {
-            if (i != 2) {
+    public static hl a(int i2) {
+        if (i2 != 1) {
+            if (i2 != 2) {
                 return null;
             }
             return PLUGIN_CONFIG;

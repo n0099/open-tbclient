@@ -8,10 +8,10 @@ import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 public class f implements LocationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f9814a;
+    public final /* synthetic */ d f10179a;
 
     public f(d dVar) {
-        this.f9814a = dVar;
+        this.f10179a = dVar;
     }
 
     @Override // android.location.LocationListener
@@ -21,29 +21,29 @@ public class f implements LocationListener {
         Location location3;
         Location location4;
         if (location != null) {
-            location2 = this.f9814a.u;
+            location2 = this.f10179a.u;
             if (location2 != null) {
-                d dVar = this.f9814a;
+                d dVar = this.f10179a;
                 location3 = dVar.u;
                 if (dVar.a(location, location3)) {
-                    this.f9814a.u = location;
+                    this.f10179a.u = location;
                 }
-                d dVar2 = this.f9814a;
+                d dVar2 = this.f10179a;
                 location4 = dVar2.u;
                 dVar2.a(location4);
             } else {
-                this.f9814a.a(location);
+                this.f10179a.a(location);
             }
-            d dVar3 = this.f9814a;
-            wLocData = dVar3.f9807c;
+            d dVar3 = this.f10179a;
+            wLocData = dVar3.f10171c;
             dVar3.a(wLocData, "gps");
-            this.f9814a.f9811h = true;
+            this.f10179a.f10175h = true;
         }
     }
 
     @Override // android.location.LocationListener
     public void onProviderDisabled(String str) {
-        for (a aVar : this.f9814a.f9810f) {
+        for (a aVar : this.f10179a.f10174f) {
             if (aVar != null) {
                 aVar.d(5);
             }
@@ -52,7 +52,7 @@ public class f implements LocationListener {
 
     @Override // android.location.LocationListener
     public void onProviderEnabled(String str) {
-        for (a aVar : this.f9814a.f9810f) {
+        for (a aVar : this.f10179a.f10174f) {
             if (aVar != null) {
                 aVar.d(4);
             }
@@ -60,6 +60,6 @@ public class f implements LocationListener {
     }
 
     @Override // android.location.LocationListener
-    public void onStatusChanged(String str, int i, Bundle bundle) {
+    public void onStatusChanged(String str, int i2, Bundle bundle) {
     }
 }

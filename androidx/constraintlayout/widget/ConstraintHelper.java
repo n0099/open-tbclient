@@ -29,25 +29,25 @@ public abstract class ConstraintHelper extends View {
     }
 
     private void addID(String str) {
-        int i;
+        int i2;
         Object designInformation;
         if (str == null || this.myContext == null) {
             return;
         }
         String trim = str.trim();
         try {
-            i = R.id.class.getField(trim).getInt(null);
+            i2 = R.id.class.getField(trim).getInt(null);
         } catch (Exception unused) {
-            i = 0;
+            i2 = 0;
         }
-        if (i == 0) {
-            i = this.myContext.getResources().getIdentifier(trim, "id", this.myContext.getPackageName());
+        if (i2 == 0) {
+            i2 = this.myContext.getResources().getIdentifier(trim, "id", this.myContext.getPackageName());
         }
-        if (i == 0 && isInEditMode() && (getParent() instanceof ConstraintLayout) && (designInformation = ((ConstraintLayout) getParent()).getDesignInformation(0, trim)) != null && (designInformation instanceof Integer)) {
-            i = ((Integer) designInformation).intValue();
+        if (i2 == 0 && isInEditMode() && (getParent() instanceof ConstraintLayout) && (designInformation = ((ConstraintLayout) getParent()).getDesignInformation(0, trim)) != null && (designInformation instanceof Integer)) {
+            i2 = ((Integer) designInformation).intValue();
         }
-        if (i != 0) {
-            setTag(i, null);
+        if (i2 != 0) {
+            setTag(i2, null);
             return;
         }
         Log.w("ConstraintHelper", "Could not find id of \"" + trim + "\"");
@@ -57,15 +57,15 @@ public abstract class ConstraintHelper extends View {
         if (str == null) {
             return;
         }
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            int indexOf = str.indexOf(44, i);
+            int indexOf = str.indexOf(44, i2);
             if (indexOf == -1) {
-                addID(str.substring(i));
+                addID(str.substring(i2));
                 return;
             } else {
-                addID(str.substring(i, indexOf));
-                i = indexOf + 1;
+                addID(str.substring(i2, indexOf));
+                i2 = indexOf + 1;
             }
         }
     }
@@ -78,8 +78,8 @@ public abstract class ConstraintHelper extends View {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_Layout);
             int indexCount = obtainStyledAttributes.getIndexCount();
-            for (int i = 0; i < indexCount; i++) {
-                int index = obtainStyledAttributes.getIndex(i);
+            for (int i2 = 0; i2 < indexCount; i2++) {
+                int index = obtainStyledAttributes.getIndex(i2);
                 if (index == R.styleable.ConstraintLayout_Layout_constraint_referenced_ids) {
                     String string = obtainStyledAttributes.getString(index);
                     this.mReferenceIds = string;
@@ -94,9 +94,9 @@ public abstract class ConstraintHelper extends View {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         if (this.mUseViewMeasure) {
-            super.onMeasure(i, i2);
+            super.onMeasure(i2, i3);
         } else {
             setMeasuredDimension(0, 0);
         }
@@ -104,22 +104,22 @@ public abstract class ConstraintHelper extends View {
 
     public void setReferencedIds(int[] iArr) {
         this.mCount = 0;
-        for (int i : iArr) {
-            setTag(i, null);
+        for (int i2 : iArr) {
+            setTag(i2, null);
         }
     }
 
     @Override // android.view.View
-    public void setTag(int i, Object obj) {
-        int i2 = this.mCount + 1;
+    public void setTag(int i2, Object obj) {
+        int i3 = this.mCount + 1;
         int[] iArr = this.mIds;
-        if (i2 > iArr.length) {
+        if (i3 > iArr.length) {
             this.mIds = Arrays.copyOf(iArr, iArr.length * 2);
         }
         int[] iArr2 = this.mIds;
-        int i3 = this.mCount;
-        iArr2[i3] = i;
-        this.mCount = i3 + 1;
+        int i4 = this.mCount;
+        iArr2[i4] = i2;
+        this.mCount = i4 + 1;
     }
 
     public void updatePostLayout(ConstraintLayout constraintLayout) {
@@ -137,8 +137,8 @@ public abstract class ConstraintHelper extends View {
             return;
         }
         helper.removeAllIds();
-        for (int i = 0; i < this.mCount; i++) {
-            View viewById = constraintLayout.getViewById(this.mIds[i]);
+        for (int i2 = 0; i2 < this.mCount; i2++) {
+            View viewById = constraintLayout.getViewById(this.mIds[i2]);
             if (viewById != null) {
                 this.mHelperWidget.add(constraintLayout.getViewWidget(viewById));
             }
@@ -163,8 +163,8 @@ public abstract class ConstraintHelper extends View {
         init(attributeSet);
     }
 
-    public ConstraintHelper(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ConstraintHelper(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mIds = new int[32];
         this.mUseViewMeasure = false;
         this.myContext = context;

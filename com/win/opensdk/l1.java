@@ -1,25 +1,28 @@
 package com.win.opensdk;
 
-import com.win.opensdk.core.Info;
-/* loaded from: classes7.dex */
-public class l1 implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Info f40353a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ n1 f40354b;
-
-    public l1(n1 n1Var, Info info) {
-        this.f40354b = n1Var;
-        this.f40353a = info;
+import android.location.Location;
+import android.location.LocationListener;
+import android.os.Bundle;
+/* loaded from: classes6.dex */
+public class l1 implements LocationListener {
+    public /* synthetic */ l1(k1 k1Var) {
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        o1 o1Var = this.f40354b.f40374g;
-        if (o1Var != null) {
-            o1Var.a(this.f40353a);
-        }
+    @Override // android.location.LocationListener
+    public void onLocationChanged(Location location) {
+        m1.f37911c.f37912a = location.getLatitude();
+        m1.f37911c.f37913b = location.getLongitude();
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderDisabled(String str) {
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderEnabled(String str) {
+    }
+
+    @Override // android.location.LocationListener
+    public void onStatusChanged(String str, int i2, Bundle bundle) {
     }
 }

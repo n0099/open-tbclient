@@ -321,10 +321,10 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
     }
 
     @Override // com.baidu.android.lbspay.activity.LBSBaseActivity
-    public void handleFailure(int i, int i2, String str) {
+    public void handleFailure(int i2, int i3, String str) {
         LogUtil.d("LbsCashier handle failed!");
         WalletGlobalUtils.safeDismissDialog(this, 0);
-        if (i == 2) {
+        if (i2 == 2) {
             LBSPayAli.getInstance().clearChannelPay();
             this.mChannelPay = null;
             if (!TextUtils.isEmpty(str)) {
@@ -333,18 +333,18 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
         }
         CashierDataNew cashierDataNew = this.mCashierData;
         String orderNo = cashierDataNew != null ? cashierDataNew.getOrderNo() : "";
-        if (i == 2) {
-            StatisticManager.onEventEndWithValue(StatServiceEvent.LBS_API_GET_PAY, i2, orderNo);
+        if (i2 == 2) {
+            StatisticManager.onEventEndWithValue(StatServiceEvent.LBS_API_GET_PAY, i3, orderNo);
         }
     }
 
     @Override // com.baidu.android.lbspay.activity.LBSBaseActivity
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
         IChannelPay iChannelPay;
         GetPayBean getPayBean;
         LogUtil.d("LbsCashier handle success");
         WalletGlobalUtils.safeDismissDialog(this, 0);
-        if (obj != null && i == 2) {
+        if (obj != null && i2 == 2) {
             CashierDataNew cashierDataNew = this.mCashierData;
             StatisticManager.onEventEndWithValue(StatServiceEvent.LBS_API_GET_PAY, 0, cashierDataNew == null ? "" : cashierDataNew.getOrderNo());
             GetPayContent getPayContent = null;
@@ -356,10 +356,10 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                 if (!TextUtils.isEmpty(getPayContent.redirect_sp_succpage_remain_time) && !"0".equals(getPayContent.redirect_sp_succpage_remain_time) && (iChannelPay = this.mChannelPay) != null && (getPayBean = this.mGetPayBean) != null && 126 != this.mChannelId) {
                     ((AbstractChannelPay) iChannelPay).setPayBean(getPayBean);
                 }
-                int i2 = getPayContent.authorize_err_no;
-                if (i2 == 100000) {
+                int i3 = getPayContent.authorize_err_no;
+                if (i3 == 100000) {
                     LBSPayResult.payResult(this, 0, getPayContent.authorize_return_data);
-                } else if (i2 > 100000 && i2 <= 110000) {
+                } else if (i3 > 100000 && i3 <= 110000) {
                     doPay(getPayContent);
                 } else {
                     doPay(getPayContent);
@@ -369,10 +369,10 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
         Bundle extras;
-        super.onActivityResult(i, i2, intent);
-        LogUtil.logd("requestCode=" + i + "#resultCode=" + i2);
+        super.onActivityResult(i2, i3, intent);
+        LogUtil.logd("requestCode=" + i2 + "#resultCode=" + i3);
         if (intent == null || (extras = intent.getExtras()) == null) {
             return;
         }
@@ -393,17 +393,17 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                 iChannelPay2.payCancel();
             }
         } else {
-            string.equalsIgnoreCase(e.f1994a);
+            string.equalsIgnoreCase(e.f1950a);
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         LBSPayResult.payResult(getActivity(), 2, "");
         super.onBackPressed();
     }
 
-    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initView();
@@ -412,14 +412,14 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, android.app.Activity
-    public Dialog onCreateDialog(int i) {
-        if (i == 61186) {
+    public Dialog onCreateDialog(int i2) {
+        if (i2 == 61186) {
             return new PromptDialog(getActivity());
         }
-        if (i == 61185) {
+        if (i2 == 61185) {
             return new PromptMultiBtnDialog(getActivity());
         }
-        return super.onCreateDialog(i);
+        return super.onCreateDialog(i2);
     }
 
     @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -431,11 +431,11 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        if (i == 4) {
+    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
+        if (i2 == 4) {
             StatisticManager.onEvent(StatServiceEvent.LBS_KEY_BACK);
         }
-        return super.onKeyUp(i, keyEvent);
+        return super.onKeyUp(i2, keyEvent);
     }
 
     public void onModuleEvent(EventBus.Event event) {
@@ -491,8 +491,8 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, android.app.Activity
-    public void onPrepareDialog(int i, Dialog dialog) {
-        if (i == 3) {
+    public void onPrepareDialog(int i2, Dialog dialog) {
+        if (i2 == 3) {
             PromptDialog promptDialog = (PromptDialog) dialog;
             promptDialog.setMessage(ResUtils.getString(this, "lbspay_pay_timeout_prompt"));
             promptDialog.setCanceledOnTouchOutside(false);
@@ -504,7 +504,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                     LbSCashierActivity.this.onBackPressed();
                 }
             });
-        } else if (i == 61185) {
+        } else if (i2 == 61185) {
             PromptMultiBtnDialog promptMultiBtnDialog = (PromptMultiBtnDialog) dialog;
             promptMultiBtnDialog.setMessage(ResUtils.getString(getActivity(), "lbspay_pay_guide_dxm_wallet_pay_type_msg"));
             promptMultiBtnDialog.setCanceledOnTouchOutside(false);
@@ -535,7 +535,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                     WalletGlobalUtils.safeDismissDialog(LbSCashierActivity.this, LbSCashierActivity.DIALOG_PROMPT_GUIDE_DXM_WALLET_PAY);
                 }
             });
-        } else if (i == 61186) {
+        } else if (i2 == 61186) {
             PromptDialog promptDialog2 = (PromptDialog) dialog;
             promptDialog2.setMessage(ResUtils.getString(getActivity(), "lbspay_pay_guide_install_ali_pay_pkg_msg"));
             promptDialog2.setCanceledOnTouchOutside(false);
@@ -558,7 +558,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                 }
             });
         } else {
-            super.onPrepareDialog(i, dialog);
+            super.onPrepareDialog(i2, dialog);
         }
     }
 
@@ -567,7 +567,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
         super.onResume();
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         bundle.putSerializable(CashierDataNew.DELIVERY_CASHIER_DATA, this.mCashierData);
         bundle.putSerializable(CASHIER_CONTENT, this.mCashierContent);

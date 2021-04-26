@@ -1,7 +1,7 @@
 package com.google.common.primitives;
 
 import com.baidu.android.common.others.lang.StringUtil;
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.Arrays;
@@ -34,12 +34,12 @@ public final class ImmutableLongArray implements Serializable {
                 if (size() != list.size()) {
                     return false;
                 }
-                int i = this.parent.start;
+                int i2 = this.parent.start;
                 for (Object obj2 : list) {
                     if (obj2 instanceof Long) {
-                        int i2 = i + 1;
-                        if (this.parent.array[i] == ((Long) obj2).longValue()) {
-                            i = i2;
+                        int i3 = i2 + 1;
+                        if (this.parent.array[i2] == ((Long) obj2).longValue()) {
+                            i2 = i3;
                         }
                     }
                     return false;
@@ -76,8 +76,8 @@ public final class ImmutableLongArray implements Serializable {
         }
 
         @Override // java.util.AbstractList, java.util.List
-        public List<Long> subList(int i, int i2) {
-            return this.parent.subArray(i, i2).asList();
+        public List<Long> subList(int i2, int i3) {
+            return this.parent.subArray(i2, i3).asList();
         }
 
         @Override // java.util.AbstractCollection
@@ -91,8 +91,8 @@ public final class ImmutableLongArray implements Serializable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Long get(int i) {
-            return Long.valueOf(this.parent.get(i));
+        public Long get(int i2) {
+            return Long.valueOf(this.parent.get(i2));
         }
     }
 
@@ -100,35 +100,35 @@ public final class ImmutableLongArray implements Serializable {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public long[] f31223a;
+        public long[] f32202a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31224b = 0;
+        public int f32203b = 0;
 
-        public b(int i) {
-            this.f31223a = new long[i];
+        public b(int i2) {
+            this.f32202a = new long[i2];
         }
 
-        public static int f(int i, int i2) {
-            if (i2 >= 0) {
-                int i3 = i + (i >> 1) + 1;
-                if (i3 < i2) {
-                    i3 = Integer.highestOneBit(i2 - 1) << 1;
+        public static int f(int i2, int i3) {
+            if (i3 >= 0) {
+                int i4 = i2 + (i2 >> 1) + 1;
+                if (i4 < i3) {
+                    i4 = Integer.highestOneBit(i3 - 1) << 1;
                 }
-                if (i3 < 0) {
+                if (i4 < 0) {
                     return Integer.MAX_VALUE;
                 }
-                return i3;
+                return i4;
             }
             throw new AssertionError("cannot store more than MAX_VALUE elements");
         }
 
         public b a(long j) {
             e(1);
-            long[] jArr = this.f31223a;
-            int i = this.f31224b;
-            jArr[i] = j;
-            this.f31224b = i + 1;
+            long[] jArr = this.f32202a;
+            int i2 = this.f32203b;
+            jArr[i2] = j;
+            this.f32203b = i2 + 1;
             return this;
         }
 
@@ -146,32 +146,32 @@ public final class ImmutableLongArray implements Serializable {
         public b c(Collection<Long> collection) {
             e(collection.size());
             for (Long l : collection) {
-                long[] jArr = this.f31223a;
-                int i = this.f31224b;
-                this.f31224b = i + 1;
-                jArr[i] = l.longValue();
+                long[] jArr = this.f32202a;
+                int i2 = this.f32203b;
+                this.f32203b = i2 + 1;
+                jArr[i2] = l.longValue();
             }
             return this;
         }
 
         public ImmutableLongArray d() {
-            return this.f31224b == 0 ? ImmutableLongArray.EMPTY : new ImmutableLongArray(this.f31223a, 0, this.f31224b);
+            return this.f32203b == 0 ? ImmutableLongArray.EMPTY : new ImmutableLongArray(this.f32202a, 0, this.f32203b);
         }
 
-        public final void e(int i) {
-            int i2 = this.f31224b + i;
-            long[] jArr = this.f31223a;
-            if (i2 > jArr.length) {
-                long[] jArr2 = new long[f(jArr.length, i2)];
-                System.arraycopy(this.f31223a, 0, jArr2, 0, this.f31224b);
-                this.f31223a = jArr2;
+        public final void e(int i2) {
+            int i3 = this.f32203b + i2;
+            long[] jArr = this.f32202a;
+            if (i3 > jArr.length) {
+                long[] jArr2 = new long[f(jArr.length, i3)];
+                System.arraycopy(this.f32202a, 0, jArr2, 0, this.f32203b);
+                this.f32202a = jArr2;
             }
         }
     }
 
-    public static b builder(int i) {
-        n.f(i >= 0, "Invalid initialCapacity: %s", i);
-        return new b(i);
+    public static b builder(int i2) {
+        n.f(i2 >= 0, "Invalid initialCapacity: %s", i2);
+        return new b(i2);
     }
 
     public static ImmutableLongArray copyOf(long[] jArr) {
@@ -203,8 +203,8 @@ public final class ImmutableLongArray implements Serializable {
             if (length() != immutableLongArray.length()) {
                 return false;
             }
-            for (int i = 0; i < length(); i++) {
-                if (get(i) != immutableLongArray.get(i)) {
+            for (int i2 = 0; i2 < length(); i2++) {
+                if (get(i2) != immutableLongArray.get(i2)) {
                     return false;
                 }
             }
@@ -213,23 +213,23 @@ public final class ImmutableLongArray implements Serializable {
         return false;
     }
 
-    public long get(int i) {
-        n.n(i, length());
-        return this.array[this.start + i];
+    public long get(int i2) {
+        n.n(i2, length());
+        return this.array[this.start + i2];
     }
 
     public int hashCode() {
-        int i = 1;
-        for (int i2 = this.start; i2 < this.end; i2++) {
-            i = (i * 31) + Longs.e(this.array[i2]);
+        int i2 = 1;
+        for (int i3 = this.start; i3 < this.end; i3++) {
+            i2 = (i2 * 31) + Longs.e(this.array[i3]);
         }
-        return i;
+        return i2;
     }
 
     public int indexOf(long j) {
-        for (int i = this.start; i < this.end; i++) {
-            if (this.array[i] == j) {
-                return i - this.start;
+        for (int i2 = this.start; i2 < this.end; i2++) {
+            if (this.array[i2] == j) {
+                return i2 - this.start;
             }
         }
         return -1;
@@ -240,15 +240,15 @@ public final class ImmutableLongArray implements Serializable {
     }
 
     public int lastIndexOf(long j) {
-        int i = this.end;
+        int i2 = this.end;
         while (true) {
-            i--;
-            int i2 = this.start;
-            if (i < i2) {
+            i2--;
+            int i3 = this.start;
+            if (i2 < i3) {
                 return -1;
             }
-            if (this.array[i] == j) {
-                return i - i2;
+            if (this.array[i2] == j) {
+                return i2 - i3;
             }
         }
     }
@@ -261,14 +261,14 @@ public final class ImmutableLongArray implements Serializable {
         return isEmpty() ? EMPTY : this;
     }
 
-    public ImmutableLongArray subArray(int i, int i2) {
-        n.v(i, i2, length());
-        if (i == i2) {
+    public ImmutableLongArray subArray(int i2, int i3) {
+        n.v(i2, i3, length());
+        if (i2 == i3) {
             return EMPTY;
         }
         long[] jArr = this.array;
-        int i3 = this.start;
-        return new ImmutableLongArray(jArr, i + i3, i3 + i2);
+        int i4 = this.start;
+        return new ImmutableLongArray(jArr, i2 + i4, i4 + i3);
     }
 
     public long[] toArray() {
@@ -282,12 +282,12 @@ public final class ImmutableLongArray implements Serializable {
         StringBuilder sb = new StringBuilder(length() * 5);
         sb.append('[');
         sb.append(this.array[this.start]);
-        int i = this.start;
+        int i2 = this.start;
         while (true) {
-            i++;
-            if (i < this.end) {
+            i2++;
+            if (i2 < this.end) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                sb.append(this.array[i]);
+                sb.append(this.array[i2]);
             } else {
                 sb.append(']');
                 return sb.toString();
@@ -311,10 +311,10 @@ public final class ImmutableLongArray implements Serializable {
         return new ImmutableLongArray(new long[]{j});
     }
 
-    public ImmutableLongArray(long[] jArr, int i, int i2) {
+    public ImmutableLongArray(long[] jArr, int i2, int i3) {
         this.array = jArr;
-        this.start = i;
-        this.end = i2;
+        this.start = i2;
+        this.end = i3;
     }
 
     public static b builder() {

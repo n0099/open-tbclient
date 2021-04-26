@@ -9,8 +9,9 @@ public final class ArrayDoubleIterator extends DoubleIterator {
     public final double[] array;
     public int index;
 
-    public ArrayDoubleIterator(double[] dArr) {
-        this.array = dArr;
+    public ArrayDoubleIterator(double[] array) {
+        Intrinsics.checkNotNullParameter(array, "array");
+        this.array = array;
     }
 
     @Override // java.util.Iterator
@@ -22,9 +23,9 @@ public final class ArrayDoubleIterator extends DoubleIterator {
     public double nextDouble() {
         try {
             double[] dArr = this.array;
-            int i = this.index;
-            this.index = i + 1;
-            return dArr[i];
+            int i2 = this.index;
+            this.index = i2 + 1;
+            return dArr[i2];
         } catch (ArrayIndexOutOfBoundsException e2) {
             this.index--;
             throw new NoSuchElementException(e2.getMessage());

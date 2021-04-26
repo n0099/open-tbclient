@@ -3,9 +3,9 @@ package com.baidu.android.imsdk.request;
 public class AckMessage {
     public static final int RETRY_ACK = 1;
 
-    public static android.os.Message getSendMessage(int i, Object obj) {
+    public static android.os.Message getSendMessage(int i2, Object obj) {
         android.os.Message message = new android.os.Message();
-        message.what = i;
+        message.what = i2;
         message.obj = obj;
         return message;
     }

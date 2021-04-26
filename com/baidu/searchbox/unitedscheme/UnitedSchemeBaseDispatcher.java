@@ -2,6 +2,7 @@ package com.baidu.searchbox.unitedscheme;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.security.SchemeSecurity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -12,10 +13,10 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispatcher {
     public static final String ACTION_KEY = "action";
-    public static final boolean DEBUG = false;
     public static final String DISPATCHER_NOT_FIRST_LEVEL = "dispatcher_not_first_level";
-    public static final String TAG = "UnitedSchemeBaseDispatcher";
     public final Map<String, UnitedSchemeBaseAction> schemeActionMap = new HashMap();
+    public static final boolean DEBUG = UnitedSchemeConstants.DEBUG;
+    public static final String TAG = UnitedSchemeBaseDispatcher.class.getSimpleName();
 
     /* loaded from: classes2.dex */
     public interface ConfirmDialogCallback {
@@ -76,7 +77,14 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
         if (unitedSchemeEntity == null || unitedSchemeEntity.getUri() == null) {
             return false;
         }
-        return TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) || TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE);
+        if (TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) || TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE)) {
+            return true;
+        }
+        if (DEBUG) {
+            Log.d(TAG, "invoke from outside");
+            return true;
+        }
+        return false;
     }
 
     public void confirm(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
@@ -105,6 +113,9 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
     public abstract boolean invoke(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
 
     public void regAction(UnitedSchemeBaseAction unitedSchemeBaseAction) {
+        if (DEBUG && this.schemeActionMap.containsKey(unitedSchemeBaseAction.getActionName())) {
+            throw new IllegalArgumentException("duplicate action: " + unitedSchemeBaseAction);
+        }
         this.schemeActionMap.put(unitedSchemeBaseAction.getActionName(), unitedSchemeBaseAction);
     }
 

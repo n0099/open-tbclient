@@ -1,78 +1,40 @@
 package com.win.opensdk;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-/* loaded from: classes7.dex */
-public final class C1 implements Runnable {
+import android.graphics.Bitmap;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Toast;
+/* loaded from: classes6.dex */
+public class C1 extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ byte[] f40035a;
+    public final /* synthetic */ E1 f37618a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f40036b;
-
-    public C1(byte[] bArr, String str) {
-        this.f40035a = bArr;
-        this.f40036b = str;
+    public C1(E1 e1) {
+        this.f37618a = e1;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        FileOutputStream fileOutputStream;
-        byte[] bArr = this.f40035a;
-        String str = this.f40036b;
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-        File file = new File(str);
-        String substring = str.substring(0, str.lastIndexOf("/"));
-        if (!file.exists()) {
-            new File(substring).mkdir();
-        }
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                    return;
-                }
-            } catch (Exception e3) {
-                e = e3;
+    @Override // android.webkit.WebViewClient
+    public void onPageFinished(WebView webView, String str) {
+        super.onPageFinished(webView, str);
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+        super.onPageStarted(webView, str, bitmap);
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedError(WebView webView, int i2, String str, String str2) {
+        super.onReceivedError(webView, i2, str, str2);
+        this.f37618a.f37643b.setVisibility(8);
+        if (str.contains("TIMED_OUT")) {
+            E1 e1 = this.f37618a;
+            if (e1.f37644c != null) {
+                w0 b2 = x0.a(e1.f37642a).b(new y0(this.f37618a.f37644c), 4);
+                b2.a("desc", str + "&errcode:" + i2 + "&fileurl:" + str2).a();
             }
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            byte[] bArr2 = new byte[1024];
-            while (true) {
-                int read = byteArrayInputStream.read(bArr2);
-                if (read == -1) {
-                    break;
-                }
-                fileOutputStream.write(bArr2, 0, read);
-            }
-            fileOutputStream.flush();
-            fileOutputStream.close();
-        } catch (Exception e4) {
-            e = e4;
-            fileOutputStream2 = fileOutputStream;
-            e.printStackTrace();
-            if (fileOutputStream2 != null) {
-                fileOutputStream2.close();
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream2 = fileOutputStream;
-            if (fileOutputStream2 != null) {
-                try {
-                    fileOutputStream2.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
-                }
-            }
-            throw th;
+            Toast.makeText(this.f37618a.f37642a, R.string.win_toast_network_error, 0).show();
         }
     }
 }

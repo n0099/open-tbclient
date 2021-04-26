@@ -13,11 +13,11 @@ public class SslError {
     public static final int SSL_UNTRUSTED = 3;
 
     @Deprecated
-    public SslError(int i, SslCertificate sslCertificate) {
+    public SslError(int i2, SslCertificate sslCertificate) {
         throw new RuntimeException("Stub!");
     }
 
-    public boolean addError(int i) {
+    public boolean addError(int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -33,7 +33,7 @@ public class SslError {
         throw new RuntimeException("Stub!");
     }
 
-    public boolean hasError(int i) {
+    public boolean hasError(int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -42,15 +42,15 @@ public class SslError {
     }
 
     @Deprecated
-    public SslError(int i, X509Certificate x509Certificate) {
+    public SslError(int i2, X509Certificate x509Certificate) {
         throw new RuntimeException("Stub!");
     }
 
-    public SslError(int i, SslCertificate sslCertificate, String str) {
+    public SslError(int i2, SslCertificate sslCertificate, String str) {
         throw new RuntimeException("Stub!");
     }
 
-    public SslError(int i, X509Certificate x509Certificate, String str) {
+    public SslError(int i2, X509Certificate x509Certificate, String str) {
         throw new RuntimeException("Stub!");
     }
 }

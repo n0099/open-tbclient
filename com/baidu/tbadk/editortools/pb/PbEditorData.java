@@ -142,8 +142,8 @@ public class PbEditorData implements Serializable {
         this.mDisableVoiceMessage = str;
     }
 
-    public void setEditorType(int i) {
-        this.mEditorType = i;
+    public void setEditorType(int i2) {
+        this.mEditorType = i2;
     }
 
     public void setOpenVoiceRecordButton(boolean z) {

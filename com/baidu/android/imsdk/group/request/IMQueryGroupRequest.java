@@ -45,27 +45,27 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
         */
         public void run() {
             String str;
-            int i;
+            int i2;
             StringBuilder sb;
             Mytask mytask = this;
             ArrayList arrayList = new ArrayList();
             try {
                 JSONObject jSONObject = new JSONObject(mytask.mJson);
-                int i2 = jSONObject.getInt("error_code");
+                int i3 = jSONObject.getInt("error_code");
                 String optString = jSONObject.optString("error_msg", "");
-                if (i2 == 0 && jSONObject.has("response_params")) {
+                if (i3 == 0 && jSONObject.has("response_params")) {
                     JSONArray jSONArray = jSONObject.getJSONObject("response_params").getJSONArray("group_info");
-                    int i3 = 0;
-                    while (i3 < jSONArray.length()) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
+                    int i4 = 0;
+                    while (i4 < jSONArray.length()) {
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i4);
                         long optLong = jSONObject2.optLong("group_id");
                         String optString2 = jSONObject2.optString("group_name");
                         int optInt = jSONObject2.optInt("group_type");
                         int optInt2 = jSONObject2.optInt("group_num");
                         long optLong2 = jSONObject2.optLong("create_time");
-                        int i4 = i3;
+                        int i5 = i4;
                         long optLong3 = jSONObject2.optLong("bd_uid");
-                        int i5 = i2;
+                        int i6 = i3;
                         String str2 = optString;
                         long optLong4 = jSONObject2.optLong("uk");
                         JSONArray jSONArray2 = jSONArray;
@@ -91,8 +91,8 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                             if (optInt3 != 0 && optInt3 != 2 && optInt3 != 1) {
                                 mytask = this;
                                 arrayList = arrayList2;
-                                i3 = i4 + 1;
-                                i2 = i5;
+                                i4 = i5 + 1;
+                                i3 = i6;
                                 optString = str2;
                                 jSONArray = jSONArray2;
                             }
@@ -115,8 +115,8 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                             if (optInt3 == 1) {
                                 GroupInfoDAOImpl.setGroupState(IMQueryGroupRequest.this.mContext, String.valueOf(optLong), optInt3);
                             }
-                            i3 = i4 + 1;
-                            i2 = i5;
+                            i4 = i5 + 1;
+                            i3 = i6;
                             optString = str2;
                             jSONArray = jSONArray2;
                         } catch (JSONException e3) {
@@ -124,20 +124,20 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                             mytask = this;
                             arrayList = arrayList2;
                             LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
-                            i = 1010;
+                            i2 = 1010;
                             new IMTrack.CrashBuilder(IMQueryGroupRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
                             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                            if (i != 0) {
+                            if (i2 != 0) {
                             }
                         }
                     }
                 }
-                i = i2;
+                i2 = i3;
                 str = optString;
             } catch (JSONException e4) {
                 e = e4;
             }
-            if (i != 0) {
+            if (i2 != 0) {
                 IMListener removeListener = ListenerManager.getInstance().removeListener(IMQueryGroupRequest.this.mKey);
                 if (!IMQueryGroupRequest.this.isCreateGroup) {
                     if (removeListener != null) {
@@ -171,7 +171,7 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                 ((BIMValueCallBack) removeListener2).onResult(0, str, createResultInfo2);
                 return;
             }
-            ((BIMValueCallBack) removeListener2).onResult(i, str, null);
+            ((BIMValueCallBack) removeListener2).onResult(i2, str, null);
         }
     }
 
@@ -216,8 +216,8 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
             return;
@@ -232,7 +232,7 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str = new String(bArr);
         String str2 = TAG;
         LogUtils.d(str2, "IMQueryGroupRequest " + this.mGroupIds + " json is " + str);

@@ -46,16 +46,16 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$RpcData, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6433e;
+        public int f6621e;
 
         /* renamed from: f  reason: collision with root package name */
-        public LcmPb$LcmRequest f6434f = LcmPb$LcmRequest.getDefaultInstance();
+        public LcmPb$LcmRequest f6622f = LcmPb$LcmRequest.getDefaultInstance();
 
         /* renamed from: g  reason: collision with root package name */
-        public LcmPb$LcmResponse f6435g = LcmPb$LcmResponse.getDefaultInstance();
+        public LcmPb$LcmResponse f6623g = LcmPb$LcmResponse.getDefaultInstance();
 
         /* renamed from: h  reason: collision with root package name */
-        public LcmPb$LcmNotify f6436h = LcmPb$LcmNotify.getDefaultInstance();
+        public LcmPb$LcmNotify f6624h = LcmPb$LcmNotify.getDefaultInstance();
 
         public b() {
             maybeForceBuilderInitialization();
@@ -66,45 +66,45 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
         }
 
         public b A(LcmPb$LcmNotify lcmPb$LcmNotify) {
-            if ((this.f6433e & 4) == 4 && this.f6436h != LcmPb$LcmNotify.getDefaultInstance()) {
-                LcmPb$LcmNotify.b newBuilder = LcmPb$LcmNotify.newBuilder(this.f6436h);
+            if ((this.f6621e & 4) == 4 && this.f6624h != LcmPb$LcmNotify.getDefaultInstance()) {
+                LcmPb$LcmNotify.b newBuilder = LcmPb$LcmNotify.newBuilder(this.f6624h);
                 newBuilder.t(lcmPb$LcmNotify);
-                this.f6436h = newBuilder.buildPartial();
+                this.f6624h = newBuilder.buildPartial();
             } else {
-                this.f6436h = lcmPb$LcmNotify;
+                this.f6624h = lcmPb$LcmNotify;
             }
-            this.f6433e |= 4;
+            this.f6621e |= 4;
             return this;
         }
 
         public b B(LcmPb$LcmRequest lcmPb$LcmRequest) {
-            if ((this.f6433e & 1) == 1 && this.f6434f != LcmPb$LcmRequest.getDefaultInstance()) {
-                LcmPb$LcmRequest.b newBuilder = LcmPb$LcmRequest.newBuilder(this.f6434f);
+            if ((this.f6621e & 1) == 1 && this.f6622f != LcmPb$LcmRequest.getDefaultInstance()) {
+                LcmPb$LcmRequest.b newBuilder = LcmPb$LcmRequest.newBuilder(this.f6622f);
                 newBuilder.u(lcmPb$LcmRequest);
-                this.f6434f = newBuilder.buildPartial();
+                this.f6622f = newBuilder.buildPartial();
             } else {
-                this.f6434f = lcmPb$LcmRequest;
+                this.f6622f = lcmPb$LcmRequest;
             }
-            this.f6433e |= 1;
+            this.f6621e |= 1;
             return this;
         }
 
         public b C(LcmPb$LcmResponse lcmPb$LcmResponse) {
-            if ((this.f6433e & 2) == 2 && this.f6435g != LcmPb$LcmResponse.getDefaultInstance()) {
-                LcmPb$LcmResponse.b newBuilder = LcmPb$LcmResponse.newBuilder(this.f6435g);
+            if ((this.f6621e & 2) == 2 && this.f6623g != LcmPb$LcmResponse.getDefaultInstance()) {
+                LcmPb$LcmResponse.b newBuilder = LcmPb$LcmResponse.newBuilder(this.f6623g);
                 newBuilder.u(lcmPb$LcmResponse);
-                this.f6435g = newBuilder.buildPartial();
+                this.f6623g = newBuilder.buildPartial();
             } else {
-                this.f6435g = lcmPb$LcmResponse;
+                this.f6623g = lcmPb$LcmResponse;
             }
-            this.f6433e |= 2;
+            this.f6621e |= 2;
             return this;
         }
 
         public b D(LcmPb$LcmNotify lcmPb$LcmNotify) {
             if (lcmPb$LcmNotify != null) {
-                this.f6436h = lcmPb$LcmNotify;
-                this.f6433e |= 4;
+                this.f6624h = lcmPb$LcmNotify;
+                this.f6621e |= 4;
                 return this;
             }
             throw null;
@@ -112,8 +112,8 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
 
         public b E(LcmPb$LcmRequest lcmPb$LcmRequest) {
             if (lcmPb$LcmRequest != null) {
-                this.f6434f = lcmPb$LcmRequest;
-                this.f6433e |= 1;
+                this.f6622f = lcmPb$LcmRequest;
+                this.f6621e |= 1;
                 return this;
             }
             throw null;
@@ -161,29 +161,29 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
         /* renamed from: n */
         public LcmPb$RpcData buildPartial() {
             LcmPb$RpcData lcmPb$RpcData = new LcmPb$RpcData(this);
-            int i = this.f6433e;
-            int i2 = (i & 1) != 1 ? 0 : 1;
-            lcmPb$RpcData.lcmRequest_ = this.f6434f;
-            if ((i & 2) == 2) {
-                i2 |= 2;
+            int i2 = this.f6621e;
+            int i3 = (i2 & 1) != 1 ? 0 : 1;
+            lcmPb$RpcData.lcmRequest_ = this.f6622f;
+            if ((i2 & 2) == 2) {
+                i3 |= 2;
             }
-            lcmPb$RpcData.lcmResponse_ = this.f6435g;
-            if ((i & 4) == 4) {
-                i2 |= 4;
+            lcmPb$RpcData.lcmResponse_ = this.f6623g;
+            if ((i2 & 4) == 4) {
+                i3 |= 4;
             }
-            lcmPb$RpcData.lcmNotify_ = this.f6436h;
-            lcmPb$RpcData.bitField0_ = i2;
+            lcmPb$RpcData.lcmNotify_ = this.f6624h;
+            lcmPb$RpcData.bitField0_ = i3;
             return lcmPb$RpcData;
         }
 
         public b o() {
             super.clear();
-            this.f6434f = LcmPb$LcmRequest.getDefaultInstance();
-            this.f6433e &= -2;
-            this.f6435g = LcmPb$LcmResponse.getDefaultInstance();
-            this.f6433e &= -3;
-            this.f6436h = LcmPb$LcmNotify.getDefaultInstance();
-            this.f6433e &= -5;
+            this.f6622f = LcmPb$LcmRequest.getDefaultInstance();
+            this.f6621e &= -2;
+            this.f6623g = LcmPb$LcmResponse.getDefaultInstance();
+            this.f6621e &= -3;
+            this.f6624h = LcmPb$LcmNotify.getDefaultInstance();
+            this.f6621e &= -5;
             return this;
         }
 
@@ -204,27 +204,27 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
         }
 
         public LcmPb$LcmNotify s() {
-            return this.f6436h;
+            return this.f6624h;
         }
 
         public LcmPb$LcmRequest t() {
-            return this.f6434f;
+            return this.f6622f;
         }
 
         public LcmPb$LcmResponse u() {
-            return this.f6435g;
+            return this.f6623g;
         }
 
         public boolean v() {
-            return (this.f6433e & 4) == 4;
+            return (this.f6621e & 4) == 4;
         }
 
         public boolean w() {
-            return (this.f6433e & 1) == 1;
+            return (this.f6621e & 1) == 1;
         }
 
         public boolean x() {
-            return (this.f6433e & 2) == 2;
+            return (this.f6621e & 2) == 2;
         }
 
         public b y(LcmPb$RpcData lcmPb$RpcData) {
@@ -345,9 +345,9 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
 
     @Override // com.google.protobuf.MessageLite
     public int getSerializedSize() {
-        int i = this.memoizedSerializedSize;
-        if (i != -1) {
-            return i;
+        int i2 = this.memoizedSerializedSize;
+        if (i2 != -1) {
+            return i2;
         }
         int computeMessageSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.lcmRequest_) : 0;
         if ((this.bitField0_ & 2) == 2) {

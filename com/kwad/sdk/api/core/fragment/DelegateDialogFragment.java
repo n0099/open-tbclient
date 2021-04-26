@@ -46,9 +46,9 @@ public abstract class DelegateDialogFragment extends DialogFragment implements I
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        this.mBase.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        this.mBase.onActivityResult(i2, i3, intent);
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -97,13 +97,13 @@ public abstract class DelegateDialogFragment extends DialogFragment implements I
     }
 
     @Override // androidx.fragment.app.Fragment
-    public Animation onCreateAnimation(int i, boolean z, int i2) {
-        return this.mBase.onCreateAnimation(i, z, i2);
+    public Animation onCreateAnimation(int i2, boolean z, int i3) {
+        return this.mBase.onCreateAnimation(i2, z, i3);
     }
 
     @Override // androidx.fragment.app.Fragment
-    public Animator onCreateAnimator(int i, boolean z, int i2) {
-        return this.mBase.onCreateAnimator(i, z, i2);
+    public Animator onCreateAnimator(int i2, boolean z, int i3) {
+        return this.mBase.onCreateAnimator(i2, z, i3);
     }
 
     @Override // androidx.fragment.app.Fragment, android.view.View.OnCreateContextMenuListener
@@ -225,9 +225,9 @@ public abstract class DelegateDialogFragment extends DialogFragment implements I
     }
 
     @Override // androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        super.onRequestPermissionsResult(i, strArr, iArr);
-        this.mBase.onRequestPermissionsResult(i, strArr, iArr);
+    public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+        super.onRequestPermissionsResult(i2, strArr, iArr);
+        this.mBase.onRequestPermissionsResult(i2, strArr, iArr);
     }
 
     @Override // androidx.fragment.app.Fragment

@@ -9,23 +9,23 @@ import com.baidu.android.util.devices.RomUtils;
 public final class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static TelephonyManager f4728a;
+    public static TelephonyManager f4840a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ConnectivityManager f4729b;
+    public static ConnectivityManager f4841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f4730c;
+    public static Context f4842c;
 
     public static String a() {
         NetworkInfo activeNetworkInfo;
         String str = "\n";
         StringBuilder sb = new StringBuilder();
         try {
-            if (f4729b == null) {
-                f4729b = (ConnectivityManager) f4730c.getSystemService("connectivity");
+            if (f4841b == null) {
+                f4841b = (ConnectivityManager) f4842c.getSystemService("connectivity");
             }
-            activeNetworkInfo = f4729b.getActiveNetworkInfo();
+            activeNetworkInfo = f4841b.getActiveNetworkInfo();
         } catch (RuntimeException e2) {
             com.baidu.crabsdk.c.a.a("getNetworkInfo", e2);
         }
@@ -40,11 +40,11 @@ public final class o {
                 sb.append("subType: ");
                 sb.append(activeNetworkInfo.getSubtypeName());
                 sb.append("\n");
-                if (f4728a == null) {
-                    f4728a = (TelephonyManager) f4730c.getSystemService("phone");
+                if (f4840a == null) {
+                    f4840a = (TelephonyManager) f4842c.getSystemService("phone");
                 }
                 sb.append("isRoaming: ");
-                sb.append(f4728a.isNetworkRoaming() ? "yes" : "no");
+                sb.append(f4840a.isNetworkRoaming() ? "yes" : "no");
             }
             return sb.toString();
         }
@@ -55,10 +55,10 @@ public final class o {
 
     public static String b() {
         try {
-            if (f4729b == null) {
-                f4729b = (ConnectivityManager) f4730c.getSystemService("connectivity");
+            if (f4841b == null) {
+                f4841b = (ConnectivityManager) f4842c.getSystemService("connectivity");
             }
-            NetworkInfo activeNetworkInfo = f4729b.getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = f4841b.getActiveNetworkInfo();
             return activeNetworkInfo == null ? RomUtils.UNKNOWN : !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
         } catch (RuntimeException unused) {
             return RomUtils.UNKNOWN;
@@ -66,6 +66,6 @@ public final class o {
     }
 
     public static void c(Context context) {
-        f4730c = context;
+        f4842c = context;
     }
 }

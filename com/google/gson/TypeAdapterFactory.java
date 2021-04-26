@@ -1,7 +1,7 @@
 package com.google.gson;
 
-import d.h.d.c.a;
+import com.google.gson.reflect.TypeToken;
 /* loaded from: classes6.dex */
 public interface TypeAdapterFactory {
-    <T> TypeAdapter<T> create(Gson gson, a<T> aVar);
+    <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken);
 }

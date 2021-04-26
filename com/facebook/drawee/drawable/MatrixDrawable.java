@@ -5,7 +5,7 @@ import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import com.facebook.common.internal.Preconditions;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MatrixDrawable extends ForwardingDrawable {
     public Matrix mDrawMatrix;
     public Matrix mMatrix;

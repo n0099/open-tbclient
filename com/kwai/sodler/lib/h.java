@@ -3,7 +3,7 @@ package com.kwai.sodler.lib;
 public class h extends com.kwai.sodler.lib.a.f<g> {
     public h(com.kwai.sodler.lib.b.b bVar, String str) {
         this.p = bVar;
-        this.f37516a = str;
+        this.f35239a = str;
     }
 
     @Override // com.kwai.sodler.lib.a.f

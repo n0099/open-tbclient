@@ -43,7 +43,7 @@ public class NetworkQuality {
             return this.mExecutor;
         }
 
-        public abstract void onNetworkQualityChanged(int i);
+        public abstract void onNetworkQualityChanged(int i2);
     }
 
     public static void addNetworkQualityListener(NetworkQualityListener networkQualityListener) {
@@ -63,8 +63,8 @@ public class NetworkQuality {
         }
     }
 
-    public static String getNameOfQuality(int i) {
-        return i != -1 ? i != 1 ? i != 2 ? i != 3 ? String.valueOf(i) : "Offline" : "Bad" : "Good" : "Unknown";
+    public static String getNameOfQuality(int i2) {
+        return i2 != -1 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? String.valueOf(i2) : "Offline" : "Bad" : "Good" : "Unknown";
     }
 
     public static int getNetworkQuality() {
@@ -84,8 +84,8 @@ public class NetworkQuality {
     }
 
     public static boolean isWeakNet() {
-        int i = sNetworkQuality;
-        return i == 2 || i == 3;
+        int i2 = sNetworkQuality;
+        return i2 == 2 || i2 == 3;
     }
 
     public static void removeNetworkQualityListener(NetworkQualityListener networkQualityListener) {
@@ -107,11 +107,11 @@ public class NetworkQuality {
         }
     }
 
-    public static void updateNetworkQuality(int i, int i2) {
-        if (i != sLastNetworkQualityQuality) {
+    public static void updateNetworkQuality(int i2, int i3) {
+        if (i2 != sLastNetworkQualityQuality) {
             synchronized (sNetworkQualityListeners) {
-                sNetworkQuality = i;
-                sNetworkQualityUpdateFrom = i2;
+                sNetworkQuality = i2;
+                sNetworkQualityUpdateFrom = i3;
                 for (final NetworkQualityListener networkQualityListener : sNetworkQualityListeners) {
                     try {
                         networkQualityListener.getExecutor().execute(new Runnable() { // from class: com.baidu.searchbox.http.NetworkQuality.1
@@ -126,7 +126,7 @@ public class NetworkQuality {
                     } catch (Exception unused) {
                     }
                 }
-                sLastNetworkQualityQuality = i;
+                sLastNetworkQualityQuality = i2;
             }
         }
     }

@@ -68,8 +68,8 @@ public class Amf0Track extends AbstractTrack {
         LinkedList linkedList = new LinkedList(this.rawSamples.keySet());
         Collections.sort(linkedList);
         long[] jArr = new long[linkedList.size()];
-        for (int i = 0; i < linkedList.size(); i++) {
-            jArr[i] = ((Long) linkedList.get(i)).longValue() - 0;
+        for (int i2 = 0; i2 < linkedList.size(); i2++) {
+            jArr[i2] = ((Long) linkedList.get(i2)).longValue() - 0;
         }
         return jArr;
     }

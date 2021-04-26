@@ -43,7 +43,7 @@ public final class Ruka {
         }
     }
 
-    public static void startLooperMonitor(Context context, int i) {
+    public static void startLooperMonitor(Context context, int i2) {
         if (AppConfig.isDebug()) {
             ILooperMonitor looperMonitor = LooperProvider.getLooperMonitor();
             Log.d("Ruka", "iLooperMonitor = " + looperMonitor.getClass().getSimpleName());
@@ -54,7 +54,7 @@ public final class Ruka {
             }
         } else if (!sLooperInited.get() && LooperProvider.getLooperMonitor().enableMonitor()) {
             sLooperInited.set(true);
-            LooperProvider.getLooperMonitor().startLooperMonitor(context, i);
+            LooperProvider.getLooperMonitor().startLooperMonitor(context, i2);
             startTrack(context);
         }
     }

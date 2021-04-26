@@ -7,19 +7,19 @@ import java.util.List;
 public class j implements he {
 
     /* renamed from: a  reason: collision with root package name */
-    public final XMPushService f41425a;
+    public final XMPushService f38971a;
 
     public j(XMPushService xMPushService) {
-        this.f41425a = xMPushService;
+        this.f38971a = xMPushService;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(String str) {
-        return "com.xiaomi.xmsf".equals(str) ? "1000271" : this.f41425a.getSharedPreferences("pref_registered_pkg_names", 0).getString(str, null);
+        return "com.xiaomi.xmsf".equals(str) ? "1000271" : this.f38971a.getSharedPreferences("pref_registered_pkg_names", 0).getString(str, null);
     }
 
     @Override // com.xiaomi.push.he
     public void a(List<hj> list, String str, String str2) {
-        this.f41425a.a(new k(this, 4, str, list, str2));
+        this.f38971a.a(new k(this, 4, str, list, str2));
     }
 }

@@ -7,7 +7,7 @@ public interface RetryPolicy {
     public static final int DEFAULT_MAX_ERROR_RETRY = 3;
     public static final DefaultRetryPolicy DEFAULT_RETRY_POLICY = new DefaultRetryPolicy();
 
-    long getDelayBeforeNextRetryInMillis(BceClientException bceClientException, int i);
+    long getDelayBeforeNextRetryInMillis(BceClientException bceClientException, int i2);
 
     long getMaxDelayInMillis();
 

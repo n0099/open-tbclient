@@ -177,10 +177,10 @@ public class Loader<D> {
     }
 
     @MainThread
-    public void registerListener(int i, @NonNull OnLoadCompleteListener<D> onLoadCompleteListener) {
+    public void registerListener(int i2, @NonNull OnLoadCompleteListener<D> onLoadCompleteListener) {
         if (this.mListener == null) {
             this.mListener = onLoadCompleteListener;
-            this.mId = i;
+            this.mId = i2;
             return;
         }
         throw new IllegalStateException("There is already a listener registered");

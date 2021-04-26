@@ -88,13 +88,13 @@ public class GroupManagerImpl {
         }
     }
 
-    public void createGroup(int i, String str, ArrayList<String> arrayList, BIMValueCallBack<CreateResultInfo> bIMValueCallBack) {
+    public void createGroup(int i2, String str, ArrayList<String> arrayList, BIMValueCallBack<CreateResultInfo> bIMValueCallBack) {
         if (!isValidGroupName(str)) {
             if (bIMValueCallBack != null) {
                 bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
             }
         } else if (AccountManager.isLogin(mContext)) {
-            IMCreateGroupRequest iMCreateGroupRequest = new IMCreateGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), i, str, arrayList);
+            IMCreateGroupRequest iMCreateGroupRequest = new IMCreateGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), i2, str, arrayList);
             HttpHelper.executor(mContext, iMCreateGroupRequest, iMCreateGroupRequest);
         } else {
             LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
@@ -207,9 +207,9 @@ public class GroupManagerImpl {
         HttpHelper.executor(mContext, iMQueryGlobalConfRequest, iMQueryGlobalConfRequest);
     }
 
-    public void getGroupList(BIMValueCallBack<ArrayList<String>> bIMValueCallBack, int i, int i2) {
+    public void getGroupList(BIMValueCallBack<ArrayList<String>> bIMValueCallBack, int i2, int i3) {
         if (AccountManager.isLogin(mContext)) {
-            ArrayList<String> groupList = GroupInfoDAOImpl.getGroupList(mContext, true, i, i2);
+            ArrayList<String> groupList = GroupInfoDAOImpl.getGroupList(mContext, true, i2, i3);
             if (bIMValueCallBack != null) {
                 bIMValueCallBack.onResult(0, Constants.ERROR_MSG_SUCCESS, groupList);
                 return;
@@ -222,7 +222,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getGroupMember(int i, String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
+    public void getGroupMember(int i2, String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
         if (str == null) {
             if (bIMValueCallBack != null) {
                 bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
@@ -232,7 +232,7 @@ public class GroupManagerImpl {
             if (bIMValueCallBack != null) {
                 bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
             }
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             IMQueryMemberRequest iMQueryMemberRequest = new IMQueryMemberRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), str, arrayList, 1);
             HttpHelper.executor(mContext, iMQueryMemberRequest, iMQueryMemberRequest);
         } else {
@@ -249,7 +249,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getGroupsInfo(int i, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack) {
+    public void getGroupsInfo(int i2, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack) {
         if (arrayList == null || arrayList.size() == 0) {
             if (bIMValueCallBack != null) {
                 bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
@@ -258,7 +258,7 @@ public class GroupManagerImpl {
             if (bIMValueCallBack != null) {
                 bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
             }
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             IMQueryGroupRequest iMQueryGroupRequest = new IMQueryGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), arrayList, false, null);
             HttpHelper.executor(mContext, iMQueryGroupRequest, iMQueryGroupRequest);
         } else {
@@ -316,7 +316,7 @@ public class GroupManagerImpl {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void joinGroup(String str, String str2, int i, String str3, BIMValueCallBack<String> bIMValueCallBack) {
+    public void joinGroup(String str, String str2, int i2, String str3, BIMValueCallBack<String> bIMValueCallBack) {
         long j;
         long j2 = -1;
         try {
@@ -343,7 +343,7 @@ public class GroupManagerImpl {
             bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
         }
         if (!AccountManager.isLogin(mContext)) {
-            IMJoinGroupRequest iMJoinGroupRequest = new IMJoinGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), str, j32, i, str3);
+            IMJoinGroupRequest iMJoinGroupRequest = new IMJoinGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), str, j32, i2, str3);
             HttpHelper.executor(mContext, iMJoinGroupRequest, iMJoinGroupRequest);
             return;
         }
@@ -426,8 +426,8 @@ public class GroupManagerImpl {
         }
     }
 
-    public void setGroupDisturb(String str, int i, BIMValueCallBack<String> bIMValueCallBack) {
-        IMGroupSetRequest iMGroupSetRequest = new IMGroupSetRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), str, AccountManager.getAppid(mContext), i);
+    public void setGroupDisturb(String str, int i2, BIMValueCallBack<String> bIMValueCallBack) {
+        IMGroupSetRequest iMGroupSetRequest = new IMGroupSetRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), str, AccountManager.getAppid(mContext), i2);
         HttpHelper.executor(mContext, iMGroupSetRequest, iMGroupSetRequest);
     }
 

@@ -6,7 +6,7 @@ import com.baidu.wallet.api.IScannerDispatchListener;
 public interface IScanCodeListener {
     void dispatchUrl(Context context, String str, IScannerDispatchListener iScannerDispatchListener);
 
-    void onResult(int i, String str);
+    void onResult(int i2, String str);
 
     boolean shouldDispatchUrl(String str);
 }

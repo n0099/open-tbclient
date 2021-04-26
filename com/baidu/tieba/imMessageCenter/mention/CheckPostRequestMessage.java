@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.CheckPost.CheckPostReqIdl;
 import tbclient.CheckPost.ReqData;
 /* loaded from: classes4.dex */
@@ -64,8 +64,8 @@ public class CheckPostRequestMessage extends NetMessage {
         this.pid = j;
     }
 
-    public void setPostType(int i) {
-        this.postType = i;
+    public void setPostType(int i2) {
+        this.postType = i2;
     }
 
     public void setTid(long j) {

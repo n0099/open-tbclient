@@ -3,7 +3,7 @@ package com.facebook.drawee.drawable;
 import android.annotation.SuppressLint;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DrawableProperties {
     public static final int UNSET = -1;
     public int mAlpha = -1;
@@ -17,25 +17,25 @@ public class DrawableProperties {
         if (drawable == null) {
             return;
         }
-        int i = this.mAlpha;
-        if (i != -1) {
-            drawable.setAlpha(i);
+        int i2 = this.mAlpha;
+        if (i2 != -1) {
+            drawable.setAlpha(i2);
         }
         if (this.mIsSetColorFilter) {
             drawable.setColorFilter(this.mColorFilter);
         }
-        int i2 = this.mDither;
-        if (i2 != -1) {
-            drawable.setDither(i2 != 0);
-        }
-        int i3 = this.mFilterBitmap;
+        int i3 = this.mDither;
         if (i3 != -1) {
-            drawable.setFilterBitmap(i3 != 0);
+            drawable.setDither(i3 != 0);
+        }
+        int i4 = this.mFilterBitmap;
+        if (i4 != -1) {
+            drawable.setFilterBitmap(i4 != 0);
         }
     }
 
-    public void setAlpha(int i) {
-        this.mAlpha = i;
+    public void setAlpha(int i2) {
+        this.mAlpha = i2;
     }
 
     public void setColorFilter(ColorFilter colorFilter) {

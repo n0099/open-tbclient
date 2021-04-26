@@ -29,41 +29,41 @@ public final class FastPayCallBackManager {
         public int statecode;
     }
 
-    public static void a(int i, int i2, SimpleOrderInfo simpleOrderInfo, PayStateContent payStateContent) {
-        a.b a2 = a.a().a(i);
+    public static void a(int i2, int i3, SimpleOrderInfo simpleOrderInfo, PayStateContent payStateContent) {
+        a.b a2 = a.a().a(i2);
         if (a2 == null) {
             return;
         }
-        a2.onFastPaySuccess(i, 1, a(i2, simpleOrderInfo, payStateContent));
-        a.a().b(i);
+        a2.onFastPaySuccess(i2, 1, a(i3, simpleOrderInfo, payStateContent));
+        a.a().b(i2);
     }
 
-    public static void a(int i, Object obj) {
-        a.b a2 = a.a().a(i);
+    public static void a(int i2, Object obj) {
+        a.b a2 = a.a().a(i2);
         if (a2 == null) {
             return;
         }
-        a2.onFastPaySuccess(i, 0, obj);
+        a2.onFastPaySuccess(i2, 0, obj);
         if (obj instanceof QueryLocationResponse) {
-            a.a().b(i);
+            a.a().b(i2);
         }
     }
 
-    public static void a(int i, int i2, int i3, String str, SimpleOrderInfo simpleOrderInfo) {
-        a.b a2 = a.a().a(i);
+    public static void a(int i2, int i3, int i4, String str, SimpleOrderInfo simpleOrderInfo) {
+        a.b a2 = a.a().a(i2);
         if (a2 == null) {
             return;
         }
-        a2.onFastPayFail(i, i2, new a.C0250a(i3, str, simpleOrderInfo));
-        a.a().b(i);
+        a2.onFastPayFail(i2, i3, new a.C0245a(i4, str, simpleOrderInfo));
+        a.a().b(i2);
     }
 
-    public static PayStateModle a(int i, SimpleOrderInfo simpleOrderInfo, PayStateContent payStateContent) {
+    public static PayStateModle a(int i2, SimpleOrderInfo simpleOrderInfo, PayStateContent payStateContent) {
         PayStateModle payStateModle = new PayStateModle();
         payStateModle.orderInfo = simpleOrderInfo;
         payStateContent.order_no = simpleOrderInfo.mOrderNo;
         payStateModle.content = payStateContent;
-        payStateModle.statecode = i;
+        payStateModle.statecode = i2;
         return payStateModle;
     }
 }

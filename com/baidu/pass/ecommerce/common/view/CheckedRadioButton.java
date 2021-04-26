@@ -25,7 +25,7 @@ public class CheckedRadioButton extends RadioButton {
         super(context, attributeSet);
     }
 
-    public CheckedRadioButton(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public CheckedRadioButton(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

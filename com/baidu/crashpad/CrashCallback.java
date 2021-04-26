@@ -3,5 +3,5 @@ package com.baidu.crashpad;
 import android.content.Context;
 /* loaded from: classes.dex */
 public interface CrashCallback {
-    void onCrash(Context context, String str, int i, long j, String str2, int i2, String str3);
+    void onCrash(Context context, String str, int i2, long j, String str2, int i3, String str3);
 }

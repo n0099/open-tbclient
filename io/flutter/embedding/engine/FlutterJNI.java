@@ -88,17 +88,17 @@ public class FlutterJNI {
         return observatoryUri;
     }
 
-    private void handlePlatformMessage(@NonNull String str, byte[] bArr, int i) {
+    private void handlePlatformMessage(@NonNull String str, byte[] bArr, int i2) {
         PlatformMessageHandler platformMessageHandler = this.platformMessageHandler;
         if (platformMessageHandler != null) {
-            platformMessageHandler.handleMessageFromDart(str, bArr, i);
+            platformMessageHandler.handleMessageFromDart(str, bArr, i2);
         }
     }
 
-    private void handlePlatformMessageResponse(int i, byte[] bArr) {
+    private void handlePlatformMessageResponse(int i2, byte[] bArr) {
         PlatformMessageHandler platformMessageHandler = this.platformMessageHandler;
         if (platformMessageHandler != null) {
-            platformMessageHandler.handlePlatformMessageResponse(i, bArr);
+            platformMessageHandler.handlePlatformMessageResponse(i2, bArr);
         }
     }
 
@@ -106,21 +106,21 @@ public class FlutterJNI {
 
     private native void nativeDestroy(long j);
 
-    private native void nativeDispatchEmptyPlatformMessage(long j, @NonNull String str, int i);
+    private native void nativeDispatchEmptyPlatformMessage(long j, @NonNull String str, int i2);
 
-    private native void nativeDispatchPlatformMessage(long j, @NonNull String str, @Nullable ByteBuffer byteBuffer, int i, int i2);
+    private native void nativeDispatchPlatformMessage(long j, @NonNull String str, @Nullable ByteBuffer byteBuffer, int i2, int i3);
 
-    private native void nativeDispatchPointerDataPacket(long j, @NonNull ByteBuffer byteBuffer, int i);
+    private native void nativeDispatchPointerDataPacket(long j, @NonNull ByteBuffer byteBuffer, int i2);
 
-    private native void nativeDispatchSemanticsAction(long j, int i, int i2, @Nullable ByteBuffer byteBuffer, int i3);
+    private native void nativeDispatchSemanticsAction(long j, int i2, int i3, @Nullable ByteBuffer byteBuffer, int i4);
 
     private native Bitmap nativeGetBitmap(long j);
 
     public static native void nativeInit(@NonNull Context context, @NonNull String[] strArr, @Nullable String str, @NonNull String str2, @NonNull String str3);
 
-    private native void nativeInvokePlatformMessageEmptyResponseCallback(long j, int i);
+    private native void nativeInvokePlatformMessageEmptyResponseCallback(long j, int i2);
 
-    private native void nativeInvokePlatformMessageResponseCallback(long j, int i, @Nullable ByteBuffer byteBuffer, int i2);
+    private native void nativeInvokePlatformMessageResponseCallback(long j, int i2, @Nullable ByteBuffer byteBuffer, int i3);
 
     @NonNull
     public static native FlutterCallbackInformation nativeLookupCallbackInformation(long j);
@@ -135,13 +135,13 @@ public class FlutterJNI {
 
     private native void nativeRunBundleAndSnapshotFromLibrary(long j, @NonNull String str, @Nullable String str2, @Nullable String str3, @NonNull AssetManager assetManager);
 
-    private native void nativeSetAccessibilityFeatures(long j, int i);
+    private native void nativeSetAccessibilityFeatures(long j, int i2);
 
     private native void nativeSetSemanticsEnabled(long j, boolean z);
 
-    private native void nativeSetViewportMetrics(long j, float f2, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13, int i14);
+    private native void nativeSetViewportMetrics(long j, float f2, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13, int i14, int i15);
 
-    private native void nativeSurfaceChanged(long j, int i, int i2);
+    private native void nativeSurfaceChanged(long j, int i2, int i3);
 
     private native void nativeSurfaceCreated(long j, @NonNull Surface surface);
 
@@ -209,34 +209,34 @@ public class FlutterJNI {
     }
 
     @UiThread
-    public void dispatchEmptyPlatformMessage(@NonNull String str, int i) {
+    public void dispatchEmptyPlatformMessage(@NonNull String str, int i2) {
         ensureRunningOnMainThread();
         if (isAttached()) {
-            nativeDispatchEmptyPlatformMessage(this.nativePlatformViewId.longValue(), str, i);
-            return;
-        }
-        Log.w(TAG, "Tried to send a platform message to Flutter, but FlutterJNI was detached from native C++. Could not send. Channel: " + str + ". Response ID: " + i);
-    }
-
-    @UiThread
-    public void dispatchPlatformMessage(@NonNull String str, @Nullable ByteBuffer byteBuffer, int i, int i2) {
-        ensureRunningOnMainThread();
-        if (isAttached()) {
-            nativeDispatchPlatformMessage(this.nativePlatformViewId.longValue(), str, byteBuffer, i, i2);
+            nativeDispatchEmptyPlatformMessage(this.nativePlatformViewId.longValue(), str, i2);
             return;
         }
         Log.w(TAG, "Tried to send a platform message to Flutter, but FlutterJNI was detached from native C++. Could not send. Channel: " + str + ". Response ID: " + i2);
     }
 
     @UiThread
-    public void dispatchPointerDataPacket(@NonNull ByteBuffer byteBuffer, int i) {
+    public void dispatchPlatformMessage(@NonNull String str, @Nullable ByteBuffer byteBuffer, int i2, int i3) {
         ensureRunningOnMainThread();
-        ensureAttachedToNative();
-        nativeDispatchPointerDataPacket(this.nativePlatformViewId.longValue(), byteBuffer, i);
+        if (isAttached()) {
+            nativeDispatchPlatformMessage(this.nativePlatformViewId.longValue(), str, byteBuffer, i2, i3);
+            return;
+        }
+        Log.w(TAG, "Tried to send a platform message to Flutter, but FlutterJNI was detached from native C++. Could not send. Channel: " + str + ". Response ID: " + i3);
     }
 
-    public void dispatchSemanticsAction(int i, @NonNull AccessibilityBridge.Action action) {
-        dispatchSemanticsAction(i, action, null);
+    @UiThread
+    public void dispatchPointerDataPacket(@NonNull ByteBuffer byteBuffer, int i2) {
+        ensureRunningOnMainThread();
+        ensureAttachedToNative();
+        nativeDispatchPointerDataPacket(this.nativePlatformViewId.longValue(), byteBuffer, i2);
+    }
+
+    public void dispatchSemanticsAction(int i2, @NonNull AccessibilityBridge.Action action) {
+        dispatchSemanticsAction(i2, action, null);
     }
 
     @UiThread
@@ -247,23 +247,23 @@ public class FlutterJNI {
     }
 
     @UiThread
-    public void invokePlatformMessageEmptyResponseCallback(int i) {
+    public void invokePlatformMessageEmptyResponseCallback(int i2) {
         ensureRunningOnMainThread();
         if (isAttached()) {
-            nativeInvokePlatformMessageEmptyResponseCallback(this.nativePlatformViewId.longValue(), i);
+            nativeInvokePlatformMessageEmptyResponseCallback(this.nativePlatformViewId.longValue(), i2);
             return;
         }
-        Log.w(TAG, "Tried to send a platform message response, but FlutterJNI was detached from native C++. Could not send. Response ID: " + i);
+        Log.w(TAG, "Tried to send a platform message response, but FlutterJNI was detached from native C++. Could not send. Response ID: " + i2);
     }
 
     @UiThread
-    public void invokePlatformMessageResponseCallback(int i, @Nullable ByteBuffer byteBuffer, int i2) {
+    public void invokePlatformMessageResponseCallback(int i2, @Nullable ByteBuffer byteBuffer, int i3) {
         ensureRunningOnMainThread();
         if (isAttached()) {
-            nativeInvokePlatformMessageResponseCallback(this.nativePlatformViewId.longValue(), i, byteBuffer, i2);
+            nativeInvokePlatformMessageResponseCallback(this.nativePlatformViewId.longValue(), i2, byteBuffer, i3);
             return;
         }
-        Log.w(TAG, "Tried to send a platform message response, but FlutterJNI was detached from native C++. Could not send. Response ID: " + i);
+        Log.w(TAG, "Tried to send a platform message response, but FlutterJNI was detached from native C++. Could not send. Response ID: " + i2);
     }
 
     public boolean isAttached() {
@@ -299,10 +299,10 @@ public class FlutterJNI {
     }
 
     @UiThread
-    public void onSurfaceChanged(int i, int i2) {
+    public void onSurfaceChanged(int i2, int i3) {
         ensureRunningOnMainThread();
         ensureAttachedToNative();
-        nativeSurfaceChanged(this.nativePlatformViewId.longValue(), i, i2);
+        nativeSurfaceChanged(this.nativePlatformViewId.longValue(), i2, i3);
     }
 
     @UiThread
@@ -353,10 +353,10 @@ public class FlutterJNI {
     }
 
     @UiThread
-    public void setAccessibilityFeatures(int i) {
+    public void setAccessibilityFeatures(int i2) {
         ensureRunningOnMainThread();
         ensureAttachedToNative();
-        nativeSetAccessibilityFeatures(this.nativePlatformViewId.longValue(), i);
+        nativeSetAccessibilityFeatures(this.nativePlatformViewId.longValue(), i2);
     }
 
     @UiThread
@@ -373,10 +373,10 @@ public class FlutterJNI {
     }
 
     @UiThread
-    public void setViewportMetrics(float f2, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13, int i14) {
+    public void setViewportMetrics(float f2, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13, int i14, int i15) {
         ensureRunningOnMainThread();
         ensureAttachedToNative();
-        nativeSetViewportMetrics(this.nativePlatformViewId.longValue(), f2, i, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14);
+        nativeSetViewportMetrics(this.nativePlatformViewId.longValue(), f2, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15);
     }
 
     @UiThread
@@ -386,24 +386,24 @@ public class FlutterJNI {
         nativeUnregisterTexture(this.nativePlatformViewId.longValue(), j);
     }
 
-    public void dispatchSemanticsAction(int i, @NonNull AccessibilityBridge.Action action, @Nullable Object obj) {
+    public void dispatchSemanticsAction(int i2, @NonNull AccessibilityBridge.Action action, @Nullable Object obj) {
         ByteBuffer byteBuffer;
-        int i2;
+        int i3;
         ensureAttachedToNative();
         if (obj != null) {
             byteBuffer = StandardMessageCodec.INSTANCE.encodeMessage(obj);
-            i2 = byteBuffer.position();
+            i3 = byteBuffer.position();
         } else {
             byteBuffer = null;
-            i2 = 0;
+            i3 = 0;
         }
-        dispatchSemanticsAction(i, action.value, byteBuffer, i2);
+        dispatchSemanticsAction(i2, action.value, byteBuffer, i3);
     }
 
     @UiThread
-    public void dispatchSemanticsAction(int i, int i2, @Nullable ByteBuffer byteBuffer, int i3) {
+    public void dispatchSemanticsAction(int i2, int i3, @Nullable ByteBuffer byteBuffer, int i4) {
         ensureRunningOnMainThread();
         ensureAttachedToNative();
-        nativeDispatchSemanticsAction(this.nativePlatformViewId.longValue(), i, i2, byteBuffer, i3);
+        nativeDispatchSemanticsAction(this.nativePlatformViewId.longValue(), i2, i3, byteBuffer, i4);
     }
 }

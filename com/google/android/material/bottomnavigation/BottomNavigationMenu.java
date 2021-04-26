@@ -3,6 +3,7 @@ package com.google.android.material.bottomnavigation;
 import android.content.Context;
 import android.view.MenuItem;
 import android.view.SubMenu;
+import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuItemImpl;
@@ -16,10 +17,10 @@ public final class BottomNavigationMenu extends MenuBuilder {
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder
-    public MenuItem addInternal(int i, int i2, int i3, CharSequence charSequence) {
+    public MenuItem addInternal(int i2, int i3, int i4, CharSequence charSequence) {
         if (size() + 1 <= 5) {
             stopDispatchingItemsChanged();
-            MenuItem addInternal = super.addInternal(i, i2, i3, charSequence);
+            MenuItem addInternal = super.addInternal(i2, i3, i4, charSequence);
             if (addInternal instanceof MenuItemImpl) {
                 ((MenuItemImpl) addInternal).setExclusiveCheckable(true);
             }
@@ -30,7 +31,8 @@ public final class BottomNavigationMenu extends MenuBuilder {
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder, android.view.Menu
-    public SubMenu addSubMenu(int i, int i2, int i3, CharSequence charSequence) {
+    @NonNull
+    public SubMenu addSubMenu(int i2, int i3, int i4, CharSequence charSequence) {
         throw new UnsupportedOperationException("BottomNavigationView does not support submenus");
     }
 }

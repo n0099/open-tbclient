@@ -17,17 +17,19 @@ import java.util.ArrayList;
 public class ShutDownValidateTipView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17980e;
+    public TextView f18319e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f17981f;
+    public ImageView f18320f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17982g;
+    public TextView f18321g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17983h;
-    public boolean i;
+    public TextView f18322h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f18323i;
     public ArrayList<c> j;
 
     /* loaded from: classes4.dex */
@@ -72,32 +74,32 @@ public class ShutDownValidateTipView extends FrameLayout {
         void b(boolean z);
     }
 
-    public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.j = new ArrayList<>();
         a(context);
     }
 
     public void a(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.f17981f = (ImageView) findViewById(R.id.no_network_icon);
-        this.f17982g = (TextView) findViewById(R.id.no_network_guide1);
-        this.f17983h = (TextView) findViewById(R.id.no_network_guide2);
-        this.f17980e = (TextView) findViewById(R.id.no_network_showmore);
+        this.f18320f = (ImageView) findViewById(R.id.no_network_icon);
+        this.f18321g = (TextView) findViewById(R.id.no_network_guide1);
+        this.f18322h = (TextView) findViewById(R.id.no_network_guide2);
+        this.f18319e = (TextView) findViewById(R.id.no_network_showmore);
     }
 
-    public void b(int i) {
-        SkinManager.setImageResource(this.f17981f, R.drawable.icon_error);
+    public void b(int i2) {
+        SkinManager.setImageResource(this.f18320f, R.drawable.icon_error);
         SkinManager.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
-        if (i != 1 && i != 4) {
-            this.f17982g.setTextColor(-14277082);
-            this.f17983h.setTextColor(-5065030);
-            this.f17980e.setTextColor(-14277082);
+        if (i2 != 1 && i2 != 4) {
+            this.f18321g.setTextColor(-14277082);
+            this.f18322h.setTextColor(-5065030);
+            this.f18319e.setTextColor(-14277082);
             return;
         }
-        this.f17982g.setTextColor(-10523526);
-        this.f17983h.setTextColor(-8682095);
-        this.f17980e.setTextColor(-10523526);
+        this.f18321g.setTextColor(-10523526);
+        this.f18322h.setTextColor(-8682095);
+        this.f18319e.setTextColor(-10523526);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -112,7 +114,7 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        TextView textView = this.f17980e;
+        TextView textView = this.f18319e;
         if (textView == null) {
             return;
         }
@@ -120,10 +122,10 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void setVisible(boolean z) {
-        if (z == this.i) {
+        if (z == this.f18323i) {
             return;
         }
-        this.i = z;
+        this.f18323i = z;
         if (z) {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setFillAfter(true);
@@ -131,8 +133,8 @@ public class ShutDownValidateTipView extends FrameLayout {
             alphaAnimation.setAnimationListener(new a());
             setVisibility(0);
             startAnimation(alphaAnimation);
-            for (int i = 0; i < this.j.size(); i++) {
-                this.j.get(i).b(false);
+            for (int i2 = 0; i2 < this.j.size(); i2++) {
+                this.j.get(i2).b(false);
             }
         } else if (getVisibility() != 8) {
             AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
@@ -140,8 +142,8 @@ public class ShutDownValidateTipView extends FrameLayout {
             alphaAnimation2.setDuration(500L);
             alphaAnimation2.setAnimationListener(new b());
             startAnimation(alphaAnimation2);
-            for (int i2 = 0; i2 < this.j.size(); i2++) {
-                this.j.get(i2).b(true);
+            for (int i3 = 0; i3 < this.j.size(); i3++) {
+                this.j.get(i3).b(true);
             }
         }
     }

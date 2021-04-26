@@ -8,8 +8,8 @@ public enum CarrierType {
     
     public int type;
 
-    CarrierType(int i) {
-        this.type = i;
+    CarrierType(int i2) {
+        this.type = i2;
     }
 
     public int getValue() {

@@ -18,6 +18,7 @@ public class SelectForumActivityConfig extends IntentConfig {
     public static final String EXTRA_KEY_PRIVATE_THREAD = "extra_key_private_thread";
     public static final String EXTRA_KEY_TRANSMIT_ORIGIN_THREAD_CONTENT = "extra_key_transmit_origin_thread_content";
     public static final String EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW = "extra_key_transmit_thread_author_name_show";
+    public static final String EXTRA_KEY_YY_ANCHOR_BDUID = "extra_key_yy_anchor_bduid";
     public static final int FROM_ALA_SHARE = 1;
     public static final int FROM_FORUM_SHARE = 4;
     public static final int FROM_SHARE_SDK = 3;
@@ -39,9 +40,9 @@ public class SelectForumActivityConfig extends IntentConfig {
     public static final String SELECT_FORUM_NAME = "select_forum_name";
     public static final String URL_AIAPPS_SHARE_FORUM = "tieba://baidu.tieba.share:8080/selectForum";
 
-    public SelectForumActivityConfig(Context context, int i) {
+    public SelectForumActivityConfig(Context context, int i2) {
         super(context);
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
@@ -69,9 +70,9 @@ public class SelectForumActivityConfig extends IntentConfig {
         }
     }
 
-    public void setFrom(int i) {
+    public void setFrom(int i2) {
         if (getIntent() != null) {
-            getIntent().putExtra(EXTRA_KEY_FROM, i);
+            getIntent().putExtra(EXTRA_KEY_FROM, i2);
         }
     }
 
@@ -105,9 +106,9 @@ public class SelectForumActivityConfig extends IntentConfig {
         }
     }
 
-    public void setPrivateThread(int i) {
+    public void setPrivateThread(int i2) {
         if (getIntent() != null) {
-            getIntent().putExtra(EXTRA_KEY_PRIVATE_THREAD, i);
+            getIntent().putExtra(EXTRA_KEY_PRIVATE_THREAD, i2);
         }
     }
 
@@ -120,6 +121,12 @@ public class SelectForumActivityConfig extends IntentConfig {
     public void setTransmitThreadAuthorNameShow(String str) {
         if (getIntent() != null) {
             getIntent().putExtra(EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW, str);
+        }
+    }
+
+    public void setYyAnchorBdUid(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("extra_key_yy_anchor_bduid", str);
         }
     }
 }

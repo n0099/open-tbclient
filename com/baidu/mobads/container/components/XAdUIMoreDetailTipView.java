@@ -14,15 +14,15 @@ public class XAdUIMoreDetailTipView extends RelativeLayout {
     public ImageView mImageView;
     public int parentViewId;
 
-    public XAdUIMoreDetailTipView(XAdContainerContext xAdContainerContext, int i, int i2) {
+    public XAdUIMoreDetailTipView(XAdContainerContext xAdContainerContext, int i2, int i3) {
         super(xAdContainerContext.getAdProdBase().getContext());
         Bitmap lp;
         this.parentViewId = 10;
-        this.parentViewId = i2;
+        this.parentViewId = i3;
         this.context = xAdContainerContext.getAdProdBase().getContext();
         setGravity(17);
         this.mImageView = new ImageView(this.context);
-        if (i == 2) {
+        if (i2 == 2) {
             lp = AdResource.getDL();
         } else {
             lp = AdResource.getLP();

@@ -1,97 +1,92 @@
 package h.o.a;
 
 import h.g;
-import h.o.a.w;
+import h.h;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public final class v<T> extends w<T> {
+public final class v<T> implements h.d<T> {
+
+    /* renamed from: e  reason: collision with root package name */
+    public final h.d<T> f67833e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final long f67834f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final TimeUnit f67835g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final h.g f67836h;
 
     /* loaded from: classes7.dex */
-    public class a implements w.a<T> {
+    public static final class a<T> extends h.i<T> implements h.n.a {
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f68971a;
+        /* renamed from: f  reason: collision with root package name */
+        public final h.i<? super T> f67837f;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TimeUnit f68972b;
+        /* renamed from: g  reason: collision with root package name */
+        public final g.a f67838g;
 
-        /* renamed from: h.o.a.v$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C1913a implements h.n.a {
+        /* renamed from: h  reason: collision with root package name */
+        public final long f67839h;
 
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ w.c f68973e;
+        /* renamed from: i  reason: collision with root package name */
+        public final TimeUnit f67840i;
+        public T j;
+        public Throwable k;
 
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Long f68974f;
-
-            public C1913a(a aVar, w.c cVar, Long l) {
-                this.f68973e = cVar;
-                this.f68974f = l;
-            }
-
-            @Override // h.n.a
-            public void call() {
-                this.f68973e.b(this.f68974f.longValue());
-            }
+        public a(h.i<? super T> iVar, g.a aVar, long j, TimeUnit timeUnit) {
+            this.f67837f = iVar;
+            this.f67838g = aVar;
+            this.f67839h = j;
+            this.f67840i = timeUnit;
         }
 
-        public a(long j, TimeUnit timeUnit) {
-            this.f68971a = j;
-            this.f68972b = timeUnit;
+        @Override // h.i
+        public void b(Throwable th) {
+            this.k = th;
+            this.f67838g.c(this, this.f67839h, this.f67840i);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // h.n.h
-        /* renamed from: b */
-        public h.k a(w.c<T> cVar, Long l, g.a aVar) {
-            return aVar.c(new C1913a(this, cVar, l), this.f68971a, this.f68972b);
+        @Override // h.i
+        public void c(T t) {
+            this.j = t;
+            this.f67838g.c(this, this.f67839h, this.f67840i);
+        }
+
+        @Override // h.n.a
+        public void call() {
+            try {
+                Throwable th = this.k;
+                if (th != null) {
+                    this.k = null;
+                    this.f67837f.b(th);
+                } else {
+                    T t = this.j;
+                    this.j = null;
+                    this.f67837f.c(t);
+                }
+            } finally {
+                this.f67838g.unsubscribe();
+            }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements w.b<T> {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f68975a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TimeUnit f68976b;
-
-        /* loaded from: classes7.dex */
-        public class a implements h.n.a {
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ w.c f68977e;
-
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Long f68978f;
-
-            public a(b bVar, w.c cVar, Long l) {
-                this.f68977e = cVar;
-                this.f68978f = l;
-            }
-
-            @Override // h.n.a
-            public void call() {
-                this.f68977e.b(this.f68978f.longValue());
-            }
-        }
-
-        public b(long j, TimeUnit timeUnit) {
-            this.f68975a = j;
-            this.f68976b = timeUnit;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // h.n.i
-        /* renamed from: b */
-        public h.k a(w.c<T> cVar, Long l, T t, g.a aVar) {
-            return aVar.c(new a(this, cVar, l), this.f68975a, this.f68976b);
-        }
+    public v(h.d<T> dVar, long j, TimeUnit timeUnit, h.g gVar) {
+        this.f67833e = dVar;
+        this.f67836h = gVar;
+        this.f67834f = j;
+        this.f67835g = timeUnit;
     }
 
-    public v(long j, TimeUnit timeUnit, h.d<? extends T> dVar, h.g gVar) {
-        super(new a(j, timeUnit), new b(j, timeUnit), dVar, gVar);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // h.n.b
+    /* renamed from: a */
+    public void call(h.i<? super T> iVar) {
+        g.a createWorker = this.f67836h.createWorker();
+        a aVar = new a(iVar, createWorker, this.f67834f, this.f67835g);
+        iVar.a(createWorker);
+        iVar.a(aVar);
+        this.f67833e.call(aVar);
     }
 }

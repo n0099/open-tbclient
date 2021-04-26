@@ -28,8 +28,8 @@ public class Voice implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public Voice[] newArray(int i) {
-            return new Voice[i];
+        public Voice[] newArray(int i2) {
+            return new Voice[i2];
         }
     }
 
@@ -41,8 +41,8 @@ public class Voice implements Parcelable {
         return this.name;
     }
 
-    public void c(int i) {
-        this.duration = i;
+    public void c(int i2) {
+        this.duration = i2;
     }
 
     public void d(String str) {
@@ -55,7 +55,7 @@ public class Voice implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeLong(this.duration);
         parcel.writeString(this.name);
     }

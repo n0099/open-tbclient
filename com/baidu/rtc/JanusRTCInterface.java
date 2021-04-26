@@ -27,7 +27,7 @@ public interface JanusRTCInterface {
 
     void onLoginTimeout();
 
-    void onMediaStreamingEvent(BigInteger bigInteger, int i, boolean z);
+    void onMediaStreamingEvent(BigInteger bigInteger, int i2, boolean z);
 
     void onMessage(BigInteger bigInteger, String str);
 
@@ -41,9 +41,9 @@ public interface JanusRTCInterface {
 
     void onServerAckTimeout();
 
-    void onSignalErrorInfo(int i);
+    void onSignalErrorInfo(int i2);
 
-    void onSlowLink(boolean z, int i);
+    void onSlowLink(boolean z, int i2);
 
     void onUserDisShutUp(long j);
 

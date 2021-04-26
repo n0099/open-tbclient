@@ -98,12 +98,12 @@ public class PoiChildrenInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.uid);
         parcel.writeString(this.name);
         parcel.writeString(this.showName);
         parcel.writeString(this.tag);
-        parcel.writeParcelable(this.location, i);
+        parcel.writeParcelable(this.location, i2);
         parcel.writeString(this.address);
     }
 }

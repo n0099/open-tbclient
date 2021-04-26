@@ -9,8 +9,9 @@ public final class ArrayCharIterator extends CharIterator {
     public final char[] array;
     public int index;
 
-    public ArrayCharIterator(char[] cArr) {
-        this.array = cArr;
+    public ArrayCharIterator(char[] array) {
+        Intrinsics.checkNotNullParameter(array, "array");
+        this.array = array;
     }
 
     @Override // java.util.Iterator
@@ -22,9 +23,9 @@ public final class ArrayCharIterator extends CharIterator {
     public char nextChar() {
         try {
             char[] cArr = this.array;
-            int i = this.index;
-            this.index = i + 1;
-            return cArr[i];
+            int i2 = this.index;
+            this.index = i2 + 1;
+            return cArr[i2];
         } catch (ArrayIndexOutOfBoundsException e2) {
             this.index--;
             throw new NoSuchElementException(e2.getMessage());

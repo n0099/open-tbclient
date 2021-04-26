@@ -22,10 +22,10 @@ public interface IAlixPay extends IInterface {
         public static class a implements IAlixPay {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f1652a;
+            public IBinder f1592a;
 
             public a(IBinder iBinder) {
-                this.f1652a = iBinder;
+                this.f1592a = iBinder;
             }
 
             @Override // com.alipay.android.app.IAlixPay
@@ -35,7 +35,7 @@ public interface IAlixPay extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeString(str);
-                    this.f1652a.transact(1, obtain, obtain2, 0);
+                    this.f1592a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -50,7 +50,7 @@ public interface IAlixPay extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f1652a;
+                return this.f1592a;
             }
 
             @Override // com.alipay.android.app.IAlixPay
@@ -60,7 +60,7 @@ public interface IAlixPay extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeString(str);
-                    this.f1652a.transact(5, obtain, obtain2, 0);
+                    this.f1592a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -76,7 +76,7 @@ public interface IAlixPay extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeStrongBinder(iRemoteServiceCallback != null ? iRemoteServiceCallback.asBinder() : null);
-                    this.f1652a.transact(3, obtain, obtain2, 0);
+                    this.f1592a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -90,7 +90,7 @@ public interface IAlixPay extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.f1652a.transact(2, obtain, obtain2, 0);
+                    this.f1592a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -106,7 +106,7 @@ public interface IAlixPay extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeStrongBinder(iRemoteServiceCallback != null ? iRemoteServiceCallback.asBinder() : null);
-                    this.f1652a.transact(4, obtain, obtain2, 0);
+                    this.f1592a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -136,32 +136,32 @@ public interface IAlixPay extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 == 1) {
                 parcel.enforceInterface(DESCRIPTOR);
                 String Pay = Pay(parcel.readString());
                 parcel2.writeNoException();
                 parcel2.writeString(Pay);
                 return true;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 parcel.enforceInterface(DESCRIPTOR);
                 String test = test();
                 parcel2.writeNoException();
                 parcel2.writeString(test);
                 return true;
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 parcel.enforceInterface(DESCRIPTOR);
                 registerCallback(IRemoteServiceCallback.Stub.asInterface(parcel.readStrongBinder()));
                 parcel2.writeNoException();
                 return true;
-            } else if (i == 4) {
+            } else if (i2 == 4) {
                 parcel.enforceInterface(DESCRIPTOR);
                 unregisterCallback(IRemoteServiceCallback.Stub.asInterface(parcel.readStrongBinder()));
                 parcel2.writeNoException();
                 return true;
-            } else if (i != 5) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 5) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString(DESCRIPTOR);
                 return true;

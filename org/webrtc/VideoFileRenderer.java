@@ -26,19 +26,19 @@ public class VideoFileRenderer implements VideoSink {
     public final FileOutputStream videoOutFile;
     public YuvConverter yuvConverter;
 
-    public VideoFileRenderer(String str, int i, int i2, final EglBase.Context context) throws IOException {
-        if (i % 2 == 1 || i2 % 2 == 1) {
+    public VideoFileRenderer(String str, int i2, int i3, final EglBase.Context context) throws IOException {
+        if (i2 % 2 == 1 || i3 % 2 == 1) {
             throw new IllegalArgumentException("Does not support uneven width or height");
         }
         this.outputFileName = str;
-        this.outputFileWidth = i;
-        this.outputFileHeight = i2;
-        int i3 = ((i * i2) * 3) / 2;
-        this.outputFrameSize = i3;
-        this.outputFrameBuffer = ByteBuffer.allocateDirect(i3);
+        this.outputFileWidth = i2;
+        this.outputFileHeight = i3;
+        int i4 = ((i2 * i3) * 3) / 2;
+        this.outputFrameSize = i4;
+        this.outputFrameBuffer = ByteBuffer.allocateDirect(i4);
         FileOutputStream fileOutputStream = new FileOutputStream(str);
         this.videoOutFile = fileOutputStream;
-        fileOutputStream.write(("YUV4MPEG2 C420 W" + i + " H" + i2 + " Ip F30:1 A1:1\n").getBytes(Charset.forName("US-ASCII")));
+        fileOutputStream.write(("YUV4MPEG2 C420 W" + i2 + " H" + i3 + " Ip F30:1 A1:1\n").getBytes(Charset.forName("US-ASCII")));
         HandlerThread handlerThread = new HandlerThread("VideoFileRendererRenderThread");
         this.renderThread = handlerThread;
         handlerThread.start();
@@ -90,10 +90,10 @@ public class VideoFileRenderer implements VideoSink {
     /* JADX INFO: Access modifiers changed from: private */
     public void renderFrameOnRenderThread(final VideoFrame videoFrame) {
         VideoFrame.Buffer buffer = videoFrame.getBuffer();
-        int i = videoFrame.getRotation() % 180 == 0 ? this.outputFileWidth : this.outputFileHeight;
-        int i2 = videoFrame.getRotation() % 180 == 0 ? this.outputFileHeight : this.outputFileWidth;
+        int i2 = videoFrame.getRotation() % 180 == 0 ? this.outputFileWidth : this.outputFileHeight;
+        int i3 = videoFrame.getRotation() % 180 == 0 ? this.outputFileHeight : this.outputFileWidth;
         float width = buffer.getWidth() / buffer.getHeight();
-        float f2 = i / i2;
+        float f2 = i2 / i3;
         int width2 = buffer.getWidth();
         int height = buffer.getHeight();
         if (f2 > width) {
@@ -101,7 +101,7 @@ public class VideoFileRenderer implements VideoSink {
         } else {
             width2 = (int) (width2 * (f2 / width));
         }
-        VideoFrame.Buffer cropAndScale = buffer.cropAndScale((buffer.getWidth() - width2) / 2, (buffer.getHeight() - height) / 2, width2, height, i, i2);
+        VideoFrame.Buffer cropAndScale = buffer.cropAndScale((buffer.getWidth() - width2) / 2, (buffer.getHeight() - height) / 2, width2, height, i2, i3);
         videoFrame.release();
         final VideoFrame.I420Buffer i420 = cropAndScale.toI420();
         cropAndScale.release();

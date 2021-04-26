@@ -1,11 +1,11 @@
 package com.google.common.math;
 
 import com.google.common.primitives.Doubles;
-import d.h.c.a.j;
-import d.h.c.a.k;
-import d.h.c.a.n;
-import d.h.c.f.b;
-import d.h.c.f.f;
+import d.g.c.a.j;
+import d.g.c.a.k;
+import d.g.c.a.n;
+import d.g.c.f.b;
+import d.g.c.f.f;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -170,9 +170,9 @@ public final class Stats implements Serializable {
     public static double meanOf(double... dArr) {
         n.d(dArr.length > 0);
         double d2 = dArr[0];
-        for (int i = 1; i < dArr.length; i++) {
-            double d3 = dArr[i];
-            d2 = (Doubles.f(d3) && Doubles.f(d2)) ? d2 + ((d3 - d2) / (i + 1)) : f.g(d2, d3);
+        for (int i2 = 1; i2 < dArr.length; i2++) {
+            double d3 = dArr[i2];
+            d2 = (Doubles.f(d3) && Doubles.f(d2)) ? d2 + ((d3 - d2) / (i2 + 1)) : f.g(d2, d3);
         }
         return d2;
     }
@@ -192,9 +192,9 @@ public final class Stats implements Serializable {
     public static double meanOf(int... iArr) {
         n.d(iArr.length > 0);
         double d2 = iArr[0];
-        for (int i = 1; i < iArr.length; i++) {
-            double d3 = iArr[i];
-            d2 = (Doubles.f(d3) && Doubles.f(d2)) ? d2 + ((d3 - d2) / (i + 1)) : f.g(d2, d3);
+        for (int i2 = 1; i2 < iArr.length; i2++) {
+            double d3 = iArr[i2];
+            d2 = (Doubles.f(d3) && Doubles.f(d2)) ? d2 + ((d3 - d2) / (i2 + 1)) : f.g(d2, d3);
         }
         return d2;
     }
@@ -202,9 +202,9 @@ public final class Stats implements Serializable {
     public static double meanOf(long... jArr) {
         n.d(jArr.length > 0);
         double d2 = jArr[0];
-        for (int i = 1; i < jArr.length; i++) {
-            double d3 = jArr[i];
-            d2 = (Doubles.f(d3) && Doubles.f(d2)) ? d2 + ((d3 - d2) / (i + 1)) : f.g(d2, d3);
+        for (int i2 = 1; i2 < jArr.length; i2++) {
+            double d3 = jArr[i2];
+            d2 = (Doubles.f(d3) && Doubles.f(d2)) ? d2 + ((d3 - d2) / (i2 + 1)) : f.g(d2, d3);
         }
         return d2;
     }

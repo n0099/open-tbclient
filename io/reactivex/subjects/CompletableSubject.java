@@ -1,89 +1,125 @@
 package io.reactivex.subjects;
 
-import f.b.a;
-import f.b.b;
+import io.reactivex.Completable;
+import io.reactivex.CompletableObserver;
+import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.Nullable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.internal.functions.ObjectHelper;
+import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class CompletableSubject extends a implements b {
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final CompletableDisposable[] f69260h = new CompletableDisposable[0];
-    public static final CompletableDisposable[] i = new CompletableDisposable[0];
-
-    /* renamed from: g  reason: collision with root package name */
-    public Throwable f69263g;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final AtomicBoolean f69262f = new AtomicBoolean();
-
-    /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<CompletableDisposable[]> f69261e = new AtomicReference<>(f69260h);
+public final class CompletableSubject extends Completable implements CompletableObserver {
+    public static final CompletableDisposable[] EMPTY = new CompletableDisposable[0];
+    public static final CompletableDisposable[] TERMINATED = new CompletableDisposable[0];
+    public Throwable error;
+    public final AtomicBoolean once = new AtomicBoolean();
+    public final AtomicReference<CompletableDisposable[]> observers = new AtomicReference<>(EMPTY);
 
     /* loaded from: classes7.dex */
-    public static final class CompletableDisposable extends AtomicReference<CompletableSubject> implements f.b.t.b {
+    public static final class CompletableDisposable extends AtomicReference<CompletableSubject> implements Disposable {
         public static final long serialVersionUID = -7650903191002190468L;
-        public final b actual;
+        public final CompletableObserver actual;
 
-        public CompletableDisposable(b bVar, CompletableSubject completableSubject) {
-            this.actual = bVar;
+        public CompletableDisposable(CompletableObserver completableObserver, CompletableSubject completableSubject) {
+            this.actual = completableObserver;
             lazySet(completableSubject);
         }
 
-        @Override // f.b.t.b
+        @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             CompletableSubject andSet = getAndSet(null);
             if (andSet != null) {
-                andSet.e(this);
+                andSet.remove(this);
             }
         }
 
-        @Override // f.b.t.b
+        @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
             return get() == null;
         }
     }
 
-    @Override // f.b.a
-    public void b(b bVar) {
-        CompletableDisposable completableDisposable = new CompletableDisposable(bVar, this);
-        bVar.onSubscribe(completableDisposable);
-        if (d(completableDisposable)) {
-            if (completableDisposable.isDisposed()) {
-                e(completableDisposable);
-                return;
-            }
-            return;
-        }
-        Throwable th = this.f69263g;
-        if (th != null) {
-            bVar.onError(th);
-        } else {
-            bVar.onComplete();
-        }
+    @CheckReturnValue
+    public static CompletableSubject create() {
+        return new CompletableSubject();
     }
 
-    public boolean d(CompletableDisposable completableDisposable) {
+    public boolean add(CompletableDisposable completableDisposable) {
         CompletableDisposable[] completableDisposableArr;
         CompletableDisposable[] completableDisposableArr2;
         do {
-            completableDisposableArr = this.f69261e.get();
-            if (completableDisposableArr == i) {
+            completableDisposableArr = this.observers.get();
+            if (completableDisposableArr == TERMINATED) {
                 return false;
             }
             int length = completableDisposableArr.length;
             completableDisposableArr2 = new CompletableDisposable[length + 1];
             System.arraycopy(completableDisposableArr, 0, completableDisposableArr2, 0, length);
             completableDisposableArr2[length] = completableDisposable;
-        } while (!this.f69261e.compareAndSet(completableDisposableArr, completableDisposableArr2));
+        } while (!this.observers.compareAndSet(completableDisposableArr, completableDisposableArr2));
         return true;
     }
 
-    public void e(CompletableDisposable completableDisposable) {
+    @Nullable
+    public Throwable getThrowable() {
+        if (this.observers.get() == TERMINATED) {
+            return this.error;
+        }
+        return null;
+    }
+
+    public boolean hasComplete() {
+        return this.observers.get() == TERMINATED && this.error == null;
+    }
+
+    public boolean hasObservers() {
+        return this.observers.get().length != 0;
+    }
+
+    public boolean hasThrowable() {
+        return this.observers.get() == TERMINATED && this.error != null;
+    }
+
+    public int observerCount() {
+        return this.observers.get().length;
+    }
+
+    @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
+    public void onComplete() {
+        if (this.once.compareAndSet(false, true)) {
+            for (CompletableDisposable completableDisposable : this.observers.getAndSet(TERMINATED)) {
+                completableDisposable.actual.onComplete();
+            }
+        }
+    }
+
+    @Override // io.reactivex.CompletableObserver
+    public void onError(Throwable th) {
+        ObjectHelper.requireNonNull(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (this.once.compareAndSet(false, true)) {
+            this.error = th;
+            for (CompletableDisposable completableDisposable : this.observers.getAndSet(TERMINATED)) {
+                completableDisposable.actual.onError(th);
+            }
+            return;
+        }
+        RxJavaPlugins.onError(th);
+    }
+
+    @Override // io.reactivex.CompletableObserver
+    public void onSubscribe(Disposable disposable) {
+        if (this.observers.get() == TERMINATED) {
+            disposable.dispose();
+        }
+    }
+
+    public void remove(CompletableDisposable completableDisposable) {
         CompletableDisposable[] completableDisposableArr;
         CompletableDisposable[] completableDisposableArr2;
         do {
-            completableDisposableArr = this.f69261e.get();
+            completableDisposableArr = this.observers.get();
             int length = completableDisposableArr.length;
             if (length == 0) {
                 return;
@@ -104,42 +140,32 @@ public final class CompletableSubject extends a implements b {
                 return;
             }
             if (length == 1) {
-                completableDisposableArr2 = f69260h;
+                completableDisposableArr2 = EMPTY;
             } else {
                 CompletableDisposable[] completableDisposableArr3 = new CompletableDisposable[length - 1];
                 System.arraycopy(completableDisposableArr, 0, completableDisposableArr3, 0, i2);
                 System.arraycopy(completableDisposableArr, i2 + 1, completableDisposableArr3, i2, (length - i2) - 1);
                 completableDisposableArr2 = completableDisposableArr3;
             }
-        } while (!this.f69261e.compareAndSet(completableDisposableArr, completableDisposableArr2));
+        } while (!this.observers.compareAndSet(completableDisposableArr, completableDisposableArr2));
     }
 
-    @Override // f.b.b
-    public void onComplete() {
-        if (this.f69262f.compareAndSet(false, true)) {
-            for (CompletableDisposable completableDisposable : this.f69261e.getAndSet(i)) {
-                completableDisposable.actual.onComplete();
-            }
-        }
-    }
-
-    @Override // f.b.b
-    public void onError(Throwable th) {
-        f.b.x.b.a.b(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.f69262f.compareAndSet(false, true)) {
-            this.f69263g = th;
-            for (CompletableDisposable completableDisposable : this.f69261e.getAndSet(i)) {
-                completableDisposable.actual.onError(th);
+    @Override // io.reactivex.Completable
+    public void subscribeActual(CompletableObserver completableObserver) {
+        CompletableDisposable completableDisposable = new CompletableDisposable(completableObserver, this);
+        completableObserver.onSubscribe(completableDisposable);
+        if (add(completableDisposable)) {
+            if (completableDisposable.isDisposed()) {
+                remove(completableDisposable);
+                return;
             }
             return;
         }
-        f.b.a0.a.f(th);
-    }
-
-    @Override // f.b.b
-    public void onSubscribe(f.b.t.b bVar) {
-        if (this.f69261e.get() == i) {
-            bVar.dispose();
+        Throwable th = this.error;
+        if (th != null) {
+            completableObserver.onError(th);
+        } else {
+            completableObserver.onComplete();
         }
     }
 }

@@ -6,32 +6,32 @@ import android.content.res.AssetManager;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f38240b;
+    public static d f35799b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f38241a;
+    public Context f35800a;
 
     /* renamed from: c  reason: collision with root package name */
-    public AssetManager f38242c;
+    public AssetManager f35801c;
 
     public d(Context context) {
-        this.f38241a = context;
+        this.f35800a = context;
         a();
     }
 
     public static d a(Context context) {
-        if (f38240b == null) {
-            f38240b = new d(context);
+        if (f35799b == null) {
+            f35799b = new d(context);
         }
-        return f38240b;
+        return f35799b;
     }
 
     private void a() {
-        this.f38242c = this.f38241a.getAssets();
+        this.f35801c = this.f35800a.getAssets();
     }
 
     public int a(String str, String str2) {
-        d.k.a.a.a.d("ResourceReader", "Get resource type " + str2 + " " + str);
-        return this.f38241a.getResources().getIdentifier(str, str2, this.f38241a.getApplicationInfo().packageName);
+        d.j.a.a.a.d("ResourceReader", "Get resource type " + str2 + " " + str);
+        return this.f35800a.getResources().getIdentifier(str, str2, this.f35800a.getApplicationInfo().packageName);
     }
 }

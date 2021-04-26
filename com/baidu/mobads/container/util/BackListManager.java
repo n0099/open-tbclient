@@ -53,8 +53,8 @@ public class BackListManager {
         if (this.mView == null || z || TextUtils.isEmpty(str)) {
             return;
         }
-        int i = this.mCurrentIndex;
-        if ((i <= -1 || !str.equals(this.mBackList.get(i).mURL)) && (hitTestResult = this.mView.getHitTestResult()) != null) {
+        int i2 = this.mCurrentIndex;
+        if ((i2 <= -1 || !str.equals(this.mBackList.get(i2).mURL)) && (hitTestResult = this.mView.getHitTestResult()) != null) {
             String extra = hitTestResult.getExtra();
             synchronized (this) {
                 if (!isNewRecord(extra)) {
@@ -68,8 +68,8 @@ public class BackListManager {
     }
 
     public boolean canGoBack() {
-        int i;
-        return !this.mBackList.isEmpty() && (i = this.mBackList.get(this.mCurrentIndex).mStep) < 0 && this.mView.canGoBackOrForward(i);
+        int i2;
+        return !this.mBackList.isEmpty() && (i2 = this.mBackList.get(this.mCurrentIndex).mStep) < 0 && this.mView.canGoBackOrForward(i2);
     }
 
     public void goBack() {

@@ -13,9 +13,9 @@ public final class StatusLine {
     public final String message;
     public final Protocol protocol;
 
-    public StatusLine(Protocol protocol, int i, String str) {
+    public StatusLine(Protocol protocol, int i2, String str) {
         this.protocol = protocol;
-        this.code = i;
+        this.code = i2;
         this.message = str;
     }
 
@@ -26,7 +26,7 @@ public final class StatusLine {
     public static StatusLine parse(String str) throws IOException {
         Protocol protocol;
         String str2;
-        int i = 9;
+        int i2 = 9;
         if (str.startsWith("HTTP/1.")) {
             if (str.length() >= 9 && str.charAt(8) == ' ') {
                 int charAt = str.charAt(7) - '0';
@@ -42,18 +42,18 @@ public final class StatusLine {
             }
         } else if (str.startsWith("ICY ")) {
             protocol = Protocol.HTTP_1_0;
-            i = 4;
+            i2 = 4;
         } else {
             throw new ProtocolException("Unexpected status line: " + str);
         }
-        int i2 = i + 3;
-        if (str.length() >= i2) {
+        int i3 = i2 + 3;
+        if (str.length() >= i3) {
             try {
-                int parseInt = Integer.parseInt(str.substring(i, i2));
-                if (str.length() <= i2) {
+                int parseInt = Integer.parseInt(str.substring(i2, i3));
+                if (str.length() <= i3) {
                     str2 = "";
-                } else if (str.charAt(i2) == ' ') {
-                    str2 = str.substring(i + 4);
+                } else if (str.charAt(i3) == ' ') {
+                    str2 = str.substring(i2 + 4);
                 } else {
                     throw new ProtocolException("Unexpected status line: " + str);
                 }

@@ -1,7 +1,7 @@
 package com.google.common.primitives;
 
 import com.baidu.android.common.others.lang.StringUtil;
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.Arrays;
@@ -34,12 +34,12 @@ public final class ImmutableDoubleArray implements Serializable {
                 if (size() != list.size()) {
                     return false;
                 }
-                int i = this.parent.start;
+                int i2 = this.parent.start;
                 for (Object obj2 : list) {
                     if (obj2 instanceof Double) {
-                        int i2 = i + 1;
-                        if (ImmutableDoubleArray.areEqual(this.parent.array[i], ((Double) obj2).doubleValue())) {
-                            i = i2;
+                        int i3 = i2 + 1;
+                        if (ImmutableDoubleArray.areEqual(this.parent.array[i2], ((Double) obj2).doubleValue())) {
+                            i2 = i3;
                         }
                     }
                     return false;
@@ -76,8 +76,8 @@ public final class ImmutableDoubleArray implements Serializable {
         }
 
         @Override // java.util.AbstractList, java.util.List
-        public List<Double> subList(int i, int i2) {
-            return this.parent.subArray(i, i2).asList();
+        public List<Double> subList(int i2, int i3) {
+            return this.parent.subArray(i2, i3).asList();
         }
 
         @Override // java.util.AbstractCollection
@@ -91,8 +91,8 @@ public final class ImmutableDoubleArray implements Serializable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Double get(int i) {
-            return Double.valueOf(this.parent.get(i));
+        public Double get(int i2) {
+            return Double.valueOf(this.parent.get(i2));
         }
     }
 
@@ -100,35 +100,35 @@ public final class ImmutableDoubleArray implements Serializable {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public double[] f31219a;
+        public double[] f32198a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31220b = 0;
+        public int f32199b = 0;
 
-        public b(int i) {
-            this.f31219a = new double[i];
+        public b(int i2) {
+            this.f32198a = new double[i2];
         }
 
-        public static int f(int i, int i2) {
-            if (i2 >= 0) {
-                int i3 = i + (i >> 1) + 1;
-                if (i3 < i2) {
-                    i3 = Integer.highestOneBit(i2 - 1) << 1;
+        public static int f(int i2, int i3) {
+            if (i3 >= 0) {
+                int i4 = i2 + (i2 >> 1) + 1;
+                if (i4 < i3) {
+                    i4 = Integer.highestOneBit(i3 - 1) << 1;
                 }
-                if (i3 < 0) {
+                if (i4 < 0) {
                     return Integer.MAX_VALUE;
                 }
-                return i3;
+                return i4;
             }
             throw new AssertionError("cannot store more than MAX_VALUE elements");
         }
 
         public b a(double d2) {
             e(1);
-            double[] dArr = this.f31219a;
-            int i = this.f31220b;
-            dArr[i] = d2;
-            this.f31220b = i + 1;
+            double[] dArr = this.f32198a;
+            int i2 = this.f32199b;
+            dArr[i2] = d2;
+            this.f32199b = i2 + 1;
             return this;
         }
 
@@ -146,25 +146,25 @@ public final class ImmutableDoubleArray implements Serializable {
         public b c(Collection<Double> collection) {
             e(collection.size());
             for (Double d2 : collection) {
-                double[] dArr = this.f31219a;
-                int i = this.f31220b;
-                this.f31220b = i + 1;
-                dArr[i] = d2.doubleValue();
+                double[] dArr = this.f32198a;
+                int i2 = this.f32199b;
+                this.f32199b = i2 + 1;
+                dArr[i2] = d2.doubleValue();
             }
             return this;
         }
 
         public ImmutableDoubleArray d() {
-            return this.f31220b == 0 ? ImmutableDoubleArray.EMPTY : new ImmutableDoubleArray(this.f31219a, 0, this.f31220b);
+            return this.f32199b == 0 ? ImmutableDoubleArray.EMPTY : new ImmutableDoubleArray(this.f32198a, 0, this.f32199b);
         }
 
-        public final void e(int i) {
-            int i2 = this.f31220b + i;
-            double[] dArr = this.f31219a;
-            if (i2 > dArr.length) {
-                double[] dArr2 = new double[f(dArr.length, i2)];
-                System.arraycopy(this.f31219a, 0, dArr2, 0, this.f31220b);
-                this.f31219a = dArr2;
+        public final void e(int i2) {
+            int i3 = this.f32199b + i2;
+            double[] dArr = this.f32198a;
+            if (i3 > dArr.length) {
+                double[] dArr2 = new double[f(dArr.length, i3)];
+                System.arraycopy(this.f32198a, 0, dArr2, 0, this.f32199b);
+                this.f32198a = dArr2;
             }
         }
     }
@@ -173,9 +173,9 @@ public final class ImmutableDoubleArray implements Serializable {
         return Double.doubleToLongBits(d2) == Double.doubleToLongBits(d3);
     }
 
-    public static b builder(int i) {
-        n.f(i >= 0, "Invalid initialCapacity: %s", i);
-        return new b(i);
+    public static b builder(int i2) {
+        n.f(i2 >= 0, "Invalid initialCapacity: %s", i2);
+        return new b(i2);
     }
 
     public static ImmutableDoubleArray copyOf(double[] dArr) {
@@ -207,8 +207,8 @@ public final class ImmutableDoubleArray implements Serializable {
             if (length() != immutableDoubleArray.length()) {
                 return false;
             }
-            for (int i = 0; i < length(); i++) {
-                if (!areEqual(get(i), immutableDoubleArray.get(i))) {
+            for (int i2 = 0; i2 < length(); i2++) {
+                if (!areEqual(get(i2), immutableDoubleArray.get(i2))) {
                     return false;
                 }
             }
@@ -217,23 +217,23 @@ public final class ImmutableDoubleArray implements Serializable {
         return false;
     }
 
-    public double get(int i) {
-        n.n(i, length());
-        return this.array[this.start + i];
+    public double get(int i2) {
+        n.n(i2, length());
+        return this.array[this.start + i2];
     }
 
     public int hashCode() {
-        int i = 1;
-        for (int i2 = this.start; i2 < this.end; i2++) {
-            i = (i * 31) + Doubles.d(this.array[i2]);
+        int i2 = 1;
+        for (int i3 = this.start; i3 < this.end; i3++) {
+            i2 = (i2 * 31) + Doubles.d(this.array[i3]);
         }
-        return i;
+        return i2;
     }
 
     public int indexOf(double d2) {
-        for (int i = this.start; i < this.end; i++) {
-            if (areEqual(this.array[i], d2)) {
-                return i - this.start;
+        for (int i2 = this.start; i2 < this.end; i2++) {
+            if (areEqual(this.array[i2], d2)) {
+                return i2 - this.start;
             }
         }
         return -1;
@@ -244,14 +244,14 @@ public final class ImmutableDoubleArray implements Serializable {
     }
 
     public int lastIndexOf(double d2) {
-        int i = this.end;
+        int i2 = this.end;
         while (true) {
-            i--;
-            if (i < this.start) {
+            i2--;
+            if (i2 < this.start) {
                 return -1;
             }
-            if (areEqual(this.array[i], d2)) {
-                return i - this.start;
+            if (areEqual(this.array[i2], d2)) {
+                return i2 - this.start;
             }
         }
     }
@@ -264,14 +264,14 @@ public final class ImmutableDoubleArray implements Serializable {
         return isEmpty() ? EMPTY : this;
     }
 
-    public ImmutableDoubleArray subArray(int i, int i2) {
-        n.v(i, i2, length());
-        if (i == i2) {
+    public ImmutableDoubleArray subArray(int i2, int i3) {
+        n.v(i2, i3, length());
+        if (i2 == i3) {
             return EMPTY;
         }
         double[] dArr = this.array;
-        int i3 = this.start;
-        return new ImmutableDoubleArray(dArr, i + i3, i3 + i2);
+        int i4 = this.start;
+        return new ImmutableDoubleArray(dArr, i2 + i4, i4 + i3);
     }
 
     public double[] toArray() {
@@ -285,12 +285,12 @@ public final class ImmutableDoubleArray implements Serializable {
         StringBuilder sb = new StringBuilder(length() * 5);
         sb.append('[');
         sb.append(this.array[this.start]);
-        int i = this.start;
+        int i2 = this.start;
         while (true) {
-            i++;
-            if (i < this.end) {
+            i2++;
+            if (i2 < this.end) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                sb.append(this.array[i]);
+                sb.append(this.array[i2]);
             } else {
                 sb.append(']');
                 return sb.toString();
@@ -314,10 +314,10 @@ public final class ImmutableDoubleArray implements Serializable {
         return new ImmutableDoubleArray(new double[]{d2});
     }
 
-    public ImmutableDoubleArray(double[] dArr, int i, int i2) {
+    public ImmutableDoubleArray(double[] dArr, int i2, int i3) {
         this.array = dArr;
-        this.start = i;
-        this.end = i2;
+        this.start = i2;
+        this.end = i3;
     }
 
     public static b builder() {

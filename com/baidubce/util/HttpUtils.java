@@ -19,27 +19,27 @@ public class HttpUtils {
     public static boolean HTTP_VERBOSE = Boolean.parseBoolean(System.getProperty("bce.sdk.http", "false"));
 
     static {
-        for (int i = 97; i <= 122; i++) {
-            URI_UNRESERVED_CHARACTERS.set(i);
-        }
-        for (int i2 = 65; i2 <= 90; i2++) {
+        for (int i2 = 97; i2 <= 122; i2++) {
             URI_UNRESERVED_CHARACTERS.set(i2);
         }
-        for (int i3 = 48; i3 <= 57; i3++) {
+        for (int i3 = 65; i3 <= 90; i3++) {
             URI_UNRESERVED_CHARACTERS.set(i3);
+        }
+        for (int i4 = 48; i4 <= 57; i4++) {
+            URI_UNRESERVED_CHARACTERS.set(i4);
         }
         URI_UNRESERVED_CHARACTERS.set(45);
         URI_UNRESERVED_CHARACTERS.set(46);
         URI_UNRESERVED_CHARACTERS.set(95);
         URI_UNRESERVED_CHARACTERS.set(126);
-        int i4 = 0;
+        int i5 = 0;
         while (true) {
             String[] strArr = PERCENT_ENCODED_STRINGS;
-            if (i4 >= strArr.length) {
+            if (i5 >= strArr.length) {
                 return;
             }
-            strArr[i4] = String.format("%%%02X", Integer.valueOf(i4));
-            i4++;
+            strArr[i5] = String.format("%%%02X", Integer.valueOf(i5));
+            i5++;
         }
     }
 
@@ -84,9 +84,9 @@ public class HttpUtils {
                 CheckUtils.isNotNull(key, "parameter key should not be null");
                 String value = entry.getValue();
                 if (value != null) {
-                    arrayList.add(normalize(key) + a.f1922h + normalize(value));
+                    arrayList.add(normalize(key) + a.f1873h + normalize(value));
                 } else if (z) {
-                    arrayList.add(normalize(key) + a.f1922h);
+                    arrayList.add(normalize(key) + a.f1873h);
                 } else {
                     arrayList.add(normalize(key));
                 }
@@ -113,11 +113,11 @@ public class HttpUtils {
         try {
             StringBuilder sb = new StringBuilder();
             for (byte b2 : str.getBytes("UTF-8")) {
-                int i = b2 & 255;
-                if (URI_UNRESERVED_CHARACTERS.get(i)) {
+                int i2 = b2 & 255;
+                if (URI_UNRESERVED_CHARACTERS.get(i2)) {
                     sb.append((char) b2);
                 } else {
-                    sb.append(PERCENT_ENCODED_STRINGS[i]);
+                    sb.append(PERCENT_ENCODED_STRINGS[i2]);
                 }
             }
             return sb.toString();
@@ -135,8 +135,8 @@ public class HttpUtils {
             BLog.info("\n-------------> ");
             BLog.info(request.method() + " " + request.url() + "");
             Headers headers = request.headers();
-            for (int i = 0; i < headers.size(); i++) {
-                BLog.info(headers.name(i) + ":" + headers.value(i));
+            for (int i2 = 0; i2 < headers.size(); i2++) {
+                BLog.info(headers.name(i2) + ":" + headers.value(i2));
             }
         }
     }
@@ -146,8 +146,8 @@ public class HttpUtils {
             BLog.info("\n<------------- ");
             BLog.info(response.code() + " - " + response.message());
             Headers headers = response.headers();
-            for (int i = 0; i < headers.size(); i++) {
-                BLog.info(headers.name(i) + ":" + headers.value(i));
+            for (int i2 = 0; i2 < headers.size(); i2++) {
+                BLog.info(headers.name(i2) + ":" + headers.value(i2));
             }
         }
     }

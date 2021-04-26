@@ -93,29 +93,31 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
     public static final jg f658a = new jg("XmPushActionRegistration");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f41159a = new iy("", (byte) 11, 1);
+    public static final iy f38696a = new iy("", (byte) 11, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f41160b = new iy("", StandardMessageCodec.LIST, 2);
+    public static final iy f38697b = new iy("", StandardMessageCodec.LIST, 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f41161c = new iy("", (byte) 11, 3);
+    public static final iy f38698c = new iy("", (byte) 11, 3);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f41162d = new iy("", (byte) 11, 4);
+    public static final iy f38699d = new iy("", (byte) 11, 4);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f41163e = new iy("", (byte) 11, 5);
+    public static final iy f38700e = new iy("", (byte) 11, 5);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f41164f = new iy("", (byte) 11, 6);
+    public static final iy f38701f = new iy("", (byte) 11, 6);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f41165g = new iy("", (byte) 11, 7);
+    public static final iy f38702g = new iy("", (byte) 11, 7);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f41166h = new iy("", (byte) 11, 8);
-    public static final iy i = new iy("", (byte) 11, 9);
+    public static final iy f38703h = new iy("", (byte) 11, 8);
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final iy f38704i = new iy("", (byte) 11, 9);
     public static final iy j = new iy("", (byte) 11, 10);
     public static final iy k = new iy("", (byte) 11, 11);
     public static final iy l = new iy("", (byte) 11, 12);
@@ -195,21 +197,21 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
         int a29;
         int a30;
         if (Cif.class.equals(cif.getClass())) {
-            int compareTo = Boolean.valueOf(m460a()).compareTo(Boolean.valueOf(cif.m460a()));
+            int compareTo = Boolean.valueOf(m463a()).compareTo(Boolean.valueOf(cif.m463a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m460a() || (a30 = ir.a(this.f663a, cif.f663a)) == 0) {
-                int compareTo2 = Boolean.valueOf(m462b()).compareTo(Boolean.valueOf(cif.m462b()));
+            if (!m463a() || (a30 = ir.a(this.f663a, cif.f663a)) == 0) {
+                int compareTo2 = Boolean.valueOf(m465b()).compareTo(Boolean.valueOf(cif.m465b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
                 }
-                if (!m462b() || (a29 = ir.a(this.f662a, cif.f662a)) == 0) {
-                    int compareTo3 = Boolean.valueOf(m463c()).compareTo(Boolean.valueOf(cif.m463c()));
+                if (!m465b() || (a29 = ir.a(this.f662a, cif.f662a)) == 0) {
+                    int compareTo3 = Boolean.valueOf(m466c()).compareTo(Boolean.valueOf(cif.m466c()));
                     if (compareTo3 != 0) {
                         return compareTo3;
                     }
-                    if (!m463c() || (a28 = ir.a(this.f669b, cif.f669b)) == 0) {
+                    if (!m466c() || (a28 = ir.a(this.f669b, cif.f669b)) == 0) {
                         int compareTo4 = Boolean.valueOf(d()).compareTo(Boolean.valueOf(cif.d()));
                         if (compareTo4 != 0) {
                             return compareTo4;
@@ -424,7 +426,7 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m459a() {
+    public void m462a() {
         if (this.f669b == null) {
             throw new jc("Required field 'id' was not present! Struct: " + toString());
         } else if (this.f672c == null) {
@@ -438,20 +440,20 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.xiaomi.push.iq
     public void a(jb jbVar) {
-        jbVar.m509a();
+        jbVar.m512a();
         while (true) {
-            iy m505a = jbVar.m505a();
-            byte b2 = m505a.f41251a;
+            iy m508a = jbVar.m508a();
+            byte b2 = m508a.f38795a;
             if (b2 == 0) {
                 jbVar.f();
-                m459a();
+                m462a();
                 return;
             }
-            short s2 = m505a.f807a;
+            short s2 = m508a.f807a;
             switch (s2) {
                 case 1:
                     if (b2 == 11) {
-                        this.f663a = jbVar.m510a();
+                        this.f663a = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
@@ -467,77 +469,77 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 11) {
-                        this.f669b = jbVar.m510a();
+                        this.f669b = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f672c = jbVar.m510a();
+                        this.f672c = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f674d = jbVar.m510a();
+                        this.f674d = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 11) {
-                        this.f675e = jbVar.m510a();
+                        this.f675e = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f676f = jbVar.m510a();
+                        this.f676f = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 8:
                     if (b2 == 11) {
-                        this.f677g = jbVar.m510a();
+                        this.f677g = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 9:
                     if (b2 == 11) {
-                        this.f678h = jbVar.m510a();
+                        this.f678h = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 10:
                     if (b2 == 11) {
-                        this.f679i = jbVar.m510a();
+                        this.f679i = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 11:
                     if (b2 == 11) {
-                        this.f680j = jbVar.m510a();
+                        this.f680j = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 12:
                     if (b2 == 11) {
-                        this.f681k = jbVar.m510a();
+                        this.f681k = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 13:
                     if (b2 == 8) {
-                        this.f659a = jbVar.m503a();
+                        this.f659a = jbVar.m506a();
                         a(true);
                         continue;
                         jbVar.g();
@@ -545,7 +547,7 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
                     break;
                 case 14:
                     if (b2 == 8) {
-                        this.f667b = jbVar.m503a();
+                        this.f667b = jbVar.m506a();
                         b(true);
                         continue;
                         jbVar.g();
@@ -553,35 +555,35 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
                     break;
                 case 15:
                     if (b2 == 11) {
-                        this.f682l = jbVar.m510a();
+                        this.f682l = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 16:
                     if (b2 == 11) {
-                        this.f683m = jbVar.m510a();
+                        this.f683m = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 17:
                     if (b2 == 11) {
-                        this.f684n = jbVar.m510a();
+                        this.f684n = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 18:
                     if (b2 == 11) {
-                        this.f685o = jbVar.m510a();
+                        this.f685o = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 19:
                     if (b2 == 8) {
-                        this.f671c = jbVar.m503a();
+                        this.f671c = jbVar.m506a();
                         c(true);
                         continue;
                         jbVar.g();
@@ -589,14 +591,14 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
                     break;
                 case 20:
                     if (b2 == 8) {
-                        this.f661a = ht.a(jbVar.m503a());
+                        this.f661a = ht.a(jbVar.m506a());
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 21:
                     if (b2 == 2) {
-                        this.f666a = jbVar.m514a();
+                        this.f666a = jbVar.m517a();
                         d(true);
                         continue;
                         jbVar.g();
@@ -604,7 +606,7 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
                     break;
                 case 22:
                     if (b2 == 10) {
-                        this.f660a = jbVar.m504a();
+                        this.f660a = jbVar.m507a();
                         e(true);
                         continue;
                         jbVar.g();
@@ -612,7 +614,7 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
                     break;
                 case 23:
                     if (b2 == 10) {
-                        this.f668b = jbVar.m504a();
+                        this.f668b = jbVar.m507a();
                         f(true);
                         continue;
                         jbVar.g();
@@ -620,21 +622,21 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
                     break;
                 case 24:
                     if (b2 == 11) {
-                        this.f686p = jbVar.m510a();
+                        this.f686p = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 25:
                     if (b2 == 11) {
-                        this.f687q = jbVar.m510a();
+                        this.f687q = jbVar.m513a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 26:
                     if (b2 == 2) {
-                        this.f670b = jbVar.m514a();
+                        this.f670b = jbVar.m517a();
                         g(true);
                         continue;
                         jbVar.g();
@@ -644,10 +646,10 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
                     switch (s2) {
                         case 100:
                             if (b2 == 13) {
-                                ja m507a = jbVar.m507a();
-                                this.f665a = new HashMap(m507a.f811a * 2);
-                                for (int i2 = 0; i2 < m507a.f811a; i2++) {
-                                    this.f665a.put(jbVar.m510a(), jbVar.m510a());
+                                ja m510a = jbVar.m510a();
+                                this.f665a = new HashMap(m510a.f811a * 2);
+                                for (int i2 = 0; i2 < m510a.f811a; i2++) {
+                                    this.f665a.put(jbVar.m513a(), jbVar.m513a());
                                 }
                                 jbVar.h();
                                 break;
@@ -655,14 +657,14 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
                             break;
                         case 101:
                             if (b2 == 2) {
-                                this.f673c = jbVar.m514a();
+                                this.f673c = jbVar.m517a();
                                 h(true);
                                 break;
                             }
                             break;
                         case 102:
                             if (b2 == 11) {
-                                this.f688r = jbVar.m510a();
+                                this.f688r = jbVar.m513a();
                                 continue;
                             }
                             break;
@@ -680,28 +682,28 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m460a() {
+    public boolean m463a() {
         return this.f663a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m461a(Cif cif) {
+    public boolean m464a(Cif cif) {
         if (cif == null) {
             return false;
         }
-        boolean m460a = m460a();
-        boolean m460a2 = cif.m460a();
-        if ((m460a || m460a2) && !(m460a && m460a2 && this.f663a.equals(cif.f663a))) {
+        boolean m463a = m463a();
+        boolean m463a2 = cif.m463a();
+        if ((m463a || m463a2) && !(m463a && m463a2 && this.f663a.equals(cif.f663a))) {
             return false;
         }
-        boolean m462b = m462b();
-        boolean m462b2 = cif.m462b();
-        if ((m462b || m462b2) && !(m462b && m462b2 && this.f662a.m404a(cif.f662a))) {
+        boolean m465b = m465b();
+        boolean m465b2 = cif.m465b();
+        if ((m465b || m465b2) && !(m465b && m465b2 && this.f662a.m407a(cif.f662a))) {
             return false;
         }
-        boolean m463c = m463c();
-        boolean m463c2 = cif.m463c();
-        if ((m463c || m463c2) && !(m463c && m463c2 && this.f669b.equals(cif.f669b))) {
+        boolean m466c = m466c();
+        boolean m466c2 = cif.m466c();
+        if ((m466c || m466c2) && !(m466c && m466c2 && this.f669b.equals(cif.f669b))) {
             return false;
         }
         boolean d2 = d();
@@ -854,50 +856,50 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.iq
     public void b(jb jbVar) {
-        m459a();
+        m462a();
         jbVar.a(f658a);
-        if (this.f663a != null && m460a()) {
-            jbVar.a(f41159a);
+        if (this.f663a != null && m463a()) {
+            jbVar.a(f38696a);
             jbVar.a(this.f663a);
             jbVar.b();
         }
-        if (this.f662a != null && m462b()) {
-            jbVar.a(f41160b);
+        if (this.f662a != null && m465b()) {
+            jbVar.a(f38697b);
             this.f662a.b(jbVar);
             jbVar.b();
         }
         if (this.f669b != null) {
-            jbVar.a(f41161c);
+            jbVar.a(f38698c);
             jbVar.a(this.f669b);
             jbVar.b();
         }
         if (this.f672c != null) {
-            jbVar.a(f41162d);
+            jbVar.a(f38699d);
             jbVar.a(this.f672c);
             jbVar.b();
         }
         if (this.f674d != null && e()) {
-            jbVar.a(f41163e);
+            jbVar.a(f38700e);
             jbVar.a(this.f674d);
             jbVar.b();
         }
         if (this.f675e != null && f()) {
-            jbVar.a(f41164f);
+            jbVar.a(f38701f);
             jbVar.a(this.f675e);
             jbVar.b();
         }
         if (this.f676f != null) {
-            jbVar.a(f41165g);
+            jbVar.a(f38702g);
             jbVar.a(this.f676f);
             jbVar.b();
         }
         if (this.f677g != null && h()) {
-            jbVar.a(f41166h);
+            jbVar.a(f38703h);
             jbVar.a(this.f677g);
             jbVar.b();
         }
         if (this.f678h != null && i()) {
-            jbVar.a(i);
+            jbVar.a(f38704i);
             jbVar.a(this.f678h);
             jbVar.b();
         }
@@ -1007,7 +1009,7 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
             jbVar.b();
         }
         jbVar.c();
-        jbVar.m513a();
+        jbVar.m516a();
     }
 
     public void b(boolean z2) {
@@ -1015,7 +1017,7 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m462b() {
+    public boolean m465b() {
         return this.f662a != null;
     }
 
@@ -1039,7 +1041,7 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m463c() {
+    public boolean m466c() {
         return this.f669b != null;
     }
 
@@ -1071,7 +1073,7 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof Cif)) {
-            return m461a((Cif) obj);
+            return m464a((Cif) obj);
         }
         return false;
     }
@@ -1176,7 +1178,7 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
         boolean z2;
         StringBuilder sb = new StringBuilder("XmPushActionRegistration(");
         boolean z3 = false;
-        if (m460a()) {
+        if (m463a()) {
             sb.append("debug:");
             String str = this.f663a;
             if (str == null) {
@@ -1188,7 +1190,7 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
         } else {
             z2 = true;
         }
-        if (m462b()) {
+        if (m465b()) {
             if (!z2) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }

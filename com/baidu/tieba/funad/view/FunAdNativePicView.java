@@ -19,17 +19,19 @@ import java.util.List;
 public class FunAdNativePicView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f16518e;
+    public View f16762e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f16519f;
+    public TbImageView f16763f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f16520g;
+    public TbImageView f16764g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f16521h;
-    public TbImageView i;
+    public TbImageView f16765h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TbImageView f16766i;
 
     public FunAdNativePicView(Context context) {
         this(context, null);
@@ -38,31 +40,31 @@ public class FunAdNativePicView extends FrameLayout {
     private void setImageData(List<String> list) {
         if (ListUtils.getCount(list) != 0) {
             if (list.size() == 1) {
-                this.f16518e.setVisibility(8);
-                this.i.setVisibility(0);
+                this.f16762e.setVisibility(8);
+                this.f16766i.setVisibility(0);
                 c((String) ListUtils.getItem(list, 0));
                 return;
             }
-            this.i.setVisibility(8);
-            this.f16518e.setVisibility(0);
+            this.f16766i.setVisibility(8);
+            this.f16762e.setVisibility(0);
             if (ListUtils.getCount(list) == 2) {
-                e((String) ListUtils.getItem(list, 0), this.f16519f);
-                e((String) ListUtils.getItem(list, 1), this.f16520g);
-                this.f16521h.S();
+                e((String) ListUtils.getItem(list, 0), this.f16763f);
+                e((String) ListUtils.getItem(list, 1), this.f16764g);
+                this.f16765h.Q();
                 return;
             } else if (ListUtils.getCount(list) >= 3) {
-                this.f16520g.setVisibility(0);
-                e((String) ListUtils.getItem(list, 0), this.f16519f);
-                e((String) ListUtils.getItem(list, 1), this.f16520g);
-                e((String) ListUtils.getItem(list, 2), this.f16521h);
+                this.f16764g.setVisibility(0);
+                e((String) ListUtils.getItem(list, 0), this.f16763f);
+                e((String) ListUtils.getItem(list, 1), this.f16764g);
+                e((String) ListUtils.getItem(list, 2), this.f16765h);
                 return;
             } else {
-                this.f16518e.setVisibility(8);
+                this.f16762e.setVisibility(8);
                 return;
             }
         }
-        this.i.setVisibility(8);
-        this.f16518e.setVisibility(8);
+        this.f16766i.setVisibility(8);
+        this.f16762e.setVisibility(8);
     }
 
     public final void a(TbImageView tbImageView) {
@@ -79,62 +81,62 @@ public class FunAdNativePicView extends FrameLayout {
     public final void b() {
         LayoutInflater.from(getContext()).inflate(R.layout.fun_ad_native_pic, (ViewGroup) this, true);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.f16518e = findViewById(R.id.fun_ad_img_more_container);
+        this.f16762e = findViewById(R.id.fun_ad_img_more_container);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.fun_ad_img_more_one);
-        this.f16519f = tbImageView;
+        this.f16763f = tbImageView;
         tbImageView.setDrawCorner(true);
-        this.f16519f.setPlaceHolder(2);
-        this.f16519f.setRadiusById(R.string.J_X12);
-        this.f16519f.setConrers(15);
-        a(this.f16519f);
+        this.f16763f.setPlaceHolder(2);
+        this.f16763f.setRadiusById(R.string.J_X12);
+        this.f16763f.setConrers(15);
+        a(this.f16763f);
         TbImageView tbImageView2 = (TbImageView) findViewById(R.id.fun_ad_img_more_two);
-        this.f16520g = tbImageView2;
+        this.f16764g = tbImageView2;
         tbImageView2.setDrawCorner(false);
-        this.f16520g.setPlaceHolder(2);
-        this.f16520g.setRadiusById(R.string.J_X02);
-        this.f16520g.setConrers(15);
-        a(this.f16520g);
+        this.f16764g.setPlaceHolder(2);
+        this.f16764g.setRadiusById(R.string.J_X02);
+        this.f16764g.setConrers(15);
+        a(this.f16764g);
         TbImageView tbImageView3 = (TbImageView) findViewById(R.id.fun_ad_img_more_three);
-        this.f16521h = tbImageView3;
+        this.f16765h = tbImageView3;
         tbImageView3.setDrawCorner(true);
-        this.f16521h.setPlaceHolder(2);
-        this.f16521h.setRadiusById(R.string.J_X11);
-        this.f16521h.setConrers(15);
-        a(this.f16521h);
+        this.f16765h.setPlaceHolder(2);
+        this.f16765h.setRadiusById(R.string.J_X11);
+        this.f16765h.setConrers(15);
+        a(this.f16765h);
         TbImageView tbImageView4 = (TbImageView) findViewById(R.id.fun_ad_img_big_one);
-        this.i = tbImageView4;
+        this.f16766i = tbImageView4;
         tbImageView4.setDrawCorner(true);
-        this.i.setPlaceHolder(3);
-        this.i.setRadiusById(R.string.J_X05);
-        this.i.setConrers(15);
-        a(this.i);
+        this.f16766i.setPlaceHolder(3);
+        this.f16766i.setRadiusById(R.string.J_X05);
+        this.f16766i.setConrers(15);
+        a(this.f16766i);
     }
 
     public final void c(String str) {
-        if (!StringHelper.equals(str, this.i.getUrl())) {
-            this.i.S();
+        if (!StringHelper.equals(str, this.f16766i.getUrl())) {
+            this.f16766i.Q();
         }
-        this.i.W(str, 10, false);
+        this.f16766i.V(str, 10, false);
     }
 
     public void d() {
-        SkinManager.setBackgroundColor(this.f16518e, R.color.CAM_X0205);
-        this.i.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-        this.f16519f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-        this.f16519f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-        this.f16519f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+        SkinManager.setBackgroundColor(this.f16762e, R.color.CAM_X0205);
+        this.f16766i.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+        this.f16763f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+        this.f16763f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+        this.f16763f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
     }
 
     public final void e(String str, TbImageView tbImageView) {
         if (!StringHelper.equals(str, tbImageView.getUrl())) {
-            tbImageView.S();
+            tbImageView.Q();
         }
-        tbImageView.W(str, 10, false);
+        tbImageView.V(str, 10, false);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
     }
 
     public void setFunNativeAd(List<String> list) {

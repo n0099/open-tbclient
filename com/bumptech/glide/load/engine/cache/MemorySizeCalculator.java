@@ -62,8 +62,8 @@ public final class MemorySizeCalculator {
             return this;
         }
 
-        public Builder setArrayPoolSize(int i) {
-            this.arrayPoolSizeBytes = i;
+        public Builder setArrayPoolSize(int i2) {
+            this.arrayPoolSizeBytes = i2;
             return this;
         }
 
@@ -125,25 +125,25 @@ public final class MemorySizeCalculator {
     }
 
     public MemorySizeCalculator(Builder builder) {
-        int i;
+        int i2;
         this.context = builder.context;
         if (isLowMemoryDevice(builder.activityManager)) {
-            i = builder.arrayPoolSizeBytes / 2;
+            i2 = builder.arrayPoolSizeBytes / 2;
         } else {
-            i = builder.arrayPoolSizeBytes;
+            i2 = builder.arrayPoolSizeBytes;
         }
-        this.arrayPoolSize = i;
+        this.arrayPoolSize = i2;
         int maxSize = getMaxSize(builder.activityManager, builder.maxSizeMultiplier, builder.lowMemoryMaxSizeMultiplier);
         float widthPixels = builder.screenDimensions.getWidthPixels() * builder.screenDimensions.getHeightPixels() * 4;
         int round = Math.round(builder.bitmapPoolScreens * widthPixels);
         int round2 = Math.round(widthPixels * builder.memoryCacheScreens);
-        int i2 = maxSize - this.arrayPoolSize;
-        int i3 = round2 + round;
-        if (i3 <= i2) {
+        int i3 = maxSize - this.arrayPoolSize;
+        int i4 = round2 + round;
+        if (i4 <= i3) {
             this.memoryCacheSize = round2;
             this.bitmapPoolSize = round;
         } else {
-            float f2 = i2;
+            float f2 = i3;
             float f3 = builder.bitmapPoolScreens;
             float f4 = builder.memoryCacheScreens;
             float f5 = f2 / (f3 + f4);
@@ -159,7 +159,7 @@ public final class MemorySizeCalculator {
             sb.append(", byte array size: ");
             sb.append(toMb(this.arrayPoolSize));
             sb.append(", memory class limited? ");
-            sb.append(i3 > maxSize);
+            sb.append(i4 > maxSize);
             sb.append(", max size: ");
             sb.append(toMb(maxSize));
             sb.append(", memoryClass: ");
@@ -187,8 +187,8 @@ public final class MemorySizeCalculator {
         return true;
     }
 
-    private String toMb(int i) {
-        return Formatter.formatFileSize(this.context, i);
+    private String toMb(int i2) {
+        return Formatter.formatFileSize(this.context, i2);
     }
 
     public int getArrayPoolSizeInBytes() {

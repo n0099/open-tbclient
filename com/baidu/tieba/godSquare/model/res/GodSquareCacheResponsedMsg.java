@@ -13,7 +13,7 @@ public class GodSquareCacheResponsedMsg extends CustomResponsedMessage<Object> {
         super(2016446);
     }
 
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         DataRes dataRes;
         GetHotGodResIdl getHotGodResIdl = (GetHotGodResIdl) new Wire(new Class[0]).parseFrom(bArr, GetHotGodResIdl.class);
         Error error = getHotGodResIdl.error;

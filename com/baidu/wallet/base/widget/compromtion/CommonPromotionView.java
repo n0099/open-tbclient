@@ -17,7 +17,7 @@ import com.baidu.apollon.utils.ResUtils;
 public class CommonPromotionView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f23708a;
+    public final int f24446a;
     public NetImageView leftDraw;
     public View mView;
     public TextView promotionTxt;
@@ -25,7 +25,7 @@ public class CommonPromotionView extends FrameLayout {
 
     public CommonPromotionView(Context context) {
         super(context);
-        this.f23708a = 33;
+        this.f24446a = 33;
         initViews();
     }
 
@@ -58,8 +58,8 @@ public class CommonPromotionView extends FrameLayout {
         addView(this.mView);
     }
 
-    public CommonPromotionView setBackGroundColor(int i) {
-        this.mView.setBackgroundColor(i);
+    public CommonPromotionView setBackGroundColor(int i2) {
+        this.mView.setBackgroundColor(i2);
         return this;
     }
 
@@ -68,8 +68,8 @@ public class CommonPromotionView extends FrameLayout {
         return this;
     }
 
-    public CommonPromotionView setCenTextColor(int i) {
-        this.promotionTxt.setTextColor(i);
+    public CommonPromotionView setCenTextColor(int i2) {
+        this.promotionTxt.setTextColor(i2);
         return this;
     }
 
@@ -125,13 +125,13 @@ public class CommonPromotionView extends FrameLayout {
 
     public CommonPromotionView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23708a = 33;
+        this.f24446a = 33;
         initViews();
     }
 
-    public CommonPromotionView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f23708a = 33;
+    public CommonPromotionView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f24446a = 33;
         initViews();
     }
 }

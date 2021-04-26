@@ -15,10 +15,10 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(String str, long j);
 
@@ -32,7 +32,7 @@ public class b {
     public static long a(String str, OutputStream outputStream, a aVar) throws Exception {
         Throwable th;
         HttpURLConnection httpURLConnection;
-        int i;
+        int i2;
         byte[] bArr;
         long currentTimeMillis = System.currentTimeMillis();
         if (Looper.myLooper() == Looper.getMainLooper()) {
@@ -58,26 +58,26 @@ public class b {
                     InputStream inputStream2 = httpURLConnection.getInputStream();
                     try {
                         byte[] bArr2 = new byte[51200];
-                        int i2 = 0;
                         int i3 = 0;
+                        int i4 = 0;
                         while (true) {
                             int read = inputStream2.read(bArr2);
                             if (read == -1) {
                                 break;
                             }
-                            int i4 = i3 + read;
-                            outputStream.write(bArr2, i2, read);
+                            int i5 = i4 + read;
+                            outputStream.write(bArr2, i3, read);
                             if (aVar != null) {
-                                i = i4;
+                                i2 = i5;
                                 bArr = bArr2;
-                                aVar.a(str, i4, contentLength);
+                                aVar.a(str, i5, contentLength);
                             } else {
-                                i = i4;
+                                i2 = i5;
                                 bArr = bArr2;
                             }
                             bArr2 = bArr;
-                            i3 = i;
-                            i2 = 0;
+                            i4 = i2;
+                            i3 = 0;
                         }
                         CyberLog.d(OAdRemoteApkDownloader.TAG, "download finished. use time=" + (System.currentTimeMillis() - currentTimeMillis));
                         if (inputStream2 != null) {

@@ -10,9 +10,9 @@ public class AccountAccessActivityConfig extends IntentConfig {
     public static final String KEY_ACCESS_STATE = "access_state";
     public static final String KEY_WRITE_DATA = "write_data";
 
-    public AccountAccessActivityConfig(Context context, int i, WriteData writeData, AccessState accessState) {
+    public AccountAccessActivityConfig(Context context, int i2, WriteData writeData, AccessState accessState) {
         super(context);
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
         if (accessState == null || writeData == null) {
             return;

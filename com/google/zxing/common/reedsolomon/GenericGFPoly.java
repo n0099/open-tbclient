@@ -9,17 +9,17 @@ public final class GenericGFPoly {
             this.field = genericGF;
             int length = iArr.length;
             if (length > 1 && iArr[0] == 0) {
-                int i = 1;
-                while (i < length && iArr[i] == 0) {
-                    i++;
+                int i2 = 1;
+                while (i2 < length && iArr[i2] == 0) {
+                    i2++;
                 }
-                if (i == length) {
+                if (i2 == length) {
                     this.coefficients = new int[]{0};
                     return;
                 }
-                int[] iArr2 = new int[length - i];
+                int[] iArr2 = new int[length - i2];
                 this.coefficients = iArr2;
-                System.arraycopy(iArr, i, iArr2, 0, iArr2.length);
+                System.arraycopy(iArr, i2, iArr2, 0, iArr2.length);
                 return;
             }
             this.coefficients = iArr;
@@ -45,8 +45,8 @@ public final class GenericGFPoly {
             int[] iArr3 = new int[iArr.length];
             int length = iArr.length - iArr2.length;
             System.arraycopy(iArr, 0, iArr3, 0, length);
-            for (int i = length; i < iArr.length; i++) {
-                iArr3[i] = GenericGF.addOrSubtract(iArr2[i - length], iArr[i]);
+            for (int i2 = length; i2 < iArr.length; i2++) {
+                iArr3[i2] = GenericGF.addOrSubtract(iArr2[i2 - length], iArr[i2]);
             }
             return new GenericGFPoly(this.field, iArr3);
         }
@@ -73,29 +73,29 @@ public final class GenericGFPoly {
         throw new IllegalArgumentException("GenericGFPolys do not have same GenericGF field");
     }
 
-    public int evaluateAt(int i) {
-        if (i == 0) {
+    public int evaluateAt(int i2) {
+        if (i2 == 0) {
             return getCoefficient(0);
         }
-        if (i == 1) {
-            int i2 = 0;
-            for (int i3 : this.coefficients) {
-                i2 = GenericGF.addOrSubtract(i2, i3);
+        if (i2 == 1) {
+            int i3 = 0;
+            for (int i4 : this.coefficients) {
+                i3 = GenericGF.addOrSubtract(i3, i4);
             }
-            return i2;
+            return i3;
         }
         int[] iArr = this.coefficients;
-        int i4 = iArr[0];
+        int i5 = iArr[0];
         int length = iArr.length;
-        for (int i5 = 1; i5 < length; i5++) {
-            i4 = GenericGF.addOrSubtract(this.field.multiply(i, i4), this.coefficients[i5]);
+        for (int i6 = 1; i6 < length; i6++) {
+            i5 = GenericGF.addOrSubtract(this.field.multiply(i2, i5), this.coefficients[i6]);
         }
-        return i4;
+        return i5;
     }
 
-    public int getCoefficient(int i) {
+    public int getCoefficient(int i2) {
         int[] iArr = this.coefficients;
-        return iArr[(iArr.length - 1) - i];
+        return iArr[(iArr.length - 1) - i2];
     }
 
     public int[] getCoefficients() {
@@ -118,11 +118,11 @@ public final class GenericGFPoly {
                 int[] iArr2 = genericGFPoly.coefficients;
                 int length2 = iArr2.length;
                 int[] iArr3 = new int[(length + length2) - 1];
-                for (int i = 0; i < length; i++) {
-                    int i2 = iArr[i];
-                    for (int i3 = 0; i3 < length2; i3++) {
-                        int i4 = i + i3;
-                        iArr3[i4] = GenericGF.addOrSubtract(iArr3[i4], this.field.multiply(i2, iArr2[i3]));
+                for (int i2 = 0; i2 < length; i2++) {
+                    int i3 = iArr[i2];
+                    for (int i4 = 0; i4 < length2; i4++) {
+                        int i5 = i2 + i4;
+                        iArr3[i5] = GenericGF.addOrSubtract(iArr3[i5], this.field.multiply(i3, iArr2[i4]));
                     }
                 }
                 return new GenericGFPoly(this.field, iArr3);
@@ -132,15 +132,15 @@ public final class GenericGFPoly {
         throw new IllegalArgumentException("GenericGFPolys do not have same GenericGF field");
     }
 
-    public GenericGFPoly multiplyByMonomial(int i, int i2) {
-        if (i >= 0) {
-            if (i2 == 0) {
+    public GenericGFPoly multiplyByMonomial(int i2, int i3) {
+        if (i2 >= 0) {
+            if (i3 == 0) {
                 return this.field.getZero();
             }
             int length = this.coefficients.length;
-            int[] iArr = new int[i + length];
-            for (int i3 = 0; i3 < length; i3++) {
-                iArr[i3] = this.field.multiply(this.coefficients[i3], i2);
+            int[] iArr = new int[i2 + length];
+            for (int i4 = 0; i4 < length; i4++) {
+                iArr[i4] = this.field.multiply(this.coefficients[i4], i3);
             }
             return new GenericGFPoly(this.field, iArr);
         }
@@ -182,17 +182,17 @@ public final class GenericGFPoly {
         return sb.toString();
     }
 
-    public GenericGFPoly multiply(int i) {
-        if (i == 0) {
+    public GenericGFPoly multiply(int i2) {
+        if (i2 == 0) {
             return this.field.getZero();
         }
-        if (i == 1) {
+        if (i2 == 1) {
             return this;
         }
         int length = this.coefficients.length;
         int[] iArr = new int[length];
-        for (int i2 = 0; i2 < length; i2++) {
-            iArr[i2] = this.field.multiply(this.coefficients[i2], i);
+        for (int i3 = 0; i3 < length; i3++) {
+            iArr[i3] = this.field.multiply(this.coefficients[i3], i2);
         }
         return new GenericGFPoly(this.field, iArr);
     }

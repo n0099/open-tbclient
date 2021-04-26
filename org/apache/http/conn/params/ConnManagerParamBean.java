@@ -14,7 +14,7 @@ public class ConnManagerParamBean extends HttpAbstractParamBean {
         throw new RuntimeException("Stub!");
     }
 
-    public void setMaxTotalConnections(int i) {
+    public void setMaxTotalConnections(int i2) {
         throw new RuntimeException("Stub!");
     }
 

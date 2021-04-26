@@ -54,9 +54,9 @@ public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.Dat
                 this.loadData = null;
                 while (!z && hasNextModelLoader()) {
                     List<ModelLoader<File, ?>> list = this.modelLoaders;
-                    int i = this.modelLoaderIndex;
-                    this.modelLoaderIndex = i + 1;
-                    this.loadData = list.get(i).buildLoadData(this.cacheFile, this.helper.getWidth(), this.helper.getHeight(), this.helper.getOptions());
+                    int i2 = this.modelLoaderIndex;
+                    this.modelLoaderIndex = i2 + 1;
+                    this.loadData = list.get(i2).buildLoadData(this.cacheFile, this.helper.getWidth(), this.helper.getHeight(), this.helper.getOptions());
                     if (this.loadData != null && this.helper.hasLoadPath(this.loadData.fetcher.getDataClass())) {
                         this.loadData.fetcher.loadData(this.helper.getPriority(), this);
                         z = true;
@@ -64,9 +64,9 @@ public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.Dat
                 }
                 return z;
             }
-            int i2 = this.sourceIdIndex + 1;
-            this.sourceIdIndex = i2;
-            if (i2 >= this.cacheKeys.size()) {
+            int i3 = this.sourceIdIndex + 1;
+            this.sourceIdIndex = i3;
+            if (i3 >= this.cacheKeys.size()) {
                 return false;
             }
             Key key = this.cacheKeys.get(this.sourceIdIndex);

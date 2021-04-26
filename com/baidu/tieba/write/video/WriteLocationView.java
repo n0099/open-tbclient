@@ -11,12 +11,12 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 public class WriteLocationView extends LocationInfoView {
 
     /* renamed from: h  reason: collision with root package name */
-    public LocationModel f22050h;
+    public LocationModel f22731h;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,12 +25,12 @@ public class WriteLocationView extends LocationInfoView {
             if (customResponsedMessage instanceof ResponsedSelectLocation) {
                 ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                 if (responsedSelectLocation.isShowLocation()) {
-                    WriteLocationView.this.f22050h.H(false);
-                    WriteLocationView.this.f22050h.G(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                    WriteLocationView.this.f22731h.H(false);
+                    WriteLocationView.this.f22731h.G(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                     WriteLocationView.this.e(2, true, responsedSelectLocation.getName());
                     return;
                 }
-                WriteLocationView.this.f22050h.H(true);
+                WriteLocationView.this.f22731h.H(true);
                 WriteLocationView.this.e(0, true, null);
             }
         }
@@ -40,9 +40,9 @@ public class WriteLocationView extends LocationInfoView {
         this(context, null);
     }
 
-    public final void e(int i, boolean z, String str) {
+    public final void e(int i2, boolean z, String str) {
         setVisibility(z ? 0 : 8);
-        setState(i, str);
+        setState(i2, str);
     }
 
     public WriteLocationView(Context context, AttributeSet attributeSet) {

@@ -103,44 +103,44 @@ public class H264TrackImpl extends AbstractTrack {
         public int time_offset_length;
 
         public SEIMessage(InputStream inputStream, SeqParameterSet seqParameterSet) throws IOException {
-            int i;
+            int i2;
             boolean z = false;
             this.payloadType = 0;
             this.payloadSize = 0;
             this.sps = seqParameterSet;
             inputStream.read();
             int available = inputStream.available();
-            int i2 = 0;
-            while (i2 < available) {
+            int i3 = 0;
+            while (i3 < available) {
                 this.payloadType = z ? 1 : 0;
                 this.payloadSize = z ? 1 : 0;
                 int read = inputStream.read();
-                int i3 = i2 + 1;
+                int i4 = i3 + 1;
                 while (read == 255) {
                     this.payloadType += read;
                     read = inputStream.read();
-                    i3++;
+                    i4++;
                     z = false;
                 }
                 this.payloadType += read;
                 int read2 = inputStream.read();
-                i2 = i3 + 1;
+                i3 = i4 + 1;
                 while (read2 == 255) {
                     this.payloadSize += read2;
                     read2 = inputStream.read();
-                    i2++;
+                    i3++;
                     z = false;
                 }
-                int i4 = this.payloadSize + read2;
-                this.payloadSize = i4;
-                if (available - i2 < i4) {
-                    i2 = available;
+                int i5 = this.payloadSize + read2;
+                this.payloadSize = i5;
+                if (available - i3 < i5) {
+                    i3 = available;
                 } else if (this.payloadType == 1) {
                     VUIParameters vUIParameters = seqParameterSet.vuiParams;
                     if (vUIParameters != null && (vUIParameters.nalHRDParams != null || vUIParameters.vclHRDParams != null || vUIParameters.pic_struct_present_flag)) {
                         byte[] bArr = new byte[this.payloadSize];
                         inputStream.read(bArr);
-                        i2 += this.payloadSize;
+                        i3 += this.payloadSize;
                         CAVLCReader cAVLCReader = new CAVLCReader(new ByteArrayInputStream(bArr));
                         VUIParameters vUIParameters2 = seqParameterSet.vuiParams;
                         if (vUIParameters2.nalHRDParams == null && vUIParameters2.vclHRDParams == null) {
@@ -157,19 +157,19 @@ public class H264TrackImpl extends AbstractTrack {
                                 case 3:
                                 case 4:
                                 case 7:
-                                    i = 2;
+                                    i2 = 2;
                                     break;
                                 case 5:
                                 case 6:
                                 case 8:
-                                    i = 3;
+                                    i2 = 3;
                                     break;
                                 default:
-                                    i = 1;
+                                    i2 = 1;
                                     break;
                             }
-                            for (int i5 = 0; i5 < i; i5++) {
-                                boolean readBool = cAVLCReader.readBool("pic_timing SEI: clock_timestamp_flag[" + i5 + "]");
+                            for (int i6 = 0; i6 < i2; i6++) {
+                                boolean readBool = cAVLCReader.readBool("pic_timing SEI: clock_timestamp_flag[" + i6 + "]");
                                 this.clock_timestamp_flag = readBool;
                                 if (readBool) {
                                     this.ct_type = cAVLCReader.readU(2, "pic_timing SEI: ct_type");
@@ -209,15 +209,15 @@ public class H264TrackImpl extends AbstractTrack {
                             }
                         }
                     } else {
-                        for (int i6 = 0; i6 < this.payloadSize; i6++) {
+                        for (int i7 = 0; i7 < this.payloadSize; i7++) {
                             inputStream.read();
-                            i2++;
+                            i3++;
                         }
                     }
                 } else {
-                    for (int i7 = 0; i7 < this.payloadSize; i7++) {
+                    for (int i8 = 0; i8 < this.payloadSize; i8++) {
                         inputStream.read();
-                        i2++;
+                        i3++;
                     }
                 }
                 H264TrackImpl.LOG.fine(toString());
@@ -336,73 +336,73 @@ public class H264TrackImpl extends AbstractTrack {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f31431a = 0;
+        public long f32299a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31432b = 0;
+        public int f32300b = 0;
 
         /* renamed from: c  reason: collision with root package name */
-        public DataSource f31433c;
+        public DataSource f32301c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ByteBuffer f31434d;
+        public ByteBuffer f32302d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f31435e;
+        public long f32303e;
 
         public a(DataSource dataSource) throws IOException {
-            this.f31433c = dataSource;
+            this.f32301c = dataSource;
             c();
         }
 
         public void a() {
-            this.f31432b++;
+            this.f32300b++;
         }
 
         public void b() {
-            int i = this.f31432b + 3;
-            this.f31432b = i;
-            this.f31435e = this.f31431a + i;
+            int i2 = this.f32300b + 3;
+            this.f32300b = i2;
+            this.f32303e = this.f32299a + i2;
         }
 
         public void c() throws IOException {
-            DataSource dataSource = this.f31433c;
-            this.f31434d = dataSource.map(this.f31431a, Math.min(dataSource.size() - this.f31431a, H264TrackImpl.BUFFER));
+            DataSource dataSource = this.f32301c;
+            this.f32302d = dataSource.map(this.f32299a, Math.min(dataSource.size() - this.f32299a, H264TrackImpl.BUFFER));
         }
 
         public ByteBuffer d() {
-            long j = this.f31435e;
-            long j2 = this.f31431a;
+            long j = this.f32303e;
+            long j2 = this.f32299a;
             if (j >= j2) {
-                this.f31434d.position((int) (j - j2));
-                ByteBuffer slice = this.f31434d.slice();
-                slice.limit((int) (this.f31432b - (this.f31435e - this.f31431a)));
+                this.f32302d.position((int) (j - j2));
+                ByteBuffer slice = this.f32302d.slice();
+                slice.limit((int) (this.f32300b - (this.f32303e - this.f32299a)));
                 return slice;
             }
             throw new RuntimeException("damn sample crosses buffers");
         }
 
         public boolean e() throws IOException {
-            int limit = this.f31434d.limit();
-            int i = this.f31432b;
-            if (limit - i >= 3) {
-                return this.f31434d.get(i) == 0 && this.f31434d.get(this.f31432b + 1) == 0 && (this.f31434d.get(this.f31432b + 2) == 0 || this.f31434d.get(this.f31432b + 2) == 1);
-            } else if (this.f31431a + i + 3 > this.f31433c.size()) {
-                return this.f31431a + ((long) this.f31432b) == this.f31433c.size();
+            int limit = this.f32302d.limit();
+            int i2 = this.f32300b;
+            if (limit - i2 >= 3) {
+                return this.f32302d.get(i2) == 0 && this.f32302d.get(this.f32300b + 1) == 0 && (this.f32302d.get(this.f32300b + 2) == 0 || this.f32302d.get(this.f32300b + 2) == 1);
+            } else if (this.f32299a + i2 + 3 > this.f32301c.size()) {
+                return this.f32299a + ((long) this.f32300b) == this.f32301c.size();
             } else {
-                this.f31431a = this.f31435e;
-                this.f31432b = 0;
+                this.f32299a = this.f32303e;
+                this.f32300b = 0;
                 c();
                 return e();
             }
         }
 
         public boolean f() throws IOException {
-            int limit = this.f31434d.limit();
-            int i = this.f31432b;
-            if (limit - i >= 3) {
-                return this.f31434d.get(i) == 0 && this.f31434d.get(this.f31432b + 1) == 0 && this.f31434d.get(this.f31432b + 2) == 1;
-            } else if (this.f31431a + i != this.f31433c.size()) {
+            int limit = this.f32302d.limit();
+            int i2 = this.f32300b;
+            if (limit - i2 >= 3) {
+                return this.f32302d.get(i2) == 0 && this.f32302d.get(this.f32300b + 1) == 0 && this.f32302d.get(this.f32300b + 2) == 1;
+            } else if (this.f32299a + i2 != this.f32301c.size()) {
                 System.err.println(H264TrackImpl.this.samples.size());
                 throw new RuntimeException("buffer repositioning require");
             } else {
@@ -437,7 +437,7 @@ public class H264TrackImpl extends AbstractTrack {
         return iArr2;
     }
 
-    public H264TrackImpl(DataSource dataSource, String str, long j, int i) throws IOException {
+    public H264TrackImpl(DataSource dataSource, String str, long j, int i2) throws IOException {
         this.trackMetaData = new TrackMetaData();
         this.readSamples = false;
         this.seqParameterSet = null;
@@ -450,9 +450,9 @@ public class H264TrackImpl extends AbstractTrack {
         this.sixtyFourK = ByteBuffer.allocate(1);
         this.lang = str;
         this.timescale = j;
-        this.frametick = i;
+        this.frametick = i2;
         this.dataSource = dataSource;
-        if (j > 0 && i > 0) {
+        if (j > 0 && i2 > 0) {
             this.determineFrameRate = false;
         }
         parse(new a(this.dataSource));
@@ -464,9 +464,9 @@ public class H264TrackImpl extends AbstractTrack {
             if (vUIParameters != null) {
                 long j = vUIParameters.time_scale >> 1;
                 this.timescale = j;
-                int i = vUIParameters.num_units_in_tick;
-                this.frametick = i;
-                if (j == 0 || i == 0) {
+                int i2 = vUIParameters.num_units_in_tick;
+                this.frametick = i2;
+                if (j == 0 || i2 == 0) {
                     System.err.println("Warning: vuiParams contain invalid values: time_scale: " + this.timescale + " and frame_tick: " + this.frametick + ". Setting frame rate to 25fps");
                     this.timescale = SapiWebView.DEFAULT_TIMEOUT_MILLIS;
                     this.frametick = 3600;
@@ -495,8 +495,8 @@ public class H264TrackImpl extends AbstractTrack {
         return aVar.d();
     }
 
-    private NALActions handleNALUnit(int i, int i2, ByteBuffer byteBuffer) throws IOException {
-        switch (i2) {
+    private NALActions handleNALUnit(int i2, int i3, ByteBuffer byteBuffer) throws IOException {
+        switch (i3) {
             case 1:
             case 2:
             case 3:
@@ -530,7 +530,7 @@ public class H264TrackImpl extends AbstractTrack {
                 return NALActions.END;
             default:
                 PrintStream printStream = System.err;
-                printStream.println("Unknown NAL unit type: " + i2);
+                printStream.println("Unknown NAL unit type: " + i3);
                 return NALActions.IGNORE;
         }
     }
@@ -580,13 +580,13 @@ public class H264TrackImpl extends AbstractTrack {
 
     private boolean readSamples(a aVar) throws IOException {
         boolean z;
-        int i;
+        int i2;
         if (this.readSamples) {
             return true;
         }
         this.readSamples = true;
         ArrayList arrayList = new ArrayList();
-        int i2 = 0;
+        int i3 = 0;
         while (true) {
             ByteBuffer findNextSample = findNextSample(aVar);
             if (findNextSample == null) {
@@ -596,28 +596,28 @@ public class H264TrackImpl extends AbstractTrack {
                 return true;
             }
             byte b2 = findNextSample.get(0);
-            int i3 = b2 & 31;
-            int i4 = $SWITCH_TABLE$com$googlecode$mp4parser$authoring$tracks$H264TrackImpl$NALActions()[handleNALUnit((b2 >> 5) & 3, i3, findNextSample).ordinal()];
-            if (i4 == 2) {
+            int i4 = b2 & 31;
+            int i5 = $SWITCH_TABLE$com$googlecode$mp4parser$authoring$tracks$H264TrackImpl$NALActions()[handleNALUnit((b2 >> 5) & 3, i4, findNextSample).ordinal()];
+            if (i5 == 2) {
                 arrayList.add(findNextSample);
-            } else if (i4 == 3) {
-                int i5 = 22;
-                i2++;
+            } else if (i5 == 3) {
+                int i6 = 22;
+                i3++;
                 arrayList.add(findNextSample);
-                if (i3 == 5) {
-                    i5 = 38;
+                if (i4 == 5) {
+                    i6 = 38;
                     z = true;
                 } else {
                     z = false;
                 }
                 if (new SliceHeader(cleanBuffer(new ByteBufferBackedInputStream((ByteBuffer) arrayList.get(arrayList.size() - 1))), this.seqParameterSet, this.pictureParameterSet, z).slice_type == SliceHeader.SliceType.B) {
-                    i5 += 4;
+                    i6 += 4;
                 }
                 Sample createSample = createSample(arrayList);
                 ArrayList arrayList2 = new ArrayList();
                 this.samples.add(createSample);
-                if (i3 == 5) {
-                    this.stss.add(Integer.valueOf(i2));
+                if (i4 == 5) {
+                    this.stss.add(Integer.valueOf(i3));
                 }
                 SEIMessage sEIMessage = this.seiMessage;
                 if (sEIMessage == null || sEIMessage.n_frames == 0) {
@@ -625,39 +625,39 @@ public class H264TrackImpl extends AbstractTrack {
                 }
                 SEIMessage sEIMessage2 = this.seiMessage;
                 if (sEIMessage2 != null && sEIMessage2.clock_timestamp_flag) {
-                    i = sEIMessage2.n_frames - this.frameNrInGop;
+                    i2 = sEIMessage2.n_frames - this.frameNrInGop;
                 } else {
                     SEIMessage sEIMessage3 = this.seiMessage;
-                    i = (sEIMessage3 == null || !sEIMessage3.removal_delay_flag) ? 0 : sEIMessage3.dpb_removal_delay / 2;
+                    i2 = (sEIMessage3 == null || !sEIMessage3.removal_delay_flag) ? 0 : sEIMessage3.dpb_removal_delay / 2;
                 }
-                this.ctts.add(new CompositionTimeToSample.Entry(1, i * this.frametick));
-                this.sdtp.add(new SampleDependencyTypeBox.Entry(i5));
+                this.ctts.add(new CompositionTimeToSample.Entry(1, i2 * this.frametick));
+                this.sdtp.add(new SampleDependencyTypeBox.Entry(i6));
                 this.frameNrInGop++;
                 arrayList = arrayList2;
-            } else if (i4 == 4) {
+            } else if (i5 == 4) {
                 return true;
             }
         }
     }
 
     private boolean readVariables() {
-        int i;
+        int i2;
         SeqParameterSet seqParameterSet = this.seqParameterSet;
         this.width = (seqParameterSet.pic_width_in_mbs_minus1 + 1) * 16;
-        int i2 = seqParameterSet.frame_mbs_only_flag ? 1 : 2;
+        int i3 = seqParameterSet.frame_mbs_only_flag ? 1 : 2;
         SeqParameterSet seqParameterSet2 = this.seqParameterSet;
-        this.height = (seqParameterSet2.pic_height_in_map_units_minus1 + 1) * 16 * i2;
+        this.height = (seqParameterSet2.pic_height_in_map_units_minus1 + 1) * 16 * i3;
         if (seqParameterSet2.frame_cropping_flag) {
             if ((seqParameterSet2.residual_color_transform_flag ? 0 : seqParameterSet2.chroma_format_idc.getId()) != 0) {
-                i = this.seqParameterSet.chroma_format_idc.getSubWidth();
-                i2 *= this.seqParameterSet.chroma_format_idc.getSubHeight();
+                i2 = this.seqParameterSet.chroma_format_idc.getSubWidth();
+                i3 *= this.seqParameterSet.chroma_format_idc.getSubHeight();
             } else {
-                i = 1;
+                i2 = 1;
             }
-            int i3 = this.width;
+            int i4 = this.width;
             SeqParameterSet seqParameterSet3 = this.seqParameterSet;
-            this.width = i3 - (i * (seqParameterSet3.frame_crop_left_offset + seqParameterSet3.frame_crop_right_offset));
-            this.height -= i2 * (seqParameterSet3.frame_crop_top_offset + seqParameterSet3.frame_crop_bottom_offset);
+            this.width = i4 - (i2 * (seqParameterSet3.frame_crop_left_offset + seqParameterSet3.frame_crop_right_offset));
+            this.height -= i3 * (seqParameterSet3.frame_crop_top_offset + seqParameterSet3.frame_crop_bottom_offset);
         }
         return true;
     }
@@ -681,10 +681,10 @@ public class H264TrackImpl extends AbstractTrack {
             wrap.putInt(byteBuffer.remaining());
         }
         ByteBuffer[] byteBufferArr = new ByteBuffer[list.size() * 2];
-        for (int i = 0; i < list.size(); i++) {
-            int i2 = i * 2;
-            byteBufferArr[i2] = ByteBuffer.wrap(bArr, i * 4, 4);
-            byteBufferArr[i2 + 1] = list.get(i);
+        for (int i2 = 0; i2 < list.size(); i2++) {
+            int i3 = i2 * 2;
+            byteBufferArr[i3] = ByteBuffer.wrap(bArr, i2 * 4, 4);
+            byteBufferArr[i3 + 1] = list.get(i2);
         }
         return new SampleImpl(byteBufferArr);
     }
@@ -722,8 +722,8 @@ public class H264TrackImpl extends AbstractTrack {
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public long[] getSyncSamples() {
         long[] jArr = new long[this.stss.size()];
-        for (int i = 0; i < this.stss.size(); i++) {
-            jArr[i] = this.stss.get(i).intValue();
+        for (int i2 = 0; i2 < this.stss.size(); i2++) {
+            jArr[i2] = this.stss.get(i2).intValue();
         }
         return jArr;
     }
@@ -750,10 +750,10 @@ public class H264TrackImpl extends AbstractTrack {
         }
 
         @Override // java.io.InputStream
-        public int read(byte[] bArr, int i, int i2) throws IOException {
+        public int read(byte[] bArr, int i2, int i3) throws IOException {
             if (this.buf.hasRemaining()) {
-                int min = Math.min(i2, this.buf.remaining());
-                this.buf.get(bArr, i, min);
+                int min = Math.min(i3, this.buf.remaining());
+                this.buf.get(bArr, i2, min);
                 return min;
             }
             return -1;
@@ -796,35 +796,35 @@ public class H264TrackImpl extends AbstractTrack {
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream
-        public int read(byte[] bArr, int i, int i2) throws IOException {
+        public int read(byte[] bArr, int i2, int i3) throws IOException {
             if (bArr != null) {
-                if (i < 0 || i2 < 0 || i2 > bArr.length - i) {
+                if (i2 < 0 || i3 < 0 || i3 > bArr.length - i2) {
                     throw new IndexOutOfBoundsException();
                 }
-                if (i2 == 0) {
+                if (i3 == 0) {
                     return 0;
                 }
                 int read = read();
                 if (read == -1) {
                     return -1;
                 }
-                bArr[i] = (byte) read;
-                int i3 = 1;
+                bArr[i2] = (byte) read;
+                int i4 = 1;
                 while (true) {
-                    if (i3 < i2) {
+                    if (i4 < i3) {
                         try {
                             int read2 = read();
                             if (read2 == -1) {
                                 break;
                             }
-                            bArr[i + i3] = (byte) read2;
-                            i3++;
+                            bArr[i2 + i4] = (byte) read2;
+                            i4++;
                         } catch (IOException unused) {
                         }
                     }
-                    return i3;
+                    return i4;
                 }
-                return i3;
+                return i4;
             }
             throw null;
         }

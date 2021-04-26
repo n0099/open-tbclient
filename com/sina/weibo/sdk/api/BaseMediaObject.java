@@ -111,7 +111,7 @@ public abstract class BaseMediaObject implements Parcelable {
     public abstract String toExtraMediaString();
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.actionUrl);
         parcel.writeString(this.schema);
         parcel.writeString(this.identify);

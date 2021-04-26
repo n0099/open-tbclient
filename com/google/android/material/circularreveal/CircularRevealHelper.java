@@ -12,7 +12,9 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.View;
 import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.internal.view.SupportMenu;
 import com.google.android.material.circularreveal.CircularRevealWidget;
 import com.google.android.material.math.MathUtils;
 import java.lang.annotation.Retention;
@@ -32,9 +34,13 @@ public class CircularRevealHelper {
     public Drawable overlayDrawable;
     @Nullable
     public CircularRevealWidget.RevealInfo revealInfo;
+    @NonNull
     public final Paint revealPaint;
+    @NonNull
     public final Path revealPath;
+    @NonNull
     public final Paint scrimPaint;
+    @NonNull
     public final View view;
 
     /* loaded from: classes6.dex */
@@ -50,10 +56,10 @@ public class CircularRevealHelper {
     }
 
     static {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 21) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 21) {
             STRATEGY = 2;
-        } else if (i >= 18) {
+        } else if (i2 >= 18) {
             STRATEGY = 1;
         } else {
             STRATEGY = 0;
@@ -72,14 +78,14 @@ public class CircularRevealHelper {
         paint.setColor(0);
     }
 
-    private void drawDebugCircle(Canvas canvas, int i, float f2) {
-        this.debugPaint.setColor(i);
+    private void drawDebugCircle(@NonNull Canvas canvas, int i2, float f2) {
+        this.debugPaint.setColor(i2);
         this.debugPaint.setStrokeWidth(f2);
         CircularRevealWidget.RevealInfo revealInfo = this.revealInfo;
         canvas.drawCircle(revealInfo.centerX, revealInfo.centerY, revealInfo.radius - (f2 / 2.0f), this.debugPaint);
     }
 
-    private void drawDebugMode(Canvas canvas) {
+    private void drawDebugMode(@NonNull Canvas canvas) {
         this.delegate.actualDraw(canvas);
         if (shouldDrawScrim()) {
             CircularRevealWidget.RevealInfo revealInfo = this.revealInfo;
@@ -87,12 +93,12 @@ public class CircularRevealHelper {
         }
         if (shouldDrawCircularReveal()) {
             drawDebugCircle(canvas, -16777216, 10.0f);
-            drawDebugCircle(canvas, -65536, 5.0f);
+            drawDebugCircle(canvas, SupportMenu.CATEGORY_MASK, 5.0f);
         }
         drawOverlayDrawable(canvas);
     }
 
-    private void drawOverlayDrawable(Canvas canvas) {
+    private void drawOverlayDrawable(@NonNull Canvas canvas) {
         if (shouldDrawOverlayDrawable()) {
             Rect bounds = this.overlayDrawable.getBounds();
             float width = this.revealInfo.centerX - (bounds.width() / 2.0f);
@@ -103,7 +109,7 @@ public class CircularRevealHelper {
         }
     }
 
-    private float getDistanceToFurthestCorner(CircularRevealWidget.RevealInfo revealInfo) {
+    private float getDistanceToFurthestCorner(@NonNull CircularRevealWidget.RevealInfo revealInfo) {
         return MathUtils.distanceToFurthestCorner(revealInfo.centerX, revealInfo.centerY, 0.0f, 0.0f, this.view.getWidth(), this.view.getHeight());
     }
 
@@ -161,17 +167,17 @@ public class CircularRevealHelper {
         }
     }
 
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         if (shouldDrawCircularReveal()) {
-            int i = STRATEGY;
-            if (i == 0) {
+            int i2 = STRATEGY;
+            if (i2 == 0) {
                 CircularRevealWidget.RevealInfo revealInfo = this.revealInfo;
                 canvas.drawCircle(revealInfo.centerX, revealInfo.centerY, revealInfo.radius, this.revealPaint);
                 if (shouldDrawScrim()) {
                     CircularRevealWidget.RevealInfo revealInfo2 = this.revealInfo;
                     canvas.drawCircle(revealInfo2.centerX, revealInfo2.centerY, revealInfo2.radius, this.scrimPaint);
                 }
-            } else if (i == 1) {
+            } else if (i2 == 1) {
                 int save = canvas.save();
                 canvas.clipPath(this.revealPath);
                 this.delegate.actualDraw(canvas);
@@ -179,7 +185,7 @@ public class CircularRevealHelper {
                     canvas.drawRect(0.0f, 0.0f, this.view.getWidth(), this.view.getHeight(), this.scrimPaint);
                 }
                 canvas.restoreToCount(save);
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 this.delegate.actualDraw(canvas);
                 if (shouldDrawScrim()) {
                     canvas.drawRect(0.0f, 0.0f, this.view.getWidth(), this.view.getHeight(), this.scrimPaint);
@@ -228,8 +234,8 @@ public class CircularRevealHelper {
         this.view.invalidate();
     }
 
-    public void setCircularRevealScrimColor(@ColorInt int i) {
-        this.scrimPaint.setColor(i);
+    public void setCircularRevealScrimColor(@ColorInt int i2) {
+        this.scrimPaint.setColor(i2);
         this.view.invalidate();
     }
 

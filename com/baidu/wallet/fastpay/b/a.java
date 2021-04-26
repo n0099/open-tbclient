@@ -24,14 +24,14 @@ public final class a {
         String[] split = localDecrypt1.split(",");
         int length = split.length;
         boolean z = length > 4;
-        for (int i = 0; i < length; i++) {
-            if (split[i] == null || split[i].length() < 13 || str.substring(0, 13).equals(split[i].substring(0, 13))) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (split[i2] == null || split[i2].length() < 13 || str.substring(0, 13).equals(split[i2].substring(0, 13))) {
                 z = false;
             } else {
-                int i2 = length - 1;
-                if (i < i2 || (i == i2 && !z)) {
+                int i3 = length - 1;
+                if (i2 < i3 || (i2 == i3 && !z)) {
                     sb.append(",");
-                    sb.append(split[i]);
+                    sb.append(split[i2]);
                 }
             }
         }

@@ -14,9 +14,9 @@ public class ResponseNewFriendUpdateUiMsg extends CustomResponsedMessage<Object>
     public String portrait;
     public String quanping;
 
-    public ResponseNewFriendUpdateUiMsg(int i, long j, String str, String str2, String str3, String str4) {
+    public ResponseNewFriendUpdateUiMsg(int i2, long j, String str, String str2, String str3, String str4) {
         super(2001174);
-        this.action = i;
+        this.action = i2;
         this.friendId = j;
         this.portrait = str;
         this.name = str2;
@@ -52,8 +52,8 @@ public class ResponseNewFriendUpdateUiMsg extends CustomResponsedMessage<Object>
         return this.quanping;
     }
 
-    public void setAction(int i) {
-        this.action = i;
+    public void setAction(int i2) {
+        this.action = i2;
     }
 
     public void setContent(String str) {

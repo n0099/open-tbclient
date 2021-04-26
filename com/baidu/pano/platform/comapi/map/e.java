@@ -15,8 +15,10 @@ import java.util.TimerTask;
 public class e {
 
     /* renamed from: c  reason: collision with root package name */
-    public float f9046c;
-    public float i;
+    public float f9379c;
+
+    /* renamed from: i  reason: collision with root package name */
+    public float f9385i;
     public float j;
     public Timer k;
     public TimerTask l;
@@ -26,25 +28,25 @@ public class e {
     public Context p;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.pano.platform.c.a f9044a = new com.baidu.pano.platform.c.a();
+    public com.baidu.pano.platform.c.a f9377a = new com.baidu.pano.platform.c.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9045b = 0;
+    public int f9378b = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f9047d = 16;
+    public final long f9380d = 16;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f9048e = 1001;
+    public final int f9381e = 1001;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f9049f = 1002;
+    public final int f9382f = 1002;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f9050g = 0;
+    public int f9383g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public double f9051h = 0.0d;
+    public double f9384h = 0.0d;
     public Object q = new Object();
 
     public e(Context context) {
@@ -108,15 +110,15 @@ public class e {
     public boolean c(MotionEvent motionEvent) {
         int action = motionEvent.getAction() & 255;
         if (action == 0) {
-            this.f9045b = 1;
+            this.f9378b = 1;
         } else if (action == 1) {
-            this.f9045b = 0;
+            this.f9378b = 0;
         } else if (action == 2) {
-            if (this.f9045b == 2) {
+            if (this.f9378b == 2) {
                 double d2 = d(motionEvent);
-                float f2 = (float) (d2 / this.f9051h);
+                float f2 = (float) (d2 / this.f9384h);
                 if (Math.abs(1.0f - f2) > 0.01f) {
-                    this.f9051h = d2;
+                    this.f9384h = d2;
                     float c2 = c() / f2;
                     if (c2 > 60.0f) {
                         c2 = 60.0f;
@@ -131,11 +133,11 @@ public class e {
             }
             return true;
         } else if (action == 5) {
-            this.f9045b = 2;
-            this.f9046c = c();
-            this.f9051h = d(motionEvent);
+            this.f9378b = 2;
+            this.f9379c = c();
+            this.f9384h = d(motionEvent);
         } else if (action == 6) {
-            this.f9045b = 0;
+            this.f9378b = 0;
         }
         return false;
     }
@@ -154,14 +156,14 @@ public class e {
     }
 
     public boolean b(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
-        this.i = f2;
+        this.f9385i = f2;
         this.j = f3;
         i();
         return false;
     }
 
     public boolean a(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
-        if (this.f9045b == 1) {
+        if (this.f9378b == 1) {
             if (Math.abs(f2) < 1.0f) {
                 f2 = 0.0f;
             } else if (Math.abs(f3) < 1.0f) {
@@ -185,23 +187,23 @@ public class e {
             c2 = 60.0f;
         }
         if (c2 == 60.0f) {
-            this.f9044a.a(60.0f, 40.0f);
+            this.f9377a.a(60.0f, 40.0f);
             c(1);
         } else {
-            int i = (c2 > 40.0f ? 1 : (c2 == 40.0f ? 0 : -1));
-            if (i == 0) {
-                this.f9044a.a(40.0f, 20.0f);
+            int i2 = (c2 > 40.0f ? 1 : (c2 == 40.0f ? 0 : -1));
+            if (i2 == 0) {
+                this.f9377a.a(40.0f, 20.0f);
                 c(2);
             } else {
-                int i2 = (c2 > 20.0f ? 1 : (c2 == 20.0f ? 0 : -1));
-                if (i2 == 0) {
-                    this.f9044a.a(20.0f, 60.0f);
+                int i3 = (c2 > 20.0f ? 1 : (c2 == 20.0f ? 0 : -1));
+                if (i3 == 0) {
+                    this.f9377a.a(20.0f, 60.0f);
                     c(3);
-                } else if (i2 > 0 && c2 < 40.0f) {
-                    this.f9044a.a(c2, 20.0f);
+                } else if (i3 > 0 && c2 < 40.0f) {
+                    this.f9377a.a(c2, 20.0f);
                     c(4);
-                } else if (i > 0 && c2 < 60.0f) {
-                    this.f9044a.a(c2, 40.0f);
+                } else if (i2 > 0 && c2 < 60.0f) {
+                    this.f9377a.a(c2, 40.0f);
                     c(5);
                 }
             }
@@ -236,8 +238,8 @@ public class e {
         JNIEngine.setCameraRotationByAngle(f2, f3, f4);
     }
 
-    public float a(int i) {
-        return JNIEngine.getCameraRotation(i);
+    public float a(int i2) {
+        return JNIEngine.getCameraRotation(i2);
     }
 
     public void d(boolean z) {
@@ -252,16 +254,16 @@ public class e {
         return JNIEngine.screenPt2Mercator(f2, f3);
     }
 
-    public void a(Object obj, int i, int i2, int i3) {
-        JNIEngine.onSurfaceChanged(obj, i, i2, i3);
+    public void a(Object obj, int i2, int i3, int i4) {
+        JNIEngine.onSurfaceChanged(obj, i2, i3, i4);
     }
 
     public void a(String str) {
         JNIEngine.setPanoramaByPid(str);
     }
 
-    public void a(int i, int i2) {
-        JNIEngine.setPanoramaByMercator(i, i2);
+    public void a(int i2, int i3) {
+        JNIEngine.setPanoramaByMercator(i2, i3);
     }
 
     public void a(double d2, double d3) {
@@ -275,12 +277,12 @@ public class e {
         com.baidu.pano.platform.c.g.a("start-end" + (currentTimeMillis2 - currentTimeMillis));
     }
 
-    private void c(int i) {
+    private void c(int i2) {
         if (this.n != null) {
             return;
         }
         this.m = new Timer(true);
-        h hVar = new h(this, i);
+        h hVar = new h(this, i2);
         this.n = hVar;
         this.m.schedule(hVar, 16L, 16L);
     }
@@ -311,8 +313,8 @@ public class e {
         return JNIEngine.getCameraFOV();
     }
 
-    public void b(int i) {
-        JNIEngine.setTexureLevel(i);
+    public void b(int i2) {
+        JNIEngine.setTexureLevel(i2);
     }
 
     public void c(float f2, float f3) {

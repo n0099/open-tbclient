@@ -16,7 +16,7 @@ public final class Barcode {
         System.loadLibrary("rabjni_V2_4_0");
     }
 
-    public static native BarcodeResult decodeByte(byte[] bArr, int i, int i2, int i3);
+    public static native BarcodeResult decodeByte(byte[] bArr, int i2, int i3, int i4);
 
-    public static native BarcodeResult[] readBarcode(byte[] bArr, int i, int i2, int i3, int i4);
+    public static native BarcodeResult[] readBarcode(byte[] bArr, int i2, int i3, int i4, int i5);
 }

@@ -38,17 +38,17 @@ public class Utils {
         }
         try {
             byte[] bArr = new byte[256];
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 int read = fileInputStream.read();
-                if (read <= 0 || i >= 256) {
+                if (read <= 0 || i2 >= 256) {
                     break;
                 }
-                bArr[i] = (byte) read;
-                i++;
+                bArr[i2] = (byte) read;
+                i2++;
             }
-            if (i > 0) {
-                String str = new String(bArr, 0, i, "UTF-8");
+            if (i2 > 0) {
+                String str = new String(bArr, 0, i2, "UTF-8");
                 try {
                     fileInputStream.close();
                 } catch (IOException unused) {
@@ -76,8 +76,8 @@ public class Utils {
         }
     }
 
-    public static boolean isRecentANR(String str, int i) {
-        if (TextUtils.isEmpty(str) || i < 0) {
+    public static boolean isRecentANR(String str, int i2) {
+        if (TextUtils.isEmpty(str) || i2 < 0) {
             return false;
         }
         String format = new SimpleDateFormat("HH:mm").format(new Date());
@@ -86,7 +86,7 @@ public class Utils {
         if (split.length < 2 || split2.length < 2) {
             return false;
         }
-        return Integer.valueOf(split2[0]).intValue() - Integer.valueOf(split[0]).intValue() == 0 && Integer.valueOf(split2[1]).intValue() - Integer.valueOf(split[1]).intValue() < i;
+        return Integer.valueOf(split2[0]).intValue() - Integer.valueOf(split[0]).intValue() == 0 && Integer.valueOf(split2[1]).intValue() - Integer.valueOf(split[1]).intValue() < i2;
     }
 
     public static void storeAllTraces2File(String str) {
@@ -159,7 +159,7 @@ public class Utils {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean storeIfRealANR(String str, int i) {
+    public static boolean storeIfRealANR(String str, int i2) {
         Process process;
         BufferedReader bufferedReader;
         BufferedWriter bufferedWriter;
@@ -168,7 +168,7 @@ public class Utils {
         BufferedWriter bufferedWriter2 = null;
         try {
             if (Build.VERSION.SDK_INT <= 22) {
-                process = Runtime.getRuntime().exec("logcat -vtime -T " + i);
+                process = Runtime.getRuntime().exec("logcat -vtime -T " + i2);
                 try {
                     File file = new File(str);
                     if (!file.exists() && !file.createNewFile()) {
@@ -224,7 +224,7 @@ public class Utils {
                     throw th;
                 }
             } else {
-                process = Runtime.getRuntime().exec(new String[]{"/system/bin/sh", "-c", "logcat -vtime -T " + i + " | tee " + str});
+                process = Runtime.getRuntime().exec(new String[]{"/system/bin/sh", "-c", "logcat -vtime -T " + i2 + " | tee " + str});
                 bufferedWriter = null;
             }
             try {

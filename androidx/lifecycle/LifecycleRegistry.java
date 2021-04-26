@@ -130,12 +130,12 @@ public class LifecycleRegistry extends Lifecycle {
     }
 
     public static Lifecycle.Event downEvent(Lifecycle.State state) {
-        int i = AnonymousClass1.$SwitchMap$androidx$lifecycle$Lifecycle$State[state.ordinal()];
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
-                        if (i != 5) {
+        int i2 = AnonymousClass1.$SwitchMap$androidx$lifecycle$Lifecycle$State[state.ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 != 3) {
+                    if (i2 != 4) {
+                        if (i2 != 5) {
                             throw new IllegalArgumentException("Unexpected state value " + state);
                         }
                         throw new IllegalArgumentException();
@@ -237,18 +237,18 @@ public class LifecycleRegistry extends Lifecycle {
     }
 
     public static Lifecycle.Event upEvent(Lifecycle.State state) {
-        int i = AnonymousClass1.$SwitchMap$androidx$lifecycle$Lifecycle$State[state.ordinal()];
-        if (i != 1) {
-            if (i == 2) {
+        int i2 = AnonymousClass1.$SwitchMap$androidx$lifecycle$Lifecycle$State[state.ordinal()];
+        if (i2 != 1) {
+            if (i2 == 2) {
                 return Lifecycle.Event.ON_START;
             }
-            if (i == 3) {
+            if (i2 == 3) {
                 return Lifecycle.Event.ON_RESUME;
             }
-            if (i == 4) {
+            if (i2 == 4) {
                 throw new IllegalArgumentException();
             }
-            if (i != 5) {
+            if (i2 != 5) {
                 throw new IllegalArgumentException("Unexpected state value " + state);
             }
         }

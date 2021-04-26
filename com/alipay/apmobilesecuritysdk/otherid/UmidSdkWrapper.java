@@ -29,7 +29,7 @@ public class UmidSdkWrapper {
         return str;
     }
 
-    public static String startUmidTaskSync(Context context, int i) {
+    public static String startUmidTaskSync(Context context, int i2) {
         return "";
     }
 

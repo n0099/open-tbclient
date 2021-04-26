@@ -11,10 +11,10 @@ import java.util.Map;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, a> f30108a = Collections.synchronizedMap(new HashMap());
+    public static final Map<String, a> f31025a = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: b  reason: collision with root package name */
-    public static IListenerManager f30109b;
+    public static IListenerManager f31026b;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -44,7 +44,7 @@ public class g {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return f30108a.remove(str);
+        return f31025a.remove(str);
     }
 
     public static void a(Context context, String str, String str2, String str3, a aVar) {
@@ -68,10 +68,10 @@ public class g {
     }
 
     public static IListenerManager b() {
-        if (f30109b == null) {
-            f30109b = IListenerManager.Stub.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(2));
+        if (f31026b == null) {
+            f31026b = IListenerManager.Stub.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(2));
         }
-        return f30109b;
+        return f31026b;
     }
 
     public static void a(Context context, String str, String str2, a aVar, String str3, boolean z) {
@@ -133,11 +133,11 @@ public class g {
                 }
             }, 5);
         } else {
-            f30108a.put(str, aVar);
+            f31025a.put(str, aVar);
         }
     }
 
-    public static void a(final String str, final int i) {
+    public static void a(final String str, final int i2) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
@@ -146,7 +146,7 @@ public class g {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        g.b().broadcastDialogListener(str, i);
+                        g.b().broadcastDialogListener(str, i2);
                     } catch (Throwable unused) {
                     }
                 }
@@ -157,11 +157,11 @@ public class g {
         if (d2 == null) {
             return;
         }
-        if (i == 1) {
+        if (i2 == 1) {
             d2.a();
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             d2.b();
-        } else if (i != 3) {
+        } else if (i2 != 3) {
             d2.c();
         } else {
             d2.c();

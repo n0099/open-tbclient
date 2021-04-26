@@ -257,8 +257,8 @@ public class ConfirmDialog extends DialogFragment {
         this.contentView.addView(this.downloadButton, getDownloadButtonParams(this.activity.getResources().getConfiguration().orientation));
     }
 
-    private void addViewBelow(View view, int i, int i2) {
-        addViewBelow(view, i, 0, i2, 0, 0);
+    private void addViewBelow(View view, int i2, int i3) {
+        addViewBelow(view, i2, 0, i3, 0, 0);
     }
 
     private RelativeLayout getContentView(Activity activity) {
@@ -277,9 +277,9 @@ public class ConfirmDialog extends DialogFragment {
         return null;
     }
 
-    private RelativeLayout.LayoutParams getDownloadButtonParams(int i) {
+    private RelativeLayout.LayoutParams getDownloadButtonParams(int i2) {
         RelativeLayout.LayoutParams layoutParams;
-        if (i == 1) {
+        if (i2 == 1) {
             layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         } else {
             layoutParams = new RelativeLayout.LayoutParams(CommonUtils.dip2px(this.activity, 330.0f), -2);
@@ -451,15 +451,15 @@ public class ConfirmDialog extends DialogFragment {
         RemoteXAdLogger.getInstance().e("Confirm dialog initialize failed.");
     }
 
-    private void addViewBelow(View view, int i, int i2, int i3, int i4, int i5) {
+    private void addViewBelow(View view, int i2, int i3, int i4, int i5, int i6) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.addRule(3, i);
+        layoutParams.addRule(3, i2);
         layoutParams.addRule(14);
-        View findViewById = this.contentView.findViewById(i);
+        View findViewById = this.contentView.findViewById(i2);
         if (findViewById != null && findViewById.getVisibility() == 8) {
-            i3 = 36;
+            i4 = 36;
         }
-        layoutParams.setMargins(CommonUtils.dip2px(this.activity, i2), CommonUtils.dip2px(this.activity, i3), CommonUtils.dip2px(this.activity, i4), CommonUtils.dip2px(this.activity, i5));
+        layoutParams.setMargins(CommonUtils.dip2px(this.activity, i3), CommonUtils.dip2px(this.activity, i4), CommonUtils.dip2px(this.activity, i5), CommonUtils.dip2px(this.activity, i6));
         this.contentView.addView(view, layoutParams);
     }
 }

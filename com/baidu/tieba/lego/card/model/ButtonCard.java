@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
-import d.b.j0.j1.o.k.b;
+import d.a.j0.j1.o.k.b;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ButtonCard extends BaseCardInfo {
@@ -75,9 +75,9 @@ public class ButtonCard extends BaseCardInfo {
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public double getRatio() {
-        int i = this.cardWidth;
-        if (i > 0) {
-            return this.cardHeight / i;
+        int i2 = this.cardWidth;
+        if (i2 > 0) {
+            return this.cardHeight / i2;
         }
         return super.getRatio();
     }

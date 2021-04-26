@@ -31,10 +31,10 @@ import java.util.List;
 public class VDeviceAPI {
 
     /* renamed from: a  reason: collision with root package name */
-    public static PowerManager.WakeLock f7944a;
+    public static PowerManager.WakeLock f8231a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f7945b;
+    public static BroadcastReceiver f8232b;
 
     public static String getAppVersion() {
         try {
@@ -125,22 +125,22 @@ public class VDeviceAPI {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static c getNetworkInfo(int i) {
-        int i2;
+    public static c getNetworkInfo(int i2) {
+        int i3;
         NetworkInfo networkInfo;
         ConnectivityManager connectivityManager = (ConnectivityManager) b.a().getSystemService("connectivity");
-        if (i == 2) {
-            i2 = 1;
-        } else if (i != 3) {
+        if (i2 == 2) {
+            i3 = 1;
+        } else if (i2 != 3) {
             networkInfo = null;
             if (networkInfo == null) {
                 return new c(networkInfo);
             }
             return null;
         } else {
-            i2 = 0;
+            i3 = 0;
         }
-        networkInfo = connectivityManager.getNetworkInfo(i2);
+        networkInfo = connectivityManager.getNetworkInfo(i3);
         if (networkInfo == null) {
         }
     }
@@ -150,14 +150,14 @@ public class VDeviceAPI {
     }
 
     public static int getScreenBrightness() {
-        int i;
+        int i2;
         ContentResolver contentResolver = b.a().getContentResolver();
         try {
-            i = Settings.System.getInt(contentResolver, "screen_brightness_mode");
+            i2 = Settings.System.getInt(contentResolver, "screen_brightness_mode");
         } catch (Settings.SettingNotFoundException unused) {
-            i = 0;
+            i2 = 0;
         }
-        if (i == 1) {
+        if (i2 == 1) {
             return -1;
         }
         try {
@@ -299,24 +299,24 @@ public class VDeviceAPI {
 
     public static void setNetworkChangedCallback() {
         unsetNetworkChangedCallback();
-        f7945b = new a();
-        b.a().registerReceiver(f7945b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        f8232b = new a();
+        b.a().registerReceiver(f8232b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
     }
 
     public static void setScreenAlwaysOn(boolean z) {
         if (z) {
-            if (f7944a == null) {
-                f7944a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
+            if (f8231a == null) {
+                f8231a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
             }
-            f7944a.acquire();
+            f8231a.acquire();
             return;
         }
-        PowerManager.WakeLock wakeLock = f7944a;
+        PowerManager.WakeLock wakeLock = f8231a;
         if (wakeLock == null || !wakeLock.isHeld()) {
             return;
         }
-        f7944a.release();
-        f7944a = null;
+        f8231a.release();
+        f8231a = null;
     }
 
     public static void setupSoftware(String str) {
@@ -326,9 +326,9 @@ public class VDeviceAPI {
     }
 
     public static void unsetNetworkChangedCallback() {
-        if (f7945b != null) {
-            b.a().unregisterReceiver(f7945b);
-            f7945b = null;
+        if (f8232b != null) {
+            b.a().unregisterReceiver(f8232b);
+            f8232b = null;
         }
     }
 }

@@ -23,40 +23,42 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import d.b.c.e.p.l;
-import d.b.i.l0;
-import d.b.i.p;
-import d.b.i0.r.k;
-import d.b.i0.r.q.a2;
-import d.b.j0.x.b0;
+import d.a.c.e.p.l;
+import d.a.i.l0;
+import d.a.i.p;
+import d.a.i0.r.k;
+import d.a.i0.r.q.a2;
+import d.a.j0.x.b0;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.a> {
+public class MultiImgTextPicLayout extends LinearLayout implements p<d.a.i0.r.q.a> {
     public static final int y;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f4467e;
+    public TextView f4556e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f4468f;
+    public TextView f4557f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PlayVoiceBntNew f4469g;
+    public PlayVoiceBntNew f4558g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f4470h;
-    public TbImageView i;
+    public RelativeLayout f4559h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TbImageView f4560i;
     public TbImageView j;
     public TbImageView k;
     public TextView l;
     public TbImageView m;
     public String n;
     public boolean o;
-    public b0<d.b.i0.r.q.a> p;
-    public d.b.i0.r.q.a q;
+    public b0<d.a.i0.r.q.a> p;
+    public d.a.i0.r.q.a q;
     public int r;
-    public d.b.i0.b1.j.d s;
+    public d.a.i0.b1.j.d s;
     public LinkedList<MediaData> t;
     public boolean u;
     public int v;
@@ -70,7 +72,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b0<d.b.i0.r.q.a> subClickListener = MultiImgTextPicLayout.this.getSubClickListener();
+            b0<d.a.i0.r.q.a> subClickListener = MultiImgTextPicLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("2");
                 subClickListener.a(view, MultiImgTextPicLayout.this.q);
@@ -79,27 +81,27 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
     }
 
     /* loaded from: classes.dex */
-    public class b implements d.b.i0.b1.j.d {
+    public class b implements d.a.i0.b1.j.d {
         public b() {
         }
 
-        @Override // d.b.i0.b1.j.d
-        public void a(View view, int i, boolean z) {
-            b0<d.b.i0.r.q.a> subClickListener = MultiImgTextPicLayout.this.getSubClickListener();
+        @Override // d.a.i0.b1.j.d
+        public void a(View view, int i2, boolean z) {
+            b0<d.a.i0.r.q.a> subClickListener = MultiImgTextPicLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("1");
                 MultiImgTextPicLayout.this.q.objType = 2;
-                subClickListener.f64180a = Boolean.valueOf(z);
+                subClickListener.f62441a = Boolean.valueOf(z);
                 subClickListener.a(view, MultiImgTextPicLayout.this.q);
             }
             if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().q) {
-                ThreadCardUtils.startImageViewer(view, MultiImgTextPicLayout.this.o, MultiImgTextPicLayout.this.t, i, MultiImgTextPicLayout.this.q.n(), MultiImgTextPicLayout.this.n);
+                ThreadCardUtils.startImageViewer(view, MultiImgTextPicLayout.this.o, MultiImgTextPicLayout.this.t, i2, MultiImgTextPicLayout.this.q.m(), MultiImgTextPicLayout.this.n);
             } else if ("index".equals(MultiImgTextPicLayout.this.n)) {
                 ThreadCardUtils.jumpToPB(MultiImgTextPicLayout.this.q, view.getContext(), 2, false);
             } else if ("frs".equals(MultiImgTextPicLayout.this.n)) {
                 ThreadCardUtils.jumpToPB(MultiImgTextPicLayout.this.q, view.getContext(), 3, false);
             } else {
-                ThreadCardUtils.startImageViewer(view, MultiImgTextPicLayout.this.o, MultiImgTextPicLayout.this.t, i, MultiImgTextPicLayout.this.q.n(), MultiImgTextPicLayout.this.n);
+                ThreadCardUtils.startImageViewer(view, MultiImgTextPicLayout.this.o, MultiImgTextPicLayout.this.t, i2, MultiImgTextPicLayout.this.q.m(), MultiImgTextPicLayout.this.n);
             }
         }
     }
@@ -115,7 +117,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void b(TbImageView tbImageView, Canvas canvas) {
-            int i;
+            int i2;
             float f2;
             float f3;
             float f4;
@@ -127,27 +129,27 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
             if (tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            d.b.c.j.d.a m = d.b.i0.a0.c.k().m(d.b.c.e.l.d.h().g(tbImageView.getUrl(), MultiImgTextPicLayout.this.o ? 13 : 14));
-            int i2 = 0;
+            d.a.c.j.d.a m = d.a.i0.a0.c.k().m(d.a.c.e.l.d.h().g(tbImageView.getUrl(), MultiImgTextPicLayout.this.o ? 13 : 14));
+            int i3 = 0;
             if (m != null) {
-                i2 = m.r();
-                i = m.m();
+                i3 = m.r();
+                i2 = m.m();
             } else {
-                i = 0;
+                i2 = 0;
             }
-            if (i2 == 0 || i == 0) {
+            if (i3 == 0 || i2 == 0) {
                 return;
             }
             int width = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
             int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
             Matrix imageMatrix = tbImageView.getImageMatrix();
             float f10 = 0.0f;
-            if (tbImageView.L() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+            if (tbImageView.K() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
                 float smartCropCenterPointWidthRatio = tbImageView.getSmartCropCenterPointWidthRatio();
                 float smartCropCenterPointHeightRatio = tbImageView.getSmartCropCenterPointHeightRatio();
-                if (i2 * height > width * i) {
-                    f7 = height / i;
-                    float f11 = i2;
+                if (i3 * height > width * i2) {
+                    f7 = height / i2;
+                    float f11 = i3;
                     float f12 = smartCropCenterPointWidthRatio * f11 * f7;
                     float f13 = width;
                     float f14 = 0.5f * f13;
@@ -159,8 +161,8 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
                     }
                     f10 = f9;
                 } else {
-                    float f16 = width / i2;
-                    float f17 = i;
+                    float f16 = width / i3;
+                    float f17 = i2;
                     float f18 = smartCropCenterPointHeightRatio * f17 * f16;
                     float f19 = height;
                     float f20 = 0.5f * f19;
@@ -182,29 +184,29 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
                 f8 = 0.0f;
                 imageMatrix.setScale(f7, f7);
                 imageMatrix.postTranslate(f10, f8);
-            } else if (tbImageView.J() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
-                if (i2 * height > width * i) {
+            } else if (tbImageView.I() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                if (i3 * height > width * i2) {
                     f5 = height;
-                    f6 = i;
+                    f6 = i2;
                 } else {
                     f5 = width;
-                    f6 = i2;
+                    f6 = i3;
                 }
                 float f23 = f5 / f6;
                 imageMatrix.setScale(f23, f23);
                 imageMatrix.postTranslate(0.0f, 0.0f);
             } else if (tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
-                if (i2 * height > width * i) {
-                    f2 = height / i;
-                    f4 = (width - (i2 * f2)) * 0.5f;
+                if (i3 * height > width * i2) {
+                    f2 = height / i2;
+                    f4 = (width - (i3 * f2)) * 0.5f;
                     f3 = 0.0f;
                 } else {
-                    f2 = width / i2;
-                    f3 = (height - (i * f2)) * 0.5f;
+                    f2 = width / i3;
+                    f3 = (height - (i2 * f2)) * 0.5f;
                     f4 = 0.0f;
                 }
                 imageMatrix.setScale(f2, f2);
-                if (MultiImgTextPicLayout.this.u && i > i2) {
+                if (MultiImgTextPicLayout.this.u && i2 > i3) {
                     imageMatrix.postTranslate(f4, 0.0f);
                 } else {
                     imageMatrix.postTranslate(f4, f3);
@@ -217,28 +219,28 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f4474e;
+        public int f4564e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f4475f;
+        public boolean f4565f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f4476g;
+        public boolean f4566g;
 
-        public d(int i, boolean z, boolean z2) {
-            a(i, z, z2);
+        public d(int i2, boolean z, boolean z2) {
+            a(i2, z, z2);
         }
 
-        public void a(int i, boolean z, boolean z2) {
-            this.f4474e = i;
-            this.f4475f = z;
-            this.f4476g = z2;
+        public void a(int i2, boolean z, boolean z2) {
+            this.f4564e = i2;
+            this.f4565f = z;
+            this.f4566g = z2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (MultiImgTextPicLayout.this.s != null) {
-                MultiImgTextPicLayout.this.s.a(view, this.f4474e, this.f4475f && this.f4476g);
+                MultiImgTextPicLayout.this.s.a(view, this.f4564e, this.f4565f && this.f4566g);
             }
         }
     }
@@ -259,8 +261,8 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
         ArrayList<MediaData> K0 = a2Var.K0();
         if (k.c().g() && ListUtils.getCount(K0) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < K0.size(); i++) {
-                MediaData mediaData = (MediaData) ListUtils.getItem(K0, i);
+            for (int i2 = 0; i2 < K0.size(); i2++) {
+                MediaData mediaData = (MediaData) ListUtils.getItem(K0, i2);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
@@ -268,13 +270,13 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
             this.t = linkedList;
             if (linkedList.size() == 1) {
                 this.l.setVisibility(8);
-                this.f4470h.setVisibility(8);
+                this.f4559h.setVisibility(8);
                 this.m.setVisibility(0);
                 l((MediaData) ListUtils.getItem(K0, 0), this.m, false, false, 0);
                 return;
             }
             this.m.setVisibility(8);
-            d.b.i0.b.g.b.f(this.l, R.drawable.thread_card_more_number_bg);
+            d.a.i0.b.g.b.f(this.l, R.drawable.thread_card_more_number_bg);
             if (linkedList.size() > 3) {
                 this.l.setText(TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(linkedList.size() - 3)}));
                 this.l.setVisibility(0);
@@ -283,28 +285,28 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
                 this.l.setVisibility(8);
                 z = false;
             }
-            this.f4470h.setVisibility(8);
+            this.f4559h.setVisibility(8);
             if (ListUtils.getCount(linkedList) == 2) {
-                this.f4470h.setVisibility(0);
+                this.f4559h.setVisibility(0);
                 boolean z2 = z;
-                l((MediaData) ListUtils.getItem(K0, 0), this.i, z2, false, 0);
+                l((MediaData) ListUtils.getItem(K0, 0), this.f4560i, z2, false, 0);
                 this.j.setVisibility(8);
                 l((MediaData) ListUtils.getItem(K0, 1), this.k, z2, false, 1);
                 return;
             } else if (ListUtils.getCount(linkedList) >= 3) {
-                this.f4470h.setVisibility(0);
+                this.f4559h.setVisibility(0);
                 this.j.setVisibility(0);
                 boolean z3 = z;
-                l((MediaData) ListUtils.getItem(K0, 0), this.i, z3, false, 0);
+                l((MediaData) ListUtils.getItem(K0, 0), this.f4560i, z3, false, 0);
                 l((MediaData) ListUtils.getItem(K0, 1), this.j, z3, false, 1);
                 l((MediaData) ListUtils.getItem(K0, 2), this.k, z3, true, 2);
                 return;
             } else {
-                this.f4470h.setVisibility(8);
+                this.f4559h.setVisibility(8);
                 return;
             }
         }
-        this.f4470h.setVisibility(8);
+        this.f4559h.setVisibility(8);
     }
 
     private void setImageTextData(a2 a2Var) {
@@ -312,20 +314,20 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
 
     private void setSingleImgData(a2 a2Var) {
         this.l.setVisibility(8);
-        this.f4470h.setVisibility(8);
+        this.f4559h.setVisibility(8);
         ArrayList<MediaData> K0 = a2Var.K0();
         if (k.c().g() && ListUtils.getCount(K0) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
             MediaData mediaData = null;
-            int i = 0;
+            int i2 = 0;
             while (true) {
-                if (i < K0.size()) {
-                    mediaData = (MediaData) ListUtils.getItem(K0, i);
+                if (i2 < K0.size()) {
+                    mediaData = (MediaData) ListUtils.getItem(K0, i2);
                     if (mediaData != null && mediaData.getType() == 3) {
                         linkedList.add(mediaData);
                         break;
                     }
-                    i++;
+                    i2++;
                 } else {
                     break;
                 }
@@ -347,21 +349,21 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
     private void setVoiceData(a2 a2Var) {
         ArrayList<VoiceData$VoiceModel> H1 = a2Var.H1();
         if (ListUtils.isEmpty(H1)) {
-            this.f4469g.setVisibility(8);
+            this.f4558g.setVisibility(8);
             return;
         }
-        this.f4469g.setVisibility(0);
+        this.f4558g.setVisibility(0);
         VoiceData$VoiceModel voiceData$VoiceModel = H1.get(0);
-        this.f4469g.setVoiceModel(voiceData$VoiceModel);
-        this.f4469g.setTag(voiceData$VoiceModel);
-        this.f4469g.b();
+        this.f4558g.setVoiceModel(voiceData$VoiceModel);
+        this.f4558g.setTag(voiceData$VoiceModel);
+        this.f4558g.b();
         if (voiceData$VoiceModel != null) {
-            this.f4469g.k(voiceData$VoiceModel.voice_status.intValue());
+            this.f4558g.j(voiceData$VoiceModel.voice_status.intValue());
         }
-        this.f4469g.m();
+        this.f4558g.l();
     }
 
-    public final int g(int i) {
+    public final int g(int i2) {
         if (this.r > 0) {
             int k = l.k(getContext());
             if (k == this.v) {
@@ -369,12 +371,12 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
             }
             this.v = k;
         }
-        int size = (View.MeasureSpec.getSize(i) - (2 * TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10))) / 3;
+        int size = (View.MeasureSpec.getSize(i2) - (2 * TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10))) / 3;
         this.r = size;
         return size;
     }
 
-    public b0<d.b.i0.r.q.a> getSubClickListener() {
+    public b0<d.a.i0.r.q.a> getSubClickListener() {
         return this.p;
     }
 
@@ -396,26 +398,26 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
         LayoutInflater.from(getContext()).inflate(R.layout.multi_image_card_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.f4468f = (TextView) findViewById(R.id.thread_card_abstract);
-        this.f4467e = (TextView) findViewById(R.id.thread_card_title);
+        this.f4557f = (TextView) findViewById(R.id.thread_card_abstract);
+        this.f4556e = (TextView) findViewById(R.id.thread_card_title);
         PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
-        this.f4469g = playVoiceBntNew;
+        this.f4558g = playVoiceBntNew;
         playVoiceBntNew.setAfterClickListener(new a());
-        int k = ((l.k(getContext()) - (l0.i * 2)) - (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10) * 2)) / 3;
+        int k = ((l.k(getContext()) - (l0.f47730i * 2)) - (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10) * 2)) / 3;
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.thread_card_img_more_container);
-        this.f4470h = relativeLayout;
-        d.b.i0.b.g.b.b(relativeLayout, R.dimen.tbds26, R.dimen.tbds14);
-        d.b.i0.b.g.b.k(this.f4467e, R.dimen.tbds7, R.dimen.tbds10);
-        d.b.i0.b.g.b.k(this.f4468f, R.dimen.tbds7, R.dimen.tbds10);
-        this.f4470h.getLayoutParams().height = k;
+        this.f4559h = relativeLayout;
+        d.a.i0.b.g.b.b(relativeLayout, R.dimen.tbds26, R.dimen.tbds14);
+        d.a.i0.b.g.b.k(this.f4556e, R.dimen.tbds7, R.dimen.tbds10);
+        d.a.i0.b.g.b.k(this.f4557f, R.dimen.tbds7, R.dimen.tbds10);
+        this.f4559h.getLayoutParams().height = k;
         TbImageView tbImageView = (TbImageView) findViewById(R.id.thread_card_img_more_one);
-        this.i = tbImageView;
+        this.f4560i = tbImageView;
         tbImageView.setDrawCorner(true);
-        this.i.setRadiusById(R.string.J_X12);
-        this.i.setPlaceHolder(2);
-        this.i.setConrers(15);
-        this.i.getLayoutParams().height = k;
-        this.i.getLayoutParams().width = k;
+        this.f4560i.setRadiusById(R.string.J_X12);
+        this.f4560i.setPlaceHolder(2);
+        this.f4560i.setConrers(15);
+        this.f4560i.getLayoutParams().height = k;
+        this.f4560i.getLayoutParams().width = k;
         TbImageView tbImageView2 = (TbImageView) findViewById(R.id.thread_card_img_more_two);
         this.j = tbImageView2;
         tbImageView2.setDrawCorner(false);
@@ -436,8 +438,8 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
         this.l = textView;
         textView.getLayoutParams().height = k;
         this.l.getLayoutParams().width = k;
-        d.b.i0.r.u.c.d(this.l).t(R.array.S_O_X001);
-        this.l.setTypeface(d.b.i0.r.u.a.C(d.b.i0.r.u.a.z(R.string.F_X02)));
+        d.a.i0.r.u.c.d(this.l).t(R.array.S_O_X001);
+        this.l.setTypeface(d.a.i0.r.u.a.C(d.a.i0.r.u.a.z(R.string.F_X02)));
         TbImageView tbImageView4 = (TbImageView) findViewById(R.id.thread_card_img_singal);
         this.m = tbImageView4;
         tbImageView4.setRadiusById(R.string.J_X05);
@@ -446,29 +448,29 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
         this.m.setPlaceHolder(3);
         this.m.setLongIconSupport(true);
         this.m.setGifIconSupport(true);
-        d.b.i0.b.g.b.b(this.m, R.dimen.tbds28, R.dimen.tbds14);
+        d.a.i0.b.g.b.b(this.m, R.dimen.tbds28, R.dimen.tbds14);
         this.s = new b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.i.p
+    @Override // d.a.i.p
     /* renamed from: j */
-    public void a(d.b.i0.r.q.a aVar) {
+    public void a(d.a.i0.r.q.a aVar) {
         this.q = aVar;
-        a2 n = aVar.n();
-        ThreadCardUtils.setTitle(this.f4467e, n, this.w);
-        ThreadCardUtils.setAbstract(this.f4468f, this.f4467e, n, y, this.w);
-        setImageData(n);
-        setVoiceData(n);
+        a2 m = aVar.m();
+        ThreadCardUtils.setTitle(this.f4556e, m, this.w);
+        ThreadCardUtils.setAbstract(this.f4557f, this.f4556e, m, y, this.w);
+        setImageData(m);
+        setVoiceData(m);
     }
 
-    public final void k(TbImageView tbImageView, int i, boolean z, boolean z2) {
+    public final void k(TbImageView tbImageView, int i2, boolean z, boolean z2) {
         if (this.s != null && tbImageView != null) {
             View.OnClickListener onClickListener = tbImageView.getOnClickListener();
             if (onClickListener instanceof d) {
-                ((d) onClickListener).a(i, z, z2);
+                ((d) onClickListener).a(i2, z, z2);
             } else {
-                tbImageView.setOnClickListener(new d(i, z, z2));
+                tbImageView.setOnClickListener(new d(i2, z, z2));
             }
         } else if (this.s != null || tbImageView == null) {
         } else {
@@ -476,11 +478,11 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
         }
     }
 
-    public final void l(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, int i) {
+    public final void l(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, int i2) {
         String h2 = h(mediaData);
-        int i2 = this.o ? 13 : 14;
+        int i3 = this.o ? 13 : 14;
         if (!StringHelper.equals(h2, tbImageView.getUrl())) {
-            tbImageView.S();
+            tbImageView.Q();
         }
         setCanCenterStart(false);
         boolean isLongPic = mediaData.isLongPic();
@@ -504,15 +506,15 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
             tbImageView.setLongIconSupport(true);
             tbImageView.setGifIconSupport(true);
         }
-        tbImageView.W(h2, i2, false);
-        k(tbImageView, i, z, z2);
+        tbImageView.V(h2, i3, false);
+        k(tbImageView, i2, z, z2);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        int g2 = g(i);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        int g2 = g(i2);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f4560i.getLayoutParams();
         layoutParams.width = g2;
         layoutParams.height = g2;
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
@@ -524,8 +526,8 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
         RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.l.getLayoutParams();
         layoutParams4.width = g2;
         layoutParams4.height = g2;
-        if (this.f4470h.getVisibility() != 8) {
-            this.i.setLayoutParams(layoutParams);
+        if (this.f4559h.getVisibility() != 8) {
+            this.f4560i.setLayoutParams(layoutParams);
             this.j.setLayoutParams(layoutParams2);
             this.k.setLayoutParams(layoutParams3);
             this.l.setLayoutParams(layoutParams4);
@@ -544,11 +546,11 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
         this.o = z;
     }
 
-    public void setMarginsTop(View view, int i) {
+    public void setMarginsTop(View view, int i2) {
         if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-            if (marginLayoutParams.topMargin != i) {
-                marginLayoutParams.topMargin = i;
+            if (marginLayoutParams.topMargin != i2) {
+                marginLayoutParams.topMargin = i2;
                 view.setLayoutParams(marginLayoutParams);
             }
         }
@@ -558,10 +560,10 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.i0.r.q.
         this.w = z;
     }
 
-    public void setPreloadSizeReadyCallback(d.b.c.j.c.b bVar) {
+    public void setPreloadSizeReadyCallback(d.a.c.j.c.b bVar) {
     }
 
-    public void setSubClickListener(b0<d.b.i0.r.q.a> b0Var) {
+    public void setSubClickListener(b0<d.a.i0.r.q.a> b0Var) {
         this.p = b0Var;
     }
 

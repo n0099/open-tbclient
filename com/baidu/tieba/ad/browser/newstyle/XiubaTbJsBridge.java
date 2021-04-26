@@ -22,7 +22,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class XiubaTbJsBridge implements d.b.j0.d3.l0.b {
+public class XiubaTbJsBridge implements d.a.j0.d3.l0.b {
     public static final String INTERFACE_NAME = "XiubaJSBridge";
     public static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
     public static final String METHOD_DOWNLOAD_APK = "downLoadAPK";
@@ -37,8 +37,8 @@ public class XiubaTbJsBridge implements d.b.j0.d3.l0.b {
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,10 +55,10 @@ public class XiubaTbJsBridge implements d.b.j0.d3.l0.b {
     public class b extends CustomMessageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f14192a;
+        public boolean f14242a;
 
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,16 +72,16 @@ public class XiubaTbJsBridge implements d.b.j0.d3.l0.b {
                 for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                         if (downloadData.getStatus() == 5) {
-                            if (!this.f14192a) {
-                                this.f14192a = true;
+                            if (!this.f14242a) {
+                                this.f14242a = true;
                                 XiubaTbJsBridge.this.callDownloadListener(1);
                             }
                         } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
                             XiubaTbJsBridge.this.callDownloadListener(2);
-                            this.f14192a = false;
+                            this.f14242a = false;
                         } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
                             XiubaTbJsBridge.this.callDownloadListener(0);
-                            this.f14192a = false;
+                            this.f14242a = false;
                         }
                     }
                 }
@@ -98,14 +98,14 @@ public class XiubaTbJsBridge implements d.b.j0.d3.l0.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void callDownloadListener(int i) {
+    public void callDownloadListener(int i2) {
         JSResultData jSResultData = new JSResultData();
         jSResultData.setStatus(1);
         jSResultData.setErrorCode("0");
         jSResultData.setErrorMsg("");
         JSResultData.Result result = new JSResultData.Result();
         jSResultData.setResult(result);
-        result.setDownload(i);
+        result.setDownload(i2);
         JSONObject jsonWithObject = OrmObject.jsonWithObject(jSResultData);
         if (this.mTbPageContext.getOrignalPage() instanceof AdBaseWebViewActivity) {
             ((AdBaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('download'," + jsonWithObject + SmallTailInfo.EMOTION_SUFFIX);
@@ -188,11 +188,11 @@ public class XiubaTbJsBridge implements d.b.j0.d3.l0.b {
     private boolean isInstall(String str) {
         String[] split;
         if (!StringUtils.isNull(str) && (split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length != 0) {
-            int d2 = d.b.c.e.m.b.d(split[0], 0);
+            int d2 = d.a.c.e.m.b.d(split[0], 0);
             if (d2 > 3) {
                 return true;
             }
-            if (split.length >= 2 && d2 == 3 && d.b.c.e.m.b.d(split[1], 0) >= 2) {
+            if (split.length >= 2 && d2 == 3 && d.a.c.e.m.b.d(split[1], 0) >= 2) {
                 return true;
             }
         }
@@ -205,15 +205,15 @@ public class XiubaTbJsBridge implements d.b.j0.d3.l0.b {
             messageDigest.update(str.getBytes());
             byte[] digest = messageDigest.digest();
             StringBuffer stringBuffer = new StringBuffer("");
-            for (int i = 0; i < digest.length; i++) {
-                int i2 = digest[i];
-                if (i2 < 0) {
-                    i2 += 256;
+            for (int i2 = 0; i2 < digest.length; i2++) {
+                int i3 = digest[i2];
+                if (i3 < 0) {
+                    i3 += 256;
                 }
-                if (i2 < 16) {
+                if (i3 < 16) {
                     stringBuffer.append("0");
                 }
-                stringBuffer.append(Integer.toHexString(i2));
+                stringBuffer.append(Integer.toHexString(i3));
             }
             return stringBuffer.toString();
         } catch (NoSuchAlgorithmException e2) {
@@ -223,7 +223,7 @@ public class XiubaTbJsBridge implements d.b.j0.d3.l0.b {
     }
 
     private void startDownload(String str) {
-        d.b.i0.v.b.l().r("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
+        d.a.i0.v.b.l().r("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
     }
 
     private boolean validateGameUrl(String str) {
@@ -246,7 +246,7 @@ public class XiubaTbJsBridge implements d.b.j0.d3.l0.b {
         }
     }
 
-    @Override // d.b.j0.d3.l0.b
+    @Override // d.a.j0.d3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("XiubaJSBridge".equals(str)) {
             if ("checkAPKInstall".equals(str2)) {

@@ -3,7 +3,7 @@ package com.xiaomi.push;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f40598a = new a(new byte[0]);
+    public static final a f38113a = new a(new byte[0]);
 
     /* renamed from: a  reason: collision with other field name */
     public volatile int f98a = 0;
@@ -19,9 +19,9 @@ public final class a {
         return a(bArr, 0, bArr.length);
     }
 
-    public static a a(byte[] bArr, int i, int i2) {
-        byte[] bArr2 = new byte[i2];
-        System.arraycopy(bArr, i, bArr2, 0, i2);
+    public static a a(byte[] bArr, int i2, int i3) {
+        byte[] bArr2 = new byte[i3];
+        System.arraycopy(bArr, i2, bArr2, 0, i3);
         return new a(bArr2);
     }
 
@@ -30,7 +30,7 @@ public final class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m122a() {
+    public byte[] m125a() {
         byte[] bArr = this.f99a;
         int length = bArr.length;
         byte[] bArr2 = new byte[length];
@@ -49,8 +49,8 @@ public final class a {
             if (length != bArr2.length) {
                 return false;
             }
-            for (int i = 0; i < length; i++) {
-                if (bArr[i] != bArr2[i]) {
+            for (int i2 = 0; i2 < length; i2++) {
+                if (bArr[i2] != bArr2[i2]) {
                     return false;
                 }
             }
@@ -60,16 +60,16 @@ public final class a {
     }
 
     public int hashCode() {
-        int i = this.f98a;
-        if (i == 0) {
+        int i2 = this.f98a;
+        if (i2 == 0) {
             byte[] bArr = this.f99a;
             int length = bArr.length;
             for (byte b2 : bArr) {
                 length = (length * 31) + b2;
             }
-            i = length == 0 ? 1 : length;
-            this.f98a = i;
+            i2 = length == 0 ? 1 : length;
+            this.f98a = i2;
         }
-        return i;
+        return i2;
     }
 }

@@ -68,18 +68,18 @@ public class XAdRemoteEvent implements IOAdEvent {
         this(str, 0, hashMap);
     }
 
-    public XAdRemoteEvent(String str, int i) {
-        this(str, i, new HashMap());
+    public XAdRemoteEvent(String str, int i2) {
+        this(str, i2, new HashMap());
     }
 
-    public XAdRemoteEvent(String str, int i, HashMap<String, Object> hashMap) {
+    public XAdRemoteEvent(String str, int i2, HashMap<String, Object> hashMap) {
         this.mType = str;
-        this.mCode = i;
+        this.mCode = i2;
         this.mData = hashMap;
     }
 
-    public XAdRemoteEvent(String str, int i, String str2) {
-        this(str, i, new HashMap());
+    public XAdRemoteEvent(String str, int i2, String str2) {
+        this(str, i2, new HashMap());
         this.mData.put("message", str2);
     }
 }

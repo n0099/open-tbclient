@@ -9,7 +9,7 @@ import com.facebook.fresco.animation.bitmap.BitmapFrameRenderer;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
 import com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer {
     public static final Class<?> TAG = AnimatedDrawableBackendFrameRenderer.class;
     public AnimatedDrawableBackend mAnimatedDrawableBackend;
@@ -21,12 +21,12 @@ public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer
         AnimatedImageCompositor.Callback callback = new AnimatedImageCompositor.Callback() { // from class: com.facebook.fresco.animation.bitmap.wrapper.AnimatedDrawableBackendFrameRenderer.1
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.Callback
             @Nullable
-            public CloseableReference<Bitmap> getCachedBitmap(int i) {
-                return AnimatedDrawableBackendFrameRenderer.this.mBitmapFrameCache.getCachedFrame(i);
+            public CloseableReference<Bitmap> getCachedBitmap(int i2) {
+                return AnimatedDrawableBackendFrameRenderer.this.mBitmapFrameCache.getCachedFrame(i2);
             }
 
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.Callback
-            public void onIntermediateResult(int i, Bitmap bitmap) {
+            public void onIntermediateResult(int i2, Bitmap bitmap) {
             }
         };
         this.mCallback = callback;
@@ -46,12 +46,12 @@ public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameRenderer
-    public boolean renderFrame(int i, Bitmap bitmap) {
+    public boolean renderFrame(int i2, Bitmap bitmap) {
         try {
-            this.mAnimatedImageCompositor.renderFrame(i, bitmap);
+            this.mAnimatedImageCompositor.renderFrame(i2, bitmap);
             return true;
         } catch (IllegalStateException e2) {
-            FLog.e(TAG, e2, "Rendering of frame unsuccessful. Frame number: %d", Integer.valueOf(i));
+            FLog.e(TAG, e2, "Rendering of frame unsuccessful. Frame number: %d", Integer.valueOf(i2));
             return false;
         }
     }

@@ -13,7 +13,7 @@ import com.bytedance.sdk.openadsdk.utils.al;
 public class ExpressVideoView extends NativeVideoTsView implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28181a;
+    public int f29045a;
     public boolean p;
 
     public ExpressVideoView(@NonNull Context context, @NonNull com.bytedance.sdk.openadsdk.core.d.l lVar, String str) {
@@ -27,19 +27,19 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
     }
 
     private void k() {
-        al.a((View) this.f28402f, 0);
-        al.a((View) this.f28403g, 0);
-        al.a((View) this.i, 8);
+        al.a((View) this.f29273f, 0);
+        al.a((View) this.f29274g, 0);
+        al.a((View) this.f29276i, 8);
     }
 
     private void l() {
         h();
-        RelativeLayout relativeLayout = this.f28402f;
+        RelativeLayout relativeLayout = this.f29273f;
         if (relativeLayout != null) {
             if (relativeLayout.getVisibility() == 0) {
                 return;
             }
-            com.bytedance.sdk.openadsdk.i.e.c().a(this.f28398b.X().h(), this.f28403g);
+            com.bytedance.sdk.openadsdk.i.e.c().a(this.f29269b.X().h(), this.f29274g);
         }
         k();
     }
@@ -50,8 +50,8 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView
     public void b() {
-        this.f28401e = false;
-        int d2 = ak.d(this.f28398b.ap());
+        this.f29272e = false;
+        int d2 = ak.d(this.f29269b.ap());
         if ("banner_ad".equalsIgnoreCase(this.k)) {
             p.h().r(String.valueOf(d2));
         }
@@ -61,12 +61,12 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView
     public void c() {
         if (this.p) {
-            super.b(this.f28181a);
+            super.b(this.f29045a);
         }
     }
 
     public void d() {
-        ImageView imageView = this.i;
+        ImageView imageView = this.f29276i;
         if (imageView != null) {
             al.a((View) imageView, 8);
         }
@@ -74,26 +74,26 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
 
     public void e() {
         h();
-        al.a((View) this.f28402f, 0);
+        al.a((View) this.f29273f, 0);
     }
 
     public boolean f() {
-        com.bytedance.sdk.openadsdk.core.video.nativevideo.c cVar = this.f28399c;
-        return (cVar == null || cVar.u() == null || !this.f28399c.u().g()) ? false : true;
+        com.bytedance.sdk.openadsdk.core.video.nativevideo.c cVar = this.f29270c;
+        return (cVar == null || cVar.u() == null || !this.f29270c.u().g()) ? false : true;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ImageView imageView = this.f28404h;
+        ImageView imageView = this.f29275h;
         if (imageView != null && imageView.getVisibility() == 0) {
-            al.f(this.f28402f);
+            al.f(this.f29273f);
         }
-        b(this.f28181a);
+        b(this.f29045a);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView, android.view.View
     public void onWindowFocusChanged(boolean z) {
-        ImageView imageView = this.f28404h;
+        ImageView imageView = this.f29275h;
         if (imageView != null && imageView.getVisibility() == 0) {
             l();
         } else {
@@ -102,12 +102,12 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView, android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        ImageView imageView = this.f28404h;
+    public void onWindowVisibilityChanged(int i2) {
+        ImageView imageView = this.f29275h;
         if (imageView != null && imageView.getVisibility() == 0) {
             l();
         } else {
-            super.onWindowVisibilityChanged(i);
+            super.onWindowVisibilityChanged(i2);
         }
     }
 
@@ -116,7 +116,7 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
     }
 
     public void setShouldCheckNetChange(boolean z) {
-        com.bytedance.sdk.openadsdk.core.video.nativevideo.c cVar = this.f28399c;
+        com.bytedance.sdk.openadsdk.core.video.nativevideo.c cVar = this.f29270c;
         if (cVar != null) {
             cVar.f(z);
         }
@@ -124,14 +124,14 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
 
     public void setShowAdInteractionView(boolean z) {
         com.bytedance.sdk.openadsdk.core.video.nativevideo.h v;
-        com.bytedance.sdk.openadsdk.core.video.nativevideo.c cVar = this.f28399c;
+        com.bytedance.sdk.openadsdk.core.video.nativevideo.c cVar = this.f29270c;
         if (cVar == null || (v = cVar.v()) == null) {
             return;
         }
         v.d(z);
     }
 
-    public void setVideoPlayStatus(int i) {
-        this.f28181a = i;
+    public void setVideoPlayStatus(int i2) {
+        this.f29045a = i2;
     }
 }

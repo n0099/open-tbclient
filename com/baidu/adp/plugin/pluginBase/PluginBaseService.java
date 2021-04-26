@@ -14,8 +14,8 @@ import android.os.IBinder;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
-import d.b.c.h.f.c;
-import d.b.c.h.j.g.d;
+import d.a.c.h.f.c;
+import d.a.c.h.j.g.d;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
@@ -40,8 +40,8 @@ public abstract class PluginBaseService extends PluginContextWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
-        return this.mServiceProxy.proxyBindService(intent, serviceConnection, i);
+    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i2) {
+        return this.mServiceProxy.proxyBindService(intent, serviceConnection, i2);
     }
 
     public void dump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
@@ -78,14 +78,14 @@ public abstract class PluginBaseService extends PluginContextWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SharedPreferences getSharedPreferences(String str, int i) {
+    public SharedPreferences getSharedPreferences(String str, int i2) {
         String pluginPackageName = getPluginPackageName();
         PluginSetting h2 = d.k().h(pluginPackageName);
         if (h2 != null && h2.isThird) {
             c cVar = this.mServiceProxy;
-            return cVar.proxyGetSharedPreferences(pluginPackageName + str, i);
+            return cVar.proxyGetSharedPreferences(pluginPackageName + str, i2);
         }
-        return this.mServiceProxy.proxyGetSharedPreferences(str, i);
+        return this.mServiceProxy.proxyGetSharedPreferences(str, i2);
     }
 
     public abstract IBinder onBind(Intent intent);
@@ -109,12 +109,12 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         this.mServiceProxy.proxyOnRebind(intent);
     }
 
-    public void onStart(Intent intent, int i) {
-        this.mServiceProxy.proxyOnStart(intent, i);
+    public void onStart(Intent intent, int i2) {
+        this.mServiceProxy.proxyOnStart(intent, i2);
     }
 
-    public int onStartCommand(Intent intent, int i, int i2) {
-        return this.mServiceProxy.proxyOnStartCommand(intent, i, i2);
+    public int onStartCommand(Intent intent, int i2, int i3) {
+        return this.mServiceProxy.proxyOnStartCommand(intent, i2, i3);
     }
 
     public boolean onUnbind(Intent intent) {
@@ -133,25 +133,25 @@ public abstract class PluginBaseService extends PluginContextWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public FileOutputStream openFileOutput(String str, int i) throws FileNotFoundException {
+    public FileOutputStream openFileOutput(String str, int i2) throws FileNotFoundException {
         String pluginPackageName = getPluginPackageName();
         PluginSetting h2 = d.k().h(pluginPackageName);
         if (h2 != null && h2.isThird) {
             Service service = this.mService;
-            return service.openFileOutput(pluginPackageName + str, i);
+            return service.openFileOutput(pluginPackageName + str, i2);
         }
-        return this.mService.openFileOutput(str, i);
+        return this.mService.openFileOutput(str, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
+    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory) {
         String pluginPackageName = getPluginPackageName();
         PluginSetting h2 = d.k().h(pluginPackageName);
         if (h2 != null && h2.isThird) {
             Service service = this.mService;
-            return service.openOrCreateDatabase(pluginPackageName + str, i, cursorFactory);
+            return service.openOrCreateDatabase(pluginPackageName + str, i2, cursorFactory);
         }
-        return this.mService.openOrCreateDatabase(str, i, cursorFactory);
+        return this.mService.openOrCreateDatabase(str, i2, cursorFactory);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -172,8 +172,8 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         this.mServiceProxy.proxyStartActivity(intent);
     }
 
-    public final void startForeground(int i, Notification notification) {
-        this.mService.startForeground(i, notification);
+    public final void startForeground(int i2, Notification notification) {
+        this.mService.startForeground(i2, notification);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -185,8 +185,8 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         this.mService.stopSelf();
     }
 
-    public final boolean stopSelfResult(int i) {
-        return this.mService.stopSelfResult(i);
+    public final boolean stopSelfResult(int i2) {
+        return this.mService.stopSelfResult(i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -199,7 +199,7 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         super.sendBroadcast(intent, str);
     }
 
-    public final void stopSelf(int i) {
-        this.mService.stopSelf(i);
+    public final void stopSelf(int i2) {
+        this.mService.stopSelf(i2);
     }
 }

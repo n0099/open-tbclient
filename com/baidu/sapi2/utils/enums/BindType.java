@@ -5,32 +5,26 @@ public enum BindType {
     SMS("sms", "afterauth", "finishbind"),
     BIND_MOBILE("bind_mobile", "afterauth", "afterauth");
     
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f11048a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f11049b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f11050c;
+    public String callbackPage;
+    public String finishBindPage;
+    public String name;
 
     BindType(String str, String str2, String str3) {
-        this.f11048a = "";
-        this.f11048a = str;
-        this.f11049b = str2;
-        this.f11050c = str3;
+        this.name = "";
+        this.name = str;
+        this.callbackPage = str2;
+        this.finishBindPage = str3;
     }
 
     public String getCallbackPage() {
-        return this.f11049b;
+        return this.callbackPage;
     }
 
     public String getFinishBindPage() {
-        return this.f11050c;
+        return this.finishBindPage;
     }
 
     public String getName() {
-        return this.f11048a;
+        return this.name;
     }
 }

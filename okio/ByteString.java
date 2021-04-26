@@ -32,20 +32,20 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         this.data = bArr;
     }
 
-    public static int codePointIndexToCharIndex(String str, int i) {
+    public static int codePointIndexToCharIndex(String str, int i2) {
         int length = str.length();
-        int i2 = 0;
         int i3 = 0;
-        while (i2 < length) {
-            if (i3 == i) {
-                return i2;
+        int i4 = 0;
+        while (i3 < length) {
+            if (i4 == i2) {
+                return i3;
             }
-            int codePointAt = str.codePointAt(i2);
+            int codePointAt = str.codePointAt(i3);
             if ((Character.isISOControl(codePointAt) && codePointAt != 10 && codePointAt != 13) || codePointAt == 65533) {
                 return -1;
             }
-            i3++;
-            i2 += Character.charCount(codePointAt);
+            i4++;
+            i3 += Character.charCount(codePointAt);
         }
         return str.length();
     }
@@ -67,9 +67,9 @@ public class ByteString implements Serializable, Comparable<ByteString> {
             if (str.length() % 2 == 0) {
                 int length = str.length() / 2;
                 byte[] bArr = new byte[length];
-                for (int i = 0; i < length; i++) {
-                    int i2 = i * 2;
-                    bArr[i] = (byte) ((decodeHexDigit(str.charAt(i2)) << 4) + decodeHexDigit(str.charAt(i2 + 1)));
+                for (int i2 = 0; i2 < length; i2++) {
+                    int i3 = i2 * 2;
+                    bArr[i2] = (byte) ((decodeHexDigit(str.charAt(i3)) << 4) + decodeHexDigit(str.charAt(i3 + 1)));
                 }
                 return of(bArr);
             }
@@ -138,21 +138,21 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         throw new IllegalArgumentException("data == null");
     }
 
-    public static ByteString read(InputStream inputStream, int i) throws IOException {
+    public static ByteString read(InputStream inputStream, int i2) throws IOException {
         if (inputStream != null) {
-            if (i >= 0) {
-                byte[] bArr = new byte[i];
-                int i2 = 0;
-                while (i2 < i) {
-                    int read = inputStream.read(bArr, i2, i - i2);
+            if (i2 >= 0) {
+                byte[] bArr = new byte[i2];
+                int i3 = 0;
+                while (i3 < i2) {
+                    int read = inputStream.read(bArr, i3, i2 - i3);
                     if (read == -1) {
                         throw new EOFException();
                     }
-                    i2 += read;
+                    i3 += read;
                 }
                 return new ByteString(bArr);
             }
-            throw new IllegalArgumentException("byteCount < 0: " + i);
+            throw new IllegalArgumentException("byteCount < 0: " + i2);
         }
         throw new IllegalArgumentException("in == null");
     }
@@ -206,14 +206,14 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         return false;
     }
 
-    public byte getByte(int i) {
-        return this.data[i];
+    public byte getByte(int i2) {
+        return this.data[i2];
     }
 
     public int hashCode() {
-        int i = this.hashCode;
-        if (i != 0) {
-            return i;
+        int i2 = this.hashCode;
+        if (i2 != 0) {
+            return i2;
         }
         int hashCode = Arrays.hashCode(this.data);
         this.hashCode = hashCode;
@@ -223,13 +223,13 @@ public class ByteString implements Serializable, Comparable<ByteString> {
     public String hex() {
         byte[] bArr = this.data;
         char[] cArr = new char[bArr.length * 2];
-        int i = 0;
+        int i2 = 0;
         for (byte b2 : bArr) {
-            int i2 = i + 1;
+            int i3 = i2 + 1;
             char[] cArr2 = HEX_DIGITS;
-            cArr[i] = cArr2[(b2 >> 4) & 15];
-            i = i2 + 1;
-            cArr[i2] = cArr2[b2 & 15];
+            cArr[i2] = cArr2[(b2 >> 4) & 15];
+            i2 = i3 + 1;
+            cArr[i3] = cArr2[b2 & 15];
         }
         return new String(cArr);
     }
@@ -262,8 +262,8 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         return digest("MD5");
     }
 
-    public boolean rangeEquals(int i, ByteString byteString, int i2, int i3) {
-        return byteString.rangeEquals(i2, this.data, i, i3);
+    public boolean rangeEquals(int i2, ByteString byteString, int i3, int i4) {
+        return byteString.rangeEquals(i3, this.data, i2, i4);
     }
 
     public ByteString sha1() {
@@ -293,53 +293,53 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         throw new IllegalArgumentException("charset == null");
     }
 
-    public ByteString substring(int i) {
-        return substring(i, this.data.length);
+    public ByteString substring(int i2) {
+        return substring(i2, this.data.length);
     }
 
     public ByteString toAsciiLowercase() {
-        int i = 0;
+        int i2 = 0;
         while (true) {
             byte[] bArr = this.data;
-            if (i >= bArr.length) {
+            if (i2 >= bArr.length) {
                 return this;
             }
-            byte b2 = bArr[i];
+            byte b2 = bArr[i2];
             if (b2 >= 65 && b2 <= 90) {
                 byte[] bArr2 = (byte[]) bArr.clone();
-                bArr2[i] = (byte) (b2 + 32);
-                for (int i2 = i + 1; i2 < bArr2.length; i2++) {
-                    byte b3 = bArr2[i2];
+                bArr2[i2] = (byte) (b2 + 32);
+                for (int i3 = i2 + 1; i3 < bArr2.length; i3++) {
+                    byte b3 = bArr2[i3];
                     if (b3 >= 65 && b3 <= 90) {
-                        bArr2[i2] = (byte) (b3 + 32);
+                        bArr2[i3] = (byte) (b3 + 32);
                     }
                 }
                 return new ByteString(bArr2);
             }
-            i++;
+            i2++;
         }
     }
 
     public ByteString toAsciiUppercase() {
-        int i = 0;
+        int i2 = 0;
         while (true) {
             byte[] bArr = this.data;
-            if (i >= bArr.length) {
+            if (i2 >= bArr.length) {
                 return this;
             }
-            byte b2 = bArr[i];
+            byte b2 = bArr[i2];
             if (b2 >= 97 && b2 <= 122) {
                 byte[] bArr2 = (byte[]) bArr.clone();
-                bArr2[i] = (byte) (b2 - 32);
-                for (int i2 = i + 1; i2 < bArr2.length; i2++) {
-                    byte b3 = bArr2[i2];
+                bArr2[i2] = (byte) (b2 - 32);
+                for (int i3 = i2 + 1; i3 < bArr2.length; i3++) {
+                    byte b3 = bArr2[i3];
                     if (b3 >= 97 && b3 <= 122) {
-                        bArr2[i2] = (byte) (b3 - 32);
+                        bArr2[i3] = (byte) (b3 - 32);
                     }
                 }
                 return new ByteString(bArr2);
             }
-            i++;
+            i2++;
         }
     }
 
@@ -390,11 +390,11 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         int size = size();
         int size2 = byteString.size();
         int min = Math.min(size, size2);
-        for (int i = 0; i < min; i++) {
-            int i2 = getByte(i) & 255;
-            int i3 = byteString.getByte(i) & 255;
-            if (i2 != i3) {
-                return i2 < i3 ? -1 : 1;
+        for (int i2 = 0; i2 < min; i2++) {
+            int i3 = getByte(i2) & 255;
+            int i4 = byteString.getByte(i2) & 255;
+            if (i3 != i4) {
+                return i3 < i4 ? -1 : 1;
             }
         }
         if (size == size2) {
@@ -407,18 +407,18 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         return rangeEquals(size() - bArr.length, bArr, 0, bArr.length);
     }
 
-    public final int indexOf(ByteString byteString, int i) {
-        return indexOf(byteString.internalArray(), i);
+    public final int indexOf(ByteString byteString, int i2) {
+        return indexOf(byteString.internalArray(), i2);
     }
 
-    public final int lastIndexOf(ByteString byteString, int i) {
-        return lastIndexOf(byteString.internalArray(), i);
+    public final int lastIndexOf(ByteString byteString, int i2) {
+        return lastIndexOf(byteString.internalArray(), i2);
     }
 
-    public boolean rangeEquals(int i, byte[] bArr, int i2, int i3) {
-        if (i >= 0) {
+    public boolean rangeEquals(int i2, byte[] bArr, int i3, int i4) {
+        if (i2 >= 0) {
             byte[] bArr2 = this.data;
-            if (i <= bArr2.length - i3 && i2 >= 0 && i2 <= bArr.length - i3 && Util.arrayRangeEquals(bArr2, i, bArr, i2, i3)) {
+            if (i2 <= bArr2.length - i4 && i3 >= 0 && i3 <= bArr.length - i4 && Util.arrayRangeEquals(bArr2, i2, bArr, i3, i4)) {
                 return true;
             }
         }
@@ -429,19 +429,19 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         return rangeEquals(0, bArr, 0, bArr.length);
     }
 
-    public ByteString substring(int i, int i2) {
-        if (i >= 0) {
+    public ByteString substring(int i2, int i3) {
+        if (i2 >= 0) {
             byte[] bArr = this.data;
-            if (i2 > bArr.length) {
+            if (i3 > bArr.length) {
                 throw new IllegalArgumentException("endIndex > length(" + this.data.length + SmallTailInfo.EMOTION_SUFFIX);
             }
-            int i3 = i2 - i;
-            if (i3 >= 0) {
-                if (i == 0 && i2 == bArr.length) {
+            int i4 = i3 - i2;
+            if (i4 >= 0) {
+                if (i2 == 0 && i3 == bArr.length) {
                     return this;
                 }
-                byte[] bArr2 = new byte[i3];
-                System.arraycopy(this.data, i, bArr2, 0, i3);
+                byte[] bArr2 = new byte[i4];
+                System.arraycopy(this.data, i2, bArr2, 0, i4);
                 return new ByteString(bArr2);
             }
             throw new IllegalArgumentException("endIndex < beginIndex");
@@ -449,11 +449,11 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         throw new IllegalArgumentException("beginIndex < 0");
     }
 
-    public static ByteString of(byte[] bArr, int i, int i2) {
+    public static ByteString of(byte[] bArr, int i2, int i3) {
         if (bArr != null) {
-            Util.checkOffsetAndCount(bArr.length, i, i2);
-            byte[] bArr2 = new byte[i2];
-            System.arraycopy(bArr, i, bArr2, 0, i2);
+            Util.checkOffsetAndCount(bArr.length, i2, i3);
+            byte[] bArr2 = new byte[i3];
+            System.arraycopy(bArr, i2, bArr2, 0, i3);
             return new ByteString(bArr2);
         }
         throw new IllegalArgumentException("data == null");
@@ -472,9 +472,9 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         buffer.write(bArr, 0, bArr.length);
     }
 
-    public int indexOf(byte[] bArr, int i) {
+    public int indexOf(byte[] bArr, int i2) {
         int length = this.data.length - bArr.length;
-        for (int max = Math.max(i, 0); max <= length; max++) {
+        for (int max = Math.max(i2, 0); max <= length; max++) {
             if (Util.arrayRangeEquals(this.data, max, bArr, 0, bArr.length)) {
                 return max;
             }
@@ -482,8 +482,8 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         return -1;
     }
 
-    public int lastIndexOf(byte[] bArr, int i) {
-        for (int min = Math.min(i, this.data.length - bArr.length); min >= 0; min--) {
+    public int lastIndexOf(byte[] bArr, int i2) {
+        for (int min = Math.min(i2, this.data.length - bArr.length); min >= 0; min--) {
             if (Util.arrayRangeEquals(this.data, min, bArr, 0, bArr.length)) {
                 return min;
             }

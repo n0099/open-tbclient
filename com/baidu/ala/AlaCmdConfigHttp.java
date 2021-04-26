@@ -3,7 +3,6 @@ package com.baidu.ala;
 public class AlaCmdConfigHttp {
     public static final int CMD_ALA_ENTER_EFFECT_BUY_PROP = 1021145;
     public static final int CMD_ALA_FRS_STORY_LIVE_GATHER = 1021075;
-    public static final int CMD_ALA_GAME_LIVE_LIST = 1021150;
     public static final int CMD_ALA_GET_ENTER_EFFECT = 1021133;
     public static final int CMD_ALA_GET_GLOBAL_PUSH_SWITCH = 1021051;
     public static final int CMD_ALA_GET_PRIVILEGE_MARK_LIST = 1021134;

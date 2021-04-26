@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static Map<String, String> a(String str) {
         if (TextUtils.isEmpty(str)) {

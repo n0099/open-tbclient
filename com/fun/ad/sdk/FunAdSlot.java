@@ -24,13 +24,13 @@ public class FunAdSlot {
             return funAdSlot;
         }
 
-        public Builder setExpressHeight(int i) {
-            this.expressHeight = i;
+        public Builder setExpressHeight(int i2) {
+            this.expressHeight = i2;
             return this;
         }
 
-        public Builder setExpressWidth(int i) {
-            this.expressWidth = i;
+        public Builder setExpressWidth(int i2) {
+            this.expressWidth = i2;
             return this;
         }
 

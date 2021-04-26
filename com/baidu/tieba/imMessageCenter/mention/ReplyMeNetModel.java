@@ -5,8 +5,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import d.b.j0.f1.b.l;
-import d.b.j0.f1.b.m;
+import d.a.j0.f1.b.l;
+import d.a.j0.f1.b.m;
 /* loaded from: classes4.dex */
 public class ReplyMeNetModel extends NetAutoModel<l, m, ReplyMessageFragment> {
     public ReplyMeNetModel(TbPageContext tbPageContext, l lVar) {

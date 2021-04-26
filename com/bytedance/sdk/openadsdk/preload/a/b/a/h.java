@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public final class h extends v<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f29624a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.h.1
+    public static final w f30529a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.h.1
         @Override // com.bytedance.sdk.openadsdk.preload.a.w
         public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
             if (aVar.a() == Object.class) {
@@ -19,47 +19,47 @@ public final class h extends v<Object> {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.f f29625b;
+    public final com.bytedance.sdk.openadsdk.preload.a.f f30530b;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.a.b.a.h$2  reason: invalid class name */
     /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass2 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f29626a;
+        public static final /* synthetic */ int[] f30531a;
 
         static {
             int[] iArr = new int[com.bytedance.sdk.openadsdk.preload.a.d.b.values().length];
-            f29626a = iArr;
+            f30531a = iArr;
             try {
                 iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.BEGIN_ARRAY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f29626a[com.bytedance.sdk.openadsdk.preload.a.d.b.BEGIN_OBJECT.ordinal()] = 2;
+                f30531a[com.bytedance.sdk.openadsdk.preload.a.d.b.BEGIN_OBJECT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f29626a[com.bytedance.sdk.openadsdk.preload.a.d.b.STRING.ordinal()] = 3;
+                f30531a[com.bytedance.sdk.openadsdk.preload.a.d.b.STRING.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f29626a[com.bytedance.sdk.openadsdk.preload.a.d.b.NUMBER.ordinal()] = 4;
+                f30531a[com.bytedance.sdk.openadsdk.preload.a.d.b.NUMBER.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f29626a[com.bytedance.sdk.openadsdk.preload.a.d.b.BOOLEAN.ordinal()] = 5;
+                f30531a[com.bytedance.sdk.openadsdk.preload.a.d.b.BOOLEAN.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f29626a[com.bytedance.sdk.openadsdk.preload.a.d.b.NULL.ordinal()] = 6;
+                f30531a[com.bytedance.sdk.openadsdk.preload.a.d.b.NULL.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
     }
 
     public h(com.bytedance.sdk.openadsdk.preload.a.f fVar) {
-        this.f29625b = fVar;
+        this.f30530b = fVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
@@ -68,7 +68,7 @@ public final class h extends v<Object> {
             cVar.f();
             return;
         }
-        v a2 = this.f29625b.a((Class) obj.getClass());
+        v a2 = this.f30530b.a((Class) obj.getClass());
         if (a2 instanceof h) {
             cVar.d();
             cVar.e();
@@ -79,7 +79,7 @@ public final class h extends v<Object> {
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
     public Object b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-        switch (AnonymousClass2.f29626a[aVar.f().ordinal()]) {
+        switch (AnonymousClass2.f30531a[aVar.f().ordinal()]) {
             case 1:
                 ArrayList arrayList = new ArrayList();
                 aVar.a();

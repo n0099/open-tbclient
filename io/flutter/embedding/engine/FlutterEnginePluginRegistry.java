@@ -155,11 +155,11 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
             return this.hiddenLifecycleReference;
         }
 
-        public boolean onActivityResult(int i, int i2, @Nullable Intent intent) {
+        public boolean onActivityResult(int i2, int i3, @Nullable Intent intent) {
             boolean z;
             while (true) {
                 for (PluginRegistry.ActivityResultListener activityResultListener : this.onActivityResultListeners) {
-                    z = activityResultListener.onActivityResult(i, i2, intent) || z;
+                    z = activityResultListener.onActivityResult(i2, i3, intent) || z;
                 }
                 return z;
             }
@@ -171,11 +171,11 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
             }
         }
 
-        public boolean onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+        public boolean onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
             boolean z;
             while (true) {
                 for (PluginRegistry.RequestPermissionsResultListener requestPermissionsResultListener : this.onRequestPermissionsResultListeners) {
-                    z = requestPermissionsResultListener.onRequestPermissionsResult(i, strArr, iArr) || z;
+                    z = requestPermissionsResultListener.onRequestPermissionsResult(i2, strArr, iArr) || z;
                 }
                 return z;
             }
@@ -526,10 +526,10 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     @Override // io.flutter.embedding.engine.plugins.activity.ActivityControlSurface
-    public boolean onActivityResult(int i, int i2, @Nullable Intent intent) {
+    public boolean onActivityResult(int i2, int i3, @Nullable Intent intent) {
         Log.v(TAG, "Forwarding onActivityResult() to plugins.");
         if (isAttachedToActivity()) {
-            return this.activityPluginBinding.onActivityResult(i, i2, intent);
+            return this.activityPluginBinding.onActivityResult(i2, i3, intent);
         }
         Log.e(TAG, "Attempted to notify ActivityAware plugins of onActivityResult, but no Activity was attached.");
         return false;
@@ -562,10 +562,10 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     @Override // io.flutter.embedding.engine.plugins.activity.ActivityControlSurface
-    public boolean onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public boolean onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Log.v(TAG, "Forwarding onRequestPermissionsResult() to plugins.");
         if (isAttachedToActivity()) {
-            return this.activityPluginBinding.onRequestPermissionsResult(i, strArr, iArr);
+            return this.activityPluginBinding.onRequestPermissionsResult(i2, strArr, iArr);
         }
         Log.e(TAG, "Attempted to notify ActivityAware plugins of onRequestPermissionsResult, but no Activity was attached.");
         return false;

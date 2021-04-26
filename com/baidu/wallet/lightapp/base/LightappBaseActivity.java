@@ -46,6 +46,7 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import org.webrtc.MediaStreamTrack;
 @SuppressLint({"SetJavaScriptEnabled"})
 /* loaded from: classes5.dex */
 public abstract class LightappBaseActivity extends BaseActivity implements NoProguard {
@@ -60,7 +61,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
     public static int WEBVIEW_ERROR_TIME;
 
     /* renamed from: e  reason: collision with root package name */
-    public Uri f24508e;
+    public Uri f25265e;
     public LightappJsClient mLightappJsClient;
     public List<String> mPhoneContacts;
     public ValueCallback<Uri> mUploadMessage;
@@ -69,16 +70,16 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
     public boolean mNeedClearHistory = true;
 
     /* renamed from: a  reason: collision with root package name */
-    public Intent f24504a = null;
+    public Intent f25261a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f24505b = -1;
+    public int f25262b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24506c = null;
+    public String f25263c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f24507d = false;
+    public boolean f25264d = false;
     public boolean mNeedOverrideUrl = false;
     public long mLangbridgeHash = 0;
 
@@ -113,11 +114,11 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
 
         @Override // android.webkit.WebViewClient
         @Deprecated
-        public void onReceivedError(WebView webView, int i, String str, String str2) {
-            DXMSdkSAUtils.onEventWithValues("#LightApp_Load_Failed", Arrays.asList(i + "", str2));
-            PayStatisticsUtil.onEventWithValues("#LightApp_Load_Failed", Arrays.asList(i + "", str2));
+        public void onReceivedError(WebView webView, int i2, String str, String str2) {
+            DXMSdkSAUtils.onEventWithValues("#LightApp_Load_Failed", Arrays.asList(i2 + "", str2));
+            PayStatisticsUtil.onEventWithValues("#LightApp_Load_Failed", Arrays.asList(i2 + "", str2));
             LogUtil.d("LightappBaseActivity", "onReceivedError.showErrorPage");
-            super.onReceivedError(webView, i, str, str2);
+            super.onReceivedError(webView, i2, str, str2);
         }
 
         @Override // android.webkit.WebViewClient
@@ -166,31 +167,31 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
     public abstract String getLightappWebviewId();
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        this.f24504a = null;
-        this.f24505b = -1;
-        if (i == 1) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        this.f25261a = null;
+        this.f25262b = -1;
+        if (i2 == 1) {
             if (this.mUploadMessage == null) {
                 return;
             }
-            Uri data = (intent == null || i2 != -1) ? null : intent.getData();
+            Uri data = (intent == null || i3 != -1) ? null : intent.getData();
             if (data != null) {
                 this.mUploadMessage.onReceiveValue(data);
             } else {
-                this.mUploadMessage.onReceiveValue(this.f24508e);
+                this.mUploadMessage.onReceiveValue(this.f25265e);
             }
             this.mUploadMessage = null;
-            this.f24508e = null;
-        } else if (i == 2) {
+            this.f25265e = null;
+        } else if (i2 == 2) {
             if (this.mUploadMessageForAndroid5 == null) {
                 return;
             }
-            Uri data2 = (intent == null || i2 != -1) ? null : intent.getData();
+            Uri data2 = (intent == null || i3 != -1) ? null : intent.getData();
             if (data2 != null) {
                 this.mUploadMessageForAndroid5.onReceiveValue(new Uri[]{data2});
             } else {
-                Uri uri = this.f24508e;
+                Uri uri = this.f25265e;
                 if (uri != null) {
                     this.mUploadMessageForAndroid5.onReceiveValue(new Uri[]{uri});
                 } else {
@@ -198,16 +199,16 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                 }
             }
             this.mUploadMessageForAndroid5 = null;
-            this.f24508e = null;
-        } else if (i == 3) {
-            if (i2 == -1) {
+            this.f25265e = null;
+        } else if (i2 == 3) {
+            if (i3 == -1) {
                 this.mLightappJsClient.onCallCameraPicCallbackLocal();
             }
-        } else if (i != 4) {
-            if (i == 6) {
-                this.mLightappJsClient.onInsertCalendarEventDone(i2 == -1);
+        } else if (i2 != 4) {
+            if (i2 == 6) {
+                this.mLightappJsClient.onInsertCalendarEventDone(i3 == -1);
             }
-        } else if (i2 == -1) {
+        } else if (i3 == -1) {
             if (intent != null && intent.getData() != null) {
                 List<String> loadRawPhone = ContactManager.getIContactsImpl().loadRawPhone(intent.getData(), getActivity());
                 this.mPhoneContacts = loadRawPhone;
@@ -223,11 +224,11 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                     }
                     prepareSelectNumDialog(this.mPhoneContacts, new AdapterView.OnItemClickListener() { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.1
                         @Override // android.widget.AdapterView.OnItemClickListener
-                        public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
-                            if (i3 <= 0 || i3 >= LightappBaseActivity.this.mPhoneContacts.size()) {
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
+                            if (i4 <= 0 || i4 >= LightappBaseActivity.this.mPhoneContacts.size()) {
                                 return;
                             }
-                            String replace = LightappBaseActivity.this.mPhoneContacts.get(i3).replace(" ", "").replace("-", "");
+                            String replace = LightappBaseActivity.this.mPhoneContacts.get(i4).replace(" ", "").replace("-", "");
                             LightappBaseActivity lightappBaseActivity = LightappBaseActivity.this;
                             lightappBaseActivity.mLightappJsClient.onContactsSelectedLocal(0, new String[]{lightappBaseActivity.mPhoneContacts.get(0), replace}, "");
                         }
@@ -239,7 +240,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         LightappBrowserWebView lightappBrowserWebView = this.mWebView;
         if (lightappBrowserWebView != null && lightappBrowserWebView.canGoBack()) {
@@ -252,7 +253,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
         super.onBackPressed();
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     @SuppressLint({"NewApi"})
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -321,60 +322,60 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
         boolean z;
-        super.onRequestPermissionsResult(i, strArr, iArr);
-        this.mLightappJsClient.onRequestPermissionsResultLocal(i, strArr, iArr);
+        super.onRequestPermissionsResult(i2, strArr, iArr);
+        this.mLightappJsClient.onRequestPermissionsResultLocal(i2, strArr, iArr);
         if (iArr == null || iArr.length <= 0) {
             return;
         }
-        if (i != 101) {
-            if (i == 102) {
+        if (i2 != 101) {
+            if (i2 == 102) {
                 int length = iArr.length;
-                int i2 = 0;
+                int i3 = 0;
                 while (true) {
-                    if (i2 >= length) {
+                    if (i3 >= length) {
                         z = false;
                         break;
-                    } else if (iArr[i2] != 0) {
+                    } else if (iArr[i3] != 0) {
                         z = true;
                         break;
                     } else {
-                        i2++;
+                        i3++;
                     }
                 }
                 if (!z) {
-                    a(this.f24506c, this.f24507d, this.f24505b);
-                    this.f24506c = "";
-                    this.f24507d = false;
-                    this.f24505b = -1;
+                    a(this.f25263c, this.f25264d, this.f25262b);
+                    this.f25263c = "";
+                    this.f25264d = false;
+                    this.f25262b = -1;
                 }
             }
             z = false;
         } else if (iArr[0] == 0) {
-            Intent intent = this.f24504a;
+            Intent intent = this.f25261a;
             if (intent != null) {
-                startActivityForResult(intent, this.f24505b);
+                startActivityForResult(intent, this.f25262b);
             }
             z = false;
         } else {
             z = true;
         }
         if (z) {
-            if (this.f24505b == 1) {
+            if (this.f25262b == 1) {
                 ValueCallback<Uri> valueCallback = this.mUploadMessage;
                 if (valueCallback != null) {
                     valueCallback.onReceiveValue(null);
                     this.mUploadMessage = null;
                 }
-                this.f24508e = null;
-            } else if (i == 2) {
+                this.f25265e = null;
+            } else if (i2 == 2) {
                 ValueCallback<Uri[]> valueCallback2 = this.mUploadMessageForAndroid5;
                 if (valueCallback2 != null) {
                     valueCallback2.onReceiveValue(new Uri[0]);
                     this.mUploadMessageForAndroid5 = null;
                 }
-                this.f24508e = null;
+                this.f25265e = null;
             }
         }
     }
@@ -424,13 +425,13 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(String str, boolean z, int i) {
+    public void a(String str, boolean z, int i2) {
         Intent intent;
         Intent intent2;
         if (!PermissionManager.checkCallingPermission(getActivity(), "android.permission.READ_EXTERNAL_STORAGE") && !PermissionManager.checkCallingPermission(getActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
-            this.f24506c = str;
-            this.f24507d = z;
-            this.f24505b = i;
+            this.f25263c = str;
+            this.f25264d = z;
+            this.f25262b = i2;
             BaiduWalletUtils.requestPermissionsDialog("", getActivity(), new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, new BaiduWalletUtils.IRequestPermissionCallBack() { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.2
                 @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
                 public void isAllAgree(Boolean bool) {
@@ -468,7 +469,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
             String str2 = split[0];
             int hashCode = str2.hashCode();
             if (hashCode == 93166550) {
-                if (str2.equals("audio")) {
+                if (str2.equals(MediaStreamTrack.AUDIO_TRACK_KIND)) {
                     c2 = 2;
                     if (c2 != 0) {
                     }
@@ -485,17 +486,17 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                         File file = new File(externalStoragePublicDirectory + File.separator + "IMG_" + System.currentTimeMillis() + ".jpg");
                         if (BeanConstants.CHANNEL_ID_IQIYI.equals(BeanConstants.CHANNEL_ID)) {
                             Activity activity = getActivity();
-                            this.f24508e = FileProvider.getUriForFile(activity, getPackageName() + ".fileprovider", file);
+                            this.f25265e = FileProvider.getUriForFile(activity, getPackageName() + ".fileprovider", file);
                         } else {
                             Activity activity2 = getActivity();
-                            this.f24508e = FileProvider.getUriForFile(activity2, getPackageName() + ".langbrigeProvider", file);
+                            this.f25265e = FileProvider.getUriForFile(activity2, getPackageName() + ".langbrigeProvider", file);
                         }
-                        grantUriPermission(getPackageName(), this.f24508e, 3);
+                        grantUriPermission(getPackageName(), this.f25265e, 3);
                         intent2 = new Intent("android.media.action.IMAGE_CAPTURE");
-                        intent2.putExtra("output", this.f24508e);
+                        intent2.putExtra("output", this.f25265e);
                         if (!PermissionManager.checkCallingPermission(getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
-                            this.f24504a = intent2;
-                            this.f24505b = i;
+                            this.f25261a = intent2;
+                            this.f25262b = i2;
                             BaiduWalletUtils.requestPermissionsDialog("", getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new BaiduWalletUtils.IRequestPermissionCallBack() { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.3
                                 @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
                                 public void isAllAgree(Boolean bool) {
@@ -520,17 +521,17 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                         File file2 = new File(externalStoragePublicDirectory + File.separator + "video_" + System.currentTimeMillis() + ".mp4");
                         if (BeanConstants.CHANNEL_ID_IQIYI.equals(BeanConstants.CHANNEL_ID)) {
                             Activity activity3 = getActivity();
-                            this.f24508e = FileProvider.getUriForFile(activity3, getPackageName() + ".fileprovider", file2);
+                            this.f25265e = FileProvider.getUriForFile(activity3, getPackageName() + ".fileprovider", file2);
                         } else {
                             Activity activity4 = getActivity();
-                            this.f24508e = FileProvider.getUriForFile(activity4, getPackageName() + ".langbrigeProvider", file2);
+                            this.f25265e = FileProvider.getUriForFile(activity4, getPackageName() + ".langbrigeProvider", file2);
                         }
-                        grantUriPermission(getPackageName(), this.f24508e, 3);
+                        grantUriPermission(getPackageName(), this.f25265e, 3);
                         intent2 = new Intent("android.media.action.VIDEO_CAPTURE");
-                        intent2.putExtra("output", this.f24508e);
+                        intent2.putExtra("output", this.f25265e);
                         if (!PermissionManager.checkCallingPermission(getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
-                            this.f24504a = intent2;
-                            this.f24505b = i;
+                            this.f25261a = intent2;
+                            this.f25262b = i2;
                             BaiduWalletUtils.requestPermissionsDialog("", getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new BaiduWalletUtils.IRequestPermissionCallBack() { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.4
                                 @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
                                 public void isAllAgree(Boolean bool) {
@@ -569,7 +570,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
             intent.setType(str);
         }
         if (intent.resolveActivity(packageManager) != null) {
-            startActivityForResult(intent, i);
+            startActivityForResult(intent, i2);
         }
     }
 

@@ -9,10 +9,10 @@ import java.net.URL;
 public class f extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f6742a;
+    public final /* synthetic */ e f6977a;
 
     public f(e eVar) {
-        this.f6742a = eVar;
+        this.f6977a = eVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:106:0x010e A[EDGE_INSN: B:106:0x010e->B:78:0x010e ?: BREAK  , SYNTHETIC] */
@@ -29,22 +29,22 @@ public class f extends Thread {
         InputStream inputStream;
         boolean z;
         InputStream inputStream2;
-        this.f6742a.f6741h = j.c();
-        this.f6742a.b();
-        this.f6742a.a();
-        int i = this.f6742a.i;
+        this.f6977a.f6975h = j.c();
+        this.f6977a.b();
+        this.f6977a.a();
+        int i2 = this.f6977a.f6976i;
         InputStream inputStream3 = null;
         HttpURLConnection httpURLConnection = null;
-        while (i > 0) {
+        while (i2 > 0) {
             try {
-                HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f6742a.f6741h).openConnection();
+                HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f6977a.f6975h).openConnection();
                 try {
                     httpURLConnection2.setRequestMethod("GET");
                     httpURLConnection2.setDoInput(true);
                     httpURLConnection2.setDoOutput(true);
                     httpURLConnection2.setUseCaches(false);
-                    httpURLConnection2.setConnectTimeout(a.f6705b);
-                    httpURLConnection2.setReadTimeout(a.f6705b);
+                    httpURLConnection2.setConnectTimeout(a.f6936b);
+                    httpURLConnection2.setReadTimeout(a.f6936b);
                     httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                     httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                     if (httpURLConnection2.getResponseCode() == 200) {
@@ -62,15 +62,15 @@ public class f extends Thread {
                                 }
                                 inputStream2.close();
                                 byteArrayOutputStream.close();
-                                this.f6742a.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                                this.f6742a.a(true);
+                                this.f6977a.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                this.f6977a.a(true);
                                 httpURLConnection2.disconnect();
                                 z = true;
                             } catch (Exception unused) {
                                 inputStream = inputStream2;
                                 httpURLConnection = httpURLConnection2;
                                 try {
-                                    Log.d(a.f6704a, "NetworkCommunicationException!");
+                                    Log.d(a.f6935a, "NetworkCommunicationException!");
                                     if (httpURLConnection != null) {
                                         httpURLConnection.disconnect();
                                     }
@@ -173,14 +173,14 @@ public class f extends Thread {
             if (!z) {
                 break;
             }
-            i--;
+            i2--;
         }
-        if (i > 0) {
+        if (i2 > 0) {
             e.p = 0;
             return;
         }
         e.p++;
-        e eVar = this.f6742a;
+        e eVar = this.f6977a;
         eVar.j = null;
         eVar.a(false);
     }

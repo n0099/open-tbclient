@@ -17,12 +17,12 @@ public class Md5Util {
         byte[] digest = md5.digest(str.getBytes());
         StringBuilder sb = new StringBuilder(40);
         for (byte b2 : digest) {
-            int i = b2 & 255;
-            if ((i >> 4) == 0) {
+            int i2 = b2 & 255;
+            if ((i2 >> 4) == 0) {
                 sb.append("0");
-                sb.append(Integer.toHexString(i));
+                sb.append(Integer.toHexString(i2));
             } else {
-                sb.append(Integer.toHexString(i));
+                sb.append(Integer.toHexString(i2));
             }
         }
         return sb.toString();

@@ -1,145 +1,116 @@
 package h.o.d;
 
-import h.k;
-import h.o.d.k.f0;
-import h.o.d.k.j;
-import h.o.d.k.r;
-import java.io.PrintStream;
-import java.util.Queue;
-import rx.exceptions.MissingBackpressureException;
-import rx.internal.operators.NotificationLite;
+import h.g;
+import h.h;
+import h.i;
 /* loaded from: classes7.dex */
-public class g implements k {
+public final class g<T> extends h.h<T> {
 
-    /* renamed from: g  reason: collision with root package name */
-    public static final int f69092g;
+    /* renamed from: b  reason: collision with root package name */
+    public final T f67953b;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Queue<Object> f69093e;
+    /* loaded from: classes7.dex */
+    public class a implements h.d<T> {
 
-    /* renamed from: f  reason: collision with root package name */
-    public volatile Object f69094f;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Object f67954e;
 
-    static {
-        int i = f.c() ? 16 : 128;
-        String property = System.getProperty("rx.ring-buffer.size");
-        if (property != null) {
+        public a(Object obj) {
+            this.f67954e = obj;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.b
+        /* renamed from: a */
+        public void call(i<? super T> iVar) {
+            iVar.c((Object) this.f67954e);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b<T> implements h.d<T> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final h.o.c.b f67955e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final T f67956f;
+
+        public b(h.o.c.b bVar, T t) {
+            this.f67955e = bVar;
+            this.f67956f = t;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.b
+        /* renamed from: a */
+        public void call(i<? super T> iVar) {
+            iVar.a(this.f67955e.a(new d(iVar, this.f67956f)));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class c<T> implements h.d<T> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final h.g f67957e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final T f67958f;
+
+        public c(h.g gVar, T t) {
+            this.f67957e = gVar;
+            this.f67958f = t;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.b
+        /* renamed from: a */
+        public void call(i<? super T> iVar) {
+            g.a createWorker = this.f67957e.createWorker();
+            iVar.a(createWorker);
+            createWorker.b(new d(iVar, this.f67958f));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class d<T> implements h.n.a {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final i<? super T> f67959e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final T f67960f;
+
+        public d(i<? super T> iVar, T t) {
+            this.f67959e = iVar;
+            this.f67960f = t;
+        }
+
+        /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+        @Override // h.n.a
+        public void call() {
             try {
-                i = Integer.parseInt(property);
-            } catch (NumberFormatException e2) {
-                PrintStream printStream = System.err;
-                printStream.println("Failed to set 'rx.buffer.size' with value " + property + " => " + e2.getMessage());
+                this.f67959e.c((T) this.f67960f);
+            } catch (Throwable th) {
+                this.f67959e.b(th);
             }
         }
-        f69092g = i;
     }
 
-    public g(Queue<Object> queue, int i) {
-        this.f69093e = queue;
+    public g(T t) {
+        super(new a(t));
+        this.f67953b = t;
     }
 
-    public static g a() {
-        if (f0.b()) {
-            return new g(true, f69092g);
+    public static <T> g<T> n(T t) {
+        return new g<>(t);
+    }
+
+    public h.h<T> o(h.g gVar) {
+        if (gVar instanceof h.o.c.b) {
+            return h.h.b(new b((h.o.c.b) gVar, this.f67953b));
         }
-        return new g();
-    }
-
-    public static g b() {
-        if (f0.b()) {
-            return new g(false, f69092g);
-        }
-        return new g();
-    }
-
-    public Object c(Object obj) {
-        return NotificationLite.e(obj);
-    }
-
-    public boolean d(Object obj) {
-        return NotificationLite.f(obj);
-    }
-
-    public boolean e() {
-        Queue<Object> queue = this.f69093e;
-        return queue == null || queue.isEmpty();
-    }
-
-    public void f() {
-        if (this.f69094f == null) {
-            this.f69094f = NotificationLite.b();
-        }
-    }
-
-    public void g(Object obj) throws MissingBackpressureException {
-        boolean z;
-        boolean z2;
-        synchronized (this) {
-            Queue<Object> queue = this.f69093e;
-            z = true;
-            z2 = false;
-            if (queue != null) {
-                z2 = !queue.offer(NotificationLite.h(obj));
-                z = false;
-            }
-        }
-        if (z) {
-            throw new IllegalStateException("This instance has been unsubscribed and the queue is no longer usable.");
-        }
-        if (z2) {
-            throw new MissingBackpressureException();
-        }
-    }
-
-    public Object h() {
-        synchronized (this) {
-            Queue<Object> queue = this.f69093e;
-            if (queue == null) {
-                return null;
-            }
-            Object peek = queue.peek();
-            Object obj = this.f69094f;
-            if (peek == null && obj != null && queue.peek() == null) {
-                peek = obj;
-            }
-            return peek;
-        }
-    }
-
-    public Object i() {
-        synchronized (this) {
-            Queue<Object> queue = this.f69093e;
-            if (queue == null) {
-                return null;
-            }
-            Object poll = queue.poll();
-            Object obj = this.f69094f;
-            if (poll == null && obj != null && queue.peek() == null) {
-                this.f69094f = null;
-                poll = obj;
-            }
-            return poll;
-        }
-    }
-
-    @Override // h.k
-    public boolean isUnsubscribed() {
-        return this.f69093e == null;
-    }
-
-    public synchronized void j() {
-    }
-
-    @Override // h.k
-    public void unsubscribe() {
-        j();
-    }
-
-    public g(boolean z, int i) {
-        this.f69093e = z ? new j<>(i) : new r<>(i);
-    }
-
-    public g() {
-        this(new h.o.d.j.c(f69092g), f69092g);
+        return h.h.b(new c(gVar, this.f67953b));
     }
 }

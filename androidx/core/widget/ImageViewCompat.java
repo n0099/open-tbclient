@@ -32,38 +32,32 @@ public class ImageViewCompat {
     }
 
     public static void setImageTintList(@NonNull ImageView imageView, @Nullable ColorStateList colorStateList) {
+        Drawable drawable;
         if (Build.VERSION.SDK_INT >= 21) {
             imageView.setImageTintList(colorStateList);
-            if (Build.VERSION.SDK_INT == 21) {
-                Drawable drawable = imageView.getDrawable();
-                boolean z = (imageView.getImageTintList() == null || imageView.getImageTintMode() == null) ? false : true;
-                if (drawable == null || !z) {
-                    return;
-                }
-                if (drawable.isStateful()) {
-                    drawable.setState(imageView.getDrawableState());
-                }
-                imageView.setImageDrawable(drawable);
+            if (Build.VERSION.SDK_INT != 21 || (drawable = imageView.getDrawable()) == null || imageView.getImageTintList() == null) {
+                return;
             }
+            if (drawable.isStateful()) {
+                drawable.setState(imageView.getDrawableState());
+            }
+            imageView.setImageDrawable(drawable);
         } else if (imageView instanceof TintableImageSourceView) {
             ((TintableImageSourceView) imageView).setSupportImageTintList(colorStateList);
         }
     }
 
     public static void setImageTintMode(@NonNull ImageView imageView, @Nullable PorterDuff.Mode mode) {
+        Drawable drawable;
         if (Build.VERSION.SDK_INT >= 21) {
             imageView.setImageTintMode(mode);
-            if (Build.VERSION.SDK_INT == 21) {
-                Drawable drawable = imageView.getDrawable();
-                boolean z = (imageView.getImageTintList() == null || imageView.getImageTintMode() == null) ? false : true;
-                if (drawable == null || !z) {
-                    return;
-                }
-                if (drawable.isStateful()) {
-                    drawable.setState(imageView.getDrawableState());
-                }
-                imageView.setImageDrawable(drawable);
+            if (Build.VERSION.SDK_INT != 21 || (drawable = imageView.getDrawable()) == null || imageView.getImageTintList() == null) {
+                return;
             }
+            if (drawable.isStateful()) {
+                drawable.setState(imageView.getDrawableState());
+            }
+            imageView.setImageDrawable(drawable);
         } else if (imageView instanceof TintableImageSourceView) {
             ((TintableImageSourceView) imageView).setSupportImageTintMode(mode);
         }

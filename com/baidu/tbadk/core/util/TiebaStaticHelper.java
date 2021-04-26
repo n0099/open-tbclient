@@ -1,12 +1,27 @@
 package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import d.r.a.a;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class TiebaStaticHelper {
     public static final HashMap<String, String> mActivityNames = new HashMap<>();
     public static String mCurrentActivityAllName;
     public static String mCurrentActivityName;
+
+    public static void addYYParam(StatisticItem statisticItem, YyExtData yyExtData) {
+        if (yyExtData != null) {
+            statisticItem.param(TiebaStatic.YYParams.HDID, a.a(TbadkCoreApplication.getInst().getContext()));
+            statisticItem.param(TiebaStatic.YYParams.YYSID, yyExtData.mSid);
+            statisticItem.param(TiebaStatic.YYParams.YYSSID, yyExtData.mSsid);
+            statisticItem.param(TiebaStatic.YYParams.YYUID, yyExtData.mYyUid);
+            statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
+        }
+    }
 
     public static String getCurrentActivity() {
         return mCurrentActivityName;
@@ -25,15 +40,15 @@ public class TiebaStaticHelper {
     }
 
     public static void setCurrentActivity(String str) {
-        int i;
+        int i2;
         mCurrentActivityAllName = str;
         if (TextUtils.isEmpty(str)) {
             mCurrentActivityName = str;
             return;
         }
         int lastIndexOf = str.lastIndexOf(".");
-        if (lastIndexOf != -1 && (i = lastIndexOf + 1) < str.length()) {
-            str = str.substring(i, str.length());
+        if (lastIndexOf != -1 && (i2 = lastIndexOf + 1) < str.length()) {
+            str = str.substring(i2, str.length());
         }
         HashMap<String, String> hashMap = mActivityNames;
         String str2 = hashMap != null ? hashMap.get(str) : "";
@@ -47,6 +62,12 @@ public class TiebaStaticHelper {
         if (str2 != null) {
             long currentTimeMillis = System.currentTimeMillis();
             mCurrentActivityName = str2 + currentTimeMillis;
+        }
+    }
+
+    public static void addYYParam(StatisticItem statisticItem) {
+        if (TbSingleton.getInstance().isYYSwitchStatusIsOn()) {
+            statisticItem.param(TiebaStatic.YYParams.HDID, a.a(TbadkCoreApplication.getInst().getContext()));
         }
     }
 }

@@ -147,8 +147,8 @@ public class IMTrackDatabase {
             SQL_TABLE_CREATE_MESSAGE = "CREATE TABLE msg (" + MsgEnum.msgId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + MsgEnum.msgCount.name() + " LONG, " + MsgEnum.roomId.name() + " TEXT, " + MsgEnum.duration.name() + " LONG, " + MsgEnum.startMsgId.name() + " LONG, " + MsgEnum.endMsgId.name() + " LONG, " + MsgEnum.ext.name() + " TEXT, " + MsgEnum.aliasId.name() + " LONG NOT NULL);";
         }
 
-        public DbOpenHelper(Context context, String str, int i, DatabaseErrorHandler databaseErrorHandler) {
-            super(context, str, null, i, databaseErrorHandler);
+        public DbOpenHelper(Context context, String str, int i2, DatabaseErrorHandler databaseErrorHandler) {
+            super(context, str, null, i2, databaseErrorHandler);
         }
 
         private void dropTables(SQLiteDatabase sQLiteDatabase) {
@@ -183,13 +183,13 @@ public class IMTrackDatabase {
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
             dropTables(sQLiteDatabase);
             onCreate(sQLiteDatabase);
         }
 
-        public DbOpenHelper(Context context, String str, int i) {
-            super(context, str, (SQLiteDatabase.CursorFactory) null, i);
+        public DbOpenHelper(Context context, String str, int i2) {
+            super(context, str, (SQLiteDatabase.CursorFactory) null, i2);
             this.context = context;
         }
     }

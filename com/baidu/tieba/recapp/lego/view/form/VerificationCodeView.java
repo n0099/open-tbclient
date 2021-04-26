@@ -10,13 +10,13 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.baidu.tieba.recapp.lego.view.form.FormItemBaseView;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VerificationCodeView extends FormItemBaseView {
     public EditText x;
     public Button y;
     public c z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -29,7 +29,7 @@ public class VerificationCodeView extends FormItemBaseView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnFocusChangeListener {
         public b() {
         }
@@ -46,7 +46,7 @@ public class VerificationCodeView extends FormItemBaseView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface c {
         void a();
     }
@@ -73,24 +73,24 @@ public class VerificationCodeView extends FormItemBaseView {
     public boolean g(FormCard.b bVar) {
         if (super.g(bVar)) {
             FormCard.h hVar = (FormCard.h) bVar;
-            if (!TextUtils.isEmpty(hVar.f20433d)) {
-                this.y.setText(hVar.f20433d);
+            if (!TextUtils.isEmpty(hVar.f20976d)) {
+                this.y.setText(hVar.f20976d);
                 this.y.setTextSize(0, this.n);
                 this.y.getLayoutParams().height = this.j;
                 Button button = this.y;
-                int i = this.f20518g;
-                button.setPadding(i, 0, i, 0);
+                int i2 = this.f21062g;
+                button.setPadding(i2, 0, i2, 0);
             }
-            if (TextUtils.isEmpty(hVar.f20424b)) {
+            if (TextUtils.isEmpty(hVar.f20967b)) {
                 return true;
             }
-            this.x.setHint(hVar.f20424b);
+            this.x.setHint(hVar.f20967b);
             this.x.setTextSize(0, this.n);
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.x.getLayoutParams();
             marginLayoutParams.height = this.j;
-            int i2 = this.f20518g;
-            marginLayoutParams.rightMargin = i2;
-            this.x.setPadding(i2, 0, 0, 0);
+            int i3 = this.f21062g;
+            marginLayoutParams.rightMargin = i3;
+            this.x.setPadding(i3, 0, 0, 0);
             return true;
         }
         return false;
@@ -107,7 +107,7 @@ public class VerificationCodeView extends FormItemBaseView {
     }
 
     public final void k() {
-        Button button = new Button(this.f20516e);
+        Button button = new Button(this.f21060e);
         this.y = button;
         button.setId(1);
         this.y.setTextColor(this.q);
@@ -121,14 +121,14 @@ public class VerificationCodeView extends FormItemBaseView {
     }
 
     public final void l() {
-        EditText editText = new EditText(this.f20516e);
+        EditText editText = new EditText(this.f21060e);
         this.x = editText;
         editText.setTextColor(this.l);
         this.x.setHintTextColor(this.m);
         this.x.setTextSize(0, this.n);
         this.x.setGravity(19);
         int paddingBottom = this.x.getPaddingBottom();
-        this.x.setPadding(this.f20518g, this.x.getPaddingTop(), this.x.getPaddingRight(), paddingBottom);
+        this.x.setPadding(this.f21062g, this.x.getPaddingTop(), this.x.getPaddingRight(), paddingBottom);
         this.x.setOnFocusChangeListener(new b());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.j);
         layoutParams.addRule(0, this.y.getId());
@@ -152,8 +152,8 @@ public class VerificationCodeView extends FormItemBaseView {
         j();
     }
 
-    public VerificationCodeView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public VerificationCodeView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.x = null;
         this.y = null;
         this.z = null;

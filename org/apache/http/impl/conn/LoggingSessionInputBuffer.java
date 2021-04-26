@@ -17,12 +17,12 @@ public class LoggingSessionInputBuffer implements SessionInputBuffer {
     }
 
     @Override // org.apache.http.io.SessionInputBuffer
-    public boolean isDataAvailable(int i) throws IOException {
+    public boolean isDataAvailable(int i2) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.io.SessionInputBuffer
-    public int read(byte[] bArr, int i, int i2) throws IOException {
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
         throw new RuntimeException("Stub!");
     }
 

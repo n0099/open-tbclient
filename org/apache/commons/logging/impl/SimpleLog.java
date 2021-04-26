@@ -74,7 +74,7 @@ public class SimpleLog implements Log, Serializable {
         throw new RuntimeException("Stub!");
     }
 
-    public boolean isLevelEnabled(int i) {
+    public boolean isLevelEnabled(int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -88,11 +88,11 @@ public class SimpleLog implements Log, Serializable {
         throw new RuntimeException("Stub!");
     }
 
-    public void log(int i, Object obj, Throwable th) {
+    public void log(int i2, Object obj, Throwable th) {
         throw new RuntimeException("Stub!");
     }
 
-    public void setLevel(int i) {
+    public void setLevel(int i2) {
         throw new RuntimeException("Stub!");
     }
 

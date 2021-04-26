@@ -4,23 +4,23 @@ import android.graphics.Bitmap;
 import android.view.Surface;
 import android.view.View;
 import java.nio.Buffer;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface i {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void a(int i, int i2, Buffer buffer);
+        void a(int i2, int i3, Buffer buffer);
 
         void a(long j);
 
-        boolean a(int i);
+        boolean a(int i2);
     }
 
-    Bitmap a(float f2, int i, int i2);
+    Bitmap a(float f2, int i2, int i3);
 
     void a();
 
-    void a(int i, int i2, int i3, int i4);
+    void a(int i2, int i3, int i4, int i5);
 
     void b();
 
@@ -32,13 +32,13 @@ public interface i {
 
     View getView();
 
-    void setClientRotation(int i);
+    void setClientRotation(int i2);
 
     void setCyberSurfaceListener(a aVar);
 
-    void setDisplayMode(int i);
+    void setDisplayMode(int i2);
 
-    void setRawFrameRotation(int i);
+    void setRawFrameRotation(int i2);
 
     void setZOrderMediaOverlay(boolean z);
 }

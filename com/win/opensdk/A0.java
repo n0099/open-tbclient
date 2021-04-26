@@ -1,40 +1,14 @@
 package com.win.opensdk;
-
-import android.webkit.JsResult;
-/* loaded from: classes7.dex */
-public class A0 implements D0 {
+/* loaded from: classes6.dex */
+public class A0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ C0 f39999a;
+    public String f37606a;
 
-    public A0(C0 c0) {
-        this.f39999a = c0;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public long f37607b;
 
-    public void a(C0 c0, boolean z) {
-    }
-
-    public boolean a(String str) {
-        A2 a2;
-        J0 j0 = this.f39999a.o;
-        if (j0 == null || (a2 = ((R0) j0).f40169d) == null) {
-            return false;
-        }
-        return a2.a(str, "");
-    }
-
-    public boolean a(String str, JsResult jsResult) {
-        return false;
-    }
-
-    public boolean a(boolean z) {
-        return false;
-    }
-
-    public void a() {
-        J0 j0 = this.f39999a.o;
-        if (j0 != null) {
-            ((R0) j0).c();
-        }
+    public String toString() {
+        return this.f37606a + ":" + this.f37607b;
     }
 }

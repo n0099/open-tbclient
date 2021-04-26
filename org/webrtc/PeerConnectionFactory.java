@@ -306,13 +306,13 @@ public class PeerConnectionFactory {
 
     public static native void nativeInitializeInternalTracer();
 
-    public static native void nativeInjectLoggable(JNILogging jNILogging, int i);
+    public static native void nativeInjectLoggable(JNILogging jNILogging, int i2);
 
     public static native void nativeInvokeThreadsCallbacks(long j);
 
     public static native void nativeShutdownInternalTracer();
 
-    public static native boolean nativeStartAecDump(long j, int i, int i2);
+    public static native boolean nativeStartAecDump(long j, int i2, int i3);
 
     public static native boolean nativeStartInternalTracingCapture(String str);
 
@@ -460,9 +460,9 @@ public class PeerConnectionFactory {
         return nativeGetNativePeerConnectionFactory(this.nativeFactory);
     }
 
-    public boolean startAecDump(int i, int i2) {
+    public boolean startAecDump(int i2, int i3) {
         checkPeerConnectionFactoryExists();
-        return nativeStartAecDump(this.nativeFactory, i, i2);
+        return nativeStartAecDump(this.nativeFactory, i2, i3);
     }
 
     public void stopAecDump() {

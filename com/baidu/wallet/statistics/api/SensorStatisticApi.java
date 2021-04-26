@@ -1,6 +1,6 @@
 package com.baidu.wallet.statistics.api;
 
-import d.e.a.a.b.d;
+import d.d.a.a.b.d;
 import java.util.Collection;
 import java.util.Map;
 /* loaded from: classes5.dex */
@@ -10,53 +10,53 @@ public class SensorStatisticApi extends StatisticDecorate {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static SensorStatisticApi f26499a = new SensorStatisticApi();
+        public static SensorStatisticApi f27306a = new SensorStatisticApi();
     }
 
     public static SensorStatisticApi getInstance() {
-        return a.f26499a;
+        return a.f27306a;
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
     public void onEvent(String str) {
         super.onEvent(str);
-        d.e.a.a.a.onEvent(str);
+        d.d.a.a.a.onEvent(str);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEnd(String str, int i) {
-        super.onEventEnd(str, i);
-        d.e.a.a.a.i(str, i);
+    public void onEventEnd(String str, int i2) {
+        super.onEventEnd(str, i2);
+        d.d.a.a.a.i(str, i2);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEndWithValue(String str, int i, String str2) {
-        super.onEventEndWithValue(str, i, str2);
-        d.e.a.a.a.k(str, i, str2);
+    public void onEventEndWithValue(String str, int i2, String str2) {
+        super.onEventEndWithValue(str, i2, str2);
+        d.d.a.a.a.k(str, i2, str2);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEndWithValues(String str, int i, Collection<String> collection) {
-        super.onEventEndWithValues(str, i, collection);
-        d.e.a.a.a.m(str, i, collection);
+    public void onEventEndWithValues(String str, int i2, Collection<String> collection) {
+        super.onEventEndWithValues(str, i2, collection);
+        d.d.a.a.a.m(str, i2, collection);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
     public void onEventStart(String str) {
         super.onEventStart(str);
-        d.e.a.a.a.q(str);
+        d.d.a.a.a.q(str);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
     public void onEventWithValue(String str, String str2) {
         super.onEventWithValue(str, str2);
-        d.e.a.a.a.r(str, str2);
+        d.d.a.a.a.r(str, str2);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
     public void onEventWithValues(String str, Collection<String> collection) {
         super.onEventWithValues(str, collection);
-        d.e.a.a.a.t(str, collection);
+        d.d.a.a.a.t(str, collection);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
@@ -68,60 +68,60 @@ public class SensorStatisticApi extends StatisticDecorate {
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
     public void onEvent(String str, String str2) {
         super.onEvent(str, str2);
-        d.e.a.a.a.h(str, str2);
+        d.d.a.a.a.h(str, str2);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEnd(String str, int i, String str2) {
-        super.onEventEnd(str, i, str2);
-        d.e.a.a.a.j(str, i, str2);
+    public void onEventEnd(String str, int i2, String str2) {
+        super.onEventEnd(str, i2, str2);
+        d.d.a.a.a.j(str, i2, str2);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEndWithValue(String str, int i, String str2, String str3) {
-        super.onEventEndWithValue(str, i, str2, str3);
-        d.e.a.a.a.l(str, i, str2, str3);
+    public void onEventEndWithValue(String str, int i2, String str2, String str3) {
+        super.onEventEndWithValue(str, i2, str2, str3);
+        d.d.a.a.a.l(str, i2, str2, str3);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEndWithValues(String str, int i, Collection<String> collection, Map<String, Object> map) {
-        super.onEventEndWithValues(str, i, collection, map);
-        d.e.a.a.a.o(str, i, collection, map);
+    public void onEventEndWithValues(String str, int i2, Collection<String> collection, Map<String, Object> map) {
+        super.onEventEndWithValues(str, i2, collection, map);
+        d.d.a.a.a.o(str, i2, collection, map);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
     public void onEventWithValue(String str, String str2, String str3) {
         super.onEventWithValue(str, str2, str3);
-        d.e.a.a.a.s(str, str2, str3);
+        d.d.a.a.a.s(str, str2, str3);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
     public void onEventWithValues(String str, Collection<String> collection, Map<String, Object> map) {
         super.onEventWithValues(str, collection, map);
-        d.e.a.a.a.v(str, collection, map);
+        d.d.a.a.a.v(str, collection, map);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEndWithValues(String str, int i, Collection<String> collection, String str2) {
-        super.onEventEndWithValues(str, i, collection, str2);
-        d.e.a.a.a.n(str, i, collection, str2);
+    public void onEventEndWithValues(String str, int i2, Collection<String> collection, String str2) {
+        super.onEventEndWithValues(str, i2, collection, str2);
+        d.d.a.a.a.n(str, i2, collection, str2);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
     public void onEventWithValues(String str, Collection<String> collection, String str2) {
         super.onEventWithValues(str, collection, str2);
-        d.e.a.a.a.u(str, collection, str2);
+        d.d.a.a.a.u(str, collection, str2);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
-    public void onEventEndWithValues(String str, int i, Collection<String> collection, Map<String, Object> map, String str2) {
-        super.onEventEndWithValues(str, i, collection, map, str2);
-        d.e.a.a.a.p(str, i, collection, map, str2);
+    public void onEventEndWithValues(String str, int i2, Collection<String> collection, Map<String, Object> map, String str2) {
+        super.onEventEndWithValues(str, i2, collection, map, str2);
+        d.d.a.a.a.p(str, i2, collection, map, str2);
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic
     public void onEventWithValues(String str, Collection<String> collection, Map<String, Object> map, String str2) {
         super.onEventWithValues(str, collection, map, str2);
-        d.e.a.a.a.w(str, collection, map, str2);
+        d.d.a.a.a.w(str, collection, map, str2);
     }
 }

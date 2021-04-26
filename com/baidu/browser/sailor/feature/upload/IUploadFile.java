@@ -14,7 +14,7 @@ public interface IUploadFile extends INoProGuard {
 
     void onOpenFileChooser(Activity activity, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams);
 
-    void onResult(Activity activity, int i, Intent intent);
+    void onResult(Activity activity, int i2, Intent intent);
 
     void onResult(Activity activity, Uri uri);
 

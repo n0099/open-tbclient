@@ -1,54 +1,56 @@
 package io.reactivex.internal.observers;
 
-import f.b.r;
-import f.b.t.b;
-import f.b.u.a;
+import io.reactivex.SingleObserver;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
+import io.reactivex.exceptions.Exceptions;
+import io.reactivex.functions.BiConsumer;
 import io.reactivex.internal.disposables.DisposableHelper;
+import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class BiConsumerSingleObserver<T> extends AtomicReference<b> implements r<T>, b {
+public final class BiConsumerSingleObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T>, Disposable {
     public static final long serialVersionUID = 4943102778943297569L;
-    public final f.b.w.b<? super T, ? super Throwable> onCallback;
+    public final BiConsumer<? super T, ? super Throwable> onCallback;
 
-    public BiConsumerSingleObserver(f.b.w.b<? super T, ? super Throwable> bVar) {
-        this.onCallback = bVar;
+    public BiConsumerSingleObserver(BiConsumer<? super T, ? super Throwable> biConsumer) {
+        this.onCallback = biConsumer;
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         return get() == DisposableHelper.DISPOSED;
     }
 
-    @Override // f.b.r
+    @Override // io.reactivex.SingleObserver
     public void onError(Throwable th) {
         try {
             lazySet(DisposableHelper.DISPOSED);
-            this.onCallback.a(null, th);
+            this.onCallback.accept(null, th);
         } catch (Throwable th2) {
-            a.a(th2);
-            f.b.a0.a.f(new CompositeException(th, th2));
+            Exceptions.throwIfFatal(th2);
+            RxJavaPlugins.onError(new CompositeException(th, th2));
         }
     }
 
-    @Override // f.b.r
-    public void onSubscribe(b bVar) {
-        DisposableHelper.setOnce(this, bVar);
+    @Override // io.reactivex.SingleObserver
+    public void onSubscribe(Disposable disposable) {
+        DisposableHelper.setOnce(this, disposable);
     }
 
-    @Override // f.b.r
+    @Override // io.reactivex.SingleObserver
     public void onSuccess(T t) {
         try {
             lazySet(DisposableHelper.DISPOSED);
-            this.onCallback.a(t, null);
+            this.onCallback.accept(t, null);
         } catch (Throwable th) {
-            a.a(th);
-            f.b.a0.a.f(th);
+            Exceptions.throwIfFatal(th);
+            RxJavaPlugins.onError(th);
         }
     }
 }

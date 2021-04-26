@@ -3,7 +3,7 @@ package com.baidu.tbadk.template.base;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import com.baidu.tbadk.BaseActivity;
-import d.b.i0.x0.a;
+import d.a.i0.x0.a;
 /* loaded from: classes3.dex */
 public abstract class BaseTemplatePageActivity extends BaseActivity {
     public a mPageLoader;
@@ -14,11 +14,11 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
     public abstract int getLayoutR();
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         a aVar = this.mPageLoader;
         if (aVar != null) {
-            aVar.a(i);
+            aVar.a(i2);
         }
     }
 

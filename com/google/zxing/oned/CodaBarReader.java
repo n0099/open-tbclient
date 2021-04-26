@@ -32,29 +32,29 @@ public final class CodaBarReader extends OneDReader {
         return false;
     }
 
-    private void counterAppend(int i) {
+    private void counterAppend(int i2) {
         int[] iArr = this.counters;
-        int i2 = this.counterLength;
-        iArr[i2] = i;
-        int i3 = i2 + 1;
-        this.counterLength = i3;
-        if (i3 >= iArr.length) {
-            int[] iArr2 = new int[i3 << 1];
-            System.arraycopy(iArr, 0, iArr2, 0, i3);
+        int i3 = this.counterLength;
+        iArr[i3] = i2;
+        int i4 = i3 + 1;
+        this.counterLength = i4;
+        if (i4 >= iArr.length) {
+            int[] iArr2 = new int[i4 << 1];
+            System.arraycopy(iArr, 0, iArr2, 0, i4);
             this.counters = iArr2;
         }
     }
 
     private int findStartPattern() throws NotFoundException {
-        for (int i = 1; i < this.counterLength; i += 2) {
-            int narrowWidePattern = toNarrowWidePattern(i);
+        for (int i2 = 1; i2 < this.counterLength; i2 += 2) {
+            int narrowWidePattern = toNarrowWidePattern(i2);
             if (narrowWidePattern != -1 && arrayContains(STARTEND_ENCODING, ALPHABET[narrowWidePattern])) {
-                int i2 = 0;
-                for (int i3 = i; i3 < i + 7; i3++) {
-                    i2 += this.counters[i3];
+                int i3 = 0;
+                for (int i4 = i2; i4 < i2 + 7; i4++) {
+                    i3 += this.counters[i4];
                 }
-                if (i == 1 || this.counters[i - 1] >= i2 / 2) {
-                    return i;
+                if (i2 == 1 || this.counters[i2 - 1] >= i3 / 2) {
+                    return i2;
                 }
             }
         }
@@ -62,7 +62,7 @@ public final class CodaBarReader extends OneDReader {
     }
 
     private void setCounters(BitArray bitArray) throws NotFoundException {
-        int i = 0;
+        int i2 = 0;
         this.counterLength = 0;
         int nextUnset = bitArray.getNextUnset(0);
         int size = bitArray.getSize();
@@ -70,68 +70,68 @@ public final class CodaBarReader extends OneDReader {
             boolean z = true;
             while (nextUnset < size) {
                 if (bitArray.get(nextUnset) ^ z) {
-                    i++;
+                    i2++;
                 } else {
-                    counterAppend(i);
+                    counterAppend(i2);
                     z = !z;
-                    i = 1;
+                    i2 = 1;
                 }
                 nextUnset++;
             }
-            counterAppend(i);
+            counterAppend(i2);
             return;
         }
         throw NotFoundException.getNotFoundInstance();
     }
 
-    private int toNarrowWidePattern(int i) {
-        int i2 = i + 7;
-        if (i2 >= this.counterLength) {
+    private int toNarrowWidePattern(int i2) {
+        int i3 = i2 + 7;
+        if (i3 >= this.counterLength) {
             return -1;
         }
         int[] iArr = this.counters;
-        int i3 = Integer.MAX_VALUE;
-        int i4 = 0;
-        int i5 = Integer.MAX_VALUE;
-        int i6 = 0;
-        for (int i7 = i; i7 < i2; i7 += 2) {
-            int i8 = iArr[i7];
-            if (i8 < i5) {
-                i5 = i8;
+        int i4 = Integer.MAX_VALUE;
+        int i5 = 0;
+        int i6 = Integer.MAX_VALUE;
+        int i7 = 0;
+        for (int i8 = i2; i8 < i3; i8 += 2) {
+            int i9 = iArr[i8];
+            if (i9 < i6) {
+                i6 = i9;
             }
-            if (i8 > i6) {
-                i6 = i8;
-            }
-        }
-        int i9 = (i5 + i6) / 2;
-        int i10 = 0;
-        for (int i11 = i + 1; i11 < i2; i11 += 2) {
-            int i12 = iArr[i11];
-            if (i12 < i3) {
-                i3 = i12;
-            }
-            if (i12 > i10) {
-                i10 = i12;
+            if (i9 > i7) {
+                i7 = i9;
             }
         }
-        int i13 = (i3 + i10) / 2;
-        int i14 = 128;
-        int i15 = 0;
-        for (int i16 = 0; i16 < 7; i16++) {
-            i14 >>= 1;
-            if (iArr[i + i16] > ((i16 & 1) == 0 ? i9 : i13)) {
-                i15 |= i14;
+        int i10 = (i6 + i7) / 2;
+        int i11 = 0;
+        for (int i12 = i2 + 1; i12 < i3; i12 += 2) {
+            int i13 = iArr[i12];
+            if (i13 < i4) {
+                i4 = i13;
+            }
+            if (i13 > i11) {
+                i11 = i13;
+            }
+        }
+        int i14 = (i4 + i11) / 2;
+        int i15 = 128;
+        int i16 = 0;
+        for (int i17 = 0; i17 < 7; i17++) {
+            i15 >>= 1;
+            if (iArr[i2 + i17] > ((i17 & 1) == 0 ? i10 : i14)) {
+                i16 |= i15;
             }
         }
         while (true) {
             int[] iArr2 = CHARACTER_ENCODINGS;
-            if (i4 >= iArr2.length) {
+            if (i5 >= iArr2.length) {
                 return -1;
             }
-            if (iArr2[i4] == i15) {
-                return i4;
+            if (iArr2[i5] == i16) {
+                return i5;
             }
-            i4++;
+            i5++;
         }
     }
 
@@ -141,86 +141,86 @@ public final class CodaBarReader extends OneDReader {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void validatePattern(int i) throws NotFoundException {
+    private void validatePattern(int i2) throws NotFoundException {
         int[] iArr = {0, 0, 0, 0};
         int[] iArr2 = {0, 0, 0, 0};
         int length = this.decodeRowResult.length() - 1;
-        int i2 = 0;
-        int i3 = i;
-        int i4 = 0;
+        int i3 = 0;
+        int i4 = i2;
+        int i5 = 0;
         while (true) {
-            int i5 = CHARACTER_ENCODINGS[this.decodeRowResult.charAt(i4)];
-            for (int i6 = 6; i6 >= 0; i6--) {
-                int i7 = (i6 & 1) + ((i5 & 1) << 1);
-                iArr[i7] = iArr[i7] + this.counters[i3 + i6];
-                iArr2[i7] = iArr2[i7] + 1;
-                i5 >>= 1;
+            int i6 = CHARACTER_ENCODINGS[this.decodeRowResult.charAt(i5)];
+            for (int i7 = 6; i7 >= 0; i7--) {
+                int i8 = (i7 & 1) + ((i6 & 1) << 1);
+                iArr[i8] = iArr[i8] + this.counters[i4 + i7];
+                iArr2[i8] = iArr2[i8] + 1;
+                i6 >>= 1;
             }
-            if (i4 >= length) {
+            if (i5 >= length) {
                 break;
             }
-            i3 += 8;
-            i4++;
+            i4 += 8;
+            i5++;
         }
         float[] fArr = new float[4];
         float[] fArr2 = new float[4];
-        for (int i8 = 0; i8 < 2; i8++) {
-            fArr2[i8] = 0.0f;
-            int i9 = i8 + 2;
-            fArr2[i9] = ((iArr[i8] / iArr2[i8]) + (iArr[i9] / iArr2[i9])) / 2.0f;
-            fArr[i8] = fArr2[i9];
-            fArr[i9] = ((iArr[i9] * 2.0f) + 1.5f) / iArr2[i9];
+        for (int i9 = 0; i9 < 2; i9++) {
+            fArr2[i9] = 0.0f;
+            int i10 = i9 + 2;
+            fArr2[i10] = ((iArr[i9] / iArr2[i9]) + (iArr[i10] / iArr2[i10])) / 2.0f;
+            fArr[i9] = fArr2[i10];
+            fArr[i10] = ((iArr[i10] * 2.0f) + 1.5f) / iArr2[i10];
         }
         loop3: while (true) {
-            int i10 = CHARACTER_ENCODINGS[this.decodeRowResult.charAt(i2)];
-            for (int i11 = 6; i11 >= 0; i11--) {
-                int i12 = (i11 & 1) + ((i10 & 1) << 1);
-                float f2 = this.counters[i + i11];
-                if (f2 < fArr2[i12] || f2 > fArr[i12]) {
+            int i11 = CHARACTER_ENCODINGS[this.decodeRowResult.charAt(i3)];
+            for (int i12 = 6; i12 >= 0; i12--) {
+                int i13 = (i12 & 1) + ((i11 & 1) << 1);
+                float f2 = this.counters[i2 + i12];
+                if (f2 < fArr2[i13] || f2 > fArr[i13]) {
                     break loop3;
                 }
-                i10 >>= 1;
+                i11 >>= 1;
             }
-            if (i2 >= length) {
+            if (i3 >= length) {
                 return;
             }
-            i += 8;
-            i2++;
+            i2 += 8;
+            i3++;
         }
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
+    public Result decodeRow(int i2, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
         Arrays.fill(this.counters, 0);
         setCounters(bitArray);
         int findStartPattern = findStartPattern();
         this.decodeRowResult.setLength(0);
-        int i2 = findStartPattern;
+        int i3 = findStartPattern;
         do {
-            int narrowWidePattern = toNarrowWidePattern(i2);
+            int narrowWidePattern = toNarrowWidePattern(i3);
             if (narrowWidePattern != -1) {
                 this.decodeRowResult.append((char) narrowWidePattern);
-                i2 += 8;
+                i3 += 8;
                 if (this.decodeRowResult.length() > 1 && arrayContains(STARTEND_ENCODING, ALPHABET[narrowWidePattern])) {
                     break;
                 }
             } else {
                 throw NotFoundException.getNotFoundInstance();
             }
-        } while (i2 < this.counterLength);
-        int i3 = i2 - 1;
-        int i4 = this.counters[i3];
-        int i5 = 0;
-        for (int i6 = -8; i6 < -1; i6++) {
-            i5 += this.counters[i2 + i6];
+        } while (i3 < this.counterLength);
+        int i4 = i3 - 1;
+        int i5 = this.counters[i4];
+        int i6 = 0;
+        for (int i7 = -8; i7 < -1; i7++) {
+            i6 += this.counters[i3 + i7];
         }
-        if (i2 < this.counterLength && i4 < i5 / 2) {
+        if (i3 < this.counterLength && i5 < i6 / 2) {
             throw NotFoundException.getNotFoundInstance();
         }
         validatePattern(findStartPattern);
-        for (int i7 = 0; i7 < this.decodeRowResult.length(); i7++) {
+        for (int i8 = 0; i8 < this.decodeRowResult.length(); i8++) {
             StringBuilder sb = this.decodeRowResult;
-            sb.setCharAt(i7, ALPHABET[sb.charAt(i7)]);
+            sb.setCharAt(i8, ALPHABET[sb.charAt(i8)]);
         }
         if (arrayContains(STARTEND_ENCODING, this.decodeRowResult.charAt(0))) {
             StringBuilder sb2 = this.decodeRowResult;
@@ -231,17 +231,17 @@ public final class CodaBarReader extends OneDReader {
                         sb3.deleteCharAt(sb3.length() - 1);
                         this.decodeRowResult.deleteCharAt(0);
                     }
-                    int i8 = 0;
-                    for (int i9 = 0; i9 < findStartPattern; i9++) {
-                        i8 += this.counters[i9];
+                    int i9 = 0;
+                    for (int i10 = 0; i10 < findStartPattern; i10++) {
+                        i9 += this.counters[i10];
                     }
-                    float f2 = i8;
-                    while (findStartPattern < i3) {
-                        i8 += this.counters[findStartPattern];
+                    float f2 = i9;
+                    while (findStartPattern < i4) {
+                        i9 += this.counters[findStartPattern];
                         findStartPattern++;
                     }
-                    float f3 = i;
-                    return new Result(this.decodeRowResult.toString(), null, new ResultPoint[]{new ResultPoint(f2, f3), new ResultPoint(i8, f3)}, BarcodeFormat.CODABAR);
+                    float f3 = i2;
+                    return new Result(this.decodeRowResult.toString(), null, new ResultPoint[]{new ResultPoint(f2, f3), new ResultPoint(i9, f3)}, BarcodeFormat.CODABAR);
                 }
                 throw NotFoundException.getNotFoundInstance();
             }

@@ -39,7 +39,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
-import d.b.r.a;
+import d.a.r.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -55,8 +55,8 @@ public class ChatSessionManagerImpl {
     public ArrayList<IChatSessionChangeListener> mChatRecordChangeListener = new ArrayList<>();
     public ISyncDialogListener syncDialogListener = new ISyncDialogListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.3
         @Override // com.baidu.android.imsdk.chatmessage.ISyncDialogListener
-        public void onSyncDialogResult(int i, String str, long j, List<ChatMsg> list) {
-            if (i != 0 || list == null) {
+        public void onSyncDialogResult(int i2, String str, long j, List<ChatMsg> list) {
+            if (i2 != 0 || list == null) {
                 return;
             }
             LinkedList linkedList = null;
@@ -88,8 +88,8 @@ public class ChatSessionManagerImpl {
     };
     public Dispatcher.MsgListener dialogSyncListener = new Dispatcher.MsgListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.4
         @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-        public void dealMessage(int i, ChatMsg chatMsg) {
-            int i2;
+        public void dealMessage(int i2, ChatMsg chatMsg) {
+            int i3;
             if (chatMsg instanceof DialogSyncMsg) {
                 DialogSyncMsg dialogSyncMsg = (DialogSyncMsg) chatMsg;
                 int syncCategory = dialogSyncMsg.getSyncCategory();
@@ -98,7 +98,7 @@ public class ChatSessionManagerImpl {
                 int syncStatus = dialogSyncMsg.getSyncStatus();
                 long paid = dialogSyncMsg.getPaid();
                 if (syncStatus == 0) {
-                    i2 = syncStatus;
+                    i3 = syncStatus;
                     r16 = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext).deleteAllMsgWithMsgid(new ChatObject(ChatSessionManagerImpl.mContext, syncCategory, syncFromUid, paid, -1), operatedMaxMsgid);
                     if (r16 > 0 && ChatSessionManagerImpl.this.mDialogSyncListeners != null && ChatSessionManagerImpl.this.mDialogSyncListeners.size() != 0) {
                         for (IDialogSyncListener iDialogSyncListener : ChatSessionManagerImpl.this.mDialogSyncListeners) {
@@ -106,11 +106,11 @@ public class ChatSessionManagerImpl {
                         }
                     }
                 } else if (syncStatus != 1) {
-                    i2 = syncStatus;
+                    i3 = syncStatus;
                 } else if (operatedMaxMsgid <= 0) {
                     return;
                 } else {
-                    i2 = syncStatus;
+                    i3 = syncStatus;
                     boolean allMsgReadWithMsgid = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext).setAllMsgReadWithMsgid(new ChatObject(ChatSessionManagerImpl.mContext, syncCategory, syncFromUid, paid, -1), operatedMaxMsgid);
                     r16 = allMsgReadWithMsgid ? 1 : -1;
                     if (allMsgReadWithMsgid && ChatSessionManagerImpl.this.mDialogSyncListeners != null && ChatSessionManagerImpl.this.mDialogSyncListeners.size() != 0) {
@@ -125,7 +125,7 @@ public class ChatSessionManagerImpl {
                     intent.putExtra("category", syncCategory);
                     intent.putExtra("contacter", syncFromUid);
                     intent.putExtra(IMConstants.SYNC_MSGID, operatedMaxMsgid);
-                    intent.putExtra(IMConstants.SYNC_STATUS, i2);
+                    intent.putExtra(IMConstants.SYNC_STATUS, i3);
                     intent.putExtra(IMConstants.SYNC_TYPE, 1);
                     ChatSessionManagerImpl.mContext.sendBroadcast(intent);
                 }
@@ -133,7 +133,7 @@ public class ChatSessionManagerImpl {
         }
 
         @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-        public void dealMessage(int i, ArrayList<ChatMsg> arrayList) {
+        public void dealMessage(int i2, ArrayList<ChatMsg> arrayList) {
         }
     };
 
@@ -144,14 +144,14 @@ public class ChatSessionManagerImpl {
         Dispatcher.registerListener(event, this.dialogSyncListener);
         ChatMessageDBManager.getInstance(mContext).registerObserver(new ChatMessageDBManager.ChatMessageDbOberser() { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.1
             @Override // com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager.ChatMessageDbOberser
-            public void notifyDbChange(int i, ChatSession chatSession) {
-                ChatSessionManagerImpl.this.triggerChatSessionChangerCallBack(i, chatSession);
+            public void notifyDbChange(int i2, ChatSession chatSession) {
+                ChatSessionManagerImpl.this.triggerChatSessionChangerCallBack(i2, chatSession);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void doSessionChangeListenerNotify(int i, ChatSession chatSession, ArrayList<IChatSessionChangeListener> arrayList) {
+    public void doSessionChangeListenerNotify(int i2, ChatSession chatSession, ArrayList<IChatSessionChangeListener> arrayList) {
         Iterator<IChatSessionChangeListener> it = arrayList.iterator();
         while (it.hasNext()) {
             IChatSessionChangeListener next = it.next();
@@ -160,9 +160,9 @@ public class ChatSessionManagerImpl {
             } else {
                 boolean z = true;
                 if (IMConfigInternal.getInstance().getProductLine(mContext) != 4 || chatSession.getCategory() == 1) {
-                    if (i == 2) {
+                    if (i2 == 2) {
                         next.onChatRecordDelete(chatSession.getCategory(), chatSession.getContacter());
-                    } else if (i == 1) {
+                    } else if (i2 == 1) {
                         LogUtils.d(TAG, "triggerChatSessionChange-> listener = " + next.getClass().getSimpleName());
                         try {
                             if (1 == chatSession.getCategory()) {
@@ -222,7 +222,7 @@ public class ChatSessionManagerImpl {
         return Math.max(Utility.readLongData(context, "sync_max_msgid_" + Utility.getUK(mContext), 0L), DialogRecordDBManager.getInstance(mContext).getMaxMsgid());
     }
 
-    private void notifySessionChange(final int i, final ChatSession chatSession) {
+    private void notifySessionChange(final int i2, final ChatSession chatSession) {
         final ArrayList arrayList = new ArrayList(this.mChatRecordChangeListener);
         if (arrayList.size() == 0) {
             return;
@@ -230,7 +230,7 @@ public class ChatSessionManagerImpl {
         TaskManager.getInstance(mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.2
             @Override // java.lang.Runnable
             public void run() {
-                ChatSessionManagerImpl.this.doSessionChangeListenerNotify(i, chatSession, arrayList);
+                ChatSessionManagerImpl.this.doSessionChangeListenerNotify(i2, chatSession, arrayList);
             }
         });
     }
@@ -295,14 +295,14 @@ public class ChatSessionManagerImpl {
         }
     }
 
-    public void createChatSession(ChatObject chatObject, String str, int i, String str2, int i2, String str3, String str4, int i3, int i4, long j, int i5, long j2, String str5, String str6, String str7) {
-        long createChatSession = ChatMessageDBManager.getInstance(mContext).createChatSession(chatObject, str, i, str2, i2, str3, str4, i3, i4, j, i5, j2, str5, str6, str7);
-        LogUtils.i(TAG, "createChatSession result : " + createChatSession + " chatType: " + i + "  name:" + str);
+    public void createChatSession(ChatObject chatObject, String str, int i2, String str2, int i3, String str3, String str4, int i4, int i5, long j, int i6, long j2, String str5, String str6, String str7) {
+        long createChatSession = ChatMessageDBManager.getInstance(mContext).createChatSession(chatObject, str, i2, str2, i3, str3, str4, i4, i5, j, i6, j2, str5, str6, str7);
+        LogUtils.i(TAG, "createChatSession result : " + createChatSession + " chatType: " + i2 + "  name:" + str);
         if (createChatSession > 0) {
             ArrayList<ChatMsg> fetchMessageSync = ChatMsgManagerImpl.getInstance(mContext).fetchMessageSync(chatObject.getCategory(), chatObject.getContacter(), 50, (ChatMsg) null);
             if (fetchMessageSync != null && fetchMessageSync.size() != 0) {
-                for (int i6 = 0; i6 < fetchMessageSync.size(); i6++) {
-                    fetchMessageSync.get(i6).setChatType(i);
+                for (int i7 = 0; i7 < fetchMessageSync.size(); i7++) {
+                    fetchMessageSync.get(i7).setChatType(i2);
                 }
                 ChatMsgManagerImpl.getInstance(mContext).broadcastMessage(fetchMessageSync, true);
                 return;
@@ -329,15 +329,15 @@ public class ChatSessionManagerImpl {
         return allClassType;
     }
 
-    public ChatSession getChatRecord(int i, long j) {
+    public ChatSession getChatRecord(int i2, long j) {
         LogUtils.enter();
         long paid = ChatMsgManagerImpl.getInstance(mContext).getPaid();
         if (paid == -2) {
             LogUtils.e(TAG, "getPaid() == Constants.CRM_ZHIDAID_NOT_SET");
             return null;
         }
-        ChatSession chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(new ChatObject(mContext, i, j, paid, -1));
-        if (i == 1) {
+        ChatSession chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(new ChatObject(mContext, i2, j, paid, -1));
+        if (i2 == 1) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(String.valueOf(j));
             ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
@@ -389,14 +389,14 @@ public class ChatSessionManagerImpl {
         return paid == -2 ? DlnaManager.DLNA_ERROR_CREATE_SSDP_THREAD_FIAL : ChatMessageDBManager.getInstance(mContext).deleteChatSession(paid);
     }
 
-    public void mediaContactorSetting(long j, int i, IMediaContactorSettingListener iMediaContactorSettingListener) {
-        LogUtils.d(TAG, "BC> contactor=" + j + ", operation" + i + ", listener=" + iMediaContactorSettingListener);
+    public void mediaContactorSetting(long j, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        LogUtils.d(TAG, "BC> contactor=" + j + ", operation" + i2 + ", listener=" + iMediaContactorSettingListener);
         if (!AccountManager.isLogin(mContext) || AccountManager.isCuidLogin(mContext)) {
             if (iMediaContactorSettingListener != null) {
                 iMediaContactorSettingListener.onMediaContactorSettingResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, -1);
             }
         } else if (AccountManager.getMediaRole(mContext)) {
-            IMMediaContactorSettingRequest iMMediaContactorSettingRequest = new IMMediaContactorSettingRequest(mContext, j, i, ListenerManager.getInstance().addListener(iMediaContactorSettingListener));
+            IMMediaContactorSettingRequest iMMediaContactorSettingRequest = new IMMediaContactorSettingRequest(mContext, j, i2, ListenerManager.getInstance().addListener(iMediaContactorSettingListener));
             HttpHelper.executor(mContext, iMMediaContactorSettingRequest, iMMediaContactorSettingRequest);
         } else if (iMediaContactorSettingListener != null) {
             iMediaContactorSettingListener.onMediaContactorSettingResult(2000, Constants.ERROR_MSG_NOT_MEDIA_ROLE_ERROR, -1);
@@ -417,22 +417,22 @@ public class ChatSessionManagerImpl {
         }
     }
 
-    public void mediaGetChatSessions(long j, int i, long j2, String str, long j3, int i2, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
-        LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", startSessionTime=" + j3 + ", count=" + i2 + ", listener=" + iMediaGetChatSessionListener);
+    public void mediaGetChatSessions(long j, int i2, long j2, String str, long j3, int i3, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+        LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i2 + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", startSessionTime=" + j3 + ", count=" + i3 + ", listener=" + iMediaGetChatSessionListener);
         if (!AccountManager.isLogin(mContext) || AccountManager.isCuidLogin(mContext)) {
             if (iMediaGetChatSessionListener != null) {
                 iMediaGetChatSessionListener.onMediaGetChatSessionResult(1000, 0, false, null);
             }
         } else if (AccountManager.getMediaRole(mContext)) {
-            IMMediaGetChatSessionRequest iMMediaGetChatSessionRequest = new IMMediaGetChatSessionRequest(mContext, j, i, j2, str, i2, j3, ListenerManager.getInstance().addListener(iMediaGetChatSessionListener));
+            IMMediaGetChatSessionRequest iMMediaGetChatSessionRequest = new IMMediaGetChatSessionRequest(mContext, j, i2, j2, str, i3, j3, ListenerManager.getInstance().addListener(iMediaGetChatSessionListener));
             HttpHelper.executor(mContext, iMMediaGetChatSessionRequest, iMMediaGetChatSessionRequest);
         } else if (iMediaGetChatSessionListener != null) {
             iMediaGetChatSessionListener.onMediaGetChatSessionResult(2000, 0, false, null);
         }
     }
 
-    public void mediaGetContactorPauid(long j, int i, long j2, String str, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
-        LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", listener=" + iMediaGetContactorPauidListener);
+    public void mediaGetContactorPauid(long j, int i2, long j2, String str, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
+        LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i2 + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", listener=" + iMediaGetContactorPauidListener);
         if (!AccountManager.isLogin(mContext) || AccountManager.isCuidLogin(mContext)) {
             if (iMediaGetContactorPauidListener != null) {
                 iMediaGetContactorPauidListener.onMediaGetContactorPauidResult(1000, -1L, -1, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
@@ -440,12 +440,12 @@ public class ChatSessionManagerImpl {
             }
             return;
         }
-        IMMediaGetContactorPauidRequest iMMediaGetContactorPauidRequest = new IMMediaGetContactorPauidRequest(mContext, j, i, j2, str, ListenerManager.getInstance().addListener(iMediaGetContactorPauidListener));
+        IMMediaGetContactorPauidRequest iMMediaGetContactorPauidRequest = new IMMediaGetContactorPauidRequest(mContext, j, i2, j2, str, ListenerManager.getInstance().addListener(iMediaGetContactorPauidListener));
         HttpHelper.executor(mContext, iMMediaGetContactorPauidRequest, iMMediaGetContactorPauidRequest);
     }
 
-    public void mediaGetContactorSetting(long j, int i, IMediaContactorSettingListener iMediaContactorSettingListener) {
-        LogUtils.d(TAG, "BC> contactor=" + j + ", setting=" + i + ", listener=" + iMediaContactorSettingListener);
+    public void mediaGetContactorSetting(long j, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        LogUtils.d(TAG, "BC> contactor=" + j + ", setting=" + i2 + ", listener=" + iMediaContactorSettingListener);
         if (!AccountManager.isLogin(mContext) || AccountManager.isCuidLogin(mContext)) {
             if (iMediaContactorSettingListener != null) {
                 iMediaContactorSettingListener.onMediaContactorSettingResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, -1);
@@ -453,33 +453,33 @@ public class ChatSessionManagerImpl {
             }
             return;
         }
-        IMMediaGetContactorSettingRequest iMMediaGetContactorSettingRequest = new IMMediaGetContactorSettingRequest(mContext, j, i, ListenerManager.getInstance().addListener(iMediaContactorSettingListener));
+        IMMediaGetContactorSettingRequest iMMediaGetContactorSettingRequest = new IMMediaGetContactorSettingRequest(mContext, j, i2, ListenerManager.getInstance().addListener(iMediaContactorSettingListener));
         HttpHelper.executor(mContext, iMMediaGetContactorSettingRequest, iMMediaGetContactorSettingRequest);
     }
 
-    public void mediaSetSessionRead(long j, int i, long j2, String str, long j3, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
-        LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", lastTime=" + j3 + ", listener=" + iMediaSetSessionReadListener);
+    public void mediaSetSessionRead(long j, int i2, long j2, String str, long j3, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
+        LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i2 + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", lastTime=" + j3 + ", listener=" + iMediaSetSessionReadListener);
         if (!AccountManager.isLogin(mContext) || AccountManager.isCuidLogin(mContext)) {
             if (iMediaSetSessionReadListener != null) {
                 iMediaSetSessionReadListener.onMediaSetSessionReadResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
             }
         } else if (AccountManager.getMediaRole(mContext)) {
-            IMMediaSetSessionReadRequest iMMediaSetSessionReadRequest = new IMMediaSetSessionReadRequest(mContext, j, i, j2, str, j3, ListenerManager.getInstance().addListener(iMediaSetSessionReadListener));
+            IMMediaSetSessionReadRequest iMMediaSetSessionReadRequest = new IMMediaSetSessionReadRequest(mContext, j, i2, j2, str, j3, ListenerManager.getInstance().addListener(iMediaSetSessionReadListener));
             HttpHelper.executor(mContext, iMMediaSetSessionReadRequest, iMMediaSetSessionReadRequest);
         } else if (iMediaSetSessionReadListener != null) {
             iMediaSetSessionReadListener.onMediaSetSessionReadResult(2000, Constants.ERROR_MSG_NOT_MEDIA_ROLE_ERROR);
         }
     }
 
-    public void onMediaGetChatSessionRequest(int i, boolean z, int i2, Map<Long, ChatSession> map, Map<Long, ChatSession> map2, String str) {
+    public void onMediaGetChatSessionRequest(int i2, boolean z, int i3, Map<Long, ChatSession> map, Map<Long, ChatSession> map2, String str) {
         ArrayList arrayList;
         ArrayList arrayList2;
         IMediaGetChatSessionListener iMediaGetChatSessionListener = (IMediaGetChatSessionListener) ListenerManager.getInstance().removeListener(str);
         if (iMediaGetChatSessionListener == null) {
             return;
         }
-        if (i == 0) {
-            IMMediaBuildSessionListener iMMediaBuildSessionListener = new IMMediaBuildSessionListener(mContext, i2, z, iMediaGetChatSessionListener);
+        if (i2 == 0) {
+            IMMediaBuildSessionListener iMMediaBuildSessionListener = new IMMediaBuildSessionListener(mContext, i3, z, iMediaGetChatSessionListener);
             if (map2 == null || map2.size() <= 0) {
                 arrayList = null;
             } else {
@@ -499,12 +499,12 @@ public class ChatSessionManagerImpl {
                 PaManager.getPaInfos(mContext, arrayList2, iMMediaBuildSessionListener);
             }
             if (arrayList == null && arrayList2 == null) {
-                iMediaGetChatSessionListener.onMediaGetChatSessionResult(i, i2, z, null);
+                iMediaGetChatSessionListener.onMediaGetChatSessionResult(i2, i3, z, null);
                 return;
             }
             return;
         }
-        iMediaGetChatSessionListener.onMediaGetChatSessionResult(i, i2, z, null);
+        iMediaGetChatSessionListener.onMediaGetChatSessionResult(i2, i3, z, null);
     }
 
     public void onSyncComplete() {
@@ -519,11 +519,11 @@ public class ChatSessionManagerImpl {
         }
     }
 
-    public void onSyncDialogResult(int i, String str, String str2, long j, List<ChatMsg> list) {
-        LogUtils.d(TAG, String.format("--onSyncDialogResult--errCode:%d--msg:%s--maxMsgid:%d", Integer.valueOf(i), str, Long.valueOf(j)));
+    public void onSyncDialogResult(int i2, String str, String str2, long j, List<ChatMsg> list) {
+        LogUtils.d(TAG, String.format("--onSyncDialogResult--errCode:%d--msg:%s--maxMsgid:%d", Integer.valueOf(i2), str, Long.valueOf(j)));
         IMListener removeListener = ListenerManager.getInstance().removeListener(str2);
         if (removeListener != null && (removeListener instanceof ISyncDialogListener)) {
-            ((ISyncDialogListener) removeListener).onSyncDialogResult(i, str, j, list);
+            ((ISyncDialogListener) removeListener).onSyncDialogResult(i2, str, j, list);
         } else {
             LogUtils.d(TAG, "onSyncDialogResult listener is nul!");
         }
@@ -569,7 +569,7 @@ public class ChatSessionManagerImpl {
         }
     }
 
-    public void triggerChatSessionChangerCallBack(int i, ChatSession chatSession) {
+    public void triggerChatSessionChangerCallBack(int i2, ChatSession chatSession) {
         if (chatSession == null) {
             return;
         }
@@ -578,12 +578,12 @@ public class ChatSessionManagerImpl {
                 return;
             }
             if (Utility.getPaid(mContext) == chatSession.getPaid() || Utility.getNotifyPaid(mContext) == chatSession.getPaid()) {
-                notifySessionChange(i, chatSession);
+                notifySessionChange(i2, chatSession);
                 return;
             }
             return;
         }
-        notifySessionChange(i, chatSession);
+        notifySessionChange(i2, chatSession);
     }
 
     public void unregisterDialogSyncListener(Context context, IDialogSyncListener iDialogSyncListener) {
@@ -613,56 +613,56 @@ public class ChatSessionManagerImpl {
         HttpHelper.executor(mContext, iMMediaGetContactorPauidRequest, iMMediaGetContactorPauidRequest);
     }
 
-    public void mediaGetContactorSetting(long j, int i, long j2, String str, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
-        LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", setting=" + i2 + ", listener=" + iMediaContactorSettingListener);
+    public void mediaGetContactorSetting(long j, int i2, long j2, String str, int i3, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i2 + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", setting=" + i3 + ", listener=" + iMediaContactorSettingListener);
         if (!AccountManager.isLogin(mContext) || AccountManager.isCuidLogin(mContext)) {
             if (iMediaContactorSettingListener != null) {
                 iMediaContactorSettingListener.onMediaContactorSettingResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, -1);
             }
         } else if (AccountManager.getMediaRole(mContext)) {
-            IMMediaGetContactorSettingRequest iMMediaGetContactorSettingRequest = new IMMediaGetContactorSettingRequest(mContext, j, i, j2, str, i2, ListenerManager.getInstance().addListener(iMediaContactorSettingListener));
+            IMMediaGetContactorSettingRequest iMMediaGetContactorSettingRequest = new IMMediaGetContactorSettingRequest(mContext, j, i2, j2, str, i3, ListenerManager.getInstance().addListener(iMediaContactorSettingListener));
             HttpHelper.executor(mContext, iMMediaGetContactorSettingRequest, iMMediaGetContactorSettingRequest);
         } else if (iMediaContactorSettingListener != null) {
             iMediaContactorSettingListener.onMediaContactorSettingResult(2000, Constants.ERROR_MSG_NOT_MEDIA_ROLE_ERROR, -1);
         }
     }
 
-    public void mediaContactorSetting(long j, int i, long j2, String str, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
-        LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", operation" + i2 + ", listener=" + iMediaContactorSettingListener);
+    public void mediaContactorSetting(long j, int i2, long j2, String str, int i3, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i2 + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", operation" + i3 + ", listener=" + iMediaContactorSettingListener);
         if (!AccountManager.isLogin(mContext) || AccountManager.isCuidLogin(mContext)) {
             if (iMediaContactorSettingListener != null) {
                 iMediaContactorSettingListener.onMediaContactorSettingResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, -1);
             }
         } else if (AccountManager.getMediaRole(mContext)) {
-            IMMediaContactorSettingRequest iMMediaContactorSettingRequest = new IMMediaContactorSettingRequest(mContext, j, i, j2, str, i2, ListenerManager.getInstance().addListener(iMediaContactorSettingListener));
+            IMMediaContactorSettingRequest iMMediaContactorSettingRequest = new IMMediaContactorSettingRequest(mContext, j, i2, j2, str, i3, ListenerManager.getInstance().addListener(iMediaContactorSettingListener));
             HttpHelper.executor(mContext, iMMediaContactorSettingRequest, iMMediaContactorSettingRequest);
         } else if (iMediaContactorSettingListener != null) {
             iMediaContactorSettingListener.onMediaContactorSettingResult(2000, Constants.ERROR_MSG_NOT_MEDIA_ROLE_ERROR, -1);
         }
     }
 
-    public void mediaDeleteChatSession(long j, int i, long j2, String str, long j3, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
-        LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", lastTime=" + j3 + ", listener=" + iMediaDeleteChatSessionListener);
+    public void mediaDeleteChatSession(long j, int i2, long j2, String str, long j3, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
+        LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i2 + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", lastTime=" + j3 + ", listener=" + iMediaDeleteChatSessionListener);
         if (!AccountManager.isLogin(mContext) || AccountManager.isCuidLogin(mContext)) {
             if (iMediaDeleteChatSessionListener != null) {
                 iMediaDeleteChatSessionListener.onMediaDeleteChatSessionResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
             }
         } else if (AccountManager.getMediaRole(mContext)) {
-            IMMediaDeleteSessionRequest iMMediaDeleteSessionRequest = new IMMediaDeleteSessionRequest(mContext, j, i, j2, str, j3, ListenerManager.getInstance().addListener(iMediaDeleteChatSessionListener));
+            IMMediaDeleteSessionRequest iMMediaDeleteSessionRequest = new IMMediaDeleteSessionRequest(mContext, j, i2, j2, str, j3, ListenerManager.getInstance().addListener(iMediaDeleteChatSessionListener));
             HttpHelper.executor(mContext, iMMediaDeleteSessionRequest, iMMediaDeleteSessionRequest);
         } else if (iMediaDeleteChatSessionListener != null) {
             iMediaDeleteChatSessionListener.onMediaDeleteChatSessionResult(2000, Constants.ERROR_MSG_NOT_MEDIA_ROLE_ERROR);
         }
     }
 
-    public void mediaGetChatSessions(long j, long j2, int i, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
-        LogUtils.d(TAG, "BC> contactor=" + j + ", startSessionTime=" + j2 + ", count=" + i + ", listener=" + iMediaGetChatSessionListener);
+    public void mediaGetChatSessions(long j, long j2, int i2, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+        LogUtils.d(TAG, "BC> contactor=" + j + ", startSessionTime=" + j2 + ", count=" + i2 + ", listener=" + iMediaGetChatSessionListener);
         if (!AccountManager.isLogin(mContext) || AccountManager.isCuidLogin(mContext)) {
             if (iMediaGetChatSessionListener != null) {
                 iMediaGetChatSessionListener.onMediaGetChatSessionResult(1000, 0, false, null);
             }
         } else if (AccountManager.getMediaRole(mContext)) {
-            IMMediaGetChatSessionRequest iMMediaGetChatSessionRequest = new IMMediaGetChatSessionRequest(mContext, j, i, j2, ListenerManager.getInstance().addListener(iMediaGetChatSessionListener));
+            IMMediaGetChatSessionRequest iMMediaGetChatSessionRequest = new IMMediaGetChatSessionRequest(mContext, j, i2, j2, ListenerManager.getInstance().addListener(iMediaGetChatSessionListener));
             HttpHelper.executor(mContext, iMMediaGetChatSessionRequest, iMMediaGetChatSessionRequest);
         } else if (iMediaGetChatSessionListener != null) {
             iMediaGetChatSessionListener.onMediaGetChatSessionResult(2000, 0, false, null);
@@ -683,14 +683,14 @@ public class ChatSessionManagerImpl {
         }
     }
 
-    public ChatSession getChatRecord(int i, long j, long j2) {
+    public ChatSession getChatRecord(int i2, long j, long j2) {
         LogUtils.enter();
         if (ChatMsgManagerImpl.getInstance(mContext).getPaid() == -2) {
             LogUtils.e(TAG, "getPaid() == Constants.CRM_ZHIDAID_NOT_SET");
             return null;
         }
-        ChatSession chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(i, j, j2);
-        if (i == 1) {
+        ChatSession chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(i2, j, j2);
+        if (i2 == 1) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(String.valueOf(j));
             ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);

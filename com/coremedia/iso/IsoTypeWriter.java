@@ -3,24 +3,24 @@ package com.coremedia.iso;
 import androidx.core.view.ViewCompat;
 import java.nio.ByteBuffer;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class IsoTypeWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
 
     public static void writeFixedPoint0230(ByteBuffer byteBuffer, double d2) {
-        int i = (int) (d2 * 1.073741824E9d);
-        byteBuffer.put((byte) (((-16777216) & i) >> 24));
-        byteBuffer.put((byte) ((16711680 & i) >> 16));
-        byteBuffer.put((byte) ((65280 & i) >> 8));
-        byteBuffer.put((byte) (i & 255));
+        int i2 = (int) (d2 * 1.073741824E9d);
+        byteBuffer.put((byte) (((-16777216) & i2) >> 24));
+        byteBuffer.put((byte) ((16711680 & i2) >> 16));
+        byteBuffer.put((byte) ((65280 & i2) >> 8));
+        byteBuffer.put((byte) (i2 & 255));
     }
 
     public static void writeFixedPoint1616(ByteBuffer byteBuffer, double d2) {
-        int i = (int) (d2 * 65536.0d);
-        byteBuffer.put((byte) (((-16777216) & i) >> 24));
-        byteBuffer.put((byte) ((16711680 & i) >> 16));
-        byteBuffer.put((byte) ((65280 & i) >> 8));
-        byteBuffer.put((byte) (i & 255));
+        int i2 = (int) (d2 * 65536.0d);
+        byteBuffer.put((byte) (((-16777216) & i2) >> 24));
+        byteBuffer.put((byte) ((16711680 & i2) >> 16));
+        byteBuffer.put((byte) ((65280 & i2) >> 8));
+        byteBuffer.put((byte) (i2 & 255));
     }
 
     public static void writeFixedPoint88(ByteBuffer byteBuffer, double d2) {
@@ -31,11 +31,11 @@ public final class IsoTypeWriter {
 
     public static void writeIso639(ByteBuffer byteBuffer, String str) {
         if (str.getBytes().length == 3) {
-            int i = 0;
-            for (int i2 = 0; i2 < 3; i2++) {
-                i += (str.getBytes()[i2] - 96) << ((2 - i2) * 5);
+            int i2 = 0;
+            for (int i3 = 0; i3 < 3; i3++) {
+                i2 += (str.getBytes()[i3] - 96) << ((2 - i3) * 5);
             }
-            writeUInt16(byteBuffer, i);
+            writeUInt16(byteBuffer, i2);
             return;
         }
         throw new IllegalArgumentException("\"" + str + "\" language string isn't exactly 3 characters long!");
@@ -47,22 +47,22 @@ public final class IsoTypeWriter {
         byteBuffer.put(convert);
     }
 
-    public static void writeUInt16(ByteBuffer byteBuffer, int i) {
-        int i2 = i & 65535;
-        writeUInt8(byteBuffer, i2 >> 8);
-        writeUInt8(byteBuffer, i2 & 255);
+    public static void writeUInt16(ByteBuffer byteBuffer, int i2) {
+        int i3 = i2 & 65535;
+        writeUInt8(byteBuffer, i3 >> 8);
+        writeUInt8(byteBuffer, i3 & 255);
     }
 
-    public static void writeUInt16BE(ByteBuffer byteBuffer, int i) {
-        int i2 = i & 65535;
-        writeUInt8(byteBuffer, i2 & 255);
-        writeUInt8(byteBuffer, i2 >> 8);
+    public static void writeUInt16BE(ByteBuffer byteBuffer, int i2) {
+        int i3 = i2 & 65535;
+        writeUInt8(byteBuffer, i3 & 255);
+        writeUInt8(byteBuffer, i3 >> 8);
     }
 
-    public static void writeUInt24(ByteBuffer byteBuffer, int i) {
-        int i2 = i & ViewCompat.MEASURED_SIZE_MASK;
-        writeUInt16(byteBuffer, i2 >> 8);
-        writeUInt8(byteBuffer, i2);
+    public static void writeUInt24(ByteBuffer byteBuffer, int i2) {
+        int i3 = i2 & ViewCompat.MEASURED_SIZE_MASK;
+        writeUInt16(byteBuffer, i3 >> 8);
+        writeUInt8(byteBuffer, i3);
     }
 
     public static void writeUInt32(ByteBuffer byteBuffer, long j) {
@@ -78,8 +78,8 @@ public final class IsoTypeWriter {
         byteBuffer.putLong(j);
     }
 
-    public static void writeUInt8(ByteBuffer byteBuffer, int i) {
-        byteBuffer.put((byte) (i & 255));
+    public static void writeUInt8(ByteBuffer byteBuffer, int i2) {
+        byteBuffer.put((byte) (i2 & 255));
     }
 
     public static void writeUtf8String(ByteBuffer byteBuffer, String str) {

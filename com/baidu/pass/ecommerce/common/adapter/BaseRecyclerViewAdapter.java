@@ -9,7 +9,7 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemViewType(int i) {
-        return super.getItemViewType(i);
+    public int getItemViewType(int i2) {
+        return super.getItemViewType(i2);
     }
 }

@@ -20,40 +20,40 @@ public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
         return animateAdd(viewHolder);
     }
 
-    public abstract boolean animateChange(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i, int i2, int i3, int i4);
+    public abstract boolean animateChange(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i2, int i3, int i4, int i5);
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
     public boolean animateChange(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder2, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
-        int i;
         int i2;
-        int i3 = itemHolderInfo.left;
-        int i4 = itemHolderInfo.top;
+        int i3;
+        int i4 = itemHolderInfo.left;
+        int i5 = itemHolderInfo.top;
         if (viewHolder2.shouldIgnore()) {
-            int i5 = itemHolderInfo.left;
-            i2 = itemHolderInfo.top;
-            i = i5;
+            int i6 = itemHolderInfo.left;
+            i3 = itemHolderInfo.top;
+            i2 = i6;
         } else {
-            i = itemHolderInfo2.left;
-            i2 = itemHolderInfo2.top;
+            i2 = itemHolderInfo2.left;
+            i3 = itemHolderInfo2.top;
         }
-        return animateChange(viewHolder, viewHolder2, i3, i4, i, i2);
+        return animateChange(viewHolder, viewHolder2, i4, i5, i2, i3);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
     public boolean animateDisappearance(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @Nullable RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
-        int i = itemHolderInfo.left;
-        int i2 = itemHolderInfo.top;
+        int i2 = itemHolderInfo.left;
+        int i3 = itemHolderInfo.top;
         View view = viewHolder.itemView;
         int left = itemHolderInfo2 == null ? view.getLeft() : itemHolderInfo2.left;
         int top = itemHolderInfo2 == null ? view.getTop() : itemHolderInfo2.top;
-        if (!viewHolder.isRemoved() && (i != left || i2 != top)) {
+        if (!viewHolder.isRemoved() && (i2 != left || i3 != top)) {
             view.layout(left, top, view.getWidth() + left, view.getHeight() + top);
-            return animateMove(viewHolder, i, i2, left, top);
+            return animateMove(viewHolder, i2, i3, left, top);
         }
         return animateRemove(viewHolder);
     }
 
-    public abstract boolean animateMove(RecyclerView.ViewHolder viewHolder, int i, int i2, int i3, int i4);
+    public abstract boolean animateMove(RecyclerView.ViewHolder viewHolder, int i2, int i3, int i4, int i5);
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
     public boolean animatePersistence(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {

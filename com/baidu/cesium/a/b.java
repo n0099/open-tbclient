@@ -13,54 +13,56 @@ import java.util.Arrays;
 public class b implements Serializable, Cloneable {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f4577b = 6;
+    public static final int f4680b = 6;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f4578c = 64;
+    public static final int f4681c = 64;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f4579d = 63;
+    public static final int f4682d = 63;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f4580e = -1;
+    public static final long f4683e = -1;
     public static final long j = 7997698588986878753L;
 
     /* renamed from: g  reason: collision with root package name */
-    public long[] f4582g;
+    public long[] f4685g;
 
     /* renamed from: h  reason: collision with root package name */
-    public transient int f4583h;
-    public transient boolean i;
+    public transient int f4686h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public transient boolean f4687i;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f4576a = !b.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f4679a = !b.class.desiredAssertionStatus();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ObjectStreamField[] f4581f = {new ObjectStreamField("bits", long[].class)};
+    public static final ObjectStreamField[] f4684f = {new ObjectStreamField("bits", long[].class)};
 
     public b() {
-        this.f4583h = 0;
-        this.i = false;
+        this.f4686h = 0;
+        this.f4687i = false;
         j(64);
-        this.i = false;
+        this.f4687i = false;
     }
 
-    public b(int i) {
-        this.f4583h = 0;
-        this.i = false;
-        if (i >= 0) {
-            j(i);
-            this.i = true;
+    public b(int i2) {
+        this.f4686h = 0;
+        this.f4687i = false;
+        if (i2 >= 0) {
+            j(i2);
+            this.f4687i = true;
             return;
         }
-        throw new NegativeArraySizeException("nbits < 0: " + i);
+        throw new NegativeArraySizeException("nbits < 0: " + i2);
     }
 
     public b(long[] jArr) {
-        this.f4583h = 0;
-        this.i = false;
-        this.f4582g = jArr;
-        this.f4583h = jArr.length;
+        this.f4686h = 0;
+        this.f4687i = false;
+        this.f4685g = jArr;
+        this.f4686h = jArr.length;
         h();
     }
 
@@ -72,14 +74,14 @@ public class b implements Serializable, Cloneable {
         }
         long[] jArr = new long[(remaining + 7) / 8];
         order.limit(remaining);
-        int i = 0;
+        int i2 = 0;
         while (order.remaining() >= 8) {
-            jArr[i] = order.getLong();
-            i++;
+            jArr[i2] = order.getLong();
+            i2++;
         }
         int remaining2 = order.remaining();
-        for (int i2 = 0; i2 < remaining2; i2++) {
-            jArr[i] = jArr[i] | ((order.get() & 255) << (i2 * 8));
+        for (int i3 = 0; i3 < remaining2; i3++) {
+            jArr[i2] = jArr[i2] | ((order.get() & 255) << (i3 * 8));
         }
         return new b(jArr);
     }
@@ -109,157 +111,157 @@ public class b implements Serializable, Cloneable {
 
     private void a(ObjectInputStream objectInputStream) {
         long[] jArr = (long[]) objectInputStream.readFields().get("bits", (Object) null);
-        this.f4582g = jArr;
-        this.f4583h = jArr.length;
+        this.f4685g = jArr;
+        this.f4686h = jArr.length;
         i();
-        long[] jArr2 = this.f4582g;
+        long[] jArr2 = this.f4685g;
         boolean z = true;
-        this.i = (jArr2.length <= 0 || jArr2[jArr2.length - 1] != 0) ? false : false;
+        this.f4687i = (jArr2.length <= 0 || jArr2[jArr2.length - 1] != 0) ? false : false;
         h();
     }
 
     private void a(ObjectOutputStream objectOutputStream) {
         h();
-        if (!this.i) {
+        if (!this.f4687i) {
             j();
         }
-        objectOutputStream.putFields().put("bits", this.f4582g);
+        objectOutputStream.putFields().put("bits", this.f4685g);
         objectOutputStream.writeFields();
     }
 
-    public static void e(int i, int i2) {
-        if (i < 0) {
-            throw new IndexOutOfBoundsException("fromIndex < 0: " + i);
-        } else if (i2 < 0) {
-            throw new IndexOutOfBoundsException("toIndex < 0: " + i2);
-        } else if (i <= i2) {
+    public static void e(int i2, int i3) {
+        if (i2 < 0) {
+            throw new IndexOutOfBoundsException("fromIndex < 0: " + i2);
+        } else if (i3 < 0) {
+            throw new IndexOutOfBoundsException("toIndex < 0: " + i3);
+        } else if (i2 <= i3) {
         } else {
-            throw new IndexOutOfBoundsException("fromIndex: " + i + " > toIndex: " + i2);
+            throw new IndexOutOfBoundsException("fromIndex: " + i2 + " > toIndex: " + i3);
         }
     }
 
     private void h() {
-        int i;
         int i2;
-        if (!f4576a && (i2 = this.f4583h) != 0 && this.f4582g[i2 - 1] == 0) {
+        int i3;
+        if (!f4679a && (i3 = this.f4686h) != 0 && this.f4685g[i3 - 1] == 0) {
             throw new AssertionError();
         }
-        if (!f4576a && ((i = this.f4583h) < 0 || i > this.f4582g.length)) {
+        if (!f4679a && ((i2 = this.f4686h) < 0 || i2 > this.f4685g.length)) {
             throw new AssertionError();
         }
-        if (f4576a) {
+        if (f4679a) {
             return;
         }
-        int i3 = this.f4583h;
-        long[] jArr = this.f4582g;
-        if (i3 != jArr.length && jArr[i3] != 0) {
+        int i4 = this.f4686h;
+        long[] jArr = this.f4685g;
+        if (i4 != jArr.length && jArr[i4] != 0) {
             throw new AssertionError();
         }
     }
 
-    public static int i(int i) {
-        return i >> 6;
+    public static int i(int i2) {
+        return i2 >> 6;
     }
 
     private void i() {
-        int i = this.f4583h - 1;
-        while (i >= 0 && this.f4582g[i] == 0) {
-            i--;
+        int i2 = this.f4686h - 1;
+        while (i2 >= 0 && this.f4685g[i2] == 0) {
+            i2--;
         }
-        this.f4583h = i + 1;
+        this.f4686h = i2 + 1;
     }
 
     private void j() {
-        int i = this.f4583h;
-        long[] jArr = this.f4582g;
-        if (i != jArr.length) {
-            this.f4582g = Arrays.copyOf(jArr, i);
+        int i2 = this.f4686h;
+        long[] jArr = this.f4685g;
+        if (i2 != jArr.length) {
+            this.f4685g = Arrays.copyOf(jArr, i2);
             h();
         }
     }
 
-    private void j(int i) {
-        this.f4582g = new long[i(i - 1) + 1];
+    private void j(int i2) {
+        this.f4685g = new long[i(i2 - 1) + 1];
     }
 
-    private void k(int i) {
-        long[] jArr = this.f4582g;
-        if (jArr.length < i) {
-            this.f4582g = Arrays.copyOf(this.f4582g, Math.max(jArr.length * 2, i));
-            this.i = false;
+    private void k(int i2) {
+        long[] jArr = this.f4685g;
+        if (jArr.length < i2) {
+            this.f4685g = Arrays.copyOf(this.f4685g, Math.max(jArr.length * 2, i2));
+            this.f4687i = false;
         }
     }
 
-    private void l(int i) {
-        int i2 = i + 1;
-        if (this.f4583h < i2) {
-            k(i2);
-            this.f4583h = i2;
+    private void l(int i2) {
+        int i3 = i2 + 1;
+        if (this.f4686h < i3) {
+            k(i3);
+            this.f4686h = i3;
         }
     }
 
-    public void a(int i) {
-        if (i < 0) {
-            throw new IndexOutOfBoundsException("bitIndex < 0: " + i);
+    public void a(int i2) {
+        if (i2 < 0) {
+            throw new IndexOutOfBoundsException("bitIndex < 0: " + i2);
         }
-        int i2 = i(i);
-        l(i2);
-        long[] jArr = this.f4582g;
-        jArr[i2] = jArr[i2] ^ (1 << i);
+        int i3 = i(i2);
+        l(i3);
+        long[] jArr = this.f4685g;
+        jArr[i3] = jArr[i3] ^ (1 << i2);
         i();
         h();
     }
 
-    public void a(int i, int i2) {
-        e(i, i2);
-        if (i == i2) {
+    public void a(int i2, int i3) {
+        e(i2, i3);
+        if (i2 == i3) {
             return;
         }
-        int i3 = i(i);
-        int i4 = i(i2 - 1);
-        l(i4);
-        long j2 = (-1) << i;
-        long j3 = (-1) >>> (-i2);
-        if (i3 == i4) {
-            long[] jArr = this.f4582g;
-            jArr[i3] = (j3 & j2) ^ jArr[i3];
+        int i4 = i(i2);
+        int i5 = i(i3 - 1);
+        l(i5);
+        long j2 = (-1) << i2;
+        long j3 = (-1) >>> (-i3);
+        if (i4 == i5) {
+            long[] jArr = this.f4685g;
+            jArr[i4] = (j3 & j2) ^ jArr[i4];
         } else {
-            long[] jArr2 = this.f4582g;
-            jArr2[i3] = jArr2[i3] ^ j2;
+            long[] jArr2 = this.f4685g;
+            jArr2[i4] = jArr2[i4] ^ j2;
             while (true) {
-                i3++;
-                if (i3 >= i4) {
+                i4++;
+                if (i4 >= i5) {
                     break;
                 }
-                long[] jArr3 = this.f4582g;
-                jArr3[i3] = ~jArr3[i3];
+                long[] jArr3 = this.f4685g;
+                jArr3[i4] = ~jArr3[i4];
             }
-            long[] jArr4 = this.f4582g;
-            jArr4[i4] = j3 ^ jArr4[i4];
+            long[] jArr4 = this.f4685g;
+            jArr4[i5] = j3 ^ jArr4[i5];
         }
         i();
         h();
     }
 
-    public void a(int i, int i2, boolean z) {
+    public void a(int i2, int i3, boolean z) {
         if (z) {
-            b(i, i2);
+            b(i2, i3);
         } else {
-            c(i, i2);
+            c(i2, i3);
         }
     }
 
-    public void a(int i, boolean z) {
+    public void a(int i2, boolean z) {
         if (z) {
-            b(i);
+            b(i2);
         } else {
-            c(i);
+            c(i2);
         }
     }
 
     public boolean a(b bVar) {
-        for (int min = Math.min(this.f4583h, bVar.f4583h) - 1; min >= 0; min--) {
-            if ((this.f4582g[min] & bVar.f4582g[min]) != 0) {
+        for (int min = Math.min(this.f4686h, bVar.f4686h) - 1; min >= 0; min--) {
+            if ((this.f4685g[min] & bVar.f4685g[min]) != 0) {
                 return true;
             }
         }
@@ -267,62 +269,62 @@ public class b implements Serializable, Cloneable {
     }
 
     public byte[] a() {
-        int i = this.f4583h;
-        if (i == 0) {
+        int i2 = this.f4686h;
+        if (i2 == 0) {
             return new byte[0];
         }
-        int i2 = i - 1;
-        int i3 = i2 * 8;
-        for (long j2 = this.f4582g[i2]; j2 != 0; j2 >>>= 8) {
-            i3++;
+        int i3 = i2 - 1;
+        int i4 = i3 * 8;
+        for (long j2 = this.f4685g[i3]; j2 != 0; j2 >>>= 8) {
+            i4++;
         }
-        byte[] bArr = new byte[i3];
+        byte[] bArr = new byte[i4];
         ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN);
-        for (int i4 = 0; i4 < i2; i4++) {
-            order.putLong(this.f4582g[i4]);
+        for (int i5 = 0; i5 < i3; i5++) {
+            order.putLong(this.f4685g[i5]);
         }
-        for (long j3 = this.f4582g[i2]; j3 != 0; j3 >>>= 8) {
+        for (long j3 = this.f4685g[i3]; j3 != 0; j3 >>>= 8) {
             order.put((byte) (255 & j3));
         }
         return bArr;
     }
 
-    public void b(int i) {
-        if (i < 0) {
-            throw new IndexOutOfBoundsException("bitIndex < 0: " + i);
+    public void b(int i2) {
+        if (i2 < 0) {
+            throw new IndexOutOfBoundsException("bitIndex < 0: " + i2);
         }
-        int i2 = i(i);
-        l(i2);
-        long[] jArr = this.f4582g;
-        jArr[i2] = jArr[i2] | (1 << i);
+        int i3 = i(i2);
+        l(i3);
+        long[] jArr = this.f4685g;
+        jArr[i3] = jArr[i3] | (1 << i2);
         h();
     }
 
-    public void b(int i, int i2) {
-        e(i, i2);
-        if (i == i2) {
+    public void b(int i2, int i3) {
+        e(i2, i3);
+        if (i2 == i3) {
             return;
         }
-        int i3 = i(i);
-        int i4 = i(i2 - 1);
-        l(i4);
-        long j2 = (-1) << i;
-        long j3 = (-1) >>> (-i2);
-        if (i3 == i4) {
-            long[] jArr = this.f4582g;
-            jArr[i3] = (j3 & j2) | jArr[i3];
+        int i4 = i(i2);
+        int i5 = i(i3 - 1);
+        l(i5);
+        long j2 = (-1) << i2;
+        long j3 = (-1) >>> (-i3);
+        if (i4 == i5) {
+            long[] jArr = this.f4685g;
+            jArr[i4] = (j3 & j2) | jArr[i4];
         } else {
-            long[] jArr2 = this.f4582g;
-            jArr2[i3] = j2 | jArr2[i3];
+            long[] jArr2 = this.f4685g;
+            jArr2[i4] = j2 | jArr2[i4];
             while (true) {
-                i3++;
-                if (i3 >= i4) {
+                i4++;
+                if (i4 >= i5) {
                     break;
                 }
-                this.f4582g[i3] = -1;
+                this.f4685g[i4] = -1;
             }
-            long[] jArr3 = this.f4582g;
-            jArr3[i4] = j3 | jArr3[i4];
+            long[] jArr3 = this.f4685g;
+            jArr3[i5] = j3 | jArr3[i5];
         }
         h();
     }
@@ -332,80 +334,80 @@ public class b implements Serializable, Cloneable {
             return;
         }
         while (true) {
-            int i = this.f4583h;
-            if (i <= bVar.f4583h) {
+            int i2 = this.f4686h;
+            if (i2 <= bVar.f4686h) {
                 break;
             }
-            long[] jArr = this.f4582g;
-            int i2 = i - 1;
-            this.f4583h = i2;
-            jArr[i2] = 0;
+            long[] jArr = this.f4685g;
+            int i3 = i2 - 1;
+            this.f4686h = i3;
+            jArr[i3] = 0;
         }
-        for (int i3 = 0; i3 < this.f4583h; i3++) {
-            long[] jArr2 = this.f4582g;
-            jArr2[i3] = jArr2[i3] & bVar.f4582g[i3];
+        for (int i4 = 0; i4 < this.f4686h; i4++) {
+            long[] jArr2 = this.f4685g;
+            jArr2[i4] = jArr2[i4] & bVar.f4685g[i4];
         }
         i();
         h();
     }
 
     public long[] b() {
-        return Arrays.copyOf(this.f4582g, this.f4583h);
+        return Arrays.copyOf(this.f4685g, this.f4686h);
     }
 
     public void c() {
         while (true) {
-            int i = this.f4583h;
-            if (i <= 0) {
+            int i2 = this.f4686h;
+            if (i2 <= 0) {
                 return;
             }
-            long[] jArr = this.f4582g;
-            int i2 = i - 1;
-            this.f4583h = i2;
-            jArr[i2] = 0;
+            long[] jArr = this.f4685g;
+            int i3 = i2 - 1;
+            this.f4686h = i3;
+            jArr[i3] = 0;
         }
     }
 
-    public void c(int i) {
-        if (i < 0) {
-            throw new IndexOutOfBoundsException("bitIndex < 0: " + i);
+    public void c(int i2) {
+        if (i2 < 0) {
+            throw new IndexOutOfBoundsException("bitIndex < 0: " + i2);
         }
-        int i2 = i(i);
-        if (i2 >= this.f4583h) {
+        int i3 = i(i2);
+        if (i3 >= this.f4686h) {
             return;
         }
-        long[] jArr = this.f4582g;
-        jArr[i2] = jArr[i2] & (~(1 << i));
+        long[] jArr = this.f4685g;
+        jArr[i3] = jArr[i3] & (~(1 << i2));
         i();
         h();
     }
 
-    public void c(int i, int i2) {
-        int i3;
-        e(i, i2);
-        if (i != i2 && (i3 = i(i)) < this.f4583h) {
-            int i4 = i(i2 - 1);
-            if (i4 >= this.f4583h) {
-                i2 = d();
-                i4 = this.f4583h - 1;
+    public void c(int i2, int i3) {
+        int i4;
+        e(i2, i3);
+        if (i2 != i3 && (i4 = i(i2)) < this.f4686h) {
+            int i5 = i(i3 - 1);
+            if (i5 >= this.f4686h) {
+                i3 = d();
+                i5 = this.f4686h - 1;
             }
-            long j2 = (-1) << i;
-            long j3 = (-1) >>> (-i2);
-            if (i3 == i4) {
-                long[] jArr = this.f4582g;
-                jArr[i3] = (~(j3 & j2)) & jArr[i3];
+            long j2 = (-1) << i2;
+            long j3 = (-1) >>> (-i3);
+            if (i4 == i5) {
+                long[] jArr = this.f4685g;
+                jArr[i4] = (~(j3 & j2)) & jArr[i4];
             } else {
-                long[] jArr2 = this.f4582g;
-                jArr2[i3] = (~j2) & jArr2[i3];
+                long[] jArr2 = this.f4685g;
+                jArr2[i4] = (~j2) & jArr2[i4];
                 while (true) {
-                    i3++;
-                    if (i3 >= i4) {
+                    i4++;
+                    if (i4 >= i5) {
                         break;
                     }
-                    this.f4582g[i3] = 0;
+                    this.f4685g[i4] = 0;
                 }
-                long[] jArr3 = this.f4582g;
-                jArr3[i4] = (~j3) & jArr3[i4];
+                long[] jArr3 = this.f4685g;
+                jArr3[i5] = (~j3) & jArr3[i5];
             }
             i();
             h();
@@ -416,30 +418,30 @@ public class b implements Serializable, Cloneable {
         if (this == bVar) {
             return;
         }
-        int min = Math.min(this.f4583h, bVar.f4583h);
-        int i = this.f4583h;
-        int i2 = bVar.f4583h;
-        if (i < i2) {
-            k(i2);
-            this.f4583h = bVar.f4583h;
+        int min = Math.min(this.f4686h, bVar.f4686h);
+        int i2 = this.f4686h;
+        int i3 = bVar.f4686h;
+        if (i2 < i3) {
+            k(i3);
+            this.f4686h = bVar.f4686h;
         }
-        for (int i3 = 0; i3 < min; i3++) {
-            long[] jArr = this.f4582g;
-            jArr[i3] = jArr[i3] | bVar.f4582g[i3];
+        for (int i4 = 0; i4 < min; i4++) {
+            long[] jArr = this.f4685g;
+            jArr[i4] = jArr[i4] | bVar.f4685g[i4];
         }
-        if (min < bVar.f4583h) {
-            System.arraycopy(bVar.f4582g, min, this.f4582g, min, this.f4583h - min);
+        if (min < bVar.f4686h) {
+            System.arraycopy(bVar.f4685g, min, this.f4685g, min, this.f4686h - min);
         }
         h();
     }
 
     public Object clone() {
-        if (!this.i) {
+        if (!this.f4687i) {
             j();
         }
         try {
             b bVar = (b) super.clone();
-            bVar.f4582g = (long[]) this.f4582g.clone();
+            bVar.f4685g = (long[]) this.f4685g.clone();
             bVar.h();
             return bVar;
         } catch (CloneNotSupportedException unused) {
@@ -448,118 +450,118 @@ public class b implements Serializable, Cloneable {
     }
 
     public int d() {
-        int i = this.f4583h;
-        if (i == 0) {
+        int i2 = this.f4686h;
+        if (i2 == 0) {
             return 0;
         }
-        return ((i - 1) * 64) + (64 - Long.numberOfLeadingZeros(this.f4582g[i - 1]));
+        return ((i2 - 1) * 64) + (64 - Long.numberOfLeadingZeros(this.f4685g[i2 - 1]));
     }
 
-    public b d(int i, int i2) {
-        int i3;
+    public b d(int i2, int i3) {
+        int i4;
         long j2;
-        e(i, i2);
+        e(i2, i3);
         h();
         int d2 = d();
-        int i4 = 0;
-        if (d2 <= i || i == i2) {
+        int i5 = 0;
+        if (d2 <= i2 || i2 == i3) {
             return new b(0);
         }
-        if (i2 > d2) {
-            i2 = d2;
+        if (i3 > d2) {
+            i3 = d2;
         }
-        int i5 = i2 - i;
-        b bVar = new b(i5);
-        int i6 = i(i5 - 1) + 1;
-        int i7 = i(i);
-        int i8 = i & 63;
-        boolean z = i8 == 0;
+        int i6 = i3 - i2;
+        b bVar = new b(i6);
+        int i7 = i(i6 - 1) + 1;
+        int i8 = i(i2);
+        int i9 = i2 & 63;
+        boolean z = i9 == 0;
         while (true) {
-            i3 = i6 - 1;
-            if (i4 >= i3) {
+            i4 = i7 - 1;
+            if (i5 >= i4) {
                 break;
             }
-            long[] jArr = bVar.f4582g;
-            long[] jArr2 = this.f4582g;
-            jArr[i4] = z ? jArr2[i7] : (jArr2[i7] >>> i) | (jArr2[i7 + 1] << (-i));
-            i4++;
-            i7++;
+            long[] jArr = bVar.f4685g;
+            long[] jArr2 = this.f4685g;
+            jArr[i5] = z ? jArr2[i8] : (jArr2[i8] >>> i2) | (jArr2[i8 + 1] << (-i2));
+            i5++;
+            i8++;
         }
-        long j3 = (-1) >>> (-i2);
-        long[] jArr3 = bVar.f4582g;
-        if (((i2 - 1) & 63) < i8) {
-            long[] jArr4 = this.f4582g;
-            j2 = ((jArr4[i7 + 1] & j3) << (-i)) | (jArr4[i7] >>> i);
+        long j3 = (-1) >>> (-i3);
+        long[] jArr3 = bVar.f4685g;
+        if (((i3 - 1) & 63) < i9) {
+            long[] jArr4 = this.f4685g;
+            j2 = ((jArr4[i8 + 1] & j3) << (-i2)) | (jArr4[i8] >>> i2);
         } else {
-            j2 = (this.f4582g[i7] & j3) >>> i;
+            j2 = (this.f4685g[i8] & j3) >>> i2;
         }
-        jArr3[i3] = j2;
-        bVar.f4583h = i6;
+        jArr3[i4] = j2;
+        bVar.f4686h = i7;
         bVar.i();
         bVar.h();
         return bVar;
     }
 
     public void d(b bVar) {
-        int min = Math.min(this.f4583h, bVar.f4583h);
-        int i = this.f4583h;
-        int i2 = bVar.f4583h;
-        if (i < i2) {
-            k(i2);
-            this.f4583h = bVar.f4583h;
+        int min = Math.min(this.f4686h, bVar.f4686h);
+        int i2 = this.f4686h;
+        int i3 = bVar.f4686h;
+        if (i2 < i3) {
+            k(i3);
+            this.f4686h = bVar.f4686h;
         }
-        for (int i3 = 0; i3 < min; i3++) {
-            long[] jArr = this.f4582g;
-            jArr[i3] = jArr[i3] ^ bVar.f4582g[i3];
+        for (int i4 = 0; i4 < min; i4++) {
+            long[] jArr = this.f4685g;
+            jArr[i4] = jArr[i4] ^ bVar.f4685g[i4];
         }
-        int i4 = bVar.f4583h;
-        if (min < i4) {
-            System.arraycopy(bVar.f4582g, min, this.f4582g, min, i4 - min);
+        int i5 = bVar.f4686h;
+        if (min < i5) {
+            System.arraycopy(bVar.f4685g, min, this.f4685g, min, i5 - min);
         }
         i();
         h();
     }
 
-    public boolean d(int i) {
-        if (i >= 0) {
+    public boolean d(int i2) {
+        if (i2 >= 0) {
             h();
-            int i2 = i(i);
-            return i2 < this.f4583h && (this.f4582g[i2] & (1 << i)) != 0;
+            int i3 = i(i2);
+            return i3 < this.f4686h && (this.f4685g[i3] & (1 << i2)) != 0;
         }
-        throw new IndexOutOfBoundsException("bitIndex < 0: " + i);
+        throw new IndexOutOfBoundsException("bitIndex < 0: " + i2);
     }
 
-    public int e(int i) {
-        if (i < 0) {
-            throw new IndexOutOfBoundsException("fromIndex < 0: " + i);
+    public int e(int i2) {
+        if (i2 < 0) {
+            throw new IndexOutOfBoundsException("fromIndex < 0: " + i2);
         }
         h();
-        int i2 = i(i);
-        if (i2 >= this.f4583h) {
+        int i3 = i(i2);
+        if (i3 >= this.f4686h) {
             return -1;
         }
-        long j2 = this.f4582g[i2] & ((-1) << i);
+        long j2 = this.f4685g[i3] & ((-1) << i2);
         while (j2 == 0) {
-            i2++;
-            if (i2 == this.f4583h) {
+            i3++;
+            if (i3 == this.f4686h) {
                 return -1;
             }
-            j2 = this.f4582g[i2];
+            j2 = this.f4685g[i3];
         }
-        return (i2 * 64) + Long.numberOfTrailingZeros(j2);
+        return (i3 * 64) + Long.numberOfTrailingZeros(j2);
     }
 
     public void e(b bVar) {
-        for (int min = Math.min(this.f4583h, bVar.f4583h) - 1; min >= 0; min--) {
-            long[] jArr = this.f4582g;
-            jArr[min] = jArr[min] & (~bVar.f4582g[min]);
+        for (int min = Math.min(this.f4686h, bVar.f4686h) - 1; min >= 0; min--) {
+            long[] jArr = this.f4685g;
+            jArr[min] = jArr[min] & (~bVar.f4685g[min]);
         }
         i();
         h();
     }
 
     public boolean e() {
-        return this.f4583h == 0;
+        return this.f4686h == 0;
     }
 
     public boolean equals(Object obj) {
@@ -570,11 +572,11 @@ public class b implements Serializable, Cloneable {
             b bVar = (b) obj;
             h();
             bVar.h();
-            if (this.f4583h != bVar.f4583h) {
+            if (this.f4686h != bVar.f4686h) {
                 return false;
             }
-            for (int i = 0; i < this.f4583h; i++) {
-                if (this.f4582g[i] != bVar.f4582g[i]) {
+            for (int i2 = 0; i2 < this.f4686h; i2++) {
+                if (this.f4685g[i2] != bVar.f4685g[i2]) {
                     return false;
                 }
             }
@@ -584,102 +586,102 @@ public class b implements Serializable, Cloneable {
     }
 
     public int f() {
-        int i = 0;
-        for (int i2 = 0; i2 < this.f4583h; i2++) {
-            i += Long.bitCount(this.f4582g[i2]);
+        int i2 = 0;
+        for (int i3 = 0; i3 < this.f4686h; i3++) {
+            i2 += Long.bitCount(this.f4685g[i3]);
         }
-        return i;
+        return i2;
     }
 
-    public int f(int i) {
-        if (i < 0) {
-            throw new IndexOutOfBoundsException("fromIndex < 0: " + i);
+    public int f(int i2) {
+        if (i2 < 0) {
+            throw new IndexOutOfBoundsException("fromIndex < 0: " + i2);
         }
         h();
-        int i2 = i(i);
-        if (i2 >= this.f4583h) {
-            return i;
+        int i3 = i(i2);
+        if (i3 >= this.f4686h) {
+            return i2;
         }
-        long j2 = (~this.f4582g[i2]) & ((-1) << i);
+        long j2 = (~this.f4685g[i3]) & ((-1) << i2);
         while (j2 == 0) {
-            i2++;
-            int i3 = this.f4583h;
-            if (i2 == i3) {
-                return i3 * 64;
+            i3++;
+            int i4 = this.f4686h;
+            if (i3 == i4) {
+                return i4 * 64;
             }
-            j2 = ~this.f4582g[i2];
+            j2 = ~this.f4685g[i3];
         }
-        return (i2 * 64) + Long.numberOfTrailingZeros(j2);
+        return (i3 * 64) + Long.numberOfTrailingZeros(j2);
     }
 
     public int g() {
-        return this.f4582g.length * 64;
+        return this.f4685g.length * 64;
     }
 
-    public int g(int i) {
-        if (i < 0) {
-            if (i == -1) {
+    public int g(int i2) {
+        if (i2 < 0) {
+            if (i2 == -1) {
                 return -1;
             }
-            throw new IndexOutOfBoundsException("fromIndex < -1: " + i);
+            throw new IndexOutOfBoundsException("fromIndex < -1: " + i2);
         }
         h();
-        int i2 = i(i);
-        if (i2 >= this.f4583h) {
+        int i3 = i(i2);
+        if (i3 >= this.f4686h) {
             return d() - 1;
         }
-        long j2 = this.f4582g[i2] & ((-1) >>> (-(i + 1)));
+        long j2 = this.f4685g[i3] & ((-1) >>> (-(i2 + 1)));
         while (j2 == 0) {
-            int i3 = i2 - 1;
-            if (i2 == 0) {
+            int i4 = i3 - 1;
+            if (i3 == 0) {
                 return -1;
             }
-            j2 = this.f4582g[i3];
-            i2 = i3;
+            j2 = this.f4685g[i4];
+            i3 = i4;
         }
-        return (((i2 + 1) * 64) - 1) - Long.numberOfLeadingZeros(j2);
+        return (((i3 + 1) * 64) - 1) - Long.numberOfLeadingZeros(j2);
     }
 
-    public int h(int i) {
-        if (i < 0) {
-            if (i == -1) {
+    public int h(int i2) {
+        if (i2 < 0) {
+            if (i2 == -1) {
                 return -1;
             }
-            throw new IndexOutOfBoundsException("fromIndex < -1: " + i);
+            throw new IndexOutOfBoundsException("fromIndex < -1: " + i2);
         }
         h();
-        int i2 = i(i);
-        if (i2 >= this.f4583h) {
-            return i;
+        int i3 = i(i2);
+        if (i3 >= this.f4686h) {
+            return i2;
         }
-        long j2 = (~this.f4582g[i2]) & ((-1) >>> (-(i + 1)));
+        long j2 = (~this.f4685g[i3]) & ((-1) >>> (-(i2 + 1)));
         while (j2 == 0) {
-            int i3 = i2 - 1;
-            if (i2 == 0) {
+            int i4 = i3 - 1;
+            if (i3 == 0) {
                 return -1;
             }
-            j2 = ~this.f4582g[i3];
-            i2 = i3;
+            j2 = ~this.f4685g[i4];
+            i3 = i4;
         }
-        return (((i2 + 1) * 64) - 1) - Long.numberOfLeadingZeros(j2);
+        return (((i3 + 1) * 64) - 1) - Long.numberOfLeadingZeros(j2);
     }
 
     public int hashCode() {
-        int i = this.f4583h;
+        int i2 = this.f4686h;
         long j2 = 1234;
         while (true) {
-            i--;
-            if (i < 0) {
+            i2--;
+            if (i2 < 0) {
                 return (int) ((j2 >> 32) ^ j2);
             }
-            j2 ^= this.f4582g[i] * (i + 1);
+            j2 ^= this.f4685g[i2] * (i2 + 1);
         }
     }
 
     public String toString() {
         h();
-        int i = this.f4583h;
-        StringBuilder sb = new StringBuilder(((i > 128 ? f() : i * 64) * 6) + 2);
+        int i2 = this.f4686h;
+        StringBuilder sb = new StringBuilder(((i2 > 128 ? f() : i2 * 64) * 6) + 2);
         sb.append('{');
         int e2 = e(0);
         if (e2 != -1) {

@@ -13,7 +13,6 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
-import com.bumptech.glide.R;
 import com.bumptech.glide.request.Request;
 import com.bumptech.glide.util.Preconditions;
 import java.lang.ref.WeakReference;
@@ -25,7 +24,8 @@ import java.util.List;
 public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     public static final String TAG = "ViewTarget";
     public static boolean isTagUsedAtLeastOnce;
-    public static int tagId = R.id.glide_custom_view_target_tag;
+    @Nullable
+    public static Integer tagId;
     @Nullable
     public View.OnAttachStateChangeListener attachStateListener;
     public boolean isAttachStateListenerAdded;
@@ -82,23 +82,23 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
             return maxDisplayLength.intValue();
         }
 
-        private int getTargetDimen(int i, int i2, int i3) {
-            int i4 = i2 - i3;
-            if (i4 > 0) {
-                return i4;
+        private int getTargetDimen(int i2, int i3, int i4) {
+            int i5 = i3 - i4;
+            if (i5 > 0) {
+                return i5;
             }
             if (this.waitForLayout && this.view.isLayoutRequested()) {
                 return 0;
             }
-            int i5 = i - i3;
-            if (i5 > 0) {
-                return i5;
+            int i6 = i2 - i4;
+            if (i6 > 0) {
+                return i6;
             }
-            if (this.view.isLayoutRequested() || i2 != -2) {
+            if (this.view.isLayoutRequested() || i3 != -2) {
                 return 0;
             }
             if (Log.isLoggable(ViewTarget.TAG, 4)) {
-                Log.i(ViewTarget.TAG, "Glide treats LayoutParams.WRAP_CONTENT as a request for an image the size of this device's screen dimensions. If you want to load the original image and are ok with the corresponding memory cost and OOMs (depending on the input size), use override(Target.SIZE_ORIGINAL). Otherwise, use LayoutParams.MATCH_PARENT, set layout_width and layout_height to fixed dimension, or use .override() with fixed dimensions.");
+                Log.i(ViewTarget.TAG, "Glide treats LayoutParams.WRAP_CONTENT as a request for an image the size of this device's screen dimensions. If you want to load the original image and are ok with the corresponding memory cost and OOMs (depending on the input size), use .override(Target.SIZE_ORIGINAL). Otherwise, use LayoutParams.MATCH_PARENT, set layout_width and layout_height to fixed dimension, or use .override() with fixed dimensions.");
             }
             return getMaxDisplayLength(this.view.getContext());
         }
@@ -115,18 +115,18 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
             return getTargetDimen(this.view.getWidth(), layoutParams != null ? layoutParams.width : 0, paddingLeft);
         }
 
-        private boolean isDimensionValid(int i) {
-            return i > 0 || i == Integer.MIN_VALUE;
+        private boolean isDimensionValid(int i2) {
+            return i2 > 0 || i2 == Integer.MIN_VALUE;
         }
 
-        private boolean isViewStateAndSizeValid(int i, int i2) {
-            return isDimensionValid(i) && isDimensionValid(i2);
+        private boolean isViewStateAndSizeValid(int i2, int i3) {
+            return isDimensionValid(i2) && isDimensionValid(i3);
         }
 
-        private void notifyCbs(int i, int i2) {
+        private void notifyCbs(int i2, int i3) {
             Iterator it = new ArrayList(this.cbs).iterator();
             while (it.hasNext()) {
-                ((SizeReadyCallback) it.next()).onSizeReady(i, i2);
+                ((SizeReadyCallback) it.next()).onSizeReady(i2, i3);
             }
         }
 
@@ -181,7 +181,11 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
 
     @Nullable
     private Object getTag() {
-        return this.view.getTag(tagId);
+        Integer num = tagId;
+        if (num == null) {
+            return this.view.getTag();
+        }
+        return this.view.getTag(num.intValue());
     }
 
     private void maybeAddAttachStateListener() {
@@ -203,14 +207,18 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     }
 
     private void setTag(@Nullable Object obj) {
-        isTagUsedAtLeastOnce = true;
-        this.view.setTag(tagId, obj);
+        Integer num = tagId;
+        if (num == null) {
+            isTagUsedAtLeastOnce = true;
+            this.view.setTag(obj);
+            return;
+        }
+        this.view.setTag(num.intValue(), obj);
     }
 
-    @Deprecated
-    public static void setTagId(int i) {
-        if (!isTagUsedAtLeastOnce) {
-            tagId = i;
+    public static void setTagId(int i2) {
+        if (tagId == null && !isTagUsedAtLeastOnce) {
+            tagId = Integer.valueOf(i2);
             return;
         }
         throw new IllegalArgumentException("You cannot set the tag id more than once or change the tag id after the first request has been made");

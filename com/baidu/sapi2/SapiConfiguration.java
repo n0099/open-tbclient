@@ -3,6 +3,7 @@ package com.baidu.sapi2;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiOptions;
+import com.baidu.sapi2.share.ShareUtils;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.enums.BindType;
 import com.baidu.sapi2.utils.enums.Domain;
@@ -25,21 +26,13 @@ public final class SapiConfiguration implements NoProguard {
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_LOGIN = 0;
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_NAME_PHONE_EMAIL_LOGIN = 6;
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_SMS_LOGIN = 1;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final LoginShareStrategy f10220a;
     public final boolean accountCenterRealAutnen;
     public int activityExitAnimId;
     public int activityOpenAnimId;
+    public boolean agreeDangerousProtocol;
     public final String appId;
     public final String appSignKey;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f10221b;
     public final String bdOauthAppId;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f10222c;
     public String clientId;
     public String clientIp;
     public final Switch configurableViewLayout;
@@ -53,9 +46,11 @@ public final class SapiConfiguration implements NoProguard {
     public boolean forbidPresetPhoneNumber;
     public final boolean forbidSslErrorDialog;
     public String googleClientId;
+    public final LoginShareStrategy initialShareStrategy;
     public boolean isDarkMode;
     public final boolean isNewLogin;
     public boolean isNightMode;
+    public boolean isShowBottomBackText;
     public final Language language;
     public final String meizuRedirectUri;
     public final String mzAppID;
@@ -80,6 +75,7 @@ public final class SapiConfiguration implements NoProguard {
     public boolean supportMultipleAccounts;
     public boolean supportNetwork;
     public final boolean supportPhoto;
+    public boolean supportTouchLogin;
     public boolean syncOneKeyLoginInfo;
     public int textZoom;
     public final String tpl;
@@ -180,34 +176,38 @@ public final class SapiConfiguration implements NoProguard {
     }
 
     public boolean isAgreeDangerousProtocol() {
-        return this.f10221b;
+        return this.agreeDangerousProtocol;
+    }
+
+    public boolean isShowBottomBackText() {
+        return this.isShowBottomBackText;
     }
 
     public boolean isSupportTouchLogin() {
-        return this.f10222c && SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_GINGER).f10390c;
+        return this.supportTouchLogin && SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_GINGER).meetGray;
     }
 
     public boolean isValidateSpCommit() {
-        return SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_VALIDATE_SP_COMMIT).f10390c;
+        return SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_VALIDATE_SP_COMMIT).meetGray;
     }
 
     public LoginShareStrategy loginShareStrategy() {
         SapiOptions sapiOptions = SapiContext.getInstance().getSapiOptions();
         LoginShareStrategy loginShareStrategy = sapiOptions.getSpecificShareStrategy().get(this.tpl);
         if (loginShareStrategy != null) {
-            Log.d(com.baidu.sapi2.share.d.f10961a, "loginShareStrategy shareStrategy is " + loginShareStrategy.getStrValue());
+            Log.d(ShareUtils.TAG, "loginShareStrategy shareStrategy is " + loginShareStrategy.getStrValue());
             return loginShareStrategy;
         }
         LoginShareStrategy globalShareStrategy = sapiOptions.getGlobalShareStrategy();
         if (globalShareStrategy != null) {
-            Log.d(com.baidu.sapi2.share.d.f10961a, "loginShareStrategy getGlobalShareStrategy is " + globalShareStrategy.getStrValue());
+            Log.d(ShareUtils.TAG, "loginShareStrategy getGlobalShareStrategy is " + globalShareStrategy.getStrValue());
             return globalShareStrategy;
         }
-        return this.f10220a;
+        return this.initialShareStrategy;
     }
 
     public void setAgreeDangerousProtocol(boolean z) {
-        this.f10221b = z;
+        this.agreeDangerousProtocol = z;
         try {
             FH.setAgreePolicy(this.context, z);
         } catch (Exception e2) {
@@ -217,151 +217,136 @@ public final class SapiConfiguration implements NoProguard {
 
     /* loaded from: classes2.dex */
     public static class Builder implements NoProguard {
-        public String B;
-        public String C;
-        public boolean D;
-        public SmsLoginConfig K;
-        public String Q;
-        public String R;
-
-        /* renamed from: a  reason: collision with root package name */
-        public Context f10223a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f10224b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f10225c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f10226d;
-        public boolean d0;
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f10227e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public Domain f10228f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public BindType f10229g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public Language f10230h;
-        public LoginShareStrategy i;
-        public List<FastLoginFeature> j;
-        public String k;
-        public String l;
-        public String m;
-        public Long n;
-        public String o;
-        public String p;
-        public String q;
-        public String r;
-        public String s;
-        public String u;
-        public String v;
-        public String w;
-        public String x;
-        public boolean t = true;
-        public String y = "740000";
-        public String z = "a7968de484f90a9036b5f2b40382ea43";
-        public int A = 1;
-        public boolean E = false;
-        public boolean F = false;
-        public boolean G = false;
-        public boolean H = true;
-        public Switch I = Switch.OFF;
-        public boolean J = false;
-        public boolean L = false;
-        public boolean M = true;
-        public boolean N = false;
-        public boolean O = true;
-        public boolean P = true;
-        public boolean S = false;
-        public boolean T = false;
-        public int U = 0;
-        public int V = 0;
-        public boolean W = false;
-        public boolean X = true;
-        public boolean Y = true;
-        public boolean Z = true;
-        public boolean a0 = true;
-        public boolean b0 = true;
-        public boolean c0 = true;
-        public boolean e0 = true;
-        public int f0 = 100;
+        public String appId;
+        public String appSignKey;
+        public String bdOauthAppId;
+        public Context context;
+        public String deviceLoginSignKey;
+        public Domain environment;
+        public List<FastLoginFeature> fastLoginFeatureList;
+        public boolean forbidPresetPhoneNumber;
+        public String googleClientId;
+        public LoginShareStrategy initialShareStrategy;
+        public Language language;
+        public String meizuRedirectUri;
+        public String mzAppID;
+        public String presetPhoneNumber;
+        public String processName;
+        public String qqAppID;
+        public String realnameAuthenticateStoken;
+        public String sinaAppID;
+        public String sinaRedirectUri;
+        public String skin;
+        public SmsLoginConfig smsLoginConfig;
+        public BindType socialBindType;
+        public boolean supportCheckFloatfLayer;
+        public String tpl;
+        public String twitterAppKey;
+        public String userAgent;
+        public String wxAppID;
+        public Long xiaomiAppID;
+        public String xiaomiRedirectUri;
+        public String yyAppId;
+        public boolean agreeDangerousProtocol = true;
+        public String sofireAppKey = "740000";
+        public String sofireSecKey = "a7968de484f90a9036b5f2b40382ea43";
+        public int sofireHostID = 1;
+        public boolean customActionBarEnabled = false;
+        public boolean showBottomBack = false;
+        public boolean showCloseBtn = false;
+        public boolean showRegLink = true;
+        public Switch configurableViewLayout = Switch.OFF;
+        public boolean debug = false;
+        public boolean uniteVerify = false;
+        public boolean accountCenterRealNameAuthen = true;
+        public boolean forbidSslErrorDialog = false;
+        public boolean enableShare = true;
+        public boolean supportPhoto = true;
+        public boolean isNightMode = false;
+        public boolean isDarkMode = false;
+        public int activityOpenAnimId = 0;
+        public int activityExitAnimId = 0;
+        public boolean supNewVerSapiLogin = false;
+        public boolean disableVoiceVerify = true;
+        public boolean supportFaceLogin = true;
+        public boolean supportTouchLogin = true;
+        public boolean supportGestureSlide = true;
+        public boolean syncOneKeyLoginInfo = true;
+        public boolean supportMultipleAccounts = true;
+        public boolean isNewLogin = true;
+        public int textZoom = 100;
+        public boolean isShowBottomBackText = false;
 
         public Builder(Context context) {
-            this.f10223a = context.getApplicationContext();
+            this.context = context.getApplicationContext();
         }
 
         public Builder bdOauthAppId(String str) {
-            this.p = str;
+            this.bdOauthAppId = str;
             return this;
         }
 
         public SapiConfiguration build() {
-            if (!TextUtils.isEmpty(this.f10224b) && !TextUtils.isEmpty(this.f10225c) && !TextUtils.isEmpty(this.f10226d)) {
-                if (this.f10228f == null) {
-                    this.f10228f = Domain.DOMAIN_ONLINE;
+            if (!TextUtils.isEmpty(this.tpl) && !TextUtils.isEmpty(this.appId) && !TextUtils.isEmpty(this.appSignKey)) {
+                if (this.environment == null) {
+                    this.environment = Domain.DOMAIN_ONLINE;
                 }
-                if (this.f10230h == null) {
-                    this.f10230h = Language.CHINESE;
+                if (this.language == null) {
+                    this.language = Language.CHINESE;
                 }
-                if (this.f10229g == null) {
-                    this.f10229g = BindType.BIND_MOBILE;
+                if (this.socialBindType == null) {
+                    this.socialBindType = BindType.BIND_MOBILE;
                 }
-                if (this.i == null) {
-                    this.i = LoginShareStrategy.getDefault();
+                if (this.initialShareStrategy == null) {
+                    this.initialShareStrategy = LoginShareStrategy.getDefault();
                 }
-                if (this.j == null) {
-                    this.j = new ArrayList();
+                if (this.fastLoginFeatureList == null) {
+                    this.fastLoginFeatureList = new ArrayList();
                 }
-                if (this.K == null) {
+                if (this.smsLoginConfig == null) {
                     Switch r1 = Switch.OFF;
-                    this.K = new SmsLoginConfig(r1, r1, r1);
+                    this.smsLoginConfig = new SmsLoginConfig(r1, r1, r1);
                 }
-                if (this.I == null) {
-                    this.I = Switch.OFF;
+                if (this.configurableViewLayout == null) {
+                    this.configurableViewLayout = Switch.OFF;
                 }
-                if (this.F) {
-                    this.E = true;
+                if (this.showBottomBack) {
+                    this.customActionBarEnabled = true;
                 }
-                Log.enable(this.J);
+                Log.enable(this.debug);
                 return new SapiConfiguration(this);
             }
             throw new IllegalArgumentException("tpl, appId, appsignkey can not be null, please use setProductLineInfo(String tpl, String appId, String appSignKey)to initialize them.");
         }
 
         public Builder configurableViewLayout(Switch r1) {
-            this.I = r1;
+            this.configurableViewLayout = r1;
             return this;
         }
 
         public Builder customActionBar(boolean z) {
-            this.E = z;
+            this.customActionBarEnabled = z;
             return this;
         }
 
         public Builder customWebviewUA(String str) {
-            this.R = str;
+            this.userAgent = str;
             return this;
         }
 
         public Builder debug(boolean z) {
-            this.J = z;
+            this.debug = z;
             return this;
         }
 
         public Builder enableShare(boolean z) {
-            this.O = z;
+            this.enableShare = z;
             return this;
         }
 
         public Builder fastLoginSupport(FastLoginFeature... fastLoginFeatureArr) {
             ArrayList arrayList = new ArrayList();
-            this.j = arrayList;
+            this.fastLoginFeatureList = arrayList;
             if (fastLoginFeatureArr == null) {
                 return this;
             }
@@ -370,61 +355,61 @@ public final class SapiConfiguration implements NoProguard {
         }
 
         public Builder forbidPresetPhoneNumber(boolean z) {
-            this.D = z;
+            this.forbidPresetPhoneNumber = z;
             return this;
         }
 
         public Builder forbidSslErrorDalog(boolean z) {
-            this.N = z;
+            this.forbidSslErrorDialog = z;
             return this;
         }
 
         public Builder googleOauthConfig(String str) {
-            this.r = str;
+            this.googleClientId = str;
             return this;
         }
 
         public Builder initialShareStrategy(LoginShareStrategy loginShareStrategy) {
-            this.i = loginShareStrategy;
+            this.initialShareStrategy = loginShareStrategy;
             return this;
         }
 
         public Builder isNewLogin(boolean z) {
-            this.e0 = z;
+            this.isNewLogin = z;
             return this;
         }
 
         public Builder meizuLoginConfig(String str, String str2) {
-            this.m = str;
-            this.w = str2;
+            this.mzAppID = str;
+            this.meizuRedirectUri = str2;
             return this;
         }
 
         public Builder presetPhoneNumber(String str) {
-            this.C = str;
+            this.presetPhoneNumber = str;
             return this;
         }
 
         public Builder qqAppID(String str) {
-            this.l = str;
+            this.qqAppID = str;
             return this;
         }
 
         public Builder realnameAuthenticateStoken(String str) {
-            this.u = str;
+            this.realnameAuthenticateStoken = str;
             return this;
         }
 
-        public Builder setActivityAnim(int i, int i2) {
-            this.U = i;
-            this.V = i2;
+        public Builder setActivityAnim(int i2, int i3) {
+            this.activityOpenAnimId = i2;
+            this.activityExitAnimId = i3;
             return this;
         }
 
         public Builder setAgreeDangerousProtocol(boolean z) {
-            this.t = z;
+            this.agreeDangerousProtocol = z;
             try {
-                FH.setAgreePolicy(this.f10223a, z);
+                FH.setAgreePolicy(this.context, z);
             } catch (Exception e2) {
                 Log.e(e2);
             }
@@ -432,17 +417,17 @@ public final class SapiConfiguration implements NoProguard {
         }
 
         public Builder setDarkMode(boolean z) {
-            this.T = z;
+            this.isDarkMode = z;
             return this;
         }
 
         public Builder setDisableVoiceVerify(boolean z) {
-            this.X = z;
+            this.disableVoiceVerify = z;
             return this;
         }
 
         public Builder setLanguage(Language language) {
-            this.f10230h = language;
+            this.language = language;
             return this;
         }
 
@@ -451,7 +436,7 @@ public final class SapiConfiguration implements NoProguard {
         }
 
         public Builder setNightMode(boolean z) {
-            this.S = z;
+            this.isNightMode = z;
             return this;
         }
 
@@ -460,7 +445,7 @@ public final class SapiConfiguration implements NoProguard {
                 return this;
             }
             boolean z = false;
-            Iterator<String> it = SapiOptions.g().iterator();
+            Iterator<String> it = SapiOptions.getInitialProcessNameWhiteList().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -470,141 +455,146 @@ public final class SapiConfiguration implements NoProguard {
                 }
             }
             if (z) {
-                this.Q = str;
+                this.processName = str;
             }
             return this;
         }
 
         public Builder setProductLineInfo(String str, String str2, String str3) {
-            this.f10224b = str;
-            this.f10225c = str2;
-            this.f10226d = str3;
+            this.tpl = str;
+            this.appId = str2;
+            this.appSignKey = str3;
             return this;
         }
 
         public Builder setRuntimeEnvironment(Domain domain) {
-            this.f10228f = domain;
+            this.environment = domain;
+            return this;
+        }
+
+        public Builder setShowBottomBackText(boolean z) {
+            this.isShowBottomBackText = z;
             return this;
         }
 
         public Builder setShowCloseBtn(boolean z) {
-            this.G = z;
+            this.showCloseBtn = z;
             return this;
         }
 
         public Builder setSocialBindType(BindType bindType) {
-            this.f10229g = bindType;
+            this.socialBindType = bindType;
             return this;
         }
 
         public Builder setSupNewVerSapiLogin(boolean z) {
-            this.W = z;
+            this.supNewVerSapiLogin = z;
             return this;
         }
 
         public Builder setSupportCheckFloatfLayer(boolean z) {
-            this.d0 = z;
+            this.supportCheckFloatfLayer = z;
             return this;
         }
 
         public Builder setSupportFaceLogin(boolean z) {
-            this.Y = z;
+            this.supportFaceLogin = z;
             return this;
         }
 
         public Builder setSupportGestureSlide(boolean z) {
-            this.a0 = z;
+            this.supportGestureSlide = z;
             return this;
         }
 
         public Builder setSupportMultipleAccounts(boolean z) {
-            this.c0 = z;
+            this.supportMultipleAccounts = z;
             return this;
         }
 
         public Builder setSupportPhoto(boolean z) {
-            this.P = z;
+            this.supportPhoto = z;
             return this;
         }
 
         public Builder setSupportTouchLogin(boolean z) {
-            this.Z = z;
+            this.supportTouchLogin = z;
             return this;
         }
 
-        public Builder setTextZoom(int i) {
-            if (i > 0 && i < 200) {
-                this.f0 = i;
+        public Builder setTextZoom(int i2) {
+            if (i2 > 0 && i2 < 200) {
+                this.textZoom = i2;
             }
             return this;
         }
 
         public Builder showBottomBack(boolean z) {
-            this.F = z;
+            this.showBottomBack = z;
             return this;
         }
 
         public Builder showRegLink(boolean z) {
-            this.H = z;
+            this.showRegLink = z;
             return this;
         }
 
         public Builder sinaAppID(String str, String str2) {
-            this.o = str;
-            this.x = str2;
+            this.sinaAppID = str;
+            this.sinaRedirectUri = str2;
             return this;
         }
 
         public Builder skin(String str) {
-            this.B = str;
+            this.skin = str;
             return this;
         }
 
         public Builder smsLoginConfig(SmsLoginConfig smsLoginConfig) {
-            this.K = smsLoginConfig;
+            this.smsLoginConfig = smsLoginConfig;
             return this;
         }
 
-        public Builder sofireSdkConfig(String str, String str2, int i) {
-            this.y = str;
-            this.z = str2;
-            this.A = i;
+        public Builder sofireSdkConfig(String str, String str2, int i2) {
+            this.sofireAppKey = str;
+            this.sofireSecKey = str2;
+            this.sofireHostID = i2;
             return this;
         }
 
         public Builder supportRealNameAuthen(boolean z) {
-            this.M = z;
+            this.accountCenterRealNameAuthen = z;
             return this;
         }
 
         public Builder syncOneKeyLoginInfo(boolean z) {
-            this.b0 = z;
+            this.syncOneKeyLoginInfo = z;
             return this;
         }
 
         public Builder twitterOauthConfig(String str) {
-            this.q = str;
+            this.twitterAppKey = str;
             return this;
         }
 
         public Builder uniteVerify(boolean z) {
-            this.L = z;
+            this.uniteVerify = z;
             return this;
         }
 
         public Builder wxAppID(String str) {
-            this.k = str;
+            this.wxAppID = str;
             return this;
         }
 
         public Builder xiaoAppID(Long l, String str) {
-            this.n = l;
-            this.v = str;
+            this.xiaomiAppID = l;
+            this.xiaomiRedirectUri = str;
             return this;
         }
 
         public Builder yyOauthConfig(String str) {
-            this.s = str;
+            this.yyAppId = str;
             return this;
         }
 
@@ -615,61 +605,62 @@ public final class SapiConfiguration implements NoProguard {
 
     public SapiConfiguration(Builder builder) {
         this.supportNetwork = true;
-        this.context = builder.f10223a;
-        this.tpl = builder.f10224b;
-        this.appId = builder.f10225c;
-        this.appSignKey = builder.f10226d;
-        this.environment = builder.f10228f;
-        this.language = builder.f10230h;
-        this.socialBindType = builder.f10229g;
-        this.f10220a = builder.i;
-        this.fastLoginFeatureList = builder.j;
-        this.wxAppID = builder.k;
-        this.qqAppID = builder.l;
-        this.mzAppID = builder.m;
-        this.sinaAppId = builder.o;
-        this.bdOauthAppId = builder.p;
-        this.meizuRedirectUri = builder.w;
-        this.sinaRedirectUri = builder.x;
-        this.xiaomiAppID = builder.n;
-        this.xiaomiRedirectUri = builder.v;
-        this.f10221b = builder.t;
-        this.twitterAppKey = builder.q;
-        this.googleClientId = builder.r;
-        this.yyAppId = builder.s;
-        this.sofireAppKey = builder.y;
-        this.sofireSecKey = builder.z;
-        this.sofireHostID = builder.A;
-        this.realnameAuthenticateStoken = builder.u;
-        this.skin = builder.B;
-        this.presetPhoneNumber = builder.C;
-        this.forbidPresetPhoneNumber = builder.D;
-        this.customActionBarEnabled = builder.E;
-        this.showBottomBack = builder.F;
-        this.configurableViewLayout = builder.I;
-        this.debug = builder.J;
-        this.smsLoginConfig = builder.K;
-        this.uniteVerify = builder.L;
-        this.accountCenterRealAutnen = builder.M;
-        this.forbidSslErrorDialog = builder.N;
-        this.enableShare = builder.O;
-        this.supportPhoto = builder.P;
-        this.processName = builder.Q;
-        this.isNightMode = builder.S;
-        this.isDarkMode = builder.T;
-        this.isNewLogin = builder.e0;
-        this.showCloseBtn = builder.G;
-        this.userAgent = builder.R;
-        this.activityOpenAnimId = builder.U;
-        this.activityExitAnimId = builder.V;
-        this.disableVoiceVerify = builder.X;
-        this.supportFaceLogin = builder.Y;
-        this.f10222c = builder.Z;
-        this.supportGestureSlide = builder.a0;
-        this.syncOneKeyLoginInfo = builder.b0;
-        this.supportMultipleAccounts = builder.c0;
-        this.supportCheckFloatfLayer = builder.d0;
-        this.textZoom = builder.f0;
+        this.context = builder.context;
+        this.tpl = builder.tpl;
+        this.appId = builder.appId;
+        this.appSignKey = builder.appSignKey;
+        this.environment = builder.environment;
+        this.language = builder.language;
+        this.socialBindType = builder.socialBindType;
+        this.initialShareStrategy = builder.initialShareStrategy;
+        this.fastLoginFeatureList = builder.fastLoginFeatureList;
+        this.wxAppID = builder.wxAppID;
+        this.qqAppID = builder.qqAppID;
+        this.mzAppID = builder.mzAppID;
+        this.sinaAppId = builder.sinaAppID;
+        this.bdOauthAppId = builder.bdOauthAppId;
+        this.meizuRedirectUri = builder.meizuRedirectUri;
+        this.sinaRedirectUri = builder.sinaRedirectUri;
+        this.xiaomiAppID = builder.xiaomiAppID;
+        this.xiaomiRedirectUri = builder.xiaomiRedirectUri;
+        this.agreeDangerousProtocol = builder.agreeDangerousProtocol;
+        this.twitterAppKey = builder.twitterAppKey;
+        this.googleClientId = builder.googleClientId;
+        this.yyAppId = builder.yyAppId;
+        this.sofireAppKey = builder.sofireAppKey;
+        this.sofireSecKey = builder.sofireSecKey;
+        this.sofireHostID = builder.sofireHostID;
+        this.realnameAuthenticateStoken = builder.realnameAuthenticateStoken;
+        this.skin = builder.skin;
+        this.presetPhoneNumber = builder.presetPhoneNumber;
+        this.forbidPresetPhoneNumber = builder.forbidPresetPhoneNumber;
+        this.customActionBarEnabled = builder.customActionBarEnabled;
+        this.showBottomBack = builder.showBottomBack;
+        this.configurableViewLayout = builder.configurableViewLayout;
+        this.debug = builder.debug;
+        this.smsLoginConfig = builder.smsLoginConfig;
+        this.uniteVerify = builder.uniteVerify;
+        this.accountCenterRealAutnen = builder.accountCenterRealNameAuthen;
+        this.forbidSslErrorDialog = builder.forbidSslErrorDialog;
+        this.enableShare = builder.enableShare;
+        this.supportPhoto = builder.supportPhoto;
+        this.processName = builder.processName;
+        this.isNightMode = builder.isNightMode;
+        this.isDarkMode = builder.isDarkMode;
+        this.isNewLogin = builder.isNewLogin;
+        this.showCloseBtn = builder.showCloseBtn;
+        this.userAgent = builder.userAgent;
+        this.activityOpenAnimId = builder.activityOpenAnimId;
+        this.activityExitAnimId = builder.activityExitAnimId;
+        this.disableVoiceVerify = builder.disableVoiceVerify;
+        this.supportFaceLogin = builder.supportFaceLogin;
+        this.supportTouchLogin = builder.supportTouchLogin;
+        this.supportGestureSlide = builder.supportGestureSlide;
+        this.syncOneKeyLoginInfo = builder.syncOneKeyLoginInfo;
+        this.supportMultipleAccounts = builder.supportMultipleAccounts;
+        this.supportCheckFloatfLayer = builder.supportCheckFloatfLayer;
+        this.textZoom = builder.textZoom;
+        this.isShowBottomBackText = builder.isShowBottomBackText;
     }
 
     /* loaded from: classes2.dex */

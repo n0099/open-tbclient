@@ -10,7 +10,7 @@ public interface IMessenger {
 
     void notifyEvent(@NonNull VideoEvent videoEvent);
 
-    void register(int i, @NonNull INeuron iNeuron);
+    void register(int i2, @NonNull INeuron iNeuron);
 
     void release();
 

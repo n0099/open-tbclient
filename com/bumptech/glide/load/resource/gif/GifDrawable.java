@@ -12,7 +12,6 @@ import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
-import androidx.vectordrawable.graphics.drawable.Animatable2Compat;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.gifdecoder.GifDecoder;
 import com.bumptech.glide.load.Transformation;
@@ -20,14 +19,11 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.gif.GifFrameLoader;
 import com.bumptech.glide.util.Preconditions;
 import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallback, Animatable, Animatable2Compat {
+public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallback, Animatable {
     public static final int GRAVITY = 119;
     public static final int LOOP_FOREVER = -1;
     public static final int LOOP_INTRINSIC = 0;
-    public List<Animatable2Compat.AnimationCallback> animationCallbacks;
     public boolean applyGravity;
     public Rect destRect;
     public boolean isRecycled;
@@ -67,8 +63,8 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
     }
 
     @Deprecated
-    public GifDrawable(Context context, GifDecoder gifDecoder, BitmapPool bitmapPool, Transformation<Bitmap> transformation, int i, int i2, Bitmap bitmap) {
-        this(context, gifDecoder, transformation, i, i2, bitmap);
+    public GifDrawable(Context context, GifDecoder gifDecoder, BitmapPool bitmapPool, Transformation<Bitmap> transformation, int i2, int i3, Bitmap bitmap) {
+        this(context, gifDecoder, transformation, i2, i3, bitmap);
     }
 
     private Drawable.Callback findCallback() {
@@ -93,16 +89,6 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
         return this.paint;
     }
 
-    private void notifyAnimationEndToListeners() {
-        List<Animatable2Compat.AnimationCallback> list = this.animationCallbacks;
-        if (list != null) {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                this.animationCallbacks.get(i).onAnimationEnd(this);
-            }
-        }
-    }
-
     private void resetLoopCount() {
         this.loopCount = 0;
     }
@@ -122,14 +108,6 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
     private void stopRunning() {
         this.isRunning = false;
         this.state.frameLoader.unsubscribe(this);
-    }
-
-    @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
-    public void clearAnimationCallbacks() {
-        List<Animatable2Compat.AnimationCallback> list = this.animationCallbacks;
-        if (list != null) {
-            list.clear();
-        }
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -214,11 +192,10 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
         if (getFrameIndex() == getFrameCount() - 1) {
             this.loopCount++;
         }
-        int i = this.maxLoopCount;
-        if (i == -1 || this.loopCount < i) {
+        int i2 = this.maxLoopCount;
+        if (i2 == -1 || this.loopCount < i2) {
             return;
         }
-        notifyAnimationEndToListeners();
         stop();
     }
 
@@ -227,20 +204,9 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
         this.state.frameLoader.clear();
     }
 
-    @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
-    public void registerAnimationCallback(@NonNull Animatable2Compat.AnimationCallback animationCallback) {
-        if (animationCallback == null) {
-            return;
-        }
-        if (this.animationCallbacks == null) {
-            this.animationCallbacks = new ArrayList();
-        }
-        this.animationCallbacks.add(animationCallback);
-    }
-
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        getPaint().setAlpha(i);
+    public void setAlpha(int i2) {
+        getPaint().setAlpha(i2);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -256,16 +222,16 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
         this.isRunning = z;
     }
 
-    public void setLoopCount(int i) {
-        if (i <= 0 && i != -1 && i != 0) {
+    public void setLoopCount(int i2) {
+        if (i2 <= 0 && i2 != -1 && i2 != 0) {
             throw new IllegalArgumentException("Loop count must be greater than 0, or equal to GlideDrawable.LOOP_FOREVER, or equal to GlideDrawable.LOOP_INTRINSIC");
         }
-        if (i == 0) {
+        if (i2 == 0) {
             int loopCount = this.state.frameLoader.getLoopCount();
             this.maxLoopCount = loopCount != 0 ? loopCount : -1;
             return;
         }
-        this.maxLoopCount = i;
+        this.maxLoopCount = i2;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -301,17 +267,8 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
         stopRunning();
     }
 
-    @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
-    public boolean unregisterAnimationCallback(@NonNull Animatable2Compat.AnimationCallback animationCallback) {
-        List<Animatable2Compat.AnimationCallback> list = this.animationCallbacks;
-        if (list == null || animationCallback == null) {
-            return false;
-        }
-        return list.remove(animationCallback);
-    }
-
-    public GifDrawable(Context context, GifDecoder gifDecoder, Transformation<Bitmap> transformation, int i, int i2, Bitmap bitmap) {
-        this(new GifState(new GifFrameLoader(Glide.get(context), gifDecoder, i, i2, transformation, bitmap)));
+    public GifDrawable(Context context, GifDecoder gifDecoder, Transformation<Bitmap> transformation, int i2, int i3, Bitmap bitmap) {
+        this(new GifState(new GifFrameLoader(Glide.get(context), gifDecoder, i2, i3, transformation, bitmap)));
     }
 
     public GifDrawable(GifState gifState) {

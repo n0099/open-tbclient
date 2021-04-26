@@ -14,30 +14,32 @@ import com.baidu.adp.gif.NSGif;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import d.b.c.e.l.c;
-import d.b.c.e.l.d;
+import d.a.c.e.l.c;
+import d.a.c.e.l.d;
 /* loaded from: classes3.dex */
 public class TbMemeImageView extends ImageView implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.c.d.b f13791e;
+    public d.a.c.d.b f13805e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f13792f;
+    public Bitmap f13806f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13793g;
+    public int f13807g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.c.j.d.a f13794h;
-    public boolean i;
+    public d.a.c.j.d.a f13808h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f13809i;
     public Drawable j;
     public Drawable k;
     public String l;
     public View.OnClickListener m;
     public TbRichTextView.v n;
     public final Handler o;
-    public c<d.b.c.j.d.a> p;
+    public c<d.a.c.j.d.a> p;
 
     /* loaded from: classes3.dex */
     public class a extends Handler {
@@ -46,34 +48,34 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            d.b.c.d.b gif = TbMemeImageView.this.getGif();
+            d.a.c.d.b gif = TbMemeImageView.this.getGif();
             if (gif != null && message.what == 1) {
-                TbMemeImageView.this.f13793g++;
-                if (TbMemeImageView.this.f13793g >= gif.getFrameCount()) {
-                    TbMemeImageView.this.f13793g = 0;
+                TbMemeImageView.this.f13807g++;
+                if (TbMemeImageView.this.f13807g >= gif.getFrameCount()) {
+                    TbMemeImageView.this.f13807g = 0;
                 }
-                gif.b(TbMemeImageView.this.f13793g);
-                gif.c(TbMemeImageView.this.f13792f, null);
+                gif.c(TbMemeImageView.this.f13807g);
+                gif.a(TbMemeImageView.this.f13806f, null);
                 TbMemeImageView.this.invalidate();
                 TbMemeImageView.this.o.removeMessages(1);
-                TbMemeImageView.this.o.sendEmptyMessageDelayed(1, gif.a(TbMemeImageView.this.f13793g));
+                TbMemeImageView.this.o.sendEmptyMessageDelayed(1, gif.b(TbMemeImageView.this.f13807g));
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b extends c<d.b.c.j.d.a> {
+    public class b extends c<d.a.c.j.d.a> {
         public b() {
         }
 
-        @Override // d.b.c.e.l.c
+        @Override // d.a.c.e.l.c
         public void onCancelled(String str) {
             d.h().c(str, 33);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.c.e.l.c
-        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
+        @Override // d.a.c.e.l.c
+        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
             if (aVar != null) {
                 TbMemeImageView.this.g(aVar);
             }
@@ -82,7 +84,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
 
     public TbMemeImageView(Context context) {
         super(context);
-        this.i = true;
+        this.f13809i = true;
         this.j = SkinManager.getDrawable(R.color.common_color_10220);
         this.k = SkinManager.getDrawable(R.drawable.icon_click);
         SkinManager.getDrawable(R.drawable.img_default_100);
@@ -107,48 +109,48 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     }
 
     public void f() {
-        d.b.c.d.b gif = getGif();
+        d.a.c.d.b gif = getGif();
         if (gif == null) {
             return;
         }
-        if (this.f13793g != 0) {
-            this.f13793g = 0;
+        if (this.f13807g != 0) {
+            this.f13807g = 0;
         }
-        gif.b(0);
+        gif.c(0);
         this.o.removeMessages(1);
-        this.o.sendEmptyMessageDelayed(1, gif.a(this.f13793g));
+        this.o.sendEmptyMessageDelayed(1, gif.b(this.f13807g));
     }
 
-    public void g(d.b.c.j.d.a aVar) {
+    public void g(d.a.c.j.d.a aVar) {
         if (aVar == null) {
             return;
         }
-        this.f13794h = aVar;
+        this.f13808h = aVar;
         if (aVar.t() && aVar.k() != null && aVar.k().length > 0) {
             NSGif f2 = NSGif.f(aVar.k(), 0, aVar.k().length);
             if (f2 == null) {
                 return;
             }
-            this.f13791e = f2;
-            f2.b(0);
-            Bitmap bitmap = this.f13792f;
-            if (bitmap == null || (bitmap.getWidth() != this.f13791e.getWidth() && this.f13792f.getHeight() != this.f13791e.getHeight())) {
-                this.f13792f = Bitmap.createBitmap(this.f13791e.getWidth(), this.f13791e.getHeight(), Bitmap.Config.ARGB_4444);
+            this.f13805e = f2;
+            f2.c(0);
+            Bitmap bitmap = this.f13806f;
+            if (bitmap == null || (bitmap.getWidth() != this.f13805e.getWidth() && this.f13806f.getHeight() != this.f13805e.getHeight())) {
+                this.f13806f = Bitmap.createBitmap(this.f13805e.getWidth(), this.f13805e.getHeight(), Bitmap.Config.ARGB_4444);
             }
-            this.f13791e.c(this.f13792f, null);
-            setImageBitmap(this.f13792f);
+            this.f13805e.a(this.f13806f, null);
+            setImageBitmap(this.f13806f);
             f();
         } else if (aVar.p() != null) {
             setImageBitmap(aVar.p());
         }
     }
 
-    public d.b.c.j.d.a getBdImage() {
-        return this.f13794h;
+    public d.a.c.j.d.a getBdImage() {
+        return this.f13808h;
     }
 
-    public d.b.c.d.b getGif() {
-        d.b.c.d.b bVar = this.f13791e;
+    public d.a.c.d.b getGif() {
+        d.a.c.d.b bVar = this.f13805e;
         if (bVar == null) {
             return null;
         }
@@ -164,7 +166,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f13794h == null && this.i) {
+        if (this.f13808h == null && this.f13809i) {
             d.h().l(this.l, 33, this.p, 0, 0, false, null, new Object[0]);
             return;
         }
@@ -178,51 +180,51 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.o.removeMessages(1);
-        d.b.c.d.b bVar = this.f13791e;
+        d.a.c.d.b bVar = this.f13805e;
         if (bVar != null) {
             bVar.close();
-            this.f13791e = null;
+            this.f13805e = null;
         }
-        if (this.f13794h != null) {
-            this.f13794h = null;
+        if (this.f13808h != null) {
+            this.f13808h = null;
         }
-        Bitmap bitmap = this.f13792f;
+        Bitmap bitmap = this.f13806f;
         if (bitmap != null) {
             bitmap.recycle();
-            this.f13792f = null;
+            this.f13806f = null;
         }
-        this.f13793g = 0;
+        this.f13807g = 0;
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
         this.o.removeMessages(1);
-        d.b.c.d.b bVar = this.f13791e;
+        d.a.c.d.b bVar = this.f13805e;
         if (bVar != null) {
             bVar.close();
-            this.f13791e = null;
+            this.f13805e = null;
         }
-        if (this.f13794h != null) {
-            this.f13794h = null;
+        if (this.f13808h != null) {
+            this.f13808h = null;
         }
-        Bitmap bitmap = this.f13792f;
+        Bitmap bitmap = this.f13806f;
         if (bitmap != null) {
             bitmap.recycle();
-            this.f13792f = null;
+            this.f13806f = null;
         }
-        this.f13793g = 0;
+        this.f13807g = 0;
     }
 
     @Override // android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
-        if (this.f13791e == null) {
+    public void onWindowVisibilityChanged(int i2) {
+        super.onWindowVisibilityChanged(i2);
+        if (this.f13805e == null) {
             return;
         }
-        if (i == 4 || i == 8) {
+        if (i2 == 4 || i2 == 8) {
             h();
-        } else if (i == 0) {
+        } else if (i2 == 0) {
             f();
         }
     }
@@ -260,12 +262,12 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     }
 
     public void setSupportNoImage(boolean z) {
-        this.i = z;
+        this.f13809i = z;
     }
 
-    public TbMemeImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.i = true;
+    public TbMemeImageView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f13809i = true;
         this.j = SkinManager.getDrawable(R.color.common_color_10220);
         this.k = SkinManager.getDrawable(R.drawable.icon_click);
         SkinManager.getDrawable(R.drawable.img_default_100);
@@ -277,7 +279,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
 
     public TbMemeImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.i = true;
+        this.f13809i = true;
         this.j = SkinManager.getDrawable(R.color.common_color_10220);
         this.k = SkinManager.getDrawable(R.drawable.icon_click);
         SkinManager.getDrawable(R.drawable.img_default_100);

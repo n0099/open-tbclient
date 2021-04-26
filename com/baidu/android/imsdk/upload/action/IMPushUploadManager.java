@@ -152,15 +152,15 @@ public class IMPushUploadManager {
             public void onResponse(Call call, Response response) {
                 IMPushUploadResponseListener iMPushUploadResponseListener2;
                 String str3 = "ok";
-                int i = 0;
+                int i2 = 0;
                 try {
                     try {
                         if (response.body() != null) {
                             String[] parseResponse = IMPushUploadManager.this.parseResponse(response.body().bytes());
-                            i = Integer.valueOf(parseResponse[0]).intValue();
+                            i2 = Integer.valueOf(parseResponse[0]).intValue();
                             str3 = parseResponse[1];
                         }
-                        Log.d(IMPushUploadConstants.TAG, "onResponse response = " + i + " body = " + str3 + ", logId :" + str2);
+                        Log.d(IMPushUploadConstants.TAG, "onResponse response = " + i2 + " body = " + str3 + ", logId :" + str2);
                         iMPushUploadResponseListener2 = iMPushUploadResponseListener;
                         if (iMPushUploadResponseListener2 == null) {
                             return;
@@ -172,11 +172,11 @@ public class IMPushUploadManager {
                             return;
                         }
                     }
-                    iMPushUploadResponseListener2.uploadResponse(i, str3);
+                    iMPushUploadResponseListener2.uploadResponse(i2, str3);
                 } catch (Throwable th) {
                     IMPushUploadResponseListener iMPushUploadResponseListener3 = iMPushUploadResponseListener;
                     if (iMPushUploadResponseListener3 != null) {
-                        iMPushUploadResponseListener3.uploadResponse(i, str3);
+                        iMPushUploadResponseListener3.uploadResponse(i2, str3);
                     }
                     throw th;
                 }

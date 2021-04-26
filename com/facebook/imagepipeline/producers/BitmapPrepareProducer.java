@@ -18,10 +18,10 @@ public class BitmapPrepareProducer implements Producer<CloseableReference<Closea
         public final int mMaxBitmapSizeBytes;
         public final int mMinBitmapSizeBytes;
 
-        public BitmapPrepareConsumer(Consumer<CloseableReference<CloseableImage>> consumer, int i, int i2) {
+        public BitmapPrepareConsumer(Consumer<CloseableReference<CloseableImage>> consumer, int i2, int i3) {
             super(consumer);
-            this.mMinBitmapSizeBytes = i;
-            this.mMaxBitmapSizeBytes = i2;
+            this.mMinBitmapSizeBytes = i2;
+            this.mMaxBitmapSizeBytes = i3;
         }
 
         private void internalPrepareBitmap(CloseableReference<CloseableImage> closeableReference) {
@@ -36,17 +36,17 @@ public class BitmapPrepareProducer implements Producer<CloseableReference<Closea
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i) {
+        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i2) {
             internalPrepareBitmap(closeableReference);
-            getConsumer().onNewResult(closeableReference, i);
+            getConsumer().onNewResult(closeableReference, i2);
         }
     }
 
-    public BitmapPrepareProducer(Producer<CloseableReference<CloseableImage>> producer, int i, int i2, boolean z) {
-        Preconditions.checkArgument(i <= i2);
+    public BitmapPrepareProducer(Producer<CloseableReference<CloseableImage>> producer, int i2, int i3, boolean z) {
+        Preconditions.checkArgument(i2 <= i3);
         this.mInputProducer = (Producer) Preconditions.checkNotNull(producer);
-        this.mMinBitmapSizeBytes = i;
-        this.mMaxBitmapSizeBytes = i2;
+        this.mMinBitmapSizeBytes = i2;
+        this.mMaxBitmapSizeBytes = i3;
         this.mPreparePrefetch = z;
     }
 

@@ -21,7 +21,7 @@ public final class Options extends AbstractList<ByteString> implements RandomAcc
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
-    public ByteString get(int i) {
-        return this.byteStrings[i];
+    public ByteString get(int i2) {
+        return this.byteStrings[i2];
     }
 }

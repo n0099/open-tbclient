@@ -3,8 +3,8 @@ package com.bytedance.sdk.openadsdk.core.b;
 import android.content.Context;
 import com.bytedance.sdk.openadsdk.i.e;
 import com.bytedance.sdk.openadsdk.utils.aj;
-import d.c.c.b.b.h;
-import d.c.c.b.d.g;
+import d.b.c.b.b.h;
+import d.b.c.b.d.g;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */

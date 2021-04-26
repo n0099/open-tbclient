@@ -25,10 +25,10 @@ public class PaymentConfirmActivityConfig extends IntentConfig {
         }
     }
 
-    public void setBookType(int i) {
+    public void setBookType(int i2) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra("book_type", i);
+            intent.putExtra("book_type", i2);
         }
     }
 }

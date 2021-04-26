@@ -9,8 +9,8 @@ public class DeviceInfo {
         public boolean accept(File file) {
             String name = file.getName();
             if (name.startsWith("cpu")) {
-                for (int i = 3; i < name.length(); i++) {
-                    if (name.charAt(i) < '0' || name.charAt(i) > '9') {
+                for (int i2 = 3; i2 < name.length(); i2++) {
+                    if (name.charAt(i2) < '0' || name.charAt(i2) > '9') {
                         return false;
                     }
                 }

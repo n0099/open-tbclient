@@ -42,8 +42,8 @@ public class TailData implements Serializable {
         this.fontType = str;
     }
 
-    public void setId(int i) {
-        this.id = i;
+    public void setId(int i2) {
+        this.id = i2;
     }
 
     public void setSelected(boolean z) {

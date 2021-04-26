@@ -8,13 +8,13 @@ public interface ICustomVideoView {
     public interface VideoPlayCallbackImpl {
         void onClickAd();
 
-        void onCloseVideo(int i);
+        void onCloseVideo(int i2);
 
         void onCompletion(MediaPlayer mediaPlayer);
 
-        void onError(MediaPlayer mediaPlayer, int i, int i2);
+        void onError(MediaPlayer mediaPlayer, int i2, int i3);
 
-        void onFullScreen(int i);
+        void onFullScreen(int i2);
 
         void onReturnButtonClicked();
 

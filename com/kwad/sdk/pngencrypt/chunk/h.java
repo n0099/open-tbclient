@@ -3,8 +3,10 @@ package com.kwad.sdk.pngencrypt.chunk;
 public class h extends aa {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36539h;
-    public int i;
+    public int f34238h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f34239i;
     public int j;
     public int k;
     public int l;
@@ -15,15 +17,15 @@ public class h extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        com.kwad.sdk.pngencrypt.k kVar = this.f36508e;
-        if (kVar.f36574f) {
-            this.f36539h = com.kwad.sdk.pngencrypt.n.b(dVar.f36527d, 0);
-        } else if (kVar.f36575g) {
-            this.l = dVar.f36527d[0] & 255;
+        com.kwad.sdk.pngencrypt.k kVar = this.f34203e;
+        if (kVar.f34287f) {
+            this.f34238h = com.kwad.sdk.pngencrypt.n.b(dVar.f34225d, 0);
+        } else if (kVar.f34288g) {
+            this.l = dVar.f34225d[0] & 255;
         } else {
-            this.i = com.kwad.sdk.pngencrypt.n.b(dVar.f36527d, 0);
-            this.j = com.kwad.sdk.pngencrypt.n.b(dVar.f36527d, 2);
-            this.k = com.kwad.sdk.pngencrypt.n.b(dVar.f36527d, 4);
+            this.f34239i = com.kwad.sdk.pngencrypt.n.b(dVar.f34225d, 0);
+            this.j = com.kwad.sdk.pngencrypt.n.b(dVar.f34225d, 2);
+            this.k = com.kwad.sdk.pngencrypt.n.b(dVar.f34225d, 4);
         }
     }
 }

@@ -9,7 +9,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class Sets {
     public static <E> CopyOnWriteArraySet<E> newCopyOnWriteArraySet() {
         return new CopyOnWriteArraySet<>();
@@ -19,8 +19,8 @@ public final class Sets {
         return new HashSet<>();
     }
 
-    public static <E> HashSet<E> newHashSetWithCapacity(int i) {
-        return new HashSet<>(i);
+    public static <E> HashSet<E> newHashSetWithCapacity(int i2) {
+        return new HashSet<>(i2);
     }
 
     public static <E> Set<E> newIdentityHashSet() {

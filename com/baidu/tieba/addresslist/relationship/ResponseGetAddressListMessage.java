@@ -3,8 +3,8 @@ package com.baidu.tieba.addresslist.relationship;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
-import d.b.i0.r.d0.b;
-import d.b.j0.q.f.a;
+import d.a.i0.r.d0.b;
+import d.a.j0.q.f.a;
 import tbclient.Error;
 import tbclient.GetAddressList.GetAddressListResIdl;
 /* loaded from: classes4.dex */
@@ -25,7 +25,7 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetAddressListResIdl getAddressListResIdl = (GetAddressListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetAddressListResIdl.class);
         if (getAddressListResIdl != null) {
             if (getAddressListResIdl.data != null) {

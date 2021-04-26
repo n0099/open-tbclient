@@ -21,7 +21,7 @@ public interface IListenerManager extends IInterface {
         }
 
         @Override // com.bytedance.sdk.openadsdk.IListenerManager
-        public void broadcastDialogListener(String str, int i) throws RemoteException {
+        public void broadcastDialogListener(String str, int i2) throws RemoteException {
         }
 
         @Override // com.bytedance.sdk.openadsdk.IListenerManager
@@ -37,7 +37,7 @@ public interface IListenerManager extends IInterface {
         }
 
         @Override // com.bytedance.sdk.openadsdk.IListenerManager
-        public void executeRewardVideoCallback(String str, String str2, boolean z, int i, String str3, int i2, String str4) throws RemoteException {
+        public void executeRewardVideoCallback(String str, String str2, boolean z, int i2, String str3, int i3, String str4) throws RemoteException {
         }
 
         @Override // com.bytedance.sdk.openadsdk.IListenerManager
@@ -72,30 +72,30 @@ public interface IListenerManager extends IInterface {
         public static class a implements IListenerManager {
 
             /* renamed from: a  reason: collision with root package name */
-            public static IListenerManager f26967a;
+            public static IListenerManager f27785a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f26968b;
+            public IBinder f27786b;
 
             public a(IBinder iBinder) {
-                this.f26968b = iBinder;
+                this.f27786b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f26968b;
+                return this.f27786b;
             }
 
             @Override // com.bytedance.sdk.openadsdk.IListenerManager
-            public void broadcastDialogListener(String str, int i) throws RemoteException {
+            public void broadcastDialogListener(String str, int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
-                    obtain.writeInt(i);
-                    if (!this.f26968b.transact(9, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                        Stub.getDefaultImpl().broadcastDialogListener(str, i);
+                    obtain.writeInt(i2);
+                    if (!this.f27786b.transact(9, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().broadcastDialogListener(str, i2);
                     } else {
                         obtain2.readException();
                     }
@@ -113,7 +113,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f26968b.transact(11, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27786b.transact(11, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().broadcastPermissionListener(str, str2);
                     } else {
                         obtain2.readException();
@@ -140,7 +140,7 @@ public interface IListenerManager extends IInterface {
                     th = th;
                 }
                 try {
-                    if (!this.f26968b.transact(7, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27786b.transact(7, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().executeAppDownloadCallback(str, str2, j, j2, str3, str4);
                         obtain2.recycle();
                         obtain.recycle();
@@ -165,7 +165,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f26968b.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27786b.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().executeFullVideoCallback(str, str2);
                     } else {
                         obtain2.readException();
@@ -177,7 +177,7 @@ public interface IListenerManager extends IInterface {
             }
 
             @Override // com.bytedance.sdk.openadsdk.IListenerManager
-            public void executeRewardVideoCallback(String str, String str2, boolean z, int i, String str3, int i2, String str4) throws RemoteException {
+            public void executeRewardVideoCallback(String str, String str2, boolean z, int i2, String str3, int i3, String str4) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -185,13 +185,13 @@ public interface IListenerManager extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeInt(z ? 1 : 0);
-                    obtain.writeInt(i);
-                    obtain.writeString(str3);
                     obtain.writeInt(i2);
+                    obtain.writeString(str3);
+                    obtain.writeInt(i3);
                     obtain.writeString(str4);
                     try {
-                        if (!this.f26968b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                            Stub.getDefaultImpl().executeRewardVideoCallback(str, str2, z, i, str3, i2, str4);
+                        if (!this.f27786b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                            Stub.getDefaultImpl().executeRewardVideoCallback(str, str2, z, i2, str3, i3, str4);
                             obtain2.recycle();
                             obtain.recycle();
                             return;
@@ -218,7 +218,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeStrongBinder(iCommonDialogListener != null ? iCommonDialogListener.asBinder() : null);
-                    if (!this.f26968b.transact(8, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27786b.transact(8, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().registerDialogListener(str, iCommonDialogListener);
                     } else {
                         obtain2.readException();
@@ -237,7 +237,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeStrongBinder(iFullScreenVideoAdInteractionListener != null ? iFullScreenVideoAdInteractionListener.asBinder() : null);
-                    if (!this.f26968b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27786b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().registerFullVideoListener(str, iFullScreenVideoAdInteractionListener);
                     } else {
                         obtain2.readException();
@@ -256,7 +256,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeStrongBinder(iCommonPermissionListener != null ? iCommonPermissionListener.asBinder() : null);
-                    if (!this.f26968b.transact(10, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27786b.transact(10, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().registerPermissionListener(str, iCommonPermissionListener);
                     } else {
                         obtain2.readException();
@@ -275,7 +275,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeStrongBinder(iRewardAdInteractionListener != null ? iRewardAdInteractionListener.asBinder() : null);
-                    if (!this.f26968b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27786b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().registerRewardVideoListener(str, iRewardAdInteractionListener);
                     } else {
                         obtain2.readException();
@@ -294,7 +294,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeStrongBinder(iTTAppDownloadListener != null ? iTTAppDownloadListener.asBinder() : null);
-                    if (!this.f26968b.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27786b.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().registerTTAppDownloadListener(str, iTTAppDownloadListener);
                     } else {
                         obtain2.readException();
@@ -313,7 +313,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeStrongBinder(iTTAppDownloadListener != null ? iTTAppDownloadListener.asBinder() : null);
-                    if (!this.f26968b.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27786b.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().unregisterTTAppDownloadListener(str, iTTAppDownloadListener);
                     } else {
                         obtain2.readException();
@@ -341,14 +341,14 @@ public interface IListenerManager extends IInterface {
         }
 
         public static IListenerManager getDefaultImpl() {
-            return a.f26967a;
+            return a.f27785a;
         }
 
         public static boolean setDefaultImpl(IListenerManager iListenerManager) {
-            if (a.f26967a != null || iListenerManager == null) {
+            if (a.f27785a != null || iListenerManager == null) {
                 return false;
             }
-            a.f26967a = iListenerManager;
+            a.f27785a = iListenerManager;
             return true;
         }
 
@@ -358,9 +358,9 @@ public interface IListenerManager extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i != 1598968902) {
-                switch (i) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 != 1598968902) {
+                switch (i2) {
                     case 1:
                         parcel.enforceInterface("com.bytedance.sdk.openadsdk.IListenerManager");
                         registerRewardVideoListener(parcel.readString(), IRewardAdInteractionListener.Stub.asInterface(parcel.readStrongBinder()));
@@ -417,7 +417,7 @@ public interface IListenerManager extends IInterface {
                         parcel2.writeNoException();
                         return true;
                     default:
-                        return super.onTransact(i, parcel, parcel2, i2);
+                        return super.onTransact(i2, parcel, parcel2, i3);
                 }
             }
             parcel2.writeString("com.bytedance.sdk.openadsdk.IListenerManager");
@@ -425,7 +425,7 @@ public interface IListenerManager extends IInterface {
         }
     }
 
-    void broadcastDialogListener(String str, int i) throws RemoteException;
+    void broadcastDialogListener(String str, int i2) throws RemoteException;
 
     void broadcastPermissionListener(String str, String str2) throws RemoteException;
 
@@ -433,7 +433,7 @@ public interface IListenerManager extends IInterface {
 
     void executeFullVideoCallback(String str, String str2) throws RemoteException;
 
-    void executeRewardVideoCallback(String str, String str2, boolean z, int i, String str3, int i2, String str4) throws RemoteException;
+    void executeRewardVideoCallback(String str, String str2, boolean z, int i2, String str3, int i3, String str4) throws RemoteException;
 
     void registerDialogListener(String str, ICommonDialogListener iCommonDialogListener) throws RemoteException;
 

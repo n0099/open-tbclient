@@ -25,7 +25,7 @@ import org.apache.http.protocol.HTTP;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1551a = "d";
+    public static final String f1573a = "d";
 
     /* JADX WARN: Removed duplicated region for block: B:61:0x00fc A[Catch: Exception -> 0x00de, TRY_ENTER, TryCatch #1 {Exception -> 0x00de, blocks: (B:44:0x00da, B:48:0x00e2, B:50:0x00e7, B:61:0x00fc, B:63:0x0101, B:65:0x0106), top: B:82:0x0020 }] */
     /* JADX WARN: Removed duplicated region for block: B:63:0x0101 A[Catch: Exception -> 0x00de, TryCatch #1 {Exception -> 0x00de, blocks: (B:44:0x00da, B:48:0x00e2, B:50:0x00e7, B:61:0x00fc, B:63:0x0101, B:65:0x0106), top: B:82:0x0020 }] */
@@ -39,12 +39,12 @@ public class d {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2;
         String str2 = "";
-        int i = CtAuth.mConnTimeoutL;
-        if (i <= 0) {
-            i = 3000;
+        int i2 = CtAuth.mConnTimeoutL;
+        if (i2 <= 0) {
+            i2 = 3000;
         }
-        int i2 = CtAuth.mReadTimeout;
-        int i3 = i2 > 0 ? i2 : 3000;
+        int i3 = CtAuth.mReadTimeout;
+        int i4 = i3 > 0 ? i3 : 3000;
         try {
             try {
                 URL url = new URL(str);
@@ -54,8 +54,8 @@ public class d {
                 httpURLConnection.setRequestMethod("GET");
                 httpURLConnection.setDoOutput(false);
                 httpURLConnection.setDoInput(true);
-                httpURLConnection.setConnectTimeout(i);
-                httpURLConnection.setReadTimeout(i3);
+                httpURLConnection.setConnectTimeout(i2);
+                httpURLConnection.setReadTimeout(i4);
                 httpURLConnection.setUseCaches(false);
                 httpURLConnection.addRequestProperty("Accept-Charset", "UTF-8");
                 httpURLConnection.connect();
@@ -67,8 +67,8 @@ public class d {
                     httpURLConnection.setRequestMethod("GET");
                     httpURLConnection.setDoOutput(false);
                     httpURLConnection.setDoInput(true);
-                    httpURLConnection.setConnectTimeout(i);
-                    httpURLConnection.setReadTimeout(i3);
+                    httpURLConnection.setConnectTimeout(i2);
+                    httpURLConnection.setReadTimeout(i4);
                     httpURLConnection.setUseCaches(false);
                     httpURLConnection.addRequestProperty("Accept-Charset", "UTF-8");
                     httpURLConnection.connect();
@@ -90,7 +90,7 @@ public class d {
                                     th = th;
                                     bufferedReader = bufferedReader3;
                                     try {
-                                        CtAuth.warn(f1551a, "doGet error", th);
+                                        CtAuth.warn(f1573a, "doGet error", th);
                                         if (bufferedReader != null) {
                                         }
                                         if (inputStreamReader != null) {
@@ -121,7 +121,7 @@ public class d {
                         } catch (Throwable th3) {
                             th = th3;
                             bufferedReader = null;
-                            CtAuth.warn(f1551a, "doGet error", th);
+                            CtAuth.warn(f1573a, "doGet error", th);
                             if (bufferedReader != null) {
                                 bufferedReader.close();
                             }
@@ -137,7 +137,7 @@ public class d {
                         th = th4;
                         inputStreamReader = null;
                         bufferedReader = null;
-                        CtAuth.warn(f1551a, "doGet error", th);
+                        CtAuth.warn(f1573a, "doGet error", th);
                         if (bufferedReader != null) {
                         }
                         if (inputStreamReader != null) {
@@ -211,12 +211,12 @@ public class d {
         String str4;
         BufferedReader bufferedReader5;
         String str5 = "POST";
-        int i = CtAuth.mConnTimeoutL;
-        if (i <= 0) {
-            i = 3000;
+        int i2 = CtAuth.mConnTimeoutL;
+        if (i2 <= 0) {
+            i2 = 3000;
         }
         ?? r9 = CtAuth.mReadTimeout;
-        int i2 = r9 > 0 ? r9 : 3000;
+        int i3 = r9 > 0 ? r9 : 3000;
         try {
             try {
                 try {
@@ -226,8 +226,8 @@ public class d {
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setDoInput(true);
-                    httpURLConnection.setConnectTimeout(i);
-                    httpURLConnection.setReadTimeout(i2);
+                    httpURLConnection.setConnectTimeout(i2);
+                    httpURLConnection.setReadTimeout(i3);
                     httpURLConnection.setUseCaches(false);
                     if (Build.VERSION.SDK_INT < 21) {
                         httpURLConnection.setInstanceFollowRedirects(false);
@@ -255,8 +255,8 @@ public class d {
                         httpURLConnection.setRequestMethod("POST");
                         httpURLConnection.setDoOutput(true);
                         httpURLConnection.setDoInput(true);
-                        httpURLConnection.setConnectTimeout(i);
-                        httpURLConnection.setReadTimeout(i2);
+                        httpURLConnection.setConnectTimeout(i2);
+                        httpURLConnection.setReadTimeout(i3);
                         httpURLConnection.setUseCaches(false);
                         httpURLConnection.addRequestProperty("Accept-Charset", "UTF-8");
                         httpURLConnection.connect();
@@ -266,8 +266,8 @@ public class d {
                         httpURLConnection = (network == 0 || Build.VERSION.SDK_INT < 21) ? url3.openConnection() : network.openConnection(url3);
                         httpURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
                         httpURLConnection.setRequestMethod("GET");
-                        httpURLConnection.setConnectTimeout(i);
-                        httpURLConnection.setReadTimeout(i2);
+                        httpURLConnection.setConnectTimeout(i2);
+                        httpURLConnection.setReadTimeout(i3);
                         httpURLConnection.setUseCaches(false);
                         httpURLConnection.addRequestProperty("Accept-Charset", "UTF-8");
                         httpURLConnection.connect();
@@ -289,7 +289,7 @@ public class d {
                                     e = e2;
                                     bufferedReader4 = bufferedReader6;
                                     str5 = "{\"result\":80005,\"msg\":\"Socket超时异常\"}";
-                                    String str6 = f1551a;
+                                    String str6 = f1573a;
                                     StringBuilder sb2 = new StringBuilder();
                                     sb2.append("sendRequest SocketTimeoutException-preauth-");
                                     sb2.append(e.getMessage());
@@ -305,7 +305,7 @@ public class d {
                                     e = e3;
                                     bufferedReader3 = bufferedReader6;
                                     str5 = "{\"result\":80006,\"msg\":\"域名解析异常\"}";
-                                    String str7 = f1551a;
+                                    String str7 = f1573a;
                                     StringBuilder sb4 = new StringBuilder();
                                     sb4.append("sendRequest UnknownHostException-preauth-");
                                     sb4.append(e.getMessage());
@@ -321,7 +321,7 @@ public class d {
                                     e = e4;
                                     bufferedReader2 = bufferedReader6;
                                     str5 = "{\"result\":80007,\"msg\":\"IO异常\"}";
-                                    String str8 = f1551a;
+                                    String str8 = f1573a;
                                     StringBuilder sb6 = new StringBuilder();
                                     sb6.append("sendRequest IOException-preauth-");
                                     sb6.append(e.getMessage());
@@ -337,7 +337,7 @@ public class d {
                                     th = th;
                                     bufferedReader = bufferedReader6;
                                     str5 = "{\"result\":80001,\"msg\":\"请求异常\"}";
-                                    String str9 = f1551a;
+                                    String str9 = f1573a;
                                     StringBuilder sb8 = new StringBuilder();
                                     sb8.append("sendRequest Throwable-preauth-");
                                     sb8.append(th.getMessage());
@@ -359,7 +359,7 @@ public class d {
                             e = e5;
                             bufferedReader4 = null;
                             str5 = "{\"result\":80005,\"msg\":\"Socket超时异常\"}";
-                            String str62 = f1551a;
+                            String str62 = f1573a;
                             StringBuilder sb22 = new StringBuilder();
                             sb22.append("sendRequest SocketTimeoutException-preauth-");
                             sb22.append(e.getMessage());
@@ -376,7 +376,7 @@ public class d {
                             e = e6;
                             bufferedReader3 = null;
                             str5 = "{\"result\":80006,\"msg\":\"域名解析异常\"}";
-                            String str72 = f1551a;
+                            String str72 = f1573a;
                             StringBuilder sb42 = new StringBuilder();
                             sb42.append("sendRequest UnknownHostException-preauth-");
                             sb42.append(e.getMessage());
@@ -393,7 +393,7 @@ public class d {
                             e = e7;
                             bufferedReader2 = null;
                             str5 = "{\"result\":80007,\"msg\":\"IO异常\"}";
-                            String str82 = f1551a;
+                            String str82 = f1573a;
                             StringBuilder sb62 = new StringBuilder();
                             sb62.append("sendRequest IOException-preauth-");
                             sb62.append(e.getMessage());
@@ -410,7 +410,7 @@ public class d {
                             th = th2;
                             bufferedReader = null;
                             str5 = "{\"result\":80001,\"msg\":\"请求异常\"}";
-                            String str92 = f1551a;
+                            String str92 = f1573a;
                             StringBuilder sb82 = new StringBuilder();
                             sb82.append("sendRequest Throwable-preauth-");
                             sb82.append(th.getMessage());
@@ -477,7 +477,7 @@ public class d {
             Map<String, List<String>> headerFields = httpURLConnection.getHeaderFields();
             List<String> list = headerFields.get("Log-Level");
             if (list != null && !list.isEmpty()) {
-                for (int i = 0; i < list.size(); i++) {
+                for (int i2 = 0; i2 < list.size(); i2++) {
                     String str = list.get(0);
                     if (!TextUtils.isEmpty(str)) {
                         cn.com.chinatelecom.gateway.lib.b.e.b(context, str);

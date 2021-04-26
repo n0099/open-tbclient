@@ -1,0 +1,38 @@
+package d.a.h.b.f.c;
+
+import android.content.Context;
+import com.baidu.browser.sailor.webkit.update.BdZeusUpdate;
+import com.baidu.webkit.internal.blink.EngineManager;
+import com.baidu.webkit.net.BdNet;
+import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.WebKitFactory;
+/* loaded from: classes.dex */
+public final class b implements Runnable {
+
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ Context f41073e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final /* synthetic */ BdZeusUpdate f41074f;
+
+    public b(BdZeusUpdate bdZeusUpdate, Context context) {
+        this.f41074f = bdZeusUpdate;
+        this.f41073e = context;
+    }
+
+    @Override // java.lang.Runnable
+    public final void run() {
+        if (this.f41073e != null) {
+            Log.i(EngineManager.LOG_TAG, "start check zeus update async");
+            BdZeusUpdate bdZeusUpdate = this.f41074f;
+            Context context = this.f41073e;
+            if (WebKitFactory.isUserPrivacyEnabled() && !bdZeusUpdate.f4465d && d.a.h.b.e.b.d(context)) {
+                BdZeusUpdate.BdZesuUpdateTask bdZesuUpdateTask = new BdZeusUpdate.BdZesuUpdateTask(context, "https://mbrowser.baidu.com/api/update/kernel?version=");
+                BdNet bdNet = new BdNet(context);
+                bdNet.setEventListener(bdZesuUpdateTask);
+                bdNet.start(bdZesuUpdateTask, false);
+                bdZeusUpdate.f4465d = true;
+            }
+        }
+    }
+}

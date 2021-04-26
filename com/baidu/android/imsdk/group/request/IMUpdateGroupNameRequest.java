@@ -33,26 +33,26 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
 
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         public void run() {
-            int i;
+            int i2;
             String str;
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
-                i = jSONObject.getInt("error_code");
+                i2 = jSONObject.getInt("error_code");
                 str = jSONObject.optString("error_msg", "");
             } catch (JSONException e2) {
                 LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e2);
-                i = 1010;
+                i2 = 1010;
                 new IMTrack.CrashBuilder(IMUpdateGroupNameRequest.this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
-            if (i == 0) {
+            if (i2 == 0) {
                 GroupInfoDAOImpl.modifyGroupName(IMUpdateGroupNameRequest.this.mContext, IMUpdateGroupNameRequest.this.mGroupId, IMUpdateGroupNameRequest.this.mGroupName);
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(IMUpdateGroupNameRequest.this.mKey);
             if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
                 LogUtils.e(IMUpdateGroupNameRequest.TAG, "update group name, listener is null");
             } else {
-                ((BIMValueCallBack) removeListener).onResult(i, str, IMUpdateGroupNameRequest.this.mGroupId);
+                ((BIMValueCallBack) removeListener).onResult(i2, str, IMUpdateGroupNameRequest.this.mGroupId);
             }
         }
     }
@@ -95,8 +95,8 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
             return;
@@ -105,7 +105,7 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str = new String(bArr);
         String str2 = TAG;
         LogUtils.d(str2, "json is " + str);

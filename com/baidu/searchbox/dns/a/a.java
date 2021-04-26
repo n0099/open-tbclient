@@ -69,8 +69,8 @@ public class a {
                     if (optJSONObject != null) {
                         JSONArray optJSONArray = optJSONObject.optJSONArray("ip");
                         ArrayList arrayList = new ArrayList(optJSONArray.length());
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            arrayList.add(optJSONArray.getString(i));
+                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                            arrayList.add(optJSONArray.getString(i2));
                         }
                         if (!arrayList.isEmpty()) {
                             b(next, new com.baidu.searchbox.dns.d.a.a(null, 0, null, 0L, arrayList, null));

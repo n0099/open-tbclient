@@ -1,5 +1,6 @@
 package androidx.transition;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Path;
@@ -114,6 +115,7 @@ public class ArcMotion extends PathMotion {
         this.mMinimumVerticalTangent = toTangent(f2);
     }
 
+    @SuppressLint({"RestrictedApi"})
     public ArcMotion(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mMinimumHorizontalAngle = 0.0f;

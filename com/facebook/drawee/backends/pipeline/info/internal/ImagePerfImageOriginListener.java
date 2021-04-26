@@ -3,7 +3,7 @@ package com.facebook.drawee.backends.pipeline.info.internal;
 import com.facebook.drawee.backends.pipeline.info.ImageOriginListener;
 import com.facebook.drawee.backends.pipeline.info.ImagePerfMonitor;
 import com.facebook.drawee.backends.pipeline.info.ImagePerfState;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ImagePerfImageOriginListener implements ImageOriginListener {
     public final ImagePerfMonitor mImagePerfMonitor;
     public final ImagePerfState mImagePerfState;
@@ -14,8 +14,8 @@ public class ImagePerfImageOriginListener implements ImageOriginListener {
     }
 
     @Override // com.facebook.drawee.backends.pipeline.info.ImageOriginListener
-    public void onImageLoaded(String str, int i, boolean z) {
-        this.mImagePerfState.setImageOrigin(i);
+    public void onImageLoaded(String str, int i2, boolean z) {
+        this.mImagePerfState.setImageOrigin(i2);
         this.mImagePerfMonitor.notifyStatusUpdated(this.mImagePerfState, 1);
     }
 }

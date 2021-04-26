@@ -1,7 +1,7 @@
 package com.baidu.tbadk.download;
 
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
-import d.b.i0.v.c;
+import d.a.i0.v.c;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class DownloadData implements Serializable, Cloneable {
@@ -213,8 +213,8 @@ public class DownloadData implements Serializable, Cloneable {
         this.downloadStaticsData = downloadStaticsData;
     }
 
-    public void setErrorCode(int i) {
-        this.errorCode = i;
+    public void setErrorCode(int i2) {
+        this.errorCode = i2;
     }
 
     public void setExtra(Object obj) {
@@ -225,8 +225,8 @@ public class DownloadData implements Serializable, Cloneable {
         this.isForceDownload = z;
     }
 
-    public void setHeight(int i) {
-        this.height = i;
+    public void setHeight(int i2) {
+        this.height = i2;
     }
 
     public void setId(String str) {
@@ -249,24 +249,24 @@ public class DownloadData implements Serializable, Cloneable {
         this.isNeedNotify = z;
     }
 
-    public void setNotifyId(int i) {
-        this.notifyId = i;
+    public void setNotifyId(int i2) {
+        this.notifyId = i2;
     }
 
     public void setPath(String str) {
         this.path = str;
     }
 
-    public void setPosition(int i) {
-        this.position = i;
+    public void setPosition(int i2) {
+        this.position = i2;
     }
 
     public void setSize(long j) {
         this.size = j;
     }
 
-    public void setStatus(int i) {
-        this.status = i;
+    public void setStatus(int i2) {
+        this.status = i2;
     }
 
     public void setStatusMsg(String str) {
@@ -277,8 +277,8 @@ public class DownloadData implements Serializable, Cloneable {
         this.tag = strArr;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 
     public void setUrl(String str) {
@@ -289,8 +289,8 @@ public class DownloadData implements Serializable, Cloneable {
         this.user_name = str;
     }
 
-    public void setWidth(int i) {
-        this.width = i;
+    public void setWidth(int i2) {
+        this.width = i2;
     }
 
     public DownloadData(String str) {

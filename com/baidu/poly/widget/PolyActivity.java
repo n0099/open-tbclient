@@ -10,10 +10,10 @@ import com.alibaba.fastjson.asm.Label;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.poly.widget.m;
 import com.heytap.mcssdk.mode.CommandMessage;
-import d.b.a0.a;
-import d.b.a0.k.h.d;
-import d.b.a0.n.b;
-import d.b.a0.o.a.c;
+import d.a.a0.a;
+import d.a.a0.k.h.d;
+import d.a.a0.n.b;
+import d.a.a0.o.a.c;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -58,7 +58,7 @@ public class PolyActivity extends Activity implements m.l {
         Intent intent = new Intent(context, PolyActivity.class);
         intent.putExtra("pay_arguements", bundle);
         if (!(context instanceof Activity)) {
-            d.b.a0.n.d.e("!context instanceof Activity");
+            d.a.a0.n.d.e("!context instanceof Activity");
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         context.startActivity(intent);
@@ -77,7 +77,7 @@ public class PolyActivity extends Activity implements m.l {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("c", bundle.getString("cuid"));
             jSONObject.put("z", string);
-            jSONObject.put(IAdRequestParam.MAC, d.b.a0.n.a.c());
+            jSONObject.put(IAdRequestParam.MAC, d.a.a0.n.a.c());
             jSONObject.put("app", "android");
             jSONObject.put("ver", X());
             bundle.putString("deviceInfo", jSONObject.toString());
@@ -89,9 +89,9 @@ public class PolyActivity extends Activity implements m.l {
         if (bundle == null) {
             return new Bundle();
         }
-        d.f41993a = bundle.getString("bduss");
-        d.f41994b = bundle.getString("tpOrderId");
-        d.f41997e = bundle.getString("nativeAppId");
+        d.f39174a = bundle.getString("bduss");
+        d.f39175b = bundle.getString("tpOrderId");
+        d.f39178e = bundle.getString("nativeAppId");
         bundle.putString("deviceType", "ANDROID");
         bundle.putString("channel", "cashiersdk");
         bundle.putString(CommandMessage.SDK_VERSION, "2.7.5");
@@ -126,11 +126,11 @@ public class PolyActivity extends Activity implements m.l {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i == 200) {
-            if (i2 == -1) {
-                d.b.a0.k.i.a.k().d(this, intent.getExtras(), this.q, true);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i2 == 200) {
+            if (i3 == -1) {
+                d.a.a0.k.i.a.k().d(this, intent.getExtras(), this.q, true);
                 return;
             }
             m mVar = this.q;
@@ -147,10 +147,10 @@ public class PolyActivity extends Activity implements m.l {
             super.onBackPressed();
             return;
         }
-        if (!mVar.i0()) {
+        if (!mVar.f0()) {
             super.onBackPressed();
         }
-        d.b.a0.n.d.e("PolyActivity onBackPressed");
+        d.a.a0.n.d.e("PolyActivity onBackPressed");
     }
 
     @Override // com.baidu.poly.widget.m.l
@@ -166,7 +166,7 @@ public class PolyActivity extends Activity implements m.l {
         super.onCreate(bundle);
         overridePendingTransition(0, 0);
         Z();
-        d.b.a0.n.d.e("PolyActivity onCreate");
+        d.a.a0.n.d.e("PolyActivity onCreate");
     }
 
     @Override // android.app.Activity
@@ -201,13 +201,13 @@ public class PolyActivity extends Activity implements m.l {
         setContentView(mVar);
         this.q.setResultListener(n);
         this.q.setCloseListener(this);
-        this.q.setWalletList(new d.b.a0.k.i.c(new d.b.a0.k.i.b(this, m)));
+        this.q.setWalletList(new d.a.a0.k.i.c(new d.a.a0.k.i.b(this, m)));
         String string = this.arguments.getString("chosenChannel");
         if (TextUtils.equals(this.arguments.getString("panelType"), "NONE") && !TextUtils.isEmpty(string)) {
             this.q.i(c(this.arguments), string);
             return;
         }
         this.q.h(c(this.arguments));
-        this.q.Q();
+        this.q.O();
     }
 }

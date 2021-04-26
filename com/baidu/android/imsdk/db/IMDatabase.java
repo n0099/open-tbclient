@@ -17,8 +17,8 @@ public class IMDatabase {
     public static class DbOpenHelper extends SQLiteOpenHelper {
         public Context mContext;
 
-        public DbOpenHelper(Context context, String str, int i) {
-            super(context, str, (SQLiteDatabase.CursorFactory) null, i);
+        public DbOpenHelper(Context context, String str, int i2) {
+            super(context, str, (SQLiteDatabase.CursorFactory) null, i2);
             this.mContext = context;
         }
 
@@ -29,13 +29,13 @@ public class IMDatabase {
 
         @Override // android.database.sqlite.SQLiteOpenHelper
         @TargetApi(11)
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            DBVersionManager.getInstance(this.mContext).onDowngrade(sQLiteDatabase, i, i2);
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+            DBVersionManager.getInstance(this.mContext).onDowngrade(sQLiteDatabase, i2, i3);
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            DBVersionManager.getInstance(this.mContext).onUpgrade(sQLiteDatabase, i, i2);
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+            DBVersionManager.getInstance(this.mContext).onUpgrade(sQLiteDatabase, i2, i3);
         }
     }
 

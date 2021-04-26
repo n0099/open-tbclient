@@ -21,13 +21,13 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import com.baidu.sapi2.utils.FileUtil;
 import com.baidu.sapi2.utils.Log;
-import com.baidu.sapi2.utils.b;
 import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.sapi2.views.ZoomImageView;
-import d.b.y.a.a;
-import d.b.y.a.e;
-import d.b.y.a.f;
+import d.a.y.a.a;
+import d.a.y.a.e;
+import d.a.y.a.f;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -36,6 +36,7 @@ import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class ImageClipActivity extends Activity {
     public static final int BUSSINESS_FROM_INVOICE_BUILD = 1;
+    public static final int BUSSINESS_ID_CARD_OCR = 2;
     public static final int BUSSINESS_SET_PORTRAIT = 0;
     public static final int DEFAULT_CLIP_IMAGE_MAX_SIDE_LENGTH = 1000;
     public static final int DEFAULT_UPLOAD_IMAGE_MAX_SIZE = 512;
@@ -50,39 +51,41 @@ public class ImageClipActivity extends Activity {
     public static final String n = "content://downloads/public_downloads";
 
     /* renamed from: a  reason: collision with root package name */
-    public int f10572a = 0;
+    public int f10689a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f10573b = 0;
+    public int f10690b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f10574c = 0;
+    public int f10691c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f10575d = 0;
+    public int f10692d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f10576e;
+    public int f10693e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f10577f;
+    public int f10694f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f10578g;
+    public String f10695g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ClipBoxView f10579h;
-    public ZoomImageView i;
+    public ClipBoxView f10696h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public ZoomImageView f10697i;
     public static final String j = ImageClipActivity.class.getSimpleName();
     public static String EXTRA_IMAGE = "extra_image";
 
     private void d() {
-        if (this.f10574c == 0 && this.f10575d == 0) {
+        if (this.f10691c == 0 && this.f10692d == 0) {
             return;
         }
-        overridePendingTransition(this.f10574c, this.f10575d);
-        this.f10574c = 0;
-        this.f10575d = 0;
+        overridePendingTransition(this.f10691c, this.f10692d);
+        this.f10691c = 0;
+        this.f10692d = 0;
     }
 
     @Override // android.app.Activity
@@ -123,7 +126,7 @@ public class ImageClipActivity extends Activity {
         }
         float f2 = 0.0f;
         try {
-            int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
+            int attributeInt = new ExifInterface(str).getAttributeInt("Orientation", 1);
             if (attributeInt == 3) {
                 f2 = 180.0f;
             } else if (attributeInt == 6) {
@@ -139,11 +142,11 @@ public class ImageClipActivity extends Activity {
         return Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
     }
 
-    public void setPendingTransition(int i, int i2, int i3, int i4) {
-        this.f10572a = i;
-        this.f10573b = i2;
-        this.f10574c = i3;
-        this.f10575d = i4;
+    public void setPendingTransition(int i2, int i3, int i4, int i5) {
+        this.f10689a = i2;
+        this.f10690b = i3;
+        this.f10691c = i4;
+        this.f10692d = i5;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -157,24 +160,24 @@ public class ImageClipActivity extends Activity {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.AsyncTask
             public byte[] doInBackground(Bitmap... bitmapArr) {
-                int i;
+                int i2;
                 if (bitmapArr[0] == null || bitmapArr[0].isRecycled()) {
                     return null;
                 }
-                int i2 = 160;
-                if (ImageClipActivity.this.f10576e != 0) {
-                    i2 = bitmapArr[0].getWidth();
-                    i = bitmapArr[0].getHeight();
+                int i3 = 160;
+                if (ImageClipActivity.this.f10693e != 0) {
+                    i3 = bitmapArr[0].getWidth();
+                    i2 = bitmapArr[0].getHeight();
                 } else {
-                    i = 160;
+                    i2 = 160;
                 }
-                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmapArr[0], i2, i, true);
+                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmapArr[0], i3, i2, true);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                int i3 = 100;
+                int i4 = 100;
                 createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                while (byteArrayOutputStream.toByteArray().length > ImageClipActivity.this.f10577f && i3 > 0 && i3 - 5 > 0) {
+                while (byteArrayOutputStream.toByteArray().length > ImageClipActivity.this.f10694f && i4 > 0 && i4 - 5 > 0) {
                     byteArrayOutputStream.reset();
-                    createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, i3, byteArrayOutputStream);
+                    createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, i4, byteArrayOutputStream);
                 }
                 if (createScaledBitmap != bitmapArr[0]) {
                     createScaledBitmap.recycle();
@@ -198,19 +201,24 @@ public class ImageClipActivity extends Activity {
 
     private void b() {
         setContentView(f.layout_sapi_sdk_image_clip);
-        this.f10576e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
+        this.f10693e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
         int intExtra = getIntent().getIntExtra(EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, 512);
-        this.f10577f = intExtra;
+        this.f10694f = intExtra;
         if (intExtra <= 0) {
-            this.f10577f = 512;
+            this.f10694f = 512;
         }
-        this.f10577f *= 1024;
-        this.f10579h = (ClipBoxView) findViewById(e.sapi_clip_box);
-        this.i = (ZoomImageView) findViewById(e.sapi_background_picture);
-        if (this.f10576e == 1) {
-            ClipBoxView clipBoxView = this.f10579h;
+        this.f10694f *= 1024;
+        this.f10696h = (ClipBoxView) findViewById(e.sapi_clip_box);
+        this.f10697i = (ZoomImageView) findViewById(e.sapi_background_picture);
+        if (this.f10693e == 1) {
+            ClipBoxView clipBoxView = this.f10696h;
             clipBoxView.E = ClipBoxView.G;
             clipBoxView.F = false;
+        }
+        if (this.f10693e == 2) {
+            ClipBoxView clipBoxView2 = this.f10696h;
+            clipBoxView2.E = ClipBoxView.G;
+            clipBoxView2.F = false;
         }
         setPendingTransition(a.sapi_sdk_slide_right_in, a.sapi_sdk_slide_left_out, a.sapi_sdk_slide_left_in, a.sapi_sdk_slide_right_out);
         Button button = (Button) findViewById(e.sure_clip_btn);
@@ -236,12 +244,12 @@ public class ImageClipActivity extends Activity {
     }
 
     private void c() {
-        if (this.f10572a == 0 && this.f10573b == 0) {
+        if (this.f10689a == 0 && this.f10690b == 0) {
             return;
         }
-        overridePendingTransition(this.f10572a, this.f10573b);
-        this.f10572a = 0;
-        this.f10573b = 0;
+        overridePendingTransition(this.f10689a, this.f10690b);
+        this.f10689a = 0;
+        this.f10690b = 0;
     }
 
     private void a(Intent intent) {
@@ -258,7 +266,7 @@ public class ImageClipActivity extends Activity {
                     a2 = query.getString(query.getColumnIndex("_data"));
                 } else {
                     a2 = a(getBaseContext(), uri);
-                    this.f10578g = a2;
+                    this.f10695g = a2;
                 }
                 str2 = a2;
             }
@@ -271,19 +279,19 @@ public class ImageClipActivity extends Activity {
     private Bitmap a(String str) {
         if (str != null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
-            int i = 1;
+            int i2 = 1;
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeFile(str, options);
-            int i2 = options.outHeight;
-            int i3 = options.outWidth;
-            if (i3 > i2) {
-                i2 = i3;
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            if (i4 > i3) {
+                i3 = i4;
             }
-            while (i2 / i > 1000) {
-                i++;
+            while (i3 / i2 > 1000) {
+                i2++;
             }
             options.inJustDecodeBounds = false;
-            options.inSampleSize = i;
+            options.inSampleSize = i2;
             options.inPreferredConfig = Bitmap.Config.RGB_565;
             return BitmapFactory.decodeFile(str, options);
         }
@@ -295,21 +303,23 @@ public class ImageClipActivity extends Activity {
         String[] split;
         Uri data = intent.getData();
         String str = null;
-        if (DocumentsContract.isDocumentUri(this, data)) {
-            String documentId = DocumentsContract.getDocumentId(data);
-            if (k.equals(data.getAuthority())) {
-                str = a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "_id=" + documentId.split(":")[1]);
-            } else if (l.equals(data.getAuthority())) {
-                str = a(ContentUris.withAppendedId(Uri.parse(n), Long.valueOf(documentId).longValue()), (String) null);
-            } else if (m.equals(data.getAuthority())) {
-                if ("primary".equalsIgnoreCase(documentId.split(":")[0])) {
-                    str = Environment.getExternalStorageDirectory() + "/" + split[1];
+        if (data != null) {
+            if (DocumentsContract.isDocumentUri(this, data)) {
+                String documentId = DocumentsContract.getDocumentId(data);
+                if (k.equals(data.getAuthority())) {
+                    str = a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "_id=" + documentId.split(":")[1]);
+                } else if (l.equals(data.getAuthority())) {
+                    str = a(ContentUris.withAppendedId(Uri.parse(n), Long.valueOf(documentId).longValue()), (String) null);
+                } else if (m.equals(data.getAuthority())) {
+                    if ("primary".equalsIgnoreCase(documentId.split(":")[0])) {
+                        str = Environment.getExternalStorageDirectory() + "/" + split[1];
+                    }
                 }
+            } else if ("content".equalsIgnoreCase(data.getScheme())) {
+                str = a(data, (String) null);
+            } else if ("file".equalsIgnoreCase(data.getScheme())) {
+                str = data.getPath();
             }
-        } else if ("content".equalsIgnoreCase(data.getScheme())) {
-            str = a(data, (String) null);
-        } else if ("file".equalsIgnoreCase(data.getScheme())) {
-            str = data.getPath();
         }
         b(str);
     }
@@ -340,7 +350,7 @@ public class ImageClipActivity extends Activity {
                 return;
             }
             FileOutputStream fileOutputStream = new FileOutputStream(file);
-            b.a(openInputStream, fileOutputStream);
+            FileUtil.copy(openInputStream, fileOutputStream);
             openInputStream.close();
             fileOutputStream.close();
         } catch (Exception e2) {
@@ -351,11 +361,11 @@ public class ImageClipActivity extends Activity {
     private void b(String str) {
         Bitmap operateBitmap = operateBitmap(str);
         if (operateBitmap != null) {
-            this.i.setImageBitmap(operateBitmap);
-            if (TextUtils.isEmpty(this.f10578g)) {
+            this.f10697i.setImageBitmap(operateBitmap);
+            if (TextUtils.isEmpty(this.f10695g)) {
                 return;
             }
-            b.a(new File(this.f10578g));
+            FileUtil.deleteFile(new File(this.f10695g));
             return;
         }
         Toast.makeText(this, "加载图片失败", 0).show();

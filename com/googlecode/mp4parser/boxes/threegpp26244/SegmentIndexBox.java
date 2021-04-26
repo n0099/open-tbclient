@@ -17,18 +17,18 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class SegmentIndexBox extends AbstractFullBox {
     public static final String TYPE = "sidx";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_10 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_11 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_8 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_9 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_10 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_11 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_9 = null;
     public long earliestPresentationTime;
     public List<Entry> entries;
     public long firstOffset;
@@ -92,12 +92,12 @@ public class SegmentIndexBox extends AbstractFullBox {
             this.referenceType = b2;
         }
 
-        public void setReferencedSize(int i) {
-            this.referencedSize = i;
+        public void setReferencedSize(int i2) {
+            this.referencedSize = i2;
         }
 
-        public void setSapDeltaTime(int i) {
-            this.sapDeltaTime = i;
+        public void setSapDeltaTime(int i2) {
+            this.sapDeltaTime = i2;
         }
 
         public void setSapType(byte b2) {
@@ -116,13 +116,13 @@ public class SegmentIndexBox extends AbstractFullBox {
             return "Entry{referenceType=" + ((int) this.referenceType) + ", referencedSize=" + this.referencedSize + ", subsegmentDuration=" + this.subsegmentDuration + ", startsWithSap=" + ((int) this.startsWithSap) + ", sapType=" + ((int) this.sapType) + ", sapDeltaTime=" + this.sapDeltaTime + '}';
         }
 
-        public Entry(byte b2, int i, long j, byte b3, byte b4, int i2) {
+        public Entry(byte b2, int i2, long j, byte b3, byte b4, int i3) {
             this.referenceType = b2;
-            this.referencedSize = i;
+            this.referencedSize = i2;
             this.subsegmentDuration = j;
             this.startsWithSap = b3;
             this.sapType = b4;
-            this.sapDeltaTime = i2;
+            this.sapDeltaTime = i3;
         }
     }
 
@@ -165,7 +165,7 @@ public class SegmentIndexBox extends AbstractFullBox {
         }
         this.reserved = IsoTypeReader.readUInt16(byteBuffer);
         int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
-        for (int i = 0; i < readUInt16; i++) {
+        for (int i2 = 0; i2 < readUInt16; i2++) {
             BitReaderBuffer bitReaderBuffer = new BitReaderBuffer(byteBuffer);
             Entry entry = new Entry();
             entry.setReferenceType((byte) bitReaderBuffer.readBits(1));
@@ -260,9 +260,9 @@ public class SegmentIndexBox extends AbstractFullBox {
         this.referenceId = j;
     }
 
-    public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_11, this, this, g.a.b.a.a.e(i)));
-        this.reserved = i;
+    public void setReserved(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_11, this, this, g.a.b.a.a.e(i2)));
+        this.reserved = i2;
     }
 
     public void setTimeScale(long j) {

@@ -13,6 +13,7 @@ public interface KsAdVideoPlayConfig {
     /* loaded from: classes6.dex */
     public static class Builder {
         public boolean dataFlowAutoStart;
+        public boolean isNoCache = false;
         public boolean videoSoundEnable;
 
         @KsAdSdkApi
@@ -21,6 +22,9 @@ public interface KsAdVideoPlayConfig {
             KsAdVideoPlayConfig ksAdVideoPlayConfig = (KsAdVideoPlayConfig) Loader.get().newInstance(KsAdVideoPlayConfig.class);
             ksAdVideoPlayConfig.setVideoSoundEnable(this.videoSoundEnable);
             ksAdVideoPlayConfig.setDataFlowAutoStart(this.dataFlowAutoStart);
+            if (this.isNoCache) {
+                ksAdVideoPlayConfig.setNoCache();
+            }
             return ksAdVideoPlayConfig;
         }
 
@@ -28,6 +32,13 @@ public interface KsAdVideoPlayConfig {
         @Keep
         public Builder dataFlowAutoStart(boolean z) {
             this.dataFlowAutoStart = z;
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public Builder noCache() {
+            this.isNoCache = true;
             return this;
         }
 
@@ -45,11 +56,19 @@ public interface KsAdVideoPlayConfig {
 
     @KsAdSdkApi
     @Keep
+    boolean isNoCache();
+
+    @KsAdSdkApi
+    @Keep
     boolean isVideoSoundEnable();
 
     @KsAdSdkApi
     @Keep
     void setDataFlowAutoStart(boolean z);
+
+    @KsAdSdkApi
+    @Keep
+    void setNoCache();
 
     @KsAdSdkApi
     @Keep

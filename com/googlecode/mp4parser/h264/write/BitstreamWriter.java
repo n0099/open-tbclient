@@ -19,32 +19,32 @@ public class BitstreamWriter {
     }
 
     public void flush() throws IOException {
-        for (int i = this.curBit; i < 8; i++) {
-            this.curByte[i] = 0;
+        for (int i2 = this.curBit; i2 < 8; i2++) {
+            this.curByte[i2] = 0;
         }
         this.curBit = 0;
         writeCurByte();
     }
 
-    public void write1Bit(int i) throws IOException {
-        Debug.print(i);
+    public void write1Bit(int i2) throws IOException {
+        Debug.print(i2);
         if (this.curBit == 8) {
             this.curBit = 0;
             writeCurByte();
         }
         int[] iArr = this.curByte;
-        int i2 = this.curBit;
-        this.curBit = i2 + 1;
-        iArr[i2] = i;
+        int i3 = this.curBit;
+        this.curBit = i3 + 1;
+        iArr[i3] = i2;
     }
 
-    public void writeByte(int i) throws IOException {
-        this.os.write(i);
+    public void writeByte(int i2) throws IOException {
+        this.os.write(i2);
     }
 
-    public void writeNBit(long j, int i) throws IOException {
-        for (int i2 = 0; i2 < i; i2++) {
-            write1Bit(((int) (j >> ((i - i2) - 1))) & 1);
+    public void writeNBit(long j, int i2) throws IOException {
+        for (int i3 = 0; i3 < i2; i3++) {
+            write1Bit(((int) (j >> ((i2 - i3) - 1))) & 1);
         }
     }
 

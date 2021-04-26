@@ -35,15 +35,15 @@ public class EditHeadActivityConfig extends IntentConfig {
     public static final int UPLOAD_TYPE_UPLOAD_ONLY = 2;
     public static final String WATERMARK_TYPE = "watermark_type";
 
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, String str, float f2) {
+    public EditHeadActivityConfig(Context context, int i2, int i3, Uri uri, AccountData accountData, int i4, String str, float f2) {
         super(context);
-        getIntent().putExtra("request", i);
+        getIntent().putExtra("request", i2);
         getIntent().putExtra("account_data", accountData);
-        getIntent().putExtra("edit_type", i3);
+        getIntent().putExtra("edit_type", i4);
         getIntent().putExtra(FILE_NAME, str);
         getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f2);
         getIntent().setData(uri);
-        setRequestCode(i2);
+        setRequestCode(i3);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
@@ -59,80 +59,80 @@ public class EditHeadActivityConfig extends IntentConfig {
         return this;
     }
 
-    public EditHeadActivityConfig setWaterMaskType(int i) {
-        getIntent().putExtra(WATERMARK_TYPE, i);
+    public EditHeadActivityConfig setWaterMaskType(int i2) {
+        getIntent().putExtra(WATERMARK_TYPE, i2);
         return this;
     }
 
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, String str, float f2, boolean z) {
+    public EditHeadActivityConfig(Context context, int i2, int i3, Uri uri, AccountData accountData, int i4, String str, float f2, boolean z) {
         super(context);
-        getIntent().putExtra("request", i);
+        getIntent().putExtra("request", i2);
         getIntent().putExtra("account_data", accountData);
-        getIntent().putExtra("edit_type", i3);
+        getIntent().putExtra("edit_type", i4);
         getIntent().putExtra(FILE_NAME, str);
         getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f2);
         getIntent().putExtra("need_upload", z);
         getIntent().setData(uri);
-        setRequestCode(i2);
+        setRequestCode(i3);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, float f2) {
+    public EditHeadActivityConfig(Context context, int i2, int i3, Uri uri, AccountData accountData, int i4, float f2) {
         super(context);
-        getIntent().putExtra("request", i);
+        getIntent().putExtra("request", i2);
         getIntent().putExtra("account_data", accountData);
-        getIntent().putExtra("edit_type", i3);
+        getIntent().putExtra("edit_type", i4);
         getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f2);
         getIntent().setData(uri);
-        setRequestCode(i2);
+        setRequestCode(i3);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, float f2) {
+    public EditHeadActivityConfig(Context context, int i2, int i3, Uri uri, AccountData accountData, float f2) {
         super(context);
-        getIntent().putExtra("request", i);
+        getIntent().putExtra("request", i2);
         getIntent().putExtra("account_data", accountData);
         getIntent().putExtra("edit_type", 0);
         getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f2);
         getIntent().setData(uri);
-        setRequestCode(i2);
+        setRequestCode(i3);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, float f2, boolean z) {
+    public EditHeadActivityConfig(Context context, int i2, int i3, Uri uri, AccountData accountData, float f2, boolean z) {
         super(context);
-        getIntent().putExtra("request", i);
+        getIntent().putExtra("request", i2);
         getIntent().putExtra("account_data", accountData);
         getIntent().putExtra("edit_type", 0);
         getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f2);
         getIntent().putExtra("need_upload", z);
         getIntent().setData(uri);
-        setRequestCode(i2);
+        setRequestCode(i3);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, float f2, String str) {
+    public EditHeadActivityConfig(Context context, int i2, int i3, Uri uri, AccountData accountData, int i4, float f2, String str) {
         super(context);
-        getIntent().putExtra("request", i);
+        getIntent().putExtra("request", i2);
         getIntent().putExtra("account_data", accountData);
-        getIntent().putExtra("edit_type", i3);
+        getIntent().putExtra("edit_type", i4);
         getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f2);
         getIntent().putExtra(FROM_WHERE, str);
         getIntent().setData(uri);
-        setRequestCode(i2);
+        setRequestCode(i3);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, String str, float f2, String str2) {
+    public EditHeadActivityConfig(Context context, int i2, int i3, Uri uri, AccountData accountData, int i4, String str, float f2, String str2) {
         super(context);
-        getIntent().putExtra("request", i);
+        getIntent().putExtra("request", i2);
         getIntent().putExtra("account_data", accountData);
-        getIntent().putExtra("edit_type", i3);
+        getIntent().putExtra("edit_type", i4);
         getIntent().putExtra(FILE_NAME, str);
         getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f2);
         getIntent().putExtra(FROM_WHERE, str2);
         getIntent().setData(uri);
-        setRequestCode(i2);
+        setRequestCode(i3);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

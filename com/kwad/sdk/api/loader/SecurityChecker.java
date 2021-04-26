@@ -7,7 +7,7 @@ import java.io.File;
 public class SecurityChecker {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile State f32153a;
+    public static volatile State f32564a;
 
     /* loaded from: classes6.dex */
     public enum State {
@@ -24,19 +24,19 @@ public class SecurityChecker {
         void a(boolean z, State state);
     }
 
-    public static void a(final File file, final a.C0372a c0372a, final a aVar) {
+    public static void a(final File file, final a.C0363a c0363a, final a aVar) {
         i.a(new Runnable() { // from class: com.kwad.sdk.api.loader.SecurityChecker.1
             @Override // java.lang.Runnable
             public void run() {
-                State unused = SecurityChecker.f32153a = State.INIT;
+                State unused = SecurityChecker.f32564a = State.INIT;
                 try {
-                    boolean z = a.C0372a.this != null && SecurityChecker.b(file) && SecurityChecker.b(file, a.C0372a.this.f32159c);
+                    boolean z = a.C0363a.this != null && SecurityChecker.b(file) && SecurityChecker.b(file, a.C0363a.this.f32570c);
                     if (z) {
-                        State unused2 = SecurityChecker.f32153a = State.SUCCESS;
+                        State unused2 = SecurityChecker.f32564a = State.SUCCESS;
                     }
                     a aVar2 = aVar;
                     if (aVar2 != null) {
-                        aVar2.a(z, SecurityChecker.f32153a);
+                        aVar2.a(z, SecurityChecker.f32564a);
                     }
                 } catch (Exception e2) {
                     a aVar3 = aVar;
@@ -49,12 +49,12 @@ public class SecurityChecker {
     }
 
     public static boolean b(File file) {
-        f32153a = State.DATA_VALID;
+        f32564a = State.DATA_VALID;
         return file != null && file.exists() && file.getName().endsWith(".apk") && file.length() > 0;
     }
 
     public static boolean b(File file, String str) {
-        f32153a = State.MD5;
+        f32564a = State.MD5;
         if (TextUtils.isEmpty(str)) {
             return false;
         }

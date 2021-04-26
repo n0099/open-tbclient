@@ -79,8 +79,8 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         public final int code;
         public final ByteString reason;
 
-        public Close(int i, ByteString byteString, long j) {
-            this.code = i;
+        public Close(int i2, ByteString byteString, long j) {
+            this.code = i2;
             this.reason = byteString;
             this.cancelAfterCloseMillis = j;
         }
@@ -91,8 +91,8 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         public final ByteString data;
         public final int formatOpcode;
 
-        public Message(int i, ByteString byteString) {
-            this.formatOpcode = i;
+        public Message(int i2, ByteString byteString) {
+            this.formatOpcode = i2;
             this.data = byteString;
         }
     }
@@ -154,8 +154,8 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    public void awaitTermination(int i, TimeUnit timeUnit) throws InterruptedException {
-        this.executor.awaitTermination(i, timeUnit);
+    public void awaitTermination(int i2, TimeUnit timeUnit) throws InterruptedException {
+        this.executor.awaitTermination(i2, timeUnit);
     }
 
     @Override // okhttp3.WebSocket
@@ -184,8 +184,8 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     }
 
     @Override // okhttp3.WebSocket
-    public boolean close(int i, String str) {
-        return close(i, str, 60000L);
+    public boolean close(int i2, String str) {
+        return close(i2, str, 60000L);
     }
 
     public void connect(OkHttpClient okHttpClient) {
@@ -267,12 +267,12 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     }
 
     @Override // okhttp3.internal.ws.WebSocketReader.FrameCallback
-    public void onReadClose(int i, String str) {
+    public void onReadClose(int i2, String str) {
         Streams streams;
-        if (i != -1) {
+        if (i2 != -1) {
             synchronized (this) {
                 if (this.receivedCloseCode == -1) {
-                    this.receivedCloseCode = i;
+                    this.receivedCloseCode = i2;
                     this.receivedCloseReason = str;
                     streams = null;
                     if (this.enqueuedClose && this.messageAndCloseQueue.isEmpty()) {
@@ -289,9 +289,9 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
                 }
             }
             try {
-                this.listener.onClosing(this, i, str);
+                this.listener.onClosing(this, i2, str);
                 if (streams != null) {
-                    this.listener.onClosed(this, i, str);
+                    this.listener.onClosed(this, i2, str);
                 }
                 return;
             } finally {
@@ -388,23 +388,23 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
             }
             WebSocketWriter webSocketWriter = this.writer;
             ByteString poll = this.pongQueue.poll();
-            int i = -1;
+            int i2 = -1;
             Message message = null;
             if (poll == null) {
                 Object poll2 = this.messageAndCloseQueue.poll();
                 if (poll2 instanceof Close) {
-                    int i2 = this.receivedCloseCode;
+                    int i3 = this.receivedCloseCode;
                     str = this.receivedCloseReason;
-                    if (i2 != -1) {
+                    if (i3 != -1) {
                         Streams streams2 = this.streams;
                         this.streams = null;
                         this.executor.shutdown();
                         message = poll2;
-                        i = i2;
+                        i2 = i3;
                         streams = streams2;
                     } else {
                         this.cancelFuture = this.executor.schedule(new CancelRunnable(), ((Close) poll2).cancelAfterCloseMillis, TimeUnit.MILLISECONDS);
-                        i = i2;
+                        i2 = i3;
                         streams = null;
                     }
                 } else if (poll2 == null) {
@@ -433,7 +433,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
                     Close close = (Close) message;
                     webSocketWriter.writeClose(close.code, close.reason);
                     if (streams != null) {
-                        this.listener.onClosed(this, i, str);
+                        this.listener.onClosed(this, i2, str);
                     }
                 } else {
                     throw new AssertionError();
@@ -451,11 +451,11 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
                 return;
             }
             WebSocketWriter webSocketWriter = this.writer;
-            int i = this.awaitingPong ? this.sentPingCount : -1;
+            int i2 = this.awaitingPong ? this.sentPingCount : -1;
             this.sentPingCount++;
             this.awaitingPong = true;
-            if (i != -1) {
-                failWebSocket(new SocketTimeoutException("sent ping but didn't receive pong within " + this.pingIntervalMillis + "ms (after " + (i - 1) + " successful ping/pongs)"), null);
+            if (i2 != -1) {
+                failWebSocket(new SocketTimeoutException("sent ping but didn't receive pong within " + this.pingIntervalMillis + "ms (after " + (i2 - 1) + " successful ping/pongs)"), null);
                 return;
             }
             try {
@@ -466,8 +466,8 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    public synchronized boolean close(int i, String str, long j) {
-        WebSocketProtocol.validateCloseCode(i);
+    public synchronized boolean close(int i2, String str, long j) {
+        WebSocketProtocol.validateCloseCode(i2);
         ByteString byteString = null;
         if (str != null) {
             byteString = ByteString.encodeUtf8(str);
@@ -477,7 +477,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
         if (!this.failed && !this.enqueuedClose) {
             this.enqueuedClose = true;
-            this.messageAndCloseQueue.add(new Close(i, byteString, j));
+            this.messageAndCloseQueue.add(new Close(i2, byteString, j));
             runWriter();
             return true;
         }
@@ -497,14 +497,14 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         throw new NullPointerException("bytes == null");
     }
 
-    private synchronized boolean send(ByteString byteString, int i) {
+    private synchronized boolean send(ByteString byteString, int i2) {
         if (!this.failed && !this.enqueuedClose) {
             if (this.queueSize + byteString.size() > 16777216) {
                 close(1001, null);
                 return false;
             }
             this.queueSize += byteString.size();
-            this.messageAndCloseQueue.add(new Message(i, byteString));
+            this.messageAndCloseQueue.add(new Message(i2, byteString));
             runWriter();
             return true;
         }

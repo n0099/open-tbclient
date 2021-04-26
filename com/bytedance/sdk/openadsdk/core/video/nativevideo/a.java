@@ -5,21 +5,21 @@ import android.view.SurfaceHolder;
 import android.view.View;
 /* loaded from: classes5.dex */
 public interface a {
-    void a(b bVar, int i);
+    void a(b bVar, int i2);
 
-    void a(b bVar, int i, boolean z);
+    void a(b bVar, int i2, boolean z);
 
     void a(b bVar, SurfaceTexture surfaceTexture);
 
     void a(b bVar, SurfaceHolder surfaceHolder);
 
-    void a(b bVar, SurfaceHolder surfaceHolder, int i, int i2, int i3);
+    void a(b bVar, SurfaceHolder surfaceHolder, int i2, int i3, int i4);
 
     void a(b bVar, View view);
 
     void a(b bVar, View view, boolean z, boolean z2);
 
-    void b(b bVar, int i);
+    void b(b bVar, int i2);
 
     void b(b bVar, SurfaceTexture surfaceTexture);
 

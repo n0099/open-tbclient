@@ -30,26 +30,28 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class BankCardDetectionActivity extends CameraBaseActivity implements View.OnClickListener, IImageProcess {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f23184e = BankCardDetectionActivity.class.getSimpleName();
+    public static final String f23897e = BankCardDetectionActivity.class.getSimpleName();
 
     /* renamed from: f  reason: collision with root package name */
-    public MistView f23185f;
-    public BankCardProcessing i;
+    public MistView f23898f;
+
+    /* renamed from: i  reason: collision with root package name */
+    public BankCardProcessing f23901i;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f23186g = null;
+    public View f23899g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f23187h = null;
+    public View f23900h = null;
     public AtomicInteger j = new AtomicInteger(0);
 
     @Override // com.baidu.wallet.base.camera.IImageProcess
     public void destroyProcessor() {
-        if (this.i != null) {
-            int i = 0;
+        if (this.f23901i != null) {
+            int i2 = 0;
             while (true) {
-                int i2 = i + 1;
-                if (2 <= i || 1 == this.j.intValue()) {
+                int i3 = i2 + 1;
+                if (2 <= i2 || 1 == this.j.intValue()) {
                     break;
                 }
                 try {
@@ -57,15 +59,15 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
-                i = i2;
+                i2 = i3;
             }
             if (1 == this.j.intValue()) {
                 this.j.set(3);
-                this.i.release();
-                this.i = null;
+                this.f23901i.release();
+                this.f23901i = null;
                 return;
             }
-            String str = f23184e;
+            String str = f23897e;
             LogUtil.w(str, "destroyProcessor() Classifyer state=" + this.j.intValue());
         }
     }
@@ -77,7 +79,7 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
     public View getCustomizedView() {
         MistView mistView = (MistView) View.inflate(this, ResUtils.layout(getActivity(), "wallet_bankcard_detection_activity"), null);
-        this.f23185f = mistView;
+        this.f23898f = mistView;
         return mistView;
     }
 
@@ -92,8 +94,8 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
     }
 
     @Override // com.baidu.wallet.base.camera.IImageProcess
-    public int getRecycledBufSize(int i, int i2) {
-        return i * i2 * 3;
+    public int getRecycledBufSize(int i2, int i3) {
+        return i2 * i3 * 3;
     }
 
     @Override // com.baidu.wallet.base.camera.IImageProcess
@@ -101,10 +103,10 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
         try {
             BankCardProcessing.init(CameraBaseActivity.getToken());
             BankCardProcessing bankCardProcessing = BankCardProcessing.getInstance();
-            this.i = bankCardProcessing;
+            this.f23901i = bankCardProcessing;
             if (bankCardProcessing.init(getAssets(), PathUtils.model_path, PathUtils.mean_path, PathUtils.dtc_model_path_fst, PathUtils.dtc_mean_path_fst, PathUtils.dtc_model_path_scd, PathUtils.dtc_mean_path_scd, PathUtils.captcha_path) < 0) {
-                LogUtil.e(f23184e, "Model initialization failure.", null);
-                this.i = null;
+                LogUtil.e(f23897e, "Model initialization failure.", null);
+                this.f23901i = null;
                 return false;
             }
             this.j.set(1);
@@ -118,7 +120,7 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         PayStatisticsUtil.onEvent(StatServiceEvent.STAT_EXITDETECT);
         BankcardDetectionController.getInstance().updateFail(-2, "");
@@ -143,19 +145,19 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
         }
     }
 
-    @Override // com.baidu.wallet.base.camera.CameraBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.base.camera.CameraBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        String str = f23184e;
+        String str = f23897e;
         LogUtil.i(str, "onCreate(" + bundle + SmallTailInfo.EMOTION_SUFFIX);
-        this.f23186g = findViewById(ResUtils.id(getActivity(), "focus_view"));
-        this.f23187h = findViewById(ResUtils.id(getActivity(), "flash_light_switch"));
+        this.f23899g = findViewById(ResUtils.id(getActivity(), "focus_view"));
+        this.f23900h = findViewById(ResUtils.id(getActivity(), "flash_light_switch"));
         if (CameraCtrl.isSupprtFlashLight(getPackageManager())) {
-            this.f23187h.setOnClickListener(this);
-            this.f23187h.setVisibility(0);
-            AccessibilityUtils.setContentDescription(this.f23187h, "打开闪光灯");
+            this.f23900h.setOnClickListener(this);
+            this.f23900h.setVisibility(0);
+            AccessibilityUtils.setContentDescription(this.f23900h, "打开闪光灯");
         } else {
-            this.f23187h.setVisibility(4);
+            this.f23900h.setVisibility(4);
         }
         findViewById(ResUtils.id(getActivity(), "title_back")).setOnClickListener(this);
         findViewById(ResUtils.id(getActivity(), "manal_input_prompt")).setOnClickListener(this);
@@ -182,13 +184,13 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
     }
 
     @Override // com.baidu.wallet.base.camera.IImageProcess
-    public Object[] processImage(byte[] bArr, int i, int i2, Rect rect, byte[] bArr2) {
+    public Object[] processImage(byte[] bArr, int i2, int i3, Rect rect, byte[] bArr2) {
         if (1 != this.j.intValue()) {
             return null;
         }
         this.j.set(2);
-        Yuv.rotateCrop(bArr, i, i2, rect, 270, bArr2);
-        BCResult runBankCardProcess = this.i.runBankCardProcess(bArr2, rect.width(), rect.height(), 1, 1, rect.height() - 1, rect.width() - 1, 1, false);
+        Yuv.rotateCrop(bArr, i2, i3, rect, 270, bArr2);
+        BCResult runBankCardProcess = this.f23901i.runBankCardProcess(bArr2, rect.width(), rect.height(), 1, 1, rect.height() - 1, rect.width() - 1, 1, false);
         this.j.set(1);
         if (runBankCardProcess == null || !runBankCardProcess.bFlag) {
             return null;
@@ -197,30 +199,30 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
     }
 
     @Override // com.baidu.wallet.base.camera.IImageProcess
-    public Object[] processImageJpegData(byte[] bArr, int i, int i2) {
+    public Object[] processImageJpegData(byte[] bArr, int i2, int i3) {
         return null;
     }
 
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
     public void relayoutUi() {
-        ViewGroup.LayoutParams layoutParams = this.f23186g.getLayoutParams();
-        int width = this.f23186g.getWidth();
+        ViewGroup.LayoutParams layoutParams = this.f23899g.getLayoutParams();
+        int width = this.f23899g.getWidth();
         layoutParams.width = width;
         layoutParams.height = Math.round(width * getFocusDataYXRatioal() * this.mScaleCoefficient);
-        this.f23186g.setLayoutParams(layoutParams);
-        this.f23186g.requestLayout();
+        this.f23899g.setLayoutParams(layoutParams);
+        this.f23899g.requestLayout();
         int[] iArr = new int[2];
         int[] iArr2 = new int[2];
         this.mPreviewView.getLocationOnScreen(iArr2);
-        this.f23186g.getLocationOnScreen(iArr);
+        this.f23899g.getLocationOnScreen(iArr);
         Rect rect = this.mFocusViewRect;
-        int i = iArr[0] - iArr2[0];
-        rect.left = i;
-        rect.right = i + layoutParams.width;
-        int i2 = iArr[1] - iArr2[1];
-        rect.top = i2;
-        rect.bottom = i2 + layoutParams.height;
-        this.f23185f.getFocusFrame().set(this.mFocusViewRect);
+        int i2 = iArr[0] - iArr2[0];
+        rect.left = i2;
+        rect.right = i2 + layoutParams.width;
+        int i3 = iArr[1] - iArr2[1];
+        rect.top = i3;
+        rect.bottom = i3 + layoutParams.height;
+        this.f23898f.getFocusFrame().set(this.mFocusViewRect);
     }
 
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
@@ -229,10 +231,10 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
 
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
     public void updateFlashLightUi(boolean z) {
-        if (this.f23187h == null) {
+        if (this.f23900h == null) {
             return;
         }
-        this.f23187h.setBackgroundResource(ResUtils.drawable(getActivity(), z ? "wallet_base_camera_flashlight_on_btn" : "wallet_base_camera_flashlight_off_btn"));
-        AccessibilityUtils.setContentDescription(this.f23187h, z ? "关闭闪光灯" : "打开闪光灯");
+        this.f23900h.setBackgroundResource(ResUtils.drawable(getActivity(), z ? "wallet_base_camera_flashlight_on_btn" : "wallet_base_camera_flashlight_off_btn"));
+        AccessibilityUtils.setContentDescription(this.f23900h, z ? "关闭闪光灯" : "打开闪光灯");
     }
 }

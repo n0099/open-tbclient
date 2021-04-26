@@ -25,7 +25,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
             } else if (readByte == -3) {
                 jVar = z ? new d.b(parcel) : new h.b(parcel);
             } else if (readByte == -1) {
-                jVar = z ? new d.C0465d(parcel) : new h.d(parcel);
+                jVar = z ? new d.C0410d(parcel) : new h.d(parcel);
             } else if (readByte == 1) {
                 jVar = z ? new d.f(parcel) : new h.f(parcel);
             } else if (readByte == 2) {
@@ -33,11 +33,11 @@ public abstract class MessageSnapshot implements Parcelable, c {
             } else if (readByte == 3) {
                 jVar = z ? new d.g(parcel) : new h.g(parcel);
             } else if (readByte == 5) {
-                jVar = z ? new d.h(parcel) : new h.C0466h(parcel);
+                jVar = z ? new d.h(parcel) : new h.C0411h(parcel);
             } else if (readByte != 6) {
                 messageSnapshot = null;
                 if (messageSnapshot == null) {
-                    messageSnapshot.f37430a = z;
+                    messageSnapshot.f35152a = z;
                     return messageSnapshot;
                 }
                 throw new IllegalStateException("Can't restore the snapshot because unknown status: " + ((int) readByte));
@@ -52,16 +52,16 @@ public abstract class MessageSnapshot implements Parcelable, c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public MessageSnapshot[] newArray(int i) {
-            return new MessageSnapshot[i];
+        public MessageSnapshot[] newArray(int i2) {
+            return new MessageSnapshot[i2];
         }
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f37430a;
+    public boolean f35152a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f37431b;
+    public final int f35153b;
 
     /* loaded from: classes6.dex */
     public static class NoFieldException extends IllegalStateException {
@@ -77,8 +77,8 @@ public abstract class MessageSnapshot implements Parcelable, c {
 
     /* loaded from: classes6.dex */
     public static class b extends MessageSnapshot {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         public b(Parcel parcel) {
@@ -91,12 +91,12 @@ public abstract class MessageSnapshot implements Parcelable, c {
         }
     }
 
-    public MessageSnapshot(int i) {
-        this.f37431b = i;
+    public MessageSnapshot(int i2) {
+        this.f35153b = i2;
     }
 
     public MessageSnapshot(Parcel parcel) {
-        this.f37431b = parcel.readInt();
+        this.f35153b = parcel.readInt();
     }
 
     public int a() {
@@ -145,17 +145,17 @@ public abstract class MessageSnapshot implements Parcelable, c {
     }
 
     public int m() {
-        return this.f37431b;
+        return this.f35153b;
     }
 
     public boolean n() {
-        return this.f37430a;
+        return this.f35152a;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeByte(this.f37430a ? (byte) 1 : (byte) 0);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeByte(this.f35152a ? (byte) 1 : (byte) 0);
         parcel.writeByte(b());
-        parcel.writeInt(this.f37431b);
+        parcel.writeInt(this.f35153b);
     }
 }

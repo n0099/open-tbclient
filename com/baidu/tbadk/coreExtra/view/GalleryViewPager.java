@@ -16,7 +16,7 @@ public class GalleryViewPager extends BaseViewPager {
         super(context);
     }
 
-    public final float[] f(MotionEvent motionEvent) {
+    public final float[] e(MotionEvent motionEvent) {
         int action = motionEvent.getAction() & CompatibleUtile.getActionMask();
         if (action == 0) {
             this.m = new PointF(motionEvent.getX(), motionEvent.getY());
@@ -40,7 +40,7 @@ public class GalleryViewPager extends BaseViewPager {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onInterceptTouchEvent(motionEvent);
         }
-        float[] f2 = f(motionEvent);
+        float[] e2 = e(motionEvent);
         DragImageView dragImageView = this.n;
         if (dragImageView == null) {
             return super.onInterceptTouchEvent(motionEvent);
@@ -48,13 +48,13 @@ public class GalleryViewPager extends BaseViewPager {
         if (dragImageView.f0()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (f2 != null && this.n.e0() && f2[0] < 0.0f) {
+        if (e2 != null && this.n.e0() && e2[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (f2 != null && this.n.d0() && f2[0] > 0.0f) {
+        if (e2 != null && this.n.d0() && e2[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (f2 == null && (this.n.d0() || this.n.e0())) {
+        if (e2 == null && (this.n.d0() || this.n.e0())) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         return false;
@@ -72,17 +72,17 @@ public class GalleryViewPager extends BaseViewPager {
         if (this.n == null) {
             return super.onTouchEvent(motionEvent);
         }
-        float[] f2 = f(motionEvent);
+        float[] e2 = e(motionEvent);
         if (this.n.f0()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (f2 != null && this.n.e0() && f2[0] < 0.0f) {
+        if (e2 != null && this.n.e0() && e2[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (f2 != null && this.n.d0() && f2[0] > 0.0f) {
+        if (e2 != null && this.n.d0() && e2[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (f2 == null && (this.n.d0() || this.n.e0())) {
+        if (e2 == null && (this.n.d0() || this.n.e0())) {
             return super.onTouchEvent(motionEvent);
         }
         return false;

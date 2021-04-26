@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.util;
 
-import d.b.c.e.p.k;
+import d.a.c.e.p.k;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -86,8 +86,8 @@ public class StatisticItem {
         return this;
     }
 
-    public void setPosition(int i) {
-        this.position = i;
+    public void setPosition(int i2) {
+        this.position = i2;
     }
 
     public String toString() {
@@ -98,19 +98,19 @@ public class StatisticItem {
         this.key = str;
     }
 
-    public StatisticItem param(String str, int i) {
+    public StatisticItem param(String str, int i2) {
         this.params.add(str);
-        this.params.add(Integer.valueOf(i));
+        this.params.add(Integer.valueOf(i2));
         return this;
     }
 
-    public StatisticItem addParam(String str, int i) {
+    public StatisticItem addParam(String str, int i2) {
         int index = getIndex(str);
         if (index > 0) {
-            this.params.set(index, Integer.valueOf(i));
+            this.params.set(index, Integer.valueOf(i2));
             return this;
         }
-        return param(str, i);
+        return param(str, i2);
     }
 
     public StatisticItem param(String str, long j) {

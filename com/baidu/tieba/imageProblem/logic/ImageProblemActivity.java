@@ -56,7 +56,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
             super.onProgressUpdate(numArr);
             int intValue = numArr[0].intValue();
             ImageProblemActivity imageProblemActivity = ImageProblemActivity.this;
-            imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f18132d);
+            imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f18478d);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -66,8 +66,8 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        this.mView.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        this.mView.onChangeSkinType(i2);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener

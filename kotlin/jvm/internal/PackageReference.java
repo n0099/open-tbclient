@@ -12,9 +12,11 @@ public final class PackageReference implements ClassBasedDeclarationContainer {
     public final Class<?> jClass;
     public final String moduleName;
 
-    public PackageReference(Class<?> cls, String str) {
-        this.jClass = cls;
-        this.moduleName = str;
+    public PackageReference(Class<?> jClass, String moduleName) {
+        Intrinsics.checkNotNullParameter(jClass, "jClass");
+        Intrinsics.checkNotNullParameter(moduleName, "moduleName");
+        this.jClass = jClass;
+        this.moduleName = moduleName;
     }
 
     public boolean equals(Object obj) {

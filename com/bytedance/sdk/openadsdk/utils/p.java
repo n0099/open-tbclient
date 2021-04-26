@@ -22,33 +22,33 @@ public class p {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f30135a;
+        public String f31052a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f30136b;
+        public String f31053b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f30137c;
+        public String f31054c;
 
         public a(String str, String str2, String str3) {
-            this.f30135a = str;
-            this.f30136b = str2;
-            this.f30137c = str3;
+            this.f31052a = str;
+            this.f31053b = str2;
+            this.f31054c = str3;
         }
 
         public boolean equals(Object obj) {
             String str;
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                String str2 = this.f30135a;
-                return str2 != null && str2.equals(aVar.f30135a) && (str = this.f30137c) != null && str.equals(aVar.f30137c);
+                String str2 = this.f31052a;
+                return str2 != null && str2.equals(aVar.f31052a) && (str = this.f31054c) != null && str.equals(aVar.f31054c);
             }
             return super.equals(obj);
         }
 
         public String toString() {
             try {
-                return "<" + this.f30135a + " name=\"" + this.f30136b + "\" path=\"" + this.f30137c + "\" />";
+                return "<" + this.f31052a + " name=\"" + this.f31053b + "\" path=\"" + this.f31054c + "\" />";
             } catch (Throwable unused) {
                 return super.toString();
             }
@@ -66,7 +66,7 @@ public class p {
             u.f("TTAdSdk-InitChecker", "==当前进程名：" + a(a2));
             u.f("TTAdSdk-InitChecker", "==穿山甲sdk接入，环境为debug，初始化配置检测开始==");
             String packageName = a2.getPackageName();
-            int i = a2.getApplicationInfo().targetSdkVersion;
+            int i2 = a2.getApplicationInfo().targetSdkVersion;
             PackageManager packageManager = a2.getPackageManager();
             boolean z = false;
             boolean z2 = false;
@@ -81,7 +81,7 @@ public class p {
                     z = true;
                 } else {
                     if (providerInfo.authority.equals(packageName + ".TTFileProvider")) {
-                        if (Build.VERSION.SDK_INT >= 24 && i >= 24) {
+                        if (Build.VERSION.SDK_INT >= 24 && i2 >= 24) {
                             if (providerInfo.exported) {
                                 u.f("TTAdSdk-InitChecker", "AndroidManifest.xml中TTFileProvider配置异常：android:exported，请参考接入文档");
                             }
@@ -118,7 +118,7 @@ public class p {
                                 u.c("TTAdSdk-InitChecker", "AndroidManifest.xml中TTFileProvider配置错误，请参考接入文档", th);
                             }
                         } else {
-                            u.f("TTAdSdk-InitChecker", "TTFileProvider不需要适配：target=" + i + "&phone=" + Build.VERSION.SDK_INT + ", require=24");
+                            u.f("TTAdSdk-InitChecker", "TTFileProvider不需要适配：target=" + i2 + "&phone=" + Build.VERSION.SDK_INT + ", require=24");
                         }
                         z2 = true;
                     }
@@ -151,7 +151,7 @@ public class p {
             } catch (Throwable th3) {
                 u.c("TTAdSdk-InitChecker", "动态权限获取异常，请检查并详细阅读接入文档", th3);
             }
-            if (Build.VERSION.SDK_INT >= 23 && i >= 23) {
+            if (Build.VERSION.SDK_INT >= 23 && i2 >= 23) {
                 boolean a4 = com.bytedance.sdk.openadsdk.core.f.d.a().a(a2, "android.permission.READ_PHONE_STATE");
                 boolean a5 = com.bytedance.sdk.openadsdk.core.f.d.a().a(a2, "android.permission.ACCESS_COARSE_LOCATION");
                 boolean a6 = com.bytedance.sdk.openadsdk.core.f.d.a().a(a2, "android.permission.ACCESS_FINE_LOCATION");
@@ -184,7 +184,7 @@ public class p {
                 }
                 u.f("TTAdSdk-InitChecker", "==穿山甲sdk初始化配置检测结束==");
             }
-            u.f("TTAdSdk-InitChecker", "动态权限不需要适配：target=" + i + "&phone=" + Build.VERSION.SDK_INT + ", require=23");
+            u.f("TTAdSdk-InitChecker", "动态权限不需要适配：target=" + i2 + "&phone=" + Build.VERSION.SDK_INT + ", require=23");
             if (!z) {
             }
             if (!z2) {
@@ -242,11 +242,11 @@ public class p {
     }
 
     @Nullable
-    public static List<a> a(Context context, int i) {
+    public static List<a> a(Context context, int i2) {
         XmlResourceParser xmlResourceParser;
         try {
             ArrayList arrayList = new ArrayList();
-            xmlResourceParser = context.getResources().getXml(i);
+            xmlResourceParser = context.getResources().getXml(i2);
             try {
                 for (int eventType = xmlResourceParser.getEventType(); eventType != 1; eventType = xmlResourceParser.next()) {
                     if (eventType != 2) {
@@ -256,12 +256,12 @@ public class p {
                         int attributeCount = xmlResourceParser.getAttributeCount();
                         String str = null;
                         String str2 = null;
-                        for (int i2 = 0; i2 < attributeCount; i2++) {
-                            String attributeName = xmlResourceParser.getAttributeName(i2);
+                        for (int i3 = 0; i3 < attributeCount; i3++) {
+                            String attributeName = xmlResourceParser.getAttributeName(i3);
                             if (attributeName.equals("name")) {
-                                str = xmlResourceParser.getAttributeValue(i2);
+                                str = xmlResourceParser.getAttributeValue(i3);
                             } else if (attributeName.equals("path")) {
-                                str2 = xmlResourceParser.getAttributeValue(i2);
+                                str2 = xmlResourceParser.getAttributeValue(i3);
                             }
                         }
                         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {

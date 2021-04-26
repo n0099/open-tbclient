@@ -8,27 +8,27 @@ import org.json.JSONException;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26690a;
+    public String f27500a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashSet<String> f26691b = new HashSet<>();
+    public HashSet<String> f27501b = new HashSet<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f26692c = new HashSet<>();
+    public HashSet<String> f27502c = new HashSet<>();
 
     public c(String str) {
-        this.f26690a = "full";
-        this.f26690a = str;
+        this.f27500a = "full";
+        this.f27500a = str;
     }
 
     public final void a(JSONArray jSONArray) throws JSONException {
         if (jSONArray == null) {
             return;
         }
-        for (int i = 0; i < jSONArray.length(); i++) {
-            String string = jSONArray.getString(i);
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            String string = jSONArray.getString(i2);
             if (!TextUtils.isEmpty(string)) {
-                this.f26691b.add(string);
+                this.f27501b.add(string);
             }
         }
     }
@@ -37,10 +37,10 @@ public final class c {
         if (jSONArray == null) {
             return;
         }
-        for (int i = 0; i < jSONArray.length(); i++) {
-            String string = jSONArray.getString(i);
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            String string = jSONArray.getString(i2);
             if (!TextUtils.isEmpty(string)) {
-                this.f26692c.add(string);
+                this.f27502c.add(string);
             }
         }
     }

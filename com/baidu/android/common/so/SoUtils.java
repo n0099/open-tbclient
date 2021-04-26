@@ -32,10 +32,10 @@ public final class SoUtils {
         void onEvent(String str, String str2);
     }
 
-    public static long copyStream(InputStream inputStream, OutputStream outputStream, int i) {
+    public static long copyStream(InputStream inputStream, OutputStream outputStream, int i2) {
         if (inputStream != null && outputStream != null) {
             try {
-                byte[] bArr = new byte[i * 1024];
+                byte[] bArr = new byte[i2 * 1024];
                 long j = 0;
                 while (true) {
                     int read = inputStream.read(bArr);
@@ -66,8 +66,8 @@ public final class SoUtils {
         return (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so") && (split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length == 2) ? split[0].substring(3) : str;
     }
 
-    public static String getUriName(String str, int i) {
-        return uris[i] + File.separator + str;
+    public static String getUriName(String str, int i2) {
+        return uris[i2] + File.separator + str;
     }
 
     public static boolean hasGingerbread() {

@@ -5,7 +5,6 @@ import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
@@ -34,11 +33,6 @@ public final class TransformationUtils {
     public static final String TAG = "TransformationUtils";
     public static final Paint DEFAULT_PAINT = new Paint(6);
     public static final Paint CIRCLE_CROP_SHAPE_PAINT = new Paint(7);
-
-    /* loaded from: classes5.dex */
-    public interface DrawRoundedCornerFn {
-        void drawRoundedCorners(Canvas canvas, Paint paint, RectF rectF);
-    }
 
     /* loaded from: classes5.dex */
     public static final class NoLock implements Lock {
@@ -91,32 +85,32 @@ public final class TransformationUtils {
         }
     }
 
-    public static Bitmap centerCrop(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
+    public static Bitmap centerCrop(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2, int i3) {
         float width;
         float height;
-        if (bitmap.getWidth() == i && bitmap.getHeight() == i2) {
+        if (bitmap.getWidth() == i2 && bitmap.getHeight() == i3) {
             return bitmap;
         }
         Matrix matrix = new Matrix();
         float f2 = 0.0f;
-        if (bitmap.getWidth() * i2 > bitmap.getHeight() * i) {
-            width = i2 / bitmap.getHeight();
-            f2 = (i - (bitmap.getWidth() * width)) * 0.5f;
+        if (bitmap.getWidth() * i3 > bitmap.getHeight() * i2) {
+            width = i3 / bitmap.getHeight();
+            f2 = (i2 - (bitmap.getWidth() * width)) * 0.5f;
             height = 0.0f;
         } else {
-            width = i / bitmap.getWidth();
-            height = (i2 - (bitmap.getHeight() * width)) * 0.5f;
+            width = i2 / bitmap.getWidth();
+            height = (i3 - (bitmap.getHeight() * width)) * 0.5f;
         }
         matrix.setScale(width, width);
         matrix.postTranslate((int) (f2 + 0.5f), (int) (height + 0.5f));
-        Bitmap bitmap2 = bitmapPool.get(i, i2, getNonNullConfig(bitmap));
+        Bitmap bitmap2 = bitmapPool.get(i2, i3, getNonNullConfig(bitmap));
         setAlpha(bitmap, bitmap2);
         applyMatrix(bitmap, bitmap2, matrix);
         return bitmap2;
     }
 
-    public static Bitmap centerInside(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
-        if (bitmap.getWidth() <= i && bitmap.getHeight() <= i2) {
+    public static Bitmap centerInside(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2, int i3) {
+        if (bitmap.getWidth() <= i2 && bitmap.getHeight() <= i3) {
             if (Log.isLoggable(TAG, 2)) {
                 Log.v(TAG, "requested target size larger or equal to input, returning input");
             }
@@ -125,11 +119,11 @@ public final class TransformationUtils {
         if (Log.isLoggable(TAG, 2)) {
             Log.v(TAG, "requested target size too big for input, fit centering instead");
         }
-        return fitCenter(bitmapPool, bitmap, i, i2);
+        return fitCenter(bitmapPool, bitmap, i2, i3);
     }
 
-    public static Bitmap circleCrop(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
-        int min = Math.min(i, i2);
+    public static Bitmap circleCrop(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2, int i3) {
+        int min = Math.min(i2, i3);
         float f2 = min;
         float f3 = f2 / 2.0f;
         float width = bitmap.getWidth();
@@ -164,14 +158,14 @@ public final class TransformationUtils {
         canvas.setBitmap(null);
     }
 
-    public static Bitmap fitCenter(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
-        if (bitmap.getWidth() == i && bitmap.getHeight() == i2) {
+    public static Bitmap fitCenter(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2, int i3) {
+        if (bitmap.getWidth() == i2 && bitmap.getHeight() == i3) {
             if (Log.isLoggable(TAG, 2)) {
                 Log.v(TAG, "requested target size matches input, returning input");
             }
             return bitmap;
         }
-        float min = Math.min(i / bitmap.getWidth(), i2 / bitmap.getHeight());
+        float min = Math.min(i2 / bitmap.getWidth(), i3 / bitmap.getHeight());
         int round = Math.round(bitmap.getWidth() * min);
         int round2 = Math.round(bitmap.getHeight() * min);
         if (bitmap.getWidth() == round && bitmap.getHeight() == round2) {
@@ -183,7 +177,7 @@ public final class TransformationUtils {
         Bitmap bitmap2 = bitmapPool.get((int) (bitmap.getWidth() * min), (int) (bitmap.getHeight() * min), getNonNullConfig(bitmap));
         setAlpha(bitmap, bitmap2);
         if (Log.isLoggable(TAG, 2)) {
-            Log.v(TAG, "request: " + i + "x" + i2);
+            Log.v(TAG, "request: " + i2 + "x" + i3);
             Log.v(TAG, "toFit:   " + bitmap.getWidth() + "x" + bitmap.getHeight());
             Log.v(TAG, "toReuse: " + bitmap2.getWidth() + "x" + bitmap2.getHeight());
             StringBuilder sb = new StringBuilder();
@@ -219,8 +213,8 @@ public final class TransformationUtils {
         return BITMAP_DRAWABLE_LOCK;
     }
 
-    public static int getExifOrientationDegrees(int i) {
-        switch (i) {
+    public static int getExifOrientationDegrees(int i2) {
+        switch (i2) {
             case 3:
             case 4:
                 return 180;
@@ -241,8 +235,8 @@ public final class TransformationUtils {
     }
 
     @VisibleForTesting
-    public static void initializeMatrixForRotation(int i, Matrix matrix) {
-        switch (i) {
+    public static void initializeMatrixForRotation(int i2, Matrix matrix) {
+        switch (i2) {
             case 2:
                 matrix.setScale(-1.0f, 1.0f);
                 return;
@@ -272,8 +266,8 @@ public final class TransformationUtils {
         }
     }
 
-    public static boolean isExifOrientationRequired(int i) {
-        switch (i) {
+    public static boolean isExifOrientationRequired(int i2) {
+        switch (i2) {
             case 2:
             case 3:
             case 4:
@@ -287,11 +281,11 @@ public final class TransformationUtils {
         }
     }
 
-    public static Bitmap rotateImage(@NonNull Bitmap bitmap, int i) {
-        if (i != 0) {
+    public static Bitmap rotateImage(@NonNull Bitmap bitmap, int i2) {
+        if (i2 != 0) {
             try {
                 Matrix matrix = new Matrix();
-                matrix.setRotate(i);
+                matrix.setRotate(i2);
                 return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
             } catch (Exception e2) {
                 if (Log.isLoggable(TAG, 6)) {
@@ -304,15 +298,14 @@ public final class TransformationUtils {
         return bitmap;
     }
 
-    public static Bitmap rotateImageExif(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i) {
-        if (isExifOrientationRequired(i)) {
+    public static Bitmap rotateImageExif(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2) {
+        if (isExifOrientationRequired(i2)) {
             Matrix matrix = new Matrix();
-            initializeMatrixForRotation(i, matrix);
+            initializeMatrixForRotation(i2, matrix);
             RectF rectF = new RectF(0.0f, 0.0f, bitmap.getWidth(), bitmap.getHeight());
             matrix.mapRect(rectF);
             Bitmap bitmap2 = bitmapPool.get(Math.round(rectF.width()), Math.round(rectF.height()), getNonNullConfig(bitmap));
             matrix.postTranslate(-rectF.left, -rectF.top);
-            bitmap2.setHasAlpha(bitmap.hasAlpha());
             applyMatrix(bitmap, bitmap2, matrix);
             return bitmap2;
         }
@@ -320,41 +313,16 @@ public final class TransformationUtils {
     }
 
     @Deprecated
-    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2, int i3) {
-        return roundedCorners(bitmapPool, bitmap, i3);
+    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2, int i3, int i4) {
+        return roundedCorners(bitmapPool, bitmap, i4);
     }
 
     public static void setAlpha(Bitmap bitmap, Bitmap bitmap2) {
         bitmap2.setHasAlpha(bitmap.hasAlpha());
     }
 
-    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, final int i) {
-        Preconditions.checkArgument(i > 0, "roundingRadius must be greater than 0.");
-        return roundedCorners(bitmapPool, bitmap, new DrawRoundedCornerFn() { // from class: com.bumptech.glide.load.resource.bitmap.TransformationUtils.1
-            @Override // com.bumptech.glide.load.resource.bitmap.TransformationUtils.DrawRoundedCornerFn
-            public void drawRoundedCorners(Canvas canvas, Paint paint, RectF rectF) {
-                int i2 = i;
-                canvas.drawRoundRect(rectF, i2, i2, paint);
-            }
-        });
-    }
-
-    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, final float f2, final float f3, final float f4, final float f5) {
-        return roundedCorners(bitmapPool, bitmap, new DrawRoundedCornerFn() { // from class: com.bumptech.glide.load.resource.bitmap.TransformationUtils.2
-            @Override // com.bumptech.glide.load.resource.bitmap.TransformationUtils.DrawRoundedCornerFn
-            public void drawRoundedCorners(Canvas canvas, Paint paint, RectF rectF) {
-                Path path = new Path();
-                float f6 = f2;
-                float f7 = f3;
-                float f8 = f4;
-                float f9 = f5;
-                path.addRoundRect(rectF, new float[]{f6, f6, f7, f7, f8, f8, f9, f9}, Path.Direction.CW);
-                canvas.drawPath(path, paint);
-            }
-        });
-    }
-
-    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, DrawRoundedCornerFn drawRoundedCornerFn) {
+    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2) {
+        Preconditions.checkArgument(i2 > 0, "roundingRadius must be greater than 0.");
         Bitmap.Config alphaSafeConfig = getAlphaSafeConfig(bitmap);
         Bitmap alphaSafeBitmap = getAlphaSafeBitmap(bitmapPool, bitmap);
         Bitmap bitmap2 = bitmapPool.get(alphaSafeBitmap.getWidth(), alphaSafeBitmap.getHeight(), alphaSafeConfig);
@@ -369,7 +337,8 @@ public final class TransformationUtils {
         try {
             Canvas canvas = new Canvas(bitmap2);
             canvas.drawColor(0, PorterDuff.Mode.CLEAR);
-            drawRoundedCornerFn.drawRoundedCorners(canvas, paint, rectF);
+            float f2 = i2;
+            canvas.drawRoundRect(rectF, f2, f2, paint);
             clear(canvas);
             BITMAP_DRAWABLE_LOCK.unlock();
             if (!alphaSafeBitmap.equals(bitmap)) {

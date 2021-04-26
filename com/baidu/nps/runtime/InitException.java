@@ -4,8 +4,8 @@ public class InitException extends RuntimeException {
     public int mErrorCode;
     public String mErrorMsg;
 
-    public InitException(int i, String str) {
-        this.mErrorCode = i;
+    public InitException(int i2, String str) {
+        this.mErrorCode = i2;
         this.mErrorMsg = str;
     }
 

@@ -7,6 +7,7 @@ import android.media.AudioTrack;
 import android.os.Build;
 import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes7.dex */
 public class WebRtcAudioManager {
     public static final int BITS_PER_SAMPLE = 16;
@@ -16,12 +17,12 @@ public class WebRtcAudioManager {
 
     @CalledByNative
     public static AudioManager getAudioManager(Context context) {
-        return (AudioManager) context.getSystemService("audio");
+        return (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
     }
 
     @CalledByNative
-    public static int getInputBufferSize(Context context, AudioManager audioManager, int i, int i2) {
-        return isLowLatencyInputSupported(context) ? getLowLatencyFramesPerBuffer(audioManager) : getMinInputFrameSize(i, i2);
+    public static int getInputBufferSize(Context context, AudioManager audioManager, int i2, int i3) {
+        return isLowLatencyInputSupported(context) ? getLowLatencyFramesPerBuffer(audioManager) : getMinInputFrameSize(i2, i3);
     }
 
     public static int getLowLatencyFramesPerBuffer(AudioManager audioManager) {
@@ -32,17 +33,17 @@ public class WebRtcAudioManager {
         return 256;
     }
 
-    public static int getMinInputFrameSize(int i, int i2) {
-        return AudioRecord.getMinBufferSize(i, i2 == 1 ? 16 : 12, 2) / (i2 * 2);
+    public static int getMinInputFrameSize(int i2, int i3) {
+        return AudioRecord.getMinBufferSize(i2, i3 == 1 ? 16 : 12, 2) / (i3 * 2);
     }
 
-    public static int getMinOutputFrameSize(int i, int i2) {
-        return AudioTrack.getMinBufferSize(i, i2 == 1 ? 4 : 12, 2) / (i2 * 2);
+    public static int getMinOutputFrameSize(int i2, int i3) {
+        return AudioTrack.getMinBufferSize(i2, i3 == 1 ? 4 : 12, 2) / (i3 * 2);
     }
 
     @CalledByNative
-    public static int getOutputBufferSize(Context context, AudioManager audioManager, int i, int i2) {
-        return isLowLatencyOutputSupported(context) ? getLowLatencyFramesPerBuffer(audioManager) : getMinOutputFrameSize(i, i2);
+    public static int getOutputBufferSize(Context context, AudioManager audioManager, int i2, int i3) {
+        return isLowLatencyOutputSupported(context) ? getLowLatencyFramesPerBuffer(audioManager) : getMinOutputFrameSize(i2, i3);
     }
 
     @CalledByNative

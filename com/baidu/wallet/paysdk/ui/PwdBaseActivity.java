@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumberPwdView.OnPwdChangedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public SixNumberPwdView f25838a;
+    public SixNumberPwdView f26622a;
     public String extraFromH5;
     public boolean isOpenHalfScreenPwdVerify = false;
     public TextView mErrorTip;
@@ -63,16 +63,16 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
     }
 
     public String getPwd() {
-        return this.f25838a.getPwd();
+        return this.f26622a.getPwd();
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
-    public void handleFailure(int i, int i2, String str) {
-        super.handleFailure(i, i2, str);
+    public void handleFailure(int i2, int i3, String str) {
+        super.handleFailure(i2, i3, str);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
     }
 
     public void hideErrorMsg() {
@@ -84,7 +84,7 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
         return false;
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setIsShowMultiWindowTips(true);
@@ -110,18 +110,18 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
         }
         this.mTip = (TextView) findViewById(ResUtils.id(getActivity(), "pwd_tip"));
         this.mSubTip = (TextView) findViewById(ResUtils.id(getActivity(), "pwd_sub_tip"));
-        this.f25838a = (SixNumberPwdView) findViewById(ResUtils.id(getActivity(), "pwd_input_box"));
+        this.f26622a = (SixNumberPwdView) findViewById(ResUtils.id(getActivity(), "pwd_input_box"));
         this.mErrorTip = (TextView) findViewById(ResUtils.id(getActivity(), "error_tip"));
         this.mForgetPasswd = findViewById(ResUtils.id(getActivity(), "forget_pwd"));
         hideErrorMsg();
         this.mRootView = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "root_view"));
         this.mScrollView = (SafeScrollView) findViewById(ResUtils.id(getActivity(), "scrollview"));
-        SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f25838a.findViewById(ResUtils.id(getActivity(), "pwd_input"));
+        SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f26622a.findViewById(ResUtils.id(getActivity(), "pwd_input"));
         this.mSafeEditText = safeKeyBoardEditText;
         safeKeyBoardEditText.initSafeKeyBoardParams(this.mRootView, this.mScrollView, safeKeyBoardEditText, false);
         this.mSafeEditText.setGap(20);
         this.mSafeEditText.setDisablePast(true);
-        this.f25838a.addSixNumberPwdChangedListenter(this);
+        this.f26622a.addSixNumberPwdChangedListenter(this);
         setSafeScrollView(this.mScrollView);
         this.mSafeEditText.requestFocus();
     }
@@ -142,14 +142,14 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putSerializable("mPwdRequest", this.mPwdRequest);
     }
 
     public void resetPwd() {
-        this.f25838a.resetPwd();
+        this.f26622a.resetPwd();
     }
 
     public void showErrorMsg(String str) {

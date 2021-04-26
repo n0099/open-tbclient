@@ -10,7 +10,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class AudioSampleEntry extends AbstractSampleEntry {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE1 = "samr";
@@ -40,24 +40,24 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
     public int soundVersion;
     public byte[] soundVersion2Data;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Box {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f30501f;
+        public final /* synthetic */ long f31431f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ByteBuffer f30502g;
+        public final /* synthetic */ ByteBuffer f31432g;
 
         public a(long j, ByteBuffer byteBuffer) {
-            this.f30501f = j;
-            this.f30502g = byteBuffer;
+            this.f31431f = j;
+            this.f31432g = byteBuffer;
         }
 
         @Override // com.coremedia.iso.boxes.Box
         public void getBox(WritableByteChannel writableByteChannel) throws IOException {
-            this.f30502g.rewind();
-            writableByteChannel.write(this.f30502g);
+            this.f31432g.rewind();
+            writableByteChannel.write(this.f31432g);
         }
 
         @Override // com.coremedia.iso.boxes.Box
@@ -72,7 +72,7 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            return this.f30501f;
+            return this.f31431f;
         }
 
         @Override // com.coremedia.iso.boxes.Box
@@ -178,12 +178,12 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
 
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
-        int i = 16;
+        int i2 = 16;
         long containerSize = (this.soundVersion == 1 ? 16 : 0) + 28 + (this.soundVersion == 2 ? 36 : 0) + getContainerSize();
         if (!this.largeBox && 8 + containerSize < 4294967296L) {
-            i = 8;
+            i2 = 8;
         }
-        return containerSize + i;
+        return containerSize + i2;
     }
 
     public int getSoundVersion() {
@@ -255,20 +255,20 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
         this.bytesPerSample = j;
     }
 
-    public void setChannelCount(int i) {
-        this.channelCount = i;
+    public void setChannelCount(int i2) {
+        this.channelCount = i2;
     }
 
-    public void setCompressionId(int i) {
-        this.compressionId = i;
+    public void setCompressionId(int i2) {
+        this.compressionId = i2;
     }
 
-    public void setPacketSize(int i) {
-        this.packetSize = i;
+    public void setPacketSize(int i2) {
+        this.packetSize = i2;
     }
 
-    public void setReserved1(int i) {
-        this.reserved1 = i;
+    public void setReserved1(int i2) {
+        this.reserved1 = i2;
     }
 
     public void setReserved2(long j) {
@@ -279,16 +279,16 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
         this.sampleRate = j;
     }
 
-    public void setSampleSize(int i) {
-        this.sampleSize = i;
+    public void setSampleSize(int i2) {
+        this.sampleSize = i2;
     }
 
     public void setSamplesPerPacket(long j) {
         this.samplesPerPacket = j;
     }
 
-    public void setSoundVersion(int i) {
-        this.soundVersion = i;
+    public void setSoundVersion(int i2) {
+        this.soundVersion = i2;
     }
 
     public void setSoundVersion2Data(byte[] bArr) {

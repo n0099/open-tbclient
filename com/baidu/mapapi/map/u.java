@@ -7,10 +7,10 @@ import com.baidu.mapsdkplatform.comapi.map.ac;
 public class u implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ TextureMapView f7134a;
+    public final /* synthetic */ TextureMapView f7389a;
 
     public u(TextureMapView textureMapView) {
-        this.f7134a = textureMapView;
+        this.f7389a = textureMapView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,18 +18,18 @@ public class u implements View.OnClickListener {
         ac acVar;
         ac acVar2;
         ac acVar3;
-        acVar = this.f7134a.f7059b;
-        float f2 = acVar.b().f7648a;
-        acVar2 = this.f7134a.f7059b;
+        acVar = this.f7389a.f7312b;
+        float f2 = acVar.b().f7921a;
+        acVar2 = this.f7389a.f7312b;
         ab E = acVar2.b().E();
-        float f3 = E.f7605a + 1.0f;
-        E.f7605a = f3;
+        float f3 = E.f7874a + 1.0f;
+        E.f7874a = f3;
         if (f3 <= f2) {
             f2 = f3;
         }
-        E.f7605a = f2;
+        E.f7874a = f2;
         BaiduMap.mapStatusReason |= 16;
-        acVar3 = this.f7134a.f7059b;
+        acVar3 = this.f7389a.f7312b;
         acVar3.b().a(E, 300);
     }
 }

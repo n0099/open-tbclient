@@ -7,24 +7,24 @@ import androidx.recyclerview.widget.RecyclerView;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final RecyclerView f34327a;
+    public final RecyclerView f33308a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final RecyclerView.LayoutManager f34328b;
+    public final RecyclerView.LayoutManager f33309b;
 
     public f(RecyclerView recyclerView) {
-        this.f34327a = recyclerView;
-        this.f34328b = recyclerView.getLayoutManager();
+        this.f33308a = recyclerView;
+        this.f33309b = recyclerView.getLayoutManager();
     }
 
-    private View a(int i, int i2, boolean z, boolean z2) {
-        OrientationHelper createVerticalHelper = this.f34328b.canScrollVertically() ? OrientationHelper.createVerticalHelper(this.f34328b) : OrientationHelper.createHorizontalHelper(this.f34328b);
+    private View a(int i2, int i3, boolean z, boolean z2) {
+        OrientationHelper createVerticalHelper = this.f33309b.canScrollVertically() ? OrientationHelper.createVerticalHelper(this.f33309b) : OrientationHelper.createHorizontalHelper(this.f33309b);
         int startAfterPadding = createVerticalHelper.getStartAfterPadding();
         int endAfterPadding = createVerticalHelper.getEndAfterPadding();
-        int i3 = i2 > i ? 1 : -1;
+        int i4 = i3 > i2 ? 1 : -1;
         View view = null;
-        while (i != i2) {
-            View childAt = this.f34328b.getChildAt(i);
+        while (i2 != i3) {
+            View childAt = this.f33309b.getChildAt(i2);
             int decoratedStart = createVerticalHelper.getDecoratedStart(childAt);
             int decoratedEnd = createVerticalHelper.getDecoratedEnd(childAt);
             if (decoratedStart < endAfterPadding && decoratedEnd > startAfterPadding) {
@@ -38,7 +38,7 @@ public class f {
                     view = childAt;
                 }
             }
-            i += i3;
+            i2 += i4;
         }
         return view;
     }
@@ -51,18 +51,18 @@ public class f {
     }
 
     public int a() {
-        View a2 = a(0, this.f34328b.getChildCount(), false, true);
+        View a2 = a(0, this.f33309b.getChildCount(), false, true);
         if (a2 == null) {
             return -1;
         }
-        return this.f34327a.getChildAdapterPosition(a2);
+        return this.f33308a.getChildAdapterPosition(a2);
     }
 
     public int b() {
-        View a2 = a(this.f34328b.getChildCount() - 1, -1, false, true);
+        View a2 = a(this.f33309b.getChildCount() - 1, -1, false, true);
         if (a2 == null) {
             return -1;
         }
-        return this.f34327a.getChildAdapterPosition(a2);
+        return this.f33308a.getChildAdapterPosition(a2);
     }
 }

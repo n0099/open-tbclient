@@ -77,27 +77,27 @@ public class IMBindPushMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        LogUtils.d("IMBindPushMsg", "bind > handleMessageResult errcode = " + i);
-        if (i == 0) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+        LogUtils.d("IMBindPushMsg", "bind > handleMessageResult errcode = " + i2);
+        if (i2 == 0) {
             setNeedReSend(false);
-        } else if (i != 1004 && i != 1001) {
-            int i2 = this.mReSendCount;
-            if (i2 >= 3) {
+        } else if (i2 != 1004 && i2 != 1001) {
+            int i3 = this.mReSendCount;
+            if (i3 >= 3) {
                 String str2 = LogUtils.TAG;
-                LogUtils.e(str2, "try to bind push CUID failed 3 times. Cancel resend...errorCode=" + i);
+                LogUtils.e(str2, "try to bind push CUID failed 3 times. Cancel resend...errorCode=" + i2);
                 setNeedReSend(false);
             } else {
-                this.mReSendCount = i2 + 1;
+                this.mReSendCount = i3 + 1;
                 setNeedReSend(true);
             }
         } else {
             setNeedReSend(false);
-            LoginManager.getInstance(context).triggleLogoutListener(i, str);
+            LoginManager.getInstance(context).triggleLogoutListener(i2, str);
         }
-        super.handleMessageResult(context, jSONObject, i, str);
+        super.handleMessageResult(context, jSONObject, i2, str);
         Utility.updateBindPushCUIDStatus(this.mContext, 1);
-        BindStateManager.onRegisterNotifyResult(context, getListenerKey(), i, str, this.mChannelIdIsEmpty);
+        BindStateManager.onRegisterNotifyResult(context, getListenerKey(), i2, str, this.mChannelIdIsEmpty);
     }
 
     @Override // com.baidu.android.imsdk.request.Message

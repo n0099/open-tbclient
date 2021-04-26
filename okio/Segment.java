@@ -23,11 +23,11 @@ public final class Segment {
         Segment segment = this.prev;
         if (segment != this) {
             if (segment.owner) {
-                int i = this.limit - this.pos;
-                if (i > (8192 - segment.limit) + (segment.shared ? 0 : segment.pos)) {
+                int i2 = this.limit - this.pos;
+                if (i2 > (8192 - segment.limit) + (segment.shared ? 0 : segment.pos)) {
                     return;
                 }
-                writeTo(this.prev, i);
+                writeTo(this.prev, i2);
                 pop();
                 SegmentPool.recycle(this);
                 return;
@@ -64,17 +64,17 @@ public final class Segment {
         return new Segment(this.data, this.pos, this.limit, true, false);
     }
 
-    public Segment split(int i) {
+    public Segment split(int i2) {
         Segment take;
-        if (i > 0 && i <= this.limit - this.pos) {
-            if (i >= 1024) {
+        if (i2 > 0 && i2 <= this.limit - this.pos) {
+            if (i2 >= 1024) {
                 take = sharedCopy();
             } else {
                 take = SegmentPool.take();
-                System.arraycopy(this.data, this.pos, take.data, 0, i);
+                System.arraycopy(this.data, this.pos, take.data, 0, i2);
             }
-            take.limit = take.pos + i;
-            this.pos += i;
+            take.limit = take.pos + i2;
+            this.pos += i2;
             this.prev.push(take);
             return take;
         }
@@ -85,15 +85,15 @@ public final class Segment {
         return new Segment((byte[]) this.data.clone(), this.pos, this.limit, false, true);
     }
 
-    public void writeTo(Segment segment, int i) {
+    public void writeTo(Segment segment, int i2) {
         if (segment.owner) {
-            int i2 = segment.limit;
-            if (i2 + i > 8192) {
+            int i3 = segment.limit;
+            if (i3 + i2 > 8192) {
                 if (!segment.shared) {
-                    int i3 = segment.pos;
-                    if ((i2 + i) - i3 <= 8192) {
+                    int i4 = segment.pos;
+                    if ((i3 + i2) - i4 <= 8192) {
                         byte[] bArr = segment.data;
-                        System.arraycopy(bArr, i3, bArr, 0, i2 - i3);
+                        System.arraycopy(bArr, i4, bArr, 0, i3 - i4);
                         segment.limit -= segment.pos;
                         segment.pos = 0;
                     } else {
@@ -103,18 +103,18 @@ public final class Segment {
                     throw new IllegalArgumentException();
                 }
             }
-            System.arraycopy(this.data, this.pos, segment.data, segment.limit, i);
-            segment.limit += i;
-            this.pos += i;
+            System.arraycopy(this.data, this.pos, segment.data, segment.limit, i2);
+            segment.limit += i2;
+            this.pos += i2;
             return;
         }
         throw new IllegalArgumentException();
     }
 
-    public Segment(byte[] bArr, int i, int i2, boolean z, boolean z2) {
+    public Segment(byte[] bArr, int i2, int i3, boolean z, boolean z2) {
         this.data = bArr;
-        this.pos = i;
-        this.limit = i2;
+        this.pos = i2;
+        this.limit = i3;
         this.shared = z;
         this.owner = z2;
     }

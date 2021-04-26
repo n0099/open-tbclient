@@ -2,7 +2,7 @@ package com.baidu.down.utils;
 
 import android.net.TrafficStats;
 import android.os.Build;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TrafficStatsUtils {
     public static void clearThreadStatsTag() {
         if (Build.VERSION.SDK_INT >= 15) {
@@ -10,9 +10,9 @@ public class TrafficStatsUtils {
         }
     }
 
-    public static void setThreadStatsTag(int i) {
+    public static void setThreadStatsTag(int i2) {
         if (Build.VERSION.SDK_INT >= 15) {
-            TrafficStats.setThreadStatsTag(i);
+            TrafficStats.setThreadStatsTag(i2);
         }
     }
 }

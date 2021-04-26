@@ -78,8 +78,8 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         LogUtils.d(TAG, "onFailure error = " + transErrorCode.first + " errormsg = " + ((String) transErrorCode.second));
         IMediaGetContactorPauidListener iMediaGetContactorPauidListener = (IMediaGetContactorPauidListener) ListenerManager.getInstance().removeListener(this.mKey);
         if (iMediaGetContactorPauidListener != null) {
@@ -88,11 +88,11 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         long j;
         String str;
-        int i2;
         int i3;
+        int i4;
         String str2 = new String(bArr);
         LogUtils.d(TAG, "onSuccess resultContent = " + str2);
         try {
@@ -100,20 +100,20 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
             int optInt = jSONObject.optInt("error_code", 0);
             String optString = jSONObject.optString("error_msg");
             long optLong = jSONObject.optLong("pa_uid", -1L);
-            i3 = jSONObject.optInt("is_buser", -1);
+            i4 = jSONObject.optInt("is_buser", -1);
             str = optString;
             j = optLong;
-            i2 = optInt;
+            i3 = optInt;
         } catch (JSONException e2) {
             LogUtils.e(TAG, "IMMediaSetSessionReadRequest JSONException", e2);
             j = -1;
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-            i2 = 1010;
-            i3 = -1;
+            i3 = 1010;
+            i4 = -1;
         }
         IMediaGetContactorPauidListener iMediaGetContactorPauidListener = (IMediaGetContactorPauidListener) ListenerManager.getInstance().removeListener(this.mKey);
         if (iMediaGetContactorPauidListener != null) {
-            iMediaGetContactorPauidListener.onMediaGetContactorPauidResult(i2, j, i3, str);
+            iMediaGetContactorPauidListener.onMediaGetContactorPauidResult(i3, j, i4, str);
         }
     }
 
@@ -122,13 +122,13 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
         return AccountManager.isCuidLogin(this.mContext);
     }
 
-    public IMMediaGetContactorPauidRequest(Context context, long j, int i, long j2, String str, String str2) {
+    public IMMediaGetContactorPauidRequest(Context context, long j, int i2, long j2, String str, String str2) {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
         this.mContacter = j;
         this.mKey = str2;
-        this.mContactorType = i;
+        this.mContactorType = i2;
         this.mContactorPauid = j2;
         this.mContactorThirdid = str;
     }

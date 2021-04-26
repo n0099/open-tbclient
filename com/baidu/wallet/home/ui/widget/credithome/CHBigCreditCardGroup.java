@@ -25,26 +25,28 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
     public static int q = 24;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f24327a;
+    public final int f25079a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f24328b;
+    public final int f25080b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f24329c;
+    public final int f25081c;
 
     /* renamed from: e  reason: collision with root package name */
-    public final float f24330e;
+    public final float f25082e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final float f24331f;
+    public final float f25083f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NetImageView f24332g;
+    public NetImageView f25084g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MaskTextView f24333h;
-    public NetImageView i;
+    public MaskTextView f25085h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public NetImageView f25086i;
     public MaskTextView j;
     public LinearLayout k;
     public Button l;
@@ -56,11 +58,11 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
 
     public CHBigCreditCardGroup(Context context) {
         super(context);
-        this.f24327a = 3;
-        this.f24328b = 44;
-        this.f24329c = 22;
-        this.f24330e = 19.0f;
-        this.f24331f = 10.0f;
+        this.f25079a = 3;
+        this.f25080b = 44;
+        this.f25081c = 22;
+        this.f25082e = 19.0f;
+        this.f25083f = 10.0f;
         this.p = true;
         this.r = new ArrayList();
     }
@@ -74,14 +76,14 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_card_layout"), this);
         this.o = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_bg"));
-        this.f24332g = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_logo"));
-        this.f24333h = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_title"));
+        this.f25084g = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_logo"));
+        this.f25085h = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_title"));
         this.j = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_lines_number"));
         this.k = (LinearLayout) findViewById(ResUtils.id(getContext(), "ch_credit_card_tips"));
         this.l = (Button) findViewById(ResUtils.id(getContext(), "ch_credit_card_button"));
         this.m = findViewById(ResUtils.id(getContext(), "ch_credit_card_next_repayment_divider"));
         this.n = (LinearLayout) findViewById(ResUtils.id(getContext(), "ch_credit_card_repayment_layout"));
-        this.i = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_eye"));
+        this.f25086i = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_eye"));
         this.j.setOnClickListener(this);
         this.l.setOnClickListener(this);
     }
@@ -96,7 +98,7 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (isDataValid()) {
-            if (view == this.i) {
+            if (view == this.f25086i) {
                 if (CheckUtils.isFastDoubleClick()) {
                     return;
                 }
@@ -123,8 +125,8 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
     public void onEyeMaskChanged() {
         super.onEyeMaskChanged();
         this.j.resetMaskText();
-        if (this.i != null) {
-            this.i.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
+        if (this.f25086i != null) {
+            this.f25086i.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
         }
     }
 
@@ -133,13 +135,13 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
         NetImageView netImageView = this.o;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.mConfigData.group_background);
         if (!TextUtils.isEmpty(this.mConfigData.list[0].logo)) {
-            this.f24332g.setVisibility(0);
-            NetImageView netImageView2 = this.f24332g;
+            this.f25084g.setVisibility(0);
+            NetImageView netImageView2 = this.f25084g;
             netImageView2.setImageUrl(getWalletInterface().getAndroidPrefix() + this.mConfigData.list[0].logo);
         } else {
-            this.f24332g.setVisibility(8);
+            this.f25084g.setVisibility(8);
         }
-        this.f24333h.setMaskText(this.mConfigData.list[0].name);
+        this.f25085h.setMaskText(this.mConfigData.list[0].name);
         this.j.setMaskText(this.mConfigData.list[0].value2);
         boolean z = !TextUtils.isEmpty(this.mConfigData.list[0].value2) && this.mConfigData.list[0].value2.contains(PayTypeItemView.PayTypeItemViewData.MASK_FLAG);
         this.j.setTextSize(1, z ? 44.0f : 22.0f);
@@ -147,14 +149,14 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
         HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
         if (dataItemArr[0].icons != null && dataItemArr[0].icons.length > 0) {
             int length = dataItemArr[0].icons.length <= 3 ? dataItemArr[0].icons.length : 3;
-            int i = q / length;
-            for (int i2 = 0; i2 < length; i2++) {
+            int i2 = q / length;
+            for (int i3 = 0; i3 < length; i3++) {
                 HomeCfgResponse.DataItem[] dataItemArr2 = this.mConfigData.list;
-                if (dataItemArr2[0].icons[i2] != null && !TextUtils.isEmpty(dataItemArr2[0].icons[i2].name)) {
+                if (dataItemArr2[0].icons[i3] != null && !TextUtils.isEmpty(dataItemArr2[0].icons[i3].name)) {
                     CHBigCreditCardTipsItem cHBigCreditCardTipsItem = new CHBigCreditCardTipsItem(getContext());
-                    cHBigCreditCardTipsItem.setMaxLength(i);
-                    cHBigCreditCardTipsItem.setData(this.mConfigData.list[0].icons[i2], getWalletInterface());
-                    if (i2 == length - 1) {
+                    cHBigCreditCardTipsItem.setMaxLength(i2);
+                    cHBigCreditCardTipsItem.setData(this.mConfigData.list[0].icons[i3], getWalletInterface());
+                    if (i3 == length - 1) {
                         cHBigCreditCardTipsItem.setShowDivider(false);
                     }
                     cHBigCreditCardTipsItem.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.home.ui.widget.credithome.CHBigCreditCardGroup.1
@@ -213,21 +215,21 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
         }
         HomeCfgResponse.DataItem[] dataItemArr5 = this.mConfigData.list;
         if (dataItemArr5[0].value3 != null && TextUtils.equals(dataItemArr5[0].value3, "1")) {
-            this.i.setVisibility(8);
+            this.f25086i.setVisibility(8);
             return;
         }
-        this.i.setVisibility(0);
-        this.i.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
-        this.i.setOnClickListener(this);
+        this.f25086i.setVisibility(0);
+        this.f25086i.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
+        this.f25086i.setOnClickListener(this);
     }
 
     public CHBigCreditCardGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24327a = 3;
-        this.f24328b = 44;
-        this.f24329c = 22;
-        this.f24330e = 19.0f;
-        this.f24331f = 10.0f;
+        this.f25079a = 3;
+        this.f25080b = 44;
+        this.f25081c = 22;
+        this.f25082e = 19.0f;
+        this.f25083f = 10.0f;
         this.p = true;
         this.r = new ArrayList();
     }

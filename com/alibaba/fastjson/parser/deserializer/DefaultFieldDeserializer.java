@@ -63,7 +63,7 @@ public class DefaultFieldDeserializer extends FieldDeserializer {
     public void parseField(DefaultJSONParser defaultJSONParser, Object obj, Type type, Map<String, Object> map) {
         byte[] deserialze;
         FieldInfo fieldInfo;
-        int i;
+        int i2;
         if (this.fieldValueDeserilizer == null) {
             getFieldValueDeserilizer(defaultJSONParser.getConfig());
         }
@@ -80,8 +80,8 @@ public class DefaultFieldDeserializer extends FieldDeserializer {
             }
         }
         Type type3 = type2;
-        if ((objectDeserializer instanceof JavaBeanDeserializer) && (i = (fieldInfo = this.fieldInfo).parserFeatures) != 0) {
-            deserialze = ((JavaBeanDeserializer) objectDeserializer).deserialze(defaultJSONParser, type3, fieldInfo.name, i);
+        if ((objectDeserializer instanceof JavaBeanDeserializer) && (i2 = (fieldInfo = this.fieldInfo).parserFeatures) != 0) {
+            deserialze = ((JavaBeanDeserializer) objectDeserializer).deserialze(defaultJSONParser, type3, fieldInfo.name, i2);
         } else {
             FieldInfo fieldInfo2 = this.fieldInfo;
             if ((fieldInfo2.format != null || fieldInfo2.parserFeatures != 0) && (objectDeserializer instanceof ContextObjectDeserializer)) {

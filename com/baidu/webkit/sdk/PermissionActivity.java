@@ -36,16 +36,16 @@ public class PermissionActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
         PermissionRequest permissionRequest = WebViewFactory.getProvider().getPermissionRequest(getIntent().getStringExtra("PermissionRequest"));
-        if (permissionRequest == null || i != 1003) {
+        if (permissionRequest == null || i2 != 1003) {
             finish();
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i2 = 0; i2 < strArr.length; i2++) {
-            if (iArr[i2] == 0) {
-                arrayList.add(strArr[i2]);
+        for (int i3 = 0; i3 < strArr.length; i3++) {
+            if (iArr[i3] == 0) {
+                arrayList.add(strArr[i3]);
             }
         }
         if (arrayList.size() <= 0 || arrayList.size() != strArr.length) {

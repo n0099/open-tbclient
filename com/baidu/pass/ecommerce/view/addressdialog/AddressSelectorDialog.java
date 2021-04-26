@@ -65,17 +65,17 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
         this(context, R.style.sapi_sdk_address_selector_dialog);
     }
 
-    private void addTab2Layout(int i, String str, boolean z) {
+    private void addTab2Layout(int i2, String str, boolean z) {
         List<String> titles = this.mTabLayout.getTitles();
-        titles.set(i, str);
+        titles.set(i2, str);
         if (!z) {
-            i++;
-            titles.set(i, "请选择");
+            i2++;
+            titles.set(i2, "请选择");
         }
         while (true) {
-            i++;
-            if (i < titles.size()) {
-                titles.set(i, "");
+            i2++;
+            if (i2 < titles.size()) {
+                titles.set(i2, "");
             } else {
                 this.mTabLayout.setTitles(titles);
                 this.mTabLayout.notifyDataSetChanged();
@@ -120,96 +120,96 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
         }
     }
 
-    private void makePage(int i, AddressBean addressBean, String str, String str2, String str3) {
-        int i2 = i + 1;
-        ListPagerView listPagerView = this.mViewList.get(i2);
+    private void makePage(int i2, AddressBean addressBean, String str, String str2, String str3) {
+        int i3 = i2 + 1;
+        ListPagerView listPagerView = this.mViewList.get(i3);
         if (listPagerView.getPagerAddressId().equals(str)) {
             return;
         }
         makeEntity2Result(addressBean);
-        addTab2Layout(i, str3, false);
+        addTab2Layout(i2, str3, false);
         listPagerView.setSelectedAddressId(str2);
         listPagerView.loadData(str);
-        int i3 = i2 + 1;
-        this.mRealPagerNumber = i3;
-        this.mViewPager.setRealPagerNumber(i3);
+        int i4 = i3 + 1;
+        this.mRealPagerNumber = i4;
+        this.mViewPager.setRealPagerNumber(i4);
     }
 
     private void refershPageFromEntity() {
-        int i;
+        int i2;
         AddressSelectedBean addressSelectedBean = this.mAddressSelectedBean;
         if (addressSelectedBean == null) {
             return;
         }
         if (TextUtils.isEmpty(addressSelectedBean.provinceId)) {
-            i = 1;
+            i2 = 1;
         } else {
             this.mViewList.get(0).setSelectedAddressId(this.mAddressSelectedBean.provinceId);
             this.mViewList.get(1).loadData(this.mAddressSelectedBean.provinceId);
             ResultHelpBean resultHelpBean = this.provinceBean;
             AddressSelectedBean addressSelectedBean2 = this.mAddressSelectedBean;
             resultHelpBean.refershBean(addressSelectedBean2.provinceId, addressSelectedBean2.provinceName);
-            i = 2;
+            i2 = 2;
         }
         if (!TextUtils.isEmpty(this.mAddressSelectedBean.cityId)) {
-            this.mViewList.get(i - 1).setSelectedAddressId(this.mAddressSelectedBean.cityId);
-            this.mViewList.get(i).loadData(this.mAddressSelectedBean.cityId);
+            this.mViewList.get(i2 - 1).setSelectedAddressId(this.mAddressSelectedBean.cityId);
+            this.mViewList.get(i2).loadData(this.mAddressSelectedBean.cityId);
             ResultHelpBean resultHelpBean2 = this.cityBean;
             AddressSelectedBean addressSelectedBean3 = this.mAddressSelectedBean;
             resultHelpBean2.refershBean(addressSelectedBean3.cityId, addressSelectedBean3.cityName);
-            i++;
+            i2++;
         }
         if (!TextUtils.isEmpty(this.mAddressSelectedBean.districtId)) {
-            this.mViewList.get(i - 1).setSelectedAddressId(this.mAddressSelectedBean.districtId);
-            this.mViewList.get(i).loadData(this.mAddressSelectedBean.districtId);
+            this.mViewList.get(i2 - 1).setSelectedAddressId(this.mAddressSelectedBean.districtId);
+            this.mViewList.get(i2).loadData(this.mAddressSelectedBean.districtId);
             ResultHelpBean resultHelpBean3 = this.districtBean;
             AddressSelectedBean addressSelectedBean4 = this.mAddressSelectedBean;
             resultHelpBean3.refershBean(addressSelectedBean4.districtId, addressSelectedBean4.districtName);
-            i++;
+            i2++;
         }
         if (!TextUtils.isEmpty(this.mAddressSelectedBean.townId)) {
-            this.mViewList.get(i - 1).setSelectedAddressId(this.mAddressSelectedBean.townId);
+            this.mViewList.get(i2 - 1).setSelectedAddressId(this.mAddressSelectedBean.townId);
             ResultHelpBean resultHelpBean4 = this.townBean;
             AddressSelectedBean addressSelectedBean5 = this.mAddressSelectedBean;
             resultHelpBean4.refershBean(addressSelectedBean5.townId, addressSelectedBean5.townName);
-            i++;
+            i2++;
         }
-        int i2 = i - 1;
-        this.mRealPagerNumber = i2;
-        this.mViewPager.setRealPagerNumber(i2);
+        int i3 = i2 - 1;
+        this.mRealPagerNumber = i3;
+        this.mViewPager.setRealPagerNumber(i3);
     }
 
     private void refershTabFromEntity() {
-        int i;
+        int i2;
         if (this.mAddressSelectedBean == null) {
             return;
         }
         List<String> titles = this.mTabLayout.getTitles();
         boolean z = false;
         if (TextUtils.isEmpty(this.mAddressSelectedBean.provinceId)) {
-            i = 0;
+            i2 = 0;
         } else {
             titles.set(0, this.mAddressSelectedBean.provinceName);
-            i = 1;
+            i2 = 1;
         }
         if (!TextUtils.isEmpty(this.mAddressSelectedBean.cityId)) {
-            titles.set(i, this.mAddressSelectedBean.cityName);
-            i++;
+            titles.set(i2, this.mAddressSelectedBean.cityName);
+            i2++;
         }
         if (!TextUtils.isEmpty(this.mAddressSelectedBean.districtId)) {
-            titles.set(i, this.mAddressSelectedBean.districtName);
-            i++;
+            titles.set(i2, this.mAddressSelectedBean.districtName);
+            i2++;
         }
         if (TextUtils.isEmpty(this.mAddressSelectedBean.townId)) {
             z = true;
         } else {
-            titles.set(i, this.mAddressSelectedBean.townName);
-            i++;
-        }
-        int i2 = i;
-        while (i2 < titles.size()) {
-            titles.set(i, (i2 == i && z) ? "请选择" : "");
+            titles.set(i2, this.mAddressSelectedBean.townName);
             i2++;
+        }
+        int i3 = i2;
+        while (i3 < titles.size()) {
+            titles.set(i2, (i3 == i2 && z) ? "请选择" : "");
+            i3++;
         }
         this.mTabLayout.setTitles(titles);
         this.mTabLayout.notifyDataSetChanged();
@@ -221,7 +221,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
                 }
             }
         }, 100L);
-        this.mTabLayout.setCurrentTab(i - 1);
+        this.mTabLayout.setCurrentTab(i2 - 1);
     }
 
     private void resultWithFinsh() {
@@ -240,8 +240,8 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
     }
 
     private void setUpPageData() {
-        for (int i = 0; i < 4; i++) {
-            this.mViewList.add(new ListPagerView(this.mContext, i, this.mIsDarkMode, this));
+        for (int i2 = 0; i2 < 4; i2++) {
+            this.mViewList.add(new ListPagerView(this.mContext, i2, this.mIsDarkMode, this));
         }
         AddrListPagerAdapter addrListPagerAdapter = new AddrListPagerAdapter(this.mViewList);
         this.mPagerAdapter = addrListPagerAdapter;
@@ -325,38 +325,38 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
     }
 
     @Override // com.baidu.pass.ecommerce.view.addressdialog.ListPagerView.OnEntitySelectedListener
-    public void onEntitySelected(int i, AddressBean addressBean) {
+    public void onEntitySelected(int i2, AddressBean addressBean) {
         if (addressBean == null) {
             return;
         }
         String str = addressBean.id;
         boolean z = addressBean.isHotCity;
         String str2 = addressBean.isNotSelected ? "请选择" : addressBean.name;
-        if (addressBean.hasLeaf && i != 3) {
+        if (addressBean.hasLeaf && i2 != 3) {
             if (z && !ListPagerView.REQUEST_PARAM_CHINA.equals(addressBean.pid)) {
-                makePage(i, addressBean, addressBean.pid, addressBean.id, addressBean.pname);
-                makePage(i + 1, addressBean, addressBean.id, null, addressBean.name);
+                makePage(i2, addressBean, addressBean.pid, addressBean.id, addressBean.pname);
+                makePage(i2 + 1, addressBean, addressBean.id, null, addressBean.name);
             } else {
-                makePage(i, addressBean, str, null, str2);
+                makePage(i2, addressBean, str, null, str2);
             }
             this.mTabLayout.setCurrentTab(this.mRealPagerNumber - 1);
             return;
         }
-        addTab2Layout(i, str2, true);
+        addTab2Layout(i2, str2, true);
         makeEntity2Result(addressBean);
         resultWithFinsh();
     }
 
     @Override // com.baidu.pass.ecommerce.view.addressdialog.OnTabSelectListener
-    public void onTabReselect(int i) {
+    public void onTabReselect(int i2) {
     }
 
     @Override // com.baidu.pass.ecommerce.view.addressdialog.OnTabSelectListener
-    public void onTabSelect(int i) {
-        if (i >= this.mRealPagerNumber) {
+    public void onTabSelect(int i2) {
+        if (i2 >= this.mRealPagerNumber) {
             return;
         }
-        this.mViewPager.setCurrentItem(i, true);
+        this.mViewPager.setCurrentItem(i2, true);
     }
 
     public void setAddressSelectedBean(AddressSelectedBean addressSelectedBean) {
@@ -393,8 +393,8 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
         this.mIsDarkMode = z;
     }
 
-    public AddressSelectorDialog(@NonNull Context context, int i) {
-        super(context, i);
+    public AddressSelectorDialog(@NonNull Context context, int i2) {
+        super(context, i2);
         this.mViewList = new ArrayList();
         this.provinceBean = new ResultHelpBean();
         this.cityBean = new ResultHelpBean();

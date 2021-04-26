@@ -13,12 +13,12 @@ import javax.crypto.spec.SecretKeySpec;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2082a = new String("idnjfhncnsfuobcnt847y929o449u474w7j3h22aoddc98euk#%&&)*&^%#");
+    public static String f2042a = new String("idnjfhncnsfuobcnt847y929o449u474w7j3h22aoddc98euk#%&&)*&^%#");
 
     public static String a() {
         String str = new String();
-        for (int i = 0; i < f2082a.length() - 1; i += 4) {
-            str = str + f2082a.charAt(i);
+        for (int i2 = 0; i2 < f2042a.length() - 1; i2 += 4) {
+            str = str + f2042a.charAt(i2);
         }
         return str;
     }
@@ -129,9 +129,9 @@ public final class c {
     public static byte[] b(String str) {
         int length = str.length() / 2;
         byte[] bArr = new byte[length];
-        for (int i = 0; i < length; i++) {
-            int i2 = i * 2;
-            bArr[i] = Integer.valueOf(str.substring(i2, i2 + 2), 16).byteValue();
+        for (int i2 = 0; i2 < length; i2++) {
+            int i3 = i2 * 2;
+            bArr[i2] = Integer.valueOf(str.substring(i3, i3 + 2), 16).byteValue();
         }
         return bArr;
     }

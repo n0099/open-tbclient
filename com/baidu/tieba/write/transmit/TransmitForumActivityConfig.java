@@ -10,9 +10,9 @@ public class TransmitForumActivityConfig extends IntentConfig {
     public static final String KEY_FORUM_LIST_SELECTED = "KEY_FORUM_LIST_SELECTED";
     public static final String KEY_RECOMMEND_FORUM_LIST = "KEY_RECOMMEND_FORUM_LIST";
 
-    public TransmitForumActivityConfig(Context context, int i) {
+    public TransmitForumActivityConfig(Context context, int i2) {
         super(context);
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 

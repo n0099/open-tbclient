@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.game.strategy.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.GameForumGuideTab.DataReq;
 import tbclient.GameForumGuideTab.GameForumGuideTabReqIdl;
 /* loaded from: classes4.dex */
@@ -12,13 +12,13 @@ public class FrsGameStrategyRequestMessage extends NetMessage {
     public int mPn;
     public int mTabId;
 
-    public FrsGameStrategyRequestMessage(long j, int i, int i2, int i3) {
+    public FrsGameStrategyRequestMessage(long j, int i2, int i3, int i4) {
         super(CmdConfigHttp.CMD_FRS_GAME_STRATEGY, 309478);
         this.mPn = 0;
         this.mFid = j;
-        this.mPn = i;
-        this.mTabId = i2;
-        this.mLabelId = i3;
+        this.mPn = i2;
+        this.mTabId = i3;
+        this.mLabelId = i4;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage

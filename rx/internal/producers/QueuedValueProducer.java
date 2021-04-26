@@ -3,9 +3,9 @@ package rx.internal.producers;
 import h.f;
 import h.j;
 import h.m.a;
-import h.o.d.j.e;
-import h.o.d.k.f0;
-import h.o.d.k.y;
+import h.o.d.i.e;
+import h.o.d.j.f0;
+import h.o.d.j.y;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -74,11 +74,11 @@ public final class QueuedValueProducer<T> extends AtomicLong implements f {
 
     @Override // h.f
     public void request(long j) {
-        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i < 0) {
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i2 < 0) {
             throw new IllegalArgumentException("n >= 0 required");
         }
-        if (i > 0) {
+        if (i2 > 0) {
             h.o.a.a.b(this, j);
             drain();
         }

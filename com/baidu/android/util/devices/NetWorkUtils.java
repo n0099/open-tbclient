@@ -1,5 +1,6 @@
 package com.baidu.android.util.devices;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -63,8 +64,8 @@ public class NetWorkUtils {
         return getMacAddress();
     }
 
-    public static String getMobileNetworkType(int i, String str) {
-        switch (i) {
+    public static String getMobileNetworkType(int i2, String str) {
+        switch (i2) {
             case 1:
             case 2:
             case 4:
@@ -124,9 +125,9 @@ public class NetWorkUtils {
         return getWifiName();
     }
 
-    public static InetAddress intToInetAddress(int i) {
+    public static InetAddress intToInetAddress(int i2) {
         try {
-            return InetAddress.getByAddress(new byte[]{(byte) (i & 255), (byte) ((i >> 8) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 24) & 255)});
+            return InetAddress.getByAddress(new byte[]{(byte) (i2 & 255), (byte) ((i2 >> 8) & 255), (byte) ((i2 >> 16) & 255), (byte) ((i2 >> 24) & 255)});
         } catch (UnknownHostException unused) {
             throw new AssertionError();
         }
@@ -186,6 +187,7 @@ public class NetWorkUtils {
         return connectionInfo.getIpAddress();
     }
 
+    @SuppressLint({"HardwareIds"})
     public static String getMacAddress() {
         WifiInfo connectionInfo = ((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo();
         return connectionInfo == null ? "NULL" : connectionInfo.getMacAddress();
@@ -233,7 +235,7 @@ public class NetWorkUtils {
                     case 12:
                     case 14:
                     case 15:
-                        return g.f3909b;
+                        return g.f3962b;
                     case 13:
                         return "4G";
                     default:

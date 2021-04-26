@@ -32,10 +32,10 @@ public class GifDrawableTransformation implements Transformation<GifDrawable> {
 
     @Override // com.bumptech.glide.load.Transformation
     @NonNull
-    public Resource<GifDrawable> transform(@NonNull Context context, @NonNull Resource<GifDrawable> resource, int i, int i2) {
+    public Resource<GifDrawable> transform(@NonNull Context context, @NonNull Resource<GifDrawable> resource, int i2, int i3) {
         GifDrawable gifDrawable = resource.get();
         Resource<Bitmap> bitmapResource = new BitmapResource(gifDrawable.getFirstFrame(), Glide.get(context).getBitmapPool());
-        Resource<Bitmap> transform = this.wrapped.transform(context, bitmapResource, i, i2);
+        Resource<Bitmap> transform = this.wrapped.transform(context, bitmapResource, i2, i3);
         if (!bitmapResource.equals(transform)) {
             bitmapResource.recycle();
         }

@@ -25,8 +25,8 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public BIMInviteRtcInfo[] newArray(int i) {
-            return new BIMInviteRtcInfo[i];
+        public BIMInviteRtcInfo[] newArray(int i2) {
+            return new BIMInviteRtcInfo[i2];
         }
     };
     public static final String TAG = "IMInviteRtcInfo";
@@ -61,19 +61,19 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         this.mInviteUsers.addAll(list);
     }
 
-    public void setMediaType(int i) {
-        this.mMediaType = i;
+    public void setMediaType(int i2) {
+        this.mMediaType = i2;
     }
 
-    public void setRtcRoomType(int i) {
-        this.mRtcRoomType = i;
+    public void setRtcRoomType(int i2) {
+        this.mRtcRoomType = i2;
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
+    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
         JSONArray optJSONArray;
-        BIMInviteRtcInfo bIMInviteRtcInfo = new BIMInviteRtcInfo(super.toRtcInfo(i, str, str2));
+        BIMInviteRtcInfo bIMInviteRtcInfo = new BIMInviteRtcInfo(super.toRtcInfo(i2, str, str2));
         try {
             JSONObject jSONObject = new JSONObject(str2);
             bIMInviteRtcInfo.setMediaType(jSONObject.optInt("media_type"));
@@ -84,9 +84,9 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         }
         if (optJSONArray != null && optJSONArray.length() > 0) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                 BIMInviteUser bIMInviteUser = new BIMInviteUser();
-                JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
+                JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i3);
                 bIMInviteUser.appId = jSONObject2.optLong("appid");
                 bIMInviteUser.uk = jSONObject2.optLong("uk");
                 bIMInviteUser.cuid = jSONObject2.optString("cuid");
@@ -136,8 +136,8 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeInt(this.mRtcRoomType);
         parcel.writeInt(this.mMediaType);
         parcel.writeString(this.mRtcExt);
@@ -157,8 +157,8 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public BIMInviteUser[] newArray(int i) {
-                return new BIMInviteUser[i];
+            public BIMInviteUser[] newArray(int i2) {
+                return new BIMInviteUser[i2];
             }
         };
         public long appId;
@@ -181,7 +181,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeLong(this.appId);
             parcel.writeLong(this.uk);
             parcel.writeString(this.cuid);

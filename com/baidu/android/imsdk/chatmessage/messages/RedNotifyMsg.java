@@ -21,8 +21,8 @@ public class RedNotifyMsg extends NotifyMsg implements Parcelable, NoProGuard {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public RedNotifyMsg[] newArray(int i) {
-            return new RedNotifyMsg[i];
+        public RedNotifyMsg[] newArray(int i2) {
+            return new RedNotifyMsg[i2];
         }
     };
     public long mGrabTime;
@@ -112,8 +112,8 @@ public class RedNotifyMsg extends NotifyMsg implements Parcelable, NoProGuard {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.mOrderId);
         parcel.writeString(this.mSendId);
         parcel.writeString(this.mSendName);

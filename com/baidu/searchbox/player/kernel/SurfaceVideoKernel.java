@@ -20,7 +20,7 @@ public class SurfaceVideoKernel extends AbsVideoCyber {
         this.mFullVideoView = surfaceView;
         surfaceView.getHolder().addCallback(new SurfaceHolder.Callback() { // from class: com.baidu.searchbox.player.kernel.SurfaceVideoKernel.1
             @Override // android.view.SurfaceHolder.Callback
-            public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+            public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
                 BdVideoLog.d("SurfaceVideoKernel", "surfaceView changed");
             }
 
@@ -64,9 +64,9 @@ public class SurfaceVideoKernel extends AbsVideoCyber {
         if (this.mKernelStatus.isPlaying()) {
             resume();
         }
-        int i = this.mStorePosition;
-        if (i > 2) {
-            this.mPlayer.seekTo(i - 2);
+        int i2 = this.mStorePosition;
+        if (i2 > 2) {
+            this.mPlayer.seekTo(i2 - 2);
             this.mStorePosition = -1;
         }
         this.mPlayer.setSurface(this.mCurSurface);

@@ -9,11 +9,11 @@ public interface c {
     public interface a {
         void a();
 
-        void a(long j, int i);
+        void a(long j, int i2);
 
         void a(long j, long j2);
 
-        void b(long j, int i);
+        void b(long j, int i2);
     }
 
     /* loaded from: classes5.dex */
@@ -31,8 +31,8 @@ public interface c {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.nativevideo.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0317c {
-        void a(int i, int i2);
+    public interface InterfaceC0310c {
+        void a(int i2, int i3);
 
         void f();
     }
@@ -41,7 +41,7 @@ public interface c {
 
     void a(a aVar);
 
-    void a(InterfaceC0317c interfaceC0317c);
+    void a(InterfaceC0310c interfaceC0310c);
 
     void a(e eVar);
 
@@ -49,7 +49,7 @@ public interface c {
 
     void a(boolean z);
 
-    boolean a(String str, String str2, int i, int i2, List<String> list, String str3, long j, boolean z);
+    boolean a(String str, String str2, int i2, int i3, List<String> list, String str3, long j, boolean z);
 
     void b(long j);
 

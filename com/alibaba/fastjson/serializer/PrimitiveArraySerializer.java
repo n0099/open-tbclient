@@ -7,87 +7,87 @@ public class PrimitiveArraySerializer implements ObjectSerializer {
     public static PrimitiveArraySerializer instance = new PrimitiveArraySerializer();
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public final void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public final void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (obj == null) {
             serializeWriter.writeNull(SerializerFeature.WriteNullListAsEmpty);
             return;
         }
-        int i2 = 0;
+        int i3 = 0;
         if (obj instanceof int[]) {
             int[] iArr = (int[]) obj;
             serializeWriter.write(91);
-            while (i2 < iArr.length) {
-                if (i2 != 0) {
+            while (i3 < iArr.length) {
+                if (i3 != 0) {
                     serializeWriter.write(44);
                 }
-                serializeWriter.writeInt(iArr[i2]);
-                i2++;
+                serializeWriter.writeInt(iArr[i3]);
+                i3++;
             }
             serializeWriter.write(93);
         } else if (obj instanceof short[]) {
             short[] sArr = (short[]) obj;
             serializeWriter.write(91);
-            while (i2 < sArr.length) {
-                if (i2 != 0) {
+            while (i3 < sArr.length) {
+                if (i3 != 0) {
                     serializeWriter.write(44);
                 }
-                serializeWriter.writeInt(sArr[i2]);
-                i2++;
+                serializeWriter.writeInt(sArr[i3]);
+                i3++;
             }
             serializeWriter.write(93);
         } else if (obj instanceof long[]) {
             long[] jArr = (long[]) obj;
             serializeWriter.write(91);
-            while (i2 < jArr.length) {
-                if (i2 != 0) {
+            while (i3 < jArr.length) {
+                if (i3 != 0) {
                     serializeWriter.write(44);
                 }
-                serializeWriter.writeLong(jArr[i2]);
-                i2++;
+                serializeWriter.writeLong(jArr[i3]);
+                i3++;
             }
             serializeWriter.write(93);
         } else if (obj instanceof boolean[]) {
             boolean[] zArr = (boolean[]) obj;
             serializeWriter.write(91);
-            while (i2 < zArr.length) {
-                if (i2 != 0) {
+            while (i3 < zArr.length) {
+                if (i3 != 0) {
                     serializeWriter.write(44);
                 }
-                serializeWriter.write(zArr[i2]);
-                i2++;
+                serializeWriter.write(zArr[i3]);
+                i3++;
             }
             serializeWriter.write(93);
         } else if (obj instanceof float[]) {
             float[] fArr = (float[]) obj;
             serializeWriter.write(91);
-            while (i2 < fArr.length) {
-                if (i2 != 0) {
+            while (i3 < fArr.length) {
+                if (i3 != 0) {
                     serializeWriter.write(44);
                 }
-                float f2 = fArr[i2];
+                float f2 = fArr[i3];
                 if (Float.isNaN(f2)) {
                     serializeWriter.writeNull();
                 } else {
                     serializeWriter.append((CharSequence) Float.toString(f2));
                 }
-                i2++;
+                i3++;
             }
             serializeWriter.write(93);
         } else if (obj instanceof double[]) {
             double[] dArr = (double[]) obj;
             serializeWriter.write(91);
-            while (i2 < dArr.length) {
-                if (i2 != 0) {
+            while (i3 < dArr.length) {
+                if (i3 != 0) {
                     serializeWriter.write(44);
                 }
-                double d2 = dArr[i2];
+                double d2 = dArr[i3];
                 if (Double.isNaN(d2)) {
                     serializeWriter.writeNull();
                 } else {
                     serializeWriter.append((CharSequence) Double.toString(d2));
                 }
-                i2++;
+                i3++;
             }
             serializeWriter.write(93);
         } else if (obj instanceof byte[]) {

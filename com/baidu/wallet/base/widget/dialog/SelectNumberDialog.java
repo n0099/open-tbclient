@@ -14,31 +14,31 @@ import java.util.List;
 public class SelectNumberDialog extends BaseDialog implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f23727a;
+    public LinearLayout f24465a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdapterView.OnItemClickListener f23728b;
+    public AdapterView.OnItemClickListener f24466b;
 
     public SelectNumberDialog(Context context) {
         super(context);
         LinearLayout linearLayout = new LinearLayout(this.mContext);
-        this.f23727a = linearLayout;
+        this.f24465a = linearLayout;
         linearLayout.setOrientation(1);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         dismiss();
-        if (this.f23728b == null || view.getTag() == null) {
+        if (this.f24466b == null || view.getTag() == null) {
             return;
         }
-        this.f23728b.onItemClick(null, view, ((Integer) view.getTag()).intValue(), 0L);
+        this.f24466b.onItemClick(null, view, ((Integer) view.getTag()).intValue(), 0L);
     }
 
     @Override // com.baidu.apollon.base.widget.BaseDialog, android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        addContentView(this.f23727a);
+        addContentView(this.f24465a);
         hideButtons();
         setTitleText("选择手机号");
         setCancelable(true);
@@ -48,28 +48,28 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
         if (list == null || list.size() <= 1) {
             return;
         }
-        this.f23727a.removeAllViews();
+        this.f24465a.removeAllViews();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(this.mContext, 45.0f));
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(this.mContext, 1.0f));
-        for (int i = 1; i < list.size(); i++) {
-            if (i > 1) {
+        for (int i2 = 1; i2 < list.size(); i2++) {
+            if (i2 > 1) {
                 View view = new View(this.mContext);
                 view.setBackgroundColor(ResUtils.getColor(this.mContext, "bd_wallet_gray"));
                 view.setLayoutParams(layoutParams2);
-                this.f23727a.addView(view);
+                this.f24465a.addView(view);
             }
             TextView textView = new TextView(this.mContext);
-            textView.setText(list.get(i));
+            textView.setText(list.get(i2));
             textView.setPadding(DisplayUtils.dip2px(this.mContext, 10.0f), 0, 0, 0);
             textView.setGravity(19);
             textView.setLayoutParams(layoutParams);
-            textView.setTag(Integer.valueOf(i));
+            textView.setTag(Integer.valueOf(i2));
             textView.setOnClickListener(this);
-            this.f23727a.addView(textView);
+            this.f24465a.addView(textView);
         }
     }
 
     public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
-        this.f23728b = onItemClickListener;
+        this.f24466b = onItemClickListener;
     }
 }

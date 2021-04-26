@@ -13,11 +13,11 @@ import com.baidu.wallet.paysdk.contract.a;
 public class c extends com.baidu.wallet.paysdk.ui.a implements a.b {
 
     /* renamed from: h  reason: collision with root package name */
-    public SafeKeyBoardEditText.CheckFunc f26012h;
+    public SafeKeyBoardEditText.CheckFunc f26805h;
 
     public c(Context context) {
-        this.f25997a = context;
-        this.f26012h = new SafeKeyBoardEditText.CheckFunc() { // from class: com.baidu.wallet.paysdk.ui.a.c.1
+        this.f26790a = context;
+        this.f26805h = new SafeKeyBoardEditText.CheckFunc() { // from class: com.baidu.wallet.paysdk.ui.a.c.1
             @Override // com.baidu.wallet.base.widget.SafeKeyBoardEditText.CheckFunc
             public boolean check(String str) {
                 if (TextUtils.isEmpty(str)) {
@@ -30,8 +30,8 @@ public class c extends com.baidu.wallet.paysdk.ui.a implements a.b {
 
     @Override // com.baidu.wallet.paysdk.contract.a.b
     public View a() {
-        a(this.f25997a, 0);
-        return this.f25998b;
+        a(this.f26790a, 0);
+        return this.f26791b;
     }
 
     @Override // com.baidu.wallet.paysdk.contract.a.b
@@ -40,40 +40,40 @@ public class c extends com.baidu.wallet.paysdk.ui.a implements a.b {
 
     @Override // com.baidu.wallet.paysdk.contract.a.b
     public SafeKeyBoardEditText b() {
-        return this.f26001e;
+        return this.f26794e;
     }
 
     @Override // com.baidu.wallet.paysdk.contract.a.b
     public void c() {
-        a((CharSequence) ResUtils.getString(this.f25997a, "ebpay_bank_cvv2_errortip"));
+        a((CharSequence) ResUtils.getString(this.f26790a, "ebpay_bank_cvv2_errortip"));
     }
 
     @Override // com.baidu.wallet.paysdk.ui.a
     public CharSequence d() {
-        return ResUtils.getString(this.f25997a, "wallet_cashdesk_card_info_cvv2_title");
+        return ResUtils.getString(this.f26790a, "wallet_cashdesk_card_info_cvv2_title");
     }
 
     @Override // com.baidu.wallet.paysdk.ui.a
     public void e() {
-        PromptImageDialog promptImageDialog = new PromptImageDialog(this.f25997a);
+        PromptImageDialog promptImageDialog = new PromptImageDialog(this.f26790a);
         promptImageDialog.setCanceledOnTouchOutside(false);
-        promptImageDialog.setMessageTemp(ResUtils.string(this.f25997a, "wallet_cashdesk_card_info_cvv2_hint_msg"));
-        promptImageDialog.setMessage(ResUtils.string(this.f25997a, "wallet_cashdesk_card_info_cvv2_hint_msg_2"));
-        Context context = this.f25997a;
+        promptImageDialog.setMessageTemp(ResUtils.string(this.f26790a, "wallet_cashdesk_card_info_cvv2_hint_msg"));
+        promptImageDialog.setMessage(ResUtils.string(this.f26790a, "wallet_cashdesk_card_info_cvv2_hint_msg_2"));
+        Context context = this.f26790a;
         promptImageDialog.setTitleMessage(context.getString(ResUtils.string(context, "wallet_cashdesk_card_info_cvv2_hint_title")));
-        promptImageDialog.setButtonText(ResUtils.string(this.f25997a, "ebpay_know"));
-        promptImageDialog.setImage(ResUtils.drawable(this.f25997a, "wallet_base_help_cvv"));
+        promptImageDialog.setButtonText(ResUtils.string(this.f26790a, "ebpay_know"));
+        promptImageDialog.setImage(ResUtils.drawable(this.f26790a, "wallet_base_help_cvv"));
         promptImageDialog.show();
     }
 
     @Override // com.baidu.wallet.paysdk.ui.a
     public SafeKeyBoardEditText.CheckFunc f() {
-        return this.f26012h;
+        return this.f26805h;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.a
     public void a(SafeKeyBoardEditText safeKeyBoardEditText) {
-        safeKeyBoardEditText.setHint(ResUtils.string(this.f25997a, "wallet_cashdesk_card_info_cvv2_input_hint"));
+        safeKeyBoardEditText.setHint(ResUtils.string(this.f26790a, "wallet_cashdesk_card_info_cvv2_input_hint"));
         safeKeyBoardEditText.setUseSafeKeyBoard(true);
         safeKeyBoardEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
         safeKeyBoardEditText.addEditTextPasteFilter(new NumberEditTextPasteFilter());

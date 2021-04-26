@@ -36,18 +36,18 @@ public class PoiInfo implements Parcelable {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public int f7183a;
+        public int f7439a;
 
-        POITYPE(int i) {
-            this.f7183a = i;
+        POITYPE(int i2) {
+            this.f7439a = i2;
         }
 
-        public static POITYPE fromInt(int i) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
+        public static POITYPE fromInt(int i2) {
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 != 4) {
                                 return null;
                             }
                             return SUBWAY_LINE;
@@ -62,7 +62,7 @@ public class PoiInfo implements Parcelable {
         }
 
         public int getInt() {
-            return this.f7183a;
+            return this.f7439a;
         }
     }
 
@@ -131,8 +131,8 @@ public class PoiInfo implements Parcelable {
             this.parentPoiDirection = str;
         }
 
-        public void setParentPoiDistance(int i) {
-            this.parentPoiDistance = i;
+        public void setParentPoiDistance(int i2) {
+            this.parentPoiDistance = i2;
         }
 
         public void setParentPoiLocation(LatLng latLng) {
@@ -152,11 +152,11 @@ public class PoiInfo implements Parcelable {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeString(this.parentPoiName);
             parcel.writeString(this.parentPoiTag);
             parcel.writeString(this.parentPoiAddress);
-            parcel.writeParcelable(this.parentPoiLocation, i);
+            parcel.writeParcelable(this.parentPoiLocation, i2);
             parcel.writeString(this.parentPoiDirection);
             parcel.writeInt(this.parentPoiDistance);
             parcel.writeString(this.parentPoiUid);
@@ -276,16 +276,16 @@ public class PoiInfo implements Parcelable {
         this.city = str;
     }
 
-    public void setDetail(int i) {
-        this.detail = i;
+    public void setDetail(int i2) {
+        this.detail = i2;
     }
 
     public void setDirection(String str) {
         this.direction = str;
     }
 
-    public void setDistance(int i) {
-        this.distance = i;
+    public void setDistance(int i2) {
+        this.distance = i2;
     }
 
     public void setHasCaterDetails(boolean z) {
@@ -400,7 +400,7 @@ public class PoiInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.name);
         parcel.writeString(this.uid);
         parcel.writeString(this.address);

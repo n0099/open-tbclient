@@ -33,20 +33,20 @@ public class ActivityCompat extends ContextCompat {
 
     /* loaded from: classes.dex */
     public interface OnRequestPermissionsResultCallback {
-        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
+        void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
     /* loaded from: classes.dex */
     public interface PermissionCompatDelegate {
-        boolean onActivityResult(@NonNull Activity activity, @IntRange(from = 0) int i, int i2, @Nullable Intent intent);
+        boolean onActivityResult(@NonNull Activity activity, @IntRange(from = 0) int i2, int i3, @Nullable Intent intent);
 
-        boolean requestPermissions(@NonNull Activity activity, @NonNull String[] strArr, @IntRange(from = 0) int i);
+        boolean requestPermissions(@NonNull Activity activity, @NonNull String[] strArr, @IntRange(from = 0) int i2);
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public interface RequestPermissionsRequestCodeValidator {
-        void validateRequestPermissionsRequestCode(int i);
+        void validateRequestPermissionsRequestCode(int i2);
     }
 
     @RequiresApi(21)
@@ -116,7 +116,7 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static PermissionCompatDelegate getPermissionCompatDelegate() {
         return sDelegate;
     }
@@ -150,19 +150,39 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
+    public static void recreate(@NonNull final Activity activity) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 28) {
+            activity.recreate();
+        } else if (i2 <= 23) {
+            new Handler(activity.getMainLooper()).post(new Runnable() { // from class: androidx.core.app.ActivityCompat.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (activity.isFinishing() || ActivityRecreator.recreate(activity)) {
+                        return;
+                    }
+                    activity.recreate();
+                }
+            });
+        } else if (ActivityRecreator.recreate(activity)) {
+        } else {
+            activity.recreate();
+        }
+    }
+
     @Nullable
     public static DragAndDropPermissionsCompat requestDragAndDropPermissions(Activity activity, DragEvent dragEvent) {
         return DragAndDropPermissionsCompat.request(activity, dragEvent);
     }
 
-    public static void requestPermissions(@NonNull final Activity activity, @NonNull final String[] strArr, @IntRange(from = 0) final int i) {
+    public static void requestPermissions(@NonNull final Activity activity, @NonNull final String[] strArr, @IntRange(from = 0) final int i2) {
         PermissionCompatDelegate permissionCompatDelegate = sDelegate;
-        if (permissionCompatDelegate == null || !permissionCompatDelegate.requestPermissions(activity, strArr, i)) {
+        if (permissionCompatDelegate == null || !permissionCompatDelegate.requestPermissions(activity, strArr, i2)) {
             if (Build.VERSION.SDK_INT >= 23) {
                 if (activity instanceof RequestPermissionsRequestCodeValidator) {
-                    ((RequestPermissionsRequestCodeValidator) activity).validateRequestPermissionsRequestCode(i);
+                    ((RequestPermissionsRequestCodeValidator) activity).validateRequestPermissionsRequestCode(i2);
                 }
-                activity.requestPermissions(strArr, i);
+                activity.requestPermissions(strArr, i2);
             } else if (activity instanceof OnRequestPermissionsResultCallback) {
                 new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: androidx.core.app.ActivityCompat.1
                     @Override // java.lang.Runnable
@@ -171,10 +191,10 @@ public class ActivityCompat extends ContextCompat {
                         PackageManager packageManager = activity.getPackageManager();
                         String packageName = activity.getPackageName();
                         int length = strArr.length;
-                        for (int i2 = 0; i2 < length; i2++) {
-                            iArr[i2] = packageManager.checkPermission(strArr[i2], packageName);
+                        for (int i3 = 0; i3 < length; i3++) {
+                            iArr[i3] = packageManager.checkPermission(strArr[i3], packageName);
                         }
-                        ((OnRequestPermissionsResultCallback) activity).onRequestPermissionsResult(i, strArr, iArr);
+                        ((OnRequestPermissionsResultCallback) activity).onRequestPermissionsResult(i2, strArr, iArr);
                     }
                 });
             }
@@ -182,11 +202,11 @@ public class ActivityCompat extends ContextCompat {
     }
 
     @NonNull
-    public static <T extends View> T requireViewById(@NonNull Activity activity, @IdRes int i) {
+    public static <T extends View> T requireViewById(@NonNull Activity activity, @IdRes int i2) {
         if (Build.VERSION.SDK_INT >= 28) {
-            return (T) activity.requireViewById(i);
+            return (T) activity.requireViewById(i2);
         }
-        T t = (T) activity.findViewById(i);
+        T t = (T) activity.findViewById(i2);
         if (t != null) {
             return t;
         }
@@ -216,19 +236,19 @@ public class ActivityCompat extends ContextCompat {
         return false;
     }
 
-    public static void startActivityForResult(@NonNull Activity activity, @NonNull Intent intent, int i, @Nullable Bundle bundle) {
+    public static void startActivityForResult(@NonNull Activity activity, @NonNull Intent intent, int i2, @Nullable Bundle bundle) {
         if (Build.VERSION.SDK_INT >= 16) {
-            activity.startActivityForResult(intent, i, bundle);
+            activity.startActivityForResult(intent, i2, bundle);
         } else {
-            activity.startActivityForResult(intent, i);
+            activity.startActivityForResult(intent, i2);
         }
     }
 
-    public static void startIntentSenderForResult(@NonNull Activity activity, @NonNull IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, @Nullable Bundle bundle) throws IntentSender.SendIntentException {
+    public static void startIntentSenderForResult(@NonNull Activity activity, @NonNull IntentSender intentSender, int i2, @Nullable Intent intent, int i3, int i4, int i5, @Nullable Bundle bundle) throws IntentSender.SendIntentException {
         if (Build.VERSION.SDK_INT >= 16) {
-            activity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
+            activity.startIntentSenderForResult(intentSender, i2, intent, i3, i4, i5, bundle);
         } else {
-            activity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
+            activity.startIntentSenderForResult(intentSender, i2, intent, i3, i4, i5);
         }
     }
 

@@ -1,246 +1,262 @@
 package io.reactivex.internal.operators.observable;
 
-import f.b.n;
-import f.b.o;
-import f.b.p;
-import f.b.t.b;
-import f.b.x.a.e;
+import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
+import io.reactivex.Observer;
+import io.reactivex.Scheduler;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
+import io.reactivex.internal.disposables.SequentialDisposable;
+import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class ObservableTimeoutTimed<T> extends f.b.x.e.c.a<T, T> {
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final b f69227e = new a();
+public final class ObservableTimeoutTimed<T> extends AbstractObservableWithUpstream<T, T> {
+    public final ObservableSource<? extends T> other;
+    public final Scheduler scheduler;
+    public final long timeout;
+    public final TimeUnit unit;
 
     /* loaded from: classes7.dex */
-    public static final class TimeoutTimedObserver<T> extends AtomicReference<b> implements o<T>, b {
-        public static final long serialVersionUID = -8387234228317808253L;
-        public final o<? super T> actual;
-        public volatile boolean done;
-        public volatile long index;
-        public b s;
-        public final long timeout;
-        public final TimeUnit unit;
-        public final p.c worker;
+    public static final class FallbackObserver<T> implements Observer<T> {
+        public final Observer<? super T> actual;
+        public final AtomicReference<Disposable> arbiter;
 
-        /* loaded from: classes7.dex */
-        public final class a implements Runnable {
-
-            /* renamed from: e  reason: collision with root package name */
-            public final long f69228e;
-
-            public a(long j) {
-                this.f69228e = j;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                if (this.f69228e == TimeoutTimedObserver.this.index) {
-                    TimeoutTimedObserver.this.done = true;
-                    TimeoutTimedObserver.this.s.dispose();
-                    DisposableHelper.dispose(TimeoutTimedObserver.this);
-                    TimeoutTimedObserver.this.actual.onError(new TimeoutException());
-                    TimeoutTimedObserver.this.worker.dispose();
-                }
-            }
+        public FallbackObserver(Observer<? super T> observer, AtomicReference<Disposable> atomicReference) {
+            this.actual = observer;
+            this.arbiter = atomicReference;
         }
 
-        public TimeoutTimedObserver(o<? super T> oVar, long j, TimeUnit timeUnit, p.c cVar) {
-            this.actual = oVar;
-            this.timeout = j;
-            this.unit = timeUnit;
-            this.worker = cVar;
-        }
-
-        @Override // f.b.t.b
-        public void dispose() {
-            this.s.dispose();
-            this.worker.dispose();
-        }
-
-        @Override // f.b.t.b
-        public boolean isDisposed() {
-            return this.worker.isDisposed();
-        }
-
-        @Override // f.b.o
+        @Override // io.reactivex.Observer
         public void onComplete() {
-            if (this.done) {
-                return;
-            }
-            this.done = true;
             this.actual.onComplete();
-            dispose();
         }
 
-        @Override // f.b.o
+        @Override // io.reactivex.Observer
         public void onError(Throwable th) {
-            if (this.done) {
-                f.b.a0.a.f(th);
-                return;
-            }
-            this.done = true;
             this.actual.onError(th);
-            dispose();
         }
 
-        @Override // f.b.o
+        @Override // io.reactivex.Observer
         public void onNext(T t) {
-            if (this.done) {
-                return;
-            }
-            long j = this.index + 1;
-            this.index = j;
             this.actual.onNext(t);
-            scheduleTimeout(j);
         }
 
-        @Override // f.b.o
-        public void onSubscribe(b bVar) {
-            if (DisposableHelper.validate(this.s, bVar)) {
-                this.s = bVar;
-                this.actual.onSubscribe(this);
-                scheduleTimeout(0L);
-            }
-        }
-
-        public void scheduleTimeout(long j) {
-            b bVar = get();
-            if (bVar != null) {
-                bVar.dispose();
-            }
-            if (compareAndSet(bVar, ObservableTimeoutTimed.f69227e)) {
-                DisposableHelper.replace(this, this.worker.c(new a(j), this.timeout, this.unit));
-            }
+        @Override // io.reactivex.Observer
+        public void onSubscribe(Disposable disposable) {
+            DisposableHelper.replace(this.arbiter, disposable);
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class TimeoutTimedOtherObserver<T> extends AtomicReference<b> implements o<T>, b {
-        public static final long serialVersionUID = -4619702551964128179L;
-        public final o<? super T> actual;
-        public final e<T> arbiter;
-        public volatile boolean done;
-        public volatile long index;
-        public final n<? extends T> other;
-        public b s;
+    public static final class TimeoutFallbackObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable, TimeoutSupport {
+        public static final long serialVersionUID = 3764492702657003550L;
+        public final Observer<? super T> actual;
+        public ObservableSource<? extends T> fallback;
         public final long timeout;
         public final TimeUnit unit;
-        public final p.c worker;
+        public final Scheduler.Worker worker;
+        public final SequentialDisposable task = new SequentialDisposable();
+        public final AtomicLong index = new AtomicLong();
+        public final AtomicReference<Disposable> upstream = new AtomicReference<>();
 
-        /* loaded from: classes7.dex */
-        public final class a implements Runnable {
-
-            /* renamed from: e  reason: collision with root package name */
-            public final long f69230e;
-
-            public a(long j) {
-                this.f69230e = j;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                if (this.f69230e == TimeoutTimedOtherObserver.this.index) {
-                    TimeoutTimedOtherObserver.this.done = true;
-                    TimeoutTimedOtherObserver.this.s.dispose();
-                    DisposableHelper.dispose(TimeoutTimedOtherObserver.this);
-                    TimeoutTimedOtherObserver.this.subscribeNext();
-                    TimeoutTimedOtherObserver.this.worker.dispose();
-                }
-            }
-        }
-
-        public TimeoutTimedOtherObserver(o<? super T> oVar, long j, TimeUnit timeUnit, p.c cVar, n<? extends T> nVar) {
-            this.actual = oVar;
+        public TimeoutFallbackObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler.Worker worker, ObservableSource<? extends T> observableSource) {
+            this.actual = observer;
             this.timeout = j;
             this.unit = timeUnit;
-            this.worker = cVar;
-            this.other = nVar;
-            this.arbiter = new e<>(oVar, this, 8);
+            this.worker = worker;
+            this.fallback = observableSource;
         }
 
-        @Override // f.b.t.b
+        @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.s.dispose();
+            DisposableHelper.dispose(this.upstream);
+            DisposableHelper.dispose(this);
             this.worker.dispose();
         }
 
-        @Override // f.b.t.b
+        @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.worker.isDisposed();
+            return DisposableHelper.isDisposed(get());
         }
 
-        @Override // f.b.o
+        @Override // io.reactivex.Observer
         public void onComplete() {
-            if (this.done) {
-                return;
+            if (this.index.getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
+                this.task.dispose();
+                this.actual.onComplete();
+                this.worker.dispose();
             }
-            this.done = true;
-            this.arbiter.c(this.s);
-            this.worker.dispose();
         }
 
-        @Override // f.b.o
+        @Override // io.reactivex.Observer
         public void onError(Throwable th) {
-            if (this.done) {
-                f.b.a0.a.f(th);
+            if (this.index.getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
+                this.task.dispose();
+                this.actual.onError(th);
+                this.worker.dispose();
                 return;
             }
-            this.done = true;
-            this.arbiter.d(th, this.s);
-            this.worker.dispose();
+            RxJavaPlugins.onError(th);
         }
 
-        @Override // f.b.o
+        @Override // io.reactivex.Observer
         public void onNext(T t) {
-            if (this.done) {
-                return;
-            }
-            long j = this.index + 1;
-            this.index = j;
-            if (this.arbiter.e(t, this.s)) {
-                scheduleTimeout(j);
-            }
-        }
-
-        @Override // f.b.o
-        public void onSubscribe(b bVar) {
-            if (DisposableHelper.validate(this.s, bVar)) {
-                this.s = bVar;
-                if (this.arbiter.f(bVar)) {
-                    this.actual.onSubscribe(this.arbiter);
-                    scheduleTimeout(0L);
+            long j = this.index.get();
+            if (j != Long.MAX_VALUE) {
+                long j2 = 1 + j;
+                if (this.index.compareAndSet(j, j2)) {
+                    this.task.get().dispose();
+                    this.actual.onNext(t);
+                    startTimeout(j2);
                 }
             }
         }
 
-        public void scheduleTimeout(long j) {
-            b bVar = get();
-            if (bVar != null) {
-                bVar.dispose();
-            }
-            if (compareAndSet(bVar, ObservableTimeoutTimed.f69227e)) {
-                DisposableHelper.replace(this, this.worker.c(new a(j), this.timeout, this.unit));
+        @Override // io.reactivex.Observer
+        public void onSubscribe(Disposable disposable) {
+            DisposableHelper.setOnce(this.upstream, disposable);
+        }
+
+        @Override // io.reactivex.internal.operators.observable.ObservableTimeoutTimed.TimeoutSupport
+        public void onTimeout(long j) {
+            if (this.index.compareAndSet(j, Long.MAX_VALUE)) {
+                DisposableHelper.dispose(this.upstream);
+                ObservableSource<? extends T> observableSource = this.fallback;
+                this.fallback = null;
+                observableSource.subscribe(new FallbackObserver(this.actual, this));
+                this.worker.dispose();
             }
         }
 
-        public void subscribeNext() {
-            this.other.subscribe(new f.b.x.d.a(this.arbiter));
+        public void startTimeout(long j) {
+            this.task.replace(this.worker.schedule(new TimeoutTask(j, this), this.timeout, this.unit));
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class a implements b {
-        @Override // f.b.t.b
-        public void dispose() {
+    public static final class TimeoutObserver<T> extends AtomicLong implements Observer<T>, Disposable, TimeoutSupport {
+        public static final long serialVersionUID = 3764492702657003550L;
+        public final Observer<? super T> actual;
+        public final long timeout;
+        public final TimeUnit unit;
+        public final Scheduler.Worker worker;
+        public final SequentialDisposable task = new SequentialDisposable();
+        public final AtomicReference<Disposable> upstream = new AtomicReference<>();
+
+        public TimeoutObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
+            this.actual = observer;
+            this.timeout = j;
+            this.unit = timeUnit;
+            this.worker = worker;
         }
 
-        @Override // f.b.t.b
-        public boolean isDisposed() {
-            return true;
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            DisposableHelper.dispose(this.upstream);
+            this.worker.dispose();
         }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            return DisposableHelper.isDisposed(this.upstream.get());
+        }
+
+        @Override // io.reactivex.Observer
+        public void onComplete() {
+            if (getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
+                this.task.dispose();
+                this.actual.onComplete();
+                this.worker.dispose();
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onError(Throwable th) {
+            if (getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
+                this.task.dispose();
+                this.actual.onError(th);
+                this.worker.dispose();
+                return;
+            }
+            RxJavaPlugins.onError(th);
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(T t) {
+            long j = get();
+            if (j != Long.MAX_VALUE) {
+                long j2 = 1 + j;
+                if (compareAndSet(j, j2)) {
+                    this.task.get().dispose();
+                    this.actual.onNext(t);
+                    startTimeout(j2);
+                }
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onSubscribe(Disposable disposable) {
+            DisposableHelper.setOnce(this.upstream, disposable);
+        }
+
+        @Override // io.reactivex.internal.operators.observable.ObservableTimeoutTimed.TimeoutSupport
+        public void onTimeout(long j) {
+            if (compareAndSet(j, Long.MAX_VALUE)) {
+                DisposableHelper.dispose(this.upstream);
+                this.actual.onError(new TimeoutException());
+                this.worker.dispose();
+            }
+        }
+
+        public void startTimeout(long j) {
+            this.task.replace(this.worker.schedule(new TimeoutTask(j, this), this.timeout, this.unit));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface TimeoutSupport {
+        void onTimeout(long j);
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class TimeoutTask implements Runnable {
+        public final long idx;
+        public final TimeoutSupport parent;
+
+        public TimeoutTask(long j, TimeoutSupport timeoutSupport) {
+            this.idx = j;
+            this.parent = timeoutSupport;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            this.parent.onTimeout(this.idx);
+        }
+    }
+
+    public ObservableTimeoutTimed(Observable<T> observable, long j, TimeUnit timeUnit, Scheduler scheduler, ObservableSource<? extends T> observableSource) {
+        super(observable);
+        this.timeout = j;
+        this.unit = timeUnit;
+        this.scheduler = scheduler;
+        this.other = observableSource;
+    }
+
+    @Override // io.reactivex.Observable
+    public void subscribeActual(Observer<? super T> observer) {
+        if (this.other == null) {
+            TimeoutObserver timeoutObserver = new TimeoutObserver(observer, this.timeout, this.unit, this.scheduler.createWorker());
+            observer.onSubscribe(timeoutObserver);
+            timeoutObserver.startTimeout(0L);
+            this.source.subscribe(timeoutObserver);
+            return;
+        }
+        TimeoutFallbackObserver timeoutFallbackObserver = new TimeoutFallbackObserver(observer, this.timeout, this.unit, this.scheduler.createWorker(), this.other);
+        observer.onSubscribe(timeoutFallbackObserver);
+        timeoutFallbackObserver.startTimeout(0L);
+        this.source.subscribe(timeoutFallbackObserver);
     }
 }

@@ -43,7 +43,7 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BinaryTaskMng {
     public static final boolean DEBUG = false;
     public static final String TAG = "BinaryTaskMng";
@@ -165,8 +165,8 @@ public class BinaryTaskMng {
         int size = this.mTaskPriorityQueue.size();
         AbstractTask[] abstractTaskArr = new AbstractTask[size];
         if (size > 0) {
-            for (int i = 0; i < size; i++) {
-                AbstractTask abstractTask2 = abstractTaskArr[i];
+            for (int i2 = 0; i2 < size; i2++) {
+                AbstractTask abstractTask2 = abstractTaskArr[i2];
                 if (abstractTask2 != null && (map = abstractTask2.mIntercepters) != null && map.containsKey("network") && (process = abstractTask2.mIntercepters.get("network").process(abstractTask2.mContext, abstractTask2.getTaskKey(), abstractTask2.mDownloadId, null)) != null && process.retCode == 1) {
                     abstractTask2.pause();
                 }
@@ -203,30 +203,30 @@ public class BinaryTaskMng {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void priorityRunning() {
-        int i;
         int i2;
         int i3;
         int i4;
         int i5;
-        AbstractTask abstractTask;
         int i6;
+        AbstractTask abstractTask;
+        int i7;
         Iterator<AbstractTask> it = this.mCurTaskList.iterator();
         while (true) {
-            i = 1006;
-            i2 = 1008;
-            i3 = 1003;
-            i4 = 1005;
+            i2 = 1006;
+            i3 = 1008;
+            i4 = 1003;
+            i5 = 1005;
             if (!it.hasNext()) {
                 break;
             }
             AbstractTask next = it.next();
-            int i7 = next.mStatus;
-            if (i7 == 1004 || i7 == 1005 || i7 == 1003 || i7 == 1008 || i7 == 1006) {
+            int i8 = next.mStatus;
+            if (i8 == 1004 || i8 == 1005 || i8 == 1003 || i8 == 1008 || i8 == 1006) {
                 it.remove();
             }
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            int i8 = next.mStatus;
-            if (i8 == 1001 || i8 == 1002) {
+            int i9 = next.mStatus;
+            if (i9 == 1001 || i9 == 1002) {
                 if (next.mLastNotifySpeed != 0 && elapsedRealtime - next.mLastNotifyTime > 2000) {
                     notifySpeedIdle(next);
                 }
@@ -235,7 +235,7 @@ public class BinaryTaskMng {
         while (this.mTaskPriorityQueue.size() > 0) {
             if (this.mCurTaskList.size() < this.mMaxThread) {
                 AbstractTask abstractTask2 = this.mAllTaskMap.get(this.mTaskPriorityQueue.poll().getTaskKey());
-                if (abstractTask2 != null && (i5 = abstractTask2.mStatus) != 1004 && i5 != i4 && i5 != i3 && i5 != i2 && i5 != i && !this.mCurTaskList.contains(abstractTask2)) {
+                if (abstractTask2 != null && (i6 = abstractTask2.mStatus) != 1004 && i6 != i5 && i6 != i4 && i6 != i3 && i6 != i2 && !this.mCurTaskList.contains(abstractTask2)) {
                     this.mCurTaskList.add(abstractTask2);
                     abstractTask2.start();
                 }
@@ -280,31 +280,31 @@ public class BinaryTaskMng {
                 }
                 this.mTaskPriorityQueue.remove(peek);
                 AbstractTask abstractTask3 = this.mAllTaskMap.get(peek.getTaskKey());
-                if (abstractTask3 == null || (i6 = abstractTask3.mStatus) == 1004) {
-                    i3 = 1003;
+                if (abstractTask3 == null || (i7 = abstractTask3.mStatus) == 1004) {
+                    i4 = 1003;
                 } else {
-                    i3 = 1003;
-                    if (i6 != 1005) {
-                        if (i6 != 1003) {
-                            if (i6 != 1008 && i6 != 1006 && !this.mCurTaskList.contains(abstractTask3)) {
+                    i4 = 1003;
+                    if (i7 != 1005) {
+                        if (i7 != 1003) {
+                            if (i7 != 1008 && i7 != 1006 && !this.mCurTaskList.contains(abstractTask3)) {
                                 abstractTask.pend();
                                 this.mCurTaskList.remove(abstractTask);
                                 this.mTaskPriorityQueue.add(abstractTask);
                                 this.mCurTaskList.add(abstractTask3);
                                 abstractTask3.start();
                             }
-                            i = 1006;
-                            i2 = 1008;
-                            i4 = 1005;
+                            i2 = 1006;
+                            i3 = 1008;
+                            i5 = 1005;
                         }
-                        i = 1006;
-                        i2 = 1008;
-                        i4 = 1005;
+                        i2 = 1006;
+                        i3 = 1008;
+                        i5 = 1005;
                     }
                 }
-                i = 1006;
-                i2 = 1008;
-                i4 = 1005;
+                i2 = 1006;
+                i3 = 1008;
+                i5 = 1005;
             }
         }
         if (this.mTaskPriorityQueue.size() <= 0 && this.mCurTaskList.size() <= 0) {
@@ -540,8 +540,8 @@ public class BinaryTaskMng {
         if (abstractTask == null) {
             return;
         }
-        int i = abstractTask.mStatus;
-        if (i == 1004 || i == 1008) {
+        int i2 = abstractTask.mStatus;
+        if (i2 == 1004 || i2 == 1008) {
             synchronized (this.mAllTaskMap) {
                 this.mAllTaskMap.remove(str);
             }
@@ -550,8 +550,8 @@ public class BinaryTaskMng {
         }
         this.mHandler.removeMessages(0);
         this.mHandler.sendEmptyMessage(0);
-        int i2 = abstractTask.mStatus;
-        if (i2 == 1004 || i2 == 1005 || i2 == 1006 || i2 == 1008) {
+        int i3 = abstractTask.mStatus;
+        if (i3 == 1004 || i3 == 1005 || i3 == 1006 || i3 == 1008) {
             TaskSpeedStat taskSpeedStat = abstractTask.mTaskSpeedStat;
             if (taskSpeedStat.speedStatEnable) {
                 taskSpeedStat.status = abstractTask.mStatus;
@@ -571,9 +571,9 @@ public class BinaryTaskMng {
         }
     }
 
-    public void notifyUiMessageType(String str, long j, int i, Object obj) {
+    public void notifyUiMessageType(String str, long j, int i2, Object obj) {
         for (TaskObserverInterface taskObserverInterface : this.mObserverList) {
-            taskObserverInterface.onDownloadMsgType(str, j, i, obj);
+            taskObserverInterface.onDownloadMsgType(str, j, i2, obj);
         }
     }
 
@@ -616,8 +616,8 @@ public class BinaryTaskMng {
             return;
         }
         do {
-            int i = query.getInt(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE));
-            int i2 = query.getInt(query.getColumnIndex("status"));
+            int i2 = query.getInt(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE));
+            int i3 = query.getInt(query.getColumnIndex("status"));
             String string = query.getString(query.getColumnIndex("uri"));
             String string2 = query.getString(query.getColumnIndex("path"));
             String string3 = query.getString(query.getColumnIndex("name"));
@@ -625,7 +625,7 @@ public class BinaryTaskMng {
             String string5 = query.getString(query.getColumnIndex("etag"));
             long j = query.getLong(query.getColumnIndex("_id"));
             BinaryReqTask binaryReqTask = null;
-            if (i == 1 && i2 != 1003) {
+            if (i2 == 1 && i3 != 1003) {
                 binaryReqTask = new BinaryReqTask(this.mContext, new FileMsg(string, j, string2, string3, string4, Boolean.FALSE, string5));
             }
             if (binaryReqTask != null) {
@@ -640,14 +640,14 @@ public class BinaryTaskMng {
         this.mHandler.sendEmptyMessage(4);
     }
 
-    public void sendMessage(int i, Object obj) {
+    public void sendMessage(int i2, Object obj) {
         Message obtainMessage = this.mHandler.obtainMessage();
-        obtainMessage.what = i;
+        obtainMessage.what = i2;
         obtainMessage.obj = obj;
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void setDownloadBufferSize(int i) {
+    public void setDownloadBufferSize(int i2) {
     }
 
     public synchronized void setHttpDNSCacheInfo(HttpDNSCacheInfo httpDNSCacheInfo) {
@@ -666,19 +666,19 @@ public class BinaryTaskMng {
         if (TextUtils.isEmpty(string) || (split = string.intern().replace(" ", "").toLowerCase().split(",")) == null || split.length <= 0) {
             return;
         }
-        for (int i = 0; i < split.length; i++) {
-            if (!TextUtils.isEmpty(split[i])) {
-                this.mInfoTypeList.add(split[i]);
+        for (int i2 = 0; i2 < split.length; i2++) {
+            if (!TextUtils.isEmpty(split[i2])) {
+                this.mInfoTypeList.add(split[i2]);
             }
         }
     }
 
-    public void setMaxDownloadBufferCount(int i) {
+    public void setMaxDownloadBufferCount(int i2) {
     }
 
-    public void setMaxDownloadThread(int i) {
-        if (this.mMaxThread != i) {
-            this.mMaxThread = i;
+    public void setMaxDownloadThread(int i2) {
+        if (this.mMaxThread != i2) {
+            this.mMaxThread = i2;
             Handler handler = this.mHandler;
             if (handler != null) {
                 handler.removeMessages(0);
@@ -759,8 +759,8 @@ public class BinaryTaskMng {
     }
 
     public void taskPriorityQueueOffer(AbstractTask abstractTask) {
-        int i = abstractTask.mStatus;
-        if (i == 1002 || i == 1009 || i == 1001) {
+        int i2 = abstractTask.mStatus;
+        if (i2 == 1002 || i2 == 1009 || i2 == 1001) {
             return;
         }
         abstractTask.mStatus = 1009;

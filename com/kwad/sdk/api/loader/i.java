@@ -9,12 +9,12 @@ import java.util.concurrent.Future;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ExecutorService f32185a = Executors.newSingleThreadExecutor();
+    public static final ExecutorService f32596a = Executors.newSingleThreadExecutor();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Handler f32186b = new Handler(Looper.getMainLooper());
+    public static final Handler f32597b = new Handler(Looper.getMainLooper());
 
     public static Future<?> a(Runnable runnable) {
-        return f32185a.submit(runnable);
+        return f32596a.submit(runnable);
     }
 }

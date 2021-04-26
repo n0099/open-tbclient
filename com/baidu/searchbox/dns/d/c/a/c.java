@@ -23,18 +23,18 @@ public class c extends Exception {
         this.an = -1;
     }
 
-    public c(int i, String str) {
+    public c(int i2, String str) {
         super(str);
         this.am = -1;
         this.an = -1;
-        this.am = i;
+        this.am = i2;
     }
 
-    public c(int i, int i2, String str) {
+    public c(int i2, int i3, String str) {
         super(str);
         this.am = -1;
         this.an = -1;
-        this.am = i;
-        this.an = i2;
+        this.am = i2;
+        this.an = i3;
     }
 }

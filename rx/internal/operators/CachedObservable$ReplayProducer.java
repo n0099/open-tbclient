@@ -49,8 +49,8 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                 j<? super T> jVar = this.child;
                 while (true) {
                     long j = get();
-                    int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                    if (i < 0) {
+                    int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                    if (i2 < 0) {
                         return;
                     }
                     int b2 = this.state.b();
@@ -61,11 +61,11 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                             this.currentBuffer = objArr;
                         }
                         int length = objArr.length - 1;
-                        int i2 = this.index;
-                        int i3 = this.currentIndexInBuffer;
+                        int i3 = this.index;
+                        int i4 = this.currentIndexInBuffer;
                         try {
-                            if (i == 0) {
-                                Object obj = objArr[i3];
+                            if (i2 == 0) {
+                                Object obj = objArr[i4];
                                 if (NotificationLite.f(obj)) {
                                     jVar.onCompleted();
                                     unsubscribe();
@@ -75,17 +75,17 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                     unsubscribe();
                                     return;
                                 }
-                            } else if (i > 0) {
-                                int i4 = 0;
-                                while (i2 < b2 && j > 0) {
+                            } else if (i2 > 0) {
+                                int i5 = 0;
+                                while (i3 < b2 && j > 0) {
                                     if (jVar.isUnsubscribed()) {
                                         return;
                                     }
-                                    if (i3 == length) {
+                                    if (i4 == length) {
                                         objArr = (Object[]) objArr[length];
-                                        i3 = 0;
+                                        i4 = 0;
                                     }
-                                    Object obj2 = objArr[i3];
+                                    Object obj2 = objArr[i4];
                                     try {
                                         if (NotificationLite.a(jVar, obj2)) {
                                             try {
@@ -110,10 +110,10 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                                 }
                                             }
                                         }
-                                        i3++;
-                                        i2++;
-                                        j--;
                                         i4++;
+                                        i3++;
+                                        j--;
+                                        i5++;
                                     } catch (Throwable th3) {
                                         th = th3;
                                         z = false;
@@ -122,10 +122,10 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                 if (jVar.isUnsubscribed()) {
                                     return;
                                 }
-                                this.index = i2;
-                                this.currentIndexInBuffer = i3;
+                                this.index = i3;
+                                this.currentIndexInBuffer = i4;
                                 this.currentBuffer = objArr;
-                                produced(i4);
+                                produced(i5);
                             }
                         } catch (Throwable th4) {
                             th = th4;

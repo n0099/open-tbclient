@@ -7,7 +7,7 @@ import org.apache.http.conn.routing.HttpRoute;
 public final class ConnPerRouteBean implements ConnPerRoute {
     public static final int DEFAULT_MAX_CONNECTIONS_PER_ROUTE = 2;
 
-    public ConnPerRouteBean(int i) {
+    public ConnPerRouteBean(int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -20,11 +20,11 @@ public final class ConnPerRouteBean implements ConnPerRoute {
         throw new RuntimeException("Stub!");
     }
 
-    public void setDefaultMaxPerRoute(int i) {
+    public void setDefaultMaxPerRoute(int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public void setMaxForRoute(HttpRoute httpRoute, int i) {
+    public void setMaxForRoute(HttpRoute httpRoute, int i2) {
         throw new RuntimeException("Stub!");
     }
 

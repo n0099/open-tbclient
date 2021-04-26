@@ -272,7 +272,7 @@ public class License {
             jSONObject = null;
         }
         if (jSONObject != null) {
-            int i = -1;
+            int i2 = -1;
             int optInt = jSONObject.optInt("errno", -1);
             jSONObject.optString("msg");
             JSONArray optJSONArray = jSONObject.optJSONArray(LICENSE_DATA_DIR_NAME);
@@ -280,16 +280,16 @@ public class License {
                 arrayList = null;
             } else {
                 ArrayList<String> arrayList2 = new ArrayList<>();
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    String optString = optJSONArray.optString(i2);
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    String optString = optJSONArray.optString(i3);
                     if (optString != null) {
                         arrayList2.add(optString);
                     }
                 }
-                i = optInt;
+                i2 = optInt;
                 arrayList = arrayList2;
             }
-            if (i != 0 || optJSONArray == null || optJSONArray.length() <= 0) {
+            if (i2 != 0 || optJSONArray == null || optJSONArray.length() <= 0) {
                 return null;
             }
             Log.e(TAG, "Network License Resopnse Is Right.");
@@ -310,9 +310,9 @@ public class License {
     private native int initLicenseWithToken(String str);
 
     private int initWithApikey(Context context, String str) {
-        int i = this.mAuthorityStatus;
-        if (272 == i) {
-            return i;
+        int i2 = this.mAuthorityStatus;
+        if (272 == i2) {
+            return i2;
         }
         this.mAuthorityStatus = AuthorityState.STATE_INIT_ING;
         this.mAuthorityStatus = verifyByLocalData(context, str);
@@ -369,12 +369,12 @@ public class License {
         return 49;
     }
 
-    public native int getLicenseRemnant(int i);
+    public native int getLicenseRemnant(int i2);
 
-    public native int getLicenseState(int i);
+    public native int getLicenseState(int i2);
 
-    public int getLicenseStateWithAlgorithmId(int i) {
-        return getLicenseState(i);
+    public int getLicenseStateWithAlgorithmId(int i2) {
+        return getLicenseState(i2);
     }
 
     @Deprecated
@@ -382,9 +382,9 @@ public class License {
         Log.e(TAG, "License Init With ApiKey");
         this.mLicenseAgId = -1;
         this.mLicenseFileName = LICENSE_DEFAULT_FILE_NAME;
-        int i = this.mAuthorityStatus;
-        if (272 == i) {
-            return i;
+        int i2 = this.mAuthorityStatus;
+        if (272 == i2) {
+            return i2;
         }
         this.mAuthorityStatus = AuthorityState.STATE_INIT_ING;
         this.mAuthorityStatus = verifyByLocalData(context, str);
@@ -405,9 +405,9 @@ public class License {
     @Deprecated
     public int init(String str) {
         Log.e(TAG, "License Init With Token");
-        int i = this.mAuthorityStatus;
-        if (272 == i) {
-            return i;
+        int i2 = this.mAuthorityStatus;
+        if (272 == i2) {
+            return i2;
         }
         this.mAuthorityStatus = AuthorityState.STATE_INIT_ING;
         if (str != null && str.length() > 0) {
@@ -423,9 +423,9 @@ public class License {
     }
 
     @Deprecated
-    public int init(Context context, String str, int i, String str2) {
+    public int init(Context context, String str, int i2, String str2) {
         Log.e(TAG, "License Init With ApiKey and AgId");
-        this.mLicenseAgId = i;
+        this.mLicenseAgId = i2;
         if (TextUtils.isEmpty(str2)) {
             this.mLicenseFileName = LICENSE_DEFAULT_FILE_NAME;
         } else {

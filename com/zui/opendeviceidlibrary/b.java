@@ -9,37 +9,37 @@ import com.zui.deviceidservice.a;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f41499b = "OpenDeviceId library";
+    public static String f39081b = "OpenDeviceId library";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f41500c = false;
+    public static boolean f39082c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.zui.deviceidservice.a f41501a;
+    public com.zui.deviceidservice.a f39083a;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f41502d;
+    public a f39084d;
 
     /* renamed from: com.zui.opendeviceidlibrary.b$1  reason: invalid class name */
     /* loaded from: classes7.dex */
     public class AnonymousClass1 implements ServiceConnection {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f41503a;
+        public final /* synthetic */ b f39085a;
 
         @Override // android.content.ServiceConnection
         public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            this.f41503a.f41501a = a.AbstractBinderC0541a.a(iBinder);
-            if (this.f41503a.f41502d != null) {
-                this.f41503a.f41502d.a(this.f41503a);
+            this.f39085a.f39083a = a.AbstractBinderC0485a.a(iBinder);
+            if (this.f39085a.f39084d != null) {
+                this.f39085a.f39084d.a(this.f39085a);
             }
-            this.f41503a.a("Service onServiceConnected");
+            this.f39085a.a("Service onServiceConnected");
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            this.f41503a.f41501a = null;
-            this.f41503a.a("Service onServiceDisconnected");
+            this.f39085a.f39083a = null;
+            this.f39085a.a("Service onServiceDisconnected");
         }
     }
 
@@ -50,8 +50,8 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
-        if (f41500c) {
-            Log.i(f41499b, str);
+        if (f39082c) {
+            Log.i(f39081b, str);
         }
     }
 }

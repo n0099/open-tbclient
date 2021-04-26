@@ -13,10 +13,10 @@ public class FIFOPool<T extends IPoolItem> implements IPool<T> {
     public final Object[] mPool;
     public int mPoolSize;
 
-    public FIFOPool(int i) {
-        if (i > 0) {
-            this.mMaxSize = i;
-            this.mPool = new Object[i];
+    public FIFOPool(int i2) {
+        if (i2 > 0) {
+            this.mMaxSize = i2;
+            this.mPool = new Object[i2];
             return;
         }
         throw new IllegalArgumentException("The max pool size must be > 0");
@@ -26,20 +26,20 @@ public class FIFOPool<T extends IPoolItem> implements IPool<T> {
         if (isInPool(t)) {
             return;
         }
-        int i = this.mPoolSize;
+        int i2 = this.mPoolSize;
         Object[] objArr = this.mPool;
-        if (i < objArr.length) {
-            objArr[i] = t;
-            this.mPoolSize = i + 1;
+        if (i2 < objArr.length) {
+            objArr[i2] = t;
+            this.mPoolSize = i2 + 1;
             return;
         }
-        int i2 = 0;
+        int i3 = 0;
         while (true) {
             Object[] objArr2 = this.mPool;
-            if (i2 < objArr2.length - 1) {
-                int i3 = i2 + 1;
-                objArr2[i2] = objArr2[i3];
-                i2 = i3;
+            if (i3 < objArr2.length - 1) {
+                int i4 = i3 + 1;
+                objArr2[i3] = objArr2[i4];
+                i3 = i4;
             } else {
                 objArr2[this.mPoolSize - 1] = t;
                 return;
@@ -48,8 +48,8 @@ public class FIFOPool<T extends IPoolItem> implements IPool<T> {
     }
 
     private boolean isInPool(T t) {
-        for (int i = 0; i < this.mPoolSize; i++) {
-            if (this.mPool[i] == t) {
+        for (int i2 = 0; i2 < this.mPoolSize; i2++) {
+            if (this.mPool[i2] == t) {
                 return true;
             }
         }
@@ -88,12 +88,12 @@ public class FIFOPool<T extends IPoolItem> implements IPool<T> {
             if (this.mActive >= this.mMaxSize) {
                 BdVideoLog.e("active player is overSize : " + this.mMaxSize);
             }
-            int i = this.mPoolSize;
-            int i2 = i - 1;
+            int i2 = this.mPoolSize;
+            int i3 = i2 - 1;
             Object[] objArr = this.mPool;
-            T t = (T) objArr[i2];
-            objArr[i2] = null;
-            this.mPoolSize = i - 1;
+            T t = (T) objArr[i3];
+            objArr[i3] = null;
+            this.mPoolSize = i2 - 1;
             this.mActive++;
             t.onInit();
             return t;
@@ -109,27 +109,27 @@ public class FIFOPool<T extends IPoolItem> implements IPool<T> {
             if (this.mActive >= this.mMaxSize) {
                 BdVideoLog.e("active player is overSize : " + this.mMaxSize);
             }
-            int i = -1;
-            for (int i2 = 0; i2 < this.mPoolSize; i2++) {
-                if (((IPoolItem) this.mPool[i2]).verify(str)) {
-                    i = i2;
+            int i2 = -1;
+            for (int i3 = 0; i3 < this.mPoolSize; i3++) {
+                if (((IPoolItem) this.mPool[i3]).verify(str)) {
+                    i2 = i3;
                 }
             }
-            if (i != -1) {
+            if (i2 != -1) {
                 this.mActive++;
                 Object[] objArr = this.mPool;
-                T t = (T) objArr[i];
-                objArr[i] = null;
+                T t = (T) objArr[i2];
+                objArr[i2] = null;
                 while (true) {
-                    int i3 = this.mPoolSize;
-                    if (i < i3 - 1) {
+                    int i4 = this.mPoolSize;
+                    if (i2 < i4 - 1) {
                         Object[] objArr2 = this.mPool;
-                        int i4 = i + 1;
-                        objArr2[i] = objArr2[i4];
-                        i = i4;
+                        int i5 = i2 + 1;
+                        objArr2[i2] = objArr2[i5];
+                        i2 = i5;
                     } else {
-                        this.mPool[i3 - 1] = null;
-                        this.mPoolSize = i3 - 1;
+                        this.mPool[i4 - 1] = null;
+                        this.mPoolSize = i4 - 1;
                         t.onInit();
                         return t;
                     }

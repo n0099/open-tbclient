@@ -10,7 +10,7 @@ import com.baidu.cyberplayer.sdk.n;
 import com.baidu.cyberplayer.sdk.remote.g;
 import java.util.Map;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RemotePlayerService extends Service {
     public long getKernelNetHandle() {
         return 0L;
@@ -41,8 +41,8 @@ public class RemotePlayerService extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
-        return super.onStartCommand(intent, i, i2);
+    public int onStartCommand(Intent intent, int i2, int i3) {
+        return super.onStartCommand(intent, i2, i3);
     }
 
     @Override // android.app.Service

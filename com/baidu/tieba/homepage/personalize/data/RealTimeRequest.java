@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.Realtime.DataReq;
 import tbclient.Realtime.RealtimeReqIdl;
 /* loaded from: classes4.dex */
@@ -77,8 +77,8 @@ public class RealTimeRequest extends NetMessage {
         this.abtest_tag = str;
     }
 
-    public void setLocation(int i) {
-        this.location = i;
+    public void setLocation(int i2) {
+        this.location = i2;
     }
 
     public void setOriUgcNid(String str) {
@@ -109,8 +109,8 @@ public class RealTimeRequest extends NetMessage {
         this.tid = j;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 
     public void setWeight(String str) {

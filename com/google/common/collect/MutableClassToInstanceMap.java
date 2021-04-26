@@ -1,10 +1,10 @@
 package com.google.common.collect;
 
-import d.h.c.a.n;
-import d.h.c.c.a0;
-import d.h.c.c.a1;
-import d.h.c.c.u;
-import d.h.c.c.v;
+import d.g.c.a.n;
+import d.g.c.c.a0;
+import d.g.c.c.a1;
+import d.g.c.c.u;
+import d.g.c.c.v;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -33,20 +33,20 @@ public final class MutableClassToInstanceMap<B> extends u<Class<? extends B>, B>
     public static class a extends v<Class<? extends B>, B> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Map.Entry f31062e;
+        public final /* synthetic */ Map.Entry f32031e;
 
         public a(Map.Entry entry) {
-            this.f31062e = entry;
+            this.f32031e = entry;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.h.c.c.y
+        @Override // d.g.c.c.y
         /* renamed from: b */
         public Map.Entry<Class<? extends B>, B> delegate() {
-            return this.f31062e;
+            return this.f32031e;
         }
 
-        @Override // d.h.c.c.v, java.util.Map.Entry
+        @Override // d.g.c.c.v, java.util.Map.Entry
         public B setValue(B b2) {
             return (B) super.setValue(MutableClassToInstanceMap.cast(getKey(), b2));
         }
@@ -62,7 +62,7 @@ public final class MutableClassToInstanceMap<B> extends u<Class<? extends B>, B>
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.h.c.c.a1
+            @Override // d.g.c.c.a1
             /* renamed from: b */
             public Map.Entry<Class<? extends B>, B> a(Map.Entry<Class<? extends B>, B> entry) {
                 return MutableClassToInstanceMap.checkedEntry(entry);
@@ -72,23 +72,23 @@ public final class MutableClassToInstanceMap<B> extends u<Class<? extends B>, B>
         public b() {
         }
 
-        @Override // d.h.c.c.r, java.util.Collection, java.lang.Iterable, java.util.Set
+        @Override // d.g.c.c.r, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<Map.Entry<Class<? extends B>, B>> iterator() {
             return new a(this, delegate().iterator());
         }
 
-        @Override // d.h.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
         public Object[] toArray() {
             return standardToArray();
         }
 
-        @Override // d.h.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
         public <T> T[] toArray(T[] tArr) {
             return (T[]) standardToArray(tArr);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.h.c.c.a0, d.h.c.c.r, d.h.c.c.y
+        @Override // d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
         public Set<Map.Entry<Class<? extends B>, B>> delegate() {
             return MutableClassToInstanceMap.this.delegate().entrySet();
         }
@@ -100,7 +100,7 @@ public final class MutableClassToInstanceMap<B> extends u<Class<? extends B>, B>
     }
 
     public static <B, T extends B> T cast(Class<T> cls, B b2) {
-        return (T) d.h.c.g.a.d(cls).cast(b2);
+        return (T) d.g.c.g.a.d(cls).cast(b2);
     }
 
     public static <B> Map.Entry<Class<? extends B>, B> checkedEntry(Map.Entry<Class<? extends B>, B> entry) {
@@ -115,7 +115,7 @@ public final class MutableClassToInstanceMap<B> extends u<Class<? extends B>, B>
         return new SerializedForm(delegate());
     }
 
-    @Override // d.h.c.c.u, java.util.Map
+    @Override // d.g.c.c.u, java.util.Map
     public Set<Map.Entry<Class<? extends B>, B>> entrySet() {
         return new b();
     }
@@ -126,12 +126,12 @@ public final class MutableClassToInstanceMap<B> extends u<Class<? extends B>, B>
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.h.c.c.u, java.util.Map
+    @Override // d.g.c.c.u, java.util.Map
     public /* bridge */ /* synthetic */ Object put(Object obj, Object obj2) {
         return put((Class<? extends Class<? extends B>>) obj, (Class<? extends B>) obj2);
     }
 
-    @Override // d.h.c.c.u, java.util.Map
+    @Override // d.g.c.c.u, java.util.Map
     public void putAll(Map<? extends Class<? extends B>, ? extends B> map) {
         LinkedHashMap linkedHashMap = new LinkedHashMap(map);
         for (Map.Entry entry : linkedHashMap.entrySet()) {
@@ -152,7 +152,7 @@ public final class MutableClassToInstanceMap<B> extends u<Class<? extends B>, B>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.h.c.c.u, d.h.c.c.y
+    @Override // d.g.c.c.u, d.g.c.c.y
     public Map<Class<? extends B>, B> delegate() {
         return this.delegate;
     }

@@ -30,6 +30,8 @@ public abstract class BaiduRtcRoom {
         public static final int RTC_ROOM_EVENT_ON_USER_JOINED_ROOM = 300;
         public static final int RTC_ROOM_EVENT_ON_USER_LEAVING_ROOM = 301;
         public static final int RTC_ROOM_EVENT_ON_USER_MESSAGE = 302;
+        public static final int RTC_ROOM_EVENT_REMOTE_AUDIO_ARRIVED = 108;
+        public static final int RTC_ROOM_EVENT_REMOTE_AUDIO_REMOVED = 109;
         public static final int RTC_ROOM_EVENT_REMOTE_COMING = 104;
         public static final int RTC_ROOM_EVENT_REMOTE_GONE = 107;
         public static final int RTC_ROOM_EVENT_REMOTE_LEAVING = 105;
@@ -56,22 +58,22 @@ public abstract class BaiduRtcRoom {
         public static final int RTC_STATE_STREAM_SLOW_LINK_LEVEL9 = 2109;
         public static final int RTC_STATE_STREAM_UP = 2000;
 
-        void onEngineStatisticsInfo(int i);
+        void onEngineStatisticsInfo(int i2);
 
-        void onErrorInfoUpdate(int i);
+        void onErrorInfoUpdate(int i2);
 
-        void onPeerConnectStateUpdate(int i);
+        void onPeerConnectStateUpdate(int i2);
 
         void onRoomDataMessage(ByteBuffer byteBuffer);
 
-        void onRoomEventUpdate(int i, long j, String str);
+        void onRoomEventUpdate(int i2, long j, String str);
 
         void onStreamInfoUpdate(String[] strArr);
     }
 
     /* loaded from: classes2.dex */
     public interface BaiduRtcRoomVideoObserver {
-        void getInputBuffer(int i, int i2, RtcVideoFormat rtcVideoFormat);
+        void getInputBuffer(int i2, int i3, RtcVideoFormat rtcVideoFormat);
 
         void onVideoFrame(RTCVideoFrame rTCVideoFrame, long j);
     }
@@ -127,14 +129,14 @@ public abstract class BaiduRtcRoom {
         public long[] Listeners;
         public long[] Publishers;
 
-        public UserList(int i, int i2) {
-            if (i > 0) {
-                this.Publishers = new long[i];
+        public UserList(int i2, int i3) {
+            if (i2 > 0) {
+                this.Publishers = new long[i2];
             } else {
                 this.Publishers = null;
             }
-            if (i2 > 0) {
-                this.Listeners = new long[i2];
+            if (i3 > 0) {
+                this.Listeners = new long[i3];
             } else {
                 this.Listeners = null;
             }
@@ -178,9 +180,9 @@ public abstract class BaiduRtcRoom {
 
     public abstract void addExternalRenderer(long j, RTCVideoExternalRender rTCVideoExternalRender);
 
-    public abstract void cameraFocusWithPoint(int i, int i2);
+    public abstract void cameraFocusWithPoint(int i2, int i3);
 
-    public abstract void changeSurfaceSize(long j, int i, int i2);
+    public abstract void changeSurfaceSize(long j, int i2, int i3);
 
     public abstract boolean configLiveServerWithUrl(String str, boolean z, boolean z2, String str2, RtcLiveTransferMode rtcLiveTransferMode);
 
@@ -273,7 +275,7 @@ public abstract class BaiduRtcRoom {
 
     public abstract void setBuffingFactor(float f2);
 
-    public abstract void setCameraID(int i);
+    public abstract void setCameraID(int i2);
 
     public abstract void setEngineStateStatistics(boolean z);
 
@@ -339,7 +341,7 @@ public abstract class BaiduRtcRoom {
 
     public abstract void stopSubscribeStreaming(long j);
 
-    public abstract void subscribeStreaming(int i, long j);
+    public abstract void subscribeStreaming(int i2, long j);
 
     public abstract void switchCamera();
 

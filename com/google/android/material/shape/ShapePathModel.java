@@ -1,65 +1,8 @@
 package com.google.android.material.shape;
-
-import com.google.android.material.internal.Experimental;
-@Experimental("The shapes API is currently experimental and subject to change")
+@Deprecated
 /* loaded from: classes6.dex */
-public class ShapePathModel {
-    public static final CornerTreatment DEFAULT_CORNER_TREATMENT = new CornerTreatment();
-    public static final EdgeTreatment DEFAULT_EDGE_TREATMENT = new EdgeTreatment();
-    public EdgeTreatment bottomEdge;
-    public CornerTreatment bottomLeftCorner;
-    public CornerTreatment bottomRightCorner;
-    public EdgeTreatment leftEdge;
-    public EdgeTreatment rightEdge;
-    public EdgeTreatment topEdge;
-    public CornerTreatment topLeftCorner;
-    public CornerTreatment topRightCorner;
-
-    public ShapePathModel() {
-        CornerTreatment cornerTreatment = DEFAULT_CORNER_TREATMENT;
-        this.topLeftCorner = cornerTreatment;
-        this.topRightCorner = cornerTreatment;
-        this.bottomRightCorner = cornerTreatment;
-        this.bottomLeftCorner = cornerTreatment;
-        EdgeTreatment edgeTreatment = DEFAULT_EDGE_TREATMENT;
-        this.topEdge = edgeTreatment;
-        this.rightEdge = edgeTreatment;
-        this.bottomEdge = edgeTreatment;
-        this.leftEdge = edgeTreatment;
-    }
-
-    public EdgeTreatment getBottomEdge() {
-        return this.bottomEdge;
-    }
-
-    public CornerTreatment getBottomLeftCorner() {
-        return this.bottomLeftCorner;
-    }
-
-    public CornerTreatment getBottomRightCorner() {
-        return this.bottomRightCorner;
-    }
-
-    public EdgeTreatment getLeftEdge() {
-        return this.leftEdge;
-    }
-
-    public EdgeTreatment getRightEdge() {
-        return this.rightEdge;
-    }
-
-    public EdgeTreatment getTopEdge() {
-        return this.topEdge;
-    }
-
-    public CornerTreatment getTopLeftCorner() {
-        return this.topLeftCorner;
-    }
-
-    public CornerTreatment getTopRightCorner() {
-        return this.topRightCorner;
-    }
-
+public class ShapePathModel extends ShapeAppearanceModel {
+    @Deprecated
     public void setAllCorners(CornerTreatment cornerTreatment) {
         this.topLeftCorner = cornerTreatment;
         this.topRightCorner = cornerTreatment;
@@ -67,6 +10,7 @@ public class ShapePathModel {
         this.bottomLeftCorner = cornerTreatment;
     }
 
+    @Deprecated
     public void setAllEdges(EdgeTreatment edgeTreatment) {
         this.leftEdge = edgeTreatment;
         this.topEdge = edgeTreatment;
@@ -74,18 +18,22 @@ public class ShapePathModel {
         this.bottomEdge = edgeTreatment;
     }
 
+    @Deprecated
     public void setBottomEdge(EdgeTreatment edgeTreatment) {
         this.bottomEdge = edgeTreatment;
     }
 
+    @Deprecated
     public void setBottomLeftCorner(CornerTreatment cornerTreatment) {
         this.bottomLeftCorner = cornerTreatment;
     }
 
+    @Deprecated
     public void setBottomRightCorner(CornerTreatment cornerTreatment) {
         this.bottomRightCorner = cornerTreatment;
     }
 
+    @Deprecated
     public void setCornerTreatments(CornerTreatment cornerTreatment, CornerTreatment cornerTreatment2, CornerTreatment cornerTreatment3, CornerTreatment cornerTreatment4) {
         this.topLeftCorner = cornerTreatment;
         this.topRightCorner = cornerTreatment2;
@@ -93,6 +41,7 @@ public class ShapePathModel {
         this.bottomLeftCorner = cornerTreatment4;
     }
 
+    @Deprecated
     public void setEdgeTreatments(EdgeTreatment edgeTreatment, EdgeTreatment edgeTreatment2, EdgeTreatment edgeTreatment3, EdgeTreatment edgeTreatment4) {
         this.leftEdge = edgeTreatment;
         this.topEdge = edgeTreatment2;
@@ -100,22 +49,27 @@ public class ShapePathModel {
         this.bottomEdge = edgeTreatment4;
     }
 
+    @Deprecated
     public void setLeftEdge(EdgeTreatment edgeTreatment) {
         this.leftEdge = edgeTreatment;
     }
 
+    @Deprecated
     public void setRightEdge(EdgeTreatment edgeTreatment) {
         this.rightEdge = edgeTreatment;
     }
 
+    @Deprecated
     public void setTopEdge(EdgeTreatment edgeTreatment) {
         this.topEdge = edgeTreatment;
     }
 
+    @Deprecated
     public void setTopLeftCorner(CornerTreatment cornerTreatment) {
         this.topLeftCorner = cornerTreatment;
     }
 
+    @Deprecated
     public void setTopRightCorner(CornerTreatment cornerTreatment) {
         this.topRightCorner = cornerTreatment;
     }

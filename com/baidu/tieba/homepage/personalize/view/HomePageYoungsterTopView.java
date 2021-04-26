@@ -22,16 +22,16 @@ import java.lang.ref.WeakReference;
 public class HomePageYoungsterTopView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f16982e;
+    public TextView f17256e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f16983f;
+    public ImageView f17257f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f16984g;
+    public c f17258g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f16985h;
+    public b f17259h;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -40,31 +40,31 @@ public class HomePageYoungsterTopView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (HomePageYoungsterTopView.this.f16985h != null) {
-                HomePageYoungsterTopView.this.f16985h.a();
+            if (HomePageYoungsterTopView.this.f17259h != null) {
+                HomePageYoungsterTopView.this.f17259h.onDelete();
             }
         }
     }
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a();
+        void onDelete();
     }
 
     /* loaded from: classes4.dex */
     public static class c extends ClickableSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<Context> f16987e;
+        public WeakReference<Context> f17261e;
 
         public c(Context context) {
-            this.f16987e = new WeakReference<>(context);
+            this.f17261e = new WeakReference<>(context);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
-            Context context = this.f16987e.get();
-            if (context == null || !d.b.i0.c1.b.c.d()) {
+            Context context = this.f17261e.get();
+            if (context == null || !d.a.i0.c1.b.c.d()) {
                 return;
             }
             YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(context);
@@ -86,26 +86,26 @@ public class HomePageYoungsterTopView extends RelativeLayout {
 
     public final void b() {
         RelativeLayout.inflate(getContext(), R.layout.view_homepage_youngster_top, this);
-        this.f16982e = (TextView) findViewById(R.id.youngster_top_text);
-        this.f16983f = (ImageView) findViewById(R.id.youngster_top_delete);
+        this.f17256e = (TextView) findViewById(R.id.youngster_top_text);
+        this.f17257f = (ImageView) findViewById(R.id.youngster_top_delete);
         SpannableString spannableString = new SpannableString(getContext().getString(R.string.youngster_open_title) + "，" + getContext().getString(R.string.youngster_homgpage_top_text));
         c cVar = new c(getContext());
-        this.f16984g = cVar;
+        this.f17258g = cVar;
         spannableString.setSpan(cVar, 9, 13, 33);
-        this.f16982e.setText(spannableString);
-        this.f16982e.setMovementMethod(LinkMovementMethod.getInstance());
-        this.f16983f.setOnClickListener(new a());
+        this.f17256e.setText(spannableString);
+        this.f17256e.setMovementMethod(LinkMovementMethod.getInstance());
+        this.f17257f.setOnClickListener(new a());
         c();
     }
 
     public void c() {
         SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
-        SkinManager.setViewTextColor(this.f16982e, R.color.CAM_X0107);
-        SkinManager.setImageResource(this.f16983f, R.drawable.icon_home_card_delete);
+        SkinManager.setViewTextColor(this.f17256e, R.color.CAM_X0107);
+        SkinManager.setImageResource(this.f17257f, R.drawable.icon_home_card_delete);
     }
 
     public void setOnDeleteClick(b bVar) {
-        this.f16985h = bVar;
+        this.f17259h = bVar;
     }
 
     public HomePageYoungsterTopView(Context context) {
@@ -116,8 +116,8 @@ public class HomePageYoungsterTopView extends RelativeLayout {
         this(context, attributeSet, 0);
     }
 
-    public HomePageYoungsterTopView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public HomePageYoungsterTopView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         b();
     }
 }

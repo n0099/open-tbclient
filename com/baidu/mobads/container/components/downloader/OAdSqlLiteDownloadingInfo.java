@@ -8,8 +8,8 @@ public class OAdSqlLiteDownloadingInfo {
     public int mThreadId;
     public String mURL;
 
-    public OAdSqlLiteDownloadingInfo(int i, String str, String str2, long j, long j2, long j3) {
-        setThreadId(i);
+    public OAdSqlLiteDownloadingInfo(int i2, String str, String str2, long j, long j2, long j3) {
+        setThreadId(i2);
         setURL(str);
         setDownloadedFilePath(str2);
         setStartPos(j);
@@ -57,8 +57,8 @@ public class OAdSqlLiteDownloadingInfo {
         this.mStartPos = j;
     }
 
-    public void setThreadId(int i) {
-        this.mThreadId = i;
+    public void setThreadId(int i2) {
+        this.mThreadId = i2;
     }
 
     public void setURL(String str) {

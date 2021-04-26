@@ -1,7 +1,7 @@
 package com.fun.ad.sdk.channel.model.csj;
 
-import a.a.a.a.r.b.a.b;
-import a.a.a.a.v.d;
+import a.a.a.a.t.b.a.b;
+import a.a.a.a.x.d;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
@@ -18,14 +18,16 @@ import java.util.List;
 public final class CSJNativeAdGroupImgView extends b {
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f30524f;
+    public LinearLayout f31456f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f30525g;
+    public ImageView f31457g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f30526h;
-    public ImageView i;
+    public ImageView f31458h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public ImageView f31459i;
 
     public CSJNativeAdGroupImgView(Context context) {
         super(context);
@@ -35,11 +37,11 @@ public final class CSJNativeAdGroupImgView extends b {
         super(context, attributeSet);
     }
 
-    public CSJNativeAdGroupImgView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public CSJNativeAdGroupImgView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 
-    @Override // a.a.a.a.r.b.a.b
+    @Override // a.a.a.a.t.b.a.b
     public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
         super.a(activity, tTNativeAd, adInteractionListener);
         List<TTImage> imageList = tTNativeAd.getImageList();
@@ -50,7 +52,7 @@ public final class CSJNativeAdGroupImgView extends b {
         if (tTImage != null && tTImage.isValid()) {
             Context context = getContext();
             String imageUrl = tTImage.getImageUrl();
-            ImageView imageView = this.f30525g;
+            ImageView imageView = this.f31457g;
             if (context == null) {
                 d.b("GlideHelper: context is null when load: " + imageUrl, new Object[0]);
             } else if (context instanceof Activity) {
@@ -68,7 +70,7 @@ public final class CSJNativeAdGroupImgView extends b {
         if (tTImage2 != null && tTImage2.isValid()) {
             Context context2 = getContext();
             String imageUrl2 = tTImage2.getImageUrl();
-            ImageView imageView2 = this.f30526h;
+            ImageView imageView2 = this.f31458h;
             if (context2 == null) {
                 d.b("GlideHelper: context is null when load: " + imageUrl2, new Object[0]);
             } else if (context2 instanceof Activity) {
@@ -88,7 +90,7 @@ public final class CSJNativeAdGroupImgView extends b {
         }
         Context context3 = getContext();
         String imageUrl3 = tTImage3.getImageUrl();
-        ImageView imageView3 = this.i;
+        ImageView imageView3 = this.f31459i;
         if (context3 == null) {
             d.b("GlideHelper: context is null when load: " + imageUrl3, new Object[0]);
         } else if (context3 instanceof Activity) {
@@ -103,25 +105,25 @@ public final class CSJNativeAdGroupImgView extends b {
         }
     }
 
-    @Override // a.a.a.a.r.b.a.b, android.view.View
+    @Override // a.a.a.a.t.b.a.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30524f = (LinearLayout) findViewById(R.id.ad_img_container);
-        this.f30525g = (ImageView) findViewById(R.id.ad_img_1);
-        this.f30526h = (ImageView) findViewById(R.id.ad_img_2);
-        this.i = (ImageView) findViewById(R.id.ad_img_3);
+        this.f31456f = (LinearLayout) findViewById(R.id.ad_img_container);
+        this.f31457g = (ImageView) findViewById(R.id.ad_img_1);
+        this.f31458h = (ImageView) findViewById(R.id.ad_img_2);
+        this.f31459i = (ImageView) findViewById(R.id.ad_img_3);
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30524f.getLayoutParams();
-        int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f30525g.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f30526h.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.i.getLayoutParams();
-        layoutParams.width = i5;
-        layoutParams.height = (int) (((((((i5 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.52f);
-        this.f30524f.setLayoutParams(layoutParams);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f31456f.getLayoutParams();
+        int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f31457g.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f31458h.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f31459i.getLayoutParams();
+        layoutParams.width = i6;
+        layoutParams.height = (int) (((((((i6 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.52f);
+        this.f31456f.setLayoutParams(layoutParams);
     }
 }

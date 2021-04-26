@@ -12,40 +12,42 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes4.dex */
 public class EntelechyPullUpRefreshView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15903e;
+    public View f16091e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f15904f;
+    public TbImageView f16092f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15905g;
+    public int f16093g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Animation f15906h;
-    public int i;
+    public Animation f16094h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f16095i;
     public boolean j;
 
     public EntelechyPullUpRefreshView(Context context) {
         super(context);
-        this.f15905g = 3;
-        this.f15906h = null;
-        this.i = R.drawable.icon_frs_reload;
+        this.f16093g = 3;
+        this.f16094h = null;
+        this.f16095i = R.drawable.icon_frs_reload;
         this.j = false;
         a(context, null);
     }
 
     private Animation getClickRotateAnimation() {
-        if (this.f15906h == null) {
-            this.f15906h = AnimationUtils.loadAnimation(getContext(), R.anim.refresh_rotate);
-            this.f15906h.setInterpolator(new LinearInterpolator());
-            this.f15906h.setFillAfter(true);
+        if (this.f16094h == null) {
+            this.f16094h = AnimationUtils.loadAnimation(getContext(), R.anim.refresh_rotate);
+            this.f16094h.setInterpolator(new LinearInterpolator());
+            this.f16094h.setFillAfter(true);
         }
-        return this.f15906h;
+        return this.f16094h;
     }
 
     public void a(Context context, AttributeSet attributeSet) {
@@ -54,7 +56,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
         }
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.EntelechyPullUpRefreshView);
-            this.i = obtainStyledAttributes.getResourceId(R$styleable.EntelechyPullUpRefreshView_tb_pull_up_icon, R.drawable.icon_frs_reload);
+            this.f16095i = obtainStyledAttributes.getResourceId(R$styleable.EntelechyPullUpRefreshView_tb_pull_up_icon, R.drawable.icon_frs_reload);
             this.j = obtainStyledAttributes.getBoolean(R$styleable.EntelechyPullUpRefreshView_tb_pull_show_top_line, false);
             obtainStyledAttributes.recycle();
         }
@@ -62,48 +64,48 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
         setGravity(1);
         SkinManager.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
         if (this.j) {
-            this.f15903e = new View(context);
-            this.f15903e.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(R.dimen.ds1)));
-            SkinManager.setBackgroundResource(this.f15903e, R.color.CAM_X0204);
-            addView(this.f15903e);
+            this.f16091e = new View(context);
+            this.f16091e.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(R.dimen.ds1)));
+            SkinManager.setBackgroundResource(this.f16091e, R.color.CAM_X0204);
+            addView(this.f16091e);
         }
-        this.f15904f = new TbImageView(context);
+        this.f16092f = new TbImageView(context);
         int g2 = l.g(getContext(), R.dimen.ds48);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g2, g2);
         layoutParams.topMargin = l.g(getContext(), R.dimen.ds20);
-        this.f15904f.setLayoutParams(layoutParams);
-        SkinManager.setImageResource(this.f15904f, this.i);
-        addView(this.f15904f);
+        this.f16092f.setLayoutParams(layoutParams);
+        SkinManager.setImageResource(this.f16092f, this.f16095i);
+        addView(this.f16092f);
     }
 
-    public void b(int i) {
-        if (this.f15905g != i) {
-            SkinManager.setBackgroundResource(this.f15903e, R.color.CAM_X0204);
-            SkinManager.setImageResource(this.f15904f, this.i);
+    public void b(int i2) {
+        if (this.f16093g != i2) {
+            SkinManager.setBackgroundResource(this.f16091e, R.color.CAM_X0204);
+            SkinManager.setImageResource(this.f16092f, this.f16095i);
             SkinManager.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
-            this.f15905g = i;
+            this.f16093g = i2;
         }
     }
 
-    public void setIconResource(int i) {
-        this.i = i;
-        SkinManager.setImageResource(this.f15904f, i);
+    public void setIconResource(int i2) {
+        this.f16095i = i2;
+        SkinManager.setImageResource(this.f16092f, i2);
     }
 
     public EntelechyPullUpRefreshView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15905g = 3;
-        this.f15906h = null;
-        this.i = R.drawable.icon_frs_reload;
+        this.f16093g = 3;
+        this.f16094h = null;
+        this.f16095i = R.drawable.icon_frs_reload;
         this.j = false;
         a(context, attributeSet);
     }
 
-    public EntelechyPullUpRefreshView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f15905g = 3;
-        this.f15906h = null;
-        this.i = R.drawable.icon_frs_reload;
+    public EntelechyPullUpRefreshView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f16093g = 3;
+        this.f16094h = null;
+        this.f16095i = R.drawable.icon_frs_reload;
         this.j = false;
         a(context, attributeSet);
     }

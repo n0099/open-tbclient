@@ -25,11 +25,11 @@ import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 import com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityNotificationAuto;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import d.b.i0.r.a0.b;
-import d.b.i0.t.n;
-import d.b.j0.d3.h0.e;
-import d.b.j0.d3.w;
-import d.b.j0.t2.a;
+import d.a.i0.r.a0.b;
+import d.a.i0.t.n;
+import d.a.j0.d3.h0.e;
+import d.a.j0.d3.w;
+import d.a.j0.t2.a;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
@@ -213,7 +213,7 @@ public class NativeListeners {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AgreeData agreeData;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e) || (agreeData = ((e) customResponsedMessage.getData()).f55240b) == null) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e) || (agreeData = ((e) customResponsedMessage.getData()).f53077b) == null) {
                 return;
             }
             HashMap hashMap = new HashMap();
@@ -302,9 +302,9 @@ public class NativeListeners {
             if (customResponsedMessage.getData() instanceof NetWorkParam) {
                 NetWorkParam netWorkParam = (NetWorkParam) customResponsedMessage.getData();
                 if (!ListUtils.isEmpty(netWorkParam.mPostData)) {
-                    for (int i = 0; i < netWorkParam.mPostData.size(); i++) {
-                        if (netWorkParam.mPostData.get(i) != null) {
-                            hashMap.put(netWorkParam.mPostData.get(i).getName(), netWorkParam.mPostData.get(i).getValue());
+                    for (int i2 = 0; i2 < netWorkParam.mPostData.size(); i2++) {
+                        if (netWorkParam.mPostData.get(i2) != null) {
+                            hashMap.put(netWorkParam.mPostData.get(i2).getName(), netWorkParam.mPostData.get(i2).getValue());
                         }
                     }
                 }
@@ -350,7 +350,7 @@ public class NativeListeners {
             if (customResponsedMessage == null) {
                 return;
             }
-            b.f51159c = b.f51160d;
+            b.f48764c = b.f48765d;
             NativeListeners.this.notifyFlutter("AnimateToBarEntryForumSquare", null, null);
         }
     };
@@ -368,8 +368,8 @@ public class NativeListeners {
     };
 
     private void dealBeforeAttachNotification(String str) {
-        if ("AnimateToBarEntryForumSquare".equals(str) && b.f51159c == b.f51161e) {
-            d.b.c.e.m.e.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.NativeListeners.2
+        if ("AnimateToBarEntryForumSquare".equals(str) && b.f48764c == b.f48766e) {
+            d.a.c.e.m.e.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.NativeListeners.2
                 @Override // java.lang.Runnable
                 public void run() {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921528));
@@ -697,9 +697,9 @@ public class NativeListeners {
             wVar.s(str2);
             wVar.v(1);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
-            d.b.j0.d3.q0.e eVar = new d.b.j0.d3.q0.e();
-            eVar.f55459a = d.b.c.e.m.b.f(str2, 0L);
-            eVar.f55460b = true;
+            d.a.j0.d3.q0.e eVar = new d.a.j0.d3.q0.e();
+            eVar.f53303a = d.a.c.e.m.b.f(str2, 0L);
+            eVar.f53304b = true;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, eVar));
             return null;
         } else if (c2 == 1) {

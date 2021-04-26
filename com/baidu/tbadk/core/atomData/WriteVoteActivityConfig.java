@@ -9,9 +9,9 @@ public class WriteVoteActivityConfig extends IntentConfig {
     public static final String EXTRA_DATA_KEY = "extra_data";
     public static final String EXTRA_TITLE_KEY = "title";
 
-    public WriteVoteActivityConfig(Context context, int i) {
+    public WriteVoteActivityConfig(Context context, int i2) {
         super(context);
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 

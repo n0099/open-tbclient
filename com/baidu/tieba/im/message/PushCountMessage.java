@@ -45,12 +45,12 @@ public class PushCountMessage extends TbSocketMessage {
         this.downFlowSize = j;
     }
 
-    public void setEnterForeCount(int i) {
-        this.enterForeCount = i;
+    public void setEnterForeCount(int i2) {
+        this.enterForeCount = i2;
     }
 
-    public void setPusherCount(int i) {
-        this.pusherCount = i;
+    public void setPusherCount(int i2) {
+        this.pusherCount = i2;
     }
 
     public void setUpFlowSize(long j) {

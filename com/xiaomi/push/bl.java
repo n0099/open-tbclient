@@ -6,10 +6,10 @@ import kotlin.jvm.internal.ByteCompanionObject;
 /* loaded from: classes7.dex */
 public class bl {
     public static String a(byte b2) {
-        int i = (b2 & ByteCompanionObject.MAX_VALUE) + (b2 < 0 ? 128 : 0);
+        int i2 = (b2 & ByteCompanionObject.MAX_VALUE) + (b2 < 0 ? 128 : 0);
         StringBuilder sb = new StringBuilder();
-        sb.append(i < 16 ? "0" : "");
-        sb.append(Integer.toHexString(i).toLowerCase());
+        sb.append(i2 < 16 ? "0" : "");
+        sb.append(Integer.toHexString(i2).toLowerCase());
         return sb.toString();
     }
 

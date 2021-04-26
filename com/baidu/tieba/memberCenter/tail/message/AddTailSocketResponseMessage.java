@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.util.IDataResponseMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.r1.h.a.b;
+import d.a.j0.r1.h.a.b;
 import tbclient.AddTail.AddTailResIdl;
 import tbclient.Error;
 /* loaded from: classes3.dex */
@@ -15,7 +15,7 @@ public class AddTailSocketResponseMessage extends SocketResponsedMessage impleme
         super(305101);
     }
 
-    public static b getResult(ResponsedMessage<?> responsedMessage, int i, byte[] bArr) throws Exception {
+    public static b getResult(ResponsedMessage<?> responsedMessage, int i2, byte[] bArr) throws Exception {
         AddTailResIdl addTailResIdl = (AddTailResIdl) new Wire(new Class[0]).parseFrom(bArr, AddTailResIdl.class);
         if (addTailResIdl == null) {
             return null;
@@ -35,8 +35,8 @@ public class AddTailSocketResponseMessage extends SocketResponsedMessage impleme
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        this.resultData = getResult(this, i, bArr);
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+        this.resultData = getResult(this, i2, bArr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

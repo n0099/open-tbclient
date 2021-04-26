@@ -21,7 +21,7 @@ public class TrendListResultData extends BaseResultData implements com.kwad.sdk.
     @Override // com.kwad.sdk.core.network.BaseResultData
     public boolean isDataEmpty() {
         if (this.trends.isEmpty()) {
-            com.kwad.sdk.core.d.a.d(TAG, "trends list is empty");
+            com.kwad.sdk.core.d.a.e(TAG, "trends list is empty");
             return true;
         }
         com.kwad.sdk.core.d.a.a(TAG, "trends size = " + this.trends.size());
@@ -42,9 +42,9 @@ public class TrendListResultData extends BaseResultData implements com.kwad.sdk.
         try {
             JSONArray jSONArray = new JSONObject(d.b(optString)).getJSONArray("trends");
             if (jSONArray.length() > 0) {
-                for (int i = 0; i < jSONArray.length(); i++) {
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     TrendInfo trendInfo = new TrendInfo();
-                    trendInfo.parseJson(jSONArray.optJSONObject(i));
+                    trendInfo.parseJson(jSONArray.optJSONObject(i2));
                     this.trends.add(trendInfo);
                 }
             }

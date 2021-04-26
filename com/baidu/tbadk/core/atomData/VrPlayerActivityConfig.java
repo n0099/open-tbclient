@@ -13,19 +13,19 @@ public class VrPlayerActivityConfig extends IntentConfig {
     public static final int TYPE_PIC = 2;
     public static final int TYPE_VIDEO = 1;
 
-    public VrPlayerActivityConfig(Context context, int i, boolean z, String str) {
+    public VrPlayerActivityConfig(Context context, int i2, boolean z, String str) {
         super(context);
         if (getIntent() != null) {
-            getIntent().putExtra("type", i);
+            getIntent().putExtra("type", i2);
             getIntent().putExtra(IS_LOGO, z);
             getIntent().putExtra(RES_PATH, str);
         }
     }
 
-    public void addPicParam(int i, int i2) {
+    public void addPicParam(int i2, int i3) {
         if (getIntent() != null) {
-            getIntent().putExtra(PIC_WIDTH, i);
-            getIntent().putExtra(PIC_HEIGHT, i2);
+            getIntent().putExtra(PIC_WIDTH, i2);
+            getIntent().putExtra(PIC_HEIGHT, i3);
         }
     }
 

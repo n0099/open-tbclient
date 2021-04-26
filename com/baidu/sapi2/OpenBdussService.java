@@ -13,10 +13,10 @@ import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
 import com.baidu.sapi2.result.OpenBdussResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
+import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
-import com.baidu.sapi2.utils.g;
 import com.baidu.tbadk.core.util.FieldBuilder;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.ArrayList;
@@ -90,21 +90,21 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                 httpHashMapWrap = new HttpHashMapWrap();
                 httpHashMapWrap.put("client_id", getOpenBdussDTO.clientId);
                 httpHashMapWrap.put("bduss", currentAccount.bduss);
-                httpHashMapWrap.put(SapiAccount.f10190h, currentAccount.ptoken);
-                httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo(g.C));
+                httpHashMapWrap.put(SapiAccount.SAPI_ACCOUNT_PTOKEN, currentAccount.ptoken);
+                httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo(SapiEnv.GET_OPEN_BDUSS));
                 list = getOpenBdussDTO.targetTplList;
                 if (list != null && list.size() > 0) {
                     String str = getOpenBdussDTO.targetTplList.get(0);
-                    for (int i = 1; i < getOpenBdussDTO.targetTplList.size(); i++) {
-                        str = str + FieldBuilder.SE + getOpenBdussDTO.targetTplList.get(i);
+                    for (int i2 = 1; i2 < getOpenBdussDTO.targetTplList.size(); i2++) {
+                        str = str + FieldBuilder.SE + getOpenBdussDTO.targetTplList.get(i2);
                     }
                     httpHashMapWrap.put("tpl_list", str);
                 }
-                new HttpClientWrap().post(g.C, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.OpenBdussService.1
+                new HttpClientWrap().post(SapiEnv.GET_OPEN_BDUSS, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.OpenBdussService.1
                     @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                    public void onFailure(Throwable th, int i2, String str2) {
+                    public void onFailure(Throwable th, int i3, String str2) {
                         OpenBdussResult openBdussResult2 = new OpenBdussResult();
-                        openBdussResult2.setResultCode(i2);
+                        openBdussResult2.setResultCode(i3);
                         getOpenBdussCallback.onFailure(openBdussResult2);
                     }
 
@@ -119,7 +119,7 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                     }
 
                     @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                    public void onSuccess(int i2, String str2) {
+                    public void onSuccess(int i3, String str2) {
                         try {
                             JSONObject jSONObject = new JSONObject(str2);
                             if (!TextUtils.isEmpty(jSONObject.optString("uid"))) {
@@ -156,20 +156,20 @@ public class OpenBdussService extends AbstractService implements NoProguard {
         httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("client_id", getOpenBdussDTO.clientId);
         httpHashMapWrap.put("bduss", currentAccount.bduss);
-        httpHashMapWrap.put(SapiAccount.f10190h, currentAccount.ptoken);
-        httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo(g.C));
+        httpHashMapWrap.put(SapiAccount.SAPI_ACCOUNT_PTOKEN, currentAccount.ptoken);
+        httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo(SapiEnv.GET_OPEN_BDUSS));
         list = getOpenBdussDTO.targetTplList;
         if (list != null) {
             String str2 = getOpenBdussDTO.targetTplList.get(0);
-            while (i < getOpenBdussDTO.targetTplList.size()) {
+            while (i2 < getOpenBdussDTO.targetTplList.size()) {
             }
             httpHashMapWrap.put("tpl_list", str2);
         }
-        new HttpClientWrap().post(g.C, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.OpenBdussService.1
+        new HttpClientWrap().post(SapiEnv.GET_OPEN_BDUSS, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.OpenBdussService.1
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-            public void onFailure(Throwable th, int i2, String str22) {
+            public void onFailure(Throwable th, int i3, String str22) {
                 OpenBdussResult openBdussResult2 = new OpenBdussResult();
-                openBdussResult2.setResultCode(i2);
+                openBdussResult2.setResultCode(i3);
                 getOpenBdussCallback.onFailure(openBdussResult2);
             }
 
@@ -184,7 +184,7 @@ public class OpenBdussService extends AbstractService implements NoProguard {
             }
 
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-            public void onSuccess(int i2, String str22) {
+            public void onSuccess(int i3, String str22) {
                 try {
                     JSONObject jSONObject = new JSONObject(str22);
                     if (!TextUtils.isEmpty(jSONObject.optString("uid"))) {

@@ -7,7 +7,7 @@ import android.view.OrientationEventListener;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
-import d.b.e0.a.d.c;
+import d.a.e0.a.d.c;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -20,7 +20,7 @@ public class ArBridge {
     public static final boolean DEBUG = false;
     public static final int INVALID_MESSAGE_ID = -1;
     public static final String TAG = "EngineLogger";
-    public d.b.e0.a.c.a mDataStore;
+    public d.a.e0.a.c.a mDataStore;
     public EGLContext mEglContext;
     public FirstFrameListener mFirstFrameListener;
     public long mNativeARBridge;
@@ -40,7 +40,7 @@ public class ArBridge {
     public boolean mHasResumeByUser = false;
     public int mImuType = 0;
     public final PerformanceJsonBean mPerformanceJsonBean = new PerformanceJsonBean();
-    public d.b.u.c.b mGameRecorder = new d.b.u.c.b(V8Engine.getAppContext());
+    public d.a.u.c.b mGameRecorder = new d.a.u.c.b(V8Engine.getAppContext());
 
     @NotProguard
     /* loaded from: classes2.dex */
@@ -64,14 +64,14 @@ public class ArBridge {
 
     /* loaded from: classes2.dex */
     public interface b {
-        void a(String str, int i, String str2);
+        void a(String str, int i2, String str2);
     }
 
     public ArBridge() {
         this.mNativeARBridge = 0L;
         this.mNativeARBridge = nativeInitializeAR();
         Log.e(TAG, "initialize ar bridge. nativePtr: " + this.mNativeARBridge);
-        this.mStuckScreenHandler = new d.b.e0.a.b();
+        this.mStuckScreenHandler = new d.a.e0.a.b();
     }
 
     public static void exceptionCallback(String str) {
@@ -94,7 +94,7 @@ public class ArBridge {
 
     private void onFirstFrameFinished() {
         Log.i(TAG, "onFirstFrameFinished");
-        d.b.u.c.b bVar = this.mGameRecorder;
+        d.a.u.c.b bVar = this.mGameRecorder;
         if (bVar != null && this.mEglContext != null) {
             bVar.t(nativeIsFlipYNeeded(), this.mEglContext, this.mScreenWidth, this.mScreenHeight, V8Engine.getAppContext());
         }
@@ -107,7 +107,7 @@ public class ArBridge {
     }
 
     public void clearARMemory() {
-        d.b.e0.a.c.a aVar = this.mDataStore;
+        d.a.e0.a.c.a aVar = this.mDataStore;
         if (aVar != null) {
             aVar.a();
         }
@@ -127,7 +127,7 @@ public class ArBridge {
 
     public native int getCaseId();
 
-    public d.b.u.c.b getGameRecorder() {
+    public d.a.u.c.b getGameRecorder() {
         return this.mGameRecorder;
     }
 
@@ -153,10 +153,10 @@ public class ArBridge {
         return this.mStuckScreenHandler;
     }
 
-    public String getValue(int i, String str) {
-        d.b.e0.a.c.a aVar = this.mDataStore;
+    public String getValue(int i2, String str) {
+        d.a.e0.a.c.a aVar = this.mDataStore;
         if (aVar != null) {
-            return aVar.b(i, str);
+            return aVar.b(i2, str);
         }
         Log.e("ArBridge", "get value error!");
         return "";
@@ -164,7 +164,7 @@ public class ArBridge {
 
     public void initDataStore(SharedPreferences sharedPreferences) {
         if (this.mDataStore == null) {
-            d.b.e0.a.c.a aVar = new d.b.e0.a.c.a();
+            d.a.e0.a.c.a aVar = new d.a.e0.a.c.a();
             this.mDataStore = aVar;
             aVar.c(sharedPreferences);
         }
@@ -180,7 +180,7 @@ public class ArBridge {
 
     public native void nativeClearScreen();
 
-    public native void nativeCreateCase(String str, int i, HashMap<String, Object> hashMap, int i2, int i3);
+    public native void nativeCreateCase(String str, int i2, HashMap<String, Object> hashMap, int i3, int i4);
 
     public native void nativeDensity(float f2);
 
@@ -212,7 +212,7 @@ public class ArBridge {
 
     public native void nativeSetFrustum(float f2, float f3);
 
-    public native void nativeSetSlamRelocationType(int i);
+    public native void nativeSetSlamRelocationType(int i2);
 
     public native void nativeSetTargetInfo(HashMap<String, Object> hashMap);
 
@@ -241,15 +241,15 @@ public class ArBridge {
     public native void nativeUpdateSLAMMatrix(float[] fArr);
 
     public void notifyFrameUpdated() {
-        d.b.u.c.b bVar = this.mGameRecorder;
+        d.a.u.c.b bVar = this.mGameRecorder;
         if (bVar != null) {
             bVar.u(getScreenTextureId());
         }
     }
 
-    public native void onTouchEventNative(int i, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9, long j, int i4);
+    public native void onTouchEventNative(int i2, int i3, float f2, float f3, float f4, float f5, int i4, float f6, float f7, float f8, float f9, long j, int i5);
 
-    public native void sendMessageToEngine(int i, int i2, HashMap<String, Object> hashMap, int i3);
+    public native void sendMessageToEngine(int i2, int i3, HashMap<String, Object> hashMap, int i4);
 
     public void setCameraDefaultPos() {
         nativeSetCameraDefaultPos();
@@ -263,11 +263,11 @@ public class ArBridge {
         nativeSetDisplayMetrics(this.mNativeARBridge, f2, f3, f4, f5, f6);
     }
 
-    public void setEglContextToRecorder(EGLContext eGLContext, int i, int i2) {
+    public void setEglContextToRecorder(EGLContext eGLContext, int i2, int i3) {
         this.mEglContext = eGLContext;
-        if (i > 0 && i2 > 0) {
-            this.mScreenWidth = i;
-            this.mScreenHeight = i2;
+        if (i2 > 0 && i3 > 0) {
+            this.mScreenWidth = i2;
+            this.mScreenHeight = i3;
         }
         Log.i(TAG, "set eglContext:" + this.mEglContext);
     }
@@ -284,18 +284,18 @@ public class ArBridge {
         this.mCurrentGLThreadID = j;
     }
 
-    public void setGameRecordCallback(d.b.u.c.c cVar) {
-        d.b.u.c.b bVar = this.mGameRecorder;
+    public void setGameRecordCallback(d.a.u.c.c cVar) {
+        d.a.u.c.b bVar = this.mGameRecorder;
         if (bVar != null) {
             bVar.C(cVar);
         }
     }
 
-    public void setImuType(int i) {
-        this.mImuType = i;
+    public void setImuType(int i2) {
+        this.mImuType = i2;
     }
 
-    public void setOnStuckScreenListener(d.b.e0.a.d.a aVar) {
+    public void setOnStuckScreenListener(d.a.e0.a.d.a aVar) {
         this.mStuckScreenHandler.b(aVar);
     }
 
@@ -306,8 +306,8 @@ public class ArBridge {
         nativeSetSize(this.mNativeARBridge, f2, f3);
     }
 
-    public void setSlamRelocationType(int i) {
-        nativeSetSlamRelocationType(i);
+    public void setSlamRelocationType(int i2) {
+        nativeSetSlamRelocationType(i2);
     }
 
     public void setStuckScreenLimitTime(long j) {
@@ -318,10 +318,10 @@ public class ArBridge {
         this.mTouchOrientation = touchOrientation;
     }
 
-    public void setValue(int i, String str, String str2) {
-        d.b.e0.a.c.a aVar = this.mDataStore;
+    public void setValue(int i2, String str, String str2) {
+        d.a.e0.a.c.a aVar = this.mDataStore;
         if (aVar != null) {
-            aVar.d(i, str, str2);
+            aVar.d(i2, str, str2);
         } else {
             Log.e("ArBridge", "set value error!");
         }
@@ -399,32 +399,32 @@ public class ArBridge {
         nativeUpdateSLAMMatrix(fArr);
     }
 
-    public void updateVideoFrame(String str, int i, String str2) {
-        Log.i(TAG, "updateVideoFrame:" + i + "     ;avideoPath:" + str2);
+    public void updateVideoFrame(String str, int i2, String str2) {
+        Log.i(TAG, "updateVideoFrame:" + i2 + "     ;avideoPath:" + str2);
         b bVar = this.mVideoCallback;
         if (bVar != null) {
-            bVar.a(str, i, str2);
+            bVar.a(str, i2, str2);
         }
     }
 
-    public static String getValue(Object obj, int i, String str) {
+    public static String getValue(Object obj, int i2, String str) {
         ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
-        return arBridge == null ? "" : arBridge.getValue(i, str);
+        return arBridge == null ? "" : arBridge.getValue(i2, str);
     }
 
-    public static void setValue(Object obj, int i, String str, String str2) {
-        ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
-        if (arBridge == null) {
-            return;
-        }
-        arBridge.setValue(i, str, str2);
-    }
-
-    public static void updateVideoFrame(Object obj, String str, int i, String str2) {
+    public static void setValue(Object obj, int i2, String str, String str2) {
         ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
         if (arBridge == null) {
             return;
         }
-        arBridge.updateVideoFrame(str, i, str2);
+        arBridge.setValue(i2, str, str2);
+    }
+
+    public static void updateVideoFrame(Object obj, String str, int i2, String str2) {
+        ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
+        if (arBridge == null) {
+            return;
+        }
+        arBridge.updateVideoFrame(str, i2, str2);
     }
 }

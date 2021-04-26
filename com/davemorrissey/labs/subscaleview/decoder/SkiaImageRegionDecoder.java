@@ -10,7 +10,7 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.text.TextUtils;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SkiaImageRegionDecoder implements ImageRegionDecoder {
     public static final String ASSET_PREFIX = "file:///android_asset/";
     public static final String FILE_PREFIX = "file://";
@@ -19,11 +19,11 @@ public class SkiaImageRegionDecoder implements ImageRegionDecoder {
     public final Object decoderLock = new Object();
 
     @Override // com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder
-    public Bitmap decodeRegion(Rect rect, int i) {
+    public Bitmap decodeRegion(Rect rect, int i2) {
         Bitmap decodeRegion;
         synchronized (this.decoderLock) {
             BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inSampleSize = i;
+            options.inSampleSize = i2;
             options.inPreferredConfig = Bitmap.Config.RGB_565;
             decodeRegion = this.decoder.decodeRegion(rect, options);
             if (decodeRegion == null) {
@@ -36,7 +36,7 @@ public class SkiaImageRegionDecoder implements ImageRegionDecoder {
     @Override // com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder
     public Point init(Context context, Uri uri) throws Exception {
         Resources resourcesForApplication;
-        int i;
+        int i2;
         String uri2 = uri.toString();
         if (uri2.startsWith("android.resource://")) {
             String authority = uri.getAuthority();
@@ -48,17 +48,17 @@ public class SkiaImageRegionDecoder implements ImageRegionDecoder {
             List<String> pathSegments = uri.getPathSegments();
             int size = pathSegments.size();
             if (size == 2 && pathSegments.get(0).equals("drawable")) {
-                i = resourcesForApplication.getIdentifier(pathSegments.get(1), "drawable", authority);
+                i2 = resourcesForApplication.getIdentifier(pathSegments.get(1), "drawable", authority);
             } else {
                 if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
                     try {
-                        i = Integer.parseInt(pathSegments.get(0));
+                        i2 = Integer.parseInt(pathSegments.get(0));
                     } catch (NumberFormatException unused) {
                     }
                 }
-                i = 0;
+                i2 = 0;
             }
-            this.decoder = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i), false);
+            this.decoder = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i2), false);
         } else if (uri2.startsWith("file:///android_asset/")) {
             this.decoder = BitmapRegionDecoder.newInstance(context.getAssets().open(uri2.substring(22), 1), false);
         } else if (uri2.startsWith("file://")) {

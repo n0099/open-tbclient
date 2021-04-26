@@ -9,8 +9,8 @@ public class RequestPersonalLbsInfoMessage extends TbSocketMessage {
     public String lng;
     public long touid;
 
-    public RequestPersonalLbsInfoMessage(int i, long j, String str, String str2) {
-        super(i);
+    public RequestPersonalLbsInfoMessage(int i2, long j, String str, String str2) {
+        super(i2);
         this.touid = j;
         this.lat = str;
         this.lng = str2;

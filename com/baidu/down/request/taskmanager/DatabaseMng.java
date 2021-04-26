@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.down.request.db.DownloadDatabaseHelper;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DatabaseMng {
     public static final String DB_NAME = "bddownloads.db";
     public static final int DB_VERSION = 1;
@@ -48,12 +48,12 @@ public class DatabaseMng {
         return this.mDownLoad.insertOrUpdate(this.mDb, contentValues);
     }
 
-    public long insertToDatabase(String str, String str2, String str3, int i) {
+    public long insertToDatabase(String str, String str2, String str3, int i2) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("uri", str);
         contentValues.put("name", str2);
         contentValues.put("path", str3);
-        contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(i));
+        contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(i2));
         return this.mDownLoad.insert(this.mDb, contentValues);
     }
 

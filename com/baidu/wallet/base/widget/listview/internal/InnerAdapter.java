@@ -15,28 +15,28 @@ import java.util.List;
 public class InnerAdapter<T> extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Class<?>> f23769a = new ArrayList();
+    public List<Class<?>> f24507a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f23770b;
+    public Context f24508b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BaseListAdapter<T> f23771c;
+    public BaseListAdapter<T> f24509c;
 
     public InnerAdapter(Context context, BaseListAdapter<T> baseListAdapter) {
-        this.f23770b = context;
-        this.f23771c = baseListAdapter;
+        this.f24508b = context;
+        this.f24509c = baseListAdapter;
     }
 
-    private void a(int i, T t, BaseListAdapter.BaseViewHolder baseViewHolder, BaseListAdapter<T> baseListAdapter) {
-        baseViewHolder.setView(t, i, this.f23770b, baseListAdapter);
+    private void a(int i2, T t, BaseListAdapter.BaseViewHolder baseViewHolder, BaseListAdapter<T> baseListAdapter) {
+        baseViewHolder.setView(t, i2, this.f24508b, baseListAdapter);
     }
 
-    public int getBindItemViewResId(int i) {
-        if (BindLayoutMapping.getLayoutId(getViewBundles().get(this.f23771c.useItemTrueType() ? this.f23771c.getItemTrueType(i) : this.f23771c.getItemViewType(i))).equals("NOT_USE_XML")) {
+    public int getBindItemViewResId(int i2) {
+        if (BindLayoutMapping.getLayoutId(getViewBundles().get(this.f24509c.useItemTrueType() ? this.f24509c.getItemTrueType(i2) : this.f24509c.getItemViewType(i2))).equals("NOT_USE_XML")) {
             return -1;
         }
-        return ResUtils.layout(this.f23770b, BindLayoutMapping.getLayoutId(getViewBundles().get(this.f23771c.useItemTrueType() ? this.f23771c.getItemTrueType(i) : this.f23771c.getItemViewType(i))));
+        return ResUtils.layout(this.f24508b, BindLayoutMapping.getLayoutId(getViewBundles().get(this.f24509c.useItemTrueType() ? this.f24509c.getItemTrueType(i2) : this.f24509c.getItemViewType(i2))));
     }
 
     @Override // android.widget.Adapter
@@ -45,34 +45,34 @@ public class InnerAdapter<T> extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public T getItem(int i) {
+    public T getItem(int i2) {
         return null;
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public long getItemId(int i2) {
         return 0L;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i2, View view, ViewGroup viewGroup) {
         BaseListAdapter.BaseViewHolder baseViewHolder;
         if (view == null) {
-            BaseListAdapter.BaseViewHolder onCreateViewHolder = onCreateViewHolder(i, getViewBundles());
+            BaseListAdapter.BaseViewHolder onCreateViewHolder = onCreateViewHolder(i2, getViewBundles());
             baseViewHolder = onCreateViewHolder;
-            view = a(i, onCreateViewHolder);
+            view = a(i2, onCreateViewHolder);
         } else {
             baseViewHolder = (BaseListAdapter.BaseViewHolder) view.getTag();
         }
         if (view != null && view.getTag() != null) {
-            a(i, this.f23771c.getItem(i), baseViewHolder, this.f23771c);
+            a(i2, this.f24509c.getItem(i2), baseViewHolder, this.f24509c);
             return view;
         }
         throw new NullPointerException(" creatview fails");
     }
 
     public List<Class<?>> getViewBundles() {
-        return a(this.f23769a);
+        return a(this.f24507a);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -83,18 +83,18 @@ public class InnerAdapter<T> extends BaseAdapter {
     public void handleViewHolder(BaseListAdapter.BaseViewHolder baseViewHolder, T... tArr) {
     }
 
-    public BaseListAdapter.BaseViewHolder onCreateViewHolder(int i, List<Class<?>> list) {
-        return (BaseListAdapter.BaseViewHolder) a(list.get(this.f23771c.useItemTrueType() ? this.f23771c.getItemTrueType(i) : this.f23771c.getItemViewType(i)));
+    public BaseListAdapter.BaseViewHolder onCreateViewHolder(int i2, List<Class<?>> list) {
+        return (BaseListAdapter.BaseViewHolder) a(list.get(this.f24509c.useItemTrueType() ? this.f24509c.getItemTrueType(i2) : this.f24509c.getItemViewType(i2)));
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.wallet.base.widget.listview.internal.InnerAdapter<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    private View a(int i, BaseListAdapter.BaseViewHolder baseViewHolder) {
+    private View a(int i2, BaseListAdapter.BaseViewHolder baseViewHolder) {
         View inflate;
-        if (getBindItemViewResId(i) == -1) {
-            inflate = baseViewHolder.createView(this.f23770b);
+        if (getBindItemViewResId(i2) == -1) {
+            inflate = baseViewHolder.createView(this.f24508b);
         } else {
-            inflate = View.inflate(this.f23770b, getBindItemViewResId(i), null);
+            inflate = View.inflate(this.f24508b, getBindItemViewResId(i2), null);
             ViewMappingUtil.mapView(baseViewHolder, inflate);
         }
         handleViewHolder(baseViewHolder, new Object[0]);
@@ -115,7 +115,7 @@ public class InnerAdapter<T> extends BaseAdapter {
 
     private List<Class<?>> a(List<Class<?>> list) {
         if (list.size() <= 0) {
-            this.f23771c.onBindViewHolder(list);
+            this.f24509c.onBindViewHolder(list);
         }
         return list;
     }

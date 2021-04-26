@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.cache;
 
 import com.facebook.cache.common.CacheKey;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NoOpImageCacheStatsTracker implements ImageCacheStatsTracker {
     public static NoOpImageCacheStatsTracker sInstance;
 

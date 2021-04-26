@@ -25,7 +25,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.X509TrustManager;
 import kotlin.text.Typography;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ProxyURLConnection {
     public static final String CONTENT_TYPE_VALUE = "application/x-www-form-urlencoded; charset=UTF-8";
     public static final boolean DEBUG = false;
@@ -126,7 +126,7 @@ public class ProxyURLConnection {
                 name = Uri.encode(name);
             }
             stringBuffer.append(name);
-            stringBuffer.append(a.f1922h);
+            stringBuffer.append(a.f1873h);
             stringBuffer.append(Uri.encode(nameValuePair.getValue()));
         }
         return stringBuffer.toString();
@@ -160,16 +160,16 @@ public class ProxyURLConnection {
         return this.mConnectManager.isWapNetwork();
     }
 
-    public void setConnectTimeout(int i) {
-        mConnectionTimeout = i;
+    public void setConnectTimeout(int i2) {
+        mConnectionTimeout = i2;
     }
 
     public void setFollowRedirects(boolean z) {
         this.mFollowRedirects = z;
     }
 
-    public void setSocketTimeout(int i) {
-        mSocketTimeout = i;
+    public void setSocketTimeout(int i2) {
+        mSocketTimeout = i2;
     }
 
     public void setUsingDNSProxy(boolean z) {

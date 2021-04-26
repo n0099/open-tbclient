@@ -51,8 +51,8 @@ public class XAdLogger {
         return i(TAG, str);
     }
 
-    public boolean isLoggable(String str, int i) {
-        return i >= XAdSDKPorxyConfig.LOG_LEVEL;
+    public boolean isLoggable(String str, int i2) {
+        return i2 >= XAdSDKPorxyConfig.LOG_LEVEL;
     }
 
     public int w(String str) {
@@ -77,8 +77,8 @@ public class XAdLogger {
         return -1;
     }
 
-    public boolean isLoggable(int i) {
-        return isLoggable(TAG, i);
+    public boolean isLoggable(int i2) {
+        return isLoggable(TAG, i2);
     }
 
     public int d(String str) {

@@ -134,8 +134,8 @@ public final class MediaMetadataCompat implements Parcelable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public MediaMetadataCompat[] newArray(int i) {
-                return new MediaMetadataCompat[i];
+            public MediaMetadataCompat[] newArray(int i2) {
+                return new MediaMetadataCompat[i2];
             }
         };
     }
@@ -192,52 +192,52 @@ public final class MediaMetadataCompat implements Parcelable {
         CharSequence[] charSequenceArr = new CharSequence[3];
         CharSequence text = getText(METADATA_KEY_DISPLAY_TITLE);
         if (TextUtils.isEmpty(text)) {
-            int i = 0;
             int i2 = 0;
-            while (i < 3) {
+            int i3 = 0;
+            while (i2 < 3) {
                 String[] strArr = PREFERRED_DESCRIPTION_ORDER;
-                if (i2 >= strArr.length) {
+                if (i3 >= strArr.length) {
                     break;
                 }
-                int i3 = i2 + 1;
-                CharSequence text2 = getText(strArr[i2]);
+                int i4 = i3 + 1;
+                CharSequence text2 = getText(strArr[i3]);
                 if (!TextUtils.isEmpty(text2)) {
-                    charSequenceArr[i] = text2;
-                    i++;
+                    charSequenceArr[i2] = text2;
+                    i2++;
                 }
-                i2 = i3;
+                i3 = i4;
             }
         } else {
             charSequenceArr[0] = text;
             charSequenceArr[1] = getText(METADATA_KEY_DISPLAY_SUBTITLE);
             charSequenceArr[2] = getText(METADATA_KEY_DISPLAY_DESCRIPTION);
         }
-        int i4 = 0;
+        int i5 = 0;
         while (true) {
             String[] strArr2 = PREFERRED_BITMAP_ORDER;
-            if (i4 >= strArr2.length) {
+            if (i5 >= strArr2.length) {
                 bitmap = null;
                 break;
             }
-            bitmap = getBitmap(strArr2[i4]);
+            bitmap = getBitmap(strArr2[i5]);
             if (bitmap != null) {
                 break;
             }
-            i4++;
+            i5++;
         }
-        int i5 = 0;
+        int i6 = 0;
         while (true) {
             String[] strArr3 = PREFERRED_URI_ORDER;
-            if (i5 >= strArr3.length) {
+            if (i6 >= strArr3.length) {
                 uri = null;
                 break;
             }
-            String string2 = getString(strArr3[i5]);
+            String string2 = getString(strArr3[i6]);
             if (!TextUtils.isEmpty(string2)) {
                 uri = Uri.parse(string2);
                 break;
             }
-            i5++;
+            i6++;
         }
         String string3 = getString(METADATA_KEY_MEDIA_URI);
         Uri parse = TextUtils.isEmpty(string3) ? null : Uri.parse(string3);
@@ -315,7 +315,7 @@ public final class MediaMetadataCompat implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeBundle(this.mBundle);
     }
 
@@ -327,8 +327,8 @@ public final class MediaMetadataCompat implements Parcelable {
             this.mBundle = new Bundle();
         }
 
-        private Bitmap scaleBitmap(Bitmap bitmap, int i) {
-            float f2 = i;
+        private Bitmap scaleBitmap(Bitmap bitmap, int i2) {
+            float f2 = i2;
             float min = Math.min(f2 / bitmap.getWidth(), f2 / bitmap.getHeight());
             return Bitmap.createScaledBitmap(bitmap, (int) (bitmap.getWidth() * min), (int) (bitmap.getHeight() * min), true);
         }
@@ -388,14 +388,14 @@ public final class MediaMetadataCompat implements Parcelable {
         }
 
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        public Builder(MediaMetadataCompat mediaMetadataCompat, int i) {
+        public Builder(MediaMetadataCompat mediaMetadataCompat, int i2) {
             this(mediaMetadataCompat);
             for (String str : this.mBundle.keySet()) {
                 Object obj = this.mBundle.get(str);
                 if (obj instanceof Bitmap) {
                     Bitmap bitmap = (Bitmap) obj;
-                    if (bitmap.getHeight() > i || bitmap.getWidth() > i) {
-                        putBitmap(str, scaleBitmap(bitmap, i));
+                    if (bitmap.getHeight() > i2 || bitmap.getWidth() > i2) {
+                        putBitmap(str, scaleBitmap(bitmap, i2));
                     }
                 }
             }

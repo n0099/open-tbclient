@@ -86,8 +86,8 @@ public class PersonChangeData extends OrmObject implements Serializable {
         this.mAlaId = j;
     }
 
-    public void setBirthdayShowStatus(int i) {
-        this.mBirthdayShowStatus = i;
+    public void setBirthdayShowStatus(int i2) {
+        this.mBirthdayShowStatus = i2;
     }
 
     public void setBirthdayTime(long j) {
@@ -110,8 +110,8 @@ public class PersonChangeData extends OrmObject implements Serializable {
         this.mIntro = str;
     }
 
-    public void setMem(int i) {
-        this.isMem = i;
+    public void setMem(int i2) {
+        this.isMem = i2;
     }
 
     public void setName(String str) {
@@ -122,8 +122,8 @@ public class PersonChangeData extends OrmObject implements Serializable {
         this.mNameShow = str;
     }
 
-    public void setNickNameLeftDays(int i) {
-        this.mNickNameLeftDays = i;
+    public void setNickNameLeftDays(int i2) {
+        this.mNickNameLeftDays = i2;
     }
 
     public void setPhotoChanged(boolean z) {
@@ -134,11 +134,11 @@ public class PersonChangeData extends OrmObject implements Serializable {
         this.mPortrait = str;
     }
 
-    public void setSex(int i) {
-        this.mSex = i;
+    public void setSex(int i2) {
+        this.mSex = i2;
     }
 
-    public void setUserAge(int i) {
-        this.mUserAge = i;
+    public void setUserAge(int i2) {
+        this.mUserAge = i2;
     }
 }

@@ -6,8 +6,8 @@ public class HttpErrorException extends Exception implements com.baidu.pass.a {
     public HttpErrorException() {
     }
 
-    public HttpErrorException(int i, String str) {
+    public HttpErrorException(int i2, String str) {
         super(str);
-        this.statusCode = i;
+        this.statusCode = i2;
     }
 }

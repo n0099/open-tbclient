@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.util.videoPreload;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.switchs.VideoPreLoadSwitch;
-import d.b.c.e.p.j;
-import d.b.i0.r.d0.b;
+import d.a.c.e.p.j;
+import d.a.i0.r.d0.b;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -52,11 +52,11 @@ public class PreLoadVideoSwitchManager {
     }
 
     public int getSize() {
-        int i = this.mSize;
-        if (i == 0) {
+        int i2 = this.mSize;
+        if (i2 == 0) {
             return 512000;
         }
-        return i;
+        return i2;
     }
 
     public boolean isOpen() {

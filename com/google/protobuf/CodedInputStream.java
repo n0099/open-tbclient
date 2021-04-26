@@ -22,19 +22,19 @@ public final class CodedInputStream {
     public int sizeLimit;
     public int totalBytesRetired;
 
-    public CodedInputStream(byte[] bArr, int i, int i2) {
+    public CodedInputStream(byte[] bArr, int i2, int i3) {
         this.currentLimit = Integer.MAX_VALUE;
         this.recursionLimit = 64;
         this.sizeLimit = DEFAULT_SIZE_LIMIT;
         this.buffer = bArr;
-        this.bufferSize = i2 + i;
-        this.bufferPos = i;
-        this.totalBytesRetired = -i;
+        this.bufferSize = i3 + i2;
+        this.bufferPos = i2;
+        this.totalBytesRetired = -i2;
         this.input = null;
     }
 
-    public static int decodeZigZag32(int i) {
-        return (-(i & 1)) ^ (i >>> 1);
+    public static int decodeZigZag32(int i2) {
+        return (-(i2 & 1)) ^ (i2 >>> 1);
     }
 
     public static long decodeZigZag64(long j) {
@@ -46,31 +46,31 @@ public final class CodedInputStream {
     }
 
     private void recomputeBufferSizeAfterLimit() {
-        int i = this.bufferSize + this.bufferSizeAfterLimit;
-        this.bufferSize = i;
-        int i2 = this.totalBytesRetired + i;
-        int i3 = this.currentLimit;
-        if (i2 > i3) {
-            int i4 = i2 - i3;
-            this.bufferSizeAfterLimit = i4;
-            this.bufferSize = i - i4;
+        int i2 = this.bufferSize + this.bufferSizeAfterLimit;
+        this.bufferSize = i2;
+        int i3 = this.totalBytesRetired + i2;
+        int i4 = this.currentLimit;
+        if (i3 > i4) {
+            int i5 = i3 - i4;
+            this.bufferSizeAfterLimit = i5;
+            this.bufferSize = i2 - i5;
             return;
         }
         this.bufferSizeAfterLimit = 0;
     }
 
     private boolean refillBuffer(boolean z) throws IOException {
-        int i = this.bufferPos;
-        int i2 = this.bufferSize;
-        if (i >= i2) {
-            int i3 = this.totalBytesRetired;
-            if (i3 + i2 == this.currentLimit) {
+        int i2 = this.bufferPos;
+        int i3 = this.bufferSize;
+        if (i2 >= i3) {
+            int i4 = this.totalBytesRetired;
+            if (i4 + i3 == this.currentLimit) {
                 if (z) {
                     throw InvalidProtocolBufferException.truncatedMessage();
                 }
                 return false;
             }
-            this.totalBytesRetired = i3 + i2;
+            this.totalBytesRetired = i4 + i3;
             this.bufferPos = 0;
             InputStream inputStream = this.input;
             int read = inputStream == null ? -1 : inputStream.read(this.buffer);
@@ -85,8 +85,8 @@ public final class CodedInputStream {
                 return false;
             } else {
                 recomputeBufferSizeAfterLimit();
-                int i4 = this.totalBytesRetired + this.bufferSize + this.bufferSizeAfterLimit;
-                if (i4 > this.sizeLimit || i4 < 0) {
+                int i5 = this.totalBytesRetired + this.bufferSize + this.bufferSizeAfterLimit;
+                if (i5 > this.sizeLimit || i5 < 0) {
                     throw InvalidProtocolBufferException.sizeLimitExceeded();
                 }
                 return true;
@@ -95,18 +95,18 @@ public final class CodedInputStream {
         throw new IllegalStateException("refillBuffer() called when buffer wasn't empty.");
     }
 
-    public void checkLastTagWas(int i) throws InvalidProtocolBufferException {
-        if (this.lastTag != i) {
+    public void checkLastTagWas(int i2) throws InvalidProtocolBufferException {
+        if (this.lastTag != i2) {
             throw InvalidProtocolBufferException.invalidEndTag();
         }
     }
 
     public int getBytesUntilLimit() {
-        int i = this.currentLimit;
-        if (i == Integer.MAX_VALUE) {
+        int i2 = this.currentLimit;
+        if (i2 == Integer.MAX_VALUE) {
             return -1;
         }
-        return i - (this.totalBytesRetired + this.bufferPos);
+        return i2 - (this.totalBytesRetired + this.bufferPos);
     }
 
     public int getTotalBytesRead() {
@@ -117,19 +117,19 @@ public final class CodedInputStream {
         return this.bufferPos == this.bufferSize && !refillBuffer(false);
     }
 
-    public void popLimit(int i) {
-        this.currentLimit = i;
+    public void popLimit(int i2) {
+        this.currentLimit = i2;
         recomputeBufferSizeAfterLimit();
     }
 
-    public int pushLimit(int i) throws InvalidProtocolBufferException {
-        if (i >= 0) {
-            int i2 = i + this.totalBytesRetired + this.bufferPos;
-            int i3 = this.currentLimit;
-            if (i2 <= i3) {
-                this.currentLimit = i2;
+    public int pushLimit(int i2) throws InvalidProtocolBufferException {
+        if (i2 >= 0) {
+            int i3 = i2 + this.totalBytesRetired + this.bufferPos;
+            int i4 = this.currentLimit;
+            if (i3 <= i4) {
+                this.currentLimit = i3;
                 recomputeBufferSizeAfterLimit();
-                return i3;
+                return i4;
             }
             throw InvalidProtocolBufferException.truncatedMessage();
         }
@@ -145,10 +145,10 @@ public final class CodedInputStream {
         if (readRawVarint32 == 0) {
             return ByteString.EMPTY;
         }
-        int i = this.bufferSize;
-        int i2 = this.bufferPos;
-        if (readRawVarint32 <= i - i2 && readRawVarint32 > 0) {
-            ByteString copyFrom = ByteString.copyFrom(this.buffer, i2, readRawVarint32);
+        int i2 = this.bufferSize;
+        int i3 = this.bufferPos;
+        if (readRawVarint32 <= i2 - i3 && readRawVarint32 > 0) {
+            ByteString copyFrom = ByteString.copyFrom(this.buffer, i3, readRawVarint32);
             this.bufferPos += readRawVarint32;
             return copyFrom;
         }
@@ -175,12 +175,12 @@ public final class CodedInputStream {
         return Float.intBitsToFloat(readRawLittleEndian32());
     }
 
-    public void readGroup(int i, MessageLite.Builder builder, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-        int i2 = this.recursionDepth;
-        if (i2 < this.recursionLimit) {
-            this.recursionDepth = i2 + 1;
+    public void readGroup(int i2, MessageLite.Builder builder, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+        int i3 = this.recursionDepth;
+        if (i3 < this.recursionLimit) {
+            this.recursionDepth = i3 + 1;
             builder.mergeFrom(this, extensionRegistryLite);
-            checkLastTagWas(WireFormat.makeTag(i, 4));
+            checkLastTagWas(WireFormat.makeTag(i2, 4));
             this.recursionDepth--;
             return;
         }
@@ -214,78 +214,78 @@ public final class CodedInputStream {
             refillBuffer(true);
         }
         byte[] bArr = this.buffer;
-        int i = this.bufferPos;
-        this.bufferPos = i + 1;
-        return bArr[i];
+        int i2 = this.bufferPos;
+        this.bufferPos = i2 + 1;
+        return bArr[i2];
     }
 
-    public byte[] readRawBytes(int i) throws IOException {
-        if (i >= 0) {
-            int i2 = this.totalBytesRetired;
-            int i3 = this.bufferPos;
-            int i4 = i2 + i3 + i;
-            int i5 = this.currentLimit;
-            if (i4 <= i5) {
-                int i6 = this.bufferSize;
-                if (i <= i6 - i3) {
-                    byte[] bArr = new byte[i];
-                    System.arraycopy(this.buffer, i3, bArr, 0, i);
-                    this.bufferPos += i;
+    public byte[] readRawBytes(int i2) throws IOException {
+        if (i2 >= 0) {
+            int i3 = this.totalBytesRetired;
+            int i4 = this.bufferPos;
+            int i5 = i3 + i4 + i2;
+            int i6 = this.currentLimit;
+            if (i5 <= i6) {
+                int i7 = this.bufferSize;
+                if (i2 <= i7 - i4) {
+                    byte[] bArr = new byte[i2];
+                    System.arraycopy(this.buffer, i4, bArr, 0, i2);
+                    this.bufferPos += i2;
                     return bArr;
-                } else if (i < 4096) {
-                    byte[] bArr2 = new byte[i];
-                    int i7 = i6 - i3;
-                    System.arraycopy(this.buffer, i3, bArr2, 0, i7);
+                } else if (i2 < 4096) {
+                    byte[] bArr2 = new byte[i2];
+                    int i8 = i7 - i4;
+                    System.arraycopy(this.buffer, i4, bArr2, 0, i8);
                     this.bufferPos = this.bufferSize;
                     refillBuffer(true);
                     while (true) {
-                        int i8 = i - i7;
-                        int i9 = this.bufferSize;
-                        if (i8 > i9) {
-                            System.arraycopy(this.buffer, 0, bArr2, i7, i9);
-                            int i10 = this.bufferSize;
-                            i7 += i10;
-                            this.bufferPos = i10;
+                        int i9 = i2 - i8;
+                        int i10 = this.bufferSize;
+                        if (i9 > i10) {
+                            System.arraycopy(this.buffer, 0, bArr2, i8, i10);
+                            int i11 = this.bufferSize;
+                            i8 += i11;
+                            this.bufferPos = i11;
                             refillBuffer(true);
                         } else {
-                            System.arraycopy(this.buffer, 0, bArr2, i7, i8);
-                            this.bufferPos = i8;
+                            System.arraycopy(this.buffer, 0, bArr2, i8, i9);
+                            this.bufferPos = i9;
                             return bArr2;
                         }
                     }
                 } else {
-                    this.totalBytesRetired = i2 + i6;
+                    this.totalBytesRetired = i3 + i7;
                     this.bufferPos = 0;
                     this.bufferSize = 0;
-                    int i11 = i6 - i3;
-                    int i12 = i - i11;
+                    int i12 = i7 - i4;
+                    int i13 = i2 - i12;
                     ArrayList<byte[]> arrayList = new ArrayList();
-                    while (i12 > 0) {
-                        int min = Math.min(i12, 4096);
+                    while (i13 > 0) {
+                        int min = Math.min(i13, 4096);
                         byte[] bArr3 = new byte[min];
-                        int i13 = 0;
-                        while (i13 < min) {
+                        int i14 = 0;
+                        while (i14 < min) {
                             InputStream inputStream = this.input;
-                            int read = inputStream == null ? -1 : inputStream.read(bArr3, i13, min - i13);
+                            int read = inputStream == null ? -1 : inputStream.read(bArr3, i14, min - i14);
                             if (read == -1) {
                                 throw InvalidProtocolBufferException.truncatedMessage();
                             }
                             this.totalBytesRetired += read;
-                            i13 += read;
+                            i14 += read;
                         }
-                        i12 -= min;
+                        i13 -= min;
                         arrayList.add(bArr3);
                     }
-                    byte[] bArr4 = new byte[i];
-                    System.arraycopy(this.buffer, i3, bArr4, 0, i11);
+                    byte[] bArr4 = new byte[i2];
+                    System.arraycopy(this.buffer, i4, bArr4, 0, i12);
                     for (byte[] bArr5 : arrayList) {
-                        System.arraycopy(bArr5, 0, bArr4, i11, bArr5.length);
-                        i11 += bArr5.length;
+                        System.arraycopy(bArr5, 0, bArr4, i12, bArr5.length);
+                        i12 += bArr5.length;
                     }
                     return bArr4;
                 }
             } else {
-                skipRawBytes((i5 - i2) - i3);
+                skipRawBytes((i6 - i3) - i4);
                 throw InvalidProtocolBufferException.truncatedMessage();
             }
         } else {
@@ -304,48 +304,48 @@ public final class CodedInputStream {
     }
 
     public int readRawVarint32() throws IOException {
-        int i;
+        int i2;
         byte readRawByte = readRawByte();
         if (readRawByte >= 0) {
             return readRawByte;
         }
-        int i2 = readRawByte & ByteCompanionObject.MAX_VALUE;
+        int i3 = readRawByte & ByteCompanionObject.MAX_VALUE;
         byte readRawByte2 = readRawByte();
         if (readRawByte2 >= 0) {
-            i = readRawByte2 << 7;
+            i2 = readRawByte2 << 7;
         } else {
-            i2 |= (readRawByte2 & ByteCompanionObject.MAX_VALUE) << 7;
+            i3 |= (readRawByte2 & ByteCompanionObject.MAX_VALUE) << 7;
             byte readRawByte3 = readRawByte();
             if (readRawByte3 >= 0) {
-                i = readRawByte3 << 14;
+                i2 = readRawByte3 << 14;
             } else {
-                i2 |= (readRawByte3 & ByteCompanionObject.MAX_VALUE) << 14;
+                i3 |= (readRawByte3 & ByteCompanionObject.MAX_VALUE) << 14;
                 byte readRawByte4 = readRawByte();
                 if (readRawByte4 < 0) {
-                    int i3 = i2 | ((readRawByte4 & ByteCompanionObject.MAX_VALUE) << 21);
+                    int i4 = i3 | ((readRawByte4 & ByteCompanionObject.MAX_VALUE) << 21);
                     byte readRawByte5 = readRawByte();
-                    int i4 = i3 | (readRawByte5 << 28);
+                    int i5 = i4 | (readRawByte5 << 28);
                     if (readRawByte5 < 0) {
-                        for (int i5 = 0; i5 < 5; i5++) {
+                        for (int i6 = 0; i6 < 5; i6++) {
                             if (readRawByte() >= 0) {
-                                return i4;
+                                return i5;
                             }
                         }
                         throw InvalidProtocolBufferException.malformedVarint();
                     }
-                    return i4;
+                    return i5;
                 }
-                i = readRawByte4 << 21;
+                i2 = readRawByte4 << 21;
             }
         }
-        return i2 | i;
+        return i3 | i2;
     }
 
     public long readRawVarint64() throws IOException {
         long j = 0;
-        for (int i = 0; i < 64; i += 7) {
+        for (int i2 = 0; i2 < 64; i2 += 7) {
             byte readRawByte = readRawByte();
-            j |= (readRawByte & ByteCompanionObject.MAX_VALUE) << i;
+            j |= (readRawByte & ByteCompanionObject.MAX_VALUE) << i2;
             if ((readRawByte & ByteCompanionObject.MIN_VALUE) == 0) {
                 return j;
             }
@@ -401,34 +401,34 @@ public final class CodedInputStream {
     }
 
     @Deprecated
-    public void readUnknownGroup(int i, MessageLite.Builder builder) throws IOException {
-        readGroup(i, builder, (ExtensionRegistryLite) null);
+    public void readUnknownGroup(int i2, MessageLite.Builder builder) throws IOException {
+        readGroup(i2, builder, (ExtensionRegistryLite) null);
     }
 
     public void resetSizeCounter() {
         this.totalBytesRetired = -this.bufferPos;
     }
 
-    public int setRecursionLimit(int i) {
-        if (i >= 0) {
-            int i2 = this.recursionLimit;
-            this.recursionLimit = i;
-            return i2;
+    public int setRecursionLimit(int i2) {
+        if (i2 >= 0) {
+            int i3 = this.recursionLimit;
+            this.recursionLimit = i2;
+            return i3;
         }
-        throw new IllegalArgumentException("Recursion limit cannot be negative: " + i);
+        throw new IllegalArgumentException("Recursion limit cannot be negative: " + i2);
     }
 
-    public int setSizeLimit(int i) {
-        if (i >= 0) {
-            int i2 = this.sizeLimit;
-            this.sizeLimit = i;
-            return i2;
+    public int setSizeLimit(int i2) {
+        if (i2 >= 0) {
+            int i3 = this.sizeLimit;
+            this.sizeLimit = i2;
+            return i3;
         }
-        throw new IllegalArgumentException("Size limit cannot be negative: " + i);
+        throw new IllegalArgumentException("Size limit cannot be negative: " + i2);
     }
 
-    public boolean skipField(int i) throws IOException {
-        int tagWireType = WireFormat.getTagWireType(i);
+    public boolean skipField(int i2) throws IOException {
+        int tagWireType = WireFormat.getTagWireType(i2);
         if (tagWireType == 0) {
             readInt32();
             return true;
@@ -440,7 +440,7 @@ public final class CodedInputStream {
             return true;
         } else if (tagWireType == 3) {
             skipMessage();
-            checkLastTagWas(WireFormat.makeTag(WireFormat.getTagFieldNumber(i), 4));
+            checkLastTagWas(WireFormat.makeTag(WireFormat.getTagFieldNumber(i2), 4));
             return true;
         } else if (tagWireType != 4) {
             if (tagWireType == 5) {
@@ -463,35 +463,35 @@ public final class CodedInputStream {
         } while (skipField(readTag));
     }
 
-    public void skipRawBytes(int i) throws IOException {
-        if (i >= 0) {
-            int i2 = this.totalBytesRetired;
-            int i3 = this.bufferPos;
-            int i4 = i2 + i3 + i;
-            int i5 = this.currentLimit;
-            if (i4 <= i5) {
-                int i6 = this.bufferSize;
-                if (i <= i6 - i3) {
-                    this.bufferPos = i3 + i;
+    public void skipRawBytes(int i2) throws IOException {
+        if (i2 >= 0) {
+            int i3 = this.totalBytesRetired;
+            int i4 = this.bufferPos;
+            int i5 = i3 + i4 + i2;
+            int i6 = this.currentLimit;
+            if (i5 <= i6) {
+                int i7 = this.bufferSize;
+                if (i2 <= i7 - i4) {
+                    this.bufferPos = i4 + i2;
                     return;
                 }
-                int i7 = i6 - i3;
-                this.bufferPos = i6;
+                int i8 = i7 - i4;
+                this.bufferPos = i7;
                 refillBuffer(true);
                 while (true) {
-                    int i8 = i - i7;
-                    int i9 = this.bufferSize;
-                    if (i8 > i9) {
-                        i7 += i9;
-                        this.bufferPos = i9;
+                    int i9 = i2 - i8;
+                    int i10 = this.bufferSize;
+                    if (i9 > i10) {
+                        i8 += i10;
+                        this.bufferPos = i10;
                         refillBuffer(true);
                     } else {
-                        this.bufferPos = i8;
+                        this.bufferPos = i9;
                         return;
                     }
                 }
             } else {
-                skipRawBytes((i5 - i2) - i3);
+                skipRawBytes((i6 - i3) - i4);
                 throw InvalidProtocolBufferException.truncatedMessage();
             }
         } else {
@@ -503,22 +503,22 @@ public final class CodedInputStream {
         return newInstance(bArr, 0, bArr.length);
     }
 
-    public static CodedInputStream newInstance(byte[] bArr, int i, int i2) {
-        CodedInputStream codedInputStream = new CodedInputStream(bArr, i, i2);
+    public static CodedInputStream newInstance(byte[] bArr, int i2, int i3) {
+        CodedInputStream codedInputStream = new CodedInputStream(bArr, i2, i3);
         try {
-            codedInputStream.pushLimit(i2);
+            codedInputStream.pushLimit(i3);
             return codedInputStream;
         } catch (InvalidProtocolBufferException e2) {
             throw new IllegalArgumentException(e2);
         }
     }
 
-    public <T extends MessageLite> T readGroup(int i, Parser<T> parser, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-        int i2 = this.recursionDepth;
-        if (i2 < this.recursionLimit) {
-            this.recursionDepth = i2 + 1;
+    public <T extends MessageLite> T readGroup(int i2, Parser<T> parser, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+        int i3 = this.recursionDepth;
+        if (i3 < this.recursionLimit) {
+            this.recursionDepth = i3 + 1;
             T parsePartialFrom = parser.parsePartialFrom(this, extensionRegistryLite);
-            checkLastTagWas(WireFormat.makeTag(i, 4));
+            checkLastTagWas(WireFormat.makeTag(i2, 4));
             this.recursionDepth--;
             return parsePartialFrom;
         }
@@ -558,32 +558,32 @@ public final class CodedInputStream {
         throw InvalidProtocolBufferException.recursionLimitExceeded();
     }
 
-    public static int readRawVarint32(int i, InputStream inputStream) throws IOException {
-        if ((i & 128) == 0) {
-            return i;
+    public static int readRawVarint32(int i2, InputStream inputStream) throws IOException {
+        if ((i2 & 128) == 0) {
+            return i2;
         }
-        int i2 = i & 127;
-        int i3 = 7;
-        while (i3 < 32) {
+        int i3 = i2 & 127;
+        int i4 = 7;
+        while (i4 < 32) {
             int read = inputStream.read();
             if (read == -1) {
                 throw InvalidProtocolBufferException.truncatedMessage();
             }
-            i2 |= (read & 127) << i3;
+            i3 |= (read & 127) << i4;
             if ((read & 128) == 0) {
-                return i2;
+                return i3;
             }
-            i3 += 7;
+            i4 += 7;
         }
-        while (i3 < 64) {
+        while (i4 < 64) {
             int read2 = inputStream.read();
             if (read2 == -1) {
                 throw InvalidProtocolBufferException.truncatedMessage();
             }
             if ((read2 & 128) == 0) {
-                return i2;
+                return i3;
             }
-            i3 += 7;
+            i4 += 7;
         }
         throw InvalidProtocolBufferException.malformedVarint();
     }

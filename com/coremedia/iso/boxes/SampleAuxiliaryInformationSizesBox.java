@@ -1,6 +1,5 @@
 package com.coremedia.iso.boxes;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
 import com.coremedia.iso.IsoFile;
@@ -14,21 +13,21 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE = "saiz";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_10 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_8 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_9 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_10 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_9 = null;
     public String auxInfoType;
     public String auxInfoTypeParameter;
     public int defaultSampleInfoSize;
@@ -53,7 +52,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
         ajc$tjp_3 = bVar.g("method-execution", bVar.f("1", "setAuxInfoTypeParameter", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "java.lang.String", "auxInfoTypeParameter", "", "void"), 110);
         ajc$tjp_4 = bVar.g("method-execution", bVar.f("1", "getDefaultSampleInfoSize", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "", "", "", "int"), 114);
         ajc$tjp_5 = bVar.g("method-execution", bVar.f("1", "setDefaultSampleInfoSize", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "int", "defaultSampleInfoSize", "", "void"), 118);
-        ajc$tjp_6 = bVar.g("method-execution", bVar.f("1", "getSampleInfoSizes", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "", "", "", "java.util.List"), Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+        ajc$tjp_6 = bVar.g("method-execution", bVar.f("1", "getSampleInfoSizes", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "", "", "", "java.util.List"), 123);
         ajc$tjp_7 = bVar.g("method-execution", bVar.f("1", "setSampleInfoSizes", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "java.util.List", "sampleInfoSizes", "", "void"), 127);
         ajc$tjp_8 = bVar.g("method-execution", bVar.f("1", "getSampleCount", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "", "", "", "int"), IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER);
         ajc$tjp_9 = bVar.g("method-execution", bVar.f("1", "setSampleCount", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "int", "sampleCount", "", "void"), 135);
@@ -70,7 +69,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
         this.sampleCount = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
         this.sampleInfoSizes.clear();
         if (this.defaultSampleInfoSize == 0) {
-            for (int i = 0; i < this.sampleCount; i++) {
+            for (int i2 = 0; i2 < this.sampleCount; i2++) {
                 this.sampleInfoSizes.add(Short.valueOf((short) IsoTypeReader.readUInt8(byteBuffer)));
             }
         }
@@ -134,14 +133,14 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
         this.auxInfoTypeParameter = str;
     }
 
-    public void setDefaultSampleInfoSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.e(i)));
-        this.defaultSampleInfoSize = i;
+    public void setDefaultSampleInfoSize(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.e(i2)));
+        this.defaultSampleInfoSize = i2;
     }
 
-    public void setSampleCount(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_9, this, this, g.a.b.a.a.e(i)));
-        this.sampleCount = i;
+    public void setSampleCount(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_9, this, this, g.a.b.a.a.e(i2)));
+        this.sampleCount = i2;
     }
 
     public void setSampleInfoSizes(List<Short> list) {

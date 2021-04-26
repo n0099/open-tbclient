@@ -17,14 +17,14 @@ public class InterviewLiveActivityConfig extends IntentConfig {
         super(context);
     }
 
-    public InterviewLiveActivityConfig createNormalCfg(String str, String str2, String str3, String str4, int i, int i2) {
+    public InterviewLiveActivityConfig createNormalCfg(String str, String str2, String str3, String str4, int i2, int i3) {
         Intent intent = getIntent();
         intent.putExtra("thread_id", str);
         intent.putExtra("task_id", str2);
         intent.putExtra("forum_id", str3);
         intent.putExtra("forum_name", str4);
-        intent.putExtra("is_top", i);
-        intent.putExtra("is_good", i2);
+        intent.putExtra("is_top", i2);
+        intent.putExtra("is_good", i3);
         return this;
     }
 }

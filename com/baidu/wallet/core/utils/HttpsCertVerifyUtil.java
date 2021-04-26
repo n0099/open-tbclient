@@ -18,10 +18,10 @@ import java.util.Arrays;
 public class HttpsCertVerifyUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23982a = ",";
+    public static final String f24730a = ",";
 
-    public static boolean a(int i) {
-        return 3 == i || 4 == i || 5 == i;
+    public static boolean a(int i2) {
+        return 3 == i2 || 4 == i2 || 5 == i2;
     }
 
     public static byte[] a(String str) {
@@ -31,14 +31,14 @@ public class HttpsCertVerifyUtil {
         int length = str.length() / 2;
         char[] charArray = str.toCharArray();
         byte[] bArr = new byte[length];
-        for (int i = 0; i < length; i++) {
-            int i2 = i * 2;
-            int indexOf = "0123456789abcdef".indexOf(charArray[i2]) << 4;
-            int indexOf2 = "0123456789abcdef".indexOf(charArray[i2 + 1]);
+        for (int i2 = 0; i2 < length; i2++) {
+            int i3 = i2 * 2;
+            int indexOf = "0123456789abcdef".indexOf(charArray[i3]) << 4;
+            int indexOf2 = "0123456789abcdef".indexOf(charArray[i3 + 1]);
             if (indexOf == -1 || indexOf2 == -1) {
                 return null;
             }
-            bArr[i] = (byte) (indexOf2 | indexOf);
+            bArr[i2] = (byte) (indexOf2 | indexOf);
         }
         return bArr;
     }

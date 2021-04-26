@@ -8,11 +8,11 @@ public class b extends c {
         super(str);
     }
 
-    public b(int i, String str) {
-        super(i, str);
+    public b(int i2, String str) {
+        super(i2, str);
     }
 
-    public b(int i, int i2, String str) {
-        super(i, i2, str);
+    public b(int i2, int i3, String str) {
+        super(i2, i3, str);
     }
 }

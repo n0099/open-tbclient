@@ -7,17 +7,17 @@ import com.baidu.mapsdkplatform.comapi.map.MessageCenter;
 public class b extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f9847a = null;
+    public a f10212a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9848b = 1;
+    public int f10213b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f9849c;
+    public Handler f10214c;
 
     public b() {
         c cVar = new c(this);
-        this.f9849c = cVar;
+        this.f10214c = cVar;
         MessageCenter.registMessage(4099, cVar);
         b();
     }
@@ -32,30 +32,30 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
-        this.f9849c = null;
-        this.f9847a = null;
+        this.f10214c = null;
+        this.f10212a = null;
         MessageCenter.registMessage(4099, null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Bundle a(int i) {
-        return com.baidu.platform.comapi.walknavi.b.a().D().a(i);
+    public Bundle a(int i2) {
+        return com.baidu.platform.comapi.walknavi.b.a().D().a(i2);
     }
 
     public void a(a aVar) {
-        this.f9847a = aVar;
+        this.f10212a = aVar;
     }
 
     public boolean a(int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4) {
         return com.baidu.platform.comapi.walknavi.b.a().D().a(iArr, iArr2, iArr3, iArr4);
     }
 
-    public int a(int i, int i2, int i3, byte[] bArr) {
-        a aVar = this.f9847a;
+    public int a(int i2, int i3, int i4, byte[] bArr) {
+        a aVar = this.f10212a;
         if (aVar != null) {
             aVar.a();
         }
-        return com.baidu.platform.comapi.walknavi.b.a().D().a(i, i2, i3, bArr);
+        return com.baidu.platform.comapi.walknavi.b.a().D().a(i2, i3, i4, bArr);
     }
 
     public void a() {

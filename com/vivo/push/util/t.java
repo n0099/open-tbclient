@@ -7,15 +7,15 @@ import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39950a = "RSA";
+    public static String f37555a = "RSA";
 
     public static PublicKey a(String str) throws Exception {
         try {
-            return KeyFactory.getInstance(f39950a).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
+            return KeyFactory.getInstance(f37555a).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
         } catch (NullPointerException unused) {
             throw new Exception("公钥数据为空");
         } catch (NoSuchAlgorithmException unused2) {

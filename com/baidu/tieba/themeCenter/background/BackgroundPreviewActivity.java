@@ -7,8 +7,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tieba.themeCenter.background.BackgroundPreviewModel;
-import d.b.i0.k0.d;
-import d.b.j0.j3.e.j;
+import d.a.i0.k0.d;
+import d.a.j0.j3.e.j;
 /* loaded from: classes5.dex */
 public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewActivity> {
     public BackgroundPreviewModel.b mCallback = new a();
@@ -24,10 +24,10 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundPreviewModel.b
-        public void a(int i, String str, DressItemData dressItemData) {
+        public void a(int i2, String str, DressItemData dressItemData) {
             BackgroundPreviewActivity backgroundPreviewActivity = BackgroundPreviewActivity.this;
             backgroundPreviewActivity.hideLoadingView(backgroundPreviewActivity.mView.f());
-            if (i == 0) {
+            if (i2 == 0) {
                 BackgroundPreviewActivity.this.mView.l(dressItemData);
                 return;
             }
@@ -42,11 +42,11 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         }
 
         @Override // com.baidu.adp.widget.ListView.BdExpandListView.b
-        public void a() {
+        public void a(float f2) {
         }
 
         @Override // com.baidu.adp.widget.ListView.BdExpandListView.b
-        public void b(float f2) {
+        public void b() {
         }
 
         @Override // com.baidu.adp.widget.ListView.BdExpandListView.b
@@ -54,7 +54,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
     public String getCurrentPageKey() {
         return "b009";
     }
@@ -67,15 +67,15 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50982a = true;
-            pageStayDurationItem.i = String.valueOf(this.mPropId);
+            pageStayDurationItem.f48564a = true;
+            pageStayDurationItem.f48572i = String.valueOf(this.mPropId);
         }
         return pageStayDurationItem;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         j jVar = this.mView;
         if (jVar != null) {
             jVar.g();
@@ -139,7 +139,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
         if (z) {
-            d.b.i0.z.b.a().d();
+            d.a.i0.z.b.a().d();
         }
     }
 }

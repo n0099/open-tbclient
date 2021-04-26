@@ -7,19 +7,19 @@ import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f32173a = "newversion";
+    public static String f32584a = "newversion";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f32174b = "curversion";
+    public static String f32585b = "curversion";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f32175c = "apiversion";
+    public static String f32586c = "apiversion";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f32176d = "_enable";
+    public static String f32587d = "_enable";
 
     public static String a(Context context) {
-        return a(context, f32175c);
+        return a(context, f32586c);
     }
 
     public static String a(Context context, String str) {
@@ -40,9 +40,9 @@ public class f {
         if (TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
             String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
             String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            for (int i = 0; i < split.length && i < split2.length; i++) {
+            for (int i2 = 0; i2 < split.length && i2 < split2.length; i2++) {
                 try {
-                    int parseInt = Integer.parseInt(split[i]) - Integer.parseInt(split2[i]);
+                    int parseInt = Integer.parseInt(split[i2]) - Integer.parseInt(split2[i2]);
                     if (parseInt > 0) {
                         return true;
                     }
@@ -59,6 +59,6 @@ public class f {
     }
 
     public static void b(Context context, String str) {
-        a(context, f32175c, str);
+        a(context, f32586c, str);
     }
 }

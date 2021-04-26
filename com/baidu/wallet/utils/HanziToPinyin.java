@@ -30,8 +30,8 @@ public class HanziToPinyin {
         public Token() {
         }
 
-        public Token(int i, String str, String str2) {
-            this.type = i;
+        public Token(int i2, String str, String str2) {
+            this.type = i2;
             this.source = str;
             this.target = str2;
         }
@@ -41,9 +41,9 @@ public class HanziToPinyin {
         this.mHasChinaCollator = z;
     }
 
-    private void addToken(StringBuilder sb, ArrayList<Token> arrayList, int i) {
+    private void addToken(StringBuilder sb, ArrayList<Token> arrayList, int i2) {
         String sb2 = sb.toString();
-        arrayList.add(new Token(i, sb2, sb2));
+        arrayList.add(new Token(i2, sb2, sb2));
         sb.setLength(0);
     }
 
@@ -65,15 +65,15 @@ public class HanziToPinyin {
     }
 
     public static HanziToPinyin getInstance() {
-        int i;
+        int i2;
         synchronized (HanziToPinyin.class) {
             if (sInstance != null) {
                 return sInstance;
             }
             Locale[] availableLocales = Collator.getAvailableLocales();
             Locale locale = new Locale("zh");
-            while (i < availableLocales.length) {
-                i = (availableLocales[i].equals(Locale.CHINA) || availableLocales[i].equals(locale)) ? 0 : i + 1;
+            while (i2 < availableLocales.length) {
+                i2 = (availableLocales[i2].equals(Locale.CHINA) || availableLocales[i2].equals(locale)) ? 0 : i2 + 1;
                 HanziToPinyin hanziToPinyin = new HanziToPinyin(true);
                 sInstance = hanziToPinyin;
                 return hanziToPinyin;
@@ -86,7 +86,7 @@ public class HanziToPinyin {
     }
 
     private Token getToken(char c2) {
-        int i;
+        int i2;
         Token token = new Token();
         String ch = Character.toString(c2);
         token.source = ch;
@@ -101,10 +101,10 @@ public class HanziToPinyin {
             token.target = ch;
             return token;
         }
-        int i2 = 0;
+        int i3 = 0;
         if (compare == 0) {
             token.type = 2;
-            i = 0;
+            i2 = 0;
         } else {
             compare = COLLATOR.compare(ch, "鿿");
             if (compare > 0) {
@@ -113,39 +113,39 @@ public class HanziToPinyin {
                 return token;
             } else if (compare == 0) {
                 token.type = 2;
-                i = UNIHANS.length - 1;
+                i2 = UNIHANS.length - 1;
             } else {
-                i = -1;
+                i2 = -1;
             }
         }
         token.type = 2;
-        if (i < 0) {
+        if (i2 < 0) {
             int length = UNIHANS.length - 1;
-            int i3 = 0;
-            while (i3 <= length) {
-                i = (i3 + length) / 2;
-                compare = COLLATOR.compare(ch, Character.toString(UNIHANS[i]));
+            int i4 = 0;
+            while (i4 <= length) {
+                i2 = (i4 + length) / 2;
+                compare = COLLATOR.compare(ch, Character.toString(UNIHANS[i2]));
                 if (compare == 0) {
                     break;
                 } else if (compare > 0) {
-                    i3 = i + 1;
+                    i4 = i2 + 1;
                 } else {
-                    length = i - 1;
+                    length = i2 - 1;
                 }
             }
         }
         if (compare < 0) {
-            i--;
+            i2--;
         }
         StringBuilder sb = new StringBuilder();
-        if (i > -1 && i < PINYINS.length) {
+        if (i2 > -1 && i2 < PINYINS.length) {
             while (true) {
                 byte[][] bArr = PINYINS;
-                if (i2 >= bArr[i].length || bArr[i][i2] == 0) {
+                if (i3 >= bArr[i2].length || bArr[i2][i3] == 0) {
                     break;
                 }
-                sb.append((char) bArr[i][i2]);
-                i2++;
+                sb.append((char) bArr[i2][i3]);
+                i3++;
             }
         }
         String sb2 = sb.toString();
@@ -162,39 +162,39 @@ public class HanziToPinyin {
         if (this.mHasChinaCollator && !TextUtils.isEmpty(str)) {
             int length = str.length();
             StringBuilder sb = new StringBuilder();
-            int i = 1;
-            for (int i2 = 0; i2 < length; i2++) {
-                char charAt = str.charAt(i2);
+            int i2 = 1;
+            for (int i3 = 0; i3 < length; i3++) {
+                char charAt = str.charAt(i3);
                 if (charAt == ' ') {
                     if (sb.length() > 0) {
-                        addToken(sb, arrayList, i);
+                        addToken(sb, arrayList, i2);
                     }
                 } else if (charAt < 256) {
-                    if (i != 1 && sb.length() > 0) {
-                        addToken(sb, arrayList, i);
+                    if (i2 != 1 && sb.length() > 0) {
+                        addToken(sb, arrayList, i2);
                     }
                     sb.append(charAt);
-                    i = 1;
+                    i2 = 1;
                 } else {
                     Token token = getToken(charAt);
-                    int i3 = token.type;
-                    if (i3 == 2) {
+                    int i4 = token.type;
+                    if (i4 == 2) {
                         if (sb.length() > 0) {
-                            addToken(sb, arrayList, i);
+                            addToken(sb, arrayList, i2);
                         }
                         arrayList.add(token);
-                        i = 2;
+                        i2 = 2;
                     } else {
-                        if (i != i3 && sb.length() > 0) {
-                            addToken(sb, arrayList, i);
+                        if (i2 != i4 && sb.length() > 0) {
+                            addToken(sb, arrayList, i2);
                         }
-                        i = token.type;
+                        i2 = token.type;
                         sb.append(charAt);
                     }
                 }
             }
             if (sb.length() > 0) {
-                addToken(sb, arrayList, i);
+                addToken(sb, arrayList, i2);
             }
         }
         return arrayList;

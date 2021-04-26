@@ -16,9 +16,9 @@ public class DivideTimeScaleTrack implements Track {
     public Track source;
     public int timeScaleDivisor;
 
-    public DivideTimeScaleTrack(Track track, int i) {
+    public DivideTimeScaleTrack(Track track, int i2) {
         this.source = track;
-        this.timeScaleDivisor = i;
+        this.timeScaleDivisor = i2;
     }
 
     public List<CompositionTimeToSample.Entry> adjustCtts() {
@@ -71,8 +71,8 @@ public class DivideTimeScaleTrack implements Track {
     public long[] getSampleDurations() {
         long[] jArr = new long[this.source.getSampleDurations().length];
         new LinkedList();
-        for (int i = 0; i < this.source.getSampleDurations().length; i++) {
-            jArr[i] = this.source.getSampleDurations()[i] / this.timeScaleDivisor;
+        for (int i2 = 0; i2 < this.source.getSampleDurations().length; i2++) {
+            jArr[i2] = this.source.getSampleDurations()[i2] / this.timeScaleDivisor;
         }
         return jArr;
     }

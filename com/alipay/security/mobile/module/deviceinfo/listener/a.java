@@ -18,6 +18,6 @@ public class a implements LocationListener {
     }
 
     @Override // android.location.LocationListener
-    public void onStatusChanged(String str, int i, Bundle bundle) {
+    public void onStatusChanged(String str, int i2, Bundle bundle) {
     }
 }

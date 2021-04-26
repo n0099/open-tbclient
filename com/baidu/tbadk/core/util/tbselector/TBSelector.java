@@ -34,43 +34,43 @@ public class TBSelector {
         return ColorSelector.make().textType(2);
     }
 
-    public static DrawableSelector selectorBackgroundColor(@ColorRes int i, @ColorRes int i2, int i3) {
-        return DrawableSelector.make().setType(1).defaultColor(i).pressedColor(i2).radius(i3);
+    public static DrawableSelector selectorBackgroundColor(@ColorRes int i2, @ColorRes int i3, int i4) {
+        return DrawableSelector.make().setType(1).defaultColor(i2).pressedColor(i3).radius(i4);
     }
 
     public static DrawableSelector selectorBackgroundDrawable(Drawable drawable, Drawable drawable2) {
         return DrawableSelector.make().setType(1).defaultDrawable(drawable).pressedDrawable(drawable2);
     }
 
-    public static DrawableSelector selectorImageDrawable(@DrawableRes int i, @DrawableRes int i2) {
-        return DrawableSelector.make().setType(2).defaultDrawable(i).pressedDrawable(i2);
+    public static DrawableSelector selectorImageDrawable(@DrawableRes int i2, @DrawableRes int i3) {
+        return DrawableSelector.make().setType(2).defaultDrawable(i2).pressedDrawable(i3);
     }
 
-    public static ColorSelector selectorTextColor(@ColorRes int i, @ColorRes int i2) {
-        return ColorSelector.make().textType(1).pressedColor(i2).defaultColor(i);
+    public static ColorSelector selectorTextColor(@ColorRes int i2, @ColorRes int i3) {
+        return ColorSelector.make().textType(1).pressedColor(i3).defaultColor(i2);
     }
 
-    public static ColorSelector selectorTextHintColor(@ColorRes int i, @ColorRes int i2) {
-        return ColorSelector.make().textType(2).pressedColor(i2).defaultColor(i);
+    public static ColorSelector selectorTextHintColor(@ColorRes int i2, @ColorRes int i3) {
+        return ColorSelector.make().textType(2).pressedColor(i3).defaultColor(i2);
     }
 
-    public static void setViewBackgroundColorWithDisabledState(View view, @ColorRes int i) {
+    public static void setViewBackgroundColorWithDisabledState(View view, @ColorRes int i2) {
         if (view == null) {
             return;
         }
-        Drawable colorDrawable = SelectorHelper.getColorDrawable(i);
-        DrawableSelector.make().setType(1).defaultDrawable(colorDrawable).disabledDrawable(SelectorHelper.getColorDrawable(i, RESOURCE_ALPHA_DISABLE)).into(view);
+        Drawable colorDrawable = SelectorHelper.getColorDrawable(i2);
+        DrawableSelector.make().setType(1).defaultDrawable(colorDrawable).disabledDrawable(SelectorHelper.getColorDrawable(i2, RESOURCE_ALPHA_DISABLE)).into(view);
     }
 
-    public static void setViewBackgroundColorWithPressedState(View view, int i, int i2) {
+    public static void setViewBackgroundColorWithPressedState(View view, int i2, int i3) {
         if (view == null) {
             return;
         }
-        DrawableSelector.make().setType(1).defaultColor(i).pressedColor(i2).into(view);
+        DrawableSelector.make().setType(1).defaultColor(i2).pressedColor(i3).into(view);
     }
 
-    public static DrawableSelector selectorBackgroundDrawable(@DrawableRes int i, @DrawableRes int i2) {
-        return DrawableSelector.make().setType(1).defaultDrawable(i).pressedDrawable(i2);
+    public static DrawableSelector selectorBackgroundDrawable(@DrawableRes int i2, @DrawableRes int i3) {
+        return DrawableSelector.make().setType(1).defaultDrawable(i2).pressedDrawable(i3);
     }
 
     public static ColorSelector selectorTextColor(String str, String str2) {
@@ -81,15 +81,15 @@ public class TBSelector {
         return ColorSelector.make().textType(2).pressedColor(str2).defaultColor(str);
     }
 
-    public static DrawableSelector selectorBackgroundColor(String str, String str2, int i) {
-        return DrawableSelector.make().setType(1).defaultColor(str).pressedColor(str2).radius(i);
+    public static DrawableSelector selectorBackgroundColor(String str, String str2, int i2) {
+        return DrawableSelector.make().setType(1).defaultColor(str).pressedColor(str2).radius(i2);
     }
 
-    public static void setViewBackgroundColorWithPressedState(View view, @ColorRes int i) {
+    public static void setViewBackgroundColorWithPressedState(View view, @ColorRes int i2) {
         if (view == null) {
             return;
         }
-        Drawable colorDrawable = SelectorHelper.getColorDrawable(i);
-        DrawableSelector.make().setType(1).defaultDrawable(colorDrawable).pressedDrawable(SelectorHelper.getColorDrawable(i, RESOURCE_ALPHA_PRESS)).into(view);
+        Drawable colorDrawable = SelectorHelper.getColorDrawable(i2);
+        DrawableSelector.make().setType(1).defaultDrawable(colorDrawable).pressedDrawable(SelectorHelper.getColorDrawable(i2, RESOURCE_ALPHA_PRESS)).into(view);
     }
 }

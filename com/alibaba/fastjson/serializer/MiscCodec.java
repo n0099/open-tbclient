@@ -11,7 +11,6 @@ import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.alibaba.fastjson.util.IOUtils;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.android.common.others.IStringUtil;
-import com.baidu.android.imsdk.internal.Constants;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -69,7 +68,7 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
         String str;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         InetAddress inetAddress = null;
-        int i = 0;
+        int i2 = 0;
         if (type == InetSocketAddress.class) {
             if (jSONLexer.token() == 8) {
                 jSONLexer.nextToken();
@@ -87,7 +86,7 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
                     if (jSONLexer.token() == 2) {
                         int intValue = jSONLexer.intValue();
                         jSONLexer.nextToken();
-                        i = intValue;
+                        i2 = intValue;
                     } else {
                         throw new JSONException("port is not int");
                     }
@@ -99,7 +98,7 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
                     jSONLexer.nextToken();
                 } else {
                     defaultJSONParser.accept(13);
-                    return (T) new InetSocketAddress(inetAddress, i);
+                    return (T) new InetSocketAddress(inetAddress, i2);
                 }
             }
         } else {
@@ -233,7 +232,7 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         String miscCodec;
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (obj == null) {
@@ -244,7 +243,7 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
         if (cls == SimpleDateFormat.class) {
             miscCodec = ((SimpleDateFormat) obj).toPattern();
             if (serializeWriter.isEnabled(SerializerFeature.WriteClassName) && obj.getClass() != type) {
-                serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+                serializeWriter.write(123);
                 serializeWriter.writeFieldName(JSON.DEFAULT_TYPE_KEY);
                 jSONSerializer.write(obj.getClass().getName());
                 serializeWriter.writeFieldValue(',', "val", miscCodec);
@@ -256,7 +255,7 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
         } else if (cls == InetSocketAddress.class) {
             InetSocketAddress inetSocketAddress = (InetSocketAddress) obj;
             InetAddress address = inetSocketAddress.getAddress();
-            serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+            serializeWriter.write(123);
             if (address != null) {
                 serializeWriter.writeFieldName("address");
                 jSONSerializer.write(address);
@@ -292,12 +291,12 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
                 if (value instanceof String) {
                     serializeWriter.writeFieldValueStringWithDoubleQuoteCheck('{', str, (String) value);
                 } else {
-                    serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+                    serializeWriter.write(123);
                     serializeWriter.writeFieldName(str);
                     jSONSerializer.write(value);
                 }
             } else {
-                serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+                serializeWriter.write(123);
                 jSONSerializer.write(key);
                 serializeWriter.write(58);
                 jSONSerializer.write(value);
@@ -317,13 +316,13 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
 
     public void writeIterator(JSONSerializer jSONSerializer, SerializeWriter serializeWriter, Iterator<?> it) {
         serializeWriter.write(91);
-        int i = 0;
+        int i2 = 0;
         while (it.hasNext()) {
-            if (i != 0) {
+            if (i2 != 0) {
                 serializeWriter.write(44);
             }
             jSONSerializer.write(it.next());
-            i++;
+            i2++;
         }
         serializeWriter.write(93);
     }

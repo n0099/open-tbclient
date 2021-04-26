@@ -5,7 +5,7 @@ import java.util.HashMap;
 public final class d {
     public static String a(String str) {
         Object obj;
-        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4750a.get(str);
+        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4862a.get(str);
         return (hashMap == null || (obj = hashMap.get("sdk_channel")) == null) ? "N/A" : (String) obj;
     }
 }

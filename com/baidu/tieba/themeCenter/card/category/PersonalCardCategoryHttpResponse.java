@@ -2,8 +2,8 @@ package com.baidu.tieba.themeCenter.card.category;
 
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.j3.g.a.a;
-import d.b.j0.j3.h.e;
+import d.a.j0.j3.g.a.a;
+import d.a.j0.j3.h.e;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
@@ -16,8 +16,8 @@ public class PersonalCardCategoryHttpResponse extends TbHttpResponsedMessage {
     public List<a> mCardCategoryList;
     public e mRecommand;
 
-    public PersonalCardCategoryHttpResponse(int i) {
-        super(i);
+    public PersonalCardCategoryHttpResponse(int i2) {
+        super(i2);
         this.hasMore = true;
     }
 
@@ -35,7 +35,7 @@ public class PersonalCardCategoryHttpResponse extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetCardByCategoryResIdl getCardByCategoryResIdl = (GetCardByCategoryResIdl) new Wire(new Class[0]).parseFrom(bArr, GetCardByCategoryResIdl.class);
         if (getCardByCategoryResIdl == null) {
             return;

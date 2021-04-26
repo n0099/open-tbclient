@@ -8,7 +8,7 @@ import android.view.View;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import d.b.i0.r.s.l;
+import d.a.i0.r.s.l;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -80,11 +80,11 @@ public class ShareDialogConfig extends IntentConfig {
         this.showLocation = z;
     }
 
-    public void addOutsideTextView(int i, int i2, View.OnClickListener onClickListener) {
+    public void addOutsideTextView(int i2, int i3, View.OnClickListener onClickListener) {
         if (this.textViewList == null) {
             this.textViewList = new ArrayList<>();
         }
-        this.textViewList.add(new Pair<>(Integer.valueOf(i), new Pair(Integer.valueOf(i2), onClickListener)));
+        this.textViewList.add(new Pair<>(Integer.valueOf(i2), new Pair(Integer.valueOf(i3), onClickListener)));
     }
 
     public List<Integer> getCommandChannelArray() {
@@ -107,8 +107,8 @@ public class ShareDialogConfig extends IntentConfig {
         this.copyLinkListener = onClickListener;
     }
 
-    public void setCustomCopyTitle(int i) {
-        this.copyTitleId = i;
+    public void setCustomCopyTitle(int i2) {
+        this.copyTitleId = i2;
     }
 
     public void setFrom(From from) {
@@ -119,8 +119,8 @@ public class ShareDialogConfig extends IntentConfig {
         this.hasSpecialItem = z;
     }
 
-    public void setHideMode(int i) {
-        this.hideMode = i;
+    public void setHideMode(int i2) {
+        this.hideMode = i2;
     }
 
     public void setIsAlaLive(boolean z) {
@@ -148,15 +148,15 @@ public class ShareDialogConfig extends IntentConfig {
         this.onDismissListener = onDismissListener;
     }
 
-    public void setPrivateThread(int i) {
-        this.mPrivateThread = i;
+    public void setPrivateThread(int i2) {
+        this.mPrivateThread = i2;
     }
 
-    public void setSpecialShareItems(int i, ShareItem shareItem) {
+    public void setSpecialShareItems(int i2, ShareItem shareItem) {
         if (this.specialShareItems == null) {
             this.specialShareItems = new ShareItem[9];
         }
-        this.specialShareItems[i] = shareItem;
+        this.specialShareItems[i2] = shareItem;
     }
 
     public void setTransmitForumList(ArrayList<TransmitForumData> arrayList) {

@@ -14,7 +14,7 @@ public final class a implements Parcelable.Creator<SuggestionResult> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public SuggestionResult[] newArray(int i) {
-        return new SuggestionResult[i];
+    public SuggestionResult[] newArray(int i2) {
+        return new SuggestionResult[i2];
     }
 }

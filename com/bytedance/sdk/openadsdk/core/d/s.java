@@ -10,86 +10,86 @@ import org.json.JSONObject;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27920a;
+    public String f28772a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27921b;
+    public String f28773b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27922c;
+    public String f28774c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27923d;
+    public String f28775d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<a> f27924e;
+    public List<a> f28776e;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f27925a;
+        public String f28777a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27926b;
+        public String f28778b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f27927c;
+        public int f28779c;
 
         public String a() {
-            return this.f27925a;
+            return this.f28777a;
         }
 
         public String b() {
-            return this.f27926b;
+            return this.f28778b;
         }
 
         public int c() {
-            return this.f27927c;
+            return this.f28779c;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof a) {
-                String str = this.f27925a;
+                String str = this.f28777a;
                 return str != null && str.equals(((a) obj).a());
             }
             return super.equals(obj);
         }
 
         public void a(String str) {
-            this.f27925a = str;
+            this.f28777a = str;
         }
 
         public void b(String str) {
-            this.f27926b = str;
+            this.f28778b = str;
         }
 
-        public void a(int i) {
-            this.f27927c = i;
+        public void a(int i2) {
+            this.f28779c = i2;
         }
     }
 
     public String a() {
-        return this.f27920a;
+        return this.f28772a;
     }
 
     public String b() {
-        return this.f27921b;
+        return this.f28773b;
     }
 
     public String c() {
-        return this.f27922c;
+        return this.f28774c;
     }
 
     public String d() {
-        return this.f27923d;
+        return this.f28775d;
     }
 
     public List<a> e() {
-        if (this.f27924e == null) {
-            this.f27924e = new ArrayList();
+        if (this.f28776e == null) {
+            this.f28776e = new ArrayList();
         }
-        return this.f27924e;
+        return this.f28776e;
     }
 
     public boolean f() {
@@ -124,26 +124,26 @@ public class s {
     }
 
     public void a(String str) {
-        this.f27920a = str;
+        this.f28772a = str;
     }
 
     public void b(String str) {
-        this.f27921b = str;
+        this.f28773b = str;
     }
 
     public void c(String str) {
-        this.f27922c = str;
+        this.f28774c = str;
     }
 
     public void d(String str) {
-        this.f27923d = str;
+        this.f28775d = str;
     }
 
     public void a(List<a> list) {
         if (list == null) {
             list = new ArrayList<>();
         }
-        this.f27924e = list;
+        this.f28776e = list;
     }
 
     public static s a(JSONObject jSONObject) {
@@ -162,8 +162,8 @@ public class s {
                 JSONArray jSONArray = jSONObject.getJSONArray("resources");
                 ArrayList arrayList = new ArrayList();
                 if (jSONArray != null && jSONArray.length() > 0) {
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i);
+                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                         a aVar = new a();
                         aVar.a(jSONObject2.getString("url"));
                         aVar.b(jSONObject2.getString(PackageTable.MD5));

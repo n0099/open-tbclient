@@ -19,18 +19,18 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import d.b.c.e.p.j;
-import d.b.c.e.p.l;
-import d.b.c.j.e.n;
-import d.b.c.j.e.w;
-import d.b.j0.l1.a;
-import d.b.j0.v3.r.c;
+import d.a.c.e.p.j;
+import d.a.c.e.p.l;
+import d.a.c.j.e.n;
+import d.a.c.j.e.w;
+import d.a.j0.l1.a;
+import d.a.j0.v3.q.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes5.dex */
-public class TransmitSelectAdapter extends d.b.c.j.e.a<c, TransmitSelectViewHolder> {
-    public d.b.j0.l1.a m;
+public class TransmitSelectAdapter extends d.a.c.j.e.a<c, TransmitSelectViewHolder> {
+    public d.a.j0.l1.a m;
     public ArrayList<HotTopicBussinessData> n;
     public List<TransmitForumData> o;
     public w p;
@@ -40,15 +40,15 @@ public class TransmitSelectAdapter extends d.b.c.j.e.a<c, TransmitSelectViewHold
     public static class TransmitSelectViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f22013a;
+        public TextView f22692a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f22014b;
+        public ImageView f22693b;
 
         public TransmitSelectViewHolder(View view) {
             super(view);
-            this.f22013a = (TextView) view.findViewById(R.id.select_by_self);
-            this.f22014b = (ImageView) view.findViewById(R.id.add_icon);
+            this.f22692a = (TextView) view.findViewById(R.id.select_by_self);
+            this.f22693b = (ImageView) view.findViewById(R.id.add_icon);
         }
     }
 
@@ -57,10 +57,10 @@ public class TransmitSelectAdapter extends d.b.c.j.e.a<c, TransmitSelectViewHold
         public a() {
         }
 
-        @Override // d.b.c.j.e.w
-        public void f(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // d.a.c.j.e.w
+        public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             if (!j.z()) {
-                l.K(TransmitSelectAdapter.this.f43095e, R.string.neterror);
+                l.L(TransmitSelectAdapter.this.f40319e, R.string.neterror);
             }
             TiebaStatic.log(new StatisticItem("c12053"));
             if (!ListUtils.isEmpty(TransmitSelectAdapter.this.n)) {
@@ -68,7 +68,7 @@ public class TransmitSelectAdapter extends d.b.c.j.e.a<c, TransmitSelectViewHold
                 return;
             }
             TransmitSelectAdapter transmitSelectAdapter = TransmitSelectAdapter.this;
-            transmitSelectAdapter.m = new d.b.j0.l1.a(transmitSelectAdapter.i);
+            transmitSelectAdapter.m = new d.a.j0.l1.a(transmitSelectAdapter.f40323i);
             TransmitSelectAdapter.this.m.g(TransmitSelectAdapter.this.q);
             TransmitSelectAdapter.this.m.f();
         }
@@ -79,13 +79,13 @@ public class TransmitSelectAdapter extends d.b.c.j.e.a<c, TransmitSelectViewHold
         public b() {
         }
 
-        @Override // d.b.j0.l1.a.b
-        public void a(boolean z, int i, String str, List<ForumInfo> list) {
+        @Override // d.a.j0.l1.a.b
+        public void a(boolean z, int i2, String str, List<ForumInfo> list) {
             ArrayList arrayList = new ArrayList();
             if (ListUtils.getCount(list) > 0) {
                 int size = list.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    ForumInfo forumInfo = list.get(i2);
+                for (int i3 = 0; i3 < size; i3++) {
+                    ForumInfo forumInfo = list.get(i3);
                     if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !TransmitSelectAdapter.this.t0(forumInfo.forum_id.longValue())) {
                         arrayList.add(new HotTopicBussinessData(forumInfo.forum_id.longValue(), forumInfo.forum_name, forumInfo.avatar, null, forumInfo.thread_count.longValue(), 0L, 0L, false, null, 0));
                     }
@@ -102,29 +102,29 @@ public class TransmitSelectAdapter extends d.b.c.j.e.a<c, TransmitSelectViewHold
         super(context, bdUniqueId, bdUniqueId2);
         this.p = new a();
         this.q = new b();
-        c0(this.p);
+        Z(this.p);
         this.o = list;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // d.b.c.j.e.a
-    public /* bridge */ /* synthetic */ View X(int i, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
-        w0(i, view, viewGroup, cVar, transmitSelectViewHolder);
+    @Override // d.a.c.j.e.a
+    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
+        w0(i2, view, viewGroup, cVar, transmitSelectViewHolder);
         return view;
     }
 
-    public void r0() {
-        d.b.j0.l1.a aVar = this.m;
+    public void q0() {
+        d.a.j0.l1.a aVar = this.m;
         if (aVar != null) {
             aVar.e();
         }
     }
 
-    public HotTopicBussinessData s0(int i) {
+    public HotTopicBussinessData r0(int i2) {
         if (ListUtils.isEmpty(this.n)) {
             return null;
         }
-        return this.n.remove(i);
+        return this.n.remove(i2);
     }
 
     public final boolean t0(long j) {
@@ -141,21 +141,21 @@ public class TransmitSelectAdapter extends d.b.c.j.e.a<c, TransmitSelectViewHold
     }
 
     public final void u0() {
-        HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.f43095e, 25005, this.n);
+        HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.f40319e, 25005, this.n);
         hotTopicChangeActivityConfig.setUseOriginList(true);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicChangeActivityConfig));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.c.j.e.a
+    @Override // d.a.c.j.e.a
     /* renamed from: v0 */
-    public TransmitSelectViewHolder R(ViewGroup viewGroup) {
-        return new TransmitSelectViewHolder(LayoutInflater.from(this.f43095e).inflate(R.layout.transmit_select_layout, (ViewGroup) null));
+    public TransmitSelectViewHolder P(ViewGroup viewGroup) {
+        return new TransmitSelectViewHolder(LayoutInflater.from(this.f40319e).inflate(R.layout.transmit_select_layout, (ViewGroup) null));
     }
 
-    public View w0(int i, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
-        SkinManager.setViewTextColor(transmitSelectViewHolder.f22013a, R.color.CAM_X0302);
-        SkinManager.setImageResource(transmitSelectViewHolder.f22014b, R.drawable.icon_post_add_ba_n);
+    public View w0(int i2, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
+        SkinManager.setViewTextColor(transmitSelectViewHolder.f22692a, R.color.CAM_X0302);
+        SkinManager.setImageResource(transmitSelectViewHolder.f22693b, R.drawable.icon_post_add_ba_n);
         return view;
     }
 }

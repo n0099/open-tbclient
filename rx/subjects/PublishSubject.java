@@ -15,7 +15,7 @@ import rx.exceptions.MissingBackpressureException;
 public final class PublishSubject<T> extends d<T, T> {
 
     /* renamed from: f  reason: collision with root package name */
-    public final PublishSubjectState<T> f69442f;
+    public final PublishSubjectState<T> f68488f;
 
     /* loaded from: classes7.dex */
     public static final class PublishSubjectProducer<T> extends AtomicLong implements f, k, e<T> {
@@ -156,27 +156,27 @@ public final class PublishSubject<T> extends d<T, T> {
                     return;
                 }
                 int length = publishSubjectProducerArr.length;
-                int i = -1;
-                int i2 = 0;
+                int i2 = -1;
+                int i3 = 0;
                 while (true) {
-                    if (i2 >= length) {
+                    if (i3 >= length) {
                         break;
-                    } else if (publishSubjectProducerArr[i2] == publishSubjectProducer) {
-                        i = i2;
+                    } else if (publishSubjectProducerArr[i3] == publishSubjectProducer) {
+                        i2 = i3;
                         break;
                     } else {
-                        i2++;
+                        i3++;
                     }
                 }
-                if (i < 0) {
+                if (i2 < 0) {
                     return;
                 }
                 if (length == 1) {
                     publishSubjectProducerArr2 = EMPTY;
                 } else {
                     PublishSubjectProducer[] publishSubjectProducerArr3 = new PublishSubjectProducer[length - 1];
-                    System.arraycopy(publishSubjectProducerArr, 0, publishSubjectProducerArr3, 0, i);
-                    System.arraycopy(publishSubjectProducerArr, i + 1, publishSubjectProducerArr3, i, (length - i) - 1);
+                    System.arraycopy(publishSubjectProducerArr, 0, publishSubjectProducerArr3, 0, i2);
+                    System.arraycopy(publishSubjectProducerArr, i2 + 1, publishSubjectProducerArr3, i2, (length - i2) - 1);
                     publishSubjectProducerArr2 = publishSubjectProducerArr3;
                 }
             } while (!compareAndSet(publishSubjectProducerArr, publishSubjectProducerArr2));
@@ -204,25 +204,25 @@ public final class PublishSubject<T> extends d<T, T> {
 
     public PublishSubject(PublishSubjectState<T> publishSubjectState) {
         super(publishSubjectState);
-        this.f69442f = publishSubjectState;
+        this.f68488f = publishSubjectState;
     }
 
-    public static <T> PublishSubject<T> N() {
+    public static <T> PublishSubject<T> K() {
         return new PublishSubject<>(new PublishSubjectState());
     }
 
     @Override // h.e
     public void onCompleted() {
-        this.f69442f.onCompleted();
+        this.f68488f.onCompleted();
     }
 
     @Override // h.e
     public void onError(Throwable th) {
-        this.f69442f.onError(th);
+        this.f68488f.onError(th);
     }
 
     @Override // h.e
     public void onNext(T t) {
-        this.f69442f.onNext(t);
+        this.f68488f.onNext(t);
     }
 }

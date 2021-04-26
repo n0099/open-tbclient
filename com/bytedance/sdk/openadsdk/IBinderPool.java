@@ -16,7 +16,7 @@ public interface IBinderPool extends IInterface {
         }
 
         @Override // com.bytedance.sdk.openadsdk.IBinderPool
-        public IBinder queryBinder(int i) throws RemoteException {
+        public IBinder queryBinder(int i2) throws RemoteException {
             return null;
         }
     }
@@ -28,29 +28,29 @@ public interface IBinderPool extends IInterface {
         public static class a implements IBinderPool {
 
             /* renamed from: a  reason: collision with root package name */
-            public static IBinderPool f26959a;
+            public static IBinderPool f27777a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f26960b;
+            public IBinder f27778b;
 
             public a(IBinder iBinder) {
-                this.f26960b = iBinder;
+                this.f27778b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f26960b;
+                return this.f27778b;
             }
 
             @Override // com.bytedance.sdk.openadsdk.IBinderPool
-            public IBinder queryBinder(int i) throws RemoteException {
+            public IBinder queryBinder(int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IBinderPool");
-                    obtain.writeInt(i);
-                    if (!this.f26960b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                        return Stub.getDefaultImpl().queryBinder(i);
+                    obtain.writeInt(i2);
+                    if (!this.f27778b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        return Stub.getDefaultImpl().queryBinder(i2);
                     }
                     obtain2.readException();
                     return obtain2.readStrongBinder();
@@ -77,14 +77,14 @@ public interface IBinderPool extends IInterface {
         }
 
         public static IBinderPool getDefaultImpl() {
-            return a.f26959a;
+            return a.f27777a;
         }
 
         public static boolean setDefaultImpl(IBinderPool iBinderPool) {
-            if (a.f26959a != null || iBinderPool == null) {
+            if (a.f27777a != null || iBinderPool == null) {
                 return false;
             }
-            a.f26959a = iBinderPool;
+            a.f27777a = iBinderPool;
             return true;
         }
 
@@ -94,10 +94,10 @@ public interface IBinderPool extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i != 1) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 != 1) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString("com.bytedance.sdk.openadsdk.IBinderPool");
                 return true;
@@ -110,5 +110,5 @@ public interface IBinderPool extends IInterface {
         }
     }
 
-    IBinder queryBinder(int i) throws RemoteException;
+    IBinder queryBinder(int i2) throws RemoteException;
 }

@@ -71,7 +71,7 @@ public final class HttpHeaders {
         return arrayList;
     }
 
-    public static int parseSeconds(String str, int i) {
+    public static int parseSeconds(String str, int i2) {
         try {
             long parseLong = Long.parseLong(str);
             if (parseLong > 2147483647L) {
@@ -82,7 +82,7 @@ public final class HttpHeaders {
             }
             return (int) parseLong;
         } catch (NumberFormatException unused) {
-            return i;
+            return i2;
         }
     }
 
@@ -97,19 +97,19 @@ public final class HttpHeaders {
         cookieJar.saveFromResponse(httpUrl, parseAll);
     }
 
-    public static int skipUntil(String str, int i, String str2) {
-        while (i < str.length() && str2.indexOf(str.charAt(i)) == -1) {
-            i++;
+    public static int skipUntil(String str, int i2, String str2) {
+        while (i2 < str.length() && str2.indexOf(str.charAt(i2)) == -1) {
+            i2++;
         }
-        return i;
+        return i2;
     }
 
-    public static int skipWhitespace(String str, int i) {
+    public static int skipWhitespace(String str, int i2) {
         char charAt;
-        while (i < str.length() && ((charAt = str.charAt(i)) == ' ' || charAt == '\t')) {
-            i++;
+        while (i2 < str.length() && ((charAt = str.charAt(i2)) == ' ' || charAt == '\t')) {
+            i2++;
         }
-        return i;
+        return i2;
     }
 
     public static long stringToLong(String str) {
@@ -151,9 +151,9 @@ public final class HttpHeaders {
     public static Set<String> varyFields(Headers headers) {
         Set<String> emptySet = Collections.emptySet();
         int size = headers.size();
-        for (int i = 0; i < size; i++) {
-            if ("Vary".equalsIgnoreCase(headers.name(i))) {
-                String value = headers.value(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            if ("Vary".equalsIgnoreCase(headers.name(i2))) {
+                String value = headers.value(i2);
                 if (emptySet.isEmpty()) {
                     emptySet = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
                 }
@@ -172,10 +172,10 @@ public final class HttpHeaders {
         }
         Headers.Builder builder = new Headers.Builder();
         int size = headers.size();
-        for (int i = 0; i < size; i++) {
-            String name = headers.name(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            String name = headers.name(i2);
             if (varyFields.contains(name)) {
-                builder.add(name, headers.value(i));
+                builder.add(name, headers.value(i2));
             }
         }
         return builder.build();

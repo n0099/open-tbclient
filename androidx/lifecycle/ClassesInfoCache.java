@@ -54,8 +54,8 @@ public class ClassesInfoCache {
         public final int mCallType;
         public final Method mMethod;
 
-        public MethodReference(int i, Method method) {
-            this.mCallType = i;
+        public MethodReference(int i2, Method method) {
+            this.mCallType = i2;
             this.mMethod = method;
             method.setAccessible(true);
         }
@@ -77,12 +77,12 @@ public class ClassesInfoCache {
 
         public void invokeCallback(LifecycleOwner lifecycleOwner, Lifecycle.Event event, Object obj) {
             try {
-                int i = this.mCallType;
-                if (i == 0) {
+                int i2 = this.mCallType;
+                if (i2 == 0) {
                     this.mMethod.invoke(obj, new Object[0]);
-                } else if (i == 1) {
+                } else if (i2 == 1) {
                     this.mMethod.invoke(obj, lifecycleOwner);
-                } else if (i != 2) {
+                } else if (i2 != 2) {
                 } else {
                     this.mMethod.invoke(obj, lifecycleOwner, event);
                 }
@@ -95,7 +95,7 @@ public class ClassesInfoCache {
     }
 
     private CallbackInfo createInfo(Class<?> cls, @Nullable Method[] methodArr) {
-        int i;
+        int i2;
         CallbackInfo info;
         Class<? super Object> superclass = cls.getSuperclass();
         HashMap hashMap = new HashMap();
@@ -116,11 +116,11 @@ public class ClassesInfoCache {
             if (onLifecycleEvent != null) {
                 Class<?>[] parameterTypes = method.getParameterTypes();
                 if (parameterTypes.length <= 0) {
-                    i = 0;
+                    i2 = 0;
                 } else if (!parameterTypes[0].isAssignableFrom(LifecycleOwner.class)) {
                     throw new IllegalArgumentException("invalid parameter type. Must be one and instanceof LifecycleOwner");
                 } else {
-                    i = 1;
+                    i2 = 1;
                 }
                 Lifecycle.Event value = onLifecycleEvent.value();
                 if (parameterTypes.length > 1) {
@@ -128,13 +128,13 @@ public class ClassesInfoCache {
                         if (value != Lifecycle.Event.ON_ANY) {
                             throw new IllegalArgumentException("Second arg is supported only for ON_ANY value");
                         }
-                        i = 2;
+                        i2 = 2;
                     } else {
                         throw new IllegalArgumentException("invalid parameter type. second arg must be an event");
                     }
                 }
                 if (parameterTypes.length <= 2) {
-                    verifyAndPutHandler(hashMap, new MethodReference(i, method), value, cls);
+                    verifyAndPutHandler(hashMap, new MethodReference(i2, method), value, cls);
                     z = true;
                 } else {
                     throw new IllegalArgumentException("cannot have more than 2 params");

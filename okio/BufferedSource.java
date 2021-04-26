@@ -29,11 +29,11 @@ public interface BufferedSource extends Source, ReadableByteChannel {
 
     boolean rangeEquals(long j, ByteString byteString) throws IOException;
 
-    boolean rangeEquals(long j, ByteString byteString, int i, int i2) throws IOException;
+    boolean rangeEquals(long j, ByteString byteString, int i2, int i3) throws IOException;
 
     int read(byte[] bArr) throws IOException;
 
-    int read(byte[] bArr, int i, int i2) throws IOException;
+    int read(byte[] bArr, int i2, int i3) throws IOException;
 
     long readAll(Sink sink) throws IOException;
 

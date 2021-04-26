@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.s.f.b;
+import d.a.i0.s.f.b;
 import protobuf.SetLocation.DataRes;
 import protobuf.SetLocation.LbsInfo;
 import protobuf.SetLocation.SetLocationResIdl;
@@ -24,7 +24,7 @@ public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         DataRes dataRes;
         String str;
         SetLocationResIdl setLocationResIdl = (SetLocationResIdl) new Wire(new Class[0]).parseFrom(bArr, SetLocationResIdl.class);
@@ -33,7 +33,7 @@ public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
         }
         LbsInfo lbsInfo = dataRes.location;
         long j = 0;
-        int i2 = -1;
+        int i3 = -1;
         if (lbsInfo != null) {
             str = lbsInfo.distance;
             Long l = lbsInfo.time;
@@ -42,11 +42,11 @@ public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
             }
             Integer num = setLocationResIdl.data.location.isHide;
             if (num != null && num.intValue() >= 0) {
-                i2 = setLocationResIdl.data.location.isHide.intValue();
+                i3 = setLocationResIdl.data.location.isHide.intValue();
             }
         } else {
             str = "";
         }
-        this.lbsInfo = new b(str, j, i2);
+        this.lbsInfo = new b(str, j, i3);
     }
 }

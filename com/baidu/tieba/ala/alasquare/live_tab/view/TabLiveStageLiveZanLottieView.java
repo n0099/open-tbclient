@@ -37,8 +37,8 @@ public class TabLiveStageLiveZanLottieView extends TBLottieAnimationView {
         this.l = false;
     }
 
-    public TabLiveStageLiveZanLottieView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public TabLiveStageLiveZanLottieView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.l = false;
     }
 }

@@ -15,34 +15,36 @@ import java.lang.reflect.Method;
 public final class SafeKeyBoardUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5527a;
+    public String f5674a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f5528b;
+    public Context f5675b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SafeKeyBoardEditText f5529c;
+    public SafeKeyBoardEditText f5676c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f5530d;
+    public ViewGroup f5677d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SafeScrollView f5531e;
+    public SafeScrollView f5678e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f5532f;
+    public View f5679f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f5533g;
+    public int f5680g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f5534h;
-    public int i;
+    public int f5681h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f5682i;
     public int j;
     public SafeKeyBoardPopupWindow mPopupWindow;
 
     public void hideSoftInputMethod(EditText editText) {
-        ((InputMethodManager) this.f5528b.getSystemService("input_method")).hideSoftInputFromWindow(this.f5529c.getWindowToken(), 0);
+        ((InputMethodManager) this.f5675b.getSystemService("input_method")).hideSoftInputFromWindow(this.f5676c.getWindowToken(), 0);
         if (Build.VERSION.SDK_INT < 11) {
             editText.setInputType(0);
             return;
@@ -85,17 +87,17 @@ public final class SafeKeyBoardUtil {
     }
 
     public void init(Context context, ViewGroup viewGroup, SafeScrollView safeScrollView) {
-        this.f5528b = context;
-        this.f5530d = viewGroup;
-        this.f5531e = safeScrollView;
+        this.f5675b = context;
+        this.f5677d = viewGroup;
+        this.f5678e = safeScrollView;
         if (this.mPopupWindow == null) {
             this.mPopupWindow = new SafeKeyBoardPopupWindow(context);
         }
         SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.mPopupWindow;
         if (safeKeyBoardPopupWindow == null || !safeKeyBoardPopupWindow.isShowing()) {
-            SafeScrollView safeScrollView2 = this.f5531e;
+            SafeScrollView safeScrollView2 = this.f5678e;
             if (safeScrollView2 != null) {
-                this.f5534h = safeScrollView2.getLayoutParams().height;
+                this.f5681h = safeScrollView2.getLayoutParams().height;
             } else {
                 LogUtil.errord("gaolou", "SafeKeyBoardUtil.init ++ mScrollView == null");
             }
@@ -103,19 +105,19 @@ public final class SafeKeyBoardUtil {
     }
 
     public void showSoftKeyBoard(SafeKeyBoardEditText safeKeyBoardEditText, View view) {
-        this.f5529c = safeKeyBoardEditText;
-        this.f5532f = view;
+        this.f5676c = safeKeyBoardEditText;
+        this.f5679f = view;
         SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.mPopupWindow;
-        if (safeKeyBoardPopupWindow != null && safeKeyBoardEditText != null && view != null && this.f5531e != null && this.f5530d != null) {
+        if (safeKeyBoardPopupWindow != null && safeKeyBoardEditText != null && view != null && this.f5678e != null && this.f5677d != null) {
             safeKeyBoardPopupWindow.setSafeEditTet(safeKeyBoardEditText);
-            this.mPopupWindow.setScrollView(this.f5531e);
-            hideSoftInputMethod(this.f5529c);
-            if (this.f5531e.hasWindowFocus() && this.f5529c.isEnabled()) {
+            this.mPopupWindow.setScrollView(this.f5678e);
+            hideSoftInputMethod(this.f5676c);
+            if (this.f5678e.hasWindowFocus() && this.f5676c.isEnabled()) {
                 SafeKeyBoardPopupWindow safeKeyBoardPopupWindow2 = this.mPopupWindow;
-                if (safeKeyBoardPopupWindow2 != null && !safeKeyBoardPopupWindow2.isShowing() && this.f5531e.hasWindowFocus()) {
+                if (safeKeyBoardPopupWindow2 != null && !safeKeyBoardPopupWindow2.isShowing() && this.f5678e.hasWindowFocus()) {
                     this.mPopupWindow.initKeyNum(safeKeyBoardEditText.getUseRandKey());
                     try {
-                        this.mPopupWindow.showAtLocation(this.f5530d, 80, 0, 0);
+                        this.mPopupWindow.showAtLocation(this.f5677d, 80, 0, 0);
                         if (Build.VERSION.SDK_INT <= 23) {
                             this.mPopupWindow.update();
                         }
@@ -133,23 +135,23 @@ public final class SafeKeyBoardUtil {
     }
 
     private void b() {
-        ViewGroup.LayoutParams layoutParams = this.f5531e.getLayoutParams();
-        layoutParams.height = this.f5534h;
-        this.f5531e.setLayoutParams(layoutParams);
+        ViewGroup.LayoutParams layoutParams = this.f5678e.getLayoutParams();
+        layoutParams.height = this.f5681h;
+        this.f5678e.setLayoutParams(layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (this.mPopupWindow == null || this.f5531e == null || this.f5532f == null) {
+        if (this.mPopupWindow == null || this.f5678e == null || this.f5679f == null) {
             return;
         }
-        this.f5533g = ((Activity) this.f5528b).getWindow().getDecorView().getBottom();
+        this.f5680g = ((Activity) this.f5675b).getWindow().getDecorView().getBottom();
         this.j = this.mPopupWindow.getPopupWindowHeight();
         int[] iArr = new int[2];
-        this.f5531e.getLocationOnScreen(iArr);
-        ViewGroup.LayoutParams layoutParams = this.f5531e.getLayoutParams();
-        layoutParams.height = (this.f5533g - this.j) - iArr[1];
-        this.f5531e.setLayoutParams(layoutParams);
-        this.f5531e.post(new l(this));
+        this.f5678e.getLocationOnScreen(iArr);
+        ViewGroup.LayoutParams layoutParams = this.f5678e.getLayoutParams();
+        layoutParams.height = (this.f5680g - this.j) - iArr[1];
+        this.f5678e.setLayoutParams(layoutParams);
+        this.f5678e.post(new l(this));
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs.dynamic;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import d.b.i0.g0.b.d;
-import d.b.i0.g0.b.g;
-import d.b.i0.z0.w;
+import d.a.i0.g0.b.d;
+import d.a.i0.g0.b.g;
+import d.a.i0.z0.w;
 import java.util.HashMap;
 import tbclient.CommonReq;
 import tbclient.StarTrends.DataReq;
@@ -12,7 +12,7 @@ import tbclient.StarTrends.StarTrendsReqIdl;
 public class FrsDynamicRequestData extends OrmObject implements g, d {
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f15877common;
+    public CommonReq f16064common;
     public long forumId;
     public long lastThreadId;
     public int qType;
@@ -20,8 +20,8 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
     public int scrH;
     public int scrW;
 
-    @Override // d.b.i0.g0.b.i
-    public Object e(boolean z) {
+    @Override // d.a.i0.g0.b.i
+    public Object c(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forum_id = Long.valueOf(this.forumId);
         builder.scr_w = Integer.valueOf(this.scrW);
@@ -36,33 +36,33 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
         return builder2.build(false);
     }
 
-    @Override // d.b.i0.g0.b.c
+    @Override // d.a.i0.g0.b.c
     public String getCacheKey() {
         return null;
     }
 
-    @Override // d.b.i0.g0.b.d
+    @Override // d.a.i0.g0.b.d
+    public boolean i() {
+        return false;
+    }
+
+    @Override // d.a.i0.g0.b.d
     public boolean isNeedUid() {
         return false;
     }
 
-    @Override // d.b.i0.g0.b.f
-    public HashMap<String, Object> k() {
+    @Override // d.a.i0.g0.b.f
+    public HashMap<String, Object> o() {
         return null;
     }
 
-    @Override // d.b.i0.g0.b.f
-    public HashMap<String, String> p() {
+    @Override // d.a.i0.g0.b.f
+    public HashMap<String, String> q() {
         return null;
     }
 
-    @Override // d.b.i0.g0.b.d
-    public String q() {
+    @Override // d.a.i0.g0.b.d
+    public String r() {
         return null;
-    }
-
-    @Override // d.b.i0.g0.b.d
-    public boolean r() {
-        return false;
     }
 }

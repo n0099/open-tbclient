@@ -164,18 +164,18 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
             start.waitFor();
             watchThread.setOver(true);
             watchThread.interrupt();
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 if (!watchThread.isAlive()) {
                     break;
                 }
                 Thread.sleep(1000L);
-                int i2 = i + 1;
-                if (i > 30) {
-                    Log.e(TAG, "thread over %1$d secs, WatchThread is still alive", Integer.valueOf(i2 * 20));
+                int i3 = i2 + 1;
+                if (i2 > 30) {
+                    Log.e(TAG, "thread over %1$d secs, WatchThread is still alive", Integer.valueOf(i3 * 20));
                     break;
                 }
-                i = i2;
+                i2 = i3;
             }
             do {
                 if (isProcessIdInLine(str)) {
@@ -332,14 +332,14 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
         this.unUploadFileSize = new AtomicInteger(directoryFiles.length);
         this.mUploader.uploadLogDirectory(this.logDir.getAbsolutePath(), true, new ZeusLogUploader.OnFinishedListener() { // from class: com.baidu.webkit.sdk.dumper.ZeusLogRecorder.2
             @Override // com.baidu.webkit.sdk.dumper.ZeusLogUploader.OnFinishedListener
-            public void onFinished(String str2, int i, String str3) {
+            public void onFinished(String str2, int i2, String str3) {
                 int decrementAndGet = ZeusLogRecorder.this.unUploadFileSize.decrementAndGet();
                 if (decrementAndGet < 0) {
                     Log.e(ZeusLogRecorder.TAG, "upload file over length, file name is %1$s: ", str2);
                     ZeusLogRecorder.this.quitUploadLog();
                     return;
                 }
-                boolean z = i == 0;
+                boolean z = i2 == 0;
                 String substring = str2.substring(str2.lastIndexOf("/") + 1);
                 Log.i(ZeusLogRecorder.TAG, "upload %1$s %2$s", substring, Boolean.valueOf(z));
                 ZeusLogRecorder.this.list.add(new LogRecordBean(substring, z));

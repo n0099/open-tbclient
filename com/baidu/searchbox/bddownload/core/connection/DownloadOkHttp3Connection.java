@@ -4,8 +4,6 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.bddownload.RedirectUtil;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.searchbox.bddownload.core.connection.DownloadConnection;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.developer.DebugException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ProtocolException;
@@ -17,7 +15,6 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 /* loaded from: classes2.dex */
 public class DownloadOkHttp3Connection implements DownloadConnection, DownloadConnection.Connected {
-    public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "DownloadOkHttp3Connection";
     @NonNull
     public final OkHttpClient client;
@@ -153,10 +150,8 @@ public class DownloadOkHttp3Connection implements DownloadConnection, DownloadCo
         if (response != null) {
             try {
                 response.close();
-            } catch (Exception e2) {
-                if (DEBUG) {
-                    throw new DebugException("DownloadOkHttp3Connection connection release exception " + e2);
-                }
+            } catch (Throwable th) {
+                Util.d(TAG, "DownloadOkHttp3Connection connection release exception " + th.toString());
             }
         }
         this.response = null;

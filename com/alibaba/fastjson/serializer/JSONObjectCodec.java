@@ -9,7 +9,7 @@ public class JSONObjectCodec implements ObjectSerializer {
     public static final JSONObjectCodec instance = new JSONObjectCodec();
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
         MapSerializer mapSerializer = MapSerializer.instance;
         try {
@@ -17,7 +17,7 @@ public class JSONObjectCodec implements ObjectSerializer {
             if (Modifier.isPrivate(declaredField.getModifiers())) {
                 declaredField.setAccessible(true);
             }
-            mapSerializer.write(jSONSerializer, declaredField.get(obj), obj2, type, i);
+            mapSerializer.write(jSONSerializer, declaredField.get(obj), obj2, type, i2);
         } catch (Exception unused) {
             serializeWriter.writeNull();
         }

@@ -142,24 +142,24 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
         this.avgBitRate = j;
     }
 
-    public void setBufferSizeDB(int i) {
-        this.bufferSizeDB = i;
+    public void setBufferSizeDB(int i2) {
+        this.bufferSizeDB = i2;
     }
 
     public void setMaxBitRate(long j) {
         this.maxBitRate = j;
     }
 
-    public void setObjectTypeIndication(int i) {
-        this.objectTypeIndication = i;
+    public void setObjectTypeIndication(int i2) {
+        this.objectTypeIndication = i2;
     }
 
-    public void setStreamType(int i) {
-        this.streamType = i;
+    public void setStreamType(int i2) {
+        this.streamType = i2;
     }
 
-    public void setUpStream(int i) {
-        this.upStream = i;
+    public void setUpStream(int i2) {
+        this.upStream = i2;
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor

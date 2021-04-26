@@ -32,8 +32,8 @@ public final class SizeStrategy implements LruPoolStrategy {
             return this.size;
         }
 
-        public void init(int i) {
-            this.size = i;
+        public void init(int i2) {
+            this.size = i2;
         }
 
         @Override // com.bumptech.glide.load.engine.bitmap_recycle.Poolable
@@ -49,9 +49,9 @@ public final class SizeStrategy implements LruPoolStrategy {
     @VisibleForTesting
     /* loaded from: classes5.dex */
     public static class KeyPool extends BaseKeyPool<Key> {
-        public Key get(int i) {
+        public Key get(int i2) {
             Key key = (Key) super.get();
-            key.init(i);
+            key.init(i2);
             return key;
         }
 
@@ -77,8 +77,8 @@ public final class SizeStrategy implements LruPoolStrategy {
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
     @Nullable
-    public Bitmap get(int i, int i2, Bitmap.Config config) {
-        int bitmapByteSize = Util.getBitmapByteSize(i, i2, config);
+    public Bitmap get(int i2, int i3, Bitmap.Config config) {
+        int bitmapByteSize = Util.getBitmapByteSize(i2, i3, config);
         Key key = this.keyPool.get(bitmapByteSize);
         Integer ceilingKey = this.sortedSizes.ceilingKey(Integer.valueOf(bitmapByteSize));
         if (ceilingKey != null && ceilingKey.intValue() != bitmapByteSize && ceilingKey.intValue() <= bitmapByteSize * 8) {
@@ -87,7 +87,7 @@ public final class SizeStrategy implements LruPoolStrategy {
         }
         Bitmap bitmap = this.groupedMap.get(key);
         if (bitmap != null) {
-            bitmap.reconfigure(i, i2, config);
+            bitmap.reconfigure(i2, i3, config);
             decrementBitmapOfSize(ceilingKey);
         }
         return bitmap;
@@ -126,11 +126,11 @@ public final class SizeStrategy implements LruPoolStrategy {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
-    public String logBitmap(int i, int i2, Bitmap.Config config) {
-        return getBitmapString(Util.getBitmapByteSize(i, i2, config));
+    public String logBitmap(int i2, int i3, Bitmap.Config config) {
+        return getBitmapString(Util.getBitmapByteSize(i2, i3, config));
     }
 
-    public static String getBitmapString(int i) {
-        return "[" + i + "]";
+    public static String getBitmapString(int i2) {
+        return "[" + i2 + "]";
     }
 }

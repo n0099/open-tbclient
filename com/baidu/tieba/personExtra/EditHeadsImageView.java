@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EditHeadsImageView extends DragImageView {
     public int s0;
     public int t0;
@@ -17,8 +17,8 @@ public class EditHeadsImageView extends DragImageView {
     public int v0;
     public float w0;
 
-    public EditHeadsImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public EditHeadsImageView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.s0 = 0;
         this.t0 = 0;
         this.u0 = 0.42857143f;
@@ -36,19 +36,19 @@ public class EditHeadsImageView extends DragImageView {
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
         float width = this.w0 * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        float f2 = (i4 - i2) - width;
+        float f2 = (i5 - i3) - width;
         float f3 = this.u0;
-        int i5 = (int) (f2 * f3);
-        this.s0 = i5;
-        int i6 = (int) (f2 * (1.0f - f3));
-        this.t0 = i6;
-        setOffset(0, i5, 0, i6);
+        int i6 = (int) (f2 * f3);
+        this.s0 = i6;
+        int i7 = (int) (f2 * (1.0f - f3));
+        this.t0 = i7;
+        setOffset(0, i6, 0, i7);
     }
 
     public void setCutImageHeightScale(float f2) {

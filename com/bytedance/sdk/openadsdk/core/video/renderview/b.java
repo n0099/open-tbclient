@@ -7,10 +7,10 @@ public interface b {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(int i);
+        void a(int i2);
     }
 
-    void a(int i, int i2);
+    void a(int i2, int i3);
 
     void a(com.bytedance.sdk.openadsdk.core.video.renderview.a aVar);
 
@@ -18,5 +18,5 @@ public interface b {
 
     View getView();
 
-    void setVisibility(int i);
+    void setVisibility(int i2);
 }

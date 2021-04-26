@@ -12,10 +12,10 @@ public class GotoLiveGuideActivityConfig extends IntentConfig {
         this.mContext = context;
     }
 
-    public GotoLiveGuideActivityConfig(Context context, int i, String str) {
+    public GotoLiveGuideActivityConfig(Context context, int i2, String str) {
         super(context);
         this.mContext = context;
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
         getIntent().putExtra("from", str);
     }

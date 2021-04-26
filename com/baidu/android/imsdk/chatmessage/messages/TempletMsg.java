@@ -24,8 +24,8 @@ public class TempletMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public TempletMsg[] newArray(int i) {
-            return new TempletMsg[i];
+        public TempletMsg[] newArray(int i2) {
+            return new TempletMsg[i2];
         }
     };
     public static final int IMAGE = 2;
@@ -59,8 +59,8 @@ public class TempletMsg extends NormalMsg {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public Commodity[] newArray(int i) {
-                return new Commodity[i];
+            public Commodity[] newArray(int i2) {
+                return new Commodity[i2];
             }
         };
         public String mColor;
@@ -100,7 +100,7 @@ public class TempletMsg extends NormalMsg {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeString(this.mName);
             parcel.writeString(this.mValue);
             parcel.writeString(this.mColor);
@@ -126,8 +126,8 @@ public class TempletMsg extends NormalMsg {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public Image[] newArray(int i) {
-                return new Image[i];
+            public Image[] newArray(int i2) {
+                return new Image[i2];
             }
         };
         public String description;
@@ -160,7 +160,7 @@ public class TempletMsg extends NormalMsg {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeString(this.image);
             parcel.writeString(this.url);
             parcel.writeString(this.title);
@@ -188,8 +188,8 @@ public class TempletMsg extends NormalMsg {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public Link[] newArray(int i) {
-                return new Link[i];
+            public Link[] newArray(int i2) {
+                return new Link[i2];
             }
         };
         public String content;
@@ -217,7 +217,7 @@ public class TempletMsg extends NormalMsg {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeString(this.content);
             parcel.writeString(this.title);
             parcel.writeString(this.url);
@@ -243,8 +243,8 @@ public class TempletMsg extends NormalMsg {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public Video[] newArray(int i) {
-                return new Video[i];
+            public Video[] newArray(int i2) {
+                return new Video[i2];
             }
         };
         public String cover;
@@ -282,7 +282,7 @@ public class TempletMsg extends NormalMsg {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeString(this.cover);
             parcel.writeString(this.url);
             parcel.writeString(this.title);
@@ -397,13 +397,13 @@ public class TempletMsg extends NormalMsg {
                     this.mCommodity = new Commodity[length2];
                 }
                 LogUtils.d("TempletMsg", "size is " + length2);
-                for (int i = 0; i < length2; i++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                for (int i2 = 0; i2 < length2; i2++) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                     Commodity commodity = new Commodity();
                     commodity.setName(jSONObject2.getString("name"));
                     commodity.setValue(jSONObject2.optString("value", ""));
                     commodity.setColor(jSONObject2.optString("color", "#000000"));
-                    this.mCommodity[i] = commodity;
+                    this.mCommodity[i2] = commodity;
                 }
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("image");
@@ -431,11 +431,11 @@ public class TempletMsg extends NormalMsg {
                     if (length > 3) {
                         length = 3;
                     }
-                    for (int i2 = 0; i2 < length; i2++) {
+                    for (int i3 = 0; i3 < length; i3++) {
                         Link link = new Link();
-                        link.content = jSONArray.getJSONObject(i2).getString("content");
-                        link.title = jSONArray.getJSONObject(i2).optString("detail_title");
-                        link.url = jSONArray.getJSONObject(i2).getString("detail_url");
+                        link.content = jSONArray.getJSONObject(i3).getString("content");
+                        link.title = jSONArray.getJSONObject(i3).optString("detail_title");
+                        link.url = jSONArray.getJSONObject(i3).getString("detail_url");
                         this.mLinks.add(link);
                     }
                     return true;
@@ -500,8 +500,8 @@ public class TempletMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.mTitle);
         parcel.writeString(this.mDetailurl);
         parcel.writeString(this.mFirstName);
@@ -512,12 +512,12 @@ public class TempletMsg extends NormalMsg {
         int length = commodityArr != null ? commodityArr.length : 0;
         parcel.writeInt(length);
         if (length > 0) {
-            parcel.writeTypedArray(this.mCommodity, i);
+            parcel.writeTypedArray(this.mCommodity, i2);
         }
         parcel.writeInt(this.mMode);
         parcel.writeTypedList(this.mLinks);
-        parcel.writeParcelable(this.mImage, i);
-        parcel.writeParcelable(this.mVideo, i);
+        parcel.writeParcelable(this.mImage, i2);
+        parcel.writeParcelable(this.mVideo, i2);
     }
 
     public TempletMsg(Parcel parcel) {

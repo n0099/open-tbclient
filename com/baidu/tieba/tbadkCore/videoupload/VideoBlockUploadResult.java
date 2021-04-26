@@ -38,10 +38,10 @@ public class VideoBlockUploadResult extends OrmObject implements Serializable {
         this.error.usermsg = str;
     }
 
-    public void setErrorNo(int i) {
+    public void setErrorNo(int i2) {
         if (this.error == null) {
             this.error = new Error();
         }
-        this.error.errno = i;
+        this.error.errno = i2;
     }
 }

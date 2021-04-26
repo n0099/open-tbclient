@@ -118,18 +118,18 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
     public class a extends BaseAdapter {
 
         /* renamed from: b  reason: collision with root package name */
-        public final LayoutInflater f26309b;
+        public final LayoutInflater f27114b;
 
         public a(ListView listView) {
-            this.f26309b = LayoutInflater.from(MyCouponListActivity.this);
+            this.f27114b = LayoutInflater.from(MyCouponListActivity.this);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: a */
-        public CouponList.Coupon getItem(int i) {
-            if (i < MyCouponListActivity.this.mCouponList.size()) {
-                return (CouponList.Coupon) MyCouponListActivity.this.mCouponList.get(i);
+        public CouponList.Coupon getItem(int i2) {
+            if (i2 < MyCouponListActivity.this.mCouponList.size()) {
+                return (CouponList.Coupon) MyCouponListActivity.this.mCouponList.get(i2);
             }
             return null;
         }
@@ -140,27 +140,27 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
         }
 
         @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            return i;
+        public long getItemId(int i2) {
+            return i2;
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
-        public int getItemViewType(int i) {
-            return i < MyCouponListActivity.this.mCouponList.size() ? 0 : 1;
+        public int getItemViewType(int i2) {
+            return i2 < MyCouponListActivity.this.mCouponList.size() ? 0 : 1;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:52:0x0298  */
-        /* JADX WARN: Removed duplicated region for block: B:53:0x02a3  */
-        /* JADX WARN: Removed duplicated region for block: B:56:0x02c0  */
-        /* JADX WARN: Removed duplicated region for block: B:61:0x037f  */
-        /* JADX WARN: Removed duplicated region for block: B:72:0x045b  */
-        /* JADX WARN: Removed duplicated region for block: B:88:0x0500  */
-        /* JADX WARN: Removed duplicated region for block: B:89:0x0519  */
+        /* JADX WARN: Removed duplicated region for block: B:52:0x029b  */
+        /* JADX WARN: Removed duplicated region for block: B:53:0x02a7  */
+        /* JADX WARN: Removed duplicated region for block: B:56:0x02c5  */
+        /* JADX WARN: Removed duplicated region for block: B:61:0x0386  */
+        /* JADX WARN: Removed duplicated region for block: B:72:0x0464  */
+        /* JADX WARN: Removed duplicated region for block: B:88:0x050e  */
+        /* JADX WARN: Removed duplicated region for block: B:89:0x0528  */
         @Override // android.widget.Adapter
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(int i2, View view, ViewGroup viewGroup) {
             c cVar;
             TextView textView;
             String string;
@@ -177,7 +177,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             String str4;
             TextView textView7;
             String str5;
-            int itemViewType = getItemViewType(i);
+            int itemViewType = getItemViewType(i2);
             if (itemViewType != 0) {
                 if (itemViewType != 1) {
                     return view;
@@ -191,10 +191,10 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 }
                 return view;
             }
-            final CouponList.Coupon item = getItem(i);
+            final CouponList.Coupon item = getItem(i2);
             if (item.isLabel) {
                 if (view == null || view.getTag() != null) {
-                    view = this.f26309b.inflate(ResUtils.layout(MyCouponListActivity.this.mAct, "wallet_personal_coupon_label"), (ViewGroup) null);
+                    view = this.f27114b.inflate(ResUtils.layout(MyCouponListActivity.this.mAct, "wallet_personal_coupon_label"), (ViewGroup) null);
                 }
                 ((TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "bd_wallet_coupon_label"))).setText(item.labelValue);
                 return view;
@@ -203,15 +203,15 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             PayStatisticsUtil.onEventWithValues("#couponShow", Arrays.asList(item.logo_title, item.template_title));
             if (view == null || view.getTag() == null) {
                 cVar = new c();
-                view = this.f26309b.inflate(ResUtils.layout(MyCouponListActivity.this.mAct, "wallet_personal_coupon_item1"), (ViewGroup) null);
-                cVar.f26316b = (CirclePortraitView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "sp_logo"));
-                cVar.f26317c = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "logo_title"));
-                cVar.f26318d = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_maket_label"));
-                cVar.f26319e = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_tempalte_title"));
-                cVar.f26320f = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_limit"));
-                cVar.f26321g = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_content"));
-                cVar.f26322h = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_time_limit"));
-                cVar.i = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_valid_time"));
+                view = this.f27114b.inflate(ResUtils.layout(MyCouponListActivity.this.mAct, "wallet_personal_coupon_item1"), (ViewGroup) null);
+                cVar.f27121b = (CirclePortraitView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "sp_logo"));
+                cVar.f27122c = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "logo_title"));
+                cVar.f27123d = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_maket_label"));
+                cVar.f27124e = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_tempalte_title"));
+                cVar.f27125f = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_limit"));
+                cVar.f27126g = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_content"));
+                cVar.f27127h = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_time_limit"));
+                cVar.f27128i = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_valid_time"));
                 cVar.j = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_now_text"));
                 cVar.k = (ImageView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_now_img"));
                 cVar.l = (ImageView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_new"));
@@ -220,30 +220,30 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             } else {
                 cVar = (c) view.getTag();
             }
-            cVar.f26316b.setImageDrawable(ResUtils.getDrawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_qianbao_logo_for_list"));
+            cVar.f27121b.setImageDrawable(ResUtils.getDrawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_qianbao_logo_for_list"));
             if (!TextUtils.isEmpty(item.logo_url)) {
-                cVar.f26316b.setImageUrl(item.logo_url);
+                cVar.f27121b.setImageUrl(item.logo_url);
             }
             if (TextUtils.isEmpty(item.logo_title)) {
-                textView = cVar.f26317c;
+                textView = cVar.f27122c;
                 string = ResUtils.getString(MyCouponListActivity.this.mAct, "wallet_personal_coupon_logo_title");
             } else {
-                textView = cVar.f26317c;
+                textView = cVar.f27122c;
                 string = item.logo_title;
             }
             textView.setText(string);
             if (TextUtils.isEmpty(item.marketing_label)) {
-                cVar.f26318d.setVisibility(8);
+                cVar.f27123d.setVisibility(8);
             } else {
                 if (item.marketing_label.length() > 7) {
-                    textView7 = cVar.f26318d;
+                    textView7 = cVar.f27123d;
                     str5 = item.marketing_label.substring(0, 7);
                 } else {
-                    textView7 = cVar.f26318d;
+                    textView7 = cVar.f27123d;
                     str5 = item.marketing_label;
                 }
                 textView7.setText(str5);
-                cVar.f26318d.setVisibility(0);
+                cVar.f27123d.setVisibility(0);
             }
             AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 40.0f));
             AbsoluteSizeSpan absoluteSizeSpan2 = new AbsoluteSizeSpan(DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 30.0f));
@@ -253,70 +253,70 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 length = spannableStringBuilder.length();
             } else if (item.discount_content_v2.length() > 7) {
                 spannableStringBuilder.setSpan(absoluteSizeSpan, 0, spannableStringBuilder.length(), 18);
-                cVar.f26321g.setText(spannableStringBuilder);
-                cVar.f26319e.setText(item.template_title);
-                cVar.f26320f.setText(item.use_limit_v2);
+                cVar.f27126g.setText(spannableStringBuilder);
+                cVar.f27124e.setText(item.template_title);
+                cVar.f27125f.setText(item.use_limit_v2);
                 if (item.source_type == 1) {
-                    textView2 = cVar.f26321g;
+                    textView2 = cVar.f27126g;
                     beanActivity = MyCouponListActivity.this.mAct;
                     str = "wallet_coupon_red";
                 } else {
-                    textView2 = cVar.f26321g;
+                    textView2 = cVar.f27126g;
                     beanActivity = MyCouponListActivity.this.mAct;
                     str = "wallet_coupon_blue";
                 }
                 textView2.setTextColor(ResUtils.getColor(beanActivity, str));
                 if (TextUtils.isEmpty(item.date_message_expire)) {
-                    cVar.f26322h.setSingleLine(true);
-                    cVar.f26322h.setEllipsize(TextUtils.TruncateAt.END);
+                    cVar.f27127h.setSingleLine(true);
+                    cVar.f27127h.setEllipsize(TextUtils.TruncateAt.END);
                     if (item.date_message_expire.length() > 7) {
-                        textView6 = cVar.f26322h;
+                        textView6 = cVar.f27127h;
                         str4 = item.date_message_expire.substring(0, 7);
                     } else {
-                        textView6 = cVar.f26322h;
+                        textView6 = cVar.f27127h;
                         str4 = item.date_message_expire;
                     }
                     textView6.setText(str4);
                     RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 89.5f), DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 16.5f));
                     layoutParams2.setMargins(0, DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 6.0f), 0, 0);
-                    cVar.f26322h.setLayoutParams(layoutParams2);
-                    cVar.f26322h.setGravity(17);
-                    cVar.f26322h.setPadding(DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 13.0f), DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 1.0f), DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 6.0f), DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 0.5f));
-                    cVar.f26322h.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_date_message_expire"));
-                    cVar.f26322h.setBackgroundResource(ResUtils.drawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_daojishi"));
-                    cVar.f26322h.setTextSize(1, 11.0f);
-                    cVar.i.setVisibility(8);
+                    cVar.f27127h.setLayoutParams(layoutParams2);
+                    cVar.f27127h.setGravity(17);
+                    cVar.f27127h.setPadding(DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 13.0f), DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 1.0f), DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 6.0f), DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 0.5f));
+                    cVar.f27127h.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_date_message_expire"));
+                    cVar.f27127h.setBackgroundResource(ResUtils.drawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_daojishi"));
+                    cVar.f27127h.setTextSize(1, 11.0f);
+                    cVar.f27128i.setVisibility(8);
                 } else {
                     if (TextUtils.isEmpty(item.date_not_started)) {
-                        cVar.f26322h.setText(item.date_message_v2);
-                        cVar.f26322h.setTextSize(1, 11.0f);
-                        cVar.f26322h.setBackgroundDrawable(null);
+                        cVar.f27127h.setText(item.date_message_v2);
+                        cVar.f27127h.setTextSize(1, 11.0f);
+                        cVar.f27127h.setBackgroundDrawable(null);
                         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
                         layoutParams3.setMargins(0, DisplayUtils.dip2px(MyCouponListActivity.this, 6.0f), 0, 0);
-                        cVar.f26322h.setPadding(0, 0, 0, 0);
-                        cVar.f26322h.setLayoutParams(layoutParams3);
-                        cVar.i.setVisibility(8);
-                        cVar.f26322h.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_txt_999999"));
-                        textView3 = cVar.f26322h;
+                        cVar.f27127h.setPadding(0, 0, 0, 0);
+                        cVar.f27127h.setLayoutParams(layoutParams3);
+                        cVar.f27128i.setVisibility(8);
+                        cVar.f27127h.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_txt_999999"));
+                        textView3 = cVar.f27127h;
                     } else {
-                        cVar.f26322h.setPadding(0, 0, 0, 0);
+                        cVar.f27127h.setPadding(0, 0, 0, 0);
                         if (item.date_not_started.length() > 4) {
-                            textView4 = cVar.f26322h;
+                            textView4 = cVar.f27127h;
                             str2 = item.date_not_started.substring(0, 4);
                         } else {
-                            textView4 = cVar.f26322h;
+                            textView4 = cVar.f27127h;
                             str2 = item.date_not_started;
                         }
                         textView4.setText(str2);
-                        cVar.f26322h.setTextSize(1, 10.0f);
+                        cVar.f27127h.setTextSize(1, 10.0f);
                         RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
                         layoutParams4.setMargins(0, DisplayUtils.dip2px(MyCouponListActivity.this, 4.0f), 0, 0);
-                        cVar.f26322h.setBackgroundDrawable(ResUtils.getDrawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_xianshiduan_bg"));
-                        cVar.f26322h.setLayoutParams(layoutParams4);
-                        cVar.f26322h.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_txt_999999"));
-                        cVar.f26322h.setVisibility(0);
-                        cVar.i.setText(item.date_message_v2);
-                        textView3 = cVar.i;
+                        cVar.f27127h.setBackgroundDrawable(ResUtils.getDrawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_xianshiduan_bg"));
+                        cVar.f27127h.setLayoutParams(layoutParams4);
+                        cVar.f27127h.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_txt_999999"));
+                        cVar.f27127h.setVisibility(0);
+                        cVar.f27128i.setText(item.date_message_v2);
+                        textView3 = cVar.f27128i;
                     }
                     textView3.setVisibility(0);
                 }
@@ -363,9 +363,9 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                             CouponList.Coupon coupon = item;
                             CouponList.Coupon.AppSceneService appSceneService = coupon.app_scene_service;
                             if (appSceneService != null) {
-                                if (appSceneService.f26273android > 0) {
+                                if (appSceneService.f27077android > 0) {
                                     MyCouponListActivity.this.needRefreshCouponlist = true;
-                                    BaiduWalletServiceController.getInstance().gotoWalletService(MyCouponListActivity.this.mAct, item.app_scene_service.f26273android, "");
+                                    BaiduWalletServiceController.getInstance().gotoWalletService(MyCouponListActivity.this.mAct, item.app_scene_service.f27077android, "");
                                     return;
                                 } else if (TextUtils.isEmpty(appSceneService.url)) {
                                     return;
@@ -406,9 +406,9 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 length = spannableStringBuilder.length() - item.discount_content_v2_unit.length();
             }
             spannableStringBuilder.setSpan(styleSpan, 0, length, 18);
-            cVar.f26321g.setText(spannableStringBuilder);
-            cVar.f26319e.setText(item.template_title);
-            cVar.f26320f.setText(item.use_limit_v2);
+            cVar.f27126g.setText(spannableStringBuilder);
+            cVar.f27124e.setText(item.template_title);
+            cVar.f27125f.setText(item.use_limit_v2);
             if (item.source_type == 1) {
             }
             textView2.setTextColor(ResUtils.getColor(beanActivity, str));
@@ -435,44 +435,44 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
     public class b extends BaseAdapter {
 
         /* renamed from: a  reason: collision with root package name */
-        public c f26312a;
+        public c f27117a;
 
         /* renamed from: c  reason: collision with root package name */
-        public final LayoutInflater f26314c;
+        public final LayoutInflater f27119c;
 
         public b() {
-            this.f26314c = LayoutInflater.from(MyCouponListActivity.this.mAct);
+            this.f27119c = LayoutInflater.from(MyCouponListActivity.this.mAct);
         }
 
-        private void b(int i) {
+        private void b(int i2) {
             ImageView imageView;
             BeanActivity beanActivity;
             String str;
-            if (i == 0) {
-                imageView = this.f26312a.l;
+            if (i2 == 0) {
+                imageView = this.f27117a.l;
                 beanActivity = MyCouponListActivity.this.mAct;
                 str = "wallet_personal_coupon_expired";
-            } else if (i != 1) {
-                if (i == 2) {
-                    imageView = this.f26312a.l;
+            } else if (i2 != 1) {
+                if (i2 == 2) {
+                    imageView = this.f27117a.l;
                     beanActivity = MyCouponListActivity.this.mAct;
                     str = "wallet_personal_coupon_disabled";
                 }
-                this.f26312a.l.setVisibility(0);
+                this.f27117a.l.setVisibility(0);
             } else {
-                imageView = this.f26312a.l;
+                imageView = this.f27117a.l;
                 beanActivity = MyCouponListActivity.this.mAct;
                 str = "wallet_personal_coupon_used";
             }
             imageView.setImageDrawable(ResUtils.getDrawable(beanActivity, str));
-            this.f26312a.l.setVisibility(0);
+            this.f27117a.l.setVisibility(0);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: a */
-        public CouponList.Coupon getItem(int i) {
-            return (CouponList.Coupon) MyCouponListActivity.this.mCouponList.get(i);
+        public CouponList.Coupon getItem(int i2) {
+            return (CouponList.Coupon) MyCouponListActivity.this.mCouponList.get(i2);
         }
 
         @Override // android.widget.Adapter
@@ -481,59 +481,59 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
         }
 
         @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            return i;
+        public long getItemId(int i2) {
+            return i2;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:30:0x024a  */
-        /* JADX WARN: Removed duplicated region for block: B:31:0x025f  */
-        /* JADX WARN: Removed duplicated region for block: B:35:0x026f  */
-        /* JADX WARN: Removed duplicated region for block: B:36:0x0273  */
-        /* JADX WARN: Removed duplicated region for block: B:37:0x0277  */
+        /* JADX WARN: Removed duplicated region for block: B:30:0x024f  */
+        /* JADX WARN: Removed duplicated region for block: B:31:0x0264  */
+        /* JADX WARN: Removed duplicated region for block: B:35:0x0274  */
+        /* JADX WARN: Removed duplicated region for block: B:36:0x0278  */
+        /* JADX WARN: Removed duplicated region for block: B:37:0x027c  */
         @Override // android.widget.Adapter
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(int i2, View view, ViewGroup viewGroup) {
             TextView textView;
             String string;
             int length;
-            CouponList.Coupon item = getItem(i);
+            CouponList.Coupon item = getItem(i2);
             if (view == null || view.getTag() == null) {
-                this.f26312a = new c();
-                view = this.f26314c.inflate(ResUtils.layout(MyCouponListActivity.this.mAct, "wallet_personal_coupon_item1"), (ViewGroup) null);
-                this.f26312a.f26316b = (CirclePortraitView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "sp_logo"));
-                this.f26312a.f26317c = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "logo_title"));
-                this.f26312a.f26318d = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_maket_label"));
-                this.f26312a.f26319e = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_tempalte_title"));
-                this.f26312a.f26320f = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_limit"));
-                this.f26312a.f26321g = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_content"));
-                this.f26312a.f26321g.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_invalid_coupon_detail_D7D7D7"));
-                this.f26312a.i = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_time_limit"));
-                this.f26312a.i.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_txt_999999"));
-                this.f26312a.l = (ImageView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_used"));
-                this.f26312a.m = view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_now"));
-                this.f26312a.m.setVisibility(8);
-                view.setTag(this.f26312a);
+                this.f27117a = new c();
+                view = this.f27119c.inflate(ResUtils.layout(MyCouponListActivity.this.mAct, "wallet_personal_coupon_item1"), (ViewGroup) null);
+                this.f27117a.f27121b = (CirclePortraitView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "sp_logo"));
+                this.f27117a.f27122c = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "logo_title"));
+                this.f27117a.f27123d = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_maket_label"));
+                this.f27117a.f27124e = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_tempalte_title"));
+                this.f27117a.f27125f = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_limit"));
+                this.f27117a.f27126g = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_content"));
+                this.f27117a.f27126g.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_invalid_coupon_detail_D7D7D7"));
+                this.f27117a.f27128i = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_time_limit"));
+                this.f27117a.f27128i.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_txt_999999"));
+                this.f27117a.l = (ImageView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_used"));
+                this.f27117a.m = view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_now"));
+                this.f27117a.m.setVisibility(8);
+                view.setTag(this.f27117a);
             } else {
-                this.f26312a = (c) view.getTag();
+                this.f27117a = (c) view.getTag();
             }
-            this.f26312a.f26316b.setImageDrawable(ResUtils.getDrawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_qianbao_logo_for_list"));
+            this.f27117a.f27121b.setImageDrawable(ResUtils.getDrawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_qianbao_logo_for_list"));
             if (TextUtils.isEmpty(item.logo_title)) {
-                textView = this.f26312a.f26317c;
+                textView = this.f27117a.f27122c;
                 string = ResUtils.getString(MyCouponListActivity.this.mAct, "wallet_personal_coupon_logo_title");
             } else {
-                textView = this.f26312a.f26317c;
+                textView = this.f27117a.f27122c;
                 string = item.logo_title;
             }
             textView.setText(string);
             if (!TextUtils.isEmpty(item.logo_url)) {
-                this.f26312a.f26316b.setImageUrl(item.logo_url);
+                this.f27117a.f27121b.setImageUrl(item.logo_url);
             }
             ColorMatrix colorMatrix = new ColorMatrix();
             colorMatrix.setSaturation(0.0f);
-            this.f26312a.f26316b.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-            this.f26312a.f26318d.setVisibility(8);
+            this.f27117a.f27121b.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+            this.f27117a.f27123d.setVisibility(8);
             AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 40.0f));
             AbsoluteSizeSpan absoluteSizeSpan2 = new AbsoluteSizeSpan(DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 30.0f));
             StyleSpan styleSpan = new StyleSpan(1);
@@ -542,14 +542,14 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 length = spannableStringBuilder.length();
             } else if (item.discount_content_v2.length() > 7) {
                 spannableStringBuilder.setSpan(absoluteSizeSpan, 0, spannableStringBuilder.length(), 18);
-                this.f26312a.f26321g.setText(spannableStringBuilder);
-                this.f26312a.f26319e.setText(item.template_title);
-                this.f26312a.f26320f.setText(item.use_limit_v2);
+                this.f27117a.f27126g.setText(spannableStringBuilder);
+                this.f27117a.f27124e.setText(item.template_title);
+                this.f27117a.f27125f.setText(item.use_limit_v2);
                 if (TextUtils.isEmpty(item.date_message)) {
-                    this.f26312a.i.setVisibility(0);
-                    this.f26312a.i.setText(item.date_message);
+                    this.f27117a.f27128i.setVisibility(0);
+                    this.f27117a.f27128i.setText(item.date_message);
                 } else {
-                    this.f26312a.i.setVisibility(8);
+                    this.f27117a.f27128i.setVisibility(8);
                 }
                 switch (item.status) {
                     case 3:
@@ -580,9 +580,9 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 length = spannableStringBuilder.length() - item.discount_content_v2_unit.length();
             }
             spannableStringBuilder.setSpan(styleSpan, 0, length, 18);
-            this.f26312a.f26321g.setText(spannableStringBuilder);
-            this.f26312a.f26319e.setText(item.template_title);
-            this.f26312a.f26320f.setText(item.use_limit_v2);
+            this.f27117a.f27126g.setText(spannableStringBuilder);
+            this.f27117a.f27124e.setText(item.template_title);
+            this.f27117a.f27125f.setText(item.use_limit_v2);
             if (TextUtils.isEmpty(item.date_message)) {
             }
             switch (item.status) {
@@ -595,26 +595,28 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
     public class c {
 
         /* renamed from: b  reason: collision with root package name */
-        public CirclePortraitView f26316b;
+        public CirclePortraitView f27121b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f26317c;
+        public TextView f27122c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f26318d;
+        public TextView f27123d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f26319e;
+        public TextView f27124e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f26320f;
+        public TextView f27125f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f26321g;
+        public TextView f27126g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f26322h;
-        public TextView i;
+        public TextView f27127h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public TextView f27128i;
         public TextView j;
         public ImageView k;
         public ImageView l;
@@ -626,35 +628,35 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getEmptyHeight() {
-        int i;
         int i2;
-        ListAdapter adapter;
         int i3;
+        ListAdapter adapter;
+        int i4;
         int displayHeight = DisplayUtils.getDisplayHeight(this.mAct);
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
         int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(0, 0);
         if (this.mCouponBanner1.isShown()) {
             this.mCouponBanner1.measure(makeMeasureSpec, makeMeasureSpec2);
-            i = this.mCouponBanner1.getMeasuredHeight();
+            i2 = this.mCouponBanner1.getMeasuredHeight();
         } else {
-            i = 0;
+            i2 = 0;
         }
         if (this.mCouponList.size() > 0) {
             if (this.isHasCouponAndBanner) {
                 adapter = this.mListView.getAdapter();
-                i3 = 2;
+                i4 = 2;
             } else {
                 adapter = this.mListView.getAdapter();
-                i3 = 1;
+                i4 = 1;
             }
-            View view = adapter.getView(i3, null, this.mListView);
+            View view = adapter.getView(i4, null, this.mListView);
             view.measure(makeMeasureSpec, makeMeasureSpec2);
-            i2 = view.getMeasuredHeight();
+            i3 = view.getMeasuredHeight();
         } else {
-            i2 = 0;
+            i3 = 0;
         }
         int identifier = getResources().getIdentifier("status_bar_height", "dimen", "android");
-        int size = ((((displayHeight - (i2 * this.mCouponList.size())) - DisplayUtils.dip2px(this.mAct, 50.0f)) - DisplayUtils.dip2px(this.mAct, 50.0f)) - i) - (identifier > 0 ? getResources().getDimensionPixelSize(identifier) : 0);
+        int size = ((((displayHeight - (i3 * this.mCouponList.size())) - DisplayUtils.dip2px(this.mAct, 50.0f)) - DisplayUtils.dip2px(this.mAct, 50.0f)) - i2) - (identifier > 0 ? getResources().getDimensionPixelSize(identifier) : 0);
         int dip2px = DisplayUtils.dip2px(this.mAct, 40.0f);
         if (size > dip2px) {
             return size - dip2px;
@@ -718,8 +720,8 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
         if (this.mEmptyView == null || getActivity() == null) {
             return;
         }
-        int i = this.mLoadStatus;
-        if (i == 3) {
+        int i2 = this.mLoadStatus;
+        if (i2 == 3) {
             this.mReloadView.setVisibility(0);
             WalletBaseEmptyView walletBaseEmptyView = this.mReloadView;
             int drawable = ResUtils.drawable(this.mAct, "wallet_base_no_net");
@@ -732,7 +734,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                     MyCouponListActivity.this.queryCoupon(true, null, null);
                 }
             });
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             this.mReloadView.showTip1_Tip2_NextBtn(ResUtils.drawable(this.mAct, "wallet_base_no_net"), ResUtils.getString(this.mAct, "wallet_base_no_network"), ResUtils.getString(this.mAct, "wallet_base_no_network_reason"), ResUtils.getString(getActivity(), "bd_wallet_reload"), new WalletBaseEmptyView.EmptyBtnClickListener() { // from class: com.baidu.wallet.personal.ui.MyCouponListActivity.7
                 @Override // com.baidu.wallet.base.widget.WalletBaseEmptyView.EmptyBtnClickListener
                 public void onBtnClick() {
@@ -783,35 +785,35 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 this.isHasCouponAndBanner = false;
             }
         }
-        int i = 0;
+        int i2 = 0;
         while (true) {
             CouponList[] couponListArr2 = couponListResponse.coupon_list;
-            if (i >= couponListArr2.length) {
+            if (i2 >= couponListArr2.length) {
                 return;
             }
-            String str = couponListArr2[i].label;
-            if (couponListArr2[i].coupons != null && couponListArr2[i].coupons.length > 0) {
-                int i2 = 0;
+            String str = couponListArr2[i2].label;
+            if (couponListArr2[i2].coupons != null && couponListArr2[i2].coupons.length > 0) {
+                int i3 = 0;
                 while (true) {
                     CouponList[] couponListArr3 = couponListResponse.coupon_list;
-                    if (i2 < couponListArr3[i].coupons.length) {
-                        if (couponListArr3[i].coupons[i2].coupon_receive_timestamp > this.coupon_receive_timestamp && !this.isInvaild) {
-                            this.coupon_receive_timestamp = couponListArr3[i].coupons[i2].coupon_receive_timestamp;
+                    if (i3 < couponListArr3[i2].coupons.length) {
+                        if (couponListArr3[i2].coupons[i3].coupon_receive_timestamp > this.coupon_receive_timestamp && !this.isInvaild) {
+                            this.coupon_receive_timestamp = couponListArr3[i2].coupons[i3].coupon_receive_timestamp;
                         }
                         CouponList[] couponListArr4 = couponListResponse.coupon_list;
-                        couponListArr4[i].coupons[i2].labelValue = str;
-                        this.mCouponList.add(couponListArr4[i].coupons[i2]);
+                        couponListArr4[i2].coupons[i3].labelValue = str;
+                        this.mCouponList.add(couponListArr4[i2].coupons[i3]);
                         this.recvCount++;
-                        i2++;
+                        i3++;
                     }
                 }
             }
-            i++;
+            i2++;
         }
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleFailure(int i, int i2, String str) {
+    public void handleFailure(int i2, int i3, String str) {
         DXMSdkSAUtils.onEventWithValues("CouponListRequestFail", Arrays.asList((System.currentTimeMillis() - this.now) + ""));
         PayStatisticsUtil.onEventWithValue("CouponListRequestFail", (System.currentTimeMillis() - this.now) + "");
         BeanActivity beanActivity = this.mAct;
@@ -819,21 +821,21 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             return;
         }
         WalletGlobalUtils.safeDismissDialog(beanActivity, -1);
-        if (ThirdPartyLoginUtil.getInstance().checkThirdPartyLogin(this.mAct.getActivity(), i2, str, new WalletApiExtListener.ThirdPartyLoginListener() { // from class: com.baidu.wallet.personal.ui.MyCouponListActivity.2
+        if (ThirdPartyLoginUtil.getInstance().checkThirdPartyLogin(this.mAct.getActivity(), i3, str, new WalletApiExtListener.ThirdPartyLoginListener() { // from class: com.baidu.wallet.personal.ui.MyCouponListActivity.2
             @Override // com.baidu.wallet.api.WalletApiExtListener.ThirdPartyLoginListener
-            public void onCallFail(int i3, String str2) {
+            public void onCallFail(int i4, String str2) {
                 MyCouponListActivity.this.mAct.finish();
             }
 
             @Override // com.baidu.wallet.api.WalletApiExtListener.ThirdPartyLoginListener
-            public void onCallSuccess(int i3, String str2) {
+            public void onCallSuccess(int i4, String str2) {
                 MyCouponListActivity.this.queryCoupon(true, null, null);
             }
         })) {
             return;
         }
-        super.handleFailure(i, i2, str);
-        if (i2 == 5003) {
+        super.handleFailure(i2, i3, str);
+        if (i3 == 5003) {
             this.mLoadStatus = 1;
             showEmptyView(null);
             if (WalletLoginHelper.getInstance().isPassLogin()) {
@@ -846,7 +848,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             }
         } else if (this.mCurrPage != 0) {
             this.mContainer.onPullUpRefreshComplete();
-        } else if (i2 < 0) {
+        } else if (i3 < 0) {
             this.mLoadStatus = 2;
             showEmptyView(null);
         } else {
@@ -856,12 +858,12 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
         LinearLayout linearLayout;
         DXMSdkSAUtils.onEventWithValues("CouponListRequestSuccess", Arrays.asList((System.currentTimeMillis() - this.now) + ""));
         PayStatisticsUtil.onEventWithValue("CouponListRequestSuccess", (System.currentTimeMillis() - this.now) + "");
         WalletGlobalUtils.safeDismissDialog(this.mAct, -1);
-        if (i != 515 || this.mAct == null || str == null || !(obj instanceof CouponListResponse)) {
+        if (i2 != 515 || this.mAct == null || str == null || !(obj instanceof CouponListResponse)) {
             return;
         }
         hideEmptyView();
@@ -1054,22 +1056,22 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
         });
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.wallet.personal.ui.MyCouponListActivity.4
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                int i2;
+            public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+                int i3;
                 if (MyCouponListActivity.this.getActivity() == null || CheckUtils.isFastDoubleClick()) {
                     return;
                 }
                 if (MyCouponListActivity.this.isHasCouponAndBanner) {
-                    if (i < 2) {
+                    if (i2 < 2) {
                         return;
                     }
-                    i2 = i - 2;
-                } else if (i == 0) {
+                    i3 = i2 - 2;
+                } else if (i2 == 0) {
                     return;
                 } else {
-                    i2 = i - 1;
+                    i3 = i2 - 1;
                 }
-                CouponList.Coupon coupon = (CouponList.Coupon) MyCouponListActivity.this.mAdapter.getItem(i2);
+                CouponList.Coupon coupon = (CouponList.Coupon) MyCouponListActivity.this.mAdapter.getItem(i3);
                 if (coupon == null) {
                     return;
                 }
@@ -1097,10 +1099,10 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
         }
         WalletLoginHelper.getInstance().verifyPassLogin(true, new LoginBackListenerProxy(this.mAct, new ILoginBackListener() { // from class: com.baidu.wallet.personal.ui.MyCouponListActivity.5
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str) {
+            public void onFail(int i2, String str) {
                 MyCouponListActivity.this.mLoadStatus = 1;
                 MyCouponListActivity.this.showEmptyView(null);
-                if (i == 603 && WalletLoginHelper.getInstance().isPassLogin()) {
+                if (i2 == 603 && WalletLoginHelper.getInstance().isPassLogin()) {
                     WalletLoginHelper.getInstance().handlerWalletError(5003);
                     AccountManager.getInstance(MyCouponListActivity.this.mAct.getApplicationContext()).logout();
                     if (!TextUtils.isEmpty(str)) {
@@ -1111,21 +1113,21 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str) {
+            public void onSuccess(int i2, String str) {
                 MyCouponListActivity.this.queryCoupon(true, null, null);
             }
         }));
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i == 1 && i2 == 0) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i2 == 1 && i3 == 0) {
             this.mCurrPage = 0;
             this.recvCount = 0;
             queryCoupon(true, null, null);
         }
-        if (i == 2) {
+        if (i2 == 2) {
             this.mCurrPage = 0;
             this.recvCount = 0;
             queryCoupon(true, null, null);
@@ -1149,7 +1151,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(ResUtils.layout(this.mAct, "wallet_personal_coupon_list"));
@@ -1178,10 +1180,10 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        int i = this.coupon_receive_timestamp;
-        if (i > this.last_coupon_receive_timestamp && !this.isInvaild) {
-            this.last_coupon_receive_timestamp = i;
-            SharedPreferencesUtils.setParam(this.mAct, "coupon_recive_timestamp", "last_coupon_receive_timestamp_key", Integer.valueOf(i));
+        int i2 = this.coupon_receive_timestamp;
+        if (i2 > this.last_coupon_receive_timestamp && !this.isInvaild) {
+            this.last_coupon_receive_timestamp = i2;
+            SharedPreferencesUtils.setParam(this.mAct, "coupon_recive_timestamp", "last_coupon_receive_timestamp_key", Integer.valueOf(i2));
         }
         BeanManager beanManager = BeanManager.getInstance();
         beanManager.removeAllBeans(BEAN_TAG + hashCode());
@@ -1212,19 +1214,19 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             return;
         }
         String[] split = str.split("&");
-        for (int i = 0; i < split.length; i++) {
-            if (split[i].contains("longitude")) {
-                String[] split2 = split[i].split("=");
+        for (int i2 = 0; i2 < split.length; i2++) {
+            if (split[i2].contains("longitude")) {
+                String[] split2 = split[i2].split("=");
                 if (split2.length > 0) {
                     this.longitude = split2[1];
                 }
-            } else if (split[i].contains("latitude")) {
-                String[] split3 = split[i].split("=");
+            } else if (split[i2].contains("latitude")) {
+                String[] split3 = split[i2].split("=");
                 if (split3.length > 0) {
                     this.latitude = split3[1];
                 }
-            } else if (split[i].contains("is_from_new_prompt")) {
-                String[] split4 = split[i].split("=");
+            } else if (split[i2].contains("is_from_new_prompt")) {
+                String[] split4 = split[i2].split("=");
                 if (split4.length > 0) {
                     this.isFormNewPromot = split4[1];
                 }

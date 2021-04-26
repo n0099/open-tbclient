@@ -10,27 +10,28 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.util.devices.RomUtils;
+import com.google.android.material.internal.ManufacturerUtils;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, String> f37153a;
+    public static final Map<String, String> f34888a;
 
     static {
         HashMap hashMap = new HashMap();
-        f37153a = hashMap;
+        f34888a = hashMap;
         hashMap.put("HUAWEI", "com.huawei.appmarket");
-        f37153a.put("OPPO", "com.oppo.market");
-        f37153a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
-        f37153a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
-        f37153a.put("OnePlus", "com.oppo.market");
-        f37153a.put("Meizu", "com.meizu.mstore");
-        f37153a.put("samsung", "com.sec.android.app.samsungapps");
-        f37153a.put("SMARTISAN", "com.smartisanos.appstore");
-        f37153a.put("Realme", "com.oppo.market");
-        f37153a.put("HONOR", "com.huawei.appmarket");
+        f34888a.put("OPPO", "com.oppo.market");
+        f34888a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
+        f34888a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
+        f34888a.put("OnePlus", "com.oppo.market");
+        f34888a.put("Meizu", "com.meizu.mstore");
+        f34888a.put(ManufacturerUtils.SAMSUNG, "com.sec.android.app.samsungapps");
+        f34888a.put("SMARTISAN", "com.smartisanos.appstore");
+        f34888a.put("Realme", "com.oppo.market");
+        f34888a.put("HONOR", "com.huawei.appmarket");
     }
 
     public static boolean a(Context context, String str) {
@@ -52,11 +53,11 @@ public class e {
         if (context == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        if ("samsung".equals(Build.BRAND)) {
+        if (ManufacturerUtils.SAMSUNG.equals(Build.BRAND)) {
             str = "http://apps.samsung.com/appquery/appDetail.as?appId=" + str2;
         }
         try {
-            String str3 = f37153a.get(Build.BRAND);
+            String str3 = f34888a.get(Build.BRAND);
             Intent parseUri = Intent.parseUri(str, 1);
             parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(parseUri, 0)) {

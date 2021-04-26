@@ -16,10 +16,10 @@ import okhttp3.Response;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f3033a;
+    public static volatile a f3049a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final OkHttpClient f3034b = new OkHttpClient.Builder().addInterceptor(new C0034a()).connectTimeout(15, TimeUnit.SECONDS).readTimeout(15, TimeUnit.SECONDS).build();
+    public final OkHttpClient f3050b = new OkHttpClient.Builder().addInterceptor(new C0034a()).connectTimeout(15, TimeUnit.SECONDS).readTimeout(15, TimeUnit.SECONDS).build();
 
     /* renamed from: com.baidu.android.pushservice.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -42,14 +42,14 @@ public class a {
     }
 
     public static a a() {
-        if (f3033a == null) {
+        if (f3049a == null) {
             synchronized (a.class) {
-                if (f3033a == null) {
-                    f3033a = new a();
+                if (f3049a == null) {
+                    f3049a = new a();
                 }
             }
         }
-        return f3033a;
+        return f3049a;
     }
 
     public static Headers a(String str, String str2) {
@@ -94,7 +94,7 @@ public class a {
                 }
                 headers = new Request.Builder().url(str).headers(a(hashMap));
             }
-            Response execute = this.f3034b.newCall(headers.build()).execute();
+            Response execute = this.f3050b.newCall(headers.build()).execute();
             bVar.a(execute.code());
             bVar.a(execute.body().byteStream());
         } catch (IOException | Exception unused) {
@@ -114,7 +114,7 @@ public class a {
                 }
                 headers = new Request.Builder().url(str).headers(a(str3, str4));
             }
-            Response execute = this.f3034b.newCall(headers.build()).execute();
+            Response execute = this.f3050b.newCall(headers.build()).execute();
             bVar.a(execute.code());
             bVar.a(execute.body().byteStream());
         } catch (IOException | Exception unused) {

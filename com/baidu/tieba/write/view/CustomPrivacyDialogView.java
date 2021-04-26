@@ -10,18 +10,18 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import d.b.i0.r.f0.m.c;
+import d.a.i0.r.f0.m.c;
 /* loaded from: classes5.dex */
 public class CustomPrivacyDialogView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public EMTextView f22052e;
+    public EMTextView f22733e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TBSpecificationBtn f22053f;
+    public TBSpecificationBtn f22734f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TBSpecificationBtn f22054g;
+    public TBSpecificationBtn f22735g;
 
     public CustomPrivacyDialogView(Context context) {
         this(context, null);
@@ -37,56 +37,56 @@ public class CustomPrivacyDialogView extends LinearLayout {
         gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0211));
         setBackgroundDrawable(gradientDrawable);
         LinearLayout.inflate(context, R.layout.custom_privacy_dialog_view, this);
-        this.f22052e = (EMTextView) findViewById(R.id.privacy_message);
-        this.f22053f = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_cancel_button);
-        this.f22054g = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_confirm_button);
-        this.f22053f.setTextSize(R.dimen.tbds34);
+        this.f22733e = (EMTextView) findViewById(R.id.privacy_message);
+        this.f22734f = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_cancel_button);
+        this.f22735g = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_confirm_button);
+        this.f22734f.setTextSize(R.dimen.tbds34);
         c cVar = new c();
         cVar.q(R.color.CAM_X0105);
-        this.f22053f.setConfig(cVar);
-        this.f22054g.setTextSize(R.dimen.tbds34);
+        this.f22734f.setConfig(cVar);
+        this.f22735g.setTextSize(R.dimen.tbds34);
         c cVar2 = new c();
         cVar2.o(R.color.CAM_X0302);
-        this.f22054g.setConfig(cVar2);
+        this.f22735g.setConfig(cVar2);
     }
 
-    public void setMessageTextViewColor(int i) {
-        EMTextView eMTextView = this.f22052e;
+    public void setMessageTextViewColor(int i2) {
+        EMTextView eMTextView = this.f22733e;
         if (eMTextView != null) {
-            eMTextView.setTextColor(i);
+            eMTextView.setTextColor(i2);
         }
     }
 
     public void setMessageTextViewMessage(String str) {
-        EMTextView eMTextView = this.f22052e;
+        EMTextView eMTextView = this.f22733e;
         if (eMTextView != null) {
             eMTextView.setText(str);
         }
     }
 
     public void setPrivacyDialogCancelButtonListener(View.OnClickListener onClickListener) {
-        TBSpecificationBtn tBSpecificationBtn = this.f22053f;
+        TBSpecificationBtn tBSpecificationBtn = this.f22734f;
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.setOnClickListener(onClickListener);
         }
     }
 
     public void setPrivacyDialogCancelButtonText(String str) {
-        TBSpecificationBtn tBSpecificationBtn = this.f22053f;
+        TBSpecificationBtn tBSpecificationBtn = this.f22734f;
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.setText(str);
         }
     }
 
     public void setPrivacyDialogConfirmButtonListener(View.OnClickListener onClickListener) {
-        TBSpecificationBtn tBSpecificationBtn = this.f22054g;
+        TBSpecificationBtn tBSpecificationBtn = this.f22735g;
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.setOnClickListener(onClickListener);
         }
     }
 
     public void setPrivacyDialogConfirmButtonText(String str) {
-        TBSpecificationBtn tBSpecificationBtn = this.f22054g;
+        TBSpecificationBtn tBSpecificationBtn = this.f22735g;
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.setText(str);
         }
@@ -96,8 +96,8 @@ public class CustomPrivacyDialogView extends LinearLayout {
         this(context, attributeSet, 0);
     }
 
-    public CustomPrivacyDialogView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public CustomPrivacyDialogView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a(context);
     }
 }

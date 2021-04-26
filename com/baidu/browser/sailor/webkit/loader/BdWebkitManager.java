@@ -12,6 +12,7 @@ import com.baidu.webkit.sdk.dumper.CrashCallback;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.util.ArrayList;
 import java.util.List;
+import kotlinx.coroutines.DebugKt;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BdWebkitManager implements INoProGuard {
@@ -20,7 +21,7 @@ public class BdWebkitManager implements INoProGuard {
     public static int mWebkitType$25688051;
     public boolean mIsWebkitBuiltin = true;
     public List<IWebkitLoaderListener> mListenerLst = new ArrayList();
-    public d.b.h.b.f.b.a mLoader = new d.b.h.b.f.b.a();
+    public d.a.h.b.f.b.a mLoader = new d.a.h.b.f.b.a();
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -28,22 +29,22 @@ public class BdWebkitManager implements INoProGuard {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f4362a = 1;
+        public static final int f4440a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f4363b = 2;
+        public static final int f4441b = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f4364c = 3;
+        public static final int f4442c = 3;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ int[] f4365d = {1, 2, 3};
+        public static final /* synthetic */ int[] f4443d = {1, 2, 3};
     }
 
     static {
-        int i = BdSailorConfig.BUILTIN_WEBKIT$25688051;
-        mWebkitType$25688051 = i;
-        mBdWebkitType$25688051 = i;
+        int i2 = BdSailorConfig.BUILTIN_WEBKIT$25688051;
+        mWebkitType$25688051 = i2;
+        mBdWebkitType$25688051 = i2;
     }
 
     private String makeErrorInfo(LoadErrorCode loadErrorCode) {
@@ -51,7 +52,11 @@ public class BdWebkitManager implements INoProGuard {
         try {
             jSONObject.put("error_code", loadErrorCode.getInt());
             jSONObject.put(LoadErrorCode.Statistics.KEY_ERROR_REASON, loadErrorCode.getString());
-            jSONObject.put("t5_integration", BdZeusUtil.isWebkitLoaded() ? "on" : "off");
+            String str = DebugKt.DEBUG_PROPERTY_VALUE_OFF;
+            if (BdZeusUtil.isWebkitLoaded()) {
+                str = DebugKt.DEBUG_PROPERTY_VALUE_ON;
+            }
+            jSONObject.put("t5_integration", str);
         } catch (Exception unused) {
             Log.d("soar", "exception when make error info");
         }
@@ -69,7 +74,7 @@ public class BdWebkitManager implements INoProGuard {
     }
 
     public void disableBdWebkit() {
-        mWebkitType$25688051 = a.f4362a;
+        mWebkitType$25688051 = a.f4440a;
     }
 
     public void enableBdWebkit() {
@@ -83,10 +88,10 @@ public class BdWebkitManager implements INoProGuard {
     public void initWebkit(String str, boolean z, Class<? extends CrashCallback> cls) {
         boolean z2;
         this.mIsWebkitBuiltin = z;
-        d.b.h.b.f.b.a aVar = this.mLoader;
+        d.a.h.b.f.b.a aVar = this.mLoader;
         Context appContext = BdSailorPlatform.getInstance().getAppContext();
-        int i = mWebkitType$25688051;
-        if (z && (a.f4363b == i || a.f4364c == i)) {
+        int i2 = mWebkitType$25688051;
+        if (z && (a.f4441b == i2 || a.f4442c == i2)) {
             if (cls != null) {
                 WebKitFactory.setCrashCallback(appContext, cls);
             }
@@ -94,67 +99,67 @@ public class BdWebkitManager implements INoProGuard {
             WebKitFactory.setApkLibLoadType(z);
             WebKitFactory.setEmulator(BdZeusUtil.checkEmulator());
             if (WebKitFactory.isZeusSupported()) {
-                if (a.f4364c == i) {
-                    d.b.h.b.d.c.a aVar2 = BdSailorPlatform.getStatic();
+                if (a.f4442c == i2) {
+                    d.a.h.b.d.c.a aVar2 = BdSailorPlatform.getStatic();
                     aVar2.b("emulator-check", "emulator:" + BdZeusUtil.checkEmulator());
                     z2 = WebKitFactory.setEngine(1);
-                    String str2 = d.b.h.b.f.b.a.f43812c;
+                    String str2 = d.a.h.b.f.b.a.f41070c;
                     Log.d(str2, "zeus version = " + WebKitFactory.getZeusVersionName());
                 } else {
                     z2 = false;
                 }
                 if (z2) {
-                    String str3 = d.b.h.b.f.b.a.f43812c;
+                    String str3 = d.a.h.b.f.b.a.f41070c;
                     Log.d(str3, "zeus version = " + WebKitFactory.getZeusVersionName());
-                    String str4 = d.b.h.b.f.b.a.f43812c;
+                    String str4 = d.a.h.b.f.b.a.f41070c;
                     Log.d(str4, "sdk version = " + WebKitFactory.getSdkVersionName());
                     BdSailorPlatform.getWebkitManager().onLoadZeusSDKSuccess();
                     BdSailorPlatform.getStatic().b("init-webkit", "success");
-                    BdSailorPlatform.getStatic().f43797d = true;
+                    BdSailorPlatform.getStatic().f41054d = true;
                 } else {
                     LoadErrorCode loadErrorCode = WebKitFactory.getLoadErrorCode();
                     aVar.b(loadErrorCode);
-                    d.b.h.b.f.b.a.c(loadErrorCode);
+                    d.a.h.b.f.b.a.c(loadErrorCode);
                 }
             } else {
                 aVar.b(new LoadErrorCode(99, "not support"));
                 BdSailorPlatform.getStatic().b("init-webkit", "notSupport");
             }
-            BdSailorPlatform.getStatic().f43797d = false;
+            BdSailorPlatform.getStatic().f41054d = false;
         } else if (BdZeusUtil.isWebkitLoaded()) {
             return;
         } else {
-            d.b.h.b.f.b.a.a(appContext, z, i);
+            d.a.h.b.f.b.a.a(appContext, z, i2);
             if (BdZeusUtil.isWebkitLoaded()) {
                 BdSailorPlatform.getStatic().b("init-webkit", "success");
                 BdSailorPlatform.getWebkitManager().onLoadZeusSDKSuccess();
             } else {
                 LoadErrorCode loadErrorCode2 = WebKitFactory.getLoadErrorCode();
                 aVar.b(loadErrorCode2);
-                d.b.h.b.f.b.a.c(loadErrorCode2);
+                d.a.h.b.f.b.a.c(loadErrorCode2);
                 BdSailorPlatform.getWebkitManager().onLoadSysSDKSuccess();
             }
         }
-        ZeusPerformanceTiming.setZeusWebkitInitStatistics(BdSailorPlatform.getStatic().f43795b);
+        ZeusPerformanceTiming.setZeusWebkitInitStatistics(BdSailorPlatform.getStatic().f41052b);
     }
 
     public void installZeusFromDownload(String str) {
-        d.b.h.b.f.b.a aVar = this.mLoader;
+        d.a.h.b.f.b.a aVar = this.mLoader;
         BdSailorPlatform.getInstance().getAppContext();
-        int i = mWebkitType$25688051;
+        int i2 = mWebkitType$25688051;
         if (str != null) {
-            aVar.f43813a = (byte) 0;
-            if (a.f4364c == i) {
+            aVar.f41071a = (byte) 0;
+            if (a.f4442c == i2) {
                 WebKitFactory.destroy();
-                Log.d(d.b.h.b.f.b.a.f43812c, "sdk version =  =" + WebKitFactory.getSdkVersionName());
+                Log.d(d.a.h.b.f.b.a.f41070c, "sdk version =  =" + WebKitFactory.getSdkVersionName());
             }
             if (!str.startsWith("file://")) {
                 str = "file://" + str;
             }
             BdZeusUtil.printKernellog("install plugin from download");
             WebKitFactory.installAsync(str, aVar);
-            aVar.f43814b = System.currentTimeMillis();
-            Log.i(d.b.h.b.f.b.a.f43812c, "full update started!");
+            aVar.f41072b = System.currentTimeMillis();
+            Log.i(d.a.h.b.f.b.a.f41070c, "full update started!");
         }
     }
 
@@ -166,7 +171,7 @@ public class BdWebkitManager implements INoProGuard {
         boolean init = WebKitFactory.init(context, context.getPackageName(), BdSailorPlatform.getInstance().getCuid());
         WebKitFactory.setApkLibLoadType(z);
         WebKitFactory.destroy();
-        boolean engine = (a.f4363b == mWebkitType$25688051 || a.f4364c == mWebkitType$25688051) ? WebKitFactory.setEngine(1) : false;
+        boolean engine = (a.f4441b == mWebkitType$25688051 || a.f4442c == mWebkitType$25688051) ? WebKitFactory.setEngine(1) : false;
         Log.d(" initResult " + init + " " + engine);
     }
 

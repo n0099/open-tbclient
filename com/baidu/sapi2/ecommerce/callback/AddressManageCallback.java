@@ -15,13 +15,13 @@ public abstract class AddressManageCallback implements NoProguard {
         public static final int ERROR_CODE_VOICE_RECOGNITION_NET_TIME_OUT = -505;
         public static final int ERROR_CODE_VOICE_RECOGNITION_UNKOWN = -501;
 
-        public abstract void onError(int i);
+        public abstract void onError(int i2);
 
         public abstract void onVoiceEnd();
 
         public abstract void onVoiceResult(String str);
 
-        public abstract void onVolumeResult(int i);
+        public abstract void onVolumeResult(int i2);
 
         public abstract void onWordResult(String str);
     }

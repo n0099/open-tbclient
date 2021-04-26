@@ -9,13 +9,13 @@ public final class HttpVersion extends ProtocolVersion implements Serializable {
     public static final HttpVersion HTTP_1_0 = null;
     public static final HttpVersion HTTP_1_1 = null;
 
-    public HttpVersion(int i, int i2) {
+    public HttpVersion(int i2, int i3) {
         super(null, 0, 0);
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.ProtocolVersion
-    public ProtocolVersion forVersion(int i, int i2) {
+    public ProtocolVersion forVersion(int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 }

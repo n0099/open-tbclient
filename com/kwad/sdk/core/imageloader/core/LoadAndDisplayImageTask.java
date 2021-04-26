@@ -107,6 +107,8 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
 
     /* loaded from: classes6.dex */
     public class TaskCancelledException extends Exception {
+        public static final long serialVersionUID = -504619855289909996L;
+
         public TaskCancelledException() {
         }
     }
@@ -200,7 +202,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         runTask(new FireFailEventRunnable(this, failType, th), false, this.handler, this.engine);
     }
 
-    private boolean fireProgressEvent(final int i, final int i2) {
+    private boolean fireProgressEvent(final int i2, final int i3) {
         if (isTaskInterrupted() || isTaskNotActual()) {
             return false;
         }
@@ -209,7 +211,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
                 @Override // java.lang.Runnable
                 public void run() {
                     LoadAndDisplayImageTask loadAndDisplayImageTask = LoadAndDisplayImageTask.this;
-                    loadAndDisplayImageTask.progressListener.onProgressUpdate(loadAndDisplayImageTask.uri, loadAndDisplayImageTask.imageAware.getWrappedView(), i, i2);
+                    loadAndDisplayImageTask.progressListener.onProgressUpdate(loadAndDisplayImageTask.uri, loadAndDisplayImageTask.imageAware.getWrappedView(), i2, i3);
                 }
             }, false, this.handler, this.engine);
             return true;
@@ -249,12 +251,12 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         return false;
     }
 
-    private boolean resizeAndSaveImage(int i, int i2) {
+    private boolean resizeAndSaveImage(int i2, int i3) {
         File file = this.configuration.diskCache.get(this.uri);
         if (file == null || !file.exists()) {
             return false;
         }
-        DecodedResult decode = this.decoder.decode(new ImageDecodingInfo(this.memoryCacheKey, ImageDownloader.Scheme.FILE.wrap(file.getAbsolutePath()), this.uri, new ImageSize(i, i2), ViewScaleType.FIT_INSIDE, getDownloader(), new DisplayImageOptions.Builder().cloneFrom(this.options).imageScaleType(ImageScaleType.IN_SAMPLE_INT).build(), this.listener));
+        DecodedResult decode = this.decoder.decode(new ImageDecodingInfo(this.memoryCacheKey, ImageDownloader.Scheme.FILE.wrap(file.getAbsolutePath()), this.uri, new ImageSize(i2, i3), ViewScaleType.FIT_INSIDE, getDownloader(), new DisplayImageOptions.Builder().cloneFrom(this.options).imageScaleType(ImageScaleType.IN_SAMPLE_INT).build(), this.listener));
         Bitmap bitmap = decode != null ? decode.mBitmap : null;
         if (bitmap != null && this.configuration.processorForDiskCache != null) {
             L.d(LOG_PROCESS_IMAGE_BEFORE_CACHE_ON_DISK, this.memoryCacheKey);
@@ -286,11 +288,11 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         try {
             boolean downloadImage = downloadImage();
             if (downloadImage) {
-                int i = this.configuration.maxImageWidthForDiskCache;
-                int i2 = this.configuration.maxImageHeightForDiskCache;
-                if (i > 0 || i2 > 0) {
+                int i2 = this.configuration.maxImageWidthForDiskCache;
+                int i3 = this.configuration.maxImageHeightForDiskCache;
+                if (i2 > 0 || i3 > 0) {
                     L.d(LOG_RESIZE_CACHED_IMAGE_FILE, this.memoryCacheKey);
-                    resizeAndSaveImage(i, i2);
+                    resizeAndSaveImage(i2, i3);
                 }
             }
             return downloadImage;
@@ -404,8 +406,8 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     }
 
     @Override // com.kwad.sdk.core.imageloader.utils.IoUtils.CopyListener
-    public boolean onBytesCopied(int i, int i2) {
-        return this.syncLoading || fireProgressEvent(i, i2);
+    public boolean onBytesCopied(int i2, int i3) {
+        return this.syncLoading || fireProgressEvent(i2, i3);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:40:0x00e4 A[Catch: all -> 0x0111, TaskCancelledException -> 0x0113, Merged into TryCatch #0 {all -> 0x0111, TaskCancelledException -> 0x0113, blocks: (B:12:0x0033, B:14:0x0042, B:17:0x0049, B:36:0x00c1, B:38:0x00c9, B:40:0x00e4, B:41:0x00ef, B:18:0x0059, B:20:0x005f, B:23:0x0067, B:25:0x0075, B:27:0x0084, B:28:0x0092, B:30:0x0096, B:32:0x00a3, B:34:0x00ab, B:48:0x0113), top: B:53:0x0033 }] */

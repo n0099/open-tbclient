@@ -11,15 +11,15 @@ import java.util.List;
 public class a extends BaseBean<IDDetectResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f23340a;
+    public String f24060a;
 
     public <T> a(Context context) {
         super(context);
-        this.f23340a = "";
+        this.f24060a = "";
     }
 
     public void a(String str) {
-        this.f23340a = str;
+        this.f24060a = str;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -30,7 +30,7 @@ public class a extends BaseBean<IDDetectResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("id_pic", this.f23340a));
+        arrayList.add(new RestNameValuePair("id_pic", this.f24060a));
         return arrayList;
     }
 

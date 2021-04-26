@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.message.ConfigChangeMessage;
 import com.baidu.tbadk.core.message.KeyBoardSwitchMessage;
 import com.baidu.tbadk.core.message.WindowSwitchMessage;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.j0.p3.c;
+import d.a.c.e.p.l;
+import d.a.j0.p3.c;
 /* loaded from: classes3.dex */
 public class KuangFloatingWindowController {
     public static boolean currentStatus = false;

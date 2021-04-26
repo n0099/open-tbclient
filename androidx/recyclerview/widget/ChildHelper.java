@@ -26,54 +26,54 @@ public class ChildHelper {
             }
         }
 
-        public void clear(int i) {
-            if (i >= 64) {
+        public void clear(int i2) {
+            if (i2 >= 64) {
                 Bucket bucket = this.mNext;
                 if (bucket != null) {
-                    bucket.clear(i - 64);
+                    bucket.clear(i2 - 64);
                     return;
                 }
                 return;
             }
-            this.mData &= ~(1 << i);
+            this.mData &= ~(1 << i2);
         }
 
-        public int countOnesBefore(int i) {
+        public int countOnesBefore(int i2) {
             Bucket bucket = this.mNext;
             if (bucket == null) {
-                if (i >= 64) {
+                if (i2 >= 64) {
                     return Long.bitCount(this.mData);
                 }
-                return Long.bitCount(this.mData & ((1 << i) - 1));
-            } else if (i < 64) {
-                return Long.bitCount(this.mData & ((1 << i) - 1));
+                return Long.bitCount(this.mData & ((1 << i2) - 1));
+            } else if (i2 < 64) {
+                return Long.bitCount(this.mData & ((1 << i2) - 1));
             } else {
-                return bucket.countOnesBefore(i - 64) + Long.bitCount(this.mData);
+                return bucket.countOnesBefore(i2 - 64) + Long.bitCount(this.mData);
             }
         }
 
-        public boolean get(int i) {
-            if (i < 64) {
-                return (this.mData & (1 << i)) != 0;
+        public boolean get(int i2) {
+            if (i2 < 64) {
+                return (this.mData & (1 << i2)) != 0;
             }
             ensureNext();
-            return this.mNext.get(i - 64);
+            return this.mNext.get(i2 - 64);
         }
 
-        public void insert(int i, boolean z) {
-            if (i >= 64) {
+        public void insert(int i2, boolean z) {
+            if (i2 >= 64) {
                 ensureNext();
-                this.mNext.insert(i - 64, z);
+                this.mNext.insert(i2 - 64, z);
                 return;
             }
             boolean z2 = (this.mData & Long.MIN_VALUE) != 0;
-            long j = (1 << i) - 1;
+            long j = (1 << i2) - 1;
             long j2 = this.mData;
             this.mData = ((j2 & (~j)) << 1) | (j2 & j);
             if (z) {
-                set(i);
+                set(i2);
             } else {
-                clear(i);
+                clear(i2);
             }
             if (z2 || this.mNext != null) {
                 ensureNext();
@@ -81,12 +81,12 @@ public class ChildHelper {
             }
         }
 
-        public boolean remove(int i) {
-            if (i >= 64) {
+        public boolean remove(int i2) {
+            if (i2 >= 64) {
                 ensureNext();
-                return this.mNext.remove(i - 64);
+                return this.mNext.remove(i2 - 64);
             }
-            long j = 1 << i;
+            long j = 1 << i2;
             boolean z = (this.mData & j) != 0;
             long j2 = this.mData & (~j);
             this.mData = j2;
@@ -110,13 +110,13 @@ public class ChildHelper {
             }
         }
 
-        public void set(int i) {
-            if (i >= 64) {
+        public void set(int i2) {
+            if (i2 >= 64) {
                 ensureNext();
-                this.mNext.set(i - 64);
+                this.mNext.set(i2 - 64);
                 return;
             }
-            this.mData |= 1 << i;
+            this.mData |= 1 << i2;
         }
 
         public String toString() {
@@ -129,13 +129,13 @@ public class ChildHelper {
 
     /* loaded from: classes.dex */
     public interface Callback {
-        void addView(View view, int i);
+        void addView(View view, int i2);
 
-        void attachViewToParent(View view, int i, ViewGroup.LayoutParams layoutParams);
+        void attachViewToParent(View view, int i2, ViewGroup.LayoutParams layoutParams);
 
-        void detachViewFromParent(int i);
+        void detachViewFromParent(int i2);
 
-        View getChildAt(int i);
+        View getChildAt(int i2);
 
         int getChildCount();
 
@@ -149,28 +149,28 @@ public class ChildHelper {
 
         void removeAllViews();
 
-        void removeViewAt(int i);
+        void removeViewAt(int i2);
     }
 
     public ChildHelper(Callback callback) {
         this.mCallback = callback;
     }
 
-    private int getOffset(int i) {
-        if (i < 0) {
+    private int getOffset(int i2) {
+        if (i2 < 0) {
             return -1;
         }
         int childCount = this.mCallback.getChildCount();
-        int i2 = i;
-        while (i2 < childCount) {
-            int countOnesBefore = i - (i2 - this.mBucket.countOnesBefore(i2));
+        int i3 = i2;
+        while (i3 < childCount) {
+            int countOnesBefore = i2 - (i3 - this.mBucket.countOnesBefore(i3));
             if (countOnesBefore == 0) {
-                while (this.mBucket.get(i2)) {
-                    i2++;
+                while (this.mBucket.get(i3)) {
+                    i3++;
                 }
-                return i2;
+                return i3;
             }
-            i2 += countOnesBefore;
+            i3 += countOnesBefore;
         }
         return -1;
     }
@@ -192,12 +192,12 @@ public class ChildHelper {
         addView(view, -1, z);
     }
 
-    public void attachViewToParent(View view, int i, ViewGroup.LayoutParams layoutParams, boolean z) {
+    public void attachViewToParent(View view, int i2, ViewGroup.LayoutParams layoutParams, boolean z) {
         int offset;
-        if (i < 0) {
+        if (i2 < 0) {
             offset = this.mCallback.getChildCount();
         } else {
-            offset = getOffset(i);
+            offset = getOffset(i2);
         }
         this.mBucket.insert(offset, z);
         if (z) {
@@ -206,34 +206,34 @@ public class ChildHelper {
         this.mCallback.attachViewToParent(view, offset, layoutParams);
     }
 
-    public void detachViewFromParent(int i) {
-        int offset = getOffset(i);
+    public void detachViewFromParent(int i2) {
+        int offset = getOffset(i2);
         this.mBucket.remove(offset);
         this.mCallback.detachViewFromParent(offset);
     }
 
-    public View findHiddenNonRemovedView(int i) {
+    public View findHiddenNonRemovedView(int i2) {
         int size = this.mHiddenViews.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            View view = this.mHiddenViews.get(i2);
+        for (int i3 = 0; i3 < size; i3++) {
+            View view = this.mHiddenViews.get(i3);
             RecyclerView.ViewHolder childViewHolder = this.mCallback.getChildViewHolder(view);
-            if (childViewHolder.getLayoutPosition() == i && !childViewHolder.isInvalid() && !childViewHolder.isRemoved()) {
+            if (childViewHolder.getLayoutPosition() == i2 && !childViewHolder.isInvalid() && !childViewHolder.isRemoved()) {
                 return view;
             }
         }
         return null;
     }
 
-    public View getChildAt(int i) {
-        return this.mCallback.getChildAt(getOffset(i));
+    public View getChildAt(int i2) {
+        return this.mCallback.getChildAt(getOffset(i2));
     }
 
     public int getChildCount() {
         return this.mCallback.getChildCount() - this.mHiddenViews.size();
     }
 
-    public View getUnfilteredChildAt(int i) {
-        return this.mCallback.getChildAt(i);
+    public View getUnfilteredChildAt(int i2) {
+        return this.mCallback.getChildAt(i2);
     }
 
     public int getUnfilteredChildCount() {
@@ -282,8 +282,8 @@ public class ChildHelper {
         this.mCallback.removeViewAt(indexOfChild);
     }
 
-    public void removeViewAt(int i) {
-        int offset = getOffset(i);
+    public void removeViewAt(int i2) {
+        int offset = getOffset(i2);
         View childAt = this.mCallback.getChildAt(offset);
         if (childAt == null) {
             return;
@@ -326,12 +326,12 @@ public class ChildHelper {
         throw new IllegalArgumentException("view is not a child, cannot hide " + view);
     }
 
-    public void addView(View view, int i, boolean z) {
+    public void addView(View view, int i2, boolean z) {
         int offset;
-        if (i < 0) {
+        if (i2 < 0) {
             offset = this.mCallback.getChildCount();
         } else {
-            offset = getOffset(i);
+            offset = getOffset(i2);
         }
         this.mBucket.insert(offset, z);
         if (z) {

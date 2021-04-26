@@ -15,7 +15,7 @@ public final class j implements Parcelable.Creator<MassTransitRouteLine.TransitS
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public MassTransitRouteLine.TransitStep[] newArray(int i) {
-        return new MassTransitRouteLine.TransitStep[i];
+    public MassTransitRouteLine.TransitStep[] newArray(int i2) {
+        return new MassTransitRouteLine.TransitStep[i2];
     }
 }

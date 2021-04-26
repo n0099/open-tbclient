@@ -15,7 +15,7 @@ public abstract class AuthSchemeBase implements AuthScheme {
         throw new RuntimeException("Stub!");
     }
 
-    public abstract void parseChallenge(CharArrayBuffer charArrayBuffer, int i, int i2) throws MalformedChallengeException;
+    public abstract void parseChallenge(CharArrayBuffer charArrayBuffer, int i2, int i3) throws MalformedChallengeException;
 
     @Override // org.apache.http.auth.AuthScheme
     public void processChallenge(Header header) throws MalformedChallengeException {

@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.report;
 
 import android.content.Context;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.config.c;
 import java.util.List;
@@ -8,19 +9,22 @@ import java.util.List;
 public class g extends c<ReportAction, f> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f34425a = false;
+    public static volatile boolean f33411a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static g f34426b = new g();
+    public static g f33412b = new g();
 
     public static void a(@NonNull a aVar) {
         if (aVar == null) {
             return;
         }
-        if (b(aVar.f34380c)) {
-            c(aVar);
-        } else {
+        if (com.kwad.sdk.b.f32645b.booleanValue()) {
+            Log.d("BatchReporter", "report actionType:" + aVar.f33366c);
+        }
+        if (b(aVar.f33366c)) {
             b(aVar);
+        } else {
+            c(aVar);
         }
     }
 
@@ -28,7 +32,7 @@ public class g extends c<ReportAction, f> {
         if (aVar == null) {
             return;
         }
-        f34426b.a(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.1
+        f33412b.b(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.h
             /* renamed from: b */
@@ -39,18 +43,18 @@ public class g extends c<ReportAction, f> {
     }
 
     public static boolean b(long j) {
-        return c.a.ae.a(j);
+        return c.a.al.a(j);
     }
 
     public static g c() {
-        return f34426b;
+        return f33412b;
     }
 
     public static void c(final a aVar) {
         if (aVar == null) {
             return;
         }
-        f34426b.b(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.2
+        f33412b.a(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.h
             /* renamed from: b */
@@ -62,7 +66,7 @@ public class g extends c<ReportAction, f> {
 
     @Override // com.kwad.sdk.core.report.c
     public void a(Context context) {
-        if (f34425a) {
+        if (f33411a) {
             return;
         }
         super.a(context);
@@ -73,7 +77,7 @@ public class g extends c<ReportAction, f> {
         if (a2 == 2) {
             a(l.a(context));
         }
-        f34425a = true;
+        f33411a = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

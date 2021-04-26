@@ -78,9 +78,9 @@ public class QRCodeWhiteListResponse implements IBeanResponse {
         if (hasData()) {
             Group[] groupArr = this.whitelist.data;
             int length = groupArr.length;
-            for (int i = 0; i < length; i++) {
-                if (groupArr[i].list != null) {
-                    for (Item item : groupArr[i].list) {
+            for (int i2 = 0; i2 < length; i2++) {
+                if (groupArr[i2].list != null) {
+                    for (Item item : groupArr[i2].list) {
                         if (item != null) {
                             arrayList.add(item);
                         }

@@ -79,13 +79,13 @@ public final class Wire {
         }
     }
 
-    public <M extends Message> M parseFrom(byte[] bArr, int i, int i2, Class<M> cls) throws IOException {
+    public <M extends Message> M parseFrom(byte[] bArr, int i2, int i3, Class<M> cls) throws IOException {
         Preconditions.checkNotNull(bArr, "bytes");
-        Preconditions.checkArgument(i >= 0, "offset < 0");
-        Preconditions.checkArgument(i2 >= 0, "count < 0");
-        Preconditions.checkArgument(i + i2 <= bArr.length, "offset + count > bytes");
+        Preconditions.checkArgument(i2 >= 0, "offset < 0");
+        Preconditions.checkArgument(i3 >= 0, "count < 0");
+        Preconditions.checkArgument(i2 + i3 <= bArr.length, "offset + count > bytes");
         Preconditions.checkNotNull(cls, "messageClass");
-        return (M) parseFrom(WireInput.newInstance(bArr, i, i2), cls);
+        return (M) parseFrom(WireInput.newInstance(bArr, i2, i3), cls);
     }
 
     public <M extends Message> M parseFrom(InputStream inputStream, Class<M> cls) throws IOException {

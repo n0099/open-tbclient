@@ -5,23 +5,23 @@ import java.util.regex.Pattern;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final double f34817a = Runtime.getRuntime().maxMemory();
+    public static final double f33783a = Runtime.getRuntime().maxMemory();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f34818b = Pattern.compile("/data/user");
+    public static final Pattern f33784b = Pattern.compile("/data/user");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f34819c = Pattern.compile("/data");
+    public static final Pattern f33785c = Pattern.compile("/data");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f34820d = Pattern.compile("/data/data/(.*)/data/.*");
+    public static final Pattern f33786d = Pattern.compile("/data/data/(.*)/data/.*");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f34821e = Pattern.compile("/data/user/.*/(.*)/data/.*");
+    public static final Pattern f33787e = Pattern.compile("/data/user/.*/(.*)/data/.*");
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f34822f = 20;
+    public static int f33788f = 20;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f34823g = "sessionId";
+    public static String f33789g = "sessionId";
 }

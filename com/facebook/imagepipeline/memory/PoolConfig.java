@@ -41,13 +41,13 @@ public class PoolConfig {
             return new PoolConfig(this);
         }
 
-        public Builder setBitmapPoolMaxBitmapSize(int i) {
-            this.mBitmapPoolMaxBitmapSize = i;
+        public Builder setBitmapPoolMaxBitmapSize(int i2) {
+            this.mBitmapPoolMaxBitmapSize = i2;
             return this;
         }
 
-        public Builder setBitmapPoolMaxPoolSize(int i) {
-            this.mBitmapPoolMaxPoolSize = i;
+        public Builder setBitmapPoolMaxPoolSize(int i2) {
+            this.mBitmapPoolMaxPoolSize = i2;
             return this;
         }
 

@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.wnplatform.i;
 public interface a {
     void a();
 
-    void a(int i);
+    void a(int i2);
 
     void b();
 }

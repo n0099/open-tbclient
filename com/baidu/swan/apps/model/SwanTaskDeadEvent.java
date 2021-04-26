@@ -7,7 +7,7 @@ import android.util.SparseArray;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanTaskDeadEvent implements Parcelable {
     public static final Parcelable.Creator<SwanTaskDeadEvent> CREATOR = new a();
     public static final char SEPARATOR = '#';
@@ -18,7 +18,7 @@ public class SwanTaskDeadEvent implements Parcelable {
     public ArrayList<Integer> stackList;
     public int taskId;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<SwanTaskDeadEvent> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -30,14 +30,14 @@ public class SwanTaskDeadEvent implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public SwanTaskDeadEvent[] newArray(int i) {
-            return new SwanTaskDeadEvent[i];
+        public SwanTaskDeadEvent[] newArray(int i2) {
+            return new SwanTaskDeadEvent[i2];
         }
     }
 
-    public SwanTaskDeadEvent(String str, int i, String str2, ArrayList<Integer> arrayList) {
+    public SwanTaskDeadEvent(String str, int i2, String str2, ArrayList<Integer> arrayList) {
         this.appId = str;
-        this.taskId = i;
+        this.taskId = i2;
         this.pageScheme = str2;
         this.stackList = arrayList;
     }
@@ -70,8 +70,8 @@ public class SwanTaskDeadEvent implements Parcelable {
             return null;
         }
         SparseArray<SwanTaskDeadEvent> sparseArray = new SparseArray<>();
-        for (int i = 0; i < this.historyCache.size(); i++) {
-            sparseArray.put(this.historyCache.keyAt(i), f(this.historyCache.valueAt(i)));
+        for (int i2 = 0; i2 < this.historyCache.size(); i2++) {
+            sparseArray.put(this.historyCache.keyAt(i2), f(this.historyCache.valueAt(i2)));
         }
         return sparseArray;
     }
@@ -96,9 +96,9 @@ public class SwanTaskDeadEvent implements Parcelable {
     public void g(@Nullable SparseArray<SwanTaskDeadEvent> sparseArray) {
         SparseArray<String[]> sparseArray2 = new SparseArray<>();
         if (sparseArray != null) {
-            for (int i = 0; i < sparseArray.size(); i++) {
-                if (sparseArray.valueAt(i) != null) {
-                    sparseArray2.put(sparseArray.keyAt(i), sparseArray.valueAt(i).h());
+            for (int i2 = 0; i2 < sparseArray.size(); i2++) {
+                if (sparseArray.valueAt(i2) != null) {
+                    sparseArray2.put(sparseArray.keyAt(i2), sparseArray.valueAt(i2).h());
                 }
             }
         }
@@ -111,9 +111,9 @@ public class SwanTaskDeadEvent implements Parcelable {
         ArrayList<Integer> arrayList = this.stackList;
         if (arrayList != null) {
             int size = arrayList.size();
-            for (int i = 0; i < size; i++) {
-                sb.append(this.stackList.get(i));
-                if (i < size - 1) {
+            for (int i2 = 0; i2 < size; i2++) {
+                sb.append(this.stackList.get(i2));
+                if (i2 < size - 1) {
                     sb.append(SEPARATOR);
                 }
             }
@@ -122,7 +122,7 @@ public class SwanTaskDeadEvent implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.appId);
         parcel.writeInt(this.taskId);
         parcel.writeString(this.pageScheme);

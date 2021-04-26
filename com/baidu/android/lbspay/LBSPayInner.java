@@ -60,7 +60,7 @@ public class LBSPayInner {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSPayInner f2593a = new LBSPayInner();
+        public static LBSPayInner f2590a = new LBSPayInner();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -74,7 +74,7 @@ public class LBSPayInner {
     }
 
     public static LBSPayInner getInstance() {
-        return a.f2593a;
+        return a.f2590a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -172,12 +172,12 @@ public class LBSPayInner {
             WalletLoginHelper.getInstance().setOpenBdussErrorCodeShowFlag(false);
             WalletLoginHelper.getInstance().verifyPassLogin(new LoginBackListenerProxy(activity, new ILoginBackListener() { // from class: com.baidu.android.lbspay.LBSPayInner.3
                 @Override // com.baidu.wallet.api.ILoginBackListener
-                public void onFail(int i, String str2) {
+                public void onFail(int i2, String str2) {
                     LBSPayInner.this.directCallThirdPay(activity, getPayOrderListener, lBSPayBack, map, str);
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
-                public void onSuccess(int i, String str2) {
+                public void onSuccess(int i2, String str2) {
                     LBSPayInner.this.directCallThirdPay(activity, getPayOrderListener, lBSPayBack, map, str);
                 }
             }));
@@ -191,12 +191,12 @@ public class LBSPayInner {
         WalletLoginHelper.getInstance().setOpenBdussErrorCodeShowFlag(false);
         WalletLoginHelper.getInstance().verifyPassLogin(new LoginBackListenerProxy(activity, new ILoginBackListener() { // from class: com.baidu.android.lbspay.LBSPayInner.5
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str) {
+            public void onFail(int i2, String str) {
                 LBSPayInner.this.polymerAuthorizeSign(activity, lBSPayBack, map);
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str) {
+            public void onSuccess(int i2, String str) {
                 LBSPayInner.this.polymerAuthorizeSign(activity, lBSPayBack, map);
             }
         }));
@@ -280,12 +280,12 @@ public class LBSPayInner {
         WalletLoginHelper.getInstance().setOpenBdussErrorCodeShowFlag(false);
         WalletLoginHelper.getInstance().verifyPassLogin(new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.android.lbspay.LBSPayInner.2
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str) {
+            public void onFail(int i2, String str) {
                 LBSPayInner.this.polymerPay(context, lBSPayBack, map, map2);
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str) {
+            public void onSuccess(int i2, String str) {
                 LBSPayInner.this.polymerPay(context, lBSPayBack, map, map2);
             }
         }));
@@ -309,12 +309,12 @@ public class LBSPayInner {
         WalletLoginHelper.getInstance().setOpenBdussErrorCodeShowFlag(false);
         WalletLoginHelper.getInstance().verifyPassLogin(new LoginBackListenerProxy(activity, new ILoginBackListener() { // from class: com.baidu.android.lbspay.LBSPayInner.4
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str2) {
+            public void onFail(int i2, String str2) {
                 LBSPayInner.this.directCallThirdPay(activity, activity2, getPayOrderListener, lBSPayBack, map, str);
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str2) {
+            public void onSuccess(int i2, String str2) {
                 LBSPayInner.this.directCallThirdPay(activity, activity2, getPayOrderListener, lBSPayBack, map, str);
             }
         }));

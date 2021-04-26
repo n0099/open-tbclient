@@ -10,7 +10,7 @@ import tbclient.Lego.LegoResIdl;
 public class LegoHttpResponse extends HttpResponsedMessage {
     public DataRes resultData;
 
-    public LegoHttpResponse(int i) {
+    public LegoHttpResponse(int i2) {
         super(CmdConfigHttp.CMD_ENTERTAINMENT);
     }
 
@@ -20,7 +20,7 @@ public class LegoHttpResponse extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         LegoResIdl legoResIdl = (LegoResIdl) new Wire(new Class[0]).parseFrom(bArr, LegoResIdl.class);
         if (legoResIdl == null) {
             return;

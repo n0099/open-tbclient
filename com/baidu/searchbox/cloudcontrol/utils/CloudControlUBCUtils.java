@@ -40,7 +40,7 @@ public class CloudControlUBCUtils {
                 jSONObject2.put("control", controlJsonObject);
             }
             if (!TextUtils.isEmpty(cloudControlUBCData.getTraceId())) {
-                jSONObject.put("traceid", cloudControlUBCData.getTraceId());
+                jSONObject2.put("traceid", cloudControlUBCData.getTraceId());
             }
             jSONObject.put("ext", jSONObject2);
             UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);

@@ -2,34 +2,34 @@ package com.vivo.push.b;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class v extends u {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f39783a;
+    public ArrayList<String> f37386a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f39784b;
+    public ArrayList<String> f37387b;
 
-    public v(int i) {
-        super(i);
-        this.f39783a = null;
-        this.f39784b = null;
+    public v(int i2) {
+        super(i2);
+        this.f37386a = null;
+        this.f37387b = null;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("content", this.f39783a);
-        aVar.a("error_msg", this.f39784b);
+        aVar.a("content", this.f37386a);
+        aVar.a("error_msg", this.f37387b);
     }
 
     public final ArrayList<String> d() {
-        return this.f39783a;
+        return this.f37386a;
     }
 
     public final List<String> e() {
-        return this.f39784b;
+        return this.f37387b;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -40,7 +40,7 @@ public final class v extends u {
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.f39783a = aVar.b("content");
-        this.f39784b = aVar.b("error_msg");
+        this.f37386a = aVar.b("content");
+        this.f37387b = aVar.b("error_msg");
     }
 }

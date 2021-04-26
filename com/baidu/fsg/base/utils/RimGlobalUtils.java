@@ -18,10 +18,10 @@ import com.baidu.fsg.base.activity.BaseActivity;
 public final class RimGlobalUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5443a;
+    public static String f5583a;
 
     public static String getMsg() {
-        return f5443a;
+        return f5583a;
     }
 
     public static String getZid(Context context) {
@@ -66,21 +66,21 @@ public final class RimGlobalUtils {
         inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 2);
     }
 
-    public static void safeDismissDialog(BaseActivity baseActivity, int i) {
+    public static void safeDismissDialog(BaseActivity baseActivity, int i2) {
         try {
             Activity activity = baseActivity.getActivity();
             if (activity == null || activity.isFinishing()) {
                 return;
             }
-            baseActivity.getActivity().removeDialog(i);
+            baseActivity.getActivity().removeDialog(i2);
         } catch (Throwable th) {
             LogUtil.e("globalUtils", "dialog Exception", th);
         }
     }
 
-    public static void safeShowDialog(BaseActivity baseActivity, int i) {
+    public static void safeShowDialog(BaseActivity baseActivity, int i2) {
         try {
-            baseActivity.getActivity().showDialog(i);
+            baseActivity.getActivity().showDialog(i2);
         } catch (Exception e2) {
             if (LogUtil.DEBUG) {
                 e2.printStackTrace();
@@ -89,7 +89,7 @@ public final class RimGlobalUtils {
     }
 
     public static void setMsg(String str) {
-        f5443a = str;
+        f5583a = str;
     }
 
     public static boolean showInputMethod(final Context context, final View view) {
@@ -106,7 +106,7 @@ public final class RimGlobalUtils {
         return true;
     }
 
-    public static void toast(Context context, CharSequence charSequence, int i, int i2) {
+    public static void toast(Context context, CharSequence charSequence, int i2, int i3) {
         View inflate;
         TextView textView;
         if (context.getApplicationContext() != null) {
@@ -117,13 +117,13 @@ public final class RimGlobalUtils {
         }
         textView.setText(charSequence);
         ImageView imageView = (ImageView) inflate.findViewById(ResUtils.id(context, "rim_base_toast_icon"));
-        if (imageView != null && i > 0) {
-            imageView.setImageResource(i);
+        if (imageView != null && i2 > 0) {
+            imageView.setImageResource(i2);
             imageView.setVisibility(0);
         }
         Toast toast = new Toast(context);
         toast.setGravity(17, 0, 0);
-        toast.setDuration(i2);
+        toast.setDuration(i3);
         toast.setView(inflate);
         toast.show();
     }
@@ -132,26 +132,26 @@ public final class RimGlobalUtils {
         toast(context, charSequence, -1, 0);
     }
 
-    public static void toastWithTextId(Context context, int i) {
-        toastWithTextId(context, i, 0);
+    public static void toastWithTextId(Context context, int i2) {
+        toastWithTextId(context, i2, 0);
     }
 
-    public static void toastWithText(Context context, CharSequence charSequence, int i) {
-        toast(context, charSequence, -1, i);
+    public static void toastWithText(Context context, CharSequence charSequence, int i2) {
+        toast(context, charSequence, -1, i2);
     }
 
-    public static void toastWithTextId(Context context, int i, int i2) {
+    public static void toastWithTextId(Context context, int i2, int i3) {
         try {
-            toastWithText(context, context.getResources().getString(i), i2);
+            toastWithText(context, context.getResources().getString(i2), i3);
         } catch (Resources.NotFoundException e2) {
             e2.printStackTrace();
         }
     }
 
-    public static void safeShowDialog(BaseActivity baseActivity, int i, String str) {
-        f5443a = str;
+    public static void safeShowDialog(BaseActivity baseActivity, int i2, String str) {
+        f5583a = str;
         try {
-            baseActivity.getActivity().showDialog(i);
+            baseActivity.getActivity().showDialog(i2);
         } catch (Exception e2) {
             if (LogUtil.DEBUG) {
                 e2.printStackTrace();

@@ -6,17 +6,17 @@ import android.text.TextUtils;
 public class DevTools {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38671a;
+    public String f36247a;
 
     public String getDemoGameUrl() {
-        String str = this.f38671a;
-        this.f38671a = null;
+        String str = this.f36247a;
+        this.f36247a = null;
         return str;
     }
 
     public void testDemoGame(Context context, String str) {
         if (!TextUtils.isEmpty(str) && context.getPackageName().equals("com.qq.e.union.demo.union")) {
-            this.f38671a = str;
+            this.f36247a = str;
         }
     }
 }

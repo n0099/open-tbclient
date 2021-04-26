@@ -19,23 +19,25 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import com.baidu.tieba.faceshop.emotioncenter.model.EmotionChangeModel;
-import d.b.j0.l0.y.d.b;
+import d.a.j0.l0.y.d.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class EmotionCenterChangeView extends LinearLayout implements View.OnClickListener, b {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f15446e;
+    public TbPageContext f15599e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EmotionHorizontalView f15447f;
+    public EmotionHorizontalView f15600f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EmotionHorizontalView f15448g;
+    public EmotionHorizontalView f15601g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EmotionHorizontalView f15449h;
-    public ImageView i;
+    public EmotionHorizontalView f15602h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public ImageView f15603i;
     public LinearLayout j;
     public RelativeLayout k;
     public View l;
@@ -48,7 +50,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
     public EmotionCenterChangeView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.p = null;
-        this.f15446e = tbPageContext;
+        this.f15599e = tbPageContext;
         b();
     }
 
@@ -61,8 +63,19 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         return this.p;
     }
 
-    @Override // d.b.j0.l0.y.d.b
-    public void B(EmotionCenterData emotionCenterData) {
+    @Override // d.a.j0.l0.y.d.b
+    public void T(EmotionCenterData emotionCenterData) {
+    }
+
+    public void a() {
+        ImageView imageView = this.f15603i;
+        if (imageView != null) {
+            imageView.clearAnimation();
+        }
+    }
+
+    @Override // d.a.j0.l0.y.d.b
+    public void a0(EmotionCenterData emotionCenterData) {
         a();
         if (emotionCenterData == null || ListUtils.isEmpty(emotionCenterData.package_list)) {
             return;
@@ -70,53 +83,41 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         setData(emotionCenterData.package_list);
     }
 
-    @Override // d.b.j0.l0.y.d.b
-    public void U(EmotionCenterData emotionCenterData) {
-        a();
-    }
-
-    public void a() {
-        ImageView imageView = this.i;
-        if (imageView != null) {
-            imageView.clearAnimation();
-        }
-    }
-
     public final void b() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.emotion_category_layout, this);
-        this.f15447f = new EmotionHorizontalView(this.f15446e);
-        this.f15448g = new EmotionHorizontalView(this.f15446e);
-        this.f15449h = new EmotionHorizontalView(this.f15446e);
-        this.f15447f.f(TbadkCoreApplication.getInst().getSkinType());
-        this.f15448g.f(TbadkCoreApplication.getInst().getSkinType());
-        this.f15449h.f(TbadkCoreApplication.getInst().getSkinType());
-        addView(this.f15447f);
-        addView(this.f15448g);
-        addView(this.f15449h);
-        this.f15447f.setVisibility(8);
-        this.f15448g.setVisibility(8);
-        this.f15449h.setVisibility(8);
+        this.f15600f = new EmotionHorizontalView(this.f15599e);
+        this.f15601g = new EmotionHorizontalView(this.f15599e);
+        this.f15602h = new EmotionHorizontalView(this.f15599e);
+        this.f15600f.f(TbadkCoreApplication.getInst().getSkinType());
+        this.f15601g.f(TbadkCoreApplication.getInst().getSkinType());
+        this.f15602h.f(TbadkCoreApplication.getInst().getSkinType());
+        addView(this.f15600f);
+        addView(this.f15601g);
+        addView(this.f15602h);
+        this.f15600f.setVisibility(8);
+        this.f15601g.setVisibility(8);
+        this.f15602h.setVisibility(8);
         this.j = (LinearLayout) findViewById(R.id.emotion_change_item);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.change_head_layout);
         this.k = relativeLayout;
         relativeLayout.setVisibility(8);
         ImageView imageView = (ImageView) findViewById(R.id.emotion_change_iv);
-        this.i = imageView;
+        this.f15603i = imageView;
         imageView.setOnClickListener(this);
         this.l = findViewById(R.id.category_line_top);
         this.m = (TextView) findViewById(R.id.emotion_title);
         TextView textView = (TextView) findViewById(R.id.emotion_function);
         this.n = textView;
         textView.setOnClickListener(this);
-        this.o = new EmotionChangeModel(this.f15446e);
+        this.o = new EmotionChangeModel(this.f15599e);
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void c(int i) {
+    public void c(int i2) {
         SkinManager.setBackgroundColor(this.l, R.color.common_color_10312);
         SkinManager.setViewTextColor(this.m, R.color.CAM_X0107);
-        SkinManager.setImageResource(this.i, R.drawable.emotion_icon_refresh);
+        SkinManager.setImageResource(this.f15603i, R.drawable.emotion_icon_refresh);
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0109);
     }
 
@@ -128,17 +129,13 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
     }
 
     public void e() {
-        ImageView imageView = this.i;
+        ImageView imageView = this.f15603i;
         if (imageView != null) {
             imageView.startAnimation(getClickRotateAnimation());
         }
     }
 
-    @Override // d.b.j0.l0.y.d.b
-    public void f(EmotionCenterData emotionCenterData) {
-    }
-
-    public void g(EmotionPackageData emotionPackageData) {
+    public void f(EmotionPackageData emotionPackageData) {
         if (emotionPackageData == null || ListUtils.isEmpty(this.q)) {
             return;
         }
@@ -156,10 +153,15 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         return this.q;
     }
 
+    @Override // d.a.j0.l0.y.d.b
+    public void h0(EmotionCenterData emotionCenterData) {
+        a();
+    }
+
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EmotionChangeModel emotionChangeModel;
-        if ((view == this.i || view == this.n) && (emotionChangeModel = this.o) != null) {
+        if ((view == this.f15603i || view == this.n) && (emotionChangeModel = this.o) != null) {
             emotionChangeModel.s(this);
             e();
         }
@@ -174,23 +176,23 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         this.k.setVisibility(0);
         int size = list.size();
         if (size == 1) {
-            this.f15447f.setVisibility(0);
-            this.f15447f.setData(list.get(0));
-            this.f15448g.setVisibility(8);
-            this.f15449h.setVisibility(8);
+            this.f15600f.setVisibility(0);
+            this.f15600f.setData(list.get(0));
+            this.f15601g.setVisibility(8);
+            this.f15602h.setVisibility(8);
         } else if (size == 2) {
-            this.f15447f.setVisibility(0);
-            this.f15447f.setData(list.get(0));
-            this.f15448g.setVisibility(0);
-            this.f15448g.setData(list.get(1));
-            this.f15449h.setVisibility(8);
+            this.f15600f.setVisibility(0);
+            this.f15600f.setData(list.get(0));
+            this.f15601g.setVisibility(0);
+            this.f15601g.setData(list.get(1));
+            this.f15602h.setVisibility(8);
         } else {
-            this.f15447f.setVisibility(0);
-            this.f15447f.setData(list.get(0));
-            this.f15448g.setVisibility(0);
-            this.f15448g.setData(list.get(1));
-            this.f15449h.setVisibility(0);
-            this.f15449h.setData(list.get(2));
+            this.f15600f.setVisibility(0);
+            this.f15600f.setData(list.get(0));
+            this.f15601g.setVisibility(0);
+            this.f15601g.setData(list.get(1));
+            this.f15602h.setVisibility(0);
+            this.f15602h.setData(list.get(2));
         }
     }
 
@@ -200,8 +202,8 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         b();
     }
 
-    public EmotionCenterChangeView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public EmotionCenterChangeView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.p = null;
         b();
     }

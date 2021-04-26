@@ -1,6 +1,6 @@
 package com.baidu.adp.framework.message;
 
-import d.b.c.e.j.a.e;
+import d.a.c.e.j.a.e;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -12,8 +12,8 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     public Map<String, List<String>> mHeader;
     public int mStatusCode;
 
-    public HttpResponsedMessage(int i) {
-        super(i);
+    public HttpResponsedMessage(int i2) {
+        super(i2);
         this.mStatusCode = -1;
         this.mHeader = null;
         this.contentEncoding = "";
@@ -22,7 +22,7 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
+    public abstract /* synthetic */ void decodeInBackGround(int i2, T t) throws Exception;
 
     public String getContentEncoding() {
         return this.contentEncoding;
@@ -53,11 +53,11 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     }
 
     public boolean isSuccess() {
-        int i = this.mStatusCode;
-        return i == 200 || i / 100 == 3;
+        int i2 = this.mStatusCode;
+        return i2 == 200 || i2 / 100 == 3;
     }
 
-    public void logStatInBackground(int i, e eVar) {
+    public void logStatInBackground(int i2, e eVar) {
     }
 
     public void setContentEncoding(String str) {
@@ -76,8 +76,8 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         this.mHeader = map;
     }
 
-    public void setStatusCode(int i, String str) {
-        this.mStatusCode = i;
+    public void setStatusCode(int i2, String str) {
+        this.mStatusCode = i2;
         if (isSuccess()) {
             return;
         }

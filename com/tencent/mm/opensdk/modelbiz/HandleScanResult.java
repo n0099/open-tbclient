@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import java.net.URLEncoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class HandleScanResult {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Req extends BaseReq {
         public static final int MAX_URL_LENGHT = 10240;
         public String scanResult;
@@ -30,7 +30,7 @@ public class HandleScanResult {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Resp extends BaseResp {
         public Resp() {
         }

@@ -28,8 +28,8 @@ public class NotificationMsgData {
             try {
                 JSONObject jSONObject = new JSONObject(this.mMsg.getJsonContent());
                 if (!jSONObject.optBoolean("is_merged", false) && (optJSONArray = jSONObject.optJSONArray("user_info")) != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                         if (jSONObject2 != null && jSONObject2.has("uk")) {
                             String transBDUK = Utility.transBDUK(jSONObject2.getString("uk"));
                             if (!TextUtils.isEmpty(transBDUK)) {
@@ -69,8 +69,8 @@ public class NotificationMsgData {
         this.mPainfo = paInfo;
     }
 
-    public void setType(int i) {
-        this.mType = i;
+    public void setType(int i2) {
+        this.mType = i2;
     }
 
     public void updateUserInfo(ChatUser chatUser) {
@@ -83,8 +83,8 @@ public class NotificationMsgData {
             if (jSONObject.optBoolean("is_merged", false) || (optJSONArray = jSONObject.optJSONArray("user_info")) == null || optJSONArray.length() <= 0) {
                 return;
             }
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                 if (jSONObject2 != null && jSONObject2.has("uk")) {
                     String transBDUK = Utility.transBDUK(jSONObject2.getString("uk"));
                     if (!TextUtils.isEmpty(transBDUK) && chatUser.getBuid() == Long.parseLong(transBDUK)) {

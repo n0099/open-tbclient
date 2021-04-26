@@ -7,7 +7,7 @@ import javax.crypto.BadPaddingException;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SecureRandom f8161a = new SecureRandom();
+    public static final SecureRandom f8454a = new SecureRandom();
 
     public static int a(BigInteger bigInteger) {
         return (bigInteger.bitLength() + 7) >> 3;
@@ -21,31 +21,31 @@ public final class b {
         throw new BadPaddingException("Message is larger than modulus");
     }
 
-    public static byte[] a(BigInteger bigInteger, int i) {
+    public static byte[] a(BigInteger bigInteger, int i2) {
         byte[] byteArray = bigInteger.toByteArray();
         int length = byteArray.length;
-        if (length == i) {
+        if (length == i2) {
             return byteArray;
         }
-        if (length == i + 1 && byteArray[0] == 0) {
-            byte[] bArr = new byte[i];
-            System.arraycopy(byteArray, 1, bArr, 0, i);
+        if (length == i2 + 1 && byteArray[0] == 0) {
+            byte[] bArr = new byte[i2];
+            System.arraycopy(byteArray, 1, bArr, 0, i2);
             return bArr;
-        } else if (length >= i) {
+        } else if (length >= i2) {
             return null;
         } else {
-            byte[] bArr2 = new byte[i];
-            System.arraycopy(byteArray, 0, bArr2, i - length, length);
+            byte[] bArr2 = new byte[i2];
+            System.arraycopy(byteArray, 0, bArr2, i2 - length, length);
             return bArr2;
         }
     }
 
-    public static byte[] a(byte[] bArr, int i, int i2) {
-        if (i == 0 && i2 == bArr.length) {
+    public static byte[] a(byte[] bArr, int i2, int i3) {
+        if (i2 == 0 && i3 == bArr.length) {
             return bArr;
         }
-        byte[] bArr2 = new byte[i2];
-        System.arraycopy(bArr, i, bArr2, 0, i2);
+        byte[] bArr2 = new byte[i3];
+        System.arraycopy(bArr, i2, bArr2, 0, i3);
         return bArr2;
     }
 

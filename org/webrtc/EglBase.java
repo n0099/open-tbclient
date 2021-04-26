@@ -20,7 +20,7 @@ public interface EglBase {
 
     void createDummyPbufferSurface();
 
-    void createPbufferSurface(int i, int i2);
+    void createPbufferSurface(int i2, int i3);
 
     void createSurface(SurfaceTexture surfaceTexture);
 

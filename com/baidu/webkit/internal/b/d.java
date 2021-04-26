@@ -5,13 +5,13 @@ import android.content.DialogInterface;
 public final class d implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f26566a;
+    public final /* synthetic */ b f27373a;
 
     public d(b bVar) {
-        this.f26566a = bVar;
+        this.f27373a = bVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i2) {
     }
 }

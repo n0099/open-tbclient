@@ -47,26 +47,26 @@ public class RequestGetMyPostNetMessage extends NetMessage {
         this.bFrom = str;
     }
 
-    public void setCallFrom(int i) {
-        this.callFrom = i;
+    public void setCallFrom(int i2) {
+        this.callFrom = i2;
     }
 
     public void setHideErrorToast(boolean z) {
         this.hideErrorToast = z;
     }
 
-    public void setParams(long j, long j2, long j3, int i, int i2, double d2, int i3) {
+    public void setParams(long j, long j2, long j3, int i2, int i3, double d2, int i4) {
         this.mPostId = j2;
         this.mThreadId = j;
         this.mForumId = j3;
-        this.mScrW = i;
-        this.mScrH = i2;
+        this.mScrW = i2;
+        this.mScrH = i3;
         this.mScrDip = d2;
-        this.mQType = i3;
+        this.mQType = i4;
     }
 
-    public void setProZone(int i) {
-        this.proZone = i;
+    public void setProZone(int i2) {
+        this.proZone = i2;
     }
 
     public boolean showErrorToast() {

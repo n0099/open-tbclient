@@ -31,11 +31,11 @@ public final class BitmapPreFiller {
     @VisibleForTesting
     public PreFillQueue generateAllocationOrder(PreFillType... preFillTypeArr) {
         long maxSize = (this.memoryCache.getMaxSize() - this.memoryCache.getCurrentSize()) + this.bitmapPool.getMaxSize();
-        int i = 0;
+        int i2 = 0;
         for (PreFillType preFillType : preFillTypeArr) {
-            i += preFillType.getWeight();
+            i2 += preFillType.getWeight();
         }
-        float f2 = ((float) maxSize) / i;
+        float f2 = ((float) maxSize) / i2;
         HashMap hashMap = new HashMap();
         for (PreFillType preFillType2 : preFillTypeArr) {
             hashMap.put(preFillType2, Integer.valueOf(Math.round(preFillType2.getWeight() * f2) / getSizeInBytes(preFillType2)));
@@ -44,23 +44,17 @@ public final class BitmapPreFiller {
     }
 
     public void preFill(PreFillType.Builder... builderArr) {
-        Bitmap.Config config;
         BitmapPreFillRunner bitmapPreFillRunner = this.current;
         if (bitmapPreFillRunner != null) {
             bitmapPreFillRunner.cancel();
         }
         PreFillType[] preFillTypeArr = new PreFillType[builderArr.length];
-        for (int i = 0; i < builderArr.length; i++) {
-            PreFillType.Builder builder = builderArr[i];
+        for (int i2 = 0; i2 < builderArr.length; i2++) {
+            PreFillType.Builder builder = builderArr[i2];
             if (builder.getConfig() == null) {
-                if (this.defaultFormat == DecodeFormat.PREFER_ARGB_8888) {
-                    config = Bitmap.Config.ARGB_8888;
-                } else {
-                    config = Bitmap.Config.RGB_565;
-                }
-                builder.setConfig(config);
+                builder.setConfig(this.defaultFormat == DecodeFormat.PREFER_ARGB_8888 ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
             }
-            preFillTypeArr[i] = builder.build();
+            preFillTypeArr[i2] = builder.build();
         }
         BitmapPreFillRunner bitmapPreFillRunner2 = new BitmapPreFillRunner(this.bitmapPool, this.memoryCache, generateAllocationOrder(preFillTypeArr));
         this.current = bitmapPreFillRunner2;

@@ -31,12 +31,12 @@ public class DefaultClientConnection extends SocketHttpClientConnection implemen
     }
 
     @Override // org.apache.http.impl.SocketHttpClientConnection
-    public SessionInputBuffer createSessionInputBuffer(Socket socket, int i, HttpParams httpParams) throws IOException {
+    public SessionInputBuffer createSessionInputBuffer(Socket socket, int i2, HttpParams httpParams) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.impl.SocketHttpClientConnection
-    public SessionOutputBuffer createSessionOutputBuffer(Socket socket, int i, HttpParams httpParams) throws IOException {
+    public SessionOutputBuffer createSessionOutputBuffer(Socket socket, int i2, HttpParams httpParams) throws IOException {
         throw new RuntimeException("Stub!");
     }
 

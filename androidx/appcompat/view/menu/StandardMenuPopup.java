@@ -72,13 +72,13 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
     };
     public int mDropDownGravity = 0;
 
-    public StandardMenuPopup(Context context, MenuBuilder menuBuilder, View view, int i, int i2, boolean z) {
+    public StandardMenuPopup(Context context, MenuBuilder menuBuilder, View view, int i2, int i3, boolean z) {
         this.mContext = context;
         this.mMenu = menuBuilder;
         this.mOverflowOnly = z;
         this.mAdapter = new MenuAdapter(menuBuilder, LayoutInflater.from(context), this.mOverflowOnly, ITEM_LAYOUT);
-        this.mPopupStyleAttr = i;
-        this.mPopupStyleRes = i2;
+        this.mPopupStyleAttr = i2;
+        this.mPopupStyleRes = i3;
         Resources resources = context.getResources();
         this.mPopupMaxWidth = Math.max(resources.getDisplayMetrics().widthPixels / 2, resources.getDimensionPixelSize(R.dimen.abc_config_prefDialogWidth));
         this.mAnchorView = view;
@@ -190,8 +190,8 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
     }
 
     @Override // android.view.View.OnKeyListener
-    public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (keyEvent.getAction() == 1 && i == 82) {
+    public boolean onKey(View view, int i2, KeyEvent keyEvent) {
+        if (keyEvent.getAction() == 1 && i2 == 82) {
             dismiss();
             return true;
         }
@@ -249,13 +249,13 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
-    public void setGravity(int i) {
-        this.mDropDownGravity = i;
+    public void setGravity(int i2) {
+        this.mDropDownGravity = i2;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
-    public void setHorizontalOffset(int i) {
-        this.mPopup.setHorizontalOffset(i);
+    public void setHorizontalOffset(int i2) {
+        this.mPopup.setHorizontalOffset(i2);
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
@@ -269,8 +269,8 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
-    public void setVerticalOffset(int i) {
-        this.mPopup.setVerticalOffset(i);
+    public void setVerticalOffset(int i2) {
+        this.mPopup.setVerticalOffset(i2);
     }
 
     @Override // androidx.appcompat.view.menu.ShowableListMenu

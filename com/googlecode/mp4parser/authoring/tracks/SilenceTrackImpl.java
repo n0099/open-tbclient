@@ -30,12 +30,12 @@ public class SilenceTrackImpl implements Track {
             this.decodingTimes = jArr;
             Arrays.fill(jArr, ((getTrackMetaData().getTimescale() * j) / l2i) / 1000);
             while (true) {
-                int i = l2i - 1;
+                int i2 = l2i - 1;
                 if (l2i <= 0) {
                     return;
                 }
                 this.samples.add(new SampleImpl((ByteBuffer) ByteBuffer.wrap(new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 16, 4, 96, -116, 28}).rewind()));
-                l2i = i;
+                l2i = i2;
             }
         } else {
             throw new RuntimeException("Tracks of type " + track.getClass().getSimpleName() + " are not supported");

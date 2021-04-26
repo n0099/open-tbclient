@@ -3,19 +3,19 @@ package com.baidu.swan.apps.statistic.search;
 public class SearchFlowEvent {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12320a;
+    public String f12192a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12321b;
+    public long f12193b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12322c;
+    public String f12194c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12323d;
+    public String f12195d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EventType f12324e;
+    public EventType f12196e;
 
     /* loaded from: classes3.dex */
     public enum EventType {
@@ -25,22 +25,22 @@ public class SearchFlowEvent {
     }
 
     public SearchFlowEvent(String str) {
-        this.f12320a = str;
-        this.f12321b = System.currentTimeMillis();
-        this.f12324e = EventType.NORMAL;
-        this.f12322c = "";
-        this.f12323d = "";
+        this.f12192a = str;
+        this.f12193b = System.currentTimeMillis();
+        this.f12196e = EventType.NORMAL;
+        this.f12194c = "";
+        this.f12195d = "";
     }
 
     public String toString() {
-        return "Event: id=" + this.f12320a + ", timestamp=" + this.f12321b + ", data=" + this.f12322c + ", extData=" + this.f12323d + ", eventType=" + this.f12324e.toString();
+        return "Event: id=" + this.f12192a + ", timestamp=" + this.f12193b + ", data=" + this.f12194c + ", extData=" + this.f12195d + ", eventType=" + this.f12196e.toString();
     }
 
     public SearchFlowEvent(String str, long j, String str2, String str3, EventType eventType) {
-        this.f12320a = str;
-        this.f12321b = j;
-        this.f12322c = str2;
-        this.f12323d = str3;
-        this.f12324e = eventType;
+        this.f12192a = str;
+        this.f12193b = j;
+        this.f12194c = str2;
+        this.f12195d = str3;
+        this.f12196e = eventType;
     }
 }

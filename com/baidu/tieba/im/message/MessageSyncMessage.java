@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import androidx.collection.LongSparseArray;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import d.b.j0.e1.o.c;
+import d.a.j0.e1.o.c;
 import java.util.ArrayList;
 import protobuf.GetGroupMsg.DataReq;
 import protobuf.GetGroupMsg.GetGroupMsgReqIdl;
@@ -46,9 +46,9 @@ public class MessageSyncMessage extends TbSocketMessage {
         }
         long d2 = c.e().d();
         boolean z = false;
-        for (int i = 0; i < this.mMids.size(); i++) {
-            long keyAt = this.mMids.keyAt(i);
-            Long valueAt = this.mMids.valueAt(i);
+        for (int i2 = 0; i2 < this.mMids.size(); i2++) {
+            long keyAt = this.mMids.keyAt(i2);
+            Long valueAt = this.mMids.valueAt(i2);
             if (valueAt != null) {
                 GroupLastId.Builder builder2 = new GroupLastId.Builder();
                 builder2.groupId = Long.valueOf(keyAt);
@@ -130,8 +130,8 @@ public class MessageSyncMessage extends TbSocketMessage {
         this.mMids = longSparseArray;
     }
 
-    public void setHeight(int i) {
-        this.height = i;
+    public void setHeight(int i2) {
+        this.height = i2;
     }
 
     public void setNewpushRepire(NewpushRepair newpushRepair) {
@@ -154,19 +154,19 @@ public class MessageSyncMessage extends TbSocketMessage {
         this.pushTimes = str;
     }
 
-    public void setSmallHeight(int i) {
-        this.smallHeight = i;
+    public void setSmallHeight(int i2) {
+        this.smallHeight = i2;
     }
 
-    public void setSmallWidth(int i) {
-        this.smallWidth = i;
+    public void setSmallWidth(int i2) {
+        this.smallWidth = i2;
     }
 
     public void setSyncTypeString(String str) {
         this.syncTypeString = str;
     }
 
-    public void setWidth(int i) {
-        this.width = i;
+    public void setWidth(int i2) {
+        this.width = i2;
     }
 }

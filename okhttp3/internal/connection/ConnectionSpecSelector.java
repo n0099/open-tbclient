@@ -25,8 +25,8 @@ public final class ConnectionSpecSelector {
     }
 
     private boolean isFallbackPossible(SSLSocket sSLSocket) {
-        for (int i = this.nextModeIndex; i < this.connectionSpecs.size(); i++) {
-            if (this.connectionSpecs.get(i).isCompatible(sSLSocket)) {
+        for (int i2 = this.nextModeIndex; i2 < this.connectionSpecs.size(); i2++) {
+            if (this.connectionSpecs.get(i2).isCompatible(sSLSocket)) {
                 return true;
             }
         }
@@ -35,19 +35,19 @@ public final class ConnectionSpecSelector {
 
     public ConnectionSpec configureSecureSocket(SSLSocket sSLSocket) throws IOException {
         ConnectionSpec connectionSpec;
-        int i = this.nextModeIndex;
+        int i2 = this.nextModeIndex;
         int size = this.connectionSpecs.size();
         while (true) {
-            if (i >= size) {
+            if (i2 >= size) {
                 connectionSpec = null;
                 break;
             }
-            connectionSpec = this.connectionSpecs.get(i);
+            connectionSpec = this.connectionSpecs.get(i2);
             if (connectionSpec.isCompatible(sSLSocket)) {
-                this.nextModeIndex = i + 1;
+                this.nextModeIndex = i2 + 1;
                 break;
             }
-            i++;
+            i2++;
         }
         if (connectionSpec != null) {
             this.isFallbackPossible = isFallbackPossible(sSLSocket);

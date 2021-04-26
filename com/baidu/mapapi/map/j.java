@@ -14,7 +14,7 @@ public final class j implements Parcelable.Creator<MapStatus> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public MapStatus[] newArray(int i) {
-        return new MapStatus[i];
+    public MapStatus[] newArray(int i2) {
+        return new MapStatus[i2];
     }
 }

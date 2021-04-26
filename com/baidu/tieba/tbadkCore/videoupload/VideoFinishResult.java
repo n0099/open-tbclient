@@ -71,8 +71,8 @@ public class VideoFinishResult implements Serializable {
         this.errorMessage = str;
     }
 
-    public void setErrorNo(int i) {
-        this.errorNo = i;
+    public void setErrorNo(int i2) {
+        this.errorNo = i2;
     }
 
     public void setUserMessage(String str) {

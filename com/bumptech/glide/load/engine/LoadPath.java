@@ -23,12 +23,12 @@ public class LoadPath<Data, ResourceType, Transcode> {
         this.failureMessage = "Failed LoadPath{" + cls.getSimpleName() + "->" + cls2.getSimpleName() + "->" + cls3.getSimpleName() + "}";
     }
 
-    private Resource<Transcode> loadWithExceptionList(DataRewinder<Data> dataRewinder, @NonNull Options options, int i, int i2, DecodePath.DecodeCallback<ResourceType> decodeCallback, List<Throwable> list) throws GlideException {
+    private Resource<Transcode> loadWithExceptionList(DataRewinder<Data> dataRewinder, @NonNull Options options, int i2, int i3, DecodePath.DecodeCallback<ResourceType> decodeCallback, List<Throwable> list) throws GlideException {
         int size = this.decodePaths.size();
         Resource<Transcode> resource = null;
-        for (int i3 = 0; i3 < size; i3++) {
+        for (int i4 = 0; i4 < size; i4++) {
             try {
-                resource = this.decodePaths.get(i3).decode(dataRewinder, i, i2, options, decodeCallback);
+                resource = this.decodePaths.get(i4).decode(dataRewinder, i2, i3, options, decodeCallback);
             } catch (GlideException e2) {
                 list.add(e2);
             }
@@ -46,10 +46,10 @@ public class LoadPath<Data, ResourceType, Transcode> {
         return this.dataClass;
     }
 
-    public Resource<Transcode> load(DataRewinder<Data> dataRewinder, @NonNull Options options, int i, int i2, DecodePath.DecodeCallback<ResourceType> decodeCallback) throws GlideException {
+    public Resource<Transcode> load(DataRewinder<Data> dataRewinder, @NonNull Options options, int i2, int i3, DecodePath.DecodeCallback<ResourceType> decodeCallback) throws GlideException {
         List<Throwable> list = (List) Preconditions.checkNotNull(this.listPool.acquire());
         try {
-            return loadWithExceptionList(dataRewinder, options, i, i2, decodeCallback, list);
+            return loadWithExceptionList(dataRewinder, options, i2, i3, decodeCallback, list);
         } finally {
             this.listPool.release(list);
         }

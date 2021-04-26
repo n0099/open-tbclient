@@ -24,10 +24,10 @@ public class SimplePropertyPreFilter implements PropertyPreFilter {
                 return false;
             }
             if (this.maxLevel > 0) {
-                int i = 0;
+                int i2 = 0;
                 for (SerialContext serialContext = jSONSerializer.context; serialContext != null; serialContext = serialContext.parent) {
-                    i++;
-                    if (i > this.maxLevel) {
+                    i2++;
+                    if (i2 > this.maxLevel) {
                         return false;
                     }
                 }
@@ -53,8 +53,8 @@ public class SimplePropertyPreFilter implements PropertyPreFilter {
         return this.maxLevel;
     }
 
-    public void setMaxLevel(int i) {
-        this.maxLevel = i;
+    public void setMaxLevel(int i2) {
+        this.maxLevel = i2;
     }
 
     public SimplePropertyPreFilter(Class<?> cls, String... strArr) {

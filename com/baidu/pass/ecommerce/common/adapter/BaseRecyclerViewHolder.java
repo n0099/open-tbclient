@@ -12,8 +12,8 @@ public abstract class BaseRecyclerViewHolder<T> extends RecyclerView.ViewHolder 
         super(view);
     }
 
-    public void bindData2View(int i, T t) {
-        this.position = i;
+    public void bindData2View(int i2, T t) {
+        this.position = i2;
         this.t = t;
     }
 }

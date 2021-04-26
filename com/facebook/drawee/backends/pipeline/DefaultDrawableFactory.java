@@ -9,7 +9,7 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.image.CloseableStaticBitmap;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DefaultDrawableFactory implements DrawableFactory {
     @Nullable
     public final DrawableFactory mAnimatedDrawableFactory;

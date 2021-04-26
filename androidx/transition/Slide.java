@@ -2,6 +2,7 @@ package androidx.transition;
 
 import android.animation.Animator;
 import android.animation.TimeInterpolator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -96,7 +97,7 @@ public class Slide extends Visibility {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface GravityFlag {
     }
@@ -137,7 +138,7 @@ public class Slide extends Visibility {
         int[] iArr = (int[]) transitionValues2.values.get(PROPNAME_SCREEN_POSITION);
         float translationX = view.getTranslationX();
         float translationY = view.getTranslationY();
-        return TranslationAnimationCreator.createAnimation(view, transitionValues2, iArr[0], iArr[1], this.mSlideCalculator.getGoneX(viewGroup, view), this.mSlideCalculator.getGoneY(viewGroup, view), translationX, translationY, sDecelerate);
+        return TranslationAnimationCreator.createAnimation(view, transitionValues2, iArr[0], iArr[1], this.mSlideCalculator.getGoneX(viewGroup, view), this.mSlideCalculator.getGoneY(viewGroup, view), translationX, translationY, sDecelerate, this);
     }
 
     @Override // androidx.transition.Visibility
@@ -146,37 +147,38 @@ public class Slide extends Visibility {
             return null;
         }
         int[] iArr = (int[]) transitionValues.values.get(PROPNAME_SCREEN_POSITION);
-        return TranslationAnimationCreator.createAnimation(view, transitionValues, iArr[0], iArr[1], view.getTranslationX(), view.getTranslationY(), this.mSlideCalculator.getGoneX(viewGroup, view), this.mSlideCalculator.getGoneY(viewGroup, view), sAccelerate);
+        return TranslationAnimationCreator.createAnimation(view, transitionValues, iArr[0], iArr[1], view.getTranslationX(), view.getTranslationY(), this.mSlideCalculator.getGoneX(viewGroup, view), this.mSlideCalculator.getGoneY(viewGroup, view), sAccelerate, this);
     }
 
-    public void setSlideEdge(int i) {
-        if (i == 3) {
+    public void setSlideEdge(int i2) {
+        if (i2 == 3) {
             this.mSlideCalculator = sCalculateLeft;
-        } else if (i == 5) {
+        } else if (i2 == 5) {
             this.mSlideCalculator = sCalculateRight;
-        } else if (i == 48) {
+        } else if (i2 == 48) {
             this.mSlideCalculator = sCalculateTop;
-        } else if (i == 80) {
+        } else if (i2 == 80) {
             this.mSlideCalculator = sCalculateBottom;
-        } else if (i == 8388611) {
+        } else if (i2 == 8388611) {
             this.mSlideCalculator = sCalculateStart;
-        } else if (i == 8388613) {
+        } else if (i2 == 8388613) {
             this.mSlideCalculator = sCalculateEnd;
         } else {
             throw new IllegalArgumentException("Invalid slide direction");
         }
-        this.mSlideEdge = i;
+        this.mSlideEdge = i2;
         SidePropagation sidePropagation = new SidePropagation();
-        sidePropagation.setSide(i);
+        sidePropagation.setSide(i2);
         setPropagation(sidePropagation);
     }
 
-    public Slide(int i) {
+    public Slide(int i2) {
         this.mSlideCalculator = sCalculateBottom;
         this.mSlideEdge = 80;
-        setSlideEdge(i);
+        setSlideEdge(i2);
     }
 
+    @SuppressLint({"RestrictedApi"})
     public Slide(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSlideCalculator = sCalculateBottom;

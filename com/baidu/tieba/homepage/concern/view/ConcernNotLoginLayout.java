@@ -13,22 +13,22 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.HomePageStatic;
-import d.b.c.e.p.l;
-import d.b.i0.r.f0.m.a;
+import d.a.c.e.p.l;
+import d.a.i0.r.f0.m.a;
 /* loaded from: classes4.dex */
 public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f16725e;
+    public Context f16979e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f16726f;
+    public ImageView f16980f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16727g;
+    public TextView f16981g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f16728h;
+    public TBSpecificationBtn f16982h;
 
     public ConcernNotLoginLayout(Context context) {
         super(context);
@@ -37,24 +37,24 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
 
     public final void a(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.concern_not_login_layout, (ViewGroup) this, true);
-        this.f16725e = context;
-        this.f16726f = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
+        this.f16979e = context;
+        this.f16980f = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
         TextView textView = (TextView) inflate.findViewById(R.id.tv_concern_you_not_login);
-        this.f16727g = textView;
+        this.f16981g = textView;
         textView.setTextSize(0, l.g(context, R.dimen.T_X06));
-        this.f16728h = (TBSpecificationBtn) inflate.findViewById(R.id.tv_concern_login_and_see_more);
+        this.f16982h = (TBSpecificationBtn) inflate.findViewById(R.id.tv_concern_login_and_see_more);
         a aVar = new a();
-        this.f16728h.setText(context.getResources().getString(R.string.concern_login_and_see_more));
-        this.f16728h.setTextSize(R.dimen.T_X05);
-        this.f16728h.setTextHorizontalCenter(true);
-        this.f16728h.setConfig(aVar);
-        this.f16728h.setOnClickListener(this);
+        this.f16982h.setText(context.getResources().getString(R.string.concern_login_and_see_more));
+        this.f16982h.setTextSize(R.dimen.T_X05);
+        this.f16982h.setTextHorizontalCenter(true);
+        this.f16982h.setConfig(aVar);
+        this.f16982h.setOnClickListener(this);
     }
 
-    public void b(int i) {
-        SkinManager.setImageResource(this.f16726f, R.drawable.new_pic_emotion_09);
-        SkinManager.setViewTextColor(this.f16727g, R.color.CAM_X0107);
-        TBSpecificationBtn tBSpecificationBtn = this.f16728h;
+    public void b(int i2) {
+        SkinManager.setImageResource(this.f16980f, R.drawable.new_pic_emotion_09);
+        SkinManager.setViewTextColor(this.f16981g, R.color.CAM_X0107);
+        TBSpecificationBtn tBSpecificationBtn = this.f16982h;
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.k();
         }
@@ -63,8 +63,8 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.tv_concern_login_and_see_more) {
-            ViewHelper.checkUpIsLogin(this.f16725e);
-            HomePageStatic.f16653a = true;
+            ViewHelper.checkUpIsLogin(this.f16979e);
+            HomePageStatic.f16902a = true;
         }
     }
 
@@ -73,8 +73,8 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
         a(context);
     }
 
-    public ConcernNotLoginLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ConcernNotLoginLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a(context);
     }
 }

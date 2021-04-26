@@ -10,11 +10,11 @@ public final class Codeword {
     public final int startX;
     public final int value;
 
-    public Codeword(int i, int i2, int i3, int i4) {
-        this.startX = i;
-        this.endX = i2;
-        this.bucket = i3;
-        this.value = i4;
+    public Codeword(int i2, int i3, int i4, int i5) {
+        this.startX = i2;
+        this.endX = i3;
+        this.bucket = i4;
+        this.value = i5;
     }
 
     public int getBucket() {
@@ -45,12 +45,12 @@ public final class Codeword {
         return isValidRowNumber(this.rowNumber);
     }
 
-    public boolean isValidRowNumber(int i) {
-        return i != -1 && this.bucket == (i % 3) * 3;
+    public boolean isValidRowNumber(int i2) {
+        return i2 != -1 && this.bucket == (i2 % 3) * 3;
     }
 
-    public void setRowNumber(int i) {
-        this.rowNumber = i;
+    public void setRowNumber(int i2) {
+        this.rowNumber = i2;
     }
 
     public void setRowNumberAsRowIndicatorColumn() {

@@ -41,21 +41,21 @@ import com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel;
 import com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel;
 import com.baidu.tieba.share.AddExperiencedModel;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import d.b.c.e.p.j;
-import d.b.c.e.p.l;
-import d.b.i0.a.f;
-import d.b.i0.r.q.a2;
-import d.b.i0.r.q.z0;
-import d.b.i0.t.n;
-import d.b.j0.d2.h.p;
-import d.b.j0.d2.h.s;
-import d.b.j0.d2.k.e.c0;
-import d.b.j0.d2.k.e.e0;
-import d.b.j0.d2.k.e.k;
-import d.b.j0.d2.k.e.m0;
-import d.b.j0.d2.k.e.q;
-import d.b.j0.d3.h0.o;
-import d.b.j0.s2.v;
+import d.a.c.e.p.j;
+import d.a.c.e.p.l;
+import d.a.i0.a.f;
+import d.a.i0.r.q.a2;
+import d.a.i0.r.q.z0;
+import d.a.i0.t.n;
+import d.a.j0.d2.h.p;
+import d.a.j0.d2.h.s;
+import d.a.j0.d2.k.e.c0;
+import d.a.j0.d2.k.e.e0;
+import d.a.j0.d2.k.e.k;
+import d.a.j0.d2.k.e.m0;
+import d.a.j0.d2.k.e.q;
+import d.a.j0.d3.h0.o;
+import d.a.j0.s2.w;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -89,7 +89,7 @@ public class PbModel extends DataModel {
     public long F;
     public boolean G;
     public String H;
-    public d.b.j0.d2.h.e I;
+    public d.a.j0.d2.h.e I;
     public int J;
     public int K;
     public Rect K0;
@@ -121,7 +121,7 @@ public class PbModel extends DataModel {
     public String X0;
     public boolean Y;
     public boolean Y0;
-    public d.b.j0.d3.j0.b Z;
+    public d.a.j0.d3.j0.b Z;
     public String Z0;
     public BaseFragmentActivity a0;
     public boolean a1;
@@ -130,27 +130,29 @@ public class PbModel extends DataModel {
     public boolean c0;
     public CustomMessageListener c1;
     public long d0;
-    public d.b.c.c.g.a d1;
+    public d.a.c.c.g.a d1;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19424e;
+    public String f19891e;
     public boolean e0;
     public CustomMessageListener e1;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19425f;
+    public boolean f19892f;
     public boolean f0;
     public CustomMessageListener f1;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f19426g;
+    public String f19893g;
     public String g0;
     public PraiseData g1;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f19427h;
+    public String f19894h;
     public String h0;
-    public String i;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f19895i;
     public long i0;
     public boolean isLoading;
     public String j;
@@ -165,7 +167,7 @@ public class PbModel extends DataModel {
     public boolean n;
     public int n0;
     public int o;
-    public d.b.j0.d2.h.c o0;
+    public d.a.j0.d2.h.c o0;
     public int p;
     public final c0 p0;
     public boolean q;
@@ -194,33 +196,33 @@ public class PbModel extends DataModel {
         public a() {
         }
 
-        @Override // d.b.i0.a.f.b
+        @Override // d.a.i0.a.f.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             if (hashMap == null) {
                 return;
             }
-            if (hashMap.get(d.b.i0.a.f.o) instanceof String) {
-                PbModel.this.f19424e = (String) hashMap.get(d.b.i0.a.f.o);
+            if (hashMap.get(d.a.i0.a.f.o) instanceof String) {
+                PbModel.this.f19891e = (String) hashMap.get(d.a.i0.a.f.o);
             }
-            if (hashMap.get(d.b.i0.a.f.p) instanceof String) {
-                PbModel.this.P0 = (String) hashMap.get(d.b.i0.a.f.p);
+            if (hashMap.get(d.a.i0.a.f.p) instanceof String) {
+                PbModel.this.P0 = (String) hashMap.get(d.a.i0.a.f.p);
             }
-            if (hashMap.get(d.b.i0.a.f.q) instanceof String) {
-                PbModel.this.Q0 = (String) hashMap.get(d.b.i0.a.f.q);
+            if (hashMap.get(d.a.i0.a.f.q) instanceof String) {
+                PbModel.this.Q0 = (String) hashMap.get(d.a.i0.a.f.q);
             }
-            if (hashMap.get(d.b.i0.a.f.r) instanceof String) {
-                PbModel.this.R0 = d.b.c.e.m.b.d((String) hashMap.get(d.b.i0.a.f.r), 0);
+            if (hashMap.get(d.a.i0.a.f.r) instanceof String) {
+                PbModel.this.R0 = d.a.c.e.m.b.d((String) hashMap.get(d.a.i0.a.f.r), 0);
             }
-            if (hashMap.get(d.b.i0.a.f.s) instanceof String) {
-                PbModel.this.S0 = (String) hashMap.get(d.b.i0.a.f.s);
+            if (hashMap.get(d.a.i0.a.f.s) instanceof String) {
+                PbModel.this.S0 = (String) hashMap.get(d.a.i0.a.f.s);
             }
         }
     }
 
     /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -238,12 +240,12 @@ public class PbModel extends DataModel {
     }
 
     /* loaded from: classes3.dex */
-    public class c extends d.b.c.c.g.a {
-        public c(int i, int i2) {
-            super(i, i2);
+    public class c extends d.a.c.c.g.a {
+        public c(int i2, int i3) {
+            super(i2, i3);
         }
 
-        @Override // d.b.c.c.g.a
+        @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
             boolean z2 = responsedMessage instanceof pbPageSocketResponseMessage;
@@ -274,7 +276,7 @@ public class PbModel extends DataModel {
                     objArr[3] = pbPageRequestMessage != null ? String.valueOf(pbPageRequestMessage.get_kz()) : null;
                     objArr[4] = "seq_id";
                     objArr[5] = Long.valueOf(j);
-                    d.b.i0.r.z.a.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
+                    d.a.i0.r.z.a.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
                 }
                 if (PbModel.this.b0 && PbModel.this.c0) {
                     return;
@@ -293,8 +295,8 @@ public class PbModel extends DataModel {
 
     /* loaded from: classes3.dex */
     public class d extends CustomMessageListener {
-        public d(int i) {
-            super(i);
+        public d(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -304,7 +306,7 @@ public class PbModel extends DataModel {
                 return;
             }
             String valueOf = String.valueOf(customResponsedMessage.getData());
-            d.b.j0.d2.h.e eVar = PbModel.this.I;
+            d.a.j0.d2.h.e eVar = PbModel.this.I;
             if (eVar == null || eVar.h() == null || PbModel.this.I.h().h() == null || !PbModel.this.I.h().h().equals(valueOf)) {
                 return;
             }
@@ -314,8 +316,8 @@ public class PbModel extends DataModel {
 
     /* loaded from: classes3.dex */
     public class e extends CustomMessageListener {
-        public e(int i) {
-            super(i);
+        public e(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -325,7 +327,7 @@ public class PbModel extends DataModel {
                 return;
             }
             String valueOf = String.valueOf(customResponsedMessage.getData());
-            d.b.j0.d2.h.e eVar = PbModel.this.I;
+            d.a.j0.d2.h.e eVar = PbModel.this.I;
             if (eVar == null || eVar.h() == null || PbModel.this.I.h().h() == null || !PbModel.this.I.h().h().equals(valueOf)) {
                 return;
             }
@@ -337,40 +339,40 @@ public class PbModel extends DataModel {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.j0.d2.h.e f19433e;
+        public final /* synthetic */ d.a.j0.d2.h.e f19901e;
 
-        public f(d.b.j0.d2.h.e eVar) {
-            this.f19433e = eVar;
+        public f(d.a.j0.d2.h.e eVar) {
+            this.f19901e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            PbModel.this.w1(this.f19433e, 3, false, 0, "", false, 0, 0L, 0L, true);
+            PbModel.this.w1(this.f19901e, 3, false, 0, "", false, 0, 0L, 0L, true);
             PbModel.this.isLoading = false;
         }
     }
 
     /* loaded from: classes3.dex */
     public interface g {
-        void a(int i, boolean z, ResponsedMessage<?> responsedMessage, boolean z2, long j);
+        void a(int i2, boolean z, ResponsedMessage<?> responsedMessage, boolean z2, long j);
 
-        void b(d.b.j0.d2.h.e eVar);
+        void b(d.a.j0.d2.h.e eVar);
 
-        void c(boolean z, int i, int i2, int i3, d.b.j0.d2.h.e eVar, String str, int i4);
+        void c(boolean z, int i2, int i3, int i4, d.a.j0.d2.h.e eVar, String str, int i5);
     }
 
     static {
-        int a2 = d.b.i0.t.e.a() / 30;
+        int a2 = d.a.i0.t.e.a() / 30;
         UPGRADE_TO_PHOTO_LIVE = 1;
     }
 
     public PbModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
         this.mStType = null;
-        this.f19424e = null;
-        this.f19425f = false;
-        this.f19426g = null;
-        this.f19427h = null;
+        this.f19891e = null;
+        this.f19892f = false;
+        this.f19893g = null;
+        this.f19894h = null;
         this.j = null;
         this.k = false;
         this.l = false;
@@ -433,7 +435,7 @@ public class PbModel extends DataModel {
         registerListener(this.c1);
         registerListener(this.f1);
         registerListener(this.e1);
-        d.b.j0.d2.h.e eVar = new d.b.j0.d2.h.e();
+        d.a.j0.d2.h.e eVar = new d.a.j0.d2.h.e();
         this.I = eVar;
         eVar.k0(0);
         this.Q = baseFragmentActivity.getPageContext().getPageActivity();
@@ -451,7 +453,7 @@ public class PbModel extends DataModel {
         return 1001;
     }
 
-    public String A1(d.b.j0.d2.h.e eVar) {
+    public String A1(d.a.j0.d2.h.e eVar) {
         String str = null;
         if (eVar == null) {
             return null;
@@ -466,9 +468,9 @@ public class PbModel extends DataModel {
         return this.s0;
     }
 
-    public final int B1(int i) {
-        if (i != 1) {
-            return i != 3 ? -1 : 1;
+    public final int B1(int i2) {
+        if (i2 != 1) {
+            return i2 != 3 ? -1 : 1;
         }
         return 2;
     }
@@ -477,10 +479,10 @@ public class PbModel extends DataModel {
         return this.M0;
     }
 
-    public void C1(int i) {
-        this.u = i;
-        this.v = i;
-        this.w = i;
+    public void C1(int i2) {
+        this.u = i2;
+        this.v = i2;
+        this.w = i2;
     }
 
     public String D0() {
@@ -488,7 +490,7 @@ public class PbModel extends DataModel {
     }
 
     public void D1() {
-        d.b.j0.d2.h.e eVar = this.I;
+        d.a.j0.d2.h.e eVar = this.I;
         if (eVar == null || ListUtils.isEmpty(eVar.D())) {
             return;
         }
@@ -507,10 +509,10 @@ public class PbModel extends DataModel {
     }
 
     public void E1(Bundle bundle) {
-        bundle.putString("thread_id", this.f19424e);
-        bundle.putString("post_id", this.f19426g);
-        bundle.putString("forum_id", this.f19427h);
-        bundle.putString("from_forum_id", this.i);
+        bundle.putString("thread_id", this.f19891e);
+        bundle.putString("post_id", this.f19893g);
+        bundle.putString("forum_id", this.f19894h);
+        bundle.putString("from_forum_id", this.f19895i);
         bundle.putInt("key_start_from", this.y0);
         bundle.putBoolean("KEY_NEED_REPOST_RECOMMEND_FORUM", this.k);
         bundle.putBoolean("host_only", this.l);
@@ -569,19 +571,19 @@ public class PbModel extends DataModel {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean F1(int i) {
+    public boolean F1(int i2) {
         boolean z;
         int size;
-        int i2;
         int i3;
-        this.J = i;
-        int i4 = 0;
+        int i4;
+        this.J = i2;
+        int i5 = 0;
         if (this.isLoading) {
             return false;
         }
         this.isLoading = true;
-        s1(i);
-        d.b.j0.d2.h.e f2 = m0.b().f();
+        s1(i2);
+        d.a.j0.d2.h.e f2 = m0.b().f();
         if (f2 != null && f2.L() != null) {
             f2.L().s3(0);
             this.n = m0.b().i();
@@ -597,24 +599,24 @@ public class PbModel extends DataModel {
             if (z2 || this.C) {
                 this.Y = false;
             }
-            d.b.c.e.m.e.a().post(new f(f2));
+            d.a.c.e.m.e.a().post(new f(f2));
             return false;
         }
-        if (i == 4 && !this.f0) {
-            G1(Y(), true, this.f19426g, 3);
+        if (i2 == 4 && !this.f0) {
+            G1(Y(), true, this.f19893g, 3);
         }
-        if (i == 3 && !this.f0) {
+        if (i2 == 3 && !this.f0) {
             if (this.C) {
-                G1(Y(), true, this.f19426g, 3);
+                G1(Y(), true, this.f19893g, 3);
             } else {
-                G1(Y(), false, this.f19426g, 3);
+                G1(Y(), false, this.f19893g, 3);
             }
         }
         this.f0 = false;
         PbPageRequestMessage pbPageRequestMessage = new PbPageRequestMessage();
-        pbPageRequestMessage.setUpdateType(i);
+        pbPageRequestMessage.setUpdateType(i2);
         pbPageRequestMessage.setIsReqAd(this.N0 == null ? 1 : 0);
-        pbPageRequestMessage.setLastids(d.b.i0.u.a.o);
+        pbPageRequestMessage.setLastids(d.a.i0.u.a.o);
         if (this.l || this.C) {
             this.Y = false;
         }
@@ -622,8 +624,8 @@ public class PbModel extends DataModel {
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
-        if (this.f19424e != null && this.f19424e.length() != 0) {
-            pbPageRequestMessage.set_kz(d.b.c.e.m.b.f(this.f19424e, 0L));
+        if (this.f19891e != null && this.f19891e.length() != 0) {
+            pbPageRequestMessage.set_kz(d.a.c.e.m.b.f(this.f19891e, 0L));
             pbPageRequestMessage.setFloorSortType(1);
             pbPageRequestMessage.setFloor_rn(4);
             pbPageRequestMessage.set_rn(15);
@@ -656,12 +658,12 @@ public class PbModel extends DataModel {
             if (this.S != null) {
                 pbPageRequestMessage.setOpType(this.S);
                 pbPageRequestMessage.setOpUrl(this.T);
-                pbPageRequestMessage.setOpStat(d.b.c.e.m.b.d(this.U, 0));
+                pbPageRequestMessage.setOpStat(d.a.c.e.m.b.d(this.U, 0));
                 pbPageRequestMessage.setOpMessageID(this.F);
             }
             pbPageRequestMessage.set_thread_type(Integer.valueOf(this.K));
             ArrayList<PostData> D = this.I.D();
-            switch (i) {
+            switch (i2) {
                 case 1:
                     pbPageRequestMessage.set_back(0);
                     pbPageRequestMessage.set_banner(0);
@@ -676,26 +678,26 @@ public class PbModel extends DataModel {
                         if (!this.C || z || this.D) {
                             if (D != null && D.size() > 0) {
                                 size = D.size();
-                                i2 = 1;
+                                i3 = 1;
                                 while (true) {
-                                    i3 = size - i2;
-                                    if (i3 >= 0) {
-                                        PostData postData = D.get(i3);
+                                    i4 = size - i3;
+                                    if (i4 >= 0) {
+                                        PostData postData = D.get(i4);
                                         if (postData != null) {
                                             String E = postData.E();
-                                            this.f19426g = E;
+                                            this.f19893g = E;
                                             if (StringUtils.isNull(E)) {
                                             }
                                         }
-                                        i2++;
+                                        i3++;
                                     }
                                 }
                                 if (this.o == 2) {
                                     pbPageRequestMessage.set_pn(Integer.valueOf(this.v + 1));
                                 }
                             }
-                            if (this.f19426g == null && this.f19426g.length() > 0) {
-                                pbPageRequestMessage.set_pid(d.b.c.e.m.b.f(this.f19426g, 0L));
+                            if (this.f19893g == null && this.f19893g.length() > 0) {
+                                pbPageRequestMessage.set_pid(d.a.c.e.m.b.f(this.f19893g, 0L));
                                 if (this.o == 2) {
                                     pbPageRequestMessage.set_pid(0L);
                                 }
@@ -710,24 +712,24 @@ public class PbModel extends DataModel {
                     }
                     if (D != null) {
                         size = D.size();
-                        i2 = 1;
+                        i3 = 1;
                         while (true) {
-                            i3 = size - i2;
-                            if (i3 >= 0) {
+                            i4 = size - i3;
+                            if (i4 >= 0) {
                             }
-                            i2++;
+                            i3++;
                         }
                         if (this.o == 2) {
                         }
                     }
-                    if (this.f19426g == null) {
+                    if (this.f19893g == null) {
                     }
                     if (this.o == 1) {
                     }
                     L1(pbPageRequestMessage);
                 case 2:
                     if (D != null && D.size() > 0 && D.get(0) != null) {
-                        this.f19426g = D.get(0).E();
+                        this.f19893g = D.get(0).E();
                     }
                     pbPageRequestMessage.set_back(1);
                     pbPageRequestMessage.set_banner(0);
@@ -740,8 +742,8 @@ public class PbModel extends DataModel {
                             pbPageRequestMessage.set_pn(Integer.valueOf(this.v + 1));
                         }
                     }
-                    if (this.f19426g != null && this.f19426g.length() > 0) {
-                        pbPageRequestMessage.set_pid(d.b.c.e.m.b.f(this.f19426g, 0L));
+                    if (this.f19893g != null && this.f19893g.length() > 0) {
+                        pbPageRequestMessage.set_pid(d.a.c.e.m.b.f(this.f19893g, 0L));
                         if (this.o == 2) {
                             pbPageRequestMessage.set_pid(0L);
                         }
@@ -777,7 +779,7 @@ public class PbModel extends DataModel {
                 case 4:
                     pbPageRequestMessage.set_st_type("store_thread");
                     pbPageRequestMessage.set_mark(1);
-                    pbPageRequestMessage.set_pid(d.b.c.e.m.b.f(this.f19426g, 0L));
+                    pbPageRequestMessage.set_pid(d.a.c.e.m.b.f(this.f19893g, 0L));
                     pbPageRequestMessage.set_back(0);
                     pbPageRequestMessage.set_banner(0);
                     L1(pbPageRequestMessage);
@@ -793,7 +795,7 @@ public class PbModel extends DataModel {
                     if (this.o == 1 && this.x0 && !this.l) {
                         pbPageRequestMessage.set_pid(0L);
                     } else {
-                        pbPageRequestMessage.set_pid(d.b.c.e.m.b.f(this.f19426g, 0L));
+                        pbPageRequestMessage.set_pid(d.a.c.e.m.b.f(this.f19893g, 0L));
                         if (this.o == 2) {
                             pbPageRequestMessage.set_pid(0L);
                         }
@@ -813,7 +815,7 @@ public class PbModel extends DataModel {
                     L1(pbPageRequestMessage);
                     break;
                 case 8:
-                    pbPageRequestMessage.set_pid(d.b.c.e.m.b.f(this.z0, 0L));
+                    pbPageRequestMessage.set_pid(d.a.c.e.m.b.f(this.z0, 0L));
                     if (this.o == 1) {
                         pbPageRequestMessage.set_arround(1);
                         pbPageRequestMessage.set_back(1);
@@ -833,7 +835,7 @@ public class PbModel extends DataModel {
             if (UtilHelper.isUgcThreadType(this.R0)) {
                 pbPageRequestMessage.setForumId(String.valueOf(0));
             } else {
-                pbPageRequestMessage.setForumId(this.f19427h);
+                pbPageRequestMessage.setForumId(this.f19894h);
             }
             pbPageRequestMessage.setNeedRepostRecommendForum(this.k);
             if (this.y0 == 7) {
@@ -852,16 +854,16 @@ public class PbModel extends DataModel {
                 }
                 if (pbPageRequestMessage.getPn() != null) {
                     if (pbPageRequestMessage.getR().intValue() == 1) {
-                        i4 = pbPageRequestMessage.getPn().intValue() == this.x ? -1 : P();
+                        i5 = pbPageRequestMessage.getPn().intValue() == this.x ? -1 : P();
                     } else {
                         if (pbPageRequestMessage.getPn().intValue() != 1) {
-                            i4 = P();
+                            i5 = P();
                         }
                     }
                 }
-                pbPageRequestMessage.setAfterAdThreadCount(i4);
+                pbPageRequestMessage.setAfterAdThreadCount(i5);
                 pbPageRequestMessage.setTag(this.unique_id);
-                pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.f19424e);
+                pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.f19891e);
                 pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
                 sendMessage(pbPageRequestMessage);
                 return true;
@@ -875,9 +877,9 @@ public class PbModel extends DataModel {
             }
             if (pbPageRequestMessage.getPn() != null) {
             }
-            pbPageRequestMessage.setAfterAdThreadCount(i4);
+            pbPageRequestMessage.setAfterAdThreadCount(i5);
             pbPageRequestMessage.setTag(this.unique_id);
-            pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.f19424e);
+            pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.f19891e);
             pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
             sendMessage(pbPageRequestMessage);
             return true;
@@ -890,13 +892,13 @@ public class PbModel extends DataModel {
         return this.T0;
     }
 
-    public final void G1(String str, boolean z, String str2, int i) {
+    public final void G1(String str, boolean z, String str2, int i2) {
         PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = new PbPageReadLocalRequestMessage();
         pbPageReadLocalRequestMessage.setCacheKey(str);
         pbPageReadLocalRequestMessage.setContext(this.Q);
         pbPageReadLocalRequestMessage.setMarkCache(z);
         pbPageReadLocalRequestMessage.setPostId(str2);
-        pbPageReadLocalRequestMessage.setUpdateType(i);
+        pbPageReadLocalRequestMessage.setUpdateType(i2);
         sendMessage(pbPageReadLocalRequestMessage);
     }
 
@@ -915,19 +917,19 @@ public class PbModel extends DataModel {
     }
 
     public int H0() {
-        d.b.j0.d2.h.e eVar = this.I;
+        d.a.j0.d2.h.e eVar = this.I;
         if (eVar != null) {
             return eVar.I();
         }
         return 1;
     }
 
-    public void H1(int i, int i2) {
-        this.C0 = i;
-        this.D0 = i2;
+    public void H1(int i2, int i3) {
+        this.C0 = i2;
+        this.D0 = i3;
     }
 
-    public final void I(d.b.j0.d2.h.e eVar) {
+    public final void I(d.a.j0.d2.h.e eVar) {
         if (eVar == null || eVar.x() == null || eVar.x().D0() == null || eVar.x().D0().goods == null || !eVar.x().I0() || eVar.x().D0().goods.goods_style == 1001) {
             return;
         }
@@ -950,8 +952,8 @@ public class PbModel extends DataModel {
         return b1();
     }
 
-    public void J1(int i) {
-        this.r = i;
+    public void J1(int i2) {
+        this.r = i2;
     }
 
     public void K(String str) {
@@ -969,11 +971,11 @@ public class PbModel extends DataModel {
         return this.o;
     }
 
-    public void K1(int i) {
-        this.s = i;
+    public void K1(int i2) {
+        this.s = i2;
     }
 
-    public void L(d.b.j0.d2.h.e eVar) {
+    public void L(d.a.j0.d2.h.e eVar) {
         if (eVar == null) {
             return;
         }
@@ -988,21 +990,21 @@ public class PbModel extends DataModel {
     }
 
     public final void L1(PbPageRequestMessage pbPageRequestMessage) {
-        if (TextUtils.isEmpty(a0()) || v.p().b() == null) {
+        if (TextUtils.isEmpty(a0()) || w.p().b() == null) {
             return;
         }
-        pbPageRequestMessage.setLoadCount(v.p().b().e(a0(), true) + 1);
-        pbPageRequestMessage.setRefreshCount(v.p().b().d(a0(), true));
+        pbPageRequestMessage.setLoadCount(w.p().b().e(a0(), true) + 1);
+        pbPageRequestMessage.setRefreshCount(w.p().b().d(a0(), true));
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.f19424e == null) {
+        if (this.f19891e == null) {
             return false;
         }
         cancelLoadData();
         if (this.Z == null) {
-            d.b.j0.d3.j0.b bVar = new d.b.j0.d3.j0.b("pbStat");
+            d.a.j0.d3.j0.b bVar = new d.a.j0.d3.j0.b("pbStat");
             this.Z = bVar;
             bVar.f();
         }
@@ -1015,8 +1017,8 @@ public class PbModel extends DataModel {
         return F1;
     }
 
-    public d.b.j0.d2.h.e M(a2 a2Var) {
-        d.b.j0.d2.h.e eVar = new d.b.j0.d2.h.e();
+    public d.a.j0.d2.h.e M(a2 a2Var) {
+        d.a.j0.d2.h.e eVar = new d.a.j0.d2.h.e();
         eVar.k0(3);
         if (a2Var == null) {
             return null;
@@ -1026,11 +1028,11 @@ public class PbModel extends DataModel {
             eVar.l0(a2Var.h0());
             ForumData l = eVar.l();
             l.setId(a2Var.h0().h());
-            l.setName(a2Var.h0().i());
+            l.setName(a2Var.h0().g());
             l.setUser_level(a2Var.h0().b());
             l.setImage_url(a2Var.h0().a());
-            l.setPost_num(a2Var.h0().f51666h);
-            l.setMember_num(a2Var.h0().i);
+            l.setPost_num(a2Var.h0().f49301h);
+            l.setMember_num(a2Var.h0().f49302i);
         } else {
             ForumData l2 = eVar.l();
             l2.setId(String.valueOf(a2Var.c0()));
@@ -1063,9 +1065,9 @@ public class PbModel extends DataModel {
 
     public String N() {
         StringBuilder sb = new StringBuilder(20);
-        sb.append(this.f19424e);
+        sb.append(this.f19891e);
         if (!this.E) {
-            sb.append(this.f19426g);
+            sb.append(this.f19893g);
         }
         sb.append(this.l);
         sb.append(this.n);
@@ -1101,8 +1103,8 @@ public class PbModel extends DataModel {
         return this.L0;
     }
 
-    public void N1(int i) {
-        this.y0 = i;
+    public void N1(int i2) {
+        this.y0 = i2;
     }
 
     public AddExperiencedModel O() {
@@ -1110,7 +1112,7 @@ public class PbModel extends DataModel {
     }
 
     public String O0() {
-        return this.f19424e;
+        return this.f19891e;
     }
 
     public void O1(String str) {
@@ -1118,7 +1120,7 @@ public class PbModel extends DataModel {
     }
 
     public final int P() {
-        int i = 0;
+        int i2 = 0;
         if (y0().D() == null) {
             return 0;
         }
@@ -1126,30 +1128,30 @@ public class PbModel extends DataModel {
         for (int size = D.size() - 1; size >= 0; size--) {
             PostData postData = D.get(size);
             if (!(postData instanceof o)) {
-                i++;
+                i2++;
             } else if (postData.getType() != AdvertAppInfo.i4) {
-                return i;
+                return i2;
             }
         }
         return D.size();
     }
 
     public String P0() {
-        if (!StringUtils.isNull(this.f19424e) && !"0".equals(this.f19424e)) {
-            return this.f19424e;
+        if (!StringUtils.isNull(this.f19891e) && !"0".equals(this.f19891e)) {
+            return this.f19891e;
         }
         return this.P0;
     }
 
     public final void P1(PbPageRequestMessage pbPageRequestMessage) {
-        if (TextUtils.isEmpty(a0()) || v.p().b() == null) {
+        if (TextUtils.isEmpty(a0()) || w.p().b() == null) {
             return;
         }
-        pbPageRequestMessage.setRefreshCount(v.p().b().d(a0(), true) + 1);
-        pbPageRequestMessage.setLoadCount(v.p().b().e(a0(), true));
+        pbPageRequestMessage.setRefreshCount(w.p().b().d(a0(), true) + 1);
+        pbPageRequestMessage.setLoadCount(w.p().b().e(a0(), true));
     }
 
-    public d.b.j0.d2.h.c Q() {
+    public d.a.j0.d2.h.c Q() {
         return this.o0;
     }
 
@@ -1157,18 +1159,18 @@ public class PbModel extends DataModel {
         return this.A0;
     }
 
-    public void Q1(int i) {
-        d.b.j0.d2.h.e eVar = this.I;
+    public void Q1(int i2) {
+        d.a.j0.d2.h.e eVar = this.I;
         if (eVar != null) {
-            eVar.u0(i);
+            eVar.u0(i2);
         }
     }
 
-    public MarkData R(int i) {
-        if (i < 0) {
-            i = 0;
+    public MarkData R(int i2) {
+        if (i2 < 0) {
+            i2 = 0;
         }
-        d.b.j0.d2.h.e eVar = this.I;
+        d.a.j0.d2.h.e eVar = this.I;
         if (eVar == null) {
             return null;
         }
@@ -1176,25 +1178,25 @@ public class PbModel extends DataModel {
         if (ListUtils.isEmpty(D)) {
             return null;
         }
-        if (D.size() > 0 && i >= D.size()) {
-            i = D.size() - 1;
+        if (D.size() > 0 && i2 >= D.size()) {
+            i2 = D.size() - 1;
         }
-        return s0(D.get(i));
+        return s0(D.get(i2));
     }
 
     public PostData R0() {
         return this.B0;
     }
 
-    public boolean R1(int i) {
-        this.u = i;
-        if (i > this.I.w().h()) {
+    public boolean R1(int i2) {
+        this.u = i2;
+        if (i2 > this.I.w().h()) {
             this.u = this.I.w().h();
         }
         if (this.u < 1) {
             this.u = 1;
         }
-        if (this.f19424e == null) {
+        if (this.f19891e == null) {
             return false;
         }
         return F1(5);
@@ -1207,10 +1209,10 @@ public class PbModel extends DataModel {
     }
 
     public String S0() {
-        return this.f19426g;
+        return this.f19893g;
     }
 
-    public d.b.j0.d2.h.e S1(d.b.j0.d2.h.e eVar) {
+    public d.a.j0.d2.h.e S1(d.a.j0.d2.h.e eVar) {
         if (eVar == null) {
             return null;
         }
@@ -1225,7 +1227,7 @@ public class PbModel extends DataModel {
     }
 
     public BaijiahaoData T() {
-        d.b.j0.d2.h.e eVar = this.I;
+        d.a.j0.d2.h.e eVar = this.I;
         if (eVar == null || eVar.L() == null) {
             return null;
         }
@@ -1233,12 +1235,12 @@ public class PbModel extends DataModel {
     }
 
     public boolean T0() {
-        d.b.j0.d2.h.e eVar = this.I;
+        d.a.j0.d2.h.e eVar = this.I;
         return (eVar == null || eVar.l() == null || this.I.L() == null) ? false : true;
     }
 
     public void T1(boolean z) {
-        d.b.j0.d2.h.e eVar = this.I;
+        d.a.j0.d2.h.e eVar = this.I;
         if (eVar != null) {
             eVar.o0(z);
         }
@@ -1270,7 +1272,7 @@ public class PbModel extends DataModel {
 
     public boolean V1(String str) {
         this.l = !this.l;
-        this.f19426g = str;
+        this.f19893g = str;
         TiebaStatic.log(new StatisticItem("pb_onlyowner_click").param("obj_source", 0));
         if (F1(6)) {
             return true;
@@ -1292,9 +1294,9 @@ public class PbModel extends DataModel {
             return false;
         }
         this.l = z;
-        this.f19426g = str;
+        this.f19893g = str;
         if (this.o == 2) {
-            this.f19426g = "";
+            this.f19893g = "";
         }
         if (z) {
             TiebaStatic.log(new StatisticItem("pb_onlyowner_click").param("obj_source", 1));
@@ -1310,12 +1312,12 @@ public class PbModel extends DataModel {
         MarkData markData = new MarkData();
         Date date = new Date();
         markData.setAccount(TbadkCoreApplication.getCurrentAccount());
-        markData.setThreadId(this.f19424e);
+        markData.setThreadId(this.f19891e);
         markData.setPostId(this.I.t());
         markData.setTime(date.getTime());
         markData.setHostMode(this.l);
         markData.setSequence(Boolean.valueOf(b1()));
-        markData.setId(this.f19424e);
+        markData.setId(this.f19891e);
         return markData;
     }
 
@@ -1323,20 +1325,20 @@ public class PbModel extends DataModel {
         return this.m0;
     }
 
-    public boolean X1(int i) {
-        if (i == this.o) {
+    public boolean X1(int i2) {
+        if (i2 == this.o) {
             return false;
         }
-        if (i != 1) {
-            d.b.i0.r.d0.b.j().v("key_pb_current_sort_type", i);
+        if (i2 != 1) {
+            d.a.i0.r.d0.b.j().v("key_pb_current_sort_type", i2);
         }
         boolean z = this.n;
         this.m = z;
         this.p = this.o;
-        this.o = i;
+        this.o = i2;
         this.n = !z;
-        if (i == 2 && this.C) {
-            this.f19426g = "0";
+        if (i2 == 2 && this.C) {
+            this.f19893g = "0";
         }
         if (this.isLoading || !LoadData()) {
             this.n = !this.n;
@@ -1347,15 +1349,15 @@ public class PbModel extends DataModel {
     }
 
     public final String Y() {
-        String str = this.f19424e;
-        String v0 = (str == null || str.equals("0")) ? v0() : this.f19424e;
+        String str = this.f19891e;
+        String v0 = (str == null || str.equals("0")) ? v0() : this.f19891e;
         if (this.l) {
             v0 = v0 + DB_KEY_HOST;
         }
-        int i = this.o;
-        if (i == 1) {
+        int i2 = this.o;
+        if (i2 == 1) {
             v0 = v0 + DB_KEY_REVER;
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             v0 = v0 + DB_KEY_HOT;
         }
         if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -1368,8 +1370,8 @@ public class PbModel extends DataModel {
         return this.Y0;
     }
 
-    public final void Y1(@NonNull d.b.j0.d2.h.e eVar) {
-        d.b.j0.d2.h.e eVar2 = this.I;
+    public final void Y1(@NonNull d.a.j0.d2.h.e eVar) {
+        d.a.j0.d2.h.e eVar2 = this.I;
         if (eVar2 != null) {
             eVar2.e().clear();
             this.I.e().addAll(eVar.e());
@@ -1385,7 +1387,7 @@ public class PbModel extends DataModel {
     }
 
     public void Z1(n nVar) {
-        d.b.j0.d2.h.e eVar;
+        d.a.j0.d2.h.e eVar;
         if (nVar == null || (eVar = this.I) == null || eVar.D() == null || this.I.D().size() <= 0) {
             return;
         }
@@ -1394,10 +1396,10 @@ public class PbModel extends DataModel {
             return;
         }
         int size = this.I.D().size();
-        for (int i = 0; i < size; i++) {
-            if (this.I.D().get(i) != null && this.I.D().get(i).t() != null && currentAccount.equals(this.I.D().get(i).t().getUserId()) && this.I.D().get(i).t().getPendantData() != null) {
-                this.I.D().get(i).t().getPendantData().d(nVar.a());
-                this.I.D().get(i).t().getPendantData().e(nVar.b());
+        for (int i2 = 0; i2 < size; i2++) {
+            if (this.I.D().get(i2) != null && this.I.D().get(i2).t() != null && currentAccount.equals(this.I.D().get(i2).t().getUserId()) && this.I.D().get(i2).t().getPendantData() != null) {
+                this.I.D().get(i2).t().getPendantData().d(nVar.a());
+                this.I.D().get(i2).t().getPendantData().e(nVar.b());
             }
         }
     }
@@ -1407,10 +1409,10 @@ public class PbModel extends DataModel {
     }
 
     public boolean a1() {
-        return this.O0 && d.b.j0.q0.l.b() != null && d.b.j0.q0.l.b().equals(this.f19424e) && d.b.j0.q0.l.a() != null;
+        return this.O0 && d.a.j0.q0.l.b() != null && d.a.j0.q0.l.b().equals(this.f19891e) && d.a.j0.q0.l.a() != null;
     }
 
-    public void a2(d.b.j0.d2.h.e eVar, ArrayList<PostData> arrayList) {
+    public void a2(d.a.j0.d2.h.e eVar, ArrayList<PostData> arrayList) {
         String p0;
         if (arrayList == null || eVar.D() == null) {
             return;
@@ -1428,16 +1430,16 @@ public class PbModel extends DataModel {
     }
 
     public final boolean b1() {
-        int i = this.o;
-        return i == 0 || i == 2;
+        int i2 = this.o;
+        return i2 == 0 || i2 == 2;
     }
 
-    public final void b2(d.b.j0.d2.h.e eVar) {
+    public final void b2(d.a.j0.d2.h.e eVar) {
         if (eVar == null) {
             return;
         }
         eVar.x0(this.I.U());
-        d.b.j0.d2.h.e eVar2 = this.I;
+        d.a.j0.d2.h.e eVar2 = this.I;
         if (!eVar2.V && eVar.V && eVar2.i() != null) {
             eVar.n0(this.I.i());
         }
@@ -1446,7 +1448,7 @@ public class PbModel extends DataModel {
     }
 
     public MetaData c0() {
-        d.b.j0.d2.h.e eVar = this.I;
+        d.a.j0.d2.h.e eVar = this.I;
         if (eVar == null || eVar.L() == null || this.I.L().T() == null) {
             return null;
         }
@@ -1469,8 +1471,8 @@ public class PbModel extends DataModel {
     }
 
     public boolean d1() {
-        int i = this.y0;
-        return i == 13 || i == 12 || i == 7 || i == 23 || i == 24;
+        int i2 = this.y0;
+        return i2 == 13 || i2 == 12 || i2 == 7 || i2 == 23 || i2 == 24;
     }
 
     public void destory() {
@@ -1484,7 +1486,7 @@ public class PbModel extends DataModel {
         if (getSugMatchWordsModel != null) {
             getSugMatchWordsModel.cancelLoadData();
         }
-        d.b.j0.s2.f0.b.f().a("PB");
+        d.a.j0.s2.h0.b.f().a("PB");
         o1();
     }
 
@@ -1533,11 +1535,11 @@ public class PbModel extends DataModel {
     }
 
     public String getForumId() {
-        return this.f19427h;
+        return this.f19894h;
     }
 
     public String getFromForumId() {
-        return this.i;
+        return this.f19895i;
     }
 
     public boolean h0() {
@@ -1545,8 +1547,8 @@ public class PbModel extends DataModel {
     }
 
     public boolean h1(boolean z) {
-        d.b.j0.d2.h.e eVar;
-        if (this.f19424e == null || (eVar = this.I) == null) {
+        d.a.j0.d2.h.e eVar;
+        if (this.f19891e == null || (eVar = this.I) == null) {
             return false;
         }
         if (z || eVar.w().b() != 0) {
@@ -1559,11 +1561,11 @@ public class PbModel extends DataModel {
         return this.C;
     }
 
-    public void i1(d.b.j0.d2.h.e eVar) {
+    public void i1(d.a.j0.d2.h.e eVar) {
         if (eVar == null) {
             return;
         }
-        this.f19424e = eVar.N();
+        this.f19891e = eVar.N();
         if (eVar.L() != null && eVar.L().V() != null) {
             BaijiahaoData V = eVar.L().V();
             this.P0 = V.oriUgcNid;
@@ -1576,7 +1578,7 @@ public class PbModel extends DataModel {
             this.R0 = 0;
             this.S0 = null;
         }
-        this.f19426g = null;
+        this.f19893g = null;
         this.l = false;
         this.n = true;
         LoadData();
@@ -1584,10 +1586,10 @@ public class PbModel extends DataModel {
 
     public void initWithBundle(Bundle bundle) {
         this.y0 = bundle.getInt("key_start_from", 0);
-        this.f19424e = bundle.getString("thread_id");
-        this.f19426g = bundle.getString("post_id");
-        this.f19427h = bundle.getString("forum_id");
-        this.i = bundle.getString("from_forum_id");
+        this.f19891e = bundle.getString("thread_id");
+        this.f19893g = bundle.getString("post_id");
+        this.f19894h = bundle.getString("forum_id");
+        this.f19895i = bundle.getString("from_forum_id");
         bundle.getString(PbActivityConfig.KEY_GOD_REPLY_ID);
         this.k = bundle.getBoolean("KEY_NEED_REPOST_RECOMMEND_FORUM", false);
         this.l = bundle.getBoolean("host_only", false);
@@ -1633,8 +1635,8 @@ public class PbModel extends DataModel {
         if (intent == null) {
             return;
         }
-        this.f19424e = intent.getStringExtra("thread_id");
-        this.f19425f = intent.getBooleanExtra(PbActivityConfig.KEY_IS_PRIVACY, false);
+        this.f19891e = intent.getStringExtra("thread_id");
+        this.f19892f = intent.getBooleanExtra(PbActivityConfig.KEY_IS_PRIVACY, false);
         this.P0 = intent.getStringExtra("key_ori_ugc_nid");
         this.Q0 = intent.getStringExtra("key_ori_ugc_tid");
         this.R0 = intent.getIntExtra("key_ori_ugc_type", 0);
@@ -1644,15 +1646,15 @@ public class PbModel extends DataModel {
         Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
         this.X0 = uri != null ? uri.toString() : null;
         this.a1 = false;
-        if (d.b.i0.a.f.c(uri)) {
+        if (d.a.i0.a.f.c(uri)) {
             this.a1 = true;
-            d.b.i0.a.f.b().f(uri, this.b1);
-        } else if (StringUtils.isNull(this.f19424e)) {
+            d.a.i0.a.f.b().f(uri, this.b1);
+        } else if (StringUtils.isNull(this.f19891e)) {
             this.a1 = true;
             this.p0.b(intent, this.b1);
             if (uri != null) {
-                if (StringUtils.isNull(this.f19424e)) {
-                    this.f19424e = uri.getQueryParameter("thread_id");
+                if (StringUtils.isNull(this.f19891e)) {
+                    this.f19891e = uri.getQueryParameter("thread_id");
                 }
                 if (StringUtils.isNull(this.P0)) {
                     this.P0 = uri.getQueryParameter("key_ori_ugc_nid");
@@ -1661,24 +1663,24 @@ public class PbModel extends DataModel {
                     this.Q0 = uri.getQueryParameter("key_ori_ugc_tid");
                 }
                 if (this.R0 == 0) {
-                    this.R0 = d.b.c.e.m.b.d(uri.getQueryParameter("key_ori_ugc_type"), 0);
+                    this.R0 = d.a.c.e.m.b.d(uri.getQueryParameter("key_ori_ugc_type"), 0);
                 }
                 if (StringUtils.isNull(this.S0)) {
                     this.S0 = uri.getQueryParameter("key_ori_ugc_vid");
                 }
             }
         }
-        if (d.b.c.e.p.k.isEmpty(this.f19424e)) {
-            this.f19424e = "0";
+        if (d.a.c.e.p.k.isEmpty(this.f19891e)) {
+            this.f19891e = "0";
         }
         int intExtra = intent.getIntExtra("key_start_from", 0);
         this.y0 = intExtra;
         if (intExtra == 0) {
-            this.y0 = this.p0.f54470a;
+            this.y0 = this.p0.f52265a;
         }
-        this.f19426g = intent.getStringExtra("post_id");
-        this.f19427h = intent.getStringExtra("forum_id");
-        this.i = intent.getStringExtra("from_forum_id");
+        this.f19893g = intent.getStringExtra("post_id");
+        this.f19894h = intent.getStringExtra("forum_id");
+        this.f19895i = intent.getStringExtra("from_forum_id");
         intent.getStringExtra(PbActivityConfig.KEY_GOD_REPLY_ID);
         this.k = intent.getBooleanExtra("KEY_NEED_REPOST_RECOMMEND_FORUM", false);
         this.l = intent.getBooleanExtra("host_only", false);
@@ -1686,10 +1688,10 @@ public class PbModel extends DataModel {
         int intExtra2 = intent.getIntExtra("sort_type", -1);
         this.o = intExtra2;
         if (intExtra2 < 0) {
-            intExtra2 = d.b.i0.r.d0.b.j().k("key_pb_current_sort_type", 2);
+            intExtra2 = d.a.i0.r.d0.b.j().k("key_pb_current_sort_type", 2);
         }
         this.o = intExtra2;
-        this.f19426g = intExtra2 != 2 ? this.f19426g : "0";
+        this.f19893g = intExtra2 != 2 ? this.f19893g : "0";
         this.mStType = intent.getStringExtra("st_type");
         this.P = intent.getStringExtra("locate");
         this.r = intent.getIntExtra("is_good", 0);
@@ -1728,7 +1730,7 @@ public class PbModel extends DataModel {
     }
 
     public boolean isPrivacy() {
-        return this.f19425f;
+        return this.f19892f;
     }
 
     public boolean isShareThread() {
@@ -1743,15 +1745,15 @@ public class PbModel extends DataModel {
         if (StringUtils.isNull(str)) {
             return;
         }
-        this.f19424e = str;
-        this.f19426g = null;
+        this.f19891e = str;
+        this.f19893g = null;
         this.l = false;
         this.n = true;
         LoadData();
     }
 
     public boolean k0() {
-        d.b.j0.d2.h.e eVar = this.I;
+        d.a.j0.d2.h.e eVar = this.I;
         if (eVar == null) {
             return false;
         }
@@ -1759,7 +1761,7 @@ public class PbModel extends DataModel {
     }
 
     public boolean k1() {
-        if (this.f19424e == null || this.f19426g == null) {
+        if (this.f19891e == null || this.f19893g == null) {
             return false;
         }
         cancelMessage();
@@ -1774,8 +1776,8 @@ public class PbModel extends DataModel {
     }
 
     public boolean l1(boolean z) {
-        d.b.j0.d2.h.e eVar;
-        if (this.f19424e == null || (eVar = this.I) == null || ((!z && eVar.w().c() == 0) || this.I.D() == null || this.I.D().size() < 1)) {
+        d.a.j0.d2.h.e eVar;
+        if (this.f19891e == null || (eVar = this.I) == null || ((!z && eVar.w().c() == 0) || this.I.D() == null || this.I.D().size() < 1)) {
             return false;
         }
         return F1(2);
@@ -1800,15 +1802,15 @@ public class PbModel extends DataModel {
     }
 
     public boolean n1() {
-        String str = this.f19426g;
-        if (str != null && !str.equals("0") && this.f19426g.length() != 0) {
+        String str = this.f19893g;
+        if (str != null && !str.equals("0") && this.f19893g.length() != 0) {
             return k1();
         }
         return LoadData();
     }
 
     public boolean o0() {
-        d.b.j0.d2.h.e eVar = this.I;
+        d.a.j0.d2.h.e eVar = this.I;
         if (eVar == null) {
             return false;
         }
@@ -1816,7 +1818,7 @@ public class PbModel extends DataModel {
     }
 
     public final void o1() {
-        d.b.j0.d3.j0.b bVar = this.Z;
+        d.a.j0.d3.j0.b bVar = this.Z;
         if (bVar != null) {
             bVar.a();
             this.Z = null;
@@ -1828,8 +1830,8 @@ public class PbModel extends DataModel {
         if (count <= 0) {
             return null;
         }
-        for (int i = count - 1; i >= 0; i--) {
-            PostData postData = (PostData) ListUtils.getItem(arrayList, i);
+        for (int i2 = count - 1; i2 >= 0; i2--) {
+            PostData postData = (PostData) ListUtils.getItem(arrayList, i2);
             if (postData != null && !StringUtils.isNull(postData.E())) {
                 return postData.E();
             }
@@ -1842,7 +1844,7 @@ public class PbModel extends DataModel {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        TiebaStatic.log(new StatisticItem("c10754").param("fid", this.I.m()).param("tid", this.f19424e).param(TiebaStatic.Params.OBJ_DURATION, String.valueOf(currentTimeMillis - this.i0)).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(currentTimeMillis)));
+        TiebaStatic.log(new StatisticItem("c10754").param("fid", this.I.m()).param("tid", this.f19891e).param(TiebaStatic.Params.OBJ_DURATION, String.valueOf(currentTimeMillis - this.i0)).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(currentTimeMillis)));
         this.i0 = 0L;
     }
 
@@ -1860,9 +1862,9 @@ public class PbModel extends DataModel {
         return this.C0;
     }
 
-    public void r1(d.b.j0.d2.h.e eVar, int i, String str) {
+    public void r1(d.a.j0.d2.h.e eVar, int i2, String str) {
         this.f0 = true;
-        if (eVar == null || eVar.f54243h != null) {
+        if (eVar == null || eVar.f52022h != null) {
             return;
         }
         b2(eVar);
@@ -1874,7 +1876,7 @@ public class PbModel extends DataModel {
         if (gVar == null || eVar == null) {
             return;
         }
-        gVar.c(true, 0, i, 0, eVar, str, 0);
+        gVar.c(true, 0, i2, 0, eVar, str, 0);
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
@@ -1886,28 +1888,28 @@ public class PbModel extends DataModel {
         MarkData markData = new MarkData();
         Date date = new Date();
         markData.setAccount(TbadkCoreApplication.getCurrentAccount());
-        markData.setThreadId(this.f19424e);
+        markData.setThreadId(this.f19891e);
         markData.setPostId(postData.E());
         markData.setTime(date.getTime());
         markData.setHostMode(this.l);
         markData.setSequence(Boolean.valueOf(b1()));
-        markData.setId(this.f19424e);
+        markData.setId(this.f19891e);
         markData.setFloor(postData.A());
-        markData.setForumId(this.f19427h);
+        markData.setForumId(this.f19894h);
         if (postData instanceof o) {
             markData.setApp(((o) postData).H0());
         }
         return markData;
     }
 
-    public void s1(int i) {
-        x1(i);
+    public void s1(int i2) {
+        x1(i2);
         ArrayList<PostData> D = this.I.D();
         boolean z = false;
         this.e0 = false;
-        if (i != 1) {
-            if (i == 2) {
-                while (D.size() + 30 > d.b.i0.t.e.a()) {
+        if (i2 != 1) {
+            if (i2 == 2) {
+                while (D.size() + 30 > d.a.i0.t.e.a()) {
                     D.remove(D.size() - 1);
                     z = true;
                 }
@@ -1920,7 +1922,7 @@ public class PbModel extends DataModel {
             return;
         }
         boolean z2 = false;
-        while (D.size() + 30 > d.b.i0.t.e.a()) {
+        while (D.size() + 30 > d.a.i0.t.e.a()) {
             D.remove(0);
             z2 = true;
         }
@@ -1937,7 +1939,7 @@ public class PbModel extends DataModel {
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public WriteData t(String str) {
-        d.b.j0.d2.h.e eVar = this.I;
+        d.a.j0.d2.h.e eVar = this.I;
         if (eVar == null || eVar.L() == null || this.I.l() == null) {
             return null;
         }
@@ -1949,9 +1951,9 @@ public class PbModel extends DataModel {
             writeData.setForumId(this.I.l().getId());
             writeData.setForumName(this.I.l().getName());
         }
-        writeData.setFromForumId(this.i);
+        writeData.setFromForumId(this.f19895i);
         writeData.sourceFrom = String.valueOf(this.y0);
-        writeData.setThreadId(this.f19424e);
+        writeData.setThreadId(this.f19891e);
         writeData.setIsAd(this.y);
         if (str == null) {
             writeData.setType(1);
@@ -1964,7 +1966,7 @@ public class PbModel extends DataModel {
     }
 
     public String t0() {
-        d.b.j0.d2.h.e eVar = this.I;
+        d.a.j0.d2.h.e eVar = this.I;
         if (eVar == null || !eVar.r()) {
             return null;
         }
@@ -2013,17 +2015,17 @@ public class PbModel extends DataModel {
         return str2;
     }
 
-    public void v1(d.b.j0.d2.h.e eVar, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2) {
-        d.b.j0.d2.h.e eVar2;
-        int i4;
+    public void v1(d.a.j0.d2.h.e eVar, int i2, boolean z, int i3, String str, boolean z2, int i4, long j, long j2) {
+        d.a.j0.d2.h.e eVar2;
+        int i5;
         if (z) {
-            i4 = i2;
+            i5 = i3;
             eVar2 = null;
         } else {
             eVar2 = eVar;
-            i4 = i2;
+            i5 = i3;
         }
-        this.n0 = i4;
+        this.n0 = i5;
         this.isLoading = false;
         if (eVar2 != null) {
             L(eVar2);
@@ -2031,13 +2033,13 @@ public class PbModel extends DataModel {
         I(eVar2);
         o oVar = this.N0;
         if (oVar != null && oVar.I0()) {
-            TiebaStatic.log(d.b.j0.c3.a.h("a005", "common_fill", true, 1));
+            TiebaStatic.log(d.a.j0.c3.a.h("a005", "common_fill", true, 1));
         }
-        w1(eVar2, i, z, i2, str, z2, i3, j, j2, false);
+        w1(eVar2, i2, z, i3, str, z2, i4, j, j2, false);
     }
 
     public z0 w0() {
-        d.b.j0.d2.h.e eVar = this.I;
+        d.a.j0.d2.h.e eVar = this.I;
         if (eVar == null) {
             return null;
         }
@@ -2045,75 +2047,75 @@ public class PbModel extends DataModel {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public void w1(d.b.j0.d2.h.e eVar, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2, boolean z3) {
-        int i4;
+    public void w1(d.a.j0.d2.h.e eVar, int i2, boolean z, int i3, String str, boolean z2, int i4, long j, long j2, boolean z3) {
         int i5;
+        int i6;
         boolean z4 = !z;
         this.l0 = z3;
-        d.b.j0.d3.j0.b bVar = this.Z;
+        d.a.j0.d3.j0.b bVar = this.Z;
         if (bVar != null && !z3) {
-            bVar.b(z2, z4, i2, str, i3, j, j2);
+            bVar.b(z2, z4, i3, str, i4, j, j2);
             this.Z = null;
         }
-        d.b.j0.d2.h.e eVar2 = this.I;
+        d.a.j0.d2.h.e eVar2 = this.I;
         if (eVar2 != null) {
             eVar2.Y = z3;
-            eVar2.Z = i;
+            eVar2.Z = i2;
         }
-        if (z4 && !z3 && !TextUtils.isEmpty(a0()) && v.p().b() != null) {
-            v.p().b().g(a0(), B1(I0()), true);
+        if (z4 && !z3 && !TextUtils.isEmpty(a0()) && w.p().b() != null) {
+            w.p().b().g(a0(), B1(I0()), true);
         }
-        if (eVar != null && (this.u != 1 || i != 5 || eVar.D() == null || eVar.D().size() >= 1)) {
+        if (eVar != null && (this.u != 1 || i2 != 5 || eVar.D() == null || eVar.D().size() >= 1)) {
             this.m = this.n;
-            if (i != 8) {
+            if (i2 != 8) {
                 this.p = this.o;
-                this.o = eVar.f54242g;
+                this.o = eVar.f52021g;
             }
-            List<PbSortType> list = eVar.f54241f;
+            List<PbSortType> list = eVar.f52020f;
             if (list != null && list.isEmpty()) {
                 PbSortType.Builder builder = new PbSortType.Builder();
                 builder.sort_name = this.a0.getResources().getString(R.string.default_sort);
                 builder.sort_type = 0;
                 ArrayList arrayList = new ArrayList();
-                eVar.f54241f = arrayList;
+                eVar.f52020f = arrayList;
                 arrayList.add(builder.build(false));
                 PbSortType.Builder builder2 = new PbSortType.Builder();
                 builder2.sort_name = this.a0.getResources().getString(R.string.view_reverse);
                 builder2.sort_type = 1;
-                eVar.f54241f.add(builder2.build(false));
-                int i6 = this.p;
-                this.o = i6;
-                eVar.f54242g = i6;
+                eVar.f52020f.add(builder2.build(false));
+                int i7 = this.p;
+                this.o = i7;
+                eVar.f52021g = i7;
             }
             this.G = false;
-            if (eVar.w() != null && (this.o != 2 || i != 8)) {
+            if (eVar.w() != null && (this.o != 2 || i2 != 8)) {
                 H(eVar.w());
             }
-            int i7 = this.x;
-            if (i7 < 1) {
-                i7 = 1;
+            int i8 = this.x;
+            if (i8 < 1) {
+                i8 = 1;
             }
-            this.x = i7;
+            this.x = i8;
             ArrayList<PostData> D = this.I.D();
-            switch (i) {
+            switch (i2) {
                 case 1:
                     this.I.r0(eVar.w(), 1);
                     a2(eVar, D);
                     Y1(eVar);
-                    i4 = 0;
+                    i5 = 0;
                     break;
                 case 2:
                     if (eVar.D() != null) {
-                        i4 = eVar.D().size() + 1;
+                        i5 = eVar.D().size() + 1;
                         PostData postData = (PostData) ListUtils.getItem(D, 0);
                         PostData postData2 = (PostData) ListUtils.getItem(eVar.D(), ListUtils.getCount(eVar.D()) - 1);
                         if (postData != null && postData2 != null && postData.E().equals(postData2.E())) {
                             eVar.D().remove(postData2);
-                            i4--;
+                            i5--;
                         }
                         D.addAll(0, eVar.D());
                     } else {
-                        i4 = 0;
+                        i5 = 0;
                     }
                     Y1(eVar);
                     this.I.r0(eVar.w(), 2);
@@ -2123,27 +2125,27 @@ public class PbModel extends DataModel {
                         eVar.w().k(eVar.w().h());
                     }
                     b2(eVar);
-                    i4 = 0;
+                    i5 = 0;
                     break;
                 case 4:
                     b2(eVar);
-                    i4 = 0;
+                    i5 = 0;
                     break;
                 case 5:
                     b2(eVar);
-                    i4 = 0;
+                    i5 = 0;
                     break;
                 case 6:
                     b2(eVar);
-                    i4 = 0;
+                    i5 = 0;
                     break;
                 case 7:
                     b2(eVar);
-                    i4 = 0;
+                    i5 = 0;
                     break;
                 case 8:
                     if (eVar == null || ListUtils.isEmpty(eVar.D()) || this.I == null || (this.l && !A1(eVar).equals(eVar.D().get(0).t().getUserId()))) {
-                        i5 = 0;
+                        i6 = 0;
                     } else {
                         if (this.I.w().b() == 0) {
                             this.I.w().l(1);
@@ -2159,7 +2161,7 @@ public class PbModel extends DataModel {
                                 this.I.D().add(0, this.B0);
                             }
                             this.I.D().add(0, this.A0);
-                            i5 = 0;
+                            i6 = 0;
                         } else {
                             if (this.I.D().size() - this.C0 >= 3) {
                                 PostData postData4 = new PostData();
@@ -2169,21 +2171,21 @@ public class PbModel extends DataModel {
                                 this.I.D().add(this.B0);
                             }
                             this.I.D().add(this.A0);
-                            i5 = this.I.D().size() - 1;
+                            i6 = this.I.D().size() - 1;
                         }
-                        if (!StringHelper.isTaday(d.b.i0.r.d0.b.j().l("pb_post_recommend_live_date_" + TbadkCoreApplication.getCurrentAccount(), 0L))) {
+                        if (!StringHelper.isTaday(d.a.i0.r.d0.b.j().l("pb_post_recommend_live_date_" + TbadkCoreApplication.getCurrentAccount(), 0L))) {
                             this.A0.T = this.I.G();
-                            d.b.i0.r.d0.b.j().w("pb_post_recommend_live_date_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
+                            d.a.i0.r.d0.b.j().w("pb_post_recommend_live_date_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
                         }
                     }
                     Y1(eVar);
-                    i4 = i5;
+                    i5 = i6;
                     break;
                 default:
-                    i4 = 0;
+                    i5 = 0;
                     break;
             }
-            d.b.j0.d2.h.e eVar3 = this.I;
+            d.a.j0.d2.h.e eVar3 = this.I;
             if (eVar3 != null && eVar3.L() != null) {
                 PraiseData P0 = this.I.L().P0();
                 if (this.g1 != null && !P0.isPriaseDataValid()) {
@@ -2206,7 +2208,7 @@ public class PbModel extends DataModel {
                     this.I.L().x4(eVar.L().v0());
                 }
             }
-            d.b.j0.d2.h.e eVar4 = this.I;
+            d.a.j0.d2.h.e eVar4 = this.I;
             if (eVar4 != null && eVar4.R() != null && eVar.R() != null) {
                 this.I.R().setBimg_end_time(eVar.R().getBimg_end_time());
                 this.I.R().setBimg_url(eVar.R().getBimg_url());
@@ -2219,9 +2221,9 @@ public class PbModel extends DataModel {
                     PostData postData5 = (PostData) ListUtils.getItem(this.I.D(), 0);
                     MetaData T = this.I.L().T();
                     if (postData5.t() != null && postData5.t().getGodUserData() != null) {
-                        int i8 = this.W;
-                        if (i8 != -1) {
-                            T.setFansNum(i8);
+                        int i9 = this.W;
+                        if (i9 != -1) {
+                            T.setFansNum(i9);
                             postData5.t().setFansNum(this.W);
                         }
                         if (this.X != -1) {
@@ -2232,22 +2234,22 @@ public class PbModel extends DataModel {
                         }
                     }
                 }
-                d.b.j0.d2.h.e eVar5 = this.I;
-                eVar5.f54240e = -1;
-                eVar5.f54239d = -1;
+                d.a.j0.d2.h.e eVar5 = this.I;
+                eVar5.f52019e = -1;
+                eVar5.f52018d = -1;
             }
             g gVar = this.R;
             if (gVar != null) {
-                gVar.c(true, getErrorCode(), i, i4, this.I, this.mErrorString, 1);
+                gVar.c(true, getErrorCode(), i2, i5, this.I, this.mErrorString, 1);
             }
         } else if (this.R != null) {
             this.n = this.m;
-            if (i2 != 350006) {
+            if (i3 != 350006) {
                 this.o = this.p;
             }
-            this.R.c(false, i2, i, 0, null, str, 1);
+            this.R.c(false, i3, i2, 0, null, str, 1);
         }
-        d.b.j0.d2.h.e eVar6 = this.I;
+        d.a.j0.d2.h.e eVar6 = this.I;
         if (eVar6 == null || eVar6.L() == null || this.I.l() == null || this.I.a0()) {
             return;
         }
@@ -2255,7 +2257,7 @@ public class PbModel extends DataModel {
         historyMessage.Activity = this.a0.getPageContext();
         historyMessage.threadId = y0().L().o0();
         if (this.E0 && y0().L().r1 != null) {
-            historyMessage.threadName = y0().L().r1.f12881b;
+            historyMessage.threadName = y0().L().r1.f12797b;
         } else {
             historyMessage.threadName = y0().L().x1();
         }
@@ -2275,16 +2277,16 @@ public class PbModel extends DataModel {
         return this.y0;
     }
 
-    public final void x1(int i) {
-        d.b.j0.d2.h.e eVar;
-        if (i != 8) {
+    public final void x1(int i2) {
+        d.a.j0.d2.h.e eVar;
+        if (i2 != 8) {
             this.z0 = "";
             if (this.A0 != null) {
-                if (i == 1 && (eVar = this.I) != null && eVar.a0()) {
+                if (i2 == 1 && (eVar = this.I) != null && eVar.a0()) {
                     if (this.B0 != null) {
                         y0().D().remove(this.B0);
                     }
-                } else if (i == 1 && !this.n && !ListUtils.isEmpty(y0().D())) {
+                } else if (i2 == 1 && !this.n && !ListUtils.isEmpty(y0().D())) {
                     y0().D().remove(this.A0);
                     if (this.B0 != null) {
                         y0().D().remove(this.B0);
@@ -2301,35 +2303,35 @@ public class PbModel extends DataModel {
         }
     }
 
-    public d.b.j0.d2.h.e y0() {
+    public d.a.j0.d2.h.e y0() {
         return this.I;
     }
 
-    public void y1(d.b.j0.d2.h.e eVar) {
+    public void y1(d.a.j0.d2.h.e eVar) {
         if (eVar == null) {
             return;
         }
         String A1 = A1(eVar);
-        for (int i = 0; i < eVar.D().size(); i++) {
-            PostData postData = eVar.D().get(i);
-            for (int i2 = 0; i2 < postData.M().size(); i2++) {
-                postData.M().get(i2).z0(this.a0.getPageContext(), A1.equals(postData.M().get(i2).t().getUserId()));
+        for (int i2 = 0; i2 < eVar.D().size(); i2++) {
+            PostData postData = eVar.D().get(i2);
+            for (int i3 = 0; i3 < postData.M().size(); i3++) {
+                postData.M().get(i3).z0(this.a0.getPageContext(), A1.equals(postData.M().get(i3).t().getUserId()));
             }
         }
         s Q = eVar.Q();
-        if (Q == null || ListUtils.isEmpty(Q.f54287a)) {
+        if (Q == null || ListUtils.isEmpty(Q.f52071a)) {
             return;
         }
-        for (PostData postData2 : Q.f54287a) {
-            for (int i3 = 0; i3 < postData2.M().size(); i3++) {
-                postData2.M().get(i3).z0(this.a0.getPageContext(), A1.equals(postData2.M().get(i3).t().getUserId()));
+        for (PostData postData2 : Q.f52071a) {
+            for (int i4 = 0; i4 < postData2.M().size(); i4++) {
+                postData2.M().get(i4).z0(this.a0.getPageContext(), A1.equals(postData2.M().get(i4).t().getUserId()));
             }
         }
     }
 
-    public d.b.j0.d2.h.e z0() {
+    public d.a.j0.d2.h.e z0() {
         o oVar;
-        d.b.j0.d2.h.e eVar = this.I;
+        d.a.j0.d2.h.e eVar = this.I;
         if (eVar == null) {
             return eVar;
         }
@@ -2339,19 +2341,19 @@ public class PbModel extends DataModel {
         return this.I;
     }
 
-    public void z1(d.b.j0.d2.h.e eVar, int i) {
+    public void z1(d.a.j0.d2.h.e eVar, int i2) {
         if (eVar == null) {
             return;
         }
         String A1 = A1(eVar);
         s Q = eVar.Q();
-        if (Q == null || ListUtils.isEmpty(Q.f54287a)) {
+        if (Q == null || ListUtils.isEmpty(Q.f52071a)) {
             return;
         }
-        List<PostData> list = Q.f54287a;
-        for (PostData postData : list.subList(i, list.size())) {
-            for (int i2 = 0; i2 < postData.M().size(); i2++) {
-                postData.M().get(i2).z0(this.a0.getPageContext(), A1.equals(postData.M().get(i2).t().getUserId()));
+        List<PostData> list = Q.f52071a;
+        for (PostData postData : list.subList(i2, list.size())) {
+            for (int i3 = 0; i3 < postData.M().size(); i3++) {
+                postData.M().get(i3).z0(this.a0.getPageContext(), A1.equals(postData.M().get(i3).t().getUserId()));
             }
         }
     }

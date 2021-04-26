@@ -30,8 +30,8 @@ public final class EdgeEffectCompat {
     }
 
     @Deprecated
-    public boolean onAbsorb(int i) {
-        this.mEdgeEffect.onAbsorb(i);
+    public boolean onAbsorb(int i2) {
+        this.mEdgeEffect.onAbsorb(i2);
         return true;
     }
 
@@ -48,8 +48,8 @@ public final class EdgeEffectCompat {
     }
 
     @Deprecated
-    public void setSize(int i, int i2) {
-        this.mEdgeEffect.setSize(i, i2);
+    public void setSize(int i2, int i3) {
+        this.mEdgeEffect.setSize(i2, i3);
     }
 
     @Deprecated

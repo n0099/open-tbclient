@@ -1,25 +1,59 @@
 package com.win.opensdk;
 
-import java.util.Map;
-import org.json.JSONException;
-/* loaded from: classes7.dex */
-public final class c1 implements Runnable {
+import android.content.Context;
+import android.text.TextUtils;
+import java.util.Date;
+/* loaded from: classes6.dex */
+public class c1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f40292a;
+    public static c1 f37849a;
 
-    public c1(String str) {
-        this.f40292a = str;
+    public static c1 a() {
+        if (f37849a == null) {
+            synchronized (c1.class) {
+                if (f37849a == null) {
+                    f37849a = new c1();
+                }
+            }
+        }
+        return f37849a;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        try {
-            G.a(new T0(this.f40292a, "GET", G.a((Map) null)).a(), new u1());
-        } catch (JSONException e2) {
-            e2.getMessage();
-        } catch (Exception e3) {
-            e3.getMessage();
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0053, code lost:
+        if (((r6 / 60) / 60) >= r10.f37630a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L7;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(Context context, String str) {
+        if (context == null) {
+            throw new RuntimeException("Error:Context is not allowed to be null");
         }
+        context.getApplicationContext();
+        if (!TextUtils.isEmpty(str)) {
+            s1.e(context, str);
+        }
+        u1.a(new b1(this, context));
+        D0 a2 = D0.a(context);
+        long h2 = s1.h(a2.f37630a);
+        boolean z = true;
+        if (h2 > 0) {
+            try {
+                long time = (new Date().getTime() - h2) / 1000;
+                if (time < 0) {
+                    a2.b();
+                }
+                z = false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+        if (z) {
+            a2.f37631b = System.currentTimeMillis();
+            u1.a(new C0(a2));
+        }
+        z.c(context);
+        n1.a(context);
     }
 }

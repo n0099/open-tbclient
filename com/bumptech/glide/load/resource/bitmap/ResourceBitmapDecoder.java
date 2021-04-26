@@ -24,12 +24,12 @@ public class ResourceBitmapDecoder implements ResourceDecoder<Uri, Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
     @Nullable
-    public Resource<Bitmap> decode(@NonNull Uri uri, int i, int i2, @NonNull Options options) {
-        Resource<Drawable> decode = this.drawableDecoder.decode(uri, i, i2, options);
+    public Resource<Bitmap> decode(@NonNull Uri uri, int i2, int i3, @NonNull Options options) {
+        Resource<Drawable> decode = this.drawableDecoder.decode(uri, i2, i3, options);
         if (decode == null) {
             return null;
         }
-        return DrawableToBitmapConverter.convert(this.bitmapPool, decode.get(), i, i2);
+        return DrawableToBitmapConverter.convert(this.bitmapPool, decode.get(), i2, i3);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

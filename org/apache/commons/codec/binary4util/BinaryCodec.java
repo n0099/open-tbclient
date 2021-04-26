@@ -23,19 +23,19 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
             int length = cArr.length >> 3;
             byte[] bArr = new byte[length];
             int length2 = cArr.length - 1;
-            int i = 0;
-            while (i < length) {
-                int i2 = 0;
+            int i2 = 0;
+            while (i2 < length) {
+                int i3 = 0;
                 while (true) {
                     int[] iArr = BITS;
-                    if (i2 < iArr.length) {
-                        if (cArr[length2 - i2] == '1') {
-                            bArr[i] = (byte) (iArr[i2] | bArr[i]);
+                    if (i3 < iArr.length) {
+                        if (cArr[length2 - i3] == '1') {
+                            bArr[i2] = (byte) (iArr[i3] | bArr[i2]);
                         }
-                        i2++;
+                        i3++;
                     }
                 }
-                i++;
+                i2++;
                 length2 -= 8;
             }
             return bArr;
@@ -53,23 +53,23 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
         }
         int length = bArr.length << 3;
         byte[] bArr2 = new byte[length];
-        int i = length - 1;
-        int i2 = 0;
-        while (i2 < bArr.length) {
-            int i3 = 0;
+        int i2 = length - 1;
+        int i3 = 0;
+        while (i3 < bArr.length) {
+            int i4 = 0;
             while (true) {
                 int[] iArr = BITS;
-                if (i3 < iArr.length) {
-                    if ((iArr[i3] & bArr[i2]) == 0) {
-                        bArr2[i - i3] = 48;
+                if (i4 < iArr.length) {
+                    if ((iArr[i4] & bArr[i3]) == 0) {
+                        bArr2[i2 - i4] = 48;
                     } else {
-                        bArr2[i - i3] = 49;
+                        bArr2[i2 - i4] = 49;
                     }
-                    i3++;
+                    i4++;
                 }
             }
-            i2++;
-            i -= 8;
+            i3++;
+            i2 -= 8;
         }
         return bArr2;
     }
@@ -80,23 +80,23 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
         }
         int length = bArr.length << 3;
         char[] cArr = new char[length];
-        int i = length - 1;
-        int i2 = 0;
-        while (i2 < bArr.length) {
-            int i3 = 0;
+        int i2 = length - 1;
+        int i3 = 0;
+        while (i3 < bArr.length) {
+            int i4 = 0;
             while (true) {
                 int[] iArr = BITS;
-                if (i3 < iArr.length) {
-                    if ((iArr[i3] & bArr[i2]) == 0) {
-                        cArr[i - i3] = '0';
+                if (i4 < iArr.length) {
+                    if ((iArr[i4] & bArr[i3]) == 0) {
+                        cArr[i2 - i4] = '0';
                     } else {
-                        cArr[i - i3] = '1';
+                        cArr[i2 - i4] = '1';
                     }
-                    i3++;
+                    i4++;
                 }
             }
-            i2++;
-            i -= 8;
+            i3++;
+            i2 -= 8;
         }
         return cArr;
     }
@@ -149,19 +149,19 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
         int length = bArr.length >> 3;
         byte[] bArr2 = new byte[length];
         int length2 = bArr.length - 1;
-        int i = 0;
-        while (i < length) {
-            int i2 = 0;
+        int i2 = 0;
+        while (i2 < length) {
+            int i3 = 0;
             while (true) {
                 int[] iArr = BITS;
-                if (i2 < iArr.length) {
-                    if (bArr[length2 - i2] == 49) {
-                        bArr2[i] = (byte) (iArr[i2] | bArr2[i]);
+                if (i3 < iArr.length) {
+                    if (bArr[length2 - i3] == 49) {
+                        bArr2[i2] = (byte) (iArr[i3] | bArr2[i2]);
                     }
-                    i2++;
+                    i3++;
                 }
             }
-            i++;
+            i2++;
             length2 -= 8;
         }
         return bArr2;

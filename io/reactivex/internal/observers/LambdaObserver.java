@@ -1,43 +1,47 @@
 package io.reactivex.internal.observers;
 
-import f.b.o;
-import f.b.t.b;
-import f.b.w.a;
-import f.b.w.g;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
+import io.reactivex.exceptions.Exceptions;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.Functions;
+import io.reactivex.observers.LambdaConsumerIntrospection;
+import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class LambdaObserver<T> extends AtomicReference<b> implements o<T>, b {
+public final class LambdaObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable, LambdaConsumerIntrospection {
     public static final long serialVersionUID = -7251123623727029452L;
-    public final a onComplete;
-    public final g<? super Throwable> onError;
-    public final g<? super T> onNext;
-    public final g<? super b> onSubscribe;
+    public final Action onComplete;
+    public final Consumer<? super Throwable> onError;
+    public final Consumer<? super T> onNext;
+    public final Consumer<? super Disposable> onSubscribe;
 
-    public LambdaObserver(g<? super T> gVar, g<? super Throwable> gVar2, a aVar, g<? super b> gVar3) {
-        this.onNext = gVar;
-        this.onError = gVar2;
-        this.onComplete = aVar;
-        this.onSubscribe = gVar3;
+    public LambdaObserver(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action, Consumer<? super Disposable> consumer3) {
+        this.onNext = consumer;
+        this.onError = consumer2;
+        this.onComplete = action;
+        this.onSubscribe = consumer3;
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
         DisposableHelper.dispose(this);
     }
 
+    @Override // io.reactivex.observers.LambdaConsumerIntrospection
     public boolean hasCustomOnError() {
-        return this.onError != Functions.f69180b;
+        return this.onError != Functions.ON_ERROR_MISSING;
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         return get() == DisposableHelper.DISPOSED;
     }
 
-    @Override // f.b.o
+    @Override // io.reactivex.Observer
     public void onComplete() {
         if (isDisposed()) {
             return;
@@ -46,12 +50,12 @@ public final class LambdaObserver<T> extends AtomicReference<b> implements o<T>,
         try {
             this.onComplete.run();
         } catch (Throwable th) {
-            f.b.u.a.a(th);
-            f.b.a0.a.f(th);
+            Exceptions.throwIfFatal(th);
+            RxJavaPlugins.onError(th);
         }
     }
 
-    @Override // f.b.o
+    @Override // io.reactivex.Observer
     public void onError(Throwable th) {
         if (isDisposed()) {
             return;
@@ -60,12 +64,12 @@ public final class LambdaObserver<T> extends AtomicReference<b> implements o<T>,
         try {
             this.onError.accept(th);
         } catch (Throwable th2) {
-            f.b.u.a.a(th2);
-            f.b.a0.a.f(new CompositeException(th, th2));
+            Exceptions.throwIfFatal(th2);
+            RxJavaPlugins.onError(new CompositeException(th, th2));
         }
     }
 
-    @Override // f.b.o
+    @Override // io.reactivex.Observer
     public void onNext(T t) {
         if (isDisposed()) {
             return;
@@ -73,20 +77,20 @@ public final class LambdaObserver<T> extends AtomicReference<b> implements o<T>,
         try {
             this.onNext.accept(t);
         } catch (Throwable th) {
-            f.b.u.a.a(th);
+            Exceptions.throwIfFatal(th);
             get().dispose();
             onError(th);
         }
     }
 
-    @Override // f.b.o
-    public void onSubscribe(b bVar) {
-        if (DisposableHelper.setOnce(this, bVar)) {
+    @Override // io.reactivex.Observer
+    public void onSubscribe(Disposable disposable) {
+        if (DisposableHelper.setOnce(this, disposable)) {
             try {
                 this.onSubscribe.accept(this);
             } catch (Throwable th) {
-                f.b.u.a.a(th);
-                bVar.dispose();
+                Exceptions.throwIfFatal(th);
+                disposable.dispose();
                 onError(th);
             }
         }

@@ -1,9 +1,9 @@
 package com.google.common.collect;
 
-import d.h.c.a.k;
-import d.h.c.a.n;
-import d.h.c.c.e0;
-import d.h.c.c.m;
+import d.g.c.a.k;
+import d.g.c.a.n;
+import d.g.c.c.e0;
+import d.g.c.c.m;
 import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
@@ -25,18 +25,20 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
     public static final int UNSET = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public transient int[] f30814e;
+    public transient int[] f31766e;
     public transient long[] entries;
 
     /* renamed from: f  reason: collision with root package name */
-    public transient int f30815f;
+    public transient int f31767f;
 
     /* renamed from: g  reason: collision with root package name */
-    public transient Set<K> f30816g;
+    public transient Set<K> f31768g;
 
     /* renamed from: h  reason: collision with root package name */
-    public transient Set<Map.Entry<K, V>> f30817h;
-    public transient Collection<V> i;
+    public transient Set<Map.Entry<K, V>> f31769h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public transient Collection<V> f31770i;
     public transient Object[] keys;
     public transient int modCount;
     public transient Object[] values;
@@ -48,8 +50,8 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         }
 
         @Override // com.google.common.collect.CompactHashMap.e
-        public K b(int i) {
-            return (K) CompactHashMap.this.keys[i];
+        public K b(int i2) {
+            return (K) CompactHashMap.this.keys[i2];
         }
     }
 
@@ -62,8 +64,8 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.CompactHashMap.e
         /* renamed from: c */
-        public Map.Entry<K, V> b(int i) {
-            return new g(i);
+        public Map.Entry<K, V> b(int i2) {
+            return new g(i2);
         }
     }
 
@@ -74,8 +76,8 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         }
 
         @Override // com.google.common.collect.CompactHashMap.e
-        public V b(int i) {
-            return (V) CompactHashMap.this.values[i];
+        public V b(int i2) {
+            return (V) CompactHashMap.this.values[i2];
         }
     }
 
@@ -120,7 +122,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            return CompactHashMap.this.f30815f;
+            return CompactHashMap.this.f31767f;
         }
     }
 
@@ -156,57 +158,57 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            return CompactHashMap.this.f30815f;
+            return CompactHashMap.this.f31767f;
         }
     }
 
     /* loaded from: classes6.dex */
-    public final class g extends d.h.c.c.b<K, V> {
+    public final class g extends d.g.c.c.b<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f30824e;
+        public final K f31780e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f30825f;
+        public int f31781f;
 
-        public g(int i) {
-            this.f30824e = (K) CompactHashMap.this.keys[i];
-            this.f30825f = i;
+        public g(int i2) {
+            this.f31780e = (K) CompactHashMap.this.keys[i2];
+            this.f31781f = i2;
         }
 
         public final void a() {
-            int i = this.f30825f;
-            if (i == -1 || i >= CompactHashMap.this.size() || !k.a(this.f30824e, CompactHashMap.this.keys[this.f30825f])) {
-                this.f30825f = CompactHashMap.this.d(this.f30824e);
+            int i2 = this.f31781f;
+            if (i2 == -1 || i2 >= CompactHashMap.this.size() || !k.a(this.f31780e, CompactHashMap.this.keys[this.f31781f])) {
+                this.f31781f = CompactHashMap.this.d(this.f31780e);
             }
         }
 
-        @Override // d.h.c.c.b, java.util.Map.Entry
+        @Override // d.g.c.c.b, java.util.Map.Entry
         public K getKey() {
-            return this.f30824e;
+            return this.f31780e;
         }
 
-        @Override // d.h.c.c.b, java.util.Map.Entry
+        @Override // d.g.c.c.b, java.util.Map.Entry
         public V getValue() {
             a();
-            int i = this.f30825f;
-            if (i == -1) {
+            int i2 = this.f31781f;
+            if (i2 == -1) {
                 return null;
             }
-            return (V) CompactHashMap.this.values[i];
+            return (V) CompactHashMap.this.values[i2];
         }
 
-        @Override // d.h.c.c.b, java.util.Map.Entry
+        @Override // d.g.c.c.b, java.util.Map.Entry
         public V setValue(V v) {
             a();
-            int i = this.f30825f;
-            if (i == -1) {
-                CompactHashMap.this.put(this.f30824e, v);
+            int i2 = this.f31781f;
+            if (i2 == -1) {
+                CompactHashMap.this.put(this.f31780e, v);
                 return null;
             }
             Object[] objArr = CompactHashMap.this.values;
-            V v2 = (V) objArr[i];
-            objArr[i] = v;
+            V v2 = (V) objArr[i2];
+            objArr[i2] = v;
             return v2;
         }
     }
@@ -228,7 +230,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
-            return CompactHashMap.this.f30815f;
+            return CompactHashMap.this.f31767f;
         }
     }
 
@@ -248,24 +250,24 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         return new CompactHashMap<>();
     }
 
-    public static <K, V> CompactHashMap<K, V> createWithExpectedSize(int i) {
-        return new CompactHashMap<>(i);
+    public static <K, V> CompactHashMap<K, V> createWithExpectedSize(int i2) {
+        return new CompactHashMap<>(i2);
     }
 
-    public static long[] e(int i) {
-        long[] jArr = new long[i];
+    public static long[] e(int i2) {
+        long[] jArr = new long[i2];
         Arrays.fill(jArr, -1L);
         return jArr;
     }
 
-    public static int[] f(int i) {
-        int[] iArr = new int[i];
+    public static int[] f(int i2) {
+        int[] iArr = new int[i2];
         Arrays.fill(iArr, -1);
         return iArr;
     }
 
-    public static long k(long j, int i) {
-        return (j & (-4294967296L)) | (i & 4294967295L);
+    public static long k(long j, int i2) {
+        return (j & (-4294967296L)) | (i2 & 4294967295L);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.google.common.collect.CompactHashMap<K, V> */
@@ -275,7 +277,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         int readInt = objectInputStream.readInt();
         if (readInt >= 0) {
             init(readInt);
-            for (int i = 0; i < readInt; i++) {
+            for (int i2 = 0; i2 < readInt; i2++) {
                 put(objectInputStream.readObject(), objectInputStream.readObject());
             }
             return;
@@ -285,7 +287,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
 
     private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
         objectOutputStream.defaultWriteObject();
-        objectOutputStream.writeInt(this.f30815f);
+        objectOutputStream.writeInt(this.f31767f);
         int firstEntryIndex = firstEntryIndex();
         while (firstEntryIndex >= 0) {
             objectOutputStream.writeObject(this.keys[firstEntryIndex]);
@@ -294,24 +296,24 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         }
     }
 
-    public void accessEntry(int i) {
+    public void accessEntry(int i2) {
     }
 
-    public int adjustAfterRemove(int i, int i2) {
-        return i - 1;
+    public int adjustAfterRemove(int i2, int i3) {
+        return i2 - 1;
     }
 
     public void allocArrays() {
         n.x(needsAllocArrays(), "Arrays already allocated");
-        int i = this.modCount;
-        this.f30814e = f(e0.a(i, 1.0d));
-        this.entries = e(i);
-        this.keys = new Object[i];
-        this.values = new Object[i];
+        int i2 = this.modCount;
+        this.f31766e = f(e0.a(i2, 1.0d));
+        this.entries = e(i2);
+        this.keys = new Object[i2];
+        this.values = new Object[i2];
     }
 
     public final int c() {
-        return this.f30814e.length - 1;
+        return this.f31766e.length - 1;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -320,11 +322,11 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
             return;
         }
         this.modCount++;
-        Arrays.fill(this.keys, 0, this.f30815f, (Object) null);
-        Arrays.fill(this.values, 0, this.f30815f, (Object) null);
-        Arrays.fill(this.f30814e, -1);
-        Arrays.fill(this.entries, 0, this.f30815f, -1L);
-        this.f30815f = 0;
+        Arrays.fill(this.keys, 0, this.f31767f, (Object) null);
+        Arrays.fill(this.values, 0, this.f31767f, (Object) null);
+        Arrays.fill(this.f31766e, -1);
+        Arrays.fill(this.entries, 0, this.f31767f, -1L);
+        this.f31767f = 0;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -334,8 +336,8 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
 
     @Override // java.util.AbstractMap, java.util.Map
     public boolean containsValue(Object obj) {
-        for (int i = 0; i < this.f30815f; i++) {
-            if (k.a(obj, this.values[i])) {
+        for (int i2 = 0; i2 < this.f31767f; i2++) {
+            if (k.a(obj, this.values[i2])) {
                 return true;
             }
         }
@@ -359,23 +361,23 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
             return -1;
         }
         int d2 = e0.d(obj);
-        int i = this.f30814e[c() & d2];
-        while (i != -1) {
-            long j = this.entries[i];
-            if (a(j) == d2 && k.a(obj, this.keys[i])) {
-                return i;
+        int i2 = this.f31766e[c() & d2];
+        while (i2 != -1) {
+            long j = this.entries[i2];
+            if (a(j) == d2 && k.a(obj, this.keys[i2])) {
+                return i2;
             }
-            i = b(j);
+            i2 = b(j);
         }
         return -1;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public Set<Map.Entry<K, V>> entrySet() {
-        Set<Map.Entry<K, V>> set = this.f30817h;
+        Set<Map.Entry<K, V>> set = this.f31769h;
         if (set == null) {
             Set<Map.Entry<K, V>> createEntrySet = createEntrySet();
-            this.f30817h = createEntrySet;
+            this.f31769h = createEntrySet;
             return createEntrySet;
         }
         return set;
@@ -389,33 +391,33 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         return isEmpty() ? -1 : 0;
     }
 
-    public final V g(Object obj, int i) {
-        int c2 = c() & i;
-        int i2 = this.f30814e[c2];
-        if (i2 == -1) {
+    public final V g(Object obj, int i2) {
+        int c2 = c() & i2;
+        int i3 = this.f31766e[c2];
+        if (i3 == -1) {
             return null;
         }
-        int i3 = -1;
+        int i4 = -1;
         while (true) {
-            if (a(this.entries[i2]) == i && k.a(obj, this.keys[i2])) {
-                V v = (V) this.values[i2];
-                if (i3 == -1) {
-                    this.f30814e[c2] = b(this.entries[i2]);
+            if (a(this.entries[i3]) == i2 && k.a(obj, this.keys[i3])) {
+                V v = (V) this.values[i3];
+                if (i4 == -1) {
+                    this.f31766e[c2] = b(this.entries[i3]);
                 } else {
                     long[] jArr = this.entries;
-                    jArr[i3] = k(jArr[i3], b(jArr[i2]));
+                    jArr[i4] = k(jArr[i4], b(jArr[i3]));
                 }
-                moveLastEntry(i2);
-                this.f30815f--;
+                moveLastEntry(i3);
+                this.f31767f--;
                 this.modCount++;
                 return v;
             }
-            int b2 = b(this.entries[i2]);
+            int b2 = b(this.entries[i3]);
             if (b2 == -1) {
                 return null;
             }
-            i3 = i2;
-            i2 = b2;
+            i4 = i3;
+            i3 = b2;
         }
     }
 
@@ -429,21 +431,21 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         return (V) this.values[d2];
     }
 
-    public int getSuccessor(int i) {
-        int i2 = i + 1;
-        if (i2 < this.f30815f) {
-            return i2;
+    public int getSuccessor(int i2) {
+        int i3 = i2 + 1;
+        if (i3 < this.f31767f) {
+            return i3;
         }
         return -1;
     }
 
-    public final V h(int i) {
-        return g(this.keys[i], a(this.entries[i]));
+    public final V h(int i2) {
+        return g(this.keys[i2], a(this.entries[i2]));
     }
 
-    public final void i(int i) {
+    public final void i(int i2) {
         int length = this.entries.length;
-        if (i > length) {
+        if (i2 > length) {
             int max = Math.max(1, length >>> 1) + length;
             if (max < 0) {
                 max = Integer.MAX_VALUE;
@@ -454,42 +456,42 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         }
     }
 
-    public void init(int i) {
-        n.e(i >= 0, "Expected size must be non-negative");
-        this.modCount = Math.max(1, i);
+    public void init(int i2) {
+        n.e(i2 >= 0, "Expected size must be non-negative");
+        this.modCount = Math.max(1, i2);
     }
 
-    public void insertEntry(int i, K k, V v, int i2) {
-        this.entries[i] = (i2 << 32) | 4294967295L;
-        this.keys[i] = k;
-        this.values[i] = v;
+    public void insertEntry(int i2, K k, V v, int i3) {
+        this.entries[i2] = (i3 << 32) | 4294967295L;
+        this.keys[i2] = k;
+        this.values[i2] = v;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public boolean isEmpty() {
-        return this.f30815f == 0;
+        return this.f31767f == 0;
     }
 
-    public final void j(int i) {
-        int[] f2 = f(i);
+    public final void j(int i2) {
+        int[] f2 = f(i2);
         long[] jArr = this.entries;
         int length = f2.length - 1;
-        for (int i2 = 0; i2 < this.f30815f; i2++) {
-            int a2 = a(jArr[i2]);
-            int i3 = a2 & length;
-            int i4 = f2[i3];
-            f2[i3] = i2;
-            jArr[i2] = (a2 << 32) | (i4 & 4294967295L);
+        for (int i3 = 0; i3 < this.f31767f; i3++) {
+            int a2 = a(jArr[i3]);
+            int i4 = a2 & length;
+            int i5 = f2[i4];
+            f2[i4] = i3;
+            jArr[i3] = (a2 << 32) | (i5 & 4294967295L);
         }
-        this.f30814e = f2;
+        this.f31766e = f2;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public Set<K> keySet() {
-        Set<K> set = this.f30816g;
+        Set<K> set = this.f31768g;
         if (set == null) {
             Set<K> createKeySet = createKeySet();
-            this.f30816g = createKeySet;
+            this.f31768g = createKeySet;
             return createKeySet;
         }
         return set;
@@ -499,44 +501,44 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         return new a();
     }
 
-    public void moveLastEntry(int i) {
+    public void moveLastEntry(int i2) {
         int size = size() - 1;
-        if (i < size) {
+        if (i2 < size) {
             Object[] objArr = this.keys;
-            objArr[i] = objArr[size];
+            objArr[i2] = objArr[size];
             Object[] objArr2 = this.values;
-            objArr2[i] = objArr2[size];
+            objArr2[i2] = objArr2[size];
             objArr[size] = null;
             objArr2[size] = null;
             long[] jArr = this.entries;
             long j = jArr[size];
-            jArr[i] = j;
+            jArr[i2] = j;
             jArr[size] = -1;
             int a2 = a(j) & c();
-            int[] iArr = this.f30814e;
-            int i2 = iArr[a2];
-            if (i2 == size) {
-                iArr[a2] = i;
+            int[] iArr = this.f31766e;
+            int i3 = iArr[a2];
+            if (i3 == size) {
+                iArr[a2] = i2;
                 return;
             }
             while (true) {
-                long j2 = this.entries[i2];
+                long j2 = this.entries[i3];
                 int b2 = b(j2);
                 if (b2 == size) {
-                    this.entries[i2] = k(j2, i);
+                    this.entries[i3] = k(j2, i2);
                     return;
                 }
-                i2 = b2;
+                i3 = b2;
             }
         } else {
-            this.keys[i] = null;
-            this.values[i] = null;
-            this.entries[i] = -1;
+            this.keys[i2] = null;
+            this.values[i2] = null;
+            this.entries[i2] = -1;
         }
     }
 
     public boolean needsAllocArrays() {
-        return this.f30814e == null;
+        return this.f31766e == null;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -549,35 +551,35 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         Object[] objArr2 = this.values;
         int d2 = e0.d(k);
         int c2 = c() & d2;
-        int i = this.f30815f;
-        int[] iArr = this.f30814e;
-        int i2 = iArr[c2];
-        if (i2 == -1) {
-            iArr[c2] = i;
+        int i2 = this.f31767f;
+        int[] iArr = this.f31766e;
+        int i3 = iArr[c2];
+        if (i3 == -1) {
+            iArr[c2] = i2;
         } else {
             while (true) {
-                long j = jArr[i2];
-                if (a(j) == d2 && k.a(k, objArr[i2])) {
-                    V v2 = (V) objArr2[i2];
-                    objArr2[i2] = v;
-                    accessEntry(i2);
+                long j = jArr[i3];
+                if (a(j) == d2 && k.a(k, objArr[i3])) {
+                    V v2 = (V) objArr2[i3];
+                    objArr2[i3] = v;
+                    accessEntry(i3);
                     return v2;
                 }
                 int b2 = b(j);
                 if (b2 == -1) {
-                    jArr[i2] = k(j, i);
+                    jArr[i3] = k(j, i2);
                     break;
                 }
-                i2 = b2;
+                i3 = b2;
             }
         }
-        if (i != Integer.MAX_VALUE) {
-            int i3 = i + 1;
-            i(i3);
-            insertEntry(i, k, v, d2);
-            this.f30815f = i3;
-            int length = this.f30814e.length;
-            if (e0.b(i, length, 1.0d)) {
+        if (i2 != Integer.MAX_VALUE) {
+            int i4 = i2 + 1;
+            i(i4);
+            insertEntry(i2, k, v, d2);
+            this.f31767f = i4;
+            int length = this.f31766e.length;
+            if (e0.b(i2, length, 1.0d)) {
                 j(length * 2);
             }
             this.modCount++;
@@ -594,43 +596,43 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         return g(obj, e0.d(obj));
     }
 
-    public void resizeEntries(int i) {
-        this.keys = Arrays.copyOf(this.keys, i);
-        this.values = Arrays.copyOf(this.values, i);
+    public void resizeEntries(int i2) {
+        this.keys = Arrays.copyOf(this.keys, i2);
+        this.values = Arrays.copyOf(this.values, i2);
         long[] jArr = this.entries;
         int length = jArr.length;
-        long[] copyOf = Arrays.copyOf(jArr, i);
-        if (i > length) {
-            Arrays.fill(copyOf, length, i, -1L);
+        long[] copyOf = Arrays.copyOf(jArr, i2);
+        if (i2 > length) {
+            Arrays.fill(copyOf, length, i2, -1L);
         }
         this.entries = copyOf;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public int size() {
-        return this.f30815f;
+        return this.f31767f;
     }
 
     public void trimToSize() {
         if (needsAllocArrays()) {
             return;
         }
-        int i = this.f30815f;
-        if (i < this.entries.length) {
-            resizeEntries(i);
+        int i2 = this.f31767f;
+        if (i2 < this.entries.length) {
+            resizeEntries(i2);
         }
-        int a2 = e0.a(i, 1.0d);
-        if (a2 < this.f30814e.length) {
+        int a2 = e0.a(i2, 1.0d);
+        if (a2 < this.f31766e.length) {
             j(a2);
         }
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public Collection<V> values() {
-        Collection<V> collection = this.i;
+        Collection<V> collection = this.f31770i;
         if (collection == null) {
             Collection<V> createValues = createValues();
-            this.i = createValues;
+            this.f31770i = createValues;
             return createValues;
         }
         return collection;
@@ -640,50 +642,50 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         return new c();
     }
 
-    public CompactHashMap(int i) {
-        init(i);
+    public CompactHashMap(int i2) {
+        init(i2);
     }
 
     /* loaded from: classes6.dex */
     public abstract class e<T> implements Iterator<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f30819e;
+        public int f31775e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f30820f;
+        public int f31776f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f30821g;
+        public int f31777g;
 
         public e() {
             CompactHashMap compactHashMap = CompactHashMap.this;
-            this.f30819e = compactHashMap.modCount;
-            this.f30820f = compactHashMap.firstEntryIndex();
-            this.f30821g = -1;
+            this.f31775e = compactHashMap.modCount;
+            this.f31776f = compactHashMap.firstEntryIndex();
+            this.f31777g = -1;
         }
 
         public final void a() {
-            if (CompactHashMap.this.modCount != this.f30819e) {
+            if (CompactHashMap.this.modCount != this.f31775e) {
                 throw new ConcurrentModificationException();
             }
         }
 
-        public abstract T b(int i);
+        public abstract T b(int i2);
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f30820f >= 0;
+            return this.f31776f >= 0;
         }
 
         @Override // java.util.Iterator
         public T next() {
             a();
             if (hasNext()) {
-                int i = this.f30820f;
-                this.f30821g = i;
-                T b2 = b(i);
-                this.f30820f = CompactHashMap.this.getSuccessor(this.f30820f);
+                int i2 = this.f31776f;
+                this.f31777g = i2;
+                T b2 = b(i2);
+                this.f31776f = CompactHashMap.this.getSuccessor(this.f31776f);
                 return b2;
             }
             throw new NoSuchElementException();
@@ -692,11 +694,11 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         @Override // java.util.Iterator
         public void remove() {
             a();
-            m.e(this.f30821g >= 0);
-            this.f30819e++;
-            CompactHashMap.this.h(this.f30821g);
-            this.f30820f = CompactHashMap.this.adjustAfterRemove(this.f30820f, this.f30821g);
-            this.f30821g = -1;
+            m.e(this.f31777g >= 0);
+            this.f31775e++;
+            CompactHashMap.this.h(this.f31777g);
+            this.f31776f = CompactHashMap.this.adjustAfterRemove(this.f31776f, this.f31777g);
+            this.f31777g = -1;
         }
 
         public /* synthetic */ e(CompactHashMap compactHashMap, a aVar) {

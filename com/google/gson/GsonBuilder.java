@@ -1,9 +1,10 @@
 package com.google.gson;
 
+import com.google.gson.internal.C$Gson$Preconditions;
 import com.google.gson.internal.Excluder;
 import com.google.gson.internal.bind.TreeTypeAdapter;
 import com.google.gson.internal.bind.TypeAdapters;
-import d.h.d.b.a;
+import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public final class GsonBuilder {
     public int timeStyle;
 
     public GsonBuilder() {
-        this.excluder = Excluder.k;
+        this.excluder = Excluder.DEFAULT;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
         this.instanceCreators = new HashMap();
@@ -49,7 +50,7 @@ public final class GsonBuilder {
         this.lenient = false;
     }
 
-    private void addTypeAdaptersForDate(String str, int i, int i2, List<TypeAdapterFactory> list) {
+    private void addTypeAdaptersForDate(String str, int i2, int i3, List<TypeAdapterFactory> list) {
         DefaultDateTypeAdapter defaultDateTypeAdapter;
         DefaultDateTypeAdapter defaultDateTypeAdapter2;
         DefaultDateTypeAdapter defaultDateTypeAdapter3;
@@ -57,28 +58,28 @@ public final class GsonBuilder {
             defaultDateTypeAdapter = new DefaultDateTypeAdapter(Date.class, str);
             defaultDateTypeAdapter2 = new DefaultDateTypeAdapter(Timestamp.class, str);
             defaultDateTypeAdapter3 = new DefaultDateTypeAdapter(java.sql.Date.class, str);
-        } else if (i == 2 || i2 == 2) {
+        } else if (i2 == 2 || i3 == 2) {
             return;
         } else {
-            DefaultDateTypeAdapter defaultDateTypeAdapter4 = new DefaultDateTypeAdapter(Date.class, i, i2);
-            DefaultDateTypeAdapter defaultDateTypeAdapter5 = new DefaultDateTypeAdapter(Timestamp.class, i, i2);
-            DefaultDateTypeAdapter defaultDateTypeAdapter6 = new DefaultDateTypeAdapter(java.sql.Date.class, i, i2);
+            DefaultDateTypeAdapter defaultDateTypeAdapter4 = new DefaultDateTypeAdapter(Date.class, i2, i3);
+            DefaultDateTypeAdapter defaultDateTypeAdapter5 = new DefaultDateTypeAdapter(Timestamp.class, i2, i3);
+            DefaultDateTypeAdapter defaultDateTypeAdapter6 = new DefaultDateTypeAdapter(java.sql.Date.class, i2, i3);
             defaultDateTypeAdapter = defaultDateTypeAdapter4;
             defaultDateTypeAdapter2 = defaultDateTypeAdapter5;
             defaultDateTypeAdapter3 = defaultDateTypeAdapter6;
         }
-        list.add(TypeAdapters.b(Date.class, defaultDateTypeAdapter));
-        list.add(TypeAdapters.b(Timestamp.class, defaultDateTypeAdapter2));
-        list.add(TypeAdapters.b(java.sql.Date.class, defaultDateTypeAdapter3));
+        list.add(TypeAdapters.newFactory(Date.class, defaultDateTypeAdapter));
+        list.add(TypeAdapters.newFactory(Timestamp.class, defaultDateTypeAdapter2));
+        list.add(TypeAdapters.newFactory(java.sql.Date.class, defaultDateTypeAdapter3));
     }
 
     public GsonBuilder addDeserializationExclusionStrategy(ExclusionStrategy exclusionStrategy) {
-        this.excluder = this.excluder.o(exclusionStrategy, false, true);
+        this.excluder = this.excluder.withExclusionStrategy(exclusionStrategy, false, true);
         return this;
     }
 
     public GsonBuilder addSerializationExclusionStrategy(ExclusionStrategy exclusionStrategy) {
-        this.excluder = this.excluder.o(exclusionStrategy, true, false);
+        this.excluder = this.excluder.withExclusionStrategy(exclusionStrategy, true, false);
         return this;
     }
 
@@ -99,7 +100,7 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder disableInnerClassSerialization() {
-        this.excluder = this.excluder.c();
+        this.excluder = this.excluder.disableInnerClassSerialization();
         return this;
     }
 
@@ -109,12 +110,12 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder excludeFieldsWithModifiers(int... iArr) {
-        this.excluder = this.excluder.p(iArr);
+        this.excluder = this.excluder.withModifiers(iArr);
         return this;
     }
 
     public GsonBuilder excludeFieldsWithoutExposeAnnotation() {
-        this.excluder = this.excluder.h();
+        this.excluder = this.excluder.excludeFieldsWithoutExposeAnnotation();
         return this;
     }
 
@@ -125,15 +126,15 @@ public final class GsonBuilder {
 
     public GsonBuilder registerTypeAdapter(Type type, Object obj) {
         boolean z = obj instanceof JsonSerializer;
-        a.a(z || (obj instanceof JsonDeserializer) || (obj instanceof InstanceCreator) || (obj instanceof TypeAdapter));
+        C$Gson$Preconditions.checkArgument(z || (obj instanceof JsonDeserializer) || (obj instanceof InstanceCreator) || (obj instanceof TypeAdapter));
         if (obj instanceof InstanceCreator) {
             this.instanceCreators.put(type, (InstanceCreator) obj);
         }
         if (z || (obj instanceof JsonDeserializer)) {
-            this.factories.add(TreeTypeAdapter.b(d.h.d.c.a.b(type), obj));
+            this.factories.add(TreeTypeAdapter.newFactoryWithMatchRawType(TypeToken.get(type), obj));
         }
         if (obj instanceof TypeAdapter) {
-            this.factories.add(TypeAdapters.a(d.h.d.c.a.b(type), (TypeAdapter) obj));
+            this.factories.add(TypeAdapters.newFactory(TypeToken.get(type), (TypeAdapter) obj));
         }
         return this;
     }
@@ -145,12 +146,12 @@ public final class GsonBuilder {
 
     public GsonBuilder registerTypeHierarchyAdapter(Class<?> cls, Object obj) {
         boolean z = obj instanceof JsonSerializer;
-        a.a(z || (obj instanceof JsonDeserializer) || (obj instanceof TypeAdapter));
+        C$Gson$Preconditions.checkArgument(z || (obj instanceof JsonDeserializer) || (obj instanceof TypeAdapter));
         if ((obj instanceof JsonDeserializer) || z) {
-            this.hierarchyFactories.add(TreeTypeAdapter.c(cls, obj));
+            this.hierarchyFactories.add(TreeTypeAdapter.newTypeHierarchyFactory(cls, obj));
         }
         if (obj instanceof TypeAdapter) {
-            this.factories.add(TypeAdapters.e(cls, (TypeAdapter) obj));
+            this.factories.add(TypeAdapters.newTypeHierarchyFactory(cls, (TypeAdapter) obj));
         }
         return this;
     }
@@ -172,7 +173,7 @@ public final class GsonBuilder {
 
     public GsonBuilder setExclusionStrategies(ExclusionStrategy... exclusionStrategyArr) {
         for (ExclusionStrategy exclusionStrategy : exclusionStrategyArr) {
-            this.excluder = this.excluder.o(exclusionStrategy, true, true);
+            this.excluder = this.excluder.withExclusionStrategy(exclusionStrategy, true, true);
         }
         return this;
     }
@@ -203,25 +204,25 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder setVersion(double d2) {
-        this.excluder = this.excluder.q(d2);
+        this.excluder = this.excluder.withVersion(d2);
         return this;
     }
 
-    public GsonBuilder setDateFormat(int i) {
-        this.dateStyle = i;
+    public GsonBuilder setDateFormat(int i2) {
+        this.dateStyle = i2;
         this.datePattern = null;
         return this;
     }
 
-    public GsonBuilder setDateFormat(int i, int i2) {
-        this.dateStyle = i;
-        this.timeStyle = i2;
+    public GsonBuilder setDateFormat(int i2, int i3) {
+        this.dateStyle = i2;
+        this.timeStyle = i3;
         this.datePattern = null;
         return this;
     }
 
     public GsonBuilder(Gson gson) {
-        this.excluder = Excluder.k;
+        this.excluder = Excluder.DEFAULT;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
         this.instanceCreators = new HashMap();

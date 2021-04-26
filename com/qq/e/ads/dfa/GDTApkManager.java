@@ -14,30 +14,30 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class GDTApkManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public DFA f38455a;
+    public DFA f36023a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38456b;
+    public boolean f36024b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f38457c = false;
+    public boolean f36025c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicInteger f38458d = new AtomicInteger(0);
+    public AtomicInteger f36026d = new AtomicInteger(0);
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f38459e;
+    public Context f36027e;
 
     public GDTApkManager(final Context context, final IGDTApkListener iGDTApkListener) {
         String str;
-        this.f38456b = false;
+        this.f36024b = false;
         if (GDTADManager.getInstance().isInitialized()) {
             final String appid = GDTADManager.getInstance().getAppStatus().getAPPID();
             if (StringUtil.isEmpty(appid) || context == null || iGDTApkListener == null) {
                 str = String.format("GDTApkManager Constructor params error, appid=%s,context=%s,listener=%s", appid, context, iGDTApkListener);
             } else if (a.a(context)) {
-                this.f38456b = true;
-                this.f38459e = context;
+                this.f36024b = true;
+                this.f36027e = context;
                 GDTADManager.INIT_EXECUTOR.execute(new Runnable() { // from class: com.qq.e.ads.dfa.GDTApkManager.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -52,9 +52,9 @@ public class GDTApkManager {
                                 public void run() {
                                     try {
                                         if (pOFactory != null) {
-                                            GDTApkManager.this.f38455a = GDTADManager.getInstance().getPM().getPOFactory().getGDTApkDelegate(iGDTApkListener);
-                                            GDTApkManager.this.f38457c = true;
-                                            while (GDTApkManager.this.f38458d.getAndDecrement() > 0) {
+                                            GDTApkManager.this.f36023a = GDTADManager.getInstance().getPM().getPOFactory().getGDTApkDelegate(iGDTApkListener);
+                                            GDTApkManager.this.f36025c = true;
+                                            while (GDTApkManager.this.f36026d.getAndDecrement() > 0) {
                                                 GDTApkManager.this.loadGDTApk();
                                             }
                                         }
@@ -81,12 +81,12 @@ public class GDTApkManager {
     }
 
     public final void loadGDTApk() {
-        if (!this.f38456b) {
+        if (!this.f36024b) {
             GDTLogger.e("GDTApkManager init Context error,See More logs while new GDTApkManager");
-        } else if (!this.f38457c) {
-            this.f38458d.incrementAndGet();
+        } else if (!this.f36025c) {
+            this.f36026d.incrementAndGet();
         } else {
-            DFA dfa = this.f38455a;
+            DFA dfa = this.f36023a;
             if (dfa != null) {
                 dfa.loadGDTApk();
             } else {
@@ -96,9 +96,9 @@ public class GDTApkManager {
     }
 
     public final void startInstall(GDTApk gDTApk) {
-        DFA dfa = this.f38455a;
+        DFA dfa = this.f36023a;
         if (dfa != null) {
-            dfa.startInstall(this.f38459e, gDTApk);
+            dfa.startInstall(this.f36027e, gDTApk);
         }
     }
 }

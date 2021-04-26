@@ -18,8 +18,8 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public GroupInfo[] newArray(int i) {
-            return new GroupInfo[i];
+        public GroupInfo[] newArray(int i2) {
+            return new GroupInfo[i2];
         }
     };
     public int brief;
@@ -124,12 +124,12 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         return this.mUk;
     }
 
-    public void setActiveState(int i) {
-        this.mActiveState = i;
+    public void setActiveState(int i2) {
+        this.mActiveState = i2;
     }
 
-    public void setBrief(int i) {
-        this.brief = i;
+    public void setBrief(int i2) {
+        this.brief = i2;
     }
 
     public void setBuid(long j) {
@@ -144,8 +144,8 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         this.mDescription = str;
     }
 
-    public void setDisturb(int i) {
-        this.mDisturb = i;
+    public void setDisturb(int i2) {
+        this.mDisturb = i2;
     }
 
     public void setGroupName(String str) {
@@ -156,8 +156,8 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         this.mHeadUrl = str;
     }
 
-    public void setMarkTop(int i) {
-        this.mMarkTop = i;
+    public void setMarkTop(int i2) {
+        this.mMarkTop = i2;
     }
 
     public void setMarkTopTime(long j) {
@@ -168,16 +168,16 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         this.mMembersVersion = j;
     }
 
-    public void setNum(int i) {
-        this.mNum = i;
+    public void setNum(int i2) {
+        this.mNum = i2;
     }
 
-    public void setState(int i) {
-        this.state = i;
+    public void setState(int i2) {
+        this.state = i2;
     }
 
-    public void setType(int i) {
-        this.mType = i;
+    public void setType(int i2) {
+        this.mType = i2;
     }
 
     public void setUk(long j) {
@@ -189,7 +189,7 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.mGroupId);
         parcel.writeString(this.mGroupName);
         parcel.writeString(this.mDescription);

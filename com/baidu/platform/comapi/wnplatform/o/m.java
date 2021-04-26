@@ -5,15 +5,15 @@ import android.view.View;
 public abstract class m implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f9934a;
+    public static long f10302a;
 
     public abstract void a(View view);
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - f9934a > 300) {
-            f9934a = currentTimeMillis;
+        if (currentTimeMillis - f10302a > 300) {
+            f10302a = currentTimeMillis;
             a(view);
         }
     }

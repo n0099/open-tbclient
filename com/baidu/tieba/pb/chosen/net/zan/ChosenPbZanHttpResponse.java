@@ -7,13 +7,13 @@ import tbclient.Error;
 import tbclient.ExcZan.ExcZanResIdl;
 /* loaded from: classes3.dex */
 public class ChosenPbZanHttpResponse extends HttpResponsedMessage {
-    public ChosenPbZanHttpResponse(int i) {
+    public ChosenPbZanHttpResponse(int i2) {
         super(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         Error error;
         ExcZanResIdl excZanResIdl = (ExcZanResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcZanResIdl.class);
         if (excZanResIdl == null || (error = excZanResIdl.error) == null) {

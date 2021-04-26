@@ -22,11 +22,11 @@ public class Wire {
         throw new RuntimeException("Stub!");
     }
 
-    public void input(byte[] bArr, int i, int i2) throws IOException {
+    public void input(byte[] bArr, int i2, int i3) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
-    public void output(byte[] bArr, int i, int i2) throws IOException {
+    public void output(byte[] bArr, int i2, int i3) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -38,11 +38,11 @@ public class Wire {
         throw new RuntimeException("Stub!");
     }
 
-    public void input(int i) throws IOException {
+    public void input(int i2) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
-    public void output(int i) throws IOException {
+    public void output(int i2) throws IOException {
         throw new RuntimeException("Stub!");
     }
 

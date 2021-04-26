@@ -25,7 +25,7 @@ public class SystemMessage extends CommonGroupChatMessage {
         }
     }
 
-    public SystemMessage(int i) {
-        super(i);
+    public SystemMessage(int i2) {
+        super(i2);
     }
 }

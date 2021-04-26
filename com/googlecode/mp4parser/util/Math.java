@@ -16,19 +16,19 @@ public class Math {
         return j * (j2 / gcd(j, j2));
     }
 
-    public static int gcd(int i, int i2) {
+    public static int gcd(int i2, int i3) {
         while (true) {
-            int i3 = i2;
-            int i4 = i;
-            i = i3;
-            if (i <= 0) {
-                return i4;
+            int i4 = i3;
+            int i5 = i2;
+            i2 = i4;
+            if (i2 <= 0) {
+                return i5;
             }
-            i2 = i4 % i;
+            i3 = i5 % i2;
         }
     }
 
-    public static int lcm(int i, int i2) {
-        return i * (i2 / gcd(i, i2));
+    public static int lcm(int i2, int i3) {
+        return i2 * (i3 / gcd(i2, i3));
     }
 }

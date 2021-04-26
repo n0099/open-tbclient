@@ -22,13 +22,13 @@ public class AdIconUtil {
             return new AdIconUtil(context, this);
         }
 
-        public AdLogoParameter setMarginBottom(int i) {
-            this.mBottom = i;
+        public AdLogoParameter setMarginBottom(int i2) {
+            this.mBottom = i2;
             return this;
         }
 
-        public AdLogoParameter setMarginRight(int i) {
-            this.mRight = i;
+        public AdLogoParameter setMarginRight(int i2) {
+            this.mRight = i2;
             return this;
         }
     }

@@ -3,8 +3,8 @@ package com.bytedance.embedapplog.collector;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import d.c.b.r0;
-import d.c.b.x1;
+import d.b.b.r0;
+import d.b.b.x1;
 /* loaded from: classes5.dex */
 public class Collector extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver

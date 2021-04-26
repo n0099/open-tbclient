@@ -44,8 +44,8 @@ public class XAdRemoteEventDispatcher implements IOAdEventDispatcher {
                 int size = arrayList.size();
                 IOAdEventListener[] iOAdEventListenerArr = new IOAdEventListener[size];
                 arrayList.toArray(iOAdEventListenerArr);
-                for (int i = 0; i < size; i++) {
-                    IOAdEventListener iOAdEventListener = iOAdEventListenerArr[i];
+                for (int i2 = 0; i2 < size; i2++) {
+                    IOAdEventListener iOAdEventListener = iOAdEventListenerArr[i2];
                     if (iOAdEventListener != null) {
                         iOAdEventListener.run(iOAdEvent);
                     }

@@ -5,9 +5,9 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
-import d.b.c.e.d.l;
-import d.b.i0.r.q.g1;
-import d.b.i0.r.r.a;
+import d.a.c.e.d.l;
+import d.a.i0.r.q.g1;
+import d.a.i0.r.r.a;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -16,14 +16,14 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
     public int mErrCode;
     public String mErrMsg;
 
-    public ResponseNetPersonListMessage(int i) {
+    public ResponseNetPersonListMessage(int i2) {
         super(CmdConfigHttp.PIC_PERSONAL_LIST);
         this.mErrCode = 0;
         this.mErrMsg = "";
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0) {
@@ -49,8 +49,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        super.afterDispatchInBackGround(i, (int) bArr);
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+        super.afterDispatchInBackGround(i2, (int) bArr);
         if (getError() == 0 && (getOrginalMessage() instanceof HttpMessage)) {
             HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
             BdUniqueId tag = httpMessage.getTag();

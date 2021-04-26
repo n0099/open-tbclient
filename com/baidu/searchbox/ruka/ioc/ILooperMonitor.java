@@ -7,7 +7,7 @@ public interface ILooperMonitor {
 
     boolean isMonitorStarted();
 
-    void startLooperMonitor(Context context, int i);
+    void startLooperMonitor(Context context, int i2);
 
     void stopLooperMonitor();
 }

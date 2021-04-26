@@ -13,16 +13,16 @@ import java.util.Map;
 public final class Decoder {
     public final ReedSolomonDecoder rsDecoder = new ReedSolomonDecoder(GenericGF.QR_CODE_FIELD_256);
 
-    private void correctErrors(byte[] bArr, int i) throws ChecksumException {
+    private void correctErrors(byte[] bArr, int i2) throws ChecksumException {
         int length = bArr.length;
         int[] iArr = new int[length];
-        for (int i2 = 0; i2 < length; i2++) {
-            iArr[i2] = bArr[i2] & 255;
+        for (int i3 = 0; i3 < length; i3++) {
+            iArr[i3] = bArr[i3] & 255;
         }
         try {
-            this.rsDecoder.decode(iArr, bArr.length - i);
-            for (int i3 = 0; i3 < i; i3++) {
-                bArr[i3] = (byte) iArr[i3];
+            this.rsDecoder.decode(iArr, bArr.length - i2);
+            for (int i4 = 0; i4 < i2; i4++) {
+                bArr[i4] = (byte) iArr[i4];
             }
         } catch (ReedSolomonException unused) {
             throw ChecksumException.getChecksumInstance();
@@ -36,10 +36,10 @@ public final class Decoder {
     public DecoderResult decode(boolean[][] zArr, Map<DecodeHintType, ?> map) throws ChecksumException, FormatException {
         int length = zArr.length;
         BitMatrix bitMatrix = new BitMatrix(length);
-        for (int i = 0; i < length; i++) {
-            for (int i2 = 0; i2 < length; i2++) {
-                if (zArr[i][i2]) {
-                    bitMatrix.set(i2, i);
+        for (int i2 = 0; i2 < length; i2++) {
+            for (int i3 = 0; i3 < length; i3++) {
+                if (zArr[i2][i3]) {
+                    bitMatrix.set(i3, i2);
                 }
             }
         }
@@ -94,21 +94,21 @@ public final class Decoder {
         Version readVersion = bitMatrixParser.readVersion();
         ErrorCorrectionLevel errorCorrectionLevel = bitMatrixParser.readFormatInformation().getErrorCorrectionLevel();
         DataBlock[] dataBlocks = DataBlock.getDataBlocks(bitMatrixParser.readCodewords(), readVersion, errorCorrectionLevel);
-        int i = 0;
-        for (DataBlock dataBlock : dataBlocks) {
-            i += dataBlock.getNumDataCodewords();
-        }
-        byte[] bArr = new byte[i];
         int i2 = 0;
+        for (DataBlock dataBlock : dataBlocks) {
+            i2 += dataBlock.getNumDataCodewords();
+        }
+        byte[] bArr = new byte[i2];
+        int i3 = 0;
         for (DataBlock dataBlock2 : dataBlocks) {
             byte[] codewords = dataBlock2.getCodewords();
             int numDataCodewords = dataBlock2.getNumDataCodewords();
             correctErrors(codewords, numDataCodewords);
-            int i3 = 0;
-            while (i3 < numDataCodewords) {
-                bArr[i2] = codewords[i3];
+            int i4 = 0;
+            while (i4 < numDataCodewords) {
+                bArr[i3] = codewords[i4];
+                i4++;
                 i3++;
-                i2++;
             }
         }
         return DecodedBitStreamParser.decode(bArr, readVersion, errorCorrectionLevel, map);

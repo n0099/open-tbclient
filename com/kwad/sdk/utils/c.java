@@ -51,7 +51,7 @@ public class c {
         try {
             byte[] a2 = a(file);
             if (a2 != null && a2.length != 0) {
-                return t.a(a2, 0, a2.length);
+                return r.a(a2, 0, a2.length);
             }
             return null;
         } catch (IOException | NoSuchAlgorithmException e2) {

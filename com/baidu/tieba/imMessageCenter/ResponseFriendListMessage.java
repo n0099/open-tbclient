@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.i0.s.f.a;
+import d.a.i0.s.f.a;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -13,23 +13,23 @@ import org.json.JSONObject;
 public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
     public LinkedList<a> friendList;
 
-    public ResponseFriendListMessage(int i) {
+    public ResponseFriendListMessage(int i2) {
         super(CmdConfigHttp.CMD_GET_FRIEND_LIST);
         this.friendList = new LinkedList<>();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i, jSONObject);
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (jSONObject == null) {
             return;
         }
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
             if (optJSONArray != null) {
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                     MetaData metaData = new MetaData();
-                    metaData.parserJson(optJSONArray.getJSONObject(i2));
+                    metaData.parserJson(optJSONArray.getJSONObject(i3));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
                         a aVar = new a();
                         aVar.o(metaData.getUserName());

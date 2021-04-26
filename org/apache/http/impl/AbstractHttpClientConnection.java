@@ -63,7 +63,7 @@ public abstract class AbstractHttpClientConnection implements HttpClientConnecti
     }
 
     @Override // org.apache.http.HttpClientConnection
-    public boolean isResponseAvailable(int i) throws IOException {
+    public boolean isResponseAvailable(int i2) throws IOException {
         throw new RuntimeException("Stub!");
     }
 

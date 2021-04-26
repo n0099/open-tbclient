@@ -12,10 +12,10 @@ public class i {
         return context.getSharedPreferences("pst", 0).getString(str, "");
     }
 
-    public static void a(Context context, String str, int i) {
+    public static void a(Context context, String str, int i2) {
         try {
             SharedPreferences.Editor edit = context.getSharedPreferences("pst", 0).edit();
-            edit.putInt(str, i);
+            edit.putInt(str, i2);
             edit.commit();
         } catch (Exception e2) {
             new b.c(context).a(Log.getStackTraceString(e2)).a();
@@ -52,7 +52,7 @@ public class i {
             edit.putString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, str4);
             edit.putString("user_id", str5);
             edit.putBoolean("bind_status", true);
-            m.f3431a = 1;
+            m.f3466a = 1;
             edit.putLong("version_code", m.c(context, context.getPackageName()));
             edit.apply();
         } catch (Exception e2) {
@@ -72,8 +72,8 @@ public class i {
         }
     }
 
-    public static int b(Context context, String str, int i) {
-        return context.getSharedPreferences("pst", 0).getInt(str, i);
+    public static int b(Context context, String str, int i2) {
+        return context.getSharedPreferences("pst", 0).getInt(str, i2);
     }
 
     public static long b(Context context, String str) {

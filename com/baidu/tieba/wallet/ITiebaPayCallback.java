@@ -6,5 +6,5 @@ public interface ITiebaPayCallback {
     public static final int STATE_CODE_PAYING = 1;
     public static final int STATE_CODE_SUCCEED = 0;
 
-    void onPayResult(int i, String str);
+    void onPayResult(int i2, String str);
 }

@@ -189,8 +189,8 @@ public class ImagePipelineConfig {
             return this;
         }
 
-        public Builder setHttpConnectionTimeout(int i) {
-            this.mHttpConnectionTimeout = i;
+        public Builder setHttpConnectionTimeout(int i2) {
+            this.mHttpConnectionTimeout = i2;
             return this;
         }
 
@@ -214,8 +214,8 @@ public class ImagePipelineConfig {
             return this;
         }
 
-        public Builder setImageTranscoderType(int i) {
-            this.mImageTranscoderType = Integer.valueOf(i);
+        public Builder setImageTranscoderType(int i2) {
+            this.mImageTranscoderType = Integer.valueOf(i2);
             return this;
         }
 
@@ -229,8 +229,8 @@ public class ImagePipelineConfig {
             return this;
         }
 
-        public Builder setMemoryChunkType(int i) {
-            this.mMemoryChunkType = Integer.valueOf(i);
+        public Builder setMemoryChunkType(int i2) {
+            this.mMemoryChunkType = Integer.valueOf(i2);
             return this;
         }
 

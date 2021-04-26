@@ -25,17 +25,17 @@ public class SpanStringUtils {
         }
 
         @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f2, int i3, int i4, int i5, Paint paint) {
+        public void draw(Canvas canvas, CharSequence charSequence, int i2, int i3, float f2, int i4, int i5, int i6, Paint paint) {
             Drawable drawable = getDrawable();
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
             canvas.save();
-            canvas.translate(f2, ((((fontMetricsInt.descent + i4) + i4) + fontMetricsInt.ascent) / 2) - (drawable.getBounds().bottom / 2));
+            canvas.translate(f2, ((((fontMetricsInt.descent + i5) + i5) + fontMetricsInt.ascent) / 2) - (drawable.getBounds().bottom / 2));
             drawable.draw(canvas);
             canvas.restore();
         }
 
         @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        public int getSize(Paint paint, CharSequence charSequence, int i2, int i3, Paint.FontMetricsInt fontMetricsInt) {
             Rect bounds = getDrawable().getBounds();
             if (fontMetricsInt != null && fontMetricsInt.top == 0 && fontMetricsInt.ascent == 0 && fontMetricsInt.descent == 0 && fontMetricsInt.bottom == 0) {
                 paint.getFontMetricsInt(fontMetricsInt);
@@ -51,30 +51,30 @@ public class SpanStringUtils {
         }
 
         @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f2, int i3, int i4, int i5, Paint paint) {
+        public void draw(Canvas canvas, CharSequence charSequence, int i2, int i3, float f2, int i4, int i5, int i6, Paint paint) {
             Drawable drawable = getDrawable();
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
             canvas.save();
-            canvas.translate(f2, ((((fontMetricsInt.descent + i4) + i4) + fontMetricsInt.ascent) / 2) - (drawable.getBounds().bottom / 2));
+            canvas.translate(f2, ((((fontMetricsInt.descent + i5) + i5) + fontMetricsInt.ascent) / 2) - (drawable.getBounds().bottom / 2));
             drawable.draw(canvas);
             canvas.restore();
         }
 
         @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        public int getSize(Paint paint, CharSequence charSequence, int i2, int i3, Paint.FontMetricsInt fontMetricsInt) {
             Rect bounds = getDrawable().getBounds();
             if (fontMetricsInt != null) {
                 Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                int i8 = i6 + 3;
-                fontMetricsInt.bottom = i8;
-                fontMetricsInt.descent = i8;
+                int i4 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                int i5 = (bounds.bottom - bounds.top) / 2;
+                int i6 = i4 / 4;
+                int i7 = i5 - i6;
+                int i8 = -(i5 + i6);
+                fontMetricsInt.ascent = i8;
+                fontMetricsInt.top = i8;
+                int i9 = i7 + 3;
+                fontMetricsInt.bottom = i9;
+                fontMetricsInt.descent = i9;
             }
             return bounds.right + 5;
         }
@@ -100,15 +100,15 @@ public class SpanStringUtils {
         SpannableString spannableString = new SpannableString(str);
         int length = str.length();
         Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
-        int i = 0;
         int i2 = 0;
+        int i3 = 0;
         while (matcher.find()) {
             String group = matcher.group();
             if (EmotionUtils.getInstance().getEmotionFileByName(emotionType, group) != null) {
-                i += group.length();
-                i2++;
+                i2 += group.length();
+                i3++;
             }
         }
-        return (length - i) + i2;
+        return (length - i2) + i3;
     }
 }

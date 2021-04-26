@@ -57,17 +57,19 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$Common, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6418e;
+        public int f6603e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Object f6419f = "";
+        public Object f6604f = "";
 
         /* renamed from: g  reason: collision with root package name */
-        public Object f6420g = "";
+        public Object f6605g = "";
 
         /* renamed from: h  reason: collision with root package name */
-        public Object f6421h = "";
-        public Object i = "";
+        public Object f6606h = "";
+
+        /* renamed from: i  reason: collision with root package name */
+        public Object f6607i = "";
         public Object j = "";
         public Object k = "";
         public Object l = "";
@@ -85,7 +87,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
 
         public b A(String str) {
             if (str != null) {
-                this.f6418e |= 256;
+                this.f6603e |= 256;
                 this.n = str;
                 return this;
             }
@@ -94,8 +96,8 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
 
         public b B(String str) {
             if (str != null) {
-                this.f6418e |= 4;
-                this.f6421h = str;
+                this.f6603e |= 4;
+                this.f6606h = str;
                 return this;
             }
             throw null;
@@ -103,7 +105,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
 
         public b C(String str) {
             if (str != null) {
-                this.f6418e |= 512;
+                this.f6603e |= 512;
                 this.o = str;
                 return this;
             }
@@ -112,7 +114,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
 
         public b D(String str) {
             if (str != null) {
-                this.f6418e |= 128;
+                this.f6603e |= 128;
                 this.m = str;
                 return this;
             }
@@ -155,80 +157,80 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         /* renamed from: n */
         public LcmPb$Common buildPartial() {
             LcmPb$Common lcmPb$Common = new LcmPb$Common(this);
-            int i = this.f6418e;
-            int i2 = (i & 1) != 1 ? 0 : 1;
-            lcmPb$Common.cuid_ = this.f6419f;
-            if ((i & 2) == 2) {
-                i2 |= 2;
+            int i2 = this.f6603e;
+            int i3 = (i2 & 1) != 1 ? 0 : 1;
+            lcmPb$Common.cuid_ = this.f6604f;
+            if ((i2 & 2) == 2) {
+                i3 |= 2;
             }
-            lcmPb$Common.deviceType_ = this.f6420g;
-            if ((i & 4) == 4) {
-                i2 |= 4;
+            lcmPb$Common.deviceType_ = this.f6605g;
+            if ((i2 & 4) == 4) {
+                i3 |= 4;
             }
-            lcmPb$Common.osVersion_ = this.f6421h;
-            if ((i & 8) == 8) {
-                i2 |= 8;
+            lcmPb$Common.osVersion_ = this.f6606h;
+            if ((i2 & 8) == 8) {
+                i3 |= 8;
             }
-            lcmPb$Common.manufacture_ = this.i;
-            if ((i & 16) == 16) {
-                i2 |= 16;
+            lcmPb$Common.manufacture_ = this.f6607i;
+            if ((i2 & 16) == 16) {
+                i3 |= 16;
             }
             lcmPb$Common.modelType_ = this.j;
-            if ((i & 32) == 32) {
-                i2 |= 32;
+            if ((i2 & 32) == 32) {
+                i3 |= 32;
             }
             lcmPb$Common.appId_ = this.k;
-            if ((i & 64) == 64) {
-                i2 |= 64;
+            if ((i2 & 64) == 64) {
+                i3 |= 64;
             }
             lcmPb$Common.appVersion_ = this.l;
-            if ((i & 128) == 128) {
-                i2 |= 128;
+            if ((i2 & 128) == 128) {
+                i3 |= 128;
             }
             lcmPb$Common.sdkVersion_ = this.m;
-            if ((i & 256) == 256) {
-                i2 |= 256;
+            if ((i2 & 256) == 256) {
+                i3 |= 256;
             }
             lcmPb$Common.network_ = this.n;
-            if ((i & 512) == 512) {
-                i2 |= 512;
+            if ((i2 & 512) == 512) {
+                i3 |= 512;
             }
             lcmPb$Common.romVersion_ = this.o;
-            lcmPb$Common.bitField0_ = i2;
+            lcmPb$Common.bitField0_ = i3;
             return lcmPb$Common;
         }
 
         public b o() {
             super.clear();
-            this.f6419f = "";
-            int i = this.f6418e & (-2);
-            this.f6418e = i;
-            this.f6420g = "";
-            int i2 = i & (-3);
-            this.f6418e = i2;
-            this.f6421h = "";
-            int i3 = i2 & (-5);
-            this.f6418e = i3;
-            this.i = "";
-            int i4 = i3 & (-9);
-            this.f6418e = i4;
+            this.f6604f = "";
+            int i2 = this.f6603e & (-2);
+            this.f6603e = i2;
+            this.f6605g = "";
+            int i3 = i2 & (-3);
+            this.f6603e = i3;
+            this.f6606h = "";
+            int i4 = i3 & (-5);
+            this.f6603e = i4;
+            this.f6607i = "";
+            int i5 = i4 & (-9);
+            this.f6603e = i5;
             this.j = "";
-            int i5 = i4 & (-17);
-            this.f6418e = i5;
+            int i6 = i5 & (-17);
+            this.f6603e = i6;
             this.k = "";
-            int i6 = i5 & (-33);
-            this.f6418e = i6;
+            int i7 = i6 & (-33);
+            this.f6603e = i7;
             this.l = "";
-            int i7 = i6 & (-65);
-            this.f6418e = i7;
+            int i8 = i7 & (-65);
+            this.f6603e = i8;
             this.m = "";
-            int i8 = i7 & (-129);
-            this.f6418e = i8;
+            int i9 = i8 & (-129);
+            this.f6603e = i9;
             this.n = "";
-            int i9 = i8 & (-257);
-            this.f6418e = i9;
+            int i10 = i9 & (-257);
+            this.f6603e = i10;
             this.o = "";
-            this.f6418e = i9 & (-513);
+            this.f6603e = i10 & (-513);
             return this;
         }
 
@@ -253,43 +255,43 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
                 return this;
             }
             if (lcmPb$Common.hasCuid()) {
-                this.f6418e |= 1;
-                this.f6419f = lcmPb$Common.cuid_;
+                this.f6603e |= 1;
+                this.f6604f = lcmPb$Common.cuid_;
             }
             if (lcmPb$Common.hasDeviceType()) {
-                this.f6418e |= 2;
-                this.f6420g = lcmPb$Common.deviceType_;
+                this.f6603e |= 2;
+                this.f6605g = lcmPb$Common.deviceType_;
             }
             if (lcmPb$Common.hasOsVersion()) {
-                this.f6418e |= 4;
-                this.f6421h = lcmPb$Common.osVersion_;
+                this.f6603e |= 4;
+                this.f6606h = lcmPb$Common.osVersion_;
             }
             if (lcmPb$Common.hasManufacture()) {
-                this.f6418e |= 8;
-                this.i = lcmPb$Common.manufacture_;
+                this.f6603e |= 8;
+                this.f6607i = lcmPb$Common.manufacture_;
             }
             if (lcmPb$Common.hasModelType()) {
-                this.f6418e |= 16;
+                this.f6603e |= 16;
                 this.j = lcmPb$Common.modelType_;
             }
             if (lcmPb$Common.hasAppId()) {
-                this.f6418e |= 32;
+                this.f6603e |= 32;
                 this.k = lcmPb$Common.appId_;
             }
             if (lcmPb$Common.hasAppVersion()) {
-                this.f6418e |= 64;
+                this.f6603e |= 64;
                 this.l = lcmPb$Common.appVersion_;
             }
             if (lcmPb$Common.hasSdkVersion()) {
-                this.f6418e |= 128;
+                this.f6603e |= 128;
                 this.m = lcmPb$Common.sdkVersion_;
             }
             if (lcmPb$Common.hasNetwork()) {
-                this.f6418e |= 256;
+                this.f6603e |= 256;
                 this.n = lcmPb$Common.network_;
             }
             if (lcmPb$Common.hasRomVersion()) {
-                this.f6418e |= 512;
+                this.f6603e |= 512;
                 this.o = lcmPb$Common.romVersion_;
             }
             return this;
@@ -331,7 +333,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
 
         public b u(String str) {
             if (str != null) {
-                this.f6418e |= 32;
+                this.f6603e |= 32;
                 this.k = str;
                 return this;
             }
@@ -340,7 +342,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
 
         public b v(String str) {
             if (str != null) {
-                this.f6418e |= 64;
+                this.f6603e |= 64;
                 this.l = str;
                 return this;
             }
@@ -349,8 +351,8 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
 
         public b w(String str) {
             if (str != null) {
-                this.f6418e |= 1;
-                this.f6419f = str;
+                this.f6603e |= 1;
+                this.f6604f = str;
                 return this;
             }
             throw null;
@@ -358,8 +360,8 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
 
         public b x(String str) {
             if (str != null) {
-                this.f6418e |= 2;
-                this.f6420g = str;
+                this.f6603e |= 2;
+                this.f6605g = str;
                 return this;
             }
             throw null;
@@ -367,8 +369,8 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
 
         public b y(String str) {
             if (str != null) {
-                this.f6418e |= 8;
-                this.i = str;
+                this.f6603e |= 8;
+                this.f6607i = str;
                 return this;
             }
             throw null;
@@ -376,7 +378,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
 
         public b z(String str) {
             if (str != null) {
-                this.f6418e |= 16;
+                this.f6603e |= 16;
                 this.j = str;
                 return this;
             }
@@ -676,9 +678,9 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
 
     @Override // com.google.protobuf.MessageLite
     public int getSerializedSize() {
-        int i = this.memoizedSerializedSize;
-        if (i != -1) {
-            return i;
+        int i2 = this.memoizedSerializedSize;
+        if (i2 != -1) {
+            return i2;
         }
         int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getCuidBytes()) : 0;
         if ((this.bitField0_ & 2) == 2) {

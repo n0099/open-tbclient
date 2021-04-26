@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import h.f;
 import h.j;
 import h.k;
-import h.o.a.s;
+import h.o.a.r;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes7.dex */
 public final class OperatorPublish$InnerProducer<T> extends AtomicLong implements f, k {
@@ -12,10 +12,10 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
     public static final long UNSUBSCRIBED = Long.MIN_VALUE;
     public static final long serialVersionUID = -4453897557930727610L;
     public final j<? super T> child;
-    public final s<T> parent;
+    public final r<T> parent;
 
-    public OperatorPublish$InnerProducer(s<T> sVar, j<? super T> jVar) {
-        this.parent = sVar;
+    public OperatorPublish$InnerProducer(r<T> rVar, j<? super T> jVar) {
+        this.parent = rVar;
         this.child = jVar;
         lazySet(-4611686018427387904L);
     }
@@ -51,8 +51,8 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
     public void request(long j) {
         long j2;
         long j3;
-        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i < 0) {
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i2 < 0) {
             return;
         }
         do {
@@ -60,7 +60,7 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
             if (j2 == Long.MIN_VALUE) {
                 return;
             }
-            if (j2 >= 0 && i == 0) {
+            if (j2 >= 0 && i2 == 0) {
                 return;
             }
             if (j2 == -4611686018427387904L) {

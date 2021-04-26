@@ -16,14 +16,14 @@ import java.util.UUID;
 public final class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f11455a = "";
+    public static String f11279a = "";
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f11455a)) {
+        if (TextUtils.isEmpty(f11279a)) {
             new o();
-            f11455a = b(context);
+            f11279a = b(context);
         }
-        return f11455a;
+        return f11279a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:41:0x00da A[Catch: all -> 0x00fa, TryCatch #3 {all -> 0x00fa, blocks: (B:33:0x00b4, B:36:0x00bb, B:39:0x00c2, B:41:0x00da, B:43:0x00e0, B:45:0x00ea, B:44:0x00e7), top: B:64:0x00b4 }] */
@@ -44,12 +44,12 @@ public final class o {
                 c2 = e(context);
                 if (TextUtils.isEmpty(c2)) {
                     String h2 = r.h(context);
-                    String i = r.i(context);
-                    if (TextUtils.isEmpty(h2) && TextUtils.isEmpty(i)) {
+                    String i2 = r.i(context);
+                    if (TextUtils.isEmpty(h2) && TextUtils.isEmpty(i2)) {
                         c2 = "1|" + n.a(UUID.randomUUID().toString());
                     } else {
                         StringBuilder sb = new StringBuilder("0|");
-                        sb.append(n.a(h2 + i));
+                        sb.append(n.a(h2 + i2));
                         c2 = sb.toString();
                     }
                     z = true;
@@ -144,7 +144,7 @@ public final class o {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
             String p = eVar.p();
             if (TextUtils.isEmpty(p)) {
-                String string = eVar.f11399b.getString("rpnewuid", "");
+                String string = eVar.f11222b.getString("rpnewuid", "");
                 if (TextUtils.isEmpty(string)) {
                     return "";
                 }

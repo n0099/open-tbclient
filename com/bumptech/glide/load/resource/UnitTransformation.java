@@ -16,7 +16,7 @@ public final class UnitTransformation<T> implements Transformation<T> {
 
     @Override // com.bumptech.glide.load.Transformation
     @NonNull
-    public Resource<T> transform(@NonNull Context context, @NonNull Resource<T> resource, int i, int i2) {
+    public Resource<T> transform(@NonNull Context context, @NonNull Resource<T> resource, int i2, int i3) {
         return resource;
     }
 

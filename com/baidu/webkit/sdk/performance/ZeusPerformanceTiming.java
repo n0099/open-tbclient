@@ -410,11 +410,11 @@ public class ZeusPerformanceTiming {
         sStartThreadTimeStamps.put(str, Long.valueOf(SystemClock.currentThreadTimeMillis()));
     }
 
-    public static void recordWebkitInitStatistics(int i) {
+    public static void recordWebkitInitStatistics(int i2) {
         if (sUploaded) {
             return;
         }
-        sRecordType = i | sRecordType;
+        sRecordType = i2 | sRecordType;
         if (!WebKitFactory.isForceInitT7() || sRecordType == 3) {
             ZeusThreadPoolUtil.executeIgnoreZeus(new Runnable() { // from class: com.baidu.webkit.sdk.performance.ZeusPerformanceTiming.1
                 @Override // java.lang.Runnable

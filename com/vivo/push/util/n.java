@@ -4,31 +4,31 @@ import android.content.Context;
 import android.os.Process;
 import android.util.Log;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class n implements o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39945a = "(" + Process.myPid() + SmallTailInfo.EMOTION_SUFFIX;
+    public static final String f37550a = "(" + Process.myPid() + SmallTailInfo.EMOTION_SUFFIX;
 
     @Override // com.vivo.push.util.o
     public final int a(String str, String str2) {
-        return Log.e("VivoPush." + str, f39945a + str2);
+        return Log.e("VivoPush." + str, f37550a + str2);
     }
 
     @Override // com.vivo.push.util.o
     public final int b(String str, String str2) {
-        return Log.w("VivoPush." + str, f39945a + str2);
+        return Log.w("VivoPush." + str, f37550a + str2);
     }
 
     @Override // com.vivo.push.util.o
     public final int c(String str, String str2) {
-        return Log.d("VivoPush." + str, f39945a + str2);
+        return Log.d("VivoPush." + str, f37550a + str2);
     }
 
     @Override // com.vivo.push.util.o
     public final int d(String str, String str2) {
         if (p.a()) {
-            return Log.i("VivoPush." + str, f39945a + str2);
+            return Log.i("VivoPush." + str, f37550a + str2);
         }
         return -1;
     }
@@ -36,7 +36,7 @@ public final class n implements o {
     @Override // com.vivo.push.util.o
     public final int e(String str, String str2) {
         if (p.a()) {
-            return Log.v("VivoPush." + str, f39945a + str2);
+            return Log.v("VivoPush." + str, f37550a + str2);
         }
         return -1;
     }
@@ -49,7 +49,7 @@ public final class n implements o {
     @Override // com.vivo.push.util.o
     public final int b(String str, String str2, Throwable th) {
         if (p.a()) {
-            return Log.i("VivoPush." + str, f39945a + str2, th);
+            return Log.i("VivoPush." + str, f37550a + str2, th);
         }
         return -1;
     }
@@ -70,7 +70,7 @@ public final class n implements o {
 
     @Override // com.vivo.push.util.o
     public final int a(String str, String str2, Throwable th) {
-        return Log.e("VivoPush." + str, f39945a + str2, th);
+        return Log.e("VivoPush." + str, f37550a + str2, th);
     }
 
     @Override // com.vivo.push.util.o
@@ -85,11 +85,11 @@ public final class n implements o {
         }
     }
 
-    private void a(Context context, String str, int i) {
+    private void a(Context context, String str, int i2) {
         com.vivo.push.b.p pVar = new com.vivo.push.b.p();
         pVar.b(str);
-        pVar.a(i);
-        if (i > 0) {
+        pVar.a(i2);
+        if (i2 > 0) {
             d("LogController", str);
         }
         if (z.a(context)) {

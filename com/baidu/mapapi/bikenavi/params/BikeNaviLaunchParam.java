@@ -7,66 +7,66 @@ import com.baidu.platform.comapi.walknavi.e.b;
 public class BikeNaviLaunchParam {
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f6786a;
+    public LatLng f7022a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f6787b;
+    public LatLng f7023b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6788c;
+    public int f7024c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6789d = 0;
+    public int f7025d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6790e;
+    public int f7026e;
 
     public static a create() {
         return new b();
     }
 
-    public BikeNaviLaunchParam endCityCode(int i) {
-        this.f6790e = i;
+    public BikeNaviLaunchParam endCityCode(int i2) {
+        this.f7026e = i2;
         return this;
     }
 
     public BikeNaviLaunchParam endPt(LatLng latLng) {
-        this.f6787b = latLng;
+        this.f7023b = latLng;
         return this;
     }
 
     public int getEndCityCode() {
-        return this.f6790e;
+        return this.f7026e;
     }
 
     public LatLng getEndPt() {
-        return this.f6787b;
+        return this.f7023b;
     }
 
     public int getStartCityCode() {
-        return this.f6788c;
+        return this.f7024c;
     }
 
     public LatLng getStartPt() {
-        return this.f6786a;
+        return this.f7022a;
     }
 
     public int getVehicle() {
-        return this.f6789d;
+        return this.f7025d;
     }
 
-    public BikeNaviLaunchParam stCityCode(int i) {
-        this.f6788c = i;
+    public BikeNaviLaunchParam stCityCode(int i2) {
+        this.f7024c = i2;
         return this;
     }
 
     public BikeNaviLaunchParam stPt(LatLng latLng) {
-        this.f6786a = latLng;
+        this.f7022a = latLng;
         return this;
     }
 
-    public BikeNaviLaunchParam vehicle(int i) {
-        this.f6789d = i;
+    public BikeNaviLaunchParam vehicle(int i2) {
+        this.f7025d = i2;
         return this;
     }
 }

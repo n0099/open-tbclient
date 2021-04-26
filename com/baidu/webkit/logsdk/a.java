@@ -8,10 +8,10 @@ import android.text.TextUtils;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f26649a;
+    public static boolean f27457a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f26650b;
+    public static boolean f27458b;
 
     public static void a(String str, String str2) {
         long currentTimeMillis = System.currentTimeMillis();
@@ -19,19 +19,19 @@ public final class a {
         String c2 = com.baidu.webkit.logsdk.d.c.c(str2 + currentTimeMillis);
         if (!TextUtils.isEmpty(c2)) {
             com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "addLog put key = " + c2);
-            a2.f26665f.put(c2, c2);
+            a2.f27474f.put(c2, c2);
         }
         com.baidu.webkit.logsdk.a.c cVar = new com.baidu.webkit.logsdk.a.c(a2, str, str2, currentTimeMillis, c2);
-        Handler handler = a2.f26663c;
+        Handler handler = a2.f27472c;
         if (handler != null) {
             Message obtainMessage = handler.obtainMessage(1);
             obtainMessage.obj = cVar;
             if (a2.b()) {
-                a2.f26663c.sendMessage(obtainMessage);
+                a2.f27472c.sendMessage(obtainMessage);
                 return;
             }
-            synchronized (com.baidu.webkit.logsdk.a.b.f26659e) {
-                com.baidu.webkit.logsdk.a.b.f26659e.add(obtainMessage);
+            synchronized (com.baidu.webkit.logsdk.a.b.f27468e) {
+                com.baidu.webkit.logsdk.a.b.f27468e.add(obtainMessage);
             }
         }
     }

@@ -43,13 +43,13 @@ public enum hf {
     /* renamed from: a  reason: collision with other field name */
     public final int f469a;
 
-    hf(int i) {
-        this.f469a = i;
+    hf(int i2) {
+        this.f469a = i2;
     }
 
-    public static hf a(int i) {
-        if (i != 200) {
-            switch (i) {
+    public static hf a(int i2) {
+        if (i2 != 200) {
+            switch (i2) {
                 case 1:
                     return Registration;
                 case 2:
@@ -89,7 +89,7 @@ public enum hf {
                 case 19:
                     return ExpandTopicInXmq;
                 default:
-                    switch (i) {
+                    switch (i2) {
                         case 22:
                             return SendMessageNew;
                         case 23:
@@ -97,7 +97,7 @@ public enum hf {
                         case 24:
                             return DeleteInvalidMessage;
                         default:
-                            switch (i) {
+                            switch (i2) {
                                 case 99:
                                     return BadAction;
                                 case 100:
@@ -113,7 +113,7 @@ public enum hf {
                                 case 105:
                                     return BatchMessage;
                                 default:
-                                    switch (i) {
+                                    switch (i2) {
                                         case 107:
                                             return StatCounter;
                                         case 108:
@@ -123,7 +123,7 @@ public enum hf {
                                         case 110:
                                             return UpdateRegistration;
                                         default:
-                                            switch (i) {
+                                            switch (i2) {
                                                 case 112:
                                                     return BatchMessageNew;
                                                 case 113:

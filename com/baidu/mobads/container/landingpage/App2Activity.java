@@ -86,6 +86,7 @@ import com.baidu.mobads.container.util.OpenAppUtils;
 import com.baidu.mobads.container.util.PermissionUtils;
 import com.baidu.mobads.container.util.RemoteCommonUtils;
 import com.baidu.mobads.container.util.RemoteXAdLogger;
+import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.mobads.container.util.ScreenUtils;
 import com.baidu.mobads.container.util.SendLogUtil;
 import com.baidu.mobads.container.video.CpuLpVideoLayout;
@@ -227,9 +228,9 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
             canvas.drawRect(0.0f, 0.0f, (this.mScreenWidth * this.mProgress) / 100, getLayoutParams().height, this.mPaint);
         }
 
-        public void setProgress(int i) {
-            if (i != this.mProgress) {
-                this.mProgress = i;
+        public void setProgress(int i2) {
+            if (i2 != this.mProgress) {
+                this.mProgress = i2;
                 postInvalidate();
             }
         }
@@ -252,9 +253,9 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
     }
 
     public static /* synthetic */ int access$3008(App2Activity app2Activity) {
-        int i = app2Activity.order;
-        app2Activity.order = i + 1;
-        return i;
+        int i2 = app2Activity.order;
+        app2Activity.order = i2 + 1;
+        return i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -305,13 +306,13 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
             this.mLlContainer.addView(this.actionBar, layoutParams2);
             this.cpuLpVideoLayout = new CpuLpVideoLayout(this.mProxyActivity);
             int screenWidth = CommonUtils.getScreenWidth(this.mProxyActivity);
-            int i = (screenWidth * 9) / 16;
-            this.mVideoHeight = i;
-            this.mLlContainer.addView(this.cpuLpVideoLayout, new LinearLayout.LayoutParams(screenWidth, i));
+            int i2 = (screenWidth * 9) / 16;
+            this.mVideoHeight = i2;
+            this.mLlContainer.addView(this.cpuLpVideoLayout, new LinearLayout.LayoutParams(screenWidth, i2));
             if (this.mContentType.equals("video")) {
                 this.cpuLpVideoLayout.setVisibility(0);
                 this.cpuLpVideoLayout.setCoverPic(this.mThumburl);
-                this.mVideoHeight = i;
+                this.mVideoHeight = i2;
             } else {
                 this.cpuLpVideoLayout.setVisibility(8);
                 this.mVideoHeight = 0;
@@ -527,12 +528,12 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
     private String hashMapToString(HashMap<String, String> hashMap) {
         StringBuilder sb = new StringBuilder();
         if (hashMap != null) {
-            int i = 0;
+            int i2 = 0;
             for (String str : hashMap.keySet()) {
                 String str2 = hashMap.get(str);
                 if (!TextUtils.isEmpty(str2)) {
-                    i++;
-                    if (i == 1) {
+                    i2++;
+                    if (i2 == 1) {
                         sb.append(str);
                         sb.append("=");
                         sb.append(str2);
@@ -652,16 +653,16 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
             }
 
             @Override // android.webkit.WebChromeClient
-            public void onProgressChanged(WebView webView, int i) {
+            public void onProgressChanged(WebView webView, int i2) {
                 CustomProgressBar customProgressBar2 = customProgressBar;
                 if (customProgressBar2 != null) {
-                    customProgressBar2.setProgress(i);
-                    if (i > 50) {
+                    customProgressBar2.setProgress(i2);
+                    if (i2 > 50) {
                         App2Activity.this.disposeAnimation();
-                        customProgressBar.setVisibility(i >= 100 ? 4 : 0);
+                        customProgressBar.setVisibility(i2 >= 100 ? 4 : 0);
                     }
                 }
-                if (70 >= i || App2Activity.this.isRecordLpLoad) {
+                if (70 >= i2 || App2Activity.this.isRecordLpLoad) {
                     return;
                 }
                 App2Activity.this.stateEvent(AdStateCode.EVENT_LP_PAGE_LOADED);
@@ -736,7 +737,7 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
                 return (str2.startsWith("blob:") || XMyWebView.isAudioFile(str2) || XMyWebView.isVideoFile(str2)) ? false : true;
             }
 
-            private void sendFinished(String str2, int i) {
+            private void sendFinished(String str2, int i2) {
                 try {
                     App2Activity.this.mLandingPageTrackingInfo.obj = str2;
                     if (App2Activity.this.mLandingPageTrackingInfo.lpWebFinishLoad == 0) {
@@ -1096,15 +1097,15 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
             f3 = -this.mRlViewTop;
             this.mRlViewTop = 0.0f;
         } else if (f2 < 0.0f) {
-            int i = this.mVideoHeight;
-            this.mRlViewTop = -i;
-            f3 = i + this.mRlViewTop;
+            int i2 = this.mVideoHeight;
+            this.mRlViewTop = -i2;
+            f3 = i2 + this.mRlViewTop;
         } else {
             float f4 = this.mRlViewTop;
-            int i2 = this.mVideoHeight;
-            if (f4 < i2 * (-0.25f)) {
-                f3 = f4 + i2;
-                this.mRlViewTop = -i2;
+            int i3 = this.mVideoHeight;
+            if (f4 < i3 * (-0.25f)) {
+                f3 = f4 + i3;
+                this.mRlViewTop = -i3;
             } else {
                 f3 = -f4;
                 this.mRlViewTop = 0.0f;
@@ -1147,14 +1148,14 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
                     }
                 }
                 hashMap.put("info", str);
-                SendLogUtil.sendExpLpLog(this.mProxyActivity, 703, hashMap);
+                SendLogUtil.sendExpLpLog(this.mProxyActivity, SDKLogTypeConstants.TYPE_LP_LIFE_CIRCLE, hashMap);
             }
         } catch (Exception unused2) {
         }
     }
 
-    public static void setActionBarColor(int i, int i2, int i3, int i4) {
-        mSActionBarColorTheme = new ActionBarColorTheme(i, i2, i3, i4);
+    public static void setActionBarColor(int i2, int i3, int i4, int i5) {
+        mSActionBarColorTheme = new ActionBarColorTheme(i2, i3, i4, i5);
     }
 
     public static void setActionBarColorTheme(ActionBarColorTheme actionBarColorTheme) {
@@ -1429,7 +1430,7 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl
@@ -1583,9 +1584,9 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
         XAdRemoteLandingPageTrackingInfo xAdRemoteLandingPageTrackingInfo = this.mLandingPageTrackingInfo;
         if (xAdRemoteLandingPageTrackingInfo != null) {
             xAdRemoteLandingPageTrackingInfo.obj = this.closeCause;
-            int i = this.order;
-            this.order = i + 1;
-            xAdRemoteLandingPageTrackingInfo.order = i;
+            int i2 = this.order;
+            this.order = i2 + 1;
+            xAdRemoteLandingPageTrackingInfo.order = i2;
             XMyWebView xMyWebView = this.curWebview;
             xAdRemoteLandingPageTrackingInfo.height = xMyWebView != null ? xMyWebView.getContentHeight() : 0;
             XAdRemoteLandingPageTrackingInfo xAdRemoteLandingPageTrackingInfo2 = this.mLandingPageTrackingInfo;
@@ -1630,13 +1631,13 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         try {
         } catch (Exception e2) {
             this.mAdLogger.d(TAG, e2.getMessage());
         }
-        if (i != 4) {
-            if (i == 46) {
+        if (i2 != 4) {
+            if (i2 == 46) {
                 this.curWebview.reload();
                 return true;
             }
@@ -1669,7 +1670,7 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
         return false;
     }
 
@@ -1834,7 +1835,7 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl
-    public void overridePendingTransition(int i, int i2) {
+    public void overridePendingTransition(int i2, int i3) {
     }
 
     @TargetApi(12)
@@ -1982,11 +1983,11 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
         public static final ActionBarColorTheme ACTION_BAR_COFFEE_THEME = new ActionBarColorTheme(-1, -1, -12510, -11255230);
         public static final ActionBarColorTheme ACTION_BAR_BLACK_THEME = new ActionBarColorTheme(-1, -1, -12510, -13749450);
 
-        public ActionBarColorTheme(int i, int i2, int i3, int i4) {
-            this.closeColor = i;
-            this.titleColor = i2;
-            this.progressColor = i3;
-            this.backgroundColor = i4;
+        public ActionBarColorTheme(int i2, int i3, int i4, int i5) {
+            this.closeColor = i2;
+            this.titleColor = i3;
+            this.progressColor = i4;
+            this.backgroundColor = i5;
         }
 
         public boolean equals(Object obj) {
@@ -2010,20 +2011,20 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
             return this.titleColor;
         }
 
-        public void setBackgroundColor(int i) {
-            this.backgroundColor = i;
+        public void setBackgroundColor(int i2) {
+            this.backgroundColor = i2;
         }
 
-        public void setCloseColor(int i) {
-            this.closeColor = i;
+        public void setCloseColor(int i2) {
+            this.closeColor = i2;
         }
 
-        public void setProgressColor(int i) {
-            this.progressColor = i;
+        public void setProgressColor(int i2) {
+            this.progressColor = i2;
         }
 
-        public void setTitleColor(int i) {
-            this.titleColor = i;
+        public void setTitleColor(int i2) {
+            this.titleColor = i2;
         }
 
         public ActionBarColorTheme(ActionBarColorTheme actionBarColorTheme) {

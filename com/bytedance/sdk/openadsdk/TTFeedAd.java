@@ -12,7 +12,7 @@ public interface TTFeedAd extends TTNativeAd {
 
         void reportVideoContinue(long j);
 
-        void reportVideoError(long j, int i, int i2);
+        void reportVideoError(long j, int i2, int i3);
 
         void reportVideoFinish();
 
@@ -20,7 +20,7 @@ public interface TTFeedAd extends TTNativeAd {
 
         void reportVideoStart();
 
-        void reportVideoStartError(int i, int i2);
+        void reportVideoStartError(int i2, int i3);
     }
 
     /* loaded from: classes5.dex */
@@ -35,7 +35,7 @@ public interface TTFeedAd extends TTNativeAd {
 
         void onVideoAdStartPlay(TTFeedAd tTFeedAd);
 
-        void onVideoError(int i, int i2);
+        void onVideoError(int i2, int i3);
 
         void onVideoLoad(TTFeedAd tTFeedAd);
     }

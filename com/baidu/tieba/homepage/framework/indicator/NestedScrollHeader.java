@@ -34,24 +34,26 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.google.android.material.appbar.AppBarLayout;
-import d.b.i0.t.k;
-import d.b.j0.d3.h0.m;
+import d.a.i0.t.k;
+import d.a.j0.d3.h0.m;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class NestedScrollHeader extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public PublishButton f16764e;
+    public PublishButton f17021e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f16765f;
+    public TbImageView f17022f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16766g;
+    public TextView f17023g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f16767h;
-    public Bitmap i;
+    public f f17024h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Bitmap f17025i;
     public float j;
     public ImageView k;
     public Context l;
@@ -79,39 +81,39 @@ public class NestedScrollHeader extends RelativeLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends d.b.c.e.l.c<d.b.c.j.d.a> {
+    public class b extends d.a.c.e.l.c<d.a.c.j.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f16769a;
+        public final /* synthetic */ String f17027a;
 
         public b(String str) {
-            this.f16769a = str;
+            this.f17027a = str;
         }
 
-        @Override // d.b.c.e.l.c
+        @Override // d.a.c.e.l.c
         public void onCancelled(String str) {
             super.onCancelled(str);
         }
 
-        @Override // d.b.c.e.l.c
+        @Override // d.a.c.e.l.c
         public void onProgressUpdate(Object... objArr) {
             super.onProgressUpdate(objArr);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.c.e.l.c
-        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
-            super.onLoaded((b) aVar, str, i);
+        @Override // d.a.c.e.l.c
+        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+            super.onLoaded((b) aVar, str, i2);
             if (aVar == null || aVar.p() == null || aVar.p().isRecycled()) {
-                NestedScrollHeader.this.i = null;
-                NestedScrollHeader.this.f16765f.setImageResource(R.drawable.icon_mask_coin44);
-                NestedScrollHeader.this.f16765f.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
+                NestedScrollHeader.this.f17025i = null;
+                NestedScrollHeader.this.f17022f.setImageResource(R.drawable.icon_mask_coin44);
+                NestedScrollHeader.this.f17022f.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
                 return;
             }
-            NestedScrollHeader.this.i = aVar.p();
-            NestedScrollHeader.this.f16765f.setImageBitmap(NestedScrollHeader.this.i);
-            NestedScrollHeader.this.f16765f.setTag(R.id.homepage_mission_entrance_url, this.f16769a);
-            NestedScrollHeader.this.f16765f.invalidate();
+            NestedScrollHeader.this.f17025i = aVar.p();
+            NestedScrollHeader.this.f17022f.setImageBitmap(NestedScrollHeader.this.f17025i);
+            NestedScrollHeader.this.f17022f.setTag(R.id.homepage_mission_entrance_url, this.f17027a);
+            NestedScrollHeader.this.f17022f.invalidate();
         }
     }
 
@@ -123,28 +125,35 @@ public class NestedScrollHeader extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             try {
-                if (NestedScrollHeader.this.f16765f == view) {
-                    Object tag = NestedScrollHeader.this.f16765f.getTag(R.id.homepage_mission_entrance_url);
+                if (NestedScrollHeader.this.f17022f == view) {
+                    Object tag = NestedScrollHeader.this.f17022f.getTag(R.id.homepage_mission_entrance_url);
                     if (tag instanceof String) {
                         String str = (String) tag;
                         if (TextUtils.isEmpty(str)) {
                             return;
                         }
-                        if (NestedScrollHeader.this.f16767h != null) {
-                            NestedScrollHeader.this.f16767h.a(str);
+                        if (NestedScrollHeader.this.f17024h != null) {
+                            NestedScrollHeader.this.f17024h.a(str);
                         }
-                        NestedScrollHeader.this.n();
+                        NestedScrollHeader.this.o();
                     }
-                } else if (NestedScrollHeader.this.f16766g != view) {
-                    if (NestedScrollHeader.this.f16764e != view) {
+                } else if (NestedScrollHeader.this.f17023g != view) {
+                    if (NestedScrollHeader.this.f17021e != view) {
                         if (NestedScrollHeader.this.k == view) {
                             HashMap hashMap = new HashMap();
+                            String str2 = "1";
                             hashMap.put("open_flag", NestedScrollHeader.this.n ? "1" : "2");
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(NestedScrollHeader.this.l, "GameCenterListPage", hashMap)));
                             if (NestedScrollHeader.this.m != null) {
                                 NestedScrollHeader.this.m.setVisibility(4);
-                                d.b.i0.r.d0.b.j().t("key_home_game_center_entrance_rot", true);
+                                d.a.i0.r.d0.b.j().t("key_home_game_center_entrance_rot", true);
                             }
+                            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_RECOMMEND_GAMECENTER);
+                            if (!NestedScrollHeader.this.n) {
+                                str2 = "2";
+                            }
+                            TiebaStatic.log(statisticItem.param("obj_type", str2));
+                            NestedScrollHeader.this.n = true;
                         }
                     } else if (WriteActivityConfig.isAsyncWriting()) {
                     } else {
@@ -162,8 +171,8 @@ public class NestedScrollHeader extends RelativeLayout {
 
     /* loaded from: classes4.dex */
     public class d extends CustomMessageListener {
-        public d(int i) {
-            super(i);
+        public d(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -175,15 +184,15 @@ public class NestedScrollHeader extends RelativeLayout {
 
     /* loaded from: classes4.dex */
     public class e extends CustomMessageListener {
-        public e(int i) {
-            super(i);
+        public e(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && NestedScrollHeader.this.f16765f.getVisibility() == 0) {
-                NestedScrollHeader.this.p();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && NestedScrollHeader.this.f17022f.getVisibility() == 0) {
+                NestedScrollHeader.this.q();
             }
         }
     }
@@ -198,69 +207,50 @@ public class NestedScrollHeader extends RelativeLayout {
     }
 
     public ImageView getTaskView() {
-        return this.f16765f;
+        return this.f17022f;
     }
 
-    public final void m(Context context) {
+    public final void n(Context context) {
         this.l = context;
         LayoutInflater.from(context).inflate(R.layout.layout_presenlize_scroll_header, (ViewGroup) this, true);
-        this.f16764e = (PublishButton) findViewById(R.id.publish_btn);
-        this.f16765f = (TbImageView) findViewById(R.id.task);
-        this.f16766g = (TextView) findViewById(R.id.search);
+        this.f17021e = (PublishButton) findViewById(R.id.publish_btn);
+        this.f17022f = (TbImageView) findViewById(R.id.task);
+        this.f17023g = (TextView) findViewById(R.id.search);
         this.k = (ImageView) findViewById(R.id.game_center);
         this.m = (MessageRedDotView) findViewById(R.id.game_center_rot);
-        this.f16764e.setOnClickListener(this.o);
-        this.f16765f.setOnClickListener(this.o);
-        this.f16766g.setOnClickListener(this.o);
+        this.f17021e.setOnClickListener(this.o);
+        this.f17022f.setOnClickListener(this.o);
+        this.f17023g.setOnClickListener(this.o);
         this.k.setOnClickListener(this.o);
         this.m.f(0);
-        boolean g2 = d.b.i0.r.d0.b.j().g("key_home_game_center_entrance_rot", false);
+        if (TbSingleton.getInstance().isAuditPackageSwitchOn()) {
+            this.k.setVisibility(0);
+            this.m.setVisibility(0);
+        } else {
+            this.k.setVisibility(8);
+            this.m.setVisibility(8);
+        }
+        boolean g2 = d.a.i0.r.d0.b.j().g("key_home_game_center_entrance_rot", false);
         this.n = g2;
         if (g2) {
             this.m.setVisibility(8);
-        } else {
+        } else if (TbSingleton.getInstance().isAuditPackageSwitchOn()) {
             this.m.setVisibility(0);
         }
         MessageManager.getInstance().registerListener(this.p);
         MessageManager.getInstance().registerListener(this.q);
         getViewTreeObserver().addOnGlobalLayoutListener(new a());
+        q();
         p();
-        o();
     }
 
-    public final void n() {
+    public final void o() {
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_TASK_ENTRANCE);
         statisticItem.param("obj_type", 2);
         statisticItem.param("obj_locate", 1);
         statisticItem.param("ab_tag", TbSingleton.getInstance().getHomePageStyleAbTest());
         statisticItem.param("obj_source", TbSingleton.getInstance().getMissionEntranceObjSource());
         TiebaStatic.log(statisticItem);
-    }
-
-    public void o() {
-        d.b.i0.r.u.c d2 = d.b.i0.r.u.c.d(this.f16766g);
-        d2.q(R.color.CAM_X0109);
-        d2.k(R.string.J_X01);
-        d2.f(R.color.CAM_X0210);
-        SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - this.j, TbadkCoreApplication.getInst().getSkinType());
-        WebPManager.setMaskDrawable(this.k, R.drawable.icon_home_new_games, WebPManager.ResourceStateType.NORMAL);
-        MessageRedDotView messageRedDotView = this.m;
-        if (messageRedDotView != null) {
-            messageRedDotView.e();
-        }
-        Bitmap bitmap = this.i;
-        if (bitmap == null) {
-            SkinManager.setImageResource(this.f16765f, R.drawable.icon_mask_coin44);
-        } else {
-            TbImageView tbImageView = this.f16765f;
-            if (tbImageView != null) {
-                tbImageView.setImageBitmap(bitmap);
-            }
-        }
-        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_search_import16, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL);
-        pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
-        this.f16766g.setCompoundDrawables(pureDrawable, null, null, null);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -277,26 +267,52 @@ public class NestedScrollHeader extends RelativeLayout {
         MessageManager.getInstance().unRegisterListener(this.q);
     }
 
-    public final void p() {
+    public void p() {
+        d.a.i0.r.u.c d2 = d.a.i0.r.u.c.d(this.f17023g);
+        d2.q(R.color.CAM_X0109);
+        d2.k(R.string.J_X01);
+        d2.f(R.color.CAM_X0210);
+        SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - this.j, TbadkCoreApplication.getInst().getSkinType());
+        WebPManager.setMaskDrawable(this.k, R.drawable.icon_home_new_games, WebPManager.ResourceStateType.NORMAL);
+        MessageRedDotView messageRedDotView = this.m;
+        if (messageRedDotView != null) {
+            messageRedDotView.e();
+        }
+        Bitmap bitmap = this.f17025i;
+        if (bitmap == null) {
+            SkinManager.setImageResource(this.f17022f, R.drawable.icon_mask_coin44);
+        } else {
+            TbImageView tbImageView = this.f17022f;
+            if (tbImageView != null) {
+                tbImageView.setImageBitmap(bitmap);
+            }
+        }
+        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_search_import16, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL);
+        pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
+        this.f17023g.setCompoundDrawables(pureDrawable, null, null, null);
+    }
+
+    public final void q() {
         String missionEntranceUrl = TbSingleton.getInstance().getMissionEntranceUrl();
         String missionEntranceIcon = TbSingleton.getInstance().getMissionEntranceIcon();
         if (!TextUtils.isEmpty(missionEntranceUrl) && !TextUtils.isEmpty(missionEntranceIcon)) {
-            d.b.c.e.l.d.h().m(missionEntranceIcon, 10, new b(missionEntranceUrl), null);
+            d.a.c.e.l.d.h().m(missionEntranceIcon, 10, new b(missionEntranceUrl), null);
             return;
         }
-        this.i = null;
-        this.f16765f.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
-        this.f16765f.setImageResource(R.drawable.icon_mask_coin44);
+        this.f17025i = null;
+        this.f17022f.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
+        this.f17022f.setImageResource(R.drawable.icon_mask_coin44);
     }
 
-    public void q(float f2) {
+    public void r(float f2) {
         if (f2 < 0.0f || f2 > 1.0f) {
             return;
         }
         this.j = f2;
         SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - f2, TbadkCoreApplication.getInst().getSkinType());
-        if (this.f16765f.getVisibility() == 0 && this.f16765f.getAlpha() != f2) {
-            this.f16765f.setAlpha(f2);
+        if (this.f17022f.getVisibility() == 0 && this.f17022f.getAlpha() != f2) {
+            this.f17022f.setAlpha(f2);
         }
         if (this.k.getVisibility() == 0 && this.k.getAlpha() != f2) {
             this.k.setAlpha(f2);
@@ -304,37 +320,37 @@ public class NestedScrollHeader extends RelativeLayout {
         if (this.m.getVisibility() == 0 && this.m.getAlpha() != f2) {
             this.m.setAlpha(f2);
         }
-        if (this.f16766g.getAlpha() != f2) {
-            this.f16766g.setAlpha(f2);
+        if (this.f17023g.getAlpha() != f2) {
+            this.f17023g.setAlpha(f2);
         }
-        if (this.f16764e.getVisibility() != 0 || this.f16764e.getAlpha() == f2) {
+        if (this.f17021e.getVisibility() != 0 || this.f17021e.getAlpha() == f2) {
             return;
         }
-        this.f16764e.setAlpha(f2);
-        this.f16764e.setScrollAlpha(f2);
+        this.f17021e.setAlpha(f2);
+        this.f17021e.setScrollAlpha(f2);
     }
 
     public void setEntranceJumpListener(f fVar) {
-        this.f16767h = fVar;
+        this.f17024h = fVar;
     }
 
     public void setSearchHint(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f16766g.setText(str);
+        this.f17023g.setText(str);
     }
 
     public NestedScrollHeader(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public NestedScrollHeader(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public NestedScrollHeader(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.j = 1.0f;
         this.o = new c();
         this.p = new d(2921396);
         this.q = new e(2001371);
-        m(context);
+        n(context);
     }
 }

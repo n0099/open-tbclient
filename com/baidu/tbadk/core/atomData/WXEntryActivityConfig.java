@@ -11,9 +11,9 @@ public class WXEntryActivityConfig extends IntentConfig {
     public static final String WX_SHARE_FAIL = "wx_share_fail";
     public static final String WX_SHARE_SUCCESS = "wx_share_success";
 
-    public WXEntryActivityConfig(Context context, int i) {
+    public WXEntryActivityConfig(Context context, int i2) {
         super(context);
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i);
+        setRequestCode(i2);
     }
 }

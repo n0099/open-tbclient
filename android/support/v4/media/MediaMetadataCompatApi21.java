@@ -65,7 +65,7 @@ public class MediaMetadataCompatApi21 {
         return ((MediaMetadata) obj).keySet();
     }
 
-    public static void writeToParcel(Object obj, Parcel parcel, int i) {
-        ((MediaMetadata) obj).writeToParcel(parcel, i);
+    public static void writeToParcel(Object obj, Parcel parcel, int i2) {
+        ((MediaMetadata) obj).writeToParcel(parcel, i2);
     }
 }

@@ -5,10 +5,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface IAudioListener extends IInterface {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static abstract class Stub extends Binder implements IAudioListener {
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IAudioListener";
         public static final int TRANSACTION_onCanPlay = 1;
@@ -25,7 +25,7 @@ public interface IAudioListener extends IInterface {
         public static final int TRANSACTION_onStop = 4;
         public static final int TRANSACTION_onTimeUpdate = 7;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static class Proxy implements IAudioListener {
             public IBinder mRemote;
 
@@ -72,12 +72,12 @@ public interface IAudioListener extends IInterface {
             }
 
             @Override // com.baidu.swan.apps.IAudioListener
-            public void onDownloadProgress(int i) throws RemoteException {
+            public void onDownloadProgress(int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    obtain.writeInt(i);
+                    obtain.writeInt(i2);
                     this.mRemote.transact(9, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
@@ -101,12 +101,12 @@ public interface IAudioListener extends IInterface {
             }
 
             @Override // com.baidu.swan.apps.IAudioListener
-            public void onError(int i) throws RemoteException {
+            public void onError(int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    obtain.writeInt(i);
+                    obtain.writeInt(i2);
                     this.mRemote.transact(8, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
@@ -214,13 +214,13 @@ public interface IAudioListener extends IInterface {
             }
 
             @Override // com.baidu.swan.apps.IAudioListener
-            public void onTimeUpdate(int i, int i2) throws RemoteException {
+            public void onTimeUpdate(int i2, int i3) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    obtain.writeInt(i);
                     obtain.writeInt(i2);
+                    obtain.writeInt(i3);
                     this.mRemote.transact(7, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
@@ -251,9 +251,9 @@ public interface IAudioListener extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i != 1598968902) {
-                switch (i) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 != 1598968902) {
+                switch (i2) {
                     case 1:
                         parcel.enforceInterface(DESCRIPTOR);
                         onCanPlay();
@@ -320,7 +320,7 @@ public interface IAudioListener extends IInterface {
                         parcel2.writeNoException();
                         return true;
                     default:
-                        return super.onTransact(i, parcel, parcel2, i2);
+                        return super.onTransact(i2, parcel, parcel2, i3);
                 }
             }
             parcel2.writeString(DESCRIPTOR);
@@ -332,11 +332,11 @@ public interface IAudioListener extends IInterface {
 
     void onChangeSrc(String str) throws RemoteException;
 
-    void onDownloadProgress(int i) throws RemoteException;
+    void onDownloadProgress(int i2) throws RemoteException;
 
     void onEnded() throws RemoteException;
 
-    void onError(int i) throws RemoteException;
+    void onError(int i2) throws RemoteException;
 
     void onNext() throws RemoteException;
 
@@ -352,5 +352,5 @@ public interface IAudioListener extends IInterface {
 
     void onStop() throws RemoteException;
 
-    void onTimeUpdate(int i, int i2) throws RemoteException;
+    void onTimeUpdate(int i2, int i3) throws RemoteException;
 }

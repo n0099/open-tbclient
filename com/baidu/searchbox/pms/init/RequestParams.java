@@ -14,6 +14,7 @@ import org.json.JSONObject;
 public class RequestParams {
     public List<Channel> channelList;
     public JSONObject filter;
+    public String runNode;
     public String runType;
 
     public RequestParams addChannel(Channel channel) {
@@ -31,13 +32,13 @@ public class RequestParams {
             if (this.channelList == null) {
                 this.channelList = new ArrayList();
             }
-            for (int i = 0; i < this.channelList.size(); i++) {
-                Channel channel2 = this.channelList.get(i);
+            for (int i2 = 0; i2 < this.channelList.size(); i2++) {
+                Channel channel2 = this.channelList.get(i2);
                 if (TextUtils.equals(channel2.channelId, channel.channelId)) {
                     if (PmsConstant.DEBUG) {
                         throw new RuntimeException("请求任务channelId不能重复" + channel2.channelId + "," + channel.channelId);
                     }
-                    this.channelList.set(i, channel2);
+                    this.channelList.set(i2, channel2);
                     return this;
                 }
             }
@@ -54,12 +55,21 @@ public class RequestParams {
         return this.filter;
     }
 
+    public String getRunNode() {
+        return this.runNode;
+    }
+
     public String getRunType() {
         return this.runType;
     }
 
     public RequestParams setFilter(JSONObject jSONObject) {
         this.filter = jSONObject;
+        return this;
+    }
+
+    public RequestParams setRunNode(String str) {
+        this.runNode = str;
         return this;
     }
 

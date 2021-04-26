@@ -170,8 +170,8 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         }
     }
 
-    public static int computeElementSize(WireFormat.FieldType fieldType, int i, Object obj) {
-        int computeTagSize = CodedOutputStream.computeTagSize(i);
+    public static int computeElementSize(WireFormat.FieldType fieldType, int i2, Object obj) {
+        int computeTagSize = CodedOutputStream.computeTagSize(i2);
         if (fieldType == WireFormat.FieldType.GROUP) {
             computeTagSize *= 2;
         }
@@ -228,17 +228,17 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         WireFormat.FieldType liteType = fieldDescriptorLite.getLiteType();
         int number = fieldDescriptorLite.getNumber();
         if (fieldDescriptorLite.isRepeated()) {
-            int i = 0;
+            int i2 = 0;
             if (fieldDescriptorLite.isPacked()) {
                 for (Object obj2 : (List) obj) {
-                    i += computeElementSizeNoTag(liteType, obj2);
+                    i2 += computeElementSizeNoTag(liteType, obj2);
                 }
-                return CodedOutputStream.computeTagSize(number) + i + CodedOutputStream.computeRawVarint32Size(i);
+                return CodedOutputStream.computeTagSize(number) + i2 + CodedOutputStream.computeRawVarint32Size(i2);
             }
             for (Object obj3 : (List) obj) {
-                i += computeElementSize(liteType, number, obj3);
+                i2 += computeElementSize(liteType, number, obj3);
             }
-            return i;
+            return i2;
         }
         return computeElementSize(liteType, number, obj);
     }
@@ -369,12 +369,12 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         throw null;
     }
 
-    public static void writeElement(CodedOutputStream codedOutputStream, WireFormat.FieldType fieldType, int i, Object obj) throws IOException {
+    public static void writeElement(CodedOutputStream codedOutputStream, WireFormat.FieldType fieldType, int i2, Object obj) throws IOException {
         if (fieldType == WireFormat.FieldType.GROUP) {
-            codedOutputStream.writeGroup(i, (MessageLite) obj);
+            codedOutputStream.writeGroup(i2, (MessageLite) obj);
             return;
         }
-        codedOutputStream.writeTag(i, getWireFormatForFieldType(fieldType, false));
+        codedOutputStream.writeTag(i2, getWireFormatForFieldType(fieldType, false));
         writeElementNoTag(codedOutputStream, fieldType, obj);
     }
 
@@ -446,11 +446,11 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
             List<Object> list = (List) obj;
             if (fieldDescriptorLite.isPacked()) {
                 codedOutputStream.writeTag(number, 2);
-                int i = 0;
+                int i2 = 0;
                 for (Object obj2 : list) {
-                    i += computeElementSizeNoTag(liteType, obj2);
+                    i2 += computeElementSizeNoTag(liteType, obj2);
                 }
-                codedOutputStream.writeRawVarint32(i);
+                codedOutputStream.writeRawVarint32(i2);
                 for (Object obj3 : list) {
                     writeElementNoTag(codedOutputStream, liteType, obj3);
                 }
@@ -500,8 +500,8 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
             return this.fields.isImmutable() ? this.fields : Collections.unmodifiableMap(this.fields);
         }
         SmallSortedMap newFieldMap = SmallSortedMap.newFieldMap(16);
-        for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
-            cloneFieldEntry(newFieldMap, this.fields.getArrayEntryAt(i));
+        for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
+            cloneFieldEntry(newFieldMap, this.fields.getArrayEntryAt(i2));
         }
         for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
             cloneFieldEntry(newFieldMap, entry);
@@ -518,21 +518,21 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     }
 
     public int getMessageSetSerializedSize() {
-        int i = 0;
-        for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
-            i += getMessageSetSerializedSize(this.fields.getArrayEntryAt(i2));
+        int i2 = 0;
+        for (int i3 = 0; i3 < this.fields.getNumArrayEntries(); i3++) {
+            i2 += getMessageSetSerializedSize(this.fields.getArrayEntryAt(i3));
         }
         for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
-            i += getMessageSetSerializedSize(entry);
+            i2 += getMessageSetSerializedSize(entry);
         }
-        return i;
+        return i2;
     }
 
-    public Object getRepeatedField(FieldDescriptorType fielddescriptortype, int i) {
+    public Object getRepeatedField(FieldDescriptorType fielddescriptortype, int i2) {
         if (fielddescriptortype.isRepeated()) {
             Object field = getField(fielddescriptortype);
             if (field != null) {
-                return ((List) field).get(i);
+                return ((List) field).get(i2);
             }
             throw new IndexOutOfBoundsException();
         }
@@ -551,15 +551,15 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     }
 
     public int getSerializedSize() {
-        int i = 0;
-        for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
-            Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i2);
-            i += computeFieldSize(arrayEntryAt.getKey(), arrayEntryAt.getValue());
+        int i2 = 0;
+        for (int i3 = 0; i3 < this.fields.getNumArrayEntries(); i3++) {
+            Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i3);
+            i2 += computeFieldSize(arrayEntryAt.getKey(), arrayEntryAt.getValue());
         }
         for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
-            i += computeFieldSize(entry.getKey(), entry.getValue());
+            i2 += computeFieldSize(entry.getKey(), entry.getValue());
         }
-        return i;
+        return i2;
     }
 
     public boolean hasField(FieldDescriptorType fielddescriptortype) {
@@ -574,8 +574,8 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     }
 
     public boolean isInitialized() {
-        for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
-            if (!isInitialized(this.fields.getArrayEntryAt(i))) {
+        for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
+            if (!isInitialized(this.fields.getArrayEntryAt(i2))) {
                 return false;
             }
         }
@@ -603,8 +603,8 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     }
 
     public void mergeFrom(FieldSet<FieldDescriptorType> fieldSet) {
-        for (int i = 0; i < fieldSet.fields.getNumArrayEntries(); i++) {
-            mergeFromField(fieldSet.fields.getArrayEntryAt(i));
+        for (int i2 = 0; i2 < fieldSet.fields.getNumArrayEntries(); i2++) {
+            mergeFromField(fieldSet.fields.getArrayEntryAt(i2));
         }
         for (Map.Entry<FieldDescriptorType, Object> entry : fieldSet.fields.getOverflowEntries()) {
             mergeFromField(entry);
@@ -632,12 +632,12 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         this.fields.put((SmallSortedMap<FieldDescriptorType, Object>) fielddescriptortype, (FieldDescriptorType) obj);
     }
 
-    public void setRepeatedField(FieldDescriptorType fielddescriptortype, int i, Object obj) {
+    public void setRepeatedField(FieldDescriptorType fielddescriptortype, int i2, Object obj) {
         if (fielddescriptortype.isRepeated()) {
             Object field = getField(fielddescriptortype);
             if (field != null) {
                 verifyType(fielddescriptortype.getLiteType(), obj);
-                ((List) field).set(i, obj);
+                ((List) field).set(i2, obj);
                 return;
             }
             throw new IndexOutOfBoundsException();
@@ -646,8 +646,8 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     }
 
     public void writeMessageSetTo(CodedOutputStream codedOutputStream) throws IOException {
-        for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
-            writeMessageSetTo(this.fields.getArrayEntryAt(i), codedOutputStream);
+        for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
+            writeMessageSetTo(this.fields.getArrayEntryAt(i2), codedOutputStream);
         }
         for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
             writeMessageSetTo(entry, codedOutputStream);
@@ -655,8 +655,8 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     }
 
     public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
-        for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
-            Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i);
+        for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
+            Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i2);
             writeField(arrayEntryAt.getKey(), arrayEntryAt.getValue(), codedOutputStream);
         }
         for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
@@ -666,10 +666,10 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public FieldSet<FieldDescriptorType> m39clone() {
+    public FieldSet<FieldDescriptorType> m41clone() {
         FieldSet<FieldDescriptorType> newFieldSet = newFieldSet();
-        for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
-            Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i);
+        for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
+            Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i2);
             newFieldSet.setField(arrayEntryAt.getKey(), arrayEntryAt.getValue());
         }
         for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {

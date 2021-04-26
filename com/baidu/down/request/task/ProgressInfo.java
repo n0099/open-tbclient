@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ProgressInfo {
     public static final boolean DEBUG = false;
     public static final String JSON_KEY_BEGIN = "begin";
@@ -17,7 +17,7 @@ public class ProgressInfo {
     public int mCurrentLength;
     public List<Segment> mSegments;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class HandleProgressException extends RuntimeException {
         public static final long serialVersionUID = -1207561809132867949L;
 
@@ -26,7 +26,7 @@ public class ProgressInfo {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class Segment {
         public long begin;
         public long current;
@@ -51,14 +51,14 @@ public class ProgressInfo {
         this.mSegments.add(new Segment(j, j2));
     }
 
-    public synchronized List<Segment> balanceSegment(int i, long j) {
+    public synchronized List<Segment> balanceSegment(int i2, long j) {
         ArrayList arrayList;
-        int i2;
+        int i3;
         ArrayList arrayList2 = new ArrayList();
         arrayList = new ArrayList();
         Iterator<Segment> it = this.mSegments.iterator();
         while (true) {
-            i2 = 0;
+            i3 = 0;
             if (!it.hasNext()) {
                 break;
             }
@@ -76,13 +76,13 @@ public class ProgressInfo {
                 }
             }
         }
-        if (arrayList2.size() < i) {
+        if (arrayList2.size() < i2) {
             int size = arrayList2.size();
-            while (size < i) {
-                if (i2 >= arrayList2.size()) {
+            while (size < i2) {
+                if (i3 >= arrayList2.size()) {
                     break;
                 }
-                Segment segment2 = (Segment) arrayList2.get(i2);
+                Segment segment2 = (Segment) arrayList2.get(i3);
                 long j2 = (segment2.end - segment2.current) / 2;
                 if (j2 <= j) {
                     break;
@@ -93,7 +93,7 @@ public class ProgressInfo {
                 this.mSegments.add(segment3);
                 arrayList.add(segment3);
                 size++;
-                i2++;
+                i3++;
             }
         }
         return arrayList;
@@ -145,14 +145,14 @@ public class ProgressInfo {
         return this.mSegments;
     }
 
-    public boolean leftSegmentIsNeedMultiSrc(int i, long j) {
-        int i2 = 0;
+    public boolean leftSegmentIsNeedMultiSrc(int i2, long j) {
+        int i3 = 0;
         for (Segment segment : this.mSegments) {
             if (segment.end - segment.current > j) {
-                i2++;
+                i3++;
             }
         }
-        return i2 >= i;
+        return i3 >= i2;
     }
 
     public String toString() {
@@ -200,8 +200,8 @@ public class ProgressInfo {
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                JSONObject jSONObject = jSONArray.getJSONObject(i2);
                 Segment segment = new Segment(jSONObject.getLong(JSON_KEY_BEGIN), jSONObject.getLong(JSON_KEY_END));
                 long j = jSONObject.getLong(JSON_KEY_CURRENT);
                 segment.current = j;

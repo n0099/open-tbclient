@@ -7,10 +7,10 @@ import java.util.Comparator;
 public class ContactInfo implements Comparator<ContactInfo> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24813a;
+    public String f25577a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24814b;
+    public String f25578b;
 
     /* loaded from: classes5.dex */
     public static class Phone implements Serializable {
@@ -18,8 +18,8 @@ public class ContactInfo implements Comparator<ContactInfo> {
         public int type;
 
         public String getTypeName() {
-            int i = this.type;
-            return i != 0 ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 10 ? i != 12 ? "其他" : "主机" : "公司总机" : "家庭传真" : "工作传真" : "工作" : "手机" : "住宅" : "自定义";
+            int i2 = this.type;
+            return i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? i2 != 10 ? i2 != 12 ? "其他" : "主机" : "公司总机" : "家庭传真" : "工作传真" : "工作" : "手机" : "住宅" : "自定义";
         }
     }
 
@@ -35,30 +35,30 @@ public class ContactInfo implements Comparator<ContactInfo> {
         } else if (contactInfo2 == null) {
             return contactInfo == null ? 0 : -1;
         } else {
-            contactInfo.f24814b = a(contactInfo.f24813a);
-            contactInfo2.f24814b = a(contactInfo2.f24813a);
-            if (TextUtils.isEmpty(contactInfo.f24814b) && TextUtils.isEmpty(contactInfo2.f24814b)) {
+            contactInfo.f25578b = a(contactInfo.f25577a);
+            contactInfo2.f25578b = a(contactInfo2.f25577a);
+            if (TextUtils.isEmpty(contactInfo.f25578b) && TextUtils.isEmpty(contactInfo2.f25578b)) {
                 return 0;
             }
-            if (TextUtils.isEmpty(contactInfo.f24814b)) {
-                return !TextUtils.isEmpty(contactInfo2.f24814b) ? 1 : 0;
+            if (TextUtils.isEmpty(contactInfo.f25578b)) {
+                return !TextUtils.isEmpty(contactInfo2.f25578b) ? 1 : 0;
             }
-            if (TextUtils.isEmpty(contactInfo2.f24814b)) {
-                return TextUtils.isEmpty(contactInfo.f24814b) ? 0 : -1;
+            if (TextUtils.isEmpty(contactInfo2.f25578b)) {
+                return TextUtils.isEmpty(contactInfo.f25578b) ? 0 : -1;
             }
-            contactInfo.f24814b = contactInfo.f24814b.toUpperCase();
-            String upperCase = contactInfo2.f24814b.toUpperCase();
-            contactInfo2.f24814b = upperCase;
-            if (contactInfo.f24814b.equals(upperCase)) {
+            contactInfo.f25578b = contactInfo.f25578b.toUpperCase();
+            String upperCase = contactInfo2.f25578b.toUpperCase();
+            contactInfo2.f25578b = upperCase;
+            if (contactInfo.f25578b.equals(upperCase)) {
                 return 0;
             }
-            if (contactInfo.f24814b.equals("#")) {
+            if (contactInfo.f25578b.equals("#")) {
                 return 1;
             }
-            if (contactInfo2.f24814b.equals("#")) {
+            if (contactInfo2.f25578b.equals("#")) {
                 return -1;
             }
-            return contactInfo.f24814b.compareTo(contactInfo2.f24814b);
+            return contactInfo.f25578b.compareTo(contactInfo2.f25578b);
         }
     }
 

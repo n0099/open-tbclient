@@ -12,43 +12,43 @@ import com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout;
 public class PullToRefreshListView extends PullToRefreshBase<ListView> implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public ListView f23828a;
+    public ListView f24569a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LoadingLayout f23829b;
+    public LoadingLayout f24570b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AbsListView.OnScrollListener f23830c;
+    public AbsListView.OnScrollListener f24571c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23831d;
+    public int f24572d;
 
     public PullToRefreshListView(Context context) {
         this(context, null);
     }
 
     private boolean a() {
-        LoadingLayout loadingLayout = this.f23829b;
+        LoadingLayout loadingLayout = this.f24570b;
         return loadingLayout == null || loadingLayout.getState() != LoadingLayout.State.NO_MORE_DATA;
     }
 
     private boolean b() {
-        ListAdapter adapter = this.f23828a.getAdapter();
+        ListAdapter adapter = this.f24569a.getAdapter();
         if (adapter == null || adapter.isEmpty()) {
             return true;
         }
-        return (this.f23828a.getChildCount() > 0 ? this.f23828a.getChildAt(0).getTop() : 0) >= 0 && this.f23831d == 0;
+        return (this.f24569a.getChildCount() > 0 ? this.f24569a.getChildAt(0).getTop() : 0) >= 0 && this.f24572d == 0;
     }
 
     private boolean c() {
-        ListAdapter adapter = this.f23828a.getAdapter();
+        ListAdapter adapter = this.f24569a.getAdapter();
         if (adapter == null || adapter.isEmpty()) {
             return true;
         }
-        int lastVisiblePosition = this.f23828a.getLastVisiblePosition();
+        int lastVisiblePosition = this.f24569a.getLastVisiblePosition();
         if (lastVisiblePosition >= (adapter.getCount() - 1) - 1) {
-            View childAt = this.f23828a.getChildAt(Math.min(lastVisiblePosition - this.f23828a.getFirstVisiblePosition(), this.f23828a.getChildCount() - 1));
-            return childAt != null && childAt.getBottom() <= this.f23828a.getBottom();
+            View childAt = this.f24569a.getChildAt(Math.min(lastVisiblePosition - this.f24569a.getFirstVisiblePosition(), this.f24569a.getChildCount() - 1));
+            return childAt != null && childAt.getBottom() <= this.f24569a.getBottom();
         }
         return false;
     }
@@ -56,7 +56,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public LoadingLayout getFooterLoadingLayout() {
         if (isScrollLoadEnabled()) {
-            return this.f23829b;
+            return this.f24570b;
         }
         return super.getFooterLoadingLayout();
     }
@@ -77,27 +77,27 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        AbsListView.OnScrollListener onScrollListener = this.f23830c;
+    public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
+        AbsListView.OnScrollListener onScrollListener = this.f24571c;
         if (onScrollListener != null) {
-            onScrollListener.onScroll(absListView, i, i2, i3);
+            onScrollListener.onScroll(absListView, i2, i3, i4);
         }
-        this.f23831d = i;
+        this.f24572d = i2;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (isScrollLoadEnabled() && a() && ((i == 0 || i == 2) && isReadyForPullUp())) {
+    public void onScrollStateChanged(AbsListView absListView, int i2) {
+        if (isScrollLoadEnabled() && a() && ((i2 == 0 || i2 == 2) && isReadyForPullUp())) {
             startLoading();
         }
-        AbsListView.OnScrollListener onScrollListener = this.f23830c;
+        AbsListView.OnScrollListener onScrollListener = this.f24571c;
         if (onScrollListener != null) {
-            onScrollListener.onScrollStateChanged(absListView, i);
+            onScrollListener.onScrollStateChanged(absListView, i2);
         }
     }
 
     public void setHasMoreData(boolean z) {
-        LoadingLayout loadingLayout = this.f23829b;
+        LoadingLayout loadingLayout = this.f24570b;
         if (loadingLayout != null) {
             loadingLayout.setState(z ? LoadingLayout.State.RESET : LoadingLayout.State.NO_MORE_DATA);
         }
@@ -108,7 +108,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.f23830c = onScrollListener;
+        this.f24571c = onScrollListener;
     }
 
     public void setRefreshingText(String str) {
@@ -130,26 +130,26 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         }
         super.setScrollLoadEnabled(z);
         if (z) {
-            if (this.f23829b == null) {
+            if (this.f24570b == null) {
                 FooterLoadingLayout footerLoadingLayout = new FooterLoadingLayout(getContext());
-                this.f23829b = footerLoadingLayout;
-                this.f23828a.addFooterView(footerLoadingLayout, null, false);
+                this.f24570b = footerLoadingLayout;
+                this.f24569a.addFooterView(footerLoadingLayout, null, false);
             }
-            this.f23829b.show(true);
+            this.f24570b.show(true);
             return;
         }
-        LoadingLayout loadingLayout = this.f23829b;
+        LoadingLayout loadingLayout = this.f24570b;
         if (loadingLayout != null) {
             loadingLayout.show(false);
         }
     }
 
-    public void showOrHideFootView(int i) {
-        LoadingLayout loadingLayout = this.f23829b;
-        if (loadingLayout == null || loadingLayout.getVisibility() == i) {
+    public void showOrHideFootView(int i2) {
+        LoadingLayout loadingLayout = this.f24570b;
+        if (loadingLayout == null || loadingLayout.getVisibility() == i2) {
             return;
         }
-        this.f23829b.setVisibility(i);
+        this.f24570b.setVisibility(i2);
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -159,7 +159,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
 
     public PullToRefreshListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23831d = 0;
+        this.f24572d = 0;
         setPullLoadEnabled(false);
     }
 
@@ -167,7 +167,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public ListView createRefreshableView(Context context, AttributeSet attributeSet) {
         ListView listView = new ListView(context);
-        this.f23828a = listView;
+        this.f24569a = listView;
         listView.setOnScrollListener(this);
         return listView;
     }

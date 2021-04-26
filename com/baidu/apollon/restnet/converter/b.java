@@ -11,13 +11,13 @@ import java.nio.charset.Charset;
 public class b extends AbstractHttpMessageConverter<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f3783a = Charset.forName("UTF-8");
+    public static final Charset f3831a = Charset.forName("UTF-8");
 
     private Charset a(com.baidu.apollon.restnet.http.a aVar) {
         if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
             return Charset.forName(aVar.j());
         }
-        return f3783a;
+        return f3831a;
     }
 
     @Override // com.baidu.apollon.restnet.converter.AbstractHttpMessageConverter

@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class DownPrefUtils {
     public static final boolean DEBUG = false;
     public static String HOST_TYPE_IP = "1";
@@ -49,8 +49,8 @@ public final class DownPrefUtils {
         return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getFloat(str, f2);
     }
 
-    public static int getInt(Context context, String str, int i) {
-        return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getInt(str, i);
+    public static int getInt(Context context, String str, int i2) {
+        return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getInt(str, i2);
     }
 
     public static long getLong(Context context, String str, long j) {
@@ -61,7 +61,7 @@ public final class DownPrefUtils {
         return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getString(str, str2);
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:42:0x00cf -> B:46:0x00d2). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:42:0x00d1 -> B:46:0x00d4). Please submit an issue!!! */
     public static void loadProperties(Context context) {
         FileInputStream fileInputStream;
         System.currentTimeMillis();
@@ -140,13 +140,13 @@ public final class DownPrefUtils {
         edit.commit();
     }
 
-    public static void setInt(Context context, String str, int i) {
+    public static void setInt(Context context, String str, int i2) {
         SharedPreferences sharedPreferences;
         SharedPreferences.Editor edit;
         if (context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
             return;
         }
-        edit.putInt(str, i);
+        edit.putInt(str, i2);
         edit.commit();
     }
 

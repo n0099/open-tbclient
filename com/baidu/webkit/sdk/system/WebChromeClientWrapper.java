@@ -106,8 +106,8 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public final void onConsoleMessage(String str, int i, String str2) {
-        this.mClient.onConsoleMessage(str, i, str2);
+    public final void onConsoleMessage(String str, int i2, String str2) {
+        this.mClient.onConsoleMessage(str, i2, str2);
     }
 
     @Override // android.webkit.WebChromeClient
@@ -181,8 +181,8 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public final void onProgressChanged(WebView webView, int i) {
-        this.mClient.onProgressChanged(this.mWebView.getWebView(), i);
+    public final void onProgressChanged(WebView webView, int i2) {
+        this.mClient.onProgressChanged(this.mWebView.getWebView(), i2);
     }
 
     @Override // android.webkit.WebChromeClient
@@ -211,8 +211,8 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public final void onShowCustomView(View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
-        this.mClient.onShowCustomView(view, i, customViewCallback != null ? new CustomViewCallbackImpl(customViewCallback) : null);
+    public final void onShowCustomView(View view, int i2, WebChromeClient.CustomViewCallback customViewCallback) {
+        this.mClient.onShowCustomView(view, i2, customViewCallback != null ? new CustomViewCallbackImpl(customViewCallback) : null);
     }
 
     @Override // android.webkit.WebChromeClient

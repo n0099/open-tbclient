@@ -242,11 +242,11 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
 
     public int hashCode() {
         Iterator<Map.Entry<K, V>> it = iterator();
-        int i = 0;
+        int i2 = 0;
         while (it.hasNext()) {
-            i += it.next().hashCode();
+            i2 += it.next().hashCode();
         }
-        return i;
+        return i2;
     }
 
     @Override // java.lang.Iterable

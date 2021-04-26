@@ -43,17 +43,17 @@ public class DrawableTransformation implements Transformation<Drawable> {
 
     @Override // com.bumptech.glide.load.Transformation
     @NonNull
-    public Resource<Drawable> transform(@NonNull Context context, @NonNull Resource<Drawable> resource, int i, int i2) {
+    public Resource<Drawable> transform(@NonNull Context context, @NonNull Resource<Drawable> resource, int i2, int i3) {
         BitmapPool bitmapPool = Glide.get(context).getBitmapPool();
         Drawable drawable = resource.get();
-        Resource<Bitmap> convert = DrawableToBitmapConverter.convert(bitmapPool, drawable, i, i2);
+        Resource<Bitmap> convert = DrawableToBitmapConverter.convert(bitmapPool, drawable, i2, i3);
         if (convert == null) {
             if (this.isRequired) {
                 throw new IllegalArgumentException("Unable to convert " + drawable + " to a Bitmap");
             }
             return resource;
         }
-        Resource<Bitmap> transform = this.wrapped.transform(context, convert, i, i2);
+        Resource<Bitmap> transform = this.wrapped.transform(context, convert, i2, i3);
         if (transform.equals(convert)) {
             transform.recycle();
             return resource;

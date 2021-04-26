@@ -21,7 +21,7 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
         public static final int OPTION_CHOOSE_IMG_TYPE = 1002;
         public static final int OPTION_TAKE_PHOTO_TYPE = 1001;
 
-        void onOptionClick(int i);
+        void onOptionClick(int i2);
     }
 
     @SuppressLint({"ValidFragment"})

@@ -58,8 +58,8 @@ public class RemoteXAdLogger {
         return i(TAG, str);
     }
 
-    public boolean isLoggable(String str, int i) {
-        return i >= LOG_LEVEL;
+    public boolean isLoggable(String str, int i2) {
+        return i2 >= LOG_LEVEL;
     }
 
     public int w(String str) {
@@ -84,8 +84,8 @@ public class RemoteXAdLogger {
         return -1;
     }
 
-    public boolean isLoggable(int i) {
-        return isLoggable(TAG, i);
+    public boolean isLoggable(int i2) {
+        return isLoggable(TAG, i2);
     }
 
     public int d(String str) {

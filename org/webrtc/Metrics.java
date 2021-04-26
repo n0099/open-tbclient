@@ -15,15 +15,15 @@ public class Metrics {
         public final Map<Integer, Integer> samples = new HashMap();
 
         @CalledByNative("HistogramInfo")
-        public HistogramInfo(int i, int i2, int i3) {
-            this.min = i;
-            this.max = i2;
-            this.bucketCount = i3;
+        public HistogramInfo(int i2, int i3, int i4) {
+            this.min = i2;
+            this.max = i3;
+            this.bucketCount = i4;
         }
 
         @CalledByNative("HistogramInfo")
-        public void addSample(int i, int i2) {
-            this.samples.put(Integer.valueOf(i), Integer.valueOf(i2));
+        public void addSample(int i2, int i3) {
+            this.samples.put(Integer.valueOf(i2), Integer.valueOf(i3));
         }
     }
 

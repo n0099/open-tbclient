@@ -48,8 +48,8 @@ public class EmotionImageData implements Serializable {
         this.mAuthorNameShow = str;
     }
 
-    public void setHeight(int i) {
-        this.mHeight = i;
+    public void setHeight(int i2) {
+        this.mHeight = i2;
     }
 
     public void setMemeContSign(String str) {
@@ -72,7 +72,7 @@ public class EmotionImageData implements Serializable {
         this.mThumbUrl = str;
     }
 
-    public void setWidth(int i) {
-        this.mWidth = i;
+    public void setWidth(int i2) {
+        this.mWidth = i2;
     }
 }

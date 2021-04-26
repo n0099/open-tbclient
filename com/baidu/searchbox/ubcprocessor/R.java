@@ -4,12 +4,12 @@ public final class R {
 
     /* loaded from: classes2.dex */
     public static final class raw {
-        public static final int tnconfig = 0x7f0e0082;
+        public static final int tnconfig = 0x7f110074;
     }
 
     /* loaded from: classes2.dex */
     public static final class string {
-        public static final int activity_not_found = 0x7f0f008f;
-        public static final int app_name = 0x7f0f02af;
+        public static final int activity_not_found = 0x7f0f0081;
+        public static final int app_name = 0x7f0f029e;
     }
 }

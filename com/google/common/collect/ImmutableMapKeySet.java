@@ -1,6 +1,6 @@
 package com.google.common.collect;
 
-import d.h.c.c.c1;
+import d.g.c.c.c1;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public final class ImmutableMapKeySet<K, V> extends IndexedImmutableSet<K> {
@@ -30,8 +30,8 @@ public final class ImmutableMapKeySet<K, V> extends IndexedImmutableSet<K> {
     }
 
     @Override // com.google.common.collect.IndexedImmutableSet
-    public K get(int i) {
-        return this.map.entrySet().asList().get(i).getKey();
+    public K get(int i2) {
+        return this.map.entrySet().asList().get(i2).getKey();
     }
 
     @Override // com.google.common.collect.ImmutableCollection

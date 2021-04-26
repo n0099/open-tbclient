@@ -17,17 +17,19 @@ import java.util.List;
 public class HotUserRankImageOverlayView extends ViewGroup {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15210e;
+    public int f15345e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15211f;
+    public int f15346f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15212g;
+    public int f15347g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15213h;
-    public int i;
+    public int f15348h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f15349i;
     public int j;
     public ImageOverlayView.a k;
     public int l;
@@ -44,20 +46,20 @@ public class HotUserRankImageOverlayView extends ViewGroup {
         c();
     }
 
-    public void a(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.f15210e = i;
-        this.f15211f = i2;
-        this.f15212g = i3;
-        this.f15213h = i4;
-        this.i = i5;
-        this.j = i6;
+    public void a(int i2, int i3, int i4, int i5, int i6, int i7) {
+        this.f15345e = i2;
+        this.f15346f = i3;
+        this.f15347g = i4;
+        this.f15348h = i5;
+        this.f15349i = i6;
+        this.j = i7;
         b();
     }
 
     public final void b() {
-        for (int i = 0; i < this.f15210e; i++) {
+        for (int i2 = 0; i2 < this.f15345e; i2++) {
             HeadImageView headImageView = new HeadImageView(getContext());
-            headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.f15211f, this.f15212g));
+            headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.f15346f, this.f15347g));
             headImageView.setIsRound(true);
             headImageView.setBorderSurroundContent(true);
             headImageView.setDrawBorder(true);
@@ -77,9 +79,9 @@ public class HotUserRankImageOverlayView extends ViewGroup {
     }
 
     public void d() {
-        this.n.setColor(SkinManager.getColor(this.i));
-        for (int i = 0; i < getChildCount(); i++) {
-            View childAt = getChildAt(i);
+        this.n.setColor(SkinManager.getColor(this.f15349i));
+        for (int i2 = 0; i2 < getChildCount(); i2++) {
+            View childAt = getChildAt(i2);
             if (childAt instanceof HeadImageView) {
                 ((HeadImageView) childAt).setPlaceHolder(1);
             }
@@ -89,57 +91,57 @@ public class HotUserRankImageOverlayView extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        this.n.setColor(SkinManager.getColor(this.i));
-        this.n.setStrokeWidth(this.f15213h);
-        int i = this.o;
-        if (i <= 0) {
-            i = this.i;
+        this.n.setColor(SkinManager.getColor(this.f15349i));
+        this.n.setStrokeWidth(this.f15348h);
+        int i2 = this.o;
+        if (i2 <= 0) {
+            i2 = this.f15349i;
         }
-        this.o = i;
-        float f2 = this.f15213h * 0.5f;
-        float f3 = this.f15211f / 2.0f;
+        this.o = i2;
+        float f2 = this.f15348h * 0.5f;
+        float f3 = this.f15346f / 2.0f;
         float acos = ((float) ((Math.acos((((f3 * 2.0f) - this.j) / 2.0f) / f3) / 3.141592653589793d) * 180.0d)) - 180.0f;
         float abs = Math.abs(2.0f * acos);
-        int i2 = 0;
+        int i3 = 0;
         int childCount = this.m ? 0 : getChildCount() - 1;
-        while (i2 < getChildCount()) {
-            View childAt = getChildAt(i2);
+        while (i3 < getChildCount()) {
+            View childAt = getChildAt(i3);
             if ((childAt instanceof HeadImageView) && childAt.getVisibility() == 0) {
                 float left = childAt.getLeft() - f2;
                 float top = childAt.getTop() - f2;
                 float right = childAt.getRight() + f2;
                 float bottom = childAt.getBottom() + f2;
-                if (i2 == childCount) {
+                if (i3 == childCount) {
                     this.n.setColor(SkinManager.getColor(this.o));
                 } else {
-                    this.n.setColor(SkinManager.getColor(this.i));
+                    this.n.setColor(SkinManager.getColor(this.f15349i));
                 }
-                canvas.drawArc(left, top, right, bottom, i2 == childCount ? 0.0f : acos, i2 == childCount ? 360.0f : abs, false, this.n);
+                canvas.drawArc(left, top, right, bottom, i3 == childCount ? 0.0f : acos, i3 == childCount ? 360.0f : abs, false, this.n);
             }
-            i2++;
+            i3++;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         View childAt;
-        int paddingLeft = getPaddingLeft() + ((this.f15210e - 1) * (this.f15211f - this.j)) + this.f15213h;
-        int paddingTop = getPaddingTop() + this.f15213h;
-        for (int i5 = 0; i5 < this.f15210e && i5 < getChildCount() && (childAt = getChildAt(i5)) != null; i5++) {
-            childAt.layout(paddingLeft, paddingTop, this.f15211f + paddingLeft, this.f15212g + paddingTop);
-            paddingLeft -= this.f15211f - this.j;
+        int paddingLeft = getPaddingLeft() + ((this.f15345e - 1) * (this.f15346f - this.j)) + this.f15348h;
+        int paddingTop = getPaddingTop() + this.f15348h;
+        for (int i6 = 0; i6 < this.f15345e && i6 < getChildCount() && (childAt = getChildAt(i6)) != null; i6++) {
+            childAt.layout(paddingLeft, paddingTop, this.f15346f + paddingLeft, this.f15347g + paddingTop);
+            paddingLeft -= this.f15346f - this.j;
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        int i3 = this.f15213h;
+    public void onMeasure(int i2, int i3) {
+        int i4 = this.f15348h;
         if (this.p == 1) {
-            i3 *= 2;
+            i4 *= 2;
         }
-        int paddingLeft = getPaddingLeft() + getPaddingRight() + i3;
-        int i4 = this.f15210e;
-        setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f15211f * i4)) - ((i4 - 1) * this.j), i), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f15212g + (this.f15213h * 2), i2));
+        int paddingLeft = getPaddingLeft() + getPaddingRight() + i4;
+        int i5 = this.f15345e;
+        setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f15346f * i5)) - ((i5 - 1) * this.j), i2), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f15347g + (this.f15348h * 2), i3));
     }
 
     public void setData(List<String> list) {
@@ -148,8 +150,8 @@ public class HotUserRankImageOverlayView extends ViewGroup {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        for (int i = this.f15210e - 1; i >= 0; i--) {
-            HeadImageView headImageView = (HeadImageView) getChildAt(i);
+        for (int i2 = this.f15345e - 1; i2 >= 0; i2--) {
+            HeadImageView headImageView = (HeadImageView) getChildAt(i2);
             if (headImageView == null) {
                 return;
             }
@@ -165,28 +167,28 @@ public class HotUserRankImageOverlayView extends ViewGroup {
             } else {
                 headImageView.setVisibility(0);
                 if (this.l == 12) {
-                    headImageView.T(str, 12, this.f15211f, this.f15212g, false);
+                    headImageView.R(str, 12, this.f15346f, this.f15347g, false);
                 } else {
-                    headImageView.T(str, 10, this.f15211f, this.f15212g, false);
+                    headImageView.R(str, 10, this.f15346f, this.f15347g, false);
                 }
             }
         }
     }
 
-    public void setFirstImageStrokeColor(@ColorRes int i) {
-        this.o = i;
+    public void setFirstImageStrokeColor(@ColorRes int i2) {
+        this.o = i2;
     }
 
     public void setImageClickListener(ImageOverlayView.a aVar) {
         this.k = aVar;
     }
 
-    public void setLoadImageType(int i) {
-        this.l = i;
+    public void setLoadImageType(int i2) {
+        this.l = i2;
     }
 
-    public void setStrokeStyle(int i) {
-        this.p = i;
+    public void setStrokeStyle(int i2) {
+        this.p = i2;
     }
 
     public HotUserRankImageOverlayView(Context context, AttributeSet attributeSet) {
@@ -197,8 +199,8 @@ public class HotUserRankImageOverlayView extends ViewGroup {
         c();
     }
 
-    public HotUserRankImageOverlayView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public HotUserRankImageOverlayView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.l = 10;
         this.m = false;
         this.p = 1;

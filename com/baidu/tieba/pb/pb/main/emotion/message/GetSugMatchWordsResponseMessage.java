@@ -10,16 +10,16 @@ import org.json.JSONObject;
 public class GetSugMatchWordsResponseMessage extends JsonHttpResponsedMessage {
     public List<String> mData;
 
-    public GetSugMatchWordsResponseMessage(int i) {
-        super(i);
+    public GetSugMatchWordsResponseMessage(int i2) {
+        super(i2);
     }
 
     private List<String> parseSugMatchWordsData(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList();
         if (jSONArray != null) {
-            for (int i = 0; i < jSONArray.length(); i++) {
-                if (!TextUtils.isEmpty(jSONArray.optString(i))) {
-                    arrayList.add(jSONArray.optString(i));
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                if (!TextUtils.isEmpty(jSONArray.optString(i2))) {
+                    arrayList.add(jSONArray.optString(i2));
                 }
             }
         }
@@ -27,7 +27,7 @@ public class GetSugMatchWordsResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         int statusCode = getStatusCode();
         int error = getError();

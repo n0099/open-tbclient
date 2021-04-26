@@ -28,27 +28,27 @@ public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
     public class a {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f24055b = "";
+        public String f24804b = "";
 
         /* renamed from: c  reason: collision with root package name */
-        public String f24056c = "";
+        public String f24805c = "";
 
         /* renamed from: d  reason: collision with root package name */
-        public ArrayList<TrafficFaceModel> f24057d;
+        public ArrayList<TrafficFaceModel> f24806d;
 
         public a() {
         }
 
         public void a(String str) {
-            this.f24055b = str;
+            this.f24804b = str;
         }
 
         public void b(String str) {
-            this.f24056c = str;
+            this.f24805c = str;
         }
 
         public void a(ArrayList<TrafficFaceModel> arrayList) {
-            this.f24057d = arrayList;
+            this.f24806d = arrayList;
         }
     }
 
@@ -81,22 +81,22 @@ public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
         ArrayList<a> arrayList = new ArrayList<>();
         TrafficFaceModel[][] trafficFaceModelArr = this.dmts;
         if (trafficFaceModelArr != null && trafficFaceModelArr.length > 0) {
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 TrafficFaceModel[][] trafficFaceModelArr2 = this.dmts;
-                if (i >= trafficFaceModelArr2.length) {
+                if (i2 >= trafficFaceModelArr2.length) {
                     break;
                 }
-                TrafficFaceModel[] trafficFaceModelArr3 = trafficFaceModelArr2[i];
+                TrafficFaceModel[] trafficFaceModelArr3 = trafficFaceModelArr2[i2];
                 if (trafficFaceModelArr3 != null && trafficFaceModelArr3.length > 0) {
                     a aVar = new a();
                     ArrayList<TrafficFaceModel> arrayList2 = new ArrayList<>();
                     String str = "";
-                    for (int i2 = 0; i2 < trafficFaceModelArr3.length; i2++) {
-                        if (trafficFaceModelArr3[i2] != null) {
-                            arrayList2.add(trafficFaceModelArr3[i2]);
-                            if (!TextUtils.isEmpty(trafficFaceModelArr3[i2].getHuiIcon())) {
-                                str = trafficFaceModelArr3[i2].getHuiIcon();
+                    for (int i3 = 0; i3 < trafficFaceModelArr3.length; i3++) {
+                        if (trafficFaceModelArr3[i3] != null) {
+                            arrayList2.add(trafficFaceModelArr3[i3]);
+                            if (!TextUtils.isEmpty(trafficFaceModelArr3[i3].getHuiIcon())) {
+                                str = trafficFaceModelArr3[i3].getHuiIcon();
                             }
                         }
                     }
@@ -105,7 +105,7 @@ public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
                     aVar.b(str);
                     arrayList.add(aVar);
                 }
-                i++;
+                i2++;
             }
         }
         return arrayList;

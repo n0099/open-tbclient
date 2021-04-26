@@ -41,9 +41,9 @@ public enum WebViewFeatureInternal {
         public static final String[] WEBVIEW_APK_FEATURES = WebViewGlueCommunicator.getFactory().getWebViewFeatures();
     }
 
-    WebViewFeatureInternal(String str, int i) {
+    WebViewFeatureInternal(String str, int i2) {
         this.mFeatureValue = str;
-        this.mOsVersion = i;
+        this.mOsVersion = i2;
     }
 
     public static WebViewFeatureInternal getFeature(String str) {

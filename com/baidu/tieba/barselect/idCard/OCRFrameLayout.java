@@ -14,23 +14,23 @@ public class OCRFrameLayout extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         int childCount = getChildCount();
-        for (int i5 = 0; i5 < childCount; i5++) {
-            getChildAt(i5).layout(i, i2, i3, i4);
+        for (int i6 = 0; i6 < childCount; i6++) {
+            getChildAt(i6).layout(i2, i3, i4, i5);
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
         int childCount = getChildCount();
-        int size = View.MeasureSpec.getSize(i);
-        int size2 = View.MeasureSpec.getSize(i2);
-        for (int i3 = 0; i3 < childCount; i3++) {
-            measureChild(getChildAt(i3), View.MeasureSpec.makeMeasureSpec(size, 1073741824), View.MeasureSpec.makeMeasureSpec(size2, 1073741824));
+        int size = View.MeasureSpec.getSize(i2);
+        int size2 = View.MeasureSpec.getSize(i3);
+        for (int i4 = 0; i4 < childCount; i4++) {
+            measureChild(getChildAt(i4), View.MeasureSpec.makeMeasureSpec(size, 1073741824), View.MeasureSpec.makeMeasureSpec(size2, 1073741824));
         }
-        setMeasuredDimension(ViewGroup.resolveSize(size, i), ViewGroup.resolveSize(size2, i2));
+        setMeasuredDimension(ViewGroup.resolveSize(size, i2), ViewGroup.resolveSize(size2, i3));
     }
 
     public OCRFrameLayout(Context context, AttributeSet attributeSet) {
@@ -38,8 +38,8 @@ public class OCRFrameLayout extends ViewGroup {
         a(attributeSet);
     }
 
-    public OCRFrameLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public OCRFrameLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a(attributeSet);
     }
 }

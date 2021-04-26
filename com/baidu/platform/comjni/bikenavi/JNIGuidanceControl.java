@@ -3,7 +3,7 @@ package com.baidu.platform.comjni.bikenavi;
 import android.os.Bundle;
 /* loaded from: classes2.dex */
 public class JNIGuidanceControl {
-    public native int CalcRoute(long j, int i, int i2, int i3, byte[] bArr);
+    public native int CalcRoute(long j, int i2, int i3, int i4, byte[] bArr);
 
     public native boolean GetCarPoint(long j, int[] iArr, int[] iArr2);
 
@@ -11,13 +11,13 @@ public class JNIGuidanceControl {
 
     public native boolean GetFirstParagraph(long j, Bundle bundle);
 
-    public native boolean GetGuideParagraph(long j, int i, int i2, Bundle bundle);
+    public native boolean GetGuideParagraph(long j, int i2, int i3, Bundle bundle);
 
     public native boolean GetNaviRouteBoundWithNoMargin(long j, Bundle bundle);
 
-    public native boolean GetParagraphBound(long j, int i, Bundle bundle);
+    public native boolean GetParagraphBound(long j, int i2, Bundle bundle);
 
-    public native boolean GetRouteResult(long j, int i, Bundle bundle);
+    public native boolean GetRouteResult(long j, int i2, Bundle bundle);
 
     public native boolean GetSimpleMapInfo(long j, Bundle bundle);
 
@@ -35,19 +35,19 @@ public class JNIGuidanceControl {
 
     public native boolean SetBrowseStatus(long j, boolean z);
 
-    public native void SetGuideTextMaxWordCnt(long j, int i);
+    public native void SetGuideTextMaxWordCnt(long j, int i2);
 
-    public native boolean SetLocateMode(long j, int i);
+    public native boolean SetLocateMode(long j, int i2);
 
-    public native boolean SetNaviType(long j, int i);
+    public native boolean SetNaviType(long j, int i2);
 
     public native boolean SetNetStatistics(long j, String str);
 
-    public native void SetParagraphFocus(long j, int i);
+    public native void SetParagraphFocus(long j, int i2);
 
-    public native boolean SetRotateMode(long j, int i);
+    public native boolean SetRotateMode(long j, int i2);
 
-    public native boolean SetVehiclePos(long j, int i, int i2, int i3);
+    public native boolean SetVehiclePos(long j, int i2, int i3, int i4);
 
     public native void ShowNPCModel(long j, boolean z);
 
@@ -55,7 +55,7 @@ public class JNIGuidanceControl {
 
     public native boolean StopRouteGuide(long j);
 
-    public native boolean TriggerGPSDataChange(long j, double d2, double d3, float f2, float f3, float f4, float f5, String str, String str2, int i, int i2);
+    public native boolean TriggerGPSDataChange(long j, double d2, double d3, float f2, float f3, float f4, float f5, String str, String str2, int i2, int i3);
 
     public native void UpdateSensor(long j, double d2, double d3, double d4, double d5, double d6, double d7);
 
@@ -71,11 +71,11 @@ public class JNIGuidanceControl {
 
     public native void registerGetLaunchSystemTime(long j);
 
-    public native boolean setARRouteResID(long j, int i, int i2);
+    public native boolean setARRouteResID(long j, int i2, int i3);
 
-    public native boolean setNaviMode(long j, int i);
+    public native boolean setNaviMode(long j, int i2);
 
     public native boolean setNaviNodes(long j, int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4, String[] strArr, String[] strArr2);
 
-    public native boolean setOriNaviOverlooking(long j, int i);
+    public native boolean setOriNaviOverlooking(long j, int i2);
 }

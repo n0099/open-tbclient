@@ -16,15 +16,15 @@ import com.baidu.tieba.ala.personcenter.privilege.achievementmark.message.AlaAch
 public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f14724e;
+    public b f14806e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f14725f = new a(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
+    public HttpMessageListener f14807f = new a(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -33,20 +33,20 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
             if (httpResponsedMessage == null || !(httpResponsedMessage instanceof AlaAchievementMarkResponsedMessage) || httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() != AlaPersonCenterPrivilegeMarkModel.this.unique_id) {
                 return;
             }
-            AlaPersonCenterPrivilegeMarkModel.this.f14724e.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+            AlaPersonCenterPrivilegeMarkModel.this.f14806e.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
         }
     }
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(int i, String str, Object obj);
+        void a(int i2, String str, Object obj);
     }
 
     public AlaPersonCenterPrivilegeMarkModel(BdUniqueId bdUniqueId, b bVar) {
         this.unique_id = bdUniqueId;
-        this.f14724e = bVar;
+        this.f14806e = bVar;
         registerTask();
-        registerListener(this.f14725f);
+        registerListener(this.f14807f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

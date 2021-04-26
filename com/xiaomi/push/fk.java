@@ -6,30 +6,30 @@ import java.util.Date;
 public class fk implements fo {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ fj f40891a;
+    public final /* synthetic */ fj f38413a;
 
     public fk(fj fjVar) {
-        this.f40891a = fjVar;
+        this.f38413a = fjVar;
     }
 
     @Override // com.xiaomi.push.fo
     public void a(fl flVar) {
-        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f40891a.f385a.format(new Date()) + " Connection started (" + this.f40891a.f382a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f38413a.f385a.format(new Date()) + " Connection started (" + this.f38413a.f382a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
     }
 
     @Override // com.xiaomi.push.fo
-    public void a(fl flVar, int i, Exception exc) {
-        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f40891a.f385a.format(new Date()) + " Connection closed (" + this.f40891a.f382a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+    public void a(fl flVar, int i2, Exception exc) {
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f38413a.f385a.format(new Date()) + " Connection closed (" + this.f38413a.f382a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
     }
 
     @Override // com.xiaomi.push.fo
     public void a(fl flVar, Exception exc) {
-        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f40891a.f385a.format(new Date()) + " Reconnection failed due to an exception (" + this.f40891a.f382a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f38413a.f385a.format(new Date()) + " Reconnection failed due to an exception (" + this.f38413a.f382a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
         exc.printStackTrace();
     }
 
     @Override // com.xiaomi.push.fo
     public void b(fl flVar) {
-        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f40891a.f385a.format(new Date()) + " Connection reconnected (" + this.f40891a.f382a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f38413a.f385a.format(new Date()) + " Connection reconnected (" + this.f38413a.f382a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
     }
 }

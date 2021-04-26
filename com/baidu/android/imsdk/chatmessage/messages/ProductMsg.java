@@ -19,8 +19,8 @@ public class ProductMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public ProductMsg[] newArray(int i) {
-            return new ProductMsg[i];
+        public ProductMsg[] newArray(int i2) {
+            return new ProductMsg[i2];
         }
     };
     public String mDesc;
@@ -78,8 +78,8 @@ public class ProductMsg extends NormalMsg {
             JSONArray optJSONArray = jSONObject.optJSONArray("discount_info");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 this.mDiscountInfo = new String[optJSONArray.length()];
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.mDiscountInfo[i] = (String) optJSONArray.get(i);
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    this.mDiscountInfo[i2] = (String) optJSONArray.get(i2);
                 }
             }
             this.mPrice = jSONObject.optString("price");
@@ -121,8 +121,8 @@ public class ProductMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.mImg);
         parcel.writeString(this.mTitle);
         parcel.writeString(this.mDesc);

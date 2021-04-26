@@ -11,13 +11,13 @@ import java.nio.charset.Charset;
 public class d extends a<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f5215a = Charset.forName("UTF-8");
+    public static final Charset f5346a = Charset.forName("UTF-8");
 
     private Charset a(com.baidu.fsg.base.restnet.http.a aVar) {
         if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
             return Charset.forName(aVar.j());
         }
-        return f5215a;
+        return f5346a;
     }
 
     @Override // com.baidu.fsg.base.restnet.a.a

@@ -78,13 +78,13 @@ public abstract class FullContainerBox extends AbstractContainerBox implements F
     }
 
     @Override // com.coremedia.iso.boxes.FullBox
-    public void setFlags(int i) {
-        this.flags = i;
+    public void setFlags(int i2) {
+        this.flags = i2;
     }
 
     @Override // com.coremedia.iso.boxes.FullBox
-    public void setVersion(int i) {
-        this.version = i;
+    public void setVersion(int i2) {
+        this.version = i2;
     }
 
     @Override // com.googlecode.mp4parser.BasicContainer

@@ -43,16 +43,16 @@ public class XSplashAdProd extends XAbstractAdProdTemplate {
     public int mTipStyle;
     public boolean onlyFetchAd;
 
-    public XSplashAdProd(Context context, String str, int i, int i2, int i3, int i4, boolean z, boolean z2, boolean z3) {
+    public XSplashAdProd(Context context, String str, int i2, int i3, int i4, int i5, boolean z, boolean z2, boolean z3) {
         super(context);
         this.adClicked = false;
         this.adClosed = false;
         this.adFailed = false;
         this.mAdPlaceId = str;
-        this.mAdWidth = i;
-        this.mAdHeight = i2;
-        this.mTipStyle = i3;
-        this.mAdTimeout = i4;
+        this.mAdWidth = i2;
+        this.mAdHeight = i3;
+        this.mTipStyle = i4;
+        this.mAdTimeout = i5;
         this.mShowDownInfo = z;
         this.mIsPopDialogIfDl = z2;
         this.mLimitRegionClick = z3;
@@ -78,8 +78,8 @@ public class XSplashAdProd extends XAbstractAdProdTemplate {
         }
     }
 
-    public static void setDisplayMode(int i) {
-        scaleType = i;
+    public static void setDisplayMode(int i2) {
+        scaleType = i2;
     }
 
     public void finishAndJump(@NonNull Intent intent, @Nullable SplashAd.OnFinishListener onFinishListener) {
@@ -133,7 +133,7 @@ public class XSplashAdProd extends XAbstractAdProdTemplate {
     @Override // com.baidu.mobads.sdk.internal.XAbstractAdProdTemplate
     public void onADLoaded(IOAdEvent iOAdEvent) {
         List<AdElementInfo> adInstanceInfoList;
-        int i = 0;
+        int i2 = 0;
         if (iOAdEvent != null && (adInstanceInfoList = AdResponseInfo.fromJson(iOAdEvent.getMessage()).getAdInstanceInfoList()) != null && adInstanceInfoList.size() > 0) {
             this.mPrimaryAdInfo = adInstanceInfoList.get(0);
         }
@@ -145,12 +145,12 @@ public class XSplashAdProd extends XAbstractAdProdTemplate {
                 rsplashType = RsplashType.HTML;
             } else if (TextUtils.equals(creativeType, "video")) {
                 rsplashType = RsplashType.VIDEO;
-                i = this.mPrimaryAdInfo.getVideoDuration();
+                i2 = this.mPrimaryAdInfo.getVideoDuration();
             }
         }
         SplashAdListener splashAdListener = this.mAdListener;
         if (splashAdListener != null) {
-            splashAdListener.onADLoaded(rsplashType, i);
+            splashAdListener.onADLoaded(rsplashType, i2);
         }
     }
 
@@ -185,13 +185,13 @@ public class XSplashAdProd extends XAbstractAdProdTemplate {
     }
 
     @Override // com.baidu.mobads.sdk.internal.XAbstractAdProdTemplate
-    public void onAdFailed(String str, int i) {
+    public void onAdFailed(String str, int i2) {
         this.adFailed = true;
         SplashAdListener splashAdListener = this.mAdListener;
         if (splashAdListener != null) {
             splashAdListener.onAdFailed(str);
         }
-        super.onAdFailed(str, i);
+        super.onAdFailed(str, i2);
     }
 
     @Override // com.baidu.mobads.sdk.internal.XAbstractAdProdTemplate
@@ -230,13 +230,13 @@ public class XSplashAdProd extends XAbstractAdProdTemplate {
     }
 
     @Override // com.baidu.mobads.sdk.internal.XAbstractAdProdTemplate
-    public void onNoAd(int i, String str) {
+    public void onNoAd(int i2, String str) {
         this.adFailed = true;
         SplashAdListener splashAdListener = this.mAdListener;
         if (splashAdListener != null) {
             splashAdListener.onAdFailed("广告无填充");
         }
-        super.onNoAd(i, str);
+        super.onNoAd(i2, str);
     }
 
     public void setFocusListener(SplashAd.SplashFocusAdListener splashFocusAdListener) {

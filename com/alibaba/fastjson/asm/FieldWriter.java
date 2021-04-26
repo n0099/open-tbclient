@@ -6,14 +6,14 @@ public final class FieldWriter {
     public final int name;
     public FieldWriter next;
 
-    public FieldWriter(ClassWriter classWriter, int i, String str, String str2) {
+    public FieldWriter(ClassWriter classWriter, int i2, String str, String str2) {
         if (classWriter.firstField == null) {
             classWriter.firstField = this;
         } else {
             classWriter.lastField.next = this;
         }
         classWriter.lastField = this;
-        this.access = i;
+        this.access = i2;
         this.name = classWriter.newUTF8(str);
         this.desc = classWriter.newUTF8(str2);
     }

@@ -35,16 +35,16 @@ public class ControlEventTrigger extends AbsEventTrigger {
     }
 
     @PublicMethod
-    public void seekTo(int i) {
+    public void seekTo(int i2) {
         VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_SEEK);
-        obtainEvent.putExtra(5, Integer.valueOf(i));
+        obtainEvent.putExtra(5, Integer.valueOf(i2));
         triggerEvent(obtainEvent);
     }
 
     @PublicMethod
-    public void seekToMs(int i) {
+    public void seekToMs(int i2) {
         VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_SEEK_MS);
-        obtainEvent.putExtra(5, Integer.valueOf(i));
+        obtainEvent.putExtra(5, Integer.valueOf(i2));
         triggerEvent(obtainEvent);
     }
 
@@ -97,11 +97,11 @@ public class ControlEventTrigger extends AbsEventTrigger {
     }
 
     @PublicMethod
-    public void syncPos(int i, int i2, int i3) {
+    public void syncPos(int i2, int i3, int i4) {
         VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_SYNC_PROGRESS);
-        obtainEvent.putExtra(1, Integer.valueOf(i));
-        obtainEvent.putExtra(2, Integer.valueOf(i2));
-        obtainEvent.putExtra(3, Integer.valueOf(i3));
+        obtainEvent.putExtra(1, Integer.valueOf(i2));
+        obtainEvent.putExtra(2, Integer.valueOf(i3));
+        obtainEvent.putExtra(3, Integer.valueOf(i4));
         triggerEvent(obtainEvent);
     }
 
@@ -111,10 +111,10 @@ public class ControlEventTrigger extends AbsEventTrigger {
     }
 
     @PublicMethod
-    public void pause(int i) {
+    public void pause(int i2) {
         VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_PAUSE);
-        obtainEvent.putExtra(11, Integer.valueOf(i));
-        obtainEvent.putExtra(7, Boolean.valueOf(i == 1));
+        obtainEvent.putExtra(11, Integer.valueOf(i2));
+        obtainEvent.putExtra(7, Boolean.valueOf(i2 == 1));
         triggerEvent(obtainEvent);
     }
 }

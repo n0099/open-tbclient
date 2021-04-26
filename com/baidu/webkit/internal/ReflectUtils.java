@@ -17,8 +17,8 @@ public class ReflectUtils implements INoProGuard {
             File[] fileArr = (File[]) declaredField.get(pathList);
             Object newInstance = Array.newInstance(File.class, fileArr.length + 1);
             Array.set(newInstance, 0, file);
-            for (int i = 1; i < fileArr.length + 1; i++) {
-                Array.set(newInstance, i, fileArr[i - 1]);
+            for (int i2 = 1; i2 < fileArr.length + 1; i2++) {
+                Array.set(newInstance, i2, fileArr[i2 - 1]);
             }
             declaredField.set(pathList, newInstance);
         } catch (Exception e2) {

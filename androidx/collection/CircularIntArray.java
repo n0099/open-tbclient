@@ -13,38 +13,38 @@ public final class CircularIntArray {
     private void doubleCapacity() {
         int[] iArr = this.mElements;
         int length = iArr.length;
-        int i = this.mHead;
-        int i2 = length - i;
-        int i3 = length << 1;
-        if (i3 >= 0) {
-            int[] iArr2 = new int[i3];
-            System.arraycopy(iArr, i, iArr2, 0, i2);
-            System.arraycopy(this.mElements, 0, iArr2, i2, this.mHead);
+        int i2 = this.mHead;
+        int i3 = length - i2;
+        int i4 = length << 1;
+        if (i4 >= 0) {
+            int[] iArr2 = new int[i4];
+            System.arraycopy(iArr, i2, iArr2, 0, i3);
+            System.arraycopy(this.mElements, 0, iArr2, i3, this.mHead);
             this.mElements = iArr2;
             this.mHead = 0;
             this.mTail = length;
-            this.mCapacityBitmask = i3 - 1;
+            this.mCapacityBitmask = i4 - 1;
             return;
         }
         throw new RuntimeException("Max array capacity exceeded");
     }
 
-    public void addFirst(int i) {
-        int i2 = (this.mHead - 1) & this.mCapacityBitmask;
-        this.mHead = i2;
-        this.mElements[i2] = i;
-        if (i2 == this.mTail) {
+    public void addFirst(int i2) {
+        int i3 = (this.mHead - 1) & this.mCapacityBitmask;
+        this.mHead = i3;
+        this.mElements[i3] = i2;
+        if (i3 == this.mTail) {
             doubleCapacity();
         }
     }
 
-    public void addLast(int i) {
+    public void addLast(int i2) {
         int[] iArr = this.mElements;
-        int i2 = this.mTail;
-        iArr[i2] = i;
-        int i3 = this.mCapacityBitmask & (i2 + 1);
-        this.mTail = i3;
-        if (i3 == this.mHead) {
+        int i3 = this.mTail;
+        iArr[i3] = i2;
+        int i4 = this.mCapacityBitmask & (i3 + 1);
+        this.mTail = i4;
+        if (i4 == this.mHead) {
             doubleCapacity();
         }
     }
@@ -53,26 +53,26 @@ public final class CircularIntArray {
         this.mTail = this.mHead;
     }
 
-    public int get(int i) {
-        if (i >= 0 && i < size()) {
-            return this.mElements[this.mCapacityBitmask & (this.mHead + i)];
+    public int get(int i2) {
+        if (i2 >= 0 && i2 < size()) {
+            return this.mElements[this.mCapacityBitmask & (this.mHead + i2)];
         }
         throw new ArrayIndexOutOfBoundsException();
     }
 
     public int getFirst() {
-        int i = this.mHead;
-        if (i != this.mTail) {
-            return this.mElements[i];
+        int i2 = this.mHead;
+        if (i2 != this.mTail) {
+            return this.mElements[i2];
         }
         throw new ArrayIndexOutOfBoundsException();
     }
 
     public int getLast() {
-        int i = this.mHead;
-        int i2 = this.mTail;
-        if (i != i2) {
-            return this.mElements[(i2 - 1) & this.mCapacityBitmask];
+        int i2 = this.mHead;
+        int i3 = this.mTail;
+        if (i2 != i3) {
+            return this.mElements[(i3 - 1) & this.mCapacityBitmask];
         }
         throw new ArrayIndexOutOfBoundsException();
     }
@@ -82,44 +82,44 @@ public final class CircularIntArray {
     }
 
     public int popFirst() {
-        int i = this.mHead;
-        if (i != this.mTail) {
-            int i2 = this.mElements[i];
-            this.mHead = (i + 1) & this.mCapacityBitmask;
-            return i2;
+        int i2 = this.mHead;
+        if (i2 != this.mTail) {
+            int i3 = this.mElements[i2];
+            this.mHead = (i2 + 1) & this.mCapacityBitmask;
+            return i3;
         }
         throw new ArrayIndexOutOfBoundsException();
     }
 
     public int popLast() {
-        int i = this.mHead;
-        int i2 = this.mTail;
-        if (i != i2) {
-            int i3 = this.mCapacityBitmask & (i2 - 1);
-            int i4 = this.mElements[i3];
-            this.mTail = i3;
-            return i4;
+        int i2 = this.mHead;
+        int i3 = this.mTail;
+        if (i2 != i3) {
+            int i4 = this.mCapacityBitmask & (i3 - 1);
+            int i5 = this.mElements[i4];
+            this.mTail = i4;
+            return i5;
         }
         throw new ArrayIndexOutOfBoundsException();
     }
 
-    public void removeFromEnd(int i) {
-        if (i <= 0) {
+    public void removeFromEnd(int i2) {
+        if (i2 <= 0) {
             return;
         }
-        if (i <= size()) {
-            this.mTail = this.mCapacityBitmask & (this.mTail - i);
+        if (i2 <= size()) {
+            this.mTail = this.mCapacityBitmask & (this.mTail - i2);
             return;
         }
         throw new ArrayIndexOutOfBoundsException();
     }
 
-    public void removeFromStart(int i) {
-        if (i <= 0) {
+    public void removeFromStart(int i2) {
+        if (i2 <= 0) {
             return;
         }
-        if (i <= size()) {
-            this.mHead = this.mCapacityBitmask & (this.mHead + i);
+        if (i2 <= size()) {
+            this.mHead = this.mCapacityBitmask & (this.mHead + i2);
             return;
         }
         throw new ArrayIndexOutOfBoundsException();
@@ -129,14 +129,14 @@ public final class CircularIntArray {
         return (this.mTail - this.mHead) & this.mCapacityBitmask;
     }
 
-    public CircularIntArray(int i) {
-        if (i < 1) {
+    public CircularIntArray(int i2) {
+        if (i2 < 1) {
             throw new IllegalArgumentException("capacity must be >= 1");
         }
-        if (i <= 1073741824) {
-            i = Integer.bitCount(i) != 1 ? Integer.highestOneBit(i - 1) << 1 : i;
-            this.mCapacityBitmask = i - 1;
-            this.mElements = new int[i];
+        if (i2 <= 1073741824) {
+            i2 = Integer.bitCount(i2) != 1 ? Integer.highestOneBit(i2 - 1) << 1 : i2;
+            this.mCapacityBitmask = i2 - 1;
+            this.mElements = new int[i2];
             return;
         }
         throw new IllegalArgumentException("capacity must be <= 2^30");

@@ -15,7 +15,7 @@ public interface NetworkFetcher<FETCH_STATE extends FetchState> {
 
         void onFailure(Throwable th);
 
-        void onResponse(InputStream inputStream, int i) throws IOException;
+        void onResponse(InputStream inputStream, int i2) throws IOException;
     }
 
     FETCH_STATE createFetchState(Consumer<EncodedImage> consumer, ProducerContext producerContext);
@@ -23,9 +23,9 @@ public interface NetworkFetcher<FETCH_STATE extends FetchState> {
     void fetch(FETCH_STATE fetch_state, Callback callback);
 
     @Nullable
-    Map<String, String> getExtraMap(FETCH_STATE fetch_state, int i);
+    Map<String, String> getExtraMap(FETCH_STATE fetch_state, int i2);
 
-    void onFetchCompletion(FETCH_STATE fetch_state, int i);
+    void onFetchCompletion(FETCH_STATE fetch_state, int i2);
 
     boolean shouldPropagate(FETCH_STATE fetch_state);
 }

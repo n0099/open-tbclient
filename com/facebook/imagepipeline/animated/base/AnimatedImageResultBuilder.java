@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.animated.base;
 import android.graphics.Bitmap;
 import com.facebook.common.references.CloseableReference;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AnimatedImageResultBuilder {
     public List<CloseableReference<Bitmap>> mDecodedFrames;
     public int mFrameForPreview;
@@ -47,8 +47,8 @@ public class AnimatedImageResultBuilder {
         return this;
     }
 
-    public AnimatedImageResultBuilder setFrameForPreview(int i) {
-        this.mFrameForPreview = i;
+    public AnimatedImageResultBuilder setFrameForPreview(int i2) {
+        this.mFrameForPreview = i2;
         return this;
     }
 

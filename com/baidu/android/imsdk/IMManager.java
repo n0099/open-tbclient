@@ -25,12 +25,12 @@ public final class IMManager extends BaseManager implements NoProGuard {
         return IMManagerImpl.getVersion();
     }
 
-    public static boolean init(Context context, int i) {
+    public static boolean init(Context context, int i2) {
         if (BaseManager.isNullContext(context)) {
             return false;
         }
         Context applicationContext = context.getApplicationContext();
-        boolean productLine = IMConfigInternal.getInstance().setProductLine(applicationContext, i);
+        boolean productLine = IMConfigInternal.getInstance().setProductLine(applicationContext, i2);
         IMManagerImpl.getInstance(applicationContext);
         BindStateManager.activeUnBind(context);
         return productLine;

@@ -54,7 +54,28 @@ public class ViewModelProvider {
     }
 
     /* loaded from: classes.dex */
+    public static abstract class KeyedFactory extends OnRequeryFactory implements Factory {
+        @NonNull
+        public <T extends ViewModel> T create(@NonNull Class<T> cls) {
+            throw new UnsupportedOperationException("create(String, Class<?>) must be called on implementaions of KeyedFactory");
+        }
+
+        @NonNull
+        public abstract <T extends ViewModel> T create(@NonNull String str, @NonNull Class<T> cls);
+    }
+
+    /* loaded from: classes.dex */
     public static class NewInstanceFactory implements Factory {
+        public static NewInstanceFactory sInstance;
+
+        @NonNull
+        public static NewInstanceFactory getInstance() {
+            if (sInstance == null) {
+                sInstance = new NewInstanceFactory();
+            }
+            return sInstance;
+        }
+
         @Override // androidx.lifecycle.ViewModelProvider.Factory
         @NonNull
         public <T extends ViewModel> T create(@NonNull Class<T> cls) {
@@ -68,8 +89,25 @@ public class ViewModelProvider {
         }
     }
 
-    public ViewModelProvider(@NonNull ViewModelStoreOwner viewModelStoreOwner, @NonNull Factory factory) {
-        this(viewModelStoreOwner.getViewModelStore(), factory);
+    /* loaded from: classes.dex */
+    public static class OnRequeryFactory {
+        public void onRequery(@NonNull ViewModel viewModel) {
+        }
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public ViewModelProvider(@NonNull ViewModelStoreOwner viewModelStoreOwner) {
+        this(r0, r3);
+        Factory newInstanceFactory;
+        ViewModelStore viewModelStore = viewModelStoreOwner.getViewModelStore();
+        if (viewModelStoreOwner instanceof HasDefaultViewModelProviderFactory) {
+            newInstanceFactory = ((HasDefaultViewModelProviderFactory) viewModelStoreOwner).getDefaultViewModelProviderFactory();
+        } else {
+            newInstanceFactory = NewInstanceFactory.getInstance();
+        }
     }
 
     @NonNull
@@ -82,20 +120,34 @@ public class ViewModelProvider {
         throw new IllegalArgumentException("Local and anonymous classes can not be ViewModels");
     }
 
-    public ViewModelProvider(@NonNull ViewModelStore viewModelStore, @NonNull Factory factory) {
-        this.mFactory = factory;
-        this.mViewModelStore = viewModelStore;
-    }
-
     @NonNull
     @MainThread
     public <T extends ViewModel> T get(@NonNull String str, @NonNull Class<T> cls) {
-        T t = (T) this.mViewModelStore.get(str);
-        if (cls.isInstance(t)) {
-            return t;
+        T t;
+        T t2 = (T) this.mViewModelStore.get(str);
+        if (cls.isInstance(t2)) {
+            Factory factory = this.mFactory;
+            if (factory instanceof OnRequeryFactory) {
+                ((OnRequeryFactory) factory).onRequery(t2);
+            }
+            return t2;
         }
-        T t2 = (T) this.mFactory.create(cls);
-        this.mViewModelStore.put(str, t2);
-        return t2;
+        Factory factory2 = this.mFactory;
+        if (factory2 instanceof KeyedFactory) {
+            t = (T) ((KeyedFactory) factory2).create(str, cls);
+        } else {
+            t = (T) factory2.create(cls);
+        }
+        this.mViewModelStore.put(str, t);
+        return t;
+    }
+
+    public ViewModelProvider(@NonNull ViewModelStoreOwner viewModelStoreOwner, @NonNull Factory factory) {
+        this(viewModelStoreOwner.getViewModelStore(), factory);
+    }
+
+    public ViewModelProvider(@NonNull ViewModelStore viewModelStore, @NonNull Factory factory) {
+        this.mFactory = factory;
+        this.mViewModelStore = viewModelStore;
     }
 }

@@ -10,41 +10,41 @@ import com.huawei.android.hms.pps.AdvertisingIdClient;
 public class a implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f26781a;
+    public Context f27593a;
 
     /* renamed from: g  reason: collision with root package name */
-    public SupplierListener f26787g;
+    public SupplierListener f27599g;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f26786f = false;
+    public boolean f27598f = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26782b = "";
+    public String f27594b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26783c = "";
+    public String f27595c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26784d = "";
+    public String f27596d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26785e = "";
+    public String f27597e = "";
 
     public a(Context context) {
-        this.f26781a = context;
+        this.f27593a = context;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         try {
-            boolean z = !TextUtils.isEmpty(this.f26783c);
-            this.f26786f = z;
+            boolean z = !TextUtils.isEmpty(this.f27595c);
+            this.f27598f = z;
             if (z) {
-                if (this.f26787g != null) {
-                    this.f26787g.OnSupport(z, this);
+                if (this.f27599g != null) {
+                    this.f27599g.OnSupport(z, this);
                 }
-            } else if (this.f26787g != null) {
-                this.f26787g.OnSupport(z, new com.bun.miitmdid.supplier.a());
+            } else if (this.f27599g != null) {
+                this.f27599g.OnSupport(z, new com.bun.miitmdid.supplier.a());
             }
         } catch (Exception e2) {
             com.bun.miitmdid.utils.a.a(a.class.getSimpleName(), "CallBack", e2);
@@ -53,13 +53,13 @@ public class a implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void a(SupplierListener supplierListener) {
-        this.f26787g = supplierListener;
+        this.f27599g = supplierListener;
         new Thread(new Runnable() { // from class: com.bun.miitmdid.supplier.b.a.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(a.this.f26781a);
-                    a.this.f26783c = advertisingIdInfo.getId();
+                    AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(a.this.f27593a);
+                    a.this.f27595c = advertisingIdInfo.getId();
                     advertisingIdInfo.isLimitAdTrackingEnabled();
                 } catch (Exception e2) {
                     com.bun.miitmdid.utils.a.a(a.class.getSimpleName(), "thread", e2);
@@ -76,12 +76,12 @@ public class a implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
-        return TextUtils.isEmpty(this.f26785e) ? sysParamters.f() : this.f26785e;
+        return TextUtils.isEmpty(this.f27597e) ? sysParamters.f() : this.f27597e;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
-        return this.f26783c;
+        return this.f27595c;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -91,12 +91,12 @@ public class a implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
-        return this.f26784d;
+        return this.f27596d;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
-        return this.f26786f;
+        return this.f27598f;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier

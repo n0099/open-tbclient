@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.addresslist.model.QuickSearchModel;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -48,7 +48,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == 0) {
-                l.w(QuickSearchActivity.this.getPageContext().getPageActivity(), QuickSearchActivity.this.mInputEditText);
+                l.x(QuickSearchActivity.this.getPageContext().getPageActivity(), QuickSearchActivity.this.mInputEditText);
                 return false;
             }
             return false;
@@ -63,7 +63,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == 0) {
-                l.w(QuickSearchActivity.this.getPageContext().getPageActivity(), QuickSearchActivity.this.mInputEditText);
+                l.x(QuickSearchActivity.this.getPageContext().getPageActivity(), QuickSearchActivity.this.mInputEditText);
                 return false;
             }
             return false;
@@ -78,7 +78,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (QuickSearchActivity.this.mInputEditText.hasFocus()) {
-                l.w(QuickSearchActivity.this.getPageContext().getPageActivity(), QuickSearchActivity.this.mInputEditText);
+                l.x(QuickSearchActivity.this.getPageContext().getPageActivity(), QuickSearchActivity.this.mInputEditText);
             }
             QuickSearchActivity.this.closeActivity();
         }
@@ -94,7 +94,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             if (z) {
                 return;
             }
-            l.w(QuickSearchActivity.this.getPageContext().getPageActivity(), view);
+            l.x(QuickSearchActivity.this.getPageContext().getPageActivity(), view);
         }
     }
 
@@ -126,11 +126,11 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         }
 
         @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
 
         @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             if (charSequence.toString().trim().length() != 0) {
                 QuickSearchActivity.this.refreshResultList(charSequence.toString());
                 return;
@@ -148,10 +148,10 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     public class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public HeadImageView f14254a;
+        public HeadImageView f14309a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f14255b;
+        public TextView f14310b;
 
         public h() {
         }
@@ -195,7 +195,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshResultList(String str) {
-        List<d.b.i0.s.f.a> s = this.mSearchModel.s(str);
+        List<d.a.i0.s.f.a> s = this.mSearchModel.s(str);
         if (s.size() > 0) {
             showSearchResultList(true);
             this.mListAdapter.b(s);
@@ -212,10 +212,10 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         SkinManager.setBackgroundResource(this.mParentView, R.color.CAM_X0201);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
         this.mListAdapter.notifyDataSetChanged();
         SkinManager.setViewTextColor(this.mEmptyResultView, R.color.CAM_X0109, 1);
     }
@@ -233,17 +233,17 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        l.w(getPageContext().getPageActivity(), this.mInputEditText);
+        l.x(getPageContext().getPageActivity(), this.mInputEditText);
         this.mSearchModel = null;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
         int headerViewsCount = this.mSearchResultList.getHeaderViewsCount();
         if (headerViewsCount > 0) {
-            i -= headerViewsCount;
+            i2 -= headerViewsCount;
         }
-        d.b.i0.s.f.a item = this.mListAdapter.getItem(i);
+        d.a.i0.s.f.a item = this.mListAdapter.getItem(i2);
         if (item == null || item.e() <= 0) {
             return;
         }
@@ -258,29 +258,29 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     public class g extends BaseAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public List<d.b.i0.s.f.a> f14252e;
+        public List<d.a.i0.s.f.a> f14307e;
 
         public g() {
-            this.f14252e = new ArrayList();
+            this.f14307e = new ArrayList();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: a */
-        public d.b.i0.s.f.a getItem(int i) {
-            if (this.f14252e == null || i < 0 || i >= getCount()) {
+        public d.a.i0.s.f.a getItem(int i2) {
+            if (this.f14307e == null || i2 < 0 || i2 >= getCount()) {
                 return null;
             }
-            return this.f14252e.get(i);
+            return this.f14307e.get(i2);
         }
 
-        public void b(List<d.b.i0.s.f.a> list) {
-            this.f14252e = list;
+        public void b(List<d.a.i0.s.f.a> list) {
+            this.f14307e = list;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            List<d.b.i0.s.f.a> list = this.f14252e;
+            List<d.a.i0.s.f.a> list = this.f14307e;
             if (list != null) {
                 return list.size();
             }
@@ -288,24 +288,24 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         }
 
         @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            return i;
+        public long getItemId(int i2) {
+            return i2;
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(int i2, View view, ViewGroup viewGroup) {
             h hVar;
-            d.b.i0.r.c layoutMode = QuickSearchActivity.this.getLayoutMode();
+            d.a.i0.r.c layoutMode = QuickSearchActivity.this.getLayoutMode();
             TbadkCoreApplication.getInst().getSkinType();
-            d.b.i0.s.f.a item = getItem(i);
+            d.a.i0.s.f.a item = getItem(i2);
             if (item == null) {
                 return null;
             }
             if (view == null) {
                 view = LayoutInflater.from(QuickSearchActivity.this.getPageContext().getPageActivity()).inflate(R.layout.quick_search_item, (ViewGroup) null);
                 hVar = new h(QuickSearchActivity.this, null);
-                hVar.f14254a = (HeadImageView) view.findViewById(R.id.quick_search_item_icon);
-                hVar.f14255b = (TextView) view.findViewById(R.id.quick_search_item_text);
+                hVar.f14309a = (HeadImageView) view.findViewById(R.id.quick_search_item_icon);
+                hVar.f14310b = (TextView) view.findViewById(R.id.quick_search_item_text);
                 view.setTag(hVar);
             } else {
                 hVar = (h) view.getTag();
@@ -313,9 +313,9 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             layoutMode.j(view);
             SkinManager.setBackgroundResource(view, R.drawable.addresslist_item_bg);
             if (item.f() != null) {
-                hVar.f14255b.setText(item.f());
+                hVar.f14310b.setText(item.f());
             }
-            hVar.f14254a.W(item.h(), 12, false);
+            hVar.f14309a.V(item.h(), 12, false);
             return view;
         }
 

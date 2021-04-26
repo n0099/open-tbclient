@@ -24,8 +24,8 @@ public class SmartMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public SmartMsg[] newArray(int i) {
-            return new SmartMsg[i];
+        public SmartMsg[] newArray(int i2) {
+            return new SmartMsg[i2];
         }
     };
     public Commodity[] mCommodity;
@@ -58,8 +58,8 @@ public class SmartMsg extends NormalMsg {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public Commodity[] newArray(int i) {
-                return new Commodity[i];
+            public Commodity[] newArray(int i2) {
+                return new Commodity[i2];
             }
         };
         public String mColor;
@@ -99,7 +99,7 @@ public class SmartMsg extends NormalMsg {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeString(this.mName);
             parcel.writeString(this.mValue);
             parcel.writeString(this.mColor);
@@ -221,13 +221,13 @@ public class SmartMsg extends NormalMsg {
                     this.mCommodity = new Commodity[length];
                 }
                 LogUtils.d("TempletMsg", "size is " + length);
-                for (int i = 0; i < length; i++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                for (int i2 = 0; i2 < length; i2++) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                     Commodity commodity = new Commodity();
                     commodity.setName(jSONObject2.getString("name"));
                     commodity.setValue(jSONObject2.optString("value", ""));
                     commodity.setColor(jSONObject2.optString("color", "#000000"));
-                    this.mCommodity[i] = commodity;
+                    this.mCommodity[i2] = commodity;
                 }
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("image");
@@ -292,8 +292,8 @@ public class SmartMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.mTitle);
         parcel.writeString(this.mName);
         parcel.writeString(this.mIcon);
@@ -307,7 +307,7 @@ public class SmartMsg extends NormalMsg {
         int length = commodityArr != null ? commodityArr.length : 0;
         parcel.writeInt(length);
         if (length > 0) {
-            parcel.writeTypedArray(this.mCommodity, i);
+            parcel.writeTypedArray(this.mCommodity, i2);
         }
         parcel.writeString(this.mValuationUrl);
         parcel.writeString(this.mValuationTxt);

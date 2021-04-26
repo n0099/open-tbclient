@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.google.protobuf.CodedInputStream;
-import d.b.j0.v3.v.j;
-import d.b.j0.v3.v.k;
-import d.b.j0.v3.v.n.b.c;
+import d.a.j0.v3.u.j;
+import d.a.j0.v3.u.k;
+import d.a.j0.v3.u.n.b.c;
 /* loaded from: classes5.dex */
 public class WriteMultiImgsActivity extends BaseActivity {
     public static final String OUTSTATE_KEY_CURRENT_INDEX = "OutState_Current_Index";
@@ -28,23 +28,23 @@ public class WriteMultiImgsActivity extends BaseActivity {
         public a() {
         }
 
-        @Override // d.b.j0.v3.v.n.b.c
+        @Override // d.a.j0.v3.u.n.b.c
         public void a() {
             WriteMultiImgsActivity.this.mControler.s();
             WriteMultiImgsActivity.this.mControler.r(false);
         }
 
-        @Override // d.b.j0.v3.v.n.b.c
-        public boolean b(Bitmap bitmap) {
-            return WriteMultiImgsActivity.this.mControler.q(bitmap);
-        }
-
-        @Override // d.b.j0.v3.v.n.b.c
-        public void c() {
+        @Override // d.a.j0.v3.u.n.b.c
+        public void b() {
             WriteMultiImgsActivity.this.mControler.A();
         }
 
-        @Override // d.b.j0.v3.v.n.b.c
+        @Override // d.a.j0.v3.u.n.b.c
+        public boolean c(Bitmap bitmap) {
+            return WriteMultiImgsActivity.this.mControler.q(bitmap);
+        }
+
+        @Override // d.a.j0.v3.u.n.b.c
         public void d() {
             WriteMultiImgsActivity.this.mControler.n();
             WriteMultiImgsActivity.this.mControler.r(true);
@@ -109,13 +109,13 @@ public class WriteMultiImgsActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         j jVar = this.mMainView;
         if (jVar != null) {
-            jVar.h(i);
+            jVar.h(i2);
         }
-        this.mControler.f63983c.notifyDataSetChanged();
+        this.mControler.f62229c.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -150,11 +150,11 @@ public class WriteMultiImgsActivity extends BaseActivity {
     public void onSaveInstanceState(Bundle bundle) {
         MultiImagePagerAdapter multiImagePagerAdapter;
         k kVar = this.mControler;
-        if (kVar != null && (multiImagePagerAdapter = kVar.f63983c) != null) {
+        if (kVar != null && (multiImagePagerAdapter = kVar.f62229c) != null) {
             bundle.putInt(OUTSTATE_KEY_CURRENT_INDEX, multiImagePagerAdapter.k());
             bundle.putInt(OUTSTATE_KEY_WRITE_ENTRANCE, this.mControler.u());
             bundle.putSerializable(OUTSTATE_KEY_WRITE_INFO_DATA, this.mControler.v());
-            this.mControler.f63983c.g(true);
+            this.mControler.f62229c.h(true);
             if (this.mControler.w() != null) {
                 bundle.putString(OUTSTATE_KEY_WRITE_IMG_INFO, this.mControler.w().toJsonString());
             }

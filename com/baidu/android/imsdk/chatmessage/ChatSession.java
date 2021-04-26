@@ -22,8 +22,8 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public ChatSession[] newArray(int i) {
-            return new ChatSession[i];
+        public ChatSession[] newArray(int i2) {
+            return new ChatSession[i2];
         }
     };
     public int mBusinessType;
@@ -59,7 +59,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public int mWeight;
     public String vPortrait;
 
-    public ChatSession(int i, long j, long j2, String str) {
+    public ChatSession(int i2, long j, long j2, String str) {
         this.mCategory = -1;
         this.mContacter = -1L;
         this.mContacterId = -1L;
@@ -93,7 +93,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mBusinessType = -1;
         this.mContacter = j;
         this.mName = str;
-        this.mCategory = i;
+        this.mCategory = i2;
         this.mContacterId = j2;
     }
 
@@ -267,36 +267,36 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         return this.mShow == 1;
     }
 
-    public void setBusinessType(int i) {
-        this.mBusinessType = i;
+    public void setBusinessType(int i2) {
+        this.mBusinessType = i2;
     }
 
     public void setCertification(String str) {
         this.mCertification = str;
     }
 
-    public void setChatType(int i) {
-        this.mChatType = i;
+    public void setChatType(int i2) {
+        this.mChatType = i2;
     }
 
     public void setClassAvatar(String str) {
         this.mClassAvatar = str;
     }
 
-    public void setClassShow(int i) {
-        this.mClassShow = i;
+    public void setClassShow(int i2) {
+        this.mClassShow = i2;
     }
 
     public void setClassTitle(String str) {
         this.mClassTitle = str;
     }
 
-    public void setClassType(int i) {
-        this.mClassType = i;
+    public void setClassType(int i2) {
+        this.mClassType = i2;
     }
 
-    public void setCollectionType(int i) {
-        this.mCollectionType = i;
+    public void setCollectionType(int i2) {
+        this.mCollectionType = i2;
     }
 
     public void setContacter(long j) {
@@ -315,8 +315,8 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mIconUrl = str;
     }
 
-    public void setIsClicked(int i) {
-        this.mIsClicked = i;
+    public void setIsClicked(int i2) {
+        this.mIsClicked = i2;
     }
 
     public void setLastMsg(String str) {
@@ -331,8 +331,8 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mLastOpenTime = j;
     }
 
-    public void setMarkTop(int i) {
-        this.mMarkTop = i;
+    public void setMarkTop(int i2) {
+        this.mMarkTop = i2;
     }
 
     public void setMarkTopTime(long j) {
@@ -355,24 +355,24 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mPaid = j;
     }
 
-    public void setSessionFrom(int i) {
-        this.mSessionFrom = i;
+    public void setSessionFrom(int i2) {
+        this.mSessionFrom = i2;
     }
 
-    public void setShield(int i) {
-        this.mShield = i;
+    public void setShield(int i2) {
+        this.mShield = i2;
     }
 
     public void setShieldTime(long j) {
         this.mShieldTime = j;
     }
 
-    public void setShow(int i) {
-        this.mShow = i;
+    public void setShow(int i2) {
+        this.mShow = i2;
     }
 
-    public void setState(int i) {
-        this.mState = i;
+    public void setState(int i2) {
+        this.mState = i2;
     }
 
     public void setVPortrait(String str) {
@@ -383,8 +383,8 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mVipId = str;
     }
 
-    public void setWeight(int i) {
-        this.mWeight = i;
+    public void setWeight(int i2) {
+        this.mWeight = i2;
     }
 
     @SuppressLint({"SimpleDateFormat"})
@@ -464,7 +464,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.mCategory);
         parcel.writeLong(this.mContacter);
         parcel.writeLong(this.mContacterId);

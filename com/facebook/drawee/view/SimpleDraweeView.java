@@ -16,7 +16,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SimpleDraweeView extends GenericDraweeView {
     public static Supplier<? extends AbstractDraweeControllerBuilder> sDraweecontrollerbuildersupplier;
     public static Supplier<Supplier<? extends AbstractDraweeControllerBuilder>> sSupplierFactory;
@@ -84,8 +84,8 @@ public class SimpleDraweeView extends GenericDraweeView {
         return this.mControllerBuilder;
     }
 
-    public void setActualImageResource(@DrawableRes int i) {
-        setActualImageResource(i, null);
+    public void setActualImageResource(@DrawableRes int i2) {
+        setActualImageResource(i2, null);
     }
 
     public void setImageRequest(ImageRequest imageRequest) {
@@ -93,8 +93,8 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView
-    public void setImageResource(int i) {
-        super.setImageResource(i);
+    public void setImageResource(int i2) {
+        super.setImageResource(i2);
     }
 
     @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView
@@ -106,8 +106,8 @@ public class SimpleDraweeView extends GenericDraweeView {
         setController(getControllerBuilder().setUri(uri, map).setCallerContext(obj).setOldController(getController()).build());
     }
 
-    public void setActualImageResource(@DrawableRes int i, @Nullable Object obj) {
-        setImageURI(UriUtil.getUriForResourceId(i), obj);
+    public void setActualImageResource(@DrawableRes int i2, @Nullable Object obj) {
+        setImageURI(UriUtil.getUriForResourceId(i2), obj);
     }
 
     public void setImageURI(@Nullable String str) {
@@ -132,14 +132,14 @@ public class SimpleDraweeView extends GenericDraweeView {
         setImageURIWithHeader(uri, map, null);
     }
 
-    public SimpleDraweeView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public SimpleDraweeView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         init(context, attributeSet);
     }
 
     @TargetApi(21)
-    public SimpleDraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
-        super(context, attributeSet, i, i2);
+    public SimpleDraweeView(Context context, AttributeSet attributeSet, int i2, int i3) {
+        super(context, attributeSet, i2, i3);
         init(context, attributeSet);
     }
 

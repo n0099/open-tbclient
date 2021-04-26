@@ -7,19 +7,19 @@ public class HttpConnectionParamBean extends HttpAbstractParamBean {
         throw new RuntimeException("Stub!");
     }
 
-    public void setConnectionTimeout(int i) {
+    public void setConnectionTimeout(int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public void setLinger(int i) {
+    public void setLinger(int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public void setSoTimeout(int i) {
+    public void setSoTimeout(int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public void setSocketBufferSize(int i) {
+    public void setSocketBufferSize(int i2) {
         throw new RuntimeException("Stub!");
     }
 

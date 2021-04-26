@@ -5,33 +5,33 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class n {
 
     /* renamed from: b  reason: collision with root package name */
-    public long f4697b;
+    public long f4808b;
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f4696a = new AtomicBoolean(false);
+    public AtomicBoolean f4807a = new AtomicBoolean(false);
 
     /* renamed from: c  reason: collision with root package name */
-    public Runnable f4698c = new d.b.m.a.j(this);
+    public Runnable f4809c = new d.a.m.a.j(this);
 
     public n(long j) {
-        this.f4697b = 0 == j ? 300L : j;
+        this.f4808b = 0 == j ? 300L : j;
     }
 
     public abstract void b();
 
     public final void c() {
-        if (this.f4696a.get()) {
+        if (this.f4807a.get()) {
             return;
         }
-        this.f4696a.set(true);
-        j.a().removeCallbacks(this.f4698c);
-        j.a().postDelayed(this.f4698c, a.e());
+        this.f4807a.set(true);
+        j.a().removeCallbacks(this.f4809c);
+        j.a().postDelayed(this.f4809c, a.e());
     }
 
     public final void d() {
-        if (this.f4696a.get()) {
-            this.f4696a.set(false);
-            j.a().removeCallbacks(this.f4698c);
+        if (this.f4807a.get()) {
+            this.f4807a.set(false);
+            j.a().removeCallbacks(this.f4809c);
         }
     }
 }

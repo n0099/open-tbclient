@@ -6,31 +6,31 @@ import android.widget.LinearLayout;
 public final class ca implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f22802a;
+    public final /* synthetic */ FeedbackInputActivity f23512a;
 
     public ca(FeedbackInputActivity feedbackInputActivity) {
-        this.f22802a = feedbackInputActivity;
+        this.f23512a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         LinearLayout linearLayout;
-        int i;
-        FeedbackInputActivity feedbackInputActivity = this.f22802a;
+        int i2;
+        FeedbackInputActivity feedbackInputActivity = this.f23512a;
         if (feedbackInputActivity.D) {
             return;
         }
         if (feedbackInputActivity.p.getVisibility() == 0) {
-            linearLayout = this.f22802a.p;
-            i = 8;
+            linearLayout = this.f23512a.p;
+            i2 = 8;
         } else {
-            if (this.f22802a.p.getChildCount() <= 0) {
-                this.f22802a.a(true);
+            if (this.f23512a.p.getChildCount() <= 0) {
+                this.f23512a.a(true);
             }
-            linearLayout = this.f22802a.p;
-            i = 0;
+            linearLayout = this.f23512a.p;
+            i2 = 0;
         }
-        linearLayout.setVisibility(i);
-        this.f22802a.C.setVisibility(i);
+        linearLayout.setVisibility(i2);
+        this.f23512a.C.setVisibility(i2);
     }
 }

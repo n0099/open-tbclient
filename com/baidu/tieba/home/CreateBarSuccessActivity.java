@@ -64,12 +64,12 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i2) {
         StringBuilder sb;
         TbPageContext<CreateBarSuccessActivity> pageContext;
-        int i2;
-        super.onChangeSkinType(i);
-        getLayoutMode().k(i == 1);
+        int i3;
+        super.onChangeSkinType(i2);
+        getLayoutMode().k(i2 == 1);
         getLayoutMode().j(this.mContainer);
         boolean isOn = new CreateBarTipSwitch().isOn();
         String string = getPageContext().getString(isOn ? R.string.create_bar_new_tip : R.string.create_bar_info1);
@@ -79,20 +79,20 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
             sb.append(string);
             sb.append(this.mBarName);
             pageContext = getPageContext();
-            i2 = R.string.create_bar_new_tip2;
+            i3 = R.string.create_bar_new_tip2;
         } else {
             sb = new StringBuilder();
             sb.append(string);
             sb.append(this.mBarName);
             pageContext = getPageContext();
-            i2 = R.string.create_bar_info2;
+            i3 = R.string.create_bar_info2;
         }
-        sb.append(pageContext.getString(i2));
+        sb.append(pageContext.getString(i3));
         SpannableString spannableString = new SpannableString(sb.toString());
         spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10252)), length, this.mBarName.length() + length, 33);
         this.mTextView.setText(spannableString);
         this.mTextViewMore.setVisibility(isOn ? 0 : 8);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

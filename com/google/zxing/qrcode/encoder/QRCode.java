@@ -12,8 +12,8 @@ public final class QRCode {
     public Mode mode;
     public Version version;
 
-    public static boolean isValidMaskPattern(int i) {
-        return i >= 0 && i < 8;
+    public static boolean isValidMaskPattern(int i2) {
+        return i2 >= 0 && i2 < 8;
     }
 
     public ErrorCorrectionLevel getECLevel() {
@@ -40,8 +40,8 @@ public final class QRCode {
         this.ecLevel = errorCorrectionLevel;
     }
 
-    public void setMaskPattern(int i) {
-        this.maskPattern = i;
+    public void setMaskPattern(int i2) {
+        this.maskPattern = i2;
     }
 
     public void setMatrix(ByteMatrix byteMatrix) {

@@ -25,7 +25,7 @@ public class TextureVideoKernel extends AbsVideoCyber {
         this.mTextureView = textureView;
         textureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() { // from class: com.baidu.searchbox.player.kernel.TextureVideoKernel.1
             @Override // android.view.TextureView.SurfaceTextureListener
-            public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
+            public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
                 if (surfaceTexture != null) {
                     TextureVideoKernel.this.mSurface = new Surface(surfaceTexture);
                     TextureVideoKernel textureVideoKernel = TextureVideoKernel.this;
@@ -41,7 +41,7 @@ public class TextureVideoKernel extends AbsVideoCyber {
             }
 
             @Override // android.view.TextureView.SurfaceTextureListener
-            public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
+            public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
             }
 
             @Override // android.view.TextureView.SurfaceTextureListener
@@ -112,8 +112,8 @@ public class TextureVideoKernel extends AbsVideoCyber {
         return this.mCurrentVideoWidth;
     }
 
-    public void onError(int i, int i2, Object obj) {
-        BdVideoLog.d("TextureVideoKernel", "onError what " + i + " extra " + i2 + " obj " + obj);
+    public void onError(int i2, int i3, Object obj) {
+        BdVideoLog.d("TextureVideoKernel", "onError what " + i2 + " extra " + i3 + " obj " + obj);
         stop();
         this.mKernelStatus.stateChangeNotify(PlayerStatus.ERROR);
     }
@@ -121,9 +121,9 @@ public class TextureVideoKernel extends AbsVideoCyber {
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void onPrepared() {
         super.onPrepared();
-        int i = this.mStorePosition;
-        if (i > 2) {
-            this.mPlayer.seekTo(i - 2);
+        int i2 = this.mStorePosition;
+        if (i2 > 2) {
+            this.mPlayer.seekTo(i2 - 2);
             this.mStorePosition = -1;
         }
     }

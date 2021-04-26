@@ -8,8 +8,8 @@ public enum CreativeType {
     
     public int typeId;
 
-    CreativeType(int i) {
-        this.typeId = i;
+    CreativeType(int i2) {
+        this.typeId = i2;
     }
 
     public int getValue() {

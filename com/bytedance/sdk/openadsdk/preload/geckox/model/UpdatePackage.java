@@ -2,6 +2,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.model;
 
 import androidx.annotation.Keep;
 import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
 import java.util.List;
 @Keep
@@ -27,7 +28,7 @@ public class UpdatePackage {
     public static class Content {
         @c(a = "package")
         public Package fullPackage;
-        @c(a = "patch")
+        @c(a = SchemeDescPatchListener.PATCH)
         public Package patch;
         @c(a = "strategies")
         public Strategy strategy;
@@ -78,8 +79,8 @@ public class UpdatePackage {
             return this.urlList;
         }
 
-        public void setId(int i) {
-            this.id = i;
+        public void setId(int i2) {
+            this.id = i2;
         }
 
         public void setMd5(String str) {
@@ -98,8 +99,8 @@ public class UpdatePackage {
             return "Package{url='" + this.url + "', md5='" + this.md5 + "'}";
         }
 
-        public Package(int i, List<String> list, String str) {
-            this.id = i;
+        public Package(int i2, List<String> list, String str) {
+            this.id = i2;
             this.urlList = list;
             this.md5 = str;
         }
@@ -115,8 +116,8 @@ public class UpdatePackage {
         @c(a = "need_unzip")
         public boolean needUnzip;
 
-        public Strategy(int i) {
-            this.deleteIfFail = i == 1;
+        public Strategy(int i2) {
+            this.deleteIfFail = i2 == 1;
         }
 
         public boolean isDeleteIfFail() {
@@ -203,8 +204,8 @@ public class UpdatePackage {
         this.channel = str;
     }
 
-    public void setChannelIndex(int i) {
-        this.channelIndex = i;
+    public void setChannelIndex(int i2) {
+        this.channelIndex = i2;
     }
 
     public void setFullPackage(Package r2) {

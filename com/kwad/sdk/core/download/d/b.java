@@ -2,11 +2,11 @@ package com.kwad.sdk.core.download.d;
 
 import android.content.Context;
 import com.kwad.sdk.export.proxy.AdInstallProxy;
-import com.kwad.sdk.utils.y;
+import com.kwad.sdk.utils.w;
 /* loaded from: classes6.dex */
 public class b implements AdInstallProxy {
     @Override // com.kwad.sdk.export.proxy.AdInstallProxy, com.ksad.download.a
     public void installApp(Context context, String str) {
-        y.c(context, str);
+        w.c(context, str);
     }
 }

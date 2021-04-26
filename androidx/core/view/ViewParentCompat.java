@@ -5,13 +5,26 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.NonNull;
 /* loaded from: classes.dex */
 public final class ViewParentCompat {
     public static final String TAG = "ViewParentCompat";
+    public static int[] sTempNestedScrollConsumed;
 
-    public static void notifySubtreeAccessibilityStateChanged(ViewParent viewParent, View view, View view2, int i) {
+    public static int[] getTempNestedScrollConsumed() {
+        int[] iArr = sTempNestedScrollConsumed;
+        if (iArr == null) {
+            sTempNestedScrollConsumed = new int[2];
+        } else {
+            iArr[0] = 0;
+            iArr[1] = 0;
+        }
+        return sTempNestedScrollConsumed;
+    }
+
+    public static void notifySubtreeAccessibilityStateChanged(ViewParent viewParent, View view, View view2, int i2) {
         if (Build.VERSION.SDK_INT >= 19) {
-            viewParent.notifySubtreeAccessibilityStateChanged(view, view2, i);
+            viewParent.notifySubtreeAccessibilityStateChanged(view, view2, i2);
         }
     }
 
@@ -45,20 +58,20 @@ public final class ViewParentCompat {
         }
     }
 
-    public static void onNestedPreScroll(ViewParent viewParent, View view, int i, int i2, int[] iArr) {
-        onNestedPreScroll(viewParent, view, i, i2, iArr, 0);
+    public static void onNestedPreScroll(ViewParent viewParent, View view, int i2, int i3, int[] iArr) {
+        onNestedPreScroll(viewParent, view, i2, i3, iArr, 0);
     }
 
-    public static void onNestedScroll(ViewParent viewParent, View view, int i, int i2, int i3, int i4) {
-        onNestedScroll(viewParent, view, i, i2, i3, i4, 0);
+    public static void onNestedScroll(ViewParent viewParent, View view, int i2, int i3, int i4, int i5) {
+        onNestedScroll(viewParent, view, i2, i3, i4, i5, 0, getTempNestedScrollConsumed());
     }
 
-    public static void onNestedScrollAccepted(ViewParent viewParent, View view, View view2, int i) {
-        onNestedScrollAccepted(viewParent, view, view2, i, 0);
+    public static void onNestedScrollAccepted(ViewParent viewParent, View view, View view2, int i2) {
+        onNestedScrollAccepted(viewParent, view, view2, i2, 0);
     }
 
-    public static boolean onStartNestedScroll(ViewParent viewParent, View view, View view2, int i) {
-        return onStartNestedScroll(viewParent, view, view2, i, 0);
+    public static boolean onStartNestedScroll(ViewParent viewParent, View view, View view2, int i2) {
+        return onStartNestedScroll(viewParent, view, view2, i2, 0);
     }
 
     public static void onStopNestedScroll(ViewParent viewParent, View view) {
@@ -70,68 +83,52 @@ public final class ViewParentCompat {
         return viewParent.requestSendAccessibilityEvent(view, accessibilityEvent);
     }
 
-    public static void onNestedPreScroll(ViewParent viewParent, View view, int i, int i2, int[] iArr, int i3) {
+    public static void onNestedPreScroll(ViewParent viewParent, View view, int i2, int i3, int[] iArr, int i4) {
         if (viewParent instanceof NestedScrollingParent2) {
-            ((NestedScrollingParent2) viewParent).onNestedPreScroll(view, i, i2, iArr, i3);
-        } else if (i3 == 0) {
+            ((NestedScrollingParent2) viewParent).onNestedPreScroll(view, i2, i3, iArr, i4);
+        } else if (i4 == 0) {
             if (Build.VERSION.SDK_INT >= 21) {
                 try {
-                    viewParent.onNestedPreScroll(view, i, i2, iArr);
+                    viewParent.onNestedPreScroll(view, i2, i3, iArr);
                 } catch (AbstractMethodError e2) {
                     Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onNestedPreScroll", e2);
                 }
             } else if (viewParent instanceof NestedScrollingParent) {
-                ((NestedScrollingParent) viewParent).onNestedPreScroll(view, i, i2, iArr);
+                ((NestedScrollingParent) viewParent).onNestedPreScroll(view, i2, i3, iArr);
             }
         }
     }
 
-    public static void onNestedScroll(ViewParent viewParent, View view, int i, int i2, int i3, int i4, int i5) {
+    public static void onNestedScrollAccepted(ViewParent viewParent, View view, View view2, int i2, int i3) {
         if (viewParent instanceof NestedScrollingParent2) {
-            ((NestedScrollingParent2) viewParent).onNestedScroll(view, i, i2, i3, i4, i5);
-        } else if (i5 == 0) {
+            ((NestedScrollingParent2) viewParent).onNestedScrollAccepted(view, view2, i2, i3);
+        } else if (i3 == 0) {
             if (Build.VERSION.SDK_INT >= 21) {
                 try {
-                    viewParent.onNestedScroll(view, i, i2, i3, i4);
-                } catch (AbstractMethodError e2) {
-                    Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onNestedScroll", e2);
-                }
-            } else if (viewParent instanceof NestedScrollingParent) {
-                ((NestedScrollingParent) viewParent).onNestedScroll(view, i, i2, i3, i4);
-            }
-        }
-    }
-
-    public static void onNestedScrollAccepted(ViewParent viewParent, View view, View view2, int i, int i2) {
-        if (viewParent instanceof NestedScrollingParent2) {
-            ((NestedScrollingParent2) viewParent).onNestedScrollAccepted(view, view2, i, i2);
-        } else if (i2 == 0) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                try {
-                    viewParent.onNestedScrollAccepted(view, view2, i);
+                    viewParent.onNestedScrollAccepted(view, view2, i2);
                 } catch (AbstractMethodError e2) {
                     Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onNestedScrollAccepted", e2);
                 }
             } else if (viewParent instanceof NestedScrollingParent) {
-                ((NestedScrollingParent) viewParent).onNestedScrollAccepted(view, view2, i);
+                ((NestedScrollingParent) viewParent).onNestedScrollAccepted(view, view2, i2);
             }
         }
     }
 
-    public static boolean onStartNestedScroll(ViewParent viewParent, View view, View view2, int i, int i2) {
+    public static boolean onStartNestedScroll(ViewParent viewParent, View view, View view2, int i2, int i3) {
         if (viewParent instanceof NestedScrollingParent2) {
-            return ((NestedScrollingParent2) viewParent).onStartNestedScroll(view, view2, i, i2);
+            return ((NestedScrollingParent2) viewParent).onStartNestedScroll(view, view2, i2, i3);
         }
-        if (i2 == 0) {
+        if (i3 == 0) {
             if (Build.VERSION.SDK_INT >= 21) {
                 try {
-                    return viewParent.onStartNestedScroll(view, view2, i);
+                    return viewParent.onStartNestedScroll(view, view2, i2);
                 } catch (AbstractMethodError e2) {
                     Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onStartNestedScroll", e2);
                     return false;
                 }
             } else if (viewParent instanceof NestedScrollingParent) {
-                return ((NestedScrollingParent) viewParent).onStartNestedScroll(view, view2, i);
+                return ((NestedScrollingParent) viewParent).onStartNestedScroll(view, view2, i2);
             } else {
                 return false;
             }
@@ -139,10 +136,10 @@ public final class ViewParentCompat {
         return false;
     }
 
-    public static void onStopNestedScroll(ViewParent viewParent, View view, int i) {
+    public static void onStopNestedScroll(ViewParent viewParent, View view, int i2) {
         if (viewParent instanceof NestedScrollingParent2) {
-            ((NestedScrollingParent2) viewParent).onStopNestedScroll(view, i);
-        } else if (i == 0) {
+            ((NestedScrollingParent2) viewParent).onStopNestedScroll(view, i2);
+        } else if (i2 == 0) {
             if (Build.VERSION.SDK_INT >= 21) {
                 try {
                     viewParent.onStopNestedScroll(view);
@@ -151,6 +148,32 @@ public final class ViewParentCompat {
                 }
             } else if (viewParent instanceof NestedScrollingParent) {
                 ((NestedScrollingParent) viewParent).onStopNestedScroll(view);
+            }
+        }
+    }
+
+    public static void onNestedScroll(ViewParent viewParent, View view, int i2, int i3, int i4, int i5, int i6) {
+        onNestedScroll(viewParent, view, i2, i3, i4, i5, i6, getTempNestedScrollConsumed());
+    }
+
+    public static void onNestedScroll(ViewParent viewParent, View view, int i2, int i3, int i4, int i5, int i6, @NonNull int[] iArr) {
+        if (viewParent instanceof NestedScrollingParent3) {
+            ((NestedScrollingParent3) viewParent).onNestedScroll(view, i2, i3, i4, i5, i6, iArr);
+            return;
+        }
+        iArr[0] = iArr[0] + i4;
+        iArr[1] = iArr[1] + i5;
+        if (viewParent instanceof NestedScrollingParent2) {
+            ((NestedScrollingParent2) viewParent).onNestedScroll(view, i2, i3, i4, i5, i6);
+        } else if (i6 == 0) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                try {
+                    viewParent.onNestedScroll(view, i2, i3, i4, i5);
+                } catch (AbstractMethodError e2) {
+                    Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onNestedScroll", e2);
+                }
+            } else if (viewParent instanceof NestedScrollingParent) {
+                ((NestedScrollingParent) viewParent).onNestedScroll(view, i2, i3, i4, i5);
             }
         }
     }

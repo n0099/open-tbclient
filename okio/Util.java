@@ -6,9 +6,9 @@ import kotlin.UShort;
 public final class Util {
     public static final Charset UTF_8 = Charset.forName("UTF-8");
 
-    public static boolean arrayRangeEquals(byte[] bArr, int i, byte[] bArr2, int i2, int i3) {
-        for (int i4 = 0; i4 < i3; i4++) {
-            if (bArr[i4 + i] != bArr2[i4 + i2]) {
+    public static boolean arrayRangeEquals(byte[] bArr, int i2, byte[] bArr2, int i3, int i4) {
+        for (int i5 = 0; i5 < i4; i5++) {
+            if (bArr[i5 + i2] != bArr2[i5 + i3]) {
                 return false;
             }
         }
@@ -21,8 +21,8 @@ public final class Util {
         }
     }
 
-    public static int reverseBytesInt(int i) {
-        return ((i & 255) << 24) | (((-16777216) & i) >>> 24) | ((16711680 & i) >>> 8) | ((65280 & i) << 8);
+    public static int reverseBytesInt(int i2) {
+        return ((i2 & 255) << 24) | (((-16777216) & i2) >>> 24) | ((16711680 & i2) >>> 8) | ((65280 & i2) << 8);
     }
 
     public static long reverseBytesLong(long j) {
@@ -30,8 +30,8 @@ public final class Util {
     }
 
     public static short reverseBytesShort(short s) {
-        int i = s & UShort.MAX_VALUE;
-        return (short) (((i & 255) << 8) | ((65280 & i) >>> 8));
+        int i2 = s & UShort.MAX_VALUE;
+        return (short) (((i2 & 255) << 8) | ((65280 & i2) >>> 8));
     }
 
     public static void sneakyRethrow(Throwable th) {

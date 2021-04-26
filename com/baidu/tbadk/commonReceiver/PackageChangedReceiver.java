@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.b.i0.z0.d;
+import d.a.i0.z0.d;
 /* loaded from: classes3.dex */
 public class PackageChangedReceiver extends BroadcastReceiver {
     public static final String ACTION_INSTALL = "android.intent.action.PACKAGE_ADDED";

@@ -13,12 +13,12 @@ import com.tencent.connect.common.Constants;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class f {
-    public static int a(int i) {
-        int i2 = -101;
-        if (i != -101) {
-            i2 = -1;
-            if (i != -1) {
-                switch (i) {
+    public static int a(int i2) {
+        int i3 = -101;
+        if (i2 != -101) {
+            i3 = -1;
+            if (i2 != -1) {
+                switch (i2) {
                     case 1:
                     case 2:
                     case 4:
@@ -42,11 +42,11 @@ public class f {
                     case 19:
                         return 3;
                     default:
-                        return i;
+                        return i2;
                 }
             }
         }
-        return i2;
+        return i3;
     }
 
     public static NetworkInfo a(Context context) {
@@ -83,7 +83,7 @@ public class f {
 
     public static String e(Context context) {
         int h2 = h(context);
-        return h2 != -101 ? (h2 == -1 || h2 == 0) ? StringUtil.NULL_STRING : h2 != 1 ? h2 != 2 ? h2 != 3 ? Integer.toString(h2) : "4G" : com.baidu.apollon.statistics.g.f3909b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+        return h2 != -101 ? (h2 == -1 || h2 == 0) ? StringUtil.NULL_STRING : h2 != 1 ? h2 != 2 ? h2 != 3 ? Integer.toString(h2) : "4G" : com.baidu.apollon.statistics.g.f3962b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
     }
 
     public static String f(Context context) {
@@ -97,7 +97,7 @@ public class f {
             if (f2.equals("2G")) {
                 return "10";
             }
-            if (f2.equals(com.baidu.apollon.statistics.g.f3909b)) {
+            if (f2.equals(com.baidu.apollon.statistics.g.f3962b)) {
                 return Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE;
             }
             if (f2.equals("4G")) {
@@ -114,31 +114,31 @@ public class f {
     }
 
     public static int h(Context context) {
-        int i = 0;
+        int i2 = 0;
         try {
             NetworkInfo a2 = a(context);
             if (a2 != null && a2.isAvailable() && a2.isConnected()) {
                 int type = a2.getType();
                 if (type == 1) {
-                    i = -101;
+                    i2 = -101;
                 } else if (type == 0) {
                     try {
-                        i = ((TelephonyManager) context.getSystemService("phone")).getNetworkType();
+                        i2 = ((TelephonyManager) context.getSystemService("phone")).getNetworkType();
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
-                    if (i == 0) {
-                        i = a2.getSubtype();
+                    if (i2 == 0) {
+                        i2 = a2.getSubtype();
                     }
                 }
             } else {
-                i = -1;
+                i2 = -1;
             }
         } catch (NullPointerException e3) {
             e3.printStackTrace();
         } catch (Exception e4) {
             e4.printStackTrace();
         }
-        return a(i);
+        return a(i2);
     }
 }

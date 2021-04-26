@@ -13,24 +13,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k {
-    public static JSONArray a(String str, int i, int i2) {
+    public static JSONArray a(String str, int i2, int i3) {
         JSONArray jSONArray = new JSONArray();
         int length = str.length() / 100;
         int length2 = str.length() % 100;
         if (length2 != 0) {
             length++;
         }
-        int i3 = 0;
-        while (i3 < length) {
+        int i4 = 0;
+        while (i4 < length) {
             JSONObject jSONObject = new JSONObject();
             try {
-                String encodeToString = Base64.encodeToString(a(str.substring(i3 * 100, (i3 != length + (-1) || length2 == 0) ? (i3 + 1) * 100 : str.length()).getBytes(), BaiduAppSSOJni.getPublicKey(i)), i2);
+                String encodeToString = Base64.encodeToString(a(str.substring(i4 * 100, (i4 != length + (-1) || length2 == 0) ? (i4 + 1) * 100 : str.length()).getBytes(), BaiduAppSSOJni.getPublicKey(i2)), i3);
                 jSONObject.put("data", encodeToString);
                 jSONObject.put("data_len", encodeToString.length());
                 jSONArray.put(jSONObject);
             } catch (Exception unused) {
             }
-            i3++;
+            i4++;
         }
         return jSONArray;
     }

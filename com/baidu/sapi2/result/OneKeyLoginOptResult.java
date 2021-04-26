@@ -7,24 +7,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class OneKeyLoginOptResult implements NoProguard {
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final String f10896f = "OneKeyLoginOptResult";
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f10897a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f10898b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f10899c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f10900d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f10901e;
+    public static final String TAG = "OneKeyLoginOptResult";
+    public int code;
+    public String extraStr;
+    public String operateType;
+    public String securityPhone;
+    public int subCode;
 
     /* loaded from: classes2.dex */
     public interface OptResultFields {
@@ -40,58 +28,58 @@ public class OneKeyLoginOptResult implements NoProguard {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                oneKeyLoginOptResult.f10897a = jSONObject.optInt("0", -202);
-                oneKeyLoginOptResult.f10898b = jSONObject.optInt("1", -202);
-                oneKeyLoginOptResult.f10899c = jSONObject.optString("2");
-                oneKeyLoginOptResult.f10900d = jSONObject.optString("3");
+                oneKeyLoginOptResult.code = jSONObject.optInt("0", -202);
+                oneKeyLoginOptResult.subCode = jSONObject.optInt("1", -202);
+                oneKeyLoginOptResult.operateType = jSONObject.optString("2");
+                oneKeyLoginOptResult.extraStr = jSONObject.optString("3");
             } catch (JSONException e2) {
-                Log.e(f10896f, e2.getMessage());
+                Log.e(TAG, e2.getMessage());
             }
         }
         return oneKeyLoginOptResult;
     }
 
     public static boolean isValid(OneKeyLoginOptResult oneKeyLoginOptResult) {
-        return (oneKeyLoginOptResult == null || oneKeyLoginOptResult.f10897a != 0 || oneKeyLoginOptResult.f10898b != 0 || TextUtils.isEmpty(oneKeyLoginOptResult.f10899c) || TextUtils.isEmpty(oneKeyLoginOptResult.f10900d)) ? false : true;
+        return (oneKeyLoginOptResult == null || oneKeyLoginOptResult.code != 0 || oneKeyLoginOptResult.subCode != 0 || TextUtils.isEmpty(oneKeyLoginOptResult.operateType) || TextUtils.isEmpty(oneKeyLoginOptResult.extraStr)) ? false : true;
     }
 
     public void generateSecurityPhone() {
-        Log.d(f10896f, "generateSecurityPhone extraStr=" + this.f10900d);
-        if (TextUtils.isEmpty(this.f10900d)) {
+        Log.d(TAG, "generateSecurityPhone extraStr=" + this.extraStr);
+        if (TextUtils.isEmpty(this.extraStr)) {
             return;
         }
         try {
-            this.f10901e = new JSONObject(this.f10900d).optString(OptResultFields.SECURITY_PHONE);
+            this.securityPhone = new JSONObject(this.extraStr).optString(OptResultFields.SECURITY_PHONE);
         } catch (JSONException e2) {
-            Log.e(f10896f, e2.getMessage());
+            Log.e(TAG, e2.getMessage());
         }
     }
 
     public int getCode() {
-        return this.f10897a;
+        return this.code;
     }
 
     public String getExtraStr() {
-        return this.f10900d;
+        return this.extraStr;
     }
 
     public String getOperateType() {
-        return this.f10899c;
+        return this.operateType;
     }
 
     public String getSecurityPhone() {
-        return this.f10901e;
+        return this.securityPhone;
     }
 
     public int getSubCode() {
-        return this.f10898b;
+        return this.subCode;
     }
 
-    public void setCode(int i) {
-        this.f10897a = i;
+    public void setCode(int i2) {
+        this.code = i2;
     }
 
-    public void setSubCode(int i) {
-        this.f10898b = i;
+    public void setSubCode(int i2) {
+        this.subCode = i2;
     }
 }

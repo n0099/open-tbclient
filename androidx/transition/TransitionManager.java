@@ -52,6 +52,7 @@ public class TransitionManager {
                     @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
                     public void onTransitionEnd(@NonNull Transition transition) {
                         ((ArrayList) runningTransitions.get(MultiListener.this.mSceneRoot)).remove(transition);
+                        transition.removeListener(this);
                     }
                 });
                 this.mTransition.captureValues(this.mSceneRoot, false);
@@ -95,14 +96,17 @@ public class TransitionManager {
         if (sPendingTransitions.contains(sceneRoot)) {
             return;
         }
+        Scene currentScene = Scene.getCurrentScene(sceneRoot);
         if (transition == null) {
+            if (currentScene != null) {
+                currentScene.exit();
+            }
             scene.enter();
             return;
         }
         sPendingTransitions.add(sceneRoot);
         Transition m5clone = transition.m5clone();
         m5clone.setSceneRoot(sceneRoot);
-        Scene currentScene = Scene.getCurrentScene(sceneRoot);
         if (currentScene != null && currentScene.isCreatedFromLayoutResource()) {
             m5clone.setCanRemoveViews(true);
         }

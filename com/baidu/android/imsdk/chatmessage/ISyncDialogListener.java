@@ -5,5 +5,5 @@ import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface ISyncDialogListener extends IMListener {
-    void onSyncDialogResult(int i, String str, long j, List<ChatMsg> list);
+    void onSyncDialogResult(int i2, String str, long j, List<ChatMsg> list);
 }

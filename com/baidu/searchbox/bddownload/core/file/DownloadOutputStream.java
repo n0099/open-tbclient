@@ -10,9 +10,9 @@ public interface DownloadOutputStream {
 
     /* loaded from: classes2.dex */
     public interface Factory {
-        DownloadOutputStream create(Context context, Uri uri, int i) throws FileNotFoundException;
+        DownloadOutputStream create(Context context, Uri uri, int i2) throws FileNotFoundException;
 
-        DownloadOutputStream create(Context context, File file, int i) throws FileNotFoundException;
+        DownloadOutputStream create(Context context, File file, int i2) throws FileNotFoundException;
 
         boolean supportSeek();
     }
@@ -25,5 +25,5 @@ public interface DownloadOutputStream {
 
     void setLength(long j) throws IOException;
 
-    void write(byte[] bArr, int i, int i2) throws IOException;
+    void write(byte[] bArr, int i2, int i3) throws IOException;
 }

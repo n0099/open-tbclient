@@ -2,6 +2,7 @@ package androidx.transition;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
@@ -35,9 +36,9 @@ public abstract class Visibility extends Transition {
         public final boolean mSuppressLayout;
         public final View mView;
 
-        public DisappearListener(View view, int i, boolean z) {
+        public DisappearListener(View view, int i2, boolean z) {
             this.mView = view;
-            this.mFinalVisibility = i;
+            this.mFinalVisibility = i2;
             this.mParent = (ViewGroup) view.getParent();
             this.mSuppressLayout = z;
             suppressLayout(true);
@@ -122,8 +123,9 @@ public abstract class Visibility extends Transition {
         }
     }
 
+    @SuppressLint({"UniqueConstants"})
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface Mode {
     }
@@ -172,13 +174,13 @@ public abstract class Visibility extends Transition {
             if (visibilityInfo.mStartVisibility == visibilityInfo.mEndVisibility && visibilityInfo.mStartParent == visibilityInfo.mEndParent) {
                 return visibilityInfo;
             }
-            int i = visibilityInfo.mStartVisibility;
-            int i2 = visibilityInfo.mEndVisibility;
-            if (i != i2) {
-                if (i == 0) {
+            int i2 = visibilityInfo.mStartVisibility;
+            int i3 = visibilityInfo.mEndVisibility;
+            if (i2 != i3) {
+                if (i2 == 0) {
                     visibilityInfo.mFadeIn = false;
                     visibilityInfo.mVisibilityChange = true;
-                } else if (i2 == 0) {
+                } else if (i3 == 0) {
                     visibilityInfo.mFadeIn = true;
                     visibilityInfo.mVisibilityChange = true;
                 }
@@ -261,7 +263,7 @@ public abstract class Visibility extends Transition {
         return null;
     }
 
-    public Animator onAppear(ViewGroup viewGroup, TransitionValues transitionValues, int i, TransitionValues transitionValues2, int i2) {
+    public Animator onAppear(ViewGroup viewGroup, TransitionValues transitionValues, int i2, TransitionValues transitionValues2, int i3) {
         if ((this.mMode & 1) != 1 || transitionValues2 == null) {
             return null;
         }
@@ -278,106 +280,157 @@ public abstract class Visibility extends Transition {
         return null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0087 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00ce  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x00ee A[RETURN] */
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x007f, code lost:
+        if (r10.mCanRemoveViews != false) goto L52;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0040  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Animator onDisappear(ViewGroup viewGroup, TransitionValues transitionValues, int i, TransitionValues transitionValues2, int i2) {
-        int id;
-        if ((this.mMode & 2) != 2) {
-            return null;
-        }
-        final View view = transitionValues != null ? transitionValues.view : null;
-        View view2 = transitionValues2 != null ? transitionValues2.view : null;
-        if (view2 == null || view2.getParent() == null) {
-            if (view2 == null) {
-                if (view != null) {
-                    if (view.getParent() != null) {
-                        if (view.getParent() instanceof View) {
-                            View view3 = (View) view.getParent();
-                            if (!getVisibilityChangeInfo(getTransitionValues(view3, true), getMatchedTransitionValues(view3, true)).mVisibilityChange) {
-                                view = TransitionUtils.copyViewImage(viewGroup, view, view3);
-                            } else if (view3.getParent() != null || (id = view3.getId()) == -1 || viewGroup.findViewById(id) == null || !this.mCanRemoveViews) {
-                                view = null;
+    public Animator onDisappear(final ViewGroup viewGroup, TransitionValues transitionValues, int i2, TransitionValues transitionValues2, int i3) {
+        View view;
+        boolean z;
+        boolean z2;
+        View view2;
+        if ((this.mMode & 2) == 2 && transitionValues != null) {
+            final View view3 = transitionValues.view;
+            View view4 = transitionValues2 != null ? transitionValues2.view : null;
+            final View view5 = (View) view3.getTag(R.id.save_overlay_view);
+            if (view5 != null) {
+                view2 = null;
+                z2 = true;
+            } else if (view4 == null || view4.getParent() == null) {
+                if (view4 != null) {
+                    view = null;
+                    z = false;
+                    if (z) {
+                        if (view3.getParent() != null) {
+                            if (view3.getParent() instanceof View) {
+                                View view6 = (View) view3.getParent();
+                                if (!getVisibilityChangeInfo(getTransitionValues(view6, true), getMatchedTransitionValues(view6, true)).mVisibilityChange) {
+                                    view4 = TransitionUtils.copyViewImage(viewGroup, view3, view6);
+                                } else {
+                                    int id = view6.getId();
+                                    if (view6.getParent() == null) {
+                                        if (id != -1) {
+                                            if (viewGroup.findViewById(id) != null) {
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
+                        view2 = view;
+                        z2 = false;
+                        view5 = view3;
                     }
+                    z2 = false;
+                    View view7 = view;
+                    view5 = view4;
+                    view2 = view7;
                 }
+                view4 = null;
                 view = null;
-                view2 = null;
-                if (view != null || transitionValues == null) {
-                    if (view2 == null) {
-                        int visibility = view2.getVisibility();
-                        ViewUtils.setTransitionVisibility(view2, 0);
-                        Animator onDisappear = onDisappear(viewGroup, view2, transitionValues, transitionValues2);
-                        if (onDisappear != null) {
-                            DisappearListener disappearListener = new DisappearListener(view2, i2, true);
-                            onDisappear.addListener(disappearListener);
-                            AnimatorUtils.addPauseListener(onDisappear, disappearListener);
-                            addListener(disappearListener);
-                        } else {
-                            ViewUtils.setTransitionVisibility(view2, visibility);
-                        }
-                        return onDisappear;
-                    }
-                    return null;
+                z = true;
+                if (z) {
                 }
+                z2 = false;
+                View view72 = view;
+                view5 = view4;
+                view2 = view72;
+            } else {
+                if (i3 == 4 || view3 == view4) {
+                    view = view4;
+                    z = false;
+                    view4 = null;
+                    if (z) {
+                    }
+                    z2 = false;
+                    View view722 = view;
+                    view5 = view4;
+                    view2 = view722;
+                }
+                view4 = null;
+                view = null;
+                z = true;
+                if (z) {
+                }
+                z2 = false;
+                View view7222 = view;
+                view5 = view4;
+                view2 = view7222;
+            }
+            if (view5 == null) {
+                if (view2 != null) {
+                    int visibility = view2.getVisibility();
+                    ViewUtils.setTransitionVisibility(view2, 0);
+                    Animator onDisappear = onDisappear(viewGroup, view2, transitionValues, transitionValues2);
+                    if (onDisappear != null) {
+                        DisappearListener disappearListener = new DisappearListener(view2, i3, true);
+                        onDisappear.addListener(disappearListener);
+                        AnimatorUtils.addPauseListener(onDisappear, disappearListener);
+                        addListener(disappearListener);
+                    } else {
+                        ViewUtils.setTransitionVisibility(view2, visibility);
+                    }
+                    return onDisappear;
+                }
+                return null;
+            }
+            if (!z2) {
                 int[] iArr = (int[]) transitionValues.values.get(PROPNAME_SCREEN_LOCATION);
-                int i3 = iArr[0];
-                int i4 = iArr[1];
+                int i4 = iArr[0];
+                int i5 = iArr[1];
                 int[] iArr2 = new int[2];
                 viewGroup.getLocationOnScreen(iArr2);
-                view.offsetLeftAndRight((i3 - iArr2[0]) - view.getLeft());
-                view.offsetTopAndBottom((i4 - iArr2[1]) - view.getTop());
-                final ViewGroupOverlayImpl overlay = ViewGroupUtils.getOverlay(viewGroup);
-                overlay.add(view);
-                Animator onDisappear2 = onDisappear(viewGroup, view, transitionValues, transitionValues2);
+                view5.offsetLeftAndRight((i4 - iArr2[0]) - view5.getLeft());
+                view5.offsetTopAndBottom((i5 - iArr2[1]) - view5.getTop());
+                ViewGroupUtils.getOverlay(viewGroup).add(view5);
+            }
+            Animator onDisappear2 = onDisappear(viewGroup, view5, transitionValues, transitionValues2);
+            if (!z2) {
                 if (onDisappear2 == null) {
-                    overlay.remove(view);
+                    ViewGroupUtils.getOverlay(viewGroup).remove(view5);
                 } else {
-                    onDisappear2.addListener(new AnimatorListenerAdapter() { // from class: androidx.transition.Visibility.1
-                        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                        public void onAnimationEnd(Animator animator) {
-                            overlay.remove(view);
+                    view3.setTag(R.id.save_overlay_view, view5);
+                    addListener(new TransitionListenerAdapter() { // from class: androidx.transition.Visibility.1
+                        @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
+                        public void onTransitionEnd(@NonNull Transition transition) {
+                            view3.setTag(R.id.save_overlay_view, null);
+                            ViewGroupUtils.getOverlay(viewGroup).remove(view5);
+                            transition.removeListener(this);
+                        }
+
+                        @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
+                        public void onTransitionPause(@NonNull Transition transition) {
+                            ViewGroupUtils.getOverlay(viewGroup).remove(view5);
+                        }
+
+                        @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
+                        public void onTransitionResume(@NonNull Transition transition) {
+                            if (view5.getParent() == null) {
+                                ViewGroupUtils.getOverlay(viewGroup).add(view5);
+                            } else {
+                                Visibility.this.cancel();
+                            }
                         }
                     });
                 }
-                return onDisappear2;
             }
-            view = view2;
-            view2 = null;
-            if (view != null) {
-            }
-            if (view2 == null) {
-            }
-        } else if (i2 == 4 || view == view2) {
-            view = null;
-            if (view != null) {
-            }
-            if (view2 == null) {
-            }
-        } else {
-            if (!this.mCanRemoveViews) {
-                view = TransitionUtils.copyViewImage(viewGroup, view, (View) view.getParent());
-            }
-            view2 = null;
-            if (view != null) {
-            }
-            if (view2 == null) {
-            }
+            return onDisappear2;
         }
+        return null;
     }
 
-    public void setMode(int i) {
-        if ((i & (-4)) == 0) {
-            this.mMode = i;
+    public void setMode(int i2) {
+        if ((i2 & (-4)) == 0) {
+            this.mMode = i2;
             return;
         }
         throw new IllegalArgumentException("Only MODE_IN and MODE_OUT flags are allowed");
     }
 
+    @SuppressLint({"RestrictedApi"})
     public Visibility(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mMode = 3;

@@ -28,17 +28,17 @@ import java.util.Map;
 public class SSWebView extends WebView {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f28660a;
+    public boolean f29545a;
 
     public SSWebView(Context context) {
         super(a(context));
-        this.f28660a = false;
+        this.f29545a = false;
         b(a(context));
     }
 
     public static Context a(Context context) {
-        int i = Build.VERSION.SDK_INT;
-        return (i < 21 || i >= 23) ? context : context.createConfigurationContext(new Configuration());
+        int i2 = Build.VERSION.SDK_INT;
+        return (i2 < 21 || i2 >= 23) ? context : context.createConfigurationContext(new Configuration());
     }
 
     private void b(Context context) {
@@ -87,9 +87,9 @@ public class SSWebView extends WebView {
     }
 
     @Override // android.webkit.WebView
-    public boolean canGoBackOrForward(int i) {
+    public boolean canGoBackOrForward(int i2) {
         try {
-            return super.canGoBackOrForward(i);
+            return super.canGoBackOrForward(i2);
         } catch (Exception unused) {
             return false;
         }
@@ -183,9 +183,9 @@ public class SSWebView extends WebView {
     }
 
     @Override // android.webkit.WebView
-    public void goBackOrForward(int i) {
+    public void goBackOrForward(int i2) {
         try {
-            super.goBackOrForward(i);
+            super.goBackOrForward(i2);
         } catch (Exception unused) {
         }
     }
@@ -236,7 +236,7 @@ public class SSWebView extends WebView {
         ViewParent a2;
         try {
             boolean onTouchEvent = super.onTouchEvent(motionEvent);
-            if (motionEvent.getActionMasked() == 0 && this.f28660a && (a2 = a(this)) != null) {
+            if (motionEvent.getActionMasked() == 0 && this.f29545a && (a2 = a(this)) != null) {
                 a2.requestDisallowInterceptTouchEvent(true);
             }
             return onTouchEvent;
@@ -263,9 +263,9 @@ public class SSWebView extends WebView {
     }
 
     @Override // android.webkit.WebView, android.view.View
-    public void setBackgroundColor(int i) {
+    public void setBackgroundColor(int i2) {
         try {
-            super.setBackgroundColor(i);
+            super.setBackgroundColor(i2);
         } catch (Exception unused) {
         }
     }
@@ -279,13 +279,13 @@ public class SSWebView extends WebView {
     }
 
     public void setIsPreventTouchEvent(boolean z) {
-        this.f28660a = z;
+        this.f29545a = z;
     }
 
     @Override // android.webkit.WebView, android.view.View
-    public void setLayerType(int i, Paint paint) {
+    public void setLayerType(int i2, Paint paint) {
         try {
-            super.setLayerType(i, paint);
+            super.setLayerType(i2, paint);
         } catch (Throwable unused) {
         }
     }
@@ -299,9 +299,9 @@ public class SSWebView extends WebView {
     }
 
     @Override // android.webkit.WebView, android.view.View
-    public void setOverScrollMode(int i) {
+    public void setOverScrollMode(int i2) {
         try {
-            super.setOverScrollMode(i);
+            super.setOverScrollMode(i2);
         } catch (Throwable unused) {
         }
     }
@@ -346,7 +346,7 @@ public class SSWebView extends WebView {
 
     public SSWebView(Context context, AttributeSet attributeSet) {
         super(a(context), attributeSet);
-        this.f28660a = false;
+        this.f29545a = false;
         b(a(context));
     }
 
@@ -357,9 +357,9 @@ public class SSWebView extends WebView {
         }
     }
 
-    public SSWebView(Context context, AttributeSet attributeSet, int i) {
-        super(a(context), attributeSet, i);
-        this.f28660a = false;
+    public SSWebView(Context context, AttributeSet attributeSet, int i2) {
+        super(a(context), attributeSet, i2);
+        this.f29545a = false;
         b(a(context));
     }
 

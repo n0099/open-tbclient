@@ -9,15 +9,15 @@ import java.security.MessageDigest;
 public class Md5Util {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f38778a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "a", "b", "c", "d", "e", "f"};
+    public static final String[] f36359a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "a", "b", "c", "d", "e", "f"};
 
     public static String byteArrayToHexString(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();
-        for (int i : bArr) {
-            if (i < 0) {
-                i += 256;
+        for (int i2 : bArr) {
+            if (i2 < 0) {
+                i2 += 256;
             }
-            stringBuffer.append(f38778a[i / 16] + f38778a[i % 16]);
+            stringBuffer.append(f36359a[i2 / 16] + f36359a[i2 % 16]);
         }
         return stringBuffer.toString();
     }
@@ -99,16 +99,16 @@ public class Md5Util {
             return null;
         }
         byte[] bArr = new byte[str.length() / 2];
-        for (int i = 0; i < str.length() - 1; i += 2) {
-            char charAt = str.charAt(i);
-            char charAt2 = str.charAt(i + 1);
+        for (int i2 = 0; i2 < str.length() - 1; i2 += 2) {
+            char charAt = str.charAt(i2);
+            char charAt2 = str.charAt(i2 + 1);
             char lowerCase = Character.toLowerCase(charAt);
             char lowerCase2 = Character.toLowerCase(charAt2);
-            int i2 = ((lowerCase <= '9' ? lowerCase - '0' : (lowerCase - 'a') + 10) << 4) + (lowerCase2 <= '9' ? lowerCase2 - '0' : (lowerCase2 - 'a') + 10);
-            if (i2 > 127) {
-                i2 -= 256;
+            int i3 = ((lowerCase <= '9' ? lowerCase - '0' : (lowerCase - 'a') + 10) << 4) + (lowerCase2 <= '9' ? lowerCase2 - '0' : (lowerCase2 - 'a') + 10);
+            if (i3 > 127) {
+                i3 -= 256;
             }
-            bArr[i / 2] = (byte) i2;
+            bArr[i2 / 2] = (byte) i3;
         }
         return bArr;
     }

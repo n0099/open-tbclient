@@ -326,20 +326,20 @@ public class SkyDexFeedNetworkResponse {
         SkyReflectionUtil.invoke(this.response, "onClickAd", new Class[]{Context.class}, new Object[]{context});
     }
 
-    public void onClose(Context context, int i) {
-        SkyReflectionUtil.invoke(this.response, "onClose", new Class[]{Context.class, Integer.TYPE}, new Object[]{context, Integer.valueOf(i)});
+    public void onClose(Context context, int i2) {
+        SkyReflectionUtil.invoke(this.response, "onClose", new Class[]{Context.class, Integer.TYPE}, new Object[]{context, Integer.valueOf(i2)});
     }
 
     public void onComplete(Context context) {
         SkyReflectionUtil.invoke(this.response, "onComplete", new Class[]{Context.class}, new Object[]{context});
     }
 
-    public void onError(Context context, int i, int i2) {
+    public void onError(Context context, int i2, int i3) {
         SkyReflectionUtil.invoke(this.response, "onError", new Class[]{Context.class}, new Object[]{context});
     }
 
-    public void onFullScreen(Context context, int i) {
-        SkyReflectionUtil.invoke(this.response, "onFullScreen", new Class[]{Context.class, Integer.TYPE}, new Object[]{context, Integer.valueOf(i)});
+    public void onFullScreen(Context context, int i2) {
+        SkyReflectionUtil.invoke(this.response, "onFullScreen", new Class[]{Context.class, Integer.TYPE}, new Object[]{context, Integer.valueOf(i2)});
     }
 
     public void onStart(Context context) {
@@ -364,9 +364,9 @@ public class SkyDexFeedNetworkResponse {
         }
     }
 
-    public void handleClick(View view, int i) {
+    public void handleClick(View view, int i2) {
         try {
-            SkyReflectionUtil.invoke(this.response, "handleClick", new Class[]{View.class, Integer.TYPE}, new Object[]{view, Integer.valueOf(i)});
+            SkyReflectionUtil.invoke(this.response, "handleClick", new Class[]{View.class, Integer.TYPE}, new Object[]{view, Integer.valueOf(i2)});
         } catch (Exception unused) {
         }
     }

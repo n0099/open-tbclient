@@ -17,10 +17,10 @@ public class ChatStatusManager {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f13702a;
+        public boolean f13706a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13703b;
+        public String f13707b;
     }
 
     public static synchronized ChatStatusManager getInst() {
@@ -34,42 +34,42 @@ public class ChatStatusManager {
         return chatStatusManager;
     }
 
-    public String getCurId(int i) {
-        a aVar = this.mStatus.get(i);
-        return aVar != null ? aVar.f13703b : "";
+    public String getCurId(int i2) {
+        a aVar = this.mStatus.get(i2);
+        return aVar != null ? aVar.f13707b : "";
     }
 
-    public boolean getIsOpen(int i) {
-        a aVar = this.mStatus.get(i);
+    public boolean getIsOpen(int i2) {
+        a aVar = this.mStatus.get(i2);
         if (aVar != null) {
-            return aVar.f13702a;
+            return aVar.f13706a;
         }
         return false;
     }
 
-    public void remove(int i) {
-        this.mStatus.delete(i);
+    public void remove(int i2) {
+        this.mStatus.delete(i2);
     }
 
-    public void setCurId(int i, String str) {
-        a aVar = this.mStatus.get(i);
+    public void setCurId(int i2, String str) {
+        a aVar = this.mStatus.get(i2);
         if (aVar != null) {
-            aVar.f13703b = str;
+            aVar.f13707b = str;
             return;
         }
         a aVar2 = new a();
-        aVar2.f13703b = str;
-        this.mStatus.put(i, aVar2);
+        aVar2.f13707b = str;
+        this.mStatus.put(i2, aVar2);
     }
 
-    public void setIsOpen(int i, boolean z) {
-        a aVar = this.mStatus.get(i);
+    public void setIsOpen(int i2, boolean z) {
+        a aVar = this.mStatus.get(i2);
         if (aVar != null) {
-            aVar.f13702a = z;
+            aVar.f13706a = z;
             return;
         }
         a aVar2 = new a();
-        aVar2.f13702a = z;
-        this.mStatus.put(i, aVar2);
+        aVar2.f13706a = z;
+        this.mStatus.put(i2, aVar2);
     }
 }

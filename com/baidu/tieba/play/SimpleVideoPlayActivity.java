@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import d.b.j0.j2.q.e;
-/* loaded from: classes3.dex */
+import d.a.j0.j2.q.e;
+/* loaded from: classes4.dex */
 public class SimpleVideoPlayActivity extends BaseActivity {
     public NavigationBar navigationBar;
     public FrameLayout rootView;
@@ -20,7 +20,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     public e videoContainer;
     public String videoUrl;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -39,7 +39,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             this.videoUrl = getIntent().getStringExtra("video_url");
             this.thumbUrl = getIntent().getStringExtra("thumb_url");
         }
-        this.videoContainer.z0(this.thumbUrl, this.videoUrl);
+        this.videoContainer.A0(this.thumbUrl, this.videoUrl);
     }
 
     private void initView() {
@@ -65,8 +65,8 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         UtilHelper.changeStatusBarIconAndTextColor(true, this);
     }
 

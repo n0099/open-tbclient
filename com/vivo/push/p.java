@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.SparseArray;
-import com.kwai.video.player.PlayerProps;
+import com.baidu.sapi2.share.ShareCallPacking;
 import com.vivo.push.b.ab;
 import com.vivo.push.b.ac;
 import com.vivo.push.b.ad;
@@ -18,15 +18,17 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f39877a = new Object();
+    public static final Object f37480a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile p f39878b;
-    public Context i;
+    public static volatile p f37481b;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Context f37488i;
     public com.vivo.push.util.a k;
     public String l;
     public String m;
@@ -36,22 +38,22 @@ public final class p {
     public int t;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f39879c = -1;
+    public long f37482c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f39880d = -1;
+    public long f37483d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f39881e = -1;
+    public long f37484e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f39882f = -1;
+    public long f37485f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f39883g = -1;
+    public long f37486g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f39884h = -1;
+    public long f37487h = -1;
     public boolean j = true;
     public SparseArray<a> n = new SparseArray<>();
     public int o = 0;
@@ -64,7 +66,7 @@ public final class p {
     }
 
     private long u() {
-        Context context = this.i;
+        Context context = this.f37488i;
         if (context == null) {
             return -1L;
         }
@@ -76,13 +78,13 @@ public final class p {
 
     private boolean v() {
         if (this.p == null) {
-            this.p = Boolean.valueOf(u() >= 1230 && com.vivo.push.util.z.e(this.i));
+            this.p = Boolean.valueOf(u() >= 1230 && com.vivo.push.util.z.e(this.f37488i));
         }
         return this.p.booleanValue();
     }
 
     public final boolean d() {
-        if (this.i == null) {
+        if (this.f37488i == null) {
             com.vivo.push.util.p.d("PushClientManager", "support:context is null");
             return false;
         }
@@ -100,7 +102,7 @@ public final class p {
         if (TextUtils.isEmpty(a2)) {
             return a2;
         }
-        Context context = this.i;
+        Context context = this.f37488i;
         if (com.vivo.push.util.z.a(context, context.getPackageName(), a2)) {
             this.k.a();
             return null;
@@ -113,7 +115,7 @@ public final class p {
     }
 
     public final Context h() {
-        return this.i;
+        return this.f37488i;
     }
 
     public final void i() {
@@ -145,7 +147,7 @@ public final class p {
     }
 
     public final boolean p() {
-        return this.i.getPackageManager().getComponentEnabledSetting(new ComponentName(this.i, "com.vivo.push.sdk.service.PushService")) != 2;
+        return this.f37488i.getPackageManager().getComponentEnabledSetting(new ComponentName(this.f37488i, "com.vivo.push.sdk.service.PushService")) != 2;
     }
 
     public final void q() {
@@ -157,7 +159,7 @@ public final class p {
     }
 
     public final Map<String, String> s() {
-        return com.vivo.push.util.z.f(this.i);
+        return com.vivo.push.util.z.f(this.f37488i);
     }
 
     public final List<String> c() {
@@ -180,68 +182,68 @@ public final class p {
     }
 
     public static p a() {
-        if (f39878b == null) {
-            synchronized (f39877a) {
-                if (f39878b == null) {
-                    f39878b = new p();
+        if (f37481b == null) {
+            synchronized (f37480a) {
+                if (f37481b == null) {
+                    f37481b = new p();
                 }
             }
         }
-        return f39878b;
+        return f37481b;
     }
 
     public final void b() throws VivoPushException {
-        Context context = this.i;
+        Context context = this.f37488i;
         if (context != null) {
             com.vivo.push.util.z.c(context);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public IPushActionListener f39885a;
+        public IPushActionListener f37489a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.vivo.push.b.c f39886b;
+        public com.vivo.push.b.c f37490b;
 
         /* renamed from: c  reason: collision with root package name */
-        public IPushActionListener f39887c;
+        public IPushActionListener f37491c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Runnable f39888d;
+        public Runnable f37492d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Object[] f39889e;
+        public Object[] f37493e;
 
         public a(com.vivo.push.b.c cVar, IPushActionListener iPushActionListener) {
-            this.f39886b = cVar;
-            this.f39885a = iPushActionListener;
+            this.f37490b = cVar;
+            this.f37489a = iPushActionListener;
         }
 
-        public final void a(int i, Object... objArr) {
-            this.f39889e = objArr;
-            IPushActionListener iPushActionListener = this.f39887c;
+        public final void a(int i2, Object... objArr) {
+            this.f37493e = objArr;
+            IPushActionListener iPushActionListener = this.f37491c;
             if (iPushActionListener != null) {
-                iPushActionListener.onStateChanged(i);
+                iPushActionListener.onStateChanged(i2);
             }
-            IPushActionListener iPushActionListener2 = this.f39885a;
+            IPushActionListener iPushActionListener2 = this.f37489a;
             if (iPushActionListener2 != null) {
-                iPushActionListener2.onStateChanged(i);
+                iPushActionListener2.onStateChanged(i2);
             }
         }
 
         public final Object[] b() {
-            return this.f39889e;
+            return this.f37493e;
         }
 
         public final void a(Runnable runnable) {
-            this.f39888d = runnable;
+            this.f37492d = runnable;
         }
 
         public final void a() {
-            Runnable runnable = this.f39888d;
+            Runnable runnable = this.f37492d;
             if (runnable == null) {
                 com.vivo.push.util.p.a("PushClientManager", "task is null");
             } else {
@@ -250,7 +252,7 @@ public final class p {
         }
 
         public final void a(IPushActionListener iPushActionListener) {
-            this.f39887c = iPushActionListener;
+            this.f37491c = iPushActionListener;
         }
     }
 
@@ -287,10 +289,10 @@ public final class p {
     }
 
     public final synchronized void a(Context context) {
-        if (this.i == null) {
-            this.i = context.getApplicationContext();
+        if (this.f37488i == null) {
+            this.f37488i = context.getApplicationContext();
             this.r = com.vivo.push.util.s.b(context, context.getPackageName());
-            com.vivo.push.util.w.b().a(this.i);
+            com.vivo.push.util.w.b().a(this.f37488i);
             a(new com.vivo.push.b.h());
             com.vivo.push.util.a aVar = new com.vivo.push.util.a();
             this.k = aVar;
@@ -321,21 +323,21 @@ public final class p {
     }
 
     public final void b(IPushActionListener iPushActionListener) {
-        if (this.i == null) {
+        if (this.f37488i == null) {
             if (iPushActionListener != null) {
                 iPushActionListener.onStateChanged(102);
             }
         } else if ("".equals(this.l)) {
             iPushActionListener.onStateChanged(0);
-        } else if (!a(this.f39880d)) {
+        } else if (!a(this.f37483d)) {
             if (iPushActionListener != null) {
                 iPushActionListener.onStateChanged(1002);
             }
         } else {
-            this.f39880d = SystemClock.elapsedRealtime();
-            String packageName = this.i.getPackageName();
+            this.f37483d = SystemClock.elapsedRealtime();
+            String packageName = this.f37488i.getPackageName();
             a aVar = null;
-            if (this.i != null) {
+            if (this.f37488i != null) {
                 com.vivo.push.b.b bVar = new com.vivo.push.b.b(false, packageName);
                 bVar.d();
                 bVar.e();
@@ -367,8 +369,8 @@ public final class p {
         }
     }
 
-    public final void c(int i) {
-        this.t = i;
+    public final void c(int i2) {
+        this.t = i2;
     }
 
     public final void a(List<String> list) {
@@ -408,7 +410,7 @@ public final class p {
     }
 
     public final void a(IPushActionListener iPushActionListener) {
-        if (this.i == null) {
+        if (this.f37488i == null) {
             if (iPushActionListener != null) {
                 iPushActionListener.onStateChanged(102);
                 return;
@@ -421,15 +423,15 @@ public final class p {
             if (iPushActionListener != null) {
                 iPushActionListener.onStateChanged(0);
             }
-        } else if (!a(this.f39879c)) {
+        } else if (!a(this.f37482c)) {
             if (iPushActionListener != null) {
                 iPushActionListener.onStateChanged(1002);
             }
         } else {
-            this.f39879c = SystemClock.elapsedRealtime();
-            String packageName = this.i.getPackageName();
+            this.f37482c = SystemClock.elapsedRealtime();
+            String packageName = this.f37488i.getPackageName();
             a aVar = null;
-            if (this.i != null) {
+            if (this.f37488i != null) {
                 com.vivo.push.b.b bVar = new com.vivo.push.b.b(true, packageName);
                 bVar.g();
                 bVar.d();
@@ -462,18 +464,18 @@ public final class p {
     }
 
     public final void b(String str, String str2) {
-        if (this.i == null) {
+        if (this.f37488i == null) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(str2);
-        com.vivo.push.b.a aVar = new com.vivo.push.b.a(false, str, this.i.getPackageName(), arrayList);
+        com.vivo.push.b.a aVar = new com.vivo.push.b.a(false, str, this.f37488i.getPackageName(), arrayList);
         aVar.a(100);
         a(aVar);
     }
 
     public final void b(String str, IPushActionListener iPushActionListener) {
-        if (this.i == null) {
+        if (this.f37488i == null) {
             if (iPushActionListener != null) {
                 iPushActionListener.onStateChanged(102);
             }
@@ -484,7 +486,7 @@ public final class p {
         } else {
             ArrayList arrayList = new ArrayList();
             arrayList.add(str);
-            com.vivo.push.b.a aVar = new com.vivo.push.b.a(false, null, this.i.getPackageName(), arrayList);
+            com.vivo.push.b.a aVar = new com.vivo.push.b.a(false, null, this.f37488i.getPackageName(), arrayList);
             aVar.a(100);
             if (this.r) {
                 if (!v()) {
@@ -493,24 +495,24 @@ public final class p {
                         return;
                     }
                     return;
-                } else if (!a(this.f39882f)) {
+                } else if (!a(this.f37485f)) {
                     if (iPushActionListener != null) {
                         iPushActionListener.onStateChanged(1002);
                         return;
                     }
                     return;
                 } else {
-                    this.f39882f = SystemClock.elapsedRealtime();
+                    this.f37485f = SystemClock.elapsedRealtime();
                     String a2 = a(new a(aVar, iPushActionListener));
                     aVar.b(a2);
                     if (TextUtils.isEmpty(this.l)) {
-                        a(a2, PlayerProps.FFP_PROP_FLOAT_MIN_AVDIFF_REALTIME);
+                        a(a2, 30001);
                         return;
                     } else if (TextUtils.isEmpty(str)) {
-                        a(a2, PlayerProps.FFP_PROP_INT64_CPU);
+                        a(a2, 30002);
                         return;
                     } else if (str.length() > 70) {
-                        a(a2, PlayerProps.FFP_PROP_INT64_MEMORY);
+                        a(a2, 30003);
                         return;
                     } else {
                         a(aVar);
@@ -526,28 +528,28 @@ public final class p {
         }
     }
 
-    public final void a(String str, int i, Object... objArr) {
+    public final void a(String str, int i2, Object... objArr) {
         a c2 = c(str);
         if (c2 != null) {
-            c2.a(i, objArr);
+            c2.a(i2, objArr);
         } else {
             com.vivo.push.util.p.d("PushClientManager", "notifyApp token is null");
         }
     }
 
     public final void a(String str, String str2) {
-        if (this.i == null) {
+        if (this.f37488i == null) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(str2);
-        com.vivo.push.b.a aVar = new com.vivo.push.b.a(true, str, this.i.getPackageName(), arrayList);
+        com.vivo.push.b.a aVar = new com.vivo.push.b.a(true, str, this.f37488i.getPackageName(), arrayList);
         aVar.a(100);
         a(aVar);
     }
 
     public final void a(String str, IPushActionListener iPushActionListener) {
-        if (this.i == null) {
+        if (this.f37488i == null) {
             if (iPushActionListener != null) {
                 iPushActionListener.onStateChanged(102);
             }
@@ -558,7 +560,7 @@ public final class p {
         } else {
             ArrayList arrayList = new ArrayList();
             arrayList.add(str);
-            com.vivo.push.b.a aVar = new com.vivo.push.b.a(true, null, this.i.getPackageName(), arrayList);
+            com.vivo.push.b.a aVar = new com.vivo.push.b.a(true, null, this.f37488i.getPackageName(), arrayList);
             aVar.a(100);
             if (this.r) {
                 if (!v()) {
@@ -567,24 +569,24 @@ public final class p {
                         return;
                     }
                     return;
-                } else if (!a(this.f39881e)) {
+                } else if (!a(this.f37484e)) {
                     if (iPushActionListener != null) {
                         iPushActionListener.onStateChanged(1002);
                         return;
                     }
                     return;
                 } else {
-                    this.f39881e = SystemClock.elapsedRealtime();
+                    this.f37484e = SystemClock.elapsedRealtime();
                     String a2 = a(new a(aVar, iPushActionListener));
                     aVar.b(a2);
                     if (TextUtils.isEmpty(this.l)) {
-                        a(a2, PlayerProps.FFP_PROP_FLOAT_MIN_AVDIFF_REALTIME);
+                        a(a2, 30001);
                         return;
                     } else if (TextUtils.isEmpty(str)) {
-                        a(a2, PlayerProps.FFP_PROP_INT64_CPU);
+                        a(a2, 30002);
                         return;
                     } else if (str.length() > 70) {
-                        a(a2, PlayerProps.FFP_PROP_INT64_MEMORY);
+                        a(a2, 30003);
                         return;
                     } else {
                         a(aVar);
@@ -606,7 +608,7 @@ public final class p {
     }
 
     public final void b(String str, ArrayList<String> arrayList) {
-        Context context = this.i;
+        Context context = this.f37488i;
         if (context == null) {
             return;
         }
@@ -616,7 +618,7 @@ public final class p {
     }
 
     public final void b(ArrayList<String> arrayList, IPushActionListener iPushActionListener) {
-        Context context = this.i;
+        Context context = this.f37488i;
         if (context == null) {
             if (iPushActionListener != null) {
                 iPushActionListener.onStateChanged(102);
@@ -633,30 +635,30 @@ public final class p {
                     return;
                 }
                 return;
-            } else if (!a(this.f39884h)) {
+            } else if (!a(this.f37487h)) {
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(1002);
                     return;
                 }
                 return;
             } else {
-                this.f39884h = SystemClock.elapsedRealtime();
+                this.f37487h = SystemClock.elapsedRealtime();
                 String a2 = a(new a(adVar, iPushActionListener));
                 adVar.b(a2);
                 if (TextUtils.isEmpty(this.l)) {
-                    a(a2, 20001);
+                    a(a2, ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT);
                     return;
                 } else if (arrayList.size() < 0) {
-                    a(a2, PlayerProps.FFP_PROP_INT64_SELECTED_AUDIO_STREAM);
+                    a(a2, 20002);
                     return;
                 } else if (arrayList.size() > 500) {
-                    a(a2, PlayerProps.FFP_PROP_INT64_AUDIO_DECODER);
+                    a(a2, 20004);
                     return;
                 } else {
                     Iterator<String> it = arrayList.iterator();
                     while (it.hasNext()) {
                         if (it.next().length() > 70) {
-                            a(a2, PlayerProps.FFP_PROP_INT64_VIDEO_DECODER);
+                            a(a2, 20003);
                             return;
                         }
                     }
@@ -677,33 +679,33 @@ public final class p {
         return j == -1 || elapsedRealtime <= j || elapsedRealtime >= j + 2000;
     }
 
-    public final void a(String str, int i) {
+    public final void a(String str, int i2) {
         a c2 = c(str);
         if (c2 != null) {
-            c2.a(i, new Object[0]);
+            c2.a(i2, new Object[0]);
         } else {
             com.vivo.push.util.p.d("PushClientManager", "notifyStatusChanged token is null");
         }
     }
 
     private synchronized String a(a aVar) {
-        int i;
+        int i2;
         this.n.put(this.o, aVar);
-        i = this.o;
-        this.o = i + 1;
-        return Integer.toString(i);
+        i2 = this.o;
+        this.o = i2 + 1;
+        return Integer.toString(i2);
     }
 
-    public final void a(int i) {
-        if (!com.vivo.push.b.g.a(i)) {
-            com.vivo.push.util.p.d("PushClientManager", "切换环境失败，非法的环境：" + i);
-            Context context = this.i;
-            com.vivo.push.util.p.a(context, "切换环境失败，非法的环境：" + i);
+    public final void a(int i2) {
+        if (!com.vivo.push.b.g.a(i2)) {
+            com.vivo.push.util.p.d("PushClientManager", "切换环境失败，非法的环境：" + i2);
+            Context context = this.f37488i;
+            com.vivo.push.util.p.a(context, "切换环境失败，非法的环境：" + i2);
             return;
         }
         a(new ab());
         com.vivo.push.b.g gVar = new com.vivo.push.b.g();
-        gVar.b(i);
+        gVar.b(i2);
         a(gVar);
     }
 
@@ -714,19 +716,19 @@ public final class p {
         a(zVar);
     }
 
-    public final void b(int i) {
-        if (i >= 4 && u() < 1260) {
+    public final void b(int i2) {
+        if (i2 >= 4 && u() < 1260) {
             com.vivo.push.util.p.b("PushClientManager", "current push version " + this.q + " is not support this mode");
             return;
         }
-        com.vivo.push.util.p.a((i & 1) != 0);
+        com.vivo.push.util.p.a((i2 & 1) != 0);
         com.vivo.push.b.z zVar = new com.vivo.push.b.z();
-        zVar.a(i);
+        zVar.a(i2);
         a(zVar);
     }
 
     public final void a(ArrayList<String> arrayList, IPushActionListener iPushActionListener) {
-        Context context = this.i;
+        Context context = this.f37488i;
         if (context == null) {
             if (iPushActionListener != null) {
                 iPushActionListener.onStateChanged(102);
@@ -743,31 +745,31 @@ public final class p {
                     return;
                 }
                 return;
-            } else if (!a(this.f39883g)) {
+            } else if (!a(this.f37486g)) {
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(1002);
                     return;
                 }
                 return;
             } else {
-                this.f39883g = SystemClock.elapsedRealtime();
+                this.f37486g = SystemClock.elapsedRealtime();
                 String a2 = a(new a(adVar, iPushActionListener));
                 adVar.b(a2);
                 if (TextUtils.isEmpty(this.l)) {
-                    a(a2, 20001);
+                    a(a2, ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT);
                     return;
                 } else if (arrayList.size() < 0) {
-                    a(a2, PlayerProps.FFP_PROP_INT64_SELECTED_AUDIO_STREAM);
+                    a(a2, 20002);
                     return;
                 } else {
                     if (arrayList.size() + c().size() > 500) {
-                        a(a2, PlayerProps.FFP_PROP_INT64_AUDIO_DECODER);
+                        a(a2, 20004);
                         return;
                     }
                     Iterator<String> it = arrayList.iterator();
                     while (it.hasNext()) {
                         if (it.next().length() > 70) {
-                            a(a2, PlayerProps.FFP_PROP_INT64_VIDEO_DECODER);
+                            a(a2, 20003);
                             return;
                         }
                     }
@@ -784,7 +786,7 @@ public final class p {
     }
 
     public final void a(String str, ArrayList<String> arrayList) {
-        Context context = this.i;
+        Context context = this.f37488i;
         if (context == null) {
             return;
         }
@@ -795,7 +797,7 @@ public final class p {
 
     public final void a(Intent intent, PushMessageCallback pushMessageCallback) {
         y createReceiverCommand = this.s.createReceiverCommand(intent);
-        Context context = a().i;
+        Context context = a().f37488i;
         if (createReceiverCommand == null) {
             com.vivo.push.util.p.a("PushClientManager", "sendCommand, null command!");
             if (context != null) {
@@ -821,7 +823,7 @@ public final class p {
     }
 
     public final void a(y yVar) {
-        Context context = a().i;
+        Context context = a().f37488i;
         if (yVar == null) {
             com.vivo.push.util.p.a("PushClientManager", "sendCommand, null command!");
             if (context != null) {

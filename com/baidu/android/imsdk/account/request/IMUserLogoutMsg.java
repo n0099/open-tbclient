@@ -29,8 +29,8 @@ public class IMUserLogoutMsg extends Message {
         return new IMUserLogoutMsg(context);
     }
 
-    private void setClearAfterLogout(int i) {
-        this.mClearAfterLogout = i;
+    private void setClearAfterLogout(int i2) {
+        this.mClearAfterLogout = i2;
     }
 
     @Override // com.baidu.android.imsdk.request.Message
@@ -49,7 +49,7 @@ public class IMUserLogoutMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
         Utility.logout(context, getListenerKey());
     }
 }

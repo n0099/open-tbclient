@@ -17,7 +17,7 @@ import org.xmlpull.v1.XmlSerializer;
 public class a implements XmlSerializer {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f39367a = {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&quot;", null, null, null, "&amp;", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&lt;", null, "&gt;", null};
+    public static final String[] f36960a = {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&quot;", null, null, null, "&amp;", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&lt;", null, "&gt;", null};
 
     /* renamed from: a  reason: collision with other field name */
     public OutputStream f2a;
@@ -29,7 +29,7 @@ public class a implements XmlSerializer {
     public CharsetEncoder f5a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39368b;
+    public boolean f36961b;
     public int mPos;
 
     /* renamed from: a  reason: collision with other field name */
@@ -38,33 +38,33 @@ public class a implements XmlSerializer {
     /* renamed from: a  reason: collision with other field name */
     public ByteBuffer f4a = ByteBuffer.allocate(8192);
 
-    private void a(String str, int i, int i2) throws IOException {
-        if (i2 > 8192) {
-            int i3 = i2 + i;
-            while (i < i3) {
-                int i4 = i + 8192;
-                a(str, i, i4 < i3 ? 8192 : i3 - i);
-                i = i4;
+    private void a(String str, int i2, int i3) throws IOException {
+        if (i3 > 8192) {
+            int i4 = i3 + i2;
+            while (i2 < i4) {
+                int i5 = i2 + 8192;
+                a(str, i2, i5 < i4 ? 8192 : i4 - i2);
+                i2 = i5;
             }
             return;
         }
-        int i5 = this.mPos;
-        if (i5 + i2 > 8192) {
+        int i6 = this.mPos;
+        if (i6 + i3 > 8192) {
             flush();
-            i5 = this.mPos;
+            i6 = this.mPos;
         }
-        str.getChars(i, i + i2, this.f6a, i5);
-        this.mPos = i5 + i2;
+        str.getChars(i2, i2 + i3, this.f6a, i6);
+        this.mPos = i6 + i3;
     }
 
     private void append(char c2) throws IOException {
-        int i = this.mPos;
-        if (i >= 8191) {
+        int i2 = this.mPos;
+        if (i2 >= 8191) {
             flush();
-            i = this.mPos;
+            i2 = this.mPos;
         }
-        this.f6a[i] = c2;
-        this.mPos = i + 1;
+        this.f6a[i2] = c2;
+        this.mPos = i2 + 1;
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
@@ -103,7 +103,7 @@ public class a implements XmlSerializer {
 
     @Override // org.xmlpull.v1.XmlSerializer
     public XmlSerializer endTag(String str, String str2) throws IOException, IllegalArgumentException, IllegalStateException {
-        if (this.f39368b) {
+        if (this.f36961b) {
             append(" />\n");
         } else {
             append("</");
@@ -114,7 +114,7 @@ public class a implements XmlSerializer {
             append(str2);
             append(">\n");
         }
-        this.f39368b = false;
+        this.f36961b = false;
         return this;
     }
 
@@ -125,10 +125,10 @@ public class a implements XmlSerializer {
 
     @Override // org.xmlpull.v1.XmlSerializer
     public void flush() throws IOException {
-        int i = this.mPos;
-        if (i > 0) {
+        int i2 = this.mPos;
+        if (i2 > 0) {
             if (this.f2a != null) {
-                CharBuffer wrap = CharBuffer.wrap(this.f6a, 0, i);
+                CharBuffer wrap = CharBuffer.wrap(this.f6a, 0, i2);
                 CoderResult encode = this.f5a.encode(wrap, this.f4a, true);
                 while (!encode.isError()) {
                     if (encode.isOverflow()) {
@@ -141,7 +141,7 @@ public class a implements XmlSerializer {
                 }
                 throw new IOException(encode.toString());
             }
-            this.f3a.write(this.f6a, 0, i);
+            this.f3a.write(this.f6a, 0, i2);
             this.f3a.flush();
             this.mPos = 0;
         }
@@ -231,7 +231,7 @@ public class a implements XmlSerializer {
 
     @Override // org.xmlpull.v1.XmlSerializer
     public XmlSerializer startTag(String str, String str2) throws IOException, IllegalArgumentException, IllegalStateException {
-        if (this.f39368b) {
+        if (this.f36961b) {
             append(">\n");
         }
         append(Typography.less);
@@ -240,69 +240,69 @@ public class a implements XmlSerializer {
             append(':');
         }
         append(str2);
-        this.f39368b = true;
+        this.f36961b = true;
         return this;
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
-    public XmlSerializer text(char[] cArr, int i, int i2) throws IOException, IllegalArgumentException, IllegalStateException {
-        if (this.f39368b) {
+    public XmlSerializer text(char[] cArr, int i2, int i3) throws IOException, IllegalArgumentException, IllegalStateException {
+        if (this.f36961b) {
             append(">");
-            this.f39368b = false;
+            this.f36961b = false;
         }
-        a(cArr, i, i2);
+        a(cArr, i2, i3);
         return this;
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public XmlSerializer text(String str) throws IOException, IllegalArgumentException, IllegalStateException {
-        if (this.f39368b) {
+        if (this.f36961b) {
             append(">");
-            this.f39368b = false;
+            this.f36961b = false;
         }
         a(str);
         return this;
     }
 
-    private void append(char[] cArr, int i, int i2) throws IOException {
-        if (i2 > 8192) {
-            int i3 = i2 + i;
-            while (i < i3) {
-                int i4 = i + 8192;
-                append(cArr, i, i4 < i3 ? 8192 : i3 - i);
-                i = i4;
+    private void append(char[] cArr, int i2, int i3) throws IOException {
+        if (i3 > 8192) {
+            int i4 = i3 + i2;
+            while (i2 < i4) {
+                int i5 = i2 + 8192;
+                append(cArr, i2, i5 < i4 ? 8192 : i4 - i2);
+                i2 = i5;
             }
             return;
         }
-        int i5 = this.mPos;
-        if (i5 + i2 > 8192) {
+        int i6 = this.mPos;
+        if (i6 + i3 > 8192) {
             flush();
-            i5 = this.mPos;
+            i6 = this.mPos;
         }
-        System.arraycopy(cArr, i, this.f6a, i5, i2);
-        this.mPos = i5 + i2;
+        System.arraycopy(cArr, i2, this.f6a, i6, i3);
+        this.mPos = i6 + i3;
     }
 
     private void a(String str) throws IOException {
         String str2;
         int length = str.length();
-        String[] strArr = f39367a;
+        String[] strArr = f36960a;
         char length2 = (char) strArr.length;
-        int i = 0;
         int i2 = 0;
-        while (i < length) {
-            char charAt = str.charAt(i);
+        int i3 = 0;
+        while (i2 < length) {
+            char charAt = str.charAt(i2);
             if (charAt < length2 && (str2 = strArr[charAt]) != null) {
-                if (i2 < i) {
-                    a(str, i2, i - i2);
+                if (i3 < i2) {
+                    a(str, i3, i2 - i3);
                 }
-                i2 = i + 1;
+                i3 = i2 + 1;
                 append(str2);
             }
-            i++;
+            i2++;
         }
-        if (i2 < i) {
-            a(str, i2, i - i2);
+        if (i3 < i2) {
+            a(str, i3, i2 - i3);
         }
     }
 
@@ -315,25 +315,25 @@ public class a implements XmlSerializer {
         a(str, 0, str.length());
     }
 
-    private void a(char[] cArr, int i, int i2) throws IOException {
+    private void a(char[] cArr, int i2, int i3) throws IOException {
         String str;
-        String[] strArr = f39367a;
+        String[] strArr = f36960a;
         char length = (char) strArr.length;
-        int i3 = i2 + i;
-        int i4 = i;
-        while (i < i3) {
-            char c2 = cArr[i];
+        int i4 = i3 + i2;
+        int i5 = i2;
+        while (i2 < i4) {
+            char c2 = cArr[i2];
             if (c2 < length && (str = strArr[c2]) != null) {
-                if (i4 < i) {
-                    append(cArr, i4, i - i4);
+                if (i5 < i2) {
+                    append(cArr, i5, i2 - i5);
                 }
-                i4 = i + 1;
+                i5 = i2 + 1;
                 append(str);
             }
-            i++;
+            i2++;
         }
-        if (i4 < i) {
-            append(cArr, i4, i - i4);
+        if (i5 < i2) {
+            append(cArr, i5, i2 - i5);
         }
     }
 

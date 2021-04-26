@@ -149,10 +149,10 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
         return false;
     }
 
-    private int retryAfter(Response response, int i) {
+    private int retryAfter(Response response, int i2) {
         String header = response.header("Retry-After");
         if (header == null) {
-            return i;
+            return i2;
         }
         if (header.matches("\\d+")) {
             return Integer.valueOf(header).intValue();
@@ -183,7 +183,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
         StreamAllocation streamAllocation = new StreamAllocation(this.client.connectionPool(), createAddress(request.url()), call, eventListener, this.callStackTrace);
         this.streamAllocation = streamAllocation;
         Response response = null;
-        int i = 0;
+        int i2 = 0;
         while (!this.canceled) {
             try {
                 try {
@@ -211,8 +211,8 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
                         return proceed;
                     }
                     Util.closeQuietly(proceed.body());
-                    int i2 = i + 1;
-                    if (i2 <= 20) {
+                    int i3 = i2 + 1;
+                    if (i3 <= 20) {
                         if (!(followUpRequest.body() instanceof UnrepeatableRequestBody)) {
                             if (!sameConnection(proceed, followUpRequest.url())) {
                                 streamAllocation.release();
@@ -223,14 +223,14 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
                             }
                             response = proceed;
                             request = followUpRequest;
-                            i = i2;
+                            i2 = i3;
                         } else {
                             streamAllocation.release();
                             throw new HttpRetryException("Cannot retry streamed HTTP body", proceed.code());
                         }
                     } else {
                         streamAllocation.release();
-                        throw new ProtocolException("Too many follow-up requests: " + i2);
+                        throw new ProtocolException("Too many follow-up requests: " + i3);
                     }
                 } catch (IOException e4) {
                     streamAllocation.release();

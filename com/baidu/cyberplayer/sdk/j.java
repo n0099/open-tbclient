@@ -14,53 +14,55 @@ import java.io.FileDescriptor;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public k f4991a;
+    public k f5115a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CyberPlayerManager.OnPreparedListener f4992b;
+    public CyberPlayerManager.OnPreparedListener f5116b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CyberPlayerManager.OnCompletionListener f4993c;
+    public CyberPlayerManager.OnCompletionListener f5117c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CyberPlayerManager.OnBufferingUpdateListener f4994d;
+    public CyberPlayerManager.OnBufferingUpdateListener f5118d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CyberPlayerManager.OnSeekCompleteListener f4995e;
+    public CyberPlayerManager.OnSeekCompleteListener f5119e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CyberPlayerManager.OnVideoSizeChangedListener f4996f;
+    public CyberPlayerManager.OnVideoSizeChangedListener f5120f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CyberPlayerManager.OnErrorListener f4997g;
+    public CyberPlayerManager.OnErrorListener f5121g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CyberPlayerManager.OnInfoListener f4998h;
-    public int i;
+    public CyberPlayerManager.OnInfoListener f5122h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f5123i;
     public int j;
     public a k;
     public b l;
     public DuplayerHandlerThread m;
     public boolean n;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<j> f4999a;
+        public final WeakReference<j> f5124a;
 
         public a(j jVar, Looper looper) {
             super(looper);
-            this.f4999a = new WeakReference<>(jVar);
+            this.f5124a = new WeakReference<>(jVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            j jVar = this.f4999a.get();
+            j jVar = this.f5124a.get();
             if (jVar == null) {
                 CyberLog.e("MediaPlayerAsync", "EventHandler,MediaPlayerImpl went away with unhandled events msg.what:" + message.what);
                 return;
@@ -68,34 +70,34 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
             CyberLog.i("MediaPlayerAsync", "EventHandler handleMessage what=" + message.what);
             switch (message.what) {
                 case 1:
-                    if (jVar.f4992b != null) {
-                        jVar.f4992b.onPrepared();
+                    if (jVar.f5116b != null) {
+                        jVar.f5116b.onPrepared();
                         return;
                     }
                     return;
                 case 2:
-                    if (jVar.f4993c != null) {
-                        jVar.f4993c.onCompletion();
+                    if (jVar.f5117c != null) {
+                        jVar.f5117c.onCompletion();
                         return;
                     }
                     return;
                 case 3:
-                    if (jVar.f4994d != null) {
-                        jVar.f4994d.onBufferingUpdate(message.arg1);
+                    if (jVar.f5118d != null) {
+                        jVar.f5118d.onBufferingUpdate(message.arg1);
                         return;
                     }
                     return;
                 case 4:
-                    if (jVar.f4995e != null) {
-                        jVar.f4995e.onSeekComplete();
+                    if (jVar.f5119e != null) {
+                        jVar.f5119e.onSeekComplete();
                         return;
                     }
                     return;
                 case 5:
-                    jVar.i = message.arg1;
+                    jVar.f5123i = message.arg1;
                     jVar.j = message.arg2;
-                    if (jVar.f4996f != null) {
-                        jVar.f4996f.onVideoSizeChanged(message.arg1, message.arg2, 1, 1);
+                    if (jVar.f5120f != null) {
+                        jVar.f5120f.onVideoSizeChanged(message.arg1, message.arg2, 1, 1);
                         return;
                     }
                     return;
@@ -104,14 +106,14 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                     CyberLog.e("MediaPlayerAsync", "EventHandler Unknown message type=" + message.what);
                     return;
                 case 7:
-                    if (jVar.f4997g != null) {
-                        jVar.f4997g.onError(message.arg1, message.arg2, null);
+                    if (jVar.f5121g != null) {
+                        jVar.f5121g.onError(message.arg1, message.arg2, null);
                         return;
                     }
                     return;
                 case 8:
-                    if (jVar.f4998h != null) {
-                        jVar.f4998h.onInfo(message.arg1, message.arg2, null);
+                    if (jVar.f5122h != null) {
+                        jVar.f5122h.onInfo(message.arg1, message.arg2, null);
                         return;
                     }
                     return;
@@ -119,60 +121,60 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class b extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<j> f5000a;
+        public final WeakReference<j> f5125a;
 
         public b(j jVar, Looper looper) {
             super(looper);
-            this.f5000a = new WeakReference<>(jVar);
+            this.f5125a = new WeakReference<>(jVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             String str;
-            j jVar = this.f5000a.get();
-            if (jVar == null || (jVar.f4991a == null && message.what != 8)) {
+            j jVar = this.f5125a.get();
+            if (jVar == null || (jVar.f5115a == null && message.what != 8)) {
                 CyberLog.e("MediaPlayerAsync", "RequestHandler,MediaPlayerImpl went away with unhandled events msg.what:" + message.what);
                 return;
             }
             CyberLog.i("MediaPlayerAsync", "RequestHandler handleMessage what=" + message.what);
             switch (message.what) {
                 case 1:
-                    jVar.f4991a.stop();
+                    jVar.f5115a.stop();
                     return;
                 case 2:
                     try {
-                        jVar.f4991a.setOnPreparedListener(null);
-                        jVar.f4991a.setOnCompletionListener(null);
-                        jVar.f4991a.setOnBufferingUpdateListener(null);
-                        jVar.f4991a.setOnSeekCompleteListener(null);
-                        jVar.f4991a.setOnVideoSizeChangedListener(null);
-                        jVar.f4991a.setOnErrorListener(null);
-                        jVar.f4991a.setOnInfoListener(null);
-                        jVar.f4991a.release();
-                        jVar.f4991a = null;
+                        jVar.f5115a.setOnPreparedListener(null);
+                        jVar.f5115a.setOnCompletionListener(null);
+                        jVar.f5115a.setOnBufferingUpdateListener(null);
+                        jVar.f5115a.setOnSeekCompleteListener(null);
+                        jVar.f5115a.setOnVideoSizeChangedListener(null);
+                        jVar.f5115a.setOnErrorListener(null);
+                        jVar.f5115a.setOnInfoListener(null);
+                        jVar.f5115a.release();
+                        jVar.f5115a = null;
                         return;
                     } catch (Exception unused) {
                         return;
                     }
                 case 3:
-                    jVar.f4991a.reset();
+                    jVar.f5115a.reset();
                     return;
                 case 4:
-                    jVar.f4991a.pause();
+                    jVar.f5115a.pause();
                     return;
                 case 5:
-                    jVar.f4991a.start();
+                    jVar.f5115a.start();
                     return;
                 case 6:
-                    jVar.f4991a.prepareAsync();
+                    jVar.f5115a.prepareAsync();
                     return;
                 case 7:
                     if (message.obj instanceof Long) {
-                        jVar.f4991a.seekTo((int) ((Long) message.obj).longValue());
+                        jVar.f5115a.seekTo((int) ((Long) message.obj).longValue());
                         return;
                     }
                     return;
@@ -182,11 +184,11 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                 case 9:
                     Object obj = message.obj;
                     if (obj == null) {
-                        jVar.f4991a.setSurface(null);
+                        jVar.f5115a.setSurface(null);
                         return;
                     } else if ((obj instanceof Surface) && ((Surface) obj).isValid()) {
                         try {
-                            jVar.f4991a.setSurface((Surface) message.obj);
+                            jVar.f5115a.setSurface((Surface) message.obj);
                             return;
                         } catch (Exception unused2) {
                             str = "setSurface exception!";
@@ -197,7 +199,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                     }
                 case 10:
                     if (message.obj instanceof FileDescriptor) {
-                        jVar.f4991a.setDataSource((FileDescriptor) message.obj);
+                        jVar.f5115a.setDataSource((FileDescriptor) message.obj);
                         return;
                     }
                     return;
@@ -205,7 +207,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                     Object obj2 = message.obj;
                     if (obj2 instanceof Boolean) {
                         float f2 = ((Boolean) obj2).booleanValue() ? 0.0f : 1.0f;
-                        jVar.f4991a.setVolume(f2, f2);
+                        jVar.f5115a.setVolume(f2, f2);
                         return;
                     }
                     return;
@@ -213,7 +215,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                     Object obj3 = message.obj;
                     if (obj3 instanceof ArrayList) {
                         ArrayList arrayList = (ArrayList) obj3;
-                        jVar.f4991a.setDataSource((Context) arrayList.get(0), (Uri) arrayList.get(1));
+                        jVar.f5115a.setDataSource((Context) arrayList.get(0), (Uri) arrayList.get(1));
                         return;
                     }
                     return;
@@ -221,13 +223,13 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                     Object obj4 = message.obj;
                     if (obj4 instanceof ArrayList) {
                         ArrayList arrayList2 = (ArrayList) obj4;
-                        jVar.f4991a.setDataSource((Context) arrayList2.get(0), (Uri) arrayList2.get(1), (Map) arrayList2.get(2));
+                        jVar.f5115a.setDataSource((Context) arrayList2.get(0), (Uri) arrayList2.get(1), (Map) arrayList2.get(2));
                         return;
                     }
                     return;
                 case 14:
                     if (message.obj instanceof String) {
-                        jVar.f4991a.setDataSource(String.valueOf(message.obj));
+                        jVar.f5115a.setDataSource(String.valueOf(message.obj));
                         return;
                     }
                     return;
@@ -236,7 +238,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                     if (obj5 instanceof ArrayList) {
                         ArrayList arrayList3 = (ArrayList) obj5;
                         try {
-                            jVar.f4991a.setDataSource((String) arrayList3.get(0), (Map) arrayList3.get(1));
+                            jVar.f5115a.setDataSource((String) arrayList3.get(0), (Map) arrayList3.get(1));
                             return;
                         } catch (IllegalArgumentException e2) {
                             jVar.b(7, -1004, -1004, null);
@@ -249,24 +251,24 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                     Object obj6 = message.obj;
                     if (obj6 instanceof ArrayList) {
                         ArrayList arrayList4 = (ArrayList) obj6;
-                        jVar.f4991a.setWakeMode((Context) arrayList4.get(0), ((Integer) arrayList4.get(1)).intValue());
+                        jVar.f5115a.setWakeMode((Context) arrayList4.get(0), ((Integer) arrayList4.get(1)).intValue());
                         return;
                     }
                     return;
                 case 17:
                     if (message.obj instanceof Boolean) {
-                        jVar.f4991a.setScreenOnWhilePlaying(((Boolean) message.obj).booleanValue());
+                        jVar.f5115a.setScreenOnWhilePlaying(((Boolean) message.obj).booleanValue());
                         return;
                     }
                     return;
                 case 18:
                     Object obj7 = message.obj;
                     if (obj7 == null) {
-                        jVar.f4991a.setDisplay(null);
+                        jVar.f5115a.setDisplay(null);
                         return;
                     } else if ((obj7 instanceof SurfaceHolder) && ((SurfaceHolder) obj7).getSurface() != null && ((SurfaceHolder) message.obj).getSurface().isValid()) {
                         try {
-                            jVar.f4991a.setDisplay((SurfaceHolder) message.obj);
+                            jVar.f5115a.setDisplay((SurfaceHolder) message.obj);
                             return;
                         } catch (Exception unused3) {
                             str = "setDisplay exception!";
@@ -284,14 +286,14 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                     Object obj8 = message.obj;
                     if (obj8 instanceof ArrayList) {
                         ArrayList arrayList5 = (ArrayList) obj8;
-                        jVar.f4991a.setVolume(((Float) arrayList5.get(0)).floatValue(), ((Float) arrayList5.get(1)).floatValue());
+                        jVar.f5115a.setVolume(((Float) arrayList5.get(0)).floatValue(), ((Float) arrayList5.get(1)).floatValue());
                         return;
                     }
                     return;
                 case 21:
                     Object obj9 = message.obj;
                     if (obj9 instanceof Float) {
-                        jVar.f4991a.setSpeed(((Float) obj9).floatValue());
+                        jVar.f5115a.setSpeed(((Float) obj9).floatValue());
                         return;
                     }
                     return;
@@ -299,7 +301,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                     Object obj10 = message.obj;
                     if (obj10 instanceof ArrayList) {
                         ArrayList arrayList6 = (ArrayList) obj10;
-                        jVar.f4991a.changeProxyDynamic((String) arrayList6.get(0), ((Boolean) arrayList6.get(1)).booleanValue());
+                        jVar.f5115a.changeProxyDynamic((String) arrayList6.get(0), ((Boolean) arrayList6.get(1)).booleanValue());
                         return;
                     }
                     return;
@@ -329,11 +331,11 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         return arrayList;
     }
 
-    private boolean a(int i) {
+    private boolean a(int i2) {
         if (this.n) {
             b bVar = this.l;
             if (bVar != null) {
-                bVar.sendEmptyMessage(i);
+                bVar.sendEmptyMessage(i2);
                 return true;
             }
             return true;
@@ -341,11 +343,11 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         return false;
     }
 
-    private boolean a(int i, int i2, int i3, Object obj) {
+    private boolean a(int i2, int i3, int i4, Object obj) {
         if (this.n) {
             b bVar = this.l;
             if (bVar != null) {
-                this.l.sendMessage(bVar.obtainMessage(i, i2, i3, obj));
+                this.l.sendMessage(bVar.obtainMessage(i2, i3, i4, obj));
                 return true;
             }
             return true;
@@ -353,11 +355,11 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         return false;
     }
 
-    private boolean b(int i) {
+    private boolean b(int i2) {
         if (this.n) {
             a aVar = this.k;
             if (aVar != null) {
-                aVar.sendEmptyMessage(i);
+                aVar.sendEmptyMessage(i2);
                 return true;
             }
             return true;
@@ -366,11 +368,11 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean b(int i, int i2, int i3, Object obj) {
+    public boolean b(int i2, int i3, int i4, Object obj) {
         if (this.n) {
             a aVar = this.k;
             if (aVar != null) {
-                this.k.sendMessage(aVar.obtainMessage(i, i2, i3, obj));
+                this.k.sendMessage(aVar.obtainMessage(i2, i3, i4, obj));
                 return true;
             }
             return true;
@@ -414,15 +416,15 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void d() {
-        this.f4991a = new k();
-        CyberLog.i("MediaPlayerAsync", "createPlayer mPlayer=" + this.f4991a);
-        this.f4991a.setOnPreparedListener(this);
-        this.f4991a.setOnCompletionListener(this);
-        this.f4991a.setOnBufferingUpdateListener(this);
-        this.f4991a.setOnSeekCompleteListener(this);
-        this.f4991a.setOnVideoSizeChangedListener(this);
-        this.f4991a.setOnErrorListener(this);
-        this.f4991a.setOnInfoListener(this);
+        this.f5115a = new k();
+        CyberLog.i("MediaPlayerAsync", "createPlayer mPlayer=" + this.f5115a);
+        this.f5115a.setOnPreparedListener(this);
+        this.f5115a.setOnCompletionListener(this);
+        this.f5115a.setOnBufferingUpdateListener(this);
+        this.f5115a.setOnSeekCompleteListener(this);
+        this.f5115a.setOnVideoSizeChangedListener(this);
+        this.f5115a.setOnErrorListener(this);
+        this.f5115a.setOnInfoListener(this);
     }
 
     private synchronized void e() {
@@ -444,7 +446,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getCurrentPosition() {
-        k kVar = this.f4991a;
+        k kVar = this.f5115a;
         if (kVar != null) {
             return kVar.getCurrentPosition();
         }
@@ -453,7 +455,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getCurrentPositionSync() {
-        k kVar = this.f4991a;
+        k kVar = this.f5115a;
         if (kVar != null) {
             return kVar.getCurrentPositionSync();
         }
@@ -467,7 +469,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public long getDownloadSpeed() {
-        k kVar = this.f4991a;
+        k kVar = this.f5115a;
         if (kVar != null) {
             return kVar.getDownloadSpeed();
         }
@@ -476,7 +478,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getDuration() {
-        k kVar = this.f4991a;
+        k kVar = this.f5115a;
         if (kVar != null) {
             return kVar.getDuration();
         }
@@ -485,7 +487,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public long getPlayedTime() {
-        k kVar = this.f4991a;
+        k kVar = this.f5115a;
         if (kVar != null) {
             return kVar.getPlayedTime();
         }
@@ -499,18 +501,18 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getVideoWidth() {
-        return this.i;
+        return this.f5123i;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public boolean isLooping() {
-        k kVar = this.f4991a;
+        k kVar = this.f5115a;
         return kVar != null && kVar.isLooping();
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public boolean isPlaying() {
-        k kVar = this.f4991a;
+        k kVar = this.f5115a;
         return kVar != null && kVar.isPlaying();
     }
 
@@ -525,8 +527,8 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
-    public void onBufferingUpdate(int i) {
-        b(3, i, -1, null);
+    public void onBufferingUpdate(int i2) {
+        b(3, i2, -1, null);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
@@ -535,13 +537,13 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
-    public boolean onError(int i, int i2, Object obj) {
-        return b(7, i, i2, null);
+    public boolean onError(int i2, int i3, Object obj) {
+        return b(7, i2, i3, null);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
-    public boolean onInfo(int i, int i2, Object obj) {
-        return b(8, i, i2, null);
+    public boolean onInfo(int i2, int i3, Object obj) {
+        return b(8, i2, i3, null);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
@@ -555,8 +557,8 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
-    public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
-        b(5, i, i2, null);
+    public void onVideoSizeChanged(int i2, int i3, int i4, int i5) {
+        b(5, i2, i3, null);
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
@@ -579,13 +581,13 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         a(2);
         e();
         this.l = null;
-        this.f4992b = null;
-        this.f4993c = null;
-        this.f4994d = null;
-        this.f4995e = null;
-        this.f4996f = null;
-        this.f4997g = null;
-        this.f4998h = null;
+        this.f5116b = null;
+        this.f5117c = null;
+        this.f5118d = null;
+        this.f5119e = null;
+        this.f5120f = null;
+        this.f5121g = null;
+        this.f5122h = null;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
@@ -640,37 +642,37 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
-        this.f4994d = onBufferingUpdateListener;
+        this.f5118d = onBufferingUpdateListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
-        this.f4993c = onCompletionListener;
+        this.f5117c = onCompletionListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnErrorListener(CyberPlayerManager.OnErrorListener onErrorListener) {
-        this.f4997g = onErrorListener;
+        this.f5121g = onErrorListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
-        this.f4998h = onInfoListener;
+        this.f5122h = onInfoListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
-        this.f4992b = onPreparedListener;
+        this.f5116b = onPreparedListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {
-        this.f4995e = onSeekCompleteListener;
+        this.f5119e = onSeekCompleteListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener) {
-        this.f4996f = onVideoSizeChangedListener;
+        this.f5120f = onVideoSizeChangedListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
@@ -694,8 +696,8 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
-    public void setWakeMode(Context context, int i) {
-        a(16, -1, -1, a(context, Integer.valueOf(i)));
+    public void setWakeMode(Context context, int i2) {
+        a(16, -1, -1, a(context, Integer.valueOf(i2)));
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider

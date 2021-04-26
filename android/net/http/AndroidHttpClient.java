@@ -56,7 +56,7 @@ public final class AndroidHttpClient implements HttpClient {
         throw new RuntimeException("Stub!");
     }
 
-    public void enableCurlLogging(String str, int i) {
+    public void enableCurlLogging(String str, int i2) {
         throw new RuntimeException("Stub!");
     }
 

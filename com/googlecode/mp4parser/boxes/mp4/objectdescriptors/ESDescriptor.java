@@ -106,9 +106,9 @@ public class ESDescriptor extends BaseDescriptor {
     }
 
     public int hashCode() {
-        int i = ((((((((((this.esId * 31) + this.streamDependenceFlag) * 31) + this.URLFlag) * 31) + this.oCRstreamFlag) * 31) + this.streamPriority) * 31) + this.URLLength) * 31;
+        int i2 = ((((((((((this.esId * 31) + this.streamDependenceFlag) * 31) + this.URLFlag) * 31) + this.oCRstreamFlag) * 31) + this.streamPriority) * 31) + this.URLLength) * 31;
         String str = this.URLString;
-        int hashCode = (((((((i + (str != null ? str.hashCode() : 0)) * 31) + this.remoteODFlag) * 31) + this.dependsOnEsId) * 31) + this.oCREsId) * 31;
+        int hashCode = (((((((i2 + (str != null ? str.hashCode() : 0)) * 31) + this.remoteODFlag) * 31) + this.dependsOnEsId) * 31) + this.oCREsId) * 31;
         DecoderConfigDescriptor decoderConfigDescriptor = this.decoderConfigDescriptor;
         int hashCode2 = (hashCode + (decoderConfigDescriptor != null ? decoderConfigDescriptor.hashCode() : 0)) * 31;
         SLConfigDescriptor sLConfigDescriptor = this.slConfigDescriptor;
@@ -121,12 +121,12 @@ public class ESDescriptor extends BaseDescriptor {
     public void parseDetail(ByteBuffer byteBuffer) throws IOException {
         this.esId = IsoTypeReader.readUInt16(byteBuffer);
         int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-        int i = readUInt8 >>> 7;
-        this.streamDependenceFlag = i;
+        int i2 = readUInt8 >>> 7;
+        this.streamDependenceFlag = i2;
         this.URLFlag = (readUInt8 >>> 6) & 1;
         this.oCRstreamFlag = (readUInt8 >>> 5) & 1;
         this.streamPriority = readUInt8 & 31;
-        if (i == 1) {
+        if (i2 == 1) {
             this.dependsOnEsId = IsoTypeReader.readUInt16(byteBuffer);
         }
         if (this.URLFlag == 1) {
@@ -233,62 +233,62 @@ public class ESDescriptor extends BaseDescriptor {
     }
 
     public int serializedSize() {
-        int i = this.streamDependenceFlag > 0 ? 7 : 5;
+        int i2 = this.streamDependenceFlag > 0 ? 7 : 5;
         if (this.URLFlag > 0) {
-            i += this.URLLength + 1;
+            i2 += this.URLLength + 1;
         }
         if (this.oCRstreamFlag > 0) {
-            i += 2;
+            i2 += 2;
         }
-        return i + this.decoderConfigDescriptor.serializedSize() + this.slConfigDescriptor.serializedSize();
+        return i2 + this.decoderConfigDescriptor.serializedSize() + this.slConfigDescriptor.serializedSize();
     }
 
     public void setDecoderConfigDescriptor(DecoderConfigDescriptor decoderConfigDescriptor) {
         this.decoderConfigDescriptor = decoderConfigDescriptor;
     }
 
-    public void setDependsOnEsId(int i) {
-        this.dependsOnEsId = i;
+    public void setDependsOnEsId(int i2) {
+        this.dependsOnEsId = i2;
     }
 
-    public void setEsId(int i) {
-        this.esId = i;
+    public void setEsId(int i2) {
+        this.esId = i2;
     }
 
-    public void setRemoteODFlag(int i) {
-        this.remoteODFlag = i;
+    public void setRemoteODFlag(int i2) {
+        this.remoteODFlag = i2;
     }
 
     public void setSlConfigDescriptor(SLConfigDescriptor sLConfigDescriptor) {
         this.slConfigDescriptor = sLConfigDescriptor;
     }
 
-    public void setStreamDependenceFlag(int i) {
-        this.streamDependenceFlag = i;
+    public void setStreamDependenceFlag(int i2) {
+        this.streamDependenceFlag = i2;
     }
 
-    public void setStreamPriority(int i) {
-        this.streamPriority = i;
+    public void setStreamPriority(int i2) {
+        this.streamPriority = i2;
     }
 
-    public void setURLFlag(int i) {
-        this.URLFlag = i;
+    public void setURLFlag(int i2) {
+        this.URLFlag = i2;
     }
 
-    public void setURLLength(int i) {
-        this.URLLength = i;
+    public void setURLLength(int i2) {
+        this.URLLength = i2;
     }
 
     public void setURLString(String str) {
         this.URLString = str;
     }
 
-    public void setoCREsId(int i) {
-        this.oCREsId = i;
+    public void setoCREsId(int i2) {
+        this.oCREsId = i2;
     }
 
-    public void setoCRstreamFlag(int i) {
-        this.oCRstreamFlag = i;
+    public void setoCRstreamFlag(int i2) {
+        this.oCRstreamFlag = i2;
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor

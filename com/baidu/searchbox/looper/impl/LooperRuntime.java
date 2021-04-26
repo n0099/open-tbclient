@@ -12,10 +12,10 @@ import com.baidu.searchbox.looper.ioc.ILooperRegister_LooperRuntime_ListProvider
 import com.baidu.searchbox.looper.ioc.ILooperUIContext;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import d.b.c0.a.b.b;
-import d.b.c0.a.b.c;
-import d.b.c0.a.b.d;
-import d.g.b.a.j.a;
+import d.a.c0.a.b.b;
+import d.a.c0.a.b.c;
+import d.a.c0.a.b.d;
+import d.f.b.a.j.a;
 /* loaded from: classes2.dex */
 public class LooperRuntime {
     public static final ILooperUIContext EMPTY_RUKA_UI_CONTEXT = new ILooperUIContext() { // from class: com.baidu.searchbox.looper.impl.LooperRuntime.1
@@ -49,7 +49,7 @@ public class LooperRuntime {
 
     public void dispatchBlock(Context context, a aVar) {
         d<ILooperRegister> dVar = this.mLooperMonitordList;
-        if (dVar == null || dVar.a() == null) {
+        if (dVar == null || dVar.getList() == null) {
             return;
         }
         LooperBlock looperBlock = new LooperBlock(aVar.r, aVar.q, aVar.n, aVar.o, aVar.w);
@@ -62,17 +62,17 @@ public class LooperRuntime {
             }
         }
         looperBlock.setTrackUIs(Track.getInstance().getAllTrackUIs());
-        for (ILooperRegister iLooperRegister : this.mLooperMonitordList.a()) {
+        for (ILooperRegister iLooperRegister : this.mLooperMonitordList.getList()) {
             iLooperRegister.onBlock(context, looperBlock);
         }
     }
 
     public boolean enableLooper() {
         d<ILooperRegister> dVar = this.mLooperMonitordList;
-        if (dVar == null || dVar.a() == null) {
+        if (dVar == null || dVar.getList() == null) {
             return false;
         }
-        for (ILooperRegister iLooperRegister : this.mLooperMonitordList.a()) {
+        for (ILooperRegister iLooperRegister : this.mLooperMonitordList.getList()) {
             if (iLooperRegister != null && iLooperRegister.checkEnable()) {
                 if (AppConfig.isDebug()) {
                     Log.d("Ruka", "enableLooper = true");
@@ -101,13 +101,13 @@ public class LooperRuntime {
     }
 
     public void initmLooperMonitordList() {
-        b c2 = b.c();
-        this.mLooperMonitordList = c2;
-        c2.b(new ILooperRegister_LooperRuntime_ListProvider());
+        b b2 = b.b();
+        this.mLooperMonitordList = b2;
+        b2.a(new ILooperRegister_LooperRuntime_ListProvider());
     }
 
     public void initmLooperNeedContext() {
-        d.b.c0.a.b.a b2 = d.b.c0.a.b.a.b();
+        d.a.c0.a.b.a b2 = d.a.c0.a.b.a.b();
         this.mLooperNeedContext = b2;
         b2.a(new ILooperNeedContext_LooperRuntime_Provider());
     }

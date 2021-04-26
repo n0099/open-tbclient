@@ -9,7 +9,7 @@ public final class ScheduledDirectTask extends AbstractDirectTask implements Cal
         super(runnable);
     }
 
-    @Override // io.reactivex.internal.schedulers.AbstractDirectTask
+    @Override // io.reactivex.internal.schedulers.AbstractDirectTask, io.reactivex.schedulers.SchedulerRunnableIntrospection
     public /* bridge */ /* synthetic */ Runnable getWrappedRunnable() {
         return super.getWrappedRunnable();
     }

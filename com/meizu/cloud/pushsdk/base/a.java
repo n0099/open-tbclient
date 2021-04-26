@@ -3,9 +3,9 @@ package com.meizu.cloud.pushsdk.base;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f38006a = "android.os.BuildExt";
+    public static String f35557a = "android.os.BuildExt";
 
     public static com.meizu.cloud.pushsdk.base.a.d<Boolean> a() {
-        return com.meizu.cloud.pushsdk.base.a.a.a(f38006a).a("isProductInternational", new Class[0]).a(new Object[0]);
+        return com.meizu.cloud.pushsdk.base.a.a.a(f35557a).a("isProductInternational", new Class[0]).a(new Object[0]);
     }
 }

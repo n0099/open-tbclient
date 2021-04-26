@@ -90,9 +90,9 @@ public class CommandMessage extends Message {
         try {
             JSONArray jSONArray = new JSONObject(str).getJSONArray(str2);
             arrayList = new ArrayList();
-            for (int i = 0; i < jSONArray.length(); i++) {
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 try {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
+                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
                     SubscribeResult subscribeResult = new SubscribeResult();
                     subscribeResult.setContent(jSONObject.getString(str4));
                     subscribeResult.setSubscribeId(jSONObject.getString(str3));
@@ -158,8 +158,8 @@ public class CommandMessage extends Message {
         this.mAppSecret = str;
     }
 
-    public void setCommand(int i) {
-        this.mCommand = i;
+    public void setCommand(int i2) {
+        this.mCommand = i2;
     }
 
     public void setContent(String str) {
@@ -174,8 +174,8 @@ public class CommandMessage extends Message {
         this.mRegisterID = str;
     }
 
-    public void setResponseCode(int i) {
-        this.mResponseCode = i;
+    public void setResponseCode(int i2) {
+        this.mResponseCode = i2;
     }
 
     public void setSdkVersion(String str) {

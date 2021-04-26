@@ -7,35 +7,35 @@ import android.os.Parcel;
 import android.os.RemoteException;
 /* loaded from: classes6.dex */
 public interface ak extends IInterface {
-    void a(int i, int i2) throws RemoteException;
+    void a(int i2, int i3) throws RemoteException;
 
     /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements ak {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ak$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0503a implements ak {
+        public static class C0447a implements ak {
 
             /* renamed from: a  reason: collision with root package name */
-            public static ak f39197a;
+            public static ak f36787a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f39198b;
+            public IBinder f36788b;
 
-            public C0503a(IBinder iBinder) {
-                this.f39198b = iBinder;
+            public C0447a(IBinder iBinder) {
+                this.f36788b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ak
-            public void a(int i, int i2) throws RemoteException {
+            public void a(int i2, int i3) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.ProcessAidlCallback");
-                    obtain.writeInt(i);
                     obtain.writeInt(i2);
-                    if (!this.f39198b.transact(1, obtain, obtain2, 0) && a.a() != null) {
-                        a.a().a(i, i2);
+                    obtain.writeInt(i3);
+                    if (!this.f36788b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        a.a().a(i2, i3);
                     } else {
                         obtain2.readException();
                     }
@@ -47,7 +47,7 @@ public interface ak extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f39198b;
+                return this.f36788b;
             }
         }
 
@@ -63,7 +63,7 @@ public interface ak extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ak)) {
                 return (ak) queryLocalInterface;
             }
-            return new C0503a(iBinder);
+            return new C0447a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -72,10 +72,10 @@ public interface ak extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i != 1) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 != 1) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString("com.ss.android.socialbase.downloader.depend.ProcessAidlCallback");
                 return true;
@@ -87,7 +87,7 @@ public interface ak extends IInterface {
         }
 
         public static ak a() {
-            return C0503a.f39197a;
+            return C0447a.f36787a;
         }
     }
 }

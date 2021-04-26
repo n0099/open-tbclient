@@ -21,8 +21,8 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
-import d.b.c.e.p.l;
-import d.b.j0.y1.g.f;
+import d.a.c.e.p.l;
+import d.a.j0.y1.g.f;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
@@ -88,31 +88,31 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i) {
+        public void onPageScrollStateChanged(int i2) {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f2, int i2) {
+        public void onPageScrolled(int i2, float f2, int i3) {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
-            PickFaceTabActivity.this.setTitleText(i);
+        public void onPageSelected(int i2) {
+            PickFaceTabActivity.this.setTitleText(i2);
         }
     }
 
-    private void createAndAddTabSpec(Fragment fragment, int i, String str) {
+    private void createAndAddTabSpec(Fragment fragment, int i2, String str) {
         if (fragment == null) {
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12982c = fragment;
-        bVar.f12980a = i;
+        bVar.f12907c = fragment;
+        bVar.f12905a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-        bVar.f12981b = fragmentTabIndicator;
+        bVar.f12906b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -163,13 +163,13 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setTitleText(int i) {
+    public void setTitleText(int i2) {
         if (this.mNavigationBar != null) {
-            if (i == 0) {
+            if (i2 == 0) {
                 this.mTitleBar.setTitle(this.mActivity.getText(R.string.face_group_tab_search).toString());
-            } else if (i == 1) {
+            } else if (i2 == 1) {
                 this.mTitleBar.setTitle(this.mActivity.getText(R.string.album_all).toString());
-            } else if (i != 2) {
+            } else if (i2 != 2) {
             } else {
                 this.mTitleBar.setTitle(this.mActivity.getText(R.string.my_mark).toString());
             }
@@ -186,31 +186,31 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         this.mTitleBar.setRightText(string);
     }
 
-    @Override // d.b.j0.y1.g.f
+    @Override // d.a.j0.y1.g.f
     public boolean canChooseMore() {
         return this.mChoosedNum < 24;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        getLayoutMode().k(i == 1);
+    public void onChangeSkinType(int i2) {
+        getLayoutMode().k(i2 == 1);
         getLayoutMode().j(this.mLayoutRoot);
         SkinManager.setBackgroundResource(this.mLayoutRoot, R.color.CAM_X0201);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.mSearchFragment.onChangeSkinType(i);
-        this.mCollectFragment.onChangeSkinType(i);
-        this.mAlbumFragment.onChangeSkinType(i);
-        this.mNoNetView.c(getPageContext(), i);
-        this.mTabHost.o(i);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        this.mSearchFragment.onChangeSkinType(i2);
+        this.mCollectFragment.onChangeSkinType(i2);
+        this.mAlbumFragment.onChangeSkinType(i2);
+        this.mNoNetView.c(getPageContext(), i2);
+        this.mTabHost.o(i2);
     }
 
-    @Override // d.b.j0.y1.g.f
+    @Override // d.a.j0.y1.g.f
     public void onChoose() {
         this.mChoosedNum++;
         updateChoosedNum();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
@@ -226,11 +226,11 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         initFragment();
     }
 
-    @Override // d.b.j0.y1.g.f
+    @Override // d.a.j0.y1.g.f
     public void onUnChoose() {
-        int i = this.mChoosedNum;
-        if (i > 0) {
-            this.mChoosedNum = i - 1;
+        int i2 = this.mChoosedNum;
+        if (i2 > 0) {
+            this.mChoosedNum = i2 - 1;
         }
         updateChoosedNum();
     }

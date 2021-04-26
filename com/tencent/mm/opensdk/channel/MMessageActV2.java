@@ -9,14 +9,14 @@ import com.tencent.mm.opensdk.constants.Build;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class MMessageActV2 {
     public static final String DEFAULT_ENTRY_CLASS_NAME = ".wxapi.WXEntryActivity";
     public static final String MM_ENTRY_PACKAGE_NAME = "com.tencent.mm";
     public static final String MM_MSG_ENTRY_CLASS_NAME = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
     public static final String TAG = "MicroMsg.SDK.MMessageAct";
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static class Args {
         public static final int INVALID_FLAGS = -1;
         public Bundle bundle;
@@ -54,11 +54,11 @@ public class MMessageActV2 {
             intent.putExtra("_mmessage_content", args.content);
             intent.putExtra("_mmessage_checksum", b.a(args.content, Build.SDK_INT, packageName));
             intent.putExtra(ConstantsAPI.TOKEN, args.token);
-            int i = args.flags;
-            if (i == -1) {
+            int i2 = args.flags;
+            if (i2 == -1) {
                 intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT).addFlags(134217728);
             } else {
-                intent.setFlags(i);
+                intent.setFlags(i2);
             }
             try {
                 context.startActivity(intent);

@@ -26,38 +26,40 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.R;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.c.e.p.l;
-import d.b.i0.r.s.a;
-import d.b.j0.l0.d;
-import d.b.j0.l0.o;
-import d.b.j0.l0.u;
+import d.a.c.e.p.l;
+import d.a.i0.r.s.a;
+import d.a.j0.l0.d;
+import d.a.j0.l0.o;
+import d.a.j0.l0.u;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectManageActivity> implements u.l, d.e, d.InterfaceC1403d, o.c {
+public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectManageActivity> implements u.l, d.e, d.InterfaceC1342d, o.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f15382e;
+    public NavigationBar f15532e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f15383f;
+    public TextView f15533f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GridView f15384g;
+    public GridView f15534g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.j0.l0.d f15385h;
-    public RelativeLayout i;
+    public d.a.j0.l0.d f15535h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public RelativeLayout f15536i;
     public TextView j;
     public TextView k;
     public TextView l;
     public View m;
     public View n;
     public boolean o;
-    public d.b.i0.r.s.a p;
+    public d.a.i0.r.s.a p;
     public o q;
-    public d.b.i0.r.f0.a r;
+    public d.a.i0.r.f0.a r;
     public DialogInterface.OnCancelListener s;
     public PermissionJudgePolicy t;
     public View.OnClickListener u = new e();
@@ -71,14 +73,14 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public List<CollectEmotionData> doInBackground(Void... voidArr) {
-            List<CollectEmotionData> n = d.b.j0.l0.g.k().n(TbadkCoreApplication.getCurrentAccount());
+            List<CollectEmotionData> n = d.a.j0.l0.g.k().n(TbadkCoreApplication.getCurrentAccount());
             if (n == null || n.size() < 1) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             for (CollectEmotionData collectEmotionData : n) {
-                if (!d.b.i0.a0.d.f50412d.equals(collectEmotionData.sharpText) && !TextUtils.isEmpty(collectEmotionData.pid)) {
-                    String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + d.b.i0.a0.d.b() + "/" + collectEmotionData.pid + "_s.jpg";
+                if (!d.a.i0.a0.d.f47966d.equals(collectEmotionData.sharpText) && !TextUtils.isEmpty(collectEmotionData.pid)) {
+                    String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + d.a.i0.a0.d.b() + "/" + collectEmotionData.pid + "_s.jpg";
                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                     imageFileInfo.setFilePath(str);
                     File file = new File(str);
@@ -96,8 +98,8 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(List<CollectEmotionData> list) {
-            UserCollectManageActivity.this.f15385h.i(list);
-            UserCollectManageActivity.this.f15385h.notifyDataSetChanged();
+            UserCollectManageActivity.this.f15535h.i(list);
+            UserCollectManageActivity.this.f15535h.notifyDataSetChanged();
         }
     }
 
@@ -130,24 +132,24 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.b.j0.y1.d.m().n()) {
-                l.K(view.getContext(), R.string.face_collect_is_syncing);
+            if (d.a.j0.y1.d.m().n()) {
+                l.L(view.getContext(), R.string.face_collect_is_syncing);
                 return;
             }
             UserCollectManageActivity userCollectManageActivity = UserCollectManageActivity.this;
             userCollectManageActivity.o = !userCollectManageActivity.o;
             if (UserCollectManageActivity.this.o) {
-                SkinManager.setNavbarTitleColor(UserCollectManageActivity.this.f15383f, R.color.CAM_X0302, R.color.s_navbar_title_color);
-                UserCollectManageActivity.this.f15383f.setText(R.string.done);
-                UserCollectManageActivity.this.i.setVisibility(0);
+                SkinManager.setNavbarTitleColor(UserCollectManageActivity.this.f15533f, R.color.CAM_X0302, R.color.s_navbar_title_color);
+                UserCollectManageActivity.this.f15533f.setText(R.string.done);
+                UserCollectManageActivity.this.f15536i.setVisibility(0);
                 UserCollectManageActivity.this.m.setVisibility(0);
             } else {
-                SkinManager.setViewTextColor(UserCollectManageActivity.this.f15383f, R.color.CAM_X0105, 1);
-                UserCollectManageActivity.this.f15383f.setText(R.string.collect_manage);
-                UserCollectManageActivity.this.i.setVisibility(8);
+                SkinManager.setViewTextColor(UserCollectManageActivity.this.f15533f, R.color.CAM_X0105, 1);
+                UserCollectManageActivity.this.f15533f.setText(R.string.collect_manage);
+                UserCollectManageActivity.this.f15536i.setVisibility(8);
                 UserCollectManageActivity.this.l.setText(R.string.delete);
             }
-            UserCollectManageActivity.this.f15385h.j(UserCollectManageActivity.this.o);
+            UserCollectManageActivity.this.f15535h.j(UserCollectManageActivity.this.o);
         }
     }
 
@@ -159,12 +161,12 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (UserCollectManageActivity.this.o) {
-                ArrayList arrayList = new ArrayList(UserCollectManageActivity.this.f15385h.g());
+                ArrayList arrayList = new ArrayList(UserCollectManageActivity.this.f15535h.g());
                 if (arrayList.size() == 0) {
                     return;
                 }
                 if (view == UserCollectManageActivity.this.l) {
-                    UserCollectManageActivity.this.u();
+                    UserCollectManageActivity.this.t();
                     return;
                 }
                 if (view != UserCollectManageActivity.this.j) {
@@ -183,7 +185,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                 } else {
                     u.s().t(arrayList, true, UserCollectManageActivity.this);
                 }
-                UserCollectManageActivity.this.f15385h.e();
+                UserCollectManageActivity.this.f15535h.e();
             }
         }
     }
@@ -193,11 +195,11 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         public f() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
-            u.s().l(new ArrayList(UserCollectManageActivity.this.f15385h.g()), true, UserCollectManageActivity.this);
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
+            u.s().l(new ArrayList(UserCollectManageActivity.this.f15535h.g()), true, UserCollectManageActivity.this);
             aVar.dismiss();
-            UserCollectManageActivity.this.f15385h.e();
+            UserCollectManageActivity.this.f15535h.e();
             UserCollectManageActivity.this.l.setText(R.string.delete);
         }
     }
@@ -207,19 +209,14 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         public g() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
 
-    @Override // d.b.j0.l0.o.c
-    public void b() {
-        closeLoadingDialog();
-    }
-
-    @Override // d.b.j0.l0.d.e
-    public void c(List<CollectEmotionData> list) {
+    @Override // d.a.j0.l0.d.e
+    public void b(List<CollectEmotionData> list) {
         if (list == null) {
             return;
         }
@@ -232,18 +229,8 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         this.l.setText(String.format(getResources().getString(R.string.collect_delete_tip), Integer.valueOf(list.size())));
     }
 
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity
-    public void closeLoadingDialog() {
-        this.r.h(false);
-    }
-
-    @Override // d.b.j0.l0.d.InterfaceC1403d
-    public void d() {
-        sendMessage(new CustomMessage(2002001, new UserAlbumActivityConfig(getPageContext().getPageActivity(), 25030)));
-    }
-
-    @Override // d.b.j0.l0.o.c
-    public void e(List<String> list) {
+    @Override // d.a.j0.l0.o.c
+    public void c(List<String> list) {
         if (!ListUtils.isEmpty(list)) {
             u.s().j(list, this);
         } else {
@@ -251,32 +238,47 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         }
     }
 
+    @Override // com.baidu.tbadk.ProxyAdkBaseActivity
+    public void closeLoadingDialog() {
+        this.r.h(false);
+    }
+
+    @Override // d.a.j0.l0.o.c
+    public void d() {
+        closeLoadingDialog();
+    }
+
+    @Override // d.a.j0.l0.d.InterfaceC1342d
+    public void e() {
+        sendMessage(new CustomMessage(2002001, new UserAlbumActivityConfig(getPageContext().getPageActivity(), 25030)));
+    }
+
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i2 == -1 && i == 25030 && intent.getSerializableExtra("selected_album_list") != null) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i3 == -1 && i2 == 25030 && intent.getSerializableExtra("selected_album_list") != null) {
             ArrayList<ImageFileInfo> arrayList = (ArrayList) intent.getSerializableExtra("selected_album_list");
             if (ListUtils.isEmpty(arrayList)) {
                 return;
             }
-            v(arrayList);
+            u(arrayList);
         }
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        getLayoutMode().k(i == 1);
-        this.f15385h.k(i);
-        this.f15382e.onChangeSkinType(getPageContext(), i);
-        SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201, i);
-        SkinManager.setBackgroundColor(this.f15384g, R.color.CAM_X0201, i);
-        if (i != 1 && i != 4) {
-            SkinManager.setBackgroundColor(this.m, R.color.white_alpha70, i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        getLayoutMode().k(i2 == 1);
+        this.f15535h.k(i2);
+        this.f15532e.onChangeSkinType(getPageContext(), i2);
+        SkinManager.setBackgroundColor(this.f15536i, R.color.CAM_X0201, i2);
+        SkinManager.setBackgroundColor(this.f15534g, R.color.CAM_X0201, i2);
+        if (i2 != 1 && i2 != 4) {
+            SkinManager.setBackgroundColor(this.m, R.color.white_alpha70, i2);
         } else {
-            SkinManager.setBackgroundColor(this.m, R.color.common_color_10311, i);
+            SkinManager.setBackgroundColor(this.m, R.color.common_color_10311, i2);
         }
-        SkinManager.setBackgroundColor(this.n, R.color.CAM_X0204, i);
+        SkinManager.setBackgroundColor(this.n, R.color.CAM_X0204, i2);
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
@@ -291,27 +293,27 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
         super.onDestroy();
-        this.f15385h.h(null);
+        this.f15535h.h(null);
     }
 
-    @Override // d.b.j0.l0.u.l
-    public void onResult(int i, int i2, int i3) {
-        if (i == 1) {
-            l.L(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.operation_success));
-        } else if (i == 2) {
-            l.L(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.operation_success));
-        } else if (i == 3) {
-            String format = String.format(getResources().getString(R.string.save_collect_success), Integer.valueOf(i2));
-            if (i3 != 0) {
-                format = String.format(getResources().getString(R.string.save_collect_success_and_fail), Integer.valueOf(i2), Integer.valueOf(i3));
+    @Override // d.a.j0.l0.u.l
+    public void onResult(int i2, int i3, int i4) {
+        if (i2 == 1) {
+            l.M(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.operation_success));
+        } else if (i2 == 2) {
+            l.M(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.operation_success));
+        } else if (i2 == 3) {
+            String format = String.format(getResources().getString(R.string.save_collect_success), Integer.valueOf(i3));
+            if (i4 != 0) {
+                format = String.format(getResources().getString(R.string.save_collect_success_and_fail), Integer.valueOf(i3), Integer.valueOf(i4));
             }
-            l.L(TbadkCoreApplication.getInst().getContext(), format);
-        } else if (i == 4) {
+            l.M(TbadkCoreApplication.getInst().getContext(), format);
+        } else if (i2 == 4) {
             closeLoadingDialog();
-            if (i2 > 0) {
-                l.L(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.face_group_upload_success));
+            if (i3 > 0) {
+                l.M(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.face_group_upload_success));
             } else {
-                l.L(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.face_group_upload_failed));
+                l.M(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.face_group_upload_failed));
             }
         }
         r();
@@ -324,17 +326,17 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
 
     public final void s() {
         NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.f15382e = navigationBar;
+        this.f15532e = navigationBar;
         navigationBar.setCenterTextTitle(getString(R.string.collect_manage_title));
-        this.f15382e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c());
-        if (this.f15382e.getBackImageView() != null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15382e.getBackImageView(), R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.f15532e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c());
+        if (this.f15532e.getBackImageView() != null) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15532e.getBackImageView(), R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        TextView addTextButton = this.f15382e.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.collect_manage), new d());
-        this.f15383f = addTextButton;
+        TextView addTextButton = this.f15532e.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.collect_manage), new d());
+        this.f15533f = addTextButton;
         SkinManager.setViewTextColor(addTextButton, R.color.CAM_X0105);
-        this.f15384g = (GridView) findViewById(R.id.collect_image_gridview);
-        this.i = (RelativeLayout) findViewById(R.id.controller_layout);
+        this.f15534g = (GridView) findViewById(R.id.collect_image_gridview);
+        this.f15536i = (RelativeLayout) findViewById(R.id.controller_layout);
         TextView textView = (TextView) findViewById(R.id.move_to_first);
         this.j = textView;
         textView.setOnClickListener(this.u);
@@ -348,13 +350,13 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         this.l = textView3;
         textView3.setOnClickListener(this.u);
         this.m = findViewById(R.id.cover);
-        this.f15384g = (GridView) findViewById(R.id.collect_image_gridview);
-        d.b.j0.l0.d dVar = new d.b.j0.l0.d(this);
-        this.f15385h = dVar;
+        this.f15534g = (GridView) findViewById(R.id.collect_image_gridview);
+        d.a.j0.l0.d dVar = new d.a.j0.l0.d(this);
+        this.f15535h = dVar;
         dVar.h(this);
-        this.f15385h.notifyDataSetChanged();
-        this.f15384g.setAdapter((ListAdapter) this.f15385h);
-        this.r = new d.b.i0.r.f0.a(getPageContext());
+        this.f15535h.notifyDataSetChanged();
+        this.f15534g.setAdapter((ListAdapter) this.f15535h);
+        this.r = new d.a.i0.r.f0.a(getPageContext());
         TiebaStatic.log("c12225");
     }
 
@@ -365,9 +367,9 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         this.r.h(true);
     }
 
-    public final void u() {
+    public final void t() {
         if (this.p == null) {
-            d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(getPageContext().getPageActivity());
+            d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getPageContext().getPageActivity());
             this.p = aVar;
             aVar.setMessageId(R.string.collect_delete_confirm_tip);
             this.p.setPositiveButton(R.string.dialog_ok, new f());
@@ -378,7 +380,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         this.p.show();
     }
 
-    public final void v(ArrayList<ImageFileInfo> arrayList) {
+    public final void u(ArrayList<ImageFileInfo> arrayList) {
         if (ListUtils.isEmpty(arrayList)) {
             return;
         }

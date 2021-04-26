@@ -41,13 +41,13 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$LcmNotify, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6422e;
+        public int f6608e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6423f;
+        public long f6609f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f6424g;
+        public int f6610g;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -93,24 +93,24 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         /* renamed from: n */
         public LcmPb$LcmNotify buildPartial() {
             LcmPb$LcmNotify lcmPb$LcmNotify = new LcmPb$LcmNotify(this);
-            int i = this.f6422e;
-            int i2 = (i & 1) != 1 ? 0 : 1;
-            lcmPb$LcmNotify.logId_ = this.f6423f;
-            if ((i & 2) == 2) {
-                i2 |= 2;
+            int i2 = this.f6608e;
+            int i3 = (i2 & 1) != 1 ? 0 : 1;
+            lcmPb$LcmNotify.logId_ = this.f6609f;
+            if ((i2 & 2) == 2) {
+                i3 |= 2;
             }
-            lcmPb$LcmNotify.action_ = this.f6424g;
-            lcmPb$LcmNotify.bitField0_ = i2;
+            lcmPb$LcmNotify.action_ = this.f6610g;
+            lcmPb$LcmNotify.bitField0_ = i3;
             return lcmPb$LcmNotify;
         }
 
         public b o() {
             super.clear();
-            this.f6423f = 0L;
-            int i = this.f6422e & (-2);
-            this.f6422e = i;
-            this.f6424g = 0;
-            this.f6422e = i & (-3);
+            this.f6609f = 0L;
+            int i2 = this.f6608e & (-2);
+            this.f6608e = i2;
+            this.f6610g = 0;
+            this.f6608e = i2 & (-3);
             return this;
         }
 
@@ -131,7 +131,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         }
 
         public boolean s() {
-            return (this.f6422e & 1) == 1;
+            return (this.f6608e & 1) == 1;
         }
 
         public b t(LcmPb$LcmNotify lcmPb$LcmNotify) {
@@ -181,15 +181,15 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             }
         }
 
-        public b v(int i) {
-            this.f6422e |= 2;
-            this.f6424g = i;
+        public b v(int i2) {
+            this.f6608e |= 2;
+            this.f6610g = i2;
             return this;
         }
 
         public b w(long j) {
-            this.f6422e |= 1;
-            this.f6423f = j;
+            this.f6608e |= 1;
+            this.f6609f = j;
             return this;
         }
 
@@ -256,9 +256,9 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
 
     @Override // com.google.protobuf.MessageLite
     public int getSerializedSize() {
-        int i = this.memoizedSerializedSize;
-        if (i != -1) {
-            return i;
+        int i2 = this.memoizedSerializedSize;
+        if (i2 != -1) {
+            return i2;
         }
         int computeInt64Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.logId_) : 0;
         if ((this.bitField0_ & 2) == 2) {

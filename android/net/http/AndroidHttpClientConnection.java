@@ -93,7 +93,7 @@ public class AndroidHttpClientConnection implements HttpInetConnection, HttpConn
     }
 
     @Override // org.apache.http.HttpConnection
-    public void setSocketTimeout(int i) {
+    public void setSocketTimeout(int i2) {
         throw new RuntimeException("Stub!");
     }
 

@@ -14,7 +14,7 @@ import java.io.IOException;
 public class BitmapDescriptorFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f6860a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f7099a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
 
     public static BitmapDescriptor fromAsset(String str) {
         Context context = BMapManager.getContext();
@@ -24,7 +24,7 @@ public class BitmapDescriptorFactory {
         try {
             Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, context);
             BitmapDescriptor fromBitmap = fromBitmap(a2);
-            if (!f6860a && a2 == null) {
+            if (!f7099a && a2 == null) {
                 throw new AssertionError();
             }
             a2.recycle();
@@ -120,10 +120,10 @@ public class BitmapDescriptorFactory {
         return fromBitmap;
     }
 
-    public static BitmapDescriptor fromResource(int i) {
+    public static BitmapDescriptor fromResource(int i2) {
         Bitmap decodeResource;
         Context context = BMapManager.getContext();
-        if (context == null || (decodeResource = BitmapFactory.decodeResource(context.getResources(), i)) == null) {
+        if (context == null || (decodeResource = BitmapFactory.decodeResource(context.getResources(), i2)) == null) {
             return null;
         }
         BitmapDescriptor fromBitmap = fromBitmap(decodeResource);

@@ -11,8 +11,8 @@ public enum WirelessNetworkType {
     
     public int type;
 
-    WirelessNetworkType(int i) {
-        this.type = i;
+    WirelessNetworkType(int i2) {
+        this.type = i2;
     }
 
     public int getValue() {

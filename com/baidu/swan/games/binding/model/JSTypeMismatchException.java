@@ -5,10 +5,10 @@ public class JSTypeMismatchException extends Exception {
     public Object name;
     public int requiredType;
 
-    public JSTypeMismatchException(String str, int i, int i2, String str2) {
+    public JSTypeMismatchException(String str, int i2, int i3, String str2) {
         super(str2);
         this.name = str;
-        this.actualType = i;
-        this.requiredType = i2;
+        this.actualType = i2;
+        this.requiredType = i3;
     }
 }

@@ -81,19 +81,19 @@ public final class Util {
 
     @NonNull
     public static String bytesToHex(@NonNull byte[] bArr, @NonNull char[] cArr) {
-        for (int i = 0; i < bArr.length; i++) {
-            int i2 = bArr[i] & 255;
-            int i3 = i * 2;
+        for (int i2 = 0; i2 < bArr.length; i2++) {
+            int i3 = bArr[i2] & 255;
+            int i4 = i2 * 2;
             char[] cArr2 = HEX_CHAR_ARRAY;
-            cArr[i3] = cArr2[i2 >>> 4];
-            cArr[i3 + 1] = cArr2[i2 & 15];
+            cArr[i4] = cArr2[i3 >>> 4];
+            cArr[i4 + 1] = cArr2[i3 & 15];
         }
         return new String(cArr);
     }
 
     @NonNull
-    public static <T> Queue<T> createQueue(int i) {
-        return new ArrayDeque(i);
+    public static <T> Queue<T> createQueue(int i2) {
+        return new ArrayDeque(i2);
     }
 
     @TargetApi(19)
@@ -114,12 +114,12 @@ public final class Util {
         if (config == null) {
             config = Bitmap.Config.ARGB_8888;
         }
-        int i = AnonymousClass1.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
-        if (i != 1) {
-            if (i == 2 || i == 3) {
+        int i2 = AnonymousClass1.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
+        if (i2 != 1) {
+            if (i2 == 2 || i2 == 3) {
                 return 2;
             }
-            return i != 4 ? 4 : 8;
+            return i2 != 4 ? 4 : 8;
         }
         return 1;
     }
@@ -140,12 +140,12 @@ public final class Util {
         return arrayList;
     }
 
-    public static int hashCode(int i) {
-        return hashCode(i, 17);
+    public static int hashCode(int i2) {
+        return hashCode(i2, 17);
     }
 
-    public static int hashCode(int i, int i2) {
-        return (i2 * 31) + i;
+    public static int hashCode(int i2, int i3) {
+        return (i3 * 31) + i2;
     }
 
     public static boolean isOnBackgroundThread() {
@@ -156,12 +156,12 @@ public final class Util {
         return Looper.myLooper() == Looper.getMainLooper();
     }
 
-    public static boolean isValidDimension(int i) {
-        return i > 0 || i == Integer.MIN_VALUE;
+    public static boolean isValidDimension(int i2) {
+        return i2 > 0 || i2 == Integer.MIN_VALUE;
     }
 
-    public static boolean isValidDimensions(int i, int i2) {
-        return isValidDimension(i) && isValidDimension(i2);
+    public static boolean isValidDimensions(int i2, int i3) {
+        return isValidDimension(i2) && isValidDimension(i3);
     }
 
     @NonNull
@@ -177,23 +177,23 @@ public final class Util {
         return hashCode(f2, 17);
     }
 
-    public static int hashCode(float f2, int i) {
-        return hashCode(Float.floatToIntBits(f2), i);
+    public static int hashCode(float f2, int i2) {
+        return hashCode(Float.floatToIntBits(f2), i2);
     }
 
-    public static int hashCode(@Nullable Object obj, int i) {
-        return hashCode(obj == null ? 0 : obj.hashCode(), i);
+    public static int hashCode(@Nullable Object obj, int i2) {
+        return hashCode(obj == null ? 0 : obj.hashCode(), i2);
     }
 
-    public static int hashCode(boolean z, int i) {
-        return hashCode(z ? 1 : 0, i);
+    public static int hashCode(boolean z, int i2) {
+        return hashCode(z ? 1 : 0, i2);
     }
 
     public static int hashCode(boolean z) {
         return hashCode(z, 17);
     }
 
-    public static int getBitmapByteSize(int i, int i2, @Nullable Bitmap.Config config) {
-        return i * i2 * getBytesPerPixel(config);
+    public static int getBitmapByteSize(int i2, int i3, @Nullable Bitmap.Config config) {
+        return i2 * i3 * getBytesPerPixel(config);
     }
 }

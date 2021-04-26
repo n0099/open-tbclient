@@ -8,6 +8,7 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.core.RequestParamsUtils;
+import com.kwad.sdk.api.core.TLSConnectionUtils;
 import com.kwad.sdk.api.loader.a;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -23,13 +24,13 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f32168a;
+    public String f32579a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32169b;
+    public String f32580b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f32170c;
+    public int f32581c;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -39,34 +40,34 @@ public class e {
     }
 
     public e(String str) {
-        this.f32169b = str;
-        this.f32168a = str;
+        this.f32580b = str;
+        this.f32579a = str;
     }
 
     private String a() {
-        int i;
+        int i2;
         Context context = Loader.get().getContext();
-        int i2 = com.kwad.sdk.api.a.f32130a;
+        int i3 = com.kwad.sdk.api.a.f32540a;
         String valueOf = String.valueOf(Loader.get().a(context));
         IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
         if (ksAdSDKImpl != null) {
             if (TextUtils.isEmpty(valueOf)) {
                 valueOf = ksAdSDKImpl.getSDKVersion();
             }
-            i = ksAdSDKImpl.getSDKVersionCode();
+            i2 = ksAdSDKImpl.getSDKVersionCode();
         } else {
-            i = -1;
+            i2 = -1;
         }
         JSONObject appInfo = Loader.get().getKsAdSDKImpl().getAppInfo();
         JSONObject deviceInfo = Loader.get().getKsAdSDKImpl().getDeviceInfo();
         JSONObject networkInfo = Loader.get().getKsAdSDKImpl().getNetworkInfo();
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("sdkApiVersion", "3.3.9");
-            jSONObject.put("sdkApiVersionCode", 3030900);
+            jSONObject.put("sdkApiVersion", "3.3.8.3");
+            jSONObject.put("sdkApiVersionCode", 3030803);
             jSONObject.put(CommandMessage.SDK_VERSION, valueOf);
-            jSONObject.put("SDKVersionCode", i);
-            jSONObject.put("sdkType", i2);
+            jSONObject.put("SDKVersionCode", i2);
+            jSONObject.put("sdkType", i3);
             jSONObject.put(DI.APP_INFO_NAME, appInfo);
             jSONObject.put("deviceInfo", deviceInfo);
             jSONObject.put("networkInfo", networkInfo);
@@ -137,14 +138,15 @@ public class e {
         return str;
     }
 
-    private URLConnection a(String str, int i, int i2, boolean z) {
+    private URLConnection a(String str, int i2, int i3, boolean z) {
         URLConnection openConnection = new URL(str).openConnection();
+        TLSConnectionUtils.wrapHttpURLConnection(openConnection);
         openConnection.setRequestProperty("Accept-Language", "zh-CN");
-        if (i > 0) {
-            openConnection.setConnectTimeout(i);
-        }
         if (i2 > 0) {
-            openConnection.setReadTimeout(i2);
+            openConnection.setConnectTimeout(i2);
+        }
+        if (i3 > 0) {
+            openConnection.setReadTimeout(i3);
         }
         openConnection.setUseCaches(z);
         openConnection.setDoInput(true);
@@ -155,10 +157,10 @@ public class e {
 
     @Nullable
     private HttpURLConnection b() {
-        if (TextUtils.isEmpty(this.f32168a)) {
+        if (TextUtils.isEmpty(this.f32579a)) {
             return null;
         }
-        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f32168a, 10000, 30000, false);
+        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f32579a, 10000, 30000, false);
         httpURLConnection.setRequestMethod("POST");
         httpURLConnection.setDoOutput(true);
         httpURLConnection.setInstanceFollowRedirects(true);
@@ -184,9 +186,9 @@ public class e {
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = " + responseCode);
-                    } else if (this.f32170c < 21) {
-                        this.f32168a = httpURLConnection.getHeaderField("Location");
-                        this.f32170c++;
+                    } else if (this.f32581c < 21) {
+                        this.f32579a = httpURLConnection.getHeaderField("Location");
+                        this.f32581c++;
                         b(aVar);
                     }
                 }

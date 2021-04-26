@@ -5,10 +5,10 @@ import android.view.View;
 public class y implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BaiduArView f4261a;
+    public final /* synthetic */ BaiduArView f4331a;
 
     public y(BaiduArView baiduArView) {
-        this.f4261a = baiduArView;
+        this.f4331a = baiduArView;
     }
 
     @Override // android.view.View.OnClickListener

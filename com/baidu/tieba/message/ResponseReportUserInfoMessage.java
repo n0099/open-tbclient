@@ -8,12 +8,12 @@ public class ResponseReportUserInfoMessage extends JsonHttpResponsedMessage {
     public String errorMsg;
     public int timeInterval;
 
-    public ResponseReportUserInfoMessage(int i) {
-        super(i);
+    public ResponseReportUserInfoMessage(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         if (getStatusCode() != 200 || jSONObject == null) {
             return;
         }
@@ -34,15 +34,15 @@ public class ResponseReportUserInfoMessage extends JsonHttpResponsedMessage {
         return this.timeInterval;
     }
 
-    public void setErrorCode(int i) {
-        this.errorCode = i;
+    public void setErrorCode(int i2) {
+        this.errorCode = i2;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public void setTimeInterval(int i) {
-        this.timeInterval = i;
+    public void setTimeInterval(int i2) {
+        this.timeInterval = i2;
     }
 }

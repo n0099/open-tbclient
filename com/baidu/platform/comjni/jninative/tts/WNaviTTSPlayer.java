@@ -18,12 +18,12 @@ public class WNaviTTSPlayer {
         bStopVoiceOutput = true;
     }
 
-    public static int playTTSText(String str, int i, int i2) {
+    public static int playTTSText(String str, int i2, int i3) {
         b bVar = mTtsPlayerListener;
         if (bVar == null || bStopVoiceOutput) {
             return 0;
         }
-        return bVar.a(str, i, i2);
+        return bVar.a(str, i2, i3);
     }
 
     public static void resumeVoiceTTSOutput() {

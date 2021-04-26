@@ -43,8 +43,8 @@ public class RemoteRoundCornerImageView extends ImageView {
         this(context, attributeSet, 0);
     }
 
-    public RemoteRoundCornerImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public RemoteRoundCornerImageView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.clipPath = new Path();
         this.mRectF = new RectF();
         this.mPaint = new Paint();

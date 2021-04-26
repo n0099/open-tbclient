@@ -17,31 +17,33 @@ public class WalletToast {
     public static final int LENGTH_SHORT = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f3582h = 3500;
-    public static final int i = 2000;
+    public static final int f3623h = 3500;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final int f3624i = 2000;
     public static List<View> j = new ArrayList();
     public static CancleRunnable k;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3583a;
+    public Context f3625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3584b;
+    public int f3626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3585c;
+    public int f3627c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f3586d;
+    public int f3628d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3587e;
+    public int f3629e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f3588f;
+    public float f3630f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f3589g;
+    public float f3631g;
     public WindowManager l;
     public View m;
     public WindowManager.LayoutParams n;
@@ -51,18 +53,18 @@ public class WalletToast {
     public class CancleRunnable implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile boolean f3591a = false;
+        public volatile boolean f3633a = false;
 
         public CancleRunnable() {
         }
 
         public void discard() {
-            this.f3591a = true;
+            this.f3633a = true;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f3591a) {
+            if (this.f3633a) {
                 return;
             }
             WalletToast.this.a();
@@ -71,26 +73,26 @@ public class WalletToast {
 
     public WalletToast(Context context) {
         this.l = (WindowManager) context.getSystemService("window");
-        this.f3583a = context;
+        this.f3625a = context;
         Toast toast = new Toast(context);
-        this.f3587e = toast.getYOffset();
+        this.f3629e = toast.getYOffset();
         a(toast);
     }
 
     public int getDuration() {
-        return this.f3584b;
+        return this.f3626b;
     }
 
     public int getGravity() {
-        return this.f3585c;
+        return this.f3627c;
     }
 
     public float getHorizontalMargin() {
-        return this.f3589g;
+        return this.f3631g;
     }
 
     public float getVerticalMargin() {
-        return this.f3588f;
+        return this.f3630f;
     }
 
     public View getView() {
@@ -98,26 +100,26 @@ public class WalletToast {
     }
 
     public int getXOffset() {
-        return this.f3586d;
+        return this.f3628d;
     }
 
     public int getYOffset() {
-        return this.f3587e;
+        return this.f3629e;
     }
 
     public void setDuration(int i2) {
-        this.f3584b = i2;
+        this.f3626b = i2;
     }
 
     public void setGravity(int i2, int i3, int i4) {
-        this.f3585c = i2;
-        this.f3586d = i3;
-        this.f3587e = i4;
+        this.f3627c = i2;
+        this.f3628d = i3;
+        this.f3629e = i4;
     }
 
     public void setMargin(float f2, float f3) {
-        this.f3589g = f2;
-        this.f3588f = f3;
+        this.f3631g = f2;
+        this.f3630f = f3;
     }
 
     public void setView(View view) {
@@ -162,21 +164,21 @@ public class WalletToast {
             layoutParams.width = -2;
             layoutParams.format = -3;
             layoutParams.type = 2005;
-            layoutParams.windowAnimations = ResUtils.style(this.f3583a, "EbpayActivityAnim2");
+            layoutParams.windowAnimations = ResUtils.style(this.f3625a, "EbpayActivityAnim2");
             this.n.setTitle("Toast");
             this.n.flags = 152;
         }
-        this.f3585c = 17;
-        this.f3587e = 0;
+        this.f3627c = 17;
+        this.f3629e = 0;
         this.m = toast.getView();
     }
 
     @SuppressLint({"ShowToast"})
     public WalletToast(Context context, String str, int i2) {
         this.l = (WindowManager) context.getSystemService("window");
-        this.f3583a = context;
+        this.f3625a = context;
         Toast makeText = Toast.makeText(context, str, i2);
-        this.f3587e = makeText.getYOffset();
+        this.f3629e = makeText.getYOffset();
         a(makeText);
     }
 
@@ -196,12 +198,12 @@ public class WalletToast {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view) {
-        Context applicationContext = this.f3583a.getApplicationContext();
+        Context applicationContext = this.f3625a.getApplicationContext();
         if (applicationContext == null) {
-            applicationContext = this.f3583a;
+            applicationContext = this.f3625a;
         }
         this.l = (WindowManager) applicationContext.getSystemService("window");
-        int i2 = this.f3585c;
+        int i2 = this.f3627c;
         WindowManager.LayoutParams layoutParams = this.n;
         layoutParams.gravity = i2;
         if ((i2 & 7) == 7) {
@@ -211,10 +213,10 @@ public class WalletToast {
             this.n.verticalWeight = 1.0f;
         }
         WindowManager.LayoutParams layoutParams2 = this.n;
-        layoutParams2.x = this.f3586d;
-        layoutParams2.y = this.f3587e;
-        layoutParams2.verticalMargin = this.f3588f;
-        layoutParams2.horizontalMargin = this.f3589g;
+        layoutParams2.x = this.f3628d;
+        layoutParams2.y = this.f3629e;
+        layoutParams2.verticalMargin = this.f3630f;
+        layoutParams2.horizontalMargin = this.f3631g;
         try {
             if (view.getParent() != null) {
                 this.l.updateViewLayout(view, this.n);
@@ -224,7 +226,7 @@ public class WalletToast {
             j.add(view);
             CancleRunnable cancleRunnable = new CancleRunnable();
             k = cancleRunnable;
-            this.o.postDelayed(cancleRunnable, this.f3584b == 1 ? 3500L : 2000L);
+            this.o.postDelayed(cancleRunnable, this.f3626b == 1 ? 3500L : 2000L);
         } catch (Exception unused) {
         }
     }

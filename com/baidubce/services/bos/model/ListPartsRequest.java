@@ -19,21 +19,21 @@ public class ListPartsRequest extends GenericUploadRequest {
         return this.partNumberMarker;
     }
 
-    public void setMaxParts(int i) {
-        this.maxParts = i;
+    public void setMaxParts(int i2) {
+        this.maxParts = i2;
     }
 
-    public void setPartNumberMarker(int i) {
-        this.partNumberMarker = i;
+    public void setPartNumberMarker(int i2) {
+        this.partNumberMarker = i2;
     }
 
-    public ListPartsRequest withMaxParts(int i) {
-        this.maxParts = i;
+    public ListPartsRequest withMaxParts(int i2) {
+        this.maxParts = i2;
         return this;
     }
 
-    public ListPartsRequest withPartNumberMarker(int i) {
-        setPartNumberMarker(i);
+    public ListPartsRequest withPartNumberMarker(int i2) {
+        setPartNumberMarker(i2);
         return this;
     }
 

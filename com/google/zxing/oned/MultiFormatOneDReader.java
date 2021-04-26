@@ -59,10 +59,10 @@ public final class MultiFormatOneDReader extends OneDReader {
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
+    public Result decodeRow(int i2, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
         for (OneDReader oneDReader : this.readers) {
             try {
-                return oneDReader.decodeRow(i, bitArray, map);
+                return oneDReader.decodeRow(i2, bitArray, map);
             } catch (ReaderException unused) {
             }
         }

@@ -31,17 +31,17 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public T getItem(int i) {
+    public T getItem(int i2) {
         List<T> list = this.items;
         if (list == null) {
             return null;
         }
-        return list.get(i);
+        return list.get(i2);
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
+    public long getItemId(int i2) {
+        return i2;
     }
 
     public abstract int getItemLayoutId();
@@ -51,7 +51,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i2, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder;
         if (view == null) {
             view = LinearLayout.inflate(viewGroup.getContext(), getItemLayoutId(), null);
@@ -60,7 +60,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
-        viewHolder.bindView(getItem(i));
+        viewHolder.bindView(getItem(i2));
         return view;
     }
 

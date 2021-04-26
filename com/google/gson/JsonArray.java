@@ -29,8 +29,8 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
         return obj == this || ((obj instanceof JsonArray) && ((JsonArray) obj).elements.equals(this.elements));
     }
 
-    public JsonElement get(int i) {
-        return this.elements.get(i);
+    public JsonElement get(int i2) {
+        return this.elements.get(i2);
     }
 
     @Override // com.google.gson.JsonElement
@@ -142,8 +142,8 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
         return this.elements.remove(jsonElement);
     }
 
-    public JsonElement set(int i, JsonElement jsonElement) {
-        return this.elements.set(i, jsonElement);
+    public JsonElement set(int i2, JsonElement jsonElement) {
+        return this.elements.set(i2, jsonElement);
     }
 
     public int size() {
@@ -167,12 +167,12 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
         return new JsonArray();
     }
 
-    public JsonElement remove(int i) {
-        return this.elements.remove(i);
+    public JsonElement remove(int i2) {
+        return this.elements.remove(i2);
     }
 
-    public JsonArray(int i) {
-        this.elements = new ArrayList(i);
+    public JsonArray(int i2) {
+        this.elements = new ArrayList(i2);
     }
 
     public void add(Number number) {

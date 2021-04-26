@@ -66,10 +66,10 @@ public class ImagePipelineExperiments {
             return this.mPartialImageCachingEnabled;
         }
 
-        public ImagePipelineConfig.Builder setBitmapPrepareToDraw(boolean z, int i, int i2, boolean z2) {
+        public ImagePipelineConfig.Builder setBitmapPrepareToDraw(boolean z, int i2, int i3, boolean z2) {
             this.mUseBitmapPrepareToDraw = z;
-            this.mBitmapPrepareToDrawMinSizeBytes = i;
-            this.mBitmapPrepareToDrawMaxSizeBytes = i2;
+            this.mBitmapPrepareToDrawMinSizeBytes = i2;
+            this.mBitmapPrepareToDrawMaxSizeBytes = i3;
             this.mBitmapPrepareToDrawForPrefetch = z2;
             return this.mConfigBuilder;
         }
@@ -89,8 +89,8 @@ public class ImagePipelineExperiments {
             return this.mConfigBuilder;
         }
 
-        public ImagePipelineConfig.Builder setMaxBitmapSize(int i) {
-            this.mMaxBitmapSize = i;
+        public ImagePipelineConfig.Builder setMaxBitmapSize(int i2) {
+            this.mMaxBitmapSize = i2;
             return this.mConfigBuilder;
         }
 
@@ -138,14 +138,14 @@ public class ImagePipelineExperiments {
     /* loaded from: classes6.dex */
     public static class DefaultProducerFactoryMethod implements ProducerFactoryMethod {
         @Override // com.facebook.imagepipeline.core.ImagePipelineExperiments.ProducerFactoryMethod
-        public ProducerFactory createProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i, int i2, boolean z4, int i3, CloseableReferenceFactory closeableReferenceFactory) {
-            return new ProducerFactory(context, byteArrayPool, imageDecoder, progressiveJpegConfig, z, z2, z3, executorSupplier, pooledByteBufferFactory, memoryCache, memoryCache2, bufferedDiskCache, bufferedDiskCache2, cacheKeyFactory, platformBitmapFactory, i, i2, z4, i3, closeableReferenceFactory);
+        public ProducerFactory createProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i2, int i3, boolean z4, int i4, CloseableReferenceFactory closeableReferenceFactory) {
+            return new ProducerFactory(context, byteArrayPool, imageDecoder, progressiveJpegConfig, z, z2, z3, executorSupplier, pooledByteBufferFactory, memoryCache, memoryCache2, bufferedDiskCache, bufferedDiskCache2, cacheKeyFactory, platformBitmapFactory, i2, i3, z4, i4, closeableReferenceFactory);
         }
     }
 
     /* loaded from: classes6.dex */
     public interface ProducerFactoryMethod {
-        ProducerFactory createProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i, int i2, boolean z4, int i3, CloseableReferenceFactory closeableReferenceFactory);
+        ProducerFactory createProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i2, int i3, boolean z4, int i4, CloseableReferenceFactory closeableReferenceFactory);
     }
 
     public static Builder newBuilder(ImagePipelineConfig.Builder builder) {

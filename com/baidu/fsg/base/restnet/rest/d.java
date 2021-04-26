@@ -3,7 +3,7 @@ package com.baidu.fsg.base.restnet.rest;
 import com.baidu.fsg.base.restnet.http.HttpDefines;
 /* loaded from: classes2.dex */
 public interface d {
-    void a(int i);
+    void a(int i2);
 
     com.baidu.fsg.base.restnet.http.a b();
 

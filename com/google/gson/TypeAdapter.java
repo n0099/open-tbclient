@@ -1,8 +1,10 @@
 package com.google.gson;
 
+import com.google.gson.internal.bind.JsonTreeReader;
+import com.google.gson.internal.bind.JsonTreeWriter;
+import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
-import d.h.d.d.a;
-import d.h.d.d.b;
+import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -11,12 +13,12 @@ import java.io.Writer;
 /* loaded from: classes6.dex */
 public abstract class TypeAdapter<T> {
     public final T fromJson(Reader reader) throws IOException {
-        return read(new a(reader));
+        return read(new JsonReader(reader));
     }
 
     public final T fromJsonTree(JsonElement jsonElement) {
         try {
-            return read(new d.h.d.b.j.a(jsonElement));
+            return read(new JsonTreeReader(jsonElement));
         } catch (IOException e2) {
             throw new JsonIOException(e2);
         }
@@ -25,42 +27,42 @@ public abstract class TypeAdapter<T> {
     public final TypeAdapter<T> nullSafe() {
         return new TypeAdapter<T>() { // from class: com.google.gson.TypeAdapter.1
             @Override // com.google.gson.TypeAdapter
-            public T read(a aVar) throws IOException {
-                if (aVar.M() == JsonToken.NULL) {
-                    aVar.I();
+            public T read(JsonReader jsonReader) throws IOException {
+                if (jsonReader.peek() == JsonToken.NULL) {
+                    jsonReader.nextNull();
                     return null;
                 }
-                return (T) TypeAdapter.this.read(aVar);
+                return (T) TypeAdapter.this.read(jsonReader);
             }
 
             @Override // com.google.gson.TypeAdapter
-            public void write(b bVar, T t) throws IOException {
+            public void write(JsonWriter jsonWriter, T t) throws IOException {
                 if (t == null) {
-                    bVar.B();
+                    jsonWriter.nullValue();
                 } else {
-                    TypeAdapter.this.write(bVar, t);
+                    TypeAdapter.this.write(jsonWriter, t);
                 }
             }
         };
     }
 
-    public abstract T read(a aVar) throws IOException;
+    public abstract T read(JsonReader jsonReader) throws IOException;
 
     public final void toJson(Writer writer, T t) throws IOException {
-        write(new b(writer), t);
+        write(new JsonWriter(writer), t);
     }
 
     public final JsonElement toJsonTree(T t) {
         try {
-            d.h.d.b.j.b bVar = new d.h.d.b.j.b();
-            write(bVar, t);
-            return bVar.R();
+            JsonTreeWriter jsonTreeWriter = new JsonTreeWriter();
+            write(jsonTreeWriter, t);
+            return jsonTreeWriter.get();
         } catch (IOException e2) {
             throw new JsonIOException(e2);
         }
     }
 
-    public abstract void write(b bVar, T t) throws IOException;
+    public abstract void write(JsonWriter jsonWriter, T t) throws IOException;
 
     public final T fromJson(String str) throws IOException {
         return fromJson(new StringReader(str));

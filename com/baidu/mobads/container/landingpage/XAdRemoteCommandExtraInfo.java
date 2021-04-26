@@ -56,8 +56,8 @@ public abstract class XAdRemoteCommandExtraInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.mAdInstanceInfo, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeParcelable(this.mAdInstanceInfo, i2);
         parcel.writeString(this.mProdType);
         parcel.writeInt(this.mIntTesting4LM);
         parcel.writeString(this.mStringTesting4LM);

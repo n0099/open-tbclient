@@ -138,8 +138,8 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         this.friendPortrait = str;
     }
 
-    public void setFriendStatus(int i) {
-        this.friendStatus = i;
+    public void setFriendStatus(int i2) {
+        this.friendStatus = i2;
     }
 
     public void setGroupSetting(ChatSetting chatSetting) {
@@ -166,32 +166,32 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         this.isSelf = z;
     }
 
-    public void setSendStatus(int i) {
-        this.sendStatus = i;
+    public void setSendStatus(int i2) {
+        this.sendStatus = i2;
     }
 
     public void setServerTime(long j) {
         this.serverTime = j;
     }
 
-    public void setStatus(int i) {
-        this.status = i;
+    public void setStatus(int i2) {
+        this.status = i2;
     }
 
     public void setTitle(String str) {
         this.title = str;
     }
 
-    public void setUnReadCount(int i) {
-        this.unReadCount = i;
+    public void setUnReadCount(int i2) {
+        this.unReadCount = i2;
     }
 
-    public void setUnReadCountExtra(int i) {
-        this.unReadCountExtra = i;
+    public void setUnReadCountExtra(int i2) {
+        this.unReadCountExtra = i2;
     }
 
-    public void setUserType(int i) {
-        this.userType = i;
+    public void setUserType(int i2) {
+        this.userType = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

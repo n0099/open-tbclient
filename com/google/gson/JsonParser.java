@@ -1,9 +1,9 @@
 package com.google.gson;
 
+import com.google.gson.internal.Streams;
+import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.MalformedJsonException;
-import d.h.d.b.h;
-import d.h.d.d.a;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -15,9 +15,9 @@ public final class JsonParser {
 
     public JsonElement parse(Reader reader) throws JsonIOException, JsonSyntaxException {
         try {
-            a aVar = new a(reader);
-            JsonElement parse = parse(aVar);
-            if (!parse.isJsonNull() && aVar.M() != JsonToken.END_DOCUMENT) {
+            JsonReader jsonReader = new JsonReader(reader);
+            JsonElement parse = parse(jsonReader);
+            if (!parse.isJsonNull() && jsonReader.peek() != JsonToken.END_DOCUMENT) {
                 throw new JsonSyntaxException("Did not consume the entire document.");
             }
             return parse;
@@ -30,19 +30,19 @@ public final class JsonParser {
         }
     }
 
-    public JsonElement parse(a aVar) throws JsonIOException, JsonSyntaxException {
-        boolean z = aVar.z();
-        aVar.R(true);
+    public JsonElement parse(JsonReader jsonReader) throws JsonIOException, JsonSyntaxException {
+        boolean isLenient = jsonReader.isLenient();
+        jsonReader.setLenient(true);
         try {
             try {
-                return h.a(aVar);
+                return Streams.parse(jsonReader);
             } catch (OutOfMemoryError e2) {
-                throw new JsonParseException("Failed parsing JSON source: " + aVar + " to Json", e2);
+                throw new JsonParseException("Failed parsing JSON source: " + jsonReader + " to Json", e2);
             } catch (StackOverflowError e3) {
-                throw new JsonParseException("Failed parsing JSON source: " + aVar + " to Json", e3);
+                throw new JsonParseException("Failed parsing JSON source: " + jsonReader + " to Json", e3);
             }
         } finally {
-            aVar.R(z);
+            jsonReader.setLenient(isLenient);
         }
     }
 }

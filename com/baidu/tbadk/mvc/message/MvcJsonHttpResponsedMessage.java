@@ -6,20 +6,20 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import d.b.c.e.d.l;
-import d.b.c.e.j.a.e;
-import d.b.i0.g0.b.d;
-import d.b.i0.g0.b.h;
-import d.b.i0.r.r.a;
+import d.a.c.e.d.l;
+import d.a.c.e.j.a.e;
+import d.a.i0.g0.b.d;
+import d.a.i0.g0.b.h;
+import d.a.i0.r.r.a;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMessage<D> {
-    public MvcJsonHttpResponsedMessage(int i) {
-        super(i);
+    public MvcJsonHttpResponsedMessage(int i2) {
+        super(i2);
     }
 
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         if (getOrginalMessage() instanceof MvcHttpMessage) {
             Object createData = createData(((MvcHttpMessage) getOrginalMessage()).getResponseDataClass());
             if (createData instanceof h) {
@@ -31,8 +31,8 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, e eVar) {
-        super.logStatInBackground(i, eVar);
+    public void logStatInBackground(int i2, e eVar) {
+        super.logStatInBackground(i2, eVar);
         TiebaStatic.netJson(eVar, getError(), getErrorString());
     }
 
@@ -67,26 +67,26 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
         l<String> h2;
-        super.afterDispatchInBackGround(i, (int) bArr);
+        super.afterDispatchInBackGround(i2, (int) bArr);
         if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
             MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
             if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof d)) {
                 d dVar = (d) mvcHttpMessage.getRequestData();
                 String cacheKey = dVar.getCacheKey();
-                String q = dVar.q();
+                String r = dVar.r();
                 String currentAccount = dVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey == null || TextUtils.isEmpty(q) || bArr == null) {
+                if (cacheKey == null || TextUtils.isEmpty(r) || bArr == null) {
                     return;
                 }
-                if (dVar.r()) {
-                    l<byte[]> e2 = a.f().e(q, currentAccount);
+                if (dVar.i()) {
+                    l<byte[]> e2 = a.f().e(r, currentAccount);
                     if (e2 == null) {
                         return;
                     }
                     e2.g(cacheKey, bArr);
-                } else if (!(mvcHttpMessage.getRequestData() instanceof d.b.i0.g0.b.e) || (h2 = a.f().h(q, currentAccount)) == null) {
+                } else if (!(mvcHttpMessage.getRequestData() instanceof d.a.i0.g0.b.e) || (h2 = a.f().h(r, currentAccount)) == null) {
                 } else {
                     try {
                         h2.g(cacheKey, new String(bArr, "UTF-8"));
@@ -100,8 +100,8 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public final void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public final void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         String parseToString = parseToString(bArr);
-        decodeLogicInBackGround(i, !TextUtils.isEmpty(parseToString) ? parseServerResponsedData(parseToString) : null);
+        decodeLogicInBackGround(i2, !TextUtils.isEmpty(parseToString) ? parseServerResponsedData(parseToString) : null);
     }
 }

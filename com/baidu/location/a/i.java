@@ -15,29 +15,31 @@ import java.util.Map;
 public abstract class i {
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f6550c;
+    public static String f6772c;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.location.b.h f6551a = null;
+    public com.baidu.location.b.h f6773a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.location.b.a f6552b = null;
+    public com.baidu.location.b.a f6774b = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f6554e = true;
+    public boolean f6776e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f6555f = true;
+    public boolean f6777f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f6556g = false;
+    public boolean f6778g = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f6553d = new a();
+    public final Handler f6775d = new a();
 
     /* renamed from: h  reason: collision with root package name */
-    public String f6557h = null;
-    public String i = null;
+    public String f6779h = null;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f6780i = null;
 
     /* loaded from: classes2.dex */
     public class a extends Handler {
@@ -47,10 +49,10 @@ public abstract class i {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (com.baidu.location.f.isServing) {
-                int i = message.what;
-                if (i == 21) {
+                int i2 = message.what;
+                if (i2 == 21) {
                     i.this.a(message);
-                } else if (i == 62 || i == 63) {
+                } else if (i2 == 62 || i2 == 63) {
                     i.this.a();
                 }
             }
@@ -61,10 +63,10 @@ public abstract class i {
     public class b extends com.baidu.location.d.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f6559a = null;
+        public String f6782a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6560b = null;
+        public String f6783b = null;
 
         public b() {
             this.k = new HashMap();
@@ -72,17 +74,17 @@ public abstract class i {
 
         @Override // com.baidu.location.d.e
         public void a() {
-            this.f6741h = com.baidu.location.d.j.c();
-            if ((com.baidu.location.d.j.f6757h || com.baidu.location.d.j.j) && i.this.f6557h != null && i.this.i != null) {
-                this.f6560b += String.format(Locale.CHINA, "&ki=%s&sn=%s", i.this.f6557h, i.this.i);
+            this.f6975h = com.baidu.location.d.j.c();
+            if ((com.baidu.location.d.j.f6992h || com.baidu.location.d.j.j) && i.this.f6779h != null && i.this.f6780i != null) {
+                this.f6783b += String.format(Locale.CHINA, "&ki=%s&sn=%s", i.this.f6779h, i.this.f6780i);
             }
-            String encodeTp4 = Jni.encodeTp4(this.f6560b);
-            this.f6560b = null;
-            if (this.f6559a == null) {
-                this.f6559a = w.b();
+            String encodeTp4 = Jni.encodeTp4(this.f6783b);
+            this.f6783b = null;
+            if (this.f6782a == null) {
+                this.f6782a = w.b();
             }
             this.k.put(BaseLocationBox.TYPE, encodeTp4);
-            String str = this.f6559a;
+            String str = this.f6782a;
             if (str != null) {
                 this.k.put("up", str);
             }
@@ -90,8 +92,8 @@ public abstract class i {
         }
 
         public void a(String str) {
-            this.f6560b = str;
-            b(com.baidu.location.d.j.f6755f);
+            this.f6783b = str;
+            b(com.baidu.location.d.j.f6990f);
         }
 
         /* JADX WARN: Removed duplicated region for block: B:28:0x0091  */
@@ -107,7 +109,7 @@ public abstract class i {
             Message obtainMessage;
             if (z && (str = this.j) != null) {
                 try {
-                    i.f6550c = str;
+                    i.f6772c = str;
                     try {
                         bDLocation = new BDLocation(str);
                         if (bDLocation.getLocType() == 161) {
@@ -121,12 +123,12 @@ public abstract class i {
                         bDLocation = new BDLocation();
                         bDLocation.setLocType(0);
                     }
-                    this.f6559a = null;
+                    this.f6782a = null;
                     if (bDLocation.getLocType() == 0 && bDLocation.getLatitude() == Double.MIN_VALUE && bDLocation.getLongitude() == Double.MIN_VALUE) {
-                        obtainMessage = i.this.f6553d.obtainMessage(63);
+                        obtainMessage = i.this.f6775d.obtainMessage(63);
                         obtainMessage.obj = "HttpStatus error";
                     } else {
-                        obtainMessage = i.this.f6553d.obtainMessage(21);
+                        obtainMessage = i.this.f6775d.obtainMessage(21);
                         obtainMessage.obj = bDLocation;
                     }
                     obtainMessage.sendToTarget();
@@ -139,7 +141,7 @@ public abstract class i {
                 }
                 return;
             }
-            Message obtainMessage2 = i.this.f6553d.obtainMessage(63);
+            Message obtainMessage2 = i.this.f6775d.obtainMessage(63);
             obtainMessage2.obj = "HttpStatus error";
             obtainMessage2.sendToTarget();
             map = this.k;
@@ -151,23 +153,23 @@ public abstract class i {
     public String a(String str) {
         com.baidu.location.b.h hVar;
         String l;
-        if (this.f6557h == null) {
-            this.f6557h = j.b(com.baidu.location.f.getServiceContext());
+        if (this.f6779h == null) {
+            this.f6779h = j.b(com.baidu.location.f.getServiceContext());
         }
-        if (this.i == null) {
-            this.i = j.c(com.baidu.location.f.getServiceContext());
+        if (this.f6780i == null) {
+            this.f6780i = j.c(com.baidu.location.f.getServiceContext());
         }
-        com.baidu.location.b.a aVar = this.f6552b;
+        com.baidu.location.b.a aVar = this.f6774b;
         if (aVar == null || !aVar.a()) {
-            this.f6552b = com.baidu.location.b.b.a().f();
+            this.f6774b = com.baidu.location.b.b.a().f();
         }
-        com.baidu.location.b.h hVar2 = this.f6551a;
+        com.baidu.location.b.h hVar2 = this.f6773a;
         if (hVar2 == null || !hVar2.i()) {
-            this.f6551a = com.baidu.location.b.i.a().o();
+            this.f6773a = com.baidu.location.b.i.a().o();
         }
         Location g2 = com.baidu.location.b.e.a().i() ? com.baidu.location.b.e.a().g() : null;
-        com.baidu.location.b.a aVar2 = this.f6552b;
-        if ((aVar2 == null || aVar2.d() || this.f6552b.c()) && (((hVar = this.f6551a) == null || hVar.a() == 0) && g2 == null)) {
+        com.baidu.location.b.a aVar2 = this.f6774b;
+        if ((aVar2 == null || aVar2.d() || this.f6774b.c()) && (((hVar = this.f6773a) == null || hVar.a() == 0) && g2 == null)) {
             return null;
         }
         String b2 = b();
@@ -178,16 +180,16 @@ public abstract class i {
         if (b3 >= 0) {
             b2 = b2 + "&lmd=" + b3;
         }
-        com.baidu.location.b.h hVar3 = this.f6551a;
+        com.baidu.location.b.h hVar3 = this.f6773a;
         if ((hVar3 == null || hVar3.a() == 0) && (l = com.baidu.location.b.i.a().l()) != null) {
             b2 = l + b2;
         }
         String str2 = b2;
-        if (this.f6555f) {
-            this.f6555f = false;
-            return com.baidu.location.d.j.a(this.f6552b, this.f6551a, g2, str2, 0, true);
+        if (this.f6777f) {
+            this.f6777f = false;
+            return com.baidu.location.d.j.a(this.f6774b, this.f6773a, g2, str2, 0, true);
         }
-        return com.baidu.location.d.j.a(this.f6552b, this.f6551a, g2, str2, 0);
+        return com.baidu.location.d.j.a(this.f6774b, this.f6773a, g2, str2, 0);
     }
 
     public abstract void a();
@@ -197,18 +199,18 @@ public abstract class i {
     public String b() {
         String c2 = com.baidu.location.a.a.a().c();
         String format = com.baidu.location.b.i.i() ? "&cn=32" : String.format(Locale.CHINA, "&cn=%d", Integer.valueOf(com.baidu.location.b.b.a().e()));
-        if (this.f6554e) {
-            this.f6554e = false;
+        if (this.f6776e) {
+            this.f6776e = false;
             String q = com.baidu.location.b.i.a().q();
             if (!TextUtils.isEmpty(q) && !q.equals(Config.DEF_MAC_ID)) {
                 format = String.format(Locale.CHINA, "%s&mac=%s", format, q.replace(":", ""));
             }
-        } else if (!this.f6556g) {
+        } else if (!this.f6778g) {
             String e2 = w.e();
             if (e2 != null) {
                 format = format + e2;
             }
-            this.f6556g = true;
+            this.f6778g = true;
         }
         return format + c2;
     }

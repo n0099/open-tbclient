@@ -3,7 +3,7 @@ package com.baidu.tieba.chosen.posts.request;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tieba.chosen.posts.ChosenPostActivity;
-import d.b.j0.y.a.d.b;
+import d.a.j0.y.a.d.b;
 /* loaded from: classes4.dex */
 public class ChosenPostCacheModel extends CacheModel<b, ChosenPostActivity> {
     public static final String CACHE_KEY = "chosen_post_cache";
@@ -33,7 +33,7 @@ public class ChosenPostCacheModel extends CacheModel<b, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String q() {
+    public String r() {
         return "tb.pb_normal";
     }
 }

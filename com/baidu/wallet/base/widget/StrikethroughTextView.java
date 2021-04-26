@@ -30,7 +30,7 @@ public class StrikethroughTextView extends TextView {
         super(context, attributeSet);
     }
 
-    public StrikethroughTextView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public StrikethroughTextView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

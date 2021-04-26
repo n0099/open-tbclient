@@ -8,34 +8,34 @@ public final class DriverPosition implements Parcelable {
     public static final Parcelable.Creator<DriverPosition> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7789a;
+    public String f8070a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f7790b;
+    public LatLng f8071b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f7791c;
+    public double f8072c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f7792d;
+    public double f8073d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7793e;
+    public int f8074e;
 
     public DriverPosition() {
-        this.f7789a = null;
-        this.f7790b = null;
-        this.f7791c = 0.0d;
-        this.f7792d = 0.0d;
-        this.f7793e = 0;
+        this.f8070a = null;
+        this.f8071b = null;
+        this.f8072c = 0.0d;
+        this.f8073d = 0.0d;
+        this.f8074e = 0;
     }
 
     public DriverPosition(Parcel parcel) {
-        this.f7789a = parcel.readString();
-        this.f7790b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.f7791c = parcel.readDouble();
-        this.f7792d = parcel.readDouble();
-        this.f7793e = parcel.readInt();
+        this.f8070a = parcel.readString();
+        this.f8071b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f8072c = parcel.readDouble();
+        this.f8073d = parcel.readDouble();
+        this.f8074e = parcel.readInt();
     }
 
     @Override // android.os.Parcelable
@@ -44,23 +44,23 @@ public final class DriverPosition implements Parcelable {
     }
 
     public double getAngle() {
-        return this.f7791c;
+        return this.f8072c;
     }
 
     public int getOrderStateInPosition() {
-        return this.f7793e;
+        return this.f8074e;
     }
 
     public LatLng getPoint() {
-        return this.f7790b;
+        return this.f8071b;
     }
 
     public double getSpeed() {
-        return this.f7792d;
+        return this.f8073d;
     }
 
     public String getTimeStamp() {
-        return this.f7789a;
+        return this.f8070a;
     }
 
     public void setAngle(double d2) {
@@ -68,35 +68,35 @@ public final class DriverPosition implements Parcelable {
         if (d2 >= 0.0d) {
             d3 = 360.0d;
             if (d2 < 360.0d) {
-                this.f7791c = d2;
+                this.f8072c = d2;
                 return;
             }
         }
-        this.f7791c = d3;
+        this.f8072c = d3;
     }
 
-    public void setOrderStateInPosition(int i) {
-        this.f7793e = i;
+    public void setOrderStateInPosition(int i2) {
+        this.f8074e = i2;
     }
 
     public void setPoint(LatLng latLng) {
-        this.f7790b = latLng;
+        this.f8071b = latLng;
     }
 
     public void setSpeed(double d2) {
-        this.f7792d = d2;
+        this.f8073d = d2;
     }
 
     public void setTimeStamp(String str) {
-        this.f7789a = str;
+        this.f8070a = str;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f7789a);
-        parcel.writeParcelable(this.f7790b, i);
-        parcel.writeDouble(this.f7791c);
-        parcel.writeDouble(this.f7792d);
-        parcel.writeInt(this.f7793e);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeString(this.f8070a);
+        parcel.writeParcelable(this.f8071b, i2);
+        parcel.writeDouble(this.f8072c);
+        parcel.writeDouble(this.f8073d);
+        parcel.writeInt(this.f8074e);
     }
 }

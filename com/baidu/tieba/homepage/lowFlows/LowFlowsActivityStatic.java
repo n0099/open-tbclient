@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.homepage.lowFlows.message.MoreTreasureTroveHttpResMsg;
 import com.baidu.tieba.homepage.lowFlows.message.MoreTreasureTroveScoketResMsg;
-import d.b.j0.d3.d0.a;
+import d.a.j0.d3.d0.a;
 /* loaded from: classes4.dex */
 public class LowFlowsActivityStatic {
     static {

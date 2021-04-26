@@ -128,20 +128,20 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         this.intro = str;
     }
 
-    public void setIsVip(int i) {
-        this.isVip = i;
+    public void setIsVip(int i2) {
+        this.isVip = i2;
     }
 
     public void setLabelName(String str) {
         this.labelName = str;
     }
 
-    public void setLikers(int i) {
-        this.likers = i;
+    public void setLikers(int i2) {
+        this.likers = i2;
     }
 
-    public void setListeners(int i) {
-        this.listeners = i;
+    public void setListeners(int i2) {
+        this.listeners = i2;
     }
 
     public void setName(String str) {
@@ -156,11 +156,11 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         this.publisherPortrait = str;
     }
 
-    public void setStartTime(int i) {
-        this.startTime = i;
+    public void setStartTime(int i2) {
+        this.startTime = i2;
     }
 
-    public void setStatus(int i) {
-        this.status = i;
+    public void setStatus(int i2) {
+        this.status = i2;
     }
 }

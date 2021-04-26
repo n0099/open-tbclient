@@ -3,14 +3,12 @@ package com.bumptech.glide.load.resource.bitmap;
 import android.annotation.TargetApi;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
-import android.media.MediaDataSource;
 import android.media.MediaMetadataRetriever;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.annotation.VisibleForTesting;
 import com.bumptech.glide.load.Option;
 import com.bumptech.glide.load.Options;
@@ -72,36 +70,6 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
         }
     }
 
-    @RequiresApi(23)
-    /* loaded from: classes5.dex */
-    public static final class ByteBufferInitializer implements MediaMetadataRetrieverInitializer<ByteBuffer> {
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.bumptech.glide.load.resource.bitmap.VideoDecoder.MediaMetadataRetrieverInitializer
-        public void initialize(MediaMetadataRetriever mediaMetadataRetriever, final ByteBuffer byteBuffer) {
-            mediaMetadataRetriever.setDataSource(new MediaDataSource() { // from class: com.bumptech.glide.load.resource.bitmap.VideoDecoder.ByteBufferInitializer.1
-                @Override // java.io.Closeable, java.lang.AutoCloseable
-                public void close() {
-                }
-
-                @Override // android.media.MediaDataSource
-                public long getSize() {
-                    return byteBuffer.limit();
-                }
-
-                @Override // android.media.MediaDataSource
-                public int readAt(long j, byte[] bArr, int i, int i2) {
-                    if (j >= byteBuffer.limit()) {
-                        return -1;
-                    }
-                    byteBuffer.position((int) j);
-                    int min = Math.min(i2, byteBuffer.remaining());
-                    byteBuffer.get(bArr, i, min);
-                    return min;
-                }
-            });
-        }
-    }
-
     @VisibleForTesting
     /* loaded from: classes5.dex */
     public static class MediaMetadataRetrieverFactory {
@@ -133,23 +101,18 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
         return new VideoDecoder(bitmapPool, new AssetFileDescriptorInitializer());
     }
 
-    @RequiresApi(api = 23)
-    public static ResourceDecoder<ByteBuffer, Bitmap> byteBuffer(BitmapPool bitmapPool) {
-        return new VideoDecoder(bitmapPool, new ByteBufferInitializer());
-    }
-
     @Nullable
-    public static Bitmap decodeFrame(MediaMetadataRetriever mediaMetadataRetriever, long j, int i, int i2, int i3, DownsampleStrategy downsampleStrategy) {
-        Bitmap decodeScaledFrame = (Build.VERSION.SDK_INT < 27 || i2 == Integer.MIN_VALUE || i3 == Integer.MIN_VALUE || downsampleStrategy == DownsampleStrategy.NONE) ? null : decodeScaledFrame(mediaMetadataRetriever, j, i, i2, i3, downsampleStrategy);
-        return decodeScaledFrame == null ? decodeOriginalFrame(mediaMetadataRetriever, j, i) : decodeScaledFrame;
+    public static Bitmap decodeFrame(MediaMetadataRetriever mediaMetadataRetriever, long j, int i2, int i3, int i4, DownsampleStrategy downsampleStrategy) {
+        Bitmap decodeScaledFrame = (Build.VERSION.SDK_INT < 27 || i3 == Integer.MIN_VALUE || i4 == Integer.MIN_VALUE || downsampleStrategy == DownsampleStrategy.NONE) ? null : decodeScaledFrame(mediaMetadataRetriever, j, i2, i3, i4, downsampleStrategy);
+        return decodeScaledFrame == null ? decodeOriginalFrame(mediaMetadataRetriever, j, i2) : decodeScaledFrame;
     }
 
-    public static Bitmap decodeOriginalFrame(MediaMetadataRetriever mediaMetadataRetriever, long j, int i) {
-        return mediaMetadataRetriever.getFrameAtTime(j, i);
+    public static Bitmap decodeOriginalFrame(MediaMetadataRetriever mediaMetadataRetriever, long j, int i2) {
+        return mediaMetadataRetriever.getFrameAtTime(j, i2);
     }
 
     @TargetApi(27)
-    public static Bitmap decodeScaledFrame(MediaMetadataRetriever mediaMetadataRetriever, long j, int i, int i2, int i3, DownsampleStrategy downsampleStrategy) {
+    public static Bitmap decodeScaledFrame(MediaMetadataRetriever mediaMetadataRetriever, long j, int i2, int i3, int i4, DownsampleStrategy downsampleStrategy) {
         try {
             int parseInt = Integer.parseInt(mediaMetadataRetriever.extractMetadata(18));
             int parseInt2 = Integer.parseInt(mediaMetadataRetriever.extractMetadata(19));
@@ -158,8 +121,8 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
                 parseInt2 = parseInt;
                 parseInt = parseInt2;
             }
-            float scaleFactor = downsampleStrategy.getScaleFactor(parseInt, parseInt2, i2, i3);
-            return mediaMetadataRetriever.getScaledFrameAtTime(j, i, Math.round(parseInt * scaleFactor), Math.round(scaleFactor * parseInt2));
+            float scaleFactor = downsampleStrategy.getScaleFactor(parseInt, parseInt2, i3, i4);
+            return mediaMetadataRetriever.getScaledFrameAtTime(j, i2, Math.round(parseInt * scaleFactor), Math.round(scaleFactor * parseInt2));
         } catch (Throwable th) {
             if (Log.isLoggable(TAG, 3)) {
                 Log.d(TAG, "Exception trying to decode frame on oreo+", th);
@@ -174,7 +137,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     }
 
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource<Bitmap> decode(@NonNull T t, int i, int i2, @NonNull Options options) throws IOException {
+    public Resource<Bitmap> decode(@NonNull T t, int i2, int i3, @NonNull Options options) throws IOException {
         long longValue = ((Long) options.get(TARGET_FRAME)).longValue();
         if (longValue < 0 && longValue != -1) {
             throw new IllegalArgumentException("Requested frame must be non-negative, or DEFAULT_FRAME, given: " + longValue);
@@ -192,7 +155,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
         try {
             try {
                 this.initializer.initialize(build, t);
-                Bitmap decodeFrame = decodeFrame(build, longValue, num.intValue(), i, i2, downsampleStrategy2);
+                Bitmap decodeFrame = decodeFrame(build, longValue, num.intValue(), i2, i3, downsampleStrategy2);
                 build.release();
                 return BitmapResource.obtain(decodeFrame, this.bitmapPool);
             } catch (RuntimeException e2) {

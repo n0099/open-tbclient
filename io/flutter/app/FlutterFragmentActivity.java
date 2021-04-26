@@ -45,14 +45,14 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.eventDelegate.onActivityResult(i, i2, intent)) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        if (this.eventDelegate.onActivityResult(i2, i3, intent)) {
             return;
         }
-        super.onActivityResult(i, i2, intent);
+        super.onActivityResult(i2, i3, intent);
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         if (this.eventDelegate.onBackPressed()) {
             return;
@@ -66,7 +66,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         this.eventDelegate.onConfigurationChanged(configuration);
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.eventDelegate.onCreate(bundle);
@@ -102,9 +102,9 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        super.onRequestPermissionsResult(i, strArr, iArr);
-        this.eventDelegate.onRequestPermissionsResult(i, strArr, iArr);
+    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(i2, strArr, iArr);
+        this.eventDelegate.onRequestPermissionsResult(i2, strArr, iArr);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -120,8 +120,8 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks2
-    public void onTrimMemory(int i) {
-        this.eventDelegate.onTrimMemory(i);
+    public void onTrimMemory(int i2) {
+        this.eventDelegate.onTrimMemory(i2);
     }
 
     @Override // android.app.Activity

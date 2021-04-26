@@ -5,28 +5,28 @@ import android.content.Context;
 public final class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f22612a;
+    public final /* synthetic */ int f23315a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f22613b;
+    public final /* synthetic */ int f23316b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f22614c;
+    public final /* synthetic */ int f23317c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ int f22615d;
+    public final /* synthetic */ int f23318d;
 
-    public c(int i, int i2, int i3, int i4) {
-        this.f22612a = i;
-        this.f22613b = i2;
-        this.f22614c = i3;
-        this.f22615d = i4;
+    public c(int i2, int i3, int i4, int i5) {
+        this.f23315a = i2;
+        this.f23316b = i3;
+        this.f23317c = i4;
+        this.f23318d = i5;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
         context = UfoSDK.mApplication;
-        com.baidu.ufosdk.e.a.a(context, this.f22612a, this.f22613b, this.f22614c, this.f22615d, true);
+        com.baidu.ufosdk.e.a.a(context, this.f23315a, this.f23316b, this.f23317c, this.f23318d, true);
     }
 }

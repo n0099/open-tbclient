@@ -2,30 +2,30 @@ package com.bytedance.sdk.openadsdk.k.e;
 
 import com.bytedance.sdk.adnet.core.Request;
 import com.bytedance.sdk.adnet.err.VAdError;
-import d.c.c.b.d.l;
+import d.b.c.b.d.l;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class d implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.c.c.b.f.a f29335a;
+    public d.b.c.b.f.a f30237a;
 
     public d() {
-        d.c.c.b.f.a a2 = com.bytedance.sdk.openadsdk.i.e.a();
-        this.f29335a = a2;
+        d.b.c.b.f.a a2 = com.bytedance.sdk.openadsdk.i.e.a();
+        this.f30237a = a2;
         if (a2 == null) {
-            this.f29335a = new l();
+            this.f30237a = new l();
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.k.e.b
     public a a(f fVar) throws IOException, VAdError {
-        Request<?> eVar = new e(fVar.f29336a, fVar.f29337b);
-        if (fVar.f29338c != -1) {
-            d.c.c.b.d.g gVar = new d.c.c.b.d.g();
-            gVar.b((int) fVar.f29338c);
+        Request<?> eVar = new e(fVar.f30238a, fVar.f30239b);
+        if (fVar.f30240c != -1) {
+            d.b.c.b.d.g gVar = new d.b.c.b.d.g();
+            gVar.b((int) fVar.f30240c);
             eVar.setRetryPolicy(gVar);
         }
-        return new g(this.f29335a.a(eVar, fVar.f29340e), fVar);
+        return new g(this.f30237a.a(eVar, fVar.f30242e), fVar);
     }
 }

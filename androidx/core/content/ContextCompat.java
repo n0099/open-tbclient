@@ -1,6 +1,5 @@
 package androidx.core.content;
 
-import android.accessibilityservice.AccessibilityService;
 import android.accounts.AccountManager;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
@@ -44,6 +43,7 @@ import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.DropBoxManager;
+import android.os.Handler;
 import android.os.PowerManager;
 import android.os.Process;
 import android.os.UserManager;
@@ -57,6 +57,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.WindowManager;
+import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.CaptioningManager;
 import android.view.inputmethod.InputMethodManager;
 import android.view.textservice.TextServicesManager;
@@ -73,6 +74,9 @@ import com.baidu.mobstat.Config;
 import com.baidu.wallet.BaiduWalletServiceProviderMap;
 import java.io.File;
 import java.util.HashMap;
+import java.util.concurrent.Executor;
+import java.util.concurrent.RejectedExecutionException;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes.dex */
 public class ContextCompat {
     public static final String TAG = "ContextCompat";
@@ -84,11 +88,11 @@ public class ContextCompat {
         public static final HashMap<Class<?>, String> SERVICES = new HashMap<>();
 
         static {
-            if (Build.VERSION.SDK_INT > 22) {
+            if (Build.VERSION.SDK_INT >= 22) {
                 SERVICES.put(SubscriptionManager.class, "telephony_subscription_service");
                 SERVICES.put(UsageStatsManager.class, "usagestats");
             }
-            if (Build.VERSION.SDK_INT > 21) {
+            if (Build.VERSION.SDK_INT >= 21) {
                 SERVICES.put(AppWidgetManager.class, "appwidget");
                 SERVICES.put(BatteryManager.class, "batterymanager");
                 SERVICES.put(CameraManager.class, BdUploadHandler.MEDIA_SOURCE_VALUE_CAMERA);
@@ -100,29 +104,29 @@ public class ContextCompat {
                 SERVICES.put(TelecomManager.class, "telecom");
                 SERVICES.put(TvInputManager.class, "tv_input");
             }
-            if (Build.VERSION.SDK_INT > 19) {
+            if (Build.VERSION.SDK_INT >= 19) {
                 SERVICES.put(AppOpsManager.class, "appops");
                 SERVICES.put(CaptioningManager.class, "captioning");
                 SERVICES.put(ConsumerIrManager.class, "consumer_ir");
                 SERVICES.put(PrintManager.class, "print");
             }
-            if (Build.VERSION.SDK_INT > 18) {
+            if (Build.VERSION.SDK_INT >= 18) {
                 SERVICES.put(BluetoothManager.class, "bluetooth");
             }
-            if (Build.VERSION.SDK_INT > 17) {
+            if (Build.VERSION.SDK_INT >= 17) {
                 SERVICES.put(DisplayManager.class, "display");
                 SERVICES.put(UserManager.class, "user");
             }
-            if (Build.VERSION.SDK_INT > 16) {
+            if (Build.VERSION.SDK_INT >= 16) {
                 SERVICES.put(InputManager.class, Config.INPUT_PART);
                 SERVICES.put(MediaRouter.class, "media_router");
                 SERVICES.put(NsdManager.class, "servicediscovery");
             }
-            SERVICES.put(AccessibilityService.class, "accessibility");
+            SERVICES.put(AccessibilityManager.class, "accessibility");
             SERVICES.put(AccountManager.class, "account");
             SERVICES.put(ActivityManager.class, "activity");
             SERVICES.put(AlarmManager.class, NotificationCompat.CATEGORY_ALARM);
-            SERVICES.put(AudioManager.class, "audio");
+            SERVICES.put(AudioManager.class, MediaStreamTrack.AUDIO_TRACK_KIND);
             SERVICES.put(ClipboardManager.class, "clipboard");
             SERVICES.put(ConnectivityManager.class, "connectivity");
             SERVICES.put(DevicePolicyManager.class, "device_policy");
@@ -150,15 +154,21 @@ public class ContextCompat {
         }
     }
 
-    public static File buildPath(File file, String... strArr) {
-        for (String str : strArr) {
-            if (file == null) {
-                file = new File(str);
-            } else if (str != null) {
-                file = new File(file, str);
-            }
+    /* loaded from: classes.dex */
+    public static class MainHandlerExecutor implements Executor {
+        public final Handler mHandler;
+
+        public MainHandlerExecutor(@NonNull Handler handler) {
+            this.mHandler = handler;
         }
-        return file;
+
+        @Override // java.util.concurrent.Executor
+        public void execute(Runnable runnable) {
+            if (this.mHandler.post(runnable)) {
+                return;
+            }
+            throw new RejectedExecutionException(this.mHandler + " is shutting down");
+        }
     }
 
     public static int checkSelfPermission(@NonNull Context context, @NonNull String str) {
@@ -197,19 +207,19 @@ public class ContextCompat {
     }
 
     @ColorInt
-    public static int getColor(@NonNull Context context, @ColorRes int i) {
+    public static int getColor(@NonNull Context context, @ColorRes int i2) {
         if (Build.VERSION.SDK_INT >= 23) {
-            return context.getColor(i);
+            return context.getColor(i2);
         }
-        return context.getResources().getColor(i);
+        return context.getResources().getColor(i2);
     }
 
     @Nullable
-    public static ColorStateList getColorStateList(@NonNull Context context, @ColorRes int i) {
+    public static ColorStateList getColorStateList(@NonNull Context context, @ColorRes int i2) {
         if (Build.VERSION.SDK_INT >= 23) {
-            return context.getColorStateList(i);
+            return context.getColorStateList(i2);
         }
-        return context.getResources().getColorStateList(i);
+        return context.getResources().getColorStateList(i2);
     }
 
     @Nullable
@@ -225,23 +235,23 @@ public class ContextCompat {
     }
 
     @Nullable
-    public static Drawable getDrawable(@NonNull Context context, @DrawableRes int i) {
-        int i2;
-        int i3 = Build.VERSION.SDK_INT;
-        if (i3 >= 21) {
-            return context.getDrawable(i);
+    public static Drawable getDrawable(@NonNull Context context, @DrawableRes int i2) {
+        int i3;
+        int i4 = Build.VERSION.SDK_INT;
+        if (i4 >= 21) {
+            return context.getDrawable(i2);
         }
-        if (i3 >= 16) {
-            return context.getResources().getDrawable(i);
+        if (i4 >= 16) {
+            return context.getResources().getDrawable(i2);
         }
         synchronized (sLock) {
             if (sTempValue == null) {
                 sTempValue = new TypedValue();
             }
-            context.getResources().getValue(i, sTempValue, true);
-            i2 = sTempValue.resourceId;
+            context.getResources().getValue(i2, sTempValue, true);
+            i3 = sTempValue.resourceId;
         }
-        return context.getResources().getDrawable(i2);
+        return context.getResources().getDrawable(i3);
     }
 
     @NonNull
@@ -252,6 +262,13 @@ public class ContextCompat {
     @NonNull
     public static File[] getExternalFilesDirs(@NonNull Context context, @Nullable String str) {
         return Build.VERSION.SDK_INT >= 19 ? context.getExternalFilesDirs(str) : new File[]{context.getExternalFilesDir(str)};
+    }
+
+    public static Executor getMainExecutor(Context context) {
+        if (Build.VERSION.SDK_INT >= 28) {
+            return context.getMainExecutor();
+        }
+        return new MainHandlerExecutor(new Handler(context.getMainLooper()));
     }
 
     @Nullable

@@ -22,10 +22,10 @@ import java.net.URL;
 public final class bo {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Proxy f8697a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+    public static final Proxy f9008a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Proxy f8698b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+    public static final Proxy f9009b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
 
     public static String a() {
         try {
@@ -191,7 +191,7 @@ public final class bo {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public static HttpURLConnection a(Context context, String str, int i, int i2) throws IOException {
+    public static HttpURLConnection a(Context context, String str, int i2, int i3) throws IOException {
         HttpURLConnection httpURLConnection;
         URL url = new URL(str);
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
@@ -205,10 +205,10 @@ public final class bo {
                 String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
                 if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
                     if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                        httpURLConnection = (HttpURLConnection) url.openConnection(f8698b);
+                        httpURLConnection = (HttpURLConnection) url.openConnection(f9009b);
                     }
                 } else {
-                    httpURLConnection = (HttpURLConnection) url.openConnection(f8697a);
+                    httpURLConnection = (HttpURLConnection) url.openConnection(f9008a);
                 }
             }
             httpURLConnection = null;
@@ -216,8 +216,8 @@ public final class bo {
         if (httpURLConnection == null) {
             httpURLConnection = (HttpURLConnection) url.openConnection();
         }
-        httpURLConnection.setConnectTimeout(i);
-        httpURLConnection.setReadTimeout(i2);
+        httpURLConnection.setConnectTimeout(i2);
+        httpURLConnection.setReadTimeout(i3);
         return httpURLConnection;
     }
 }

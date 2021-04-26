@@ -24,7 +24,7 @@ public class UiOauthManager extends SDKManager {
         return manager;
     }
 
-    public <T> void login(int i, CallBack<T> callBack) {
-        new a(this.mContext, i, callBack).a(0);
+    public <T> void login(int i2, CallBack<T> callBack) {
+        new a(this.mContext, i2, callBack).a(0);
     }
 }

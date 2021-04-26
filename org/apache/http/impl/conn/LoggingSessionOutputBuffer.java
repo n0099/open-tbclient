@@ -22,7 +22,7 @@ public class LoggingSessionOutputBuffer implements SessionOutputBuffer {
     }
 
     @Override // org.apache.http.io.SessionOutputBuffer
-    public void write(byte[] bArr, int i, int i2) throws IOException {
+    public void write(byte[] bArr, int i2, int i3) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -32,7 +32,7 @@ public class LoggingSessionOutputBuffer implements SessionOutputBuffer {
     }
 
     @Override // org.apache.http.io.SessionOutputBuffer
-    public void write(int i) throws IOException {
+    public void write(int i2) throws IOException {
         throw new RuntimeException("Stub!");
     }
 

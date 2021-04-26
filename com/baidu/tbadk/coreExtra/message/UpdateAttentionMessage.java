@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.httpNet.HttpResponse;
-import d.b.c.e.p.k;
+import d.a.c.e.p.k;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
@@ -13,48 +13,51 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f13362a;
+        public boolean f13330a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13363b;
+        public String f13331b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13364c;
+        public String f13332c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f13365d;
-
-        /* renamed from: f  reason: collision with root package name */
-        public HttpResponse f13367f;
+        public boolean f13333d;
 
         /* renamed from: g  reason: collision with root package name */
-        public JSONObject f13368g;
+        public HttpResponse f13336g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f13369h;
-        public boolean i;
-        public String j;
-        public BlockPopInfoData k;
+        public JSONObject f13337h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public boolean f13338i;
+        public boolean j;
+        public String k;
+        public BlockPopInfoData l;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f13366e = false;
-        public int l = 0;
+        public boolean f13334e = false;
+
+        /* renamed from: f  reason: collision with root package name */
+        public boolean f13335f = false;
+        public int m = 0;
 
         public final void a(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.j = jSONObject.optString("block_dealurl");
+            this.k = jSONObject.optString("block_dealurl");
             String optString = jSONObject.optString("block_content");
             String optString2 = jSONObject.optString("block_confirm");
             String optString3 = jSONObject.optString("block_cancel");
-            if (k.isEmpty(optString) || k.isEmpty(this.j) || k.isEmpty(optString2) || k.isEmpty(optString3)) {
+            if (k.isEmpty(optString) || k.isEmpty(this.k) || k.isEmpty(optString2) || k.isEmpty(optString3)) {
                 return;
             }
             BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-            this.k = blockPopInfoData;
+            this.l = blockPopInfoData;
             blockPopInfoData.block_info = optString;
-            blockPopInfoData.ahead_url = this.j;
+            blockPopInfoData.ahead_url = this.k;
             blockPopInfoData.ahead_info = optString2;
             blockPopInfoData.ok_info = optString3;
         }
@@ -65,12 +68,12 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f13368g = jSONObject;
+                this.f13337h = jSONObject;
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject == null) {
                     return;
                 }
-                this.l = jSONObject.optInt("status");
+                this.m = jSONObject.optInt("status");
                 if (optJSONObject.optInt("is_toast", 0) == 1) {
                 }
                 optJSONObject.optString("toast_text");
@@ -89,20 +92,20 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().f13365d;
+        return getData().f13333d;
     }
 
     public boolean isGod() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().f13366e;
+        return getData().f13335f;
     }
 
     public boolean isSucc() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().f13362a;
+        return getData().f13330a;
     }
 }

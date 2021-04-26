@@ -13,10 +13,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.c.e.m.h;
-import d.b.c.e.p.m;
-import d.b.c.e.p.q;
-import d.b.i0.r.d0.b;
+import d.a.c.e.m.h;
+import d.a.c.e.p.m;
+import d.a.c.e.p.q;
+import d.a.i0.r.d0.b;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -68,14 +68,14 @@ public class PullViewHelper {
             return null;
         }
         int length = fileArr.length;
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            if (i < length) {
-                file = fileArr[i];
+            if (i2 < length) {
+                file = fileArr[i2];
                 if (file != null && file.isFile() && file.length() > 0 && file.getName().startsWith(str)) {
                     break;
                 }
-                i++;
+                i2++;
             } else {
                 file = null;
                 break;
@@ -105,23 +105,23 @@ public class PullViewHelper {
                 File imageFileDir = getImageFileDir();
                 if (imageFileDir != null) {
                     File[] listFiles = imageFileDir.listFiles();
-                    for (int i = 1; i <= k; i++) {
-                        this.drawables[i - 1] = buildDrawable(listFiles, i + ".");
+                    for (int i2 = 1; i2 <= k; i2++) {
+                        this.drawables[i2 - 1] = buildDrawable(listFiles, i2 + ".");
                     }
                 }
             }
             Drawable[] drawableArr = this.drawables;
             if (drawableArr != null) {
                 int length = drawableArr.length;
-                int i2 = 0;
+                int i3 = 0;
                 while (true) {
-                    if (i2 >= length) {
+                    if (i3 >= length) {
                         z = true;
                         break;
-                    } else if (drawableArr[i2] == null) {
+                    } else if (drawableArr[i3] == null) {
                         break;
                     } else {
-                        i2++;
+                        i3++;
                     }
                 }
             }
@@ -304,17 +304,17 @@ public class PullViewHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean isImagesExist(int i) {
+    public boolean isImagesExist(int i2) {
         File[] listFiles;
         File imageFileDir = getImageFileDir();
-        if (imageFileDir != null && (listFiles = imageFileDir.listFiles()) != null && listFiles.length >= i) {
-            int i2 = 0;
-            for (int i3 = 1; i3 <= i; i3++) {
-                if (hasFileName(imageFileDir, i3 + ".")) {
-                    i2++;
+        if (imageFileDir != null && (listFiles = imageFileDir.listFiles()) != null && listFiles.length >= i2) {
+            int i3 = 0;
+            for (int i4 = 1; i4 <= i2; i4++) {
+                if (hasFileName(imageFileDir, i4 + ".")) {
+                    i3++;
                 }
             }
-            if (i2 == i) {
+            if (i3 == i2) {
                 return true;
             }
         }
@@ -378,7 +378,7 @@ public class PullViewHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void startDownload(String str, String str2, int i) {
+    public void startDownload(String str, String str2, int i2) {
         deletePullDir();
         b.j().C("pull_image_url");
         b.j().C("pull_image_num");
@@ -388,7 +388,7 @@ public class PullViewHelper {
         File zipFile = getZipFile();
         if (checkFileMd5(zipFile, str2)) {
             b.j().x("pull_image_url", str);
-            b.j().v("pull_image_num", i);
+            b.j().v("pull_image_num", i2);
             decompressZipFile(zipFile);
             buildDrawables();
             return;
@@ -396,11 +396,11 @@ public class PullViewHelper {
         deleteDir(zipFile);
     }
 
-    private void startDownloadAsync(final String str, final String str2, final int i) {
+    private void startDownloadAsync(final String str, final String str2, final int i2) {
         h.a().c(new Runnable() { // from class: com.baidu.tbadk.core.util.PullViewHelper.4
             @Override // java.lang.Runnable
             public void run() {
-                PullViewHelper.this.startDownload(str, str2, i);
+                PullViewHelper.this.startDownload(str, str2, i2);
             }
         });
     }
@@ -414,11 +414,11 @@ public class PullViewHelper {
         });
     }
 
-    public AnimationDrawable getAnimationDrawable(int i) {
+    public AnimationDrawable getAnimationDrawable(int i2) {
         Drawable[] drawableArr;
         if (this.drawables != null) {
             boolean z = true;
-            if (i != 1 && i != 4) {
+            if (i2 != 1 && i2 != 4) {
                 z = false;
             }
             AnimationDrawable animationDrawable = new AnimationDrawable();
@@ -433,25 +433,25 @@ public class PullViewHelper {
         return null;
     }
 
-    public AnimationDrawable getDefaultAnimationDrawable(int i) {
+    public AnimationDrawable getDefaultAnimationDrawable(int i2) {
         PullViewDrawable[] pullViewDrawableArr;
         if (this.defaultDrawables == null) {
             this.defaultDrawables = new PullViewDrawable[this.defaultResources.length];
-            for (int i2 = 0; i2 < this.defaultResources.length; i2++) {
-                this.defaultDrawables[i2] = new PullViewDrawable();
+            for (int i3 = 0; i3 < this.defaultResources.length; i3++) {
+                this.defaultDrawables[i3] = new PullViewDrawable();
             }
         }
-        boolean z = i == 1 || i == 4;
+        boolean z = i2 == 1 || i2 == 4;
         if (z && !this.hasNightDefault) {
             this.hasNightDefault = true;
-            for (int i3 = 0; i3 < this.defaultResources.length; i3++) {
-                this.defaultDrawables[i3].nightDrawable = new BitmapDrawable(SkinManager.getBitmap565Quality(this.defaultResources[i3]));
+            for (int i4 = 0; i4 < this.defaultResources.length; i4++) {
+                this.defaultDrawables[i4].nightDrawable = new BitmapDrawable(SkinManager.getBitmap565Quality(this.defaultResources[i4]));
             }
         }
         if (!z && !this.hasDayDefault) {
             this.hasDayDefault = true;
-            for (int i4 = 0; i4 < this.defaultResources.length; i4++) {
-                this.defaultDrawables[i4].dayDrawable = new BitmapDrawable(SkinManager.getBitmap565Quality(this.defaultResources[i4]));
+            for (int i5 = 0; i5 < this.defaultResources.length; i5++) {
+                this.defaultDrawables[i5].dayDrawable = new BitmapDrawable(SkinManager.getBitmap565Quality(this.defaultResources[i5]));
             }
         }
         AnimationDrawable animationDrawable = new AnimationDrawable();
@@ -470,9 +470,9 @@ public class PullViewHelper {
         return this.defaultShouldShowLoadingView;
     }
 
-    public int getPullViewBackgroundColor(int i) {
+    public int getPullViewBackgroundColor(int i2) {
         boolean z = true;
-        if (i != 1 && i != 4) {
+        if (i2 != 1 && i2 != 4) {
             z = false;
         }
         if (z) {
@@ -487,24 +487,24 @@ public class PullViewHelper {
 
     public void saveOrUpdateImages(final String str, final String str2, String str3, String str4, String str5) {
         boolean isEmpty = TextUtils.isEmpty(str4);
-        int i = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
-        int i2 = PULLVIEW_BGCOLOR_DAY_DEFAULT;
+        int i2 = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
+        int i3 = PULLVIEW_BGCOLOR_DAY_DEFAULT;
         if (!isEmpty && !TextUtils.isEmpty(str5)) {
             int k = b.j().k("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
             int k2 = b.j().k("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
             try {
-                i2 = Color.parseColor(str4);
+                i3 = Color.parseColor(str4);
             } catch (Exception unused) {
             }
             try {
-                i = Color.parseColor(str5);
+                i2 = Color.parseColor(str5);
             } catch (Exception unused2) {
             }
-            if (k != i2 || i != k2) {
-                b.j().v("pullview_background_color_day", i2);
-                b.j().v("pullview_background_color_night", i);
-                this.pullview_backgroundColor_day = i2;
-                this.pullview_backgroundColor_night = i;
+            if (k != i3 || i2 != k2) {
+                b.j().v("pullview_background_color_day", i3);
+                b.j().v("pullview_background_color_night", i2);
+                this.pullview_backgroundColor_day = i3;
+                this.pullview_backgroundColor_night = i2;
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016204));
             }
         } else {
@@ -530,7 +530,7 @@ public class PullViewHelper {
         b.j().t("pullview_should_show_3d_loading", false);
         setShouldShowLoadingView(false);
         String p = b.j().p("pull_image_url", "");
-        final int d2 = d.b.c.e.m.b.d(str3, 0);
+        final int d2 = d.a.c.e.m.b.d(str3, 0);
         if (str.equals(p)) {
             if (isImagesExist(d2)) {
                 buildDrawablesAsync();
@@ -557,7 +557,7 @@ public class PullViewHelper {
                 return;
             }
         }
-        startDownloadAsync(str, str2, d.b.c.e.m.b.d(str3, 0));
+        startDownloadAsync(str, str2, d.a.c.e.m.b.d(str3, 0));
     }
 
     public void setShouldShowLoadingView(boolean z) {

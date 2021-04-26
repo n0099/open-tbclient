@@ -14,20 +14,20 @@ import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.core.q;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.u;
-import d.c.c.b.b.d;
-import d.c.c.b.d.o;
+import d.b.c.b.b.d;
+import d.b.c.b.d.o;
 import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f27330a;
+    public static volatile b f28157a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Context> f27331b;
+    public WeakReference<Context> f28158b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final q f27332c = p.f();
+    public final q f28159c = p.f();
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -37,31 +37,31 @@ public class b {
     }
 
     public b(Context context) {
-        this.f27331b = new WeakReference<>(context);
+        this.f28158b = new WeakReference<>(context);
     }
 
     private void b(Context context) {
-        this.f27331b = new WeakReference<>(context);
+        this.f28158b = new WeakReference<>(context);
     }
 
     public static b a(@NonNull Context context) {
-        if (f27330a == null) {
+        if (f28157a == null) {
             synchronized (b.class) {
-                if (f27330a == null) {
-                    f27330a = new b(context);
+                if (f28157a == null) {
+                    f28157a = new b(context);
                 }
             }
         } else {
-            f27330a.b(context);
+            f28157a.b(context);
         }
-        return f27330a;
+        return f28157a;
     }
 
     public void a(@NonNull AdSlot adSlot, final a aVar) {
-        this.f27332c.a(adSlot, new m(), 1, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.b.1
+        this.f28159c.a(adSlot, new m(), 1, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.b.1
             @Override // com.bytedance.sdk.openadsdk.core.q.b
-            public void a(int i, String str) {
-                u.b("BannerAdManager", str + GlideException.IndentedAppendable.INDENT + i);
+            public void a(int i2, String str) {
+                u.b("BannerAdManager", str + GlideException.IndentedAppendable.INDENT + i2);
                 a aVar2 = aVar;
                 if (aVar2 != null) {
                     aVar2.a();
@@ -89,11 +89,11 @@ public class b {
 
     public void a(@NonNull final AdSlot adSlot, @NonNull final TTAdNative.BannerAdListener bannerAdListener) {
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f27332c.a(adSlot, new m(), 1, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.b.2
+        this.f28159c.a(adSlot, new m(), 1, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.b.2
             @Override // com.bytedance.sdk.openadsdk.core.q.b
-            public void a(int i, String str) {
-                bannerAdListener.onError(i, str);
-                u.b("BannerAdManager", str + " " + i);
+            public void a(int i2, String str) {
+                bannerAdListener.onError(i2, str);
+                u.b("BannerAdManager", str + " " + i2);
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.q.b
@@ -104,9 +104,9 @@ public class b {
                         b.this.a(lVar, new a() { // from class: com.bytedance.sdk.openadsdk.component.a.b.2.1
                             @Override // com.bytedance.sdk.openadsdk.component.a.b.a
                             public void a(@NonNull com.bytedance.sdk.openadsdk.component.a.a aVar2) {
-                                if (b.this.f27331b.get() != null) {
-                                    e eVar = new e((Context) b.this.f27331b.get(), aVar2, adSlot);
-                                    com.bytedance.sdk.openadsdk.c.d.a((Context) b.this.f27331b.get(), lVar, ak.b(adSlot.getDurationSlotType()), currentTimeMillis);
+                                if (b.this.f28158b.get() != null) {
+                                    e eVar = new e((Context) b.this.f28158b.get(), aVar2, adSlot);
+                                    com.bytedance.sdk.openadsdk.c.d.a((Context) b.this.f28158b.get(), lVar, ak.b(adSlot.getDurationSlotType()), currentTimeMillis);
                                     bannerAdListener.onBannerAdLoad(eVar);
                                 }
                             }
@@ -131,11 +131,11 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull final l lVar, @Nullable final a aVar) {
         com.bytedance.sdk.openadsdk.i.e.c().h().f(lVar.af().get(0).a(), new com.bytedance.sdk.openadsdk.i.b() { // from class: com.bytedance.sdk.openadsdk.component.a.b.3
-            @Override // com.bytedance.sdk.openadsdk.i.b, d.c.c.b.b.d.k
+            @Override // com.bytedance.sdk.openadsdk.i.b, d.b.c.b.b.d.k
             public void a() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.i.b, d.c.c.b.b.d.k
+            @Override // com.bytedance.sdk.openadsdk.i.b, d.b.c.b.b.d.k
             public void a(d.i iVar, boolean z) {
                 if (iVar != null && iVar.a() != null) {
                     a aVar2 = aVar;
@@ -151,15 +151,15 @@ public class b {
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.i.b, d.c.c.b.d.o.a
+            @Override // com.bytedance.sdk.openadsdk.i.b, d.b.c.b.d.o.a
             public void a(o<Bitmap> oVar) {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.i.b, d.c.c.b.b.d.k
+            @Override // com.bytedance.sdk.openadsdk.i.b, d.b.c.b.b.d.k
             public void b() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.i.b, d.c.c.b.d.o.a
+            @Override // com.bytedance.sdk.openadsdk.i.b, d.b.c.b.d.o.a
             public void b(o<Bitmap> oVar) {
                 a aVar2 = aVar;
                 if (aVar2 != null) {

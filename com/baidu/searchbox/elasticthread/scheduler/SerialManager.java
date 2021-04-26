@@ -14,8 +14,8 @@ public class SerialManager implements Recordable {
         return ((SerialExecutorCell) this.mCurrentWorkingExecutor).checkBlockAndDredge();
     }
 
-    public void insertTask(Runnable runnable, String str, int i) {
-        this.mElasticQueue.insertTask(runnable, str, i);
+    public void insertTask(Runnable runnable, String str, int i2) {
+        this.mElasticQueue.insertTask(runnable, str, i2);
     }
 
     @Override // com.baidu.searchbox.elasticthread.statistic.Recordable

@@ -21,11 +21,11 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
     public static final String REGISTER_ERRORCODE = "xm_register_errorcode";
     public static final String TAG = "PushPatchMessageReceiver";
 
-    private void handleXiaomiMsg(Context context, MiPushMessage miPushMessage, int i) {
+    private void handleXiaomiMsg(Context context, MiPushMessage miPushMessage, int i2) {
         try {
             Intent intent = new Intent("com.xiaomi.mipush.PUSH_MSG");
             intent.putExtra(PUSH_MSG, miPushMessage);
-            intent.putExtra(PUSH_MSG_TYPE, i);
+            intent.putExtra(PUSH_MSG_TYPE, i2);
             m.a(intent, context.getApplicationContext());
         } catch (Exception e2) {
             new b.c(context).a(Log.getStackTraceString(e2)).a();

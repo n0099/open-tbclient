@@ -17,35 +17,37 @@ import org.json.JSONException;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f26613a = WebChromeClient.MSG_PROMPT_HEADER.toLowerCase();
+    public static final String f27420a = WebChromeClient.MSG_PROMPT_HEADER.toLowerCase();
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Object> f26614b;
+    public HashMap<String, Object> f27421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebView f26615c;
+    public WebView f27422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26616d;
+    public String f27423d;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26619g;
+    public String f27426g;
     @SuppressLint({"SdCardPath"})
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26617e = "/data/data/";
+    public String f27424e = "/data/data/";
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f26618f = true;
+    public boolean f27425f = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f26620h = true;
-    public boolean i = true;
+    public boolean f27427h = true;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f27428i = true;
 
     public e(WebView webView) {
-        this.f26615c = webView;
+        this.f27422c = webView;
         try {
-            this.f26617e += webView.getContext().getPackageName();
+            this.f27424e += webView.getContext().getPackageName();
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -74,7 +76,7 @@ public final class e {
                         sb.append("return ");
                     }
                     sb.append("prompt('");
-                    sb.append(f26613a);
+                    sb.append(f27420a);
                     sb.append("'+");
                     sb.append("JSON.stringify({");
                     sb.append("obj:'");
@@ -103,16 +105,16 @@ public final class e {
     }
 
     public final void a(String str) {
-        if (!this.i || str == null || str.startsWith("javascript")) {
+        if (!this.f27428i || str == null || str.startsWith("javascript")) {
             return;
         }
-        this.f26619g = str;
-        WebView webView = this.f26615c;
+        this.f27426g = str;
+        WebView webView = this.f27422c;
         if (webView == null || webView.getSettings() == null) {
             return;
         }
-        if (!this.f26619g.startsWith("file://")) {
-            this.f26615c.getSettings().setJavaScriptEnabled(true);
+        if (!this.f27426g.startsWith("file://")) {
+            this.f27422c.getSettings().setJavaScriptEnabled(true);
             return;
         }
         boolean z = false;
@@ -125,44 +127,44 @@ public final class e {
         } catch (Throwable th) {
             Log.e("WebViewSecureProcessor", "getStaticWebSeting error:" + th);
         }
-        this.f26615c.getSettings().setJavaScriptEnabled(z);
+        this.f27422c.getSettings().setJavaScriptEnabled(z);
     }
 
     public final void a(boolean z) {
-        if (z == this.f26618f) {
+        if (z == this.f27425f) {
             return;
         }
         if (z) {
             throw new RuntimeException("can not reverse!!");
         }
-        this.f26618f = z;
+        this.f27425f = z;
         for (String str : d().keySet()) {
-            this.f26615c.addJavascriptInterface(d().get(str), str, false);
+            this.f27422c.addJavascriptInterface(d().get(str), str, false);
         }
-        HashMap<String, Object> hashMap = this.f26614b;
+        HashMap<String, Object> hashMap = this.f27421b;
         if (hashMap != null) {
             hashMap.clear();
         }
-        this.f26616d = null;
+        this.f27423d = null;
     }
 
     public final boolean a() {
-        return this.f26618f && (g() ^ true);
+        return this.f27425f && (g() ^ true);
     }
 
     public final void b(boolean z) {
-        this.f26620h = z;
+        this.f27427h = z;
     }
 
     public final boolean b() {
-        return this.f26620h;
+        return this.f27427h;
     }
 
     public final void c() {
-        if (this.f26620h && a()) {
-            String str = this.f26616d;
+        if (this.f27427h && a()) {
+            String str = this.f27423d;
             if (str != null) {
-                this.f26615c.execJavaScript(str);
+                this.f27422c.execJavaScript(str);
                 return;
             }
             StringBuilder sb = new StringBuilder();
@@ -176,23 +178,23 @@ public final class e {
             sb.append("}");
             sb.append(")()");
             String sb2 = sb.toString();
-            this.f26616d = sb2;
-            this.f26615c.execJavaScript(sb2);
+            this.f27423d = sb2;
+            this.f27422c.execJavaScript(sb2);
         }
     }
 
     public final HashMap<String, Object> d() {
-        if (this.f26614b == null) {
-            this.f26614b = new HashMap<>();
+        if (this.f27421b == null) {
+            this.f27421b = new HashMap<>();
         }
-        return this.f26614b;
+        return this.f27421b;
     }
 
     public final boolean e() {
         if (g()) {
             return false;
         }
-        this.f26615c.removeJavascriptInterface("searchBoxJavaBridge_");
+        this.f27422c.removeJavascriptInterface("searchBoxJavaBridge_");
         return true;
     }
 

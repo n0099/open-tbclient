@@ -19,8 +19,8 @@ public class MessageV4 extends MessageV3 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public MessageV4[] newArray(int i) {
-            return new MessageV4[i];
+        public MessageV4[] newArray(int i2) {
+            return new MessageV4[i2];
         }
     };
     public static final String TAG = "MessageV4";
@@ -46,10 +46,10 @@ public class MessageV4 extends MessageV3 {
                     }
                 }
             } catch (JSONException e2) {
-                d.k.a.a.a.b(TAG, "parse messageV4 error " + e2.getMessage());
+                d.j.a.a.a.b(TAG, "parse messageV4 error " + e2.getMessage());
             }
         }
-        d.k.a.a.a.d(TAG, "MessageV4 " + messageV4);
+        d.j.a.a.a.d(TAG, "MessageV4 " + messageV4);
         return messageV4;
     }
 
@@ -67,8 +67,8 @@ public class MessageV4 extends MessageV3 {
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.MessageV3, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
-        parcel.writeParcelable(this.actVideoSetting, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
+        parcel.writeParcelable(this.actVideoSetting, i2);
     }
 }

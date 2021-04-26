@@ -7,10 +7,10 @@ public final class a {
 
     /* renamed from: com.tencent.mm.sdk.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0532a {
-        public static Object a(int i, String str) {
+    public static final class C0476a {
+        public static Object a(int i2, String str) {
             try {
-                switch (i) {
+                switch (i2) {
                     case 1:
                         return Integer.valueOf(str);
                     case 2:

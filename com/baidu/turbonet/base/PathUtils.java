@@ -13,39 +13,39 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class PathUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static AsyncTask<Void, Void, String[]> f22345a;
+    public static AsyncTask<Void, Void, String[]> f23037a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f22346b;
+    public static Context f23038b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f22347c;
+    public static String f23039c;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f22348a = PathUtils.c();
+        public static final String[] f23040a = PathUtils.c();
     }
 
     static {
         new AtomicBoolean();
     }
 
-    public static String b(int i) {
-        return a.f22348a[i];
+    public static String b(int i2) {
+        return a.f23040a[i2];
     }
 
     public static String[] c() {
         try {
-            if (f22345a.cancel(false)) {
+            if (f23037a.cancel(false)) {
                 StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
                 StrictMode.allowThreadDiskWrites();
                 String[] d2 = d();
                 StrictMode.setThreadPolicy(allowThreadDiskReads);
                 return d2;
             }
-            return f22345a.get();
+            return f23037a.get();
         } catch (InterruptedException | ExecutionException unused) {
             return null;
         }
@@ -53,11 +53,11 @@ public abstract class PathUtils {
 
     public static String[] d() {
         String[] strArr = new String[4];
-        strArr[0] = f22346b.getDir(f22347c, 0).getPath();
-        strArr[1] = f22346b.getDir("textures", 0).getPath();
-        strArr[2] = f22346b.getDatabasePath("foo").getParent();
-        if (f22346b.getCacheDir() != null) {
-            strArr[3] = f22346b.getCacheDir().getPath();
+        strArr[0] = f23038b.getDir(f23039c, 0).getPath();
+        strArr[1] = f23038b.getDir("textures", 0).getPath();
+        strArr[2] = f23038b.getDatabasePath("foo").getParent();
+        if (f23038b.getCacheDir() != null) {
+            strArr[3] = f23038b.getCacheDir().getPath();
         }
         return strArr;
     }
@@ -96,8 +96,8 @@ public abstract class PathUtils {
     @CalledByNative
     public static String getNativeLibraryDirectory(Context context) {
         ApplicationInfo applicationInfo = context.getApplicationInfo();
-        int i = applicationInfo.flags;
-        return ((i & 128) != 0 || (i & 1) == 0) ? applicationInfo.nativeLibraryDir : "/system/lib/";
+        int i2 = applicationInfo.flags;
+        return ((i2 & 128) != 0 || (i2 & 1) == 0) ? applicationInfo.nativeLibraryDir : "/system/lib/";
     }
 
     @CalledByNative

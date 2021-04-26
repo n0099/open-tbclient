@@ -15,170 +15,141 @@ import java.util.Set;
 /* loaded from: classes6.dex */
 public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements Serializable {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
-    public static final Comparator<Comparable> NATURAL_ORDER = new a();
-    public Comparator<? super K> comparator;
-    public LinkedHashTreeMap<K, V>.d entrySet;
-    public final g<K, V> header;
-    public LinkedHashTreeMap<K, V>.e keySet;
-    public int modCount;
-    public int size;
-    public g<K, V>[] table;
-    public int threshold;
-
-    /* loaded from: classes6.dex */
-    public static class a implements Comparator<Comparable> {
+    public static final Comparator<Comparable> NATURAL_ORDER = new Comparator<Comparable>() { // from class: com.google.gson.internal.LinkedHashTreeMap.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
-        /* renamed from: a */
         public int compare(Comparable comparable, Comparable comparable2) {
             return comparable.compareTo(comparable2);
         }
-    }
+    };
+    public Comparator<? super K> comparator;
+    public LinkedHashTreeMap<K, V>.EntrySet entrySet;
+    public final Node<K, V> header;
+    public LinkedHashTreeMap<K, V>.KeySet keySet;
+    public int modCount;
+    public int size;
+    public Node<K, V>[] table;
+    public int threshold;
 
     /* loaded from: classes6.dex */
-    public static final class b<K, V> {
+    public static final class AvlBuilder<K, V> {
+        public int leavesSkipped;
+        public int leavesToSkip;
+        public int size;
+        public Node<K, V> stack;
 
-        /* renamed from: a  reason: collision with root package name */
-        public g<K, V> f31301a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f31302b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f31303c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public int f31304d;
-
-        public void a(g<K, V> gVar) {
-            gVar.f31314g = null;
-            gVar.f31312e = null;
-            gVar.f31313f = null;
-            gVar.m = 1;
-            int i = this.f31302b;
-            if (i > 0) {
-                int i2 = this.f31304d;
-                if ((i2 & 1) == 0) {
-                    this.f31304d = i2 + 1;
-                    this.f31302b = i - 1;
-                    this.f31303c++;
+        public void add(Node<K, V> node) {
+            node.right = null;
+            node.parent = null;
+            node.left = null;
+            node.height = 1;
+            int i2 = this.leavesToSkip;
+            if (i2 > 0) {
+                int i3 = this.size;
+                if ((i3 & 1) == 0) {
+                    this.size = i3 + 1;
+                    this.leavesToSkip = i2 - 1;
+                    this.leavesSkipped++;
                 }
             }
-            gVar.f31312e = this.f31301a;
-            this.f31301a = gVar;
-            int i3 = this.f31304d + 1;
-            this.f31304d = i3;
-            int i4 = this.f31302b;
-            if (i4 > 0 && (i3 & 1) == 0) {
-                this.f31304d = i3 + 1;
-                this.f31302b = i4 - 1;
-                this.f31303c++;
+            node.parent = this.stack;
+            this.stack = node;
+            int i4 = this.size + 1;
+            this.size = i4;
+            int i5 = this.leavesToSkip;
+            if (i5 > 0 && (i4 & 1) == 0) {
+                this.size = i4 + 1;
+                this.leavesToSkip = i5 - 1;
+                this.leavesSkipped++;
             }
-            int i5 = 4;
+            int i6 = 4;
             while (true) {
-                int i6 = i5 - 1;
-                if ((this.f31304d & i6) != i6) {
+                int i7 = i6 - 1;
+                if ((this.size & i7) != i7) {
                     return;
                 }
-                int i7 = this.f31303c;
-                if (i7 == 0) {
-                    g<K, V> gVar2 = this.f31301a;
-                    g<K, V> gVar3 = gVar2.f31312e;
-                    g<K, V> gVar4 = gVar3.f31312e;
-                    gVar3.f31312e = gVar4.f31312e;
-                    this.f31301a = gVar3;
-                    gVar3.f31313f = gVar4;
-                    gVar3.f31314g = gVar2;
-                    gVar3.m = gVar2.m + 1;
-                    gVar4.f31312e = gVar3;
-                    gVar2.f31312e = gVar3;
-                } else if (i7 == 1) {
-                    g<K, V> gVar5 = this.f31301a;
-                    g<K, V> gVar6 = gVar5.f31312e;
-                    this.f31301a = gVar6;
-                    gVar6.f31314g = gVar5;
-                    gVar6.m = gVar5.m + 1;
-                    gVar5.f31312e = gVar6;
-                    this.f31303c = 0;
-                } else if (i7 == 2) {
-                    this.f31303c = 0;
+                int i8 = this.leavesSkipped;
+                if (i8 == 0) {
+                    Node<K, V> node2 = this.stack;
+                    Node<K, V> node3 = node2.parent;
+                    Node<K, V> node4 = node3.parent;
+                    node3.parent = node4.parent;
+                    this.stack = node3;
+                    node3.left = node4;
+                    node3.right = node2;
+                    node3.height = node2.height + 1;
+                    node4.parent = node3;
+                    node2.parent = node3;
+                } else if (i8 == 1) {
+                    Node<K, V> node5 = this.stack;
+                    Node<K, V> node6 = node5.parent;
+                    this.stack = node6;
+                    node6.right = node5;
+                    node6.height = node5.height + 1;
+                    node5.parent = node6;
+                    this.leavesSkipped = 0;
+                } else if (i8 == 2) {
+                    this.leavesSkipped = 0;
                 }
-                i5 *= 2;
+                i6 *= 2;
             }
         }
 
-        public void b(int i) {
-            this.f31302b = ((Integer.highestOneBit(i) * 2) - 1) - i;
-            this.f31304d = 0;
-            this.f31303c = 0;
-            this.f31301a = null;
+        public void reset(int i2) {
+            this.leavesToSkip = ((Integer.highestOneBit(i2) * 2) - 1) - i2;
+            this.size = 0;
+            this.leavesSkipped = 0;
+            this.stack = null;
         }
 
-        public g<K, V> c() {
-            g<K, V> gVar = this.f31301a;
-            if (gVar.f31312e == null) {
-                return gVar;
+        public Node<K, V> root() {
+            Node<K, V> node = this.stack;
+            if (node.parent == null) {
+                return node;
             }
             throw new IllegalStateException();
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c<K, V> {
+    public static class AvlIterator<K, V> {
+        public Node<K, V> stackTop;
 
-        /* renamed from: a  reason: collision with root package name */
-        public g<K, V> f31305a;
-
-        public g<K, V> a() {
-            g<K, V> gVar = this.f31305a;
-            if (gVar == null) {
+        public Node<K, V> next() {
+            Node<K, V> node = this.stackTop;
+            if (node == null) {
                 return null;
             }
-            g<K, V> gVar2 = gVar.f31312e;
-            gVar.f31312e = null;
-            g<K, V> gVar3 = gVar.f31314g;
+            Node<K, V> node2 = node.parent;
+            node.parent = null;
+            Node<K, V> node3 = node.right;
             while (true) {
-                g<K, V> gVar4 = gVar2;
-                gVar2 = gVar3;
-                if (gVar2 != null) {
-                    gVar2.f31312e = gVar4;
-                    gVar3 = gVar2.f31313f;
+                Node<K, V> node4 = node2;
+                node2 = node3;
+                if (node2 != null) {
+                    node2.parent = node4;
+                    node3 = node2.left;
                 } else {
-                    this.f31305a = gVar4;
-                    return gVar;
+                    this.stackTop = node4;
+                    return node;
                 }
             }
         }
 
-        public void b(g<K, V> gVar) {
-            g<K, V> gVar2 = null;
-            while (gVar != null) {
-                gVar.f31312e = gVar2;
-                gVar2 = gVar;
-                gVar = gVar.f31313f;
+        public void reset(Node<K, V> node) {
+            Node<K, V> node2 = null;
+            while (node != null) {
+                node.parent = node2;
+                node2 = node;
+                node = node.left;
             }
-            this.f31305a = gVar2;
+            this.stackTop = node2;
         }
     }
 
     /* loaded from: classes6.dex */
-    public final class d extends AbstractSet<Map.Entry<K, V>> {
-
-        /* loaded from: classes6.dex */
-        public class a extends LinkedHashTreeMap<K, V>.f<Map.Entry<K, V>> {
-            public a(d dVar) {
-                super();
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.Iterator
-            /* renamed from: b */
-            public Map.Entry<K, V> next() {
-                return a();
-            }
-        }
-
-        public d() {
+    public final class EntrySet extends AbstractSet<Map.Entry<K, V>> {
+        public EntrySet() {
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -193,12 +164,22 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<Map.Entry<K, V>> iterator() {
-            return new a(this);
+            return new LinkedHashTreeMap<K, V>.LinkedTreeMapIterator<Map.Entry<K, V>>() { // from class: com.google.gson.internal.LinkedHashTreeMap.EntrySet.1
+                {
+                    LinkedHashTreeMap linkedHashTreeMap = LinkedHashTreeMap.this;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // java.util.Iterator
+                public Map.Entry<K, V> next() {
+                    return nextNode();
+                }
+            };
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean remove(Object obj) {
-            g<K, V> findByEntry;
+            Node<K, V> findByEntry;
             if ((obj instanceof Map.Entry) && (findByEntry = LinkedHashTreeMap.this.findByEntry((Map.Entry) obj)) != null) {
                 LinkedHashTreeMap.this.removeInternal(findByEntry, true);
                 return true;
@@ -213,21 +194,8 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     }
 
     /* loaded from: classes6.dex */
-    public final class e extends AbstractSet<K> {
-
-        /* loaded from: classes6.dex */
-        public class a extends LinkedHashTreeMap<K, V>.f<K> {
-            public a(e eVar) {
-                super();
-            }
-
-            @Override // java.util.Iterator
-            public K next() {
-                return a().j;
-            }
-        }
-
-        public e() {
+    public final class KeySet extends AbstractSet<K> {
+        public KeySet() {
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -242,7 +210,16 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<K> iterator() {
-            return new a(this);
+            return new LinkedHashTreeMap<K, V>.LinkedTreeMapIterator<K>() { // from class: com.google.gson.internal.LinkedHashTreeMap.KeySet.1
+                {
+                    LinkedHashTreeMap linkedHashTreeMap = LinkedHashTreeMap.this;
+                }
+
+                @Override // java.util.Iterator
+                public K next() {
+                    return nextNode().key;
+                }
+            };
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -257,32 +234,31 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     }
 
     /* loaded from: classes6.dex */
-    public abstract class f<T> implements Iterator<T> {
+    public abstract class LinkedTreeMapIterator<T> implements Iterator<T> {
+        public int expectedModCount;
+        public Node<K, V> lastReturned;
+        public Node<K, V> next;
 
-        /* renamed from: e  reason: collision with root package name */
-        public g<K, V> f31308e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public g<K, V> f31309f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f31310g;
-
-        public f() {
+        public LinkedTreeMapIterator() {
             LinkedHashTreeMap linkedHashTreeMap = LinkedHashTreeMap.this;
-            this.f31308e = linkedHashTreeMap.header.f31315h;
-            this.f31309f = null;
-            this.f31310g = linkedHashTreeMap.modCount;
+            this.next = linkedHashTreeMap.header.next;
+            this.lastReturned = null;
+            this.expectedModCount = linkedHashTreeMap.modCount;
         }
 
-        public final g<K, V> a() {
-            g<K, V> gVar = this.f31308e;
+        @Override // java.util.Iterator
+        public final boolean hasNext() {
+            return this.next != LinkedHashTreeMap.this.header;
+        }
+
+        public final Node<K, V> nextNode() {
+            Node<K, V> node = this.next;
             LinkedHashTreeMap linkedHashTreeMap = LinkedHashTreeMap.this;
-            if (gVar != linkedHashTreeMap.header) {
-                if (linkedHashTreeMap.modCount == this.f31310g) {
-                    this.f31308e = gVar.f31315h;
-                    this.f31309f = gVar;
-                    return gVar;
+            if (node != linkedHashTreeMap.header) {
+                if (linkedHashTreeMap.modCount == this.expectedModCount) {
+                    this.next = node.next;
+                    this.lastReturned = node;
+                    return node;
                 }
                 throw new ConcurrentModificationException();
             }
@@ -290,17 +266,12 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
 
         @Override // java.util.Iterator
-        public final boolean hasNext() {
-            return this.f31308e != LinkedHashTreeMap.this.header;
-        }
-
-        @Override // java.util.Iterator
         public final void remove() {
-            g<K, V> gVar = this.f31309f;
-            if (gVar != null) {
-                LinkedHashTreeMap.this.removeInternal(gVar, true);
-                this.f31309f = null;
-                this.f31310g = LinkedHashTreeMap.this.modCount;
+            Node<K, V> node = this.lastReturned;
+            if (node != null) {
+                LinkedHashTreeMap.this.removeInternal(node, true);
+                this.lastReturned = null;
+                this.expectedModCount = LinkedHashTreeMap.this.modCount;
                 return;
             }
             throw new IllegalStateException();
@@ -312,7 +283,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     }
 
     private void doubleCapacity() {
-        g<K, V>[] doubleCapacity = doubleCapacity(this.table);
+        Node<K, V>[] doubleCapacity = doubleCapacity(this.table);
         this.table = doubleCapacity;
         this.threshold = (doubleCapacity.length / 2) + (doubleCapacity.length / 4);
     }
@@ -321,111 +292,111 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         return obj == obj2 || (obj != null && obj.equals(obj2));
     }
 
-    private void rebalance(g<K, V> gVar, boolean z) {
-        while (gVar != null) {
-            g<K, V> gVar2 = gVar.f31313f;
-            g<K, V> gVar3 = gVar.f31314g;
-            int i = gVar2 != null ? gVar2.m : 0;
-            int i2 = gVar3 != null ? gVar3.m : 0;
-            int i3 = i - i2;
-            if (i3 == -2) {
-                g<K, V> gVar4 = gVar3.f31313f;
-                g<K, V> gVar5 = gVar3.f31314g;
-                int i4 = (gVar4 != null ? gVar4.m : 0) - (gVar5 != null ? gVar5.m : 0);
-                if (i4 != -1 && (i4 != 0 || z)) {
-                    rotateRight(gVar3);
-                    rotateLeft(gVar);
+    private void rebalance(Node<K, V> node, boolean z) {
+        while (node != null) {
+            Node<K, V> node2 = node.left;
+            Node<K, V> node3 = node.right;
+            int i2 = node2 != null ? node2.height : 0;
+            int i3 = node3 != null ? node3.height : 0;
+            int i4 = i2 - i3;
+            if (i4 == -2) {
+                Node<K, V> node4 = node3.left;
+                Node<K, V> node5 = node3.right;
+                int i5 = (node4 != null ? node4.height : 0) - (node5 != null ? node5.height : 0);
+                if (i5 != -1 && (i5 != 0 || z)) {
+                    rotateRight(node3);
+                    rotateLeft(node);
                 } else {
-                    rotateLeft(gVar);
+                    rotateLeft(node);
                 }
                 if (z) {
                     return;
                 }
-            } else if (i3 == 2) {
-                g<K, V> gVar6 = gVar2.f31313f;
-                g<K, V> gVar7 = gVar2.f31314g;
-                int i5 = (gVar6 != null ? gVar6.m : 0) - (gVar7 != null ? gVar7.m : 0);
-                if (i5 != 1 && (i5 != 0 || z)) {
-                    rotateLeft(gVar2);
-                    rotateRight(gVar);
+            } else if (i4 == 2) {
+                Node<K, V> node6 = node2.left;
+                Node<K, V> node7 = node2.right;
+                int i6 = (node6 != null ? node6.height : 0) - (node7 != null ? node7.height : 0);
+                if (i6 != 1 && (i6 != 0 || z)) {
+                    rotateLeft(node2);
+                    rotateRight(node);
                 } else {
-                    rotateRight(gVar);
+                    rotateRight(node);
                 }
                 if (z) {
                     return;
                 }
-            } else if (i3 == 0) {
-                gVar.m = i + 1;
+            } else if (i4 == 0) {
+                node.height = i2 + 1;
                 if (z) {
                     return;
                 }
             } else {
-                gVar.m = Math.max(i, i2) + 1;
+                node.height = Math.max(i2, i3) + 1;
                 if (!z) {
                     return;
                 }
             }
-            gVar = gVar.f31312e;
+            node = node.parent;
         }
     }
 
-    private void replaceInParent(g<K, V> gVar, g<K, V> gVar2) {
-        g<K, V> gVar3 = gVar.f31312e;
-        gVar.f31312e = null;
-        if (gVar2 != null) {
-            gVar2.f31312e = gVar3;
+    private void replaceInParent(Node<K, V> node, Node<K, V> node2) {
+        Node<K, V> node3 = node.parent;
+        node.parent = null;
+        if (node2 != null) {
+            node2.parent = node3;
         }
-        if (gVar3 != null) {
-            if (gVar3.f31313f == gVar) {
-                gVar3.f31313f = gVar2;
+        if (node3 != null) {
+            if (node3.left == node) {
+                node3.left = node2;
                 return;
             } else {
-                gVar3.f31314g = gVar2;
+                node3.right = node2;
                 return;
             }
         }
-        int i = gVar.k;
-        g<K, V>[] gVarArr = this.table;
-        gVarArr[i & (gVarArr.length - 1)] = gVar2;
+        int i2 = node.hash;
+        Node<K, V>[] nodeArr = this.table;
+        nodeArr[i2 & (nodeArr.length - 1)] = node2;
     }
 
-    private void rotateLeft(g<K, V> gVar) {
-        g<K, V> gVar2 = gVar.f31313f;
-        g<K, V> gVar3 = gVar.f31314g;
-        g<K, V> gVar4 = gVar3.f31313f;
-        g<K, V> gVar5 = gVar3.f31314g;
-        gVar.f31314g = gVar4;
-        if (gVar4 != null) {
-            gVar4.f31312e = gVar;
+    private void rotateLeft(Node<K, V> node) {
+        Node<K, V> node2 = node.left;
+        Node<K, V> node3 = node.right;
+        Node<K, V> node4 = node3.left;
+        Node<K, V> node5 = node3.right;
+        node.right = node4;
+        if (node4 != null) {
+            node4.parent = node;
         }
-        replaceInParent(gVar, gVar3);
-        gVar3.f31313f = gVar;
-        gVar.f31312e = gVar3;
-        int max = Math.max(gVar2 != null ? gVar2.m : 0, gVar4 != null ? gVar4.m : 0) + 1;
-        gVar.m = max;
-        gVar3.m = Math.max(max, gVar5 != null ? gVar5.m : 0) + 1;
+        replaceInParent(node, node3);
+        node3.left = node;
+        node.parent = node3;
+        int max = Math.max(node2 != null ? node2.height : 0, node4 != null ? node4.height : 0) + 1;
+        node.height = max;
+        node3.height = Math.max(max, node5 != null ? node5.height : 0) + 1;
     }
 
-    private void rotateRight(g<K, V> gVar) {
-        g<K, V> gVar2 = gVar.f31313f;
-        g<K, V> gVar3 = gVar.f31314g;
-        g<K, V> gVar4 = gVar2.f31313f;
-        g<K, V> gVar5 = gVar2.f31314g;
-        gVar.f31313f = gVar5;
-        if (gVar5 != null) {
-            gVar5.f31312e = gVar;
+    private void rotateRight(Node<K, V> node) {
+        Node<K, V> node2 = node.left;
+        Node<K, V> node3 = node.right;
+        Node<K, V> node4 = node2.left;
+        Node<K, V> node5 = node2.right;
+        node.left = node5;
+        if (node5 != null) {
+            node5.parent = node;
         }
-        replaceInParent(gVar, gVar2);
-        gVar2.f31314g = gVar;
-        gVar.f31312e = gVar2;
-        int max = Math.max(gVar3 != null ? gVar3.m : 0, gVar5 != null ? gVar5.m : 0) + 1;
-        gVar.m = max;
-        gVar2.m = Math.max(max, gVar4 != null ? gVar4.m : 0) + 1;
+        replaceInParent(node, node2);
+        node2.right = node;
+        node.parent = node2;
+        int max = Math.max(node3 != null ? node3.height : 0, node5 != null ? node5.height : 0) + 1;
+        node.height = max;
+        node2.height = Math.max(max, node4 != null ? node4.height : 0) + 1;
     }
 
-    public static int secondaryHash(int i) {
-        int i2 = i ^ ((i >>> 20) ^ (i >>> 12));
-        return (i2 >>> 4) ^ ((i2 >>> 7) ^ i2);
+    public static int secondaryHash(int i2) {
+        int i3 = i2 ^ ((i2 >>> 20) ^ (i2 >>> 12));
+        return (i3 >>> 4) ^ ((i3 >>> 7) ^ i3);
     }
 
     private Object writeReplace() throws ObjectStreamException {
@@ -437,16 +408,16 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         Arrays.fill(this.table, (Object) null);
         this.size = 0;
         this.modCount++;
-        g<K, V> gVar = this.header;
-        g<K, V> gVar2 = gVar.f31315h;
-        while (gVar2 != gVar) {
-            g<K, V> gVar3 = gVar2.f31315h;
-            gVar2.i = null;
-            gVar2.f31315h = null;
-            gVar2 = gVar3;
+        Node<K, V> node = this.header;
+        Node<K, V> node2 = node.next;
+        while (node2 != node) {
+            Node<K, V> node3 = node2.next;
+            node2.prev = null;
+            node2.next = null;
+            node2 = node3;
         }
-        gVar.i = gVar;
-        gVar.f31315h = gVar;
+        node.prev = node;
+        node.next = node;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -456,80 +427,80 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
 
     @Override // java.util.AbstractMap, java.util.Map
     public Set<Map.Entry<K, V>> entrySet() {
-        LinkedHashTreeMap<K, V>.d dVar = this.entrySet;
-        if (dVar != null) {
-            return dVar;
+        LinkedHashTreeMap<K, V>.EntrySet entrySet = this.entrySet;
+        if (entrySet != null) {
+            return entrySet;
         }
-        LinkedHashTreeMap<K, V>.d dVar2 = new d();
-        this.entrySet = dVar2;
-        return dVar2;
+        LinkedHashTreeMap<K, V>.EntrySet entrySet2 = new EntrySet();
+        this.entrySet = entrySet2;
+        return entrySet2;
     }
 
     /* JADX DEBUG: Type inference failed for r7v2. Raw type applied. Possible types: K, ? super K */
-    public g<K, V> find(K k, boolean z) {
-        g<K, V> gVar;
-        int i;
-        g<K, V> gVar2;
+    public Node<K, V> find(K k, boolean z) {
+        Node<K, V> node;
+        int i2;
+        Node<K, V> node2;
         int compare;
         Comparator<? super K> comparator = this.comparator;
-        g<K, V>[] gVarArr = this.table;
+        Node<K, V>[] nodeArr = this.table;
         int secondaryHash = secondaryHash(k.hashCode());
-        int length = (gVarArr.length - 1) & secondaryHash;
-        g<K, V> gVar3 = gVarArr[length];
-        if (gVar3 != null) {
+        int length = (nodeArr.length - 1) & secondaryHash;
+        Node<K, V> node3 = nodeArr[length];
+        if (node3 != null) {
             Comparable comparable = comparator == NATURAL_ORDER ? (Comparable) k : null;
             while (true) {
                 if (comparable != null) {
-                    compare = comparable.compareTo(gVar3.j);
+                    compare = comparable.compareTo(node3.key);
                 } else {
-                    compare = comparator.compare(k, (K) gVar3.j);
+                    compare = comparator.compare(k, (K) node3.key);
                 }
                 if (compare == 0) {
-                    return gVar3;
+                    return node3;
                 }
-                g<K, V> gVar4 = compare < 0 ? gVar3.f31313f : gVar3.f31314g;
-                if (gVar4 == null) {
-                    gVar = gVar3;
-                    i = compare;
+                Node<K, V> node4 = compare < 0 ? node3.left : node3.right;
+                if (node4 == null) {
+                    node = node3;
+                    i2 = compare;
                     break;
                 }
-                gVar3 = gVar4;
+                node3 = node4;
             }
         } else {
-            gVar = gVar3;
-            i = 0;
+            node = node3;
+            i2 = 0;
         }
         if (z) {
-            g<K, V> gVar5 = this.header;
-            if (gVar == null) {
+            Node<K, V> node5 = this.header;
+            if (node == null) {
                 if (comparator == NATURAL_ORDER && !(k instanceof Comparable)) {
                     throw new ClassCastException(k.getClass().getName() + " is not Comparable");
                 }
-                gVar2 = new g<>(gVar, k, secondaryHash, gVar5, gVar5.i);
-                gVarArr[length] = gVar2;
+                node2 = new Node<>(node, k, secondaryHash, node5, node5.prev);
+                nodeArr[length] = node2;
             } else {
-                gVar2 = new g<>(gVar, k, secondaryHash, gVar5, gVar5.i);
-                if (i < 0) {
-                    gVar.f31313f = gVar2;
+                node2 = new Node<>(node, k, secondaryHash, node5, node5.prev);
+                if (i2 < 0) {
+                    node.left = node2;
                 } else {
-                    gVar.f31314g = gVar2;
+                    node.right = node2;
                 }
-                rebalance(gVar, true);
+                rebalance(node, true);
             }
-            int i2 = this.size;
-            this.size = i2 + 1;
-            if (i2 > this.threshold) {
+            int i3 = this.size;
+            this.size = i3 + 1;
+            if (i3 > this.threshold) {
                 doubleCapacity();
             }
             this.modCount++;
-            return gVar2;
+            return node2;
         }
         return null;
     }
 
-    public g<K, V> findByEntry(Map.Entry<?, ?> entry) {
-        g<K, V> findByObject = findByObject(entry.getKey());
-        if (findByObject != null && equal(findByObject.l, entry.getValue())) {
+    public Node<K, V> findByEntry(Map.Entry<?, ?> entry) {
+        Node<K, V> findByObject = findByObject(entry.getKey());
+        if (findByObject != null && equal(findByObject.value, entry.getValue())) {
             return findByObject;
         }
         return null;
@@ -537,7 +508,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    public g<K, V> findByObject(Object obj) {
+    public Node<K, V> findByObject(Object obj) {
         if (obj != 0) {
             try {
                 return find(obj, false);
@@ -550,30 +521,30 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
 
     @Override // java.util.AbstractMap, java.util.Map
     public V get(Object obj) {
-        g<K, V> findByObject = findByObject(obj);
+        Node<K, V> findByObject = findByObject(obj);
         if (findByObject != null) {
-            return findByObject.l;
+            return findByObject.value;
         }
         return null;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public Set<K> keySet() {
-        LinkedHashTreeMap<K, V>.e eVar = this.keySet;
-        if (eVar != null) {
-            return eVar;
+        LinkedHashTreeMap<K, V>.KeySet keySet = this.keySet;
+        if (keySet != null) {
+            return keySet;
         }
-        LinkedHashTreeMap<K, V>.e eVar2 = new e();
-        this.keySet = eVar2;
-        return eVar2;
+        LinkedHashTreeMap<K, V>.KeySet keySet2 = new KeySet();
+        this.keySet = keySet2;
+        return keySet2;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public V put(K k, V v) {
         if (k != null) {
-            g<K, V> find = find(k, true);
-            V v2 = find.l;
-            find.l = v;
+            Node<K, V> find = find(k, true);
+            V v2 = find.value;
+            find.value = v;
             return v2;
         }
         throw new NullPointerException("key == null");
@@ -581,65 +552,65 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
 
     @Override // java.util.AbstractMap, java.util.Map
     public V remove(Object obj) {
-        g<K, V> removeInternalByKey = removeInternalByKey(obj);
+        Node<K, V> removeInternalByKey = removeInternalByKey(obj);
         if (removeInternalByKey != null) {
-            return removeInternalByKey.l;
+            return removeInternalByKey.value;
         }
         return null;
     }
 
-    public void removeInternal(g<K, V> gVar, boolean z) {
-        int i;
+    public void removeInternal(Node<K, V> node, boolean z) {
+        int i2;
         if (z) {
-            g<K, V> gVar2 = gVar.i;
-            gVar2.f31315h = gVar.f31315h;
-            gVar.f31315h.i = gVar2;
-            gVar.i = null;
-            gVar.f31315h = null;
+            Node<K, V> node2 = node.prev;
+            node2.next = node.next;
+            node.next.prev = node2;
+            node.prev = null;
+            node.next = null;
         }
-        g<K, V> gVar3 = gVar.f31313f;
-        g<K, V> gVar4 = gVar.f31314g;
-        g<K, V> gVar5 = gVar.f31312e;
-        int i2 = 0;
-        if (gVar3 != null && gVar4 != null) {
-            g<K, V> b2 = gVar3.m > gVar4.m ? gVar3.b() : gVar4.a();
-            removeInternal(b2, false);
-            g<K, V> gVar6 = gVar.f31313f;
-            if (gVar6 != null) {
-                i = gVar6.m;
-                b2.f31313f = gVar6;
-                gVar6.f31312e = b2;
-                gVar.f31313f = null;
+        Node<K, V> node3 = node.left;
+        Node<K, V> node4 = node.right;
+        Node<K, V> node5 = node.parent;
+        int i3 = 0;
+        if (node3 != null && node4 != null) {
+            Node<K, V> last = node3.height > node4.height ? node3.last() : node4.first();
+            removeInternal(last, false);
+            Node<K, V> node6 = node.left;
+            if (node6 != null) {
+                i2 = node6.height;
+                last.left = node6;
+                node6.parent = last;
+                node.left = null;
             } else {
-                i = 0;
+                i2 = 0;
             }
-            g<K, V> gVar7 = gVar.f31314g;
-            if (gVar7 != null) {
-                i2 = gVar7.m;
-                b2.f31314g = gVar7;
-                gVar7.f31312e = b2;
-                gVar.f31314g = null;
+            Node<K, V> node7 = node.right;
+            if (node7 != null) {
+                i3 = node7.height;
+                last.right = node7;
+                node7.parent = last;
+                node.right = null;
             }
-            b2.m = Math.max(i, i2) + 1;
-            replaceInParent(gVar, b2);
+            last.height = Math.max(i2, i3) + 1;
+            replaceInParent(node, last);
             return;
         }
-        if (gVar3 != null) {
-            replaceInParent(gVar, gVar3);
-            gVar.f31313f = null;
-        } else if (gVar4 != null) {
-            replaceInParent(gVar, gVar4);
-            gVar.f31314g = null;
+        if (node3 != null) {
+            replaceInParent(node, node3);
+            node.left = null;
+        } else if (node4 != null) {
+            replaceInParent(node, node4);
+            node.right = null;
         } else {
-            replaceInParent(gVar, null);
+            replaceInParent(node, null);
         }
-        rebalance(gVar5, false);
+        rebalance(node5, false);
         this.size--;
         this.modCount++;
     }
 
-    public g<K, V> removeInternalByKey(Object obj) {
-        g<K, V> findByObject = findByObject(obj);
+    public Node<K, V> removeInternalByKey(Object obj) {
+        Node<K, V> findByObject = findByObject(obj);
         if (findByObject != null) {
             removeInternal(findByObject, true);
         }
@@ -655,102 +626,78 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         this.size = 0;
         this.modCount = 0;
         this.comparator = comparator == null ? NATURAL_ORDER : comparator;
-        this.header = new g<>();
-        g<K, V>[] gVarArr = new g[16];
-        this.table = gVarArr;
-        this.threshold = (gVarArr.length / 2) + (gVarArr.length / 4);
+        this.header = new Node<>();
+        Node<K, V>[] nodeArr = new Node[16];
+        this.table = nodeArr;
+        this.threshold = (nodeArr.length / 2) + (nodeArr.length / 4);
     }
 
-    public static <K, V> g<K, V>[] doubleCapacity(g<K, V>[] gVarArr) {
-        int length = gVarArr.length;
-        g<K, V>[] gVarArr2 = new g[length * 2];
-        c cVar = new c();
-        b bVar = new b();
-        b bVar2 = new b();
-        for (int i = 0; i < length; i++) {
-            g<K, V> gVar = gVarArr[i];
-            if (gVar != null) {
-                cVar.b(gVar);
-                int i2 = 0;
+    public static <K, V> Node<K, V>[] doubleCapacity(Node<K, V>[] nodeArr) {
+        int length = nodeArr.length;
+        Node<K, V>[] nodeArr2 = new Node[length * 2];
+        AvlIterator avlIterator = new AvlIterator();
+        AvlBuilder avlBuilder = new AvlBuilder();
+        AvlBuilder avlBuilder2 = new AvlBuilder();
+        for (int i2 = 0; i2 < length; i2++) {
+            Node<K, V> node = nodeArr[i2];
+            if (node != null) {
+                avlIterator.reset(node);
                 int i3 = 0;
+                int i4 = 0;
                 while (true) {
-                    g<K, V> a2 = cVar.a();
-                    if (a2 == null) {
+                    Node<K, V> next = avlIterator.next();
+                    if (next == null) {
                         break;
-                    } else if ((a2.k & length) == 0) {
-                        i2++;
-                    } else {
+                    } else if ((next.hash & length) == 0) {
                         i3++;
-                    }
-                }
-                bVar.b(i2);
-                bVar2.b(i3);
-                cVar.b(gVar);
-                while (true) {
-                    g<K, V> a3 = cVar.a();
-                    if (a3 == null) {
-                        break;
-                    } else if ((a3.k & length) == 0) {
-                        bVar.a(a3);
                     } else {
-                        bVar2.a(a3);
+                        i4++;
                     }
                 }
-                gVarArr2[i] = i2 > 0 ? bVar.c() : null;
-                gVarArr2[i + length] = i3 > 0 ? bVar2.c() : null;
+                avlBuilder.reset(i3);
+                avlBuilder2.reset(i4);
+                avlIterator.reset(node);
+                while (true) {
+                    Node<K, V> next2 = avlIterator.next();
+                    if (next2 == null) {
+                        break;
+                    } else if ((next2.hash & length) == 0) {
+                        avlBuilder.add(next2);
+                    } else {
+                        avlBuilder2.add(next2);
+                    }
+                }
+                nodeArr2[i2] = i3 > 0 ? avlBuilder.root() : null;
+                nodeArr2[i2 + length] = i4 > 0 ? avlBuilder2.root() : null;
             }
         }
-        return gVarArr2;
+        return nodeArr2;
     }
 
     /* loaded from: classes6.dex */
-    public static final class g<K, V> implements Map.Entry<K, V> {
+    public static final class Node<K, V> implements Map.Entry<K, V> {
+        public final int hash;
+        public int height;
+        public final K key;
+        public Node<K, V> left;
+        public Node<K, V> next;
+        public Node<K, V> parent;
+        public Node<K, V> prev;
+        public Node<K, V> right;
+        public V value;
 
-        /* renamed from: e  reason: collision with root package name */
-        public g<K, V> f31312e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public g<K, V> f31313f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public g<K, V> f31314g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public g<K, V> f31315h;
-        public g<K, V> i;
-        public final K j;
-        public final int k;
-        public V l;
-        public int m;
-
-        public g() {
-            this.j = null;
-            this.k = -1;
-            this.i = this;
-            this.f31315h = this;
-        }
-
-        public g<K, V> a() {
-            g<K, V> gVar = this;
-            for (g<K, V> gVar2 = this.f31313f; gVar2 != null; gVar2 = gVar2.f31313f) {
-                gVar = gVar2;
-            }
-            return gVar;
-        }
-
-        public g<K, V> b() {
-            g<K, V> gVar = this;
-            for (g<K, V> gVar2 = this.f31314g; gVar2 != null; gVar2 = gVar2.f31314g) {
-                gVar = gVar2;
-            }
-            return gVar;
+        public Node() {
+            this.key = null;
+            this.hash = -1;
+            this.prev = this;
+            this.next = this;
         }
 
         @Override // java.util.Map.Entry
         public boolean equals(Object obj) {
             if (obj instanceof Map.Entry) {
                 Map.Entry entry = (Map.Entry) obj;
-                K k = this.j;
+                K k = this.key;
                 if (k == null) {
                     if (entry.getKey() != null) {
                         return false;
@@ -758,7 +705,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
                 } else if (!k.equals(entry.getKey())) {
                     return false;
                 }
-                V v = this.l;
+                V v = this.value;
                 if (v == null) {
                     if (entry.getValue() != null) {
                         return false;
@@ -771,44 +718,60 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
             return false;
         }
 
+        public Node<K, V> first() {
+            Node<K, V> node = this;
+            for (Node<K, V> node2 = this.left; node2 != null; node2 = node2.left) {
+                node = node2;
+            }
+            return node;
+        }
+
         @Override // java.util.Map.Entry
         public K getKey() {
-            return this.j;
+            return this.key;
         }
 
         @Override // java.util.Map.Entry
         public V getValue() {
-            return this.l;
+            return this.value;
         }
 
         @Override // java.util.Map.Entry
         public int hashCode() {
-            K k = this.j;
+            K k = this.key;
             int hashCode = k == null ? 0 : k.hashCode();
-            V v = this.l;
+            V v = this.value;
             return hashCode ^ (v != null ? v.hashCode() : 0);
+        }
+
+        public Node<K, V> last() {
+            Node<K, V> node = this;
+            for (Node<K, V> node2 = this.right; node2 != null; node2 = node2.right) {
+                node = node2;
+            }
+            return node;
         }
 
         @Override // java.util.Map.Entry
         public V setValue(V v) {
-            V v2 = this.l;
-            this.l = v;
+            V v2 = this.value;
+            this.value = v;
             return v2;
         }
 
         public String toString() {
-            return this.j + "=" + this.l;
+            return this.key + "=" + this.value;
         }
 
-        public g(g<K, V> gVar, K k, int i, g<K, V> gVar2, g<K, V> gVar3) {
-            this.f31312e = gVar;
-            this.j = k;
-            this.k = i;
-            this.m = 1;
-            this.f31315h = gVar2;
-            this.i = gVar3;
-            gVar3.f31315h = this;
-            gVar2.i = this;
+        public Node(Node<K, V> node, K k, int i2, Node<K, V> node2, Node<K, V> node3) {
+            this.parent = node;
+            this.key = k;
+            this.hash = i2;
+            this.height = 1;
+            this.next = node2;
+            this.prev = node3;
+            node3.next = this;
+            node2.prev = this;
         }
     }
 }

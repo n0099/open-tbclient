@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 public final class j extends v<Date> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f29642a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.j.1
+    public static final w f30548a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.j.1
         @Override // com.bytedance.sdk.openadsdk.preload.a.w
         public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
             if (aVar.a() == Date.class) {
@@ -23,7 +23,7 @@ public final class j extends v<Date> {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public final DateFormat f29643b = new SimpleDateFormat("MMM d, yyyy");
+    public final DateFormat f30549b = new SimpleDateFormat("MMM d, yyyy");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
@@ -34,7 +34,7 @@ public final class j extends v<Date> {
             return null;
         }
         try {
-            return new Date(this.f29643b.parse(aVar.h()).getTime());
+            return new Date(this.f30549b.parse(aVar.h()).getTime());
         } catch (ParseException e2) {
             throw new t(e2);
         }
@@ -43,6 +43,6 @@ public final class j extends v<Date> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
     public synchronized void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Date date) throws IOException {
-        cVar.b(date == null ? null : this.f29643b.format((java.util.Date) date));
+        cVar.b(date == null ? null : this.f30549b.format((java.util.Date) date));
     }
 }

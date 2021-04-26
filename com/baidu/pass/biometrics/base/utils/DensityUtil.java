@@ -5,7 +5,7 @@ import android.content.res.Resources;
 public class DensityUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f9118a = Resources.getSystem().getDisplayMetrics().density;
+    public float f9453a = Resources.getSystem().getDisplayMetrics().density;
 
     public static int dp2px(float f2) {
         return (int) ((f2 * Resources.getSystem().getDisplayMetrics().density) + 0.5f);
@@ -16,10 +16,10 @@ public class DensityUtil {
     }
 
     public int dip2px(float f2) {
-        return (int) ((f2 * this.f9118a) + 0.5f);
+        return (int) ((f2 * this.f9453a) + 0.5f);
     }
 
     public float px2dip(float f2) {
-        return f2 / this.f9118a;
+        return f2 / this.f9453a;
     }
 }

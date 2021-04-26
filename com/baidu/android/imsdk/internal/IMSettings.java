@@ -26,9 +26,9 @@ public class IMSettings {
     }
 
     public static boolean isDebugMode() {
-        int i = mDebugMode;
-        if (i != -1) {
-            return i == 1;
+        int i2 = mDebugMode;
+        if (i2 != -1) {
+            return i2 == 1;
         }
         Context context = sContext;
         if (context == null) {

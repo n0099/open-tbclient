@@ -2,12 +2,12 @@ package com.baidu.tieba.setting.im.more;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.v2.b.a.a;
+import d.a.j0.v2.b.a.a;
 import tbclient.Error;
 import tbclient.GetPrivateInfo.GetPrivateInfoResIdl;
 import tbclient.GetPrivateInfo.ResData;
 import tbclient.SimpleUser;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
     public a privacyData;
 
@@ -22,7 +22,7 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetPrivateInfoResIdl getPrivateInfoResIdl = (GetPrivateInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetPrivateInfoResIdl.class);
         Error error = getPrivateInfoResIdl.error;
         if (error != null) {

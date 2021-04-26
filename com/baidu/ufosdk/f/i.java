@@ -26,7 +26,7 @@ import java.util.regex.Pattern;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f22649a;
+    public static SimpleDateFormat f23352a;
 
     public static int a() {
         return Build.VERSION.SDK_INT;
@@ -46,8 +46,8 @@ public final class i {
         return memoryInfo.availMem / 1024;
     }
 
-    public static ColorStateList a(int i, int i2, int i3, int i4) {
-        return new ColorStateList(new int[][]{new int[]{16842919, 16842910}, new int[]{16842910, 16842908}, new int[]{16842910}, new int[]{16842908}, new int[]{16842909}, new int[0]}, new int[]{i2, i3, i, i3, i4, i});
+    public static ColorStateList a(int i2, int i3, int i4, int i5) {
+        return new ColorStateList(new int[][]{new int[]{16842919, 16842910}, new int[]{16842910, 16842908}, new int[]{16842910}, new int[]{16842908}, new int[]{16842909}, new int[0]}, new int[]{i3, i4, i2, i4, i5, i2});
     }
 
     public static Bitmap a(Drawable drawable) {
@@ -74,15 +74,15 @@ public final class i {
         return bitmap;
     }
 
-    public static Drawable a(Context context, int i) {
-        return context.getResources().getDrawable(i);
+    public static Drawable a(Context context, int i2) {
+        return context.getResources().getDrawable(i2);
     }
 
     public static String a(long j) {
-        if (f22649a == null) {
-            f22649a = new SimpleDateFormat("MM-dd HH:mm");
+        if (f23352a == null) {
+            f23352a = new SimpleDateFormat("MM-dd HH:mm");
         }
-        return f22649a.format(new Date(j));
+        return f23352a.format(new Date(j));
     }
 
     public static void a(Context context, TextView textView) {
@@ -94,8 +94,8 @@ public final class i {
 
     public static void a(RelativeLayout relativeLayout, String str) {
         int childCount = relativeLayout.getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = relativeLayout.getChildAt(i);
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = relativeLayout.getChildAt(i2);
             if (childAt instanceof RelativeLayout) {
                 a((RelativeLayout) childAt, str);
             } else if (childAt instanceof TextView) {
@@ -172,10 +172,10 @@ public final class i {
     }
 
     public static String b(long j) {
-        if (f22649a == null) {
-            f22649a = new SimpleDateFormat("yy-MM-dd");
+        if (f23352a == null) {
+            f23352a = new SimpleDateFormat("yy-MM-dd");
         }
-        return f22649a.format(new Date(j));
+        return f23352a.format(new Date(j));
     }
 
     public static boolean b(String str) {
@@ -187,9 +187,9 @@ public final class i {
 
     public static String c(long j) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm");
-        f22649a = simpleDateFormat;
+        f23352a = simpleDateFormat;
         String format = simpleDateFormat.format(new Date(j));
-        f22649a = null;
+        f23352a = null;
         return format.split(" ")[1];
     }
 

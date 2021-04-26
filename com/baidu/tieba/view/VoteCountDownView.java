@@ -15,17 +15,19 @@ import com.baidu.webkit.sdk.VideoCloudSetting;
 public class VoteCountDownView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21907e;
+    public Context f22574e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21908f;
+    public View f22575f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f21909g;
+    public View f22576g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21910h;
-    public TextView i;
+    public TextView f22577h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f22578i;
     public CountDownTimer j;
     public b k;
 
@@ -65,14 +67,14 @@ public class VoteCountDownView extends LinearLayout {
     }
 
     public final void c() {
-        this.f21908f = findViewById(R.id.hour_num_container);
-        this.f21909g = findViewById(R.id.minute_num_container);
-        this.f21910h = (TextView) findViewById(R.id.hour_num_count_down_view);
-        this.i = (TextView) findViewById(R.id.minute_num_count_down_view);
+        this.f22575f = findViewById(R.id.hour_num_container);
+        this.f22576g = findViewById(R.id.minute_num_container);
+        this.f22577h = (TextView) findViewById(R.id.hour_num_count_down_view);
+        this.f22578i = (TextView) findViewById(R.id.minute_num_count_down_view);
     }
 
     public final void d() {
-        this.f21907e = getContext();
+        this.f22574e = getContext();
         setOrientation(0);
         setClipToPadding(false);
         setClipChildren(false);
@@ -81,11 +83,11 @@ public class VoteCountDownView extends LinearLayout {
         c();
     }
 
-    public void e(int i) {
-        SkinManager.setBackgroundResource(this.f21908f, R.drawable.bg_gradient_round, i);
-        SkinManager.setBackgroundResource(this.f21909g, R.drawable.bg_gradient_round, i);
-        SkinManager.setViewTextColor(this.f21910h, R.color.CAM_X0101, 1, i);
-        SkinManager.setViewTextColor(this.f21910h, R.color.CAM_X0101, 1, i);
+    public void e(int i2) {
+        SkinManager.setBackgroundResource(this.f22575f, R.drawable.bg_gradient_round, i2);
+        SkinManager.setBackgroundResource(this.f22576g, R.drawable.bg_gradient_round, i2);
+        SkinManager.setViewTextColor(this.f22577h, R.color.CAM_X0101, 1, i2);
+        SkinManager.setViewTextColor(this.f22577h, R.color.CAM_X0101, 1, i2);
     }
 
     public final void f(long j) {
@@ -97,8 +99,8 @@ public class VoteCountDownView extends LinearLayout {
     }
 
     public void setContent(long j, long j2) {
-        this.i.setText(String.valueOf(j2));
-        this.f21910h.setText(String.valueOf(j));
+        this.f22578i.setText(String.valueOf(j2));
+        this.f22577h.setText(String.valueOf(j));
     }
 
     public void setData(long j) {

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import d.b.c.e.m.b;
+import d.a.c.e.m.b;
 import protobuf.SendMenuMsg.DataReq;
 import protobuf.SendMenuMsg.SendMenuMsgReqIdl;
 /* loaded from: classes4.dex */

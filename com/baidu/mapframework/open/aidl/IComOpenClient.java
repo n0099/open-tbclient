@@ -17,10 +17,10 @@ public interface IComOpenClient extends IInterface {
         public static class C0094a implements IComOpenClient {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f7486a;
+            public IBinder f7753a;
 
             public C0094a(IBinder iBinder) {
-                this.f7486a = iBinder;
+                this.f7753a = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.IComOpenClient
@@ -30,7 +30,7 @@ public interface IComOpenClient extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IComOpenClient");
                     obtain.writeString(str);
-                    this.f7486a.transact(1, obtain, obtain2, 0);
+                    this.f7753a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -53,7 +53,7 @@ public interface IComOpenClient extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f7486a.transact(2, obtain, obtain2, 0);
+                    this.f7753a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -64,7 +64,7 @@ public interface IComOpenClient extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f7486a;
+                return this.f7753a;
             }
         }
 
@@ -77,16 +77,16 @@ public interface IComOpenClient extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 == 1) {
                 parcel.enforceInterface("com.baidu.mapframework.open.aidl.IComOpenClient");
                 String a2 = a(parcel.readString());
                 parcel2.writeNoException();
                 parcel2.writeString(a2);
                 return true;
-            } else if (i != 2) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 2) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString("com.baidu.mapframework.open.aidl.IComOpenClient");
                 return true;

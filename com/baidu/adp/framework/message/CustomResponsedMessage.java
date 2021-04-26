@@ -3,13 +3,13 @@ package com.baidu.adp.framework.message;
 public class CustomResponsedMessage<T> extends ResponsedMessage<T> {
     public T mData;
 
-    public CustomResponsedMessage(int i) {
-        super(i);
+    public CustomResponsedMessage(int i2) {
+        super(i2);
         this.mData = null;
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, T t) throws Exception {
+    public void decodeInBackGround(int i2, T t) throws Exception {
         this.mData = t;
     }
 
@@ -22,8 +22,8 @@ public class CustomResponsedMessage<T> extends ResponsedMessage<T> {
         return getError() != 0;
     }
 
-    public CustomResponsedMessage(int i, T t) {
-        super(i);
+    public CustomResponsedMessage(int i2, T t) {
+        super(i2);
         this.mData = null;
         this.mData = t;
     }

@@ -3,16 +3,16 @@ package com.baidu.platform.comapi.walknavi.segmentbrowse.widget;
 public class f {
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f9747b = new f();
+    public static f f10107b = new f();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9748a;
+    public int f10108a;
 
-    public void a(int i) {
-        this.f9748a = i;
+    public void a(int i2) {
+        this.f10108a = i2;
     }
 
     public static f a() {
-        return f9747b;
+        return f10107b;
     }
 }

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TextSampleEntry extends AbstractSampleEntry {
     public static final String TYPE1 = "tx3g";
     public static final String TYPE_ENCRYPTED = "enct";
@@ -20,7 +20,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
     public StyleRecord styleRecord;
     public int verticalJustification;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class BoxRecord {
         public int bottom;
         public int left;
@@ -63,11 +63,11 @@ public class TextSampleEntry extends AbstractSampleEntry {
             this.right = IsoTypeReader.readUInt16(byteBuffer);
         }
 
-        public BoxRecord(int i, int i2, int i3, int i4) {
-            this.top = i;
-            this.left = i2;
-            this.bottom = i3;
-            this.right = i4;
+        public BoxRecord(int i2, int i3, int i4, int i5) {
+            this.top = i2;
+            this.left = i3;
+            this.bottom = i4;
+            this.right = i5;
         }
     }
 
@@ -144,7 +144,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
     }
 
     public boolean isWriteTextVertically() {
-        return (this.displayFlags & 131072) == 131072;
+        return (this.displayFlags & PlaybackStateCompat.ACTION_PREPARE_FROM_URI) == PlaybackStateCompat.ACTION_PREPARE_FROM_URI;
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
@@ -195,8 +195,8 @@ public class TextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    public void setHorizontalJustification(int i) {
-        this.horizontalJustification = i;
+    public void setHorizontalJustification(int i2) {
+        this.horizontalJustification = i2;
     }
 
     public void setScrollDirection(boolean z) {
@@ -231,13 +231,13 @@ public class TextSampleEntry extends AbstractSampleEntry {
         this.type = str;
     }
 
-    public void setVerticalJustification(int i) {
-        this.verticalJustification = i;
+    public void setVerticalJustification(int i2) {
+        this.verticalJustification = i2;
     }
 
     public void setWriteTextVertically(boolean z) {
         if (z) {
-            this.displayFlags |= 131072;
+            this.displayFlags |= PlaybackStateCompat.ACTION_PREPARE_FROM_URI;
         } else {
             this.displayFlags &= -131073;
         }
@@ -248,7 +248,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         return "TextSampleEntry";
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class StyleRecord {
         public int endChar;
         public int faceStyleFlags;
@@ -289,9 +289,9 @@ public class TextSampleEntry extends AbstractSampleEntry {
         }
 
         public int hashCode() {
-            int i = ((((((((this.startChar * 31) + this.endChar) * 31) + this.fontId) * 31) + this.faceStyleFlags) * 31) + this.fontSize) * 31;
+            int i2 = ((((((((this.startChar * 31) + this.endChar) * 31) + this.fontId) * 31) + this.faceStyleFlags) * 31) + this.fontSize) * 31;
             int[] iArr = this.textColor;
-            return i + (iArr != null ? Arrays.hashCode(iArr) : 0);
+            return i2 + (iArr != null ? Arrays.hashCode(iArr) : 0);
         }
 
         public void parse(ByteBuffer byteBuffer) {
@@ -308,13 +308,13 @@ public class TextSampleEntry extends AbstractSampleEntry {
             this.textColor[3] = IsoTypeReader.readUInt8(byteBuffer);
         }
 
-        public StyleRecord(int i, int i2, int i3, int i4, int i5, int[] iArr) {
+        public StyleRecord(int i2, int i3, int i4, int i5, int i6, int[] iArr) {
             this.textColor = new int[]{255, 255, 255, 255};
-            this.startChar = i;
-            this.endChar = i2;
-            this.fontId = i3;
-            this.faceStyleFlags = i4;
-            this.fontSize = i5;
+            this.startChar = i2;
+            this.endChar = i3;
+            this.fontId = i4;
+            this.faceStyleFlags = i5;
+            this.fontSize = i6;
             this.textColor = iArr;
         }
     }

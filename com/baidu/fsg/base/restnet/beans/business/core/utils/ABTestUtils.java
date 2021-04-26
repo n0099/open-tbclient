@@ -32,9 +32,9 @@ public class ABTestUtils {
         if (this.exps != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             for (GetFPResponse.Exp exp : this.exps) {
                 if (exp != null && str.equals(exp.exp_id) && "1".equals(exp.is_enable) && (expContentArr = exp.exp_contents) != null) {
-                    for (int i = 0; i < expContentArr.length; i++) {
-                        if (str2.equals(expContentArr[i].exp_name)) {
-                            return expContentArr[i].exp_value;
+                    for (int i2 = 0; i2 < expContentArr.length; i2++) {
+                        if (str2.equals(expContentArr[i2].exp_name)) {
+                            return expContentArr[i2].exp_value;
                         }
                     }
                     continue;

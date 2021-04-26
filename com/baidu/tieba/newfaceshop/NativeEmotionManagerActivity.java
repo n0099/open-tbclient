@@ -22,11 +22,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.CreateNewEmotionFragment;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.MyEmotionManagerFragment;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragment;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class NativeEmotionManagerActivity extends BaseFragmentActivity implements d.b.j0.y1.h.c.a<Boolean> {
+public class NativeEmotionManagerActivity extends BaseFragmentActivity implements d.a.j0.y1.h.c.a<Boolean> {
     public BaseFragment createEmotionFragment;
     public int isModerator;
     public FragmentPagerAdapter mAdapter;
@@ -58,16 +58,16 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         }
 
         @Override // androidx.fragment.app.FragmentPagerAdapter
-        public Fragment getItem(int i) {
-            if (ListUtils.isEmpty(NativeEmotionManagerActivity.this.fragments) || NativeEmotionManagerActivity.this.fragments.size() <= i) {
+        public Fragment getItem(int i2) {
+            if (ListUtils.isEmpty(NativeEmotionManagerActivity.this.fragments) || NativeEmotionManagerActivity.this.fragments.size() <= i2) {
                 return null;
             }
-            return (Fragment) NativeEmotionManagerActivity.this.fragments.get(i);
+            return (Fragment) NativeEmotionManagerActivity.this.fragments.get(i2);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
-        public CharSequence getPageTitle(int i) {
-            return ListUtils.isEmpty(NativeEmotionManagerActivity.this.mTitles) ? "" : (CharSequence) NativeEmotionManagerActivity.this.mTitles.get(i);
+        public CharSequence getPageTitle(int i2) {
+            return ListUtils.isEmpty(NativeEmotionManagerActivity.this.mTitles) ? "" : (CharSequence) NativeEmotionManagerActivity.this.mTitles.get(i2);
         }
     }
 
@@ -77,12 +77,12 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         }
 
         @Override // androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
-            super.onPageSelected(i);
+        public void onPageSelected(int i2) {
+            super.onPageSelected(i2);
             if (NativeEmotionManagerActivity.this.mManager == null) {
                 return;
             }
-            NativeEmotionManagerActivity.this.fragmentPostion = i;
+            NativeEmotionManagerActivity.this.fragmentPostion = i2;
             NativeEmotionManagerActivity.this.ctrlIfShowEditButton();
         }
     }
@@ -144,16 +144,16 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        this.mSkinType = i;
-        getLayoutMode().k(i == 1);
+    public void onChangeSkinType(int i2) {
+        this.mSkinType = i2;
+        getLayoutMode().k(i2 == 1);
         CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = this.mTabStrip;
         if (commonPagerSlidingTabStrip != null) {
-            commonPagerSlidingTabStrip.n(i);
+            commonPagerSlidingTabStrip.n(i2);
         }
         TextView textView = this.mManager;
         if (textView != null) {
-            SkinManager.setViewTextColor(textView, R.color.CAM_X0302, i);
+            SkinManager.setViewTextColor(textView, R.color.CAM_X0302, i2);
         }
         LinearLayout linearLayout = this.mEmotionRootView;
         if (linearLayout != null) {
@@ -165,8 +165,8 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.mManager) {
-            boolean z = !d.b.j0.y1.h.a.b().a();
-            d.b.j0.y1.h.a.b().d(z);
+            boolean z = !d.a.j0.y1.h.a.b().a();
+            d.a.j0.y1.h.a.b().d(z);
             if (z) {
                 this.mManager.setText(R.string.emotion_manage_finish);
             } else {
@@ -176,7 +176,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
@@ -185,7 +185,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.j0.y1.h.c.a
+    @Override // d.a.j0.y1.h.c.a
     public void onUpdate(Boolean bool) {
         if (bool == null) {
             return;

@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.frs.FrsTabItemData;
-import d.b.c.j.e.n;
+import d.a.c.j.e.n;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class TransmitForumData implements n, Parcelable {
@@ -32,13 +32,13 @@ public class TransmitForumData implements n, Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public TransmitForumData[] newArray(int i) {
-            return new TransmitForumData[i];
+        public TransmitForumData[] newArray(int i2) {
+            return new TransmitForumData[i2];
         }
     }
 
-    public TransmitForumData(long j, String str, boolean z, int i) {
-        this(j, str, z, i, "");
+    public TransmitForumData(long j, String str, boolean z, int i2) {
+        this(j, str, z, i2, "");
     }
 
     @Override // android.os.Parcelable
@@ -46,13 +46,13 @@ public class TransmitForumData implements n, Parcelable {
         return 0;
     }
 
-    @Override // d.b.c.j.e.n
+    @Override // d.a.c.j.e.n
     public BdUniqueId getType() {
         return ID_TRANSMIT_SELECT_DATA;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.forumName);
         parcel.writeLong(this.forumId);
         parcel.writeByte(this.checked ? (byte) 1 : (byte) 0);
@@ -62,12 +62,12 @@ public class TransmitForumData implements n, Parcelable {
         parcel.writeArray(this.tabItemDatas.toArray());
     }
 
-    public TransmitForumData(long j, String str, boolean z, int i, String str2) {
+    public TransmitForumData(long j, String str, boolean z, int i2, String str2) {
         this.isCurForum = false;
         this.forumName = str;
         this.checked = z;
         this.forumId = j;
-        this.type = i;
+        this.type = i2;
         this.avatar = str2;
     }
 

@@ -87,14 +87,14 @@ public class OkHttpRequest implements HttpRequest {
     }
 
     public void onFailureCallback(Call call, IOException iOException) {
-        int i;
+        int i2;
         if (this.mCallback != null) {
             if (iOException instanceof SocketTimeoutException) {
-                i = 1;
+                i2 = 1;
             } else {
-                i = iOException instanceof ConnectException ? 2 : 3;
+                i2 = iOException instanceof ConnectException ? 2 : 3;
             }
-            this.mCallback.onFail(i, iOException);
+            this.mCallback.onFail(i2, iOException);
         }
     }
 

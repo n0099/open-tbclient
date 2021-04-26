@@ -16,7 +16,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TiebaActiveService extends BdBaseService {
     public static final int ACTIVE_FAIL = 1;
     public static final int ACTIVE_SUCC = 2;
@@ -25,7 +25,7 @@ public class TiebaActiveService extends BdBaseService {
     public Handler mHandler = new Handler();
     public Runnable mRunnable = new a();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -36,20 +36,20 @@ public class TiebaActiveService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20625a;
+        public NetWork f21179a;
 
         public b() {
-            this.f20625a = null;
+            this.f21179a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            NetWork netWork = this.f20625a;
+            NetWork netWork = this.f21179a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -61,20 +61,20 @@ public class TiebaActiveService extends BdBaseService {
         public String doInBackground(String... strArr) {
             try {
                 NetWork netWork = new NetWork("http://114.113.149.3:8086/partnersService");
-                this.f20625a = netWork;
+                this.f21179a = netWork;
                 netWork.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.f20625a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
-                this.f20625a.addPostData("model", Build.MODEL);
-                this.f20625a.addPostData("edition", TbConfig.getVersion());
-                this.f20625a.addPostData("system", Build.VERSION.SDK);
-                this.f20625a.getNetContext().getRequest().getNetWorkParam().mIsBaiduServer = false;
-                String postNetData = this.f20625a.postNetData();
-                if (this.f20625a.isNetSuccess()) {
+                this.f21179a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
+                this.f21179a.addPostData("model", Build.MODEL);
+                this.f21179a.addPostData("edition", TbConfig.getVersion());
+                this.f21179a.addPostData("system", Build.VERSION.SDK);
+                this.f21179a.getNetContext().getRequest().getNetWorkParam().mIsBaiduServer = false;
+                String postNetData = this.f21179a.postNetData();
+                if (this.f21179a.isNetSuccess()) {
                     return postNetData;
                 }
                 return null;
             } catch (Exception e2) {
-                d.b.i0.r.d0.b.j().v("active", 1);
+                d.a.i0.r.d0.b.j().v("active", 1);
                 BdLog.e(e2.getMessage());
                 return null;
             }
@@ -91,11 +91,11 @@ public class TiebaActiveService extends BdBaseService {
                     TiebaActiveService.this.mHandler.removeCallbacks(TiebaActiveService.this.mRunnable);
                     TiebaActiveService.this.mHandler.postDelayed(TiebaActiveService.this.mRunnable, 60000L);
                 } else {
-                    d.b.i0.r.d0.b.j().v("active", 1);
+                    d.a.i0.r.d0.b.j().v("active", 1);
                     TiebaActiveService.this.stopSelf();
                 }
             }
-            d.b.i0.r.d0.b.j().v("active", 2);
+            d.a.i0.r.d0.b.j().v("active", 2);
             TiebaActiveService.this.stopSelf();
         }
 
@@ -105,13 +105,13 @@ public class TiebaActiveService extends BdBaseService {
     }
 
     public static /* synthetic */ int access$308(TiebaActiveService tiebaActiveService) {
-        int i = tiebaActiveService.mHaveRetry;
-        tiebaActiveService.mHaveRetry = i + 1;
-        return i;
+        int i2 = tiebaActiveService.mHaveRetry;
+        tiebaActiveService.mHaveRetry = i2 + 1;
+        return i2;
     }
 
     private String getChannelByShare() {
-        return d.b.i0.r.d0.b.j().p("channel_id", null);
+        return d.a.i0.r.d0.b.j().p("channel_id", null);
     }
 
     private String getChannelyFile() {
@@ -175,7 +175,7 @@ public class TiebaActiveService extends BdBaseService {
         if (str == null || str.length() <= 0) {
             return;
         }
-        d.b.i0.r.d0.b.j().x("channel_id", str);
+        d.a.i0.r.d0.b.j().x("channel_id", str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -206,9 +206,9 @@ public class TiebaActiveService extends BdBaseService {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
-        super.onStart(intent, i);
-        if (isActived() && d.b.i0.r.d0.b.j().k("active", 2) != 1) {
+    public void onStart(Intent intent, int i2) {
+        super.onStart(intent, i2);
+        if (isActived() && d.a.i0.r.d0.b.j().k("active", 2) != 1) {
             stopSelf();
         } else {
             sendActive();

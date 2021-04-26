@@ -32,9 +32,9 @@ public interface c {
     void setAliases(List<String> list, JSONObject jSONObject);
 
     @Deprecated
-    void setNotificationType(int i, JSONObject jSONObject);
+    void setNotificationType(int i2, JSONObject jSONObject);
 
-    void setPushTime(List<Integer> list, int i, int i2, int i3, int i4, JSONObject jSONObject);
+    void setPushTime(List<Integer> list, int i2, int i3, int i4, int i5, JSONObject jSONObject);
 
     void setTags(List<String> list, JSONObject jSONObject);
 

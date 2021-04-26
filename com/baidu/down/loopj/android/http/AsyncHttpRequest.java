@@ -34,7 +34,7 @@ import java.util.TreeSet;
 import javax.net.ssl.SSLException;
 import javax.security.cert.CertificateException;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AsyncHttpRequest implements Runnable {
     public static final boolean DEBUG = false;
     public static final String TAG = "AsyncHttpRequest";
@@ -59,7 +59,7 @@ public class AsyncHttpRequest implements Runnable {
     public HashSet<String> redirectUrls;
     public BinaryHttpResponseHandler responseHandler;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class HandlerCdnRedirectException extends RuntimeException {
         public static final long serialVersionUID = -5562528406378234456L;
 
@@ -67,7 +67,7 @@ public class AsyncHttpRequest implements Runnable {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class HandlerRedirectException extends RuntimeException {
         public static final long serialVersionUID = -4422626752285372402L;
 
@@ -297,11 +297,11 @@ public class AsyncHttpRequest implements Runnable {
                         this.mICommonRequestHandler.restoreRequest();
                         this.mIsWaitingForRetry = true;
                         ICommonRequestHandler iCommonRequestHandler2 = this.mICommonRequestHandler;
-                        int i = this.executionCount + 1;
-                        this.executionCount = i;
-                        int i2 = this.executionMaxCount + 1;
-                        this.executionMaxCount = i2;
-                        z = iCommonRequestHandler2.onRetryRequest(e2, i, i2);
+                        int i2 = this.executionCount + 1;
+                        this.executionCount = i2;
+                        int i3 = this.executionMaxCount + 1;
+                        this.executionMaxCount = i3;
+                        z = iCommonRequestHandler2.onRetryRequest(e2, i2, i3);
                         ThreadSpeedStat threadSpeedStat = this.mThreadSpeedStat;
                         if (threadSpeedStat != null) {
                             threadSpeedStat.drnum++;
@@ -373,11 +373,11 @@ public class AsyncHttpRequest implements Runnable {
                     } else {
                         this.mIsWaitingForRetry = true;
                         ICommonRequestHandler iCommonRequestHandler3 = this.mICommonRequestHandler;
-                        int i3 = this.executionCount + 1;
-                        this.executionCount = i3;
-                        int i4 = this.executionMaxCount + 1;
-                        this.executionMaxCount = i4;
-                        z = iCommonRequestHandler3.onRetryRequest(iOException, i3, i4);
+                        int i4 = this.executionCount + 1;
+                        this.executionCount = i4;
+                        int i5 = this.executionMaxCount + 1;
+                        this.executionMaxCount = i5;
+                        z = iCommonRequestHandler3.onRetryRequest(iOException, i4, i5);
                         ThreadSpeedStat threadSpeedStat2 = this.mThreadSpeedStat;
                         if (threadSpeedStat2 != null) {
                             threadSpeedStat2.drnum++;
@@ -401,13 +401,13 @@ public class AsyncHttpRequest implements Runnable {
 
     private boolean processRange(boolean z) {
         AbstractTask abstractTask;
-        int i;
+        int i2;
         String onGetRequestHeader;
         String str;
         String str2;
         long j;
         BinaryHttpResponseHandler binaryHttpResponseHandler = this.responseHandler;
-        if (!(binaryHttpResponseHandler instanceof BinaryHttpResponseHandler) || (i = (abstractTask = binaryHttpResponseHandler.mtask).mStatus) == 1004 || i == 1006 || (onGetRequestHeader = this.mICommonRequestHandler.onGetRequestHeader("Range")) == null) {
+        if (!(binaryHttpResponseHandler instanceof BinaryHttpResponseHandler) || (i2 = (abstractTask = binaryHttpResponseHandler.mtask).mStatus) == 1004 || i2 == 1006 || (onGetRequestHeader = this.mICommonRequestHandler.onGetRequestHeader("Range")) == null) {
             return false;
         }
         String[] split = onGetRequestHeader.trim().split("[=-]");
@@ -439,14 +439,14 @@ public class AsyncHttpRequest implements Runnable {
             }
         }
         long segEndByPos = abstractTask.mProgressInfo.getSegEndByPos(j2);
-        int i2 = (segEndByPos > Long.MAX_VALUE ? 1 : (segEndByPos == Long.MAX_VALUE ? 0 : -1));
-        if (i2 == 0) {
+        int i3 = (segEndByPos > Long.MAX_VALUE ? 1 : (segEndByPos == Long.MAX_VALUE ? 0 : -1));
+        if (i3 == 0) {
             j = abstractTask.mProgressInfo.getSegCurrentByPos(j2);
         } else {
             str3 = str2;
         }
         if (j < segEndByPos) {
-            if (i2 != 0 && TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
+            if (i3 != 0 && TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
                 long j3 = 307200 + j;
                 str3 = String.valueOf(j3 - 1 < segEndByPos ? j3 - 2 : segEndByPos - 1);
             }
@@ -464,9 +464,9 @@ public class AsyncHttpRequest implements Runnable {
         }
         ICommonRequestHandler iCommonRequestHandler = this.mICommonRequestHandler;
         List<RetryRequestInfo> retryRequestInfoList = this.mHttpRetryStrategyHandler.getRetryRequestInfoList();
-        int i = this.mRetryFrequency;
-        this.mRetryFrequency = i + 1;
-        iCommonRequestHandler.replaceRequest(retryRequestInfoList.get(i));
+        int i2 = this.mRetryFrequency;
+        this.mRetryFrequency = i2 + 1;
+        iCommonRequestHandler.replaceRequest(retryRequestInfoList.get(i2));
         ThreadSpeedStat threadSpeedStat = this.mThreadSpeedStat;
         if (threadSpeedStat != null) {
             threadSpeedStat.drnum++;
@@ -516,16 +516,16 @@ public class AsyncHttpRequest implements Runnable {
     public void run() {
         Process.setThreadPriority(10);
         this.mCurrentThread = Thread.currentThread();
-        int i = TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mTrafficStatsTag;
+        int i2 = TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mTrafficStatsTag;
         try {
-            if (i != 0) {
+            if (i2 != 0) {
                 try {
-                    TrafficStatsUtils.setThreadStatsTag(i);
+                    TrafficStatsUtils.setThreadStatsTag(i2);
                 } catch (HandlerCdnRedirectException unused) {
                     if (isMultiSrcStageBeforeOrExe()) {
                         ((MultiSrcBinaryTaskHandler) this.responseHandler).multiSrcToNormal();
                     }
-                    if (i == 0) {
+                    if (i2 == 0) {
                         return;
                     }
                 } catch (Exception e2) {
@@ -541,7 +541,7 @@ public class AsyncHttpRequest implements Runnable {
                             this.responseHandler.sendFailureMessage(e2, null);
                         }
                     }
-                    if (i == 0) {
+                    if (i2 == 0) {
                         return;
                     }
                 }
@@ -561,12 +561,12 @@ public class AsyncHttpRequest implements Runnable {
                 }
                 this.mThreadSpeedStat.downEndTime = SystemClock.elapsedRealtime();
             }
-            if (i == 0) {
+            if (i2 == 0) {
                 return;
             }
             TrafficStatsUtils.clearThreadStatsTag();
         } catch (Throwable th) {
-            if (i != 0) {
+            if (i2 != 0) {
                 TrafficStatsUtils.clearThreadStatsTag();
             }
             throw th;

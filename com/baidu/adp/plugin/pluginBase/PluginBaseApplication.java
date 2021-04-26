@@ -25,7 +25,7 @@ import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
 import com.baidu.adp.plugin.proxy.PackageMangerProxy;
-import d.b.c.h.j.g.d;
+import d.a.c.h.j.g.d;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -41,8 +41,8 @@ public class PluginBaseApplication extends Application {
     public PackageMangerProxy mProxyPm = null;
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
-        return this.mApplicationProxy.bindService(intent, serviceConnection, i);
+    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i2) {
+        return this.mApplicationProxy.bindService(intent, serviceConnection, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -124,14 +124,14 @@ public class PluginBaseApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public File getDir(String str, int i) {
+    public File getDir(String str, int i2) {
         String pluginPackageName = getPluginPackageName();
         PluginSetting h2 = d.k().h(pluginPackageName);
         if (h2 != null && h2.isThird) {
             Application application = this.mApplicationProxy;
-            return application.getDir(pluginPackageName + str, i);
+            return application.getDir(pluginPackageName + str, i2);
         }
-        return this.mApplicationProxy.getDir(str, i);
+        return this.mApplicationProxy.getDir(str, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -223,14 +223,14 @@ public class PluginBaseApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SharedPreferences getSharedPreferences(String str, int i) {
+    public SharedPreferences getSharedPreferences(String str, int i2) {
         String pluginPackageName = getPluginPackageName();
         PluginSetting h2 = d.k().h(pluginPackageName);
         if (h2 != null && h2.isThird) {
             Application application = this.mApplicationProxy;
-            return application.getSharedPreferences(pluginPackageName + str, i);
+            return application.getSharedPreferences(pluginPackageName + str, i2);
         }
-        return this.mApplicationProxy.getSharedPreferences(str, i);
+        return this.mApplicationProxy.getSharedPreferences(str, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -250,25 +250,25 @@ public class PluginBaseApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public FileOutputStream openFileOutput(String str, int i) throws FileNotFoundException {
+    public FileOutputStream openFileOutput(String str, int i2) throws FileNotFoundException {
         String pluginPackageName = getPluginPackageName();
         PluginSetting h2 = d.k().h(pluginPackageName);
         if (h2 != null && h2.isThird) {
             Application application = this.mApplicationProxy;
-            return application.openFileOutput(pluginPackageName + str, i);
+            return application.openFileOutput(pluginPackageName + str, i2);
         }
-        return this.mApplicationProxy.openFileOutput(str, i);
+        return this.mApplicationProxy.openFileOutput(str, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
+    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory) {
         String pluginPackageName = getPluginPackageName();
         PluginSetting h2 = d.k().h(pluginPackageName);
         if (h2 != null && h2.isThird) {
             Application application = this.mApplicationProxy;
-            return application.openOrCreateDatabase(pluginPackageName + str, i, cursorFactory);
+            return application.openOrCreateDatabase(pluginPackageName + str, i2, cursorFactory);
         }
-        return this.mApplicationProxy.openOrCreateDatabase(str, i, cursorFactory);
+        return this.mApplicationProxy.openOrCreateDatabase(str, i2, cursorFactory);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -297,8 +297,8 @@ public class PluginBaseApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void sendStickyOrderedBroadcast(Intent intent, BroadcastReceiver broadcastReceiver, Handler handler, int i, String str, Bundle bundle) {
-        this.mApplicationProxy.sendStickyOrderedBroadcast(intent, broadcastReceiver, handler, i, str, bundle);
+    public void sendStickyOrderedBroadcast(Intent intent, BroadcastReceiver broadcastReceiver, Handler handler, int i2, String str, Bundle bundle) {
+        this.mApplicationProxy.sendStickyOrderedBroadcast(intent, broadcastReceiver, handler, i2, str, bundle);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:45:0x007e  */
@@ -432,8 +432,8 @@ public class PluginBaseApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i) {
-        this.mApplicationProxy.setTheme(i);
+    public void setTheme(int i2) {
+        this.mApplicationProxy.setTheme(i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -448,8 +448,8 @@ public class PluginBaseApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
-        this.mApplicationProxy.startIntentSender(intentSender, intent, i, i2, i3);
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
+        this.mApplicationProxy.startIntentSender(intentSender, intent, i2, i3, i4);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -491,7 +491,7 @@ public class PluginBaseApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void sendOrderedBroadcast(Intent intent, String str, BroadcastReceiver broadcastReceiver, Handler handler, int i, String str2, Bundle bundle) {
-        this.mApplicationProxy.sendOrderedBroadcast(intent, str, broadcastReceiver, handler, i, str2, bundle);
+    public void sendOrderedBroadcast(Intent intent, String str, BroadcastReceiver broadcastReceiver, Handler handler, int i2, String str2, Bundle bundle) {
+        this.mApplicationProxy.sendOrderedBroadcast(intent, str, broadcastReceiver, handler, i2, str2, bundle);
     }
 }

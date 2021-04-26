@@ -76,17 +76,17 @@ public class AtomicFile {
         FileInputStream openRead = openRead();
         try {
             byte[] bArr = new byte[openRead.available()];
-            int i = 0;
+            int i2 = 0;
             while (true) {
-                int read = openRead.read(bArr, i, bArr.length - i);
+                int read = openRead.read(bArr, i2, bArr.length - i2);
                 if (read <= 0) {
                     return bArr;
                 }
-                i += read;
+                i2 += read;
                 int available = openRead.available();
-                if (available > bArr.length - i) {
-                    byte[] bArr2 = new byte[available + i];
-                    System.arraycopy(bArr, 0, bArr2, 0, i);
+                if (available > bArr.length - i2) {
+                    byte[] bArr2 = new byte[available + i2];
+                    System.arraycopy(bArr, 0, bArr2, 0, i2);
                     bArr = bArr2;
                 }
             }

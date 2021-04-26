@@ -26,35 +26,37 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class f {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile f f29342d;
+    public static volatile f f30244d;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile ServerSocket f29343a;
+    public volatile ServerSocket f30245a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f29344b;
+    public volatile int f30246b;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile com.bytedance.sdk.openadsdk.k.b.c f29346e;
+    public volatile com.bytedance.sdk.openadsdk.k.b.c f30248e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile com.bytedance.sdk.openadsdk.k.a.c f29347f;
+    public volatile com.bytedance.sdk.openadsdk.k.a.c f30249f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile com.bytedance.sdk.openadsdk.k.a.b f29348g;
+    public volatile com.bytedance.sdk.openadsdk.k.a.b f30250g;
     public volatile c j;
     public volatile c k;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicInteger f29345c = new AtomicInteger(0);
+    public final AtomicInteger f30247c = new AtomicInteger(0);
 
     /* renamed from: h  reason: collision with root package name */
-    public final SparseArray<Set<g>> f29349h = new SparseArray<>(2);
-    public final g.c i = new g.c() { // from class: com.bytedance.sdk.openadsdk.k.f.1
+    public final SparseArray<Set<g>> f30251h = new SparseArray<>(2);
+
+    /* renamed from: i  reason: collision with root package name */
+    public final g.c f30252i = new g.c() { // from class: com.bytedance.sdk.openadsdk.k.f.1
         @Override // com.bytedance.sdk.openadsdk.k.g.c
         public void a(g gVar) {
-            synchronized (f.this.f29349h) {
-                Set set = (Set) f.this.f29349h.get(gVar.f());
+            synchronized (f.this.f30251h) {
+                Set set = (Set) f.this.f30251h.get(gVar.f());
                 if (set != null) {
                     set.add(gVar);
                 }
@@ -63,12 +65,12 @@ public class f {
 
         @Override // com.bytedance.sdk.openadsdk.k.g.c
         public void b(g gVar) {
-            if (e.f29326c) {
+            if (e.f30227c) {
                 Log.d("TAG_PROXY_ProxyServer", "afterExecute, ProxyTask: " + gVar);
             }
             int f2 = gVar.f();
-            synchronized (f.this.f29349h) {
-                Set set = (Set) f.this.f29349h.get(f2);
+            synchronized (f.this.f30251h) {
+                Set set = (Set) f.this.f30251h.get(f2);
                 if (set != null) {
                     set.remove(gVar);
                 }
@@ -79,23 +81,23 @@ public class f {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                int i = 0;
-                f.this.f29343a = new ServerSocket(0, 50, InetAddress.getByName("127.0.0.1"));
+                int i2 = 0;
+                f.this.f30245a = new ServerSocket(0, 50, InetAddress.getByName("127.0.0.1"));
                 f fVar = f.this;
-                fVar.f29344b = fVar.f29343a.getLocalPort();
-                if (f.this.f29344b != -1) {
-                    j.a("127.0.0.1", f.this.f29344b);
-                    if (f.this.g() && f.this.f29345c.compareAndSet(0, 1)) {
-                        if (e.f29326c) {
+                fVar.f30246b = fVar.f30245a.getLocalPort();
+                if (f.this.f30246b != -1) {
+                    j.a("127.0.0.1", f.this.f30246b);
+                    if (f.this.g() && f.this.f30247c.compareAndSet(0, 1)) {
+                        if (e.f30227c) {
                             Log.i("TAG_PROXY_ProxyServer", "proxy server start!");
                         }
-                        while (f.this.f29345c.get() == 1) {
+                        while (f.this.f30247c.get() == 1) {
                             try {
                                 try {
-                                    Socket accept = f.this.f29343a.accept();
-                                    com.bytedance.sdk.openadsdk.k.b.c cVar = f.this.f29346e;
+                                    Socket accept = f.this.f30245a.accept();
+                                    com.bytedance.sdk.openadsdk.k.b.c cVar = f.this.f30248e;
                                     if (cVar != null) {
-                                        final g a2 = new g.a().a(cVar).a(accept).a(f.this.i).a();
+                                        final g a2 = new g.a().a(cVar).a(accept).a(f.this.f30252i).a();
                                         com.bytedance.sdk.openadsdk.l.e.a().execute(new com.bytedance.sdk.openadsdk.l.g("ProxyTask", 10) { // from class: com.bytedance.sdk.openadsdk.k.f.2.1
                                             @Override // java.lang.Runnable
                                             public void run() {
@@ -108,8 +110,8 @@ public class f {
                                 } catch (IOException e2) {
                                     e2.printStackTrace();
                                     f.b("accept error", Log.getStackTraceString(e2));
-                                    i++;
-                                    if (i > 3) {
+                                    i2++;
+                                    if (i2 > 3) {
                                         break;
                                     }
                                 }
@@ -119,7 +121,7 @@ public class f {
                                 f.b("error", stackTraceString);
                             }
                         }
-                        if (e.f29326c) {
+                        if (e.f30227c) {
                             Log.i("TAG_PROXY_ProxyServer", "proxy server closed!");
                         }
                         f.this.e();
@@ -130,7 +132,7 @@ public class f {
                 f.b("socket not bound", "");
                 f.this.e();
             } catch (IOException e3) {
-                if (e.f29326c) {
+                if (e.f30227c) {
                     Log.e("TAG_PROXY_ProxyServer", "create ServerSocket error!  " + Log.getStackTraceString(e3));
                 }
                 f.b("create ServerSocket error", Log.getStackTraceString(e3));
@@ -144,14 +146,14 @@ public class f {
     public static final class a implements Callable<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f29356a;
+        public final String f30259a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f29357b;
+        public final int f30260b;
 
-        public a(String str, int i) {
-            this.f29356a = str;
-            this.f29357b = i;
+        public a(String str, int i2) {
+            this.f30259a = str;
+            this.f30260b = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -161,11 +163,11 @@ public class f {
             Socket socket;
             Throwable th;
             try {
-                socket = new Socket(this.f29356a, this.f29357b);
+                socket = new Socket(this.f30259a, this.f30260b);
                 try {
                     socket.setSoTimeout(2000);
                     OutputStream outputStream = socket.getOutputStream();
-                    outputStream.write("Ping\n".getBytes(com.bytedance.sdk.openadsdk.k.g.d.f29395a));
+                    outputStream.write("Ping\n".getBytes(com.bytedance.sdk.openadsdk.k.g.d.f30298a));
                     outputStream.flush();
                     if ("OK".equals(new BufferedReader(new InputStreamReader(socket.getInputStream())).readLine())) {
                         return Boolean.TRUE;
@@ -191,8 +193,8 @@ public class f {
     }
 
     public f() {
-        this.f29349h.put(0, new HashSet());
-        this.f29349h.put(1, new HashSet());
+        this.f30251h.put(0, new HashSet());
+        this.f30251h.put(1, new HashSet());
     }
 
     public static void b(String str, String str2) {
@@ -200,18 +202,18 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f29345c.compareAndSet(1, 2) || this.f29345c.compareAndSet(0, 2)) {
-            com.bytedance.sdk.openadsdk.k.g.d.a(this.f29343a);
+        if (this.f30247c.compareAndSet(1, 2) || this.f30247c.compareAndSet(0, 2)) {
+            com.bytedance.sdk.openadsdk.k.g.d.a(this.f30245a);
             f();
         }
     }
 
     private void f() {
         ArrayList arrayList = new ArrayList();
-        synchronized (this.f29349h) {
-            int size = this.f29349h.size();
-            for (int i = 0; i < size; i++) {
-                Set<g> set = this.f29349h.get(this.f29349h.keyAt(i));
+        synchronized (this.f30251h) {
+            int size = this.f30251h.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                Set<g> set = this.f30251h.get(this.f30251h.keyAt(i2));
                 if (set != null) {
                     arrayList.addAll(set);
                     set.clear();
@@ -226,7 +228,7 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean g() {
-        final com.bytedance.sdk.openadsdk.l.f fVar = new com.bytedance.sdk.openadsdk.l.f(new a("127.0.0.1", this.f29344b), 5, 1);
+        final com.bytedance.sdk.openadsdk.l.f fVar = new com.bytedance.sdk.openadsdk.l.f(new a("127.0.0.1", this.f30246b), 5, 1);
         com.bytedance.sdk.openadsdk.l.e.a(new com.bytedance.sdk.openadsdk.l.g("pingTest") { // from class: com.bytedance.sdk.openadsdk.k.f.3
             @Override // java.lang.Runnable
             public void run() {
@@ -242,7 +244,7 @@ public class f {
                 e();
                 return false;
             }
-            if (e.f29326c) {
+            if (e.f30227c) {
                 Log.i("TAG_PROXY_ProxyServer", "Ping OK!");
             }
             return true;
@@ -258,11 +260,11 @@ public class f {
         Socket socket = null;
         try {
             try {
-                socket = this.f29343a.accept();
+                socket = this.f30245a.accept();
                 socket.setSoTimeout(2000);
                 if ("Ping".equals(new BufferedReader(new InputStreamReader(socket.getInputStream())).readLine())) {
                     OutputStream outputStream = socket.getOutputStream();
-                    outputStream.write("OK\n".getBytes(com.bytedance.sdk.openadsdk.k.g.d.f29395a));
+                    outputStream.write("OK\n".getBytes(com.bytedance.sdk.openadsdk.k.g.d.f30298a));
                     outputStream.flush();
                 }
             } catch (IOException e2) {
@@ -290,15 +292,15 @@ public class f {
         }
     }
 
-    public boolean a(int i, String str) {
+    public boolean a(int i2, String str) {
         if (str == null) {
             return false;
         }
-        synchronized (this.f29349h) {
-            Set<g> set = this.f29349h.get(i);
+        synchronized (this.f30251h) {
+            Set<g> set = this.f30251h.get(i2);
             if (set != null) {
                 for (g gVar : set) {
-                    if (gVar != null && str.equals(gVar.f29255h)) {
+                    if (gVar != null && str.equals(gVar.f30152h)) {
                         return true;
                     }
                 }
@@ -308,22 +310,22 @@ public class f {
     }
 
     public static f a() {
-        if (f29342d == null) {
+        if (f30244d == null) {
             synchronized (f.class) {
-                if (f29342d == null) {
-                    f29342d = new f();
+                if (f30244d == null) {
+                    f30244d = new f();
                 }
             }
         }
-        return f29342d;
+        return f30244d;
     }
 
     public void a(com.bytedance.sdk.openadsdk.k.b.c cVar) {
-        this.f29346e = cVar;
+        this.f30248e = cVar;
     }
 
     public void a(com.bytedance.sdk.openadsdk.k.a.c cVar) {
-        this.f29347f = cVar;
+        this.f30249f = cVar;
     }
 
     public String a(boolean z, boolean z2, String str, String... strArr) {
@@ -331,17 +333,17 @@ public class f {
             if (TextUtils.isEmpty(str)) {
                 b("key", "key is empty");
                 return strArr[0];
-            } else if (this.f29346e == null) {
+            } else if (this.f30248e == null) {
                 b(IMTrackDatabase.DbEnum.TABLE_NAME, "VideoProxyDB is null");
                 return strArr[0];
             } else {
-                if ((z ? this.f29348g : this.f29347f) == null) {
-                    b(SapiOptions.q, "Cache is null");
+                if ((z ? this.f30250g : this.f30249f) == null) {
+                    b(SapiOptions.KEY_CACHE, "Cache is null");
                     return strArr[0];
                 }
-                int i = this.f29345c.get();
-                if (i != 1) {
-                    b("state", "ProxyServer is not running, " + i);
+                int i2 = this.f30247c.get();
+                if (i2 != 1) {
+                    b("state", "ProxyServer is not running, " + i2);
                     return strArr[0];
                 }
                 List<String> a2 = com.bytedance.sdk.openadsdk.k.g.d.a(strArr);
@@ -354,9 +356,9 @@ public class f {
                     b("url", "combine proxy url error");
                     return strArr[0];
                 } else if (z) {
-                    return "http://127.0.0.1:" + this.f29344b + "?f=1&" + a3;
+                    return "http://127.0.0.1:" + this.f30246b + "?f=1&" + a3;
                 } else {
-                    return "http://127.0.0.1:" + this.f29344b + "?" + a3;
+                    return "http://127.0.0.1:" + this.f30246b + "?" + a3;
                 }
             }
         }

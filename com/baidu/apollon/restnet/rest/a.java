@@ -17,22 +17,22 @@ import okhttp3.CertificatePinner;
 public final class a implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f3800a = new a();
+    public static final a f3850a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f3801b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static final Pattern f3851b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3802c = 2;
+    public static final int f3852c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3803d = 7;
+    public static final int f3853d = 7;
 
     private boolean b(String str, X509Certificate x509Certificate) {
         List<String> a2 = a(x509Certificate, 7);
         int size = a2.size();
-        for (int i = 0; i < size; i++) {
-            if (str.equalsIgnoreCase(a2.get(i))) {
+        for (int i2 = 0; i2 < size; i2++) {
+            if (str.equalsIgnoreCase(a2.get(i2))) {
                 return true;
             }
         }
@@ -43,8 +43,8 @@ public final class a implements HostnameVerifier {
         String lowerCase = str.toLowerCase(Locale.US);
         List<String> a2 = a(x509Certificate, 2);
         int size = a2.size();
-        for (int i = 0; i < size; i++) {
-            if (a(lowerCase, a2.get(i))) {
+        for (int i2 = 0; i2 < size; i2++) {
+            if (a(lowerCase, a2.get(i2))) {
                 return true;
             }
         }
@@ -68,7 +68,7 @@ public final class a implements HostnameVerifier {
     }
 
     public static boolean a(String str) {
-        return f3801b.matcher(str).matches();
+        return f3851b.matcher(str).matches();
     }
 
     public static List<String> a(X509Certificate x509Certificate) {
@@ -80,7 +80,7 @@ public final class a implements HostnameVerifier {
         return arrayList;
     }
 
-    public static List<String> a(X509Certificate x509Certificate, int i) {
+    public static List<String> a(X509Certificate x509Certificate, int i2) {
         Integer num;
         String str;
         ArrayList arrayList = new ArrayList();
@@ -90,7 +90,7 @@ public final class a implements HostnameVerifier {
                 return Collections.emptyList();
             }
             for (List<?> list : subjectAlternativeNames) {
-                if (list != null && list.size() >= 2 && (num = (Integer) list.get(0)) != null && num.intValue() == i && (str = (String) list.get(1)) != null) {
+                if (list != null && list.size() >= 2 && (num = (Integer) list.get(0)) != null && num.intValue() == i2 && (str = (String) list.get(1)) != null) {
                     arrayList.add(str);
                 }
             }

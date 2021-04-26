@@ -5,9 +5,9 @@ import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.net.Uri;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface ImageRegionDecoder {
-    Bitmap decodeRegion(Rect rect, int i);
+    Bitmap decodeRegion(Rect rect, int i2);
 
     Point init(Context context, Uri uri) throws Exception;
 

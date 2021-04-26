@@ -9,8 +9,8 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public abstract class AbstractFullBox extends AbstractBox implements FullBox {
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
     public int flags;
     public int version;
 
@@ -53,15 +53,15 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
     }
 
     @Override // com.coremedia.iso.boxes.FullBox
-    public void setFlags(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i)));
-        this.flags = i;
+    public void setFlags(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i2)));
+        this.flags = i2;
     }
 
     @Override // com.coremedia.iso.boxes.FullBox
-    public void setVersion(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_0, this, this, g.a.b.a.a.e(i)));
-        this.version = i;
+    public void setVersion(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_0, this, this, g.a.b.a.a.e(i2)));
+        this.version = i2;
     }
 
     public final void writeVersionAndFlags(ByteBuffer byteBuffer) {

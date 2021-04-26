@@ -13,7 +13,7 @@ import java.io.OutputStream;
 /* loaded from: classes6.dex */
 public class WebpTranscoderImpl implements WebpTranscoder {
     @DoNotStrip
-    public static native void nativeTranscodeWebpToJpeg(InputStream inputStream, OutputStream outputStream, int i) throws IOException;
+    public static native void nativeTranscodeWebpToJpeg(InputStream inputStream, OutputStream outputStream, int i2) throws IOException;
 
     @DoNotStrip
     public static native void nativeTranscodeWebpToPng(InputStream inputStream, OutputStream outputStream) throws IOException;
@@ -33,9 +33,9 @@ public class WebpTranscoderImpl implements WebpTranscoder {
     }
 
     @Override // com.facebook.imagepipeline.nativecode.WebpTranscoder
-    public void transcodeWebpToJpeg(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
+    public void transcodeWebpToJpeg(InputStream inputStream, OutputStream outputStream, int i2) throws IOException {
         StaticWebpNativeLoader.ensure();
-        nativeTranscodeWebpToJpeg((InputStream) Preconditions.checkNotNull(inputStream), (OutputStream) Preconditions.checkNotNull(outputStream), i);
+        nativeTranscodeWebpToJpeg((InputStream) Preconditions.checkNotNull(inputStream), (OutputStream) Preconditions.checkNotNull(outputStream), i2);
     }
 
     @Override // com.facebook.imagepipeline.nativecode.WebpTranscoder

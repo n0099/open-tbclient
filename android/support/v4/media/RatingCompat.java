@@ -21,8 +21,8 @@ public final class RatingCompat implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public RatingCompat[] newArray(int i) {
-            return new RatingCompat[i];
+        public RatingCompat[] newArray(int i2) {
+            return new RatingCompat[i2];
         }
     };
     public static final int RATING_3_STARS = 3;
@@ -50,8 +50,8 @@ public final class RatingCompat implements Parcelable {
     public @interface Style {
     }
 
-    public RatingCompat(int i, float f2) {
-        this.mRatingStyle = i;
+    public RatingCompat(int i2, float f2) {
+        this.mRatingStyle = i2;
         this.mRatingValue = f2;
     }
 
@@ -99,20 +99,20 @@ public final class RatingCompat implements Parcelable {
         return null;
     }
 
-    public static RatingCompat newStarRating(int i, float f2) {
+    public static RatingCompat newStarRating(int i2, float f2) {
         float f3;
-        if (i == 3) {
+        if (i2 == 3) {
             f3 = 3.0f;
-        } else if (i == 4) {
+        } else if (i2 == 4) {
             f3 = 4.0f;
-        } else if (i != 5) {
-            Log.e(TAG, "Invalid rating style (" + i + ") for a star rating");
+        } else if (i2 != 5) {
+            Log.e(TAG, "Invalid rating style (" + i2 + ") for a star rating");
             return null;
         } else {
             f3 = 5.0f;
         }
         if (f2 >= 0.0f && f2 <= f3) {
-            return new RatingCompat(i, f2);
+            return new RatingCompat(i2, f2);
         }
         Log.e(TAG, "Trying to set out of range star-based rating");
         return null;
@@ -122,15 +122,15 @@ public final class RatingCompat implements Parcelable {
         return new RatingCompat(2, z ? 1.0f : 0.0f);
     }
 
-    public static RatingCompat newUnratedRating(int i) {
-        switch (i) {
+    public static RatingCompat newUnratedRating(int i2) {
+        switch (i2) {
             case 1:
             case 2:
             case 3:
             case 4:
             case 5:
             case 6:
-                return new RatingCompat(i, -1.0f);
+                return new RatingCompat(i2, -1.0f);
             default:
                 return null;
         }
@@ -151,8 +151,8 @@ public final class RatingCompat implements Parcelable {
     public Object getRating() {
         if (this.mRatingObj == null && Build.VERSION.SDK_INT >= 19) {
             if (isRated()) {
-                int i = this.mRatingStyle;
-                switch (i) {
+                int i2 = this.mRatingStyle;
+                switch (i2) {
                     case 1:
                         this.mRatingObj = Rating.newHeartRating(hasHeart());
                         break;
@@ -162,7 +162,7 @@ public final class RatingCompat implements Parcelable {
                     case 3:
                     case 4:
                     case 5:
-                        this.mRatingObj = Rating.newStarRating(i, getStarRating());
+                        this.mRatingObj = Rating.newStarRating(i2, getStarRating());
                         break;
                     case 6:
                         this.mRatingObj = Rating.newPercentageRating(getPercentRating());
@@ -182,8 +182,8 @@ public final class RatingCompat implements Parcelable {
     }
 
     public float getStarRating() {
-        int i = this.mRatingStyle;
-        if ((i == 3 || i == 4 || i == 5) && isRated()) {
+        int i2 = this.mRatingStyle;
+        if ((i2 == 3 || i2 == 4 || i2 == 5) && isRated()) {
             return this.mRatingValue;
         }
         return -1.0f;
@@ -212,7 +212,7 @@ public final class RatingCompat implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.mRatingStyle);
         parcel.writeFloat(this.mRatingValue);
     }

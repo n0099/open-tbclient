@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.enterForum.data.HotSearchInfoData;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.squareup.wire.Wire;
-import d.b.i0.r.r.a;
+import d.a.i0.r.r.a;
 import java.util.List;
 import tbclient.Error;
 import tbclient.ForumCreateInfo;
@@ -29,8 +29,8 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     public List<FrsTabInfo> tabFeedList;
     public Integer time;
 
-    public forumRecommendHttpResponseMessage(int i) {
-        super(i);
+    public forumRecommendHttpResponseMessage(int i2) {
+        super(i2);
         this.sortType = 0;
     }
 
@@ -80,7 +80,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
         if (bArr == null || bArr.length <= 0 || getError() != 0) {
             return;
         }
@@ -89,7 +89,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         ForumRecommendResIdl forumRecommendResIdl;
         DataRes dataRes;
         String str;

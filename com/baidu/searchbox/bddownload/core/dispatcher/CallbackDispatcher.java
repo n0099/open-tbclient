@@ -3,6 +3,7 @@ package com.baidu.searchbox.bddownload.core.dispatcher;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.bddownload.BdDownload;
@@ -13,7 +14,10 @@ import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
 import com.baidu.searchbox.bddownload.core.cause.EndCause;
 import com.baidu.searchbox.bddownload.core.cause.ResumeFailedCause;
 import com.baidu.searchbox.bddownload.core.listener.DownloadListener;
+import com.baidu.searchbox.bddownload.statistic.StatisticManager;
+import com.baidu.searchbox.bddownload.statistic.StatisticsInfo;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -33,47 +37,47 @@ public class CallbackDispatcher {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void connectEnd(@NonNull final DownloadTask downloadTask, final int i, final int i2, @NonNull final Map<String, List<String>> map) {
-            Util.d(CallbackDispatcher.TAG, "<----- finish connection task(" + downloadTask.getId() + ") block(" + i + ") code[" + i2 + "]" + map);
+        public void connectEnd(@NonNull final DownloadTask downloadTask, final int i2, final int i3, @NonNull final Map<String, List<String>> map) {
+            Util.d(CallbackDispatcher.TAG, "<----- finish connection task(" + downloadTask.getId() + ") block(" + i2 + ") code[" + i3 + "]" + map);
             if (downloadTask.isAutoCallbackToUIThread()) {
                 this.uiHandler.post(new Runnable() { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.7
                     @Override // java.lang.Runnable
                     public void run() {
-                        downloadTask.getListener().connectEnd(downloadTask, i, i2, map);
+                        downloadTask.getListener().connectEnd(downloadTask, i2, i3, map);
                     }
                 });
             } else {
-                downloadTask.getListener().connectEnd(downloadTask, i, i2, map);
+                downloadTask.getListener().connectEnd(downloadTask, i2, i3, map);
             }
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void connectStart(@NonNull final DownloadTask downloadTask, final int i, @NonNull final Map<String, List<String>> map) {
-            Util.d(CallbackDispatcher.TAG, "-----> start connection task(" + downloadTask.getId() + ") block(" + i + ") " + map);
+        public void connectStart(@NonNull final DownloadTask downloadTask, final int i2, @NonNull final Map<String, List<String>> map) {
+            Util.d(CallbackDispatcher.TAG, "-----> start connection task(" + downloadTask.getId() + ") block(" + i2 + ") " + map);
             if (downloadTask.isAutoCallbackToUIThread()) {
                 this.uiHandler.post(new Runnable() { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.6
                     @Override // java.lang.Runnable
                     public void run() {
-                        downloadTask.getListener().connectStart(downloadTask, i, map);
+                        downloadTask.getListener().connectStart(downloadTask, i2, map);
                     }
                 });
             } else {
-                downloadTask.getListener().connectStart(downloadTask, i, map);
+                downloadTask.getListener().connectStart(downloadTask, i2, map);
             }
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void connectTrialEnd(@NonNull final DownloadTask downloadTask, final int i, @NonNull final Map<String, List<String>> map) {
-            Util.d(CallbackDispatcher.TAG, "<----- finish trial task(" + downloadTask.getId() + ") code[" + i + "]" + map);
+        public void connectTrialEnd(@NonNull final DownloadTask downloadTask, final int i2, @NonNull final Map<String, List<String>> map) {
+            Util.d(CallbackDispatcher.TAG, "<----- finish trial task(" + downloadTask.getId() + ") code[" + i2 + "]" + map);
             if (downloadTask.isAutoCallbackToUIThread()) {
                 this.uiHandler.post(new Runnable() { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        downloadTask.getListener().connectTrialEnd(downloadTask, i, map);
+                        downloadTask.getListener().connectTrialEnd(downloadTask, i2, map);
                     }
                 });
             } else {
-                downloadTask.getListener().connectTrialEnd(downloadTask, i, map);
+                downloadTask.getListener().connectTrialEnd(downloadTask, i2, map);
             }
         }
 
@@ -122,25 +126,33 @@ public class CallbackDispatcher {
             } else {
                 downloadTask.getListener().downloadFromBreakpoint(downloadTask, breakpointInfo);
             }
+            StatisticsInfo.Builder builder = new StatisticsInfo.Builder();
+            builder.buildDownloadUrl(downloadTask.getUrl());
+            String mimeType = downloadTask.getInfo() != null ? downloadTask.getInfo().getMimeType() : "";
+            if (TextUtils.isEmpty(mimeType)) {
+                mimeType = "unknown";
+            }
+            builder.buildFileType(mimeType);
+            StatisticManager.Companion.get().downloadResumeReport(builder.build());
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void fetchEnd(@NonNull final DownloadTask downloadTask, final int i, final long j) {
+        public void fetchEnd(@NonNull final DownloadTask downloadTask, final int i2, final long j) {
             Util.d(CallbackDispatcher.TAG, "fetchEnd: " + downloadTask.getId());
             if (downloadTask.isAutoCallbackToUIThread()) {
                 this.uiHandler.post(new Runnable() { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.10
                     @Override // java.lang.Runnable
                     public void run() {
-                        downloadTask.getListener().fetchEnd(downloadTask, i, j);
+                        downloadTask.getListener().fetchEnd(downloadTask, i2, j);
                     }
                 });
             } else {
-                downloadTask.getListener().fetchEnd(downloadTask, i, j);
+                downloadTask.getListener().fetchEnd(downloadTask, i2, j);
             }
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void fetchProgress(@NonNull final DownloadTask downloadTask, final int i, final long j) {
+        public void fetchProgress(@NonNull final DownloadTask downloadTask, final int i2, final long j) {
             if (downloadTask.getMinIntervalMillisCallbackProcess() > 0) {
                 DownloadTask.TaskHideWrapper.setLastCallbackProcessTs(downloadTask, SystemClock.uptimeMillis());
                 DownloadTask.TaskHideWrapper.setSpeedIncreaseBytes(downloadTask, j);
@@ -149,26 +161,26 @@ public class CallbackDispatcher {
                 this.uiHandler.post(new Runnable() { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.9
                     @Override // java.lang.Runnable
                     public void run() {
-                        downloadTask.getListener().fetchProgress(downloadTask, i, j);
+                        downloadTask.getListener().fetchProgress(downloadTask, i2, j);
                     }
                 });
             } else {
-                downloadTask.getListener().fetchProgress(downloadTask, i, j);
+                downloadTask.getListener().fetchProgress(downloadTask, i2, j);
             }
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void fetchStart(@NonNull final DownloadTask downloadTask, final int i, final long j) {
+        public void fetchStart(@NonNull final DownloadTask downloadTask, final int i2, final long j) {
             Util.d(CallbackDispatcher.TAG, "fetchStart: " + downloadTask.getId());
             if (downloadTask.isAutoCallbackToUIThread()) {
                 this.uiHandler.post(new Runnable() { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.8
                     @Override // java.lang.Runnable
                     public void run() {
-                        downloadTask.getListener().fetchStart(downloadTask, i, j);
+                        downloadTask.getListener().fetchStart(downloadTask, i2, j);
                     }
                 });
             } else {
-                downloadTask.getListener().fetchStart(downloadTask, i, j);
+                downloadTask.getListener().fetchStart(downloadTask, i2, j);
             }
         }
 
@@ -216,6 +228,26 @@ public class CallbackDispatcher {
             } else {
                 downloadTask.getListener().taskEnd(downloadTask, endCause, exc);
             }
+            StatisticsInfo.Builder builder = new StatisticsInfo.Builder();
+            builder.buildDownloadUrl(downloadTask.getUrl());
+            String mimeType = downloadTask.getInfo() != null ? downloadTask.getInfo().getMimeType() : "";
+            if (TextUtils.isEmpty(mimeType)) {
+                mimeType = "unknown";
+            }
+            builder.buildFileType(mimeType);
+            if (endCause == EndCause.ERROR && exc != null) {
+                HashMap<String, String> hashMap = new HashMap<>();
+                hashMap.put("cause", exc.toString());
+                builder.buildExtraInfo(hashMap);
+            }
+            StatisticsInfo build = builder.build();
+            if (endCause == EndCause.CANCELED) {
+                StatisticManager.Companion.get().downloadPauseReport(build);
+            } else if (endCause == EndCause.COMPLETED) {
+                StatisticManager.Companion.get().downloadSuccessReport(build);
+            } else {
+                StatisticManager.Companion.get().downloadFailedReport(build);
+            }
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
@@ -232,6 +264,14 @@ public class CallbackDispatcher {
             } else {
                 downloadTask.getListener().taskStart(downloadTask);
             }
+            StatisticsInfo.Builder builder = new StatisticsInfo.Builder();
+            builder.buildDownloadUrl(downloadTask.getUrl());
+            String mimeType = downloadTask.getInfo() != null ? downloadTask.getInfo().getMimeType() : "";
+            if (TextUtils.isEmpty(mimeType)) {
+                mimeType = "unknown";
+            }
+            builder.buildFileType(mimeType);
+            StatisticManager.Companion.get().downloadStartReport(builder.build());
         }
     }
 

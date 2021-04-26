@@ -91,11 +91,11 @@ public final class WebSocketWriter {
         throw new NullPointerException("random == null");
     }
 
-    private void writeControlFrame(int i, ByteString byteString) throws IOException {
+    private void writeControlFrame(int i2, ByteString byteString) throws IOException {
         if (!this.writerClosed) {
             int size = byteString.size();
             if (size <= 125) {
-                this.sinkBuffer.writeByte(i | 128);
+                this.sinkBuffer.writeByte(i2 | 128);
                 if (this.isClient) {
                     this.sinkBuffer.writeByte(size | 128);
                     this.random.nextBytes(this.maskKey);
@@ -120,11 +120,11 @@ public final class WebSocketWriter {
         throw new IOException("closed");
     }
 
-    public Sink newMessageSink(int i, long j) {
+    public Sink newMessageSink(int i2, long j) {
         if (!this.activeWriter) {
             this.activeWriter = true;
             FrameSink frameSink = this.frameSink;
-            frameSink.formatOpcode = i;
+            frameSink.formatOpcode = i2;
             frameSink.contentLength = j;
             frameSink.isFirstFrame = true;
             frameSink.closed = false;
@@ -133,14 +133,14 @@ public final class WebSocketWriter {
         throw new IllegalStateException("Another message writer is active. Did you call close()?");
     }
 
-    public void writeClose(int i, ByteString byteString) throws IOException {
+    public void writeClose(int i2, ByteString byteString) throws IOException {
         ByteString byteString2 = ByteString.EMPTY;
-        if (i != 0 || byteString != null) {
-            if (i != 0) {
-                WebSocketProtocol.validateCloseCode(i);
+        if (i2 != 0 || byteString != null) {
+            if (i2 != 0) {
+                WebSocketProtocol.validateCloseCode(i2);
             }
             Buffer buffer = new Buffer();
-            buffer.writeShort(i);
+            buffer.writeShort(i2);
             if (byteString != null) {
                 buffer.write(byteString);
             }
@@ -153,23 +153,23 @@ public final class WebSocketWriter {
         }
     }
 
-    public void writeMessageFrame(int i, long j, boolean z, boolean z2) throws IOException {
+    public void writeMessageFrame(int i2, long j, boolean z, boolean z2) throws IOException {
         if (!this.writerClosed) {
             if (!z) {
-                i = 0;
+                i2 = 0;
             }
             if (z2) {
-                i |= 128;
+                i2 |= 128;
             }
-            this.sinkBuffer.writeByte(i);
-            int i2 = this.isClient ? 128 : 0;
+            this.sinkBuffer.writeByte(i2);
+            int i3 = this.isClient ? 128 : 0;
             if (j <= 125) {
-                this.sinkBuffer.writeByte(((int) j) | i2);
+                this.sinkBuffer.writeByte(((int) j) | i3);
             } else if (j <= WebSocketProtocol.PAYLOAD_SHORT_MAX) {
-                this.sinkBuffer.writeByte(i2 | 126);
+                this.sinkBuffer.writeByte(i3 | 126);
                 this.sinkBuffer.writeShort((int) j);
             } else {
-                this.sinkBuffer.writeByte(i2 | 127);
+                this.sinkBuffer.writeByte(i3 | 127);
                 this.sinkBuffer.writeLong(j);
             }
             if (this.isClient) {

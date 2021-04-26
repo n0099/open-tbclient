@@ -1,61 +1,63 @@
 package com.win.opensdk;
 
-import android.content.Context;
-import android.view.MotionEvent;
+import android.graphics.Rect;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import com.win.opensdk.core.Info;
-/* loaded from: classes7.dex */
-public class m0 implements View.OnTouchListener {
+/* loaded from: classes6.dex */
+public class m0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p0 f40357a;
+    public View f37906a;
 
-    public m0(p0 p0Var) {
-        this.f40357a = p0Var;
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f37907b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public l0 f37908c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Info f37909d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Handler f37910e = new j0(this, Looper.getMainLooper());
+
+    public void a(View view, Info info, l0 l0Var) {
+        this.f37906a = view;
+        this.f37908c = l0Var;
+        this.f37909d = info;
+        try {
+            if (!this.f37907b) {
+                this.f37910e.sendEmptyMessage(1101);
+            }
+            this.f37906a.getViewTreeObserver().addOnScrollChangedListener(new k0(this, l0Var));
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        Info info;
-        int action = motionEvent.getAction();
-        if (action == 0) {
-            this.f40357a.j = true;
-            this.f40357a.k = System.currentTimeMillis();
-            this.f40357a.l = motionEvent.getX();
-            this.f40357a.m = motionEvent.getY();
-            this.f40357a.n = (int) motionEvent.getRawX();
-            this.f40357a.o = (int) motionEvent.getRawY();
-            this.f40357a.p = (int) motionEvent.getX();
-            this.f40357a.q = (int) motionEvent.getY();
-            this.f40357a.v = System.currentTimeMillis();
-            p0.a(this.f40357a, view);
-        } else if (action == 1) {
-            this.f40357a.w = (int) motionEvent.getRawX();
-            this.f40357a.x = (int) motionEvent.getRawY();
-            this.f40357a.r = (int) motionEvent.getX();
-            this.f40357a.s = (int) motionEvent.getY();
-            this.f40357a.y = System.currentTimeMillis();
-            Math.abs(motionEvent.getX() - this.f40357a.l);
-            Math.abs(motionEvent.getY() - this.f40357a.m);
-            if (System.currentTimeMillis() - this.f40357a.k < 2000) {
-                p0 p0Var = this.f40357a;
-                if (p0Var.j && (info = p0Var.f40391c) != null && R1.a(info, p0Var.f40396h)) {
-                    this.f40357a.f40396h = System.currentTimeMillis();
-                    p0 p0Var2 = this.f40357a;
-                    Context context = p0Var2.f40389a;
-                    String open = p0Var2.f40391c.getOpen();
-                    p0 p0Var3 = this.f40357a;
-                    R1.a(context, open, p0Var3.f40391c, p0Var3.f40395g, p0Var3.d().toString());
-                    a1.a(this.f40357a.f40389a).a(new b1(this.f40357a.f40391c), (String) null).a("desc", this.f40357a.d().toString()).a();
-                    p0 p0Var4 = this.f40357a;
-                    G.a(p0Var4.f40391c, p0Var4.d().toString());
-                    PBNativeListener pBNativeListener = this.f40357a.f40394f;
-                    if (pBNativeListener != null) {
-                        pBNativeListener.onClicked();
-                    }
+    /* JADX WARN: Removed duplicated region for block: B:18:0x004b A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:21:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean a(View view) {
+        boolean z;
+        if (view == null || !view.isShown()) {
+            return false;
+        }
+        Rect rect = new Rect();
+        if (view.getGlobalVisibleRect(rect) && this.f37909d != null) {
+            if (rect.width() >= this.f37909d.getSper() * view.getMeasuredWidth()) {
+                if (rect.height() >= this.f37909d.getSper() * view.getMeasuredHeight()) {
+                    z = false;
+                    return z;
                 }
             }
         }
-        return true;
+        z = true;
+        if (z) {
+        }
     }
 }

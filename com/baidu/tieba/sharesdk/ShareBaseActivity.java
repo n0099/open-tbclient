@@ -3,13 +3,13 @@ package com.baidu.tieba.sharesdk;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class ShareBaseActivity extends BaseActivity<ShareBaseActivity> {
-    public void finishWithResult(int i, int i2, Bundle bundle, String str) {
+    public void finishWithResult(int i2, int i3, Bundle bundle, String str) {
         Intent intent = new Intent();
-        intent.putExtra("extra_show_channel", i);
-        intent.putExtra("extra_share_status", i2);
-        intent.putExtra("share_to", String.valueOf(i));
+        intent.putExtra("extra_show_channel", i2);
+        intent.putExtra("extra_share_status", i3);
+        intent.putExtra("share_to", String.valueOf(i2));
         if (bundle != null) {
             intent.putExtra("tid", bundle.getString("tid"));
             intent.putExtra("pid", bundle.getString("pid"));

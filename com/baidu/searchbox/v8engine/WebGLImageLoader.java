@@ -11,7 +11,7 @@ import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.searchbox.v8engine.util.BitmapReferenceMap;
 import com.baidu.searchbox.v8engine.util.DeviceInfo;
 import com.baidu.smallgame.sdk.Log;
-import d.b.e0.a.e.a;
+import d.a.e0.a.e.a;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -170,12 +170,12 @@ public class WebGLImageLoader {
         });
     }
 
-    public static void loadBitmapData(WebGLImage webGLImage, int i, Bitmap bitmap) {
+    public static void loadBitmapData(WebGLImage webGLImage, int i2, Bitmap bitmap) {
         if (bitmap != null && webGLImage.setBitmapData(bitmap)) {
-            webGLImage.onLoadSuccess(i);
+            webGLImage.onLoadSuccess(i2);
             return;
         }
-        webGLImage.onLoadFailed(i, "load bitmap failed, src is " + webGLImage.src());
+        webGLImage.onLoadFailed(i2, "load bitmap failed, src is " + webGLImage.src());
     }
 
     public static void loadCacheImage(final WebGLImage webGLImage, final Bitmap bitmap) {
@@ -215,7 +215,7 @@ public class WebGLImageLoader {
         }
     }
 
-    public static void loadImageFromConvertedSource(WebGLImage webGLImage, int i, String str, Object obj) {
+    public static void loadImageFromConvertedSource(WebGLImage webGLImage, int i2, String str, Object obj) {
         Bitmap decodeStream;
         Bitmap decodeStream2;
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -269,7 +269,7 @@ public class WebGLImageLoader {
                 imageBitmapBean.increaseRefCount();
             }
         }
-        loadBitmapData(webGLImage, i, decodeStream);
+        loadBitmapData(webGLImage, i2, decodeStream);
     }
 
     public static void loadLocalImage(final WebGLImage webGLImage) {

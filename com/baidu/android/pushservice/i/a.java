@@ -13,11 +13,11 @@ public class a {
             byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
             StringBuilder sb = new StringBuilder();
             for (byte b2 : digest) {
-                int i = b2 & 255;
-                if (i < 16) {
+                int i2 = b2 & 255;
+                if (i2 < 16) {
                     sb.append(0);
                 }
-                sb.append(Integer.toHexString(i));
+                sb.append(Integer.toHexString(i2));
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException e2) {

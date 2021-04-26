@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.enterForum.data.HotSearchInfoData;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.squareup.wire.Wire;
-import d.b.i0.r.r.a;
+import d.a.i0.r.r.a;
 import java.util.List;
 import tbclient.Error;
 import tbclient.ForumCreateInfo;
@@ -79,7 +79,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
         if (bArr == null || bArr.length <= 0 || getError() != 0) {
             return;
         }
@@ -88,7 +88,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         DataRes dataRes;
         String str;
         Integer num;

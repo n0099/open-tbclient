@@ -6,10 +6,10 @@ import com.baidu.mapapi.search.core.l;
 public class SuggestionSearch extends l {
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7375b = false;
+    public boolean f7637b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.platform.core.f.a f7374a = new com.baidu.platform.core.f.b();
+    public com.baidu.platform.core.f.a f7636a = new com.baidu.platform.core.f.b();
 
     public static SuggestionSearch newInstance() {
         BMapManager.init();
@@ -17,16 +17,16 @@ public class SuggestionSearch extends l {
     }
 
     public void destroy() {
-        if (this.f7375b) {
+        if (this.f7637b) {
             return;
         }
-        this.f7375b = true;
-        this.f7374a.a();
+        this.f7637b = true;
+        this.f7636a.a();
         BMapManager.destroy();
     }
 
     public boolean requestSuggestion(SuggestionSearchOption suggestionSearchOption) {
-        com.baidu.platform.core.f.a aVar = this.f7374a;
+        com.baidu.platform.core.f.a aVar = this.f7636a;
         if (aVar != null) {
             if (suggestionSearchOption == null || suggestionSearchOption.mKeyword == null || suggestionSearchOption.mCity == null) {
                 throw new IllegalArgumentException("option or keyword or city can not be null");
@@ -37,7 +37,7 @@ public class SuggestionSearch extends l {
     }
 
     public void setOnGetSuggestionResultListener(OnGetSuggestionResultListener onGetSuggestionResultListener) {
-        com.baidu.platform.core.f.a aVar = this.f7374a;
+        com.baidu.platform.core.f.a aVar = this.f7636a;
         if (aVar == null) {
             throw new IllegalStateException("suggestionsearch is null, please call newInstance() first.");
         }

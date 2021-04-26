@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public final class Md5Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f5413a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static char[] f5551a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static synchronized String a(byte[] bArr) {
         String sb;
@@ -93,7 +93,7 @@ public final class Md5Utils {
     }
 
     public static String getMd5FromInputStream(InputStream inputStream) {
-        int i;
+        int i2;
         StringBuilder sb = new StringBuilder();
         try {
             MessageDigest a2 = a();
@@ -159,8 +159,8 @@ public final class Md5Utils {
                 arrayList.add(keys.next());
             }
             Collections.sort(arrayList);
-            for (int i = 0; i < arrayList.size(); i++) {
-                String str3 = (String) arrayList.get(i);
+            for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                String str3 = (String) arrayList.get(i2);
                 String optString = jSONObject.optString(str3);
                 sb.append(str3 + "=" + optString + str2);
             }
@@ -199,14 +199,14 @@ public final class Md5Utils {
 
     public static String a(byte[] bArr, Character ch) {
         StringBuffer stringBuffer = new StringBuffer(bArr.length * (ch == null ? 2 : 3));
-        for (int i = 0; i < bArr.length; i++) {
-            int i2 = (bArr[i] >>> 4) & 15;
-            int i3 = bArr[i] & 15;
-            if (i > 0 && ch != null) {
+        for (int i2 = 0; i2 < bArr.length; i2++) {
+            int i3 = (bArr[i2] >>> 4) & 15;
+            int i4 = bArr[i2] & 15;
+            if (i2 > 0 && ch != null) {
                 stringBuffer.append(ch.charValue());
             }
-            stringBuffer.append(f5413a[i2]);
-            stringBuffer.append(f5413a[i3]);
+            stringBuffer.append(f5551a[i3]);
+            stringBuffer.append(f5551a[i4]);
         }
         return stringBuffer.toString();
     }

@@ -12,16 +12,16 @@ import java.lang.reflect.Field;
 public class TbViewPager extends ViewPager {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13797e;
+    public boolean f13812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f13798f;
+    public float f13813f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13799g;
+    public int f13814g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13800h;
+    public int f13815h;
 
     /* loaded from: classes3.dex */
     public class a extends Scroller {
@@ -40,38 +40,44 @@ public class TbViewPager extends ViewPager {
         }
 
         @Override // android.widget.Scroller
-        public void startScroll(int i, int i2, int i3, int i4, int i5) {
-            super.startScroll(i, i2, i3, i4, TbViewPager.this.f13800h);
+        public void startScroll(int i2, int i3, int i4, int i5, int i6) {
+            super.startScroll(i2, i3, i4, i5, TbViewPager.this.f13815h);
         }
 
         @Override // android.widget.Scroller
-        public void startScroll(int i, int i2, int i3, int i4) {
-            super.startScroll(i, i2, i3, i4, TbViewPager.this.f13800h);
+        public void startScroll(int i2, int i3, int i4, int i5) {
+            super.startScroll(i2, i3, i4, i5, TbViewPager.this.f13815h);
         }
     }
 
     public TbViewPager(Context context) {
         super(context);
-        this.f13797e = false;
-        this.f13800h = 600;
-        c();
+        this.f13812e = false;
+        this.f13815h = 600;
+        b();
     }
 
-    public final void c() {
-        this.f13799g = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
+    public final void b() {
+        this.f13814g = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
     }
 
-    public final boolean d(MotionEvent motionEvent) {
+    public final boolean c(MotionEvent motionEvent) {
         int action = (motionEvent.getAction() & 65280) >> 8;
         return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
     }
 
+    public final void d(boolean z) {
+        if (getParent() != null) {
+            getParent().requestDisallowInterceptTouchEvent(z);
+        }
+    }
+
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (d(motionEvent)) {
+        if (c(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.f13797e) {
+        if (motionEvent.getPointerCount() > 1 && this.f13812e) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -84,19 +90,13 @@ public class TbViewPager extends ViewPager {
         }
     }
 
-    public final void e(boolean z) {
-        if (getParent() != null) {
-            getParent().requestDisallowInterceptTouchEvent(z);
-        }
-    }
-
     public int getScrollingDuration() {
-        return this.f13800h;
+        return this.f13815h;
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (d(motionEvent)) {
+        if (c(motionEvent)) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -116,25 +116,25 @@ public class TbViewPager extends ViewPager {
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    float x = motionEvent.getX() - this.f13798f;
+                    float x = motionEvent.getX() - this.f13813f;
                     if (getCurrentItem() == 0) {
-                        if (x >= this.f13799g) {
-                            e(false);
+                        if (x >= this.f13814g) {
+                            d(false);
                         } else {
-                            e(true);
+                            d(true);
                         }
                     } else if (getCurrentItem() == getAdapter().getCount() - 1) {
-                        if (x <= (-this.f13799g)) {
-                            e(false);
+                        if (x <= (-this.f13814g)) {
+                            d(false);
                         } else {
-                            e(true);
+                            d(true);
                         }
                     }
                 } else if (action != 3) {
                     if (action != 5) {
                     }
                 }
-                if (d(motionEvent)) {
+                if (c(motionEvent)) {
                     return true;
                 }
                 try {
@@ -143,25 +143,25 @@ public class TbViewPager extends ViewPager {
                     return true;
                 }
             }
-            e(false);
-            this.f13798f = 0.0f;
-            if (d(motionEvent)) {
+            d(false);
+            this.f13813f = 0.0f;
+            if (c(motionEvent)) {
             }
         }
-        e(true);
-        this.f13798f = motionEvent.getX();
-        if (d(motionEvent)) {
+        d(true);
+        this.f13813f = motionEvent.getX();
+        if (c(motionEvent)) {
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.f13797e = z;
+        this.f13812e = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
-    public void setViewPagerScroll(int i) {
-        this.f13800h = i;
+    public void setViewPagerScroll(int i2) {
+        this.f13815h = i2;
         new a(getContext()).a(this);
     }
 
@@ -171,8 +171,8 @@ public class TbViewPager extends ViewPager {
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13797e = false;
-        this.f13800h = 600;
-        c();
+        this.f13812e = false;
+        this.f13815h = 600;
+        b();
     }
 }

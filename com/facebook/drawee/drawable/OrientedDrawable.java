@@ -7,7 +7,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class OrientedDrawable extends ForwardingDrawable {
     public int mExifOrientation;
     public int mRotationAngle;
@@ -16,14 +16,14 @@ public class OrientedDrawable extends ForwardingDrawable {
     public final Matrix mTempMatrix;
     public final RectF mTempRectF;
 
-    public OrientedDrawable(Drawable drawable, int i) {
-        this(drawable, i, 0);
+    public OrientedDrawable(Drawable drawable, int i2) {
+        this(drawable, i2, 0);
     }
 
     @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        int i;
-        if (this.mRotationAngle <= 0 && ((i = this.mExifOrientation) == 0 || i == 1)) {
+        int i2;
+        if (this.mRotationAngle <= 0 && ((i2 = this.mExifOrientation) == 0 || i2 == 1)) {
             super.draw(canvas);
             return;
         }
@@ -35,8 +35,8 @@ public class OrientedDrawable extends ForwardingDrawable {
 
     @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        int i = this.mExifOrientation;
-        if (i != 5 && i != 7 && this.mRotationAngle % 180 == 0) {
+        int i2 = this.mExifOrientation;
+        if (i2 != 5 && i2 != 7 && this.mRotationAngle % 180 == 0) {
             return super.getIntrinsicHeight();
         }
         return super.getIntrinsicWidth();
@@ -44,8 +44,8 @@ public class OrientedDrawable extends ForwardingDrawable {
 
     @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        int i = this.mExifOrientation;
-        if (i != 5 && i != 7 && this.mRotationAngle % 180 == 0) {
+        int i2 = this.mExifOrientation;
+        if (i2 != 5 && i2 != 7 && this.mRotationAngle % 180 == 0) {
             return super.getIntrinsicWidth();
         }
         return super.getIntrinsicHeight();
@@ -62,21 +62,21 @@ public class OrientedDrawable extends ForwardingDrawable {
 
     @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
-        int i;
+        int i2;
         Drawable current = getCurrent();
-        if (this.mRotationAngle <= 0 && ((i = this.mExifOrientation) == 0 || i == 1)) {
+        if (this.mRotationAngle <= 0 && ((i2 = this.mExifOrientation) == 0 || i2 == 1)) {
             current.setBounds(rect);
             return;
         }
-        int i2 = this.mExifOrientation;
-        if (i2 == 2) {
+        int i3 = this.mExifOrientation;
+        if (i3 == 2) {
             this.mRotationMatrix.setScale(-1.0f, 1.0f);
-        } else if (i2 == 7) {
+        } else if (i3 == 7) {
             this.mRotationMatrix.setRotate(270.0f, rect.centerX(), rect.centerY());
             this.mRotationMatrix.postScale(-1.0f, 1.0f);
-        } else if (i2 == 4) {
+        } else if (i3 == 4) {
             this.mRotationMatrix.setScale(1.0f, -1.0f);
-        } else if (i2 != 5) {
+        } else if (i3 != 5) {
             this.mRotationMatrix.setRotate(this.mRotationAngle, rect.centerX(), rect.centerY());
         } else {
             this.mRotationMatrix.setRotate(270.0f, rect.centerX(), rect.centerY());
@@ -90,15 +90,15 @@ public class OrientedDrawable extends ForwardingDrawable {
         current.setBounds((int) rectF.left, (int) rectF.top, (int) rectF.right, (int) rectF.bottom);
     }
 
-    public OrientedDrawable(Drawable drawable, int i, int i2) {
+    public OrientedDrawable(Drawable drawable, int i2, int i3) {
         super(drawable);
         this.mTempMatrix = new Matrix();
         this.mTempRectF = new RectF();
         boolean z = true;
-        Preconditions.checkArgument(i % 90 == 0);
-        Preconditions.checkArgument((i2 < 0 || i2 > 8) ? false : false);
+        Preconditions.checkArgument(i2 % 90 == 0);
+        Preconditions.checkArgument((i3 < 0 || i3 > 8) ? false : false);
         this.mRotationMatrix = new Matrix();
-        this.mRotationAngle = i;
-        this.mExifOrientation = i2;
+        this.mRotationAngle = i2;
+        this.mExifOrientation = i3;
     }
 }

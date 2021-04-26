@@ -7,23 +7,23 @@ import java.util.List;
 public class s implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ArBridge.d f4245a;
+    public final /* synthetic */ ArBridge.d f4315a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ ArBridge f4246b;
+    public final /* synthetic */ ArBridge f4316b;
 
     public s(ArBridge arBridge, ArBridge.d dVar) {
-        this.f4246b = arBridge;
-        this.f4245a = dVar;
+        this.f4316b = arBridge;
+        this.f4315a = dVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         List list;
-        list = this.f4246b.f4117e;
+        list = this.f4316b.f4180e;
         Iterator it = list.iterator();
         while (it.hasNext()) {
-            if (((ArBridge.a) it.next()).f4123c == this.f4245a) {
+            if (((ArBridge.a) it.next()).f4187c == this.f4315a) {
                 it.remove();
             }
         }

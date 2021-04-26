@@ -7,8 +7,8 @@ public class LabelRecommendActivityConfig extends IntentConfig {
     public static final int FROM_FIRST_ACTIVATE = 1;
     public static final int FROM_WEAK_INTEREST = 2;
 
-    public LabelRecommendActivityConfig(Context context, int i) {
+    public LabelRecommendActivityConfig(Context context, int i2) {
         super(context);
-        getIntent().putExtra("from", i);
+        getIntent().putExtra("from", i2);
     }
 }

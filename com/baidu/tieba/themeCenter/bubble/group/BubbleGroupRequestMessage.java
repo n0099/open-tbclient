@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.bubble.group;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.GetBubbleByCategory.DataReq;
 import tbclient.GetBubbleByCategory.GetBubbleByCategoryReqIdl;
 /* loaded from: classes5.dex */

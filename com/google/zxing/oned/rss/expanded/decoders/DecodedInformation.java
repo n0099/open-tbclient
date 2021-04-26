@@ -5,8 +5,8 @@ public final class DecodedInformation extends DecodedObject {
     public final boolean remaining;
     public final int remainingValue;
 
-    public DecodedInformation(int i, String str) {
-        super(i);
+    public DecodedInformation(int i2, String str) {
+        super(i2);
         this.newString = str;
         this.remaining = false;
         this.remainingValue = 0;
@@ -24,10 +24,10 @@ public final class DecodedInformation extends DecodedObject {
         return this.remaining;
     }
 
-    public DecodedInformation(int i, String str, int i2) {
-        super(i);
+    public DecodedInformation(int i2, String str, int i3) {
+        super(i2);
         this.remaining = true;
-        this.remainingValue = i2;
+        this.remainingValue = i3;
         this.newString = str;
     }
 }

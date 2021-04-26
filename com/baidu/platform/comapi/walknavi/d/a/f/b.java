@@ -20,30 +20,30 @@ import java.util.zip.ZipFile;
 public class b extends AsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9553a;
+    public String f9910a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9554b;
+    public int f9911b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<String> f9555c;
+    public a<String> f9912c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9556d = false;
+    public boolean f9913d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f9557e;
+    public boolean f9914e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9558f;
+    public String f9915f;
 
-    public b(String str, int i, boolean z, a<String> aVar) {
-        this.f9553a = "";
-        this.f9554b = 0;
-        this.f9553a = str;
-        this.f9554b = i;
-        this.f9555c = aVar;
-        this.f9557e = z;
+    public b(String str, int i2, boolean z, a<String> aVar) {
+        this.f9910a = "";
+        this.f9911b = 0;
+        this.f9910a = str;
+        this.f9911b = i2;
+        this.f9912c = aVar;
+        this.f9914e = z;
     }
 
     private int b(String str) {
@@ -95,7 +95,7 @@ public class b extends AsyncTask<String, Integer, String> {
         String substring = str.substring(0, str.length() - 4);
         File file2 = new File(substring);
         String a2 = k.a(str);
-        if (this.f9557e) {
+        if (this.f9914e) {
             if (file2.exists()) {
                 com.baidu.platform.comapi.walknavi.d.a.g.f.a(file2);
             }
@@ -226,7 +226,7 @@ public class b extends AsyncTask<String, Integer, String> {
                     } catch (IOException unused12) {
                     }
                 }
-                if (!this.f9557e) {
+                if (!this.f9914e) {
                     com.baidu.platform.comapi.walknavi.d.a.g.f.a(a2, ".successUnzip.txt");
                 }
                 return substring;
@@ -297,7 +297,7 @@ public class b extends AsyncTask<String, Integer, String> {
     /* renamed from: a */
     public void onProgressUpdate(Integer... numArr) {
         super.onProgressUpdate(numArr);
-        a<String> aVar = this.f9555c;
+        a<String> aVar = this.f9912c;
         if (aVar != null) {
             aVar.a(numArr[0].intValue());
         }
@@ -331,8 +331,8 @@ public class b extends AsyncTask<String, Integer, String> {
             if (TextUtils.isEmpty(str2)) {
                 return null;
             }
-            this.f9558f = str2;
-            String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f9553a, this.f9554b);
+            this.f9915f = str2;
+            String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f9910a, this.f9911b);
             if (TextUtils.isEmpty(a2)) {
                 return null;
             }
@@ -345,9 +345,9 @@ public class b extends AsyncTask<String, Integer, String> {
             if (file2.exists()) {
                 try {
                     new ZipFile(str);
-                    if (!com.baidu.platform.comapi.walknavi.d.a.b.f9503a) {
-                        if (this.f9555c != null) {
-                            this.f9555c.a(false, b(str2));
+                    if (!com.baidu.platform.comapi.walknavi.d.a.b.f9859a) {
+                        if (this.f9912c != null) {
+                            this.f9912c.a(false, b(str2));
                             return "false";
                         }
                         return "false";
@@ -355,16 +355,16 @@ public class b extends AsyncTask<String, Integer, String> {
                     return c(str);
                 } catch (Exception unused) {
                     file2.delete();
-                    if (!com.baidu.platform.comapi.walknavi.d.a.b.f9503a) {
-                        a<String> aVar = this.f9555c;
+                    if (!com.baidu.platform.comapi.walknavi.d.a.b.f9859a) {
+                        a<String> aVar = this.f9912c;
                         if (aVar != null) {
                             aVar.a(true, b(str2));
                         }
                         return "true";
                     }
                 }
-            } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f9503a) {
-                a<String> aVar2 = this.f9555c;
+            } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f9859a) {
+                a<String> aVar2 = this.f9912c;
                 if (aVar2 != null) {
                     aVar2.a(true, b(str2));
                 }
@@ -394,19 +394,19 @@ public class b extends AsyncTask<String, Integer, String> {
                         randomAccessFile.seek(0L);
                         byte[] bArr = new byte[8192];
                         BufferedInputStream bufferedInputStream2 = new BufferedInputStream(openConnection.getInputStream(), 8192);
-                        int i = 0;
+                        int i2 = 0;
                         while (true) {
                             try {
                                 int read = bufferedInputStream2.read(bArr, 0, 8192);
                                 if (read != -1) {
                                     com.baidu.platform.comapi.walknavi.d.a.g.a.a("one while read start n =" + read);
                                     randomAccessFile.write(bArr, 0, read);
-                                    i += read;
-                                    int i2 = (int) ((((float) i) * 100.0f) / ((float) b2));
-                                    com.baidu.platform.comapi.walknavi.d.a.g.a.a("percentProgress = " + i2);
-                                    publishProgress(Integer.valueOf(i2));
-                                    while (this.f9556d) {
-                                        com.baidu.platform.comapi.walknavi.d.a.g.a.a("mIsPause = " + this.f9556d);
+                                    i2 += read;
+                                    int i3 = (int) ((((float) i2) * 100.0f) / ((float) b2));
+                                    com.baidu.platform.comapi.walknavi.d.a.g.a.a("percentProgress = " + i3);
+                                    publishProgress(Integer.valueOf(i3));
+                                    while (this.f9913d) {
+                                        com.baidu.platform.comapi.walknavi.d.a.g.a.a("mIsPause = " + this.f9913d);
                                         try {
                                             Thread.currentThread();
                                             Thread.sleep(500L);
@@ -416,7 +416,7 @@ public class b extends AsyncTask<String, Integer, String> {
                                     if (isCancelled()) {
                                         break;
                                     }
-                                    com.baidu.platform.comapi.walknavi.d.a.g.a.a("one while read end count = " + i);
+                                    com.baidu.platform.comapi.walknavi.d.a.g.a.a("one while read end count = " + i2);
                                 } else {
                                     bufferedInputStream2.close();
                                     break;
@@ -471,14 +471,14 @@ public class b extends AsyncTask<String, Integer, String> {
     public void onPostExecute(String str) {
         a<String> aVar;
         if (TextUtils.isEmpty(str)) {
-            a<String> aVar2 = this.f9555c;
+            a<String> aVar2 = this.f9912c;
             if (aVar2 != null) {
                 aVar2.b("download error!");
             }
-        } else if ("true".equalsIgnoreCase(str) || "false".equalsIgnoreCase(str) || (aVar = this.f9555c) == null) {
+        } else if ("true".equalsIgnoreCase(str) || "false".equalsIgnoreCase(str) || (aVar = this.f9912c) == null) {
         } else {
             aVar.a(100);
-            this.f9555c.a((a<String>) str);
+            this.f9912c.a((a<String>) str);
         }
     }
 }

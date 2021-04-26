@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.animated.base;
 
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AnimatedDrawableOptions {
     public static AnimatedDrawableOptions DEFAULTS = newBuilder().build();
     public final boolean allowPrefetching;

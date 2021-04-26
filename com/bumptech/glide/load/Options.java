@@ -44,8 +44,8 @@ public final class Options implements Key {
 
     @Override // com.bumptech.glide.load.Key
     public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        for (int i = 0; i < this.values.size(); i++) {
-            updateDiskCacheKey(this.values.keyAt(i), this.values.valueAt(i), messageDigest);
+        for (int i2 = 0; i2 < this.values.size(); i2++) {
+            updateDiskCacheKey(this.values.keyAt(i2), this.values.valueAt(i2), messageDigest);
         }
     }
 

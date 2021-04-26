@@ -23,13 +23,13 @@ public final class DrawableTransitionOptions extends TransitionOptions<DrawableT
     }
 
     @NonNull
-    public static DrawableTransitionOptions withCrossFade(int i) {
-        return new DrawableTransitionOptions().crossFade(i);
+    public static DrawableTransitionOptions withCrossFade(int i2) {
+        return new DrawableTransitionOptions().crossFade(i2);
     }
 
     @NonNull
-    public DrawableTransitionOptions crossFade(int i) {
-        return crossFade(new DrawableCrossFadeFactory.Builder(i));
+    public DrawableTransitionOptions crossFade(int i2) {
+        return crossFade(new DrawableCrossFadeFactory.Builder(i2));
     }
 
     @NonNull

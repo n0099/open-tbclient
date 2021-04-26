@@ -1,14 +1,14 @@
 package kotlin.collections;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.util.Map;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010&\n\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0006\b\u0001\u0010\u0003 \u00012\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u0002H\u0002\u0012\u0004\u0012\u0002H\u00030\u0005H\n¢\u0006\u0002\b\u0006"}, d2 = {"<anonymous>", "", "K", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, AdvanceSetting.NETWORK_TYPE, "", "invoke"}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\r\n\u0002\b\u0003\n\u0002\u0010&\n\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0006\b\u0001\u0010\u0003 \u00012\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u0002H\u0002\u0012\u0004\u0012\u0002H\u00030\u0005H\n¢\u0006\u0002\b\u0006"}, d2 = {"<anonymous>", "", "K", "V", AdvanceSetting.NETWORK_TYPE, "", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes7.dex */
-public final class AbstractMap$toString$1 extends Lambda implements Function1<Map.Entry<? extends K, ? extends V>, String> {
+public final class AbstractMap$toString$1 extends Lambda implements Function1<Map.Entry<? extends K, ? extends V>, CharSequence> {
     public final /* synthetic */ AbstractMap this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -19,9 +19,10 @@ public final class AbstractMap$toString$1 extends Lambda implements Function1<Ma
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
-    public final String invoke(Map.Entry<? extends K, ? extends V> entry) {
+    public final CharSequence invoke(Map.Entry<? extends K, ? extends V> it) {
         String abstractMap;
-        abstractMap = this.this$0.toString((Map.Entry) entry);
+        Intrinsics.checkNotNullParameter(it, "it");
+        abstractMap = this.this$0.toString((Map.Entry) it);
         return abstractMap;
     }
 }

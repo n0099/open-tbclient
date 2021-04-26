@@ -90,31 +90,31 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
             /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.imagepipeline.producers.BaseConsumer
-            public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i) {
+            public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i2) {
                 CloseableReference<CloseableImage> closeableReference2;
                 boolean isTracing;
                 try {
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.beginSection("BitmapMemoryCacheProducer#onNewResultImpl");
                     }
-                    boolean isLast = BaseConsumer.isLast(i);
+                    boolean isLast = BaseConsumer.isLast(i2);
                     if (closeableReference == null) {
                         if (isLast) {
-                            getConsumer().onNewResult(null, i);
+                            getConsumer().onNewResult(null, i2);
                         }
                         if (isTracing) {
                             return;
                         }
                         return;
                     }
-                    if (!closeableReference.get().isStateful() && !BaseConsumer.statusHasFlag(i, 8)) {
+                    if (!closeableReference.get().isStateful() && !BaseConsumer.statusHasFlag(i2, 8)) {
                         if (!isLast && (closeableReference2 = BitmapMemoryCacheProducer.this.mMemoryCache.get(cacheKey)) != null) {
                             QualityInfo qualityInfo = closeableReference.get().getQualityInfo();
                             QualityInfo qualityInfo2 = closeableReference2.get().getQualityInfo();
                             if (!qualityInfo2.isOfFullQuality() && qualityInfo2.getQuality() < qualityInfo.getQuality()) {
                                 CloseableReference.closeSafely(closeableReference2);
                             } else {
-                                getConsumer().onNewResult(closeableReference2, i);
+                                getConsumer().onNewResult(closeableReference2, i2);
                                 CloseableReference.closeSafely(closeableReference2);
                                 if (FrescoSystrace.isTracing()) {
                                     FrescoSystrace.endSection();
@@ -131,7 +131,7 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
                         if (cache != null) {
                             closeableReference = cache;
                         }
-                        consumer2.onNewResult(closeableReference, i);
+                        consumer2.onNewResult(closeableReference, i2);
                         CloseableReference.closeSafely(cache);
                         if (FrescoSystrace.isTracing()) {
                             FrescoSystrace.endSection();
@@ -139,7 +139,7 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
                         }
                         return;
                     }
-                    getConsumer().onNewResult(closeableReference, i);
+                    getConsumer().onNewResult(closeableReference, i2);
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.endSection();
                     }

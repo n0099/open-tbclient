@@ -7,14 +7,14 @@ public abstract class AbsSvgType {
     public int drawableId;
     public SvgManager.SvgResourceStateType stateType;
 
-    public AbsSvgType(int i) {
-        this.drawableId = i;
+    public AbsSvgType(int i2) {
+        this.drawableId = i2;
     }
 
     public abstract Drawable getDrawable();
 
-    public AbsSvgType(int i, SvgManager.SvgResourceStateType svgResourceStateType) {
-        this.drawableId = i;
+    public AbsSvgType(int i2, SvgManager.SvgResourceStateType svgResourceStateType) {
+        this.drawableId = i2;
         this.stateType = svgResourceStateType;
     }
 }

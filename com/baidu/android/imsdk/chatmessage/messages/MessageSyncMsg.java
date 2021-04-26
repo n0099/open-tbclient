@@ -19,8 +19,8 @@ public class MessageSyncMsg extends NotifyMsg implements Parcelable, NoProGuard 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public MessageSyncMsg[] newArray(int i) {
-            return new MessageSyncMsg[i];
+        public MessageSyncMsg[] newArray(int i2) {
+            return new MessageSyncMsg[i2];
         }
     };
     public long msgid;
@@ -57,8 +57,8 @@ public class MessageSyncMsg extends NotifyMsg implements Parcelable, NoProGuard 
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeInt(this.status);
         parcel.writeInt(this.updateTime);
         parcel.writeLong(this.msgid);

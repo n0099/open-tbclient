@@ -5,30 +5,37 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 /* loaded from: classes.dex */
 public class NestedScrollingParentHelper {
-    public int mNestedScrollAxes;
-    public final ViewGroup mViewGroup;
+    public int mNestedScrollAxesNonTouch;
+    public int mNestedScrollAxesTouch;
 
     public NestedScrollingParentHelper(@NonNull ViewGroup viewGroup) {
-        this.mViewGroup = viewGroup;
     }
 
     public int getNestedScrollAxes() {
-        return this.mNestedScrollAxes;
+        return this.mNestedScrollAxesTouch | this.mNestedScrollAxesNonTouch;
     }
 
-    public void onNestedScrollAccepted(@NonNull View view, @NonNull View view2, int i) {
-        onNestedScrollAccepted(view, view2, i, 0);
+    public void onNestedScrollAccepted(@NonNull View view, @NonNull View view2, int i2) {
+        onNestedScrollAccepted(view, view2, i2, 0);
     }
 
     public void onStopNestedScroll(@NonNull View view) {
         onStopNestedScroll(view, 0);
     }
 
-    public void onNestedScrollAccepted(@NonNull View view, @NonNull View view2, int i, int i2) {
-        this.mNestedScrollAxes = i;
+    public void onNestedScrollAccepted(@NonNull View view, @NonNull View view2, int i2, int i3) {
+        if (i3 == 1) {
+            this.mNestedScrollAxesNonTouch = i2;
+        } else {
+            this.mNestedScrollAxesTouch = i2;
+        }
     }
 
-    public void onStopNestedScroll(@NonNull View view, int i) {
-        this.mNestedScrollAxes = 0;
+    public void onStopNestedScroll(@NonNull View view, int i2) {
+        if (i2 == 1) {
+            this.mNestedScrollAxesNonTouch = 0;
+        } else {
+            this.mNestedScrollAxesTouch = 0;
+        }
     }
 }

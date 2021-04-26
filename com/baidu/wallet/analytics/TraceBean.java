@@ -36,10 +36,10 @@ public class TraceBean extends BaseBean {
             dVar.a().b("Cookie", "baiducuidHash=" + TraceBean.sBaiduCUIDHash);
             List<String> list = dVar.a().get("Cookie");
             String str = "";
-            for (int i = 0; i < list.size(); i++) {
+            for (int i2 = 0; i2 < list.size(); i2++) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
-                sb.append(list.get(i).endsWith(";") ? "" : ";" + list.get(i));
+                sb.append(list.get(i2).endsWith(";") ? "" : ";" + list.get(i2));
                 str = sb.toString();
             }
             dVar.a().a("Cookie", str.substring(1));
@@ -96,8 +96,8 @@ public class TraceBean extends BaseBean {
     public String getUrl() {
         if ("GET".equalsIgnoreCase(this.mHttpMethod)) {
             Uri.Builder buildUpon = Uri.parse("https://qianbao.baidu.com/tongji/performance/stat.jpg").buildUpon();
-            for (int i = 0; i < this.mParams.size(); i++) {
-                buildUpon.appendQueryParameter(this.mParams.get(i).getName(), this.mParams.get(i).getValue());
+            for (int i2 = 0; i2 < this.mParams.size(); i2++) {
+                buildUpon.appendQueryParameter(this.mParams.get(i2).getName(), this.mParams.get(i2).getValue());
             }
             return buildUpon.build().toString();
         }

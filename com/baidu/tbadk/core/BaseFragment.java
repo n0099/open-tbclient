@@ -35,18 +35,18 @@ import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
-import d.b.c.a.i;
-import d.b.c.j.e.q;
-import d.b.i0.d0.g;
-import d.b.i0.d0.h;
-import d.b.i0.i0.c;
-import d.b.i0.k0.d;
-import d.b.i0.k0.e;
-import d.b.i0.z0.l;
+import d.a.c.a.i;
+import d.a.c.j.e.q;
+import d.a.i0.d0.g;
+import d.a.i0.d0.h;
+import d.a.i0.i0.c;
+import d.a.i0.k0.d;
+import d.a.i0.k0.e;
+import d.a.i0.z0.l;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class BaseFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, AbsListView.OnScrollListener, d.b.i0.k0.a, i, IVideoNeedPreload, d.b.i0.i0.a {
+public abstract class BaseFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, AbsListView.OnScrollListener, d.a.i0.k0.a, i, IVideoNeedPreload, d.a.i0.i0.a {
     public static final int PRELOAD_DELAY = 100;
     public CustomToast customToast;
     public boolean isPrimary;
@@ -120,11 +120,11 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         }
     }
 
-    public void changeSkinType(int i) {
-        if (i == this.mSkinType && this.mUsedThemeId == TbadkCoreApplication.getInst().getUsedThemeId()) {
+    public void changeSkinType(int i2) {
+        if (i2 == this.mSkinType && this.mUsedThemeId == TbadkCoreApplication.getInst().getUsedThemeId()) {
             return;
         }
-        this.mSkinType = i;
+        this.mSkinType = i2;
         this.mUsedThemeId = TbadkCoreApplication.getInst().getUsedThemeId();
         onChangeSkinType(this.mSkinType);
     }
@@ -145,15 +145,15 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return this.mTag;
     }
 
-    @Override // d.b.i0.k0.a
+    @Override // d.a.i0.k0.a
     public String getCurrentPageKey() {
         return null;
     }
 
-    @Override // d.b.i0.k0.a
+    @Override // d.a.i0.k0.a
     public List<String> getCurrentPageSourceKeyList() {
-        if (getActivity() instanceof d.b.i0.k0.a) {
-            d.b.i0.k0.a aVar = (d.b.i0.k0.a) getActivity();
+        if (getActivity() instanceof d.a.i0.k0.a) {
+            d.a.i0.k0.a aVar = (d.a.i0.k0.a) getActivity();
             ArrayList arrayList = (ArrayList) aVar.getCurrentPageSourceKeyList();
             if (!StringUtils.isNull(aVar.getCurrentPageKey()) && (aVar.getPageStayFilter() == null || aVar.getPageStayFilter().isCurrentPageCanBeAddToSourceTrace())) {
                 if (ListUtils.isEmpty(arrayList)) {
@@ -181,7 +181,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return this.netRefreshListener;
     }
 
-    @Override // d.b.i0.k0.a
+    @Override // d.a.i0.k0.a
     public List<String> getNextPageSourceKeyList() {
         ArrayList arrayList;
         ArrayList arrayList2 = (ArrayList) getCurrentPageSourceKeyList();
@@ -222,8 +222,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return this.pageStayDurationItem;
     }
 
-    @Override // d.b.i0.k0.a
-    public d.b.i0.k0.b getPageStayFilter() {
+    @Override // d.a.i0.k0.a
+    public d.a.i0.k0.b getPageStayFilter() {
         return null;
     }
 
@@ -231,9 +231,9 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return getActivity();
     }
 
-    @Override // d.b.i0.i0.a
-    public d.b.i0.i0.b getTbFragmentExtra() {
-        return new d.b.i0.i0.b(this);
+    @Override // d.a.i0.i0.a
+    public d.a.i0.i0.b getTbFragmentExtra() {
+        return new d.a.i0.i0.b(this);
     }
 
     public c getTbPageExtra() {
@@ -250,7 +250,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return this.mTbPageTag;
     }
 
-    @Override // d.b.c.a.i
+    @Override // d.a.c.a.i
     public BdUniqueId getUniqueId() {
         return this.mId;
     }
@@ -289,7 +289,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return this.isPrimary;
     }
 
-    @Override // d.b.c.a.i
+    @Override // d.a.c.a.i
     public boolean isScroll() {
         return this.mIsScroll;
     }
@@ -310,10 +310,10 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         this.isPrepared = true;
     }
 
-    public void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i2) {
         g gVar = this.loadingView;
         if (gVar != null) {
-            gVar.p(i);
+            gVar.p(i2);
             this.loadingView.onChangeSkinType();
         }
         h hVar = this.mRefreshView;
@@ -323,7 +323,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i2) {
     }
 
     @Override // android.view.View.OnClickListener
@@ -350,7 +350,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     @Override // androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        d.b.c.e.l.d.h().e(this.mId);
+        d.a.c.e.l.d.h().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -387,11 +387,11 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j) {
         return false;
     }
 
@@ -421,11 +421,11 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             e.b().i(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
             this.lastResumeTime = System.currentTimeMillis();
         }
-        d.b.c.e.l.d.h().e(this.mId);
+        d.a.c.e.l.d.h().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
-    @Override // d.b.c.a.i
+    @Override // d.a.c.a.i
     public void onPreLoad(q qVar) {
         PreLoadImageHelper.load(qVar, getUniqueId());
         PreLoadVideoHelper.load(qVar, getUniqueId(), this);
@@ -473,8 +473,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         if (getView() instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) getView();
             int childCount = viewGroup.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                refreshImage(viewGroup.getChildAt(i));
+            for (int i2 = 0; i2 < childCount; i2++) {
+                refreshImage(viewGroup.getChildAt(i2));
             }
             this.mHandler.removeCallbacks(this.preLoadRunnable);
             this.mHandler.postDelayed(this.preLoadRunnable, 100L);
@@ -482,11 +482,11 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    public void onScrollStateChanged(AbsListView absListView, int i2) {
     }
 
     public void onUserChanged(boolean z) {
@@ -498,28 +498,28 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         super.onViewCreated(view, bundle);
     }
 
-    public void publishEvent(d.b.i0.f0.a aVar) {
+    public void publishEvent(d.a.i0.f0.a aVar) {
         if (aVar == null) {
             return;
         }
         if (aVar.getTag() == 0) {
             aVar.setTag(getUniqueId());
         }
-        d.b.i0.f0.h.i(aVar);
+        d.a.i0.f0.h.i(aVar);
     }
 
     public void refreshImage(View view) {
         if (view == null) {
             return;
         }
-        if (view instanceof d.b.c.f.a.i) {
-            ((d.b.c.f.a.i) view).refresh();
+        if (view instanceof d.a.c.f.a.i) {
+            ((d.a.c.f.a.i) view).refresh();
         }
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             int childCount = viewGroup.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                refreshImage(viewGroup.getChildAt(i));
+            for (int i2 = 0; i2 < childCount; i2++) {
+                refreshImage(viewGroup.getChildAt(i2));
             }
         }
     }
@@ -531,8 +531,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         MessageManager.getInstance().registerListener(messageListener);
     }
 
-    public void registerResponsedEventListener(Class<? extends d.b.i0.f0.a> cls, d.b.i0.f0.i iVar) {
-        d.b.i0.f0.h.f().m(cls, iVar, getUniqueId());
+    public void registerResponsedEventListener(Class<? extends d.a.i0.f0.a> cls, d.a.i0.f0.i iVar) {
+        d.a.i0.f0.h.f().m(cls, iVar, getUniqueId());
     }
 
     public void sendMessage(Message<?> message) {
@@ -549,28 +549,28 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         this.mTag = str;
     }
 
-    @Override // d.b.c.a.i
+    @Override // d.a.c.a.i
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
 
     public void setNetRefreshViewEmotionDefMarginTop() {
-        setNetRefreshViewEmotionMarginTop(d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.ds300));
+        setNetRefreshViewEmotionMarginTop(d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.ds300));
     }
 
-    public void setNetRefreshViewEmotionMarginTop(int i) {
+    public void setNetRefreshViewEmotionMarginTop(int i2) {
         h hVar = this.mRefreshView;
         if (hVar == null || !hVar.isViewAttached()) {
             return;
         }
-        this.mRefreshView.j(i);
+        this.mRefreshView.j(i2);
     }
 
-    public void setNetRefreshViewTopMargin(int i) {
+    public void setNetRefreshViewTopMargin(int i2) {
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.mRefreshView.j(i);
+        this.mRefreshView.j(i2);
     }
 
     public void setPrimary(boolean z) {
@@ -661,8 +661,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         }
     }
 
-    public void showProgressBarWithOffset(int i, int i2) {
-        showProgressBar(false, i, i2);
+    public void showProgressBarWithOffset(int i2, int i3) {
+        showProgressBar(false, i2, i3);
     }
 
     public void showToast(String str) {
@@ -672,14 +672,14 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         String name = getClass().getName();
         String str2 = getActivity().getApplicationContext().getPackageName() + ".chat";
         if (!name.startsWith(getActivity().getApplicationContext().getPackageName() + ".im") && !name.startsWith(str2)) {
-            d.b.c.e.p.l.L(getActivity(), str);
+            d.a.c.e.p.l.M(getActivity(), str);
         } else {
             this.customToast.showToast(str, 2000);
         }
     }
 
     public void unRegisterResponsedEventListener() {
-        d.b.i0.f0.h.f().n(getUniqueId());
+        d.a.i0.f0.h.f().n(getUniqueId());
     }
 
     public void unbindFragmentExtraFormView(View view) {
@@ -697,19 +697,19 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         showLoadingView(view, z, -1);
     }
 
-    public void showLoadingView(View view, boolean z, int i) {
-        showLoadingView(view, z, i, TbadkCoreApplication.getInst().getSkinType());
+    public void showLoadingView(View view, boolean z, int i2) {
+        showLoadingView(view, z, i2, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void showProgressBar(boolean z, int i, int i2) {
-        showProgressBar(z, false, i, i2);
+    public void showProgressBar(boolean z, int i2, int i3) {
+        showProgressBar(z, false, i2, i3);
     }
 
-    public void registerListener(int i, MessageListener<?> messageListener) {
+    public void registerListener(int i2, MessageListener<?> messageListener) {
         if (messageListener != null && messageListener.getTag() == null) {
             messageListener.setTag(this.mId);
         }
-        MessageManager.getInstance().registerListener(i, messageListener);
+        MessageManager.getInstance().registerListener(i2, messageListener);
     }
 
     public void sendMessage(NetMessage netMessage) {
@@ -722,25 +722,25 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         MessageManager.getInstance().sendMessage(netMessage);
     }
 
-    public void showLoadingView(View view, boolean z, int i, int i2) {
+    public void showLoadingView(View view, boolean z, int i2, int i3) {
         if (isLoadingViewAttached() || getActivity() == null) {
             return;
         }
         if (this.loadingView == null) {
-            if (i < 0) {
+            if (i2 < 0) {
                 this.loadingView = new g(getActivity());
             } else {
-                g gVar = new g(getActivity(), i);
+                g gVar = new g(getActivity(), i2);
                 this.loadingView = gVar;
                 gVar.h();
             }
-            this.loadingView.p(i2);
+            this.loadingView.p(i3);
             this.loadingView.onChangeSkinType();
         }
         this.loadingView.attachView(view, z);
     }
 
-    public void showProgressBar(boolean z, boolean z2, int i, int i2) {
+    public void showProgressBar(boolean z, boolean z2, int i2, int i3) {
         ContinuousAnimationView continuousAnimationView;
         if (this.mProgressBar == null) {
             try {
@@ -748,7 +748,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
                 this.mProgressBar = continuousAnimationView2;
                 continuousAnimationView2.setAnimation(R.raw.lottie_pull_refresh);
                 FrameLayout frameLayout = (FrameLayout) getFragmentActivity().findViewById(16908290);
-                int g2 = d.b.c.e.p.l.g(getPageContext().getPageActivity(), z2 ? R.dimen.tbds160 : R.dimen.tbds80);
+                int g2 = d.a.c.e.p.l.g(getPageContext().getPageActivity(), z2 ? R.dimen.tbds160 : R.dimen.tbds80);
                 frameLayout.addView(this.mProgressBar, frameLayout.getChildCount(), new FrameLayout.LayoutParams(g2, g2, 17));
             } catch (Throwable unused) {
                 return;
@@ -759,37 +759,37 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         }
         ContinuousAnimationView continuousAnimationView3 = this.mProgressBar;
         if (continuousAnimationView3 != null) {
-            continuousAnimationView3.setPadding(d.b.c.e.p.l.e(getPageContext().getPageActivity(), i), d.b.c.e.p.l.e(getPageContext().getPageActivity(), i2), 0, 0);
+            continuousAnimationView3.setPadding(d.a.c.e.p.l.e(getPageContext().getPageActivity(), i2), d.a.c.e.p.l.e(getPageContext().getPageActivity(), i3), 0, 0);
             this.mProgressBar.setVisibility(0);
             this.mProgressBar.playAnimation();
         }
     }
 
-    public void registerListener(d.b.c.c.g.a aVar) {
+    public void registerListener(d.a.c.c.g.a aVar) {
         if (aVar != null && aVar.getTag() == null) {
             aVar.setTag(this.mId);
         }
         MessageManager.getInstance().registerListener(aVar);
     }
 
-    public void showToast(int i) {
+    public void showToast(int i2) {
         if (getActivity() == null) {
             return;
         }
         String name = getClass().getName();
         String str = getActivity().getApplicationContext().getPackageName() + ".chat";
         if (!name.startsWith(getActivity().getApplicationContext().getPackageName() + ".im") && !name.startsWith(str)) {
-            d.b.c.e.p.l.K(getActivity(), i);
+            d.a.c.e.p.l.L(getActivity(), i2);
         } else {
-            this.customToast.showToast(i, 2000);
+            this.customToast.showToast(i2, 2000);
         }
     }
 
-    public void registerListener(int i, d.b.c.c.g.a aVar) {
+    public void registerListener(int i2, d.a.c.c.g.a aVar) {
         if (aVar != null && aVar.getTag() == null) {
             aVar.setTag(this.mId);
         }
-        MessageManager.getInstance().registerListener(i, aVar);
+        MessageManager.getInstance().registerListener(i2, aVar);
     }
 
     public void showNetRefreshView(View view, String str, boolean z) {
@@ -803,40 +803,40 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         MessageManager.getInstance().registerListener(messageListener);
     }
 
-    public void registerListener(int i, MessageListener<?> messageListener, BdUniqueId bdUniqueId) {
+    public void registerListener(int i2, MessageListener<?> messageListener, BdUniqueId bdUniqueId) {
         if (messageListener != null) {
             messageListener.setTag(bdUniqueId);
         }
-        MessageManager.getInstance().registerListener(i, messageListener);
+        MessageManager.getInstance().registerListener(i2, messageListener);
     }
 
     public void showToast(String str, boolean z) {
         if (z) {
             this.customToast.showToast(str, 2000);
         } else {
-            d.b.c.e.p.l.L(TbadkCoreApplication.getInst().getApp(), str);
+            d.a.c.e.p.l.M(TbadkCoreApplication.getInst().getApp(), str);
         }
     }
 
-    public void registerListener(d.b.c.c.g.a aVar, BdUniqueId bdUniqueId) {
+    public void registerListener(d.a.c.c.g.a aVar, BdUniqueId bdUniqueId) {
         if (aVar != null) {
             aVar.setTag(bdUniqueId);
         }
         MessageManager.getInstance().registerListener(aVar);
     }
 
-    public void showToast(int i, boolean z) {
+    public void showToast(int i2, boolean z) {
         if (z) {
-            this.customToast.showToast(i, 2000);
+            this.customToast.showToast(i2, 2000);
         } else {
-            d.b.c.e.p.l.K(TbadkCoreApplication.getInst().getApp(), i);
+            d.a.c.e.p.l.L(TbadkCoreApplication.getInst().getApp(), i2);
         }
     }
 
-    public void registerListener(int i, d.b.c.c.g.a aVar, BdUniqueId bdUniqueId) {
+    public void registerListener(int i2, d.a.c.c.g.a aVar, BdUniqueId bdUniqueId) {
         if (aVar != null) {
             aVar.setTag(bdUniqueId);
         }
-        MessageManager.getInstance().registerListener(i, aVar);
+        MessageManager.getInstance().registerListener(i2, aVar);
     }
 }

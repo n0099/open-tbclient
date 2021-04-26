@@ -25,10 +25,10 @@ public class Tracker {
     public static void send(@NonNull String str, @NonNull Collection<String> collection, @NonNull Context context, String str2) {
         ArrayList arrayList = new ArrayList(collection.size() + 2);
         arrayList.add(new RestNameValuePair("type", str));
-        int i = 1;
+        int i2 = 1;
         for (String str3 : collection) {
-            arrayList.add(new RestNameValuePair("value" + i, str3));
-            i++;
+            arrayList.add(new RestNameValuePair("value" + i2, str3));
+            i2++;
         }
         arrayList.add(new RestNameValuePair("netType", String.valueOf(NetworkUtils.getNetworkType(context))));
         new TraceBean(context).buildParams(arrayList, str2).execBean();

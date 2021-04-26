@@ -1,11 +1,6 @@
 package com.win.opensdk;
-/* loaded from: classes7.dex */
-public class K1 {
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f40091a;
-
-    public K1(String str, boolean z) {
-        this.f40091a = str;
-    }
+/* loaded from: classes6.dex */
+public enum K1 {
+    COUNT,
+    COUNT_BACK
 }

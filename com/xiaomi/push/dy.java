@@ -19,29 +19,29 @@ public class dy implements ed {
     }
 
     private void b(Context context, dz dzVar) {
-        String m264a = dzVar.m264a();
+        String m267a = dzVar.m267a();
         String b2 = dzVar.b();
         String d2 = dzVar.d();
         int a2 = dzVar.a();
-        if (context == null || TextUtils.isEmpty(m264a) || TextUtils.isEmpty(b2) || TextUtils.isEmpty(d2)) {
+        if (context == null || TextUtils.isEmpty(m267a) || TextUtils.isEmpty(b2) || TextUtils.isEmpty(d2)) {
             if (TextUtils.isEmpty(d2)) {
                 dw.a(context, "activity", 1008, "argument error");
             } else {
                 dw.a(context, d2, 1008, "argument error");
             }
-        } else if (!com.xiaomi.push.service.g.b(context, m264a, b2)) {
+        } else if (!com.xiaomi.push.service.g.b(context, m267a, b2)) {
             dw.a(context, d2, 1003, "B is not ready");
         } else {
             dw.a(context, d2, 1002, "B is ready");
             dw.a(context, d2, 1004, "A is ready");
             Intent intent = new Intent(b2);
-            intent.setPackage(m264a);
+            intent.setPackage(m267a);
             intent.putExtra("awake_info", dv.a(d2));
             intent.addFlags(276824064);
             intent.setAction(b2);
             if (a2 == 1) {
                 try {
-                    if (!ea.m267a(context)) {
+                    if (!ea.m270a(context)) {
                         dw.a(context, d2, 1008, "A not in foreground");
                         return;
                     }

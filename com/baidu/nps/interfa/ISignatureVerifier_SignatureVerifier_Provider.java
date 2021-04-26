@@ -1,10 +1,10 @@
 package com.baidu.nps.interfa;
 
-import d.b.c.g.g.b;
-import d.b.c0.a.a;
+import d.a.c.g.g.b;
+import d.a.c0.a.a;
 /* loaded from: classes2.dex */
 public class ISignatureVerifier_SignatureVerifier_Provider implements a {
-    @Override // d.b.c0.a.a
+    @Override // d.a.c0.a.a
     public Object get() {
         return new b();
     }

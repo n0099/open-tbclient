@@ -16,11 +16,11 @@ public class StuckDataCalculator {
         }
     };
 
-    public StuckDataCalculator(int i) {
+    public StuckDataCalculator(int i2) {
         this.stuckTimer = null;
         this.stuckInterval = 600;
         this.stuckTimer = new Handler(Looper.getMainLooper());
-        this.stuckInterval = i;
+        this.stuckInterval = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -35,10 +35,10 @@ public class StuckDataCalculator {
     }
 
     public void calculateStuck() {
-        int i = (this.frameStartTime > 0L ? 1 : (this.frameStartTime == 0L ? 0 : -1));
+        int i2 = (this.frameStartTime > 0L ? 1 : (this.frameStartTime == 0L ? 0 : -1));
         Handler handler = this.stuckTimer;
         Runnable runnable = this.stuckRunnable;
-        if (i <= 0) {
+        if (i2 <= 0) {
             handler.postDelayed(runnable, 5000L);
             this.frameStartTime = System.currentTimeMillis();
             return;

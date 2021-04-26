@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.adModel;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.q0.h1.c;
+import d.a.j0.q0.h1.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
@@ -32,7 +32,7 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetADListResIdl getADListResIdl;
         String str;
         Integer num;
@@ -50,10 +50,10 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
         if (getADListResIdl.data == null) {
             return;
         }
-        for (int i2 = 0; i2 < getADListResIdl.data.ad_list.size(); i2++) {
+        for (int i3 = 0; i3 < getADListResIdl.data.ad_list.size(); i3++) {
             c cVar = new c();
-            cVar.v(getADListResIdl.data.ad_list.get(i2));
-            if (getADListResIdl.data.ad_list.size() - 1 == i2) {
+            cVar.v(getADListResIdl.data.ad_list.get(i3));
+            if (getADListResIdl.data.ad_list.size() - 1 == i3) {
                 cVar.w(true);
             } else {
                 cVar.w(false);

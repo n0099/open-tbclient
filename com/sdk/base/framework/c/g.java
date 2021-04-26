@@ -5,7 +5,7 @@ package com.sdk.base.framework.c;
 public abstract class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f38908a = new g("PRODUCE_STATISTICAL", 0) { // from class: com.sdk.base.framework.c.h
+    public static final g f36492a = new g("PRODUCE_STATISTICAL", 0) { // from class: com.sdk.base.framework.c.h
         @Override // com.sdk.base.framework.c.g
         public final String a() {
             return com.sdk.base.framework.f.e.a.a("cucc/host_cucc.properties", "PRODUCE_STATISTICAL");
@@ -13,18 +13,18 @@ public abstract class g {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f38909b = new g("PRODUCE_DZH", 1) { // from class: com.sdk.base.framework.c.i
+    public static final g f36493b = new g("PRODUCE_DZH", 1) { // from class: com.sdk.base.framework.c.i
         @Override // com.sdk.base.framework.c.g
         public final String a() {
             return com.sdk.base.framework.f.e.a.a("cucc/host_cucc.properties", "PRODUCE_DZH");
         }
     };
 
-    public g(String str, int i) {
+    public g(String str, int i2) {
     }
 
-    public /* synthetic */ g(String str, int i, byte b2) {
-        this(str, i);
+    public /* synthetic */ g(String str, int i2, byte b2) {
+        this(str, i2);
     }
 
     public abstract String a();

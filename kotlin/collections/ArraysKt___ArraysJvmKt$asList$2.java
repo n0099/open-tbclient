@@ -51,8 +51,8 @@ public final class ArraysKt___ArraysJvmKt$asList$2 extends AbstractList<Short> i
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.collections.AbstractList, java.util.List
-    public Short get(int i) {
-        return Short.valueOf(this.$this_asList[i]);
+    public Short get(int i2) {
+        return Short.valueOf(this.$this_asList[i2]);
     }
 
     public int indexOf(short s) {

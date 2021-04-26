@@ -255,12 +255,12 @@ public final class Http2Stream {
         }
     }
 
-    public Http2Stream(int i, Http2Connection http2Connection, boolean z, boolean z2, List<Header> list) {
+    public Http2Stream(int i2, Http2Connection http2Connection, boolean z, boolean z2, List<Header> list) {
         if (http2Connection == null) {
             throw new NullPointerException("connection == null");
         }
         if (list != null) {
-            this.id = i;
+            this.id = i2;
             this.connection = http2Connection;
             this.bytesLeftInWriteWindow = http2Connection.peerSettings.getInitialWindowSize();
             this.source = new FramingSource(http2Connection.okHttpSettings.getInitialWindowSize());
@@ -386,8 +386,8 @@ public final class Http2Stream {
         return this.readTimeout;
     }
 
-    public void receiveData(BufferedSource bufferedSource, int i) throws IOException {
-        this.source.receive(bufferedSource, i);
+    public void receiveData(BufferedSource bufferedSource, int i2) throws IOException {
+        this.source.receive(bufferedSource, i2);
     }
 
     public void receiveFin() {

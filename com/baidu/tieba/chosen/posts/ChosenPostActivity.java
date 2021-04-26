@@ -6,9 +6,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import d.b.i0.g0.c.a;
-import d.b.j0.y.a.b;
-import d.b.j0.y.a.c.d;
+import d.a.i0.g0.c.a;
+import d.a.j0.y.a.b;
+import d.a.j0.y.a.c.d;
 /* loaded from: classes4.dex */
 public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> implements a {
     public static final int EVENT_ID_PICTURE_CLICK = 4096;
@@ -22,10 +22,10 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
     public b mViewController;
     public ViewEventCenter mViewEventController;
 
-    private void handlePictureClick(d.b.i0.g0.c.b bVar) {
-        d.b.i0.g0.b.a a2 = bVar.a();
+    private void handlePictureClick(d.a.i0.g0.c.b bVar) {
+        d.a.i0.g0.b.a a2 = bVar.a();
         if (a2 instanceof d) {
-            sendMessage(((d) a2).b(getPageContext().getPageActivity()));
+            sendMessage(((d) a2).a(getPageContext().getPageActivity()));
         }
     }
 
@@ -50,15 +50,15 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         return this.mViewController;
     }
 
-    @Override // d.b.i0.g0.c.a
+    @Override // d.a.i0.g0.c.a
     public boolean isEventMustSelf() {
         return false;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        getViewController().q(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        getViewController().p(getPageContext(), i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -74,18 +74,18 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         } else {
             this.mModelController.x(null);
         }
-        setContentView(this.mViewController.r());
-        this.mViewController.u();
-        this.mViewController.q(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        setContentView(this.mViewController.q());
+        this.mViewController.s();
+        this.mViewController.p(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         adjustResizeForSoftInput();
     }
 
-    @Override // d.b.i0.g0.c.a
-    public boolean onEventDispatch(d.b.i0.g0.c.b bVar) {
+    @Override // d.a.i0.g0.c.a
+    public boolean onEventDispatch(d.a.i0.g0.c.b bVar) {
         if (bVar.b() == 4096) {
             handlePictureClick(bVar);
         }
-        return getViewController().s(bVar) || getModelController().z(bVar);
+        return getViewController().r(bVar) || getModelController().z(bVar);
     }
 
     public void onServerError(ErrorData errorData) {

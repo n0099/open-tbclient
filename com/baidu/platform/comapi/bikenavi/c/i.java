@@ -8,10 +8,10 @@ import com.baidu.tieba.R;
 public class i implements a.InterfaceC0127a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f9405a;
+    public final /* synthetic */ b f9757a;
 
     public i(b bVar) {
-        this.f9405a = bVar;
+        this.f9757a = bVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0127a
@@ -21,11 +21,11 @@ public class i implements a.InterfaceC0127a {
         Activity activity3;
         try {
             Intent intent = new Intent("android.settings.LOCATION_SOURCE_SETTINGS");
-            activity3 = this.f9405a.f9393f;
+            activity3 = this.f9757a.f9744f;
             activity3.startActivity(intent);
         } catch (Exception unused) {
-            activity = this.f9405a.f9393f;
-            activity2 = this.f9405a.f9393f;
+            activity = this.f9757a.f9744f;
+            activity2 = this.f9757a.f9744f;
             com.baidu.platform.comapi.walknavi.g.c.c.a(activity, com.baidu.platform.comapi.wnplatform.o.a.a.b(activity2, R.drawable.res_0x7f080009_ic_icon_mask_first24__1));
         }
     }

@@ -14,23 +14,23 @@ public class LazyList<E> extends AbstractList<E> {
     public class a implements Iterator<E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31457e = 0;
+        public int f32326e = 0;
 
         public a() {
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31457e < LazyList.this.underlying.size() || LazyList.this.elementSource.hasNext();
+            return this.f32326e < LazyList.this.underlying.size() || LazyList.this.elementSource.hasNext();
         }
 
         @Override // java.util.Iterator
         public E next() {
-            if (this.f31457e < LazyList.this.underlying.size()) {
+            if (this.f32326e < LazyList.this.underlying.size()) {
                 List<E> list = LazyList.this.underlying;
-                int i = this.f31457e;
-                this.f31457e = i + 1;
-                return list.get(i);
+                int i2 = this.f32326e;
+                this.f32326e = i2 + 1;
+                return list.get(i2);
             }
             LazyList lazyList = LazyList.this;
             lazyList.underlying.add(lazyList.elementSource.next());
@@ -56,13 +56,13 @@ public class LazyList<E> extends AbstractList<E> {
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public E get(int i) {
-        if (this.underlying.size() > i) {
-            return this.underlying.get(i);
+    public E get(int i2) {
+        if (this.underlying.size() > i2) {
+            return this.underlying.get(i2);
         }
         if (this.elementSource.hasNext()) {
             this.underlying.add(this.elementSource.next());
-            return get(i);
+            return get(i2);
         }
         throw new NoSuchElementException();
     }

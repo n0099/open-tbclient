@@ -16,9 +16,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.HorRankCard;
 import com.baidu.tieba.lego.view.HorizontalScrollListView;
 import com.baidu.tieba.lego.view.MoreButton;
-import d.b.j0.d3.v;
-import d.b.j0.j1.i;
-import d.b.j0.j1.o.j.c;
+import d.a.j0.d3.v;
+import d.a.j0.j1.i;
+import d.a.j0.j1.o.j.c;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
@@ -36,19 +36,19 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HorRankCard f18335e;
+        public final /* synthetic */ HorRankCard f18695e;
 
         public a(HorRankCard horRankCard) {
-            this.f18335e = horRankCard;
+            this.f18695e = horRankCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f18335e.getScheme())) {
+            if (TextUtils.isEmpty(this.f18695e.getScheme())) {
                 return;
             }
-            i.e(this.f18335e).a(TiebaStatic.Params.OBJ_URL, this.f18335e.getScheme()).c("obj_locate", HorRankCardView.this.getStatPosition()).b(this.f18335e);
-            v.c(HorRankCardView.this.m, this.f18335e.getScheme());
+            i.e(this.f18695e).d(TiebaStatic.Params.OBJ_URL, this.f18695e.getScheme()).b("obj_locate", HorRankCardView.this.getStatPosition()).a(this.f18695e);
+            v.c(HorRankCardView.this.m, this.f18695e.getScheme());
         }
     }
 
@@ -66,9 +66,9 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: K */
-    public void y(HorRankCard horRankCard, int i) {
-        d.b.i0.s0.a.a(this.m, getRootView());
+    /* renamed from: J */
+    public void x(HorRankCard horRankCard, int i2) {
+        d.a.i0.s0.a.a(this.m, getRootView());
         SkinManager.setBackgroundColor(this.u, R.color.CAM_X0308);
         SkinManager.setBackgroundColor(this.y, R.color.CAM_X0201);
         SkinManager.setImageResource(this.y, R.color.CAM_X0204);
@@ -80,8 +80,8 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: L */
-    public void z(HorRankCard horRankCard) {
+    /* renamed from: K */
+    public void y(HorRankCard horRankCard) {
         List<HorRankCard.a> rankInfoList = horRankCard.getRankInfoList();
         this.u.setVisibility(horRankCard.isShowLeft() ? 0 : 8);
         this.y.setVisibility(horRankCard.isShowSep() ? 0 : 8);
@@ -127,7 +127,7 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View v() {
+    public View u() {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_horizontal, (ViewGroup) null, false);
         this.r = linearLayout;
         this.s = (HorizontalScrollListView) o(linearLayout, R.id.horizontal_view);

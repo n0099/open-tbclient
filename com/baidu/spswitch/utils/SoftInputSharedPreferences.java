@@ -8,12 +8,12 @@ public class SoftInputSharedPreferences {
     public static final String KEY_SOFITNPUT_HEIGHT = "sp.key.softinput.height";
     public static volatile SharedPreferences sSp;
 
-    public static int get(Context context, int i) {
-        return with(context).getInt(KEY_SOFITNPUT_HEIGHT, i);
+    public static int get(Context context, int i2) {
+        return with(context).getInt(KEY_SOFITNPUT_HEIGHT, i2);
     }
 
-    public static boolean save(Context context, int i) {
-        return with(context).edit().putInt(KEY_SOFITNPUT_HEIGHT, i).commit();
+    public static boolean save(Context context, int i2) {
+        return with(context).edit().putInt(KEY_SOFITNPUT_HEIGHT, i2).commit();
     }
 
     public static SharedPreferences with(Context context) {

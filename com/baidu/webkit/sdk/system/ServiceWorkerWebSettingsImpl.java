@@ -85,11 +85,11 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.ServiceWorkerWebSettings
-    public void setCacheMode(int i) {
+    public void setCacheMode(int i2) {
         android.webkit.ServiceWorkerWebSettings serviceWorkerWebSettings;
         if (Build.VERSION.SDK_INT < 24 || (serviceWorkerWebSettings = this.mSettings) == null) {
             return;
         }
-        serviceWorkerWebSettings.setCacheMode(i);
+        serviceWorkerWebSettings.setCacheMode(i2);
     }
 }

@@ -19,15 +19,15 @@ import java.util.List;
 public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetChangedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23430a = "BdContextMenuView";
+    public static final String f24155a = "BdContextMenuView";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f23431b = true;
+    public static final boolean f24156b = true;
     public boolean mMenuLoaded;
 
     @SuppressLint({"NewApi"})
-    public BdContextMenuView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BdContextMenuView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mMenuLoaded = false;
         a();
     }
@@ -51,7 +51,7 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
         return "wallet_base_menu_bg_white_corner";
     }
 
-    public String getMenuItemBackgroudResId(int i, int i2) {
+    public String getMenuItemBackgroudResId(int i2, int i3) {
         return null;
     }
 
@@ -64,7 +64,7 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
     }
 
     public void layoutMenu(List<BdMenuItem> list) {
-        Log.d(f23430a, "layout menu view");
+        Log.d(f24155a, "layout menu view");
         if (this.mMenuLoaded) {
             return;
         }
@@ -75,9 +75,9 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
         }
         Context context = getContext();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(context.getResources().getDimensionPixelSize(ResUtils.dimen(getContext(), "bd_wallet_menu_item_width")), 2);
-        for (int i = 0; i < size; i++) {
-            addView(a(list.get(i), getMenuItemBackgroudResId(i, size)));
-            if (i < size - 1) {
+        for (int i2 = 0; i2 < size; i2++) {
+            addView(a(list.get(i2), getMenuItemBackgroudResId(i2, size)));
+            if (i2 < size - 1) {
                 addView(createSeparator(context), layoutParams);
             }
         }

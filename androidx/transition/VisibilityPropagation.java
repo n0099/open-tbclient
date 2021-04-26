@@ -7,12 +7,12 @@ public abstract class VisibilityPropagation extends TransitionPropagation {
     public static final String PROPNAME_VIEW_CENTER = "android:visibilityPropagation:center";
     public static final String[] VISIBILITY_PROPAGATION_VALUES = {PROPNAME_VISIBILITY, PROPNAME_VIEW_CENTER};
 
-    public static int getViewCoordinate(TransitionValues transitionValues, int i) {
+    public static int getViewCoordinate(TransitionValues transitionValues, int i2) {
         int[] iArr;
         if (transitionValues == null || (iArr = (int[]) transitionValues.values.get(PROPNAME_VIEW_CENTER)) == null) {
             return -1;
         }
-        return iArr[i];
+        return iArr[i2];
     }
 
     @Override // androidx.transition.TransitionPropagation

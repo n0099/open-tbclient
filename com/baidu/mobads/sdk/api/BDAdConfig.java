@@ -54,8 +54,8 @@ public class BDAdConfig {
             return this;
         }
 
-        public Builder setVideoCacheCapacityMb(int i) {
-            this.mVideoCacheCapacityMb = i;
+        public Builder setVideoCacheCapacityMb(int i2) {
+            this.mVideoCacheCapacityMb = i2;
             return this;
         }
     }

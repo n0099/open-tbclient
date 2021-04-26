@@ -11,7 +11,7 @@ public class Gloading$GlobalAdapter$GlobalLoadingStatusView extends LinearLayout
     public void setMsgViewVisibility(boolean z) {
     }
 
-    public void setStatus(int i) {
+    public void setStatus(int i2) {
         setVisibility(0);
     }
 }

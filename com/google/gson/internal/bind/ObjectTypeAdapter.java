@@ -4,94 +4,91 @@ import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.internal.LinkedTreeMap;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
-import d.h.d.d.b;
+import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public final class ObjectTypeAdapter extends TypeAdapter<Object> {
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final TypeAdapterFactory f31341b = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ObjectTypeAdapter.1
+    public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ObjectTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
-        public <T> TypeAdapter<T> create(Gson gson, d.h.d.c.a<T> aVar) {
-            if (aVar.c() == Object.class) {
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+            if (typeToken.getRawType() == Object.class) {
                 return new ObjectTypeAdapter(gson);
             }
             return null;
         }
     };
+    public final Gson gson;
 
-    /* renamed from: a  reason: collision with root package name */
-    public final Gson f31342a;
-
+    /* renamed from: com.google.gson.internal.bind.ObjectTypeAdapter$2  reason: invalid class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31343a;
+    public static /* synthetic */ class AnonymousClass2 {
+        public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
 
         static {
             int[] iArr = new int[JsonToken.values().length];
-            f31343a = iArr;
+            $SwitchMap$com$google$gson$stream$JsonToken = iArr;
             try {
                 iArr[JsonToken.BEGIN_ARRAY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31343a[JsonToken.BEGIN_OBJECT.ordinal()] = 2;
+                $SwitchMap$com$google$gson$stream$JsonToken[JsonToken.BEGIN_OBJECT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f31343a[JsonToken.STRING.ordinal()] = 3;
+                $SwitchMap$com$google$gson$stream$JsonToken[JsonToken.STRING.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f31343a[JsonToken.NUMBER.ordinal()] = 4;
+                $SwitchMap$com$google$gson$stream$JsonToken[JsonToken.NUMBER.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f31343a[JsonToken.BOOLEAN.ordinal()] = 5;
+                $SwitchMap$com$google$gson$stream$JsonToken[JsonToken.BOOLEAN.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f31343a[JsonToken.NULL.ordinal()] = 6;
+                $SwitchMap$com$google$gson$stream$JsonToken[JsonToken.NULL.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
     }
 
     public ObjectTypeAdapter(Gson gson) {
-        this.f31342a = gson;
+        this.gson = gson;
     }
 
     @Override // com.google.gson.TypeAdapter
-    public Object read(d.h.d.d.a aVar) throws IOException {
-        switch (a.f31343a[aVar.M().ordinal()]) {
+    public Object read(JsonReader jsonReader) throws IOException {
+        switch (AnonymousClass2.$SwitchMap$com$google$gson$stream$JsonToken[jsonReader.peek().ordinal()]) {
             case 1:
                 ArrayList arrayList = new ArrayList();
-                aVar.n();
-                while (aVar.y()) {
-                    arrayList.add(read(aVar));
+                jsonReader.beginArray();
+                while (jsonReader.hasNext()) {
+                    arrayList.add(read(jsonReader));
                 }
-                aVar.t();
+                jsonReader.endArray();
                 return arrayList;
             case 2:
                 LinkedTreeMap linkedTreeMap = new LinkedTreeMap();
-                aVar.o();
-                while (aVar.y()) {
-                    linkedTreeMap.put(aVar.G(), read(aVar));
+                jsonReader.beginObject();
+                while (jsonReader.hasNext()) {
+                    linkedTreeMap.put(jsonReader.nextName(), read(jsonReader));
                 }
-                aVar.v();
+                jsonReader.endObject();
                 return linkedTreeMap;
             case 3:
-                return aVar.K();
+                return jsonReader.nextString();
             case 4:
-                return Double.valueOf(aVar.D());
+                return Double.valueOf(jsonReader.nextDouble());
             case 5:
-                return Boolean.valueOf(aVar.C());
+                return Boolean.valueOf(jsonReader.nextBoolean());
             case 6:
-                aVar.I();
+                jsonReader.nextNull();
                 return null;
             default:
                 throw new IllegalStateException();
@@ -99,17 +96,17 @@ public final class ObjectTypeAdapter extends TypeAdapter<Object> {
     }
 
     @Override // com.google.gson.TypeAdapter
-    public void write(b bVar, Object obj) throws IOException {
+    public void write(JsonWriter jsonWriter, Object obj) throws IOException {
         if (obj == null) {
-            bVar.B();
+            jsonWriter.nullValue();
             return;
         }
-        TypeAdapter adapter = this.f31342a.getAdapter(obj.getClass());
+        TypeAdapter adapter = this.gson.getAdapter(obj.getClass());
         if (adapter instanceof ObjectTypeAdapter) {
-            bVar.r();
-            bVar.v();
+            jsonWriter.beginObject();
+            jsonWriter.endObject();
             return;
         }
-        adapter.write(bVar, obj);
+        adapter.write(jsonWriter, obj);
     }
 }

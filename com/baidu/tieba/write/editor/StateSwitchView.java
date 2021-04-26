@@ -12,8 +12,10 @@ import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
 public class StateSwitchView extends EditorInfoView {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21993h;
-    public String i;
+    public String f22670h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f22671i;
     public int j;
     public int k;
     public boolean l;
@@ -31,16 +33,16 @@ public class StateSwitchView extends EditorInfoView {
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView
-    public void a(int i) {
-        super.a(i);
-        if (this.p != i) {
+    public void a(int i2) {
+        super.a(i2);
+        if (this.p != i2) {
             SkinManager.setViewTextColor(this, R.color.CAM_X0106);
-            int i2 = this.q;
-            if (i2 > 0) {
-                SkinManager.setBackgroundResource(this, i2);
+            int i3 = this.q;
+            if (i3 > 0) {
+                SkinManager.setBackgroundResource(this, i3);
             }
             e();
-            this.p = i;
+            this.p = i2;
         }
     }
 
@@ -66,20 +68,20 @@ public class StateSwitchView extends EditorInfoView {
         Drawable drawable2;
         AbsSvgType absSvgType2;
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.tbds48);
-        int i = this.o;
-        if (i == 1) {
+        int i2 = this.o;
+        if (i2 == 1) {
             if (this.l && (absSvgType2 = this.n) != null) {
                 drawable2 = absSvgType2.getDrawable();
             } else {
-                int i2 = this.k;
-                drawable2 = i2 > 0 ? SkinManager.getDrawable(i2) : null;
+                int i3 = this.k;
+                drawable2 = i3 > 0 ? SkinManager.getDrawable(i3) : null;
             }
             if (drawable2 != null) {
                 drawable2.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
                 setCompoundDrawables(drawable2, null, null, null);
                 setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.ds8));
             }
-        } else if (i == 0) {
+        } else if (i2 == 0) {
             if (this.l && (absSvgType = this.m) != null) {
                 drawable = absSvgType.getDrawable();
             } else {
@@ -95,9 +97,9 @@ public class StateSwitchView extends EditorInfoView {
 
     public final void f() {
         if (this.o == 1) {
-            setText(this.i);
+            setText(this.f22671i);
         } else {
-            setText(this.f21993h);
+            setText(this.f22670h);
         }
     }
 
@@ -105,31 +107,31 @@ public class StateSwitchView extends EditorInfoView {
         return this.o;
     }
 
-    public void setBackgroundId(int i) {
-        this.q = i;
-        if (i > 0) {
-            SkinManager.setBackgroundResource(this, i);
+    public void setBackgroundId(int i2) {
+        this.q = i2;
+        if (i2 > 0) {
+            SkinManager.setBackgroundResource(this, i2);
         }
     }
 
-    public void setLeftStateDrawable(int i, int i2) {
-        this.j = i;
-        this.k = i2;
+    public void setLeftStateDrawable(int i2, int i3) {
+        this.j = i2;
+        this.k = i3;
         this.l = false;
         e();
     }
 
-    public void setState(int i) {
-        if (i == 0 || i == 1) {
-            this.o = i;
+    public void setState(int i2) {
+        if (i2 == 0 || i2 == 1) {
+            this.o = i2;
         }
         f();
         e();
     }
 
     public void setStateString(String str, String str2) {
-        this.f21993h = str;
-        this.i = str2;
+        this.f22670h = str;
+        this.f22671i = str2;
         f();
     }
 
@@ -150,8 +152,8 @@ public class StateSwitchView extends EditorInfoView {
         e();
     }
 
-    public StateSwitchView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public StateSwitchView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.l = false;
         this.p = 3;
         b();

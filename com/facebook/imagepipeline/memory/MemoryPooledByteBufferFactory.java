@@ -34,17 +34,17 @@ public class MemoryPooledByteBufferFactory implements PooledByteBufferFactory {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.PooledByteBufferFactory
-    public MemoryPooledByteBufferOutputStream newOutputStream(int i) {
-        return new MemoryPooledByteBufferOutputStream(this.mPool, i);
+    public MemoryPooledByteBufferOutputStream newOutputStream(int i2) {
+        return new MemoryPooledByteBufferOutputStream(this.mPool, i2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.PooledByteBufferFactory
-    public MemoryPooledByteBuffer newByteBuffer(int i) {
-        Preconditions.checkArgument(i > 0);
-        CloseableReference of = CloseableReference.of(this.mPool.get(i), this.mPool);
+    public MemoryPooledByteBuffer newByteBuffer(int i2) {
+        Preconditions.checkArgument(i2 > 0);
+        CloseableReference of = CloseableReference.of(this.mPool.get(i2), this.mPool);
         try {
-            return new MemoryPooledByteBuffer(of, i);
+            return new MemoryPooledByteBuffer(of, i2);
         } finally {
             of.close();
         }
@@ -79,8 +79,8 @@ public class MemoryPooledByteBufferFactory implements PooledByteBufferFactory {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.PooledByteBufferFactory
-    public MemoryPooledByteBuffer newByteBuffer(InputStream inputStream, int i) throws IOException {
-        MemoryPooledByteBufferOutputStream memoryPooledByteBufferOutputStream = new MemoryPooledByteBufferOutputStream(this.mPool, i);
+    public MemoryPooledByteBuffer newByteBuffer(InputStream inputStream, int i2) throws IOException {
+        MemoryPooledByteBufferOutputStream memoryPooledByteBufferOutputStream = new MemoryPooledByteBufferOutputStream(this.mPool, i2);
         try {
             return newByteBuf(inputStream, memoryPooledByteBufferOutputStream);
         } finally {

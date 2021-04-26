@@ -22,38 +22,40 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import d.b.c.e.p.l;
-import d.b.j0.t.j.g.d.b;
+import d.a.c.e.p.l;
+import d.a.j0.t.j.g.d.b;
 /* loaded from: classes4.dex */
 public class AlaEffectPreviewView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14737e;
+    public int f14819e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14738f;
+    public int f14820f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f14739g;
+    public View f14821g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f14740h;
-    public TextView i;
+    public ImageView f14822h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f14823i;
     public b.c j;
     public ObjectAnimator k;
     public LinearLayout l;
     public ImageView m;
 
     /* loaded from: classes4.dex */
-    public class a extends d.b.c.e.l.c<d.b.c.j.d.a> {
+    public class a extends d.a.c.e.l.c<d.a.c.j.d.a> {
         public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.c.e.l.c
-        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
+        @Override // d.a.c.e.l.c
+        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
             Bitmap p;
-            super.onLoaded((a) aVar, str, i);
+            super.onLoaded((a) aVar, str, i2);
             if (aVar == null || (p = aVar.p()) == null) {
                 return;
             }
@@ -79,11 +81,11 @@ public class AlaEffectPreviewView extends LinearLayout {
                 return;
             }
             try {
-                Bitmap g2 = d.b.c.e.p.d.d().g(p, l.k(AlaEffectPreviewView.this.getContext()), AlaEffectPreviewView.this.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
+                Bitmap g2 = d.a.c.e.p.d.d().g(p, l.k(AlaEffectPreviewView.this.getContext()), AlaEffectPreviewView.this.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
                 if (g2 != p) {
                     p.recycle();
                 }
-                AlaEffectPreviewView.this.f14740h.setImageBitmap(g2);
+                AlaEffectPreviewView.this.f14822h.setImageBitmap(g2);
             } catch (OutOfMemoryError e4) {
                 BdLog.e(e4);
                 if (p != null) {
@@ -145,13 +147,13 @@ public class AlaEffectPreviewView extends LinearLayout {
             float f3;
             float f4 = f2 * 3500.0f;
             if (f4 <= 500.0f) {
-                f3 = (AlaEffectPreviewView.this.f14737e * ((f4 / 500.0f) - 1.0f)) + AlaEffectPreviewView.this.f14738f;
+                f3 = (AlaEffectPreviewView.this.f14819e * ((f4 / 500.0f) - 1.0f)) + AlaEffectPreviewView.this.f14820f;
             } else {
                 float f5 = 3500.0f - f4;
                 if (f5 <= 500.0f) {
-                    f3 = AlaEffectPreviewView.this.f14738f + (AlaEffectPreviewView.this.f14737e * (1.0f - (f5 / 500.0f)));
+                    f3 = AlaEffectPreviewView.this.f14820f + (AlaEffectPreviewView.this.f14819e * (1.0f - (f5 / 500.0f)));
                 } else {
-                    f3 = AlaEffectPreviewView.this.f14738f;
+                    f3 = AlaEffectPreviewView.this.f14820f;
                 }
             }
             return Float.valueOf(f3);
@@ -164,9 +166,9 @@ public class AlaEffectPreviewView extends LinearLayout {
     }
 
     public final void e() {
-        this.f14739g = LinearLayout.inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
-        this.f14740h = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
-        this.i = (TextView) findViewById(R.id.ala_im_user_enter_content);
+        this.f14821g = LinearLayout.inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
+        this.f14822h = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
+        this.f14823i = (TextView) findViewById(R.id.ala_im_user_enter_content);
         this.l = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
         this.m = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
     }
@@ -183,11 +185,11 @@ public class AlaEffectPreviewView extends LinearLayout {
             measure(0, 0);
         }
         int k = l.k(getContext());
-        this.f14737e = k;
-        this.f14738f = (k - getMeasuredWidth()) / 2;
-        View view = this.f14739g;
-        int i = this.f14737e;
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "TranslationX", i, -i);
+        this.f14819e = k;
+        this.f14820f = (k - getMeasuredWidth()) / 2;
+        View view = this.f14821g;
+        int i2 = this.f14819e;
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "TranslationX", i2, -i2);
         this.k = ofFloat;
         ofFloat.setDuration(3500L);
         this.k.setInterpolator(new b());
@@ -226,12 +228,12 @@ public class AlaEffectPreviewView extends LinearLayout {
         }
         String str3 = alaEnterEffectData.icon_url;
         if (StringUtils.isNull(str3)) {
-            this.f14740h.setVisibility(8);
+            this.f14822h.setVisibility(8);
         } else {
-            this.f14740h.setVisibility(0);
-            d.b.c.e.l.d.h().m(str3, 10, new a(), null);
+            this.f14822h.setVisibility(0);
+            d.a.c.e.l.d.h().m(str3, 10, new a(), null);
         }
-        this.i.setText(spannableStringBuilder);
+        this.f14823i.setText(spannableStringBuilder);
         String str4 = alaEnterEffectData.color;
         if (StringUtils.isNull(str4)) {
             str4 = "#B2FF5460";
@@ -262,8 +264,8 @@ public class AlaEffectPreviewView extends LinearLayout {
         e();
     }
 
-    public AlaEffectPreviewView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public AlaEffectPreviewView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         e();
     }
 }

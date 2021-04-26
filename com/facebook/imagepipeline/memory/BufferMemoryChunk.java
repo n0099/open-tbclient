@@ -12,21 +12,21 @@ public class BufferMemoryChunk implements MemoryChunk, Closeable {
     public final long mId = System.identityHashCode(this);
     public final int mSize;
 
-    public BufferMemoryChunk(int i) {
-        this.mBuffer = ByteBuffer.allocateDirect(i);
-        this.mSize = i;
+    public BufferMemoryChunk(int i2) {
+        this.mBuffer = ByteBuffer.allocateDirect(i2);
+        this.mSize = i2;
     }
 
-    private void doCopy(int i, MemoryChunk memoryChunk, int i2, int i3) {
+    private void doCopy(int i2, MemoryChunk memoryChunk, int i3, int i4) {
         if (memoryChunk instanceof BufferMemoryChunk) {
             Preconditions.checkState(!isClosed());
             Preconditions.checkState(!memoryChunk.isClosed());
-            MemoryChunkUtil.checkBounds(i, memoryChunk.getSize(), i2, i3, this.mSize);
-            this.mBuffer.position(i);
-            memoryChunk.getByteBuffer().position(i2);
-            byte[] bArr = new byte[i3];
-            this.mBuffer.get(bArr, 0, i3);
-            memoryChunk.getByteBuffer().put(bArr, 0, i3);
+            MemoryChunkUtil.checkBounds(i2, memoryChunk.getSize(), i3, i4, this.mSize);
+            this.mBuffer.position(i2);
+            memoryChunk.getByteBuffer().position(i3);
+            byte[] bArr = new byte[i4];
+            this.mBuffer.get(bArr, 0, i4);
+            memoryChunk.getByteBuffer().put(bArr, 0, i4);
             return;
         }
         throw new IllegalArgumentException("Cannot copy two incompatible MemoryChunks");
@@ -38,7 +38,7 @@ public class BufferMemoryChunk implements MemoryChunk, Closeable {
     }
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
-    public void copy(int i, MemoryChunk memoryChunk, int i2, int i3) {
+    public void copy(int i2, MemoryChunk memoryChunk, int i3, int i4) {
         Preconditions.checkNotNull(memoryChunk);
         if (memoryChunk.getUniqueId() == getUniqueId()) {
             Log.w(TAG, "Copying from BufferMemoryChunk " + Long.toHexString(getUniqueId()) + " to BufferMemoryChunk " + Long.toHexString(memoryChunk.getUniqueId()) + " which are the same ");
@@ -47,14 +47,14 @@ public class BufferMemoryChunk implements MemoryChunk, Closeable {
         if (memoryChunk.getUniqueId() < getUniqueId()) {
             synchronized (memoryChunk) {
                 synchronized (this) {
-                    doCopy(i, memoryChunk, i2, i3);
+                    doCopy(i2, memoryChunk, i3, i4);
                 }
             }
             return;
         }
         synchronized (this) {
             synchronized (memoryChunk) {
-                doCopy(i, memoryChunk, i2, i3);
+                doCopy(i2, memoryChunk, i3, i4);
             }
         }
     }
@@ -86,38 +86,38 @@ public class BufferMemoryChunk implements MemoryChunk, Closeable {
     }
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
-    public synchronized int read(int i, byte[] bArr, int i2, int i3) {
+    public synchronized int read(int i2, byte[] bArr, int i3, int i4) {
         int adjustByteCount;
         Preconditions.checkNotNull(bArr);
         Preconditions.checkState(!isClosed());
-        adjustByteCount = MemoryChunkUtil.adjustByteCount(i, i3, this.mSize);
-        MemoryChunkUtil.checkBounds(i, bArr.length, i2, adjustByteCount, this.mSize);
-        this.mBuffer.position(i);
-        this.mBuffer.get(bArr, i2, adjustByteCount);
+        adjustByteCount = MemoryChunkUtil.adjustByteCount(i2, i4, this.mSize);
+        MemoryChunkUtil.checkBounds(i2, bArr.length, i3, adjustByteCount, this.mSize);
+        this.mBuffer.position(i2);
+        this.mBuffer.get(bArr, i3, adjustByteCount);
         return adjustByteCount;
     }
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
-    public synchronized int write(int i, byte[] bArr, int i2, int i3) {
+    public synchronized int write(int i2, byte[] bArr, int i3, int i4) {
         int adjustByteCount;
         Preconditions.checkNotNull(bArr);
         Preconditions.checkState(!isClosed());
-        adjustByteCount = MemoryChunkUtil.adjustByteCount(i, i3, this.mSize);
-        MemoryChunkUtil.checkBounds(i, bArr.length, i2, adjustByteCount, this.mSize);
-        this.mBuffer.position(i);
-        this.mBuffer.put(bArr, i2, adjustByteCount);
+        adjustByteCount = MemoryChunkUtil.adjustByteCount(i2, i4, this.mSize);
+        MemoryChunkUtil.checkBounds(i2, bArr.length, i3, adjustByteCount, this.mSize);
+        this.mBuffer.position(i2);
+        this.mBuffer.put(bArr, i3, adjustByteCount);
         return adjustByteCount;
     }
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
-    public synchronized byte read(int i) {
+    public synchronized byte read(int i2) {
         boolean z = true;
         Preconditions.checkState(!isClosed());
-        Preconditions.checkArgument(i >= 0);
-        if (i >= this.mSize) {
+        Preconditions.checkArgument(i2 >= 0);
+        if (i2 >= this.mSize) {
             z = false;
         }
         Preconditions.checkArgument(z);
-        return this.mBuffer.get(i);
+        return this.mBuffer.get(i2);
     }
 }

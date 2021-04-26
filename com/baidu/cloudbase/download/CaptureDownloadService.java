@@ -8,7 +8,7 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.cloudbase.download.exception.DownloadException;
-import d.b.k.b.b;
+import d.a.k.b.b;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -23,94 +23,94 @@ public class CaptureDownloadService extends Service {
     public static final String EXTRA_POSITION = "extra_position";
     public static final String EXTRA_TAG = "extra_tag";
     public static final String TAG = "CaptureDownloadService";
-    public d.b.k.b.a mDownloadManager;
+    public d.a.k.b.a mDownloadManager;
 
     /* loaded from: classes.dex */
-    public static class a extends d.b.k.b.c.a {
+    public static class a extends d.a.k.b.c.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public ac f4661a;
+        public ac f4770a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f4662b;
+        public int f4771b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f4663c;
+        public long f4772c;
 
         /* renamed from: d  reason: collision with root package name */
-        public LocalBroadcastManager f4664d;
+        public LocalBroadcastManager f4773d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f4665e;
+        public int f4774e;
 
-        public a(int i, ac acVar, Context context) {
-            this.f4665e = i;
-            this.f4661a = acVar;
-            this.f4664d = LocalBroadcastManager.getInstance(context);
+        public a(int i2, ac acVar, Context context) {
+            this.f4774e = i2;
+            this.f4770a = acVar;
+            this.f4773d = LocalBroadcastManager.getInstance(context);
         }
 
-        public final boolean a(int i) {
+        public final boolean a(int i2) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f4663c <= 300 || i == this.f4662b) {
+            if (currentTimeMillis - this.f4772c <= 300 || i2 == this.f4771b) {
                 return false;
             }
-            this.f4663c = currentTimeMillis;
-            this.f4662b = i;
+            this.f4772c = currentTimeMillis;
+            this.f4771b = i2;
             return true;
         }
 
         public final void b(ac acVar) {
             Intent intent = new Intent();
             intent.setAction(CaptureDownloadService.ACTION_DOWNLOAD_BROAD_CAST);
-            intent.putExtra("extra_position", this.f4665e);
+            intent.putExtra("extra_position", this.f4774e);
             intent.putExtra("extra_file_info", acVar.a().toString());
-            this.f4664d.sendBroadcast(intent);
+            this.f4773d.sendBroadcast(intent);
         }
 
-        @Override // d.b.k.b.c.a
+        @Override // d.a.k.b.c.a
         public void onCompleted(String str) {
-            ac acVar = this.f4661a;
-            acVar.f1390g = 6;
-            acVar.f1388e = 100;
-            acVar.f1391h = str;
+            ac acVar = this.f4770a;
+            acVar.f1408g = 6;
+            acVar.f1406e = 100;
+            acVar.f1409h = str;
             b(acVar);
         }
 
-        @Override // d.b.k.b.c.a
+        @Override // d.a.k.b.c.a
         public void onDownloadCanceled() {
-            ac acVar = this.f4661a;
-            acVar.f1390g = 0;
-            acVar.f1388e = 0;
-            acVar.f1389f = "";
+            ac acVar = this.f4770a;
+            acVar.f1408g = 0;
+            acVar.f1406e = 0;
+            acVar.f1407f = "";
             b(acVar);
         }
 
-        @Override // d.b.k.b.c.a
+        @Override // d.a.k.b.c.a
         public void onDownloadPaused() {
-            ac acVar = this.f4661a;
-            acVar.f1390g = 4;
+            ac acVar = this.f4770a;
+            acVar.f1408g = 4;
             b(acVar);
         }
 
-        @Override // d.b.k.b.c.a
+        @Override // d.a.k.b.c.a
         public void onFailed(DownloadException downloadException) {
             downloadException.printStackTrace();
-            ac acVar = this.f4661a;
-            acVar.f1390g = 5;
+            ac acVar = this.f4770a;
+            acVar.f1408g = 5;
             b(acVar);
         }
 
-        @Override // d.b.k.b.c.a
-        public void onProgress(long j, long j2, int i) {
-            if (this.f4663c == 0) {
-                this.f4663c = System.currentTimeMillis();
+        @Override // d.a.k.b.c.a
+        public void onProgress(long j, long j2, int i2) {
+            if (this.f4772c == 0) {
+                this.f4772c = System.currentTimeMillis();
             }
-            ac acVar = this.f4661a;
-            acVar.f1390g = 3;
-            acVar.f1388e = i;
-            acVar.f1389f = d.b.k.b.d.a.a(j, j2);
-            if (a(i)) {
-                b(this.f4661a);
+            ac acVar = this.f4770a;
+            acVar.f1408g = 3;
+            acVar.f1406e = i2;
+            acVar.f1407f = d.a.k.b.d.a.a(j, j2);
+            if (a(i2)) {
+                b(this.f4770a);
             }
         }
     }
@@ -140,10 +140,10 @@ public class CaptureDownloadService extends Service {
         context.stopService(new Intent(context, CaptureDownloadService.class));
     }
 
-    private void download(int i, ac acVar, String str) {
+    private void download(int i2, ac acVar, String str) {
         b.a aVar = new b.a();
-        aVar.d(acVar.f1387d);
-        this.mDownloadManager.f(aVar.a(), str, new a(i, acVar, getApplicationContext()));
+        aVar.d(acVar.f1405d);
+        this.mDownloadManager.f(aVar.a(), str, new a(i2, acVar, getApplicationContext()));
     }
 
     public static void pause(Context context, String str) {
@@ -167,10 +167,10 @@ public class CaptureDownloadService extends Service {
         context.startService(intent);
     }
 
-    public static void start(Context context, int i, String str, ac acVar) {
+    public static void start(Context context, int i2, String str, ac acVar) {
         Intent intent = new Intent(context, CaptureDownloadService.class);
         intent.setAction(ACTION_DOWNLOAD);
-        intent.putExtra("extra_position", i);
+        intent.putExtra("extra_position", i2);
         intent.putExtra("extra_tag", str);
         intent.putExtra("extra_file_info", acVar.a().toString());
         context.startService(intent);
@@ -188,7 +188,7 @@ public class CaptureDownloadService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.mDownloadManager = d.b.k.b.a.i();
+        this.mDownloadManager = d.a.k.b.a.i();
     }
 
     @Override // android.app.Service
@@ -205,7 +205,7 @@ public class CaptureDownloadService extends Service {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(Intent intent, int i2, int i3) {
         if (intent != null) {
             String action = intent.getAction();
             char c2 = 0;
@@ -215,14 +215,14 @@ public class CaptureDownloadService extends Service {
             if (!TextUtils.isEmpty(stringExtra)) {
                 try {
                     JSONObject jSONObject = new JSONObject(stringExtra);
-                    acVar.f1384a = jSONObject.optString("name");
-                    acVar.f1385b = jSONObject.optString("id");
-                    acVar.f1386c = jSONObject.optString("image");
-                    acVar.f1387d = jSONObject.optString("url");
-                    acVar.f1388e = jSONObject.optInt("progress");
-                    acVar.f1389f = jSONObject.optString("downloadPerSize");
-                    acVar.f1390g = jSONObject.optInt("status");
-                    acVar.f1391h = jSONObject.optString("savePath");
+                    acVar.f1402a = jSONObject.optString("name");
+                    acVar.f1403b = jSONObject.optString("id");
+                    acVar.f1404c = jSONObject.optString("image");
+                    acVar.f1405d = jSONObject.optString("url");
+                    acVar.f1406e = jSONObject.optInt("progress");
+                    acVar.f1407f = jSONObject.optString("downloadPerSize");
+                    acVar.f1408g = jSONObject.optInt("status");
+                    acVar.f1409h = jSONObject.optString("savePath");
                 } catch (JSONException unused) {
                 }
             }
@@ -274,6 +274,6 @@ public class CaptureDownloadService extends Service {
                 cancelAll();
             }
         }
-        return super.onStartCommand(intent, i, i2);
+        return super.onStartCommand(intent, i2, i3);
     }
 }

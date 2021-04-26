@@ -216,12 +216,12 @@ public class VideoInfo extends OrmObject implements Serializable {
         this.thumbUriStr = str;
     }
 
-    public void setVideoDuration(int i) {
-        this.videoDuration = i;
+    public void setVideoDuration(int i2) {
+        this.videoDuration = i2;
     }
 
-    public void setVideoHeight(int i) {
-        this.videoHeight = i;
+    public void setVideoHeight(int i2) {
+        this.videoHeight = i2;
     }
 
     public void setVideoLength(long j) {
@@ -236,8 +236,8 @@ public class VideoInfo extends OrmObject implements Serializable {
         this.videoPath = str;
     }
 
-    public void setVideoType(int i) {
-        this.videoType = i;
+    public void setVideoType(int i2) {
+        this.videoType = i2;
     }
 
     public void setVideoUriStr(String str) {
@@ -248,7 +248,7 @@ public class VideoInfo extends OrmObject implements Serializable {
         this.videoUrl = str;
     }
 
-    public void setVideoWidth(int i) {
-        this.videoWidth = i;
+    public void setVideoWidth(int i2) {
+        this.videoWidth = i2;
     }
 }

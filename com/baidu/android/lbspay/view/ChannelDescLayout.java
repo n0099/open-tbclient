@@ -23,18 +23,18 @@ public class ChannelDescLayout extends LinearLayout {
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.android.lbspay.view.ChannelDescLayout.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
-                int i;
+                int i2;
                 int childCount = ChannelDescLayout.this.getChildCount();
                 int paddingLeft = ChannelDescLayout.this.getPaddingLeft();
-                for (int i2 = 0; i2 < childCount; i2++) {
-                    View childAt = ChannelDescLayout.this.getChildAt(i2);
+                for (int i3 = 0; i3 < childCount; i3++) {
+                    View childAt = ChannelDescLayout.this.getChildAt(i3);
                     if (childAt instanceof TextView) {
                         TextView textView = (TextView) childAt;
-                        i = ((int) (textView.getPaint().measureText(textView.getText().toString()) + 0.5d)) + childAt.getPaddingLeft() + childAt.getPaddingRight();
+                        i2 = ((int) (textView.getPaint().measureText(textView.getText().toString()) + 0.5d)) + childAt.getPaddingLeft() + childAt.getPaddingRight();
                     } else {
-                        i = 10;
+                        i2 = 10;
                     }
-                    paddingLeft += i;
+                    paddingLeft += i2;
                     if (ChannelDescLayout.this.mwidth < paddingLeft) {
                         return;
                     }
@@ -83,9 +83,9 @@ public class ChannelDescLayout extends LinearLayout {
         if (channelDesc == null || channelDesc.length <= 0) {
             return;
         }
-        for (int i = 0; i < channelDesc.length; i++) {
-            if (!TextUtils.isEmpty(channelDesc[i].trim())) {
-                TextView makeTextView = makeTextView(channelDesc[i]);
+        for (int i2 = 0; i2 < channelDesc.length; i2++) {
+            if (!TextUtils.isEmpty(channelDesc[i2].trim())) {
+                TextView makeTextView = makeTextView(channelDesc[i2]);
                 makeTextView.setVisibility(8);
                 addView(makeTextView);
                 this.descListViews.add(makeTextView);
@@ -97,18 +97,18 @@ public class ChannelDescLayout extends LinearLayout {
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        this.mwidth = (View.MeasureSpec.getSize(i) - getPaddingLeft()) - getPaddingRight();
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        this.mwidth = (View.MeasureSpec.getSize(i2) - getPaddingLeft()) - getPaddingRight();
     }
 
-    public void setTextColor(int i) {
+    public void setTextColor(int i2) {
         List<TextView> list = this.descListViews;
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (int i2 = 0; i2 < this.descListViews.size(); i2++) {
-            this.descListViews.get(i2).setTextColor(i);
+        for (int i3 = 0; i3 < this.descListViews.size(); i3++) {
+            this.descListViews.get(i3).setTextColor(i2);
         }
     }
 }

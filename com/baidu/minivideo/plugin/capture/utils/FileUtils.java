@@ -96,11 +96,11 @@ public class FileUtils {
         }
         int length2 = listFiles.length;
         long j = 0;
-        for (int i = 0; i < length2; i++) {
-            if (listFiles[i].isDirectory()) {
-                length = getDirectorySize(listFiles[i]);
+        for (int i2 = 0; i2 < length2; i2++) {
+            if (listFiles[i2].isDirectory()) {
+                length = getDirectorySize(listFiles[i2]);
             } else {
-                length = listFiles[i].length();
+                length = listFiles[i2].length();
             }
             j += length;
         }
@@ -232,11 +232,11 @@ public class FileUtils {
         }
         int length2 = listFiles.length;
         long j = 0;
-        for (int i = 0; i < length2; i++) {
-            if (listFiles[i].isDirectory()) {
-                length = getDirectorySize(listFiles[i]);
+        for (int i2 = 0; i2 < length2; i2++) {
+            if (listFiles[i2].isDirectory()) {
+                length = getDirectorySize(listFiles[i2]);
             } else {
-                length = listFiles[i].length();
+                length = listFiles[i2].length();
             }
             j += length;
         }

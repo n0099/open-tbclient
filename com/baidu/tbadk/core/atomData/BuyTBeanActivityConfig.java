@@ -20,13 +20,13 @@ public class BuyTBeanActivityConfig extends IntentConfig {
     public static final int SOURCE_DEFAULT = 0;
     public static final String TBEAN_LEFT_TO_BUY_ALA_GIFT = "tbean_left_to_buy_ala_gift";
 
-    public BuyTBeanActivityConfig(Context context, long j) {
+    public BuyTBeanActivityConfig(Context context, float f2) {
         super(context);
-        getIntent().putExtra("gift_tbean", j);
+        getIntent().putExtra("gift_tbean", f2);
     }
 
-    public BuyTBeanActivityConfig setFromDecreaseGiftStepStrategy(int i) {
-        getIntent().putExtra(IS_FROM_ALA_GIFT_PANEL, i);
+    public BuyTBeanActivityConfig setFromDecreaseGiftStepStrategy(int i2) {
+        getIntent().putExtra(IS_FROM_ALA_GIFT_PANEL, i2);
         return this;
     }
 
@@ -45,11 +45,11 @@ public class BuyTBeanActivityConfig extends IntentConfig {
         return this;
     }
 
-    public BuyTBeanActivityConfig(Context context, long j, int i, String str, PageDialogHelper.PayForm payForm) {
+    public BuyTBeanActivityConfig(Context context, float f2, int i2, String str, PageDialogHelper.PayForm payForm) {
         super(context);
-        getIntent().putExtra("gift_tbean", j);
+        getIntent().putExtra("gift_tbean", f2);
         getIntent().putExtra("scene_id", str);
-        getIntent().putExtra("pay_type", i);
+        getIntent().putExtra("pay_type", i2);
         getIntent().putExtra(PAY_FORM, payForm);
     }
 }

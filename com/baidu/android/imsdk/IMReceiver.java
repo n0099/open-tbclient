@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.IMSettings;
 import com.baidu.android.imsdk.mcast.McastConfig;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import d.b.r.a;
+import d.a.r.a;
 /* loaded from: classes.dex */
 public class IMReceiver extends BroadcastReceiver {
     public static final String TAG = "IMReceiver";

@@ -29,23 +29,23 @@ public final class AztecCode {
         return this.compact;
     }
 
-    public void setCodeWords(int i) {
-        this.codeWords = i;
+    public void setCodeWords(int i2) {
+        this.codeWords = i2;
     }
 
     public void setCompact(boolean z) {
         this.compact = z;
     }
 
-    public void setLayers(int i) {
-        this.layers = i;
+    public void setLayers(int i2) {
+        this.layers = i2;
     }
 
     public void setMatrix(BitMatrix bitMatrix) {
         this.matrix = bitMatrix;
     }
 
-    public void setSize(int i) {
-        this.size = i;
+    public void setSize(int i2) {
+        this.size = i2;
     }
 }

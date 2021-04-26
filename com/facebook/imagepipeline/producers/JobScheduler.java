@@ -71,7 +71,7 @@ public class JobScheduler {
 
     /* loaded from: classes6.dex */
     public interface JobRunnable {
-        void run(EncodedImage encodedImage, int i);
+        void run(EncodedImage encodedImage, int i2);
     }
 
     @VisibleForTesting
@@ -96,28 +96,28 @@ public class JobScheduler {
         RUNNING_AND_PENDING
     }
 
-    public JobScheduler(Executor executor, JobRunnable jobRunnable, int i) {
+    public JobScheduler(Executor executor, JobRunnable jobRunnable, int i2) {
         this.mExecutor = executor;
         this.mJobRunnable = jobRunnable;
-        this.mMinimumJobIntervalMs = i;
+        this.mMinimumJobIntervalMs = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void doJob() {
         EncodedImage encodedImage;
-        int i;
+        int i2;
         long uptimeMillis = SystemClock.uptimeMillis();
         synchronized (this) {
             encodedImage = this.mEncodedImage;
-            i = this.mStatus;
+            i2 = this.mStatus;
             this.mEncodedImage = null;
             this.mStatus = 0;
             this.mJobState = JobState.RUNNING;
             this.mJobStartTime = uptimeMillis;
         }
         try {
-            if (shouldProcess(encodedImage, i)) {
-                this.mJobRunnable.run(encodedImage, i);
+            if (shouldProcess(encodedImage, i2)) {
+                this.mJobRunnable.run(encodedImage, i2);
             }
         } finally {
             EncodedImage.closeSafely(encodedImage);
@@ -154,8 +154,8 @@ public class JobScheduler {
         }
     }
 
-    public static boolean shouldProcess(EncodedImage encodedImage, int i) {
-        return BaseConsumer.isLast(i) || BaseConsumer.statusHasFlag(i, 4) || EncodedImage.isValid(encodedImage);
+    public static boolean shouldProcess(EncodedImage encodedImage, int i2) {
+        return BaseConsumer.isLast(i2) || BaseConsumer.statusHasFlag(i2, 4) || EncodedImage.isValid(encodedImage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -183,9 +183,9 @@ public class JobScheduler {
         synchronized (this) {
             boolean z = false;
             if (shouldProcess(this.mEncodedImage, this.mStatus)) {
-                int i = AnonymousClass3.$SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState[this.mJobState.ordinal()];
-                if (i != 1) {
-                    if (i == 3) {
+                int i2 = AnonymousClass3.$SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState[this.mJobState.ordinal()];
+                if (i2 != 1) {
+                    if (i2 == 3) {
                         this.mJobState = JobState.RUNNING_AND_PENDING;
                     }
                     max = 0;
@@ -204,13 +204,13 @@ public class JobScheduler {
         }
     }
 
-    public boolean updateJob(EncodedImage encodedImage, int i) {
+    public boolean updateJob(EncodedImage encodedImage, int i2) {
         EncodedImage encodedImage2;
-        if (shouldProcess(encodedImage, i)) {
+        if (shouldProcess(encodedImage, i2)) {
             synchronized (this) {
                 encodedImage2 = this.mEncodedImage;
                 this.mEncodedImage = EncodedImage.cloneOrNull(encodedImage);
-                this.mStatus = i;
+                this.mStatus = i2;
             }
             EncodedImage.closeSafely(encodedImage2);
             return true;

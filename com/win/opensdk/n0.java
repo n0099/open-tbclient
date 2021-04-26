@@ -1,33 +1,24 @@
 package com.win.opensdk;
-/* loaded from: classes7.dex */
-public class n0 implements A2 {
+
+import android.os.Handler;
+import android.os.Message;
+/* loaded from: classes6.dex */
+public class n0 extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p0 f40367a;
+    public final /* synthetic */ q0 f37914a;
 
-    public n0(p0 p0Var) {
-        this.f40367a = p0Var;
+    public n0(q0 q0Var) {
+        this.f37914a = q0Var;
     }
 
-    @Override // com.win.opensdk.A2
-    public void a(String str) {
-    }
-
-    @Override // com.win.opensdk.A2
-    public boolean a(String str, String str2) {
-        p0 p0Var = this.f40367a;
-        if (R1.a(p0Var.f40391c, p0Var.f40396h)) {
-            this.f40367a.f40396h = System.currentTimeMillis();
-            p0 p0Var2 = this.f40367a;
-            R1.a(p0Var2.f40389a, str, p0Var2.f40391c, p0Var2.f40395g, str2);
-            a1.a(this.f40367a.f40389a).a(new b1(this.f40367a.f40391c), str).a("desc", str2).a();
-            PBNativeListener pBNativeListener = this.f40367a.f40394f;
-            if (pBNativeListener != null) {
-                pBNativeListener.onClicked();
-            }
-            G.a(this.f40367a.f40391c, str2);
-            return true;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        if (message.what == 11) {
+            this.f37914a.f37926e = true;
+            this.f37914a.k.removeMessages(11);
+            x0.a(this.f37914a.f37923b).a(new y0(this.f37914a.f37927f), 2002, (this.f37914a.b() ? this.f37914a.f37927f.getWt() : 0) * 1000).a();
+            this.f37914a.f37929h.onFail(PBError.TIMEOUT);
         }
-        return true;
     }
 }

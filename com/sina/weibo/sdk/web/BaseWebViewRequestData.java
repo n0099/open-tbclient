@@ -17,8 +17,8 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public BaseWebViewRequestData[] newArray(int i) {
-            return new BaseWebViewRequestData[i];
+        public BaseWebViewRequestData[] newArray(int i2) {
+            return new BaseWebViewRequestData[i2];
         }
     };
     public AuthInfo authInfo;
@@ -69,8 +69,8 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
         this.callback = str;
     }
 
-    public void setCallbackType(int i) {
-        this.callbackType = i;
+    public void setCallbackType(int i2) {
+        this.callbackType = i2;
     }
 
     public void setSpecifyTitle(String str) {
@@ -86,9 +86,9 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.url);
-        parcel.writeParcelable(this.authInfo, i);
+        parcel.writeParcelable(this.authInfo, i2);
         WebRequestType webRequestType = this.type;
         parcel.writeInt(webRequestType == null ? -1 : webRequestType.ordinal());
         parcel.writeString(this.callback);
@@ -96,14 +96,14 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
         parcel.writeInt(this.callbackType);
     }
 
-    public BaseWebViewRequestData(AuthInfo authInfo, WebRequestType webRequestType, String str, int i, String str2, String str3) {
+    public BaseWebViewRequestData(AuthInfo authInfo, WebRequestType webRequestType, String str, int i2, String str2, String str3) {
         this.callbackType = 0;
         this.callback = str;
         this.authInfo = authInfo;
         this.type = webRequestType;
         this.specifyTitle = str2;
         this.url = str3;
-        this.callbackType = i;
+        this.callbackType = i2;
     }
 
     public BaseWebViewRequestData(Parcel parcel) {

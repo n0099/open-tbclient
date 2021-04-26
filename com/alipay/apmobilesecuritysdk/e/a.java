@@ -34,9 +34,9 @@ public final class a {
         synchronized (a.class) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("apdid", bVar.f1745a);
-                jSONObject.put("deviceInfoHash", bVar.f1746b);
-                jSONObject.put("timestamp", bVar.f1747c);
+                jSONObject.put("apdid", bVar.f1687a);
+                jSONObject.put("deviceInfoHash", bVar.f1688b);
+                jSONObject.put("timestamp", bVar.f1689c);
                 String jSONObject2 = jSONObject.toString();
                 com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", DeviceUtils.KEY_OLD_NAME_STRING, jSONObject2);
                 com.alipay.apmobilesecuritysdk.f.a.a("wxcasxx_v3", "wxcasxx", jSONObject2);

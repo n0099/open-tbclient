@@ -7,17 +7,17 @@ public class ab extends ae {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            byte[] bArr = dVar.f36527d;
-            if (i >= bArr.length || bArr[i] == 0) {
+            byte[] bArr = dVar.f34225d;
+            if (i2 >= bArr.length || bArr[i2] == 0) {
                 break;
             }
-            i++;
+            i2++;
         }
-        ((ae) this).f36515h = b.a(dVar.f36527d, 0, i);
-        int i2 = i + 1;
-        byte[] bArr2 = dVar.f36527d;
-        this.i = i2 < bArr2.length ? b.a(bArr2, i2, bArr2.length - i2) : "";
+        ((ae) this).f34212h = b.a(dVar.f34225d, 0, i2);
+        int i3 = i2 + 1;
+        byte[] bArr2 = dVar.f34225d;
+        this.f34213i = i3 < bArr2.length ? b.a(bArr2, i3, bArr2.length - i3) : "";
     }
 }

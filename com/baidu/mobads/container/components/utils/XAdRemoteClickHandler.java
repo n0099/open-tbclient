@@ -281,8 +281,8 @@ public class XAdRemoteClickHandler {
         return true;
     }
 
-    private boolean isRemoteApkDownloader(int i, XBaseAdContainer xBaseAdContainer, HashMap<String, Object> hashMap) {
-        return i == 2 && isProdType4Remote(xBaseAdContainer) && !isFeedVideo(hashMap);
+    private boolean isRemoteApkDownloader(int i2, XBaseAdContainer xBaseAdContainer, HashMap<String, Object> hashMap) {
+        return i2 == 2 && isProdType4Remote(xBaseAdContainer) && !isFeedVideo(hashMap);
     }
 
     private void monitorAppInstall(XAdContainerContext xAdContainerContext, IXAdInstanceInfo iXAdInstanceInfo) {
@@ -395,8 +395,8 @@ public class XAdRemoteClickHandler {
     private void pingThirdClickUrls(IXAdInstanceInfo iXAdInstanceInfo) {
         ArrayList arrayList = new ArrayList();
         List<String> thirdClickTrackingUrls = iXAdInstanceInfo.getThirdClickTrackingUrls();
-        for (int i = 0; i < thirdClickTrackingUrls.size(); i++) {
-            arrayList.add(thirdClickTrackingUrls.get(i).replaceAll(XAdSDKRemoteConfig.REGULAR_MATCH_PROGRESS, String.valueOf(0)));
+        for (int i2 = 0; i2 < thirdClickTrackingUrls.size(); i2++) {
+            arrayList.add(thirdClickTrackingUrls.get(i2).replaceAll(XAdSDKRemoteConfig.REGULAR_MATCH_PROGRESS, String.valueOf(0)));
         }
         Set<String> hashSet = new HashSet<>();
         hashSet.addAll(arrayList);

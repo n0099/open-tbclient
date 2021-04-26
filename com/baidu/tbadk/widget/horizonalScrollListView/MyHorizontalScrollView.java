@@ -42,8 +42,8 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
         this.mGestureDetector = new GestureDetector(new b());
     }
 
-    public MyHorizontalScrollView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public MyHorizontalScrollView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mGestureDetector = new GestureDetector(new b());
     }
 }

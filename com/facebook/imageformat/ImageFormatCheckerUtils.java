@@ -3,7 +3,7 @@ package com.facebook.imageformat;
 import com.facebook.common.internal.Preconditions;
 import java.io.UnsupportedEncodingException;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class ImageFormatCheckerUtils {
     public static byte[] asciiBytes(String str) {
         Preconditions.checkNotNull(str);
@@ -14,35 +14,35 @@ public class ImageFormatCheckerUtils {
         }
     }
 
-    public static int indexOfPattern(byte[] bArr, int i, byte[] bArr2, int i2) {
+    public static int indexOfPattern(byte[] bArr, int i2, byte[] bArr2, int i3) {
         Preconditions.checkNotNull(bArr);
         Preconditions.checkNotNull(bArr2);
-        if (i2 > i) {
+        if (i3 > i2) {
             return -1;
         }
-        int i3 = 0;
+        int i4 = 0;
         byte b2 = bArr2[0];
-        int i4 = i - i2;
-        while (i3 <= i4) {
-            if (bArr[i3] != b2) {
+        int i5 = i2 - i3;
+        while (i4 <= i5) {
+            if (bArr[i4] != b2) {
                 do {
-                    i3++;
-                    if (i3 > i4) {
+                    i4++;
+                    if (i4 > i5) {
                         break;
                     }
-                } while (bArr[i3] != b2);
+                } while (bArr[i4] != b2);
             }
-            if (i3 <= i4) {
-                int i5 = i3 + 1;
-                int i6 = (i5 + i2) - 1;
-                for (int i7 = 1; i5 < i6 && bArr[i5] == bArr2[i7]; i7++) {
-                    i5++;
+            if (i4 <= i5) {
+                int i6 = i4 + 1;
+                int i7 = (i6 + i3) - 1;
+                for (int i8 = 1; i6 < i7 && bArr[i6] == bArr2[i8]; i8++) {
+                    i6++;
                 }
-                if (i5 == i6) {
-                    return i3;
+                if (i6 == i7) {
+                    return i4;
                 }
             }
-            i3++;
+            i4++;
         }
         return -1;
     }
@@ -53,8 +53,8 @@ public class ImageFormatCheckerUtils {
         if (bArr2.length > bArr.length) {
             return false;
         }
-        for (int i = 0; i < bArr2.length; i++) {
-            if (bArr[i] != bArr2[i]) {
+        for (int i2 = 0; i2 < bArr2.length; i2++) {
+            if (bArr[i2] != bArr2[i2]) {
                 return false;
             }
         }

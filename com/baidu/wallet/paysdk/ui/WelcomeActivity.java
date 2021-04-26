@@ -14,6 +14,7 @@ import com.baidu.apollon.statusbar.ImmersiveOSUtils;
 import com.baidu.apollon.statusbar.ImmersiveStatusBarManager;
 import com.baidu.apollon.statusbar.StatusBarUtils;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.sapi2.SapiAccount;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.SDKBaseActivity;
@@ -32,7 +33,7 @@ import com.baidu.wallet.statistics.api.StatisticManager;
 public class WelcomeActivity extends PayBaseBeanActivity {
 
     /* renamed from: a  reason: collision with root package name */
-    public k f25987a;
+    public k f26779a;
 
     private void a() {
         setContentView(ResUtils.layout(getActivity(), "wallet_base_layout_loading"));
@@ -48,53 +49,53 @@ public class WelcomeActivity extends PayBaseBeanActivity {
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity
-    public void onBeanExecFailureWithErrContent(int i, int i2, String str, Object obj) {
-        k kVar = this.f25987a;
+    public void onBeanExecFailureWithErrContent(int i2, int i3, String str, Object obj) {
+        k kVar = this.f26779a;
         if (kVar != null) {
-            kVar.a(i, i2, str, obj);
+            kVar.a(i2, i3, str, obj);
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setFlagPaySdk();
         Intent intent = getIntent();
-        int intExtra = intent.getIntExtra("fromType", 0);
+        int intExtra = intent.getIntExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, 0);
         if (4 == intExtra) {
             BindCardEntry.setLoadingUi(this);
             BindCardEntry.innerRun();
         } else {
             k a2 = g.a(intExtra, this);
-            this.f25987a = a2;
+            this.f26779a = a2;
             if (a2 != null) {
                 a2.a();
-                if (!this.f25987a.a(bundle)) {
+                if (!this.f26779a.a(bundle)) {
                     return;
                 }
             }
         }
         a();
         PassUtil.onCreate();
-        if (this.f25987a != null) {
+        if (this.f26779a != null) {
             if (intExtra == 3) {
-                this.f25987a.a(intent.getStringExtra("orderExtraInfo"));
+                this.f26779a.a(intent.getStringExtra("orderExtraInfo"));
             }
             PrecashierCreateOrderResponse precashierCreateOrderResponse = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
             if (precashierCreateOrderResponse != null) {
-                this.f25987a.a(precashierCreateOrderResponse);
+                this.f26779a.a(precashierCreateOrderResponse);
             } else {
-                this.f25987a.b();
+                this.f26779a.b();
             }
-            this.f25987a.g();
+            this.f26779a.g();
         }
         if (PayDataCache.getInstance().isRemotePay()) {
             StatisticManager.onEvent(StatServiceEvent.REMOTE_ENTER_WELCOME_ACTIVITY, MissionEvent.MESSAGE_CREATE);
@@ -109,10 +110,10 @@ public class WelcomeActivity extends PayBaseBeanActivity {
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        k kVar = this.f25987a;
+        k kVar = this.f26779a;
         if (kVar != null) {
             kVar.d();
-            this.f25987a = null;
+            this.f26779a = null;
         }
     }
 
@@ -131,7 +132,7 @@ public class WelcomeActivity extends PayBaseBeanActivity {
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        k kVar = this.f25987a;
+        k kVar = this.f26779a;
         if (kVar != null) {
             kVar.b();
         }
@@ -149,12 +150,12 @@ public class WelcomeActivity extends PayBaseBeanActivity {
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, android.app.Activity
-    public void onPrepareDialog(int i, Dialog dialog) {
-        k kVar = this.f25987a;
+    public void onPrepareDialog(int i2, Dialog dialog) {
+        k kVar = this.f26779a;
         if (kVar != null) {
-            kVar.a(i, dialog);
+            kVar.a(i2, dialog);
         } else {
-            super.onPrepareDialog(i, dialog);
+            super.onPrepareDialog(i2, dialog);
         }
     }
 

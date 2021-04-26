@@ -72,13 +72,13 @@ public class LinkedCaseInsensitiveMap<V> extends LinkedHashMap<String, V> {
         return (V) super.put((LinkedCaseInsensitiveMap<V>) str, (String) v);
     }
 
-    public LinkedCaseInsensitiveMap(int i) {
-        this(i, null);
+    public LinkedCaseInsensitiveMap(int i2) {
+        this(i2, null);
     }
 
-    public LinkedCaseInsensitiveMap(int i, Locale locale) {
-        super(i);
-        this.caseInsensitiveKeys = new HashMap(i);
+    public LinkedCaseInsensitiveMap(int i2, Locale locale) {
+        super(i2);
+        this.caseInsensitiveKeys = new HashMap(i2);
         this.locale = locale == null ? Locale.getDefault() : locale;
     }
 }

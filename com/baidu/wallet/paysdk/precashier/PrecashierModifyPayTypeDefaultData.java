@@ -78,15 +78,15 @@ public class PrecashierModifyPayTypeDefaultData implements Serializable {
                         JSONObject jSONObject4 = jSONObject2.getJSONObject("easypay");
                         if (jSONObject4 != null && (jSONArray = jSONObject4.getJSONArray("bind_card_arr")) != null) {
                             int length = jSONArray.length();
-                            int i = 0;
+                            int i2 = 0;
                             while (true) {
-                                if (i < length) {
-                                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                                if (i2 < length) {
+                                    JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                                     if (optJSONObject != null && this.card.account_no.equals(optJSONObject.get("account_no"))) {
                                         jSONObject3 = optJSONObject;
                                         break;
                                     }
-                                    i++;
+                                    i2++;
                                 } else {
                                     break;
                                 }

@@ -26,14 +26,14 @@ public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
         this.mFetchTime = j;
     }
 
-    public void setLimit(int i) {
-        this.mLimit = i;
+    public void setLimit(int i2) {
+        this.mLimit = i2;
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
-        BIMFetchSignalRtcInfo bIMFetchSignalRtcInfo = new BIMFetchSignalRtcInfo(super.toRtcInfo(i, str, str2));
+    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
+        BIMFetchSignalRtcInfo bIMFetchSignalRtcInfo = new BIMFetchSignalRtcInfo(super.toRtcInfo(i2, str, str2));
         try {
             JSONObject jSONObject = new JSONObject(str2);
             bIMFetchSignalRtcInfo.setLimit(jSONObject.optInt(Constants.EXTRA_CONFIG_LIMIT));

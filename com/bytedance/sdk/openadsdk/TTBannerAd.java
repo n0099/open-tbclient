@@ -8,9 +8,9 @@ public interface TTBannerAd {
 
     /* loaded from: classes5.dex */
     public interface AdInteractionListener {
-        void onAdClicked(View view, int i);
+        void onAdClicked(View view, int i2);
 
-        void onAdShow(View view, int i);
+        void onAdShow(View view, int i2);
     }
 
     View getBannerView();
@@ -27,5 +27,5 @@ public interface TTBannerAd {
 
     void setShowDislikeIcon(TTAdDislike.DislikeInteractionCallback dislikeInteractionCallback);
 
-    void setSlideIntervalTime(int i);
+    void setSlideIntervalTime(int i2);
 }

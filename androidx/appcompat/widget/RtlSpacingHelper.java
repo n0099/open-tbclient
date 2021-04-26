@@ -27,15 +27,15 @@ public class RtlSpacingHelper {
         return this.mIsRtl ? this.mRight : this.mLeft;
     }
 
-    public void setAbsolute(int i, int i2) {
+    public void setAbsolute(int i2, int i3) {
         this.mIsRelative = false;
-        if (i != Integer.MIN_VALUE) {
-            this.mExplicitLeft = i;
-            this.mLeft = i;
-        }
         if (i2 != Integer.MIN_VALUE) {
-            this.mExplicitRight = i2;
-            this.mRight = i2;
+            this.mExplicitLeft = i2;
+            this.mLeft = i2;
+        }
+        if (i3 != Integer.MIN_VALUE) {
+            this.mExplicitRight = i3;
+            this.mRight = i3;
         }
     }
 
@@ -48,49 +48,49 @@ public class RtlSpacingHelper {
             this.mLeft = this.mExplicitLeft;
             this.mRight = this.mExplicitRight;
         } else if (z) {
-            int i = this.mEnd;
-            if (i == Integer.MIN_VALUE) {
-                i = this.mExplicitLeft;
-            }
-            this.mLeft = i;
-            int i2 = this.mStart;
+            int i2 = this.mEnd;
             if (i2 == Integer.MIN_VALUE) {
-                i2 = this.mExplicitRight;
+                i2 = this.mExplicitLeft;
             }
-            this.mRight = i2;
-        } else {
+            this.mLeft = i2;
             int i3 = this.mStart;
             if (i3 == Integer.MIN_VALUE) {
-                i3 = this.mExplicitLeft;
+                i3 = this.mExplicitRight;
             }
-            this.mLeft = i3;
-            int i4 = this.mEnd;
+            this.mRight = i3;
+        } else {
+            int i4 = this.mStart;
             if (i4 == Integer.MIN_VALUE) {
-                i4 = this.mExplicitRight;
+                i4 = this.mExplicitLeft;
             }
-            this.mRight = i4;
+            this.mLeft = i4;
+            int i5 = this.mEnd;
+            if (i5 == Integer.MIN_VALUE) {
+                i5 = this.mExplicitRight;
+            }
+            this.mRight = i5;
         }
     }
 
-    public void setRelative(int i, int i2) {
-        this.mStart = i;
-        this.mEnd = i2;
+    public void setRelative(int i2, int i3) {
+        this.mStart = i2;
+        this.mEnd = i3;
         this.mIsRelative = true;
         if (this.mIsRtl) {
-            if (i2 != Integer.MIN_VALUE) {
-                this.mLeft = i2;
+            if (i3 != Integer.MIN_VALUE) {
+                this.mLeft = i3;
             }
-            if (i != Integer.MIN_VALUE) {
-                this.mRight = i;
+            if (i2 != Integer.MIN_VALUE) {
+                this.mRight = i2;
                 return;
             }
             return;
         }
-        if (i != Integer.MIN_VALUE) {
-            this.mLeft = i;
-        }
         if (i2 != Integer.MIN_VALUE) {
-            this.mRight = i2;
+            this.mLeft = i2;
+        }
+        if (i3 != Integer.MIN_VALUE) {
+            this.mRight = i3;
         }
     }
 }

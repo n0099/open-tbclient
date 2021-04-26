@@ -10,19 +10,19 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<BikingRouteLine> CREATOR = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BikingRouteLine> f7283a;
+    public List<BikingRouteLine> f7540a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SuggestAddrInfo f7284b;
+    public SuggestAddrInfo f7541b;
 
     public BikingRouteResult() {
     }
 
     public BikingRouteResult(Parcel parcel) {
         ArrayList arrayList = new ArrayList();
-        this.f7283a = arrayList;
+        this.f7540a = arrayList;
         parcel.readList(arrayList, BikingRouteLine.class.getClassLoader());
-        this.f7284b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+        this.f7541b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -31,24 +31,24 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     }
 
     public List<BikingRouteLine> getRouteLines() {
-        return this.f7283a;
+        return this.f7540a;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
-        return this.f7284b;
+        return this.f7541b;
     }
 
     public void setRouteLines(List<BikingRouteLine> list) {
-        this.f7283a = list;
+        this.f7540a = list;
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
-        this.f7284b = suggestAddrInfo;
+        this.f7541b = suggestAddrInfo;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeList(this.f7283a);
-        parcel.writeParcelable(this.f7284b, 1);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeList(this.f7540a);
+        parcel.writeParcelable(this.f7541b, 1);
     }
 }

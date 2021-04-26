@@ -49,8 +49,8 @@ public class GodUserData extends OrmObject implements Serializable {
     }
 
     public boolean isBigV() {
-        int i = this.type;
-        return i == 2 || i == 1;
+        int i2 = this.type;
+        return i2 == 2 || i2 == 1;
     }
 
     public boolean isGod() {
@@ -103,7 +103,7 @@ public class GodUserData extends OrmObject implements Serializable {
         this.followed = z ? 1 : 0;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 }

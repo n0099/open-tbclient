@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.indicator.ScrollFragmentTabHost;
 import com.squareup.wire.Message;
-import d.b.i0.d0.g;
-import d.b.i0.d0.h;
-import d.b.j0.j1.j;
+import d.a.i0.d0.g;
+import d.a.i0.d0.h;
+import d.a.j0.j1.j;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Lego.DataRes;
@@ -22,58 +22,54 @@ import tbclient.Lego.DataRes;
 public class LegoTabFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public ScrollFragmentTabHost f18274e;
+    public ScrollFragmentTabHost f18629e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.j0.j1.s.a f18275f;
+    public d.a.j0.j1.s.a f18630f;
 
     /* renamed from: g  reason: collision with root package name */
-    public h f18276g;
+    public h f18631g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f18277h;
-    public long i;
+    public g f18632h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public long f18633i;
     public String j;
     public String k;
     public String l;
     public String m;
     public j o;
-    public List<d.b.j0.j1.p.d> n = new ArrayList();
-    public d.b.j0.j1.d p = new a();
-    public d.b.j0.j1.c q = new b();
+    public List<d.a.j0.j1.p.d> n = new ArrayList();
+    public d.a.j0.j1.d p = new a();
+    public d.a.j0.j1.c q = new b();
     public CustomMessageListener r = new c(2016449);
 
     /* loaded from: classes4.dex */
-    public class a implements d.b.j0.j1.d {
+    public class a implements d.a.j0.j1.d {
         public a() {
         }
 
-        @Override // d.b.j0.j1.d
-        public void a(int i, long j, String str, String str2) {
-            LegoTabFragment.this.f18275f.c(2, j, str, i, str2);
+        @Override // d.a.j0.j1.d
+        public void a(int i2, long j, String str, String str2) {
+            LegoTabFragment.this.f18630f.c(2, j, str, i2, str2);
         }
 
-        @Override // d.b.j0.j1.d
+        @Override // d.a.j0.j1.d
         public void b(long j, String str) {
-            LegoTabFragment.this.f18275f.a(j, str);
+            LegoTabFragment.this.f18630f.a(j, str);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements d.b.j0.j1.c {
+    public class b implements d.a.j0.j1.c {
         public b() {
         }
 
-        @Override // d.b.j0.j1.c
-        public void a() {
+        @Override // d.a.j0.j1.c
+        public void a(List<d.a.j0.j1.p.d> list) {
             LegoTabFragment legoTabFragment = LegoTabFragment.this;
-            legoTabFragment.R0(legoTabFragment.getView());
-        }
-
-        @Override // d.b.j0.j1.c
-        public void b(List<d.b.j0.j1.p.d> list) {
-            LegoTabFragment legoTabFragment = LegoTabFragment.this;
-            List<d.b.j0.j1.p.d> list2 = legoTabFragment.n;
+            List<d.a.j0.j1.p.d> list2 = legoTabFragment.n;
             if (list2 == null) {
                 legoTabFragment.n = new ArrayList();
             } else {
@@ -85,13 +81,19 @@ public class LegoTabFragment extends BaseFragment {
             LegoTabFragment.this.a1();
         }
 
-        @Override // d.b.j0.j1.c
-        public void c(long j, String str) {
-            LegoTabFragment.this.f18275f.c(1, j, str, 1, "");
+        @Override // d.a.j0.j1.c
+        public void b() {
+            LegoTabFragment legoTabFragment = LegoTabFragment.this;
+            legoTabFragment.R0(legoTabFragment.getView());
         }
 
-        @Override // d.b.j0.j1.c
-        public void d(String str, String str2, String str3, List<d.b.j0.j1.p.e> list) {
+        @Override // d.a.j0.j1.c
+        public void c(long j, String str) {
+            LegoTabFragment.this.f18630f.c(1, j, str, 1, "");
+        }
+
+        @Override // d.a.j0.j1.c
+        public void d(String str, String str2, String str3, List<d.a.j0.j1.p.e> list) {
             LegoTabFragment.this.k = str;
             LegoTabFragment.this.l = str2;
             LegoTabFragment.this.m = str3;
@@ -99,16 +101,16 @@ public class LegoTabFragment extends BaseFragment {
             LegoTabFragment.this.U0(list);
         }
 
-        @Override // d.b.j0.j1.c
-        public void e(long j, String str, int i, String str2) {
-            LegoTabFragment.this.f18275f.c(1, j, str, i, str2);
+        @Override // d.a.j0.j1.c
+        public void e(long j, String str, int i2, String str2) {
+            LegoTabFragment.this.f18630f.c(1, j, str, i2, str2);
         }
     }
 
     /* loaded from: classes4.dex */
     public class c extends CustomMessageListener {
-        public c(int i) {
-            super(i);
+        public c(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -120,45 +122,45 @@ public class LegoTabFragment extends BaseFragment {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements d.b.j0.j1.s.b {
+    public class d implements d.a.j0.j1.s.b {
         public d() {
         }
 
-        @Override // d.b.j0.j1.s.b
-        public void a(long j, String str, String str2, int i) {
-            LegoTabFragment legoTabFragment = LegoTabFragment.this;
-            legoTabFragment.R0(legoTabFragment.getView());
-            if (LegoTabFragment.this.f18274e.f()) {
-                LegoTabFragment.this.f18274e.o(j, str, str2, i);
-            } else if (LegoTabFragment.this.getPageContext() == null || LegoTabFragment.this.getPageContext().getResources() == null) {
-            } else {
-                LegoTabFragment legoTabFragment2 = LegoTabFragment.this;
-                legoTabFragment2.showNetRefreshView(legoTabFragment2.getView(), LegoTabFragment.this.getPageContext().getResources().getString(R.string.net_error_text, str2, Integer.valueOf(i)), false);
-            }
-        }
-
-        @Override // d.b.j0.j1.s.b
-        public void b(long j, String str, Message message, boolean z) {
-            LegoTabFragment legoTabFragment = LegoTabFragment.this;
-            legoTabFragment.R0(legoTabFragment.getView());
-            LegoTabFragment.this.f18274e.p(j, str, (DataRes) message, z);
-        }
-
-        @Override // d.b.j0.j1.s.b
-        public void c(boolean z, Message message, boolean z2, long j, String str, int i) {
+        @Override // d.a.j0.j1.s.b
+        public void a(boolean z, Message message, boolean z2, long j, String str, int i2) {
             LegoTabFragment.this.V0();
             if (z) {
                 LegoTabFragment legoTabFragment = LegoTabFragment.this;
                 legoTabFragment.R0(legoTabFragment.getView());
             }
             DataRes dataRes = (DataRes) message;
-            if (!z || LegoTabFragment.this.f18274e.f() || (dataRes != null && dataRes.cards != null)) {
-                LegoTabFragment.this.f18274e.n(z, j, str, dataRes, z2, i);
+            if (!z || LegoTabFragment.this.f18629e.f() || (dataRes != null && dataRes.cards != null)) {
+                LegoTabFragment.this.f18629e.n(z, j, str, dataRes, z2, i2);
             } else if (LegoTabFragment.this.getPageContext() == null || LegoTabFragment.this.getPageContext().getResources() == null) {
             } else {
                 LegoTabFragment legoTabFragment2 = LegoTabFragment.this;
                 legoTabFragment2.showNetRefreshView(legoTabFragment2.getView(), LegoTabFragment.this.getPageContext().getResources().getString(R.string.neterror), false);
             }
+        }
+
+        @Override // d.a.j0.j1.s.b
+        public void b(long j, String str, String str2, int i2) {
+            LegoTabFragment legoTabFragment = LegoTabFragment.this;
+            legoTabFragment.R0(legoTabFragment.getView());
+            if (LegoTabFragment.this.f18629e.f()) {
+                LegoTabFragment.this.f18629e.o(j, str, str2, i2);
+            } else if (LegoTabFragment.this.getPageContext() == null || LegoTabFragment.this.getPageContext().getResources() == null) {
+            } else {
+                LegoTabFragment legoTabFragment2 = LegoTabFragment.this;
+                legoTabFragment2.showNetRefreshView(legoTabFragment2.getView(), LegoTabFragment.this.getPageContext().getResources().getString(R.string.net_error_text, str2, Integer.valueOf(i2)), false);
+            }
+        }
+
+        @Override // d.a.j0.j1.s.b
+        public void c(long j, String str, Message message, boolean z) {
+            LegoTabFragment legoTabFragment = LegoTabFragment.this;
+            legoTabFragment.R0(legoTabFragment.getView());
+            LegoTabFragment.this.f18629e.p(j, str, (DataRes) message, z);
         }
     }
 
@@ -169,8 +171,8 @@ public class LegoTabFragment extends BaseFragment {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (LegoTabFragment.this.f18275f != null) {
-                LegoTabFragment.this.f18275f.c(1, LegoTabFragment.this.i, LegoTabFragment.this.j, 1, "");
+            if (LegoTabFragment.this.f18630f != null) {
+                LegoTabFragment.this.f18630f.c(1, LegoTabFragment.this.f18633i, LegoTabFragment.this.j, 1, "");
                 LegoTabFragment.this.S0();
                 LegoTabFragment legoTabFragment = LegoTabFragment.this;
                 legoTabFragment.Z0(legoTabFragment.getView(), false, LegoTabFragment.this.getResources().getDimensionPixelSize(R.dimen.ds360));
@@ -179,45 +181,45 @@ public class LegoTabFragment extends BaseFragment {
     }
 
     public final void R0(View view) {
-        g gVar = this.f18277h;
+        g gVar = this.f18632h;
         if (gVar != null) {
             gVar.dettachView(view);
-            this.f18277h = null;
+            this.f18632h = null;
         }
     }
 
     public final void S0() {
-        h hVar = this.f18276g;
+        h hVar = this.f18631g;
         if (hVar != null) {
             hVar.dettachView(getView());
-            this.f18276g = null;
+            this.f18631g = null;
         }
     }
 
     public final void T0() {
-        d.b.j0.j1.s.a a2 = d.b.j0.j1.r.b.d().a(getPageContext(), getUniqueId());
-        this.f18275f = a2;
-        a2.b(new d());
+        d.a.j0.j1.s.a c2 = d.a.j0.j1.r.b.d().c(getPageContext(), getUniqueId());
+        this.f18630f = c2;
+        c2.b(new d());
     }
 
-    public final void U0(List<d.b.j0.j1.p.e> list) {
+    public final void U0(List<d.a.j0.j1.p.e> list) {
         int count = ListUtils.getCount(list);
-        if (count > 0 && this.f18274e != null) {
-            int i = 0;
+        if (count > 0 && this.f18629e != null) {
             int i2 = 0;
+            int i3 = 0;
             while (true) {
-                if (i2 >= count) {
+                if (i3 >= count) {
                     break;
-                } else if (list.get(i2).f57899a == this.i) {
-                    i = i2;
+                } else if (list.get(i3).f55871a == this.f18633i) {
+                    i2 = i3;
                     break;
                 } else {
-                    i2++;
+                    i3++;
                 }
             }
-            this.f18274e.setFirstPosition(i);
-            this.f18274e.d(list, i);
-            this.f18274e.setCurrentTab(i);
+            this.f18629e.setFirstPosition(i2);
+            this.f18629e.d(list, i2);
+            this.f18629e.setCurrentTab(i2);
         }
     }
 
@@ -240,19 +242,19 @@ public class LegoTabFragment extends BaseFragment {
     }
 
     public void Y0(long j) {
-        this.i = j;
+        this.f18633i = j;
     }
 
-    public final void Z0(View view, boolean z, int i) {
-        if (this.f18277h == null) {
-            if (i < 0) {
-                this.f18277h = new g(getActivity());
+    public final void Z0(View view, boolean z, int i2) {
+        if (this.f18632h == null) {
+            if (i2 < 0) {
+                this.f18632h = new g(getActivity());
             } else {
-                this.f18277h = new g(getActivity(), i);
+                this.f18632h = new g(getActivity(), i2);
             }
-            this.f18277h.onChangeSkinType();
+            this.f18632h.onChangeSkinType();
         }
-        this.f18277h.attachView(view, z);
+        this.f18632h.attachView(view, z);
     }
 
     public final void a1() {
@@ -267,17 +269,17 @@ public class LegoTabFragment extends BaseFragment {
         super.onActivityCreated(bundle);
         T0();
         ScrollFragmentTabHost scrollFragmentTabHost = (ScrollFragmentTabHost) getView().findViewById(R.id.lego_tab_host);
-        this.f18274e = scrollFragmentTabHost;
+        this.f18629e = scrollFragmentTabHost;
         scrollFragmentTabHost.setPageUniqueId(getUniqueId());
-        this.f18274e.h(this.p, this.q);
+        this.f18629e.h(this.p, this.q);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        ScrollFragmentTabHost scrollFragmentTabHost = this.f18274e;
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        ScrollFragmentTabHost scrollFragmentTabHost = this.f18629e;
         if (scrollFragmentTabHost != null) {
-            scrollFragmentTabHost.k(i);
+            scrollFragmentTabHost.k(i2);
         }
     }
 
@@ -298,20 +300,20 @@ public class LegoTabFragment extends BaseFragment {
     public void onPrimary() {
         ScrollFragmentTabHost scrollFragmentTabHost;
         super.onPrimary();
-        if (isPrimary() && (scrollFragmentTabHost = this.f18274e) != null && scrollFragmentTabHost.j()) {
-            this.f18274e.m(this.i, this.j);
+        if (isPrimary() && (scrollFragmentTabHost = this.f18629e) != null && scrollFragmentTabHost.j()) {
+            this.f18629e.m(this.f18633i, this.j);
             Z0(getView(), false, getResources().getDimensionPixelSize(R.dimen.ds360));
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view, String str, boolean z) {
-        if (this.f18276g == null) {
-            this.f18276g = new h(getPageContext().getPageActivity(), new e());
+        if (this.f18631g == null) {
+            this.f18631g = new h(getPageContext().getPageActivity(), new e());
         }
-        this.f18276g.j(getResources().getDimensionPixelSize(R.dimen.ds160));
-        this.f18276g.l(str);
-        this.f18276g.attachView(view, z);
-        this.f18276g.o();
+        this.f18631g.j(getResources().getDimensionPixelSize(R.dimen.ds160));
+        this.f18631g.l(str);
+        this.f18631g.attachView(view, z);
+        this.f18631g.o();
     }
 }

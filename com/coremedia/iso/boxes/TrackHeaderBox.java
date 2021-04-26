@@ -17,39 +17,39 @@ import g.a.a.a;
 import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TrackHeaderBox extends AbstractFullBox {
     public static final String TYPE = "tkhd";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_10 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_11 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_12 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_13 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_14 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_15 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_16 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_17 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_18 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_19 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_20 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_21 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_22 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_23 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_24 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_25 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_26 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_27 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_28 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_29 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_8 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_9 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_10 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_11 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_12 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_13 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_14 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_15 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_16 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_17 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_18 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_19 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_20 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_21 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_22 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_23 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_24 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_25 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_26 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_27 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_28 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_29 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_9 = null;
     public int alternateGroup;
     public Date creationTime;
     public long duration;
@@ -91,7 +91,7 @@ public class TrackHeaderBox extends AbstractFullBox {
         ajc$tjp_23 = bVar.g("method-execution", bVar.f("1", "isInMovie", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "boolean"), GDiffPatcher.DATA_USHORT);
         ajc$tjp_24 = bVar.g("method-execution", bVar.f("1", "isInPreview", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "boolean"), GDiffPatcher.COPY_USHORT_INT);
         ajc$tjp_25 = bVar.g("method-execution", bVar.f("1", "isInPoster", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "boolean"), 255);
-        ajc$tjp_26 = bVar.g("method-execution", bVar.f("1", "setEnabled", "com.coremedia.iso.boxes.TrackHeaderBox", "boolean", SapiOptions.t, "", "void"), 259);
+        ajc$tjp_26 = bVar.g("method-execution", bVar.f("1", "setEnabled", "com.coremedia.iso.boxes.TrackHeaderBox", "boolean", SapiOptions.KEY_CACHE_ENABLED, "", "void"), 259);
         ajc$tjp_27 = bVar.g("method-execution", bVar.f("1", "setInMovie", "com.coremedia.iso.boxes.TrackHeaderBox", "boolean", "inMovie", "", "void"), 267);
         ajc$tjp_28 = bVar.g("method-execution", bVar.f("1", "setInPreview", "com.coremedia.iso.boxes.TrackHeaderBox", "boolean", "inPreview", "", "void"), 275);
         ajc$tjp_29 = bVar.g("method-execution", bVar.f("1", "setInPoster", "com.coremedia.iso.boxes.TrackHeaderBox", "boolean", "inPoster", "", "void"), 283);
@@ -234,9 +234,9 @@ public class TrackHeaderBox extends AbstractFullBox {
         return (getFlags() & 4) > 0;
     }
 
-    public void setAlternateGroup(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_17, this, this, g.a.b.a.a.e(i)));
-        this.alternateGroup = i;
+    public void setAlternateGroup(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_17, this, this, g.a.b.a.a.e(i2)));
+        this.alternateGroup = i2;
     }
 
     public void setCreationTime(Date date) {
@@ -296,9 +296,9 @@ public class TrackHeaderBox extends AbstractFullBox {
         }
     }
 
-    public void setLayer(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_16, this, this, g.a.b.a.a.e(i)));
-        this.layer = i;
+    public void setLayer(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_16, this, this, g.a.b.a.a.e(i2)));
+        this.layer = i2;
     }
 
     public void setMatrix(Matrix matrix) {

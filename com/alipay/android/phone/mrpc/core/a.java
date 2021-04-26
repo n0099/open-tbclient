@@ -5,29 +5,29 @@ import java.lang.reflect.Method;
 public abstract class a implements v {
 
     /* renamed from: a  reason: collision with root package name */
-    public Method f1654a;
+    public Method f1594a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f1655b;
+    public byte[] f1595b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1656c;
+    public String f1596c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f1657d;
+    public int f1597d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1658e;
+    public String f1598e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f1659f;
+    public boolean f1599f;
 
-    public a(Method method, int i, String str, byte[] bArr, String str2, boolean z) {
-        this.f1654a = method;
-        this.f1657d = i;
-        this.f1656c = str;
-        this.f1655b = bArr;
-        this.f1658e = str2;
-        this.f1659f = z;
+    public a(Method method, int i2, String str, byte[] bArr, String str2, boolean z) {
+        this.f1594a = method;
+        this.f1597d = i2;
+        this.f1596c = str;
+        this.f1595b = bArr;
+        this.f1598e = str2;
+        this.f1599f = z;
     }
 }

@@ -16,13 +16,13 @@ import java.util.Locale;
 public class PlayableLoadingView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public ProgressBar f28510a;
+    public ProgressBar f29384a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f28511b;
+    public TextView f29385b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f28512c;
+    public TextView f29386c;
 
     public PlayableLoadingView(@NonNull Context context) {
         super(context);
@@ -34,9 +34,9 @@ public class PlayableLoadingView extends FrameLayout {
         setClickable(true);
         setVisibility(8);
         LayoutInflater.from(context).inflate(ad.f(context, "tt_playable_loading_layout"), (ViewGroup) this, true);
-        this.f28510a = (ProgressBar) findViewById(ad.e(context, "tt_playable_pb_view"));
-        this.f28511b = (TextView) findViewById(ad.e(context, "tt_playable_progress_tip"));
-        this.f28512c = (TextView) findViewById(ad.e(context, "tt_playable_play"));
+        this.f29384a = (ProgressBar) findViewById(ad.e(context, "tt_playable_pb_view"));
+        this.f29385b = (TextView) findViewById(ad.e(context, "tt_playable_progress_tip"));
+        this.f29386c = (TextView) findViewById(ad.e(context, "tt_playable_play"));
     }
 
     public void b() {
@@ -44,23 +44,23 @@ public class PlayableLoadingView extends FrameLayout {
     }
 
     public TextView getPlayView() {
-        return this.f28512c;
+        return this.f29386c;
     }
 
-    public void setProgress(int i) {
-        if (i < 0) {
-            i = 0;
+    public void setProgress(int i2) {
+        if (i2 < 0) {
+            i2 = 0;
         }
-        if (i > 100) {
-            i = 100;
+        if (i2 > 100) {
+            i2 = 100;
         }
-        ProgressBar progressBar = this.f28510a;
+        ProgressBar progressBar = this.f29384a;
         if (progressBar != null) {
-            progressBar.setProgress(i);
+            progressBar.setProgress(i2);
         }
-        TextView textView = this.f28511b;
+        TextView textView = this.f29385b;
         if (textView != null) {
-            textView.setText(String.format(Locale.getDefault(), "%d%%", Integer.valueOf(i)));
+            textView.setText(String.format(Locale.getDefault(), "%d%%", Integer.valueOf(i2)));
         }
     }
 
@@ -69,8 +69,8 @@ public class PlayableLoadingView extends FrameLayout {
         a(context);
     }
 
-    public PlayableLoadingView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public PlayableLoadingView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a(context);
     }
 

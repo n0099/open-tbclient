@@ -49,13 +49,13 @@ public class IMHttpDnsUrlRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        LogUtils.d(TAG, "onFailure errorCode :" + i);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        LogUtils.d(TAG, "onFailure errorCode :" + i2);
         IMSocketAddrProvider.getInstance(this.mContext).onGetHttpDNSAddressResult(null);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str = new String(bArr);
         LogUtils.d(TAG, "onSuccess----ip of " + Constants.URL_SOCKET_SERVER + " is " + str);
         ArrayList arrayList = null;

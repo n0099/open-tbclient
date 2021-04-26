@@ -26,7 +26,7 @@ public class f extends com.meizu.cloud.pushsdk.handler.a.a<UnRegisterStatus> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        d.k.a.a.a.d("AbstractMessageHandler", "start UnRegisterStatusHandler match");
+        d.j.a.a.a.d("AbstractMessageHandler", "start UnRegisterStatusHandler match");
         return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_UNREGISTER_STATUS.equals(i(intent));
     }
 

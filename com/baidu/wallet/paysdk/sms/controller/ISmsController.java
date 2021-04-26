@@ -13,21 +13,21 @@ public interface ISmsController {
     public static final int DIALOG_PROMPT = 65283;
     public static final int DIALOG_WAIT_S0 = 0;
 
-    boolean doOnBeanExecFailureWithErrContent(int i, int i2, String str, Object obj);
+    boolean doOnBeanExecFailureWithErrContent(int i2, int i3, String str, Object obj);
 
-    Dialog doOnCreateDialog(int i);
+    Dialog doOnCreateDialog(int i2);
 
     void doOnDestroy();
 
     void doOnEvent();
 
-    boolean doOnPrepareDialog(int i, Dialog dialog);
+    boolean doOnPrepareDialog(int i2, Dialog dialog);
 
     void doOnSaveInstanceState(Bundle bundle);
 
-    boolean handleFailure(int i, int i2, String str);
+    boolean handleFailure(int i2, int i3, String str);
 
-    boolean handleResponse(int i, Object obj, String str);
+    boolean handleResponse(int i2, Object obj, String str);
 
     void initSmsActivityView();
 

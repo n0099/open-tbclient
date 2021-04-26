@@ -10,14 +10,14 @@ public class PersonalBackgroundPreviewActivityConfig extends IntentConfig {
     public static final String INUSE = "inuse";
     public static final String PROPID = "propid";
 
-    public PersonalBackgroundPreviewActivityConfig(Context context, int i, int i2) {
+    public PersonalBackgroundPreviewActivityConfig(Context context, int i2, int i3) {
         super(context);
         Intent intent = getIntent();
-        intent.putExtra(PROPID, i);
-        intent.putExtra(INUSE, i2);
+        intent.putExtra(PROPID, i2);
+        intent.putExtra(INUSE, i3);
     }
 
-    public void setFrom(int i) {
-        getIntent().putExtra("from", i);
+    public void setFrom(int i2) {
+        getIntent().putExtra("from", i2);
     }
 }

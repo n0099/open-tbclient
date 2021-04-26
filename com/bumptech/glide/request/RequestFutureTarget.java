@@ -1,7 +1,7 @@
 package com.bumptech.glide.request;
 
 import android.graphics.drawable.Drawable;
-import androidx.annotation.GuardedBy;
+import android.os.Handler;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
@@ -16,24 +16,19 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes5.dex */
-public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<R> {
+public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<R>, Runnable {
     public static final Waiter DEFAULT_WAITER = new Waiter();
     public final boolean assertBackgroundThread;
     @Nullable
-    @GuardedBy("this")
     public GlideException exception;
     public final int height;
-    @GuardedBy("this")
     public boolean isCancelled;
-    @GuardedBy("this")
     public boolean loadFailed;
+    public final Handler mainHandler;
     @Nullable
-    @GuardedBy("this")
     public Request request;
     @Nullable
-    @GuardedBy("this")
     public R resource;
-    @GuardedBy("this")
     public boolean resultReceived;
     public final Waiter waiter;
     public final int width;
@@ -50,8 +45,12 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
         }
     }
 
-    public RequestFutureTarget(int i, int i2) {
-        this(i, i2, true, DEFAULT_WAITER);
+    public RequestFutureTarget(Handler handler, int i2, int i3) {
+        this(handler, i2, i3, true, DEFAULT_WAITER);
+    }
+
+    private void clearOnMainThread() {
+        this.mainHandler.post(this);
     }
 
     private synchronized R doGet(Long l) throws ExecutionException, InterruptedException, TimeoutException {
@@ -93,24 +92,16 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
     }
 
     @Override // java.util.concurrent.Future
-    public boolean cancel(boolean z) {
-        synchronized (this) {
-            if (isDone()) {
-                return false;
-            }
-            this.isCancelled = true;
-            this.waiter.notifyAll(this);
-            Request request = null;
-            if (z) {
-                Request request2 = this.request;
-                this.request = null;
-                request = request2;
-            }
-            if (request != null) {
-                request.clear();
-            }
-            return true;
+    public synchronized boolean cancel(boolean z) {
+        if (isDone()) {
+            return false;
         }
+        this.isCancelled = true;
+        this.waiter.notifyAll(this);
+        if (z) {
+            clearOnMainThread();
+        }
+        return true;
     }
 
     @Override // java.util.concurrent.Future
@@ -124,7 +115,7 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
 
     @Override // com.bumptech.glide.request.target.Target
     @Nullable
-    public synchronized Request getRequest() {
+    public Request getRequest() {
         return this.request;
     }
 
@@ -179,14 +170,24 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
     public void removeCallback(@NonNull SizeReadyCallback sizeReadyCallback) {
     }
 
+    @Override // java.lang.Runnable
+    public void run() {
+        Request request = this.request;
+        if (request != null) {
+            request.clear();
+            this.request = null;
+        }
+    }
+
     @Override // com.bumptech.glide.request.target.Target
-    public synchronized void setRequest(@Nullable Request request) {
+    public void setRequest(@Nullable Request request) {
         this.request = request;
     }
 
-    public RequestFutureTarget(int i, int i2, boolean z, Waiter waiter) {
-        this.width = i;
-        this.height = i2;
+    public RequestFutureTarget(Handler handler, int i2, int i3, boolean z, Waiter waiter) {
+        this.mainHandler = handler;
+        this.width = i2;
+        this.height = i3;
         this.assertBackgroundThread = z;
         this.waiter = waiter;
     }

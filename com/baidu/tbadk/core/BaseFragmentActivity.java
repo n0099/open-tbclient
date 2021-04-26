@@ -67,18 +67,18 @@ import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.compatible.menukey.MenuKeyUtils;
-import d.b.c.j.e.q;
-import d.b.i0.a.o;
-import d.b.i0.a.r;
-import d.b.i0.r.s.a;
-import d.b.i0.z0.d0;
-import d.b.i0.z0.g0;
+import d.a.c.j.e.q;
+import d.a.i0.a.o;
+import d.a.i0.a.r;
+import d.a.i0.r.s.a;
+import d.a.i0.z0.d0;
+import d.a.i0.z0.g0;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFragmentActivity> implements TbPageContextSupport, d.b.i0.k0.a, o, Object, d.b.i0.j0.a {
+public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFragmentActivity> implements TbPageContextSupport, d.a.i0.k0.a, o, Object, d.a.i0.j0.a {
     public static int flog = 1;
     public static Class<? extends TbPageContext<BaseFragmentActivity>> mClazz4GetPageContext = MainAPKFragmentActivityPageContext.class;
     public final int SHOW_SOFT_KEYBOARD_DELAY;
@@ -89,26 +89,26 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public boolean isAddSwipeBackLayout;
     public long lastResumeTime;
     public View loadingRootView;
-    public d.b.i0.d0.g loadingView;
+    public d.a.i0.d0.g loadingView;
     public int mAboveKeyboardHeight;
     public ViewGroup mActivityRootView;
-    public d.b.i0.r.s.g mClickableTextToast;
+    public d.a.i0.r.s.g mClickableTextToast;
     public String mCurAccountId;
     public PermissionJudgePolicy mCurrentPermissionJudgePolicy;
     public boolean mHideStatusImmersiveStyle;
     public boolean mIsHasScreenShotListener;
-    public d.b.i0.r.f0.d mKeyboardAdjust;
+    public d.a.i0.r.f0.d mKeyboardAdjust;
     public int mLastOrientation;
     public int mLastScreenHeight;
     public int mLastScreenWidth;
     public boolean mLayoutHasInit;
-    public d.b.i0.r.c mLayoutMode;
+    public d.a.i0.r.c mLayoutMode;
     public int mMaxHeight;
-    public d.b.i0.i0.c mPageExtra;
-    public d.b.i0.r.e mPermissionCallback;
+    public d.a.i0.i0.c mPageExtra;
+    public d.a.i0.r.e mPermissionCallback;
     public int mPreHeight;
     public ProgressBar mProgressBar;
-    public d.b.i0.d0.h mRefreshView;
+    public d.a.i0.d0.h mRefreshView;
     public d0 mScreenShotListenManager;
     public SwipeBackLayout mSwipeBackLayout;
     public TbPageTag mTbPageTag;
@@ -117,22 +117,22 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public l netRefreshListener;
     public final CustomMessageListener nightResourcesChangeListener;
     public TbPageContext<BaseFragmentActivity> pageContext;
-    public d.b.i0.k0.d pageStayDurationItem;
+    public d.a.i0.k0.d pageStayDurationItem;
     public List<PopupWindow> popupWindowList;
-    public d.b.c.e.m.c resourcesWrapper;
+    public d.a.c.e.m.c resourcesWrapper;
     public Runnable setNoTranslucentRunnable;
     public final CustomMessageListener skinTypeChangeListener;
-    public d.b.i0.r.f0.a mWaitingDialog = null;
+    public d.a.i0.r.f0.a mWaitingDialog = null;
     public DialogInterface.OnCancelListener mDialogListener = null;
     public int mSkinType = 3;
     public boolean mIsLogin = false;
 
     /* loaded from: classes3.dex */
-    public class a implements d.b.i0.r.e {
+    public class a implements d.a.i0.r.e {
         public a() {
         }
 
-        @Override // d.b.i0.r.e
+        @Override // d.a.i0.r.e
         public void onPermissionResult(boolean z) {
             if (z) {
                 TbadkCoreApplication.getInst().setCurrentActivity(BaseFragmentActivity.this.getPageContext().getPageActivity());
@@ -149,7 +149,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         public b() {
         }
 
-        public final void a(int i) {
+        public final void a(int i2) {
             int height;
             View findViewById = BaseFragmentActivity.this.findViewById(16908290);
             if (findViewById instanceof ViewGroup) {
@@ -158,9 +158,9 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 if (childAt == null || (height = childAt.getHeight()) == BaseFragmentActivity.this.mAboveKeyboardHeight) {
                     return;
                 }
-                int i2 = (i * 2) / 3;
-                boolean z2 = height < i2;
-                if (BaseFragmentActivity.this.mAboveKeyboardHeight != 0 && BaseFragmentActivity.this.mAboveKeyboardHeight < i2) {
+                int i3 = (i2 * 2) / 3;
+                boolean z2 = height < i3;
+                if (BaseFragmentActivity.this.mAboveKeyboardHeight != 0 && BaseFragmentActivity.this.mAboveKeyboardHeight < i3) {
                     z = true;
                 }
                 if (z2 != z) {
@@ -186,10 +186,10 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                     BaseFragmentActivity.this.mMaxHeight = BaseFragmentActivity.this.mMaxHeight < height ? height : BaseFragmentActivity.this.mMaxHeight;
                 }
                 if (BaseFragmentActivity.this.mLayoutHasInit && BaseFragmentActivity.this.mMaxHeight > height && height != BaseFragmentActivity.this.mPreHeight) {
-                    int i = BaseFragmentActivity.this.mMaxHeight - height;
-                    if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i) && i < (height2 * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i) {
-                        TbadkCoreApplication.getInst().setKeyboardHeight(i);
-                        BaseFragmentActivity.this.onKeyboardHeightChanged(i);
+                    int i2 = BaseFragmentActivity.this.mMaxHeight - height;
+                    if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i2) && i2 < (height2 * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i2) {
+                        TbadkCoreApplication.getInst().setKeyboardHeight(i2);
+                        BaseFragmentActivity.this.onKeyboardHeightChanged(i2);
                     }
                 }
                 a(height2);
@@ -228,30 +228,30 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public class e implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Animation.AnimationListener f12828a;
+        public final /* synthetic */ Animation.AnimationListener f12742a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WeakReference f12829b;
+        public final /* synthetic */ WeakReference f12743b;
 
         public e(Animation.AnimationListener animationListener, WeakReference weakReference) {
-            this.f12828a = animationListener;
-            this.f12829b = weakReference;
+            this.f12742a = animationListener;
+            this.f12743b = weakReference;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            Animation.AnimationListener animationListener = this.f12828a;
+            Animation.AnimationListener animationListener = this.f12742a;
             if (animationListener != null) {
                 animationListener.onAnimationEnd(animation);
             }
             synchronized (BaseFragmentActivity.this.animationList) {
-                BaseFragmentActivity.this.animationList.remove(this.f12829b);
+                BaseFragmentActivity.this.animationList.remove(this.f12743b);
             }
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationRepeat(Animation animation) {
-            Animation.AnimationListener animationListener = this.f12828a;
+            Animation.AnimationListener animationListener = this.f12742a;
             if (animationListener != null) {
                 animationListener.onAnimationRepeat(animation);
             }
@@ -259,7 +259,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationStart(Animation animation) {
-            Animation.AnimationListener animationListener = this.f12828a;
+            Animation.AnimationListener animationListener = this.f12742a;
             if (animationListener != null) {
                 animationListener.onAnimationStart(animation);
             }
@@ -268,8 +268,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     /* loaded from: classes3.dex */
     public class f extends CustomMessageListener {
-        public f(int i) {
-            super(i);
+        public f(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -288,8 +288,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     /* loaded from: classes3.dex */
     public class g extends CustomMessageListener {
-        public g(int i) {
-            super(i);
+        public g(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -313,8 +313,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         public h() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             aVar.dismiss();
             if (BaseFragmentActivity.this.mPermissionCallback != null) {
                 BaseFragmentActivity.this.mPermissionCallback.onPermissionResult(false);
@@ -327,8 +327,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         public i() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             aVar.dismiss();
             try {
                 Intent intent = new Intent("android.settings.action.MANAGE_OVERLAY_PERMISSION");
@@ -348,7 +348,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         public j() {
         }
 
-        @Override // d.b.i0.z0.d0.b
+        @Override // d.a.i0.z0.d0.b
         public void onShot(String str) {
             if (BaseFragmentActivity.this.getCurrentPageKey() != "a001" && BaseFragmentActivity.this.getCurrentPageKey() != "a005" && BaseFragmentActivity.this.getCurrentPageKey() != "a006") {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SCREEN_SHOT).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", 4));
@@ -361,11 +361,11 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public class k implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public View f12836e;
+        public View f12750e;
 
         public k(View view) {
-            this.f12836e = null;
-            this.f12836e = view;
+            this.f12750e = null;
+            this.f12750e = view;
         }
 
         @Override // java.lang.Runnable
@@ -373,7 +373,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (BaseFragmentActivity.this.isFinishing()) {
                 return;
             }
-            BaseFragmentActivity.this.ShowSoftKeyPad((InputMethodManager) BaseFragmentActivity.this.getSystemService("input_method"), this.f12836e);
+            BaseFragmentActivity.this.ShowSoftKeyPad((InputMethodManager) BaseFragmentActivity.this.getSystemService("input_method"), this.f12750e);
         }
     }
 
@@ -419,7 +419,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     private void hideClickableTextToast() {
-        d.b.i0.r.s.g gVar = this.mClickableTextToast;
+        d.a.i0.r.s.g gVar = this.mClickableTextToast;
         if (gVar != null) {
             gVar.e();
         }
@@ -488,12 +488,12 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void adjustResizeForSoftInput() {
         if (this.mUseStyleImmersiveSticky) {
             adjustResizeForSoftInputOnDestory();
-            this.mKeyboardAdjust = d.b.i0.r.f0.d.c(getPageContext().getPageActivity());
+            this.mKeyboardAdjust = d.a.i0.r.f0.d.c(getPageContext().getPageActivity());
         }
     }
 
     public void adjustResizeForSoftInputOnDestory() {
-        d.b.i0.r.f0.d dVar = this.mKeyboardAdjust;
+        d.a.i0.r.f0.d dVar = this.mKeyboardAdjust;
         if (dVar != null) {
             dVar.i();
             this.mKeyboardAdjust = null;
@@ -501,7 +501,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void adjustResizeForSoftInputOnSkinTypeChanged(int i2) {
-        d.b.i0.r.f0.d dVar = this.mKeyboardAdjust;
+        d.a.i0.r.f0.d dVar = this.mKeyboardAdjust;
         if (dVar != null) {
             dVar.j(i2);
         }
@@ -577,7 +577,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void closeLoadingDialog() {
-        d.b.i0.r.f0.a aVar = this.mWaitingDialog;
+        d.a.i0.r.f0.a aVar = this.mWaitingDialog;
         if (aVar != null) {
             try {
                 if (aVar.c()) {
@@ -602,7 +602,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         List<Dialog> list = this.dialogList;
         if (list != null) {
             for (Dialog dialog : list) {
-                d.b.c.e.m.g.b(dialog, getPageContext());
+                d.a.c.e.m.g.b(dialog, getPageContext());
             }
             this.dialogList.clear();
         }
@@ -612,7 +612,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         List<PopupWindow> list = this.popupWindowList;
         if (list != null) {
             for (PopupWindow popupWindow : list) {
-                d.b.c.e.m.g.d(popupWindow, getPageContext().getPageActivity());
+                d.a.c.e.m.g.d(popupWindow, getPageContext().getPageActivity());
             }
             this.popupWindowList.clear();
         }
@@ -623,7 +623,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (list != null) {
             list.remove(dialog);
         }
-        d.b.c.e.m.g.b(dialog, getPageContext());
+        d.a.c.e.m.g.b(dialog, getPageContext());
     }
 
     public void dismissDialogInteface(DialogInterface dialogInterface) {
@@ -633,7 +633,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void dismissPopupWindow(PopupWindow popupWindow) {
-        d.b.c.e.m.g.d(popupWindow, getPageContext().getPageActivity());
+        d.a.c.e.m.g.d(popupWindow, getPageContext().getPageActivity());
         List<PopupWindow> list = this.popupWindowList;
         if (list != null) {
             list.remove(popupWindow);
@@ -643,7 +643,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         r.a(motionEvent, getPageId(), getMissionTid());
-        d.b.j0.i3.a.getInstance().behaviorRecordEvent(motionEvent, this);
+        d.a.j0.i3.a.getInstance().behaviorRecordEvent(motionEvent, this);
         return super.dispatchTouchEvent(motionEvent);
     }
 
@@ -653,7 +653,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     @Override // android.app.Activity
     public void finish() {
-        d.b.c.e.p.l.w(getApplicationContext(), getWindow().getDecorView());
+        d.a.c.e.p.l.x(getApplicationContext(), getWindow().getDecorView());
         dismissAllDialog();
         dismissAllPopupWindow();
         super.finish();
@@ -681,12 +681,12 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         return this.mActivityRootView;
     }
 
-    @Override // d.b.i0.k0.a
+    @Override // d.a.i0.k0.a
     public String getCurrentPageKey() {
         return null;
     }
 
-    @Override // d.b.i0.k0.a
+    @Override // d.a.i0.k0.a
     public List<String> getCurrentPageSourceKeyList() {
         Intent intent = getIntent();
         if (intent != null) {
@@ -699,11 +699,11 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         return TbadkCoreApplication.getInst().isGpuOpen();
     }
 
-    public d.b.i0.r.c getLayoutMode() {
+    public d.a.i0.r.c getLayoutMode() {
         return this.mLayoutMode;
     }
 
-    public d.b.i0.r.f0.a getLoadingDialog() {
+    public d.a.i0.r.f0.a getLoadingDialog() {
         return this.mWaitingDialog;
     }
 
@@ -718,7 +718,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         return this.netRefreshListener;
     }
 
-    @Override // d.b.i0.k0.a
+    @Override // d.a.i0.k0.a
     public List<String> getNextPageSourceKeyList() {
         ArrayList arrayList;
         ArrayList arrayList2 = (ArrayList) getCurrentPageSourceKeyList();
@@ -737,8 +737,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 arrayList.add(currentPageKey);
             }
             Fragment visibleFragment = getVisibleFragment();
-            if (visibleFragment instanceof d.b.i0.k0.a) {
-                String currentPageKey2 = ((d.b.i0.k0.a) visibleFragment).getCurrentPageKey();
+            if (visibleFragment instanceof d.a.i0.k0.a) {
+                String currentPageKey2 = ((d.a.i0.k0.a) visibleFragment).getCurrentPageKey();
                 if (!StringUtils.isNull(currentPageKey2)) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
@@ -759,9 +759,9 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         return 0;
     }
 
-    public d.b.i0.k0.d getPageStayDurationItem() {
+    public d.a.i0.k0.d getPageStayDurationItem() {
         if (this.pageStayDurationItem == null) {
-            d.b.i0.k0.d dVar = new d.b.i0.k0.d();
+            d.a.i0.k0.d dVar = new d.a.i0.k0.d();
             this.pageStayDurationItem = dVar;
             dVar.p(getCurrentPageKey());
         }
@@ -769,18 +769,18 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         return this.pageStayDurationItem;
     }
 
-    @Override // d.b.i0.k0.a
-    public d.b.i0.k0.b getPageStayFilter() {
+    @Override // d.a.i0.k0.a
+    public d.a.i0.k0.b getPageStayFilter() {
         return null;
     }
 
     public String getPreExtraPageKey() {
-        d.b.i0.i0.c tbPageExtra = getTbPageExtra();
+        d.a.i0.i0.c tbPageExtra = getTbPageExtra();
         return tbPageExtra != null ? tbPageExtra.d() : "";
     }
 
     public final TbPageTag getPrePageTag() {
-        return d.b.i0.j0.c.m(getIntent());
+        return d.a.i0.j0.c.m(getIntent());
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -789,7 +789,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             return super.getResources();
         }
         if (this.resourcesWrapper == null) {
-            this.resourcesWrapper = new d.b.c.e.m.c(super.getResources());
+            this.resourcesWrapper = new d.a.c.e.m.c(super.getResources());
         }
         return this.resourcesWrapper;
     }
@@ -798,16 +798,16 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         return TbadkCoreApplication.getInst().getSkinType();
     }
 
-    public d.b.i0.i0.c getTbPageExtra() {
+    public d.a.i0.i0.c getTbPageExtra() {
         if (this.mPageExtra == null) {
-            this.mPageExtra = new d.b.i0.i0.c(getUniqueId(), getCurrentExtraPageKey(), getIntent());
+            this.mPageExtra = new d.a.i0.i0.c(getUniqueId(), getCurrentExtraPageKey(), getIntent());
         }
         return this.mPageExtra;
     }
 
-    @Override // d.b.i0.j0.a
-    public final d.b.i0.j0.b getTbPageInfo() {
-        return new d.b.i0.j0.b(getUniqueId(), getTbPageTag(), getIntent());
+    @Override // d.a.i0.j0.a
+    public final d.a.i0.j0.b getTbPageInfo() {
+        return new d.a.i0.j0.b(getUniqueId(), getTbPageTag(), getIntent());
     }
 
     public TbPageTag getTbPageTag() {
@@ -833,24 +833,24 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         return null;
     }
 
-    public boolean grantWindowPermission(d.b.i0.r.e eVar, boolean z) {
+    public boolean grantWindowPermission(d.a.i0.r.e eVar, boolean z) {
         if (Build.VERSION.SDK_INT >= 23) {
             if (!Settings.canDrawOverlays(getBaseContext())) {
                 this.mPermissionCallback = eVar;
-                boolean g2 = d.b.i0.r.d0.b.j().g("key_is_window_permission_dialog_shown", false);
+                boolean g2 = d.a.i0.r.d0.b.j().g("key_is_window_permission_dialog_shown", false);
                 if (z) {
                     g2 = false;
                 }
                 if (!g2) {
-                    d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(this);
+                    d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(this);
                     aVar.setCanceledOnTouchOutside(false);
                     aVar.setTitle(R.string.request_permission_default_title);
                     aVar.setMessageId(R.string.request_window_permission_default_text);
                     aVar.setPositiveButton(R.string.isopen, new i()).setNegativeButton(R.string.cancel, new h()).create(getPageContext());
                     aVar.show();
-                    d.b.i0.r.d0.b.j().t("key_is_window_permission_dialog_shown", true);
+                    d.a.i0.r.d0.b.j().t("key_is_window_permission_dialog_shown", true);
                 } else {
-                    d.b.i0.r.e eVar2 = this.mPermissionCallback;
+                    d.a.i0.r.e eVar2 = this.mPermissionCallback;
                     if (eVar2 != null) {
                         eVar2.onPermissionResult(false);
                     }
@@ -870,14 +870,14 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void hideLoadingView(View view) {
-        d.b.i0.d0.g gVar = this.loadingView;
+        d.a.i0.d0.g gVar = this.loadingView;
         if (gVar != null) {
             gVar.dettachView(view);
         }
     }
 
     public void hideNetRefreshView(View view) {
-        d.b.i0.d0.h hVar = this.mRefreshView;
+        d.a.i0.d0.h hVar = this.mRefreshView;
         if (hVar != null) {
             hVar.dettachView(view);
         }
@@ -891,7 +891,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public boolean isLoadingViewAttached() {
-        d.b.i0.d0.g gVar = this.loadingView;
+        d.a.i0.d0.g gVar = this.loadingView;
         if (gVar == null) {
             return false;
         }
@@ -918,7 +918,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
         super.onActivityResult(i2, i3, intent);
-        d.b.i0.r.e eVar = this.mPermissionCallback;
+        d.a.i0.r.e eVar = this.mPermissionCallback;
         if (eVar != null && Build.VERSION.SDK_INT >= 23 && i2 == 12016) {
             eVar.onPermissionResult(Settings.canDrawOverlays(getBaseContext()));
             this.mPermissionCallback = null;
@@ -943,7 +943,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (configuration.screenWidthDp != this.mLastScreenWidth || configuration.screenHeightDp != this.mLastScreenHeight) {
                 this.mLastScreenWidth = configuration.screenWidthDp;
                 this.mLastScreenHeight = configuration.screenHeightDp;
-                d.b.c.e.p.l.f42757a = false;
+                d.a.c.e.p.l.f39967a = false;
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921414, getUniqueId()));
             }
         } else {
@@ -954,7 +954,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         boolean z = false;
         if (this.isAddSwipeBackLayout) {
@@ -981,7 +981,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         }
         TbadkCoreApplication.setIsAppRunning(true);
         TiebaStaticHelper.setCurrentActivity(getClass().getName());
-        this.mLayoutMode = new d.b.i0.r.c();
+        this.mLayoutMode = new d.a.i0.r.c();
         registerListener(this.nightResourcesChangeListener);
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
@@ -992,7 +992,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
         if (this.mLayoutMode == null) {
-            this.mLayoutMode = new d.b.i0.r.c();
+            this.mLayoutMode = new d.a.i0.r.c();
         }
         this.mLayoutMode.i(str, context, attributeSet);
         return super.onCreateView(str, context, attributeSet);
@@ -1000,7 +1000,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        d.b.i0.r.c cVar = this.mLayoutMode;
+        d.a.i0.r.c cVar = this.mLayoutMode;
         if (cVar != null) {
             cVar.c();
         }
@@ -1022,7 +1022,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         this.mPageExtra = null;
         unRegisterResponsedEventListener();
         super.onDestroy();
-        d.b.c.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
+        d.a.c.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
@@ -1062,7 +1062,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onKeyboardVisibilityChanged(boolean z) {
     }
 
-    @Override // d.b.i0.a.o
+    @Override // d.a.i0.a.o
     public boolean onMissionCompleted(CompleteTaskToastData completeTaskToastData) {
         hideClickableTextToast();
         this.mClickableTextToast = r.i(completeTaskToastData);
@@ -1074,16 +1074,16 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        d.b.j0.i3.a.getInstance().onPause(this);
+        d.a.j0.i3.a.getInstance().onPause(this);
         super.onPause();
         if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
             hideFloatingWindow();
         }
         if (this.lastResumeTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
-            d.b.i0.k0.d pageStayDurationItem = getPageStayDurationItem();
+            d.a.i0.k0.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.v(currentTimeMillis);
-            d.b.i0.k0.e.b().i(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            d.a.i0.k0.e.b().i(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
         }
         stopScreenShotListen();
         TbadkCoreApplication.getInst().DelResumeNum();
@@ -1094,12 +1094,12 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             virtualBarAssist.onPause();
         }
         if (this.isAddSwipeBackLayout) {
-            d.b.c.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
-            d.b.c.e.m.e.a().postDelayed(this.setNoTranslucentRunnable, 1000L);
+            d.a.c.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
+            d.a.c.e.m.e.a().postDelayed(this.setNoTranslucentRunnable, 1000L);
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseFragmentActivity, d.b.c.a.i
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity, d.a.c.a.i
     public void onPreLoad(q qVar) {
         PreLoadImageHelper.load(qVar, getUniqueId());
         PreLoadVideoHelper.load(qVar, getUniqueId(), this);
@@ -1148,7 +1148,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onResume() {
         MenuKeyUtils.hideSoftMenuKey(getWindow());
         super.onResume();
-        d.b.j0.i3.a.getInstance().onResume(this);
+        d.a.j0.i3.a.getInstance().onResume(this);
         this.lastResumeTime = System.currentTimeMillis();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
@@ -1182,7 +1182,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             showFloatingWindow();
         }
         if (this.isAddSwipeBackLayout) {
-            d.b.c.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
+            d.a.c.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
             g0.b(this);
         }
     }
@@ -1207,18 +1207,18 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onUserChanged(boolean z) {
     }
 
-    public void publishEvent(d.b.i0.f0.a aVar) {
+    public void publishEvent(d.a.i0.f0.a aVar) {
         if (aVar == null) {
             return;
         }
         if (aVar.getTag() == 0) {
             aVar.setTag(getUniqueId());
         }
-        d.b.i0.f0.h.i(aVar);
+        d.a.i0.f0.h.i(aVar);
     }
 
-    public void registerResponsedEventListener(Class<? extends d.b.i0.f0.a> cls, d.b.i0.f0.i iVar) {
-        d.b.i0.f0.h.f().m(cls, iVar, getUniqueId());
+    public void registerResponsedEventListener(Class<? extends d.a.i0.f0.a> cls, d.a.i0.f0.i iVar) {
+        d.a.i0.f0.h.f().m(cls, iVar, getUniqueId());
     }
 
     public void setActivityBgTransparent() {
@@ -1244,12 +1244,12 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         this.isAddSwipeBackLayout = z;
     }
 
-    public void setLayoutMode(d.b.i0.r.c cVar) {
+    public void setLayoutMode(d.a.i0.r.c cVar) {
         this.mLayoutMode = cVar;
     }
 
     public void setNetRefreshViewEmotionMarginTop(int i2) {
-        d.b.i0.d0.h hVar = this.mRefreshView;
+        d.a.i0.d0.h hVar = this.mRefreshView;
         if (hVar == null || !hVar.isViewAttached()) {
             return;
         }
@@ -1284,7 +1284,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public boolean showDialog(Dialog dialog) {
-        if (d.b.c.e.m.g.j(dialog, getPageContext())) {
+        if (d.a.c.e.m.g.j(dialog, getPageContext())) {
             if (this.dialogList == null) {
                 this.dialogList = new LinkedList();
             }
@@ -1302,8 +1302,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (this.mDialogListener == null) {
             this.mDialogListener = new d();
         }
-        if (!isFinishing() && d.b.c.e.m.g.f(getPageContext())) {
-            d.b.i0.r.f0.a aVar = new d.b.i0.r.f0.a(getPageContext());
+        if (!isFinishing() && d.a.c.e.m.g.f(getPageContext())) {
+            d.a.i0.r.f0.a aVar = new d.a.i0.r.f0.a(getPageContext());
             this.mWaitingDialog = aVar;
             if (str != null) {
                 aVar.j(str);
@@ -1326,7 +1326,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view) {
-        if (d.b.c.e.m.g.k(popupWindow, view)) {
+        if (d.a.c.e.m.g.k(popupWindow, view)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -1337,7 +1337,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public boolean showPopupWindowAtLocation(PopupWindow popupWindow, View view, int i2, int i3, int i4) {
-        if (d.b.c.e.m.g.m(popupWindow, view, i2, i3, i4)) {
+        if (d.a.c.e.m.g.m(popupWindow, view, i2, i3, i4)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -1364,13 +1364,13 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 return;
             }
         }
-        this.mProgressBar.setPadding(d.b.c.e.p.l.e(getPageContext().getContext(), i2), d.b.c.e.p.l.e(getPageContext().getContext(), i3), 0, 0);
+        this.mProgressBar.setPadding(d.a.c.e.p.l.e(getPageContext().getContext(), i2), d.a.c.e.p.l.e(getPageContext().getContext(), i3), 0, 0);
         this.mProgressBar.setVisibility(0);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity
     public void showToast(String str) {
-        d.b.c.e.p.l.L(getPageContext().getContext(), str);
+        d.a.c.e.p.l.M(getPageContext().getContext(), str);
     }
 
     public void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i2) {
@@ -1424,7 +1424,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void unRegisterResponsedEventListener() {
-        d.b.i0.f0.h.f().n(getUniqueId());
+        d.a.i0.f0.h.f().n(getUniqueId());
     }
 
     public boolean videoNeedPreload() {
@@ -1432,7 +1432,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.base.BdBaseFragmentActivity, d.b.c.a.g
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity, d.a.c.a.g
     public TbPageContext<BaseFragmentActivity> getPageContext() {
         try {
             if (this.pageContext == null && mClazz4GetPageContext != null) {
@@ -1448,9 +1448,9 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         this.loadingRootView = view;
         if (this.loadingView == null) {
             if (i2 < 0) {
-                this.loadingView = new d.b.i0.d0.g(getPageContext().getPageActivity());
+                this.loadingView = new d.a.i0.d0.g(getPageContext().getPageActivity());
             } else {
-                d.b.i0.d0.g gVar = new d.b.i0.d0.g(getPageContext().getPageActivity(), i2);
+                d.a.i0.d0.g gVar = new d.a.i0.d0.g(getPageContext().getPageActivity(), i2);
                 this.loadingView = gVar;
                 gVar.h();
             }
@@ -1464,7 +1464,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             return;
         }
         if (this.mRefreshView == null) {
-            this.mRefreshView = new d.b.i0.d0.h(getPageContext().getContext(), onClickListener);
+            this.mRefreshView = new d.a.i0.d0.h(getPageContext().getContext(), onClickListener);
         }
         this.mRefreshView.m(str);
         this.mRefreshView.l(str2);
@@ -1474,14 +1474,14 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void showToast(int i2) {
-        d.b.c.e.p.l.K(getPageContext().getContext(), i2);
+        d.a.c.e.p.l.L(getPageContext().getContext(), i2);
     }
 
     public void showToast(String str, boolean z) {
         if (z) {
             showToast(str);
         } else {
-            d.b.c.e.p.l.L(getPageContext().getContext(), str);
+            d.a.c.e.p.l.M(getPageContext().getContext(), str);
         }
     }
 
@@ -1492,12 +1492,12 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void adjustResizeForSoftInput(int i2, boolean z) {
         if (this.mUseStyleImmersiveSticky) {
             adjustResizeForSoftInputOnDestory();
-            this.mKeyboardAdjust = d.b.i0.r.f0.d.d(getPageContext().getPageActivity(), i2, z);
+            this.mKeyboardAdjust = d.a.i0.r.f0.d.d(getPageContext().getPageActivity(), i2, z);
         }
     }
 
     public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view, int i2, int i3) {
-        if (d.b.c.e.m.g.l(popupWindow, view, i2, i3)) {
+        if (d.a.c.e.m.g.l(popupWindow, view, i2, i3)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -1511,14 +1511,14 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (z) {
             showToast(i2);
         } else {
-            d.b.c.e.p.l.K(getPageContext().getContext(), i2);
+            d.a.c.e.p.l.L(getPageContext().getContext(), i2);
         }
     }
 
     private void adjustResizeForSoftInput(boolean z) {
         if (this.mUseStyleImmersiveSticky) {
             adjustResizeForSoftInputOnDestory();
-            this.mKeyboardAdjust = d.b.i0.r.f0.d.e(getPageContext().getPageActivity(), z);
+            this.mKeyboardAdjust = d.a.i0.r.f0.d.e(getPageContext().getPageActivity(), z);
         }
     }
 
@@ -1527,7 +1527,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
-        d.b.i0.r.f0.a aVar = new d.b.i0.r.f0.a(getPageContext());
+        d.a.i0.r.f0.a aVar = new d.a.i0.r.f0.a(getPageContext());
         this.mWaitingDialog = aVar;
         if (str != null) {
             aVar.j(str);

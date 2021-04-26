@@ -8,20 +8,20 @@ public enum CameraConfig$FacingDirection {
     
     public final int nativeCode;
 
-    CameraConfig$FacingDirection(int i) {
-        this.nativeCode = i;
+    CameraConfig$FacingDirection(int i2) {
+        this.nativeCode = i2;
     }
 
-    public static CameraConfig$FacingDirection forNumber(int i) {
+    public static CameraConfig$FacingDirection forNumber(int i2) {
         CameraConfig$FacingDirection[] values;
         for (CameraConfig$FacingDirection cameraConfig$FacingDirection : values()) {
-            if (cameraConfig$FacingDirection.nativeCode == i) {
+            if (cameraConfig$FacingDirection.nativeCode == i2) {
                 return cameraConfig$FacingDirection;
             }
         }
         StringBuilder sb = new StringBuilder(62);
         sb.append("Unexpected value for native FacingDirection, value=");
-        sb.append(i);
+        sb.append(i2);
         throw new FatalException(sb.toString());
     }
 }

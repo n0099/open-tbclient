@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Handler;
@@ -28,22 +29,27 @@ import com.kwad.sdk.core.download.DownloadStatusManager;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ab;
 import java.io.File;
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class a implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Handler f33969a = new HandlerC0397a();
+    public static HashMap<String, WeakReference<Bitmap>> f33000a = new HashMap<>();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final Handler f33001b = new HandlerC0377a();
 
     /* renamed from: com.kwad.sdk.core.download.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class HandlerC0397a extends Handler {
+    public static class HandlerC0377a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final SparseArray<Long> f33970a;
+        public final SparseArray<Long> f33002a;
 
-        public HandlerC0397a() {
+        public HandlerC0377a() {
             super(Looper.getMainLooper());
-            this.f33970a = new SparseArray<>();
+            this.f33002a = new SparseArray<>();
         }
 
         @Override // android.os.Handler
@@ -51,7 +57,7 @@ public class a implements f {
             boolean z = message.arg1 == 1;
             boolean z2 = message.arg2 == 1;
             boolean z3 = message.arg2 == 2;
-            Long l = this.f33970a.get(message.what);
+            Long l = this.f33002a.get(message.what);
             NotificationManager notificationManager = (NotificationManager) b.a().getSystemService(ActionJsonData.TAG_NOTIFICATION);
             if (notificationManager == null) {
                 return;
@@ -66,9 +72,20 @@ public class a implements f {
                     notificationManager.cancel(message.what);
                 }
                 a.b(message.what, (Notification) message.obj);
-                this.f33970a.put(message.what, Long.valueOf(System.currentTimeMillis()));
+                this.f33002a.put(message.what, Long.valueOf(System.currentTimeMillis()));
             }
         }
+    }
+
+    private Bitmap a(Context context, String str) {
+        WeakReference<Bitmap> weakReference = f33000a.get(str);
+        Bitmap bitmap = weakReference != null ? weakReference.get() : null;
+        if (bitmap == null || bitmap.isRecycled()) {
+            Bitmap decodeResource = BitmapFactory.decodeResource(ab.a(context), ab.a(context, str));
+            f33000a.put(str, new WeakReference<>(decodeResource));
+            return decodeResource;
+        }
+        return bitmap;
     }
 
     @SuppressLint({"DefaultLocale"})
@@ -78,7 +95,7 @@ public class a implements f {
 
     private boolean a(Context context, ICompletedRemoteView iCompletedRemoteView, String str) {
         try {
-            iCompletedRemoteView.setIcon(ab.a(context, str));
+            iCompletedRemoteView.setIcon(a(context, str));
             return true;
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
@@ -89,7 +106,7 @@ public class a implements f {
 
     private boolean a(Context context, IProgressRemoteView iProgressRemoteView, String str) {
         try {
-            iProgressRemoteView.setIcon(ab.a(context, str));
+            iProgressRemoteView.setIcon(a(context, str));
             return true;
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
@@ -100,7 +117,7 @@ public class a implements f {
 
     private boolean a(ICompletedRemoteView iCompletedRemoteView, File file) {
         try {
-            iCompletedRemoteView.setIcon(BitmapFactory.decodeFile(file.getAbsolutePath()));
+            iCompletedRemoteView.setIcon(b(file));
             return true;
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
@@ -111,7 +128,7 @@ public class a implements f {
 
     private boolean a(IProgressRemoteView iProgressRemoteView, File file) {
         try {
-            iProgressRemoteView.setIcon(BitmapFactory.decodeFile(file.getAbsolutePath()));
+            iProgressRemoteView.setIcon(b(file));
             return true;
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
@@ -120,7 +137,19 @@ public class a implements f {
         }
     }
 
-    public static void b(int i, Notification notification) {
+    private Bitmap b(File file) {
+        String absolutePath = file.getAbsolutePath();
+        WeakReference<Bitmap> weakReference = f33000a.get(absolutePath);
+        Bitmap bitmap = weakReference != null ? weakReference.get() : null;
+        if (bitmap == null || bitmap.isRecycled()) {
+            Bitmap decodeFile = BitmapFactory.decodeFile(absolutePath);
+            f33000a.put(absolutePath, new WeakReference<>(decodeFile));
+            return decodeFile;
+        }
+        return bitmap;
+    }
+
+    public static void b(int i2, Notification notification) {
         Context context = KsAdSDKImpl.get().getContext();
         if (context == null) {
             return;
@@ -135,19 +164,19 @@ public class a implements f {
                 notificationChannel.setShowBadge(false);
                 notificationManager.createNotificationChannel(notificationChannel);
             }
-            notificationManager.notify(i, notification);
+            notificationManager.notify(i2, notification);
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
     }
 
     @Override // com.ksad.download.f
-    public void a(int i) {
+    public void a(int i2) {
         Context context = KsAdSDKImpl.get().getContext();
         if (context == null) {
             return;
         }
-        ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(i);
+        ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(i2);
     }
 
     @Override // com.ksad.download.f
@@ -183,7 +212,7 @@ public class a implements f {
             a2 = a(context, createProgressView, "ksad_notification_default_icon");
         }
         if (!a2) {
-            com.kwad.sdk.core.d.a.d("AdDownloadNotificationPerformer", "set icon failed ");
+            com.kwad.sdk.core.d.a.e("AdDownloadNotificationPerformer", "set icon failed ");
             return;
         }
         createProgressView.setStatus("正在下载");
@@ -193,8 +222,8 @@ public class a implements f {
         createProgressView.setProgress(100, smallFileSoFarBytes, false);
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createProgressView.build()).setWhen(System.currentTimeMillis()).setOngoing(true).setOnlyAlertOnce(true).setPriority(-1).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f33969a.removeMessages(downloadTask.getId());
-        f33969a.obtainMessage(downloadTask.getId(), z ? 1 : 0, downloadTask.isCompleted() ? 1 : 0, builder.build()).sendToTarget();
+        f33001b.removeMessages(downloadTask.getId());
+        f33001b.obtainMessage(downloadTask.getId(), z ? 1 : 0, downloadTask.isCompleted() ? 1 : 0, builder.build()).sendToTarget();
     }
 
     @Override // com.ksad.download.f
@@ -220,7 +249,7 @@ public class a implements f {
             createCompletedView.setName(a3.mAppName);
         }
         if (!a2) {
-            com.kwad.sdk.core.d.a.d("AdDownloadNotificationPerformer", "set icon failed ");
+            com.kwad.sdk.core.d.a.e("AdDownloadNotificationPerformer", "set icon failed ");
             return;
         }
         createCompletedView.setStatus("下载完成");
@@ -228,8 +257,8 @@ public class a implements f {
         createCompletedView.setInstallText("立即安装");
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createCompletedView.build()).setWhen(System.currentTimeMillis()).setOngoing(false).setAutoCancel(false).setOnlyAlertOnce(true).setPriority(-1).setContentIntent(g.a(file, a3.mTaskId)).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f33969a.removeMessages(a3.mTaskId);
-        f33969a.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
+        f33001b.removeMessages(a3.mTaskId);
+        f33001b.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
     }
 
     @Override // com.ksad.download.f
@@ -251,7 +280,7 @@ public class a implements f {
             createCompletedView.setName(a3.mAppName);
         }
         if (!a2) {
-            com.kwad.sdk.core.d.a.d("AdDownloadNotificationPerformer", "set icon failed ");
+            com.kwad.sdk.core.d.a.e("AdDownloadNotificationPerformer", "set icon failed ");
             return;
         }
         createCompletedView.setStatus("安装完成");
@@ -259,12 +288,48 @@ public class a implements f {
         createCompletedView.setInstallText("立刻打开");
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createCompletedView.build()).setWhen(System.currentTimeMillis()).setOngoing(false).setAutoCancel(true).setOnlyAlertOnce(true).setPriority(-1).setContentIntent(g.a(a3.mPkgname, a3.mTaskId)).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f33969a.removeMessages(a3.mTaskId);
-        f33969a.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
+        f33001b.removeMessages(a3.mTaskId);
+        f33001b.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
     }
 
     @Override // com.ksad.download.f
     public void b(DownloadTask downloadTask) {
+        boolean a2;
+        Context context = KsAdSDKImpl.get().getContext();
+        if (context == null) {
+            return;
+        }
+        IProgressRemoteView createProgressView = RemoteViewBuilder.createProgressView(context);
+        Object tag = downloadTask.getTag();
+        if (tag instanceof DownloadParams) {
+            DownloadParams downloadParams = (DownloadParams) tag;
+            File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(downloadParams.mAppIcon);
+            a2 = (b2 == null || !b2.exists()) ? a(context, createProgressView, "ksad_notification_default_icon") : a(createProgressView, b2);
+            createProgressView.setName(downloadParams.mAppName);
+        } else {
+            a2 = a(context, createProgressView, "ksad_notification_default_icon");
+        }
+        if (!a2) {
+            com.kwad.sdk.core.d.a.e("AdDownloadNotificationPerformer", "set icon failed ");
+            return;
+        }
+        if (downloadTask.getSmallFileSoFarBytes() <= 0 || downloadTask.getSmallFileTotalBytes() <= 0) {
+            createProgressView.setStatus("准备下载");
+        } else {
+            createProgressView.setStatus("正在下载");
+            createProgressView.setSize(a(downloadTask.getSmallFileSoFarBytes()) + " / " + a(downloadTask.getSmallFileTotalBytes()));
+            int smallFileSoFarBytes = (int) ((((float) downloadTask.getSmallFileSoFarBytes()) * 100.0f) / ((float) downloadTask.getSmallFileTotalBytes()));
+            createProgressView.setPercentNum("下载进度：  " + smallFileSoFarBytes + "%");
+            createProgressView.setProgress(100, smallFileSoFarBytes, false);
+        }
+        KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
+        builder.setContent(createProgressView.build()).setWhen(System.currentTimeMillis()).setOngoing(false).setOnlyAlertOnce(true).setPriority(-1).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
+        f33001b.removeMessages(downloadTask.getId());
+        f33001b.obtainMessage(downloadTask.getId(), 1, downloadTask.isCompleted() ? 1 : 0, builder.build()).sendToTarget();
+    }
+
+    @Override // com.ksad.download.f
+    public void c(DownloadTask downloadTask) {
         boolean a2;
         DownloadParams downloadParams;
         Context context = KsAdSDKImpl.get().getContext();
@@ -283,7 +348,7 @@ public class a implements f {
             downloadParams = new DownloadParams();
         }
         if (!a2) {
-            com.kwad.sdk.core.d.a.d("AdDownloadNotificationPerformer", "set icon failed ");
+            com.kwad.sdk.core.d.a.e("AdDownloadNotificationPerformer", "set icon failed ");
             return;
         }
         createCompletedView.setStatus("下载完成");
@@ -296,7 +361,7 @@ public class a implements f {
         createCompletedView.setInstallText("立即安装");
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createCompletedView.build()).setWhen(System.currentTimeMillis()).setOngoing(false).setAutoCancel(false).setOnlyAlertOnce(true).setPriority(-1).setContentIntent(g.a(downloadTask)).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f33969a.removeMessages(downloadTask.getId());
-        f33969a.obtainMessage(downloadTask.getId(), 1, 1, builder.build()).sendToTarget();
+        f33001b.removeMessages(downloadTask.getId());
+        f33001b.obtainMessage(downloadTask.getId(), 1, 1, builder.build()).sendToTarget();
     }
 }

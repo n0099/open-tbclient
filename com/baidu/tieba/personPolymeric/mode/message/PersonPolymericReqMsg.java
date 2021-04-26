@@ -3,13 +3,13 @@ package com.baidu.tieba.personPolymeric.mode.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.c.e.p.l;
-import d.b.i0.r.k;
-import d.b.i0.z0.w;
-import d.b.j0.f2.b;
+import d.a.c.e.p.l;
+import d.a.i0.r.k;
+import d.a.i0.z0.w;
+import d.a.j0.f2.b;
 import tbclient.Personal.DataReq;
 import tbclient.Personal.PersonalReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonPolymericReqMsg extends NetMessage {
     public int pn;
     public long uid;
@@ -47,8 +47,8 @@ public class PersonPolymericReqMsg extends NetMessage {
         return this.uid;
     }
 
-    public void setPn(int i) {
-        this.pn = i;
+    public void setPn(int i2) {
+        this.pn = i2;
     }
 
     public void setUid(long j) {

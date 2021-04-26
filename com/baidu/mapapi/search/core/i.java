@@ -14,7 +14,7 @@ public final class i implements Parcelable.Creator<PriceInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public PriceInfo[] newArray(int i) {
-        return new PriceInfo[i];
+    public PriceInfo[] newArray(int i2) {
+        return new PriceInfo[i2];
     }
 }

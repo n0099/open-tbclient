@@ -150,7 +150,7 @@ public class XAbstractAdProdTemplate extends XAdRemoteEventDispatcher implements
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    XMyWebView.create(XAbstractAdProdTemplate.this.getActivity(), RemoteXAdLogger.getInstance(), true, true).loadDataWithBaseURL(null, "", SapiWebView.K, "UTF-8", null);
+                    XMyWebView.create(XAbstractAdProdTemplate.this.getActivity(), RemoteXAdLogger.getInstance(), true, true).loadDataWithBaseURL(null, "", SapiWebView.DATA_MIME_TYPE, "UTF-8", null);
                 } catch (Exception unused) {
                 }
             }
@@ -221,10 +221,10 @@ public class XAbstractAdProdTemplate extends XAdRemoteEventDispatcher implements
         MaterialLoader.getInstance(this.mAppContext).cacheMaterialForURLString(urlForCache, this.mMaterialLoadingListener);
     }
 
-    public void callbackAdFailed(int i, String str) {
+    public void callbackAdFailed(int i2, String str) {
         HashMap hashMap = new HashMap();
         hashMap.put("error_message", str);
-        hashMap.put("error_code", Integer.valueOf(i));
+        hashMap.put("error_code", Integer.valueOf(i2));
         dispatchEvent(new XAdRemoteEvent("AdError", hashMap));
     }
 
@@ -432,9 +432,9 @@ public class XAbstractAdProdTemplate extends XAdRemoteEventDispatcher implements
         }
     }
 
-    public void handleRequestAdServerFail(int i, String str) {
+    public void handleRequestAdServerFail(int i2, String str) {
         disposeTotalRequestTimer();
-        callbackAdFailed(i, str);
+        callbackAdFailed(i2, str);
     }
 
     public void handleRequestAdServerSuccess(String str, String str2) {
@@ -460,10 +460,10 @@ public class XAbstractAdProdTemplate extends XAdRemoteEventDispatcher implements
         }
     }
 
-    public void handleRequestNoAd(String str, int i) {
+    public void handleRequestNoAd(String str, int i2) {
         HashMap hashMap = new HashMap();
         hashMap.put("error_message", str);
-        hashMap.put("error_code", Integer.valueOf(i));
+        hashMap.put("error_code", Integer.valueOf(i2));
         dispatchEvent(new XAdRemoteEvent("AdEmptyList", hashMap));
     }
 
@@ -525,7 +525,7 @@ public class XAbstractAdProdTemplate extends XAdRemoteEventDispatcher implements
         oAdURLConnection.setConnectTimeout(this.mTimeout);
         this.oAdURLConnection.addAdRequestListener(new OAdURLConnection.OnAdRequestListener() { // from class: com.baidu.mobads.container.adrequest.XAbstractAdProdTemplate.2
             @Override // com.baidu.mobads.container.components.net.OAdURLConnection.OnAdRequestListener
-            public void onFail(String str, int i) {
+            public void onFail(String str, int i2) {
                 if (XAbstractAdProdTemplate.this.mIsTimeout) {
                     return;
                 }

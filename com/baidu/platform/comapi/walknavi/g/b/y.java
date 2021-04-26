@@ -6,20 +6,20 @@ import com.baidu.tieba.R;
 public class y implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f9679a;
+    public final /* synthetic */ c f10039a;
 
     public y(c cVar) {
-        this.f9679a = cVar;
+        this.f10039a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.platform.comapi.walknavi.g.a aVar;
         com.baidu.platform.comapi.walknavi.g.a aVar2;
-        aVar = this.f9679a.m;
+        aVar = this.f10039a.m;
         if (aVar != null) {
             System.out.println("mBarQuit onClick showQuitDialog");
-            aVar2 = this.f9679a.m;
+            aVar2 = this.f10039a.m;
             aVar2.a(false, R.drawable.res_0x7f080001_avd_hide_password__1);
         }
     }

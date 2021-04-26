@@ -10,30 +10,30 @@ public class EnvConfig {
     public static final String ENVIRONMENT_RD = "RD";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5136a = "https://jrws.baidu.com";
+    public static final String f5265a = "https://jrws.baidu.com";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5137b = "https://jrws.baidu.com";
+    public static String f5266b = "https://jrws.baidu.com";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5138c = "https://jrws.baidu.com";
+    public static final String f5267c = "https://jrws.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static EnvConfig f5139d;
+    public static EnvConfig f5268d;
 
     public static synchronized EnvConfig a() {
         EnvConfig envConfig;
         synchronized (EnvConfig.class) {
-            if (f5139d == null && f5139d == null) {
-                f5139d = new EnvConfig();
+            if (f5268d == null && f5268d == null) {
+                f5268d = new EnvConfig();
             }
-            envConfig = f5139d;
+            envConfig = f5268d;
         }
         return envConfig;
     }
 
     private void b() {
-        f5137b = "https://jrws.baidu.com";
+        f5266b = "https://jrws.baidu.com";
         DEFAULT_ENVIRONMENT = "ONLINE";
     }
 
@@ -50,7 +50,7 @@ public class EnvConfig {
     }
 
     public String getRimHttpsHost() {
-        return f5137b;
+        return f5266b;
     }
 
     public void initEnv() {

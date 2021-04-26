@@ -14,11 +14,11 @@ public class DownloadConfig {
         return this.threadNum;
     }
 
-    public void setMaxThreadNum(int i) {
-        this.maxThreadNum = i;
+    public void setMaxThreadNum(int i2) {
+        this.maxThreadNum = i2;
     }
 
-    public void setThreadNum(int i) {
-        this.threadNum = i;
+    public void setThreadNum(int i2) {
+        this.threadNum = i2;
     }
 }

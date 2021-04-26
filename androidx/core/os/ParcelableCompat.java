@@ -20,8 +20,8 @@ public final class ParcelableCompat {
         }
 
         @Override // android.os.Parcelable.Creator
-        public T[] newArray(int i) {
-            return this.mCallbacks.newArray(i);
+        public T[] newArray(int i2) {
+            return this.mCallbacks.newArray(i2);
         }
 
         @Override // android.os.Parcelable.ClassLoaderCreator

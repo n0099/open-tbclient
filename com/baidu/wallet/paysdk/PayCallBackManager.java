@@ -42,8 +42,8 @@ public final class PayCallBackManager implements NoProguard {
         public String mOrder_no;
         public int mStatecode;
 
-        public PayStateModle(int i, String str) {
-            this.mStatecode = i;
+        public PayStateModle(int i2, String str) {
+            this.mStatecode = i2;
             this.mNotify = str;
             PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
             if (payRequest != null) {
@@ -98,14 +98,14 @@ public final class PayCallBackManager implements NoProguard {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(Context context, int i, String str) {
+    public static void a(Context context, int i2, String str) {
         PayCallBack payBack = BaiduPay.getInstance().getPayBack();
         if (payBack != null) {
-            payBack.onPayResult(i, str);
+            payBack.onPayResult(i2, str);
         } else {
             BaiduPay.IBindCardCallback bindCallback = BaiduPay.getInstance().getBindCallback();
             if (bindCallback != null) {
-                if (i == 0) {
+                if (i2 == 0) {
                     bindCallback.onChangeSucceed(str);
                 } else {
                     bindCallback.onChangeFailed(str);
@@ -115,15 +115,15 @@ public final class PayCallBackManager implements NoProguard {
                 BindBack bindCallbackExt = BaiduPay.getInstance().getBindCallbackExt();
                 if (bindCallbackExt != null) {
                     StatisticManager.onEvent(StatServiceEvent.EVENT_API_ONPAYRESULT);
-                    bindCallbackExt.onBindResult(i, str);
+                    bindCallbackExt.onBindResult(i2, str);
                 }
             }
             if (PayDataCache.getInstance().isRemotePay()) {
                 if (BaiduPay.getInstance().getRemotePayContext() != null) {
                     try {
-                        if (i != 1000) {
+                        if (i2 != 1000) {
                             try {
-                                b(BaiduPay.getInstance().getRemotePayContext(), i, str);
+                                b(BaiduPay.getInstance().getRemotePayContext(), i2, str);
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                                 PayStatisticsUtil.onEventWithValue(StatServiceEvent.REMOTE_GO_BACK_REMOTE_PAY_CATCH, e2.getMessage());
@@ -155,7 +155,7 @@ public final class PayCallBackManager implements NoProguard {
         PayBaseBeanActivity.exitEbpay();
     }
 
-    public static void b(Context context, int i, String str) {
+    public static void b(Context context, int i2, String str) {
         if (TextUtils.isEmpty(PayDataCache.getInstance().getRemotePkg()) || TextUtils.isEmpty(PayDataCache.getInstance().getRemoteWhereToBackAct())) {
             return;
         }
@@ -163,7 +163,7 @@ public final class PayCallBackManager implements NoProguard {
         Intent intent = new Intent();
         intent.setComponent(componentName);
         if (isClientDead) {
-            intent.putExtra("statuscode", i);
+            intent.putExtra("statuscode", i2);
             intent.putExtra("payresult", str);
         }
         if (!BaiduWalletUtils.isActivity(context)) {

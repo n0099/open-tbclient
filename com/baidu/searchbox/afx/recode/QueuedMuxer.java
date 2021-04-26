@@ -40,18 +40,18 @@ public class QueuedMuxer {
         public final SampleType mSampleType;
         public final int mSize;
 
-        public /* synthetic */ SampleInfo(SampleType sampleType, int i, MediaCodec.BufferInfo bufferInfo, AnonymousClass1 anonymousClass1) {
-            this(sampleType, i, bufferInfo);
+        public /* synthetic */ SampleInfo(SampleType sampleType, int i2, MediaCodec.BufferInfo bufferInfo, AnonymousClass1 anonymousClass1) {
+            this(sampleType, i2, bufferInfo);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void writeToBufferInfo(MediaCodec.BufferInfo bufferInfo, int i) {
-            bufferInfo.set(i, this.mSize, this.mPresentationTimeUs, this.mFlags);
+        public void writeToBufferInfo(MediaCodec.BufferInfo bufferInfo, int i2) {
+            bufferInfo.set(i2, this.mSize, this.mPresentationTimeUs, this.mFlags);
         }
 
-        public SampleInfo(SampleType sampleType, int i, MediaCodec.BufferInfo bufferInfo) {
+        public SampleInfo(SampleType sampleType, int i2, MediaCodec.BufferInfo bufferInfo) {
             this.mSampleType = sampleType;
-            this.mSize = i;
+            this.mSize = i2;
             this.mPresentationTimeUs = bufferInfo.presentationTimeUs;
             this.mFlags = bufferInfo.flags;
         }
@@ -81,16 +81,16 @@ public class QueuedMuxer {
         this.mVideoTrackIndex = this.mMuxer.addTrack(mediaFormat);
         this.mMuxer.start();
         this.mStarted = true;
-        int i = 0;
+        int i2 = 0;
         if (this.mByteBuffer == null) {
             this.mByteBuffer = ByteBuffer.allocate(0);
         }
         this.mByteBuffer.flip();
         MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
         for (SampleInfo sampleInfo : this.mSampleInfoList) {
-            sampleInfo.writeToBufferInfo(bufferInfo, i);
+            sampleInfo.writeToBufferInfo(bufferInfo, i2);
             this.mMuxer.writeSampleData(getTrackIndexForSampleType(sampleInfo.mSampleType), this.mByteBuffer, bufferInfo);
-            i += sampleInfo.mSize;
+            i2 += sampleInfo.mSize;
         }
         this.mSampleInfoList.clear();
         this.mByteBuffer = null;

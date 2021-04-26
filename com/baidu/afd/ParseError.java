@@ -10,8 +10,8 @@ public class ParseError extends Exception {
     public final String errorMessage;
     public String tplName = "";
 
-    public ParseError(int i, String str) {
-        this.errorCode = i;
+    public ParseError(int i2, String str) {
+        this.errorCode = i2;
         this.errorMessage = str;
     }
 }

@@ -3,69 +3,69 @@ package com.baidu.tbadk.editortools.noConflictPanel.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import d.b.i0.w.v.a;
-import d.b.i0.w.v.b;
+import d.a.i0.w.v.a;
+import d.a.i0.w.v.b;
 /* loaded from: classes3.dex */
 public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.w.v.c.b f13547e;
+    public d.a.i0.w.v.c.b f13539e;
 
     public KPSwitchPanelFrameLayout(Context context) {
         super(context);
         c(null);
     }
 
-    @Override // d.b.i0.w.v.b
+    @Override // d.a.i0.w.v.b
     public void a(boolean z) {
-        this.f13547e.f(z);
+        this.f13539e.f(z);
     }
 
-    @Override // d.b.i0.w.v.a
+    @Override // d.a.i0.w.v.a
     public boolean b() {
-        return this.f13547e.b();
+        return this.f13539e.b();
     }
 
     public final void c(AttributeSet attributeSet) {
-        this.f13547e = new d.b.i0.w.v.c.b(this, attributeSet);
+        this.f13539e = new d.a.i0.w.v.c.b(this, attributeSet);
     }
 
-    @Override // d.b.i0.w.v.a
+    @Override // d.a.i0.w.v.a
     public void handleHide() {
-        this.f13547e.handleHide();
+        this.f13539e.handleHide();
     }
 
-    @Override // d.b.i0.w.v.a
+    @Override // d.a.i0.w.v.a
     public void handleShow() {
         super.setVisibility(0);
     }
 
-    @Override // d.b.i0.w.v.a
+    @Override // d.a.i0.w.v.a
     public boolean isVisible() {
-        return this.f13547e.isVisible();
+        return this.f13539e.isVisible();
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        int[] c2 = this.f13547e.c(i, i2);
+    public void onMeasure(int i2, int i3) {
+        int[] c2 = this.f13539e.c(i2, i3);
         super.onMeasure(c2[0], c2[1]);
     }
 
-    @Override // d.b.i0.w.v.b
-    public void refreshHeight(int i) {
-        this.f13547e.d(i);
+    @Override // d.a.i0.w.v.b
+    public void refreshHeight(int i2) {
+        this.f13539e.d(i2);
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
-        this.f13547e.e(z);
+        this.f13539e.e(z);
     }
 
     @Override // android.view.View
-    public void setVisibility(int i) {
-        if (this.f13547e.a(i)) {
+    public void setVisibility(int i2) {
+        if (this.f13539e.a(i2)) {
             return;
         }
-        super.setVisibility(i);
+        super.setVisibility(i2);
     }
 
     public KPSwitchPanelFrameLayout(Context context, AttributeSet attributeSet) {
@@ -73,8 +73,8 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
         c(attributeSet);
     }
 
-    public KPSwitchPanelFrameLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public KPSwitchPanelFrameLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         c(attributeSet);
     }
 }

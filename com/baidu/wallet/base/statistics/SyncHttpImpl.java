@@ -20,7 +20,7 @@ public class SyncHttpImpl implements com.baidu.apollon.statistics.SyncHttpImpl {
     }
 
     @Override // com.baidu.apollon.statistics.SyncHttpImpl
-    public boolean send(Context context, int i, String str, Map<String, String> map) {
+    public boolean send(Context context, int i2, String str, Map<String, String> map) {
         Throwable th;
         OutputStream outputStream;
         OutputStream outputStream2;
@@ -37,13 +37,13 @@ public class SyncHttpImpl implements com.baidu.apollon.statistics.SyncHttpImpl {
             }
             try {
                 httpURLConnection.setUseCaches(false);
-                httpURLConnection.setDoOutput(1 == i);
-                if (1 == i) {
+                httpURLConnection.setDoOutput(1 == i2);
+                if (1 == i2) {
                     httpURLConnection.setRequestMethod("POST");
-                } else if (i == 0) {
+                } else if (i2 == 0) {
                     httpURLConnection.setRequestMethod("GET");
                 } else {
-                    throw new Exception("not support http method:" + i);
+                    throw new Exception("not support http method:" + i2);
                 }
                 httpURLConnection.setRequestProperty("Content-Encoding", AsyncHttpClient.ENCODING_GZIP);
                 httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");

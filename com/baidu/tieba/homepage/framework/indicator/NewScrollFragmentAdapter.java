@@ -12,9 +12,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.tbadk.core.view.viewpager.AbsFragmentStatePagerAdapter;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
@@ -25,14 +27,14 @@ import com.baidu.tieba.homepage.hotTopic.tab.HotTopicTabFragment;
 import com.baidu.tieba.homepage.personalize.PersonalizeFragment;
 import com.baidu.tieba.homepage.tabfeed.HomePageTabFeedFragment;
 import com.baidu.tieba.homepage.video.VideoTabFragment;
-import d.b.c.e.d.l;
-import d.b.i0.b.d;
-import d.b.i0.c1.b.c;
-import d.b.i0.s.c.x;
-import d.b.i0.z0.b0;
-import d.b.i0.z0.f0;
-import d.b.i0.z0.h0;
-import d.b.j0.q0.o0;
+import d.a.c.e.d.l;
+import d.a.i0.b.d;
+import d.a.i0.c1.b.c;
+import d.a.i0.s.c.x;
+import d.a.i0.z0.b0;
+import d.a.i0.z0.f0;
+import d.a.i0.z0.h0;
+import d.a.j0.q0.o0;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Userlike.DataRes;
@@ -40,14 +42,16 @@ import tbclient.Userlike.DataRes;
 public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f16774f;
+    public Context f17032f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ConcernFragment f16775g;
+    public ConcernFragment f17033g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PersonalizeFragment f16776h;
-    public HotTopicTabFragment i;
+    public PersonalizeFragment f17034h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public HotTopicTabFragment f17035i;
     public BaseFragment j;
     public GameVideoFragment k;
     public VideoTabFragment l;
@@ -58,7 +62,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public int q;
     public b0 r;
     public int s;
-    public d.b.j0.a1.c.f.a t;
+    public d.a.j0.a1.c.f.a t;
     public b u;
     public int v;
     public boolean w;
@@ -68,26 +72,25 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public class a extends f0<Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f16777a;
+        public final /* synthetic */ int f17036a;
 
-        public a(int i) {
-            this.f16777a = i;
+        public a(int i2) {
+            this.f17036a = i2;
         }
 
-        @Override // d.b.i0.z0.f0
+        @Override // d.a.i0.z0.f0
         public Object doInBackground() {
-            l<String> h2 = d.b.i0.r.r.a.f().h(NewScrollFragmentAdapter.this.n, TbadkCoreApplication.getCurrentAccount());
+            l<String> h2 = d.a.i0.r.r.a.f().h(NewScrollFragmentAdapter.this.n, TbadkCoreApplication.getCurrentAccount());
             if (h2 != null) {
-                h2.e(NewScrollFragmentAdapter.this.o, Integer.toString(this.f16777a), 43200000L);
+                h2.e(NewScrollFragmentAdapter.this.o, Integer.toString(this.f17036a), 43200000L);
                 return null;
             }
             return null;
         }
     }
 
-    public NewScrollFragmentAdapter(Context context, FragmentManager fragmentManager, d.b.j0.a1.c.b bVar, ConcernPageView.l lVar) {
+    public NewScrollFragmentAdapter(Context context, FragmentManager fragmentManager, d.a.j0.a1.c.b bVar, ConcernPageView.l lVar) {
         super(fragmentManager);
-        CustomResponsedMessage runTask;
         this.n = "recommendFrsLastReadTabPositionNamespace";
         this.o = "recommendFrsLastReadTabPositionKey";
         this.p = false;
@@ -96,98 +99,79 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         this.v = -1;
         this.w = false;
         this.x = new ArrayList();
-        this.f16774f = context;
+        this.f17032f = context;
         if (this.t == null) {
-            this.t = new d.b.j0.a1.c.f.a();
+            this.t = new d.a.j0.a1.c.f.a();
         }
         List<x> b2 = this.t.b();
         List<b> arrayList = new ArrayList<>();
-        if (this.f16775g == null) {
-            this.f16775g = new ConcernFragment(context);
+        if (this.f17033g == null) {
+            this.f17033g = new ConcernFragment(context);
+            g(2);
         }
-        this.f16775g.K0(lVar);
-        if (d.h() && TbadkCoreApplication.isLogin() && d.b.i0.r.d0.b.j().k("key_home_concern_all_status", 0) == 1) {
-            arrayList.add(y(this.f16775g, 0, v(R.string.attention_person)));
+        this.f17033g.K0(lVar);
+        if (d.h() && TbadkCoreApplication.isLogin() && d.a.i0.r.d0.b.j().k("key_home_concern_all_status", 0) == 1) {
+            arrayList.add(u(this.f17033g, 0, r(R.string.attention_person)));
         } else {
-            arrayList.add(y(this.f16775g, 0, v(R.string.tab_name_concern)));
+            arrayList.add(u(this.f17033g, 0, r(R.string.tab_name_concern)));
         }
-        if (this.f16776h == null) {
-            this.f16776h = new PersonalizeFragment(context);
+        if (this.f17034h == null) {
+            this.f17034h = new PersonalizeFragment(context);
+            g(1);
         }
-        this.f16776h.L0(bVar);
-        arrayList.add(y(this.f16776h, 1, v(R.string.tab_name_recommend)));
+        this.f17034h.L0(bVar);
+        arrayList.add(u(this.f17034h, 1, r(R.string.tab_name_recommend)));
         for (x xVar : b2) {
-            int i = xVar.f51994a;
-            String str = xVar.f51995b;
-            String str2 = xVar.f51996c;
-            boolean z = xVar.f51998e;
+            int i2 = xVar.f49649a;
+            String str = xVar.f49650b;
+            String str2 = xVar.f49651c;
+            boolean z = xVar.f49653e;
             if (!xVar.a()) {
-                if (i == 101) {
+                if (i2 == 101) {
                     Fragment homePageTabFeedFragment = new HomePageTabFeedFragment();
                     Bundle bundle = new Bundle();
                     bundle.putString(LowFlowsActivityConfig.TAB_CODE, str2);
                     bundle.putString("tab_name", str);
                     homePageTabFeedFragment.setArguments(bundle);
-                    arrayList.add(A(homePageTabFeedFragment, xVar));
-                } else if (i == 5) {
-                    if (this.i == null) {
+                    arrayList.add(w(homePageTabFeedFragment, xVar));
+                } else if (i2 == 5) {
+                    if (this.f17035i == null) {
+                        g(3);
                         HotTopicTabFragment hotTopicTabFragment = new HotTopicTabFragment(context);
-                        this.i = hotTopicTabFragment;
-                        arrayList.add(z(hotTopicTabFragment, i, str, z));
+                        this.f17035i = hotTopicTabFragment;
+                        arrayList.add(v(hotTopicTabFragment, i2, str, z));
                     }
-                } else if (i == 8) {
+                } else if (i2 == 8) {
                     if (this.l == null) {
-                        VideoTabFragment videoTabFragment = new VideoTabFragment();
-                        this.l = videoTabFragment;
-                        arrayList.add(A(videoTabFragment, xVar));
+                        this.l = new VideoTabFragment();
+                        g(5);
+                        arrayList.add(w(this.l, xVar));
                     }
-                } else if (i == 6) {
-                    if (this.j == null && (runTask = MessageManager.getInstance().runTask(2921399, BaseFragment.class)) != null && runTask.getData() != null) {
-                        BaseFragment baseFragment = (BaseFragment) runTask.getData();
-                        this.j = baseFragment;
-                        b A = A(baseFragment, xVar);
-                        this.u = A;
-                        arrayList.add(A);
+                } else if (i2 == 6) {
+                    if (this.j == null) {
+                        g(4);
+                        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921399, BaseFragment.class);
+                        if (runTask != null && runTask.getData() != null) {
+                            BaseFragment baseFragment = (BaseFragment) runTask.getData();
+                            this.j = baseFragment;
+                            b w = w(baseFragment, xVar);
+                            this.u = w;
+                            arrayList.add(w);
+                        }
                     }
-                } else if (i == 7 && this.k == null) {
+                } else if (i2 == 7 && this.k == null) {
                     GameVideoFragment gameVideoFragment = new GameVideoFragment();
                     this.k = gameVideoFragment;
-                    arrayList.add(A(gameVideoFragment, xVar));
+                    arrayList.add(w(gameVideoFragment, xVar));
                     TiebaStatic.log(new StatisticItem("c13483").param("obj_type", "2"));
                 }
             }
         }
         this.x.clear();
-        j(arrayList);
+        f(arrayList);
     }
 
-    public b A(Fragment fragment, x xVar) {
-        return new b(fragment, xVar.f51994a, xVar.f51995b);
-    }
-
-    public void B(int i) {
-        PersonalizeFragment personalizeFragment;
-        if (i != 1 || (personalizeFragment = this.f16776h) == null) {
-            return;
-        }
-        personalizeFragment.K0();
-    }
-
-    public void E(int i) {
-        o0 o0Var = this.m;
-        if (o0Var != null) {
-            o0Var.b0();
-        }
-    }
-
-    public void F() {
-        o0 o0Var = this.m;
-        if (o0Var != null) {
-            o0Var.w();
-        }
-    }
-
-    public void G() {
+    public void A() {
         if (this.u == null || ListUtils.isEmpty(this.x)) {
             return;
         }
@@ -199,11 +183,11 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         this.v = indexOf;
         this.x.remove(indexOf);
         notifyDataSetChanged();
-        f(false, this.u.f16779a);
+        c(false, this.u.f17038a);
         this.w = false;
     }
 
-    public void I() {
+    public void B() {
         b bVar = this.u;
         if (bVar == null || this.v < 0) {
             return;
@@ -213,99 +197,118 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
             this.x.add(this.v, this.u);
             notifyDataSetChanged();
         }
-        f(true, this.u.f16779a);
+        c(true, this.u.f17038a);
         this.w = false;
     }
 
-    public void J(int i) {
-        h0.b(new a(i), null);
+    public void F(int i2) {
+        h0.b(new a(i2), null);
     }
 
-    public void K(boolean z) {
+    public void G(boolean z) {
         if (this.m instanceof BaseFragment) {
             if (!z) {
-                int position = ListUtils.getPosition(e(), (BaseFragment) this.m);
+                int position = ListUtils.getPosition(b(), (BaseFragment) this.m);
                 if (position < 0) {
-                    position = p(1);
+                    position = m(1);
                 }
-                J(position);
-                k();
+                F(position);
+                h();
             }
             ((BaseFragment) this.m).setPrimary(z);
         }
     }
 
-    public void L(ScrollFragmentTabHost scrollFragmentTabHost) {
-        PersonalizeFragment personalizeFragment = this.f16776h;
+    public void H(ScrollFragmentTabHost scrollFragmentTabHost) {
+        PersonalizeFragment personalizeFragment = this.f17034h;
         if (personalizeFragment != null) {
             personalizeFragment.M0(scrollFragmentTabHost);
         }
-        HotTopicTabFragment hotTopicTabFragment = this.i;
+        HotTopicTabFragment hotTopicTabFragment = this.f17035i;
         if (hotTopicTabFragment != null) {
             hotTopicTabFragment.L0(scrollFragmentTabHost);
         }
-        ConcernFragment concernFragment = this.f16775g;
+        ConcernFragment concernFragment = this.f17033g;
         if (concernFragment != null) {
             concernFragment.L0(scrollFragmentTabHost);
         }
     }
 
-    public void M(int i) {
-        if (this.s == i) {
+    public void I(int i2) {
+        if (this.s == i2) {
             this.q = -1;
         } else {
-            this.q = i;
+            this.q = i2;
         }
     }
 
-    public void O(String str) {
+    public void J(String str) {
     }
 
-    public void P() {
-        PersonalizeFragment personalizeFragment = this.f16776h;
+    public void K() {
+        PersonalizeFragment personalizeFragment = this.f17034h;
         if (personalizeFragment != null) {
             personalizeFragment.P0();
         }
     }
 
-    public void Q() {
-        ConcernFragment concernFragment = this.f16775g;
+    public void L() {
+        ConcernFragment concernFragment = this.f17033g;
         if (concernFragment != null) {
             concernFragment.M0();
         }
     }
 
-    public void R(DataRes dataRes, boolean z) {
-        ConcernFragment concernFragment = this.f16775g;
+    public void M(DataRes dataRes, boolean z) {
+        ConcernFragment concernFragment = this.f17033g;
         if (concernFragment != null) {
             concernFragment.N0(dataRes, z);
         }
     }
 
-    public void S(String str, int i, int i2) {
+    public void N(String str, int i2, int i3) {
         ConcernFragment concernFragment;
         PersonalizeFragment personalizeFragment;
-        if (i2 == 1 && (personalizeFragment = this.f16776h) != null && this.m == personalizeFragment) {
-            personalizeFragment.R0(str, i);
+        if (i3 == 1 && (personalizeFragment = this.f17034h) != null && this.m == personalizeFragment) {
+            personalizeFragment.R0(str, i2);
         }
-        if (i2 != 0 || (concernFragment = this.f16775g) == null) {
+        if (i3 != 0 || (concernFragment = this.f17033g) == null) {
             return;
         }
-        concernFragment.O0(str, i);
+        concernFragment.O0(str, i2);
     }
 
-    public void T(tbclient.Personalized.DataRes dataRes, boolean z, boolean z2) {
-        PersonalizeFragment personalizeFragment = this.f16776h;
+    public void O(tbclient.Personalized.DataRes dataRes, boolean z, boolean z2) {
+        PersonalizeFragment personalizeFragment = this.f17034h;
         if (personalizeFragment != null) {
             personalizeFragment.Q0(dataRes, z, z2);
         }
     }
 
-    public void U() {
-        PersonalizeFragment personalizeFragment = this.f16776h;
+    public void P() {
+        PersonalizeFragment personalizeFragment = this.f17034h;
         if (personalizeFragment != null) {
             personalizeFragment.J0();
         }
+    }
+
+    public void f(List<b> list) {
+        if (this.x == null || list == null || list.size() <= 0) {
+            return;
+        }
+        this.x.addAll(list);
+        notifyDataSetChanged();
+        if (c.d()) {
+            A();
+        }
+    }
+
+    public final void g(int i2) {
+        StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LIVE_TAB_SHOW);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+        statisticItem.param("obj_type", i2);
+        TiebaStaticHelper.addYYParam(statisticItem);
+        TiebaStatic.log(statisticItem);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -318,59 +321,48 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     }
 
     @Override // com.baidu.tbadk.core.view.viewpager.AbsFragmentStatePagerAdapter
-    public Fragment getItem(int i) {
+    public Fragment getItem(int i2) {
         List<b> list = this.x;
-        if (list == null || i < 0 || i >= list.size() || this.x.get(i) == null) {
+        if (list == null || i2 < 0 || i2 >= list.size() || this.x.get(i2) == null) {
             return null;
         }
-        return this.x.get(i).f16779a;
+        return this.x.get(i2).f17038a;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getItemPosition(@NonNull Object obj) {
-        return (this.w || e() == null || !e().contains(obj)) ? -2 : -1;
+        return (this.w || b() == null || !b().contains(obj)) ? -2 : -1;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public CharSequence getPageTitle(int i) {
+    public CharSequence getPageTitle(int i2) {
         List<b> list = this.x;
-        if (list == null || i < 0 || i >= list.size() || this.x.get(i) == null) {
+        if (list == null || i2 < 0 || i2 >= list.size() || this.x.get(i2) == null) {
             return null;
         }
-        return this.x.get(i).f16780b;
+        return this.x.get(i2).f17039b;
     }
 
-    public void j(List<b> list) {
-        if (this.x == null || list == null || list.size() <= 0) {
-            return;
-        }
-        this.x.addAll(list);
-        notifyDataSetChanged();
-        if (c.d()) {
-            G();
-        }
-    }
-
-    public final void k() {
-        PersonalizeFragment personalizeFragment = this.f16776h;
+    public final void h() {
+        PersonalizeFragment personalizeFragment = this.f17034h;
         if (personalizeFragment != null && this.m == personalizeFragment) {
             personalizeFragment.I0();
         }
-        ConcernFragment concernFragment = this.f16775g;
+        ConcernFragment concernFragment = this.f17033g;
         if (concernFragment == null || this.m != concernFragment) {
             return;
         }
         concernFragment.H0();
     }
 
-    public void l() {
+    public void i() {
         Fragment item = getItem(this.s);
         if (item instanceof o0) {
-            ((o0) item).w();
+            ((o0) item).p();
         }
     }
 
-    public String m() {
+    public String j() {
         o0 o0Var = this.m;
         if (o0Var instanceof BaseFragment) {
             return ((BaseFragment) o0Var).getCurrentPageKey();
@@ -378,32 +370,58 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         return null;
     }
 
-    public int n() {
+    public int k() {
         return this.t.a();
     }
 
-    public int o() {
-        for (int i = 0; i < this.x.size(); i++) {
-            if (this.x.get(i).f16782d == 5) {
-                return i;
+    public int l() {
+        for (int i2 = 0; i2 < this.x.size(); i2++) {
+            if (this.x.get(i2).f17041d == 5) {
+                return i2;
             }
         }
         return -1;
     }
 
-    public void onPageScrolled(int i, float f2, int i2) {
-        int i3 = this.q;
-        if (i3 == -1 || (i == i3 && f2 == 0.0f)) {
-            Fragment fragment = (Fragment) ListUtils.getItem(e(), i - 1);
-            Fragment fragment2 = (Fragment) ListUtils.getItem(e(), i);
-            Fragment fragment3 = (Fragment) ListUtils.getItem(e(), i + 1);
+    @Deprecated
+    public int m(int i2) {
+        for (int i3 = 0; i3 < this.x.size(); i3++) {
+            if (this.x.get(i3).f17041d == i2) {
+                return i3;
+            }
+        }
+        return q();
+    }
+
+    public int n(int i2) {
+        b bVar = (b) ListUtils.getItem(this.x, i2);
+        if (bVar != null) {
+            return bVar.f17041d;
+        }
+        return 1;
+    }
+
+    public void o(d.a.j0.a1.c.d dVar) {
+        if (this.p) {
+            return;
+        }
+        this.p = true;
+        dVar.a(1);
+    }
+
+    public void onPageScrolled(int i2, float f2, int i3) {
+        int i4 = this.q;
+        if (i4 == -1 || (i2 == i4 && f2 == 0.0f)) {
+            Fragment fragment = (Fragment) ListUtils.getItem(b(), i2 - 1);
+            Fragment fragment2 = (Fragment) ListUtils.getItem(b(), i2);
+            Fragment fragment3 = (Fragment) ListUtils.getItem(b(), i2 + 1);
             this.q = -1;
             if (f2 == 0.0f) {
                 if (fragment instanceof o0) {
-                    ((o0) fragment).W();
+                    ((o0) fragment).G();
                 }
                 if (fragment3 instanceof o0) {
-                    ((o0) fragment3).W();
+                    ((o0) fragment3).G();
                 }
                 if (fragment2 != null) {
                     fragment2.setMenuVisibility(true);
@@ -413,139 +431,139 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                 return;
             }
             if (fragment instanceof o0) {
-                ((o0) fragment).F();
+                ((o0) fragment).u();
             }
             if (fragment2 instanceof o0) {
-                ((o0) fragment2).F();
+                ((o0) fragment2).u();
             }
             if (fragment3 instanceof o0) {
-                ((o0) fragment3).F();
+                ((o0) fragment3).u();
             }
         }
     }
 
-    @Deprecated
-    public int p(int i) {
+    public int p(String str) {
         for (int i2 = 0; i2 < this.x.size(); i2++) {
-            if (this.x.get(i2).f16782d == i) {
+            b bVar = this.x.get(i2);
+            if (!TextUtils.isEmpty(str) && str.equals(bVar.f17040c)) {
                 return i2;
             }
         }
-        return u();
+        return q();
     }
 
-    public int q(int i) {
-        b bVar = (b) ListUtils.getItem(this.x, i);
-        if (bVar != null) {
-            return bVar.f16782d;
-        }
-        return 1;
-    }
-
-    public void r(d.b.j0.a1.c.d dVar) {
-        if (this.p) {
-            return;
-        }
-        this.p = true;
-        dVar.a(1);
-    }
-
-    public int s(String str) {
-        for (int i = 0; i < this.x.size(); i++) {
-            b bVar = this.x.get(i);
-            if (!TextUtils.isEmpty(str) && str.equals(bVar.f16781c)) {
-                return i;
+    public int q() {
+        for (int i2 = 0; i2 < this.x.size(); i2++) {
+            if (this.x.get(i2).f17041d == 1) {
+                return i2;
             }
         }
-        return u();
+        return 0;
+    }
+
+    public final String r(int i2) {
+        return TbadkCoreApplication.getInst().getString(i2);
+    }
+
+    public boolean s() {
+        return this.f17033g != null;
     }
 
     @Override // com.baidu.tbadk.core.view.viewpager.AbsFragmentStatePagerAdapter, androidx.viewpager.widget.PagerAdapter
-    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
-        super.setPrimaryItem(viewGroup, i, obj);
-        if (obj != null && this.s != i) {
+    public void setPrimaryItem(ViewGroup viewGroup, int i2, Object obj) {
+        super.setPrimaryItem(viewGroup, i2, obj);
+        if (obj != null && this.s != i2) {
             o0 o0Var = this.m;
             if (o0Var instanceof BaseFragment) {
                 ((BaseFragment) o0Var).setPrimary(false);
             }
-            this.s = i;
-            VoiceManager a2 = d.b.j0.d3.p0.b.a(this.f16774f);
+            this.s = i2;
+            VoiceManager a2 = d.a.j0.d3.p0.b.a(this.f17032f);
             if (a2 != null) {
                 a2.stopPlay();
             }
             if (obj instanceof BaseFragment) {
                 ((BaseFragment) obj).setPrimary(true);
             }
-            if ((obj instanceof PersonalizeFragment) && i == 0) {
-                ((PersonalizeFragment) obj).E();
+            if ((obj instanceof PersonalizeFragment) && i2 == 0) {
+                ((PersonalizeFragment) obj).t();
             }
             if (obj instanceof o0) {
-                ((o0) obj).A();
+                ((o0) obj).s();
             }
         }
         if (obj instanceof o0) {
             o0 o0Var2 = (o0) obj;
             this.m = o0Var2;
-            o0Var2.K(this.r);
+            o0Var2.y(this.r);
         }
     }
 
-    public int u() {
-        for (int i = 0; i < this.x.size(); i++) {
-            if (this.x.get(i).f16782d == 1) {
-                return i;
-            }
+    public boolean t() {
+        return this.f17035i != null;
+    }
+
+    public b u(Fragment fragment, int i2, String str) {
+        return new b(fragment, i2, str);
+    }
+
+    public b v(Fragment fragment, int i2, String str, boolean z) {
+        return new b(fragment, i2, str, z);
+    }
+
+    public b w(Fragment fragment, x xVar) {
+        return new b(fragment, xVar.f49649a, xVar.f49650b);
+    }
+
+    public void x(int i2) {
+        PersonalizeFragment personalizeFragment;
+        if (i2 != 1 || (personalizeFragment = this.f17034h) == null) {
+            return;
         }
-        return 0;
+        personalizeFragment.K0();
     }
 
-    public final String v(int i) {
-        return TbadkCoreApplication.getInst().getString(i);
+    public void y(int i2) {
+        o0 o0Var = this.m;
+        if (o0Var != null) {
+            o0Var.H();
+        }
     }
 
-    public boolean w() {
-        return this.f16775g != null;
-    }
-
-    public boolean x() {
-        return this.i != null;
-    }
-
-    public b y(Fragment fragment, int i, String str) {
-        return new b(fragment, i, str);
-    }
-
-    public b z(Fragment fragment, int i, String str, boolean z) {
-        return new b(fragment, i, str, z);
+    public void z() {
+        o0 o0Var = this.m;
+        if (o0Var != null) {
+            o0Var.p();
+        }
     }
 
     /* loaded from: classes4.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Fragment f16779a;
+        public Fragment f17038a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f16780b;
+        public String f17039b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f16781c;
+        public String f17040c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f16782d;
+        public int f17041d;
 
-        public b(Fragment fragment, int i, String str) {
-            this.f16779a = fragment;
-            this.f16782d = i;
-            this.f16780b = str;
-            this.f16781c = str;
+        public b(Fragment fragment, int i2, String str) {
+            this.f17038a = fragment;
+            this.f17041d = i2;
+            this.f17039b = str;
+            this.f17040c = str;
         }
 
-        public b(Fragment fragment, int i, String str, boolean z) {
-            this.f16779a = fragment;
-            this.f16782d = i;
-            this.f16780b = str;
-            this.f16781c = str;
+        public b(Fragment fragment, int i2, String str, boolean z) {
+            this.f17038a = fragment;
+            this.f17041d = i2;
+            this.f17039b = str;
+            this.f17040c = str;
         }
     }
 }

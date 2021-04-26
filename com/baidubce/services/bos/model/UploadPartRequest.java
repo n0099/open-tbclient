@@ -54,9 +54,9 @@ public class UploadPartRequest extends GenericUploadRequest {
         this.md5Digest = str;
     }
 
-    public void setPartNumber(int i) {
-        CheckUtils.checkArgument(i > 0, "partNumber should be positive, but is %s", Integer.valueOf(i));
-        this.partNumber = i;
+    public void setPartNumber(int i2) {
+        CheckUtils.checkArgument(i2 > 0, "partNumber should be positive, but is %s", Integer.valueOf(i2));
+        this.partNumber = i2;
     }
 
     public void setPartSize(long j) {
@@ -83,8 +83,8 @@ public class UploadPartRequest extends GenericUploadRequest {
         return this;
     }
 
-    public UploadPartRequest withPartNumber(int i) {
-        setPartNumber(i);
+    public UploadPartRequest withPartNumber(int i2) {
+        setPartNumber(i2);
         return this;
     }
 
@@ -126,10 +126,10 @@ public class UploadPartRequest extends GenericUploadRequest {
         return this;
     }
 
-    public UploadPartRequest(String str, String str2, String str3, int i, long j, InputStream inputStream) {
+    public UploadPartRequest(String str, String str2, String str3, int i2, long j, InputStream inputStream) {
         super(str, str2, str3);
         this.progressCallback = null;
-        setPartNumber(i);
+        setPartNumber(i2);
         setPartSize(j);
         setInputStream(inputStream);
     }

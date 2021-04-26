@@ -1,4 +1,6 @@
 package io.reactivex.internal.schedulers;
+
+import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes7.dex */
 public final class ScheduledDirectPeriodicTask extends AbstractDirectTask implements Runnable {
     public static final long serialVersionUID = 1811839108042568751L;
@@ -7,7 +9,7 @@ public final class ScheduledDirectPeriodicTask extends AbstractDirectTask implem
         super(runnable);
     }
 
-    @Override // io.reactivex.internal.schedulers.AbstractDirectTask
+    @Override // io.reactivex.internal.schedulers.AbstractDirectTask, io.reactivex.schedulers.SchedulerRunnableIntrospection
     public /* bridge */ /* synthetic */ Runnable getWrappedRunnable() {
         return super.getWrappedRunnable();
     }
@@ -17,10 +19,11 @@ public final class ScheduledDirectPeriodicTask extends AbstractDirectTask implem
         this.runner = Thread.currentThread();
         try {
             this.runnable.run();
-        } finally {
-            try {
-            } finally {
-            }
+            this.runner = null;
+        } catch (Throwable th) {
+            this.runner = null;
+            lazySet(AbstractDirectTask.FINISHED);
+            RxJavaPlugins.onError(th);
         }
     }
 }

@@ -33,9 +33,9 @@ public class a {
         try {
             arrayList.add(a(str, PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID));
             arrayList.add(a(str, "order_no"));
-            for (int i = 0; i < strArr.length; i++) {
-                if (!TextUtils.isEmpty(strArr[i])) {
-                    arrayList.add(strArr[i]);
+            for (int i2 = 0; i2 < strArr.length; i2++) {
+                if (!TextUtils.isEmpty(strArr[i2])) {
+                    arrayList.add(strArr[i2]);
                 } else {
                     arrayList.add("empty");
                 }

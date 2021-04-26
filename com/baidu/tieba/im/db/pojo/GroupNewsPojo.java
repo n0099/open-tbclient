@@ -109,8 +109,8 @@ public class GroupNewsPojo implements Serializable {
         this.content = str;
     }
 
-    public void setContent_status(int i) {
-        this.content_status = i;
+    public void setContent_status(int i2) {
+        this.content_status = i2;
     }
 
     public void setExt(String str) {

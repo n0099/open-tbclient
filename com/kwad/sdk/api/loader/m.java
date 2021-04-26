@@ -10,18 +10,18 @@ import com.kwad.sdk.api.core.ResContext;
 public class m extends ContextThemeWrapper implements ResContext {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ContextThemeWrapper f32223a;
+    public final ContextThemeWrapper f32634a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Resources.Theme f32224b;
+    public Resources.Theme f32635b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f32225c;
+    public int f32636c;
 
     public m(ContextThemeWrapper contextThemeWrapper) {
         super(contextThemeWrapper, contextThemeWrapper.getThemeResId());
-        this.f32223a = contextThemeWrapper;
-        this.f32225c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
+        this.f32634a = contextThemeWrapper;
+        this.f32636c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -42,7 +42,7 @@ public class m extends ContextThemeWrapper implements ResContext {
 
     @Override // com.kwad.sdk.api.core.ResContext
     public Context getDelegatedContext() {
-        return this.f32223a;
+        return this.f32634a;
     }
 
     @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -67,23 +67,23 @@ public class m extends ContextThemeWrapper implements ResContext {
         Resources.Theme theme = super.getTheme();
         Resources externalResource = Loader.get().getExternalResource();
         if (externalResource != null) {
-            if (this.f32224b == null) {
+            if (this.f32635b == null) {
                 Resources.Theme newTheme = externalResource.newTheme();
-                this.f32224b = newTheme;
-                newTheme.applyStyle(this.f32225c, true);
+                this.f32635b = newTheme;
+                newTheme.applyStyle(this.f32636c, true);
             }
-            return this.f32224b;
+            return this.f32635b;
         }
         return theme;
     }
 
     @Override // android.content.Context
     public void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
-        this.f32223a.registerComponentCallbacks(componentCallbacks);
+        this.f32634a.registerComponentCallbacks(componentCallbacks);
     }
 
     @Override // android.content.Context
     public void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
-        this.f32223a.unregisterComponentCallbacks(componentCallbacks);
+        this.f32634a.unregisterComponentCallbacks(componentCallbacks);
     }
 }

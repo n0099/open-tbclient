@@ -48,9 +48,9 @@ public final class RouteSelector {
         public Route next() {
             if (hasNext()) {
                 List<Route> list = this.routes;
-                int i = this.nextRouteIndex;
-                this.nextRouteIndex = i + 1;
-                return list.get(i);
+                int i2 = this.nextRouteIndex;
+                this.nextRouteIndex = i2 + 1;
+                return list.get(i2);
             }
             throw new NoSuchElementException();
         }
@@ -79,9 +79,9 @@ public final class RouteSelector {
     private Proxy nextProxy() throws IOException {
         if (hasNextProxy()) {
             List<Proxy> list = this.proxies;
-            int i = this.nextProxyIndex;
-            this.nextProxyIndex = i + 1;
-            Proxy proxy = list.get(i);
+            int i2 = this.nextProxyIndex;
+            this.nextProxyIndex = i2 + 1;
+            Proxy proxy = list.get(i2);
             resetNextInetSocketAddress(proxy);
             return proxy;
         }
@@ -115,8 +115,8 @@ public final class RouteSelector {
             if (!lookup.isEmpty()) {
                 this.eventListener.dnsEnd(this.call, host, lookup);
                 int size = lookup.size();
-                for (int i = 0; i < size; i++) {
-                    this.inetSocketAddresses.add(new InetSocketAddress(lookup.get(i), port));
+                for (int i2 = 0; i2 < size; i2++) {
+                    this.inetSocketAddresses.add(new InetSocketAddress(lookup.get(i2), port));
                 }
                 return;
             }
@@ -152,8 +152,8 @@ public final class RouteSelector {
             while (hasNextProxy()) {
                 Proxy nextProxy = nextProxy();
                 int size = this.inetSocketAddresses.size();
-                for (int i = 0; i < size; i++) {
-                    Route route = new Route(this.address, nextProxy, this.inetSocketAddresses.get(i));
+                for (int i2 = 0; i2 < size; i2++) {
+                    Route route = new Route(this.address, nextProxy, this.inetSocketAddresses.get(i2));
                     if (this.routeDatabase.shouldPostpone(route)) {
                         this.postponedRoutes.add(route);
                     } else {

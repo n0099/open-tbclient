@@ -3,9 +3,9 @@ package com.baidu.tieba.homepage.lowFlows.message;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.b.c.j.e.n;
-import d.b.j0.a1.f.e.a;
-import d.b.j0.a1.f.h.c;
+import d.a.c.j.e.n;
+import d.a.j0.a1.f.e.a;
+import d.a.j0.a1.f.h.c;
 import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
@@ -17,14 +17,14 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
         super(CmdConfigHttp.CMD_LOW_FLOWS_PAGE);
     }
 
-    @Override // d.b.j0.a1.f.e.a
+    @Override // d.a.j0.a1.f.e.a
     public List<n> getDataList() {
         return this.mMoreTreasureTroveDataList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         MoreTreasureTroveResIdl moreTreasureTroveResIdl;
         if (bArr == null || (moreTreasureTroveResIdl = (MoreTreasureTroveResIdl) new Wire(new Class[0]).parseFrom(bArr, MoreTreasureTroveResIdl.class)) == null) {
             return;

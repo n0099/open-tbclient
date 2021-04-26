@@ -29,14 +29,14 @@ public class b implements a {
         if (context == null) {
             return;
         }
-        String i = com.baidu.wallet.paysdk.banksign.a.a.a().i();
+        String i2 = com.baidu.wallet.paysdk.banksign.a.a.a().i();
         byte[] k = com.baidu.wallet.paysdk.banksign.a.a.a().k();
         String j = com.baidu.wallet.paysdk.banksign.a.a.a().j();
         if (TextUtils.isEmpty(j)) {
             j = ResUtils.getString(context, "dxmpay_banksign_web_title");
         }
         StatisticManager.onEvent(StatServiceEvent.EVENT_ENTER_BANK_SIGN);
-        PostWebviewActivity.startPostWebview(context, i, k, j);
+        PostWebviewActivity.startPostWebview(context, i2, k, j);
     }
 
     @Override // com.baidu.wallet.paysdk.banksign.a

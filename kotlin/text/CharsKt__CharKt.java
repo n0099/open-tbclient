@@ -15,8 +15,8 @@ public class CharsKt__CharKt extends CharsKt__CharJVMKt {
         return false;
     }
 
-    public static /* synthetic */ boolean equals$default(char c2, char c3, boolean z, int i, Object obj) {
-        if ((i & 2) != 0) {
+    public static /* synthetic */ boolean equals$default(char c2, char c3, boolean z, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
             z = false;
         }
         return equals(c2, c3, z);

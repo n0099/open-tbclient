@@ -127,7 +127,7 @@ public class CustomImageTransform extends Transition {
         }
 
         @Override // android.graphics.Matrix
-        public boolean setPolyToPoly(float[] fArr, int i, float[] fArr2, int i2, int i3) {
+        public boolean setPolyToPoly(float[] fArr, int i2, float[] fArr2, int i3, int i4) {
             oops();
             return false;
         }
@@ -236,11 +236,11 @@ public class CustomImageTransform extends Transition {
         public Matrix evaluate(float f2, Matrix matrix, Matrix matrix2) {
             matrix.getValues(this.mTempStartValues);
             matrix2.getValues(this.mTempEndValues);
-            for (int i = 0; i < 9; i++) {
+            for (int i2 = 0; i2 < 9; i2++) {
                 float[] fArr = this.mTempEndValues;
-                float f3 = fArr[i];
+                float f3 = fArr[i2];
                 float[] fArr2 = this.mTempStartValues;
-                fArr[i] = fArr2[i] + ((f3 - fArr2[i]) * f2);
+                fArr[i2] = fArr2[i2] + ((f3 - fArr2[i2]) * f2);
             }
             this.mTempMatrix.setValues(this.mTempEndValues);
             return this.mTempMatrix;

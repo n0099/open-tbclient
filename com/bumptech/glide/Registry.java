@@ -63,11 +63,7 @@ public class Registry {
     /* loaded from: classes5.dex */
     public static class NoModelLoaderAvailableException extends MissingComponentException {
         public NoModelLoaderAvailableException(@NonNull Object obj) {
-            super("Failed to find any ModelLoaders registered for model class: " + obj.getClass());
-        }
-
-        public <M> NoModelLoaderAvailableException(@NonNull M m, @NonNull List<ModelLoader<M, ?>> list) {
-            super("Found ModelLoaders for model class: " + list + ", but none that handle this specific model instance: " + m);
+            super("Failed to find any ModelLoaders for model: " + obj);
         }
 
         public NoModelLoaderAvailableException(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
@@ -144,12 +140,16 @@ public class Registry {
 
     @NonNull
     public <Model> List<ModelLoader<Model, ?>> getModelLoaders(@NonNull Model model) {
-        return this.modelLoaderRegistry.getModelLoaders(model);
+        List<ModelLoader<Model, ?>> modelLoaders = this.modelLoaderRegistry.getModelLoaders(model);
+        if (modelLoaders.isEmpty()) {
+            throw new NoModelLoaderAvailableException(model);
+        }
+        return modelLoaders;
     }
 
     @NonNull
     public <Model, TResource, Transcode> List<Class<?>> getRegisteredResourceClasses(@NonNull Class<Model> cls, @NonNull Class<TResource> cls2, @NonNull Class<Transcode> cls3) {
-        List<Class<?>> list = this.modelToResourceClassCache.get(cls, cls2, cls3);
+        List<Class<?>> list = this.modelToResourceClassCache.get(cls, cls2);
         if (list == null) {
             list = new ArrayList<>();
             for (Class<?> cls4 : this.modelLoaderRegistry.getDataClasses(cls)) {
@@ -159,7 +159,7 @@ public class Registry {
                     }
                 }
             }
-            this.modelToResourceClassCache.put(cls, cls2, cls3, Collections.unmodifiableList(list));
+            this.modelToResourceClassCache.put(cls, cls2, Collections.unmodifiableList(list));
         }
         return list;
     }
@@ -211,8 +211,7 @@ public class Registry {
 
     @NonNull
     public final Registry setResourceDecoderBucketPriorityList(@NonNull List<String> list) {
-        ArrayList arrayList = new ArrayList(list.size());
-        arrayList.addAll(list);
+        ArrayList arrayList = new ArrayList(list);
         arrayList.add(0, BUCKET_PREPEND_ALL);
         arrayList.add(BUCKET_APPEND_ALL);
         this.decoderRegistry.setBucketPriorityList(arrayList);

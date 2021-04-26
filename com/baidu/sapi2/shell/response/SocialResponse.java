@@ -41,12 +41,12 @@ public class SocialResponse extends SapiAccountResponse {
         socialResponse.isBinded = jSONObject.optBoolean("is_binded");
         socialResponse.displayname = jSONObject.optString("display_name");
         socialResponse.username = jSONObject.optString("passport_uname");
-        socialResponse.ptoken = jSONObject.optString(SapiAccount.f10190h);
+        socialResponse.ptoken = jSONObject.optString(SapiAccount.SAPI_ACCOUNT_PTOKEN);
         socialResponse.stoken = jSONObject.optString("stoken");
         JSONObject optJSONObject = jSONObject.optJSONObject("stoken_list");
         if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("stoken")) != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                String[] split = optJSONArray.optString(i).split("#");
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                String[] split = optJSONArray.optString(i2).split("#");
                 if (split != null && split.length > 1) {
                     socialResponse.tplStokenMap.put(split[0], split[1]);
                 }
@@ -56,5 +56,10 @@ public class SocialResponse extends SapiAccountResponse {
         socialResponse.nextUrl = jSONObject.optString("next_url");
         socialResponse.userInfoXmlContent = jSONObject.optString("userInfoXmlContent");
         return socialResponse;
+    }
+
+    @Override // com.baidu.sapi2.shell.response.SapiAccountResponse
+    public String toString() {
+        return "SocialResponse{isBinded=" + this.isBinded + ", baiduUname='" + this.baiduUname + "', socialUname='" + this.socialUname + "', bindGuide=" + this.bindGuide + ", offlineNotice=" + this.offlineNotice + ", bindConflict=" + this.bindConflict + ", accountCenterFlag=" + this.accountCenterFlag + ", nextUrl='" + this.nextUrl + "', userInfoXmlContent='" + this.userInfoXmlContent + "', bduss='" + this.bduss + "', ptoken='" + this.ptoken + "', stoken='" + this.stoken + "', displayname='" + this.displayname + "', username='" + this.username + "', email='" + this.email + "', uid='" + this.uid + "', portraitSign='" + this.portraitSign + "', newReg=" + this.newReg + ", authSid='" + this.authSid + "', socialPortraitUrl='" + this.socialPortraitUrl + "', socialType=" + this.socialType + ", actionType='" + this.actionType + "', isGuestAccount='" + this.isGuestAccount + "', livingUname='" + this.livingUname + "', app='" + this.app + "', extra='" + this.extra + "', accountType=" + this.accountType + ", fromType=" + this.fromType + ", tplStokenMap=" + this.tplStokenMap + ", errorCode=" + this.errorCode + ", errorMsg='" + this.errorMsg + "'}";
     }
 }

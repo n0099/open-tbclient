@@ -16,29 +16,31 @@ import org.json.JSONObject;
 public class aw {
 
     /* renamed from: b  reason: collision with root package name */
-    public static aw f8588b = new aw();
+    public static aw f8894b = new aw();
 
     /* renamed from: a  reason: collision with root package name */
-    public a f8589a;
+    public a f8895a;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f8591d;
+    public Handler f8897d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f8592e;
+    public volatile int f8898e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f8593f;
+    public int f8899f;
 
     /* renamed from: c  reason: collision with root package name */
-    public HandlerThread f8590c = new HandlerThread("fullTraceHandleThread");
+    public HandlerThread f8896c = new HandlerThread("fullTraceHandleThread");
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f8594g = new JSONObject();
+    public JSONObject f8900g = new JSONObject();
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONArray f8595h = new JSONArray();
-    public JSONArray i = new JSONArray();
+    public JSONArray f8901h = new JSONArray();
+
+    /* renamed from: i  reason: collision with root package name */
+    public JSONArray f8902i = new JSONArray();
     public JSONArray j = new JSONArray();
     public JSONArray k = new JSONArray();
 
@@ -48,25 +50,25 @@ public class aw {
     }
 
     public aw() {
-        this.f8590c.start();
-        this.f8590c.setPriority(10);
-        this.f8591d = new Handler(this.f8590c.getLooper());
+        this.f8896c.start();
+        this.f8896c.setPriority(10);
+        this.f8897d = new Handler(this.f8896c.getLooper());
     }
 
     private void b(JSONObject jSONObject) {
     }
 
     private void d(Context context) {
-        this.i = b(this.i, BDStatCore.instance().getPageSessionHead());
+        this.f8902i = b(this.f8902i, BDStatCore.instance().getPageSessionHead());
         b(context, false);
         b();
     }
 
     public void c(Context context, boolean z) {
-        this.f8594g = new JSONObject();
+        this.f8900g = new JSONObject();
         b(context);
-        this.i = new JSONArray();
-        this.f8595h = new JSONArray();
+        this.f8902i = new JSONArray();
+        this.f8901h = new JSONArray();
         this.j = new JSONArray();
         this.k = new JSONArray();
         if (!z) {
@@ -82,23 +84,23 @@ public class aw {
             b();
         }
         try {
-            b(context, this.f8594g);
+            b(context, this.f8900g);
         } catch (Exception unused) {
         }
-        if (this.f8595h.length() == 0 && this.i.length() == 0 && this.j.length() == 0 && this.k.length() == 0) {
+        if (this.f8901h.length() == 0 && this.f8902i.length() == 0 && this.j.length() == 0 && this.k.length() == 0) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(Config.HEADER_PART, this.f8594g);
+            jSONObject.put(Config.HEADER_PART, this.f8900g);
         } catch (Exception unused2) {
         }
         try {
-            jSONObject.put(Config.PRINCIPAL_PART, this.i);
+            jSONObject.put(Config.PRINCIPAL_PART, this.f8902i);
         } catch (Exception unused3) {
         }
         try {
-            jSONObject.put("ev", this.f8595h);
+            jSONObject.put("ev", this.f8901h);
         } catch (Exception unused4) {
         }
         try {
@@ -110,15 +112,15 @@ public class aw {
         } catch (Exception unused6) {
         }
         try {
-            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f8586b));
+            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f8892b));
         } catch (Exception unused7) {
         }
         try {
-            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f8585a));
+            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f8891a));
         } catch (Exception unused8) {
         }
         try {
-            jSONObject.put("sd", au.a().a(au.a.f8587c));
+            jSONObject.put("sd", au.a().a(au.a.f8893c));
         } catch (Exception unused9) {
         }
         c(context, jSONObject);
@@ -144,15 +146,15 @@ public class aw {
         if (a(context, jSONObject2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8592e + "; addedSize:" + jSONObject2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8898e + "; addedSize:" + jSONObject2.length());
             }
             d(context);
         }
-        a(this.i, jSONObject);
+        a(this.f8902i, jSONObject);
     }
 
     public static aw a() {
-        return f8588b;
+        return f8894b;
     }
 
     public void a(Context context) {
@@ -205,14 +207,14 @@ public class aw {
     public void c(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(Config.HEADER_PART, new JSONObject(this.f8594g.toString()));
-            jSONObject.put(Config.PRINCIPAL_PART, new JSONArray(this.i.toString()));
-            jSONObject.put("ev", new JSONArray(this.f8595h.toString()));
+            jSONObject.put(Config.HEADER_PART, new JSONObject(this.f8900g.toString()));
+            jSONObject.put(Config.PRINCIPAL_PART, new JSONArray(this.f8902i.toString()));
+            jSONObject.put("ev", new JSONArray(this.f8901h.toString()));
             jSONObject.put(Config.FEED_LIST_PART, new JSONArray(this.j.toString()));
             jSONObject.put("sv", new JSONArray(this.k.toString()));
-            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f8586b));
-            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f8585a));
-            jSONObject.put("sd", au.a().a(au.a.f8587c));
+            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f8892b));
+            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f8891a));
+            jSONObject.put("sd", au.a().a(au.a.f8893c));
         } catch (Exception unused) {
         }
         String jSONObject2 = jSONObject.toString();
@@ -220,7 +222,7 @@ public class aw {
         if (length >= 184320) {
             return;
         }
-        this.f8592e = length;
+        this.f8898e = length;
         String u = bw.u(context);
         bo.a(context, u + Config.STAT_FULL_CACHE_FILE_NAME, jSONObject2, false);
     }
@@ -234,7 +236,7 @@ public class aw {
         Iterator<aq> it = arrayList.iterator();
         while (it.hasNext()) {
             aq next = it.next();
-            JSONObject a2 = next.a(au.a().a(next.b(), au.a.f8586b), au.a().a(next.f(), au.a.f8587c), bj.c(next.c()));
+            JSONObject a2 = next.a(au.a().a(next.b(), au.a.f8892b), au.a().a(next.f(), au.a.f8893c), bj.c(next.c()));
             if (a2 != null) {
                 jSONArray.put(a2);
             }
@@ -244,14 +246,14 @@ public class aw {
     }
 
     public void b(Context context) {
-        CooperService.instance().getHeadObject().installHeader(context, this.f8594g);
+        CooperService.instance().getHeadObject().installHeader(context, this.f8900g);
     }
 
     private void b(Context context, JSONObject jSONObject) {
         CooperService.instance().getHeadObject().installHeader(context, jSONObject);
         try {
             jSONObject.put("t", System.currentTimeMillis());
-            jSONObject.put(Config.SEQUENCE_INDEX, this.f8593f);
+            jSONObject.put(Config.SEQUENCE_INDEX, this.f8899f);
             jSONObject.put("ss", BDStatCore.instance().getSessionStartTime());
             jSONObject.put("at", "1");
             jSONObject.put("sign", CooperService.instance().getUUID());
@@ -260,7 +262,7 @@ public class aw {
     }
 
     private void c() {
-        this.f8593f = 0;
+        this.f8899f = 0;
     }
 
     private void c(Context context, JSONObject jSONObject) {
@@ -279,14 +281,14 @@ public class aw {
     }
 
     private void b() {
-        this.f8593f++;
+        this.f8899f++;
     }
 
     private void b(Context context, String str) {
         LogSender.instance().saveLogData(context, str, true);
-        if (this.f8589a != null) {
+        if (this.f8895a != null) {
             try {
-                this.f8589a.a(new JSONObject(str));
+                this.f8895a.a(new JSONObject(str));
             } catch (Exception unused) {
             }
         }
@@ -301,7 +303,7 @@ public class aw {
         Iterator<ap> it = arrayList.iterator();
         while (it.hasNext()) {
             ap next = it.next();
-            JSONObject a2 = next.a(au.a().a(next.a(), au.a.f8587c));
+            JSONObject a2 = next.a(au.a().a(next.a(), au.a.f8893c));
             if (a2 != null) {
                 jSONArray.put(a2);
             }
@@ -310,31 +312,31 @@ public class aw {
         c(context);
     }
 
-    public void a(Context context, String str, String str2, int i, long j, String str3, JSONArray jSONArray, String str4, JSONArray jSONArray2, String str5, Map<String, String> map, JSONObject jSONObject, String str6) {
-        a(context, str, str2, i, j, str3, jSONArray, str4, jSONArray2, str5, map, false, jSONObject, str6);
+    public void a(Context context, String str, String str2, int i2, long j, String str3, JSONArray jSONArray, String str4, JSONArray jSONArray2, String str5, Map<String, String> map, JSONObject jSONObject, String str6) {
+        a(context, str, str2, i2, j, str3, jSONArray, str4, jSONArray2, str5, map, false, jSONObject, str6);
     }
 
-    public void a(final Context context, final String str, final String str2, final int i, final long j, final String str3, final JSONArray jSONArray, final String str4, final JSONArray jSONArray2, final String str5, final Map<String, String> map, final boolean z, final JSONObject jSONObject, final String str6) {
-        this.f8591d.post(new Runnable() { // from class: com.baidu.mobstat.aw.1
+    public void a(final Context context, final String str, final String str2, final int i2, final long j, final String str3, final JSONArray jSONArray, final String str4, final JSONArray jSONArray2, final String str5, final Map<String, String> map, final boolean z, final JSONObject jSONObject, final String str6) {
+        this.f8897d.post(new Runnable() { // from class: com.baidu.mobstat.aw.1
             @Override // java.lang.Runnable
             public void run() {
                 long sessionStartTime = BDStatCore.instance().getSessionStartTime();
                 if (sessionStartTime <= 0) {
                     return;
                 }
-                aw.this.a(context, sessionStartTime, str, str2, i, j, str3, jSONArray, str4, jSONArray2, str5, map, z, jSONObject, str6);
+                aw.this.a(context, sessionStartTime, str, str2, i2, j, str3, jSONArray, str4, jSONArray2, str5, map, z, jSONObject, str6);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(Context context, long j, String str, String str2, int i, long j2, String str3, JSONArray jSONArray, String str4, JSONArray jSONArray2, String str5, Map<String, String> map, boolean z, JSONObject jSONObject, String str6) {
-        a(context, EventAnalysis.getEvent(context, j, str, str2, i, j2, 0L, "", null, null, bj.a(str3), bj.a(str4), str5, Config.EventViewType.EDIT.getValue(), 3, null, map, bj.c(jSONArray), bj.d(jSONArray2), z, jSONObject, str6));
+    public void a(Context context, long j, String str, String str2, int i2, long j2, String str3, JSONArray jSONArray, String str4, JSONArray jSONArray2, String str5, Map<String, String> map, boolean z, JSONObject jSONObject, String str6) {
+        a(context, EventAnalysis.getEvent(context, j, str, str2, i2, j2, 0L, "", null, null, bj.a(str3), bj.a(str4), str5, Config.EventViewType.EDIT.getValue(), 3, null, map, bj.c(jSONArray), bj.d(jSONArray2), z, jSONObject, str6));
         c(context);
     }
 
     public void b(final Context context, final ArrayList<aq> arrayList) {
-        this.f8591d.post(new Runnable() { // from class: com.baidu.mobstat.aw.6
+        this.f8897d.post(new Runnable() { // from class: com.baidu.mobstat.aw.6
             @Override // java.lang.Runnable
             public void run() {
                 aw.this.d(context, arrayList);
@@ -347,16 +349,16 @@ public class aw {
         if (context == null || aoVar == null) {
             return;
         }
-        JSONArray b2 = b(this.i, BDStatCore.instance().getPageSessionHead());
-        this.i = b2;
+        JSONArray b2 = b(this.f8902i, BDStatCore.instance().getPageSessionHead());
+        this.f8902i = b2;
         if (b2.length() == 0) {
             return;
         }
-        long a2 = a(this.i);
+        long a2 = a(this.f8902i);
         if (a2 <= 0) {
             return;
         }
-        d(context, aoVar.a(a2, au.a().a(aoVar.a(), au.a.f8586b), au.a().a(aoVar.b(), au.a.f8587c)));
+        d(context, aoVar.a(a2, au.a().a(aoVar.a(), au.a.f8892b), au.a().a(aoVar.b(), au.a.f8893c)));
         c(context);
     }
 
@@ -372,11 +374,11 @@ public class aw {
         if (a(context, jSONObject2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8592e + "; addedSize:" + jSONObject2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8898e + "; addedSize:" + jSONObject2.length());
             }
             d(context);
         }
-        EventAnalysis.doEventMerge(this.f8595h, jSONObject);
+        EventAnalysis.doEventMerge(this.f8901h, jSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -452,11 +454,11 @@ public class aw {
     }
 
     private boolean a(Context context, String str) {
-        return (str != null ? str.getBytes().length : 0) + this.f8592e > 184320;
+        return (str != null ? str.getBytes().length : 0) + this.f8898e > 184320;
     }
 
     public void a(final Context context, final boolean z) {
-        this.f8591d.post(new Runnable() { // from class: com.baidu.mobstat.aw.2
+        this.f8897d.post(new Runnable() { // from class: com.baidu.mobstat.aw.2
             @Override // java.lang.Runnable
             public void run() {
                 aw.this.b(context, z);
@@ -465,7 +467,7 @@ public class aw {
     }
 
     public void a(final JSONObject jSONObject) {
-        this.f8591d.post(new Runnable() { // from class: com.baidu.mobstat.aw.3
+        this.f8897d.post(new Runnable() { // from class: com.baidu.mobstat.aw.3
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject jSONObject2 = jSONObject;
@@ -473,13 +475,13 @@ public class aw {
                     return;
                 }
                 aw awVar = aw.this;
-                awVar.i = awVar.b(awVar.i, jSONObject);
+                awVar.f8902i = awVar.b(awVar.f8902i, jSONObject);
             }
         });
     }
 
     public void a(final Context context, final ao aoVar) {
-        this.f8591d.post(new Runnable() { // from class: com.baidu.mobstat.aw.4
+        this.f8897d.post(new Runnable() { // from class: com.baidu.mobstat.aw.4
             @Override // java.lang.Runnable
             public void run() {
                 if (BDStatCore.instance().getSessionStartTime() <= 0) {
@@ -491,7 +493,7 @@ public class aw {
     }
 
     public void a(final Context context, final ArrayList<ap> arrayList) {
-        this.f8591d.post(new Runnable() { // from class: com.baidu.mobstat.aw.5
+        this.f8897d.post(new Runnable() { // from class: com.baidu.mobstat.aw.5
             @Override // java.lang.Runnable
             public void run() {
                 aw.this.c(context, arrayList);
@@ -541,7 +543,7 @@ public class aw {
         if (a(context, jSONArray2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8592e + "; addedSize:" + jSONArray2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8898e + "; addedSize:" + jSONArray2.length());
             }
             d(context);
         }
@@ -571,7 +573,7 @@ public class aw {
         if (a(context, jSONArray2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8592e + "; addedSize:" + jSONArray2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8898e + "; addedSize:" + jSONArray2.length());
             }
             d(context);
         }
@@ -582,22 +584,22 @@ public class aw {
         if (jSONArray == null || jSONArray2 == null) {
             return;
         }
-        for (int i = 0; i < jSONArray2.length(); i++) {
+        for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
             try {
-                JSONObject jSONObject = jSONArray2.getJSONObject(i);
+                JSONObject jSONObject = jSONArray2.getJSONObject(i2);
                 if (jSONObject != null && jSONObject.length() != 0) {
                     JSONObject jSONObject2 = null;
-                    int i2 = 0;
+                    int i3 = 0;
                     while (true) {
-                        if (i2 >= jSONArray.length()) {
+                        if (i3 >= jSONArray.length()) {
                             break;
                         }
-                        JSONObject jSONObject3 = jSONArray.getJSONObject(i2);
+                        JSONObject jSONObject3 = jSONArray.getJSONObject(i3);
                         if (jSONObject3 != null && jSONObject3.length() != 0 && a(jSONObject3, jSONObject)) {
                             jSONObject2 = jSONObject3;
                             break;
                         }
-                        i2++;
+                        i3++;
                     }
                     if (jSONObject2 == null) {
                         jSONArray.put(jSONObject);
@@ -615,9 +617,9 @@ public class aw {
         if (jSONArray == null || jSONArray2 == null) {
             return;
         }
-        for (int i = 0; i < jSONArray2.length(); i++) {
+        for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
             try {
-                jSONArray.put(jSONArray2.getJSONObject(i));
+                jSONArray.put(jSONArray2.getJSONObject(i2));
             } catch (Exception unused) {
                 return;
             }
@@ -667,26 +669,26 @@ public class aw {
         int optInt2 = jSONObject2.optInt("c");
         long optLong2 = jSONObject2.optLong("t");
         String optString4 = jSONObject2.optString("ps");
-        int i = optInt + optInt2;
-        int i2 = (optLong > optLong2 ? 1 : (optLong == optLong2 ? 0 : -1));
-        long j3 = i2 <= 0 ? optLong : optLong2;
-        if (i2 <= 0) {
+        int i2 = optInt + optInt2;
+        int i3 = (optLong > optLong2 ? 1 : (optLong == optLong2 ? 0 : -1));
+        long j3 = i3 <= 0 ? optLong : optLong2;
+        if (i3 <= 0) {
             str = "ps";
             str2 = optString + FieldBuilder.SE + optString3;
         } else {
             str = "ps";
             str2 = optString3 + FieldBuilder.SE + optString;
         }
-        int i3 = 0;
+        int i4 = 0;
         long j4 = 0;
-        if (i2 <= 0) {
+        if (i3 <= 0) {
             long j5 = optLong2 - optLong;
             StringBuilder sb = new StringBuilder();
             String[] split = optString4.split("\\|");
             if (split != null && split.length != 0) {
                 int length = split.length;
-                while (i3 < length) {
-                    String str4 = split[i3];
+                while (i4 < length) {
+                    String str4 = split[i4];
                     if (!TextUtils.isEmpty(sb.toString())) {
                         sb.append(FieldBuilder.SE);
                     }
@@ -696,7 +698,7 @@ public class aw {
                         j2 = 0;
                     }
                     sb.append(j2 + j5);
-                    i3++;
+                    i4++;
                 }
             } else {
                 try {
@@ -712,8 +714,8 @@ public class aw {
             String[] split2 = optString2.split("\\|");
             if (split2 != null && split2.length != 0) {
                 int length2 = split2.length;
-                while (i3 < length2) {
-                    String str5 = split2[i3];
+                while (i4 < length2) {
+                    String str5 = split2[i4];
                     if (!TextUtils.isEmpty(sb2.toString())) {
                         sb2.append(FieldBuilder.SE);
                     }
@@ -723,7 +725,7 @@ public class aw {
                         j = 0;
                     }
                     sb2.append(j + j6);
-                    i3++;
+                    i4++;
                 }
             } else {
                 try {
@@ -735,7 +737,7 @@ public class aw {
             str3 = optString4 + FieldBuilder.SE + sb2.toString();
         }
         try {
-            jSONObject.put("c", i);
+            jSONObject.put("c", i2);
             jSONObject.put("t", j3);
             jSONObject.put("d", str2);
             jSONObject.put(str, str3);

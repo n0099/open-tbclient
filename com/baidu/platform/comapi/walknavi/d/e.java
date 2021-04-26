@@ -9,22 +9,22 @@ import java.io.File;
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f9574b = new Handler();
+    public static Handler f9931b = new Handler();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f9575c = e.class.getSimpleName();
+    public static final String f9932c = e.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    public final Runnable f9576a;
+    public final Runnable f9933a;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f9577d;
+    public g f9934d;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f9578a = new e(null);
+        public static final e f9935a = new e(null);
     }
 
     public /* synthetic */ e(f fVar) {
@@ -32,88 +32,88 @@ public class e {
     }
 
     public static e c() {
-        return a.f9578a;
+        return a.f9935a;
     }
 
     public void b() {
-        this.f9577d.d();
+        this.f9934d.d();
     }
 
     public boolean d() {
-        return this.f9577d.e();
+        return this.f9934d.e();
     }
 
     public void e() {
-        if (this.f9577d.e()) {
-            this.f9577d.f();
+        if (this.f9934d.e()) {
+            this.f9934d.f();
         }
     }
 
     public void f() {
-        if (this.f9577d.e()) {
-            this.f9577d.i();
+        if (this.f9934d.e()) {
+            this.f9934d.i();
         }
     }
 
     public void g() {
-        if (this.f9577d.e()) {
-            this.f9577d.g();
+        if (this.f9934d.e()) {
+            this.f9934d.g();
         }
     }
 
     public void h() {
-        if (this.f9577d.e()) {
-            this.f9577d.h();
+        if (this.f9934d.e()) {
+            this.f9934d.h();
         }
     }
 
     public void i() {
-        if (this.f9577d.e()) {
-            this.f9577d.j();
+        if (this.f9934d.e()) {
+            this.f9934d.j();
         }
     }
 
     public boolean j() {
-        return this.f9577d.l();
+        return this.f9934d.l();
     }
 
     public void k() {
-        this.f9577d.c(true);
-        this.f9577d.a(l.a(-90.0d), 0.0d, 0.0d, "mapNPC");
-        this.f9577d.c(false);
+        this.f9934d.c(true);
+        this.f9934d.a(l.a(-90.0d), 0.0d, 0.0d, "mapNPC");
+        this.f9934d.c(false);
     }
 
     public boolean l() {
-        return this.f9577d.c();
+        return this.f9934d.c();
     }
 
     public BaiduArView m() {
-        return this.f9577d.k();
+        return this.f9934d.k();
     }
 
     public void n() {
-        this.f9577d.m();
+        this.f9934d.m();
     }
 
     public boolean o() {
-        return this.f9577d.n();
+        return this.f9934d.n();
     }
 
     public boolean p() {
-        return this.f9577d.b();
+        return this.f9934d.b();
     }
 
     public e() {
-        this.f9576a = new f(this);
-        this.f9577d = new g();
+        this.f9933a = new f(this);
+        this.f9934d = new g();
     }
 
     public String a() {
-        return this.f9577d.a();
+        return this.f9934d.a();
     }
 
-    public void b(String str, int i, int i2) {
-        this.f9577d.b(str, i, i2);
+    public void b(String str, int i2, int i3) {
+        this.f9934d.b(str, i2, i3);
     }
 
     public boolean c(String str) {
@@ -121,21 +121,21 @@ public class e {
     }
 
     public String d(String str) {
-        return this.f9577d.c(str);
+        return this.f9934d.c(str);
     }
 
     public void a(String str) {
-        this.f9577d.a(str);
+        this.f9934d.a(str);
     }
 
     public void b(String str, String str2) {
         Runnable runnable;
-        Handler handler = f9574b;
-        if (handler != null && (runnable = this.f9576a) != null) {
+        Handler handler = f9931b;
+        if (handler != null && (runnable = this.f9933a) != null) {
             handler.removeCallbacks(runnable);
         }
-        this.f9577d.a(str, str2);
-        f9574b.postDelayed(this.f9576a, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+        this.f9934d.a(str, str2);
+        f9931b.postDelayed(this.f9933a, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
     }
 
     public boolean e(String str) {
@@ -147,57 +147,57 @@ public class e {
     }
 
     public void a(b bVar) {
-        this.f9577d.a(bVar);
+        this.f9934d.a(bVar);
     }
 
     public void c(boolean z) {
-        this.f9577d.a(z);
+        this.f9934d.a(z);
     }
 
-    public void a(String str, int i, int i2) {
-        this.f9577d.a(str, i, i2);
+    public void a(String str, int i2, int i3) {
+        this.f9934d.a(str, i2, i3);
     }
 
     public void a(String str, c cVar) {
-        this.f9577d.a(str, cVar);
+        this.f9934d.a(str, cVar);
     }
 
     public void a(String str, String str2) {
         Runnable runnable;
-        Handler handler = f9574b;
-        if (handler != null && (runnable = this.f9576a) != null) {
+        Handler handler = f9931b;
+        if (handler != null && (runnable = this.f9933a) != null) {
             handler.removeCallbacks(runnable);
         }
-        this.f9577d.a(str, str2);
+        this.f9934d.a(str, str2);
     }
 
     public boolean b(String str) {
-        return this.f9577d.b(str);
+        return this.f9934d.b(str);
     }
 
     public void b(boolean z) {
-        this.f9577d.b(z);
+        this.f9934d.b(z);
     }
 
     public void b(String str, c cVar) {
-        this.f9577d.b(str, cVar);
+        this.f9934d.b(str, cVar);
     }
 
     public void a(boolean z) {
-        this.f9577d.c(z);
+        this.f9934d.c(z);
     }
 
     public void a(double d2, double d3, double d4) {
-        this.f9577d.a(d2, d3, d4, "mapNPC");
+        this.f9934d.a(d2, d3, d4, "mapNPC");
     }
 
     public boolean a(String str, boolean z) {
-        return this.f9577d.a(str, z);
+        return this.f9934d.a(str, z);
     }
 
     public void a(g.a aVar) {
-        String str = f9575c;
+        String str = f9932c;
         com.baidu.platform.comapi.wnplatform.d.a.a(str, "setNpcManagerStatusListener:" + aVar);
-        this.f9577d.a(aVar);
+        this.f9934d.a(aVar);
     }
 }

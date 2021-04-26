@@ -3,10 +3,10 @@ package com.baidu.platform.comapi.walknavi;
 public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ h f9710a;
+    public final /* synthetic */ h f10070a;
 
     public i(h hVar) {
-        this.f9710a = hVar;
+        this.f10070a = hVar;
     }
 
     @Override // java.lang.Runnable

@@ -73,9 +73,9 @@ public class LivenessBaseActivity extends BaseActivity {
         bundle.putSerializable("PassFaceRecogDTO", this.mPassFaceRecogDTO);
     }
 
-    public void setActivityResult(int i) {
+    public void setActivityResult(int i2) {
         Intent intent = new Intent();
         intent.putExtras(new Bundle());
-        setResult(i, intent);
+        setResult(i2, intent);
     }
 }

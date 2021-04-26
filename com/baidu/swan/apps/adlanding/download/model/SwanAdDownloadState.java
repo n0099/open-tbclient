@@ -13,15 +13,15 @@ public enum SwanAdDownloadState {
     
     public int state;
 
-    SwanAdDownloadState(int i) {
-        this.state = i;
+    SwanAdDownloadState(int i2) {
+        this.state = i2;
     }
 
-    public static SwanAdDownloadState convert(int i) {
+    public static SwanAdDownloadState convert(int i2) {
         SwanAdDownloadState[] values;
         SwanAdDownloadState swanAdDownloadState = NOT_START;
         for (SwanAdDownloadState swanAdDownloadState2 : values()) {
-            if (swanAdDownloadState2.state == i) {
+            if (swanAdDownloadState2.state == i2) {
                 swanAdDownloadState = swanAdDownloadState2;
             }
         }

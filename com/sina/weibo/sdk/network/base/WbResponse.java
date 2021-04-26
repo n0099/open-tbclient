@@ -17,9 +17,9 @@ public class WbResponse {
         return this.resultCode == 200;
     }
 
-    public WbResponse(WbResponseBody wbResponseBody, int i) {
+    public WbResponse(WbResponseBody wbResponseBody, int i2) {
         this.resultCode = 200;
         this.responseBody = wbResponseBody;
-        this.resultCode = i;
+        this.resultCode = i2;
     }
 }

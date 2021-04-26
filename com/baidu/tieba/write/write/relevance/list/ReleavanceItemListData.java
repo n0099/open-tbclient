@@ -107,8 +107,8 @@ public class ReleavanceItemListData implements Serializable {
         return this.time;
     }
 
-    public void setCtime(int i) {
-        this.ctime = i;
+    public void setCtime(int i2) {
+        this.ctime = i2;
     }
 
     public void setError_code(String str) {
@@ -131,7 +131,7 @@ public class ReleavanceItemListData implements Serializable {
         this.tab_option = list;
     }
 
-    public void setTime(int i) {
-        this.time = i;
+    public void setTime(int i2) {
+        this.time = i2;
     }
 }

@@ -178,16 +178,16 @@ public class AccountData implements Serializable {
         this.mDisplayName = str;
     }
 
-    public void setGodType(int i) {
-        this.mGodType = i;
+    public void setGodType(int i2) {
+        this.mGodType = i2;
     }
 
     public void setID(String str) {
         this.mID = str;
     }
 
-    public void setIsActive(int i) {
-        this.mIsActive = i;
+    public void setIsActive(int i2) {
+        this.mIsActive = i2;
     }
 
     public void setIsBigV(boolean z) {
@@ -198,32 +198,32 @@ public class AccountData implements Serializable {
         this.mIsSelectTail = z;
     }
 
-    public void setLiveLevel(int i) {
-        this.liveLevel = i;
+    public void setLiveLevel(int i2) {
+        this.liveLevel = i2;
     }
 
-    public void setMemberCloseAdIsOpen(int i) {
-        this.mMemberCloseAdIsOpen = i;
+    public void setMemberCloseAdIsOpen(int i2) {
+        this.mMemberCloseAdIsOpen = i2;
     }
 
-    public void setMemberCloseAdVipClose(int i) {
-        this.mMemberCloseAdVipClose = i;
+    public void setMemberCloseAdVipClose(int i2) {
+        this.mMemberCloseAdVipClose = i2;
     }
 
     public void setMemberIconUrl(String str) {
         this.mMemberIconUrl = str;
     }
 
-    public void setMemberType(int i) {
-        this.mMemberType = i;
+    public void setMemberType(int i2) {
+        this.mMemberType = i2;
     }
 
     public void setNameShow(String str) {
         this.nameShow = str;
     }
 
-    public void setNewGodStatus(int i) {
-        this.mNewGodStatus = i;
+    public void setNewGodStatus(int i2) {
+        this.mNewGodStatus = i2;
     }
 
     public void setPassword(String str) {
@@ -242,8 +242,8 @@ public class AccountData implements Serializable {
         this.portrait = str;
     }
 
-    public void setSex(int i) {
-        this.mSex = i;
+    public void setSex(int i2) {
+        this.mSex = i2;
     }
 
     public void setStoken(String str) {

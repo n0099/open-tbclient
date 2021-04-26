@@ -53,8 +53,8 @@ public class IMPaUnsubscribeMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        if (i == 0) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+        if (i2 == 0) {
             try {
                 PaInfoDBManager.getInstance(context).unSubscribePa(this.mPaId);
             } catch (Exception e2) {
@@ -62,7 +62,7 @@ public class IMPaUnsubscribeMsg extends Message {
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             }
         }
-        super.handleMessageResult(context, jSONObject, i, str);
-        PaManagerImpl.getInstance(context).onUnsubscribePaResult(getListenerKey(), i, str, this.mPaId);
+        super.handleMessageResult(context, jSONObject, i2, str);
+        PaManagerImpl.getInstance(context).onUnsubscribePaResult(getListenerKey(), i2, str, this.mPaId);
     }
 }

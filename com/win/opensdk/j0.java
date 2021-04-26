@@ -1,41 +1,36 @@
 package com.win.opensdk;
 
-import com.win.opensdk.core.Info;
-/* loaded from: classes7.dex */
-public class j0 implements o1 {
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+/* loaded from: classes6.dex */
+public class j0 extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p0 f40341a;
+    public final /* synthetic */ m0 f37900a;
 
-    public j0(p0 p0Var) {
-        this.f40341a = p0Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j0(m0 m0Var, Looper looper) {
+        super(looper);
+        this.f37900a = m0Var;
     }
 
-    @Override // com.win.opensdk.o1
-    public void a() {
-    }
-
-    @Override // com.win.opensdk.o1
-    public void a(Object obj) {
-        Info info = (Info) obj;
-        try {
-            this.f40341a.f40391c = info;
-            if (this.f40341a.f40394f != null) {
-                if (info == null || info.getType() != 11) {
-                    this.f40341a.f40394f.onFail(PBError.PID_TYPE_ERROR);
-                } else if (this.f40341a.b()) {
-                    this.f40341a.f40394f.onLoaded();
-                }
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
+        if (message.what != 1101) {
+            return;
+        }
+        this.f37900a.f37910e.removeMessages(1101);
+        m0 m0Var = this.f37900a;
+        if (!m0Var.f37907b && m0Var.a(m0Var.f37906a)) {
+            l0 l0Var = this.f37900a.f37908c;
+            if (l0Var != null) {
+                l0Var.a();
             }
-        } catch (Exception unused) {
+            this.f37900a.f37907b = true;
+            return;
         }
-    }
-
-    @Override // com.win.opensdk.o1
-    public void onFail(PBError pBError) {
-        PBNativeListener pBNativeListener = this.f40341a.f40394f;
-        if (pBNativeListener != null) {
-            pBNativeListener.onFail(pBError);
-        }
+        this.f37900a.f37910e.sendEmptyMessageDelayed(1101, 300L);
     }
 }

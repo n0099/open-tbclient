@@ -122,7 +122,7 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         return this.mPaint;
     }
 
-    public void gravityCompatApply(int i, int i2, int i3, Rect rect, Rect rect2) {
+    public void gravityCompatApply(int i2, int i3, int i4, Rect rect, Rect rect2) {
         throw new UnsupportedOperationException();
     }
 
@@ -148,9 +148,9 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        if (i != this.mPaint.getAlpha()) {
-            this.mPaint.setAlpha(i);
+    public void setAlpha(int i2) {
+        if (i2 != this.mPaint.getAlpha()) {
+            this.mPaint.setAlpha(i2);
             invalidateSelf();
         }
     }
@@ -204,9 +204,9 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         invalidateSelf();
     }
 
-    public void setGravity(int i) {
-        if (this.mGravity != i) {
-            this.mGravity = i;
+    public void setGravity(int i2) {
+        if (this.mGravity != i2) {
+            this.mGravity = i2;
             this.mApplyGravity = true;
             invalidateSelf();
         }
@@ -248,12 +248,12 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         setTargetDensity(displayMetrics.densityDpi);
     }
 
-    public void setTargetDensity(int i) {
-        if (this.mTargetDensity != i) {
-            if (i == 0) {
-                i = 160;
+    public void setTargetDensity(int i2) {
+        if (this.mTargetDensity != i2) {
+            if (i2 == 0) {
+                i2 = 160;
             }
-            this.mTargetDensity = i;
+            this.mTargetDensity = i2;
             if (this.mBitmap != null) {
                 computeBitmapSize();
             }

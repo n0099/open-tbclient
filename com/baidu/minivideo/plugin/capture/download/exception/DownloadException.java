@@ -15,8 +15,8 @@ public class DownloadException extends Exception {
         return this.errorMessage;
     }
 
-    public void setErrorCode(int i) {
-        this.errorCode = i;
+    public void setErrorCode(int i2) {
+        this.errorCode = i2;
     }
 
     public void setErrorMessage(String str) {
@@ -33,15 +33,15 @@ public class DownloadException extends Exception {
         this.errorMessage = str;
     }
 
-    public DownloadException(int i, String str) {
+    public DownloadException(int i2, String str) {
         super(str);
-        this.errorCode = i;
+        this.errorCode = i2;
         this.errorMessage = str;
     }
 
-    public DownloadException(int i, Throwable th) {
+    public DownloadException(int i2, Throwable th) {
         super(th);
-        this.errorCode = i;
+        this.errorCode = i2;
     }
 
     public DownloadException(String str, Throwable th) {
@@ -49,9 +49,9 @@ public class DownloadException extends Exception {
         this.errorMessage = str;
     }
 
-    public DownloadException(int i, String str, Throwable th) {
+    public DownloadException(int i2, String str, Throwable th) {
         super(str, th);
-        this.errorCode = i;
+        this.errorCode = i2;
         this.errorMessage = str;
     }
 

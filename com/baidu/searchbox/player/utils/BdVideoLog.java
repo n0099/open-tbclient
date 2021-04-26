@@ -60,32 +60,32 @@ public final class BdVideoLog {
     }
 
     public static void doLog(LogLevel logLevel, String str, String str2, Throwable th) {
-        int i = AnonymousClass1.$SwitchMap$com$baidu$searchbox$player$utils$BdVideoLog$LogLevel[logLevel.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass1.$SwitchMap$com$baidu$searchbox$player$utils$BdVideoLog$LogLevel[logLevel.ordinal()];
+        if (i2 == 1) {
             if (th == null) {
                 Log.d(str, str2);
             } else {
                 Log.d(str, str2, th);
             }
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             if (th == null) {
                 Log.e(str, str2);
             } else {
                 Log.e(str, str2, th);
             }
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             if (th == null) {
                 Log.i(str, str2);
             } else {
                 Log.i(str, str2, th);
             }
-        } else if (i == 4) {
+        } else if (i2 == 4) {
             if (th == null) {
                 Log.v(str, str2);
             } else {
                 Log.v(str, str2, th);
             }
-        } else if (i != 5) {
+        } else if (i2 != 5) {
         } else {
             if (th == null) {
                 Log.w(str, str2);

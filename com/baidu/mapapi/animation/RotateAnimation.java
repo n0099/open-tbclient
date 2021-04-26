@@ -33,22 +33,22 @@ public class RotateAnimation extends Animation {
         this.bdAnimation.a(interpolator);
     }
 
-    public void setRepeatCount(int i) {
-        this.bdAnimation.b(i);
+    public void setRepeatCount(int i2) {
+        this.bdAnimation.b(i2);
     }
 
     public void setRepeatMode(Animation.RepeatMode repeatMode) {
         c cVar;
-        int i;
+        int i2;
         if (repeatMode == Animation.RepeatMode.RESTART) {
             cVar = this.bdAnimation;
-            i = 1;
+            i2 = 1;
         } else if (repeatMode != Animation.RepeatMode.REVERSE) {
             return;
         } else {
             cVar = this.bdAnimation;
-            i = 2;
+            i2 = 2;
         }
-        cVar.a(i);
+        cVar.a(i2);
     }
 }

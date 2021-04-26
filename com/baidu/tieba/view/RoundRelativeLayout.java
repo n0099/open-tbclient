@@ -7,33 +7,33 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes5.dex */
 public class RoundRelativeLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f21866e;
+    public float f22528e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f21867f;
+    public Path f22529f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f21868g;
+    public RectF f22530g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float[] f21869h;
+    public float[] f22531h;
 
     public RoundRelativeLayout(Context context) {
         super(context);
-        this.f21866e = 100.0f;
-        this.f21869h = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
+        this.f22528e = 100.0f;
+        this.f22531h = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
         a();
     }
 
     public final void a() {
         setWillNotDraw(false);
-        this.f21867f = new Path();
-        this.f21868g = new RectF();
+        this.f22529f = new Path();
+        this.f22530g = new RectF();
     }
 
     public final boolean b() {
@@ -41,7 +41,7 @@ public class RoundRelativeLayout extends RelativeLayout {
     }
 
     public final void c() {
-        this.f21867f.addRoundRect(this.f21868g, this.f21869h, Path.Direction.CW);
+        this.f22529f.addRoundRect(this.f22530g, this.f22531h, Path.Direction.CW);
     }
 
     @Override // android.view.View
@@ -49,28 +49,28 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (b()) {
             return;
         }
-        canvas.clipPath(this.f21867f);
+        canvas.clipPath(this.f22529f);
         super.draw(canvas);
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         if (b()) {
             return;
         }
-        super.onLayout(z, i, i2, i3, i4);
-        this.f21868g.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+        super.onLayout(z, i2, i3, i4, i5);
+        this.f22530g.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
         c();
     }
 
     public void setAllCornerRound(float f2) {
-        this.f21869h = new float[8];
-        int i = 0;
+        this.f22531h = new float[8];
+        int i2 = 0;
         while (true) {
-            float[] fArr = this.f21869h;
-            if (i < fArr.length) {
-                fArr[i] = f2;
-                i++;
+            float[] fArr = this.f22531h;
+            if (i2 < fArr.length) {
+                fArr[i2] = f2;
+                i2++;
             } else {
                 c();
                 invalidate();
@@ -83,9 +83,9 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (fArr == null || fArr.length <= 0) {
             return;
         }
-        this.f21869h = new float[fArr.length];
-        for (int i = 0; i < fArr.length; i++) {
-            this.f21869h[i] = fArr[i];
+        this.f22531h = new float[fArr.length];
+        for (int i2 = 0; i2 < fArr.length; i2++) {
+            this.f22531h[i2] = fArr[i2];
         }
         c();
         invalidate();
@@ -93,15 +93,15 @@ public class RoundRelativeLayout extends RelativeLayout {
 
     public RoundRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21866e = 100.0f;
-        this.f21869h = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
+        this.f22528e = 100.0f;
+        this.f22531h = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
         a();
     }
 
-    public RoundRelativeLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f21866e = 100.0f;
-        this.f21869h = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
+    public RoundRelativeLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f22528e = 100.0f;
+        this.f22531h = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
         a();
     }
 }

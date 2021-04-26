@@ -59,16 +59,16 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
             arrayList.add(cashierDataNew.getData().get("payAmount"));
         }
         if (newCashierContent != null && (cashierPay = newCashierContent.pay) != null && (cashierChannels = cashierPay.channels) != null && cashierChannels.platform != null) {
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 NewCashierContent.CashierChannel[] cashierChannelArr = newCashierContent.pay.channels.platform;
-                if (i >= cashierChannelArr.length) {
+                if (i2 >= cashierChannelArr.length) {
                     break;
-                } else if (cashierChannelArr[i].getChanelId() == 126) {
-                    arrayList.add(newCashierContent.pay.channels.platform[i].getDesc());
+                } else if (cashierChannelArr[i2].getChanelId() == 126) {
+                    arrayList.add(newCashierContent.pay.channels.platform[i2].getDesc());
                     break;
                 } else {
-                    i++;
+                    i2++;
                 }
             }
         }
@@ -80,9 +80,9 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < strArr.length; i++) {
-            if (!TextUtils.isEmpty(strArr[i])) {
-                sb.append(strArr[i]);
+        for (int i2 = 0; i2 < strArr.length; i2++) {
+            if (!TextUtils.isEmpty(strArr[i2])) {
+                sb.append(strArr[i2]);
             } else {
                 sb.append("");
             }
@@ -101,7 +101,7 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
     }
 
     @Override // com.baidu.android.lbspay.activity.LBSBaseActivity
-    public void handleFailure(int i, int i2, String str) {
+    public void handleFailure(int i2, int i3, String str) {
         String str2;
         String str3;
         String str4;
@@ -120,13 +120,13 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
             str3 = str2;
             str4 = str3;
         }
-        PayStatisticsUtil.onEventEndWithValue(StatServiceEvent.LBS_API_GET_CASHIER, i2, getGroupStr(String.valueOf(i2), str5, str4, str2, str3));
+        PayStatisticsUtil.onEventEndWithValue(StatServiceEvent.LBS_API_GET_CASHIER, i3, getGroupStr(String.valueOf(i3), str5, str4, str2, str3));
         ChannelBaiduPayForTransCashier.getInstance().payCancel(this.mAct);
         finishWithoutAnim();
     }
 
     @Override // com.baidu.android.lbspay.activity.LBSBaseActivity
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
         PayStatisticsUtil.onEventEnd(StatServiceEvent.LBS_API_GET_CASHIER, 0);
         NewCashierContent newCashierContent = obj instanceof NewCashierContent ? (NewCashierContent) obj : null;
         if (newCashierContent != null) {
@@ -150,13 +150,13 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
         finishWithoutAnim();
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         cancleNewCashierBean();
         onBackPressedWithoutAnim();
     }
 
-    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mAct = getActivity();
@@ -183,7 +183,7 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
         BeanManager.getInstance().removeAllBeans(BEAN_TAG);
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         CashierDataNew cashierDataNew = this.mCashierData;
         if (cashierDataNew != null) {

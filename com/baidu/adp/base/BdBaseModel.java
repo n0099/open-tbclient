@@ -6,9 +6,9 @@ import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import d.b.c.a.e;
-import d.b.c.a.f;
-import d.b.c.c.g.a;
+import d.a.c.a.e;
+import d.a.c.a.f;
+import d.a.c.c.g.a;
 /* loaded from: classes.dex */
 public abstract class BdBaseModel<T> extends OrmObject {
     public static final int MODE_INVALID = 0;
@@ -72,8 +72,8 @@ public abstract class BdBaseModel<T> extends OrmObject {
         MessageManager.getInstance().sendMessage(message);
     }
 
-    public void setErrorCode(int i) {
-        this.mErrorCode = i;
+    public void setErrorCode(int i2) {
+        this.mErrorCode = i2;
     }
 
     public void setErrorString(String str) {
@@ -98,12 +98,12 @@ public abstract class BdBaseModel<T> extends OrmObject {
         MessageManager.getInstance().sendMessage(netMessage);
     }
 
-    public void registerListener(int i, MessageListener<?> messageListener) {
+    public void registerListener(int i2, MessageListener<?> messageListener) {
         check();
         if (messageListener != null && messageListener.getTag() == null) {
             messageListener.setTag(this.unique_id);
         }
-        MessageManager.getInstance().registerListener(i, messageListener);
+        MessageManager.getInstance().registerListener(i2, messageListener);
     }
 
     public BdBaseModel(f<T> fVar) {
@@ -126,11 +126,11 @@ public abstract class BdBaseModel<T> extends OrmObject {
         MessageManager.getInstance().registerListener(aVar);
     }
 
-    public void registerListener(int i, a aVar) {
+    public void registerListener(int i2, a aVar) {
         check();
         if (aVar != null && aVar.getTag() == null) {
             aVar.setTag(this.unique_id);
         }
-        MessageManager.getInstance().registerListener(i, aVar);
+        MessageManager.getInstance().registerListener(i2, aVar);
     }
 }

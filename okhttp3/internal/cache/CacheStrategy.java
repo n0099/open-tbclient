@@ -42,9 +42,9 @@ public final class CacheStrategy {
                 this.receivedResponseMillis = response.receivedResponseAtMillis();
                 Headers headers = response.headers();
                 int size = headers.size();
-                for (int i = 0; i < size; i++) {
-                    String name = headers.name(i);
-                    String value = headers.value(i);
+                for (int i2 = 0; i2 < size; i2++) {
+                    String name = headers.name(i2);
+                    String value = headers.value(i2);
                     if ("Date".equalsIgnoreCase(name)) {
                         this.servedDate = HttpDate.parse(value);
                         this.servedDateString = value;
@@ -65,9 +65,9 @@ public final class CacheStrategy {
         private long cacheResponseAge() {
             Date date = this.servedDate;
             long max = date != null ? Math.max(0L, this.receivedResponseMillis - date.getTime()) : 0L;
-            int i = this.ageSeconds;
-            if (i != -1) {
-                max = Math.max(max, TimeUnit.SECONDS.toMillis(i));
+            int i2 = this.ageSeconds;
+            if (i2 != -1) {
+                max = Math.max(max, TimeUnit.SECONDS.toMillis(i2));
             }
             long j = this.receivedResponseMillis;
             return max + (j - this.sentRequestMillis) + (this.nowMillis - j);

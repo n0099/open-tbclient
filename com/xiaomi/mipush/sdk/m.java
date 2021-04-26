@@ -3,25 +3,25 @@ package com.xiaomi.mipush.sdk;
 public /* synthetic */ class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f40586a;
+    public static final /* synthetic */ int[] f38101a;
 
     static {
         int[] iArr = new int[e.values().length];
-        f40586a = iArr;
+        f38101a = iArr;
         try {
             iArr[e.ASSEMBLE_PUSH_HUAWEI.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f40586a[e.ASSEMBLE_PUSH_FCM.ordinal()] = 2;
+            f38101a[e.ASSEMBLE_PUSH_FCM.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f40586a[e.ASSEMBLE_PUSH_COS.ordinal()] = 3;
+            f38101a[e.ASSEMBLE_PUSH_COS.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f40586a[e.ASSEMBLE_PUSH_FTOS.ordinal()] = 4;
+            f38101a[e.ASSEMBLE_PUSH_FTOS.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
     }

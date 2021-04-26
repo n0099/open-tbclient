@@ -13,8 +13,8 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class FontTableBox extends AbstractBox {
     public static final String TYPE = "ftab";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
     public List<FontRecord> entries;
 
     /* loaded from: classes6.dex */
@@ -44,8 +44,8 @@ public class FontTableBox extends AbstractBox {
             return "FontRecord{fontId=" + this.fontId + ", fontname='" + this.fontname + "'}";
         }
 
-        public FontRecord(int i, String str) {
-            this.fontId = i;
+        public FontRecord(int i2, String str) {
+            this.fontId = i2;
             this.fontname = str;
         }
     }
@@ -68,7 +68,7 @@ public class FontTableBox extends AbstractBox {
     @Override // com.googlecode.mp4parser.AbstractBox
     public void _parseDetails(ByteBuffer byteBuffer) {
         int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
-        for (int i = 0; i < readUInt16; i++) {
+        for (int i2 = 0; i2 < readUInt16; i2++) {
             FontRecord fontRecord = new FontRecord();
             fontRecord.parse(byteBuffer);
             this.entries.add(fontRecord);
@@ -85,11 +85,11 @@ public class FontTableBox extends AbstractBox {
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
-        int i = 2;
+        int i2 = 2;
         for (FontRecord fontRecord : this.entries) {
-            i += fontRecord.getSize();
+            i2 += fontRecord.getSize();
         }
-        return i;
+        return i2;
     }
 
     public List<FontRecord> getEntries() {

@@ -34,8 +34,8 @@ public final class i implements Serializable {
         return this.url;
     }
 
-    public final void setId(int i) {
-        this.id = i;
+    public final void setId(int i2) {
+        this.id = i2;
     }
 
     public final void setParameters(String str) {

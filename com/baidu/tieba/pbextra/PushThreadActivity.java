@@ -38,8 +38,8 @@ public class PushThreadActivity extends BaseActivity {
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,24 +73,24 @@ public class PushThreadActivity extends BaseActivity {
         }
 
         @Override // android.widget.Adapter
-        public Object getItem(int i) {
+        public Object getItem(int i2) {
             return null;
         }
 
         @Override // android.widget.Adapter
-        public long getItemId(int i) {
+        public long getItemId(int i2) {
             return 0L;
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(int i2, View view, ViewGroup viewGroup) {
             View inflate = LayoutInflater.from(PushThreadActivity.this.getPageContext().getPageActivity()).inflate(R.layout.push_thread_item, (ViewGroup) null);
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.iv_item_icon);
             ImageView imageView = (ImageView) inflate.findViewById(R.id.iv_item_hint);
             TextView textView = (TextView) inflate.findViewById(R.id.tv_item_title);
-            PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(PushThreadActivity.this.mPushTypeDatas, i);
+            PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(PushThreadActivity.this.mPushTypeDatas, i2);
             if (pushTypeData != null) {
-                tbImageView.W(pushTypeData.getIcon(), 10, false);
+                tbImageView.V(pushTypeData.getIcon(), 10, false);
                 textView.setText(pushTypeData.getName());
                 if (pushTypeData.getType() == PushThreadActivity.this.mCurrentPushType) {
                     SkinManager.setImageResource(imageView, R.drawable.bg_choose_ok);
@@ -170,12 +170,12 @@ public class PushThreadActivity extends BaseActivity {
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView adapterView, View view, int i2, long j) {
         View childAt;
         ImageView imageView = (ImageView) view.findViewById(R.id.iv_item_hint);
         TextView textView = (TextView) view.findViewById(R.id.tv_item_title);
         this.mPushCommit.setEnabled(true);
-        PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.mPushTypeDatas, i);
+        PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.mPushTypeDatas, i2);
         if (pushTypeData != null) {
             if (this.mCurrentPushType == pushTypeData.getType()) {
                 imageView.setImageDrawable(null);

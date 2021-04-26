@@ -65,8 +65,8 @@ public class GroupActivityData implements Serializable {
         return this.gActivityTitle;
     }
 
-    public void setActivityId(int i) {
-        this.activityId = i;
+    public void setActivityId(int i2) {
+        this.activityId = i2;
     }
 
     public void setActivityPortrait(String str) {
@@ -81,8 +81,8 @@ public class GroupActivityData implements Serializable {
         this.groupName = str;
     }
 
-    public void setIsEnd(int i) {
-        this.isEnd = i;
+    public void setIsEnd(int i2) {
+        this.isEnd = i2;
     }
 
     public void setNameShow(String str) {

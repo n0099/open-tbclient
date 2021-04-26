@@ -21,5 +21,5 @@ public interface d {
 
     void k();
 
-    void setKsPlayLogParam(com.kwad.sdk.contentalliance.detail.video.c cVar);
+    void setKsPlayLogParam(com.kwad.sdk.contentalliance.detail.video.b bVar);
 }

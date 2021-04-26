@@ -25,16 +25,16 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements IPanelH
     }
 
     @Override // com.baidu.spswitch.IPanelHeightTarget
-    public void refreshHeight(int i) {
-        ViewUtil.refreshHeight(this, i);
+    public void refreshHeight(int i2) {
+        ViewUtil.refreshHeight(this, i2);
     }
 
     public SPSwitchFSPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public SPSwitchFSPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public SPSwitchFSPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         init();
     }
 }

@@ -35,7 +35,7 @@ public class RequestUpdateForumMask extends TbSocketMessage {
         this.flag = z;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 }

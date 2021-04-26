@@ -34,26 +34,26 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         }
     }
 
-    public void c(int i, HashMap<String, String> hashMap, byte[] bArr) {
+    public void c(int i2, HashMap<String, String> hashMap, byte[] bArr) {
         if (this.executCallbackInChildThread) {
-            onSuccess(i, bArr == null ? null : new String(bArr), hashMap);
+            onSuccess(i2, bArr == null ? null : new String(bArr), hashMap);
         } else {
-            sendMessage(obtainMessage(0, new Object[]{Integer.valueOf(i), hashMap, bArr}));
+            sendMessage(obtainMessage(0, new Object[]{Integer.valueOf(i2), hashMap, bArr}));
         }
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        int i = message.what;
-        if (i == 0) {
+        int i2 = message.what;
+        if (i2 == 0) {
             Object[] objArr = (Object[]) message.obj;
             a(((Integer) objArr[0]).intValue(), (HashMap) objArr[1], (byte[]) objArr[2]);
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             Object[] objArr2 = (Object[]) message.obj;
             a((Throwable) objArr2[0], (String) objArr2[1]);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             onStart();
-        } else if (i != 3) {
+        } else if (i2 != 3) {
         } else {
             onFinish();
         }
@@ -68,11 +68,11 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
     public void onStart() {
     }
 
-    public void onSuccess(int i, String str) {
+    public void onSuccess(int i2, String str) {
     }
 
-    public void onSuccess(int i, String str, HashMap<String, String> hashMap) {
-        onSuccess(i, str);
+    public void onSuccess(int i2, String str, HashMap<String, String> hashMap) {
+        onSuccess(i2, str);
     }
 
     public HttpResponseHandler(String str) {
@@ -83,8 +83,8 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         this(looper, false);
     }
 
-    public void a(int i, HashMap<String, String> hashMap, byte[] bArr) {
-        onSuccess(i, bArr == null ? null : new String(bArr), hashMap);
+    public void a(int i2, HashMap<String, String> hashMap, byte[] bArr) {
+        onSuccess(i2, bArr == null ? null : new String(bArr), hashMap);
     }
 
     public void b(Throwable th, String str) {
@@ -105,12 +105,12 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         onFailure(th, str);
     }
 
-    public void b(int i, HashMap<String, String> hashMap, byte[] bArr) {
-        if (i == 200) {
-            c(i, hashMap, bArr);
+    public void b(int i2, HashMap<String, String> hashMap, byte[] bArr) {
+        if (i2 == 200) {
+            c(i2, hashMap, bArr);
             return;
         }
         String str = bArr == null ? null : new String(bArr);
-        b(new HttpErrorException(i, str), str);
+        b(new HttpErrorException(i2, str), str);
     }
 }

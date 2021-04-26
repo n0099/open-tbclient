@@ -15,12 +15,12 @@ import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tbadk.mvc.model.NetModel;
-import d.b.c.j.e.n;
-import d.b.i0.s.d.b;
-import d.b.j0.f1.b.g;
-import d.b.j0.f1.b.l;
-import d.b.j0.f1.b.m;
-import d.b.j0.f1.b.p.a;
+import d.a.c.j.e.n;
+import d.a.i0.s.d.b;
+import d.a.j0.f1.b.g;
+import d.a.j0.f1.b.l;
+import d.a.j0.f1.b.m;
+import d.a.j0.f1.b.p.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -28,22 +28,24 @@ import java.util.List;
 public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<m>, NetModel.k<l, m> {
 
     /* renamed from: e  reason: collision with root package name */
-    public ReplyMessageFragment f18023e;
+    public ReplyMessageFragment f18366e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l f18024f;
+    public l f18367f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ReplyMeNetModel f18025g;
+    public ReplyMeNetModel f18368g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ReplyMeCacheModel f18026h;
-    public g i;
+    public ReplyMeCacheModel f18369h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public g f18370i;
     public FeedData j;
 
     public ReplyMeModelController(ReplyMessageFragment replyMessageFragment) {
         super(replyMessageFragment.getPageContext());
-        this.f18023e = replyMessageFragment;
+        this.f18366e = replyMessageFragment;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -56,35 +58,8 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
         return false;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void f(MvcHttpResponsedMessage<m> mvcHttpResponsedMessage, MvcHttpMessage<l, m> mvcHttpMessage, MvcNetMessage<l, m> mvcNetMessage) {
-        m mVar;
-        if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
-            mVar = mvcHttpResponsedMessage.getData();
-            r1 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
-            if (mvcNetMessage != null) {
-                r1 = mvcNetMessage.getRequestData();
-            }
-        } else {
-            b.g0().e0(0);
-            mVar = null;
-        }
-        if (r1 == null || mVar == null || !x(r1, mVar, false)) {
-            if (mvcHttpResponsedMessage != null) {
-                this.mErrorCode = mvcHttpResponsedMessage.getError();
-                this.mErrorString = mvcHttpResponsedMessage.getErrorString();
-            }
-            ErrorData errorData = new ErrorData();
-            errorData.setError_code(this.mErrorCode);
-            errorData.setError_msg(this.mErrorString);
-            if (this.mErrorCode != 0) {
-                this.f18023e.onServerError(errorData);
-            }
-        }
-    }
-
     @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void n(MvcSocketResponsedMessage<m, ?> mvcSocketResponsedMessage, MvcSocketMessage<l, m> mvcSocketMessage, MvcNetMessage<l, m> mvcNetMessage) {
+    public void h(MvcSocketResponsedMessage<m, ?> mvcSocketResponsedMessage, MvcSocketMessage<l, m> mvcSocketMessage, MvcNetMessage<l, m> mvcNetMessage) {
         m mVar;
         if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
             mVar = mvcSocketResponsedMessage.getData();
@@ -105,7 +80,34 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.f18023e.onServerError(errorData);
+                this.f18366e.onServerError(errorData);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void l(MvcHttpResponsedMessage<m> mvcHttpResponsedMessage, MvcHttpMessage<l, m> mvcHttpMessage, MvcNetMessage<l, m> mvcNetMessage) {
+        m mVar;
+        if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
+            mVar = mvcHttpResponsedMessage.getData();
+            r1 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
+            if (mvcNetMessage != null) {
+                r1 = mvcNetMessage.getRequestData();
+            }
+        } else {
+            b.g0().e0(0);
+            mVar = null;
+        }
+        if (r1 == null || mVar == null || !x(r1, mVar, false)) {
+            if (mvcHttpResponsedMessage != null) {
+                this.mErrorCode = mvcHttpResponsedMessage.getError();
+                this.mErrorString = mvcHttpResponsedMessage.getErrorString();
+            }
+            ErrorData errorData = new ErrorData();
+            errorData.setError_code(this.mErrorCode);
+            errorData.setError_msg(this.mErrorString);
+            if (this.mErrorCode != 0) {
+                this.f18366e.onServerError(errorData);
             }
         }
     }
@@ -113,12 +115,12 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
     public void onCacheDataGet(ReadCacheRespMsg<List<m>> readCacheRespMsg, ReadCacheMessage<m> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            x(this.f18024f, readCacheRespMsg.getData().get(0), true);
+            x(this.f18367f, readCacheRespMsg.getData().get(0), true);
         }
         this.j = null;
-        this.f18024f.c();
-        this.f18025g.setNeedCache(true);
-        this.f18025g.N();
+        this.f18367f.b();
+        this.f18368g.setNeedCache(true);
+        this.f18368g.N();
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
@@ -126,11 +128,11 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
     }
 
     public void onDestroy() {
-        ReplyMeNetModel replyMeNetModel = this.f18025g;
+        ReplyMeNetModel replyMeNetModel = this.f18368g;
         if (replyMeNetModel != null) {
             replyMeNetModel.V(null);
         }
-        ReplyMeCacheModel replyMeCacheModel = this.f18026h;
+        ReplyMeCacheModel replyMeCacheModel = this.f18369h;
         if (replyMeCacheModel != null) {
             replyMeCacheModel.K(null);
         }
@@ -141,69 +143,69 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        g gVar = this.i;
-        if (gVar != null && (arrayList = gVar.f56293e) != null) {
+        g gVar = this.f18370i;
+        if (gVar != null && (arrayList = gVar.f54175e) != null) {
             arrayList.clear();
         }
-        this.f18023e.P0();
-        this.f18023e.V0(false, null);
+        this.f18366e.P0();
+        this.f18366e.V0(false, null);
         return false;
     }
 
-    public void t(int i) {
-        g gVar = this.i;
-        if (gVar == null || gVar.b() == null || i >= this.i.b().size()) {
+    public void t(int i2) {
+        g gVar = this.f18370i;
+        if (gVar == null || gVar.a() == null || i2 >= this.f18370i.a().size()) {
             return;
         }
-        this.i.b().remove(i);
+        this.f18370i.a().remove(i2);
     }
 
     public boolean u() {
         if (s()) {
-            this.f18026h.I(this.f18024f);
+            this.f18369h.I(this.f18367f);
             return true;
         }
         return true;
     }
 
     public void v(Bundle bundle) {
-        this.f18024f = new l();
-        ReplyMeNetModel replyMeNetModel = new ReplyMeNetModel(this.f18023e.getPageContext(), this.f18024f);
-        this.f18025g = replyMeNetModel;
+        this.f18367f = new l();
+        ReplyMeNetModel replyMeNetModel = new ReplyMeNetModel(this.f18366e.getPageContext(), this.f18367f);
+        this.f18368g = replyMeNetModel;
         replyMeNetModel.V(this);
-        this.f18025g.setUniqueId(this.f18023e.getUniqueId());
-        ReplyMeCacheModel replyMeCacheModel = new ReplyMeCacheModel(this.f18023e.getPageContext());
-        this.f18026h = replyMeCacheModel;
+        this.f18368g.setUniqueId(this.f18366e.getUniqueId());
+        ReplyMeCacheModel replyMeCacheModel = new ReplyMeCacheModel(this.f18366e.getPageContext());
+        this.f18369h = replyMeCacheModel;
         replyMeCacheModel.K(this);
-        this.f18026h.setUniqueId(this.f18023e.getUniqueId());
-        this.i = new g();
+        this.f18369h.setUniqueId(this.f18366e.getUniqueId());
+        this.f18370i = new g();
     }
 
     public boolean w() {
-        if (this.f18025g.M() || !s()) {
+        if (this.f18368g.M() || !s()) {
             return false;
         }
-        this.f18024f.d(this.j);
-        this.f18025g.setNeedCache(false);
-        this.f18025g.N();
+        this.f18367f.d(this.j);
+        this.f18368g.setNeedCache(false);
+        this.f18368g.N();
         return true;
     }
 
     public boolean x(l lVar, m mVar, boolean z) {
         boolean z2;
-        if (lVar.b() != 4) {
-            this.i.b().clear();
+        if (lVar.a() != 4) {
+            this.f18370i.a().clear();
         }
-        this.i.d(mVar);
+        this.f18370i.d(mVar);
         boolean z3 = true;
-        if (mVar != null && mVar.b() != null && mVar.b().size() > 0) {
-            this.j = mVar.b().get(mVar.b().size() - 1);
-            z2 = this.i.c() == null || this.i.c().b() == 1;
-            if (lVar.b() == 1) {
+        if (mVar != null && mVar.a() != null && mVar.a().size() > 0) {
+            this.j = mVar.a().get(mVar.a().size() - 1);
+            z2 = this.f18370i.b() == null || this.f18370i.b().b() == 1;
+            if (lVar.a() == 1) {
                 b.g0().e0(0);
             }
             if (lVar != null) {
-                lVar.f();
+                lVar.e();
             }
         } else {
             this.j = null;
@@ -212,7 +214,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
         }
         b.g0().p();
         ArrayList<n> arrayList = new ArrayList<>();
-        Iterator<FeedData> it = this.i.f56293e.iterator();
+        Iterator<FeedData> it = this.f18370i.f54175e.iterator();
         while (it.hasNext()) {
             a aVar = new a();
             aVar.F(it.next());
@@ -221,18 +223,18 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
             }
             arrayList.add(aVar);
         }
-        this.f18023e.V0(z2, arrayList);
+        this.f18366e.V0(z2, arrayList);
         return z3;
     }
 
     public boolean y() {
-        if (this.f18025g.M() || !s()) {
+        if (this.f18368g.M() || !s()) {
             return false;
         }
         this.j = null;
-        this.f18024f.c();
-        this.f18025g.setNeedCache(true);
-        this.f18025g.N();
+        this.f18367f.b();
+        this.f18368g.setNeedCache(true);
+        this.f18368g.N();
         return true;
     }
 }

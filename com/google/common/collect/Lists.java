@@ -1,12 +1,12 @@
 package com.google.common.collect;
 
 import com.google.common.primitives.Ints;
-import d.h.c.a.g;
-import d.h.c.a.k;
-import d.h.c.a.n;
-import d.h.c.c.b1;
-import d.h.c.c.m;
-import d.h.c.f.c;
+import d.g.c.a.g;
+import d.g.c.a.k;
+import d.g.c.a.n;
+import d.g.c.c.b1;
+import d.g.c.c.m;
+import d.g.c.f.c;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.AbstractSequentialList;
@@ -32,9 +32,9 @@ public final class Lists {
         }
 
         @Override // java.util.AbstractList, java.util.List
-        public E get(int i) {
-            n.n(i, size());
-            return i == 0 ? this.first : this.rest[i - 1];
+        public E get(int i2) {
+            n.n(i2, size());
+            return i2 == 0 ? this.first : this.rest[i2 - 1];
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
@@ -79,16 +79,16 @@ public final class Lists {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.List
-        public Character get(int i) {
-            n.n(i, size());
-            return Character.valueOf(this.string.charAt(i));
+        public Character get(int i2) {
+            n.n(i2, size());
+            return Character.valueOf(this.string.charAt(i2));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.ImmutableList, java.util.List
-        public ImmutableList<Character> subList(int i, int i2) {
-            n.v(i, i2, size());
-            return Lists.b(this.string.substring(i, i2));
+        public ImmutableList<Character> subList(int i2, int i3) {
+            n.v(i2, i3, size());
+            return Lists.b(this.string.substring(i2, i3));
         }
     }
 
@@ -104,7 +104,7 @@ public final class Lists {
                 super(listIterator);
             }
 
-            @Override // d.h.c.c.a1
+            @Override // d.g.c.c.a1
             public T a(F f2) {
                 return TransformingRandomAccessList.this.function.apply(f2);
             }
@@ -124,8 +124,8 @@ public final class Lists {
 
         /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: F, ? super F */
         @Override // java.util.AbstractList, java.util.List
-        public T get(int i) {
-            return this.function.apply((F) this.fromList.get(i));
+        public T get(int i2) {
+            return this.function.apply((F) this.fromList.get(i2));
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
@@ -139,14 +139,14 @@ public final class Lists {
         }
 
         @Override // java.util.AbstractList, java.util.List
-        public ListIterator<T> listIterator(int i) {
-            return new a(this.fromList.listIterator(i));
+        public ListIterator<T> listIterator(int i2) {
+            return new a(this.fromList.listIterator(i2));
         }
 
         /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: F, ? super F */
         @Override // java.util.AbstractList, java.util.List
-        public T remove(int i) {
-            return this.function.apply((F) this.fromList.remove(i));
+        public T remove(int i2) {
+            return this.function.apply((F) this.fromList.remove(i2));
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
@@ -167,7 +167,7 @@ public final class Lists {
                 super(listIterator);
             }
 
-            @Override // d.h.c.c.a1
+            @Override // d.g.c.c.a1
             public T a(F f2) {
                 return TransformingSequentialList.this.function.apply(f2);
             }
@@ -186,8 +186,8 @@ public final class Lists {
         }
 
         @Override // java.util.AbstractSequentialList, java.util.AbstractList, java.util.List
-        public ListIterator<T> listIterator(int i) {
-            return new a(this.fromList.listIterator(i));
+        public ListIterator<T> listIterator(int i2) {
+            return new a(this.fromList.listIterator(i2));
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
@@ -211,11 +211,11 @@ public final class Lists {
         }
 
         @Override // java.util.AbstractList, java.util.List
-        public E get(int i) {
-            if (i != 0) {
-                if (i != 1) {
-                    n.n(i, size());
-                    return this.rest[i - 2];
+        public E get(int i2) {
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    n.n(i2, size());
+                    return this.rest[i2 - 2];
                 }
                 return this.second;
             }
@@ -237,9 +237,9 @@ public final class Lists {
         return new StringAsImmutableList(str);
     }
 
-    public static int c(int i) {
-        m.b(i, "arraySize");
-        return Ints.j(i + 5 + (i / 10));
+    public static int c(int i2) {
+        m.b(i2, "arraySize");
+        return Ints.j(i2 + 5 + (i2 / 10));
     }
 
     public static boolean d(List<?> list, Object obj) {
@@ -254,8 +254,8 @@ public final class Lists {
                 return false;
             }
             if ((list instanceof RandomAccess) && (list2 instanceof RandomAccess)) {
-                for (int i = 0; i < size; i++) {
-                    if (!k.a(list.get(i), list2.get(i))) {
+                for (int i2 = 0; i2 < size; i2++) {
+                    if (!k.a(list.get(i2), list2.get(i2))) {
                         return false;
                     }
                 }
@@ -281,21 +281,21 @@ public final class Lists {
 
     public static int f(List<?> list, Object obj) {
         int size = list.size();
-        int i = 0;
+        int i2 = 0;
         if (obj == null) {
-            while (i < size) {
-                if (list.get(i) == null) {
-                    return i;
+            while (i2 < size) {
+                if (list.get(i2) == null) {
+                    return i2;
                 }
-                i++;
+                i2++;
             }
             return -1;
         }
-        while (i < size) {
-            if (obj.equals(list.get(i))) {
-                return i;
+        while (i2 < size) {
+            if (obj.equals(list.get(i2))) {
+                return i2;
             }
-            i++;
+            i2++;
         }
         return -1;
     }
@@ -337,24 +337,24 @@ public final class Lists {
     public static <E> ArrayList<E> j(Iterable<? extends E> iterable) {
         n.p(iterable);
         if (iterable instanceof Collection) {
-            return new ArrayList<>(d.h.c.c.n.a(iterable));
+            return new ArrayList<>(d.g.c.c.n.a(iterable));
         }
         return k(iterable.iterator());
     }
 
     public static <E> ArrayList<E> k(Iterator<? extends E> it) {
-        ArrayList<E> i = i();
-        Iterators.a(i, it);
-        return i;
+        ArrayList<E> i2 = i();
+        Iterators.a(i2, it);
+        return i2;
     }
 
-    public static <E> ArrayList<E> l(int i) {
-        m.b(i, "initialArraySize");
-        return new ArrayList<>(i);
+    public static <E> ArrayList<E> l(int i2) {
+        m.b(i2, "initialArraySize");
+        return new ArrayList<>(i2);
     }
 
-    public static <E> ArrayList<E> m(int i) {
-        return new ArrayList<>(c(i));
+    public static <E> ArrayList<E> m(int i2) {
+        return new ArrayList<>(c(i2));
     }
 
     public static <F, T> List<T> n(List<F> list, g<? super F, ? extends T> gVar) {

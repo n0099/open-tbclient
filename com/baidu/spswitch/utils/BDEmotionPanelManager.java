@@ -36,7 +36,7 @@ public class BDEmotionPanelManager {
 
     /* loaded from: classes2.dex */
     public interface OnEmotionClickListener {
-        void onEmotionClick(EmotionType emotionType, int i, String str, String str2);
+        void onEmotionClick(EmotionType emotionType, int i2, String str, String str2);
     }
 
     /* loaded from: classes2.dex */
@@ -44,9 +44,9 @@ public class BDEmotionPanelManager {
         public static final int SECTION_TYPE_ALL = 1;
         public static final int SECTION_TYPE_OFTEN = 0;
 
-        void onVerticalEmotionClick(EmotionType emotionType, int i, String str, String str2, int i2, int i3);
+        void onVerticalEmotionClick(EmotionType emotionType, int i2, String str, String str2, int i3, int i4);
 
-        void onVerticalEmotionLongClick(EmotionType emotionType, int i, String str, String str2, int i2, int i3);
+        void onVerticalEmotionLongClick(EmotionType emotionType, int i2, String str, String str2, int i3, int i4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -47,25 +47,25 @@ public final class BIMRtcPbGenerator {
     }
 
     private IMPushPb.TerminalInfo getTerminalInfo(Context context) {
-        int i;
         int i2;
+        int i3;
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        int i3 = 0;
+        int i4 = 0;
         if (windowManager != null) {
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-            i = displayMetrics.widthPixels;
-            i3 = displayMetrics.heightPixels;
-            if (i > i3) {
-                i3 = i;
-                i = i3;
+            i2 = displayMetrics.widthPixels;
+            i4 = displayMetrics.heightPixels;
+            if (i2 > i4) {
+                i4 = i2;
+                i2 = i4;
             }
-            i2 = displayMetrics.densityDpi;
+            i3 = displayMetrics.densityDpi;
         } else {
-            i = 0;
             i2 = 0;
+            i3 = 0;
         }
-        return IMPushPb.TerminalInfo.newBuilder().setOs(IMPushPb.OSType.ANDROID).setOsVersion(Build.VERSION.RELEASE).setManufacturer(Build.MANUFACTURER).setTerminalType(Build.MODEL).setResolutionH(i3).setResolutionV(i).setPpi(i2).build();
+        return IMPushPb.TerminalInfo.newBuilder().setOs(IMPushPb.OSType.ANDROID).setOsVersion(Build.VERSION.RELEASE).setManufacturer(Build.MANUFACTURER).setTerminalType(Build.MODEL).setResolutionH(i4).setResolutionV(i2).setPpi(i3).build();
     }
 
     private void putActions(IMPushPb.Action action) {

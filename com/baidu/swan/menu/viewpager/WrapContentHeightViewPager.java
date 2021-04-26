@@ -10,9 +10,9 @@ public class WrapContentHeightViewPager extends ViewPager {
         super(context);
     }
 
-    public final int a(int i, View view) {
-        int mode = View.MeasureSpec.getMode(i);
-        int size = View.MeasureSpec.getSize(i);
+    public final int a(int i2, View view) {
+        int mode = View.MeasureSpec.getMode(i2);
+        int size = View.MeasureSpec.getSize(i2);
         if (mode == 1073741824) {
             return size;
         }
@@ -21,20 +21,20 @@ public class WrapContentHeightViewPager extends ViewPager {
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
         if (getChildCount() > 0) {
             int childCount = getChildCount();
             View view = null;
-            int i3 = -1;
-            for (int i4 = 0; i4 < childCount; i4++) {
-                View childAt = getChildAt(i4);
+            int i4 = -1;
+            for (int i5 = 0; i5 < childCount; i5++) {
+                View childAt = getChildAt(i5);
                 if (childAt != null) {
-                    childAt.measure(i, i2);
+                    childAt.measure(i2, i3);
                     int measuredHeight = childAt.getMeasuredHeight();
-                    if (measuredHeight > i3) {
+                    if (measuredHeight > i4) {
                         view = childAt;
-                        i3 = measuredHeight;
+                        i4 = measuredHeight;
                     }
                 }
             }
@@ -42,9 +42,9 @@ public class WrapContentHeightViewPager extends ViewPager {
                 view = getChildAt(0);
             }
             if (view != null) {
-                view.measure(i, i2);
+                view.measure(i2, i3);
             }
-            setMeasuredDimension(getMeasuredWidth(), a(i2, view));
+            setMeasuredDimension(getMeasuredWidth(), a(i3, view));
         }
     }
 

@@ -153,8 +153,8 @@ public final class MultipartBody extends RequestBody {
     public static StringBuilder appendQuotedString(StringBuilder sb, String str) {
         sb.append(Typography.quote);
         int length = str.length();
-        for (int i = 0; i < length; i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            char charAt = str.charAt(i2);
             if (charAt == '\n') {
                 sb.append("%0A");
             } else if (charAt == '\r') {
@@ -183,8 +183,8 @@ public final class MultipartBody extends RequestBody {
         }
         int size = this.parts.size();
         long j = 0;
-        for (int i = 0; i < size; i++) {
-            Part part = this.parts.get(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            Part part = this.parts.get(i2);
             Headers headers = part.headers;
             RequestBody requestBody = part.body;
             bufferedSink.write(DASHDASH);
@@ -192,8 +192,8 @@ public final class MultipartBody extends RequestBody {
             bufferedSink.write(CRLF);
             if (headers != null) {
                 int size2 = headers.size();
-                for (int i2 = 0; i2 < size2; i2++) {
-                    bufferedSink.writeUtf8(headers.name(i2)).write(COLONSPACE).writeUtf8(headers.value(i2)).write(CRLF);
+                for (int i3 = 0; i3 < size2; i3++) {
+                    bufferedSink.writeUtf8(headers.name(i3)).write(COLONSPACE).writeUtf8(headers.value(i3)).write(CRLF);
                 }
             }
             MediaType contentType = requestBody.contentType();
@@ -247,8 +247,8 @@ public final class MultipartBody extends RequestBody {
         return this.contentType;
     }
 
-    public Part part(int i) {
-        return this.parts.get(i);
+    public Part part(int i2) {
+        return this.parts.get(i2);
     }
 
     public List<Part> parts() {

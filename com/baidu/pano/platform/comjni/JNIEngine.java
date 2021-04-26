@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 public class JNIEngine {
     public static native boolean addCustomMarkerByBitmap(String str, double d2, double d3, double d4, Bitmap bitmap);
 
-    public static native boolean addCustomMarkerByText(String str, double d2, double d3, double d4, String str2, float f2, int i, int i2, int i3);
+    public static native boolean addCustomMarkerByText(String str, double d2, double d3, double d4, String str2, float f2, int i2, int i3, int i4);
 
     public static native boolean addCustomMarkerByURL(String str, double d2, double d3, double d4, String str2, float f2, float f3);
 
@@ -19,11 +19,11 @@ public class JNIEngine {
 
     public static native float getCameraFOV();
 
-    public static native float getCameraRotation(int i);
+    public static native float getCameraRotation(int i2);
 
     public static native void initEngine(Object obj);
 
-    public static native void onSurfaceChanged(Object obj, int i, int i2, int i3);
+    public static native void onSurfaceChanged(Object obj, int i2, int i3, int i4);
 
     public static native void pause();
 
@@ -41,7 +41,7 @@ public class JNIEngine {
 
     public static native boolean setArrowShow(boolean z);
 
-    public static native boolean setArrowTextStyle(int i, int i2, int i3);
+    public static native boolean setArrowTextStyle(int i2, int i3, int i4);
 
     public static native boolean setArrowTextureByBitmap(Bitmap bitmap);
 
@@ -75,7 +75,7 @@ public class JNIEngine {
 
     public static native void setPoiMarkerVisibility(boolean z);
 
-    public static native void setTexureLevel(int i);
+    public static native void setTexureLevel(int i2);
 
-    public static native boolean showCertifyMarkerByText(String str, float f2, int i, int i2, long j);
+    public static native boolean showCertifyMarkerByText(String str, float f2, int i2, int i3, long j);
 }

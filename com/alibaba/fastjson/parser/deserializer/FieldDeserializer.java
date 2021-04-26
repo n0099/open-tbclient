@@ -60,8 +60,8 @@ public abstract class FieldDeserializer {
         throw new JSONException("TODO");
     }
 
-    public void setValue(Object obj, int i) {
-        setValue(obj, Integer.valueOf(i));
+    public void setValue(Object obj, int i2) {
+        setValue(obj, Integer.valueOf(i2));
     }
 
     public void setValue(Object obj, long j) {

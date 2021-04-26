@@ -5,29 +5,31 @@ import com.baidu.android.common.others.lang.StringUtil;
 public class Jni {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f6464a = 0;
+    public static int f6679a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f6465b = 1;
+    public static int f6680b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f6466c = 2;
+    public static int f6681c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f6467d = 11;
+    public static int f6682d = 11;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f6468e = 12;
+    public static int f6683e = 12;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f6469f = 13;
+    public static int f6684f = 13;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f6470g = 14;
+    public static int f6685g = 14;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f6471h = 15;
-    public static int i = 1024;
+    public static int f6686h = 15;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static int f6687i = 1024;
     public static boolean j = false;
 
     static {
@@ -52,19 +54,19 @@ public class Jni {
         }
         int i2 = -1;
         if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
-            i2 = f6464a;
+            i2 = f6679a;
         } else if (str.equals("bd09ll")) {
-            i2 = f6465b;
+            i2 = f6680b;
         } else if (str.equals("gcj02")) {
-            i2 = f6466c;
+            i2 = f6681c;
         } else if (str.equals(BDLocation.BDLOCATION_WGS84_TO_GCJ02)) {
-            i2 = f6467d;
+            i2 = f6682d;
         } else if (str.equals(BDLocation.BDLOCATION_BD09_TO_GCJ02)) {
-            i2 = f6468e;
+            i2 = f6683e;
         } else if (str.equals(BDLocation.BDLOCATION_BD09LL_TO_GCJ02)) {
-            i2 = f6469f;
+            i2 = f6684f;
         } else if (str.equals("wgs842mc")) {
-            i2 = f6471h;
+            i2 = f6686h;
         }
         try {
             String[] split = b(d2, d3, str.equals("gcj2wgs") ? 16 : i2, 132456).split(":");
@@ -85,7 +87,7 @@ public class Jni {
             return StringUtil.NULL_STRING;
         }
         byte[] bytes = str.getBytes();
-        byte[] bArr = new byte[i];
+        byte[] bArr = new byte[f6687i];
         int length = bytes.length;
         if (length > 740) {
             length = 740;

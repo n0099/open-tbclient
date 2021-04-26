@@ -5,6 +5,7 @@ import android.media.AudioManager;
 import com.baidu.rtc.logreport.SLIReportInterface;
 import org.webrtc.JniCommon;
 import org.webrtc.Logging;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes7.dex */
 public class JavaAudioDeviceModule implements AudioDeviceModule {
     public static final String TAG = "JavaAudioDeviceModule";
@@ -41,10 +42,10 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         public final byte[] data;
         public final int sampleRate;
 
-        public AudioSamples(int i, int i2, int i3, byte[] bArr) {
-            this.audioFormat = i;
-            this.channelCount = i2;
-            this.sampleRate = i3;
+        public AudioSamples(int i2, int i3, int i4, byte[] bArr) {
+            this.audioFormat = i2;
+            this.channelCount = i3;
+            this.sampleRate = i4;
             this.data = bArr;
         }
 
@@ -101,7 +102,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
             this.useHardwareAcousticEchoCanceler = JavaAudioDeviceModule.isBuiltInAcousticEchoCancelerSupported();
             this.useHardwareNoiseSuppressor = JavaAudioDeviceModule.isBuiltInNoiseSuppressorSupported();
             this.context = context;
-            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+            AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             this.audioManager = audioManager;
             this.sampleRate = WebRtcAudioManager.getSampleRate(audioManager);
         }
@@ -136,8 +137,8 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
             return this;
         }
 
-        public Builder setAudioSource(int i) {
-            this.audioSource = i;
+        public Builder setAudioSource(int i2) {
+            this.audioSource = i2;
             return this;
         }
 
@@ -156,9 +157,9 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
             return this;
         }
 
-        public Builder setSampleRate(int i) {
-            Logging.d(JavaAudioDeviceModule.TAG, "Sample rate overridden to: " + i);
-            this.sampleRate = i;
+        public Builder setSampleRate(int i2) {
+            Logging.d(JavaAudioDeviceModule.TAG, "Sample rate overridden to: " + i2);
+            this.sampleRate = i2;
             return this;
         }
 
@@ -211,14 +212,14 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         void onWebRtcAudioRecordSamplesReady(AudioSamples audioSamples);
     }
 
-    public JavaAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i, boolean z, boolean z2) {
+    public JavaAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i2, boolean z, boolean z2) {
         this.nativeLock = new Object();
         this.stuckEvent = null;
         this.context = context;
         this.audioManager = audioManager;
         this.audioInput = webRtcAudioRecord;
         this.audioOutput = webRtcAudioTrack;
-        this.sampleRate = i;
+        this.sampleRate = i2;
         this.useStereoInput = z;
         this.useStereoOutput = z2;
     }
@@ -235,7 +236,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         return WebRtcAudioEffects.isNoiseSuppressorSupported();
     }
 
-    public static native long nativeCreateAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i, boolean z, boolean z2);
+    public static native long nativeCreateAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i2, boolean z, boolean z2);
 
     public ExternalSamplesReadyCallback getExternalSamplesReadyCallback() {
         return this.audioInput.getExternalSamplesCallback();

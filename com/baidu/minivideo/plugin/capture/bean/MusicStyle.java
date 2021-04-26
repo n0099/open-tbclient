@@ -11,8 +11,8 @@ public enum MusicStyle {
     
     public int value;
 
-    MusicStyle(int i) {
-        this.value = i;
+    MusicStyle(int i2) {
+        this.value = i2;
     }
 
     public int value() {

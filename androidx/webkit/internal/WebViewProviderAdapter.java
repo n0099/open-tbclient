@@ -18,8 +18,8 @@ public class WebViewProviderAdapter {
     public WebMessagePortCompat[] createWebMessageChannel() {
         InvocationHandler[] createWebMessageChannel = this.mImpl.createWebMessageChannel();
         WebMessagePortCompat[] webMessagePortCompatArr = new WebMessagePortCompat[createWebMessageChannel.length];
-        for (int i = 0; i < createWebMessageChannel.length; i++) {
-            webMessagePortCompatArr[i] = new WebMessagePortImpl(createWebMessageChannel[i]);
+        for (int i2 = 0; i2 < createWebMessageChannel.length; i2++) {
+            webMessagePortCompatArr[i2] = new WebMessagePortImpl(createWebMessageChannel[i2]);
         }
         return webMessagePortCompatArr;
     }

@@ -5,14 +5,14 @@ import com.baidu.platform.comapi.walknavi.widget.a;
 public class g implements a.InterfaceC0127a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f9692a;
+    public final /* synthetic */ a f10052a;
 
     public g(a aVar) {
-        this.f9692a = aVar;
+        this.f10052a = aVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0127a
     public void a() {
-        this.f9692a.R();
+        this.f10052a.R();
     }
 }

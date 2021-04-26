@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import d.b.r.a;
+import d.a.r.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -130,9 +130,9 @@ public class BindStateManager {
         return Long.valueOf(Utility.readLongData(context, KEY_UNBIND_UK, 0L));
     }
 
-    public static void onRegisterNotifyResult(Context context, String str, int i, String str2, boolean z) {
+    public static void onRegisterNotifyResult(Context context, String str, int i2, String str2, boolean z) {
         String str3 = TAG;
-        LogUtils.d(str3, "bind > onRegisterNotifyResult----errorCode: " + i + " msg: " + str2);
+        LogUtils.d(str3, "bind > onRegisterNotifyResult----errorCode: " + i2 + " msg: " + str2);
         synchronized (mTinerSync) {
             if (timer != null) {
                 timer.cancel();
@@ -144,7 +144,7 @@ public class BindStateManager {
             LogUtils.d(TAG, "bind > channelIdEmpty, return!");
             return;
         }
-        if (i == 0) {
+        if (i2 == 0) {
             LogUtils.d(TAG, "bind > sucess!");
             setBindPushSuc(context);
         } else {
@@ -157,13 +157,13 @@ public class BindStateManager {
             while (it.hasNext()) {
                 IOnRegisterNotifyListener next = it.next();
                 if (next != null) {
-                    next.onRegisterNotifyResult(i, str2);
+                    next.onRegisterNotifyResult(i2, str2);
                 }
                 it.remove();
             }
         }
         if (iOnRegisterNotifyListener != null) {
-            iOnRegisterNotifyListener.onRegisterNotifyResult(i, str2);
+            iOnRegisterNotifyListener.onRegisterNotifyResult(i2, str2);
         }
     }
 
@@ -207,9 +207,9 @@ public class BindStateManager {
         setunBindUk(context, l);
     }
 
-    public static synchronized void setBindPush(Context context, int i) {
+    public static synchronized void setBindPush(Context context, int i2) {
         synchronized (BindStateManager.class) {
-            Utility.writeIntData(context, AccountManager.getUK(context) + KEY_BIND_PUSH, i);
+            Utility.writeIntData(context, AccountManager.getUK(context) + KEY_BIND_PUSH, i2);
         }
     }
 

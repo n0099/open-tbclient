@@ -157,9 +157,9 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
     public void setBeanParams(String... strArr) {
     }
 
-    public BaseBean(Context context, int i) {
+    public BaseBean(Context context, int i2) {
         super(context);
         this.beanType = -1;
-        this.beanType = i;
+        this.beanType = i2;
     }
 }

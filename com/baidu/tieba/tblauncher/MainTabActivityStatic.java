@@ -29,22 +29,22 @@ import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ForumWriteData;
-import d.b.j0.v3.j;
+import d.a.j0.v3.i;
 import java.net.URLDecoder;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public class MainTabActivityStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f21229a = 0;
+    public static int f21827a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f21230b = false;
+    public static boolean f21828b = false;
 
     /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -52,28 +52,28 @@ public class MainTabActivityStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data = customResponsedMessage.getData();
             if (data instanceof Activity) {
-                d.b.i0.r.a0.b.d((Activity) data);
+                d.a.i0.r.a0.b.d((Activity) data);
             }
         }
     }
 
     /* loaded from: classes5.dex */
     public static class b implements UrlManager.UrlDealListener {
-        /* JADX WARN: Removed duplicated region for block: B:40:0x0085  */
+        /* JADX WARN: Removed duplicated region for block: B:38:0x0080  */
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
-            int i;
+            int i2;
             if (tbPageContext != null && strArr != null && strArr.length != 0) {
                 String str = strArr[0];
                 if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                     if (str.contains(UrlSchemaHelper.GOTO_ENTERFORUM_TAB)) {
-                        d.b.i0.r.a0.b.f(tbPageContext.getPageActivity(), 1, true);
+                        d.a.i0.r.a0.b.f(tbPageContext.getPageActivity(), 1, true);
                         return 1;
                     } else if (str.contains(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB)) {
-                        d.b.i0.r.a0.b.f(tbPageContext.getPageActivity(), 2, true);
+                        d.a.i0.r.a0.b.f(tbPageContext.getPageActivity(), 2, true);
                         return 1;
                     }
                 }
@@ -81,26 +81,26 @@ public class MainTabActivityStatic {
                     try {
                         Uri parse = Uri.parse(str);
                         if (parse == null || StringUtils.isNull(parse.getQueryParameter("subTabIndex"))) {
-                            i = -1;
+                            i2 = -1;
                         } else {
-                            int d2 = d.b.c.e.m.b.d(parse.getQueryParameter("subTabIndex"), 0);
-                            i = d2 == 2 ? 19 : d2 == 1 ? 18 : 17;
+                            int d2 = d.a.c.e.m.b.d(parse.getQueryParameter("subTabIndex"), 0);
+                            i2 = d2 == 1 ? 18 : 17;
                             try {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921446, Integer.valueOf(d2)));
                             } catch (Exception e2) {
                                 e = e2;
                                 e.printStackTrace();
-                                if (i != -1) {
+                                if (i2 != -1) {
                                 }
                                 return 3;
                             }
                         }
                     } catch (Exception e3) {
                         e = e3;
-                        i = -1;
+                        i2 = -1;
                     }
-                    if (i != -1) {
-                        d.b.i0.r.a0.b.f(tbPageContext.getPageActivity(), i, true);
+                    if (i2 != -1) {
+                        d.a.i0.r.a0.b.f(tbPageContext.getPageActivity(), i2, true);
                         return 1;
                     }
                 }
@@ -111,8 +111,8 @@ public class MainTabActivityStatic {
 
     /* loaded from: classes5.dex */
     public static class c extends CustomMessageListener {
-        public c(int i) {
-            super(i);
+        public c(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -155,11 +155,11 @@ public class MainTabActivityStatic {
                         if (!StringUtils.isNull(str) && !StringUtils.isNull(str3)) {
                             ForumWriteData forumWriteData = new ForumWriteData(str3, str, null, null);
                             forumWriteData.writeCallFrom = "0";
-                            j.d(tbPageContext, "", forumWriteData);
+                            i.d(tbPageContext, "", forumWriteData);
                         } else {
                             ForumWriteData forumWriteData2 = new ForumWriteData("", "", null, null);
                             forumWriteData2.writeCallFrom = "0";
-                            j.d(tbPageContext, str2, forumWriteData2);
+                            i.d(tbPageContext, str2, forumWriteData2);
                         }
                         TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 4).param("obj_type", 2));
                         TiebaStatic.log(new StatisticItem("c12292").param("obj_locate", "3"));
@@ -254,11 +254,11 @@ public class MainTabActivityStatic {
         }
         int b2 = b(newsRemindMessage);
         boolean c2 = c(newsRemindMessage);
-        if (b2 == f21229a && c2 == f21230b) {
+        if (b2 == f21827a && c2 == f21828b) {
             return;
         }
-        f21229a = b2;
-        f21230b = c2;
+        f21827a = b2;
+        f21828b = c2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(b2), Boolean.valueOf(c2))));
     }
 

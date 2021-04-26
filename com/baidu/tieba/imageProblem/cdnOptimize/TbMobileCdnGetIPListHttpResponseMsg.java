@@ -13,22 +13,22 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
     public static class TBCdnMobileListData {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18110a = null;
+        public String f18456a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18111b = null;
+        public String f18457b = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArrayList<String> f18112c = new ArrayList<>();
+        public ArrayList<String> f18458c = new ArrayList<>();
     }
 
-    public TbMobileCdnGetIPListHttpResponseMsg(int i) {
-        super(i);
+    public TbMobileCdnGetIPListHttpResponseMsg(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i, jSONObject);
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (jSONObject == null) {
             return;
         }
@@ -42,15 +42,15 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             JSONArray optJSONArray = optJSONObject.optJSONArray("vips");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i2 = 0; i2 < optJSONArray.length() && this.mobileCdnData.f18112c.size() <= 5; i2++) {
-                    String string = optJSONArray.getString(i2);
+                for (int i3 = 0; i3 < optJSONArray.length() && this.mobileCdnData.f18458c.size() <= 5; i3++) {
+                    String string = optJSONArray.getString(i3);
                     if (string != null) {
-                        this.mobileCdnData.f18112c.add(string);
+                        this.mobileCdnData.f18458c.add(string);
                     }
                 }
             }
-            this.mobileCdnData.f18110a = optJSONObject.optString("testimg_url");
-            this.mobileCdnData.f18111b = optJSONObject.optString("testimg_md5");
+            this.mobileCdnData.f18456a = optJSONObject.optString("testimg_url");
+            this.mobileCdnData.f18457b = optJSONObject.optString("testimg_md5");
         } catch (Exception e2) {
             BdLog.e(e2);
         }

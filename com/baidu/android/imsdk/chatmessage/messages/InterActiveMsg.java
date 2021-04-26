@@ -18,8 +18,8 @@ public class InterActiveMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public InterActiveMsg[] newArray(int i) {
-            return new InterActiveMsg[i];
+        public InterActiveMsg[] newArray(int i2) {
+            return new InterActiveMsg[i2];
         }
     };
     public static final String TAG = "InterActiveMsg";
@@ -72,13 +72,13 @@ public class InterActiveMsg extends NormalMsg {
         }
     }
 
-    public void setTemplate(int i) {
-        this.mTemplate = i;
+    public void setTemplate(int i2) {
+        this.mTemplate = i2;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeInt(this.mTemplate);
     }
 

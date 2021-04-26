@@ -15,24 +15,24 @@ public class GenericByteArrayPool extends BasePool<byte[]> implements ByteArrayP
         super(memoryTrimmableRegistry, poolParams, poolStatsTracker);
         SparseIntArray sparseIntArray = poolParams.bucketSizes;
         this.mBucketSizes = new int[sparseIntArray.size()];
-        for (int i = 0; i < sparseIntArray.size(); i++) {
-            this.mBucketSizes[i] = sparseIntArray.keyAt(i);
+        for (int i2 = 0; i2 < sparseIntArray.size(); i2++) {
+            this.mBucketSizes[i2] = sparseIntArray.keyAt(i2);
         }
         initialize();
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public int getBucketedSize(int i) {
+    public int getBucketedSize(int i2) {
         int[] iArr;
-        if (i > 0) {
-            for (int i2 : this.mBucketSizes) {
-                if (i2 >= i) {
-                    return i2;
+        if (i2 > 0) {
+            for (int i3 : this.mBucketSizes) {
+                if (i3 >= i2) {
+                    return i3;
                 }
             }
-            return i;
+            return i2;
         }
-        throw new BasePool.InvalidSizeException(Integer.valueOf(i));
+        throw new BasePool.InvalidSizeException(Integer.valueOf(i2));
     }
 
     public int getMinBufferSize() {
@@ -40,14 +40,14 @@ public class GenericByteArrayPool extends BasePool<byte[]> implements ByteArrayP
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public int getSizeInBytes(int i) {
-        return i;
+    public int getSizeInBytes(int i2) {
+        return i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public byte[] alloc(int i) {
-        return new byte[i];
+    public byte[] alloc(int i2) {
+        return new byte[i2];
     }
 
     /* JADX DEBUG: Method merged with bridge method */

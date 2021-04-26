@@ -55,8 +55,8 @@ public class a extends com.baidu.platform.base.d {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i2);
             if (optJSONObject != null) {
                 BikingRouteLine.BikingStep bikingStep = new BikingRouteLine.BikingStep();
                 bikingStep.setDirection(optJSONObject.optInt("direction") * 30);
@@ -114,10 +114,10 @@ public class a extends com.baidu.platform.base.d {
                     RouteNode a2 = a(optJSONObject2, "origin", "originPt");
                     RouteNode a3 = a(optJSONObject2, "destination", "destinationPt");
                     ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         BikingRouteLine bikingRouteLine = new BikingRouteLine();
                         try {
-                            optJSONObject = optJSONArray.optJSONObject(i);
+                            optJSONObject = optJSONArray.optJSONObject(i2);
                         } catch (Exception unused) {
                         }
                         if (optJSONObject == null) {
@@ -172,8 +172,8 @@ public class a extends com.baidu.platform.base.d {
         JSONArray optJSONArray;
         if (jSONObject != null && str != null && !"".equals(str) && (optJSONArray = jSONObject.optJSONArray(str)) != null) {
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
                 if (jSONObject2 != null) {
                     PoiInfo poiInfo = new PoiInfo();
                     if (jSONObject2.has("address")) {
@@ -233,8 +233,8 @@ public class a extends com.baidu.platform.base.d {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
+        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
             if (jSONObject2 != null) {
                 CityInfo cityInfo = new CityInfo();
                 cityInfo.num = jSONObject2.optInt(IdCardActivity.KEY_NUMBER);

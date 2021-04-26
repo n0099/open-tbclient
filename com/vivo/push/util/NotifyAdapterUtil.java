@@ -22,7 +22,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes6.dex */
 public class NotifyAdapterUtil {
     public static final int NOTIFY_MULTITERM_STYLE = 1;
     public static final int NOTIFY_SINGLE_STYLE = 0;
@@ -33,11 +34,11 @@ public class NotifyAdapterUtil {
     public static NotificationManager sNotificationManager = null;
     public static int sNotifyId = 20000000;
 
-    public static boolean cancelNotify(Context context, int i) {
+    public static boolean cancelNotify(Context context, int i2) {
         initAdapter(context);
         NotificationManager notificationManager = sNotificationManager;
         if (notificationManager != null) {
-            notificationManager.cancel(i);
+            notificationManager.cancel(i2);
             return true;
         }
         return false;
@@ -69,7 +70,7 @@ public class NotifyAdapterUtil {
         return context.getResources().getConfiguration().locale.getLanguage().endsWith("zh");
     }
 
-    public static void pushNotification(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, int i) {
+    public static void pushNotification(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, int i2) {
         p.d(TAG, "pushNotification");
         initAdapter(context);
         int notifyMode = NotifyUtil.getNotifyDataAdapter(context).getNotifyMode(insideNotificationItem);
@@ -77,7 +78,7 @@ public class NotifyAdapterUtil {
             notifyMode = 1;
         }
         if (notifyMode == 2) {
-            pushNotificationBySystem(context, list, insideNotificationItem, j, i);
+            pushNotificationBySystem(context, list, insideNotificationItem, j, i2);
         } else if (notifyMode == 1) {
             pushNotificationByCustom(context, list, insideNotificationItem, j);
         }
@@ -151,7 +152,7 @@ public class NotifyAdapterUtil {
         if (Build.VERSION.SDK_INT >= 16 && TextUtils.isEmpty(insideNotificationItem.getPurePicUrl())) {
             notification.bigContentView = remoteViews;
         }
-        AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+        AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         int ringerMode = audioManager.getRingerMode();
         int vibrateSetting = audioManager.getVibrateSetting(0);
         p.d(TAG, "ringMode=" + ringerMode + " callVibrateSetting=" + vibrateSetting);
@@ -192,7 +193,7 @@ public class NotifyAdapterUtil {
         }
     }
 
-    public static void pushNotificationBySystem(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, int i) {
+    public static void pushNotificationBySystem(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, int i2) {
         Bitmap bitmap;
         Notification.Builder builder;
         Bitmap decodeResource;
@@ -201,7 +202,7 @@ public class NotifyAdapterUtil {
         String content = insideNotificationItem.getContent();
         int intValue = Integer.valueOf(context.getApplicationInfo().icon).intValue();
         boolean isShowTime = insideNotificationItem.isShowTime();
-        AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+        AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         int defaultNotifyIcon = NotifyUtil.getNotifyDataAdapter(context).getDefaultNotifyIcon();
         Bitmap bitmap2 = null;
         if (list == null || list.isEmpty()) {
@@ -267,7 +268,7 @@ public class NotifyAdapterUtil {
         if (list != null && list.size() > 1) {
             bitmap2 = list.get(1);
         }
-        if (i != 1 && bitmap2 != null) {
+        if (i2 != 1 && bitmap2 != null) {
             Notification.BigPictureStyle bigPictureStyle = new Notification.BigPictureStyle();
             bigPictureStyle.setBigContentTitle(title);
             bigPictureStyle.setSummaryText(content);
@@ -295,28 +296,28 @@ public class NotifyAdapterUtil {
         }
     }
 
-    public static boolean repealNotifyById(Context context, int i) {
+    public static boolean repealNotifyById(Context context, int i2) {
         int r = com.vivo.push.p.a().r();
         if (r != 0) {
             if (r == 1) {
-                return cancelNotify(context, i);
+                return cancelNotify(context, i2);
             }
             p.a(TAG, "unknow cancle notify style " + r);
             return false;
         }
         long b2 = w.b().b("com.vivo.push.notify_key", -1L);
-        if (b2 == i) {
-            p.d(TAG, "undo showed message " + i);
-            p.a(context, "回收已展示的通知： " + i);
+        if (b2 == i2) {
+            p.d(TAG, "undo showed message " + i2);
+            p.a(context, "回收已展示的通知： " + i2);
             return cancelNotify(context, sNotifyId);
         }
-        p.d(TAG, "current showing message id " + b2 + " not match " + i);
-        p.a(context, "与已展示的通知" + b2 + "与待回收的通知" + i + "不匹配");
+        p.d(TAG, "current showing message id " + b2 + " not match " + i2);
+        p.a(context, "与已展示的通知" + b2 + "与待回收的通知" + i2 + "不匹配");
         return false;
     }
 
-    public static void setNotifyId(int i) {
-        sNotifyId = i;
+    public static void setNotifyId(int i2) {
+        sNotifyId = i2;
     }
 
     public static void cancelNotify(Context context) {

@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import d.b.c.e.m.b;
-import d.b.c.e.p.k;
-import d.b.j0.e1.w.c;
+import d.a.c.e.m.b;
+import d.a.c.e.p.k;
+import d.a.j0.e1.w.c;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class ImMessageCenterPojo implements Serializable {
@@ -251,12 +251,12 @@ public class ImMessageCenterPojo implements Serializable {
         this.bjhAvatar = str;
     }
 
-    public void setCustomGroupType(int i) {
-        this.mCustomGroupType = i;
+    public void setCustomGroupType(int i2) {
+        this.mCustomGroupType = i2;
     }
 
-    public void setFollowStatus(int i) {
-        this.followStatus = i;
+    public void setFollowStatus(int i2) {
+        this.followStatus = i2;
     }
 
     public void setGid(String str) {
@@ -277,20 +277,20 @@ public class ImMessageCenterPojo implements Serializable {
     }
 
     @Deprecated
-    public void setGroup_type(int i) {
-        this.group_type = i;
+    public void setGroup_type(int i2) {
+        this.group_type = i2;
     }
 
-    public void setIsFriend(int i) {
-        this.isFriend = i;
+    public void setIsFriend(int i2) {
+        this.isFriend = i2;
     }
 
-    public void setIs_delete(int i) {
-        this.is_delete = i;
+    public void setIs_delete(int i2) {
+        this.is_delete = i2;
     }
 
-    public void setIs_hidden(int i) {
-        this.is_hidden = i;
+    public void setIs_hidden(int i2) {
+        this.is_hidden = i2;
     }
 
     public void setLastContentRawData(String str) {
@@ -345,8 +345,8 @@ public class ImMessageCenterPojo implements Serializable {
         this.isSelf = z;
     }
 
-    public void setSend_status(int i) {
-        this.send_status = i;
+    public void setSend_status(int i2) {
+        this.send_status = i2;
     }
 
     public void setSent_msgId(long j) {
@@ -365,15 +365,15 @@ public class ImMessageCenterPojo implements Serializable {
         this.taskId = str;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 
-    public void setUnread_count(int i) {
-        this.unread_count = i;
+    public void setUnread_count(int i2) {
+        this.unread_count = i2;
     }
 
-    public void setUserType(int i) {
-        this.userType = i;
+    public void setUserType(int i2) {
+        this.userType = i2;
     }
 }

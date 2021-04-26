@@ -94,8 +94,8 @@ public class ProcessDelegateBaseProvider extends ContentProvider implements Agen
         return null;
     }
 
-    public void setResultBundleData(Bundle bundle, int i, Bundle bundle2) {
-        bundle.putInt(DelegateDef.EXTRA_RESULT_CODE, i);
+    public void setResultBundleData(Bundle bundle, int i2, Bundle bundle2) {
+        bundle.putInt(DelegateDef.EXTRA_RESULT_CODE, i2);
         bundle.putBundle(DelegateDef.EXTRA_RESULT, bundle2);
     }
 

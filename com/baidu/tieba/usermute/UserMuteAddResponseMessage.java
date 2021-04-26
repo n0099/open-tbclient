@@ -1,21 +1,21 @@
 package com.baidu.tieba.usermute;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.c.e.m.b;
+import d.a.c.e.m.b;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class UserMuteAddResponseMessage extends JsonHttpResponsedMessage {
     public String errorNo;
     public String muteMsg;
 
-    public UserMuteAddResponseMessage(int i) {
-        super(i);
+    public UserMuteAddResponseMessage(int i2) {
+        super(i2);
         this.errorNo = "";
         this.muteMsg = "";
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         if (getStatusCode() != 200 || jSONObject == null) {
             return;
         }

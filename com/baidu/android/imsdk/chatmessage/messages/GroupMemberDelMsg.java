@@ -21,8 +21,8 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public GroupMemberDelMsg[] newArray(int i) {
-            return new GroupMemberDelMsg[i];
+        public GroupMemberDelMsg[] newArray(int i2) {
+            return new GroupMemberDelMsg[i2];
         }
     };
     public int groupnum;
@@ -58,8 +58,8 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
             this.operator = String.valueOf(jSONObject.optLong("operator"));
             this.groupnum = jSONObject.optInt("group_num");
             JSONArray jSONArray = jSONObject.getJSONArray("member");
-            for (int i = 0; i < jSONArray.length(); i++) {
-                this.members.add(String.valueOf(jSONArray.optLong(i)));
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                this.members.add(String.valueOf(jSONArray.optLong(i2)));
             }
             return true;
         } catch (JSONException e2) {
@@ -73,8 +73,8 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.operator);
         parcel.writeInt(this.groupnum);
         parcel.writeList(this.members);

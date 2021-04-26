@@ -28,8 +28,8 @@ public class RoundRectShapeWithEdge extends RectShape {
     @Override // android.graphics.drawable.shapes.RectShape, android.graphics.drawable.shapes.Shape
     public void onResize(float f2, float f3) {
         RectF rect = rect();
-        int i = this.edge;
-        rect.set(i, i, f2 - i, f3 - i);
+        int i2 = this.edge;
+        rect.set(i2, i2, f2 - i2, f3 - i2);
         this.mPath.reset();
         float[] fArr = this.mOuterRadii;
         if (fArr != null) {
@@ -39,7 +39,7 @@ public class RoundRectShapeWithEdge extends RectShape {
         }
     }
 
-    public void setEdge(int i) {
-        this.edge = i;
+    public void setEdge(int i2) {
+        this.edge = i2;
     }
 }

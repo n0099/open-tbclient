@@ -18,9 +18,9 @@ public class ResponseGetVideoActivityMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
-        super.decodeLogicInBackGround(i, jSONObject);
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("current_act_info");
             if (optJSONObject2 != null) {
@@ -34,9 +34,9 @@ public class ResponseGetVideoActivityMessage extends JsonHttpResponsedMessage {
                 this.mAllVideoTitleList = new ArrayList();
             }
             this.mAllVideoTitleList.clear();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                if (optJSONArray.getJSONObject(i2) != null) {
-                    this.mAllVideoTitleList.add((VideoTitleData) OrmObject.objectWithJson(optJSONArray.getJSONObject(i2), VideoTitleData.class));
+            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                if (optJSONArray.getJSONObject(i3) != null) {
+                    this.mAllVideoTitleList.add((VideoTitleData) OrmObject.objectWithJson(optJSONArray.getJSONObject(i3), VideoTitleData.class));
                 }
             }
         }

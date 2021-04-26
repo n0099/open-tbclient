@@ -14,7 +14,7 @@ public final class c implements Parcelable.Creator<PoiFilter> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public PoiFilter[] newArray(int i) {
-        return new PoiFilter[i];
+    public PoiFilter[] newArray(int i2) {
+        return new PoiFilter[i2];
     }
 }

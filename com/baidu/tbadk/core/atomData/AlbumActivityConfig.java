@@ -44,9 +44,9 @@ public class AlbumActivityConfig extends IntentConfig {
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public void setAlbumThread(int i) {
+    public void setAlbumThread(int i2) {
         if (getIntent() != null) {
-            getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, i);
+            getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, i2);
         }
     }
 
@@ -76,24 +76,24 @@ public class AlbumActivityConfig extends IntentConfig {
         getIntent().putExtra("tab_list", frsTabInfoData);
     }
 
-    public void setProfessionZone(int i) {
-        getIntent().putExtra(WriteActivityConfig.KEY_PROFESSION_ZONE, i);
+    public void setProfessionZone(int i2) {
+        getIntent().putExtra(WriteActivityConfig.KEY_PROFESSION_ZONE, i2);
     }
 
-    public void setRequestFrom(int i) {
+    public void setRequestFrom(int i2) {
         if (getIntent() != null) {
-            getIntent().putExtra(CAMERA_REQUEST_FROM, i);
+            getIntent().putExtra(CAMERA_REQUEST_FROM, i2);
         }
     }
 
-    public void setResourceType(int i) {
+    public void setResourceType(int i2) {
         if (getIntent() != null) {
-            getIntent().putExtra("from_type", i);
+            getIntent().putExtra("from_type", i2);
         }
     }
 
-    public void setStatisticFrom(int i) {
-        getIntent().putExtra(WriteActivityConfig.KEY_STATISTIS_FROM, i);
+    public void setStatisticFrom(int i2) {
+        getIntent().putExtra(WriteActivityConfig.KEY_STATISTIS_FROM, i2);
     }
 
     public AlbumActivityConfig(Context context, boolean z, String str) {
@@ -126,13 +126,13 @@ public class AlbumActivityConfig extends IntentConfig {
         getIntent().putExtra(USE_ORIGINAL_IMG, z2);
     }
 
-    public AlbumActivityConfig(Context context, String str, int i) {
+    public AlbumActivityConfig(Context context, String str, int i2) {
         this(context, str);
-        getIntent().putExtra(CAMERA_REQUEST_FROM, i);
+        getIntent().putExtra(CAMERA_REQUEST_FROM, i2);
     }
 
-    public AlbumActivityConfig(Context context, String str, String str2, int i) {
+    public AlbumActivityConfig(Context context, String str, String str2, int i2) {
         this(context, str, str2);
-        getIntent().putExtra(CAMERA_REQUEST_FROM, i);
+        getIntent().putExtra(CAMERA_REQUEST_FROM, i2);
     }
 }

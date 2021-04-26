@@ -8,20 +8,20 @@ public enum Config$UpdateMode {
     
     public final int nativeCode;
 
-    Config$UpdateMode(int i) {
-        this.nativeCode = i;
+    Config$UpdateMode(int i2) {
+        this.nativeCode = i2;
     }
 
-    public static Config$UpdateMode forNumber(int i) {
+    public static Config$UpdateMode forNumber(int i2) {
         Config$UpdateMode[] values;
         for (Config$UpdateMode config$UpdateMode : values()) {
-            if (config$UpdateMode.nativeCode == i) {
+            if (config$UpdateMode.nativeCode == i2) {
                 return config$UpdateMode;
             }
         }
         StringBuilder sb = new StringBuilder(57);
         sb.append("Unexpected value for native UpdateMode, value=");
-        sb.append(i);
+        sb.append(i2);
         throw new FatalException(sb.toString());
     }
 }

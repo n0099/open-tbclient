@@ -24,9 +24,9 @@ public class b {
         public static String a(byte[] bArr) {
             char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
             StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (int i = 0; i < bArr.length; i++) {
-                sb.append(cArr[(bArr[i] & 240) >> 4]);
-                sb.append(cArr[bArr[i] & 15]);
+            for (int i2 = 0; i2 < bArr.length; i2++) {
+                sb.append(cArr[(bArr[i2] & 240) >> 4]);
+                sb.append(cArr[bArr[i2] & 15]);
             }
             return sb.toString();
         }
@@ -50,9 +50,9 @@ public class b {
             str2 = "";
         }
         StringBuffer stringBuffer = new StringBuffer();
-        for (int i = 0; i < str2.length(); i++) {
-            stringBuffer.append(str2.charAt(i));
-            if (i > 0 && i % 2 == 1 && i < str2.length() - 1) {
+        for (int i2 = 0; i2 < str2.length(); i2++) {
+            stringBuffer.append(str2.charAt(i2));
+            if (i2 > 0 && i2 % 2 == 1 && i2 < str2.length() - 1) {
                 stringBuffer.append(":");
             }
         }
@@ -83,10 +83,10 @@ public class b {
         }
         int length = b2.length;
         String[] strArr = new String[length];
-        for (int i = 0; i < length; i++) {
-            strArr[i] = b2[i] + ";" + packageName;
-            if (com.baidu.lbsapi.auth.a.f6357a) {
-                com.baidu.lbsapi.auth.a.a("mcode" + strArr[i]);
+        for (int i2 = 0; i2 < length; i2++) {
+            strArr[i2] = b2[i2] + ";" + packageName;
+            if (com.baidu.lbsapi.auth.a.f6542a) {
+                com.baidu.lbsapi.auth.a.a("mcode" + strArr[i2]);
             }
         }
         return strArr;
@@ -98,7 +98,7 @@ public class b {
     */
     public static String[] b(Context context, String str) {
         String[] strArr;
-        int i;
+        int i2;
         Signature[] signatureArr;
         String[] strArr2 = null;
         try {
@@ -107,23 +107,23 @@ public class b {
         }
         if (signatureArr != null && signatureArr.length > 0) {
             strArr = new String[signatureArr.length];
-            for (int i2 = 0; i2 < signatureArr.length; i2++) {
+            for (int i3 = 0; i3 < signatureArr.length; i3++) {
                 try {
-                    strArr[i2] = a((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(signatureArr[i2].toByteArray())));
+                    strArr[i3] = a((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(signatureArr[i3].toByteArray())));
                 } catch (PackageManager.NameNotFoundException | CertificateException unused2) {
                 }
             }
             if (strArr != null && strArr.length > 0) {
                 strArr2 = new String[strArr.length];
-                for (i = 0; i < strArr.length; i++) {
+                for (i2 = 0; i2 < strArr.length; i2++) {
                     StringBuffer stringBuffer = new StringBuffer();
-                    for (int i3 = 0; i3 < strArr[i].length(); i3++) {
-                        stringBuffer.append(strArr[i].charAt(i3));
-                        if (i3 > 0 && i3 % 2 == 1 && i3 < strArr[i].length() - 1) {
+                    for (int i4 = 0; i4 < strArr[i2].length(); i4++) {
+                        stringBuffer.append(strArr[i2].charAt(i4));
+                        if (i4 > 0 && i4 % 2 == 1 && i4 < strArr[i2].length() - 1) {
                             stringBuffer.append(":");
                         }
                     }
-                    strArr2[i] = stringBuffer.toString();
+                    strArr2[i2] = stringBuffer.toString();
                 }
             }
             return strArr2;
@@ -131,7 +131,7 @@ public class b {
         strArr = null;
         if (strArr != null) {
             strArr2 = new String[strArr.length];
-            while (i < strArr.length) {
+            while (i2 < strArr.length) {
             }
         }
         return strArr2;
@@ -150,7 +150,7 @@ public class b {
                 string = "";
             }
         }
-        if (com.baidu.lbsapi.auth.a.f6357a) {
+        if (com.baidu.lbsapi.auth.a.f6542a) {
             com.baidu.lbsapi.auth.a.a("getMacID mac_adress: " + string);
         }
         return string;
@@ -158,7 +158,7 @@ public class b {
 
     public static boolean c(Context context, String str) {
         boolean z = context.checkCallingOrSelfPermission(str) != -1;
-        if (com.baidu.lbsapi.auth.a.f6357a) {
+        if (com.baidu.lbsapi.auth.a.f6542a) {
             com.baidu.lbsapi.auth.a.a("hasPermission " + z + " | " + str);
         }
         return z;
@@ -169,12 +169,12 @@ public class b {
         String str = null;
         try {
         } catch (Exception e2) {
-            if (com.baidu.lbsapi.auth.a.f6357a) {
+            if (com.baidu.lbsapi.auth.a.f6542a) {
                 com.baidu.lbsapi.auth.a.a(e2.toString());
             }
         }
         if (!c(context, "android.permission.ACCESS_WIFI_STATE")) {
-            if (com.baidu.lbsapi.auth.a.f6357a) {
+            if (com.baidu.lbsapi.auth.a.f6542a) {
             }
             return str;
         }
@@ -183,7 +183,7 @@ public class b {
         if (!TextUtils.isEmpty(str)) {
             Base64.encode(str.getBytes(), 0);
         }
-        format = com.baidu.lbsapi.auth.a.f6357a ? String.format("ssid=%s mac=%s", connectionInfo.getSSID(), connectionInfo.getMacAddress()) : "You need the android.Manifest.permission.ACCESS_WIFI_STATE permission. Open AndroidManifest.xml and just before the final </manifest> tag add:android.permission.ACCESS_WIFI_STATE";
+        format = com.baidu.lbsapi.auth.a.f6542a ? String.format("ssid=%s mac=%s", connectionInfo.getSSID(), connectionInfo.getMacAddress()) : "You need the android.Manifest.permission.ACCESS_WIFI_STATE permission. Open AndroidManifest.xml and just before the final </manifest> tag add:android.permission.ACCESS_WIFI_STATE";
         return str;
         com.baidu.lbsapi.auth.a.a(format);
         return str;

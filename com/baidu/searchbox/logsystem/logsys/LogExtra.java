@@ -15,11 +15,11 @@ public final class LogExtra implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public LogExtra[] newArray(int i) {
-            if (i <= 0) {
+        public LogExtra[] newArray(int i2) {
+            if (i2 <= 0) {
                 return null;
             }
-            return new LogExtra[i];
+            return new LogExtra[i2];
         }
     };
     public String mCrashThreadName;
@@ -53,7 +53,7 @@ public final class LogExtra implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.mPage);
         parcel.writeString(this.mCrashTime);
         parcel.writeString(this.mLaunchTime);

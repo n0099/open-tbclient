@@ -56,17 +56,17 @@ public class TimeDeserializer implements ObjectDeserializer {
                 parseLong = jSONScanner.getCalendar().getTimeInMillis();
             } else {
                 boolean z = false;
-                int i = 0;
+                int i2 = 0;
                 while (true) {
-                    if (i >= str.length()) {
+                    if (i2 >= str.length()) {
                         z = true;
                         break;
                     }
-                    char charAt = str.charAt(i);
+                    char charAt = str.charAt(i2);
                     if (charAt < '0' || charAt > '9') {
                         break;
                     }
-                    i++;
+                    i2++;
                 }
                 if (!z) {
                     jSONScanner.close();

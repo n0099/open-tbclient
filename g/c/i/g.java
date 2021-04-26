@@ -7,34 +7,34 @@ import java.util.TreeMap;
 public class g implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f68798a;
+    public byte[] f67660a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TreeMap<String, String> f68799b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+    public TreeMap<String, String> f67661b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
     @Override // g.c.i.f
-    public boolean b(String str) {
-        return this.f68799b.containsKey(str);
+    public String d(String str) {
+        String str2 = this.f67661b.get(str);
+        return str2 == null ? "" : str2;
     }
 
     @Override // g.c.i.f
-    public Iterator<String> d() {
-        return Collections.unmodifiableSet(this.f68799b.keySet()).iterator();
+    public boolean e(String str) {
+        return this.f67661b.containsKey(str);
+    }
+
+    @Override // g.c.i.f
+    public Iterator<String> g() {
+        return Collections.unmodifiableSet(this.f67661b.keySet()).iterator();
     }
 
     @Override // g.c.i.f
     public byte[] getContent() {
-        return this.f68798a;
-    }
-
-    @Override // g.c.i.f
-    public String h(String str) {
-        String str2 = this.f68799b.get(str);
-        return str2 == null ? "" : str2;
+        return this.f67660a;
     }
 
     @Override // g.c.i.c
     public void put(String str, String str2) {
-        this.f68799b.put(str, str2);
+        this.f67661b.put(str, str2);
     }
 }

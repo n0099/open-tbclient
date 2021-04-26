@@ -9,8 +9,9 @@ public final class ArrayShortIterator extends ShortIterator {
     public final short[] array;
     public int index;
 
-    public ArrayShortIterator(short[] sArr) {
-        this.array = sArr;
+    public ArrayShortIterator(short[] array) {
+        Intrinsics.checkNotNullParameter(array, "array");
+        this.array = array;
     }
 
     @Override // java.util.Iterator
@@ -22,9 +23,9 @@ public final class ArrayShortIterator extends ShortIterator {
     public short nextShort() {
         try {
             short[] sArr = this.array;
-            int i = this.index;
-            this.index = i + 1;
-            return sArr[i];
+            int i2 = this.index;
+            this.index = i2 + 1;
+            return sArr[i2];
         } catch (ArrayIndexOutOfBoundsException e2) {
             this.index--;
             throw new NoSuchElementException(e2.getMessage());

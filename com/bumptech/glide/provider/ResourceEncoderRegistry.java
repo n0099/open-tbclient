@@ -31,8 +31,8 @@ public class ResourceEncoderRegistry {
     @Nullable
     public synchronized <Z> ResourceEncoder<Z> get(@NonNull Class<Z> cls) {
         int size = this.encoders.size();
-        for (int i = 0; i < size; i++) {
-            Entry<?> entry = this.encoders.get(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            Entry<?> entry = this.encoders.get(i2);
             if (entry.handles(cls)) {
                 return (ResourceEncoder<Z>) entry.encoder;
             }

@@ -5,7 +5,7 @@ public class GPUImageUtil {
         System.loadLibrary("gpuimage_library");
     }
 
-    public static native void YUVtoARBG(byte[] bArr, int i, int i2, int[] iArr);
+    public static native void YUVtoARBG(byte[] bArr, int i2, int i3, int[] iArr);
 
-    public static native void YUVtoRBGA(byte[] bArr, int i, int i2, int[] iArr);
+    public static native void YUVtoRBGA(byte[] bArr, int i2, int i3, int[] iArr);
 }

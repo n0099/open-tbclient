@@ -16,7 +16,6 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.webkit.internal.ETAG;
 import com.baidubce.services.vod.VodClient;
-import com.kwai.video.player.misc.KsMediaFormat;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -46,6 +45,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.IceCandidate;
+import org.webrtc.MediaStreamTrack;
 import org.webrtc.SessionDescription;
 /* loaded from: classes2.dex */
 public class WebSocketChannel {
@@ -96,7 +96,7 @@ public class WebSocketChannel {
     public long mUserId = (Build.SERIAL.hashCode() % 100000) + 78657895;
     public String mDisplayName = "Android-rtc";
     public String mRoomName = "";
-    public String mVideoCodec = KsMediaFormat.CODEC_NAME_H264;
+    public String mVideoCodec = "h264";
     public boolean mAsPublisher = true;
     public boolean mAsListener = true;
     public boolean mHasVideo = true;
@@ -353,8 +353,8 @@ public class WebSocketChannel {
                             JSONArray optJSONArray2 = optJSONObject.optJSONArray("publishers");
                             if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                                 int length = optJSONArray2.length();
-                                for (int i = 0; i <= length - 1; i++) {
-                                    JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i);
+                                for (int i2 = 0; i2 <= length - 1; i2++) {
+                                    JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
                                     BigInteger bigInteger = new BigInteger(optJSONObject2.optString("id"));
                                     String optString5 = optJSONObject2.optString("display");
                                     this.delegate.onComing(bigInteger, optString5);
@@ -424,8 +424,8 @@ public class WebSocketChannel {
                             return;
                         } else {
                             int length2 = optJSONArray.length();
-                            for (int i2 = 0; i2 <= length2 - 1; i2++) {
-                                JSONObject optJSONObject6 = optJSONArray.optJSONObject(i2);
+                            for (int i3 = 0; i3 <= length2 - 1; i3++) {
+                                JSONObject optJSONObject6 = optJSONArray.optJSONObject(i3);
                                 BigInteger bigInteger2 = new BigInteger(optJSONObject6.optString("id"));
                                 String optString8 = optJSONObject6.optString("display");
                                 BaiduRtcRoom.RtcRoomUserInfo rtcRoomUserInfo3 = new BaiduRtcRoom.RtcRoomUserInfo();
@@ -448,7 +448,7 @@ public class WebSocketChannel {
                             JSONObject optJSONObject7 = jSONObject.optJSONObject("forwardconfigure");
                             long optLong2 = Boolean.valueOf(optJSONObject7.optBoolean("self")).booleanValue() ? this.mUserId : optJSONObject7.optLong("id");
                             Boolean valueOf = Boolean.valueOf(optJSONObject7.optBoolean("video"));
-                            Boolean valueOf2 = Boolean.valueOf(optJSONObject7.optBoolean("audio"));
+                            Boolean valueOf2 = Boolean.valueOf(optJSONObject7.optBoolean(MediaStreamTrack.AUDIO_TRACK_KIND));
                             if (valueOf.booleanValue() && valueOf2.booleanValue()) {
                                 this.delegate.onUserDisShutUp(optLong2);
                                 return;
@@ -626,7 +626,7 @@ public class WebSocketChannel {
     private String randomString(Integer num) {
         Random random = new Random();
         StringBuilder sb = new StringBuilder(num.intValue());
-        for (int i = 0; i < num.intValue(); i++) {
+        for (int i2 = 0; i2 < num.intValue(); i2++) {
             sb.append("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(random.nextInt(62)));
         }
         return sb.toString();
@@ -702,13 +702,13 @@ public class WebSocketChannel {
             return null;
         }
         BaiduRtcRoom.RtcRoomUserInfo[] rtcRoomUserInfoArr = new BaiduRtcRoom.RtcRoomUserInfo[this.mUserInfoList.size()];
-        int i = 0;
+        int i2 = 0;
         for (BaiduRtcRoom.RtcRoomUserInfo rtcRoomUserInfo : this.mUserInfoList.values()) {
-            rtcRoomUserInfoArr[i] = new BaiduRtcRoom.RtcRoomUserInfo();
-            rtcRoomUserInfoArr[i].userId = rtcRoomUserInfo.userId;
-            rtcRoomUserInfoArr[i].userName = rtcRoomUserInfo.userName;
-            rtcRoomUserInfoArr[i].attribute = rtcRoomUserInfo.attribute;
-            i++;
+            rtcRoomUserInfoArr[i2] = new BaiduRtcRoom.RtcRoomUserInfo();
+            rtcRoomUserInfoArr[i2].userId = rtcRoomUserInfo.userId;
+            rtcRoomUserInfoArr[i2].userName = rtcRoomUserInfo.userName;
+            rtcRoomUserInfoArr[i2].attribute = rtcRoomUserInfo.attribute;
+            i2++;
         }
         return rtcRoomUserInfoArr;
     }
@@ -724,11 +724,11 @@ public class WebSocketChannel {
                 JSONArray optJSONArray2 = jSONObject.optJSONObject("plugindata").optJSONObject("data").optJSONArray("listeners");
                 if (optJSONArray != null) {
                     BaiduRtcRoom.UserList userList = new BaiduRtcRoom.UserList(optJSONArray.length(), optJSONArray2.length());
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        userList.Publishers[i] = optJSONArray.optJSONObject(i).optInt("clientUserId");
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        userList.Publishers[i2] = optJSONArray.optJSONObject(i2).optInt("clientUserId");
                     }
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        userList.Listeners[i2] = optJSONArray2.optJSONObject(i2).optInt("clientUserId");
+                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                        userList.Listeners[i3] = optJSONArray2.optJSONObject(i3).optInt("clientUserId");
                     }
                     WebSocketChannel.this.mUserList = userList;
                 }
@@ -1025,14 +1025,14 @@ public class WebSocketChannel {
             }
         }).build().newWebSocket(new Request.Builder().url(str2).build(), new WebSocketListener() { // from class: com.baidu.rtc.WebSocketChannel.3
             @Override // okhttp3.WebSocketListener
-            public void onClosed(WebSocket webSocket, int i, String str3) {
+            public void onClosed(WebSocket webSocket, int i2, String str3) {
                 if (BaiduRtcRoomImp.mbEnableDebugLog) {
                     Log.i(WebSocketChannel.TAG, "onClosed");
                 }
             }
 
             @Override // okhttp3.WebSocketListener
-            public void onClosing(WebSocket webSocket, int i, String str3) {
+            public void onClosing(WebSocket webSocket, int i2, String str3) {
                 if (BaiduRtcRoomImp.mbEnableDebugLog) {
                     Log.i(WebSocketChannel.TAG, "onClosing");
                 }
@@ -1120,9 +1120,9 @@ public class WebSocketChannel {
             @Override // java.lang.Runnable
             public void run() {
                 int size = WebSocketChannel.this.handles.size();
-                for (int i = 0; i < size; i++) {
+                for (int i2 = 0; i2 < size; i2++) {
                     WebSocketChannel webSocketChannel = WebSocketChannel.this;
-                    webSocketChannel.doLeaveRoom((JanusHandle) webSocketChannel.handles.values().toArray()[i]);
+                    webSocketChannel.doLeaveRoom((JanusHandle) webSocketChannel.handles.values().toArray()[i2]);
                     try {
                         Thread.sleep(50L);
                     } catch (Exception unused) {
@@ -1138,7 +1138,7 @@ public class WebSocketChannel {
         JSONObject jSONObject3 = new JSONObject();
         try {
             jSONObject.putOpt("request", "configure");
-            jSONObject.putOpt("audio", Boolean.valueOf(this.mHasAudio));
+            jSONObject.putOpt(MediaStreamTrack.AUDIO_TRACK_KIND, Boolean.valueOf(this.mHasAudio));
             jSONObject.putOpt("video", Boolean.valueOf(this.mHasVideo));
             if (this.mHasData) {
                 jSONObject.putOpt("data", Boolean.valueOf(this.mHasData));
@@ -1215,8 +1215,8 @@ public class WebSocketChannel {
         this.mAutoSubScribe = z;
     }
 
-    public void setConnectionTimeoutMs(int i) {
-        this.mConnectionTimeoutMs = i;
+    public void setConnectionTimeoutMs(int i2) {
+        this.mConnectionTimeoutMs = i2;
     }
 
     public void setDelegate(JanusRTCInterface janusRTCInterface) {
@@ -1279,8 +1279,8 @@ public class WebSocketChannel {
         this.mLiveStreamingMix = z;
     }
 
-    public void setReadTimeoutMs(int i) {
-        this.mReadTimeoutMs = i;
+    public void setReadTimeoutMs(int i2) {
+        this.mReadTimeoutMs = i2;
     }
 
     public void setRecording(boolean z) {
@@ -1311,7 +1311,7 @@ public class WebSocketChannel {
         JSONObject jSONObject2 = new JSONObject();
         try {
             jSONObject.putOpt("request", "configure");
-            jSONObject.putOpt("audio", bool2);
+            jSONObject.putOpt(MediaStreamTrack.AUDIO_TRACK_KIND, bool2);
             jSONObject.putOpt("video", bool);
             jSONObject.putOpt("data", Boolean.TRUE);
             jSONObject2.putOpt("janus", "message");
@@ -1325,8 +1325,8 @@ public class WebSocketChannel {
         sendMessage(jSONObject2);
     }
 
-    public void setRoomId(int i) {
-        this.mRoomId = i;
+    public void setRoomId(int i2) {
+        this.mRoomId = i2;
     }
 
     public void setRoomName(String str) {
@@ -1389,7 +1389,7 @@ public class WebSocketChannel {
             jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
             jSONObject.putOpt("target", Long.valueOf(j));
             boolean z2 = !z;
-            jSONObject.putOpt("audio", Boolean.valueOf(z2));
+            jSONObject.putOpt(MediaStreamTrack.AUDIO_TRACK_KIND, Boolean.valueOf(z2));
             jSONObject.putOpt("video", Boolean.valueOf(z2));
             jSONObject.putOpt("data", Boolean.valueOf(z2));
             Send(jSONObject);

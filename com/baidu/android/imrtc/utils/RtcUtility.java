@@ -80,11 +80,11 @@ public class RtcUtility {
         return context.getSharedPreferences(PREF_COMMON_DATA, 0).getBoolean(str, z);
     }
 
-    public static int readIntData(Context context, String str, int i) {
+    public static int readIntData(Context context, String str, int i2) {
         if (context == null) {
             return -1;
         }
-        return context.getSharedPreferences(PREF_COMMON_DATA, 0).getInt(str, i);
+        return context.getSharedPreferences(PREF_COMMON_DATA, 0).getInt(str, i2);
     }
 
     public static long readLongData(Context context, String str, long j) {
@@ -146,8 +146,8 @@ public class RtcUtility {
         writeSPData(context, str, Boolean.valueOf(z));
     }
 
-    public static void writeIntData(Context context, String str, int i) {
-        writeSPData(context, str, Integer.valueOf(i));
+    public static void writeIntData(Context context, String str, int i2) {
+        writeSPData(context, str, Integer.valueOf(i2));
     }
 
     public static void writeLongData(Context context, String str, long j) {

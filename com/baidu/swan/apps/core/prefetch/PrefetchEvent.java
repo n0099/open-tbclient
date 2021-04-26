@@ -8,8 +8,8 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import d.b.h0.a.k;
-import d.b.h0.a.t1.k.p0.j;
+import d.a.h0.a.k;
+import d.a.h0.a.t1.k.p0.j;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
@@ -44,8 +44,8 @@ public class PrefetchEvent extends SwanAppIPCData {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public PrefetchEvent[] newArray(int i) {
-            return new PrefetchEvent[i];
+        public PrefetchEvent[] newArray(int i2) {
+            return new PrefetchEvent[i2];
         }
     }
 
@@ -53,35 +53,35 @@ public class PrefetchEvent extends SwanAppIPCData {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public PrefetchEvent f11852a = new PrefetchEvent();
+        public PrefetchEvent f11687a = new PrefetchEvent();
 
         public b a(@NonNull String str) {
-            this.f11852a.appId = str;
+            this.f11687a.appId = str;
             return this;
         }
 
         public PrefetchEvent b() {
-            return this.f11852a;
+            return this.f11687a;
         }
 
         public b c(@NonNull String str) {
-            this.f11852a.scene = str;
+            this.f11687a.scene = str;
             return this;
         }
 
         public b d(@NonNull String str) {
-            this.f11852a.schema = str;
+            this.f11687a.schema = str;
             return this;
         }
 
         public b e(String str) {
-            this.f11852a.state = str;
+            this.f11687a.state = str;
             return this;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class c extends d.b.h0.a.k0.b.b {
+    public static class c extends d.a.h0.a.k0.b.b {
         public c(@Nullable Map<String, String> map, String str) {
             super(str, map);
         }
@@ -105,11 +105,11 @@ public class PrefetchEvent extends SwanAppIPCData {
         if (!TextUtils.isEmpty(prefetchEvent.appConfig)) {
             hashMap.put(EVENT_KEY_APP_CONFIG, prefetchEvent.appConfig);
         }
-        d.b.h0.a.l1.g.b.a(hashMap, "prefetch event");
+        d.a.h0.a.l1.g.b.a(hashMap, "prefetch event");
         if (!TextUtils.isEmpty(prefetchEvent.pageUrl)) {
             hashMap.put("pageUrl", prefetchEvent.pageUrl);
             j.a(prefetchEvent.pageUrl, hashMap);
-        } else if (k.f45772a) {
+        } else if (k.f43101a) {
             Log.e("PrefetchEvent", "page url is empty, it's impossible !!!");
         }
         String str = "preload";
@@ -140,7 +140,7 @@ public class PrefetchEvent extends SwanAppIPCData {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.appId);
         parcel.writeString(this.schema);
         parcel.writeString(this.state);

@@ -13,41 +13,41 @@ import org.json.JSONObject;
 public class j extends c {
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f3515b;
+    public Context f3553b;
 
     public j(Context context) {
         super(context);
-        this.f3515b = context.getApplicationContext();
+        this.f3553b = context.getApplicationContext();
     }
 
     public static String a(byte[] bArr) {
         if (bArr == null || bArr.length == 0) {
             return "";
         }
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            if (i >= bArr.length) {
-                i = 0;
+            if (i2 >= bArr.length) {
+                i2 = 0;
                 break;
-            } else if (bArr[i] == 0) {
+            } else if (bArr[i2] == 0) {
                 break;
             } else {
-                i++;
+                i2++;
             }
         }
-        return new String(bArr, 0, i);
+        return new String(bArr, 0, i2);
     }
 
-    public static void a(Context context, com.baidu.android.pushservice.message.a.l lVar, String str, int i) {
+    public static void a(Context context, com.baidu.android.pushservice.message.a.l lVar, String str, int i2) {
         b.a c2;
         long j;
         if (lVar == com.baidu.android.pushservice.message.a.l.MSG_TYPE_SINGLE_PRIVATE || lVar == com.baidu.android.pushservice.message.a.l.MSG_TYPE_MULTI_PRIVATE || lVar == com.baidu.android.pushservice.message.a.l.MSG_TYPE_PRIVATE_MESSAGE) {
             b.a a2 = new b.a(context).a("0").b(str).a(System.currentTimeMillis());
-            c2 = a2.c(i + "");
+            c2 = a2.c(i2 + "");
             j = 601002;
         } else {
             b.a a3 = new b.a(context).a("0").b(str).a(System.currentTimeMillis());
-            c2 = a3.c(i + "");
+            c2 = a3.c(i2 + "");
             j = 601001;
         }
         c2.b(j).a();
@@ -55,10 +55,10 @@ public class j extends c {
 
     @Override // com.baidu.android.pushservice.message.c
     public g a(e eVar) {
-        eVar.f3494d = true;
+        eVar.f3530d = true;
         g gVar = new g();
         gVar.a(-1);
-        byte[] bArr = eVar.f3492b;
+        byte[] bArr = eVar.f3528b;
         if (bArr == null) {
             return gVar;
         }
@@ -95,10 +95,10 @@ public class j extends c {
                     if (!jSONObject.isNull("expiretime")) {
                         kVar.a(jSONObject.getLong("expiretime"));
                     }
-                    kVar.a(!jSONObject.isNull("notify_id") ? jSONObject.getInt("notify_id") : kVar.g() != com.baidu.android.pushservice.message.a.l.MSG_TYPE_CLEAR_MESSAGE.b() ? m.i(this.f3515b, kVar.f()) : 0);
+                    kVar.a(!jSONObject.isNull("notify_id") ? jSONObject.getInt("notify_id") : kVar.g() != com.baidu.android.pushservice.message.a.l.MSG_TYPE_CLEAR_MESSAGE.b() ? m.i(this.f3553b, kVar.f()) : 0);
                     kVar.a(false);
                 } catch (JSONException e2) {
-                    new b.c(this.f3488a).a(Log.getStackTraceString(e2)).a();
+                    new b.c(this.f3524a).a(Log.getStackTraceString(e2)).a();
                 }
             } else {
                 kVar.a(false);
@@ -109,24 +109,24 @@ public class j extends c {
             if (c2 <= 0) {
                 c2 = 0;
             }
-            int i = c2 + 204;
-            int length = bArr.length - i;
+            int i2 = c2 + 204;
+            int length = bArr.length - i2;
             if (length <= 0) {
                 length = 0;
             }
             byte[] bArr5 = new byte[length];
-            System.arraycopy(bArr, i, bArr5, 0, length);
-            m.a("New MSG: " + kVar.toString(), this.f3488a);
+            System.arraycopy(bArr, i2, bArr5, 0, length);
+            m.a("New MSG: " + kVar.toString(), this.f3524a);
             com.baidu.android.pushservice.message.a.l a2 = com.baidu.android.pushservice.message.a.l.a(kVar.g());
-            if (a2 != com.baidu.android.pushservice.message.a.l.MSG_TYPE_APP_PRIORITY && com.baidu.android.pushservice.c.c.c(this.f3488a, kVar.e())) {
+            if (a2 != com.baidu.android.pushservice.message.a.l.MSG_TYPE_APP_PRIORITY && com.baidu.android.pushservice.c.c.c(this.f3524a, kVar.e())) {
                 String str = "Message ID(" + kVar.f() + ") received duplicated, ack success to server directly.";
-                com.baidu.android.pushservice.g.a.a("PushMessageHandler", str, this.f3515b);
-                m.a(str, this.f3515b);
-                a(this.f3488a, a2, kVar.f(), 4);
+                com.baidu.android.pushservice.g.a.a("PushMessageHandler", str, this.f3553b);
+                m.a(str, this.f3553b);
+                a(this.f3524a, a2, kVar.f(), 4);
                 gVar.a(4);
                 return gVar;
             }
-            com.baidu.android.pushservice.message.a.d a3 = new com.baidu.android.pushservice.message.a.k(this.f3488a).a(a2);
+            com.baidu.android.pushservice.message.a.d a3 = new com.baidu.android.pushservice.message.a.k(this.f3524a).a(a2);
             if (a3 != null) {
                 gVar = a3.a(kVar, bArr5);
             } else {
@@ -136,15 +136,15 @@ public class j extends c {
                 return null;
             }
             if (a2 == com.baidu.android.pushservice.message.a.l.MSG_TYPE_SINGLE_PRIVATE || a2 == com.baidu.android.pushservice.message.a.l.MSG_TYPE_MULTI_PRIVATE || a2 == com.baidu.android.pushservice.message.a.l.MSG_TYPE_PRIVATE_MESSAGE) {
-                com.baidu.android.pushservice.c.c.a(this.f3488a, kVar.c(), kVar.g(), kVar.e(), bArr5, kVar.h(), kVar.b(), gVar.a(), kVar.a());
+                com.baidu.android.pushservice.c.c.a(this.f3524a, kVar.c(), kVar.g(), kVar.e(), bArr5, kVar.h(), kVar.b(), gVar.a(), kVar.a());
             } else if (a2 != com.baidu.android.pushservice.message.a.l.MSG_TYPE_APP_PRIORITY) {
-                com.baidu.android.pushservice.c.c.a(this.f3488a, kVar.c(), kVar.g(), kVar.e(), null, null, 0L, gVar.a(), kVar.a());
+                com.baidu.android.pushservice.c.c.a(this.f3524a, kVar.c(), kVar.g(), kVar.e(), null, null, 0L, gVar.a(), kVar.a());
             }
-            m.o(this.f3488a);
-            a(this.f3488a, a2, kVar.f(), gVar.a());
+            m.o(this.f3524a);
+            a(this.f3524a, a2, kVar.f(), gVar.a());
             return gVar;
         } catch (IOException e3) {
-            new b.c(this.f3488a).a(Log.getStackTraceString(e3)).a();
+            new b.c(this.f3524a).a(Log.getStackTraceString(e3)).a();
             return gVar;
         }
     }

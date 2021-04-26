@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.GetOfficialSwitch.DataRes;
 import tbclient.GetOfficialSwitch.GetOfficialSwitchResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class OfficialAccountPushHttpResponseMessage extends TbHttpResponsedMessage {
     public ArrayList<OfficialAccountPushInfo> official_list;
 
-    public OfficialAccountPushHttpResponseMessage(int i) {
-        super(i);
+    public OfficialAccountPushHttpResponseMessage(int i2) {
+        super(i2);
     }
 
     public ArrayList<OfficialAccountPushInfo> getList() {
@@ -20,7 +20,7 @@ public class OfficialAccountPushHttpResponseMessage extends TbHttpResponsedMessa
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         String str;
         Integer num;
         if (bArr == null) {
@@ -43,9 +43,9 @@ public class OfficialAccountPushHttpResponseMessage extends TbHttpResponsedMessa
             return;
         }
         this.official_list = new ArrayList<>();
-        for (int i2 = 0; i2 < getOfficialSwitchResIdl.data.official_list.size(); i2++) {
+        for (int i3 = 0; i3 < getOfficialSwitchResIdl.data.official_list.size(); i3++) {
             OfficialAccountPushInfo officialAccountPushInfo = new OfficialAccountPushInfo();
-            officialAccountPushInfo.a(getOfficialSwitchResIdl.data.official_list.get(i2));
+            officialAccountPushInfo.a(getOfficialSwitchResIdl.data.official_list.get(i3));
             this.official_list.add(officialAccountPushInfo);
         }
     }

@@ -152,7 +152,7 @@ public abstract class AbstractHttpClient implements HttpClient {
         throw new RuntimeException("Stub!");
     }
 
-    public synchronized HttpRequestInterceptor getRequestInterceptor(int i) {
+    public synchronized HttpRequestInterceptor getRequestInterceptor(int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -160,7 +160,7 @@ public abstract class AbstractHttpClient implements HttpClient {
         throw new RuntimeException("Stub!");
     }
 
-    public synchronized HttpResponseInterceptor getResponseInterceptor(int i) {
+    public synchronized HttpResponseInterceptor getResponseInterceptor(int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -240,11 +240,11 @@ public abstract class AbstractHttpClient implements HttpClient {
         throw new RuntimeException("Stub!");
     }
 
-    public synchronized void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i) {
+    public synchronized void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public synchronized void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i) {
+    public synchronized void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i2) {
         throw new RuntimeException("Stub!");
     }
 

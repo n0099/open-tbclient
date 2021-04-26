@@ -17,10 +17,10 @@ public final class ResolveFieldDeserializer extends FieldDeserializer {
     public final Map map;
     public final DefaultJSONParser parser;
 
-    public ResolveFieldDeserializer(DefaultJSONParser defaultJSONParser, List list, int i) {
+    public ResolveFieldDeserializer(DefaultJSONParser defaultJSONParser, List list, int i2) {
         super(null, null);
         this.parser = defaultJSONParser;
-        this.index = i;
+        this.index = i2;
         this.list = list;
         this.key = null;
         this.map = null;

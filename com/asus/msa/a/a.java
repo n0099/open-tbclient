@@ -16,10 +16,10 @@ public interface a extends IInterface {
         public static class C0019a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f2137a;
+            public IBinder f2100a;
 
             public C0019a(IBinder iBinder) {
-                this.f2137a = iBinder;
+                this.f2100a = iBinder;
             }
 
             @Override // com.asus.msa.a.a
@@ -28,7 +28,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f2137a.transact(1, obtain, obtain2, 0);
+                    this.f2100a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -39,7 +39,7 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f2137a;
+                return this.f2100a;
             }
 
             @Override // com.asus.msa.a.a
@@ -48,7 +48,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f2137a.transact(2, obtain, obtain2, 0);
+                    this.f2100a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -63,7 +63,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f2137a.transact(3, obtain, obtain2, 0);
+                    this.f2100a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -78,7 +78,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f2137a.transact(4, obtain, obtain2, 0);
+                    this.f2100a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -93,7 +93,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f2137a.transact(5, obtain, obtain2, 0);
+                    this.f2100a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -112,36 +112,36 @@ public interface a extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
-            if (i == 1598968902) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) {
+            if (i2 == 1598968902) {
                 parcel2.writeString("com.asus.msa.SupplementaryDID.IDidAidlInterface");
                 return true;
-            } else if (i == 1) {
+            } else if (i2 == 1) {
                 parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
                 boolean a2 = a();
                 parcel2.writeNoException();
                 parcel2.writeInt(a2 ? 1 : 0);
                 return true;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
                 String b2 = b();
                 parcel2.writeNoException();
                 parcel2.writeString(b2);
                 return true;
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
                 String c2 = c();
                 parcel2.writeNoException();
                 parcel2.writeString(c2);
                 return true;
-            } else if (i == 4) {
+            } else if (i2 == 4) {
                 parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
                 String d2 = d();
                 parcel2.writeNoException();
                 parcel2.writeString(d2);
                 return true;
-            } else if (i != 5) {
-                return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 5) {
+                return super.onTransact(i2, parcel, parcel2, i3);
             } else {
                 parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
                 String e2 = e();

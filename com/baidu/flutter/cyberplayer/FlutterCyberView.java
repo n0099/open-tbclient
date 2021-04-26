@@ -6,7 +6,7 @@ import android.os.PowerManager;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberVideoView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FlutterCyberView extends CyberVideoView {
     public Context H;
     public PowerManager.WakeLock I;
@@ -23,7 +23,7 @@ public class FlutterCyberView extends CyberVideoView {
     public CyberPlayerManager.OnSeekCompleteListener T;
     public CyberPlayerManager.OnInfoListener U;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a implements CyberPlayerManager.OnPreparedListener {
         public a() {
         }
@@ -34,21 +34,21 @@ public class FlutterCyberView extends CyberVideoView {
             if (FlutterCyberView.this.L != null) {
                 FlutterCyberView.this.L.onPrepared();
             }
-            if (!FlutterCyberView.this.J || (a2 = d.b.o.a.d.b().a(FlutterCyberView.this.K)) <= 0) {
+            if (!FlutterCyberView.this.J || (a2 = d.a.o.a.d.b().a(FlutterCyberView.this.K)) <= 0) {
                 return;
             }
             FlutterCyberView.this.seekTo(a2);
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class b implements CyberPlayerManager.OnCompletionListener {
         public b() {
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
         public void onCompletion() {
-            d.b.o.a.d.b().c(FlutterCyberView.this.K);
+            d.a.o.a.d.b().c(FlutterCyberView.this.K);
             if (FlutterCyberView.this.getCyberPlayer().isLooping() || FlutterCyberView.this.M == null) {
                 return;
             }
@@ -56,25 +56,25 @@ public class FlutterCyberView extends CyberVideoView {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class c implements CyberPlayerManager.OnErrorListener {
         public c() {
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
-        public boolean onError(int i, int i2, Object obj) {
+        public boolean onError(int i2, int i3, Object obj) {
             if (FlutterCyberView.this.getCurrentPosition() > 0 && FlutterCyberView.this.s()) {
-                d.b.o.a.d.b().d(FlutterCyberView.this.K, FlutterCyberView.this.getCurrentPosition());
+                d.a.o.a.d.b().d(FlutterCyberView.this.K, FlutterCyberView.this.getCurrentPosition());
             }
             if (FlutterCyberView.this.O != null) {
-                FlutterCyberView.this.O.onError(i, i2, obj);
+                FlutterCyberView.this.O.onError(i2, i3, obj);
                 return true;
             }
             return true;
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class d implements CyberPlayerManager.OnSeekCompleteListener {
         public d() {
         }
@@ -87,22 +87,22 @@ public class FlutterCyberView extends CyberVideoView {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class e implements CyberPlayerManager.OnInfoListener {
         public e() {
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
-        public boolean onInfo(int i, int i2, Object obj) {
+        public boolean onInfo(int i2, int i3, Object obj) {
             if (FlutterCyberView.this.P != null) {
-                FlutterCyberView.this.P.onInfo(i, i2, obj);
+                FlutterCyberView.this.P.onInfo(i2, i3, obj);
                 return true;
             }
             return true;
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface f {
     }
 
@@ -155,7 +155,7 @@ public class FlutterCyberView extends CyberVideoView {
     public void setOnSurfaceDestroyedListener(f fVar) {
     }
 
-    public void setVideoDuration(int i) {
+    public void setVideoDuration(int i2) {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView
@@ -170,7 +170,7 @@ public class FlutterCyberView extends CyberVideoView {
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
     public void stopPlayback() {
         if (isPlaying() && s()) {
-            d.b.o.a.d.b().d(this.K, getCurrentPositionSync());
+            d.a.o.a.d.b().d(this.K, getCurrentPositionSync());
         }
         try {
             if (this.I != null && this.I.isHeld()) {
@@ -181,7 +181,7 @@ public class FlutterCyberView extends CyberVideoView {
         super.stopPlayback();
     }
 
-    public void u() {
+    public void t() {
         stopPlayback();
     }
 }

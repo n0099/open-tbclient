@@ -14,7 +14,7 @@ public class FunSimpleAdCallback implements FunAdCallback {
     }
 
     @Override // com.fun.ad.sdk.FunAdCallback
-    public void onAdLoadError(String str, String str2, String str3, String str4, int i, String str5) {
+    public void onAdLoadError(String str, String str2, String str3, String str4, int i2, String str5) {
     }
 
     @Override // com.fun.ad.sdk.FunAdCallback
@@ -26,7 +26,7 @@ public class FunSimpleAdCallback implements FunAdCallback {
     }
 
     @Override // com.fun.ad.sdk.FunAdCallback
-    public void onAdShowError(String str, String str2, String str3, String str4, int i, String str5) {
+    public void onAdShowError(String str, String str2, String str3, String str4, int i2, String str5) {
     }
 
     @Override // com.fun.ad.sdk.FunAdCallback

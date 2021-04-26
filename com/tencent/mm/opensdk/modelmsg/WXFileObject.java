@@ -61,8 +61,8 @@ public class WXFileObject implements WXMediaMessage.IMediaObject {
         bundle.putString("_wxfileobject_filePath", this.filePath);
     }
 
-    public void setContentLengthLimit(int i) {
-        this.contentLengthLimit = i;
+    public void setContentLengthLimit(int i2) {
+        this.contentLengthLimit = i2;
     }
 
     public void setFileData(byte[] bArr) {

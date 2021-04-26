@@ -4,7 +4,7 @@ import h.e;
 import h.f;
 import h.j;
 import h.k;
-import h.o.a.r;
+import h.o.a.q;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -16,7 +16,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
     public volatile boolean done;
     public boolean emitting;
     public boolean missed;
-    public r<? super T> parent;
+    public q<? super T> parent;
     public Throwable terminal;
     public final AtomicReference<Object> value = new AtomicReference<>(EMPTY);
 
@@ -132,7 +132,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
     @Override // h.f
     public void request(long j) {
         long j2;
-        int i;
+        int i2;
         long j3;
         if (j >= 0) {
             do {
@@ -140,8 +140,8 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
                 if (j2 == Long.MIN_VALUE) {
                     return;
                 }
-                i = (j2 > (-4611686018427387904L) ? 1 : (j2 == (-4611686018427387904L) ? 0 : -1));
-                if (i == 0) {
+                i2 = (j2 > (-4611686018427387904L) ? 1 : (j2 == (-4611686018427387904L) ? 0 : -1));
+                if (i2 == 0) {
                     j3 = j;
                 } else {
                     j3 = j2 + j;
@@ -150,7 +150,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
                     }
                 }
             } while (!compareAndSet(j2, j3));
-            if (i == 0) {
+            if (i2 == 0) {
                 this.parent.b(Long.MAX_VALUE);
             }
             emit();

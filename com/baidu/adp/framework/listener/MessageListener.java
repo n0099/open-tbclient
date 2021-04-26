@@ -2,18 +2,18 @@ package com.baidu.adp.framework.listener;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import d.b.c.c.d;
+import d.a.c.c.d;
 /* loaded from: classes.dex */
 public abstract class MessageListener<T extends ResponsedMessage<?>> extends d {
     public int mCmd;
     public boolean mSelfListener;
     public BdUniqueId mTag;
 
-    public MessageListener(int i) {
+    public MessageListener(int i2) {
         this.mCmd = 0;
         this.mTag = null;
         this.mSelfListener = false;
-        this.mCmd = i;
+        this.mCmd = i2;
     }
 
     public int getCmd() {
@@ -38,11 +38,11 @@ public abstract class MessageListener<T extends ResponsedMessage<?>> extends d {
         this.mTag = bdUniqueId;
     }
 
-    public MessageListener(int i, boolean z) {
+    public MessageListener(int i2, boolean z) {
         this.mCmd = 0;
         this.mTag = null;
         this.mSelfListener = false;
-        this.mCmd = i;
+        this.mCmd = i2;
         this.mSelfListener = z;
     }
 }

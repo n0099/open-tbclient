@@ -1,9 +1,12 @@
 package androidx.core.graphics;
 
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.os.Build;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.util.Pair;
 /* loaded from: classes.dex */
 public final class PaintCompat {
@@ -30,11 +33,11 @@ public final class PaintCompat {
             if (measureText3 > measureText2 * 2.0f) {
                 return false;
             }
-            int i = 0;
-            while (i < length) {
-                int charCount = Character.charCount(str.codePointAt(i)) + i;
-                f2 += paint.measureText(str, i, charCount);
-                i = charCount;
+            int i2 = 0;
+            while (i2 < length) {
+                int charCount = Character.charCount(str.codePointAt(i2)) + i2;
+                f2 += paint.measureText(str, i2, charCount);
+                i2 = charCount;
             }
             if (measureText3 >= f2) {
                 return false;
@@ -59,5 +62,19 @@ public final class PaintCompat {
         pair.first.setEmpty();
         pair.second.setEmpty();
         return pair;
+    }
+
+    public static boolean setBlendMode(@NonNull Paint paint, @Nullable BlendModeCompat blendModeCompat) {
+        if (Build.VERSION.SDK_INT >= 29) {
+            paint.setBlendMode(blendModeCompat != null ? BlendModeUtils.obtainBlendModeFromCompat(blendModeCompat) : null);
+            return true;
+        } else if (blendModeCompat != null) {
+            PorterDuff.Mode obtainPorterDuffFromCompat = BlendModeUtils.obtainPorterDuffFromCompat(blendModeCompat);
+            paint.setXfermode(obtainPorterDuffFromCompat != null ? new PorterDuffXfermode(obtainPorterDuffFromCompat) : null);
+            return obtainPorterDuffFromCompat != null;
+        } else {
+            paint.setXfermode(null);
+            return true;
+        }
     }
 }

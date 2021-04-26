@@ -18,11 +18,11 @@ import com.baidu.tbadk.mutiprocess.event.PrivacyPolicyEvent;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.c.e.j.b.a;
-import d.b.c.e.p.l;
-import d.b.i0.f0.b;
-import d.b.i0.f0.h;
-import d.b.i0.z0.g;
+import d.a.c.e.j.b.a;
+import d.a.c.e.p.l;
+import d.a.i0.f0.b;
+import d.a.i0.f0.h;
+import d.a.i0.z0.g;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PermissionUtil {
@@ -30,7 +30,7 @@ public class PermissionUtil {
     public static boolean isSdkInited = false;
     public static b mAgreePrivacyPolicyEventListener = new b<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.f0.b
+        @Override // d.a.i0.f0.b
         public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
             if (privacyPolicyEvent == null) {
                 return true;
@@ -57,7 +57,7 @@ public class PermissionUtil {
             BdStatisticsManager.getInstance().setOaid(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
             BdStatisticsManager.getInstance().setAndroidId(TbadkCoreApplication.getInst().getAndroidId());
             FH.setAgreePolicy(TbadkCoreApplication.getInst(), PermissionUtil.isAgreePrivacyPolicy);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921544));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921554));
             return true;
         }
     };
@@ -211,7 +211,7 @@ public class PermissionUtil {
         }
         try {
             if (ApiUtil.shouldCheckPermission() && ContextCompat.checkPermissionDenied(providerContext, PermissionRequest.RESOURCE_AUDIO_CAPTURE)) {
-                l.K(providerContext, R.string.record_audio_permission_denied_fun_disable);
+                l.L(providerContext, R.string.record_audio_permission_denied_fun_disable);
                 return true;
             }
             return false;
@@ -253,7 +253,7 @@ public class PermissionUtil {
         }
         try {
             if (ApiUtil.shouldCheckPermission() && ContextCompat.checkPermissionDenied(providerContext, StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
-                l.K(providerContext, R.string.write_external_storage_permission_denied_fun_disable);
+                l.L(providerContext, R.string.write_external_storage_permission_denied_fun_disable);
                 return true;
             }
             return false;
@@ -264,7 +264,7 @@ public class PermissionUtil {
     }
 
     public static String getLastCachedOid(Context context) {
-        return !isAgreePrivacyPolicy() ? "" : d.b.q.b.d(context).e();
+        return !isAgreePrivacyPolicy() ? "" : d.a.q.b.d(context).e();
     }
 
     public static String getLocalMacAddress(Context context) {
@@ -272,7 +272,7 @@ public class PermissionUtil {
     }
 
     public static boolean isAgreePrivacyPolicy() {
-        return isAgreePrivacyPolicy || d.b.i0.r.d0.b.j().g("key_secret_is_show", false) || d.b.i0.r.d0.b.j().g("key_secret_is_show_new", false);
+        return isAgreePrivacyPolicy || d.a.i0.r.d0.b.j().g("key_secret_is_show", false) || d.a.i0.r.d0.b.j().g("key_secret_is_show_new", false);
     }
 
     public static Context providerContext(Context context) {
@@ -283,7 +283,7 @@ public class PermissionUtil {
         h.f().l(PrivacyPolicyEvent.class, mAgreePrivacyPolicyEventListener);
     }
 
-    public static boolean requestRecordAudioPermission(Activity activity, int i) {
+    public static boolean requestRecordAudioPermission(Activity activity, int i2) {
         ArrayList arrayList = new ArrayList();
         if (!checkRecodeAudio(activity.getApplicationContext())) {
             arrayList.add(PermissionRequest.RESOURCE_AUDIO_CAPTURE);
@@ -292,7 +292,7 @@ public class PermissionUtil {
             return false;
         }
         try {
-            ActivityCompat.requestPermissions(activity, (String[]) arrayList.toArray(new String[arrayList.size()]), i);
+            ActivityCompat.requestPermissions(activity, (String[]) arrayList.toArray(new String[arrayList.size()]), i2);
             return true;
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
@@ -300,15 +300,15 @@ public class PermissionUtil {
         }
     }
 
-    public static void requestWriteExternalStorage(Activity activity, int i) {
+    public static void requestWriteExternalStorage(Activity activity, int i2) {
         try {
-            ActivityCompat.requestPermissions(activity, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, i);
+            ActivityCompat.requestPermissions(activity, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, i2);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
     }
 
-    public static boolean requestWriteExternalStorgeAndAudioPermission(Activity activity, int i) {
+    public static boolean requestWriteExternalStorgeAndAudioPermission(Activity activity, int i2) {
         ArrayList arrayList = new ArrayList(2);
         if (!checkWriteExternalStorage(activity.getApplicationContext())) {
             arrayList.add(StorageUtils.EXTERNAL_STORAGE_PERMISSION);
@@ -320,7 +320,7 @@ public class PermissionUtil {
             return false;
         }
         try {
-            ActivityCompat.requestPermissions(activity, (String[]) arrayList.toArray(new String[arrayList.size()]), i);
+            ActivityCompat.requestPermissions(activity, (String[]) arrayList.toArray(new String[arrayList.size()]), i2);
             return true;
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
@@ -328,7 +328,7 @@ public class PermissionUtil {
         }
     }
 
-    public static boolean requestWriteExternalStorgeAndCameraPermission(Activity activity, int i) {
+    public static boolean requestWriteExternalStorgeAndCameraPermission(Activity activity, int i2) {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         if (!checkWriteExternalStorage(activity.getApplicationContext())) {
             permissionJudgePolicy.appendRequestPermission(activity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
@@ -336,35 +336,35 @@ public class PermissionUtil {
         if (!checkCamera(activity.getApplicationContext())) {
             permissionJudgePolicy.appendRequestPermission(activity, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         }
-        return permissionJudgePolicy.startRequestPermission(activity, i, PermissionJudgePolicy.EXTRA_DIALOG_REFUSE_POLICY.Refuse_one_by_one, null);
+        return permissionJudgePolicy.startRequestPermission(activity, i2, PermissionJudgePolicy.EXTRA_DIALOG_REFUSE_POLICY.Refuse_one_by_one, null);
     }
 
-    public static boolean requestWriteExternalStorgePermission(Activity activity, int i) {
+    public static boolean requestWriteExternalStorgePermission(Activity activity, int i2) {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         if (!checkWriteExternalStorage(activity.getApplicationContext())) {
             permissionJudgePolicy.appendRequestPermission(activity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
         }
-        return permissionJudgePolicy.startRequestPermission(activity, i, PermissionJudgePolicy.EXTRA_DIALOG_REFUSE_POLICY.Refuse_one_by_one, null);
+        return permissionJudgePolicy.startRequestPermission(activity, i2, PermissionJudgePolicy.EXTRA_DIALOG_REFUSE_POLICY.Refuse_one_by_one, null);
     }
 
-    public static void reuqestCamera(Activity activity, int i) {
+    public static void reuqestCamera(Activity activity, int i2) {
         try {
-            ActivityCompat.requestPermissions(activity, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, i);
+            ActivityCompat.requestPermissions(activity, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, i2);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
     }
 
-    public static boolean reuqestLocation(Activity activity, int i) {
+    public static boolean reuqestLocation(Activity activity, int i2) {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.appendRequestPermission(activity, "android.permission.ACCESS_COARSE_LOCATION");
         permissionJudgePolicy.appendRequestPermission(activity, "android.permission.ACCESS_FINE_LOCATION");
-        return permissionJudgePolicy.startRequestPermission(activity, i);
+        return permissionJudgePolicy.startRequestPermission(activity, i2);
     }
 
-    public static void reuqestReadPhoneState(Activity activity, int i) {
+    public static void reuqestReadPhoneState(Activity activity, int i2) {
         try {
-            ActivityCompat.requestPermissions(activity, new String[]{"android.permission.READ_PHONE_STATE"}, i);
+            ActivityCompat.requestPermissions(activity, new String[]{"android.permission.READ_PHONE_STATE"}, i2);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -372,7 +372,7 @@ public class PermissionUtil {
 
     public static void setIsAgreePrivacyPolicy(boolean z) {
         isAgreePrivacyPolicy = z;
-        d.b.i0.r.d0.b.j().t("key_secret_is_show_new", z);
+        d.a.i0.r.d0.b.j().t("key_secret_is_show_new", z);
         h.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
         BdSocketLinkService.setHasAbsoluteClose(false);
         BdSocketLinkService.setAvailable(true);
@@ -380,10 +380,10 @@ public class PermissionUtil {
     }
 
     public static void syncAgreeStatus(boolean z) {
-        if (z && d.b.i0.r.d0.b.j().g("key_secret_is_show", false)) {
+        if (z && d.a.i0.r.d0.b.j().g("key_secret_is_show", false)) {
             isAgreePrivacyPolicy = true;
-            d.b.i0.r.d0.b.j().t("key_secret_is_show_new", true);
-            d.b.i0.r.d0.b.j().C("key_secret_is_show");
+            d.a.i0.r.d0.b.j().t("key_secret_is_show_new", true);
+            d.a.i0.r.d0.b.j().C("key_secret_is_show");
         }
     }
 
@@ -392,16 +392,16 @@ public class PermissionUtil {
             return null;
         }
         ArrayMap<String, Boolean> arrayMap = new ArrayMap<>(strArr.length);
-        for (int i = 0; i < strArr.length && i < iArr.length; i++) {
-            arrayMap.put(strArr[i], Boolean.valueOf(iArr[i] == 0));
+        for (int i2 = 0; i2 < strArr.length && i2 < iArr.length; i2++) {
+            arrayMap.put(strArr[i2], Boolean.valueOf(iArr[i2] == 0));
         }
         return arrayMap;
     }
 
-    public static boolean reuqestLocation(Activity activity, int i, PermissionJudgePolicy.IExtraDialogCloseCallback iExtraDialogCloseCallback, PermissionJudgePolicy.ISystemPermissionDialogShowCallBack iSystemPermissionDialogShowCallBack) {
+    public static boolean reuqestLocation(Activity activity, int i2, PermissionJudgePolicy.IExtraDialogCloseCallback iExtraDialogCloseCallback, PermissionJudgePolicy.ISystemPermissionDialogShowCallBack iSystemPermissionDialogShowCallBack) {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.appendRequestPermission(activity, "android.permission.ACCESS_COARSE_LOCATION");
         permissionJudgePolicy.appendRequestPermission(activity, "android.permission.ACCESS_FINE_LOCATION");
-        return permissionJudgePolicy.startRequestPermission(activity, i, PermissionJudgePolicy.EXTRA_DIALOG_REFUSE_POLICY.Reject_all, iExtraDialogCloseCallback, iSystemPermissionDialogShowCallBack);
+        return permissionJudgePolicy.startRequestPermission(activity, i2, PermissionJudgePolicy.EXTRA_DIALOG_REFUSE_POLICY.Reject_all, iExtraDialogCloseCallback, iSystemPermissionDialogShowCallBack);
     }
 }

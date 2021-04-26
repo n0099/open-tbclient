@@ -39,8 +39,8 @@ public class ListFragment extends Fragment {
     };
     public final AdapterView.OnItemClickListener mOnClickListener = new AdapterView.OnItemClickListener() { // from class: androidx.fragment.app.ListFragment.2
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            ListFragment.this.onListItemClick((ListView) adapterView, view, i, j);
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+            ListFragment.this.onListItemClick((ListView) adapterView, view, i2, j);
         }
     };
 
@@ -97,10 +97,12 @@ public class ListFragment extends Fragment {
         throw new IllegalStateException("Content view not yet created");
     }
 
+    @Nullable
     public ListAdapter getListAdapter() {
         return this.mAdapter;
     }
 
+    @NonNull
     public ListView getListView() {
         ensureList();
         return this.mList;
@@ -117,23 +119,24 @@ public class ListFragment extends Fragment {
     }
 
     @Override // androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        Context context = getContext();
-        FrameLayout frameLayout = new FrameLayout(context);
-        LinearLayout linearLayout = new LinearLayout(context);
+    @Nullable
+    public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+        Context requireContext = requireContext();
+        FrameLayout frameLayout = new FrameLayout(requireContext);
+        LinearLayout linearLayout = new LinearLayout(requireContext);
         linearLayout.setId(INTERNAL_PROGRESS_CONTAINER_ID);
         linearLayout.setOrientation(1);
         linearLayout.setVisibility(8);
         linearLayout.setGravity(17);
-        linearLayout.addView(new ProgressBar(context, null, 16842874), new FrameLayout.LayoutParams(-2, -2));
+        linearLayout.addView(new ProgressBar(requireContext, null, 16842874), new FrameLayout.LayoutParams(-2, -2));
         frameLayout.addView(linearLayout, new FrameLayout.LayoutParams(-1, -1));
-        FrameLayout frameLayout2 = new FrameLayout(context);
+        FrameLayout frameLayout2 = new FrameLayout(requireContext);
         frameLayout2.setId(INTERNAL_LIST_CONTAINER_ID);
-        TextView textView = new TextView(context);
+        TextView textView = new TextView(requireContext);
         textView.setId(INTERNAL_EMPTY_ID);
         textView.setGravity(17);
         frameLayout2.addView(textView, new FrameLayout.LayoutParams(-1, -1));
-        ListView listView = new ListView(context);
+        ListView listView = new ListView(requireContext);
         listView.setId(16908298);
         listView.setDrawSelectorOnTop(false);
         frameLayout2.addView(listView, new FrameLayout.LayoutParams(-1, -1));
@@ -154,7 +157,7 @@ public class ListFragment extends Fragment {
         super.onDestroyView();
     }
 
-    public void onListItemClick(ListView listView, View view, int i, long j) {
+    public void onListItemClick(@NonNull ListView listView, @NonNull View view, int i2, long j) {
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -163,7 +166,16 @@ public class ListFragment extends Fragment {
         ensureList();
     }
 
-    public void setEmptyText(CharSequence charSequence) {
+    @NonNull
+    public final ListAdapter requireListAdapter() {
+        ListAdapter listAdapter = getListAdapter();
+        if (listAdapter != null) {
+            return listAdapter;
+        }
+        throw new IllegalStateException("ListFragment " + this + " does not have a ListAdapter.");
+    }
+
+    public void setEmptyText(@Nullable CharSequence charSequence) {
         ensureList();
         TextView textView = this.mStandardEmptyView;
         if (textView != null) {
@@ -177,7 +189,7 @@ public class ListFragment extends Fragment {
         throw new IllegalStateException("Can't be used with a custom content view");
     }
 
-    public void setListAdapter(ListAdapter listAdapter) {
+    public void setListAdapter(@Nullable ListAdapter listAdapter) {
         boolean z = this.mAdapter != null;
         this.mAdapter = listAdapter;
         ListView listView = this.mList;
@@ -186,7 +198,7 @@ public class ListFragment extends Fragment {
             if (this.mListShown || z) {
                 return;
             }
-            setListShown(true, getView().getWindowToken() != null);
+            setListShown(true, requireView().getWindowToken() != null);
         }
     }
 
@@ -198,9 +210,9 @@ public class ListFragment extends Fragment {
         setListShown(z, false);
     }
 
-    public void setSelection(int i) {
+    public void setSelection(int i2) {
         ensureList();
-        this.mList.setSelection(i);
+        this.mList.setSelection(i2);
     }
 
     private void setListShown(boolean z, boolean z2) {

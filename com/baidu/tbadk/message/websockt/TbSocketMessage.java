@@ -3,8 +3,8 @@ package com.baidu.tbadk.message.websockt;
 import com.baidu.adp.framework.message.SocketMessage;
 /* loaded from: classes3.dex */
 public abstract class TbSocketMessage extends SocketMessage {
-    public TbSocketMessage(int i, Object obj) {
-        super(i, obj);
+    public TbSocketMessage(int i2, Object obj) {
+        super(i2, obj);
         init();
     }
 
@@ -18,13 +18,13 @@ public abstract class TbSocketMessage extends SocketMessage {
         return encode();
     }
 
-    public TbSocketMessage(int i) {
-        super(i);
+    public TbSocketMessage(int i2) {
+        super(i2);
         init();
     }
 
-    public TbSocketMessage(int i, int i2) {
-        super(i, Integer.valueOf(i2));
+    public TbSocketMessage(int i2, int i3) {
+        super(i2, Integer.valueOf(i3));
         init();
     }
 }

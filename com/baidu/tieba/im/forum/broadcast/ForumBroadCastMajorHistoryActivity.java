@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
 import com.baidu.tieba.im.forum.broadcast.model.ForumBroadCastMajorHistoryModel;
-import d.b.c.e.p.j;
-import d.b.j0.e1.i.a.a;
+import d.a.c.e.p.j;
+import d.a.j0.e1.i.a.a;
 /* loaded from: classes4.dex */
 public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadCastMajorHistoryActivity> implements a {
     public String mForumId;
     public String mForumName;
     public ForumBroadCastMajorHistoryModel mModel;
-    public d.b.j0.e1.i.a.c.a mView;
+    public d.a.j0.e1.i.a.c.a mView;
     public String mfrom;
     public View rootView;
 
@@ -36,7 +36,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // d.b.j0.e1.i.a.a
+    @Override // d.a.j0.e1.i.a.a
     public void loadMore() {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.mModel;
         if (forumBroadCastMajorHistoryModel != null) {
@@ -44,33 +44,33 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // d.b.j0.e1.i.a.a
-    public void netCallback(d.b.j0.e1.i.a.b.a aVar) {
+    @Override // d.a.j0.e1.i.a.a
+    public void netCallback(d.a.j0.e1.i.a.b.a aVar) {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.mModel;
         if (forumBroadCastMajorHistoryModel != null && !forumBroadCastMajorHistoryModel.C()) {
             this.mView.r(getString(R.string.im_error_default), false);
             return;
         }
-        d.b.j0.e1.i.a.c.a aVar2 = this.mView;
+        d.a.j0.e1.i.a.c.a aVar2 = this.mView;
         if (aVar2 != null) {
             aVar2.o(aVar);
         }
     }
 
-    @Override // d.b.j0.e1.i.a.a
+    @Override // d.a.j0.e1.i.a.a
     public void netResidueCallback(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData) {
         this.mView.u(forumBroadcastMajorResidueData);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mView.m(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mView.m(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -79,7 +79,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         initParamsFromIntent(bundle);
         this.mModel = new ForumBroadCastMajorHistoryModel(getPageContext(), this, this.mForumId);
         this.rootView = LayoutInflater.from(this).inflate(R.layout.forum_broadcast_history_list, (ViewGroup) null);
-        this.mView = new d.b.j0.e1.i.a.c.a(getPageContext(), this, this.rootView, this.mForumId, this.mForumName, this.mfrom, bundle);
+        this.mView = new d.a.j0.e1.i.a.c.a(getPageContext(), this, this.rootView, this.mForumId, this.mForumName, this.mfrom, bundle);
         setContentView(this.rootView);
         this.mModel.B();
         refresh();
@@ -88,7 +88,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.j0.e1.i.a.c.a aVar = this.mView;
+        d.a.j0.e1.i.a.c.a aVar = this.mView;
         if (aVar != null) {
             aVar.n();
         }
@@ -98,7 +98,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // d.b.i0.r.f0.f.g
+    @Override // d.a.i0.r.f0.f.g
     public void onListPullRefresh(boolean z) {
         refresh();
     }
@@ -113,7 +113,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
 
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
-        d.b.j0.e1.i.a.c.a aVar;
+        d.a.j0.e1.i.a.c.a aVar;
         super.onNewIntent(intent);
         refresh();
         if (!ForumBroadcastHelper.VALUE_INTENT_BCAST_FROM_EDIT_SUCCESS.equals(intent.getStringExtra("from")) || (aVar = this.mView) == null) {
@@ -127,7 +127,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         super.onResume();
     }
 
-    @Override // d.b.j0.e1.i.a.a
+    @Override // d.a.j0.e1.i.a.a
     public void onServerError(ErrorData errorData) {
         if (errorData != null) {
             if (!StringUtils.isNull(errorData.error_msg)) {
@@ -143,7 +143,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         this.mView.r(errorData != null ? getString(R.string.net_error_text, new Object[]{errorData.error_msg, Integer.valueOf(errorData.error_code)}) : null, false);
     }
 
-    @Override // d.b.j0.e1.i.a.a
+    @Override // d.a.j0.e1.i.a.a
     public void refresh() {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.mModel;
         if (forumBroadCastMajorHistoryModel != null) {

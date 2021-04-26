@@ -17,26 +17,28 @@ import java.util.concurrent.locks.LockSupport;
 public class d implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwai.filedownloader.d.c f37351a;
+    public final com.kwai.filedownloader.d.c f35071a;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f37353c;
+    public final a f35073c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f37354d;
+    public final int f35074d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f37355e;
+    public final int f35075e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f37356f;
+    public final int f35076f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f37357g;
+    public long f35077g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f37358h;
-    public HandlerThread i;
+    public Handler f35078h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public HandlerThread f35079i;
     public volatile Thread k;
     public volatile boolean n;
     public volatile boolean j = false;
@@ -45,51 +47,51 @@ public class d implements Handler.Callback {
     public boolean o = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwai.filedownloader.b.a f37352b = b.a().c();
+    public final com.kwai.filedownloader.b.a f35072b = b.a().c();
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f37359a;
+        public boolean f35080a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Exception f37360b;
+        public Exception f35081b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f37361c;
+        public int f35082c;
 
-        public void a(int i) {
-            this.f37361c = i;
+        public void a(int i2) {
+            this.f35082c = i2;
         }
 
         public void a(Exception exc) {
-            this.f37360b = exc;
+            this.f35081b = exc;
         }
 
         public void a(boolean z) {
-            this.f37359a = z;
+            this.f35080a = z;
         }
 
         public boolean a() {
-            return this.f37359a;
+            return this.f35080a;
         }
 
         public Exception b() {
-            return this.f37360b;
+            return this.f35081b;
         }
 
         public int c() {
-            return this.f37361c;
+            return this.f35082c;
         }
     }
 
-    public d(com.kwai.filedownloader.d.c cVar, int i, int i2, int i3) {
-        this.f37351a = cVar;
-        this.f37355e = i2 < 5 ? 5 : i2;
-        this.f37356f = i3;
-        this.f37353c = new a();
-        this.f37354d = i;
+    public d(com.kwai.filedownloader.d.c cVar, int i2, int i3, int i4) {
+        this.f35071a = cVar;
+        this.f35075e = i3 < 5 ? 5 : i3;
+        this.f35076f = i4;
+        this.f35073c = new a();
+        this.f35074d = i2;
     }
 
     public static long a(long j, long j2) {
@@ -108,20 +110,20 @@ public class d implements Handler.Callback {
 
     private void a(byte b2) {
         if (b2 != -2) {
-            com.kwai.filedownloader.message.e.a().a(com.kwai.filedownloader.message.f.a(b2, this.f37351a, this.f37353c));
-        } else if (com.kwai.filedownloader.f.d.f37396a) {
-            com.kwai.filedownloader.f.d.c(this, "High concurrent cause, Already paused and we don't need to call-back to Task in here, %d", Integer.valueOf(this.f37351a.a()));
+            com.kwai.filedownloader.message.e.a().a(com.kwai.filedownloader.message.f.a(b2, this.f35071a, this.f35073c));
+        } else if (com.kwai.filedownloader.f.d.f35118a) {
+            com.kwai.filedownloader.f.d.c(this, "High concurrent cause, Already paused and we don't need to call-back to Task in here, %d", Integer.valueOf(this.f35071a.a()));
         }
     }
 
     private void a(long j, boolean z) {
-        if (this.f37351a.g() == this.f37351a.h()) {
-            this.f37352b.a(this.f37351a.a(), this.f37351a.g());
+        if (this.f35071a.g() == this.f35071a.h()) {
+            this.f35072b.a(this.f35071a.a(), this.f35071a.g());
             return;
         }
         if (this.n) {
             this.n = false;
-            this.f37351a.a((byte) 3);
+            this.f35071a.a((byte) 3);
         }
         if (z) {
             this.l = j;
@@ -131,49 +133,49 @@ public class d implements Handler.Callback {
     }
 
     private void a(SQLiteFullException sQLiteFullException) {
-        int a2 = this.f37351a.a();
-        if (com.kwai.filedownloader.f.d.f37396a) {
+        int a2 = this.f35071a.a();
+        if (com.kwai.filedownloader.f.d.f35118a) {
             com.kwai.filedownloader.f.d.c(this, "the data of the task[%d] is dirty, because the SQLite full exception[%s], so remove it from the database directly.", Integer.valueOf(a2), sQLiteFullException.toString());
         }
-        this.f37351a.c(sQLiteFullException.toString());
-        this.f37351a.a((byte) -1);
-        this.f37352b.e(a2);
-        this.f37352b.d(a2);
+        this.f35071a.c(sQLiteFullException.toString());
+        this.f35071a.a((byte) -1);
+        this.f35072b.e(a2);
+        this.f35072b.d(a2);
     }
 
     private synchronized void a(Message message) {
-        if (!this.i.isAlive()) {
-            if (com.kwai.filedownloader.f.d.f37396a) {
+        if (!this.f35079i.isAlive()) {
+            if (com.kwai.filedownloader.f.d.f35118a) {
                 com.kwai.filedownloader.f.d.c(this, "require callback %d but the host thread of the flow has already dead, what is occurred because of there are several reason can final this flow on different thread.", Integer.valueOf(message.what));
             }
             return;
         }
         try {
-            this.f37358h.sendMessage(message);
+            this.f35078h.sendMessage(message);
         } catch (IllegalStateException e2) {
-            if (this.i.isAlive()) {
+            if (this.f35079i.isAlive()) {
                 throw e2;
             }
-            if (com.kwai.filedownloader.f.d.f37396a) {
+            if (com.kwai.filedownloader.f.d.f35118a) {
                 com.kwai.filedownloader.f.d.c(this, "require callback %d but the host thread of the flow has already dead, what is occurred because of there are several reason can final this flow on different thread.", Integer.valueOf(message.what));
             }
         }
     }
 
-    private void a(Exception exc, int i) {
+    private void a(Exception exc, int i2) {
         Exception b2 = b(exc);
-        this.f37353c.a(b2);
-        this.f37353c.a(this.f37354d - i);
-        this.f37351a.a((byte) 5);
-        this.f37351a.c(b2.toString());
-        this.f37352b.a(this.f37351a.a(), b2);
+        this.f35073c.a(b2);
+        this.f35073c.a(this.f35074d - i2);
+        this.f35071a.a((byte) 5);
+        this.f35071a.c(b2.toString());
+        this.f35072b.a(this.f35071a.a(), b2);
         a((byte) 5);
     }
 
     private Exception b(Exception exc) {
         long length;
-        String e2 = this.f37351a.e();
-        if ((this.f37351a.i() || com.kwai.filedownloader.f.e.a().f37402f) && (exc instanceof IOException) && new File(e2).exists()) {
+        String e2 = this.f35071a.e();
+        if ((this.f35071a.i() || com.kwai.filedownloader.f.e.a().f35124f) && (exc instanceof IOException) && new File(e2).exists()) {
             long f2 = com.kwai.filedownloader.f.f.f(e2);
             if (f2 <= 4096) {
                 File file = new File(e2);
@@ -192,7 +194,7 @@ public class d implements Handler.Callback {
 
     private boolean b(long j) {
         if (!this.o) {
-            return this.f37357g != -1 && this.m.get() >= this.f37357g && j - this.l >= ((long) this.f37355e);
+            return this.f35077g != -1 && this.m.get() >= this.f35077g && j - this.l >= ((long) this.f35075e);
         }
         this.o = false;
         return true;
@@ -206,9 +208,9 @@ public class d implements Handler.Callback {
             exc2 = b2;
         } else {
             try {
-                this.f37351a.a((byte) -1);
-                this.f37351a.c(exc.toString());
-                this.f37352b.a(this.f37351a.a(), b2, this.f37351a.g());
+                this.f35071a.a((byte) -1);
+                this.f35071a.c(exc.toString());
+                this.f35072b.a(this.f35071a.a(), b2, this.f35071a.g());
                 exc2 = b2;
             } catch (SQLiteFullException e2) {
                 SQLiteFullException sQLiteFullException = e2;
@@ -216,13 +218,13 @@ public class d implements Handler.Callback {
                 exc2 = sQLiteFullException;
             }
         }
-        this.f37353c.a(exc2);
+        this.f35073c.a(exc2);
         a((byte) -1);
     }
 
     private void h() {
-        String e2 = this.f37351a.e();
-        String d2 = this.f37351a.d();
+        String e2 = this.f35071a.e();
+        String d2 = this.f35071a.d();
         File file = new File(e2);
         try {
             File file2 = new File(d2);
@@ -250,38 +252,38 @@ public class d implements Handler.Callback {
 
     private void i() {
         h();
-        this.f37351a.a((byte) -3);
-        this.f37352b.b(this.f37351a.a(), this.f37351a.h());
-        this.f37352b.d(this.f37351a.a());
+        this.f35071a.a((byte) -3);
+        this.f35072b.b(this.f35071a.a(), this.f35071a.h());
+        this.f35072b.d(this.f35071a.a());
         a((byte) -3);
-        if (com.kwai.filedownloader.f.e.a().f37403g) {
-            com.kwai.filedownloader.services.f.a(this.f37351a);
+        if (com.kwai.filedownloader.f.e.a().f35125g) {
+            com.kwai.filedownloader.services.f.a(this.f35071a);
         }
     }
 
     private boolean j() {
-        if (this.f37351a.i()) {
-            com.kwai.filedownloader.d.c cVar = this.f37351a;
+        if (this.f35071a.i()) {
+            com.kwai.filedownloader.d.c cVar = this.f35071a;
             cVar.c(cVar.g());
-        } else if (this.f37351a.g() != this.f37351a.h()) {
-            a(new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("sofar[%d] not equal total[%d]", Long.valueOf(this.f37351a.g()), Long.valueOf(this.f37351a.h()))));
+        } else if (this.f35071a.g() != this.f35071a.h()) {
+            a(new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("sofar[%d] not equal total[%d]", Long.valueOf(this.f35071a.g()), Long.valueOf(this.f35071a.h()))));
             return true;
         }
         return false;
     }
 
     private void k() {
-        this.f37351a.a((byte) -2);
-        this.f37352b.c(this.f37351a.a(), this.f37351a.g());
+        this.f35071a.a((byte) -2);
+        this.f35072b.c(this.f35071a.a(), this.f35071a.g());
         a((byte) -2);
     }
 
     public void a(long j) {
         this.m.addAndGet(j);
-        this.f37351a.b(j);
+        this.f35071a.b(j);
         long elapsedRealtime = SystemClock.elapsedRealtime();
         boolean b2 = b(elapsedRealtime);
-        Handler handler = this.f37358h;
+        Handler handler = this.f35078h;
         if (handler == null) {
             a(elapsedRealtime, b2);
         } else if (b2) {
@@ -293,43 +295,43 @@ public class d implements Handler.Callback {
         c(exc);
     }
 
-    public void a(Exception exc, int i, long j) {
+    public void a(Exception exc, int i2, long j) {
         this.m.set(0L);
-        this.f37351a.b(-j);
-        Handler handler = this.f37358h;
+        this.f35071a.b(-j);
+        Handler handler = this.f35078h;
         if (handler == null) {
-            a(exc, i);
+            a(exc, i2);
         } else {
-            a(handler.obtainMessage(5, i, 0, exc));
+            a(handler.obtainMessage(5, i2, 0, exc));
         }
     }
 
     public void a(boolean z, long j, String str, String str2) {
-        String j2 = this.f37351a.j();
+        String j2 = this.f35071a.j();
         if (j2 != null && !j2.equals(str)) {
             throw new IllegalArgumentException(com.kwai.filedownloader.f.f.a("callback onConnected must with precondition succeed, but the etag is changes(%s != %s)", str, j2));
         }
-        this.f37353c.a(z);
-        this.f37351a.a((byte) 2);
-        this.f37351a.c(j);
-        this.f37351a.b(str);
-        this.f37351a.d(str2);
-        this.f37352b.a(this.f37351a.a(), j, str, str2);
+        this.f35073c.a(z);
+        this.f35071a.a((byte) 2);
+        this.f35071a.c(j);
+        this.f35071a.b(str);
+        this.f35071a.d(str2);
+        this.f35072b.a(this.f35071a.a(), j, str, str2);
         a((byte) 2);
-        this.f37357g = a(j, this.f37356f);
+        this.f35077g = a(j, this.f35076f);
         this.n = true;
     }
 
     public boolean a() {
-        HandlerThread handlerThread = this.i;
+        HandlerThread handlerThread = this.f35079i;
         return handlerThread != null && handlerThread.isAlive();
     }
 
     public void b() {
-        Handler handler = this.f37358h;
+        Handler handler = this.f35078h;
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
-            this.i.quit();
+            this.f35079i.quit();
             this.k = Thread.currentThread();
             while (this.j) {
                 LockSupport.parkNanos(TimeUnit.MILLISECONDS.toNanos(100L));
@@ -339,22 +341,22 @@ public class d implements Handler.Callback {
     }
 
     public void c() {
-        this.f37351a.a((byte) 1);
-        this.f37352b.f(this.f37351a.a());
+        this.f35071a.a((byte) 1);
+        this.f35072b.f(this.f35071a.a());
         a((byte) 1);
     }
 
     public void d() {
-        this.f37351a.a((byte) 6);
+        this.f35071a.a((byte) 6);
         a((byte) 6);
-        this.f37352b.a(this.f37351a.a());
+        this.f35072b.a(this.f35071a.a());
     }
 
     public void e() {
         HandlerThread handlerThread = new HandlerThread("source-status-callback", 10);
-        this.i = handlerThread;
+        this.f35079i = handlerThread;
         handlerThread.start();
-        this.f37358h = new Handler(this.i.getLooper(), this);
+        this.f35078h = new Handler(this.f35079i.getLooper(), this);
     }
 
     public void f() {
@@ -375,10 +377,10 @@ public class d implements Handler.Callback {
     */
     public boolean handleMessage(Message message) {
         this.j = true;
-        int i = message.what;
+        int i2 = message.what;
         try {
-            if (i != 3) {
-                if (i == 5) {
+            if (i2 != 3) {
+                if (i2 == 5) {
                     a((Exception) message.obj, message.arg1);
                 }
                 return true;

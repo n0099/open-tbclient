@@ -15,47 +15,47 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.model.AboutModel;
-import d.b.c.a.e;
-import d.b.j0.v2.c.d;
-import d.b.j0.v2.c.i;
+import d.a.c.a.e;
+import d.a.j0.v2.c.d;
+import d.a.j0.v2.c.i;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
-    public d.b.j0.v2.c.j.a collectorManager;
+    public d.a.j0.v2.c.j.a collectorManager;
     public AboutModel mModel;
-    public d.b.j0.v2.c.a mView;
+    public d.a.j0.v2.c.a mView;
     public i mVisitPreviewServerDialog;
     public c receiver = null;
     public String functionIntroUrl = TbConfig.SERVER_ADDRESS_WEB_VIEW + TbConfig.FUNCTION_INTRO_WEBVIEW;
     public int REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON = 1;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements d {
         public a() {
         }
 
-        @Override // d.b.j0.v2.c.d
-        public void a(int i) {
+        @Override // d.a.j0.v2.c.d
+        public void a(int i2) {
             String str;
             String fileDireciory;
-            if (i == 0) {
+            if (i2 == 0) {
                 AboutActivity.this.finish();
-            } else if (i == 1) {
+            } else if (i2 == 1) {
                 AboutActivity.this.checkUpdata();
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 AboutActivity.this.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(AboutActivity.this.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
-            } else if (i == 3) {
-                d.b.i0.r.d0.b.j().t(SettingTextFunctionIntroView.m, true);
-                d.b.i0.l.a.o(AboutActivity.this.getPageContext().getPageActivity(), AboutActivity.this.getPageContext().getString(R.string.function_intro), AboutActivity.this.functionIntroUrl, true, false, false);
-            } else if (i != 4) {
-                if (i == 5) {
+            } else if (i2 == 3) {
+                d.a.i0.r.d0.b.j().t(SettingTextFunctionIntroView.m, true);
+                d.a.i0.l.a.o(AboutActivity.this.getPageContext().getPageActivity(), AboutActivity.this.getPageContext().getString(R.string.function_intro), AboutActivity.this.functionIntroUrl, true, false, false);
+            } else if (i2 != 4) {
+                if (i2 == 5) {
                     if (AboutActivity.this.mVisitPreviewServerDialog == null) {
                         AboutActivity aboutActivity = AboutActivity.this;
                         aboutActivity.mVisitPreviewServerDialog = new i(aboutActivity.getActivity());
                         AboutActivity.this.mVisitPreviewServerDialog.create(AboutActivity.this.getPageContext());
                     }
                     AboutActivity.this.mVisitPreviewServerDialog.show();
-                } else if (i == 6) {
+                } else if (i2 == 6) {
                     if (PermissionUtil.checkWriteExternalStorage(AboutActivity.this)) {
                         AboutActivity.this.startCollectLog();
                         return;
@@ -80,18 +80,18 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends e {
         public b() {
         }
 
-        @Override // d.b.c.a.e
+        @Override // d.a.c.a.e
         public void c(Object obj) {
             AboutActivity.this.handlCallBack(obj);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends BroadcastReceiver {
         public c() {
         }
@@ -99,7 +99,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (AboutActivity.this.mView != null) {
-                AboutActivity.this.mView.v();
+                AboutActivity.this.mView.t();
             }
         }
 
@@ -110,7 +110,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void checkUpdata() {
-        d.b.j0.i1.c.b().a(true);
+        d.a.j0.i1.c.b().a(true);
         AboutModel aboutModel = this.mModel;
         if (aboutModel == null) {
             this.mModel = new AboutModel(this, new b());
@@ -118,7 +118,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             aboutModel.cancelLoadData();
         }
         this.mModel.w();
-        d.b.j0.v2.c.a aVar = this.mView;
+        d.a.j0.v2.c.a aVar = this.mView;
         if (aVar != null) {
             aVar.o();
         }
@@ -126,11 +126,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handlCallBack(Object obj) {
-        d.b.j0.v2.c.a aVar = this.mView;
+        d.a.j0.v2.c.a aVar = this.mView;
         if (aVar != null) {
-            aVar.q();
+            aVar.p();
         }
-        d.b.i0.s.e.e eVar = obj != null ? (d.b.i0.s.e.e) obj : null;
+        d.a.i0.s.e.e eVar = obj != null ? (d.a.i0.s.e.e) obj : null;
         if (eVar != null) {
             TbadkCoreApplication.getInst().setVersionData(eVar.s());
             TbadkCoreApplication.getInst().refreshNewVersion(false);
@@ -144,9 +144,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                     sendMessage(customMessage);
                 }
             }
-            d.b.j0.v2.c.a aVar2 = this.mView;
+            d.a.j0.v2.c.a aVar2 = this.mView;
             if (aVar2 != null) {
-                aVar2.v();
+                aVar2.t();
                 return;
             }
             return;
@@ -177,21 +177,21 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        d.b.j0.v2.c.a aVar = this.mView;
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        d.a.j0.v2.c.a aVar = this.mView;
         if (aVar != null) {
-            aVar.x(i);
+            aVar.v(i2);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.collectorManager = new d.b.j0.v2.c.j.a(this);
-        d.b.j0.v2.c.a aVar = new d.b.j0.v2.c.a(this, new a());
+        this.collectorManager = new d.a.j0.v2.c.j.a(this);
+        d.a.j0.v2.c.a aVar = new d.a.j0.v2.c.a(this, new a());
         this.mView = aVar;
-        aVar.v();
+        aVar.t();
         regReceiver();
     }
 
@@ -203,15 +203,15 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         if (aboutModel != null) {
             aboutModel.cancelLoadData();
         }
-        d.b.j0.v2.c.a aVar = this.mView;
+        d.a.j0.v2.c.a aVar = this.mView;
         if (aVar != null) {
-            aVar.q();
+            aVar.p();
         }
         i iVar = this.mVisitPreviewServerDialog;
         if (iVar != null) {
             iVar.dismiss();
         }
-        d.b.j0.v2.c.j.a aVar2 = this.collectorManager;
+        d.a.j0.v2.c.j.a aVar2 = this.collectorManager;
         if (aVar2 != null) {
             aVar2.i();
             this.collectorManager = null;
@@ -219,8 +219,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        if (i == this.REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON) {
+    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+        if (i2 == this.REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON) {
             if (PermissionUtil.checkWriteExternalStorage(getActivity().getApplicationContext())) {
                 startCollectLog();
             } else {
@@ -232,9 +232,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.b.j0.v2.c.a aVar = this.mView;
+        d.a.j0.v2.c.a aVar = this.mView;
         if (aVar != null) {
-            aVar.v();
+            aVar.t();
         }
     }
 }

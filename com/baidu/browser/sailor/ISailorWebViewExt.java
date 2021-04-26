@@ -14,7 +14,7 @@ public interface ISailorWebViewExt extends INoProGuard {
 
     void cancelCurrentNoStatePrefetch();
 
-    void changeWapPreloadUrlStyleExt(int i, String str);
+    void changeWapPreloadUrlStyleExt(int i2, String str);
 
     void completeSelectionExt();
 
@@ -88,7 +88,7 @@ public interface ISailorWebViewExt extends INoProGuard {
     ZoomButtonsController getZoomButtonsControllerExt();
 
     @Deprecated
-    void hideMagnifierExt(int i, int i2);
+    void hideMagnifierExt(int i2, int i3);
 
     boolean isDestroyedExt();
 
@@ -114,14 +114,14 @@ public interface ISailorWebViewExt extends INoProGuard {
 
     void loadUrl(String str, Map<String, String> map, boolean z);
 
-    void mediaPlayerStatusChangedExt(int i, float f2, float f3);
+    void mediaPlayerStatusChangedExt(int i2, float f2, float f3);
 
     void mediaPlayerTimeChangedExt(float f2, float f3);
 
     @Deprecated
-    void moveMagnifierExt(int i, int i2);
+    void moveMagnifierExt(int i2, int i3);
 
-    boolean notifyNativeExitFullScreenIfNeededExt(int i);
+    boolean notifyNativeExitFullScreenIfNeededExt(int i2);
 
     void onPauseAll();
 
@@ -145,17 +145,17 @@ public interface ISailorWebViewExt extends INoProGuard {
 
     boolean savePageAsLocalFilesExt(String str, String str2, WebView.SaveAsType saveAsType);
 
-    boolean setBackgroundNightColorExt(int i);
+    boolean setBackgroundNightColorExt(int i2);
 
     void setBeginScaleExt();
 
-    boolean setBigPluginTextNightColorExt(int i);
+    boolean setBigPluginTextNightColorExt(int i2);
 
-    boolean setBorderNightColorExt(int i);
+    boolean setBorderNightColorExt(int i2);
 
-    boolean setDefaultLinkTextNightColorExt(int i);
+    boolean setDefaultLinkTextNightColorExt(int i2);
 
-    void setDefaultViewSizeExt(int i, int i2);
+    void setDefaultViewSizeExt(int i2, int i3);
 
     void setDrawSelectionPointerExt(boolean z);
 
@@ -165,29 +165,29 @@ public interface ISailorWebViewExt extends INoProGuard {
 
     void setFixWebViewSecurityHolesExt(boolean z);
 
-    boolean setImageNightColorExt(int i);
+    boolean setImageNightColorExt(int i2);
 
-    boolean setLinkTextNightColorExt(int i);
+    boolean setLinkTextNightColorExt(int i2);
 
     void setNeedImpactScriptExt(boolean z);
 
-    boolean setNightModeColorStyleExt(int i);
+    boolean setNightModeColorStyleExt(int i2);
 
     boolean setPreviewZoomScaleExt(float f2);
 
     void setShiftPressedModeExt(boolean z);
 
-    void setSubjectScrollToOnloadExt(int i);
+    void setSubjectScrollToOnloadExt(int i2);
 
     void setTextFieldTextExt(String str);
 
     void setTextFieldTextExt(String str, boolean z);
 
-    boolean setTextNightColorExt(int i);
+    boolean setTextNightColorExt(int i2);
 
     void setTextSelectingModeExt(boolean z);
 
-    boolean setVisitedLinkNightColorExt(int i);
+    boolean setVisitedLinkNightColorExt(int i2);
 
     void setWebChromeClientExt(BdSailorWebChromeClientExt bdSailorWebChromeClientExt);
 
@@ -198,7 +198,7 @@ public interface ISailorWebViewExt extends INoProGuard {
     @Deprecated
     void setWebViewTypeExt(WebView.WebViewType webViewType);
 
-    void showMagnifierExt(int i, int i2, int i3, int i4, boolean z);
+    void showMagnifierExt(int i2, int i3, int i4, int i5, boolean z);
 
     void startCaptureContentExt();
 

@@ -15,13 +15,13 @@ import org.json.JSONException;
 public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f3782a = Charset.forName("UTF-8");
+    public static final Charset f3830a = Charset.forName("UTF-8");
 
     private Charset a(com.baidu.apollon.restnet.http.a aVar) {
         if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
             return Charset.forName(aVar.j());
         }
-        return f3782a;
+        return f3830a;
     }
 
     @Override // com.baidu.apollon.restnet.converter.AbstractHttpMessageConverter
@@ -31,11 +31,11 @@ public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Objec
         a(copyToString);
         if (ApollonConstants.DEBUG) {
             int length = copyToString.length();
-            int i = 0;
-            while (i < length) {
-                int i2 = i + 2000;
-                LogUtil.i("ServerResponse", i2 > length ? copyToString.substring(i) : copyToString.substring(i, i2));
-                i = i2;
+            int i2 = 0;
+            while (i2 < length) {
+                int i3 = i2 + 2000;
+                LogUtil.i("ServerResponse", i3 > length ? copyToString.substring(i2) : copyToString.substring(i2, i3));
+                i2 = i3;
             }
         }
         try {

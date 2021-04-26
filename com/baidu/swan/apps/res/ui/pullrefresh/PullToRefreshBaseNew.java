@@ -10,20 +10,22 @@ import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 /* loaded from: classes3.dex */
 public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
-    public d.b.h0.a.q1.a.e.a<T> A;
+    public d.a.h0.a.q1.a.e.a<T> A;
 
     /* renamed from: e  reason: collision with root package name */
-    public HEADERTYPE f12238e;
+    public HEADERTYPE f12102e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f12239f;
+    public float f12103f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f12240g;
+    public float f12104g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e<T> f12241h;
-    public LoadingLayout i;
+    public e<T> f12105h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public LoadingLayout f12106i;
     public LoadingLayout j;
     public int k;
     public int l;
@@ -56,7 +58,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            PullToRefreshBaseNew.this.f12241h.b(PullToRefreshBaseNew.this);
+            PullToRefreshBaseNew.this.f12105h.a(PullToRefreshBaseNew.this);
         }
     }
 
@@ -67,7 +69,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            PullToRefreshBaseNew.this.f12241h.c(PullToRefreshBaseNew.this);
+            PullToRefreshBaseNew.this.f12105h.b(PullToRefreshBaseNew.this);
         }
     }
 
@@ -78,7 +80,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            PullToRefreshBaseNew.this.f12241h.a(PullToRefreshBaseNew.this);
+            PullToRefreshBaseNew.this.f12105h.c(PullToRefreshBaseNew.this);
         }
     }
 
@@ -86,21 +88,21 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     public static /* synthetic */ class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f12245a;
+        public static final /* synthetic */ int[] f12110a;
 
         static {
             int[] iArr = new int[HEADERTYPE.values().length];
-            f12245a = iArr;
+            f12110a = iArr;
             try {
                 iArr[HEADERTYPE.STANDARD_HEADER.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f12245a[HEADERTYPE.BIG_BG_HEADER.ordinal()] = 2;
+                f12110a[HEADERTYPE.BIG_BG_HEADER.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f12245a[HEADERTYPE.ROTATE_HEADER.ordinal()] = 3;
+                f12110a[HEADERTYPE.ROTATE_HEADER.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -119,45 +121,47 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     public final class f implements Runnable {
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f12247f;
+        public final int f12112f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f12248g;
+        public final int f12113g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long f12249h;
-        public boolean i = true;
+        public final long f12114h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public boolean f12115i = true;
         public long j = -1;
         public int k = -1;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Interpolator f12246e = new DecelerateInterpolator();
+        public final Interpolator f12111e = new DecelerateInterpolator();
 
-        public f(int i, int i2, long j) {
-            this.f12248g = i;
-            this.f12247f = i2;
-            this.f12249h = j;
+        public f(int i2, int i3, long j) {
+            this.f12113g = i2;
+            this.f12112f = i3;
+            this.f12114h = j;
         }
 
         public void a() {
-            this.i = false;
+            this.f12115i = false;
             PullToRefreshBaseNew.this.removeCallbacks(this);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f12249h <= 0) {
-                PullToRefreshBaseNew.this.y(0, this.f12247f);
+            if (this.f12114h <= 0) {
+                PullToRefreshBaseNew.this.y(0, this.f12112f);
                 return;
             }
             if (this.j == -1) {
                 this.j = System.currentTimeMillis();
             } else {
-                int round = this.f12248g - Math.round((this.f12248g - this.f12247f) * this.f12246e.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.j) * 1000) / this.f12249h, 1000L), 0L)) / 1000.0f));
+                int round = this.f12113g - Math.round((this.f12113g - this.f12112f) * this.f12111e.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.j) * 1000) / this.f12114h, 1000L), 0L)) / 1000.0f));
                 this.k = round;
                 PullToRefreshBaseNew.this.y(0, round);
             }
-            if (!this.i || this.f12247f == this.k) {
+            if (!this.f12115i || this.f12112f == this.k) {
                 return;
             }
             PullToRefreshBaseNew.this.postDelayed(this, 16L);
@@ -166,9 +170,9 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
 
     public PullToRefreshBaseNew(Context context) {
         super(context);
-        this.f12238e = HEADERTYPE.STANDARD_HEADER;
-        this.f12239f = 2.5f;
-        this.f12240g = -1.0f;
+        this.f12102e = HEADERTYPE.STANDARD_HEADER;
+        this.f12103f = 2.5f;
+        this.f12104g = -1.0f;
         this.m = true;
         this.n = false;
         this.o = true;
@@ -190,15 +194,15 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         this.o = z;
     }
 
-    public final void A(int i, long j, long j2) {
+    public final void A(int i2, long j, long j2) {
         PullToRefreshBaseNew<T>.f fVar = this.u;
         if (fVar != null) {
             fVar.a();
         }
         int scrollYValue = getScrollYValue();
-        boolean z = scrollYValue != i;
+        boolean z = scrollYValue != i2;
         if (z) {
-            this.u = new f(scrollYValue, i, j);
+            this.u = new f(scrollYValue, i2, j);
         }
         if (z) {
             if (j2 > 0) {
@@ -220,7 +224,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         if (loadingLayout != null) {
             loadingLayout.setState(ILoadingLayout$State.REFRESHING);
         }
-        if (this.f12241h != null) {
+        if (this.f12105h != null) {
             postDelayed(new c(), getSmoothScrollDuration());
         }
     }
@@ -236,11 +240,11 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         ILoadingLayout$State iLoadingLayout$State = ILoadingLayout$State.LONG_REFRESHING;
         this.r = iLoadingLayout$State;
         r(iLoadingLayout$State, true);
-        LoadingLayout loadingLayout = this.i;
+        LoadingLayout loadingLayout = this.f12106i;
         if (loadingLayout != null) {
             loadingLayout.setState(ILoadingLayout$State.LONG_REFRESHING);
         }
-        if (this.f12241h != null) {
+        if (this.f12105h != null) {
             postDelayed(new b(), getSmoothScrollDuration());
         }
     }
@@ -256,18 +260,18 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         ILoadingLayout$State iLoadingLayout$State = ILoadingLayout$State.REFRESHING;
         this.r = iLoadingLayout$State;
         r(iLoadingLayout$State, true);
-        LoadingLayout loadingLayout = this.i;
+        LoadingLayout loadingLayout = this.f12106i;
         if (loadingLayout != null) {
             loadingLayout.setState(ILoadingLayout$State.REFRESHING);
         }
-        if (!z || this.f12241h == null) {
+        if (!z || this.f12105h == null) {
             return;
         }
         postDelayed(new a(), getSmoothScrollDuration());
     }
 
     public void c(Context context) {
-        LoadingLayout loadingLayout = this.i;
+        LoadingLayout loadingLayout = this.f12106i;
         LoadingLayout loadingLayout2 = this.j;
         if (loadingLayout != null) {
             if (this == loadingLayout.getParent()) {
@@ -294,11 +298,11 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     public LoadingLayout f(Context context, AttributeSet attributeSet) {
         LoadingLayout headerLoadingLayout;
         w();
-        int i = d.f12245a[this.f12238e.ordinal()];
-        if (i == 1) {
+        int i2 = d.f12110a[this.f12102e.ordinal()];
+        if (i2 == 1) {
             headerLoadingLayout = new HeaderLoadingLayout(context);
-        } else if (i != 2) {
-            headerLoadingLayout = i != 3 ? null : new RotateLoadingLayout(context);
+        } else if (i2 != 2) {
+            headerLoadingLayout = i2 != 3 ? null : new RotateLoadingLayout(context);
         } else {
             headerLoadingLayout = new BigBgHeaderLoadingLayout(context);
         }
@@ -312,10 +316,10 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     }
 
     public LoadingLayout getHeaderLoadingLayout() {
-        return this.i;
+        return this.f12106i;
     }
 
-    public d.b.h0.a.q1.a.e.a<T> getRefreshableFactory() {
+    public d.a.h0.a.q1.a.e.a<T> getRefreshableFactory() {
         return this.A;
     }
 
@@ -329,7 +333,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
 
     public final void h(Context context, AttributeSet attributeSet) {
         this.q = ViewConfiguration.get(context).getScaledTouchSlop();
-        this.i = f(context, attributeSet);
+        this.f12106i = f(context, attributeSet);
         this.j = e(context, attributeSet);
         T g2 = g(context, attributeSet);
         this.t = g2;
@@ -362,7 +366,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     }
 
     public boolean n() {
-        return this.m && this.i != null;
+        return this.m && this.f12106i != null;
     }
 
     public boolean o() {
@@ -378,12 +382,12 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
                 if (action != 3 && action != 1) {
                     if (action == 0 || !this.p) {
                         if (action == 0) {
-                            this.f12240g = motionEvent.getY();
+                            this.f12104g = motionEvent.getY();
                             this.p = false;
                         } else if (action == 2) {
-                            float y = motionEvent.getY() - this.f12240g;
+                            float y = motionEvent.getY() - this.f12104g;
                             if (Math.abs(y) > this.q || o() || m() || j()) {
-                                this.f12240g = motionEvent.getY();
+                                this.f12104g = motionEvent.getY();
                                 if (n() && p()) {
                                     z = (Math.abs(getScrollYValue()) > 0 || y > 0.5f) ? true : true;
                                     this.p = z;
@@ -408,12 +412,12 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        LoadingLayout loadingLayout = this.i;
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
+        LoadingLayout loadingLayout = this.f12106i;
         if (loadingLayout != null) {
-            loadingLayout.layout(loadingLayout.getLeft(), this.i.getTop() - this.i.getHeight(), this.i.getRight(), this.i.getBottom() - this.i.getHeight());
-            this.k = this.i.getContentSize();
+            loadingLayout.layout(loadingLayout.getLeft(), this.f12106i.getTop() - this.f12106i.getHeight(), this.f12106i.getRight(), this.f12106i.getBottom() - this.f12106i.getHeight());
+            this.k = this.f12106i.getContentSize();
         }
         LoadingLayout loadingLayout2 = this.j;
         if (loadingLayout2 == null || this.t == null) {
@@ -424,8 +428,8 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
     }
 
     @Override // android.view.View
@@ -435,12 +439,12 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    float y = motionEvent.getY() - this.f12240g;
-                    this.f12240g = motionEvent.getY();
+                    float y = motionEvent.getY() - this.f12104g;
+                    this.f12104g = motionEvent.getY();
                     if (n() && p()) {
-                        t(y / this.f12239f);
+                        t(y / this.f12103f);
                     } else if (l() && q()) {
-                        s(y / this.f12239f);
+                        s(y / this.f12103f);
                     } else {
                         this.p = false;
                         return false;
@@ -485,7 +489,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
             }
             return false;
         }
-        this.f12240g = motionEvent.getY();
+        this.f12104g = motionEvent.getY();
         this.p = false;
         return false;
     }
@@ -537,30 +541,30 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         }
     }
 
-    public void setHeaderBackgroundColor(int i) {
-        LoadingLayout loadingLayout = this.i;
+    public void setHeaderBackgroundColor(int i2) {
+        LoadingLayout loadingLayout = this.f12106i;
         if (loadingLayout != null) {
-            loadingLayout.setHeaderBackgroundColor(getResources().getColor(i));
+            loadingLayout.setHeaderBackgroundColor(getResources().getColor(i2));
         }
     }
 
-    public void setHeaderBackgroundResource(int i) {
-        LoadingLayout loadingLayout = this.i;
+    public void setHeaderBackgroundResource(int i2) {
+        LoadingLayout loadingLayout = this.f12106i;
         if (loadingLayout != null) {
-            loadingLayout.setHeaderBackgroundResource(i);
+            loadingLayout.setHeaderBackgroundResource(i2);
         }
     }
 
-    public void setHeaderBigBackground(int i) {
-        LoadingLayout loadingLayout = this.i;
+    public void setHeaderBigBackground(int i2) {
+        LoadingLayout loadingLayout = this.f12106i;
         if (loadingLayout == null) {
             return;
         }
-        loadingLayout.setHeaderBigBackground(i);
+        loadingLayout.setHeaderBigBackground(i2);
     }
 
     public void setLastUpdatedLabel(CharSequence charSequence) {
-        LoadingLayout loadingLayout = this.i;
+        LoadingLayout loadingLayout = this.f12106i;
         if (loadingLayout != null) {
             loadingLayout.setLastUpdatedLabel(charSequence);
         }
@@ -578,16 +582,16 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         this.x = z;
     }
 
-    public void setMaxPullOffset(int i) {
-        this.w = i;
+    public void setMaxPullOffset(int i2) {
+        this.w = i2;
     }
 
     public void setOffsetRadio(float f2) {
-        this.f12239f = f2;
+        this.f12103f = f2;
     }
 
     public void setOnRefreshListener(e<T> eVar) {
-        this.f12241h = eVar;
+        this.f12105h = eVar;
     }
 
     public void setPullLoadEnabled(boolean z) {
@@ -611,8 +615,8 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
             y(0, 0);
         } else if (this.w <= 0 || f2 <= 0.0f || Math.abs(scrollYValue) < this.w) {
             x(0, -((int) f2));
-            if (this.i != null && this.k != 0) {
-                this.i.d(Math.abs(getScrollYValue()) / this.k);
+            if (this.f12106i != null && this.k != 0) {
+                this.f12106i.d(Math.abs(getScrollYValue()) / this.k);
             }
             int abs = Math.abs(getScrollYValue());
             if (!n() || o() || j()) {
@@ -625,7 +629,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
             } else {
                 this.r = ILoadingLayout$State.PULL_TO_REFRESH;
             }
-            LoadingLayout loadingLayout = this.i;
+            LoadingLayout loadingLayout = this.f12106i;
             if (loadingLayout != null) {
                 loadingLayout.setState(this.r);
             }
@@ -661,23 +665,23 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     public void w() {
     }
 
-    public final void x(int i, int i2) {
-        scrollBy(i, i2);
+    public final void x(int i2, int i3) {
+        scrollBy(i2, i3);
     }
 
-    public final void y(int i, int i2) {
-        scrollTo(i, i2);
+    public final void y(int i2, int i3) {
+        scrollTo(i2, i3);
     }
 
-    public final void z(int i) {
-        A(i, getSmoothScrollDuration(), 0L);
+    public final void z(int i2) {
+        A(i2, getSmoothScrollDuration(), 0L);
     }
 
     public PullToRefreshBaseNew(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12238e = HEADERTYPE.STANDARD_HEADER;
-        this.f12239f = 2.5f;
-        this.f12240g = -1.0f;
+        this.f12102e = HEADERTYPE.STANDARD_HEADER;
+        this.f12103f = 2.5f;
+        this.f12104g = -1.0f;
         this.m = true;
         this.n = false;
         this.o = true;

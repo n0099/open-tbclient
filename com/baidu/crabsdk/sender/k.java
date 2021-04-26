@@ -8,7 +8,7 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.crabsdk.OnUploadFilesCallback;
 import com.baidu.crabsdk.b.o;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
-import d.b.m.d.e;
+import d.a.m.d.e;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.Future;
@@ -19,31 +19,31 @@ import org.json.JSONObject;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SharedPreferences f4807a;
+    public static SharedPreferences f4923a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ScheduledThreadPoolExecutor f4808b = new ScheduledThreadPoolExecutor(1);
+    public static final ScheduledThreadPoolExecutor f4924b = new ScheduledThreadPoolExecutor(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ScheduledThreadPoolExecutor f4809c = new ScheduledThreadPoolExecutor(1);
+    public static final ScheduledThreadPoolExecutor f4925c = new ScheduledThreadPoolExecutor(1);
 
     public static void a(Context context, Throwable th) {
-        f4808b.execute(new d.b.m.d.c(th, context));
+        f4924b.execute(new d.a.m.d.c(th, context));
     }
 
     public static synchronized void b(boolean z, Context context) {
         synchronized (k.class) {
-            d.b.m.d.f fVar = new d.b.m.d.f(context);
+            d.a.m.d.f fVar = new d.a.m.d.f(context);
             if (!z) {
-                f4808b.execute(fVar);
+                f4924b.execute(fVar);
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis() - g(context, "time_upload_crash");
             com.baidu.crabsdk.c.a.c("uploadCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
             if (currentTimeMillis < 10000) {
-                f4808b.schedule(fVar, 10L, TimeUnit.SECONDS);
+                f4924b.schedule(fVar, 10L, TimeUnit.SECONDS);
             } else {
-                f4808b.execute(fVar);
+                f4924b.execute(fVar);
             }
             f(context, "time_upload_crash");
         }
@@ -55,21 +55,21 @@ public final class k {
     }
 
     public static Future d(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
-        return f4809c.submit(new e(onUploadFilesCallback, str, str2, str3, str4));
+        return f4925c.submit(new e(onUploadFilesCallback, str, str2, str3, str4));
     }
 
     public static void e(Context context, Throwable th) {
-        f4808b.execute(new d.b.m.d.d(context, th));
+        f4924b.execute(new d.a.m.d.d(context, th));
     }
 
     public static void f(Context context, String str) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            if (f4807a == null && context != null) {
-                f4807a = context.getSharedPreferences("last_init_crab", 4);
+            if (f4923a == null && context != null) {
+                f4923a = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (f4807a != null) {
-                f4807a.edit().putLong(str, System.currentTimeMillis()).commit();
+            if (f4923a != null) {
+                f4923a.edit().putLong(str, System.currentTimeMillis()).commit();
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -79,11 +79,11 @@ public final class k {
 
     public static long g(Context context, String str) {
         try {
-            if (f4807a == null && context != null) {
-                f4807a = context.getSharedPreferences("last_init_crab", 4);
+            if (f4923a == null && context != null) {
+                f4923a = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (f4807a != null) {
-                return f4807a.getLong(str, 0L);
+            if (f4923a != null) {
+                return f4923a.getLong(str, 0L);
             }
             return 0L;
         } catch (Exception e2) {
@@ -93,12 +93,12 @@ public final class k {
     }
 
     public static void h(Context context) {
-        d.b.m.d.b bVar = new d.b.m.d.b(context);
+        d.a.m.d.b bVar = new d.a.m.d.b(context);
         long currentTimeMillis = System.currentTimeMillis() - g(context, "time_upload_native");
         com.baidu.crabsdk.c.a.c("uploadNativeCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
-        int i = (currentTimeMillis > 10000L ? 1 : (currentTimeMillis == 10000L ? 0 : -1));
-        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = f4808b;
-        if (i < 0) {
+        int i2 = (currentTimeMillis > 10000L ? 1 : (currentTimeMillis == 10000L ? 0 : -1));
+        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = f4924b;
+        if (i2 < 0) {
             scheduledThreadPoolExecutor.schedule(bVar, 10L, TimeUnit.SECONDS);
         } else {
             scheduledThreadPoolExecutor.execute(bVar);
@@ -165,9 +165,9 @@ public final class k {
         String c2;
         String c3;
         synchronized (k.class) {
-            List<String> i = i.i(context, "pid_");
-            if (i.size() > 0) {
-                for (String str7 : i) {
+            List<String> i2 = i.i(context, "pid_");
+            if (i2.size() > 0) {
+                for (String str7 : i2) {
                     if (str7.endsWith(".ydg")) {
                         com.baidu.crabsdk.c.a.b("Deleting " + str7 + " " + i.j(str7));
                     }
@@ -251,7 +251,7 @@ public final class k {
                                                 } else {
                                                     try {
                                                         byte[] j = com.baidu.crabsdk.c.c.j(str9);
-                                                        String h2 = com.baidu.crabsdk.c.d.h(com.baidu.crabsdk.a.f4673d, UUID.randomUUID().toString());
+                                                        String h2 = com.baidu.crabsdk.c.d.h(com.baidu.crabsdk.a.f4782d, UUID.randomUUID().toString());
                                                         try {
                                                             byte[] g2 = com.baidu.crabsdk.c.d.g(j, h2);
                                                             try {
@@ -400,7 +400,7 @@ public final class k {
     }
 
     public static void k(Context context) {
-        f4808b.execute(new d.b.m.d.g(context));
+        f4924b.execute(new d.a.m.d.g(context));
     }
 
     public static synchronized void l(Context context) {
@@ -485,7 +485,7 @@ public final class k {
                                 h.s(str3);
                                 str2 = "result is empty!";
                             } else if (str4 == null || !str4.equals("N/A")) {
-                                int i = -100;
+                                int i2 = -100;
                                 try {
                                     jSONObject = new JSONObject(str4);
                                 } catch (Exception e2) {
@@ -499,11 +499,11 @@ public final class k {
                                     if (jSONObject.has("errNo")) {
                                         num = (Integer) jSONObject.get("errNo");
                                     }
-                                    com.baidu.crabsdk.c.a.b("###--> errno = " + i);
-                                    if (i != -1) {
+                                    com.baidu.crabsdk.c.a.b("###--> errno = " + i2);
+                                    if (i2 != -1) {
                                         h.s(str3);
-                                    } else if (i != 0) {
-                                        if (i == 1) {
+                                    } else if (i2 != 0) {
+                                        if (i2 == 1) {
                                             try {
                                                 int intValue = ((Integer) jSONObject.get("days")).intValue();
                                                 if (intValue <= 0) {
@@ -521,9 +521,9 @@ public final class k {
                                                 h.x(p(str3));
                                                 h.z("key_" + p(str3));
                                                 e.printStackTrace();
-                                                f.f4801g = true;
+                                                f.f4916g = true;
                                             }
-                                        } else if (i == 10 || i == 15) {
+                                        } else if (i2 == 10 || i2 == 15) {
                                             i.j(str3);
                                             h.x(p(str3));
                                             h.z("key_" + p(str3));
@@ -534,7 +534,7 @@ public final class k {
                                             h.z("key_" + p(str3));
                                             h.t(str3);
                                         }
-                                        f.f4801g = true;
+                                        f.f4916g = true;
                                     } else {
                                         i.j(str3);
                                         h.x(p(str3));
@@ -542,26 +542,26 @@ public final class k {
                                         h.t(str3);
                                     }
                                     h.e();
-                                    f.f4801g = true;
+                                    f.f4916g = true;
                                 }
-                                i = num.intValue();
-                                com.baidu.crabsdk.c.a.b("###--> errno = " + i);
-                                if (i != -1) {
+                                i2 = num.intValue();
+                                com.baidu.crabsdk.c.a.b("###--> errno = " + i2);
+                                if (i2 != -1) {
                                 }
                                 h.e();
-                                f.f4801g = true;
+                                f.f4916g = true;
                             } else {
                                 str2 = "not connected to server!";
                             }
                             com.baidu.crabsdk.c.a.e(str2);
-                            f.f4801g = true;
+                            f.f4916g = true;
                         }
                         com.baidu.crabsdk.c.a.b(str);
                         com.baidu.crabsdk.c.a.b("HttpSender.doUpload.result: " + str4);
                         if (!TextUtils.isEmpty(str4)) {
                         }
                         com.baidu.crabsdk.c.a.e(str2);
-                        f.f4801g = true;
+                        f.f4916g = true;
                     } else {
                         i.j(str3);
                         h.t(str3);

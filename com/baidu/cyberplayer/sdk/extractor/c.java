@@ -7,28 +7,28 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.remote.RemotePlayerService;
 import com.baidu.cyberplayer.sdk.remote.a;
 import com.baidu.cyberplayer.sdk.remote.e;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c extends a.AbstractBinderC0072a {
 
     /* renamed from: a  reason: collision with root package name */
-    public CyberExtractor f4967a;
+    public CyberExtractor f5090a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RemotePlayerService f4968b;
+    public RemotePlayerService f5091b;
 
     public c(RemotePlayerService remotePlayerService) {
-        this.f4968b = remotePlayerService;
+        this.f5091b = remotePlayerService;
     }
 
     private CyberExtractor c() {
-        if (this.f4967a == null) {
+        if (this.f5090a == null) {
             synchronized (this) {
-                if (this.f4967a == null) {
-                    this.f4967a = new CyberExtractor(false);
+                if (this.f5090a == null) {
+                    this.f5090a = new CyberExtractor(false);
                 }
             }
         }
-        return this.f4967a;
+        return this.f5090a;
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.a
@@ -37,8 +37,8 @@ public class c extends a.AbstractBinderC0072a {
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.a
-    public void a(int i, String str, long j) {
-        c().setOption(i, str, j);
+    public void a(int i2, String str, long j) {
+        c().setOption(i2, str, j);
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.a
@@ -50,11 +50,11 @@ public class c extends a.AbstractBinderC0072a {
     public void b() throws RemoteException {
         CyberLog.i("RemoteExtractor", "release");
         synchronized (this) {
-            if (this.f4967a != null) {
-                this.f4967a.release();
-                this.f4967a = null;
+            if (this.f5090a != null) {
+                this.f5090a.release();
+                this.f5090a = null;
             }
         }
-        this.f4968b = null;
+        this.f5091b = null;
     }
 }

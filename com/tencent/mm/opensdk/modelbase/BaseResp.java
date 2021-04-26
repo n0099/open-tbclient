@@ -1,14 +1,15 @@
 package com.tencent.mm.opensdk.modelbase;
 
 import android.os.Bundle;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.wallet.pay.PayActivityStatic;
+/* loaded from: classes6.dex */
 public abstract class BaseResp {
     public int errCode;
     public String errStr;
     public String openId;
     public String transaction;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public interface ErrCode {
         public static final int ERR_AUTH_DENIED = -4;
         public static final int ERR_BAN = -6;
@@ -22,8 +23,8 @@ public abstract class BaseResp {
     public abstract boolean checkArgs();
 
     public void fromBundle(Bundle bundle) {
-        this.errCode = bundle.getInt("_wxapi_baseresp_errcode");
-        this.errStr = bundle.getString("_wxapi_baseresp_errstr");
+        this.errCode = bundle.getInt(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_CODE);
+        this.errStr = bundle.getString(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_STR);
         this.transaction = bundle.getString("_wxapi_baseresp_transaction");
         this.openId = bundle.getString("_wxapi_baseresp_openId");
     }
@@ -32,8 +33,8 @@ public abstract class BaseResp {
 
     public void toBundle(Bundle bundle) {
         bundle.putInt("_wxapi_command_type", getType());
-        bundle.putInt("_wxapi_baseresp_errcode", this.errCode);
-        bundle.putString("_wxapi_baseresp_errstr", this.errStr);
+        bundle.putInt(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_CODE, this.errCode);
+        bundle.putString(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_STR, this.errStr);
         bundle.putString("_wxapi_baseresp_transaction", this.transaction);
         bundle.putString("_wxapi_baseresp_openId", this.openId);
     }

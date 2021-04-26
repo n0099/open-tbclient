@@ -15,19 +15,19 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
 import com.baidu.tieba.im.model.SearchGroupModel;
-import d.b.c.c.g.c;
-import d.b.c.e.m.b;
+import d.a.c.c.g.c;
+import d.a.c.e.m.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
-    public d.b.j0.e1.r.a addGroupView = null;
+    public d.a.j0.e1.r.a addGroupView = null;
     public SearchGroupModel searchGroupModel = null;
     public c searchGroupCallback = new a(103007);
 
     /* loaded from: classes4.dex */
     public class a extends c {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,8 +67,8 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void showError(String str, int i) {
-        if (i < 0) {
+    public void showError(String str, int i2) {
+        if (i2 < 0) {
             showToast(R.string.neterror);
         } else if (!TextUtils.isEmpty(str)) {
             showToast(str);
@@ -94,15 +94,15 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.addGroupView.g(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.addGroupView.g(i2);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.addGroupView.i()) {
+        if (view == this.addGroupView.j()) {
             finish();
         } else if (view == this.addGroupView.l()) {
             TiebaStatic.log("add_group_searchbtn_click");
@@ -119,7 +119,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.addGroupView = new d.b.j0.e1.r.a(this);
+        this.addGroupView = new d.a.j0.e1.r.a(this);
         this.searchGroupModel = new SearchGroupModel(this);
         registerListener(this.searchGroupCallback);
     }
@@ -135,10 +135,10 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4 && keyEvent.getRepeatCount() == 0) {
             finish();
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 }

@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.mission.SignItemView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import d.b.c.e.p.l;
-import d.b.i0.a.q;
+import d.a.c.e.p.l;
+import d.a.i0.a.q;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class MissionCustomDialogActivity extends BaseActivity {
@@ -59,7 +59,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.b.i0.a.c.y().D() ? 2 : 1).param("obj_type", 3));
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.a.i0.a.c.y().D() ? 2 : 1).param("obj_type", 3));
             MissionCustomDialogActivity.this.finish();
         }
     }
@@ -90,8 +90,8 @@ public class MissionCustomDialogActivity extends BaseActivity {
         textView.setText(str);
         String str2 = activeCenterStatusData.desc;
         this.mBottomActionDetail.setText(str2 != null ? str2 : "");
-        int i = activeCenterStatusData.is_today_mission;
-        if (i == 0) {
+        int i2 = activeCenterStatusData.is_today_mission;
+        if (i2 == 0) {
             this.mBottomActionBtn.setVisibility(0);
             this.mBottonActionText.setVisibility(8);
             if (activeCenterStatusData.is_completed) {
@@ -103,11 +103,11 @@ public class MissionCustomDialogActivity extends BaseActivity {
                 this.mBottomActionBtn.setClickable(false);
                 this.mBottomActionBtn.setEnabled(false);
             }
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             this.mBottomActionBtn.setVisibility(0);
             this.mBottonActionText.setVisibility(8);
-            int i2 = this.mActiveCenterData.mission.task_type;
-            if (i2 == 13) {
+            int i3 = this.mActiveCenterData.mission.task_type;
+            if (i3 == 13) {
                 if (activeCenterStatusData.is_completed) {
                     this.mBottomActionBtn.setText("去领取");
                     this.mBottomActionBtn.setClickable(true);
@@ -118,7 +118,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
                     this.mBottomActionBtn.setEnabled(false);
                 }
             } else {
-                if (i2 == 6) {
+                if (i3 == 6) {
                     if (q.g().i().f()) {
                         activeCenterStatusData.is_completed = true;
                     } else {
@@ -140,7 +140,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
             this.mBottonActionText.setVisibility(0);
             this.mBottonActionText.setText("未开始");
         }
-        d.b.i0.r.f0.m.a aVar = new d.b.i0.r.f0.m.a();
+        d.a.i0.r.f0.m.a aVar = new d.a.i0.r.f0.m.a();
         aVar.o(R.color.CAM_X0301);
         aVar.k(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
         this.mBottomActionBtn.setConfig(aVar);
@@ -149,7 +149,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleTask() {
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.b.i0.a.c.y().D() ? 2 : 1).param("obj_type", 2));
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.a.i0.a.c.y().D() ? 2 : 1).param("obj_type", 2));
         ActiveCenterData activeCenterData = this.mActiveCenterData;
         if (activeCenterData == null) {
             return;
@@ -282,16 +282,16 @@ public class MissionCustomDialogActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i == 25046 && TbadkCoreApplication.isLogin()) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i2 == 25046 && TbadkCoreApplication.isLogin()) {
             handleTask();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         SkinManager.setBackgroundColor(this.mContentBackground, R.color.CAM_X0211);
         SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.mDialogBackground, R.drawable.ic_pic_mask_newuser_background_svg, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setViewTextColor(this.mDialogTitle, R.color.CAM_X0311);
@@ -301,12 +301,12 @@ public class MissionCustomDialogActivity extends BaseActivity {
         SkinManager.setViewTextColor(this.mBottomActionDetail, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.mBottonActionText, R.color.CAM_X0109);
         if (this.mBottomActionBtn != null) {
-            d.b.i0.r.f0.m.a aVar = new d.b.i0.r.f0.m.a();
+            d.a.i0.r.f0.m.a aVar = new d.a.i0.r.f0.m.a();
             aVar.o(R.color.CAM_X0301);
             aVar.k(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
             this.mBottomActionBtn.setConfig(aVar);
         }
-        this.mSignView.e(i);
+        this.mSignView.e(i2);
         SkinManager.setImageResource(this.mImgClose, R.drawable.ic_icon_popup_close_n);
     }
 

@@ -12,29 +12,31 @@ import com.baidu.fsg.face.base.d.h;
 public class DynamicWaveView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f6113a = 1715238655;
+    public static final int f6287a = 1715238655;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float f6114b = 30.0f;
+    public static final float f6288b = 30.0f;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f6115c = 0;
+    public static final int f6289c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f6116d = 3;
+    public static final int f6290d = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f6117e = 5;
+    public static final int f6291e = 5;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f6118f;
+    public float f6292f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6119g;
+    public int f6293g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6120h;
-    public int i;
+    public int f6294h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f6295i;
     public int j;
     public int k;
     public float[] l;
@@ -56,77 +58,77 @@ public class DynamicWaveView extends View {
     private void b() {
         float[] fArr = this.l;
         int length = fArr.length;
-        int i = this.q;
-        int i2 = length - i;
-        System.arraycopy(fArr, i, this.m, 0, i2);
-        System.arraycopy(this.l, 0, this.m, i2, this.q);
+        int i2 = this.q;
+        int i3 = length - i2;
+        System.arraycopy(fArr, i2, this.m, 0, i3);
+        System.arraycopy(this.l, 0, this.m, i3, this.q);
         float[] fArr2 = this.l;
         int length2 = fArr2.length;
-        int i3 = this.r;
-        int i4 = length2 - i3;
-        System.arraycopy(fArr2, i3, this.n, 0, i4);
-        System.arraycopy(this.l, 0, this.n, i4, this.r);
+        int i4 = this.r;
+        int i5 = length2 - i4;
+        System.arraycopy(fArr2, i4, this.n, 0, i5);
+        System.arraycopy(this.l, 0, this.n, i5, this.r);
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         canvas.setDrawFilter(this.t);
         b();
-        int i = this.j;
-        int i2 = this.f6119g - i;
-        while (i < i2) {
-            int i3 = (int) ((this.f6120h - this.m[i]) - this.k);
-            int i4 = this.i;
-            int sqrt = (int) (i4 + Math.sqrt(Math.pow(i4, 2.0d) - Math.pow(Math.abs(this.i - i), 2.0d)));
-            if (sqrt >= i3) {
-                float f2 = i;
-                canvas.drawLine(f2, i3, f2, sqrt, this.s);
+        int i2 = this.j;
+        int i3 = this.f6293g - i2;
+        while (i2 < i3) {
+            int i4 = (int) ((this.f6294h - this.m[i2]) - this.k);
+            int i5 = this.f6295i;
+            int sqrt = (int) (i5 + Math.sqrt(Math.pow(i5, 2.0d) - Math.pow(Math.abs(this.f6295i - i2), 2.0d)));
+            if (sqrt >= i4) {
+                float f2 = i2;
+                canvas.drawLine(f2, i4, f2, sqrt, this.s);
             }
-            int i5 = (int) ((this.f6120h - this.n[i]) - this.k);
-            if (sqrt >= i5) {
-                float f3 = i;
-                canvas.drawLine(f3, i5, f3, sqrt, this.s);
+            int i6 = (int) ((this.f6294h - this.n[i2]) - this.k);
+            if (sqrt >= i6) {
+                float f3 = i2;
+                canvas.drawLine(f3, i6, f3, sqrt, this.s);
             }
-            i++;
+            i2++;
         }
-        int i6 = this.q + this.o;
-        this.q = i6;
+        int i7 = this.q + this.o;
+        this.q = i7;
         this.r += this.p;
-        if (i6 >= this.f6119g) {
+        if (i7 >= this.f6293g) {
             this.q = 0;
         }
-        if (this.r > this.f6119g) {
+        if (this.r > this.f6293g) {
             this.r = 0;
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        this.f6119g = i;
-        this.f6120h = i2;
-        this.i = i / 2;
-        this.l = new float[i];
-        this.m = new float[i];
-        this.n = new float[i];
-        this.f6118f = (float) (6.283185307179586d / i);
-        for (int i5 = 0; i5 < this.f6119g; i5++) {
-            this.l[i5] = (float) ((Math.sin(this.f6118f * i5) * 30.0d) + 0.0d);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        this.f6293g = i2;
+        this.f6294h = i3;
+        this.f6295i = i2 / 2;
+        this.l = new float[i2];
+        this.m = new float[i2];
+        this.n = new float[i2];
+        this.f6292f = (float) (6.283185307179586d / i2);
+        for (int i6 = 0; i6 < this.f6293g; i6++) {
+            this.l[i6] = (float) ((Math.sin(this.f6292f * i6) * 30.0d) + 0.0d);
         }
     }
 
     @Override // android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
-        if (i == 8) {
+    public void onWindowVisibilityChanged(int i2) {
+        super.onWindowVisibilityChanged(i2);
+        if (i2 == 8) {
             stopAnim();
         }
     }
 
     @Override // android.view.View
-    public void setVisibility(int i) {
-        super.setVisibility(i);
-        if (i == 0) {
+    public void setVisibility(int i2) {
+        super.setVisibility(i2);
+        if (i2 == 0) {
             this.v = true;
             a();
             return;
@@ -164,8 +166,8 @@ public class DynamicWaveView extends View {
         thread.start();
     }
 
-    public DynamicWaveView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public DynamicWaveView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.v = true;
         this.o = h.a(context, 3.0f);
         this.p = h.a(context, 5.0f);
@@ -173,7 +175,7 @@ public class DynamicWaveView extends View {
         this.s = paint;
         paint.setAntiAlias(true);
         this.s.setStyle(Paint.Style.FILL);
-        this.s.setColor(f6113a);
+        this.s.setColor(f6287a);
         this.t = new PaintFlagsDrawFilter(0, 3);
         this.j = h.a(context, 5.0f);
         this.k = h.a(context, 30.0f);

@@ -89,7 +89,15 @@ public interface IKsAdSDK {
 
     @KsAdSdkDynamicApi
     @Keep
-    void reportBatchEvent(int i, Map<String, Object> map);
+    void pauseCurrentPlayer();
+
+    @KsAdSdkDynamicApi
+    @Keep
+    void reportBatchEvent(int i2, Map<String, Object> map);
+
+    @KsAdSdkDynamicApi
+    @Keep
+    void resumeCurrentPlayer();
 
     @KsAdSdkDynamicApi
     @Keep
@@ -97,7 +105,7 @@ public interface IKsAdSDK {
 
     @KsAdSdkDynamicApi
     @Keep
-    void setApiVersionCode(int i);
+    void setApiVersionCode(int i2);
 
     @KsAdSdkDynamicApi
     @Keep
@@ -106,6 +114,10 @@ public interface IKsAdSDK {
     @KsAdSdkDynamicApi
     @Keep
     void setIsExternal(boolean z);
+
+    @KsAdSdkDynamicApi
+    @Keep
+    void setThemeMode(int i2);
 
     @KsAdSdkDynamicApi
     @Keep

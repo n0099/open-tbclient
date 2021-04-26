@@ -2,9 +2,8 @@ package androidx.core.graphics;
 
 import android.graphics.Path;
 import android.util.Log;
-import androidx.annotation.RestrictTo;
+import androidx.annotation.Nullable;
 import java.util.ArrayList;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class PathParser {
     public static final String LOGTAG = "PathParser";
@@ -19,26 +18,26 @@ public class PathParser {
         arrayList.add(new PathDataNode(c2, fArr));
     }
 
-    public static boolean canMorph(PathDataNode[] pathDataNodeArr, PathDataNode[] pathDataNodeArr2) {
+    public static boolean canMorph(@Nullable PathDataNode[] pathDataNodeArr, @Nullable PathDataNode[] pathDataNodeArr2) {
         if (pathDataNodeArr == null || pathDataNodeArr2 == null || pathDataNodeArr.length != pathDataNodeArr2.length) {
             return false;
         }
-        for (int i = 0; i < pathDataNodeArr.length; i++) {
-            if (pathDataNodeArr[i].mType != pathDataNodeArr2[i].mType || pathDataNodeArr[i].mParams.length != pathDataNodeArr2[i].mParams.length) {
+        for (int i2 = 0; i2 < pathDataNodeArr.length; i2++) {
+            if (pathDataNodeArr[i2].mType != pathDataNodeArr2[i2].mType || pathDataNodeArr[i2].mParams.length != pathDataNodeArr2[i2].mParams.length) {
                 return false;
             }
         }
         return true;
     }
 
-    public static float[] copyOfRange(float[] fArr, int i, int i2) {
-        if (i <= i2) {
+    public static float[] copyOfRange(float[] fArr, int i2, int i3) {
+        if (i2 <= i3) {
             int length = fArr.length;
-            if (i >= 0 && i <= length) {
-                int i3 = i2 - i;
-                int min = Math.min(i3, length - i);
-                float[] fArr2 = new float[i3];
-                System.arraycopy(fArr, i, fArr2, 0, min);
+            if (i2 >= 0 && i2 <= length) {
+                int i4 = i3 - i2;
+                int min = Math.min(i4, length - i2);
+                float[] fArr2 = new float[i4];
+                System.arraycopy(fArr, i2, fArr2, 0, min);
                 return fArr2;
             }
             throw new ArrayIndexOutOfBoundsException();
@@ -51,19 +50,19 @@ public class PathParser {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        int i = 1;
-        int i2 = 0;
-        while (i < str.length()) {
-            int nextStart = nextStart(str, i);
-            String trim = str.substring(i2, nextStart).trim();
+        int i2 = 1;
+        int i3 = 0;
+        while (i2 < str.length()) {
+            int nextStart = nextStart(str, i2);
+            String trim = str.substring(i3, nextStart).trim();
             if (trim.length() > 0) {
                 addNode(arrayList, trim.charAt(0), getFloats(trim));
             }
-            i2 = nextStart;
-            i = nextStart + 1;
+            i3 = nextStart;
+            i2 = nextStart + 1;
         }
-        if (i - i2 == 1 && i2 < str.length()) {
-            addNode(arrayList, str.charAt(i2), new float[0]);
+        if (i2 - i3 == 1 && i3 < str.length()) {
+            addNode(arrayList, str.charAt(i3), new float[0]);
         }
         return (PathDataNode[]) arrayList.toArray(new PathDataNode[arrayList.size()]);
     }
@@ -87,8 +86,8 @@ public class PathParser {
             return null;
         }
         PathDataNode[] pathDataNodeArr2 = new PathDataNode[pathDataNodeArr.length];
-        for (int i = 0; i < pathDataNodeArr.length; i++) {
-            pathDataNodeArr2[i] = new PathDataNode(pathDataNodeArr[i]);
+        for (int i2 = 0; i2 < pathDataNodeArr.length; i2++) {
+            pathDataNodeArr2[i2] = new PathDataNode(pathDataNodeArr[i2]);
         }
         return pathDataNodeArr2;
     }
@@ -99,20 +98,20 @@ public class PathParser {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void extract(String str, int i, ExtractFloatResult extractFloatResult) {
+    public static void extract(String str, int i2, ExtractFloatResult extractFloatResult) {
         extractFloatResult.mEndWithNegOrDot = false;
         boolean z = false;
         boolean z2 = false;
         boolean z3 = false;
-        for (int i2 = i; i2 < str.length(); i2++) {
-            char charAt = str.charAt(i2);
+        for (int i3 = i2; i3 < str.length(); i3++) {
+            char charAt = str.charAt(i3);
             if (charAt != ' ') {
                 if (charAt != 'E' && charAt != 'e') {
                     switch (charAt) {
                         case ',':
                             break;
                         case '-':
-                            if (i2 != i && !z) {
+                            if (i3 != i2 && !z) {
                                 extractFloatResult.mEndWithNegOrDot = true;
                                 break;
                             }
@@ -135,7 +134,7 @@ public class PathParser {
                     z = true;
                 }
                 if (!z3) {
-                    extractFloatResult.mEndPosition = i2;
+                    extractFloatResult.mEndPosition = i3;
                 }
             }
             z = false;
@@ -143,7 +142,7 @@ public class PathParser {
             if (!z3) {
             }
         }
-        extractFloatResult.mEndPosition = i2;
+        extractFloatResult.mEndPosition = i3;
     }
 
     public static float[] getFloats(String str) {
@@ -154,48 +153,62 @@ public class PathParser {
             float[] fArr = new float[str.length()];
             ExtractFloatResult extractFloatResult = new ExtractFloatResult();
             int length = str.length();
-            int i = 1;
-            int i2 = 0;
-            while (i < length) {
-                extract(str, i, extractFloatResult);
-                int i3 = extractFloatResult.mEndPosition;
-                if (i < i3) {
-                    fArr[i2] = Float.parseFloat(str.substring(i, i3));
-                    i2++;
+            int i2 = 1;
+            int i3 = 0;
+            while (i2 < length) {
+                extract(str, i2, extractFloatResult);
+                int i4 = extractFloatResult.mEndPosition;
+                if (i2 < i4) {
+                    fArr[i3] = Float.parseFloat(str.substring(i2, i4));
+                    i3++;
                 }
-                i = extractFloatResult.mEndWithNegOrDot ? i3 : i3 + 1;
+                i2 = extractFloatResult.mEndWithNegOrDot ? i4 : i4 + 1;
             }
-            return copyOfRange(fArr, 0, i2);
+            return copyOfRange(fArr, 0, i3);
         } catch (NumberFormatException e2) {
             throw new RuntimeException("error in parsing \"" + str + "\"", e2);
         }
     }
 
-    public static int nextStart(String str, int i) {
-        while (i < str.length()) {
-            char charAt = str.charAt(i);
-            if (((charAt - 'A') * (charAt - 'Z') <= 0 || (charAt - 'a') * (charAt - 'z') <= 0) && charAt != 'e' && charAt != 'E') {
-                return i;
+    public static boolean interpolatePathDataNodes(PathDataNode[] pathDataNodeArr, PathDataNode[] pathDataNodeArr2, PathDataNode[] pathDataNodeArr3, float f2) {
+        if (pathDataNodeArr != null && pathDataNodeArr2 != null && pathDataNodeArr3 != null) {
+            if (pathDataNodeArr.length == pathDataNodeArr2.length && pathDataNodeArr2.length == pathDataNodeArr3.length) {
+                if (canMorph(pathDataNodeArr2, pathDataNodeArr3)) {
+                    for (int i2 = 0; i2 < pathDataNodeArr.length; i2++) {
+                        pathDataNodeArr[i2].interpolatePathDataNode(pathDataNodeArr2[i2], pathDataNodeArr3[i2], f2);
+                    }
+                    return true;
+                }
+                return false;
             }
-            i++;
+            throw new IllegalArgumentException("The nodes to be interpolated and resulting nodes must have the same length");
         }
-        return i;
+        throw new IllegalArgumentException("The nodes to be interpolated and resulting nodes cannot be null");
+    }
+
+    public static int nextStart(String str, int i2) {
+        while (i2 < str.length()) {
+            char charAt = str.charAt(i2);
+            if (((charAt - 'A') * (charAt - 'Z') <= 0 || (charAt - 'a') * (charAt - 'z') <= 0) && charAt != 'e' && charAt != 'E') {
+                return i2;
+            }
+            i2++;
+        }
+        return i2;
     }
 
     public static void updateNodes(PathDataNode[] pathDataNodeArr, PathDataNode[] pathDataNodeArr2) {
-        for (int i = 0; i < pathDataNodeArr2.length; i++) {
-            pathDataNodeArr[i].mType = pathDataNodeArr2[i].mType;
-            for (int i2 = 0; i2 < pathDataNodeArr2[i].mParams.length; i2++) {
-                pathDataNodeArr[i].mParams[i2] = pathDataNodeArr2[i].mParams[i2];
+        for (int i2 = 0; i2 < pathDataNodeArr2.length; i2++) {
+            pathDataNodeArr[i2].mType = pathDataNodeArr2[i2].mType;
+            for (int i3 = 0; i3 < pathDataNodeArr2[i2].mParams.length; i3++) {
+                pathDataNodeArr[i2].mParams[i3] = pathDataNodeArr2[i2].mParams[i3];
             }
         }
     }
 
     /* loaded from: classes.dex */
     public static class PathDataNode {
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
         public float[] mParams;
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
         public char mType;
 
         public PathDataNode(char c2, float[] fArr) {
@@ -205,8 +218,8 @@ public class PathParser {
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
         public static void addCommand(Path path, float[] fArr, char c2, char c3, float[] fArr2) {
-            int i;
             int i2;
+            int i3;
             float f2;
             float f3;
             float f4;
@@ -225,17 +238,17 @@ public class PathParser {
             switch (c4) {
                 case 'A':
                 case 'a':
-                    i = 7;
+                    i2 = 7;
                     break;
                 case 'C':
                 case 'c':
-                    i = 6;
+                    i2 = 6;
                     break;
                 case 'H':
                 case 'V':
                 case 'h':
                 case 'v':
-                    i = 1;
+                    i2 = 1;
                     break;
                 case 'L':
                 case 'M':
@@ -244,13 +257,13 @@ public class PathParser {
                 case 'm':
                 case 't':
                 default:
-                    i = 2;
+                    i2 = 2;
                     break;
                 case 'Q':
                 case 'S':
                 case 'q':
                 case 's':
-                    i = 4;
+                    i2 = 4;
                     break;
                 case 'Z':
                 case 'z':
@@ -260,81 +273,81 @@ public class PathParser {
                     f12 = f10;
                     f11 = f15;
                     f13 = f11;
-                    i = 2;
+                    i2 = 2;
                     break;
             }
             float f16 = f10;
             float f17 = f11;
             float f18 = f14;
             float f19 = f15;
-            int i3 = 0;
+            int i4 = 0;
             char c5 = c2;
-            while (i3 < fArr2.length) {
+            while (i4 < fArr2.length) {
                 if (c4 != 'A') {
                     if (c4 == 'C') {
-                        i2 = i3;
-                        int i4 = i2 + 2;
-                        int i5 = i2 + 3;
-                        int i6 = i2 + 4;
-                        int i7 = i2 + 5;
-                        path.cubicTo(fArr2[i2 + 0], fArr2[i2 + 1], fArr2[i4], fArr2[i5], fArr2[i6], fArr2[i7]);
-                        f16 = fArr2[i6];
-                        float f20 = fArr2[i7];
-                        float f21 = fArr2[i4];
-                        float f22 = fArr2[i5];
+                        i3 = i4;
+                        int i5 = i3 + 2;
+                        int i6 = i3 + 3;
+                        int i7 = i3 + 4;
+                        int i8 = i3 + 5;
+                        path.cubicTo(fArr2[i3 + 0], fArr2[i3 + 1], fArr2[i5], fArr2[i6], fArr2[i7], fArr2[i8]);
+                        f16 = fArr2[i7];
+                        float f20 = fArr2[i8];
+                        float f21 = fArr2[i5];
+                        float f22 = fArr2[i6];
                         f17 = f20;
                         f13 = f22;
                         f12 = f21;
                     } else if (c4 == 'H') {
-                        i2 = i3;
-                        int i8 = i2 + 0;
-                        path.lineTo(fArr2[i8], f17);
-                        f16 = fArr2[i8];
+                        i3 = i4;
+                        int i9 = i3 + 0;
+                        path.lineTo(fArr2[i9], f17);
+                        f16 = fArr2[i9];
                     } else if (c4 == 'Q') {
-                        i2 = i3;
-                        int i9 = i2 + 0;
-                        int i10 = i2 + 1;
-                        int i11 = i2 + 2;
-                        int i12 = i2 + 3;
-                        path.quadTo(fArr2[i9], fArr2[i10], fArr2[i11], fArr2[i12]);
-                        float f23 = fArr2[i9];
-                        float f24 = fArr2[i10];
-                        f16 = fArr2[i11];
-                        f17 = fArr2[i12];
+                        i3 = i4;
+                        int i10 = i3 + 0;
+                        int i11 = i3 + 1;
+                        int i12 = i3 + 2;
+                        int i13 = i3 + 3;
+                        path.quadTo(fArr2[i10], fArr2[i11], fArr2[i12], fArr2[i13]);
+                        float f23 = fArr2[i10];
+                        float f24 = fArr2[i11];
+                        f16 = fArr2[i12];
+                        f17 = fArr2[i13];
                         f12 = f23;
                         f13 = f24;
                     } else if (c4 == 'V') {
-                        i2 = i3;
-                        int i13 = i2 + 0;
-                        path.lineTo(f16, fArr2[i13]);
-                        f17 = fArr2[i13];
+                        i3 = i4;
+                        int i14 = i3 + 0;
+                        path.lineTo(f16, fArr2[i14]);
+                        f17 = fArr2[i14];
                     } else if (c4 != 'a') {
                         if (c4 != 'c') {
                             if (c4 == 'h') {
-                                int i14 = i3 + 0;
-                                path.rLineTo(fArr2[i14], 0.0f);
-                                f16 += fArr2[i14];
+                                int i15 = i4 + 0;
+                                path.rLineTo(fArr2[i15], 0.0f);
+                                f16 += fArr2[i15];
                             } else if (c4 != 'q') {
                                 if (c4 == 'v') {
-                                    int i15 = i3 + 0;
-                                    path.rLineTo(0.0f, fArr2[i15]);
-                                    f5 = fArr2[i15];
+                                    int i16 = i4 + 0;
+                                    path.rLineTo(0.0f, fArr2[i16]);
+                                    f5 = fArr2[i16];
                                 } else if (c4 == 'L') {
-                                    int i16 = i3 + 0;
-                                    int i17 = i3 + 1;
-                                    path.lineTo(fArr2[i16], fArr2[i17]);
-                                    f16 = fArr2[i16];
-                                    f17 = fArr2[i17];
+                                    int i17 = i4 + 0;
+                                    int i18 = i4 + 1;
+                                    path.lineTo(fArr2[i17], fArr2[i18]);
+                                    f16 = fArr2[i17];
+                                    f17 = fArr2[i18];
                                 } else if (c4 == 'M') {
-                                    int i18 = i3 + 0;
-                                    f16 = fArr2[i18];
-                                    int i19 = i3 + 1;
-                                    f17 = fArr2[i19];
-                                    if (i3 > 0) {
-                                        path.lineTo(fArr2[i18], fArr2[i19]);
+                                    int i19 = i4 + 0;
+                                    f16 = fArr2[i19];
+                                    int i20 = i4 + 1;
+                                    f17 = fArr2[i20];
+                                    if (i4 > 0) {
+                                        path.lineTo(fArr2[i19], fArr2[i20]);
                                     } else {
-                                        path.moveTo(fArr2[i18], fArr2[i19]);
-                                        i2 = i3;
+                                        path.moveTo(fArr2[i19], fArr2[i20]);
+                                        i3 = i4;
                                         f19 = f17;
                                         f18 = f16;
                                     }
@@ -344,15 +357,15 @@ public class PathParser {
                                         f17 = (f17 * 2.0f) - f13;
                                     }
                                     float f25 = f17;
-                                    int i20 = i3 + 0;
-                                    int i21 = i3 + 1;
-                                    int i22 = i3 + 2;
-                                    int i23 = i3 + 3;
-                                    path.cubicTo(f16, f25, fArr2[i20], fArr2[i21], fArr2[i22], fArr2[i23]);
-                                    f2 = fArr2[i20];
-                                    f3 = fArr2[i21];
-                                    f16 = fArr2[i22];
-                                    f17 = fArr2[i23];
+                                    int i21 = i4 + 0;
+                                    int i22 = i4 + 1;
+                                    int i23 = i4 + 2;
+                                    int i24 = i4 + 3;
+                                    path.cubicTo(f16, f25, fArr2[i21], fArr2[i22], fArr2[i23], fArr2[i24]);
+                                    f2 = fArr2[i21];
+                                    f3 = fArr2[i22];
+                                    f16 = fArr2[i23];
+                                    f17 = fArr2[i24];
                                     f12 = f2;
                                     f13 = f3;
                                 } else if (c4 == 'T') {
@@ -360,32 +373,32 @@ public class PathParser {
                                         f16 = (f16 * 2.0f) - f12;
                                         f17 = (f17 * 2.0f) - f13;
                                     }
-                                    int i24 = i3 + 0;
-                                    int i25 = i3 + 1;
-                                    path.quadTo(f16, f17, fArr2[i24], fArr2[i25]);
-                                    float f26 = fArr2[i24];
-                                    float f27 = fArr2[i25];
-                                    i2 = i3;
+                                    int i25 = i4 + 0;
+                                    int i26 = i4 + 1;
+                                    path.quadTo(f16, f17, fArr2[i25], fArr2[i26]);
+                                    float f26 = fArr2[i25];
+                                    float f27 = fArr2[i26];
+                                    i3 = i4;
                                     f13 = f17;
                                     f12 = f16;
                                     f16 = f26;
                                     f17 = f27;
                                 } else if (c4 == 'l') {
-                                    int i26 = i3 + 0;
-                                    int i27 = i3 + 1;
-                                    path.rLineTo(fArr2[i26], fArr2[i27]);
-                                    f16 += fArr2[i26];
-                                    f5 = fArr2[i27];
+                                    int i27 = i4 + 0;
+                                    int i28 = i4 + 1;
+                                    path.rLineTo(fArr2[i27], fArr2[i28]);
+                                    f16 += fArr2[i27];
+                                    f5 = fArr2[i28];
                                 } else if (c4 == 'm') {
-                                    int i28 = i3 + 0;
-                                    f16 += fArr2[i28];
-                                    int i29 = i3 + 1;
-                                    f17 += fArr2[i29];
-                                    if (i3 > 0) {
-                                        path.rLineTo(fArr2[i28], fArr2[i29]);
+                                    int i29 = i4 + 0;
+                                    f16 += fArr2[i29];
+                                    int i30 = i4 + 1;
+                                    f17 += fArr2[i30];
+                                    if (i4 > 0) {
+                                        path.rLineTo(fArr2[i29], fArr2[i30]);
                                     } else {
-                                        path.rMoveTo(fArr2[i28], fArr2[i29]);
-                                        i2 = i3;
+                                        path.rMoveTo(fArr2[i29], fArr2[i30]);
+                                        i3 = i4;
                                         f19 = f17;
                                         f18 = f16;
                                     }
@@ -398,15 +411,15 @@ public class PathParser {
                                         f7 = 0.0f;
                                         f6 = 0.0f;
                                     }
-                                    int i30 = i3 + 0;
-                                    int i31 = i3 + 1;
-                                    int i32 = i3 + 2;
-                                    int i33 = i3 + 3;
-                                    path.rCubicTo(f7, f6, fArr2[i30], fArr2[i31], fArr2[i32], fArr2[i33]);
-                                    f2 = fArr2[i30] + f16;
-                                    f3 = fArr2[i31] + f17;
-                                    f16 += fArr2[i32];
-                                    f4 = fArr2[i33];
+                                    int i31 = i4 + 0;
+                                    int i32 = i4 + 1;
+                                    int i33 = i4 + 2;
+                                    int i34 = i4 + 3;
+                                    path.rCubicTo(f7, f6, fArr2[i31], fArr2[i32], fArr2[i33], fArr2[i34]);
+                                    f2 = fArr2[i31] + f16;
+                                    f3 = fArr2[i32] + f17;
+                                    f16 += fArr2[i33];
+                                    f4 = fArr2[i34];
                                 } else if (c4 == 't') {
                                     if (c5 == 'q' || c5 == 't' || c5 == 'Q' || c5 == 'T') {
                                         f8 = f16 - f12;
@@ -415,66 +428,66 @@ public class PathParser {
                                         f9 = 0.0f;
                                         f8 = 0.0f;
                                     }
-                                    int i34 = i3 + 0;
-                                    int i35 = i3 + 1;
-                                    path.rQuadTo(f8, f9, fArr2[i34], fArr2[i35]);
+                                    int i35 = i4 + 0;
+                                    int i36 = i4 + 1;
+                                    path.rQuadTo(f8, f9, fArr2[i35], fArr2[i36]);
                                     float f29 = f8 + f16;
                                     float f30 = f9 + f17;
-                                    f16 += fArr2[i34];
-                                    f17 += fArr2[i35];
+                                    f16 += fArr2[i35];
+                                    f17 += fArr2[i36];
                                     f13 = f30;
                                     f12 = f29;
                                 }
                                 f17 += f5;
                             } else {
-                                int i36 = i3 + 0;
-                                int i37 = i3 + 1;
-                                int i38 = i3 + 2;
-                                int i39 = i3 + 3;
-                                path.rQuadTo(fArr2[i36], fArr2[i37], fArr2[i38], fArr2[i39]);
-                                f2 = fArr2[i36] + f16;
-                                f3 = fArr2[i37] + f17;
-                                f16 += fArr2[i38];
-                                f4 = fArr2[i39];
+                                int i37 = i4 + 0;
+                                int i38 = i4 + 1;
+                                int i39 = i4 + 2;
+                                int i40 = i4 + 3;
+                                path.rQuadTo(fArr2[i37], fArr2[i38], fArr2[i39], fArr2[i40]);
+                                f2 = fArr2[i37] + f16;
+                                f3 = fArr2[i38] + f17;
+                                f16 += fArr2[i39];
+                                f4 = fArr2[i40];
                             }
-                            i2 = i3;
+                            i3 = i4;
                         } else {
-                            int i40 = i3 + 2;
-                            int i41 = i3 + 3;
-                            int i42 = i3 + 4;
-                            int i43 = i3 + 5;
-                            path.rCubicTo(fArr2[i3 + 0], fArr2[i3 + 1], fArr2[i40], fArr2[i41], fArr2[i42], fArr2[i43]);
-                            f2 = fArr2[i40] + f16;
-                            f3 = fArr2[i41] + f17;
-                            f16 += fArr2[i42];
-                            f4 = fArr2[i43];
+                            int i41 = i4 + 2;
+                            int i42 = i4 + 3;
+                            int i43 = i4 + 4;
+                            int i44 = i4 + 5;
+                            path.rCubicTo(fArr2[i4 + 0], fArr2[i4 + 1], fArr2[i41], fArr2[i42], fArr2[i43], fArr2[i44]);
+                            f2 = fArr2[i41] + f16;
+                            f3 = fArr2[i42] + f17;
+                            f16 += fArr2[i43];
+                            f4 = fArr2[i44];
                         }
                         f17 += f4;
                         f12 = f2;
                         f13 = f3;
-                        i2 = i3;
+                        i3 = i4;
                     } else {
-                        int i44 = i3 + 5;
-                        int i45 = i3 + 6;
-                        i2 = i3;
-                        drawArc(path, f16, f17, fArr2[i44] + f16, fArr2[i45] + f17, fArr2[i3 + 0], fArr2[i3 + 1], fArr2[i3 + 2], fArr2[i3 + 3] != 0.0f, fArr2[i3 + 4] != 0.0f);
-                        f16 += fArr2[i44];
-                        f17 += fArr2[i45];
+                        int i45 = i4 + 5;
+                        int i46 = i4 + 6;
+                        i3 = i4;
+                        drawArc(path, f16, f17, fArr2[i45] + f16, fArr2[i46] + f17, fArr2[i4 + 0], fArr2[i4 + 1], fArr2[i4 + 2], fArr2[i4 + 3] != 0.0f, fArr2[i4 + 4] != 0.0f);
+                        f16 += fArr2[i45];
+                        f17 += fArr2[i46];
                     }
-                    i3 = i2 + i;
+                    i4 = i3 + i2;
                     c5 = c3;
                     c4 = c5;
                 } else {
-                    i2 = i3;
-                    int i46 = i2 + 5;
-                    int i47 = i2 + 6;
-                    drawArc(path, f16, f17, fArr2[i46], fArr2[i47], fArr2[i2 + 0], fArr2[i2 + 1], fArr2[i2 + 2], fArr2[i2 + 3] != 0.0f, fArr2[i2 + 4] != 0.0f);
-                    f16 = fArr2[i46];
-                    f17 = fArr2[i47];
+                    i3 = i4;
+                    int i47 = i3 + 5;
+                    int i48 = i3 + 6;
+                    drawArc(path, f16, f17, fArr2[i47], fArr2[i48], fArr2[i3 + 0], fArr2[i3 + 1], fArr2[i3 + 2], fArr2[i3 + 3] != 0.0f, fArr2[i3 + 4] != 0.0f);
+                    f16 = fArr2[i47];
+                    f17 = fArr2[i48];
                 }
                 f13 = f17;
                 f12 = f16;
-                i3 = i2 + i;
+                i4 = i3 + i2;
                 c5 = c3;
                 c4 = c5;
             }
@@ -504,10 +517,10 @@ public class PathParser {
             double d20 = d9;
             double d21 = d18;
             double d22 = d15;
-            int i = 0;
+            int i2 = 0;
             double d23 = d6;
             double d24 = d7;
-            while (i < ceil) {
+            while (i2 < ceil) {
                 double d25 = d20 + d19;
                 double sin3 = Math.sin(d25);
                 double cos3 = Math.cos(d25);
@@ -523,7 +536,7 @@ public class PathParser {
                 double d33 = sin;
                 path.rLineTo(0.0f, 0.0f);
                 path.cubicTo((float) d31, (float) (d24 + (d21 * sin4)), (float) (d26 - (sin4 * d28)), (float) (d27 - (sin4 * d29)), (float) d26, (float) d27);
-                i++;
+                i2++;
                 d19 = d19;
                 sin = d33;
                 d23 = d26;
@@ -582,9 +595,9 @@ public class PathParser {
             }
             double atan2 = Math.atan2(d10 - d3, d8 - d2);
             double atan22 = Math.atan2(d13 - d3, d12 - d2) - atan2;
-            int i = (atan22 > 0.0d ? 1 : (atan22 == 0.0d ? 0 : -1));
-            if (z2 != (i >= 0)) {
-                atan22 = i > 0 ? atan22 - 6.283185307179586d : atan22 + 6.283185307179586d;
+            int i2 = (atan22 > 0.0d ? 1 : (atan22 == 0.0d ? 0 : -1));
+            if (z2 != (i2 >= 0)) {
+                atan22 = i2 > 0 ? atan22 - 6.283185307179586d : atan22 + 6.283185307179586d;
             }
             double d22 = d2 * d7;
             double d23 = d3 * d9;
@@ -594,21 +607,22 @@ public class PathParser {
         public static void nodesToPath(PathDataNode[] pathDataNodeArr, Path path) {
             float[] fArr = new float[6];
             char c2 = 'm';
-            for (int i = 0; i < pathDataNodeArr.length; i++) {
-                addCommand(path, fArr, c2, pathDataNodeArr[i].mType, pathDataNodeArr[i].mParams);
-                c2 = pathDataNodeArr[i].mType;
+            for (int i2 = 0; i2 < pathDataNodeArr.length; i2++) {
+                addCommand(path, fArr, c2, pathDataNodeArr[i2].mType, pathDataNodeArr[i2].mParams);
+                c2 = pathDataNodeArr[i2].mType;
             }
         }
 
         public void interpolatePathDataNode(PathDataNode pathDataNode, PathDataNode pathDataNode2, float f2) {
-            int i = 0;
+            this.mType = pathDataNode.mType;
+            int i2 = 0;
             while (true) {
                 float[] fArr = pathDataNode.mParams;
-                if (i >= fArr.length) {
+                if (i2 >= fArr.length) {
                     return;
                 }
-                this.mParams[i] = (fArr[i] * (1.0f - f2)) + (pathDataNode2.mParams[i] * f2);
-                i++;
+                this.mParams[i2] = (fArr[i2] * (1.0f - f2)) + (pathDataNode2.mParams[i2] * f2);
+                i2++;
             }
         }
 

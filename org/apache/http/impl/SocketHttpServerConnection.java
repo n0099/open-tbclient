@@ -32,11 +32,11 @@ public class SocketHttpServerConnection extends AbstractHttpServerConnection imp
         throw new RuntimeException("Stub!");
     }
 
-    public SessionInputBuffer createHttpDataReceiver(Socket socket, int i, HttpParams httpParams) throws IOException {
+    public SessionInputBuffer createHttpDataReceiver(Socket socket, int i2, HttpParams httpParams) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
-    public SessionOutputBuffer createHttpDataTransmitter(Socket socket, int i, HttpParams httpParams) throws IOException {
+    public SessionOutputBuffer createHttpDataTransmitter(Socket socket, int i2, HttpParams httpParams) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -75,7 +75,7 @@ public class SocketHttpServerConnection extends AbstractHttpServerConnection imp
     }
 
     @Override // org.apache.http.HttpConnection
-    public void setSocketTimeout(int i) {
+    public void setSocketTimeout(int i2) {
         throw new RuntimeException("Stub!");
     }
 

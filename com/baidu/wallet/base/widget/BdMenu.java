@@ -45,8 +45,8 @@ public abstract class BdMenu {
         prepareMenuView(this.mContext);
     }
 
-    private BdMenuItem addInternal(int i, CharSequence charSequence, Drawable drawable) {
-        BdMenuItem bdMenuItem = new BdMenuItem(this.mContext, i, charSequence, drawable);
+    private BdMenuItem addInternal(int i2, CharSequence charSequence, Drawable drawable) {
+        BdMenuItem bdMenuItem = new BdMenuItem(this.mContext, i2, charSequence, drawable);
         bdMenuItem.setMenu(this);
         if (this.mDismissOnClick) {
             bdMenuItem.setOnClickListener(new BdMenuItem.OnItemClickListener() { // from class: com.baidu.wallet.base.widget.BdMenu.2
@@ -65,8 +65,8 @@ public abstract class BdMenu {
         return bdMenuItem;
     }
 
-    private BdMenuItem addInternal1(int i, CharSequence charSequence, String str) {
-        BdMenuItem bdMenuItem = new BdMenuItem(this.mContext, i, charSequence, str);
+    private BdMenuItem addInternal1(int i2, CharSequence charSequence, String str) {
+        BdMenuItem bdMenuItem = new BdMenuItem(this.mContext, i2, charSequence, str);
         bdMenuItem.setMenu(this);
         if (this.mDismissOnClick) {
             bdMenuItem.setOnClickListener(new BdMenuItem.OnItemClickListener() { // from class: com.baidu.wallet.base.widget.BdMenu.3
@@ -91,12 +91,12 @@ public abstract class BdMenu {
         if (menuView instanceof OnMenuSetChangedListener) {
             menuView.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.wallet.base.widget.BdMenu.1
                 @Override // android.view.View.OnKeyListener
-                public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                public boolean onKey(View view, int i2, KeyEvent keyEvent) {
                     if (keyEvent.getAction() == 1) {
-                        if (i == 4 || i == 82) {
+                        if (i2 == 4 || i2 == 82) {
                             BdMenu.this.dismiss();
                             if (BdMenu.this.mKeyClickListener != null) {
-                                BdMenu.this.mKeyClickListener.onKey(view, i, keyEvent);
+                                BdMenu.this.mKeyClickListener.onKey(view, i2, keyEvent);
                             }
                             return true;
                         }
@@ -110,8 +110,8 @@ public abstract class BdMenu {
         throw new IllegalArgumentException("The view returned by getMenuView() MUST implement OnMenuSetChangedListener!");
     }
 
-    public BdMenuItem add(int i, CharSequence charSequence) {
-        return addInternal(i, charSequence, null);
+    public BdMenuItem add(int i2, CharSequence charSequence) {
+        return addInternal(i2, charSequence, null);
     }
 
     public void dismiss() {
@@ -128,19 +128,19 @@ public abstract class BdMenu {
 
     public abstract void ensureMenuLoaded(View view, List<BdMenuItem> list);
 
-    public BdMenuItem findItem(int i) {
-        int findItemIndex = findItemIndex(i);
+    public BdMenuItem findItem(int i2) {
+        int findItemIndex = findItemIndex(i2);
         if (findItemIndex > -1) {
             return this.mItems.get(findItemIndex);
         }
         return null;
     }
 
-    public int findItemIndex(int i) {
+    public int findItemIndex(int i2) {
         int size = this.mItems.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            if (this.mItems.get(i2).getItemId() == i) {
-                return i2;
+        for (int i3 = 0; i3 < size; i3++) {
+            if (this.mItems.get(i3).getItemId() == i2) {
+                return i3;
             }
         }
         return -1;
@@ -169,15 +169,15 @@ public abstract class BdMenu {
         }
     }
 
-    public void removeItem(int i) {
-        removeItemAt(findItemIndex(i));
+    public void removeItem(int i2) {
+        removeItemAt(findItemIndex(i2));
     }
 
-    public void removeItemAt(int i) {
-        if (i < 0 || i >= this.mItems.size()) {
+    public void removeItemAt(int i2) {
+        if (i2 < 0 || i2 >= this.mItems.size()) {
             return;
         }
-        this.mItems.remove(i);
+        this.mItems.remove(i2);
     }
 
     public void setDismissOnClick(boolean z) {
@@ -249,19 +249,19 @@ public abstract class BdMenu {
         }
     }
 
-    public BdMenuItem add(int i, int i2) {
-        return addInternal(i, this.mResources.getString(i2), null);
+    public BdMenuItem add(int i2, int i3) {
+        return addInternal(i2, this.mResources.getString(i3), null);
     }
 
-    public BdMenuItem add(int i, CharSequence charSequence, Drawable drawable) {
-        return addInternal(i, charSequence, drawable);
+    public BdMenuItem add(int i2, CharSequence charSequence, Drawable drawable) {
+        return addInternal(i2, charSequence, drawable);
     }
 
-    public BdMenuItem add(int i, int i2, int i3) {
-        return addInternal(i, this.mResources.getString(i2), this.mResources.getDrawable(i3));
+    public BdMenuItem add(int i2, int i3, int i4) {
+        return addInternal(i2, this.mResources.getString(i3), this.mResources.getDrawable(i4));
     }
 
-    public BdMenuItem add(int i, CharSequence charSequence, String str) {
-        return addInternal1(i, charSequence, str);
+    public BdMenuItem add(int i2, CharSequence charSequence, String str) {
+        return addInternal1(i2, charSequence, str);
     }
 }

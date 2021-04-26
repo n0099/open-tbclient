@@ -7,22 +7,22 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f34851a = new JSONObject();
+    public JSONObject f33818a = new JSONObject();
 
     private void a(String str, Object obj) {
         try {
-            this.f34851a.put(str, obj);
+            this.f33818a.put(str, obj);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
         }
     }
 
     public void a(String str) {
-        a(c.f34823g, (Object) str);
+        a(c.f33789g, (Object) str);
     }
 
-    public void a(String str, int i) {
-        a(str, Integer.valueOf(i));
+    public void a(String str, int i2) {
+        a(str, Integer.valueOf(i2));
     }
 
     public void a(String str, String str2) {
@@ -34,6 +34,6 @@ public class a {
     }
 
     public String toString() {
-        return this.f34851a.toString();
+        return this.f33818a.toString();
     }
 }

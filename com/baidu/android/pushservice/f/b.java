@@ -6,5 +6,5 @@ import android.content.Context;
 public interface b {
     int a();
 
-    void a(Context context, ComponentName componentName, int i);
+    void a(Context context, ComponentName componentName, int i2);
 }

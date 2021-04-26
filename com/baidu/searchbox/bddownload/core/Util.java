@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.StatFs;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,11 +38,13 @@ public class Util {
     public static final String CONTENT_DISPOSITION = "Content-Disposition";
     public static final String CONTENT_LENGTH = "Content-Length";
     public static final String CONTENT_RANGE = "Content-Range";
+    public static final String CONTENT_TYPE = "Content-TYPE";
     public static final String ETAG = "Etag";
     public static final String IF_MATCH = "If-Match";
     public static final String METHOD_HEAD = "HEAD";
     public static final String RANGE = "Range";
     public static final int RANGE_NOT_SATISFIABLE = 416;
+    public static final String SCHEME_HTTP = "http";
     public static final String TRANSFER_ENCODING = "Transfer-Encoding";
     public static final String USER_AGENT = "User-Agent";
     public static final String VALUE_CHUNKED = "chunked";
@@ -100,19 +103,19 @@ public class Util {
         breakpointInfo.resetBlockInfos();
         long j2 = determineBlockCount;
         long j3 = j / j2;
-        int i = 0;
+        int i2 = 0;
         long j4 = 0;
         long j5 = 0;
-        while (i < determineBlockCount) {
+        while (i2 < determineBlockCount) {
             j4 += j5;
-            j5 = i == 0 ? (j % j2) + j3 : j3;
+            j5 = i2 == 0 ? (j % j2) + j3 : j3;
             breakpointInfo.addBlock(new BlockInfo(j4, j5));
-            i++;
+            i2++;
         }
     }
 
     public static boolean checkPermission(String str) {
-        return BdDownload.with().context().checkCallingOrSelfPermission(str) == 0;
+        return (BdDownload.with().context() != null ? BdDownload.with().context().checkCallingOrSelfPermission(str) : -1) == 0;
     }
 
     @NonNull
@@ -140,7 +143,7 @@ public class Util {
     @NonNull
     public static DownloadStore createDefaultDatabase(Context context) {
         try {
-            return (DownloadStore) Class.forName("com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStoreOnSQLite").getDeclaredConstructor(Context.class).newInstance(context);
+            return (DownloadStore) Class.forName("com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointStoreOnSQLite").getDeclaredConstructor(Context.class).newInstance(context);
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException unused) {
             return new BreakpointStoreOnCache();
         }
@@ -152,7 +155,7 @@ public class Util {
             downloadStore = (DownloadStore) downloadStore.getClass().getMethod("createRemitSelf", new Class[0]).invoke(downloadStore, new Object[0]);
         } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
         }
-        d(com.baidu.android.common.util.Util.f2562b, "Get final download store is " + downloadStore);
+        d(com.baidu.android.common.util.Util.f2559b, "Get final download store is " + downloadStore);
         return downloadStore;
     }
 
@@ -223,12 +226,12 @@ public class Util {
     }
 
     public static String humanReadableBytes(long j, boolean z) {
-        int i = z ? 1000 : 1024;
-        if (j < i) {
+        int i2 = z ? 1000 : 1024;
+        if (j < i2) {
             return j + " B";
         }
         double d2 = j;
-        double d3 = i;
+        double d3 = i2;
         int log = (int) (Math.log(d2) / Math.log(d3));
         StringBuilder sb = new StringBuilder();
         sb.append((z ? "kMGTPE" : "KMGTPE").charAt(log - 1));
@@ -259,9 +262,13 @@ public class Util {
         return charSequence == null || charSequence.length() == 0;
     }
 
+    public static boolean isInvalidUrl(@NonNull String str) {
+        return TextUtils.isEmpty(str) || !str.toLowerCase().startsWith("http");
+    }
+
     public static boolean isNetworkAvailable(ConnectivityManager connectivityManager) {
         if (connectivityManager == null) {
-            w(com.baidu.android.common.util.Util.f2562b, "failed to get connectivity manager!");
+            w(com.baidu.android.common.util.Util.f2559b, "failed to get connectivity manager!");
             return true;
         }
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -270,7 +277,7 @@ public class Util {
 
     public static boolean isNetworkNotOnWifiType(ConnectivityManager connectivityManager) {
         if (connectivityManager == null) {
-            w(com.baidu.android.common.util.Util.f2562b, "failed to get connectivity manager!");
+            w(com.baidu.android.common.util.Util.f2559b, "failed to get connectivity manager!");
             return true;
         }
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -296,11 +303,11 @@ public class Util {
         if (bArr != null) {
             StringBuilder sb = new StringBuilder(bArr.length * 2);
             for (byte b2 : bArr) {
-                int i = b2 & 255;
-                if (i < 16) {
+                int i2 = b2 & 255;
+                if (i2 < 16) {
                     sb.append('0');
                 }
-                sb.append(Integer.toHexString(i));
+                sb.append(Integer.toHexString(i2));
             }
             return sb.toString();
         }
@@ -314,7 +321,7 @@ public class Util {
         try {
             return Long.parseLong(str);
         } catch (NumberFormatException unused) {
-            d(com.baidu.android.common.util.Util.f2562b, "parseContentLength failed parse for '" + str + "'");
+            d(com.baidu.android.common.util.Util.f2559b, "parseContentLength failed parse for '" + str + "'");
             return -1L;
         }
     }
@@ -327,7 +334,7 @@ public class Util {
                     return (Long.parseLong(matcher.group(2)) - Long.parseLong(matcher.group(1))) + 1;
                 }
             } catch (Exception e2) {
-                w(com.baidu.android.common.util.Util.f2562b, "parse content-length from content-range failed " + e2);
+                w(com.baidu.android.common.util.Util.f2559b, "parse content-length from content-range failed " + e2);
             }
         }
         return -1L;

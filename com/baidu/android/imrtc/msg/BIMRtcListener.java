@@ -10,9 +10,9 @@ public interface BIMRtcListener {
 
     void fetchRoomState(boolean z, BIMRtcInfo bIMRtcInfo);
 
-    void onRtcResult(int i, BIMRtcInfo bIMRtcInfo);
+    void onRtcResult(int i2, BIMRtcInfo bIMRtcInfo);
 
-    void roomCalleeAnswerByFromOtherCallee(int i, BIMRtcInfo bIMRtcInfo);
+    void roomCalleeAnswerByFromOtherCallee(int i2, BIMRtcInfo bIMRtcInfo);
 
     void roomCalleeAnswerTimeOutFromMyself(BIMRtcInfo bIMRtcInfo);
 
@@ -20,7 +20,7 @@ public interface BIMRtcListener {
 
     void roomCalleeInviteFromCaller(BIMRtcInfo bIMRtcInfo);
 
-    void roomCallerGetAnswerSyncByCallee(int i, BIMRtcInfo bIMRtcInfo);
+    void roomCallerGetAnswerSyncByCallee(int i2, BIMRtcInfo bIMRtcInfo);
 
     void roomCallerInviteTimeoutByCallee(BIMRtcInfo bIMRtcInfo);
 

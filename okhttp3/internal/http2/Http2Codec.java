@@ -119,10 +119,10 @@ public final class Http2Codec implements HttpCodec {
         }
         arrayList.add(new Header(Header.TARGET_SCHEME, request.url().scheme()));
         int size = headers.size();
-        for (int i = 0; i < size; i++) {
-            ByteString encodeUtf8 = ByteString.encodeUtf8(headers.name(i).toLowerCase(Locale.US));
+        for (int i2 = 0; i2 < size; i2++) {
+            ByteString encodeUtf8 = ByteString.encodeUtf8(headers.name(i2).toLowerCase(Locale.US));
             if (!HTTP_2_SKIPPED_REQUEST_HEADERS.contains(encodeUtf8)) {
-                arrayList.add(new Header(encodeUtf8, headers.value(i)));
+                arrayList.add(new Header(encodeUtf8, headers.value(i2)));
             }
         }
         return arrayList;
@@ -132,8 +132,8 @@ public final class Http2Codec implements HttpCodec {
         Headers.Builder builder = new Headers.Builder();
         int size = list.size();
         StatusLine statusLine = null;
-        for (int i = 0; i < size; i++) {
-            Header header = list.get(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            Header header = list.get(i2);
             if (header == null) {
                 if (statusLine != null && statusLine.code == 100) {
                     builder = new Headers.Builder();

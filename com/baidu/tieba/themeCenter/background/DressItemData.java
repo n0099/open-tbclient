@@ -79,16 +79,16 @@ public class DressItemData extends OrmObject implements Serializable {
         return this.propsId % 2 == 0;
     }
 
-    public void setActivityFinish(int i) {
-        this.activityFinish = i;
+    public void setActivityFinish(int i2) {
+        this.activityFinish = i2;
     }
 
     public void setActivityUrl(String str) {
         this.activityUrl = str;
     }
 
-    public void setDailyPrevilegeStatus(int i) {
-        this.dailyPrevilegeStatus = i;
+    public void setDailyPrevilegeStatus(int i2) {
+        this.dailyPrevilegeStatus = i2;
     }
 
     public void setDescription(String str) {
@@ -99,8 +99,8 @@ public class DressItemData extends OrmObject implements Serializable {
         this.exampleImgUrl = str;
     }
 
-    public void setFreeUserLevel(int i) {
-        this.freeUserLevel = i;
+    public void setFreeUserLevel(int i2) {
+        this.freeUserLevel = i2;
     }
 
     public void setInUse(boolean z) {
@@ -111,8 +111,8 @@ public class DressItemData extends OrmObject implements Serializable {
         this.permissionImgUrl = str;
     }
 
-    public void setPropsId(int i) {
-        this.propsId = i;
+    public void setPropsId(int i2) {
+        this.propsId = i2;
     }
 
     public void setPropsStateImg(String str) {

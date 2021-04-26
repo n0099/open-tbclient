@@ -7,55 +7,76 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    public int A;
-    public String B;
-    public long C;
+    public JSONArray A;
+    public JSONArray B;
+    public String C;
     public String D;
-    public int E;
-    public int F;
-    public int G;
-    public String H;
-    public String I;
-    public JSONArray J;
-    public JSONArray K;
-    public JSONObject L;
-    public int M;
-    public String N;
-    public String O;
+    public String E;
+    public String F;
+    public long G;
+    public long H;
+    public int I;
+    public String J;
+    public long K;
+    public String L;
+    public long M;
+    public int N;
+    public int O;
     public int P;
-    public int Q;
-    public long R;
-    public String S;
-    public int T;
-    public int U;
-    public int V;
+    public String Q;
+    public String R;
+    public int S;
+    public JSONArray T;
+    public JSONArray U;
+    public JSONObject V;
     public int W;
-    public long X;
+    public String X;
+    public String Y;
+    public int Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f34378a;
+    public AdTemplate f33364a;
+    public int aa;
+    public long ab;
+    public String ac;
+    public int ad;
+    public int ae;
+    public int af;
+    public int ag;
+    public JSONArray ah;
+    public boolean ai;
+    public int aj;
+    public String ak;
+    public int al;
+    public long am;
+    public long an;
+    public JSONArray ao;
+    public String ap;
+    public long aq;
 
     /* renamed from: b  reason: collision with root package name */
-    public SceneImpl f34379b;
+    public SceneImpl f33365b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f34380c;
+    public long f33366c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f34381d;
+    public long f33367d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f34382e;
+    public long f33368e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f34383f;
+    public long f33369f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f34384g;
+    public long f33370g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f34385h;
-    public long i;
+    public long f33371h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public long f33372i;
     public long j;
     public long k;
     public long l;
@@ -64,59 +85,69 @@ public class a {
     public int o;
     public int p;
     public int q;
-    public int r;
+    public String r;
     public int s;
-    public JSONArray t;
-    public JSONArray u;
-    public String v;
-    public String w;
-    public String x;
-    public long y;
-    public long z;
+    public int t;
+    public long u;
+    public long v;
+    public int w;
+    public int x;
+    public int y;
+    public int z;
 
     public a(long j) {
-        this.X = -1L;
+        this.aq = -1L;
         this.k = 0L;
         this.n = -1L;
         this.o = 0;
         this.p = 0;
-        this.s = 0;
-        this.C = -1L;
-        this.E = -1;
-        this.V = -1;
-        this.W = -1;
-        this.f34380c = j;
-        this.f34378a = null;
+        this.q = -1;
+        this.y = -1;
+        this.z = 0;
+        this.K = -1L;
+        this.M = -1L;
+        this.N = -1;
+        this.af = -1;
+        this.ag = -1;
+        this.aj = -1;
+        this.al = 0;
+        this.f33366c = j;
+        this.f33364a = null;
     }
 
     public a(long j, @NonNull AdTemplate adTemplate) {
-        this.X = -1L;
+        this.aq = -1L;
         this.k = 0L;
         this.n = -1L;
         this.o = 0;
         this.p = 0;
-        this.s = 0;
-        this.C = -1L;
-        this.E = -1;
-        this.V = -1;
-        this.W = -1;
-        this.f34380c = j;
-        this.f34378a = adTemplate;
+        this.q = -1;
+        this.y = -1;
+        this.z = 0;
+        this.K = -1L;
+        this.M = -1L;
+        this.N = -1;
+        this.af = -1;
+        this.ag = -1;
+        this.aj = -1;
+        this.al = 0;
+        this.f33366c = j;
+        this.f33364a = adTemplate;
         a(adTemplate.getShowPosition());
     }
 
     private void a(long j) {
-        this.X = j + 1;
+        this.aq = j + 1;
     }
 
     public long a() {
-        return this.X;
+        return this.aq;
     }
 
     public void b() {
         com.kwad.sdk.core.h.b a2 = com.kwad.sdk.core.h.b.a();
-        this.U = a2.b() ? 1 : 0;
-        this.V = a2.c();
-        this.W = a2.d();
+        this.ae = a2.b() ? 1 : 0;
+        this.af = a2.c();
+        this.ag = a2.d();
     }
 }

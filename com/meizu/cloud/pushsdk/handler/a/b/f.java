@@ -17,37 +17,37 @@ public class f implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public f[] newArray(int i) {
-            return new f[i];
+        public f[] newArray(int i2) {
+            return new f[i2];
         }
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38211a;
+    public String f35770a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38212b;
+    public String f35771b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f38213c;
+    public boolean f35772c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38214d;
+    public String f35773d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38215e;
+    public String f35774e;
 
     public f() {
-        this.f38213c = false;
+        this.f35772c = false;
     }
 
     public f(Parcel parcel) {
-        this.f38213c = false;
-        this.f38211a = parcel.readString();
-        this.f38212b = parcel.readString();
-        this.f38213c = parcel.readByte() != 0;
-        this.f38214d = parcel.readString();
-        this.f38215e = parcel.readString();
+        this.f35772c = false;
+        this.f35770a = parcel.readString();
+        this.f35771b = parcel.readString();
+        this.f35772c = parcel.readByte() != 0;
+        this.f35773d = parcel.readString();
+        this.f35774e = parcel.readString();
     }
 
     public static f a(JSONObject jSONObject) {
@@ -70,44 +70,44 @@ public class f implements Parcelable {
             return fVar;
         }
         str = "no control statics can parse ";
-        d.k.a.a.a.b("statics", str);
+        d.j.a.a.a.b("statics", str);
         return fVar;
     }
 
     public String a() {
-        return this.f38211a;
+        return this.f35770a;
     }
 
     public void a(String str) {
-        this.f38211a = str;
+        this.f35770a = str;
     }
 
     public void a(boolean z) {
-        this.f38213c = z;
+        this.f35772c = z;
     }
 
     public String b() {
-        return this.f38212b;
+        return this.f35771b;
     }
 
     public void b(String str) {
-        this.f38212b = str;
+        this.f35771b = str;
     }
 
     public void c(String str) {
-        this.f38214d = str;
+        this.f35773d = str;
     }
 
     public boolean c() {
-        return this.f38213c;
+        return this.f35772c;
     }
 
     public String d() {
-        return this.f38214d;
+        return this.f35773d;
     }
 
     public void d(String str) {
-        this.f38215e = str;
+        this.f35774e = str;
     }
 
     @Override // android.os.Parcelable
@@ -116,19 +116,19 @@ public class f implements Parcelable {
     }
 
     public String e() {
-        return this.f38215e;
+        return this.f35774e;
     }
 
     public String toString() {
-        return "Statics{taskId='" + this.f38211a + "', time='" + this.f38212b + "', pushExtra=" + this.f38213c + ", deviceId='" + this.f38214d + "', seqId='" + this.f38215e + "'}";
+        return "Statics{taskId='" + this.f35770a + "', time='" + this.f35771b + "', pushExtra=" + this.f35772c + ", deviceId='" + this.f35773d + "', seqId='" + this.f35774e + "'}";
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f38211a);
-        parcel.writeString(this.f38212b);
-        parcel.writeByte(this.f38213c ? (byte) 1 : (byte) 0);
-        parcel.writeString(this.f38214d);
-        parcel.writeString(this.f38215e);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeString(this.f35770a);
+        parcel.writeString(this.f35771b);
+        parcel.writeByte(this.f35772c ? (byte) 1 : (byte) 0);
+        parcel.writeString(this.f35773d);
+        parcel.writeString(this.f35774e);
     }
 }

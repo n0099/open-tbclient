@@ -50,23 +50,25 @@ import java.util.ArrayList;
 public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumberPwdView.OnPwdChangedListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f25897b;
+    public View f26683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f25898c;
+    public TextView f26684c;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f25899e;
+    public TextView f26685e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SixNumberPwdView f25900f;
+    public SixNumberPwdView f26686f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f25901g;
+    public TextView f26687g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f25902h;
-    public SafeKeyBoardEditText i;
+    public View f26688h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public SafeKeyBoardEditText f26689i;
     public TextView j;
     public SafeScrollView k;
     public RelativeLayout l;
@@ -80,20 +82,20 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     public CountDownTimer t;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f25896a = false;
+    public boolean f26682a = false;
     public final int u = 1;
     public final int v = 2;
     public final int w = 18;
 
     private void b() {
-        this.f25901g.setVisibility(8);
+        this.f26687g.setVisibility(8);
     }
 
     private void c() {
-        this.f25896a = false;
-        int i = this.m.mFrom;
-        if (i != 0) {
-            if (i == 2) {
+        this.f26682a = false;
+        int i2 = this.m.mFrom;
+        if (i2 != 0) {
+            if (i2 == 2) {
                 i();
                 return;
             }
@@ -129,7 +131,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     }
 
     private void d() {
-        this.f25896a = true;
+        this.f26682a = true;
         PayRequest payRequest = this.o;
         PayStatisticsUtil.onEventWithValue(StatServiceEvent.BIND_CLICK_PAY, payRequest != null ? payRequest.mSpNO : "");
         StatisticManager.onEventStart(StatServiceEvent.TIME_PAY);
@@ -225,51 +227,51 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     }
 
     private void k() {
-        this.f25900f.resetPwd();
+        this.f26686f.resetPwd();
         b();
     }
 
     public String getPwdConfirm() {
-        return this.f25900f.getPwd();
+        return this.f26686f.getPwd();
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
-    public void handleFailure(int i, int i2, String str) {
+    public void handleFailure(int i2, int i3, String str) {
         k();
         WalletGlobalUtils.safeDismissDialog(this, 0);
-        if ((i2 == 100038 || (i2 >= 16420 && i2 <= 16439)) && i != 12) {
+        if ((i3 == 100038 || (i3 >= 16420 && i3 <= 16439)) && i2 != 12) {
             a(str);
             return;
         }
         String str2 = "";
-        if (i == 259) {
-            PayStatisticsUtil.onEventEnd(StatServiceEvent.MODIFY_PASSWORD, i2);
+        if (i2 == 259) {
+            PayStatisticsUtil.onEventEnd(StatServiceEvent.MODIFY_PASSWORD, i3);
             this.mDialogMsg = str;
             WalletGlobalUtils.safeShowDialog(this, 3, "");
-        } else if (i == 260) {
-            a(i2, str);
-        } else if (i == 524) {
-            int i3 = this.n.mBindFrom;
-            if (i3 == 5) {
+        } else if (i2 == 260) {
+            a(i3, str);
+        } else if (i2 == 524) {
+            int i4 = this.n.mBindFrom;
+            if (i4 == 5) {
                 GlobalUtils.toast(getActivity(), str);
                 str2 = StatServiceEvent.COMPLETE_CARD;
-            } else if (i3 == 4) {
+            } else if (i4 == 4) {
                 GlobalUtils.toast(getActivity(), str);
                 str2 = StatServiceEvent.FIND_PASSWORD_FROM_OLD_CARD_RESET_PWD;
             }
-            PayStatisticsUtil.onEventEnd(str2, i2);
-        } else if (i != 13 && i != 513) {
-            super.handleFailure(i, i2, str);
+            PayStatisticsUtil.onEventEnd(str2, i3);
+        } else if (i2 != 13 && i2 != 513) {
+            super.handleFailure(i2, i3, str);
         } else {
             this.mDialogMsg = str;
             WalletGlobalUtils.safeShowDialog(this, 3, "");
-            if (i == 13) {
-                PayStatisticsUtil.onEventWithValue(StatServiceEvent.BIND_PAY_ACCEPT_FAIL, String.valueOf(i2));
+            if (i2 == 13) {
+                PayStatisticsUtil.onEventWithValue(StatServiceEvent.BIND_PAY_ACCEPT_FAIL, String.valueOf(i3));
                 BindFastRequest bindFastRequest = this.n;
                 if (bindFastRequest != null) {
                     if (bindFastRequest.getmBindFrom() == 0 || this.n.getmBindFrom() == 6) {
                         String orderNo = StatHelper.getOrderNo();
-                        StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_BIND_CARD_FAILED, StatHelper.collectData(orderNo, i2 + "", str));
+                        StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_BIND_CARD_FAILED, StatHelper.collectData(orderNo, i3 + "", str));
                         return;
                     }
                     return;
@@ -277,34 +279,34 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
                 return;
             }
             String sessionId = StatHelper.getSessionId();
-            StatisticManager.onEventWithValues(PayStatServiceEvent.INITIVATIVE_BIND_CARD_FAILED, StatHelper.collectData(sessionId, i2 + "", str));
-            PayStatisticsUtil.onEventEnd(StatServiceEvent.BIND_CARD, i2);
+            StatisticManager.onEventWithValues(PayStatServiceEvent.INITIVATIVE_BIND_CARD_FAILED, StatHelper.collectData(sessionId, i3 + "", str));
+            PayStatisticsUtil.onEventEnd(StatServiceEvent.BIND_CARD, i3);
         }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
         BindFastRequest bindFastRequest;
-        if (i == 259) {
+        if (i2 == 259) {
             WalletGlobalUtils.safeDismissDialog(this, 0);
             PasswordController.getPassWordInstance().editPwdSucceed(getPwdConfirm());
             GlobalUtils.toast(getActivity(), ResUtils.getString(getActivity(), "ebpay_modify_success"));
             PayStatisticsUtil.onEventEnd(StatServiceEvent.MODIFY_PASSWORD, 0);
             BaseActivity.clearTasksWithFlag(1);
-        } else if (i == 260) {
+        } else if (i2 == 260) {
             j();
-        } else if (i == 524) {
+        } else if (i2 == 524) {
             WalletGlobalUtils.safeDismissDialog(this, 0);
-            int i2 = this.n.mBindFrom;
-            if (i2 == 5) {
+            int i3 = this.n.mBindFrom;
+            if (i3 == 5) {
                 PayStatisticsUtil.onEventEnd(StatServiceEvent.COMPLETE_CARD, 0);
                 PasswordController.getPassWordInstance().setPassByUserSucceed("");
                 BaseActivity.clearTasksWithFlag(1);
-            } else if (i2 == 4) {
+            } else if (i3 == 4) {
                 PayStatisticsUtil.onEventEnd(StatServiceEvent.FIND_PASSWORD_FROM_OLD_CARD_RESET_PWD, 0);
                 PasswordController.getPassWordInstance().setPwdSucceed(getPwdConfirm());
             }
-        } else if (i == 513) {
+        } else if (i2 == 513) {
             WalletGlobalUtils.safeDismissDialog(this, 0);
             PayStatisticsUtil.onEventEnd(StatServiceEvent.BIND_CARD, 0);
             PayRequest payRequest = this.o;
@@ -315,16 +317,16 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
             }
             PasswordController.getPassWordInstance().setPassByUserSucceed("");
         } else {
-            if (i == 13 && (bindFastRequest = this.n) != null && (bindFastRequest.getmBindFrom() == 0 || this.n.getmBindFrom() == 6)) {
+            if (i2 == 13 && (bindFastRequest = this.n) != null && (bindFastRequest.getmBindFrom() == 0 || this.n.getmBindFrom() == 6)) {
                 StatisticManager.onEventWithValue(PayStatServiceEvent.PAY_BIND_CARD_SUCCESS, StatHelper.getOrderNo());
             }
-            super.handleResponse(i, obj, str);
+            super.handleResponse(i2, obj, str);
         }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity
     public boolean isBindPay() {
-        return this.f25896a;
+        return this.f26682a;
     }
 
     @Override // com.baidu.wallet.core.BaseActivity
@@ -332,7 +334,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
         return false;
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         PwdRequest pwdRequest = this.m;
         if (pwdRequest != null && pwdRequest.mFrom == 3) {
@@ -343,36 +345,36 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity
-    public void onBeanExecFailureWithErrContent(int i, int i2, String str, Object obj) {
+    public void onBeanExecFailureWithErrContent(int i2, int i3, String str, Object obj) {
         ErrorContentResponse.Guidance guidance;
         WalletGlobalUtils.safeDismissDialog(this, 0);
         ErrorContentResponse errorContentResponse = (obj == null || !(obj instanceof ErrorContentResponse)) ? null : (ErrorContentResponse) obj;
-        if (i2 == 15500) {
+        if (i3 == 15500) {
             this.mDialogMsg = str;
             this.mErrorContent = (ErrorContentResponse) obj;
-            this.mPayErrorCode = i2;
-            this.mBeanId = i;
+            this.mPayErrorCode = i3;
+            this.mBeanId = i2;
             WalletGlobalUtils.safeShowDialog(this, 1, "");
-        } else if (i2 == 80320 || i2 == 80321 || i2 == 80326 || i2 == 80327) {
+        } else if (i3 == 80320 || i3 == 80321 || i3 == 80326 || i3 == 80327) {
             PayDataCache.getInstance().cleanDetainmentDesc();
             this.mDialogMsg = str;
             WalletGlobalUtils.safeShowDialog(this, 2, "");
-        } else if (i2 == 51000 && errorContentResponse != null && (guidance = errorContentResponse.guidance) != null) {
+        } else if (i3 == 51000 && errorContentResponse != null && (guidance = errorContentResponse.guidance) != null) {
             this.mGuidance = guidance;
             if (guidance != null) {
                 k();
-                this.mPayErrorCode = i2;
-                this.mBeanId = i;
+                this.mPayErrorCode = i3;
+                this.mBeanId = i2;
                 WalletGlobalUtils.safeShowDialog(this, 53, "");
                 return;
             }
-            super.onBeanExecFailureWithErrContent(i, i2, str, obj);
+            super.onBeanExecFailureWithErrContent(i2, i3, str, obj);
         } else {
-            super.onBeanExecFailureWithErrContent(i, i2, str, obj);
+            super.onBeanExecFailureWithErrContent(i2, i3, str, obj);
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setFlagPaySdk();
@@ -406,8 +408,8 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
             PayCallBackManager.callBackClientCancel(this, "PwdSetAndConfirmActivityonCreate().1");
             return;
         }
-        int i = pwdRequest.mFrom;
-        if (i != 2 && i != 4) {
+        int i2 = pwdRequest.mFrom;
+        if (i2 != 2 && i2 != 4) {
             BindFastRequest bindFastRequest = this.n;
             if (bindFastRequest == null) {
                 PayCallBackManager.callBackClientCancel(this, "PwdSetAndConfirmActivityonCreate().2");
@@ -445,17 +447,17 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, android.app.Activity
-    public Dialog onCreateDialog(int i) {
-        if (i == 1) {
+    public Dialog onCreateDialog(int i2) {
+        if (i2 == 1) {
             return new PromptDialog(getActivity());
         }
-        if (i == 2) {
+        if (i2 == 2) {
             return new PromptDialog(getActivity());
         }
-        if (i == 18) {
+        if (i2 == 18) {
             return new PromptDialog(getActivity());
         }
-        return super.onCreateDialog(i);
+        return super.onCreateDialog(i2);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -470,8 +472,8 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, android.app.Activity
-    public void onPrepareDialog(int i, Dialog dialog) {
-        if (i == 1) {
+    public void onPrepareDialog(int i2, Dialog dialog) {
+        if (i2 == 1) {
             PromptDialog promptDialog = (PromptDialog) dialog;
             promptDialog.setMessage(this.mDialogMsg);
             promptDialog.setCanceledOnTouchOutside(false);
@@ -495,7 +497,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
                     WalletGlobalUtils.safeDismissDialog(PwdSetAndConfirmActivity.this, 1);
                 }
             });
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             PromptDialog promptDialog2 = (PromptDialog) dialog;
             promptDialog2.setMessage(this.mDialogMsg);
             promptDialog2.setCanceledOnTouchOutside(false);
@@ -507,7 +509,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
                     WalletGlobalUtils.safeDismissDialog(PwdSetAndConfirmActivity.this, 2);
                 }
             });
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             PromptDialog promptDialog3 = (PromptDialog) dialog;
             promptDialog3.hideTitle();
             promptDialog3.hideNegativeButton();
@@ -518,7 +520,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
                     WalletGlobalUtils.safeDismissDialog(PwdSetAndConfirmActivity.this.mAct, 3);
                 }
             });
-        } else if (i == 18) {
+        } else if (i2 == 18) {
             final PromptDialog promptDialog4 = (PromptDialog) dialog;
             promptDialog4.setMessage(ResUtils.getString(this.mAct, "ebpay_pwd_promotion_message"));
             promptDialog4.setTitleText(ResUtils.getString(this.mAct, "ebpay_pwd_explain"));
@@ -530,24 +532,24 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
                 }
             });
         } else {
-            super.onPrepareDialog(i, dialog);
+            super.onPrepareDialog(i2, dialog);
         }
     }
 
     @Override // com.baidu.wallet.base.widget.SixNumberPwdView.OnPwdChangedListener
-    public void onPwdChanged(int i) {
-        if (i == 6) {
+    public void onPwdChanged(int i2) {
+        if (i2 == 6) {
             PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_FINISH_INPUTPWD_IN_CASHDESK);
             this.m.mPayPass = getPwdConfirm();
             this.m.mConfirmPayPass = getPwdConfirm();
             c();
-        } else if (i <= 0 || this.f25897b.getVisibility() != 0) {
+        } else if (i2 <= 0 || this.f26683b.getVisibility() != 0) {
         } else {
             b();
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putSerializable("mPwdRequest", this.m);
@@ -565,22 +567,22 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     public void onWindowFocusChanged(boolean z) {
         SafeKeyBoardEditText safeKeyBoardEditText;
         super.onWindowFocusChanged(z);
-        if (!z || (safeKeyBoardEditText = this.i) == null) {
+        if (!z || (safeKeyBoardEditText = this.f26689i) == null) {
             return;
         }
         safeKeyBoardEditText.requestFocus();
     }
 
     public void resetPwdConfirm() {
-        this.f25900f.resetPwd();
+        this.f26686f.resetPwd();
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity
-    public void showPaySuccessPage(boolean z, PayResultContent payResultContent, int i) {
+    public void showPaySuccessPage(boolean z, PayResultContent payResultContent, int i2) {
         if (z) {
-            PayController.getInstance().paySucess(this, payResultContent, i);
+            PayController.getInstance().paySucess(this, payResultContent, i2);
         } else {
-            PayController.getInstance().payPaying(this, payResultContent, i);
+            PayController.getInstance().payPaying(this, payResultContent, i2);
         }
     }
 
@@ -595,14 +597,14 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     }
 
     private void a(String str, String str2) {
-        this.f25897b = findViewById(ResUtils.id(this, "layout_confirm"));
-        this.f25898c = (TextView) findViewById(ResUtils.id(this, "pwd_tip_confirm"));
-        this.f25899e = (TextView) findViewById(ResUtils.id(this, "pwd_tip_sub"));
+        this.f26683b = findViewById(ResUtils.id(this, "layout_confirm"));
+        this.f26684c = (TextView) findViewById(ResUtils.id(this, "pwd_tip_confirm"));
+        this.f26685e = (TextView) findViewById(ResUtils.id(this, "pwd_tip_sub"));
         SixNumberPwdView sixNumberPwdView = (SixNumberPwdView) findViewById(ResUtils.id(this, "pwd_input_box_confirm"));
-        this.f25900f = sixNumberPwdView;
+        this.f26686f = sixNumberPwdView;
         sixNumberPwdView.setShowInputMethod(true);
-        this.f25902h = findViewById(ResUtils.id(this, "error_area_confirm"));
-        this.f25901g = (TextView) findViewById(ResUtils.id(this, "error_tip_confirm"));
+        this.f26688h = findViewById(ResUtils.id(this, "error_area_confirm"));
+        this.f26687g = (TextView) findViewById(ResUtils.id(this, "error_tip_confirm"));
         TextView textView = (TextView) findViewById(ResUtils.id(this, "what_is_pay_password"));
         this.j = textView;
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PwdSetAndConfirmActivity.1
@@ -612,50 +614,50 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
             }
         });
         b();
-        this.f25900f.addSixNumberPwdChangedListenter(this);
-        SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f25900f.findViewById(ResUtils.id(getActivity(), "pwd_input"));
-        this.i = safeKeyBoardEditText;
-        safeKeyBoardEditText.initSafeKeyBoardParams(this.l, this.k, this.f25897b, false);
-        this.i.setGap(20);
-        this.f25898c.setText(str);
-        this.f25899e.setText(str2);
-        this.i.setDisablePast(true);
-        this.i.addTextChangedListener(new TextWatcher() { // from class: com.baidu.wallet.paysdk.ui.PwdSetAndConfirmActivity.2
+        this.f26686f.addSixNumberPwdChangedListenter(this);
+        SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f26686f.findViewById(ResUtils.id(getActivity(), "pwd_input"));
+        this.f26689i = safeKeyBoardEditText;
+        safeKeyBoardEditText.initSafeKeyBoardParams(this.l, this.k, this.f26683b, false);
+        this.f26689i.setGap(20);
+        this.f26684c.setText(str);
+        this.f26685e.setText(str2);
+        this.f26689i.setDisablePast(true);
+        this.f26689i.addTextChangedListener(new TextWatcher() { // from class: com.baidu.wallet.paysdk.ui.PwdSetAndConfirmActivity.2
 
             /* renamed from: b  reason: collision with root package name */
-            public boolean f25905b = false;
+            public boolean f26692b = false;
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
             }
 
             @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             }
 
             @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (this.f25905b) {
+            public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+                if (this.f26692b) {
                     return;
                 }
                 PayStatisticsUtil.onEventWithValues(StatServiceEvent.CLICK_CONFIRM_PWD, PwdSetAndConfirmActivity.this.a());
-                this.f25905b = true;
+                this.f26692b = true;
             }
         });
     }
 
     private void a(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.f25901g.setVisibility(8);
+            this.f26687g.setVisibility(8);
             return;
         }
-        this.f25901g.setVisibility(0);
-        this.f25901g.setText(str);
+        this.f26687g.setVisibility(0);
+        this.f26687g.setText(str);
     }
 
-    private void a(int i, String str) {
+    private void a(int i2, String str) {
         int bindFromOrigin = this.n.getBindFromOrigin();
-        PayStatisticsUtil.onEventEnd(bindFromOrigin != 4 ? bindFromOrigin != 5 ? StatServiceEvent.FIND_PASSWORD : StatServiceEvent.COMPLETE_CARD : StatServiceEvent.FIND_PASSWORD_FROM_OLD_CARD_RESET_PWD, i);
+        PayStatisticsUtil.onEventEnd(bindFromOrigin != 4 ? bindFromOrigin != 5 ? StatServiceEvent.FIND_PASSWORD : StatServiceEvent.COMPLETE_CARD : StatServiceEvent.FIND_PASSWORD_FROM_OLD_CARD_RESET_PWD, i2);
         GlobalUtils.toast(getActivity(), str);
     }
 }

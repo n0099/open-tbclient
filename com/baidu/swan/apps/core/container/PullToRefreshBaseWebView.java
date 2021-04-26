@@ -6,20 +6,20 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
-import d.b.h0.a.k;
-import d.b.h0.m.a.d.f;
+import d.a.h0.a.k;
+import d.a.h0.m.a.d.f;
 /* loaded from: classes2.dex */
 public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<T> {
-    public static final boolean B = k.f45772a;
+    public static final boolean B = k.f43101a;
     public boolean A;
     public a z;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void a(int i, int i2, int i3, int i4);
+        void a(int i2, int i3, int i4, int i5);
     }
 
-    public PullToRefreshBaseWebView(Context context, d.b.h0.a.q1.a.e.a<T> aVar, PullToRefreshBase.HEADERTYPE headertype) {
+    public PullToRefreshBaseWebView(Context context, d.a.h0.a.q1.a.e.a<T> aVar, PullToRefreshBase.HEADERTYPE headertype) {
         super(context, aVar, headertype);
         this.A = false;
     }
@@ -35,15 +35,15 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     public T j(Context context, AttributeSet attributeSet) {
-        return getRefreshableFactory().H(context);
+        return getRefreshableFactory().Q(context);
     }
 
     @Override // android.view.View
-    public void onScrollChanged(int i, int i2, int i3, int i4) {
-        super.onScrollChanged(i, i2, i3, i4);
+    public void onScrollChanged(int i2, int i3, int i4, int i5) {
+        super.onScrollChanged(i2, i3, i4, i5);
         a aVar = this.z;
         if (aVar != null) {
-            aVar.a(i, i2, i3, i4);
+            aVar.a(i2, i3, i4, i5);
         }
     }
 

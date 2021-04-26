@@ -8,21 +8,21 @@ import java.util.Map;
 public class FileLock {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Integer> f30034a = new HashMap();
+    public static final Map<String, Integer> f30951a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f30035b;
+    public final int f30952b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f30036c;
+    public final String f30953c;
 
     static {
         g.a("file_lock_pg");
     }
 
-    public FileLock(String str, int i) {
-        this.f30036c = str;
-        this.f30035b = i;
+    public FileLock(String str, int i2) {
+        this.f30953c = str;
+        this.f30952b = i2;
     }
 
     public static FileLock a(String str) {
@@ -62,12 +62,12 @@ public class FileLock {
 
     public static int d(String str) throws Exception {
         Integer num;
-        synchronized (f30034a) {
-            num = f30034a.get(str);
+        synchronized (f30951a) {
+            num = f30951a.get(str);
             if (num == null) {
                 new File(str).getParentFile().mkdirs();
                 num = Integer.valueOf(nGetFD(str));
-                f30034a.put(str, num);
+                f30951a.put(str, num);
             }
         }
         return num.intValue();
@@ -75,20 +75,20 @@ public class FileLock {
 
     public static native int nGetFD(String str) throws Exception;
 
-    public static native void nLockFile(int i) throws Exception;
+    public static native void nLockFile(int i2) throws Exception;
 
-    public static native void nLockFileSegment(int i, int i2) throws Exception;
+    public static native void nLockFileSegment(int i2, int i3) throws Exception;
 
-    public static native void nRelease(int i) throws Exception;
+    public static native void nRelease(int i2) throws Exception;
 
-    public static native boolean nTryLock(int i) throws Exception;
+    public static native boolean nTryLock(int i2) throws Exception;
 
-    public static native void nUnlockFile(int i) throws Exception;
+    public static native void nUnlockFile(int i2) throws Exception;
 
-    public static FileLock a(String str, int i) {
+    public static FileLock a(String str, int i2) {
         try {
             int d2 = d(str);
-            nLockFileSegment(d2, i);
+            nLockFileSegment(d2, i2);
             return new FileLock(str, d2);
         } catch (Exception e2) {
             throw new RuntimeException("lock segment failed, file:" + str + " caused by:" + e2.getMessage());
@@ -97,21 +97,21 @@ public class FileLock {
 
     public void b() {
         Integer remove;
-        synchronized (f30034a) {
-            remove = f30034a.remove(this.f30036c);
+        synchronized (f30951a) {
+            remove = f30951a.remove(this.f30953c);
         }
         try {
             nRelease(remove.intValue());
         } catch (Exception e2) {
-            throw new RuntimeException("release lock failed, file:" + this.f30036c + " caused by:" + e2.getMessage());
+            throw new RuntimeException("release lock failed, file:" + this.f30953c + " caused by:" + e2.getMessage());
         }
     }
 
     public void a() {
         try {
-            nUnlockFile(this.f30035b);
+            nUnlockFile(this.f30952b);
         } catch (Exception unused) {
-            throw new RuntimeException("release lock failed，path:" + this.f30036c);
+            throw new RuntimeException("release lock failed，path:" + this.f30953c);
         }
     }
 }

@@ -13,16 +13,16 @@ public class a extends ThreadPoolExecutor {
     public class C0035a<V> extends FutureTask<V> implements Comparable<C0035a<V>> {
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f3109b;
+        public Object f3128b;
 
         public C0035a(Runnable runnable, V v) {
             super(runnable, v);
-            this.f3109b = runnable;
+            this.f3128b = runnable;
         }
 
         public C0035a(Callable<V> callable) {
             super(callable);
-            this.f3109b = callable;
+            this.f3128b = callable;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,16 +36,16 @@ public class a extends ThreadPoolExecutor {
             if (c0035a == null) {
                 return -1;
             }
-            Object obj2 = this.f3109b;
-            if (obj2 == null || (obj = c0035a.f3109b) == null || !(obj2 instanceof c) || !(obj instanceof c)) {
+            Object obj2 = this.f3128b;
+            if (obj2 == null || (obj = c0035a.f3128b) == null || !(obj2 instanceof c) || !(obj instanceof c)) {
                 return 0;
             }
-            return ((c) obj).d() - ((c) this.f3109b).d();
+            return ((c) obj).d() - ((c) this.f3128b).d();
         }
     }
 
-    public a(int i, int i2, long j, TimeUnit timeUnit, b<Runnable> bVar) {
-        super(i, i2, j, timeUnit, bVar);
+    public a(int i2, int i3, long j, TimeUnit timeUnit, b<Runnable> bVar) {
+        super(i2, i3, j, timeUnit, bVar);
     }
 
     @Override // java.util.concurrent.ThreadPoolExecutor, java.util.concurrent.Executor

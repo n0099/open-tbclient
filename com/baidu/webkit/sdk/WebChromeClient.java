@@ -56,8 +56,8 @@ public class WebChromeClient {
         public static final int MODE_OPEN_MULTIPLE = 1;
         public static final int MODE_SAVE = 3;
 
-        public static Uri[] parseResult(int i, Intent intent) {
-            return WebViewFactory.getProvider().getStatics().parseFileChooserResult(i, intent);
+        public static Uri[] parseResult(int i2, Intent intent) {
+            return WebViewFactory.getProvider().getStatics().parseFileChooserResult(i2, intent);
         }
 
         public abstract Intent createIntent();
@@ -130,14 +130,14 @@ public class WebChromeClient {
         return cls == Integer.class ? Integer.TYPE : cls == Boolean.class ? Boolean.TYPE : String.class;
     }
 
-    private String getReturnValueInJSON(int i, String str, String str2) {
+    private String getReturnValueInJSON(int i2, String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("error", i);
+            jSONObject.put("error", i2);
             if (!TextUtils.isEmpty(str)) {
                 jSONObject.put("msg", str);
             }
-            if (i == 0 && str2 != null) {
+            if (i2 == 0 && str2 != null) {
                 jSONObject.put("result", str2);
             }
         } catch (JSONException e2) {
@@ -208,10 +208,10 @@ public class WebChromeClient {
             int length = objArr != null ? objArr.length : 0;
             if (length > 0) {
                 clsArr = new Class[length];
-                for (int i = 0; i < length; i++) {
-                    clsArr[i] = getClassFromJsonObject(objArr[i]);
+                for (int i2 = 0; i2 < length; i2++) {
+                    clsArr[i2] = getClassFromJsonObject(objArr[i2]);
                     if (DEBUG) {
-                        Log.d(LOG_TAG, "type:" + clsArr[i].getName());
+                        Log.d(LOG_TAG, "type:" + clsArr[i2].getName());
                     }
                 }
             } else {
@@ -301,9 +301,9 @@ public class WebChromeClient {
                         sb.append("'");
                         sb.append(objArr[0]);
                         sb.append("'");
-                        for (int i2 = 1; i2 < length; i2++) {
+                        for (int i3 = 1; i3 < length; i3++) {
                             sb.append(",'");
-                            sb.append(objArr[i2]);
+                            sb.append(objArr[i3]);
                             sb.append("'");
                         }
                     }
@@ -380,8 +380,8 @@ public class WebChromeClient {
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
                 objArr = new Object[length];
-                for (int i = 0; i < length; i++) {
-                    objArr[i] = optJSONArray.get(i);
+                for (int i2 = 0; i2 < length; i2++) {
+                    objArr[i2] = optJSONArray.get(i2);
                 }
                 if (DEBUG) {
                     StringBuilder sb = new StringBuilder();
@@ -393,9 +393,9 @@ public class WebChromeClient {
                         sb.append("\"");
                         sb.append(objArr[0]);
                         sb.append("\"");
-                        for (int i2 = 1; i2 < length; i2++) {
+                        for (int i3 = 1; i3 < length; i3++) {
                             sb.append(",\"");
-                            sb.append(objArr[i2]);
+                            sb.append(objArr[i3]);
                             sb.append("\"");
                         }
                     }
@@ -415,7 +415,7 @@ public class WebChromeClient {
         }
     }
 
-    public void hideMagnifier(WebView webView, int i, int i2) {
+    public void hideMagnifier(WebView webView, int i2, int i3) {
     }
 
     public void hideSelectionActionDialog(WebView webView) {
@@ -433,7 +433,7 @@ public class WebChromeClient {
         return method.invoke(obj, objArr2);
     }
 
-    public void moveMagnifier(WebView webView, int i, int i2, int i3, int i4) {
+    public void moveMagnifier(WebView webView, int i2, int i3, int i4, int i5) {
     }
 
     public boolean needNotifyNativeExitFullScreen() {
@@ -443,14 +443,14 @@ public class WebChromeClient {
     public void notifyClickWhenLoad() {
     }
 
-    public void notifyClientStatus(WebView webView, int i) {
+    public void notifyClientStatus(WebView webView, int i2) {
     }
 
     public void onCloseWindow(WebView webView) {
     }
 
     @Deprecated
-    public void onConsoleMessage(String str, int i, String str2) {
+    public void onConsoleMessage(String str, int i2, String str2) {
         handleGetVersionMessage(str);
     }
 
@@ -524,10 +524,10 @@ public class WebChromeClient {
     public void onPermissionRequestCanceled(PermissionRequest permissionRequest) {
     }
 
-    public void onPrerenderChanged(int i, WebView.PrerenderStatus prerenderStatus) {
+    public void onPrerenderChanged(int i2, WebView.PrerenderStatus prerenderStatus) {
     }
 
-    public void onProgressChanged(WebView webView, int i) {
+    public void onProgressChanged(WebView webView, int i2) {
     }
 
     @Deprecated
@@ -551,7 +551,7 @@ public class WebChromeClient {
     }
 
     @Deprecated
-    public void onShowCustomView(View view, int i, CustomViewCallback customViewCallback) {
+    public void onShowCustomView(View view, int i2, CustomViewCallback customViewCallback) {
     }
 
     public void onShowCustomView(View view, CustomViewCallback customViewCallback) {
@@ -576,11 +576,11 @@ public class WebChromeClient {
         valueCallback.onReceiveValue(null);
     }
 
-    public void performLongClick(WebView webView, int i, String str, String str2, int i2, int i3) {
+    public void performLongClick(WebView webView, int i2, String str, String str2, int i3, int i4) {
         webView.mHasPerformedLongPress = true;
     }
 
-    public void performLongClick(WebView webView, WebView.HitTestResult hitTestResult, int i, int i2) {
+    public void performLongClick(WebView webView, WebView.HitTestResult hitTestResult, int i2, int i3) {
         webView.mHasPerformedLongPress = true;
     }
 
@@ -594,9 +594,9 @@ public class WebChromeClient {
     public void setupAutoFill(Message message) {
     }
 
-    public void showMagnifier(WebView webView, int i, int i2, int i3, int i4) {
+    public void showMagnifier(WebView webView, int i2, int i3, int i4, int i5) {
     }
 
-    public void showSelectionActionDialog(WebView webView, int i, int i2, int i3, int i4, String str) {
+    public void showSelectionActionDialog(WebView webView, int i2, int i3, int i4, int i5, String str) {
     }
 }

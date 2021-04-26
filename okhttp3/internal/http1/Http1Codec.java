@@ -59,11 +59,11 @@ public final class Http1Codec implements HttpCodec {
 
         public final void endOfInput(boolean z, IOException iOException) throws IOException {
             Http1Codec http1Codec = Http1Codec.this;
-            int i = http1Codec.state;
-            if (i == 6) {
+            int i2 = http1Codec.state;
+            if (i2 == 6) {
                 return;
             }
-            if (i == 5) {
+            if (i2 == 5) {
                 http1Codec.detachTimeout(this.timeout);
                 Http1Codec http1Codec2 = Http1Codec.this;
                 http1Codec2.state = 6;
@@ -494,8 +494,8 @@ public final class Http1Codec implements HttpCodec {
 
     @Override // okhttp3.internal.http.HttpCodec
     public Response.Builder readResponseHeaders(boolean z) throws IOException {
-        int i = this.state;
-        if (i != 1 && i != 3) {
+        int i2 = this.state;
+        if (i2 != 1 && i2 != 3) {
             throw new IllegalStateException("state: " + this.state);
         }
         try {
@@ -521,8 +521,8 @@ public final class Http1Codec implements HttpCodec {
         if (this.state == 0) {
             this.sink.writeUtf8(str).writeUtf8(Part.CRLF);
             int size = headers.size();
-            for (int i = 0; i < size; i++) {
-                this.sink.writeUtf8(headers.name(i)).writeUtf8(": ").writeUtf8(headers.value(i)).writeUtf8(Part.CRLF);
+            for (int i2 = 0; i2 < size; i2++) {
+                this.sink.writeUtf8(headers.name(i2)).writeUtf8(": ").writeUtf8(headers.value(i2)).writeUtf8(Part.CRLF);
             }
             this.sink.writeUtf8(Part.CRLF);
             this.state = 1;

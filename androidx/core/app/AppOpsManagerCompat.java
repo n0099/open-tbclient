@@ -12,16 +12,16 @@ public final class AppOpsManagerCompat {
     public static final int MODE_ERRORED = 2;
     public static final int MODE_IGNORED = 1;
 
-    public static int noteOp(@NonNull Context context, @NonNull String str, int i, @NonNull String str2) {
+    public static int noteOp(@NonNull Context context, @NonNull String str, int i2, @NonNull String str2) {
         if (Build.VERSION.SDK_INT >= 19) {
-            return ((AppOpsManager) context.getSystemService("appops")).noteOp(str, i, str2);
+            return ((AppOpsManager) context.getSystemService("appops")).noteOp(str, i2, str2);
         }
         return 1;
     }
 
-    public static int noteOpNoThrow(@NonNull Context context, @NonNull String str, int i, @NonNull String str2) {
+    public static int noteOpNoThrow(@NonNull Context context, @NonNull String str, int i2, @NonNull String str2) {
         if (Build.VERSION.SDK_INT >= 19) {
-            return ((AppOpsManager) context.getSystemService("appops")).noteOpNoThrow(str, i, str2);
+            return ((AppOpsManager) context.getSystemService("appops")).noteOpNoThrow(str, i2, str2);
         }
         return 1;
     }

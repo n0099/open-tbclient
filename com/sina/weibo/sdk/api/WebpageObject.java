@@ -18,8 +18,8 @@ public class WebpageObject extends BaseMediaObject {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public WebpageObject[] newArray(int i) {
-            return new WebpageObject[i];
+        public WebpageObject[] newArray(int i2) {
+            return new WebpageObject[i2];
         }
     };
     public static final String EXTRA_KEY_DEFAULTTEXT = "extra_key_defaulttext";
@@ -63,8 +63,8 @@ public class WebpageObject extends BaseMediaObject {
     }
 
     @Override // com.sina.weibo.sdk.api.BaseMediaObject, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
     }
 
     public WebpageObject(Parcel parcel) {

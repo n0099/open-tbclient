@@ -13,8 +13,8 @@ import com.baidu.mobads.sdk.internal.XAdErrorCode;
 import com.baidu.mobads.sdk.internal.XAdLogger;
 import com.baidu.mobads.sdk.internal.XErrorCode;
 import com.baidu.mobads.sdk.internal.XSplashAdProd;
-import d.b.b0.a.b.a;
-import d.b.d0.a.g.d;
+import d.a.b0.a.b.a;
+import d.a.d0.a.g.d;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -88,7 +88,7 @@ public class SplashAd implements d {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("place_id", this.mAdPlaceId);
-            jSONObject.put("source", TextUtils.equals(this.mAdPlaceId, a.f42106a.get().o()) ? "bes_cpc" : "gd");
+            jSONObject.put("source", TextUtils.equals(this.mAdPlaceId, a.f39288a.get().A()) ? "bes_cpc" : "gd");
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -125,10 +125,10 @@ public class SplashAd implements d {
                 height = (int) (this.mParameter.getHeight() * screenDensity);
             }
         }
-        int i = height;
-        int i2 = width;
-        if (i2 >= 200.0f * screenDensity && i >= screenDensity * 150.0f) {
-            XSplashAdProd xSplashAdProd2 = new XSplashAdProd(this.mContext, this.mAdPlaceId, i2, i, this.mTipStyle, this.mTimeout, this.mDisplayDownInfo, this.mPopDialogIfDL.booleanValue(), this.mLimitRegionClick.booleanValue());
+        int i2 = height;
+        int i3 = width;
+        if (i3 >= 200.0f * screenDensity && i2 >= screenDensity * 150.0f) {
+            XSplashAdProd xSplashAdProd2 = new XSplashAdProd(this.mContext, this.mAdPlaceId, i3, i2, this.mTipStyle, this.mTimeout, this.mDisplayDownInfo, this.mPopDialogIfDL.booleanValue(), this.mLimitRegionClick.booleanValue());
             this.mAdProd = xSplashAdProd2;
             xSplashAdProd2.setAppsid(this.mAppSid);
             XSplashAdProd xSplashAdProd3 = this.mAdProd;
@@ -178,7 +178,7 @@ public class SplashAd implements d {
         this.mTimeout = RT_SPLASH_LOAD_AD_TIMEOUT;
         this.mListener = new SplashLpCloseListener() { // from class: com.baidu.mobads.sdk.api.SplashAd.1
             @Override // com.baidu.mobads.sdk.api.SplashAdListener
-            public void onADLoaded(RsplashType rsplashType, int i) {
+            public void onADLoaded(RsplashType rsplashType, int i2) {
             }
 
             @Override // com.baidu.mobads.sdk.api.SplashAdListener
@@ -233,11 +233,11 @@ public class SplashAd implements d {
         this.mTimeout = Integer.parseInt(str5);
     }
 
-    public static void registerEnterTransition(Activity activity, int i, int i2, SplashFocusAdListener splashFocusAdListener) {
+    public static void registerEnterTransition(Activity activity, int i2, int i3, SplashFocusAdListener splashFocusAdListener) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("right_margin", i);
-            jSONObject.put("bottom_margin", i2);
+            jSONObject.put("right_margin", i2);
+            jSONObject.put("bottom_margin", i3);
         } catch (JSONException e2) {
             XAdLogger.getInstance().d(e2);
         }

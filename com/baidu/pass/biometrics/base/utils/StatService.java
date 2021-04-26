@@ -9,6 +9,7 @@ import com.baidu.pass.biometrics.base.restnet.beans.business.BeanConstants;
 import com.baidu.pass.http.HttpResponseHandler;
 import com.baidu.pass.http.PassHttpClient;
 import com.baidu.pass.http.PassHttpParamDTO;
+import com.baidu.pass.http.ReqPriority;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
@@ -17,14 +18,14 @@ public final class StatService {
     public static final String TAG = "StatService";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, String> f9147a;
+    public static final Map<String, String> f9484a;
 
     static {
         HashMap hashMap = new HashMap();
-        f9147a = hashMap;
+        f9484a = hashMap;
         hashMap.put("pid", "111");
-        f9147a.put("type", "1023");
-        f9147a.put("device", "android");
+        f9484a.put("type", "1023");
+        f9484a.put("device", "android");
     }
 
     public static void onEvent(Context context, String str, Map<String, String> map) {
@@ -34,7 +35,7 @@ public final class StatService {
         try {
             if (NetworkUtils.isNetworkAvailable(context)) {
                 HashMap hashMap = new HashMap();
-                hashMap.putAll(f9147a);
+                hashMap.putAll(f9484a);
                 map.put("v", String.valueOf(System.currentTimeMillis()));
                 hashMap.put("name", str);
                 hashMap.put("model", Build.MODEL);
@@ -54,13 +55,14 @@ public final class StatService {
                 PassHttpParamDTO passHttpParamDTO = new PassHttpParamDTO();
                 passHttpParamDTO.url = DOMAIN_NSCLICK_URL;
                 passHttpParamDTO.paramsMap.putAll(hashMap);
-                new PassHttpClient().get(context.getApplicationContext(), passHttpParamDTO, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.StatService.1
+                passHttpParamDTO.priority = ReqPriority.LOW;
+                PassHttpClient.getInstance().get(context.getApplicationContext(), passHttpParamDTO, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.StatService.1
                     @Override // com.baidu.pass.http.HttpResponseHandler
                     public void onFailure(Throwable th, String str2) {
                     }
 
                     @Override // com.baidu.pass.http.HttpResponseHandler
-                    public void onSuccess(int i, String str2) {
+                    public void onSuccess(int i2, String str2) {
                     }
                 });
             }

@@ -8,11 +8,11 @@ public class SerialContext {
     public final Object object;
     public final SerialContext parent;
 
-    public SerialContext(SerialContext serialContext, Object obj, Object obj2, int i, int i2) {
+    public SerialContext(SerialContext serialContext, Object obj, Object obj2, int i2, int i3) {
         this.parent = serialContext;
         this.object = obj;
         this.fieldName = obj2;
-        this.features = i;
+        this.features = i2;
     }
 
     public Object getFieldName() {
@@ -58,22 +58,22 @@ public class SerialContext {
         } else {
             sb.append(IStringUtil.EXTENSION_SEPARATOR);
             String obj2 = this.fieldName.toString();
-            int i = 0;
+            int i2 = 0;
             while (true) {
-                if (i >= obj2.length()) {
+                if (i2 >= obj2.length()) {
                     z = false;
                     break;
                 }
-                char charAt = obj2.charAt(i);
+                char charAt = obj2.charAt(i2);
                 if ((charAt < '0' || charAt > '9') && ((charAt < 'A' || charAt > 'Z') && ((charAt < 'a' || charAt > 'z') && charAt <= 128))) {
                     z = true;
                     break;
                 }
-                i++;
+                i2++;
             }
             if (z) {
-                for (int i2 = 0; i2 < obj2.length(); i2++) {
-                    char charAt2 = obj2.charAt(i2);
+                for (int i3 = 0; i3 < obj2.length(); i3++) {
+                    char charAt2 = obj2.charAt(i3);
                     if (charAt2 == '\\') {
                         sb.append('\\');
                         sb.append('\\');

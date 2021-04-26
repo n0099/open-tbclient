@@ -19,13 +19,13 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.i0.g0.c.b;
-import d.b.i0.r.f0.f;
-import d.b.j0.f1.b.d;
+import d.a.c.e.p.l;
+import d.a.i0.g0.c.b;
+import d.a.i0.r.f0.f;
+import d.a.j0.f1.b.d;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements f.g, d.b.i0.g0.c.a {
+public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements f.g, d.a.i0.g0.c.a {
     public AtMeModelController atMeModelController;
     public d atMeViewController;
     public CustomMessageListener mMessageFromNotifyCenterListener = new a(2016321);
@@ -33,8 +33,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -107,7 +107,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         this.atMeViewController.h();
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
     public String getCurrentPageKey() {
         return "a079";
     }
@@ -122,15 +122,15 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     public void hideNetRefreshView() {
         d dVar = this.atMeViewController;
         if (dVar != null) {
-            BdListView bdListView = dVar.f56233b;
+            BdListView bdListView = dVar.f54112b;
             if (bdListView != null) {
                 bdListView.setVisibility(0);
             }
-            hideNetRefreshView(this.atMeViewController.f56234c);
+            hideNetRefreshView(this.atMeViewController.f54113c);
         }
     }
 
-    @Override // d.b.i0.g0.c.a
+    @Override // d.a.i0.g0.c.a
     public boolean isEventMustSelf() {
         return false;
     }
@@ -140,9 +140,9 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.atMeViewController.i(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.atMeViewController.j(getPageContext(), i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -162,25 +162,25 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         this.atMeModelController.u();
     }
 
-    @Override // d.b.i0.g0.c.a
+    @Override // d.a.i0.g0.c.a
     public boolean onEventDispatch(b bVar) {
         if (bVar == null) {
             return true;
         }
         if (bVar.b() == 9484) {
-            d.b.i0.g0.b.a a2 = bVar.a();
+            d.a.i0.g0.b.a a2 = bVar.a();
             if (a2 instanceof FeedData) {
                 return toPb((FeedData) a2);
             }
             return false;
         } else if (bVar.b() == 9483) {
-            d.b.i0.g0.b.a a3 = bVar.a();
+            d.a.i0.g0.b.a a3 = bVar.a();
             if (a3 instanceof FeedData) {
                 return toPersonInfo((FeedData) a3);
             }
             return false;
         } else if (bVar.b() == 9489) {
-            d.b.i0.g0.b.a a4 = bVar.a();
+            d.a.i0.g0.b.a a4 = bVar.a();
             if (a4 instanceof FeedData) {
                 this.atMeViewController.g((FeedData) a4);
                 return true;
@@ -191,7 +191,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         }
     }
 
-    @Override // d.b.i0.r.f0.f.g
+    @Override // d.a.i0.r.f0.f.g
     public void onListPullRefresh(boolean z) {
         this.atMeModelController.y();
     }
@@ -200,7 +200,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     public void onNetRefreshButtonClicked() {
         AtMeModelController atMeModelController;
         super.onNetRefreshButtonClicked();
-        if (!l.C() || (atMeModelController = this.atMeModelController) == null) {
+        if (!l.D() || (atMeModelController = this.atMeModelController) == null) {
             return;
         }
         atMeModelController.y();
@@ -213,19 +213,19 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!StringUtils.isNull(errorData.error_msg)) {
             showToast(errorData.error_msg);
         }
-        BdListView bdListView = this.atMeViewController.f56233b;
+        BdListView bdListView = this.atMeViewController.f54112b;
         if (bdListView != null) {
             bdListView.setVisibility(8);
         }
-        showNetRefreshView(this.atMeViewController.f56234c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
+        showNetRefreshView(this.atMeViewController.f54113c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
         setNetRefreshViewEmotionMarginTop(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
     }
 
-    public void onViewDataChanged(d.b.i0.g0.b.a aVar) {
+    public void onViewDataChanged(d.a.i0.g0.b.a aVar) {
         this.atMeViewController.m(aVar);
     }
 
-    public void onViewStateChanged(d.b.i0.g0.d.b bVar) {
+    public void onViewStateChanged(d.a.i0.g0.d.b bVar) {
         this.atMeViewController.n(bVar);
     }
 

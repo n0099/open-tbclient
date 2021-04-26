@@ -14,12 +14,12 @@ public abstract class MemoryChunkPool extends BasePool<MemoryChunk> {
         super(memoryTrimmableRegistry, poolParams, poolStatsTracker);
         SparseIntArray sparseIntArray = poolParams.bucketSizes;
         this.mBucketSizes = new int[sparseIntArray.size()];
-        int i = 0;
+        int i2 = 0;
         while (true) {
             int[] iArr = this.mBucketSizes;
-            if (i < iArr.length) {
-                iArr[i] = sparseIntArray.keyAt(i);
-                i++;
+            if (i2 < iArr.length) {
+                iArr[i2] = sparseIntArray.keyAt(i2);
+                i2++;
             } else {
                 initialize();
                 return;
@@ -30,20 +30,20 @@ public abstract class MemoryChunkPool extends BasePool<MemoryChunk> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public abstract MemoryChunk alloc(int i);
+    public abstract MemoryChunk alloc(int i2);
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public int getBucketedSize(int i) {
+    public int getBucketedSize(int i2) {
         int[] iArr;
-        if (i > 0) {
-            for (int i2 : this.mBucketSizes) {
-                if (i2 >= i) {
-                    return i2;
+        if (i2 > 0) {
+            for (int i3 : this.mBucketSizes) {
+                if (i3 >= i2) {
+                    return i3;
                 }
             }
-            return i;
+            return i2;
         }
-        throw new BasePool.InvalidSizeException(Integer.valueOf(i));
+        throw new BasePool.InvalidSizeException(Integer.valueOf(i2));
     }
 
     public int getMinBufferSize() {
@@ -51,8 +51,8 @@ public abstract class MemoryChunkPool extends BasePool<MemoryChunk> {
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public int getSizeInBytes(int i) {
-        return i;
+    public int getSizeInBytes(int i2) {
+        return i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -19,8 +19,8 @@ public class DeviceLoginMsg extends FlashMsg implements Parcelable, NoProGuard {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public DeviceLoginMsg[] newArray(int i) {
-            return new DeviceLoginMsg[i];
+        public DeviceLoginMsg[] newArray(int i2) {
+            return new DeviceLoginMsg[i2];
         }
     };
     public String deviceType;
@@ -52,8 +52,8 @@ public class DeviceLoginMsg extends FlashMsg implements Parcelable, NoProGuard {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeLong(this.time);
         parcel.writeString(this.deviceType);
     }

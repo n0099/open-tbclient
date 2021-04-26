@@ -282,12 +282,12 @@ public class XAdRemoteDownloadAPKCommand {
         }
     }
 
-    public void makeToast(final Context context, final String str, final int i, Boolean bool) {
+    public void makeToast(final Context context, final String str, final int i2, Boolean bool) {
         if (bool.booleanValue()) {
             ActivityUtils.runOnUiThread(new Runnable() { // from class: com.baidu.mobads.container.components.command.XAdRemoteDownloadAPKCommand.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast.makeText(context, str, i).show();
+                    Toast.makeText(context, str, i2).show();
                 }
             });
         }

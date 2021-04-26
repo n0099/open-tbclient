@@ -5,43 +5,45 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EditHeadsImageTopLayerView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f19995e;
+    public Paint f20501e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f19996f;
+    public Paint f20502f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19997g;
+    public int f20503g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19998h;
-    public float i;
+    public int f20504h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public float f20505i;
     public float j;
 
     public EditHeadsImageTopLayerView(Context context) {
         super(context);
-        this.f19995e = null;
-        this.f19996f = null;
-        this.f19997g = 0;
-        this.f19998h = 0;
-        this.i = 0.42857143f;
+        this.f20501e = null;
+        this.f20502f = null;
+        this.f20503g = 0;
+        this.f20504h = 0;
+        this.f20505i = 0.42857143f;
         this.j = 1.0f;
         a();
     }
 
     public final void a() {
         Paint paint = new Paint();
-        this.f19995e = paint;
+        this.f20501e = paint;
         paint.setColor(-16777216);
-        this.f19995e.setAlpha(153);
+        this.f20501e.setAlpha(153);
         Paint paint2 = new Paint();
-        this.f19996f = paint2;
+        this.f20502f = paint2;
         paint2.setStyle(Paint.Style.STROKE);
-        this.f19996f.setColor(-1);
+        this.f20502f.setColor(-1);
     }
 
     @Override // android.view.View
@@ -49,36 +51,36 @@ public class EditHeadsImageTopLayerView extends View {
         canvas.save();
         super.onDraw(canvas);
         canvas.restore();
-        canvas.drawRect(0.0f, 0.0f, getWidth(), this.f19997g, this.f19995e);
-        canvas.drawRect(0.0f, getHeight() - this.f19998h, getWidth(), getHeight(), this.f19995e);
-        canvas.drawRect(1.0f, this.f19997g, getWidth() - 1, getHeight() - this.f19998h, this.f19996f);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), this.f20503g, this.f20501e);
+        canvas.drawRect(0.0f, getHeight() - this.f20504h, getWidth(), getHeight(), this.f20501e);
+        canvas.drawRect(1.0f, this.f20503g, getWidth() - 1, getHeight() - this.f20504h, this.f20502f);
     }
 
     @Override // android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
         float width = this.j * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        float f2 = (i4 - i2) - width;
-        float f3 = this.i;
-        this.f19997g = (int) (f2 * f3);
-        this.f19998h = (int) (f2 * (1.0f - f3));
+        float f2 = (i5 - i3) - width;
+        float f3 = this.f20505i;
+        this.f20503g = (int) (f2 * f3);
+        this.f20504h = (int) (f2 * (1.0f - f3));
     }
 
-    public void setLinePaintColor(int i) {
-        Paint paint = this.f19996f;
+    public void setLinePaintColor(int i2) {
+        Paint paint = this.f20502f;
         if (paint != null) {
-            paint.setColor(i);
+            paint.setColor(i2);
         }
         invalidate();
     }
 
-    public void setLineWidth(int i) {
-        Paint paint = this.f19996f;
+    public void setLineWidth(int i2) {
+        Paint paint = this.f20502f;
         if (paint != null) {
-            paint.setStrokeWidth(i);
+            paint.setStrokeWidth(i2);
         }
         invalidate();
     }
@@ -89,22 +91,22 @@ public class EditHeadsImageTopLayerView extends View {
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19995e = null;
-        this.f19996f = null;
-        this.f19997g = 0;
-        this.f19998h = 0;
-        this.i = 0.42857143f;
+        this.f20501e = null;
+        this.f20502f = null;
+        this.f20503g = 0;
+        this.f20504h = 0;
+        this.f20505i = 0.42857143f;
         this.j = 1.0f;
         a();
     }
 
-    public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f19995e = null;
-        this.f19996f = null;
-        this.f19997g = 0;
-        this.f19998h = 0;
-        this.i = 0.42857143f;
+    public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f20501e = null;
+        this.f20502f = null;
+        this.f20503g = 0;
+        this.f20504h = 0;
+        this.f20505i = 0.42857143f;
         this.j = 1.0f;
         a();
     }

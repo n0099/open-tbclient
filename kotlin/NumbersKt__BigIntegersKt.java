@@ -13,30 +13,33 @@ public class NumbersKt__BigIntegersKt extends NumbersKt__BigDecimalsKt {
     @InlineOnly
     public static final BigInteger and(BigInteger bigInteger, BigInteger bigInteger2) {
         BigInteger and = bigInteger.and(bigInteger2);
-        Intrinsics.checkExpressionValueIsNotNull(and, "this.and(other)");
+        Intrinsics.checkNotNullExpressionValue(and, "this.and(other)");
         return and;
     }
 
     @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
     @InlineOnly
-    public static final BigInteger dec(BigInteger bigInteger) {
-        BigInteger subtract = bigInteger.subtract(BigInteger.ONE);
-        Intrinsics.checkExpressionValueIsNotNull(subtract, "this.subtract(BigInteger.ONE)");
+    public static final BigInteger dec(BigInteger dec) {
+        Intrinsics.checkNotNullParameter(dec, "$this$dec");
+        BigInteger subtract = dec.subtract(BigInteger.ONE);
+        Intrinsics.checkNotNullExpressionValue(subtract, "this.subtract(BigInteger.ONE)");
         return subtract;
     }
 
     @InlineOnly
-    public static final BigInteger div(BigInteger bigInteger, BigInteger bigInteger2) {
-        BigInteger divide = bigInteger.divide(bigInteger2);
-        Intrinsics.checkExpressionValueIsNotNull(divide, "this.divide(other)");
+    public static final BigInteger div(BigInteger div, BigInteger bigInteger) {
+        Intrinsics.checkNotNullParameter(div, "$this$div");
+        BigInteger divide = div.divide(bigInteger);
+        Intrinsics.checkNotNullExpressionValue(divide, "this.divide(other)");
         return divide;
     }
 
     @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
     @InlineOnly
-    public static final BigInteger inc(BigInteger bigInteger) {
-        BigInteger add = bigInteger.add(BigInteger.ONE);
-        Intrinsics.checkExpressionValueIsNotNull(add, "this.add(BigInteger.ONE)");
+    public static final BigInteger inc(BigInteger inc) {
+        Intrinsics.checkNotNullParameter(inc, "$this$inc");
+        BigInteger add = inc.add(BigInteger.ONE);
+        Intrinsics.checkNotNullExpressionValue(add, "this.add(BigInteger.ONE)");
         return add;
     }
 
@@ -44,14 +47,15 @@ public class NumbersKt__BigIntegersKt extends NumbersKt__BigDecimalsKt {
     @InlineOnly
     public static final BigInteger inv(BigInteger bigInteger) {
         BigInteger not = bigInteger.not();
-        Intrinsics.checkExpressionValueIsNotNull(not, "this.not()");
+        Intrinsics.checkNotNullExpressionValue(not, "this.not()");
         return not;
     }
 
     @InlineOnly
-    public static final BigInteger minus(BigInteger bigInteger, BigInteger bigInteger2) {
-        BigInteger subtract = bigInteger.subtract(bigInteger2);
-        Intrinsics.checkExpressionValueIsNotNull(subtract, "this.subtract(other)");
+    public static final BigInteger minus(BigInteger minus, BigInteger bigInteger) {
+        Intrinsics.checkNotNullParameter(minus, "$this$minus");
+        BigInteger subtract = minus.subtract(bigInteger);
+        Intrinsics.checkNotNullExpressionValue(subtract, "this.subtract(other)");
         return subtract;
     }
 
@@ -59,45 +63,48 @@ public class NumbersKt__BigIntegersKt extends NumbersKt__BigDecimalsKt {
     @InlineOnly
     public static final BigInteger or(BigInteger bigInteger, BigInteger bigInteger2) {
         BigInteger or = bigInteger.or(bigInteger2);
-        Intrinsics.checkExpressionValueIsNotNull(or, "this.or(other)");
+        Intrinsics.checkNotNullExpressionValue(or, "this.or(other)");
         return or;
     }
 
     @InlineOnly
-    public static final BigInteger plus(BigInteger bigInteger, BigInteger bigInteger2) {
-        BigInteger add = bigInteger.add(bigInteger2);
-        Intrinsics.checkExpressionValueIsNotNull(add, "this.add(other)");
+    public static final BigInteger plus(BigInteger plus, BigInteger bigInteger) {
+        Intrinsics.checkNotNullParameter(plus, "$this$plus");
+        BigInteger add = plus.add(bigInteger);
+        Intrinsics.checkNotNullExpressionValue(add, "this.add(other)");
         return add;
     }
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final BigInteger rem(BigInteger bigInteger, BigInteger bigInteger2) {
-        BigInteger remainder = bigInteger.remainder(bigInteger2);
-        Intrinsics.checkExpressionValueIsNotNull(remainder, "this.remainder(other)");
+    public static final BigInteger rem(BigInteger rem, BigInteger bigInteger) {
+        Intrinsics.checkNotNullParameter(rem, "$this$rem");
+        BigInteger remainder = rem.remainder(bigInteger);
+        Intrinsics.checkNotNullExpressionValue(remainder, "this.remainder(other)");
         return remainder;
     }
 
     @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
     @InlineOnly
-    public static final BigInteger shl(BigInteger bigInteger, int i) {
-        BigInteger shiftLeft = bigInteger.shiftLeft(i);
-        Intrinsics.checkExpressionValueIsNotNull(shiftLeft, "this.shiftLeft(n)");
+    public static final BigInteger shl(BigInteger bigInteger, int i2) {
+        BigInteger shiftLeft = bigInteger.shiftLeft(i2);
+        Intrinsics.checkNotNullExpressionValue(shiftLeft, "this.shiftLeft(n)");
         return shiftLeft;
     }
 
     @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
     @InlineOnly
-    public static final BigInteger shr(BigInteger bigInteger, int i) {
-        BigInteger shiftRight = bigInteger.shiftRight(i);
-        Intrinsics.checkExpressionValueIsNotNull(shiftRight, "this.shiftRight(n)");
+    public static final BigInteger shr(BigInteger bigInteger, int i2) {
+        BigInteger shiftRight = bigInteger.shiftRight(i2);
+        Intrinsics.checkNotNullExpressionValue(shiftRight, "this.shiftRight(n)");
         return shiftRight;
     }
 
     @InlineOnly
-    public static final BigInteger times(BigInteger bigInteger, BigInteger bigInteger2) {
-        BigInteger multiply = bigInteger.multiply(bigInteger2);
-        Intrinsics.checkExpressionValueIsNotNull(multiply, "this.multiply(other)");
+    public static final BigInteger times(BigInteger times, BigInteger bigInteger) {
+        Intrinsics.checkNotNullParameter(times, "$this$times");
+        BigInteger multiply = times.multiply(bigInteger);
+        Intrinsics.checkNotNullExpressionValue(multiply, "this.multiply(other)");
         return multiply;
     }
 
@@ -107,29 +114,30 @@ public class NumbersKt__BigIntegersKt extends NumbersKt__BigDecimalsKt {
         return new BigDecimal(bigInteger);
     }
 
-    public static /* synthetic */ BigDecimal toBigDecimal$default(BigInteger bigInteger, int i, MathContext mathContext, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
-            i = 0;
+    public static /* synthetic */ BigDecimal toBigDecimal$default(BigInteger bigInteger, int i2, MathContext mathContext, int i3, Object obj) {
+        if ((i3 & 1) != 0) {
+            i2 = 0;
         }
-        if ((i2 & 2) != 0) {
+        if ((i3 & 2) != 0) {
             mathContext = MathContext.UNLIMITED;
-            Intrinsics.checkExpressionValueIsNotNull(mathContext, "MathContext.UNLIMITED");
+            Intrinsics.checkNotNullExpressionValue(mathContext, "MathContext.UNLIMITED");
         }
-        return new BigDecimal(bigInteger, i, mathContext);
+        return new BigDecimal(bigInteger, i2, mathContext);
     }
 
     @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
     @InlineOnly
-    public static final BigInteger toBigInteger(int i) {
-        BigInteger valueOf = BigInteger.valueOf(i);
-        Intrinsics.checkExpressionValueIsNotNull(valueOf, "BigInteger.valueOf(this.toLong())");
+    public static final BigInteger toBigInteger(int i2) {
+        BigInteger valueOf = BigInteger.valueOf(i2);
+        Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
         return valueOf;
     }
 
     @InlineOnly
-    public static final BigInteger unaryMinus(BigInteger bigInteger) {
-        BigInteger negate = bigInteger.negate();
-        Intrinsics.checkExpressionValueIsNotNull(negate, "this.negate()");
+    public static final BigInteger unaryMinus(BigInteger unaryMinus) {
+        Intrinsics.checkNotNullParameter(unaryMinus, "$this$unaryMinus");
+        BigInteger negate = unaryMinus.negate();
+        Intrinsics.checkNotNullExpressionValue(negate, "this.negate()");
         return negate;
     }
 
@@ -137,21 +145,21 @@ public class NumbersKt__BigIntegersKt extends NumbersKt__BigDecimalsKt {
     @InlineOnly
     public static final BigInteger xor(BigInteger bigInteger, BigInteger bigInteger2) {
         BigInteger xor = bigInteger.xor(bigInteger2);
-        Intrinsics.checkExpressionValueIsNotNull(xor, "this.xor(other)");
+        Intrinsics.checkNotNullExpressionValue(xor, "this.xor(other)");
         return xor;
     }
 
     @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
     @InlineOnly
-    public static final BigDecimal toBigDecimal(BigInteger bigInteger, int i, MathContext mathContext) {
-        return new BigDecimal(bigInteger, i, mathContext);
+    public static final BigDecimal toBigDecimal(BigInteger bigInteger, int i2, MathContext mathContext) {
+        return new BigDecimal(bigInteger, i2, mathContext);
     }
 
     @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
     @InlineOnly
     public static final BigInteger toBigInteger(long j) {
         BigInteger valueOf = BigInteger.valueOf(j);
-        Intrinsics.checkExpressionValueIsNotNull(valueOf, "BigInteger.valueOf(this)");
+        Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this)");
         return valueOf;
     }
 }

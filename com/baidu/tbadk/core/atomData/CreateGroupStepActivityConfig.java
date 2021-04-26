@@ -21,14 +21,14 @@ public class CreateGroupStepActivityConfig extends IntentConfig {
     public static final int SOURCE_FROM_NEAR = 1011;
     public static final int SOURCE_FROM_OTHER = 1014;
 
-    public CreateGroupStepActivityConfig(Context context, int i, int i2, int i3, int i4, int i5, int i6) {
+    public CreateGroupStepActivityConfig(Context context, int i2, int i3, int i4, int i5, int i6, int i7) {
         super(context);
         Intent intent = getIntent();
-        intent.putExtra("group_type", i);
-        intent.putExtra("forumid", i2);
-        intent.putExtra(INTENT_SOURCE_FROM, i3);
-        intent.putExtra("num_create_group_normal", i4);
-        intent.putExtra("num_create_group_private", i6);
-        intent.putExtra("num_create_group_offical", i5);
+        intent.putExtra("group_type", i2);
+        intent.putExtra("forumid", i3);
+        intent.putExtra(INTENT_SOURCE_FROM, i4);
+        intent.putExtra("num_create_group_normal", i5);
+        intent.putExtra("num_create_group_private", i7);
+        intent.putExtra("num_create_group_offical", i6);
     }
 }

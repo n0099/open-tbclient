@@ -17,7 +17,7 @@ public class DtmfSender {
 
     public static native int nativeDuration(long j);
 
-    public static native boolean nativeInsertDtmf(long j, String str, int i, int i2);
+    public static native boolean nativeInsertDtmf(long j, String str, int i2, int i3);
 
     public static native int nativeInterToneGap(long j);
 
@@ -39,9 +39,9 @@ public class DtmfSender {
         return nativeDuration(this.nativeDtmfSender);
     }
 
-    public boolean insertDtmf(String str, int i, int i2) {
+    public boolean insertDtmf(String str, int i2, int i3) {
         checkDtmfSenderExists();
-        return nativeInsertDtmf(this.nativeDtmfSender, str, i, i2);
+        return nativeInsertDtmf(this.nativeDtmfSender, str, i2, i3);
     }
 
     public int interToneGap() {

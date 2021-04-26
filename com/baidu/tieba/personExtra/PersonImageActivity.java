@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.i0.r.s.b;
+import d.a.c.e.p.l;
+import d.a.i0.r.s.b;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     public static final int PAGE_LIMIT = 2;
     public HashMap<String, ImageUrlData> assistUrls;
@@ -37,7 +37,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     public b.c mDialogClickListener = null;
     public BaseViewPager.a mOnscOnScrollOutListener = null;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -48,7 +48,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnLongClickListener {
         public b() {
         }
@@ -63,15 +63,15 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements b.c {
         public c() {
         }
 
-        @Override // d.b.i0.r.s.b.c
-        public void a(d.b.i0.r.s.b bVar, int i, View view) {
+        @Override // d.a.i0.r.s.b.c
+        public void a(d.a.i0.r.s.b bVar, int i2, View view) {
             if (bVar == PersonImageActivity.this.getListMenu()) {
-                if (i == 0) {
+                if (i2 == 0) {
                     try {
                         byte[] currentImageData = PersonImageActivity.this.mMultiImageView.getCurrentImageData();
                         if (currentImageData != null) {
@@ -91,30 +91,30 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements BaseViewPager.a {
         public d() {
         }
 
         @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-        public void a(int i) {
+        public void a(int i2) {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f20080a;
+        public String f20591a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f20081b;
+        public byte[] f20592b;
 
         public e(String str, byte[] bArr) {
-            this.f20080a = null;
-            this.f20081b = null;
-            this.f20080a = str;
-            this.f20081b = bArr;
+            this.f20591a = null;
+            this.f20592b = null;
+            this.f20591a = str;
+            this.f20592b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -132,7 +132,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f20080a, this.f20081b, PersonImageActivity.this.getPageContext().getPageActivity());
+            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f20591a, this.f20592b, PersonImageActivity.this.getPageContext().getPageActivity());
             if (saveImageFileByUser != -2) {
                 if (saveImageFileByUser != 0) {
                     return PersonImageActivity.this.getPageContext().getString(R.string.save_fail);
@@ -195,12 +195,12 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        if (i != 1 && i != 4) {
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        if (i2 != 1 && i2 != 4) {
             this.mMultiImageView.setBackgroundColor(-16777216);
         } else {
-            this.mMultiImageView.setBackgroundColor(SkinManager.getBgColor(i));
+            this.mMultiImageView.setBackgroundColor(SkinManager.getBgColor(i2));
         }
     }
 
@@ -245,12 +245,12 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4) {
             finish();
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

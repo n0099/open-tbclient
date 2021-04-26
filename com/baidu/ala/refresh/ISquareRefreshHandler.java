@@ -1,11 +1,11 @@
 package com.baidu.ala.refresh;
 /* loaded from: classes.dex */
 public interface ISquareRefreshHandler {
-    boolean isForeGround(int i);
+    boolean isForeGround(int i2);
 
-    void markDataLoaded(int i);
+    void markDataLoaded(int i2);
 
     void markHasReaded();
 
-    void startRefresh(int i);
+    void startRefresh(int i2);
 }

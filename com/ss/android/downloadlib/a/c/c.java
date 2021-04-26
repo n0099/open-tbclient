@@ -9,7 +9,7 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.ss.android.downloadlib.a.c.d;
-import d.p.a.d.f.n;
+import d.o.a.d.f.n;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface c extends IInterface {
@@ -18,21 +18,21 @@ public interface c extends IInterface {
     public static abstract class a extends Binder implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f39016a = "";
+        public static String f36601a = "";
 
         /* renamed from: com.ss.android.downloadlib.a.c.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0492a implements c {
+        public static class C0436a implements c {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f39017a;
+            public IBinder f36602a;
 
-            public C0492a(IBinder iBinder) {
-                if (TextUtils.isEmpty(a.f39016a)) {
+            public C0436a(IBinder iBinder) {
+                if (TextUtils.isEmpty(a.f36601a)) {
                     JSONObject s = n.s();
-                    String unused = a.f39016a = d.p.a.e.a.h.b.b(s.optString(r.f7699a), s.optString("s"));
+                    String unused = a.f36601a = d.o.a.e.a.h.b.b(s.optString(r.f7975a), s.optString("s"));
                 }
-                this.f39017a = iBinder;
+                this.f36602a = iBinder;
             }
 
             @Override // com.ss.android.downloadlib.a.c.c
@@ -40,7 +40,7 @@ public interface c extends IInterface {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken(a.f39016a);
+                    obtain.writeInterfaceToken(a.f36601a);
                     if (bVar != null) {
                         obtain.writeInt(1);
                         bVar.writeToParcel(obtain, 0);
@@ -48,7 +48,7 @@ public interface c extends IInterface {
                         obtain.writeInt(0);
                     }
                     obtain.writeStrongBinder(dVar != null ? dVar.asBinder() : null);
-                    this.f39017a.transact(1, obtain, obtain2, 0);
+                    this.f36602a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -58,21 +58,21 @@ public interface c extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f39017a;
+                return this.f36602a;
             }
         }
 
         @Override // android.os.Binder
         @SuppressLint({"WrongConstant"})
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1598968902) {
-                parcel2.writeString(f39016a);
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 == 1598968902) {
+                parcel2.writeString(f36601a);
                 return true;
             }
-            if (i != 1) {
-                return super.onTransact(i, parcel, parcel2, i2);
+            if (i2 != 1) {
+                return super.onTransact(i2, parcel, parcel2, i3);
             }
-            parcel.enforceInterface(f39016a);
+            parcel.enforceInterface(f36601a);
             a(parcel.readInt() != 0 ? b.CREATOR.createFromParcel(parcel) : null, d.a.a(parcel.readStrongBinder()));
             parcel2.writeNoException();
             return true;
@@ -82,11 +82,11 @@ public interface c extends IInterface {
             if (iBinder == null) {
                 return null;
             }
-            IInterface queryLocalInterface = iBinder.queryLocalInterface(f39016a);
+            IInterface queryLocalInterface = iBinder.queryLocalInterface(f36601a);
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C0492a(iBinder);
+            return new C0436a(iBinder);
         }
     }
 

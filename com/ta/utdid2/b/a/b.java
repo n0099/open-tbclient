@@ -10,7 +10,7 @@ public interface b {
 
         a a(String str, float f2);
 
-        a a(String str, int i);
+        a a(String str, int i2);
 
         a a(String str, long j);
 
@@ -25,14 +25,14 @@ public interface b {
 
     /* renamed from: com.ta.utdid2.b.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0523b {
+    public interface InterfaceC0467b {
         void a(b bVar, String str);
     }
 
     a a();
 
     /* renamed from: a  reason: collision with other method in class */
-    boolean m43a();
+    boolean m46a();
 
     Map<String, ?> getAll();
 

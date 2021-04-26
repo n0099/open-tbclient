@@ -34,16 +34,16 @@ public class UploadedImageInfo implements Serializable {
         }
     }
 
-    public void setHeight(int i) {
-        this.height = i;
+    public void setHeight(int i2) {
+        this.height = i2;
     }
 
     public void setPic_id(String str) {
         this.pic_id = str;
     }
 
-    public void setWidth(int i) {
-        this.width = i;
+    public void setWidth(int i2) {
+        this.width = i2;
     }
 
     public String toPostString() {

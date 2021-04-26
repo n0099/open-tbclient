@@ -7,21 +7,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.adp.R;
-import com.baidu.sapi2.utils.enums.a;
+import com.baidu.sapi2.utils.enums.ShareDirectionType;
+import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 /* loaded from: classes.dex */
 public class FloatingLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2286e;
+    public int f2259e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f2287f;
+    public int f2260f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f2288g;
+    public int f2261g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f2289h;
+    public int f2262h;
 
     public FloatingLayout(Context context) {
         this(context, null);
@@ -53,9 +54,9 @@ public class FloatingLayout extends LinearLayout {
         int measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int i = 0;
-        for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = getChildAt(i2);
+        int i2 = 0;
+        for (int i3 = 0; i3 < childCount; i3++) {
+            View childAt = getChildAt(i3);
             if (childAt != null && childAt.getVisibility() != 8) {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                 if (layoutParams == null) {
@@ -63,21 +64,21 @@ public class FloatingLayout extends LinearLayout {
                 }
                 int measuredWidth2 = ((LinearLayout.LayoutParams) layoutParams).leftMargin + ((LinearLayout.LayoutParams) layoutParams).rightMargin + childAt.getMeasuredWidth();
                 int measuredHeight = ((LinearLayout.LayoutParams) layoutParams).topMargin + ((LinearLayout.LayoutParams) layoutParams).bottomMargin + childAt.getMeasuredHeight();
-                if (measuredWidth - paddingLeft < measuredWidth2 || (layoutParams.f2290a & 1) == 1) {
+                if (measuredWidth - paddingLeft < measuredWidth2 || (layoutParams.f2263a & 1) == 1) {
                     paddingLeft = getPaddingLeft();
-                    paddingTop += i;
-                    i = 0;
+                    paddingTop += i2;
+                    i2 = 0;
                 }
-                int i3 = ((LinearLayout.LayoutParams) layoutParams).leftMargin;
-                childAt.layout(paddingLeft + i3, ((LinearLayout.LayoutParams) layoutParams).topMargin + paddingTop, i3 + paddingLeft + childAt.getMeasuredWidth(), ((LinearLayout.LayoutParams) layoutParams).topMargin + paddingTop + childAt.getMeasuredHeight());
+                int i4 = ((LinearLayout.LayoutParams) layoutParams).leftMargin;
+                childAt.layout(paddingLeft + i4, ((LinearLayout.LayoutParams) layoutParams).topMargin + paddingTop, i4 + paddingLeft + childAt.getMeasuredWidth(), ((LinearLayout.LayoutParams) layoutParams).topMargin + paddingTop + childAt.getMeasuredHeight());
                 paddingLeft += measuredWidth2;
-                if (measuredHeight > i) {
-                    i = measuredHeight;
+                if (measuredHeight > i2) {
+                    i2 = measuredHeight;
                 }
-                if ((layoutParams.f2290a & 2) == 2) {
+                if ((layoutParams.f2263a & 2) == 2) {
                     paddingLeft = getPaddingLeft();
-                    paddingTop += i;
-                    i = 0;
+                    paddingTop += i2;
+                    i2 = 0;
                 }
             }
         }
@@ -89,108 +90,108 @@ public class FloatingLayout extends LinearLayout {
         int measuredHeight = (getMeasuredHeight() - getPaddingTop()) - getPaddingBottom();
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int i = 0;
-        for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = getChildAt(i2);
+        int i2 = 0;
+        for (int i3 = 0; i3 < childCount; i3++) {
+            View childAt = getChildAt(i3);
             if (childAt != null && childAt.getVisibility() != 8 && (layoutParams = (LayoutParams) childAt.getLayoutParams()) != null) {
                 int measuredWidth = ((LinearLayout.LayoutParams) layoutParams).leftMargin + ((LinearLayout.LayoutParams) layoutParams).rightMargin + childAt.getMeasuredWidth();
                 int measuredHeight2 = ((LinearLayout.LayoutParams) layoutParams).topMargin + ((LinearLayout.LayoutParams) layoutParams).bottomMargin + childAt.getMeasuredHeight();
-                if (measuredHeight - paddingTop < measuredHeight2 || (layoutParams.f2290a & 1) == 1) {
-                    paddingLeft += i;
+                if (measuredHeight - paddingTop < measuredHeight2 || (layoutParams.f2263a & 1) == 1) {
+                    paddingLeft += i2;
                     paddingTop = getPaddingTop();
-                    i = 0;
+                    i2 = 0;
                 }
-                int i3 = ((LinearLayout.LayoutParams) layoutParams).leftMargin;
-                childAt.layout(paddingLeft + i3, ((LinearLayout.LayoutParams) layoutParams).topMargin + paddingTop, i3 + paddingLeft + childAt.getMeasuredWidth(), ((LinearLayout.LayoutParams) layoutParams).topMargin + paddingTop + childAt.getMeasuredHeight());
+                int i4 = ((LinearLayout.LayoutParams) layoutParams).leftMargin;
+                childAt.layout(paddingLeft + i4, ((LinearLayout.LayoutParams) layoutParams).topMargin + paddingTop, i4 + paddingLeft + childAt.getMeasuredWidth(), ((LinearLayout.LayoutParams) layoutParams).topMargin + paddingTop + childAt.getMeasuredHeight());
                 paddingTop += measuredHeight2;
-                if (measuredWidth > i) {
-                    i = measuredWidth;
+                if (measuredWidth > i2) {
+                    i2 = measuredWidth;
                 }
-                if ((layoutParams.f2290a & 2) == 2) {
-                    paddingLeft += i;
+                if ((layoutParams.f2263a & 2) == 2) {
+                    paddingLeft += i2;
                     paddingTop = getPaddingTop();
-                    i = 0;
+                    i2 = 0;
                 }
             }
         }
     }
 
-    public final void f(int i, int i2) {
-        this.f2287f = 0;
-        int i3 = i & 1073741823;
+    public final void f(int i2, int i3) {
+        this.f2260f = 0;
+        int i4 = i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
         int childCount = getChildCount();
-        int i4 = 0;
-        for (int i5 = 0; i5 < childCount; i5++) {
-            View childAt = getChildAt(i5);
+        int i5 = 0;
+        for (int i6 = 0; i6 < childCount; i6++) {
+            View childAt = getChildAt(i6);
             if (childAt != null && childAt.getVisibility() != 8) {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                 if (layoutParams == null) {
                     layoutParams = generateDefaultLayoutParams();
                 }
                 LayoutParams layoutParams2 = layoutParams;
-                if (i3 <= this.f2286e || (layoutParams2.f2290a & 1) == 1) {
-                    this.f2286e = 0;
+                if (i4 <= this.f2259e || (layoutParams2.f2263a & 1) == 1) {
+                    this.f2259e = 0;
                 }
-                measureChildWithMargins(childAt, i, this.f2286e, i2, this.f2287f);
+                measureChildWithMargins(childAt, i2, this.f2259e, i3, this.f2260f);
                 int measuredWidth = childAt.getMeasuredWidth() + ((LinearLayout.LayoutParams) layoutParams2).leftMargin + ((LinearLayout.LayoutParams) layoutParams2).rightMargin;
                 int measuredHeight = childAt.getMeasuredHeight() + ((LinearLayout.LayoutParams) layoutParams2).topMargin + ((LinearLayout.LayoutParams) layoutParams2).bottomMargin;
-                if ((layoutParams2.f2290a & 1) == 1) {
-                    this.f2287f += i4;
-                    i4 = 0;
+                if ((layoutParams2.f2263a & 1) == 1) {
+                    this.f2260f += i5;
+                    i5 = 0;
                 }
-                i4 = Math.max(measuredHeight, i4);
-                int i6 = this.f2286e + measuredWidth;
-                this.f2286e = i6;
-                this.f2288g = Math.max(this.f2288g, i6);
-                if ((layoutParams2.f2290a & 2) == 2) {
-                    this.f2286e = 0;
-                    this.f2287f += i4;
-                    i4 = 0;
+                i5 = Math.max(measuredHeight, i5);
+                int i7 = this.f2259e + measuredWidth;
+                this.f2259e = i7;
+                this.f2261g = Math.max(this.f2261g, i7);
+                if ((layoutParams2.f2263a & 2) == 2) {
+                    this.f2259e = 0;
+                    this.f2260f += i5;
+                    i5 = 0;
                 }
             }
         }
-        int i7 = this.f2287f + i4;
-        this.f2287f = i7;
-        this.f2289h = i7;
+        int i8 = this.f2260f + i5;
+        this.f2260f = i8;
+        this.f2262h = i8;
     }
 
-    public final void g(int i, int i2) {
-        int i3 = i2 & 1073741823;
+    public final void g(int i2, int i3) {
+        int i4 = i3 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
         int childCount = getChildCount();
-        int i4 = 0;
-        for (int i5 = 0; i5 < childCount; i5++) {
-            View childAt = getChildAt(i5);
+        int i5 = 0;
+        for (int i6 = 0; i6 < childCount; i6++) {
+            View childAt = getChildAt(i6);
             if (childAt != null && childAt.getVisibility() != 8) {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                 if (layoutParams == null) {
                     layoutParams = generateDefaultLayoutParams();
                 }
                 LayoutParams layoutParams2 = layoutParams;
-                if (i3 <= this.f2287f || (layoutParams2.f2290a & 1) == 1) {
-                    this.f2287f = 0;
+                if (i4 <= this.f2260f || (layoutParams2.f2263a & 1) == 1) {
+                    this.f2260f = 0;
                 }
-                measureChildWithMargins(childAt, i, this.f2286e, i2, this.f2287f);
-                i4 = Math.max(childAt.getMeasuredWidth() + ((LinearLayout.LayoutParams) layoutParams2).leftMargin + ((LinearLayout.LayoutParams) layoutParams2).rightMargin, i4);
-                this.f2286e = i4;
-                int measuredHeight = this.f2287f + childAt.getMeasuredHeight() + ((LinearLayout.LayoutParams) layoutParams2).topMargin + ((LinearLayout.LayoutParams) layoutParams2).bottomMargin;
-                this.f2287f = measuredHeight;
-                this.f2289h = Math.max(measuredHeight, this.f2289h);
-                if ((layoutParams2.f2290a & 2) != 2) {
-                    if ((layoutParams2.f2290a & 1) == 1) {
-                        this.f2286e += i4;
+                measureChildWithMargins(childAt, i2, this.f2259e, i3, this.f2260f);
+                i5 = Math.max(childAt.getMeasuredWidth() + ((LinearLayout.LayoutParams) layoutParams2).leftMargin + ((LinearLayout.LayoutParams) layoutParams2).rightMargin, i5);
+                this.f2259e = i5;
+                int measuredHeight = this.f2260f + childAt.getMeasuredHeight() + ((LinearLayout.LayoutParams) layoutParams2).topMargin + ((LinearLayout.LayoutParams) layoutParams2).bottomMargin;
+                this.f2260f = measuredHeight;
+                this.f2262h = Math.max(measuredHeight, this.f2262h);
+                if ((layoutParams2.f2263a & 2) != 2) {
+                    if ((layoutParams2.f2263a & 1) == 1) {
+                        this.f2259e += i5;
                     }
                 } else {
-                    this.f2287f = 0;
-                    this.f2286e += i4;
+                    this.f2260f = 0;
+                    this.f2259e += i5;
                 }
-                i4 = 0;
+                i5 = 0;
             }
         }
-        this.f2288g = this.f2286e;
+        this.f2261g = this.f2259e;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         int orientation = getOrientation();
         if (orientation == 0) {
             d();
@@ -200,15 +201,15 @@ public class FloatingLayout extends LinearLayout {
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        this.f2286e = 0;
-        this.f2287f = 0;
+    public void onMeasure(int i2, int i3) {
+        this.f2259e = 0;
+        this.f2260f = 0;
         if (getOrientation() == 1) {
-            g(i, i2);
+            g(i2, i3);
         } else if (getOrientation() == 0) {
-            f(i, i2);
+            f(i2, i3);
         }
-        setMeasuredDimension(this.f2288g + getPaddingLeft() + getPaddingRight(), this.f2289h + getPaddingTop() + getPaddingBottom());
+        setMeasuredDimension(this.f2261g + getPaddingLeft() + getPaddingRight(), this.f2262h + getPaddingTop() + getPaddingBottom());
     }
 
     public FloatingLayout(Context context, AttributeSet attributeSet) {
@@ -219,39 +220,39 @@ public class FloatingLayout extends LinearLayout {
     public static class LayoutParams extends LinearLayout.LayoutParams {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2290a;
+        public int f2263a;
 
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            this.f2290a = 0;
+            this.f2263a = 0;
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingLayout_Layout);
             String string = obtainStyledAttributes.getString(R.styleable.FloatingLayout_Layout_layout_clear);
             if (string != null) {
                 if ("before".equals(string)) {
-                    this.f2290a = 1;
+                    this.f2263a = 1;
                 } else if ("after".equals(string)) {
-                    this.f2290a = 2;
-                } else if (a.f11084c.equals(string)) {
-                    this.f2290a = 3;
+                    this.f2263a = 2;
+                } else if (ShareDirectionType.BOTH.equals(string)) {
+                    this.f2263a = 3;
                 }
             }
             obtainStyledAttributes.recycle();
         }
 
-        public LayoutParams(int i, int i2) {
-            super(i, i2);
-            this.f2290a = 0;
+        public LayoutParams(int i2, int i3) {
+            super(i2, i3);
+            this.f2263a = 0;
         }
 
-        public LayoutParams(int i, int i2, int i3) {
-            super(i, i2);
-            this.f2290a = 0;
-            this.f2290a = i3;
+        public LayoutParams(int i2, int i3, int i4) {
+            super(i2, i3);
+            this.f2263a = 0;
+            this.f2263a = i4;
         }
 
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
-            this.f2290a = 0;
+            this.f2263a = 0;
         }
     }
 }

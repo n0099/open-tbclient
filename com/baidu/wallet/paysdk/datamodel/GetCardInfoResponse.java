@@ -160,17 +160,17 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
         if (channelInfo == null || (calcPaymentResponseImpl = channelInfo.mkt_info) == null || TextUtils.isEmpty(calcPaymentResponseImpl.card_no) || (channelDiscountMapArr = this.channel_info.mkt_info.activity_map) == null || channelDiscountMapArr.length <= 0) {
             return "";
         }
-        int i = 0;
+        int i2 = 0;
         while (true) {
             CalcPaymentResponseImpl calcPaymentResponseImpl2 = this.channel_info.mkt_info;
             PayData.ChannelDiscountMap[] channelDiscountMapArr2 = calcPaymentResponseImpl2.activity_map;
-            if (i >= channelDiscountMapArr2.length) {
+            if (i2 >= channelDiscountMapArr2.length) {
                 return "";
             }
-            if (calcPaymentResponseImpl2.card_no.equals(channelDiscountMapArr2[i].card_no)) {
-                return this.channel_info.mkt_info.activity_map[i].description;
+            if (calcPaymentResponseImpl2.card_no.equals(channelDiscountMapArr2[i2].card_no)) {
+                return this.channel_info.mkt_info.activity_map[i2].description;
             }
-            i++;
+            i2++;
         }
     }
 

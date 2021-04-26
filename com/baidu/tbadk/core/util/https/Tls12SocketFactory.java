@@ -23,8 +23,8 @@ public class Tls12SocketFactory extends SSLSocketFactory {
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
-    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        return patch(this.delegate.createSocket(socket, str, i, z));
+    public Socket createSocket(Socket socket, String str, int i2, boolean z) throws IOException {
+        return patch(this.delegate.createSocket(socket, str, i2, z));
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
@@ -38,22 +38,22 @@ public class Tls12SocketFactory extends SSLSocketFactory {
     }
 
     @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i) throws IOException, UnknownHostException {
-        return patch(this.delegate.createSocket(str, i));
+    public Socket createSocket(String str, int i2) throws IOException, UnknownHostException {
+        return patch(this.delegate.createSocket(str, i2));
     }
 
     @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException, UnknownHostException {
-        return patch(this.delegate.createSocket(str, i, inetAddress, i2));
+    public Socket createSocket(String str, int i2, InetAddress inetAddress, int i3) throws IOException, UnknownHostException {
+        return patch(this.delegate.createSocket(str, i2, inetAddress, i3));
     }
 
     @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
-        return patch(this.delegate.createSocket(inetAddress, i));
+    public Socket createSocket(InetAddress inetAddress, int i2) throws IOException {
+        return patch(this.delegate.createSocket(inetAddress, i2));
     }
 
     @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
-        return patch(this.delegate.createSocket(inetAddress, i, inetAddress2, i2));
+    public Socket createSocket(InetAddress inetAddress, int i2, InetAddress inetAddress2, int i3) throws IOException {
+        return patch(this.delegate.createSocket(inetAddress, i2, inetAddress2, i3));
     }
 }

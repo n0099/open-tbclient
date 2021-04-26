@@ -1,7 +1,7 @@
 package com.google.common.collect;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.h.c.c.f0;
+import d.g.c.c.f0;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -16,17 +16,17 @@ public final class CompoundOrdering<T> extends Ordering<T> implements Serializab
 
     @Override // com.google.common.collect.Ordering, java.util.Comparator
     public int compare(T t, T t2) {
-        int i = 0;
+        int i2 = 0;
         while (true) {
             Comparator<? super T>[] comparatorArr = this.comparators;
-            if (i >= comparatorArr.length) {
+            if (i2 >= comparatorArr.length) {
                 return 0;
             }
-            int compare = comparatorArr[i].compare(t, t2);
+            int compare = comparatorArr[i2].compare(t, t2);
             if (compare != 0) {
                 return compare;
             }
-            i++;
+            i2++;
         }
     }
 

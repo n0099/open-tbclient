@@ -7,13 +7,13 @@ import java.util.List;
 public final class ah implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ List f41327a;
+    public final /* synthetic */ List f38871a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ boolean f884a;
 
     public ah(List list, boolean z) {
-        this.f41327a = list;
+        this.f38871a = list;
         this.f884a = z;
     }
 
@@ -22,7 +22,7 @@ public final class ah implements Runnable {
         boolean b2;
         boolean b3;
         b2 = ag.b("www.baidu.com:80");
-        Iterator it = this.f41327a.iterator();
+        Iterator it = this.f38871a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;

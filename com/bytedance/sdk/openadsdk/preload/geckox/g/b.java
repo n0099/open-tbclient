@@ -9,50 +9,50 @@ import java.util.concurrent.locks.ReentrantLock;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Lock> f29982a = new HashMap();
+    public static final Map<String, Lock> f30898a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public static ReentrantLock f29983b = new ReentrantLock();
+    public static ReentrantLock f30899b = new ReentrantLock();
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29984c;
+    public String f30900c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FileLock f29985d;
+    public FileLock f30901d;
 
     public b(String str, FileLock fileLock) {
-        this.f29984c = str;
-        this.f29985d = fileLock;
+        this.f30900c = str;
+        this.f30901d = fileLock;
     }
 
     public static b a(String str) throws Exception {
-        f29983b.lock();
+        f30899b.lock();
         try {
             FileLock a2 = FileLock.a(str);
-            Lock lock = f29982a.get(str);
+            Lock lock = f30898a.get(str);
             if (lock == null) {
                 lock = new ReentrantLock();
-                f29982a.put(str, lock);
+                f30898a.put(str, lock);
             }
             lock.lock();
             return new b(str, a2);
         } catch (Exception e2) {
-            f29983b.unlock();
+            f30899b.unlock();
             throw e2;
         }
     }
 
     public void a() {
         try {
-            this.f29985d.a();
-            this.f29985d.b();
-            Lock lock = f29982a.get(this.f29984c);
+            this.f30901d.a();
+            this.f30901d.b();
+            Lock lock = f30898a.get(this.f30900c);
             if (lock == null) {
                 return;
             }
             lock.unlock();
         } finally {
-            f29983b.unlock();
+            f30899b.unlock();
         }
     }
 }

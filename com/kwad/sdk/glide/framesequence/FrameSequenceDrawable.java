@@ -58,8 +58,8 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
     public static final Object sLock = new Object();
     public static a sAllocatingBitmapProvider = new a() { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.1
         @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
-        public Bitmap a(int i, int i2) {
-            return Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+        public Bitmap a(int i2, int i3) {
+            return Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
         }
 
         @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
@@ -73,7 +73,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
 
     /* loaded from: classes6.dex */
     public interface a {
-        Bitmap a(int i, int i2);
+        Bitmap a(int i2, int i3);
 
         void a(Bitmap bitmap);
     }
@@ -102,8 +102,8 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                     if (FrameSequenceDrawable.this.mDestroyed) {
                         return;
                     }
-                    int i = FrameSequenceDrawable.this.mNextFrameToDecode;
-                    if (i < 0) {
+                    int i2 = FrameSequenceDrawable.this.mNextFrameToDecode;
+                    if (i2 < 0) {
                         return;
                     }
                     Bitmap bitmap2 = FrameSequenceDrawable.this.mBackBitmap;
@@ -111,7 +111,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                     long j = 0;
                     boolean z2 = true;
                     try {
-                        j = FrameSequenceDrawable.this.mFrameSequenceState.getFrame(i, bitmap2, i - 2);
+                        j = FrameSequenceDrawable.this.mFrameSequenceState.getFrame(i2, bitmap2, i2 - 2);
                         z = false;
                     } catch (Exception e2) {
                         Log.e(FrameSequenceDrawable.TAG, "exception during decode: " + e2);
@@ -184,9 +184,9 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         this(FrameSequence.decodeStream(inputStream));
     }
 
-    public static Bitmap acquireAndValidateBitmap(a aVar, int i, int i2) {
-        Bitmap a2 = aVar.a(i, i2);
-        if (a2.getWidth() < i || a2.getHeight() < i2 || a2.getConfig() != Bitmap.Config.ARGB_8888) {
+    public static Bitmap acquireAndValidateBitmap(a aVar, int i2, int i3) {
+        Bitmap a2 = aVar.a(i2, i3);
+        if (a2.getWidth() < i2 || a2.getHeight() < i3 || a2.getConfig() != Bitmap.Config.ARGB_8888) {
             throw new IllegalArgumentException("Invalid bitmap provided");
         }
         return a2;
@@ -213,7 +213,11 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
     private void scheduleDecodeLocked() {
         this.mState = 1;
         this.mNextFrameToDecode = (this.mNextFrameToDecode + 1) % this.mFrameSequence.getFrameCount();
-        sDecodingThreadHandler.post(this.mDecodeRunnable);
+        Handler handler = sDecodingThreadHandler;
+        if (handler != null) {
+            handler.removeCallbacks(this.mDecodeRunnable);
+            sDecodingThreadHandler.post(this.mDecodeRunnable);
+        }
     }
 
     public void destroy() {
@@ -261,15 +265,16 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                 this.mLastSwap = SystemClock.uptimeMillis();
                 boolean z = true;
                 if (this.mNextFrameToDecode == this.mFrameSequence.getFrameCount() - 1) {
-                    int i = this.mCurrentLoop + 1;
-                    this.mCurrentLoop = i;
-                    if ((this.mLoopBehavior == 1 && i == this.mLoopCount) || (this.mLoopBehavior == 3 && this.mCurrentLoop == this.mFrameSequence.getDefaultLoopCount())) {
+                    int i2 = this.mCurrentLoop + 1;
+                    this.mCurrentLoop = i2;
+                    if ((this.mLoopBehavior == 1 && i2 == this.mLoopCount) || (this.mLoopBehavior == 3 && this.mCurrentLoop == this.mFrameSequence.getDefaultLoopCount())) {
                         z = false;
                     }
                 }
                 if (z) {
                     scheduleDecodeLocked();
                 } else {
+                    unscheduleSelf(this.mFinishedCallbackRunnable);
                     scheduleSelf(this.mFinishedCallbackRunnable, 0L);
                 }
             }
@@ -354,8 +359,8 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        this.mPaint.setAlpha(i);
+    public void setAlpha(int i2) {
+        this.mPaint.setAlpha(i2);
     }
 
     public final void setCircleMaskEnabled(boolean z) {
@@ -376,8 +381,8 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         this.mPaint.setFilterBitmap(z);
     }
 
-    public void setLoopCount(int i) {
-        this.mLoopCount = i;
+    public void setLoopCount(int i2) {
+        this.mLoopCount = i2;
     }
 
     public void setOnFinishedListener(b bVar) {

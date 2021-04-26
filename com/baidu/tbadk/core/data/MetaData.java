@@ -25,11 +25,11 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements TbCheckBo
             return null;
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        for (int i = 0; i < iconInfo.size(); i++) {
-            arrayList.add(iconInfo.get(i).getIcon());
-        }
         for (int i2 = 0; i2 < iconInfo.size(); i2++) {
-            arrayList.add(tShowInfoNew.get(i2).getIcon());
+            arrayList.add(iconInfo.get(i2).getIcon());
+        }
+        for (int i3 = 0; i3 < iconInfo.size(); i3++) {
+            arrayList.add(tShowInfoNew.get(i3).getIcon());
         }
         return arrayList;
     }

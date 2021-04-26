@@ -8,51 +8,51 @@ import java.util.Map;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f37166a;
+    public static final Map<Class<?>, Class<?>> f34901a;
 
     /* loaded from: classes6.dex */
     public static class a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Class<? extends T> f37167a;
+        public final Class<? extends T> f34902a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f37168b;
+        public final T f34903b;
     }
 
     static {
         HashMap hashMap = new HashMap();
-        f37166a = hashMap;
+        f34901a = hashMap;
         hashMap.put(Boolean.class, Boolean.TYPE);
-        f37166a.put(Byte.class, Byte.TYPE);
-        f37166a.put(Character.class, Character.TYPE);
-        f37166a.put(Short.class, Short.TYPE);
-        f37166a.put(Integer.class, Integer.TYPE);
-        f37166a.put(Float.class, Float.TYPE);
-        f37166a.put(Long.class, Long.TYPE);
-        f37166a.put(Double.class, Double.TYPE);
-        Map<Class<?>, Class<?>> map = f37166a;
+        f34901a.put(Byte.class, Byte.TYPE);
+        f34901a.put(Character.class, Character.TYPE);
+        f34901a.put(Short.class, Short.TYPE);
+        f34901a.put(Integer.class, Integer.TYPE);
+        f34901a.put(Float.class, Float.TYPE);
+        f34901a.put(Long.class, Long.TYPE);
+        f34901a.put(Double.class, Double.TYPE);
+        Map<Class<?>, Class<?>> map = f34901a;
         Class<?> cls = Boolean.TYPE;
         map.put(cls, cls);
-        Map<Class<?>, Class<?>> map2 = f37166a;
+        Map<Class<?>, Class<?>> map2 = f34901a;
         Class<?> cls2 = Byte.TYPE;
         map2.put(cls2, cls2);
-        Map<Class<?>, Class<?>> map3 = f37166a;
+        Map<Class<?>, Class<?>> map3 = f34901a;
         Class<?> cls3 = Character.TYPE;
         map3.put(cls3, cls3);
-        Map<Class<?>, Class<?>> map4 = f37166a;
+        Map<Class<?>, Class<?>> map4 = f34901a;
         Class<?> cls4 = Short.TYPE;
         map4.put(cls4, cls4);
-        Map<Class<?>, Class<?>> map5 = f37166a;
+        Map<Class<?>, Class<?>> map5 = f34901a;
         Class<?> cls5 = Integer.TYPE;
         map5.put(cls5, cls5);
-        Map<Class<?>, Class<?>> map6 = f37166a;
+        Map<Class<?>, Class<?>> map6 = f34901a;
         Class<?> cls6 = Float.TYPE;
         map6.put(cls6, cls6);
-        Map<Class<?>, Class<?>> map7 = f37166a;
+        Map<Class<?>, Class<?>> map7 = f34901a;
         Class<?> cls7 = Long.TYPE;
         map7.put(cls7, cls7);
-        Map<Class<?>, Class<?>> map8 = f37166a;
+        Map<Class<?>, Class<?>> map8 = f34901a;
         Class<?> cls8 = Double.TYPE;
         map8.put(cls8, cls8);
     }
@@ -121,8 +121,8 @@ public class n {
         } else if (clsArr.length != clsArr2.length) {
             return false;
         } else {
-            for (int i = 0; i < clsArr.length; i++) {
-                if (!clsArr[i].isAssignableFrom(clsArr2[i]) && (!f37166a.containsKey(clsArr[i]) || !f37166a.get(clsArr[i]).equals(f37166a.get(clsArr2[i])))) {
+            for (int i2 = 0; i2 < clsArr.length; i2++) {
+                if (!clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!f34901a.containsKey(clsArr[i2]) || !f34901a.get(clsArr[i2]).equals(f34901a.get(clsArr2[i2])))) {
                     return false;
                 }
             }
@@ -135,12 +135,12 @@ public class n {
             return null;
         }
         Class<?>[] clsArr = new Class[objArr.length];
-        for (int i = 0; i < objArr.length; i++) {
-            Object obj = objArr[i];
+        for (int i2 = 0; i2 < objArr.length; i2++) {
+            Object obj = objArr[i2];
             if (obj == null || !(obj instanceof a)) {
-                clsArr[i] = obj == null ? null : obj.getClass();
+                clsArr[i2] = obj == null ? null : obj.getClass();
             } else {
-                clsArr[i] = ((a) obj).f37167a;
+                clsArr[i2] = ((a) obj).f34902a;
             }
         }
         return clsArr;
@@ -175,12 +175,12 @@ public class n {
             return null;
         }
         Object[] objArr2 = new Object[objArr.length];
-        for (int i = 0; i < objArr.length; i++) {
-            Object obj = objArr[i];
+        for (int i2 = 0; i2 < objArr.length; i2++) {
+            Object obj = objArr[i2];
             if (obj == null || !(obj instanceof a)) {
-                objArr2[i] = obj;
+                objArr2[i2] = obj;
             } else {
-                objArr2[i] = ((a) obj).f37168b;
+                objArr2[i2] = ((a) obj).f34903b;
             }
         }
         return objArr2;

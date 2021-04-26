@@ -43,10 +43,10 @@ public class FrsLiveTipResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONArray optJSONArray;
         AlaLiveInfoCoreData jsonToLiveInfoData;
-        super.decodeLogicInBackGround(i, jSONObject);
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (jSONObject == null) {
             return;
         }
@@ -65,8 +65,8 @@ public class FrsLiveTipResponseMessage extends JsonHttpResponsedMessage {
         if (optJSONArray.length() >= 1) {
             this.listCoreData.mLiveInfoList.add(this.infoCoreData);
         }
-        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-            JSONObject jSONObject2 = (JSONObject) optJSONArray.get(i2);
+        for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+            JSONObject jSONObject2 = (JSONObject) optJSONArray.get(i3);
             if (jSONObject2 != null && (jsonToLiveInfoData = jsonToLiveInfoData(jSONObject2)) != null) {
                 this.listCoreData.mLiveInfoList.add(jsonToLiveInfoData);
             }

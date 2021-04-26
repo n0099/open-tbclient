@@ -3,29 +3,31 @@ package com.baidu.location.d;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f6704a = "baidu_location_service";
+    public static String f6935a = "baidu_location_service";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f6705b = 12000;
+    public static int f6936b = 12000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f6706c = 20000;
+    public static int f6937c = 20000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f6707d = 1;
+    public static int f6938d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f6708e = 2;
+    public static int f6939e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f6709f = 3;
+    public static int f6940f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f6710g = 4;
+    public static int f6941g = 4;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f6711h = 5;
-    public static int i = 5120;
+    public static int f6942h = 5;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static int f6943i = 5120;
     public static int j = 0;
     public static int k = 1;
     public static int l = 2;

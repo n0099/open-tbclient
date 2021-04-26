@@ -38,17 +38,17 @@ public final class SMSParsedResult extends ParsedResult {
         StringBuilder sb = new StringBuilder();
         sb.append(UrlSchemaHelper.SCHEMA_TYPE_SMS);
         boolean z = true;
-        for (int i = 0; i < this.numbers.length; i++) {
+        for (int i2 = 0; i2 < this.numbers.length; i2++) {
             if (z) {
                 z = false;
             } else {
                 sb.append(',');
             }
-            sb.append(this.numbers[i]);
+            sb.append(this.numbers[i2]);
             String[] strArr = this.vias;
-            if (strArr != null && strArr[i] != null) {
+            if (strArr != null && strArr[i2] != null) {
                 sb.append(";via=");
-                sb.append(this.vias[i]);
+                sb.append(this.vias[i2]);
             }
         }
         boolean z2 = this.body != null;

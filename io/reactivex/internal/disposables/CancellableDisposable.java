@@ -1,32 +1,33 @@
 package io.reactivex.internal.disposables;
 
-import f.b.t.b;
-import f.b.u.a;
-import f.b.w.f;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.exceptions.Exceptions;
+import io.reactivex.functions.Cancellable;
+import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class CancellableDisposable extends AtomicReference<f> implements b {
+public final class CancellableDisposable extends AtomicReference<Cancellable> implements Disposable {
     public static final long serialVersionUID = 5718521705281392066L;
 
-    public CancellableDisposable(f fVar) {
-        super(fVar);
+    public CancellableDisposable(Cancellable cancellable) {
+        super(cancellable);
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
-        f andSet;
+        Cancellable andSet;
         if (get() == null || (andSet = getAndSet(null)) == null) {
             return;
         }
         try {
             andSet.cancel();
         } catch (Exception e2) {
-            a.a(e2);
-            f.b.a0.a.f(e2);
+            Exceptions.throwIfFatal(e2);
+            RxJavaPlugins.onError(e2);
         }
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         return get() == null;
     }

@@ -35,16 +35,16 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
 
         @Override // com.baidu.tieba.tblauncherInterestGuide.model.NewUserGuideModel.b
         public void a(InterestFrsData interestFrsData) {
-            NewUserGuideActivity.this.mNewUserGuideModel.y(true);
-            NewUserGuideActivity.this.mNewUserGuideModel.x(null);
-            NewUserGuideActivity.this.showToast(R.string.neterror);
+            NewUserGuideActivity.this.mNewUserGuideModel.y(false);
+            NewUserGuideActivity.this.mNewUserGuideModel.x(interestFrsData);
+            ((NewUserGuideMainFragment) ((FragmentPagerAdapter) NewUserGuideActivity.this.mViewPager.getAdapter()).getItem(1)).M0(interestFrsData);
         }
 
         @Override // com.baidu.tieba.tblauncherInterestGuide.model.NewUserGuideModel.b
         public void b(InterestFrsData interestFrsData) {
-            NewUserGuideActivity.this.mNewUserGuideModel.y(false);
-            NewUserGuideActivity.this.mNewUserGuideModel.x(interestFrsData);
-            ((NewUserGuideMainFragment) ((FragmentPagerAdapter) NewUserGuideActivity.this.mViewPager.getAdapter()).getItem(1)).M0(interestFrsData);
+            NewUserGuideActivity.this.mNewUserGuideModel.y(true);
+            NewUserGuideActivity.this.mNewUserGuideModel.x(null);
+            NewUserGuideActivity.this.showToast(R.string.neterror);
         }
     }
 
@@ -54,9 +54,9 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i) {
+        public void onPageScrollStateChanged(int i2) {
             NewUserGuideIntroduceFragment newUserGuideIntroduceFragment = (NewUserGuideIntroduceFragment) ((FragmentPagerAdapter) NewUserGuideActivity.this.mViewPager.getAdapter()).getItem(0);
-            if (i == 0) {
+            if (i2 == 0) {
                 newUserGuideIntroduceFragment.I0();
             } else {
                 newUserGuideIntroduceFragment.K0();
@@ -64,15 +64,15 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f2, int i2) {
-            if (NewUserGuideActivity.this.mNewUserGuideModel.v() && i == 0 && f2 > 0.0f) {
+        public void onPageScrolled(int i2, float f2, int i3) {
+            if (NewUserGuideActivity.this.mNewUserGuideModel.v() && i2 == 0 && f2 > 0.0f) {
                 NewUserGuideActivity.this.startMainTabEnterFourm();
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
-            if (i == 1) {
+        public void onPageSelected(int i2) {
+            if (i2 == 1) {
                 NewUserGuideActivity.this.mViewPager.setTag(null);
             }
         }
@@ -81,10 +81,10 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     private void initData() {
         this.mIsNewUser = getIntent().getBooleanExtra("is_new_user", false);
         this.mHasLikes = getIntent().getBooleanExtra("has_like_bar", false);
-        int i = this.mIsNewUser ? 1 : 2;
+        int i2 = this.mIsNewUser ? 1 : 2;
         NewUserGuideModel newUserGuideModel = new NewUserGuideModel(this);
         this.mNewUserGuideModel = newUserGuideModel;
-        newUserGuideModel.w(i, 0, 100, this.mCallBack);
+        newUserGuideModel.w(i2, 0, 100, this.mCallBack);
     }
 
     private void initUI() {
@@ -109,8 +109,8 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         try {
             Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("FLAG_HARDWARE_ACCELERATED");
             declaredField.setAccessible(true);
-            int i = declaredField.getInt(null);
-            Window.class.getMethod("setFlags", Integer.TYPE, Integer.TYPE).invoke(getWindow(), Integer.valueOf(i), Integer.valueOf(i));
+            int i2 = declaredField.getInt(null);
+            Window.class.getMethod("setFlags", Integer.TYPE, Integer.TYPE).invoke(getWindow(), Integer.valueOf(i2), Integer.valueOf(i2));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -133,10 +133,10 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i2) {
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
@@ -156,12 +156,12 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4) {
             startMainTabEnterFourm();
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     public void setHasLike(boolean z) {

@@ -14,7 +14,7 @@ public final class d implements Parcelable.Creator<PlaneInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public PlaneInfo[] newArray(int i) {
-        return new PlaneInfo[i];
+    public PlaneInfo[] newArray(int i2) {
+        return new PlaneInfo[i2];
     }
 }

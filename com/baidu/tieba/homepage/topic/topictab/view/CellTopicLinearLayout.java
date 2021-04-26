@@ -23,7 +23,7 @@ public class CellTopicLinearLayout extends LinearLayout {
         super(context, attributeSet);
     }
 
-    public CellTopicLinearLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public CellTopicLinearLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

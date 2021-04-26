@@ -1,23 +1,16 @@
 package com.airbnb.lottie.model.content;
 
 import androidx.annotation.Nullable;
-import d.a.a.f;
-import d.a.a.s.b.c;
-import d.a.a.s.b.l;
-import d.a.a.u.j.b;
-import d.a.a.u.k.a;
-import d.a.a.x.d;
+import com.airbnb.lottie.LottieDrawable;
+import com.airbnb.lottie.animation.content.Content;
+import com.airbnb.lottie.animation.content.MergePathsContent;
+import com.airbnb.lottie.model.layer.BaseLayer;
+import com.airbnb.lottie.utils.Logger;
 /* loaded from: classes.dex */
-public class MergePaths implements b {
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String f1591a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final MergePathsMode f1592b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final boolean f1593c;
+public class MergePaths implements ContentModel {
+    public final boolean hidden;
+    public final MergePathsMode mode;
+    public final String name;
 
     /* loaded from: classes.dex */
     public enum MergePathsMode {
@@ -27,12 +20,12 @@ public class MergePaths implements b {
         INTERSECT,
         EXCLUDE_INTERSECTIONS;
 
-        public static MergePathsMode forId(int i) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 5) {
+        public static MergePathsMode forId(int i2) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 != 4) {
+                            if (i2 != 5) {
                                 return MERGE;
                             }
                             return EXCLUDE_INTERSECTIONS;
@@ -48,34 +41,34 @@ public class MergePaths implements b {
     }
 
     public MergePaths(String str, MergePathsMode mergePathsMode, boolean z) {
-        this.f1591a = str;
-        this.f1592b = mergePathsMode;
-        this.f1593c = z;
+        this.name = str;
+        this.mode = mergePathsMode;
+        this.hidden = z;
     }
 
-    @Override // d.a.a.u.j.b
+    public MergePathsMode getMode() {
+        return this.mode;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public boolean isHidden() {
+        return this.hidden;
+    }
+
+    @Override // com.airbnb.lottie.model.content.ContentModel
     @Nullable
-    public c a(f fVar, a aVar) {
-        if (!fVar.n()) {
-            d.c("Animation contains merge paths but they are disabled.");
+    public Content toContent(LottieDrawable lottieDrawable, BaseLayer baseLayer) {
+        if (!lottieDrawable.enableMergePathsForKitKatAndAbove()) {
+            Logger.warning("Animation contains merge paths but they are disabled.");
             return null;
         }
-        return new l(this);
-    }
-
-    public MergePathsMode b() {
-        return this.f1592b;
-    }
-
-    public String c() {
-        return this.f1591a;
-    }
-
-    public boolean d() {
-        return this.f1593c;
+        return new MergePathsContent(this);
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.f1592b + '}';
+        return "MergePaths{mode=" + this.mode + '}';
     }
 }

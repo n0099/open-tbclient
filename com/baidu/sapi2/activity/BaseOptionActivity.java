@@ -24,7 +24,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.y.a.g;
+import d.a.y.a.g;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickListener {
@@ -42,20 +42,22 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
     public static final int n = 1;
     public static final int o = 512;
     public long enterTimeMills;
-    public ImageCropCallback.ImageCropResult i;
+
+    /* renamed from: i  reason: collision with root package name */
+    public ImageCropCallback.ImageCropResult f10642i;
 
     private ImageCropCallback b() {
         return new ImageCropCallback() { // from class: com.baidu.sapi2.activity.BaseOptionActivity.5
             @Override // com.baidu.sapi2.callback.ImageCropCallback
-            public void onImageCrop(Context context, Uri uri, int i, int i2, ImageCropCallback.ImageCropResult imageCropResult) {
-                BaseOptionActivity.this.i = imageCropResult;
+            public void onImageCrop(Context context, Uri uri, int i2, int i3, ImageCropCallback.ImageCropResult imageCropResult) {
+                BaseOptionActivity.this.f10642i = imageCropResult;
                 Intent intent = new Intent(context, ImageClipActivity.class);
-                if (i == ClipBoxView.H) {
+                if (i2 == ClipBoxView.H) {
                     intent.putExtra(ImageClipActivity.EXTRA_PARAM_FROM_BUSINESS, 0);
                 } else {
                     intent.putExtra(ImageClipActivity.EXTRA_PARAM_FROM_BUSINESS, 1);
                 }
-                intent.putExtra(ImageClipActivity.EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, i2);
+                intent.putExtra(ImageClipActivity.EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, i3);
                 intent.setData(uri);
                 BaseOptionActivity.this.startActivityForResult(intent, 1003);
             }
@@ -67,8 +69,8 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, @Nullable Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, @Nullable Intent intent) {
+        super.onActivityResult(i2, i3, intent);
         ImageCropCallback imageCropCallback = CoreViewRouter.getInstance().getImageCropCallback();
         ActivityResultCallback activityResultCallback = CoreViewRouter.getInstance().getActivityResultCallback();
         if (imageCropCallback == null || activityResultCallback == null) {
@@ -77,10 +79,10 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
         }
         ImageCropCallback imageCropCallback2 = imageCropCallback;
         if (activityResultCallback != null) {
-            activityResultCallback.onActivityResult(i, i2, intent);
+            activityResultCallback.onActivityResult(i2, i3, intent);
         }
-        if (i == 1001) {
-            if (i2 == -1 && imageCropCallback2 != null) {
+        if (i2 == 1001) {
+            if (i3 == -1 && imageCropCallback2 != null) {
                 imageCropCallback2.onImageCrop(this, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "camera_temp_image.jpg")), 1, 512, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseOptionActivity.3
                     @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
                     public void onImageResult(String str) {
@@ -88,10 +90,10 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                     }
                 });
             } else {
-                processImgBase64Data(i2, null, null);
+                processImgBase64Data(i3, null, null);
             }
-        } else if (i == 1002) {
-            if (i2 == -1 && intent.getData() != null && imageCropCallback2 != null) {
+        } else if (i2 == 1002) {
+            if (i3 == -1 && intent.getData() != null && imageCropCallback2 != null) {
                 imageCropCallback2.onImageCrop(this, intent.getData(), 1, 512, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseOptionActivity.4
                     @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
                     public void onImageResult(String str) {
@@ -99,7 +101,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                     }
                 });
             } else {
-                processImgBase64Data(i2, null, null);
+                processImgBase64Data(i3, null, null);
             }
         }
     }
@@ -108,7 +110,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
     public void onClick(View view) {
     }
 
-    @Override // com.baidu.sapi2.activity.NaSlideActiviy, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.sapi2.activity.NaSlideActiviy, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.enterTimeMills = System.currentTimeMillis();
@@ -124,7 +126,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
         permissionsDTO.dialogMsg = "为了正常使用图片上传服务，请允许使用存储权限。你可以通过系统\"设置\"进行权限的管理";
         PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback() { // from class: com.baidu.sapi2.activity.BaseOptionActivity.2
             @Override // com.baidu.pass.permissions.PermissionsCallback
-            public void onFailure(int i) {
+            public void onFailure(int i2) {
                 BaseOptionActivity.this.processImgBase64Data(10002, BaseOptionActivity.NO_STORAGE_PERM_MSG, null);
             }
 
@@ -148,7 +150,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
         });
     }
 
-    public void processImgBase64Data(int i, String str, String str2) {
+    public void processImgBase64Data(int i2, String str, String str2) {
     }
 
     public void takePhoto() {
@@ -161,7 +163,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
         permissionsDTO.dialogMsg = "为了正常使用图片上传服务，请允许使用摄像头和存储权限。你可以通过系统\"设置\"进行权限的管理";
         PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback() { // from class: com.baidu.sapi2.activity.BaseOptionActivity.1
             @Override // com.baidu.pass.permissions.PermissionsCallback
-            public void onFailure(int i) {
+            public void onFailure(int i2) {
                 BaseOptionActivity.this.processImgBase64Data(10001, BaseOptionActivity.NO_CAMERA_PERM_MSG, "");
             }
 
@@ -197,16 +199,16 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
     private ActivityResultCallback a() {
         return new ActivityResultCallback() { // from class: com.baidu.sapi2.activity.BaseOptionActivity.6
             @Override // com.baidu.sapi2.callback.ActivityResultCallback
-            public void onActivityResult(int i, int i2, Intent intent) {
-                if (i == 1003) {
-                    if (i2 == -1) {
+            public void onActivityResult(int i2, int i3, Intent intent) {
+                if (i2 == 1003) {
+                    if (i3 == -1) {
                         byte[] byteArrayExtra = intent.getByteArrayExtra(ImageClipActivity.EXTRA_IMAGE);
-                        if (byteArrayExtra == null || BaseOptionActivity.this.i == null) {
+                        if (byteArrayExtra == null || BaseOptionActivity.this.f10642i == null) {
                             return;
                         }
-                        BaseOptionActivity.this.i.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
-                    } else if (BaseOptionActivity.this.i != null) {
-                        BaseOptionActivity.this.i.onImageResult(null);
+                        BaseOptionActivity.this.f10642i.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
+                    } else if (BaseOptionActivity.this.f10642i != null) {
+                        BaseOptionActivity.this.f10642i.onImageResult(null);
                     }
                 }
             }

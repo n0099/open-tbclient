@@ -47,23 +47,25 @@ public class OrderConfirmActivity extends HalfScreenBaseActivity implements View
     public String I;
 
     /* renamed from: b  reason: collision with root package name */
-    public OrderConfirmContract.Presenter f25736b;
+    public OrderConfirmContract.Presenter f26517b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f25737c;
+    public View f26518c;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f25738e;
+    public View f26519e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NetImageView f25739f;
+    public NetImageView f26520f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f25740g;
+    public View f26521g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f25741h;
-    public TextView i;
+    public TextView f26522h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f26523i;
     public ImageView j;
     public TextView l;
     public View m;
@@ -82,7 +84,7 @@ public class OrderConfirmActivity extends HalfScreenBaseActivity implements View
     public View z;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f25735a = OrderConfirmActivity.class.getSimpleName();
+    public final String f26516a = OrderConfirmActivity.class.getSimpleName();
     public boolean k = false;
     public boolean G = false;
 
@@ -93,7 +95,7 @@ public class OrderConfirmActivity extends HalfScreenBaseActivity implements View
         this.mHalfScreenContainer.addView(viewGroup);
     }
 
-    public void dismissLoading(int i) {
+    public void dismissLoading(int i2) {
     }
 
     public void gotoCoupon() {
@@ -107,7 +109,7 @@ public class OrderConfirmActivity extends HalfScreenBaseActivity implements View
             WalletGlobalUtils.safeShowDialog(this.mAct, -1, "");
             BankSignFactory bankSignFactory = BankSignFactory.getInstance();
             BeanActivity beanActivity = this.mAct;
-            com.baidu.wallet.paysdk.banksign.beans.b bVar = (com.baidu.wallet.paysdk.banksign.beans.b) bankSignFactory.getBean((Context) beanActivity, 768, this.f25735a + toString());
+            com.baidu.wallet.paysdk.banksign.beans.b bVar = (com.baidu.wallet.paysdk.banksign.beans.b) bankSignFactory.getBean((Context) beanActivity, 768, this.f26516a + toString());
             CardData.BondCard selectCard = PayRequestCache.getInstance().getSelectCard();
             bVar.a(selectCard != null ? selectCard.account_no : "");
             bVar.setResponseCallback(this);
@@ -122,16 +124,16 @@ public class OrderConfirmActivity extends HalfScreenBaseActivity implements View
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
-    public void handleFailure(int i, int i2, String str) {
-        if (i == 768) {
+    public void handleFailure(int i2, int i3, String str) {
+        if (i2 == 768) {
             WalletGlobalUtils.safeDismissDialog(this.mAct, -1);
             pay(this.H, this.I, true);
         }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
-        if (i == 768) {
+    public void handleResponse(int i2, Object obj, String str) {
+        if (i2 == 768) {
             WalletGlobalUtils.safeDismissDialog(this.mAct, -1);
             GetJumpUrlResponse getJumpUrlResponse = (GetJumpUrlResponse) obj;
             if (getJumpUrlResponse.agreement_trans_id != null) {
@@ -155,53 +157,53 @@ public class OrderConfirmActivity extends HalfScreenBaseActivity implements View
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        this.f25736b.closeOrderComfirmPage();
+        this.f26517b.closeOrderComfirmPage();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f25740g) {
+        if (view == this.f26521g) {
             StatisticManager.onEvent(StatServiceEvent.EVENT_CLICK_PAY_TYPE_ITEM);
             ImageView imageView = this.j;
             if (imageView != null && imageView.getVisibility() == 0) {
                 this.k = true;
             }
-            this.f25736b.clickPayway();
+            this.f26517b.clickPayway();
         } else if (view == this.q) {
             StatisticManager.onEvent(StatServiceEvent.EVENT_CLICK_COUPON_ITEM);
-            this.f25736b.clickCoupon();
+            this.f26517b.clickCoupon();
         } else if (view == this.F) {
-            this.f25736b.closeOrderComfirmPage();
+            this.f26517b.closeOrderComfirmPage();
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.HalfScreenBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.HalfScreenBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         b();
         OrderConfirmPresenter orderConfirmPresenter = new OrderConfirmPresenter(this);
-        this.f25736b = orderConfirmPresenter;
+        this.f26517b = orderConfirmPresenter;
         orderConfirmPresenter.onCreate(bundle);
-        LogUtil.d(this.f25735a, "OrderConfirmActivity.onCreate");
+        LogUtil.d(this.f26516a, "OrderConfirmActivity.onCreate");
         a();
     }
 
     @Override // com.baidu.wallet.paysdk.ui.HalfScreenBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        OrderConfirmContract.Presenter presenter = this.f25736b;
+        OrderConfirmContract.Presenter presenter = this.f26517b;
         if (presenter != null) {
             presenter.onDestroy();
-            this.f25736b = null;
+            this.f26517b = null;
         }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        LogUtil.d(this.f25735a, "OrderConfirmActivity.onPause");
+        LogUtil.d(this.f26516a, "OrderConfirmActivity.onPause");
         if (Build.VERSION.SDK_INT >= 23) {
             WalletFingerprint.getInstance(this).cancleListening();
         }
@@ -210,16 +212,16 @@ public class OrderConfirmActivity extends HalfScreenBaseActivity implements View
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        OrderConfirmContract.Presenter presenter = this.f25736b;
+        OrderConfirmContract.Presenter presenter = this.f26517b;
         if (presenter != null) {
             presenter.startFingerprintListening();
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.f25736b.onSaveInstanceState(bundle);
+        this.f26517b.onSaveInstanceState(bundle);
     }
 
     public void pay(String str, String str2, boolean z) {
@@ -262,33 +264,33 @@ public class OrderConfirmActivity extends HalfScreenBaseActivity implements View
         }, 300L);
     }
 
-    public void showLoading(int i) {
+    public void showLoading(int i2) {
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity
-    public void showPaySuccessPage(boolean z, PayResultContent payResultContent, int i) {
+    public void showPaySuccessPage(boolean z, PayResultContent payResultContent, int i2) {
     }
 
     private void a() {
-        this.f25736b.getViewData();
+        this.f26517b.getViewData();
     }
 
     private void b() {
         this.mActionBar.setVisibility(8);
-        this.f25739f = (NetImageView) this.mContentView.findViewById(ResUtils.id(getActivity(), "cashdesk_logo"));
-        this.f25739f.setImageResource(ResUtils.drawable(getApplicationContext(), "wallet_cashdesk_logo"));
+        this.f26520f = (NetImageView) this.mContentView.findViewById(ResUtils.id(getActivity(), "cashdesk_logo"));
+        this.f26520f.setImageResource(ResUtils.drawable(getApplicationContext(), "wallet_cashdesk_logo"));
         TextView textView = (TextView) this.mContentView.findViewById(ResUtils.id(getActivity(), "cashdesk_paymethod_entry"));
         this.x = textView;
         textView.setVisibility(8);
-        this.f25737c = this.mContentView.findViewById(ResUtils.id(getActivity(), "ebpay_account_layout"));
-        this.f25738e = this.mContentView.findViewById(ResUtils.id(getActivity(), "bd_wallet_account_arrow_icon"));
+        this.f26518c = this.mContentView.findViewById(ResUtils.id(getActivity(), "ebpay_account_layout"));
+        this.f26519e = this.mContentView.findViewById(ResUtils.id(getActivity(), "bd_wallet_account_arrow_icon"));
         this.w = (TextView) findViewById(ResUtils.id(this, "ebpay_account"));
-        this.f25740g = this.mContentView.findViewById(ResUtils.id(getActivity(), "ebpay_payway_layout"));
-        this.f25741h = (TextView) findViewById(ResUtils.id(this, "paytype_desc"));
-        this.i = (TextView) findViewById(ResUtils.id(this, "payway_discount"));
+        this.f26521g = this.mContentView.findViewById(ResUtils.id(getActivity(), "ebpay_payway_layout"));
+        this.f26522h = (TextView) findViewById(ResUtils.id(this, "paytype_desc"));
+        this.f26523i = (TextView) findViewById(ResUtils.id(this, "payway_discount"));
         this.l = (TextView) findViewById(ResUtils.id(this, "payway_txt_for_complete_bankcard"));
         this.j = (ImageView) findViewById(ResUtils.id(this, "wallet_base_red_dot"));
-        this.f25740g.setOnClickListener(this);
+        this.f26521g.setOnClickListener(this);
         this.m = findViewById(ResUtils.id(this, "ebpay_goods_layout"));
         this.n = (TextView) findViewById(ResUtils.id(this, "ebpay_order_info"));
         this.o = findViewById(ResUtils.id(this, "ebpay_sp_layout"));
@@ -325,23 +327,23 @@ public class OrderConfirmActivity extends HalfScreenBaseActivity implements View
             return;
         }
         if (!TextUtils.isEmpty(orderConfirmViewData.currentAccount)) {
-            this.f25737c.setVisibility(0);
+            this.f26518c.setVisibility(0);
             this.w.setText(orderConfirmViewData.currentAccount);
-            this.f25738e.setVisibility(4);
+            this.f26519e.setVisibility(4);
         } else {
-            this.f25737c.setVisibility(8);
+            this.f26518c.setVisibility(8);
         }
         if (!TextUtils.isEmpty(orderConfirmViewData.title_url)) {
-            this.f25739f.setVisibility(0);
-            this.f25739f.setImageUrl(orderConfirmViewData.title_url);
+            this.f26520f.setVisibility(0);
+            this.f26520f.setImageUrl(orderConfirmViewData.title_url);
         }
-        this.f25741h.setTextColor(ResUtils.getColor(this, orderConfirmViewData.hasAvailablePayType ? "ebpay_text_868e9e" : "wallet_base_textcolor_e85352"));
-        this.f25741h.setText(!TextUtils.isEmpty(orderConfirmViewData.payTyeDesc) ? orderConfirmViewData.payTyeDesc : "");
+        this.f26522h.setTextColor(ResUtils.getColor(this, orderConfirmViewData.hasAvailablePayType ? "ebpay_text_868e9e" : "wallet_base_textcolor_e85352"));
+        this.f26522h.setText(!TextUtils.isEmpty(orderConfirmViewData.payTyeDesc) ? orderConfirmViewData.payTyeDesc : "");
         if (!TextUtils.isEmpty(orderConfirmViewData.channelDiscountDesc)) {
-            this.i.setVisibility(0);
-            this.i.setText(orderConfirmViewData.channelDiscountDesc);
+            this.f26523i.setVisibility(0);
+            this.f26523i.setText(orderConfirmViewData.channelDiscountDesc);
         } else {
-            this.i.setVisibility(8);
+            this.f26523i.setVisibility(8);
         }
         if (!TextUtils.isEmpty(orderConfirmViewData.cardTip)) {
             this.l.setVisibility(0);
@@ -414,7 +416,7 @@ public class OrderConfirmActivity extends HalfScreenBaseActivity implements View
                 this.x.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.OrderConfirmActivity.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        OrderConfirmActivity.this.f25736b.gotoPayUsePwd(false, null);
+                        OrderConfirmActivity.this.f26517b.gotoPayUsePwd(false, null);
                     }
                 });
             } else {
@@ -457,6 +459,6 @@ public class OrderConfirmActivity extends HalfScreenBaseActivity implements View
 
     /* JADX DEBUG: Method merged with bridge method */
     public void setPresenter(OrderConfirmContract.Presenter presenter) {
-        this.f25736b = presenter;
+        this.f26517b = presenter;
     }
 }

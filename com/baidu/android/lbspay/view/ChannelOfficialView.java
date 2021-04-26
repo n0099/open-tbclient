@@ -174,8 +174,8 @@ public class ChannelOfficialView extends ChannelViewBase {
     }
 
     @TargetApi(11)
-    public ChannelOfficialView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ChannelOfficialView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         initView();
     }
 }

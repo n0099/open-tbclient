@@ -12,7 +12,7 @@ public class StatisticModel {
     @c(a = "common")
 
     /* renamed from: common  reason: collision with root package name */
-    public Common f30018common;
+    public Common f30934common;
     @c(a = "packages")
     public List<PackageStatisticModel> packages = new ArrayList();
 

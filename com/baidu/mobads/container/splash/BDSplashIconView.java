@@ -48,15 +48,15 @@ public class BDSplashIconView {
     public Activity mViewContext;
     public BaseTask task;
 
-    public BDSplashIconView(Context context, XBaseAdContainer xBaseAdContainer, int i, int i2) {
+    public BDSplashIconView(Context context, XBaseAdContainer xBaseAdContainer, int i2, int i3) {
         if (xBaseAdContainer == null || !(context instanceof Activity)) {
             return;
         }
         this.mViewContext = (Activity) context;
         this.mAdContainer = xBaseAdContainer;
         this.mInfo = xBaseAdContainer.getAdContainerContext().getAdInstanceInfo();
-        this.mBottomMargin = i;
-        this.mRightMargin = i2;
+        this.mBottomMargin = i2;
+        this.mRightMargin = i3;
         initView();
     }
 
@@ -81,12 +81,12 @@ public class BDSplashIconView {
         }
     }
 
-    private void setViewVisible(int i) {
-        this.mIconPic.setVisibility(i);
-        this.mCloseView.setVisibility(i);
+    private void setViewVisible(int i2) {
+        this.mIconPic.setVisibility(i2);
+        this.mCloseView.setVisibility(i2);
         TextView textView = this.mDownLoadDesc;
         if (textView != null) {
-            textView.setVisibility(i);
+            textView.setVisibility(i2);
         }
     }
 

@@ -9,8 +9,8 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes3.dex */
 public class BdGridView extends GridView {
-    public BdGridView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BdGridView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 
     @Override // android.widget.AbsListView, android.view.ViewGroup, android.view.View

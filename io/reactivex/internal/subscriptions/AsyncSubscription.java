@@ -1,56 +1,56 @@
 package io.reactivex.internal.subscriptions;
 
-import f.b.t.b;
-import g.d.d;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
+import org.reactivestreams.Subscription;
 /* loaded from: classes7.dex */
-public final class AsyncSubscription extends AtomicLong implements d, b {
+public final class AsyncSubscription extends AtomicLong implements Subscription, Disposable {
     public static final long serialVersionUID = 7028635084060361255L;
-    public final AtomicReference<d> actual;
-    public final AtomicReference<b> resource;
+    public final AtomicReference<Subscription> actual;
+    public final AtomicReference<Disposable> resource;
 
     public AsyncSubscription() {
         this.resource = new AtomicReference<>();
         this.actual = new AtomicReference<>();
     }
 
-    @Override // g.d.d
+    @Override // org.reactivestreams.Subscription
     public void cancel() {
         dispose();
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
         SubscriptionHelper.cancel(this.actual);
         DisposableHelper.dispose(this.resource);
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         return this.actual.get() == SubscriptionHelper.CANCELLED;
     }
 
-    public boolean replaceResource(b bVar) {
-        return DisposableHelper.replace(this.resource, bVar);
+    public boolean replaceResource(Disposable disposable) {
+        return DisposableHelper.replace(this.resource, disposable);
     }
 
-    @Override // g.d.d
+    @Override // org.reactivestreams.Subscription
     public void request(long j) {
         SubscriptionHelper.deferredRequest(this.actual, this, j);
     }
 
-    public boolean setResource(b bVar) {
-        return DisposableHelper.set(this.resource, bVar);
+    public boolean setResource(Disposable disposable) {
+        return DisposableHelper.set(this.resource, disposable);
     }
 
-    public void setSubscription(d dVar) {
-        SubscriptionHelper.deferredSetOnce(this.actual, this, dVar);
+    public void setSubscription(Subscription subscription) {
+        SubscriptionHelper.deferredSetOnce(this.actual, this, subscription);
     }
 
-    public AsyncSubscription(b bVar) {
+    public AsyncSubscription(Disposable disposable) {
         this();
-        this.resource.lazySet(bVar);
+        this.resource.lazySet(disposable);
     }
 }

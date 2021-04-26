@@ -12,7 +12,7 @@ import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.smallgame.sdk.permission.PermissionListener;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
 import com.google.ar.core.ArCoreApk;
-import d.b.e0.a.a;
+import d.a.e0.a.a;
 import java.io.File;
 @NotProguard
 /* loaded from: classes.dex */
@@ -34,7 +34,7 @@ public class XRSessionAnchor {
         this.mRotation = 0;
         this.mOrientationEventListener = new OrientationEventListener(V8Engine.getAppContext()) { // from class: com.baidu.ar.session.XRSessionAnchor.1
             @Override // android.view.OrientationEventListener
-            public void onOrientationChanged(int i) {
+            public void onOrientationChanged(int i2) {
                 if (XRSessionAnchor.this.mWM.getDefaultDisplay().getRotation() != XRSessionAnchor.this.mRotation) {
                     XRSessionAnchor xRSessionAnchor = XRSessionAnchor.this;
                     xRSessionAnchor.mRotation = xRSessionAnchor.mWM.getDefaultDisplay().getRotation();
@@ -58,25 +58,25 @@ public class XRSessionAnchor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void xRSessionCreateFail(long j, int i);
+    public native void xRSessionCreateFail(long j, int i2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void xRSessionCreateSuccess(long j, int i);
+    public native void xRSessionCreateSuccess(long j, int i2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void xRSessionOrientationChange(long j, int i);
+    public native void xRSessionOrientationChange(long j, int i2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void xRSessionPermissionChange(long j, int i);
+    public native void xRSessionPermissionChange(long j, int i2);
 
     public void requestCameraPermission() {
         PermissionProxy permissionProxy = a.o;
         if (permissionProxy != null) {
             permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.ar.session.XRSessionAnchor.2
                 @Override // com.baidu.smallgame.sdk.permission.PermissionListener
-                public void onPermissionResult(String str, int i) {
-                    if (i == 0) {
-                        Log.i(XRSessionAnchor.TAG, "requestCameraPermission@ permissionState:" + i);
+                public void onPermissionResult(String str, int i2) {
+                    if (i2 == 0) {
+                        Log.i(XRSessionAnchor.TAG, "requestCameraPermission@ permissionState:" + i2);
                         if (XRSessionAnchor.this.mAppAuthorized) {
                             return;
                         }
@@ -85,13 +85,13 @@ public class XRSessionAnchor {
                         xRSessionAnchor.xRSessionPermissionChange(xRSessionAnchor.mNativeSessionHandle, 0);
                         return;
                     }
-                    int i2 = i + 1000;
-                    if (XRSessionAnchor.this.mAppAuthorized && i2 == 1002) {
+                    int i3 = i2 + 1000;
+                    if (XRSessionAnchor.this.mAppAuthorized && i3 == 1002) {
                         XRSessionAnchor.this.mAppAuthorized = false;
                         XRSessionAnchor xRSessionAnchor2 = XRSessionAnchor.this;
-                        xRSessionAnchor2.xRSessionPermissionChange(xRSessionAnchor2.mNativeSessionHandle, i2);
+                        xRSessionAnchor2.xRSessionPermissionChange(xRSessionAnchor2.mNativeSessionHandle, i3);
                     }
-                    Log.i(XRSessionAnchor.TAG, "Permission fail:" + i2);
+                    Log.i(XRSessionAnchor.TAG, "Permission fail:" + i3);
                 }
             });
         }
@@ -135,18 +135,18 @@ public class XRSessionAnchor {
                     } else {
                         a.o.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.ar.session.XRSessionAnchor.3.1
                             @Override // com.baidu.smallgame.sdk.permission.PermissionListener
-                            public void onPermissionResult(String str2, int i) {
-                                if (i == 0) {
-                                    Log.i(XRSessionAnchor.TAG, "Permission ok!@ permissionState:" + i);
+                            public void onPermissionResult(String str2, int i2) {
+                                if (i2 == 0) {
+                                    Log.i(XRSessionAnchor.TAG, "Permission ok!@ permissionState:" + i2);
                                     XRSessionAnchor xRSessionAnchor = XRSessionAnchor.this;
                                     xRSessionAnchor.xRSessionCreateSuccess(xRSessionAnchor.mNativeSessionHandle, a.p);
                                     XRSessionAnchor.this.mOrientationEventListener.enable();
                                     return;
                                 }
-                                int i2 = i + 1000;
+                                int i3 = i2 + 1000;
                                 XRSessionAnchor xRSessionAnchor2 = XRSessionAnchor.this;
-                                xRSessionAnchor2.xRSessionCreateFail(xRSessionAnchor2.mNativeSessionHandle, i2);
-                                Log.i(XRSessionAnchor.TAG, "Permission fail:" + i2);
+                                xRSessionAnchor2.xRSessionCreateFail(xRSessionAnchor2.mNativeSessionHandle, i3);
+                                Log.i(XRSessionAnchor.TAG, "Permission fail:" + i3);
                             }
                         });
                     }

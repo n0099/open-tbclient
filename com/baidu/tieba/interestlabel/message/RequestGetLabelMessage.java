@@ -2,8 +2,8 @@ package com.baidu.tieba.interestlabel.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
-import d.b.j0.h1.b.b;
+import d.a.i0.z0.w;
+import d.a.j0.h1.b.b;
 import tbclient.CommonReq;
 import tbclient.GetTagList.DataReq;
 import tbclient.GetTagList.GetTagListReqIdl;
@@ -11,7 +11,7 @@ import tbclient.GetTagList.GetTagListReqIdl;
 public class RequestGetLabelMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f18168common;
+    public CommonReq f18516common;
     public int from;
     public b mLabelDataSet;
 
@@ -22,7 +22,7 @@ public class RequestGetLabelMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f69646common = this.f18168common;
+        builder.f68693common = this.f18516common;
         builder.from = Integer.valueOf(this.from);
         if (z) {
             w.a(builder, true);
@@ -37,11 +37,11 @@ public class RequestGetLabelMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f18168common = commonReq;
+        this.f18516common = commonReq;
     }
 
-    public void setFrom(int i) {
-        this.from = i;
+    public void setFrom(int i2) {
+        this.from = i2;
     }
 
     public void setLabelDataSet(b bVar) {

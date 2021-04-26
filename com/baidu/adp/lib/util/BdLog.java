@@ -87,7 +87,7 @@ public class BdLog {
         return z;
     }
 
-    public static int printLog(int i, String str) {
+    public static int printLog(int i2, String str) {
         if (isDebugMode()) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
             if (stackTrace.length < 5) {
@@ -96,17 +96,17 @@ public class BdLog {
             StackTraceElement stackTraceElement = stackTrace[4];
             String methodName = stackTraceElement.getMethodName();
             String className = stackTraceElement.getClassName();
-            if (i <= 1 || isLogable(className)) {
-                if (i == 0) {
+            if (i2 <= 1 || isLogable(className)) {
+                if (i2 == 0) {
                     e(className, methodName, str);
                     return 0;
-                } else if (i == 1) {
+                } else if (i2 == 1) {
                     w(className, methodName, str);
                     return 0;
-                } else if (i == 2) {
+                } else if (i2 == 2) {
                     i(className, methodName, str);
                     return 0;
-                } else if (i == 3) {
+                } else if (i2 == 3) {
                     d(className, methodName, str);
                     return 0;
                 } else {

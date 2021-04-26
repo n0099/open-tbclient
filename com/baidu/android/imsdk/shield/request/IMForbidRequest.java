@@ -28,11 +28,11 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
     public int type;
     public long uid;
 
-    public IMForbidRequest(Context context, long j, long j2, int i, List<ChatMsg> list, String str) {
+    public IMForbidRequest(Context context, long j, long j2, int i2, List<ChatMsg> list, String str) {
         this.mContext = context;
         this.chatMsgs = list;
         this.uid = j2;
-        this.type = i;
+        this.type = i2;
         this.key = str;
         this.touk = j;
     }
@@ -127,15 +127,15 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
             jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
             jSONObject.put("device_type", 2);
             jSONObject.put("timestamp", currentTimeMillis);
-            int i = 1;
+            int i2 = 1;
             jSONObject.put("reason", 1);
             jSONObject.put("msgs", msgListToJsonArray);
             jSONObject.put("bduk_to", Utility.transBDUID(this.uid + ""));
             jSONObject.put("sign", getMd5("" + currentTimeMillis + uk + appid));
             if (!AccountManager.isCuidLogin(this.mContext)) {
-                i = 0;
+                i2 = 0;
             }
-            jSONObject.put("account_type", i);
+            jSONObject.put("account_type", i2);
             LogUtils.d(TAG, "IMForbidRequest msg :" + jSONObject.toString());
             return jSONObject.toString().getBytes();
         } catch (Exception unused) {
@@ -144,17 +144,17 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         ShieldAndTopManager.getInstance(this.mContext).onForbidResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, true, "", this.key);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str;
         boolean z;
         String str2;
-        int i2;
+        int i3;
         String str3 = new String(bArr);
         LogUtils.e(TAG, "IMForbidRequest onSuccess :" + str3);
         boolean z2 = true;
@@ -165,15 +165,15 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
             z2 = jSONObject.optBoolean("display_toast", false);
             str = z2 ? jSONObject.optString("toast", "") : "";
             z = z2;
-            i2 = optInt;
+            i3 = optInt;
             str2 = optString;
         } catch (JSONException e2) {
             LogUtils.e(TAG, "JSONException", e2);
             str = "";
             z = z2;
             str2 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-            i2 = 1010;
+            i3 = 1010;
         }
-        ShieldAndTopManager.getInstance(this.mContext).onForbidResult(i2, str2, z, str, this.key);
+        ShieldAndTopManager.getInstance(this.mContext).onForbidResult(i3, str2, z, str, this.key);
     }
 }

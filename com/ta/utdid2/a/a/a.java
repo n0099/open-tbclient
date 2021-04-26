@@ -1,6 +1,5 @@
 package com.ta.utdid2.a.a;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -23,14 +22,14 @@ public class a {
 
     public static String b(String str) {
         try {
-            return new String(b(a(), m42a(str)));
+            return new String(b(a(), m45a(str)));
         } catch (Exception unused) {
             return null;
         }
     }
 
     public static byte[] a() throws Exception {
-        return e.a(new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 83, ExifInterface.MARKER_SOF14, -89, -84, -114, 80, 99, 10, 63, 22, -65, -11, 30, Constants.SHORT_PING_CMD_TYPE, -118});
+        return e.a(new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 83, -50, -89, -84, -114, 80, 99, 10, 63, 22, -65, -11, 30, Constants.SHORT_PING_CMD_TYPE, -118});
     }
 
     public static byte[] b(byte[] bArr, byte[] bArr2) throws Exception {
@@ -48,12 +47,12 @@ public class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m42a(String str) {
+    public static byte[] m45a(String str) {
         int length = str.length() / 2;
         byte[] bArr = new byte[length];
-        for (int i = 0; i < length; i++) {
-            int i2 = i * 2;
-            bArr[i] = Integer.valueOf(str.substring(i2, i2 + 2), 16).byteValue();
+        for (int i2 = 0; i2 < length; i2++) {
+            int i3 = i2 * 2;
+            bArr[i2] = Integer.valueOf(str.substring(i3, i3 + 2), 16).byteValue();
         }
         return bArr;
     }

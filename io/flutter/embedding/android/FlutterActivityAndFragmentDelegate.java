@@ -143,11 +143,11 @@ public final class FlutterActivityAndFragmentDelegate {
         }
     }
 
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
         ensureAlive();
         if (this.flutterEngine != null) {
-            Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onActivityResult() to FlutterEngine:\nrequestCode: " + i + "\nresultCode: " + i2 + "\ndata: " + intent);
-            this.flutterEngine.getActivityControlSurface().onActivityResult(i, i2, intent);
+            Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onActivityResult() to FlutterEngine:\nrequestCode: " + i2 + "\nresultCode: " + i3 + "\ndata: " + intent);
+            this.flutterEngine.getActivityControlSurface().onActivityResult(i2, i3, intent);
             return;
         }
         Log.w("FlutterActivityAndFragmentDelegate", "onActivityResult() invoked before FlutterFragment was attached to an Activity.");
@@ -274,11 +274,11 @@ public final class FlutterActivityAndFragmentDelegate {
         Log.w("FlutterActivityAndFragmentDelegate", "onPostResume() invoked before FlutterFragment was attached to an Activity.");
     }
 
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         ensureAlive();
         if (this.flutterEngine != null) {
-            Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onRequestPermissionsResult() to FlutterEngine:\nrequestCode: " + i + "\npermissions: " + Arrays.toString(strArr) + "\ngrantResults: " + Arrays.toString(iArr));
-            this.flutterEngine.getActivityControlSurface().onRequestPermissionsResult(i, strArr, iArr);
+            Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onRequestPermissionsResult() to FlutterEngine:\nrequestCode: " + i2 + "\npermissions: " + Arrays.toString(strArr) + "\ngrantResults: " + Arrays.toString(iArr));
+            this.flutterEngine.getActivityControlSurface().onRequestPermissionsResult(i2, strArr, iArr);
             return;
         }
         Log.w("FlutterActivityAndFragmentDelegate", "onRequestPermissionResult() invoked before FlutterFragment was attached to an Activity.");
@@ -310,12 +310,12 @@ public final class FlutterActivityAndFragmentDelegate {
         this.flutterEngine.getLifecycleChannel().appIsPaused();
     }
 
-    public void onTrimMemory(int i) {
+    public void onTrimMemory(int i2) {
         ensureAlive();
         if (this.flutterEngine == null) {
             Log.w("FlutterActivityAndFragmentDelegate", "onTrimMemory() invoked before FlutterFragment was attached to an Activity.");
-        } else if (i == 10) {
-            Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onTrimMemory() to FlutterEngine. Level: " + i);
+        } else if (i2 == 10) {
+            Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onTrimMemory() to FlutterEngine. Level: " + i2);
             this.flutterEngine.getSystemChannel().sendMemoryPressureWarning();
         }
     }

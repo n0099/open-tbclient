@@ -40,32 +40,32 @@ public class GroupInfoDAOImpl {
             }
             String string = cursor.getString(cursor.getColumnIndex("group_id"));
             String string2 = cursor.getString(cursor.getColumnIndex("group_name"));
-            int i = cursor.getInt(cursor.getColumnIndex("group_type"));
-            int i2 = cursor.getInt(cursor.getColumnIndex("state"));
+            int i2 = cursor.getInt(cursor.getColumnIndex("group_type"));
+            int i3 = cursor.getInt(cursor.getColumnIndex("state"));
             long j = cursor.getLong(cursor.getColumnIndex("create_time"));
             long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
             long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
-            int i3 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_USER_NUM));
+            int i4 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_USER_NUM));
             long j4 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_VERSION));
-            int i4 = cursor.getInt(cursor.getColumnIndex("disturb"));
-            int i5 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF));
+            int i5 = cursor.getInt(cursor.getColumnIndex("disturb"));
+            int i6 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF));
             String string3 = cursor.getString(cursor.getColumnIndex("description"));
-            int i6 = cursor.getInt(cursor.getColumnIndex("marktop"));
+            int i7 = cursor.getInt(cursor.getColumnIndex("marktop"));
             long j5 = cursor.getLong(cursor.getColumnIndex("marktoptime"));
             GroupInfo groupInfo = new GroupInfo(string);
             groupInfo.setGroupName(string2);
-            groupInfo.setType(i);
-            groupInfo.setState(i2);
+            groupInfo.setType(i2);
+            groupInfo.setState(i3);
             groupInfo.setCreateTime(j);
             groupInfo.setBuid(j2);
             groupInfo.setUk(j3);
-            groupInfo.setNum(i3);
+            groupInfo.setNum(i4);
             groupInfo.setMembersVersion(j4);
-            groupInfo.setDisturb(i4);
-            groupInfo.setBrief(i5);
+            groupInfo.setDisturb(i5);
+            groupInfo.setBrief(i6);
             groupInfo.setHeadUrl(string3);
             groupInfo.setMarkTopTime(j5);
-            groupInfo.setMarkTop(i6);
+            groupInfo.setMarkTop(i7);
             return groupInfo;
         }
     }
@@ -156,8 +156,8 @@ public class GroupInfoDAOImpl {
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb != null) {
             String str2 = " ( " + arrayList.get(0);
-            for (int i = 1; i < arrayList.size(); i++) {
-                str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + arrayList.get(i);
+            for (int i2 = 1; i2 < arrayList.size(); i2++) {
+                str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + arrayList.get(i2);
             }
             return newDb.delete("groupmember", "group_id = ? AND bduid in " + (str2 + " ) "), new String[]{str}).intValue();
         }
@@ -202,8 +202,8 @@ public class GroupInfoDAOImpl {
             return null;
         }
         String str = " ( " + arrayList.get(0);
-        for (int i = 1; i < arrayList.size(); i++) {
-            str = str + StringUtil.ARRAY_ELEMENT_SEPARATOR + arrayList.get(i);
+        for (int i2 = 1; i2 < arrayList.size(); i2++) {
+            str = str + StringUtil.ARRAY_ELEMENT_SEPARATOR + arrayList.get(i2);
         }
         String str2 = str + " ) ";
         return newDb.query(sGroupInfoParse, "groupinfo", null, "group_id in " + str2, null, null, null, null, null);
@@ -228,7 +228,7 @@ public class GroupInfoDAOImpl {
         return contentValues;
     }
 
-    public static ArrayList<String> getGroupList(Context context, boolean z, int i, int i2) {
+    public static ArrayList<String> getGroupList(Context context, boolean z, int i2, int i3) {
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         String str = null;
         if (newDb != null) {
@@ -237,10 +237,10 @@ public class GroupInfoDAOImpl {
                 str2 = "active_state = 1 AND state = 0";
             }
             String str3 = str2 + " AND group_type != 2";
-            if (i > 0) {
-                str = String.valueOf(i);
-                if (i2 > 0) {
-                    str = str + " offset " + i2;
+            if (i2 > 0) {
+                str = String.valueOf(i2);
+                if (i3 > 0) {
+                    str = str + " offset " + i3;
                 }
             }
             return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.4
@@ -260,7 +260,7 @@ public class GroupInfoDAOImpl {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static ArrayList<GroupMember> getGroupMember(Context context, String str, ArrayList<String> arrayList, int i) {
+    public static ArrayList<GroupMember> getGroupMember(Context context, String str, ArrayList<String> arrayList, int i2) {
         ArrayList<GroupMember> arrayList2;
         String str2;
         String str3;
@@ -276,17 +276,17 @@ public class GroupInfoDAOImpl {
                 str2 = "";
             } else {
                 String str6 = " AND ( bduid = " + arrayList.get(0);
-                for (int i2 = 1; i2 < arrayList.size(); i2++) {
-                    str6 = str6 + " OR bduid = " + arrayList.get(i2);
+                for (int i3 = 1; i3 < arrayList.size(); i3++) {
+                    str6 = str6 + " OR bduid = " + arrayList.get(i3);
                 }
                 str2 = str6 + " ) ";
             }
-            if (i < 0) {
+            if (i2 < 0) {
                 str5 = "join_time DESC ";
-                str3 = String.valueOf(Math.abs(i));
+                str3 = String.valueOf(Math.abs(i2));
             } else {
-                if (i > 0) {
-                    str3 = String.valueOf(i);
+                if (i2 > 0) {
+                    str3 = String.valueOf(i2);
                 } else {
                     str3 = null;
                 }
@@ -298,14 +298,14 @@ public class GroupInfoDAOImpl {
                     public GroupMember onParse(Cursor cursor) {
                         String string = cursor.getString(cursor.getColumnIndex("group_id"));
                         long j = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME));
-                        int i3 = cursor.getInt(cursor.getColumnIndex("role"));
+                        int i4 = cursor.getInt(cursor.getColumnIndex("role"));
                         String string2 = cursor.getString(cursor.getColumnIndex("name"));
                         String string3 = cursor.getString(cursor.getColumnIndex("nickname"));
                         long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
                         long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
-                        int i4 = cursor.getInt(cursor.getColumnIndex("status"));
-                        GroupMember groupMember2 = new GroupMember(string, j3, string2, j2, i3, j);
-                        groupMember2.setValid(i4);
+                        int i5 = cursor.getInt(cursor.getColumnIndex("status"));
+                        GroupMember groupMember2 = new GroupMember(string, j3, string2, j2, i4, j);
+                        groupMember2.setValid(i5);
                         groupMember2.setNickName(string3);
                         return groupMember2;
                     }
@@ -319,14 +319,14 @@ public class GroupInfoDAOImpl {
                 public GroupMember onParse(Cursor cursor) {
                     String string = cursor.getString(cursor.getColumnIndex("group_id"));
                     long j = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME));
-                    int i3 = cursor.getInt(cursor.getColumnIndex("role"));
+                    int i4 = cursor.getInt(cursor.getColumnIndex("role"));
                     String string2 = cursor.getString(cursor.getColumnIndex("name"));
                     String string3 = cursor.getString(cursor.getColumnIndex("nickname"));
                     long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
                     long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
-                    int i4 = cursor.getInt(cursor.getColumnIndex("status"));
-                    GroupMember groupMember2 = new GroupMember(string, j3, string2, j2, i3, j);
-                    groupMember2.setValid(i4);
+                    int i5 = cursor.getInt(cursor.getColumnIndex("status"));
+                    GroupMember groupMember2 = new GroupMember(string, j3, string2, j2, i4, j);
+                    groupMember2.setValid(i5);
                     groupMember2.setNickName(string3);
                     return groupMember2;
                 }
@@ -335,18 +335,18 @@ public class GroupInfoDAOImpl {
             arrayList2 = null;
         }
         if (arrayList2 != null) {
-            int i3 = 0;
+            int i4 = 0;
             while (true) {
-                if (i3 >= arrayList2.size()) {
+                if (i4 >= arrayList2.size()) {
                     break;
                 }
-                GroupMember groupMember2 = arrayList2.get(i3);
+                GroupMember groupMember2 = arrayList2.get(i4);
                 if (1 == groupMember2.getRole()) {
-                    arrayList2.remove(i3);
+                    arrayList2.remove(i4);
                     groupMember = groupMember2;
                     break;
                 }
-                i3++;
+                i4++;
             }
             if (groupMember != null) {
                 arrayList2.add(0, groupMember);
@@ -401,14 +401,14 @@ public class GroupInfoDAOImpl {
             public GroupMember onParse(Cursor cursor) {
                 String string = cursor.getString(cursor.getColumnIndex("group_id"));
                 long j = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME));
-                int i = cursor.getInt(cursor.getColumnIndex("role"));
+                int i2 = cursor.getInt(cursor.getColumnIndex("role"));
                 String string2 = cursor.getString(cursor.getColumnIndex("name"));
                 String string3 = cursor.getString(cursor.getColumnIndex("nickname"));
                 long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
                 long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
-                int i2 = cursor.getInt(cursor.getColumnIndex("status"));
-                GroupMember groupMember = new GroupMember(string, j3, string2, j2, i, j);
-                groupMember.setValid(i2);
+                int i3 = cursor.getInt(cursor.getColumnIndex("status"));
+                GroupMember groupMember = new GroupMember(string, j3, string2, j2, i2, j);
+                groupMember.setValid(i3);
                 groupMember.setNickName(string3);
                 return groupMember;
             }
@@ -478,14 +478,14 @@ public class GroupInfoDAOImpl {
         return false;
     }
 
-    public static int modifyGroupMemberNumber(Context context, String str, int i) {
-        if (context == null || TextUtils.isEmpty(str) || i < 0) {
+    public static int modifyGroupMemberNumber(Context context, String str, int i2) {
+        if (context == null || TextUtils.isEmpty(str) || i2 < 0) {
             return DBResponseCode.ERROR_PARAMETER;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb != null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_NUM, Integer.valueOf(i));
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_NUM, Integer.valueOf(i2));
             return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
         }
         return DBResponseCode.ERROR_DB_OPEN;
@@ -523,9 +523,9 @@ public class GroupInfoDAOImpl {
             return DBResponseCode.ERROR_PARAMETER;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
-        int i = DBResponseCode.ERROR_DB_OPEN;
+        int i2 = DBResponseCode.ERROR_DB_OPEN;
         if (newDb != null) {
-            i = newDb.execTransaction(new ITransaction() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.10
+            i2 = newDb.execTransaction(new ITransaction() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.10
                 @Override // com.baidu.android.imsdk.db.ITransaction
                 public void execTransaction(SQLiteDatabase sQLiteDatabase) {
                     sQLiteDatabase.delete("groupinfo", "group_id = ? ", new String[]{str});
@@ -541,7 +541,7 @@ public class GroupInfoDAOImpl {
                 dBGroupTableManager.deactiveGroup(str);
             }
         }
-        return i;
+        return i2;
     }
 
     public static int setAllStarDisturbDefault(Context context) {
@@ -557,7 +557,7 @@ public class GroupInfoDAOImpl {
         return DBResponseCode.ERROR_DB_OPEN;
     }
 
-    public static int setGroupDisturb(Context context, String str, int i) {
+    public static int setGroupDisturb(Context context, String str, int i2) {
         if (context == null || TextUtils.isEmpty(str)) {
             return DBResponseCode.ERROR_PARAMETER;
         }
@@ -565,7 +565,7 @@ public class GroupInfoDAOImpl {
         if (newDb != null) {
             if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("disturb", Integer.valueOf(i));
+                contentValues.put("disturb", Integer.valueOf(i2));
                 return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
             }
             return DBResponseCode.ERROR_GROUP_NOT_EXIST;
@@ -573,7 +573,7 @@ public class GroupInfoDAOImpl {
         return DBResponseCode.ERROR_DB_OPEN;
     }
 
-    public static int setGroupPermit(Context context, String str, int i) {
+    public static int setGroupPermit(Context context, String str, int i2) {
         if (context == null || TextUtils.isEmpty(str)) {
             return DBResponseCode.ERROR_PARAMETER;
         }
@@ -581,7 +581,7 @@ public class GroupInfoDAOImpl {
         if (newDb != null) {
             if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF, Integer.valueOf(i));
+                contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF, Integer.valueOf(i2));
                 return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
             }
             return DBResponseCode.ERROR_GROUP_NOT_EXIST;
@@ -589,7 +589,7 @@ public class GroupInfoDAOImpl {
         return DBResponseCode.ERROR_DB_OPEN;
     }
 
-    public static int setGroupState(Context context, String str, int i) {
+    public static int setGroupState(Context context, String str, int i2) {
         if (context == null || TextUtils.isEmpty(str)) {
             return DBResponseCode.ERROR_PARAMETER;
         }
@@ -597,7 +597,7 @@ public class GroupInfoDAOImpl {
         if (newDb != null) {
             if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("state", Integer.valueOf(i));
+                contentValues.put("state", Integer.valueOf(i2));
                 return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
             }
             return DBResponseCode.ERROR_GROUP_NOT_EXIST;
@@ -605,7 +605,7 @@ public class GroupInfoDAOImpl {
         return DBResponseCode.ERROR_DB_OPEN;
     }
 
-    public static int setGroupType(Context context, String str, int i) {
+    public static int setGroupType(Context context, String str, int i2) {
         if (context == null || TextUtils.isEmpty(str)) {
             return DBResponseCode.ERROR_PARAMETER;
         }
@@ -613,7 +613,7 @@ public class GroupInfoDAOImpl {
         if (newDb != null) {
             if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("group_type", Integer.valueOf(i));
+                contentValues.put("group_type", Integer.valueOf(i2));
                 return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
             }
             return DBResponseCode.ERROR_GROUP_NOT_EXIST;
@@ -632,7 +632,7 @@ public class GroupInfoDAOImpl {
         return DBResponseCode.ERROR_DB_OPEN;
     }
 
-    public static int updateGroupInfoMarkTop(Context context, long j, int i, long j2) {
+    public static int updateGroupInfoMarkTop(Context context, long j, int i2, long j2) {
         if (context == null) {
             return DBResponseCode.ERROR_PARAMETER;
         }
@@ -640,7 +640,7 @@ public class GroupInfoDAOImpl {
         if (newDb != null) {
             if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, String.valueOf(j))) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("marktop", Integer.valueOf(i));
+                contentValues.put("marktop", Integer.valueOf(i2));
                 contentValues.put("marktoptime", Long.valueOf(j2));
                 return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{String.valueOf(j)}).intValue();
             }
@@ -658,29 +658,29 @@ public class GroupInfoDAOImpl {
         }
     }
 
-    public static void updateGroupMarkTop(Context context, long j, int i, long j2) {
-        updateGroupInfoMarkTop(context, j, i, j2);
+    public static void updateGroupMarkTop(Context context, long j, int i2, long j2) {
+        updateGroupInfoMarkTop(context, j, i2, j2);
         ContentValues contentValues = new ContentValues();
-        contentValues.put("marktop", Integer.valueOf(i));
+        contentValues.put("marktop", Integer.valueOf(i2));
         contentValues.put("marktoptime", Long.valueOf(j2));
         ChatMessageDBManager.getInstance(context).updateChatSession("contacter=?", new String[]{String.valueOf(j)}, contentValues);
     }
 
-    public static int updateGroupMemberRole(Context context, String str, String str2, int i) {
+    public static int updateGroupMemberRole(Context context, String str, String str2, int i2) {
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb != null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("role", Integer.valueOf(i));
+            contentValues.put("role", Integer.valueOf(i2));
             return newDb.update("groupmember", contentValues, "group_id = ? AND bduid = ? ", new String[]{str, str2}).intValue();
         }
         return DBResponseCode.ERROR_DB_OPEN;
     }
 
-    public static int updateMasterAsCommon(Context context, String str, int i) {
+    public static int updateMasterAsCommon(Context context, String str, int i2) {
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb != null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("role", Integer.valueOf(i));
+            contentValues.put("role", Integer.valueOf(i2));
             return newDb.update("groupmember", contentValues, "group_id = ? AND role = 2 ", new String[]{str}).intValue();
         }
         return DBResponseCode.ERROR_DB_OPEN;

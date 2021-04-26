@@ -20,9 +20,9 @@ public class o extends k {
     private RouteNode a(JSONArray jSONArray, List<RouteNode> list) {
         int length;
         if (jSONArray != null && (length = jSONArray.length()) > 0) {
-            for (int i = 0; i < length; i++) {
-                RouteNode a2 = a(jSONArray.optJSONObject(i));
-                if (i == length - 1) {
+            for (int i2 = 0; i2 < length; i2++) {
+                RouteNode a2 = a(jSONArray.optJSONObject(i2));
+                if (i2 == length - 1) {
                     return a2;
                 }
                 if (list == null) {
@@ -54,8 +54,8 @@ public class o extends k {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i2);
             if (optJSONObject != null) {
                 WalkingRouteLine.WalkingStep walkingStep = new WalkingRouteLine.WalkingStep();
                 walkingStep.setDirection(optJSONObject.optInt("direction") * 30);
@@ -136,11 +136,11 @@ public class o extends k {
                 RouteNode a2 = a(optJSONObject3.optJSONObject(IntentConfig.START));
                 RouteNode a3 = a(optJSONObject3.optJSONArray(ProgressInfo.JSON_KEY_END), (List<RouteNode>) null);
                 ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < optJSONArray2.length(); i++) {
-                    JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i);
+                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i2);
                     if (optJSONObject4 != null && (optJSONArray = optJSONObject4.optJSONArray("legs")) != null && optJSONArray.length() > 0) {
-                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                            JSONObject optJSONObject5 = optJSONArray.optJSONObject(i);
+                        for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                            JSONObject optJSONObject5 = optJSONArray.optJSONObject(i2);
                             if (optJSONObject5 != null) {
                                 WalkingRouteLine walkingRouteLine = new WalkingRouteLine();
                                 walkingRouteLine.setStarting(a2);

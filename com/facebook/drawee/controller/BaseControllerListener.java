@@ -2,7 +2,7 @@ package com.facebook.drawee.controller;
 
 import android.graphics.drawable.Animatable;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BaseControllerListener<INFO> implements ControllerListener<INFO> {
     public static final ControllerListener<Object> NO_OP_LISTENER = new BaseControllerListener();
 

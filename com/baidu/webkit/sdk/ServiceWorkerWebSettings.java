@@ -15,5 +15,5 @@ public abstract class ServiceWorkerWebSettings {
 
     public abstract void setBlockNetworkLoads(boolean z);
 
-    public abstract void setCacheMode(int i);
+    public abstract void setCacheMode(int i2);
 }

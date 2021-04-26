@@ -36,15 +36,15 @@ public abstract class BaseInterstitialAd {
 
     public abstract void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy);
 
-    public abstract void setMaxVideoDuration(int i);
+    public abstract void setMaxVideoDuration(int i2);
 
     public abstract void setMediaListener(UnifiedInterstitialMediaListener unifiedInterstitialMediaListener);
 
-    public abstract void setMinVideoDuration(int i);
+    public abstract void setMinVideoDuration(int i2);
 
     public abstract void setVideoOption(VideoOption videoOption);
 
-    public abstract void setVideoPlayPolicy(int i);
+    public abstract void setVideoPlayPolicy(int i2);
 
     public abstract void show();
 

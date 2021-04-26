@@ -15,22 +15,22 @@ public enum Mode {
     public final int bits;
     public final int[] characterCountBitsForVersions;
 
-    Mode(int[] iArr, int i) {
+    Mode(int[] iArr, int i2) {
         this.characterCountBitsForVersions = iArr;
-        this.bits = i;
+        this.bits = i2;
     }
 
-    public static Mode forBits(int i) {
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                if (i != 7) {
-                                    if (i != 8) {
-                                        if (i != 9) {
-                                            if (i == 13) {
+    public static Mode forBits(int i2) {
+        if (i2 != 0) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 != 4) {
+                            if (i2 != 5) {
+                                if (i2 != 7) {
+                                    if (i2 != 8) {
+                                        if (i2 != 9) {
+                                            if (i2 == 13) {
                                                 return HANZI;
                                             }
                                             throw new IllegalArgumentException();

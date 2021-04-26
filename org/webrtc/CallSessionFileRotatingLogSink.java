@@ -5,11 +5,11 @@ import org.webrtc.Logging;
 public class CallSessionFileRotatingLogSink {
     public long nativeSink;
 
-    public CallSessionFileRotatingLogSink(String str, int i, Logging.Severity severity) {
+    public CallSessionFileRotatingLogSink(String str, int i2, Logging.Severity severity) {
         if (str == null) {
             throw new IllegalArgumentException("dirPath may not be null.");
         }
-        this.nativeSink = nativeAddSink(str, i, severity.ordinal());
+        this.nativeSink = nativeAddSink(str, i2, severity.ordinal());
     }
 
     public static byte[] getLogData(String str) {
@@ -19,7 +19,7 @@ public class CallSessionFileRotatingLogSink {
         throw new IllegalArgumentException("dirPath may not be null.");
     }
 
-    public static native long nativeAddSink(String str, int i, int i2);
+    public static native long nativeAddSink(String str, int i2, int i3);
 
     public static native void nativeDeleteSink(long j);
 

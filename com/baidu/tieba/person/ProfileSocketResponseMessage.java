@@ -6,11 +6,11 @@ import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.squareup.wire.Wire;
-import d.b.c.e.d.l;
-import d.b.i0.r.r.a;
-import d.b.j0.f2.c;
-import d.b.j0.f2.g;
-import d.b.j0.w0.b;
+import d.a.c.e.d.l;
+import d.a.i0.r.r.a;
+import d.a.j0.f2.c;
+import d.a.j0.f2.g;
+import d.a.j0.w0.b;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlaLiveInfo;
@@ -35,7 +35,7 @@ import tbclient.TbBookrack;
 import tbclient.ThreadInfo;
 import tbclient.User;
 import tbclient.UserManChannelInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ProfileSocketResponseMessage extends SocketResponsedMessage implements c {
     public static final String PROFILE_CACHE_KEY = "profile_cache_key";
     public Anti anti_stat;
@@ -72,12 +72,12 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         super(303012);
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public Anti GetAntiStat() {
         return this.anti_stat;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public List<PostInfoList> GetPostList() {
         return this.post_list;
     }
@@ -86,7 +86,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.tainfo;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public User GetUser() {
         return this.user;
     }
@@ -95,22 +95,22 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.banner;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public TbBookrack getBookrackData() {
         return this.bookrack;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public List<ForumDynamic> getConcernedForumList() {
         return this.concernedForumList;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public List<DynamicInfo> getDynamicInfoList() {
         return this.dynamicInfoList;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public int getErrorCode() {
         return getError();
     }
@@ -123,7 +123,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.feedBack;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public b getGoodsWindowInfo() {
         return this.mLiveGoodsWindowData;
     }
@@ -132,22 +132,22 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.highlist;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public HotUserRankEntry getHotRankEntry() {
         return this.hotUserRankEntry;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public AlaLiveInfoCoreData getLiveInfo() {
         return this.liveInfoData;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public List<AlaLiveInfoCoreData> getLiveReplayInfo() {
         return this.liveReplayData;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public int getMaskType() {
         return this.maskType;
     }
@@ -156,12 +156,12 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.moduleInfo;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public List<ThreadInfo> getNewestThreadList() {
         return this.newest_dynamic_list;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public NicknameInfo getNicknameInfo() {
         return this.nicknameInfo;
     }
@@ -174,7 +174,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.recomSwanList;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public TAInfo getTaInfo() {
         return this.tainfo;
     }
@@ -183,7 +183,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.ucCardData;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public UserAgreeInfo getUserAgreeInfo() {
         return this.userAgreeInfo;
     }
@@ -192,7 +192,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.userManChannelInfo;
     }
 
-    @Override // d.b.j0.f2.c
+    @Override // d.a.j0.f2.c
     public UserGodInfo getUserGodInfo() {
         return this.userGodInfo;
     }
@@ -219,7 +219,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
         l<byte[]> e2 = a.f().e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr == null || !this.isSelf) {
             return;
@@ -229,20 +229,20 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void beforeDispatchInBackGround(int i, byte[] bArr) {
+    public void beforeDispatchInBackGround(int i2, byte[] bArr) {
         l<String> h2;
-        super.beforeDispatchInBackGround(i, (int) bArr);
+        super.beforeDispatchInBackGround(i2, (int) bArr);
         if (this.ucCardData == null || (h2 = a.f().h("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) == null || !this.isSelf) {
             return;
         }
-        List<g.a> list = this.ucCardData.f56399a;
+        List<g.a> list = this.ucCardData.f54287a;
         if (ListUtils.getCount(list) > 4) {
-            list.get(4).f56401b = 8L;
+            list.get(4).f54289b = 8L;
             for (g.a aVar : list) {
-                if (aVar.f56401b > d.b.c.e.m.b.f(h2.get(aVar.f56400a), 0L)) {
-                    aVar.f56402c = true;
+                if (aVar.f54289b > d.a.c.e.m.b.f(h2.get(aVar.f54288a), 0L)) {
+                    aVar.f54290c = true;
                 } else {
-                    aVar.f56402c = false;
+                    aVar.f54290c = false;
                 }
             }
         }
@@ -250,7 +250,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         DataRes dataRes;
         ProfileRequestMessage profileRequestMessage = (ProfileRequestMessage) getOrginalMessage().getExtra();
         this.from_db = profileRequestMessage.is_from_db();
@@ -267,7 +267,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         if (getError() != 0) {
             return;
         }
-        d.b.j0.f2.b personCenterData = profileRequestMessage.getPersonCenterData();
+        d.a.j0.f2.b personCenterData = profileRequestMessage.getPersonCenterData();
         if (personCenterData != null) {
             personCenterData.b(profileResIdl);
         }

@@ -78,12 +78,12 @@ public class MediaPlayerProxy extends PlayerProxy {
         });
         this.mMediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.searchbox.afx.proxy.MediaPlayerProxy.2
             @Override // android.media.MediaPlayer.OnErrorListener
-            public boolean onError(MediaPlayer mediaPlayer2, int i, int i2) {
+            public boolean onError(MediaPlayer mediaPlayer2, int i2, int i3) {
                 String valueOf = mediaPlayer2 != null ? String.valueOf(mediaPlayer2.getCurrentPosition()) : "-1";
                 String glVersion = MediaPlayerProxy.this.getGlVersion();
                 String sourcePath = MediaPlayerProxy.this.getSourcePath();
                 String valueOf2 = String.valueOf(System.currentTimeMillis() / 1000);
-                RuntimeException runtimeException = new RuntimeException("MediaPlayer Error (" + i + "," + i2 + SmallTailInfo.EMOTION_SUFFIX);
+                RuntimeException runtimeException = new RuntimeException("MediaPlayer Error (" + i2 + "," + i3 + SmallTailInfo.EMOTION_SUFFIX);
                 OnReportListener onReportListener = MediaPlayerProxy.this.mOnReportListener;
                 if (onReportListener != null) {
                     onReportListener.onError(new ErrorInfo(16, ErrorInfo.MEDIAPLAYER_DECODING_ERROR_ERRORMSG, runtimeException, valueOf, glVersion, sourcePath, valueOf2));
@@ -94,9 +94,9 @@ public class MediaPlayerProxy extends PlayerProxy {
         });
         this.mMediaPlayer.setOnInfoListener(new MediaPlayer.OnInfoListener() { // from class: com.baidu.searchbox.afx.proxy.MediaPlayerProxy.3
             @Override // android.media.MediaPlayer.OnInfoListener
-            public boolean onInfo(MediaPlayer mediaPlayer2, int i, int i2) {
+            public boolean onInfo(MediaPlayer mediaPlayer2, int i2, int i3) {
                 OnVideoStartedListener onVideoStartedListener;
-                if (i == 3 && (onVideoStartedListener = MediaPlayerProxy.this.mOnVideoStartedListener) != null) {
+                if (i2 == 3 && (onVideoStartedListener = MediaPlayerProxy.this.mOnVideoStartedListener) != null) {
                     onVideoStartedListener.onVideoStarted();
                     return false;
                 }
@@ -185,8 +185,8 @@ public class MediaPlayerProxy extends PlayerProxy {
     public void play() {
         if (this.mMediaPlayer != null) {
             try {
-                int i = AnonymousClass6.$SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState[this.mPlayerState.ordinal()];
-                if (i == 1 || i == 2) {
+                int i2 = AnonymousClass6.$SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState[this.mPlayerState.ordinal()];
+                if (i2 == 1 || i2 == 2) {
                     prepareAsync(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.searchbox.afx.proxy.MediaPlayerProxy.4
                         @Override // android.media.MediaPlayer.OnPreparedListener
                         public void onPrepared(MediaPlayer mediaPlayer) {
@@ -200,7 +200,7 @@ public class MediaPlayerProxy extends PlayerProxy {
                             MediaPlayerProxy.super.play();
                         }
                     });
-                } else if (i == 3 || i == 4) {
+                } else if (i2 == 3 || i2 == 4) {
                     if (this.mGLTextureView != null) {
                         this.mGLTextureView.setRenderMode(1);
                     }
@@ -233,10 +233,10 @@ public class MediaPlayerProxy extends PlayerProxy {
         super.reset();
     }
 
-    public void seekTo(int i) {
+    public void seekTo(int i2) {
         MediaPlayer mediaPlayer = this.mMediaPlayer;
         if (mediaPlayer != null) {
-            mediaPlayer.seekTo(i);
+            mediaPlayer.seekTo(i2);
         }
     }
 

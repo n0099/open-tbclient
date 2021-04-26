@@ -27,10 +27,10 @@ public class AuthorityState {
         sStateName.put(Integer.valueOf((int) STATE_INIT_ING), "STATE_INIT_ING");
     }
 
-    public static String getStateName(int i) {
+    public static String getStateName(int i2) {
         HashMap<Integer, String> hashMap = sStateName;
         if (hashMap != null) {
-            return hashMap.get(Integer.valueOf(i));
+            return hashMap.get(Integer.valueOf(i2));
         }
         return null;
     }

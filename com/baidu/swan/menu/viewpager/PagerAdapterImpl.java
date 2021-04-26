@@ -5,34 +5,34 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
-import d.b.h0.i.r.c;
+import d.a.h0.i.r.c;
 /* loaded from: classes3.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public c<View> f12681a = new c<>(5);
+    public c<View> f12584a = new c<>(5);
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<View> f12682b = new SparseArray<>();
+    public SparseArray<View> f12585b = new SparseArray<>();
 
     /* loaded from: classes3.dex */
     public interface a {
         void recycle();
     }
 
-    public abstract void a(View view, int i);
+    public abstract void b(View view, int i2);
 
-    public abstract View b(ViewGroup viewGroup, int i);
+    public abstract View c(ViewGroup viewGroup, int i2);
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+    public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
         View view = (View) obj;
         if (view instanceof a) {
             ((a) view).recycle();
         }
         viewGroup.removeView(view);
-        this.f12681a.b(view);
-        this.f12682b.remove(i);
+        this.f12584a.b(view);
+        this.f12585b.remove(i2);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -41,14 +41,14 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View a2 = this.f12681a.a();
+    public Object instantiateItem(ViewGroup viewGroup, int i2) {
+        View a2 = this.f12584a.a();
         if (a2 == null) {
-            a2 = b(viewGroup, i);
+            a2 = c(viewGroup, i2);
         }
-        this.f12682b.put(i, a2);
+        this.f12585b.put(i2, a2);
         viewGroup.addView(a2);
-        a(a2, i);
+        b(a2, i2);
         return a2;
     }
 

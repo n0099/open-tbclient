@@ -12,8 +12,8 @@ public class HttpResponse {
     public Map<String, List<String>> mHeader = null;
 
     public boolean isFileSegSuccess() {
-        int i = this.mNetErrorCode;
-        return i == 200 || i == 206;
+        int i2 = this.mNetErrorCode;
+        return i2 == 200 || i2 == 206;
     }
 
     public boolean isNetSuccess() {

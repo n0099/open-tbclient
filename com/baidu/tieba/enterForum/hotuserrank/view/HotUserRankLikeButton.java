@@ -7,24 +7,24 @@ import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-import d.b.c.e.p.l;
-import d.b.i0.r.f0.m.b;
+import d.a.c.e.p.l;
+import d.a.i0.r.f0.m.b;
 /* loaded from: classes4.dex */
 public class HotUserRankLikeButton extends DynamicUserLikeButton {
     public HotUserRankLikeButton(Context context) {
         super(context);
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, d.b.i0.r.f0.q.b
-    public void a(boolean z, int i) {
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, d.a.i0.r.f0.q.b
+    public void e(boolean z, int i2) {
         if (z) {
             b bVar = new b();
             bVar.r(R.color.CAM_X0109);
             setConfig(bVar);
             setClickable(true);
-            if (i == 1) {
+            if (i2 == 1) {
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 setText(TbadkCoreApplication.getInst().getString(R.string.each_concerned));
             }
         } else {
@@ -34,7 +34,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.attention));
         }
-        if (i == 2) {
+        if (i2 == 2) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.width = l.g(getContext(), R.dimen.tbds196);
@@ -54,7 +54,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         super(context, attributeSet);
     }
 
-    public HotUserRankLikeButton(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public HotUserRankLikeButton(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

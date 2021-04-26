@@ -2,7 +2,7 @@ package com.baidu.tieba.forumMember.bawu;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.GetBawuInfo.DataReq;
 import tbclient.GetBawuInfo.GetBawuInfoReqIdl;
 /* loaded from: classes4.dex */

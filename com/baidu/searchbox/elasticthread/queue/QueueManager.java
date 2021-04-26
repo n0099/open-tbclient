@@ -15,16 +15,16 @@ public class QueueManager implements Recordable {
         if (ElasticConfig.ELASTIC_QUEUE_INDEX_PRIORITY_TABLE.length != 4 || ElasticConfig.ELASTIC_QUEUE_BLOCK_WEIGHT.length != 4) {
             Log.e(TAG, "Elastic Queue size incompatible!");
         }
-        for (int i = 0; i < 4; i++) {
-            this.mEnabledQueues[i] = new ElasticQueue();
+        for (int i2 = 0; i2 < 4; i2++) {
+            this.mEnabledQueues[i2] = new ElasticQueue();
         }
     }
 
     public double getBlockWeight() {
         if (getQueue(0).isEmpty()) {
             double d2 = 0.0d;
-            for (int i = 0; i < 4; i++) {
-                d2 += this.mEnabledQueues[i].getCurrentWaitingTime() * ElasticConfig.ELASTIC_QUEUE_BLOCK_WEIGHT[i];
+            for (int i2 = 0; i2 < 4; i2++) {
+                d2 += this.mEnabledQueues[i2].getCurrentWaitingTime() * ElasticConfig.ELASTIC_QUEUE_BLOCK_WEIGHT[i2];
             }
             return d2 / 1000.0d;
         }
@@ -32,23 +32,23 @@ public class QueueManager implements Recordable {
     }
 
     public ElasticTask getNext() {
-        for (int i = 0; i < 4; i++) {
-            if (!this.mEnabledQueues[i].isEmpty()) {
-                return this.mEnabledQueues[i].getNext();
+        for (int i2 = 0; i2 < 4; i2++) {
+            if (!this.mEnabledQueues[i2].isEmpty()) {
+                return this.mEnabledQueues[i2].getNext();
             }
         }
         return null;
     }
 
-    public ElasticQueue getQueue(int i) {
-        int i2 = 0;
+    public ElasticQueue getQueue(int i2) {
+        int i3 = 0;
         while (true) {
             int[] iArr = ElasticConfig.ELASTIC_QUEUE_INDEX_PRIORITY_TABLE;
-            if (i2 < iArr.length) {
-                if (iArr[i2] == i) {
-                    return this.mEnabledQueues[i2];
+            if (i3 < iArr.length) {
+                if (iArr[i3] == i2) {
+                    return this.mEnabledQueues[i3];
                 }
-                i2++;
+                i3++;
             } else {
                 ElasticQueue[] elasticQueueArr = this.mEnabledQueues;
                 return elasticQueueArr[elasticQueueArr.length - 1];
@@ -56,21 +56,21 @@ public class QueueManager implements Recordable {
         }
     }
 
-    public void insertTask(Runnable runnable, String str, int i) {
-        getQueue(i).insertTask(runnable, str, i);
+    public void insertTask(Runnable runnable, String str, int i2) {
+        getQueue(i2).insertTask(runnable, str, i2);
     }
 
     @Override // com.baidu.searchbox.elasticthread.statistic.Recordable
     public void onRecordBegin() {
-        for (int i = 0; i < 4; i++) {
-            this.mEnabledQueues[i].onRecordBegin();
+        for (int i2 = 0; i2 < 4; i2++) {
+            this.mEnabledQueues[i2].onRecordBegin();
         }
     }
 
     @Override // com.baidu.searchbox.elasticthread.statistic.Recordable
     public void onRecordEnd() {
-        for (int i = 0; i < 4; i++) {
-            this.mEnabledQueues[i].onRecordEnd();
+        for (int i2 = 0; i2 < 4; i2++) {
+            this.mEnabledQueues[i2].onRecordEnd();
         }
     }
 

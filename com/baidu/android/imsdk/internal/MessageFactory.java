@@ -31,16 +31,16 @@ public class MessageFactory {
 
     /* JADX DEBUG: Multi-variable search result rejected for r7v3, resolved type: java.lang.reflect.Method */
     /* JADX WARN: Multi-variable type inference failed */
-    private Message invokeMethod(Context context, String str, int i, Class<?>[] clsArr, Object[] objArr, Intent intent) {
+    private Message invokeMethod(Context context, String str, int i2, Class<?>[] clsArr, Object[] objArr, Intent intent) {
         Message message;
         synchronized (mInstance) {
             Message message2 = null;
             if (this.classMap.isEmpty()) {
                 return null;
             }
-            Class<?> cls = this.classMap.get(Integer.valueOf(i));
+            Class<?> cls = this.classMap.get(Integer.valueOf(i2));
             if (cls == null) {
-                LogUtils.d(TAG, ": don't hava class ,type=" + i);
+                LogUtils.d(TAG, ": don't hava class ,type=" + i2);
                 return null;
             }
             try {
@@ -70,21 +70,21 @@ public class MessageFactory {
         }
     }
 
-    public void addType(int i, Class<?> cls) {
+    public void addType(int i2, Class<?> cls) {
         synchronized (mInstance) {
             try {
-                this.classMap.put(Integer.valueOf(i), cls);
+                this.classMap.put(Integer.valueOf(i2), cls);
             } catch (SecurityException e2) {
                 LogUtils.e(LogUtils.TAG, "", e2);
             }
         }
     }
 
-    public Message createNewMessage(Context context, int i, Intent intent) {
-        return invokeMethod(context, "newInstance", i, new Class[]{Context.class, Intent.class}, new Object[]{context, intent}, intent);
+    public Message createNewMessage(Context context, int i2, Intent intent) {
+        return invokeMethod(context, "newInstance", i2, new Class[]{Context.class, Intent.class}, new Object[]{context, intent}, intent);
     }
 
-    public Message parseMessage(Context context, int i, String str, String str2, String str3) {
-        return invokeMethod(context, "parseBody", i, new Class[]{Context.class, String.class, String.class, String.class}, new Object[]{context, str, str2, str3}, null);
+    public Message parseMessage(Context context, int i2, String str, String str2, String str3) {
+        return invokeMethod(context, "parseBody", i2, new Class[]{Context.class, String.class, String.class, String.class}, new Object[]{context, str, str2, str3}, null);
     }
 }

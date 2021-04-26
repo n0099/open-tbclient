@@ -10,15 +10,15 @@ public abstract class e extends com.google.a.a.b implements d {
     }
 
     @Override // com.google.a.a.b
-    public final boolean a(int i, Parcel parcel) throws RemoteException {
-        if (i == 1) {
-            a((Bundle) d.h.a.a.a.a(parcel, Bundle.CREATOR));
-        } else if (i == 2) {
-            b((Bundle) d.h.a.a.a.a(parcel, Bundle.CREATOR));
-        } else if (i != 3) {
+    public final boolean a(int i2, Parcel parcel) throws RemoteException {
+        if (i2 == 1) {
+            a((Bundle) d.g.a.a.a.a(parcel, Bundle.CREATOR));
+        } else if (i2 == 2) {
+            b((Bundle) d.g.a.a.a.a(parcel, Bundle.CREATOR));
+        } else if (i2 != 3) {
             return false;
         } else {
-            d.h.a.a.a.a(parcel, Bundle.CREATOR);
+            d.g.a.a.a.a(parcel, Bundle.CREATOR);
             a();
         }
         return true;

@@ -11,6 +11,7 @@ import java.util.TimerTask;
 import javax.annotation.Nullable;
 import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes7.dex */
 public class WebRtcAudioManager {
     public static final int BITS_PER_SAMPLE = 16;
@@ -54,22 +55,22 @@ public class WebRtcAudioManager {
             public final int maxRingVolume;
             public final int maxVoiceCallVolume;
 
-            public LogVolumeTask(int i, int i2) {
-                this.maxRingVolume = i;
-                this.maxVoiceCallVolume = i2;
+            public LogVolumeTask(int i2, int i3) {
+                this.maxRingVolume = i2;
+                this.maxVoiceCallVolume = i3;
             }
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 StringBuilder sb;
-                int i;
+                int i2;
                 int mode = VolumeLogger.this.audioManager.getMode();
                 if (mode == 1) {
                     sb = new StringBuilder();
                     sb.append("STREAM_RING stream volume: ");
                     sb.append(VolumeLogger.this.audioManager.getStreamVolume(2));
                     sb.append(" (max=");
-                    i = this.maxRingVolume;
+                    i2 = this.maxRingVolume;
                 } else if (mode != 3) {
                     return;
                 } else {
@@ -77,9 +78,9 @@ public class WebRtcAudioManager {
                     sb.append("VOICE_CALL stream volume: ");
                     sb.append(VolumeLogger.this.audioManager.getStreamVolume(0));
                     sb.append(" (max=");
-                    i = this.maxVoiceCallVolume;
+                    i2 = this.maxVoiceCallVolume;
                 }
-                sb.append(i);
+                sb.append(i2);
                 sb.append(SmallTailInfo.EMOTION_SUFFIX);
                 Logging.d(WebRtcAudioManager.TAG, sb.toString());
             }
@@ -108,7 +109,7 @@ public class WebRtcAudioManager {
     public WebRtcAudioManager(long j) {
         Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());
         this.nativeAudioManager = j;
-        AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService("audio");
+        AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         this.audioManager = audioManager;
         this.volumeLogger = new VolumeLogger(audioManager);
         storeAudioParameters();
@@ -143,12 +144,12 @@ public class WebRtcAudioManager {
         return 256;
     }
 
-    public static int getMinInputFrameSize(int i, int i2) {
-        return AudioRecord.getMinBufferSize(i, i2 == 1 ? 16 : 12, 2) / (i2 * 2);
+    public static int getMinInputFrameSize(int i2, int i3) {
+        return AudioRecord.getMinBufferSize(i2, i3 == 1 ? 16 : 12, 2) / (i3 * 2);
     }
 
-    public static int getMinOutputFrameSize(int i, int i2) {
-        return AudioTrack.getMinBufferSize(i, i2 == 1 ? 4 : 12, 2) / (i2 * 2);
+    public static int getMinOutputFrameSize(int i2, int i3) {
+        return AudioTrack.getMinBufferSize(i2, i3 == 1 ? 4 : 12, 2) / (i3 * 2);
     }
 
     private int getNativeOutputSampleRate() {
@@ -237,7 +238,7 @@ public class WebRtcAudioManager {
         return Build.VERSION.SDK_INT >= 23 && ContextUtils.getApplicationContext().getPackageManager().hasSystemFeature("android.hardware.audio.pro");
     }
 
-    private native void nativeCacheAudioParameters(int i, int i2, int i3, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, int i4, int i5, long j);
+    private native void nativeCacheAudioParameters(int i2, int i3, int i4, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, int i5, int i6, long j);
 
     public static void setBlacklistDeviceForOpenSLESUsage(boolean z) {
         synchronized (WebRtcAudioManager.class) {

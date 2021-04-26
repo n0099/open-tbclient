@@ -11,7 +11,7 @@ public abstract class WebBackForwardList implements Serializable, Cloneable {
 
     public abstract WebHistoryItem getCurrentItem();
 
-    public abstract WebHistoryItem getItemAtIndex(int i);
+    public abstract WebHistoryItem getItemAtIndex(int i2);
 
     public abstract int getSize();
 }

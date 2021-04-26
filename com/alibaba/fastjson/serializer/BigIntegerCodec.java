@@ -25,7 +25,7 @@ public class BigIntegerCodec implements ObjectSerializer, ObjectDeserializer {
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (obj == null) {
             serializeWriter.writeNull(SerializerFeature.WriteNullNumberAsZero);
@@ -33,7 +33,7 @@ public class BigIntegerCodec implements ObjectSerializer, ObjectDeserializer {
         }
         BigInteger bigInteger = (BigInteger) obj;
         String bigInteger2 = bigInteger.toString();
-        if (bigInteger2.length() >= 16 && SerializerFeature.isEnabled(i, serializeWriter.features, SerializerFeature.BrowserCompatible) && (bigInteger.compareTo(LOW) < 0 || bigInteger.compareTo(HIGH) > 0)) {
+        if (bigInteger2.length() >= 16 && SerializerFeature.isEnabled(i2, serializeWriter.features, SerializerFeature.BrowserCompatible) && (bigInteger.compareTo(LOW) < 0 || bigInteger.compareTo(HIGH) > 0)) {
             serializeWriter.writeString(bigInteger2);
         } else {
             serializeWriter.write(bigInteger2);

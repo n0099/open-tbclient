@@ -12,9 +12,9 @@ public class PluginDetailActivityConfig extends IntentConfig {
         getIntent().putExtra("name", str);
     }
 
-    public PluginDetailActivityConfig(Context context, String str, int i) {
+    public PluginDetailActivityConfig(Context context, String str, int i2) {
         this(context, str);
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i);
+        setRequestCode(i2);
     }
 }

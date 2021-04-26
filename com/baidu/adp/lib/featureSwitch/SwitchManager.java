@@ -2,8 +2,8 @@ package com.baidu.adp.lib.featureSwitch;
 
 import android.content.SharedPreferences;
 import com.baidu.adp.base.BdBaseApplication;
-import d.b.c.e.f.b;
-import d.b.c.e.f.c;
+import d.a.c.e.f.b;
+import d.a.c.e.f.c;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -44,8 +44,8 @@ public class SwitchManager {
         for (c cVar : this.mSwitchs.values()) {
             if (cVar != null) {
                 cVar.i(0);
-                edit.putInt(cVar.d() + c.f42468d, 0);
-                edit.putInt(cVar.d() + c.f42469e, cVar.c());
+                edit.putInt(cVar.d() + c.f39662d, 0);
+                edit.putInt(cVar.d() + c.f39663e, cVar.c());
             }
         }
         edit.commit();
@@ -97,10 +97,10 @@ public class SwitchManager {
         return null;
     }
 
-    public boolean turn(String str, int i) {
+    public boolean turn(String str, int i2) {
         c cVar;
-        if (i >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
-            return cVar.j(i);
+        if (i2 >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
+            return cVar.j(i2);
         }
         return false;
     }

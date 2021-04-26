@@ -53,13 +53,13 @@ public class EncodedImage {
             return this;
         }
 
-        public Builder setEncodedHeight(int i) {
-            this.encodedHeight = i;
+        public Builder setEncodedHeight(int i2) {
+            this.encodedHeight = i2;
             return this;
         }
 
-        public Builder setEncodedWidth(int i) {
-            this.encodedWidth = i;
+        public Builder setEncodedWidth(int i2) {
+            this.encodedWidth = i2;
             return this;
         }
 
@@ -73,8 +73,8 @@ public class EncodedImage {
             return this;
         }
 
-        public Builder setRotation(int i) {
-            this.rotation = i;
+        public Builder setRotation(int i2) {
+            this.rotation = i2;
             return this;
         }
     }
@@ -87,19 +87,19 @@ public class EncodedImage {
         
         public final int nativeIndex;
 
-        FrameType(int i) {
-            this.nativeIndex = i;
+        FrameType(int i2) {
+            this.nativeIndex = i2;
         }
 
         @CalledByNative("FrameType")
-        public static FrameType fromNativeIndex(int i) {
+        public static FrameType fromNativeIndex(int i2) {
             FrameType[] values;
             for (FrameType frameType : values()) {
-                if (frameType.getNative() == i) {
+                if (frameType.getNative() == i2) {
                     return frameType;
                 }
             }
-            throw new IllegalArgumentException("Unknown native frame type: " + i);
+            throw new IllegalArgumentException("Unknown native frame type: " + i2);
         }
 
         public int getNative() {
@@ -108,14 +108,14 @@ public class EncodedImage {
     }
 
     @CalledByNative
-    public EncodedImage(ByteBuffer byteBuffer, int i, int i2, long j, FrameType frameType, int i3, boolean z, Integer num) {
+    public EncodedImage(ByteBuffer byteBuffer, int i2, int i3, long j, FrameType frameType, int i4, boolean z, Integer num) {
         this.buffer = byteBuffer;
-        this.encodedWidth = i;
-        this.encodedHeight = i2;
+        this.encodedWidth = i2;
+        this.encodedHeight = i3;
         this.captureTimeMs = TimeUnit.NANOSECONDS.toMillis(j);
         this.captureTimeNs = j;
         this.frameType = frameType;
-        this.rotation = i3;
+        this.rotation = i4;
         this.completeFrame = z;
         this.qp = num;
     }

@@ -12,63 +12,35 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
 public class ThreadPoolService implements NoProguard {
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final ThreadFactory f11018b = new a();
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final int f11019c = 0;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final int f11020d = 1;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Handler f11021a;
+    public static final int CORE_POOL_SIZE;
+    public static final int CPU_COUNT;
+    public static final int MSG_RUN_IN_CHILD_THREAD = 1;
+    public static final int MSG_RUN_IN_UI_THREAD = 0;
+    public static final ThreadFactory THREAD_FACTORY;
+    public Handler mHandler;
     public ThreadPoolExecutor poolService;
 
     /* loaded from: classes2.dex */
-    public static class a implements ThreadFactory {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final AtomicInteger f11022a = new AtomicInteger(1);
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "pass_pool_thread # " + this.f11022a.getAndIncrement());
-        }
+    public static class SingletonContainer {
+        public static ThreadPoolService mSingleInstance = new ThreadPoolService();
     }
 
-    /* loaded from: classes2.dex */
-    public class b extends Handler {
-        public b(Looper looper) {
-            super(looper);
-        }
+    static {
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        CPU_COUNT = availableProcessors;
+        CORE_POOL_SIZE = availableProcessors > 4 ? availableProcessors / 2 : 2;
+        THREAD_FACTORY = new ThreadFactory() { // from class: com.baidu.sapi2.utils.ThreadPoolService.1
+            public final AtomicInteger count = new AtomicInteger(1);
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            int i = message.what;
-            if (i == 0) {
-                ((TPRunnable) message.obj).run();
-            } else if (i != 1) {
-            } else {
-                ThreadPoolService.this.poolService.submit(((TPRunnable) message.obj).runable);
+            @Override // java.util.concurrent.ThreadFactory
+            public Thread newThread(Runnable runnable) {
+                return new Thread(runnable, "pass_pool_thread # " + this.count.getAndIncrement());
             }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static class c {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static ThreadPoolService f11024a = new ThreadPoolService(null);
-    }
-
-    public /* synthetic */ ThreadPoolService(a aVar) {
-        this();
+        };
     }
 
     public static ThreadPoolService getInstance() {
-        return c.f11024a;
+        return SingletonContainer.mSingleInstance;
     }
 
     public void run(TPRunnable tPRunnable) {
@@ -76,12 +48,24 @@ public class ThreadPoolService implements NoProguard {
     }
 
     public void runInUiThread(TPRunnable tPRunnable) {
-        this.f11021a.sendMessage(this.f11021a.obtainMessage(0, tPRunnable));
+        this.mHandler.sendMessage(this.mHandler.obtainMessage(0, tPRunnable));
     }
 
     public ThreadPoolService() {
-        this.f11021a = new b(Looper.getMainLooper());
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(6, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f11018b);
+        this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.utils.ThreadPoolService.2
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                int i2 = message.what;
+                if (i2 == 0) {
+                    ((TPRunnable) message.obj).run();
+                } else if (i2 != 1) {
+                } else {
+                    ThreadPoolService.this.poolService.submit(((TPRunnable) message.obj).runable);
+                }
+            }
+        };
+        int i2 = CORE_POOL_SIZE;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i2, 60L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), THREAD_FACTORY);
         this.poolService = threadPoolExecutor;
         if (Build.VERSION.SDK_INT >= 9) {
             threadPoolExecutor.allowCoreThreadTimeOut(true);

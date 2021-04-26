@@ -10,28 +10,28 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import d.b.c.a.f;
-import d.b.c.e.d.l;
-import d.b.j0.j1.p.e;
+import d.a.c.a.f;
+import d.a.c.e.d.l;
+import d.a.j0.j1.p.e;
 import tbclient.Lego.DataRes;
 /* loaded from: classes4.dex */
 public class LegoPageModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.c.c.g.a f18404e;
+    public d.a.c.c.g.a f18766e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f18405f;
+    public b f18767f;
 
     /* loaded from: classes4.dex */
-    public class a extends d.b.c.c.g.a {
-        public a(int i, int i2) {
-            super(i, i2);
+    public class a extends d.a.c.c.g.a {
+        public a(int i2, int i3) {
+            super(i2, i3);
         }
 
         /* JADX WARN: Removed duplicated region for block: B:23:0x005c  */
         /* JADX WARN: Removed duplicated region for block: B:24:0x006f  */
-        @Override // d.b.c.c.g.a
+        @Override // d.a.c.c.g.a
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -39,8 +39,8 @@ public class LegoPageModel extends BdBaseModel {
             long j;
             String str;
             boolean z;
-            int i;
-            if (responsedMessage == null || LegoPageModel.this.f18405f == null) {
+            int i2;
+            if (responsedMessage == null || LegoPageModel.this.f18767f == null) {
                 return;
             }
             boolean z2 = false;
@@ -55,10 +55,10 @@ public class LegoPageModel extends BdBaseModel {
                     j = tagCode;
                     z2 = legoPageRequest.getPageType() == 2;
                     str = itemId;
-                    i = pn;
+                    i2 = pn;
                     z = z3;
                     if (responsedMessage.getError() == 0) {
-                        LegoPageModel.this.f18405f.b(j, str, responsedMessage.getError(), responsedMessage.getErrorString());
+                        LegoPageModel.this.f18767f.b(j, str, responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     DataRes dataRes = null;
@@ -68,17 +68,17 @@ public class LegoPageModel extends BdBaseModel {
                         dataRes = ((LegoHttpResponse) responsedMessage).getResultData();
                     }
                     if (!z2) {
-                        LegoPageModel.this.f18405f.a(j, str, dataRes, z);
+                        LegoPageModel.this.f18767f.a(j, str, dataRes, z);
                     } else {
                         if (z && dataRes != null) {
-                            l<byte[]> d2 = d.b.i0.r.r.a.f().d("tb.lego_update");
+                            l<byte[]> d2 = d.a.i0.r.r.a.f().d("tb.lego_update");
                             StringBuilder sb = new StringBuilder();
                             sb.append(j);
                             sb.append("_");
                             sb.append(TextUtils.isEmpty(str) ? "" : str);
                             d2.a(sb.toString(), dataRes.toByteArray());
                         }
-                        LegoPageModel.this.f18405f.c(j, str, dataRes, z, i);
+                        LegoPageModel.this.f18767f.c(j, str, dataRes, z, i2);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016455, dataRes));
                     return;
@@ -87,7 +87,7 @@ public class LegoPageModel extends BdBaseModel {
             j = 0;
             str = "";
             z = false;
-            i = 1;
+            i2 = 1;
             if (responsedMessage.getError() == 0) {
             }
         }
@@ -97,19 +97,19 @@ public class LegoPageModel extends BdBaseModel {
     public interface b {
         void a(long j, String str, DataRes dataRes, boolean z);
 
-        void b(long j, String str, int i, String str2);
+        void b(long j, String str, int i2, String str2);
 
-        void c(long j, String str, DataRes dataRes, boolean z, int i);
+        void c(long j, String str, DataRes dataRes, boolean z, int i2);
     }
 
     public LegoPageModel(f fVar, BdUniqueId bdUniqueId) {
         super(fVar);
-        this.f18404e = new a(CmdConfigHttp.CMD_ENTERTAINMENT, 309312);
+        this.f18766e = new a(CmdConfigHttp.CMD_ENTERTAINMENT, 309312);
         setUniqueId(bdUniqueId);
         u();
-        this.f18404e.getSocketMessageListener().setSelfListener(true);
-        this.f18404e.getHttpMessageListener().setSelfListener(true);
-        registerListener(this.f18404e);
+        this.f18766e.getSocketMessageListener().setSelfListener(true);
+        this.f18766e.getHttpMessageListener().setSelfListener(true);
+        registerListener(this.f18766e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -123,32 +123,32 @@ public class LegoPageModel extends BdBaseModel {
         return false;
     }
 
-    public void t(int i, long j, String str, int i2, String str2) {
+    public void t(int i2, long j, String str, int i3, String str2) {
         LegoPageRequest legoPageRequest = new LegoPageRequest();
         legoPageRequest.setNetType(NetMessage.NetType.HTTP);
         legoPageRequest.setTag(getUniqueId());
-        legoPageRequest.setPn(i2);
+        legoPageRequest.setPn(i3);
         legoPageRequest.setItemId(str);
         legoPageRequest.setLastRank(str2);
         legoPageRequest.setTagCode(j);
-        legoPageRequest.setPageType(i);
+        legoPageRequest.setPageType(i2);
         e a2 = e.a(j, str);
         if (a2 != null) {
-            legoPageRequest.setRn(a2.f57902d);
-            legoPageRequest.setParams(a2.f57903e);
+            legoPageRequest.setRn(a2.f55874d);
+            legoPageRequest.setParams(a2.f55875e);
         }
         legoPageRequest.getHttpMessage().addParam("page_id", j);
         sendMessage(legoPageRequest);
     }
 
     public final void u() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, d.b.j0.d3.d0.a.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, d.a.j0.d3.d0.a.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(LegoHttpResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void v(b bVar) {
-        this.f18405f = bVar;
+        this.f18767f = bVar;
     }
 }

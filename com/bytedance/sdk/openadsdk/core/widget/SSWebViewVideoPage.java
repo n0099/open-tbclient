@@ -16,32 +16,32 @@ import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
 public class SSWebViewVideoPage extends SSWebView {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f28516a;
+    public boolean f29390a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f28517b;
+    public float f29391b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28518c;
+    public boolean f29392c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewParent f28519d;
+    public ViewParent f29393d;
 
     public SSWebViewVideoPage(Context context) {
         super(context);
-        this.f28516a = true;
-        this.f28517b = -1.0f;
-        this.f28518c = false;
+        this.f29390a = true;
+        this.f29391b = -1.0f;
+        this.f29392c = false;
     }
 
     public void a(boolean z) {
-        if (((ScrollView) this.f28519d).getScrollY() == 0) {
+        if (((ScrollView) this.f29393d).getScrollY() == 0) {
             if (z) {
                 a();
             } else {
                 b();
             }
-        } else if (!this.f28516a) {
+        } else if (!this.f29390a) {
             a();
         } else if (z) {
             b();
@@ -51,69 +51,69 @@ public class SSWebViewVideoPage extends SSWebView {
     }
 
     public void b() {
-        if (this.f28518c) {
+        if (this.f29392c) {
             return;
         }
-        this.f28519d.requestDisallowInterceptTouchEvent(false);
-        this.f28518c = true;
+        this.f29393d.requestDisallowInterceptTouchEvent(false);
+        this.f29392c = true;
     }
 
     @Override // android.webkit.WebView, android.view.View
-    public void onOverScrolled(int i, int i2, boolean z, boolean z2) {
-        super.onOverScrolled(i, i2, z, z2);
-        if (i2 == 0 && z2) {
-            this.f28516a = true;
+    public void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
+        super.onOverScrolled(i2, i3, z, z2);
+        if (i3 == 0 && z2) {
+            this.f29390a = true;
         } else {
-            this.f28516a = false;
+            this.f29390a = false;
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView, android.webkit.WebView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.f28519d == null) {
-            this.f28519d = a(this);
+        if (this.f29393d == null) {
+            this.f29393d = a(this);
         }
         if (motionEvent.getAction() == 0) {
-            this.f28517b = motionEvent.getY();
+            this.f29391b = motionEvent.getY();
         } else if (motionEvent.getAction() == 2) {
-            float y = motionEvent.getY() - this.f28517b;
-            int i = (y > 0.0f ? 1 : (y == 0.0f ? 0 : -1));
-            if (i > 0) {
+            float y = motionEvent.getY() - this.f29391b;
+            int i2 = (y > 0.0f ? 1 : (y == 0.0f ? 0 : -1));
+            if (i2 > 0) {
                 a(true);
-            } else if (i != 0 && y < 0.0f) {
+            } else if (i2 != 0 && y < 0.0f) {
                 a(false);
             }
-            this.f28517b = motionEvent.getY();
+            this.f29391b = motionEvent.getY();
         } else if (motionEvent.getAction() == 1) {
             a();
-            this.f28518c = false;
+            this.f29392c = false;
         } else if (motionEvent.getAction() == 3) {
             a();
-            this.f28518c = false;
+            this.f29392c = false;
         }
         return super.onTouchEvent(motionEvent);
     }
 
     public SSWebViewVideoPage(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f28516a = true;
-        this.f28517b = -1.0f;
-        this.f28518c = false;
+        this.f29390a = true;
+        this.f29391b = -1.0f;
+        this.f29392c = false;
     }
 
     public void a() {
-        if (this.f28518c) {
+        if (this.f29392c) {
             return;
         }
-        this.f28519d.requestDisallowInterceptTouchEvent(true);
-        this.f28518c = true;
+        this.f29393d.requestDisallowInterceptTouchEvent(true);
+        this.f29392c = true;
     }
 
-    public SSWebViewVideoPage(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f28516a = true;
-        this.f28517b = -1.0f;
-        this.f28518c = false;
+    public SSWebViewVideoPage(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f29390a = true;
+        this.f29391b = -1.0f;
+        this.f29392c = false;
     }
 
     private ViewParent a(View view) {

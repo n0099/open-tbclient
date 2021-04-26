@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class Utils {
-    public static Map<String, String> a() {
+    public static Map<String, String> buildCommonParams() {
         SapiConfiguration confignation;
         HashMap hashMap = new HashMap();
         hashMap.put("client", "android");

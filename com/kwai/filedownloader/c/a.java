@@ -10,17 +10,17 @@ public interface a extends IInterface {
 
     /* renamed from: com.kwai.filedownloader.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static abstract class AbstractBinderC0460a extends Binder implements a {
+    public static abstract class AbstractBinderC0405a extends Binder implements a {
 
         /* renamed from: com.kwai.filedownloader.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0461a implements a {
+        public static class C0406a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f37275a;
+            public IBinder f34992a;
 
-            public C0461a(IBinder iBinder) {
-                this.f37275a = iBinder;
+            public C0406a(IBinder iBinder) {
+                this.f34992a = iBinder;
             }
 
             @Override // com.kwai.filedownloader.c.a
@@ -34,7 +34,7 @@ public interface a extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f37275a.transact(1, obtain, null, 1);
+                    this.f34992a.transact(1, obtain, null, 1);
                 } finally {
                     obtain.recycle();
                 }
@@ -42,11 +42,11 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f37275a;
+                return this.f34992a;
             }
         }
 
-        public AbstractBinderC0460a() {
+        public AbstractBinderC0405a() {
             attachInterface(this, "com.kwai.filedownloader.i.IFileDownloadIPCCallback");
         }
 
@@ -55,7 +55,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0461a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0406a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.IInterface
@@ -64,13 +64,13 @@ public interface a extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
-            if (i == 1) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) {
+            if (i2 == 1) {
                 parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
                 a(parcel.readInt() != 0 ? MessageSnapshot.CREATOR.createFromParcel(parcel) : null);
                 return true;
-            } else if (i != 1598968902) {
-                return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 1598968902) {
+                return super.onTransact(i2, parcel, parcel2, i3);
             } else {
                 parcel2.writeString("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
                 return true;

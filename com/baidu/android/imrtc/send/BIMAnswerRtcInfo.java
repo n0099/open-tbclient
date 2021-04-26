@@ -19,8 +19,8 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public BIMAnswerRtcInfo[] newArray(int i) {
-            return new BIMAnswerRtcInfo[i];
+        public BIMAnswerRtcInfo[] newArray(int i2) {
+            return new BIMAnswerRtcInfo[i2];
         }
     };
     public static final String TAG = "IMAnswerRtcInfo";
@@ -51,18 +51,18 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
         this.mAnswerDeviceInfo = str;
     }
 
-    public void setAnswerMediaType(int i) {
-        this.mAnswerMediaType = i;
+    public void setAnswerMediaType(int i2) {
+        this.mAnswerMediaType = i2;
     }
 
-    public void setAnswerType(int i) {
-        this.mAnswerType = i;
+    public void setAnswerType(int i2) {
+        this.mAnswerType = i2;
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
-        BIMAnswerRtcInfo bIMAnswerRtcInfo = new BIMAnswerRtcInfo(super.toRtcInfo(i, str, str2));
+    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
+        BIMAnswerRtcInfo bIMAnswerRtcInfo = new BIMAnswerRtcInfo(super.toRtcInfo(i2, str, str2));
         try {
             JSONObject jSONObject = new JSONObject(str2);
             bIMAnswerRtcInfo.setAnswerType(jSONObject.optInt("answer_type"));
@@ -95,8 +95,8 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.mAnswerDeviceInfo);
         parcel.writeInt(this.mAnswerType);
         parcel.writeInt(this.mAnswerMediaType);

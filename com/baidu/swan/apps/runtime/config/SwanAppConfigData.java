@@ -8,8 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.webkit.internal.CfgFileUtils;
-import d.b.h0.a.i2.i0;
-import d.b.h0.a.r1.n.b;
+import d.a.h0.a.i2.i0;
+import d.a.h0.a.r1.n.b;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.io.File;
 import java.util.ArrayList;
@@ -22,38 +22,41 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes3.dex */
 public class SwanAppConfigData {
-    public static final boolean p = d.b.h0.a.k.f45772a;
+    public static final boolean p = d.a.h0.a.k.f43101a;
     public static final HashMap<String, Integer> q;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f12282a;
+    public a f12152a;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f12283b;
+    public h f12153b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i f12284c;
+    public i f12154c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.h0.a.r1.n.c f12285d;
+    public d.a.h0.a.r1.n.c f12155d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j f12286e;
+    public j f12156e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f12287f;
+    public f f12157f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a f12288g;
+    public b.a f12158g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f12289h;
-    public c i;
+    public c f12159h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public c f12160i;
     @Nullable
     public d j;
-    public List<d.b.h0.l.k.h> k;
+    public List<d.a.h0.l.k.h> k;
     public String l;
     public e m;
     public b n;
@@ -62,7 +65,7 @@ public class SwanAppConfigData {
 
     /* loaded from: classes3.dex */
     public enum RequiredBackgroundModeItem {
-        AUDIO("audio");
+        AUDIO(MediaStreamTrack.AUDIO_TRACK_KIND);
         
         public String mMode;
 
@@ -89,7 +92,7 @@ public class SwanAppConfigData {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<String> f12290a;
+        public ArrayList<String> f12161a;
 
         public static a b(JSONObject jSONObject) {
             if (jSONObject == null) {
@@ -100,9 +103,9 @@ public class SwanAppConfigData {
                 return d();
             }
             a aVar = new a();
-            aVar.f12290a = new ArrayList<>(optJSONArray.length());
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                aVar.f12290a.add(optJSONArray.optString(i));
+            aVar.f12161a = new ArrayList<>(optJSONArray.length());
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                aVar.f12161a.add(optJSONArray.optString(i2));
             }
             return aVar;
         }
@@ -112,12 +115,12 @@ public class SwanAppConfigData {
                 Log.e("SwanAppConfigData", "PageConfig createNullObject() " + Log.getStackTraceString(new Exception()));
             }
             a aVar = new a();
-            aVar.f12290a = new ArrayList<>();
+            aVar.f12161a = new ArrayList<>();
             return aVar;
         }
 
         public boolean c(String str) {
-            ArrayList<String> arrayList = this.f12290a;
+            ArrayList<String> arrayList = this.f12161a;
             return arrayList != null && arrayList.contains(str);
         }
     }
@@ -126,7 +129,7 @@ public class SwanAppConfigData {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, Map<String, String>> f12291a;
+        public Map<String, Map<String, String>> f12162a;
 
         public static b b(JSONObject jSONObject) {
             b c2 = c();
@@ -137,7 +140,7 @@ public class SwanAppConfigData {
             if (optJSONObject == null) {
                 return null;
             }
-            c2.f12291a = new HashMap();
+            c2.f12162a = new HashMap();
             Iterator<String> keys = optJSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
@@ -150,14 +153,14 @@ public class SwanAppConfigData {
                         hashMap.put(next2, optJSONObject2.optString(next2));
                     }
                 }
-                c2.f12291a.put(next, hashMap);
+                c2.f12162a.put(next, hashMap);
             }
             return c2;
         }
 
         public static b c() {
             b bVar = new b();
-            bVar.f12291a = new HashMap();
+            bVar.f12162a = new HashMap();
             return bVar;
         }
     }
@@ -166,7 +169,7 @@ public class SwanAppConfigData {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<d.b.h0.a.l1.f.a> f12292a;
+        public List<d.a.h0.a.l1.f.a> f12163a;
 
         public static c c(JSONObject jSONObject, File file) {
             return e(jSONObject, "dynamicLib", 3, file);
@@ -176,7 +179,7 @@ public class SwanAppConfigData {
             return e(jSONObject, "plugins", 4, file);
         }
 
-        public static c e(JSONObject jSONObject, String str, int i, File file) {
+        public static c e(JSONObject jSONObject, String str, int i2, File file) {
             c cVar = null;
             if (jSONObject != null && !TextUtils.isEmpty(str)) {
                 JSONObject optJSONObject = jSONObject.optJSONObject(str);
@@ -185,15 +188,15 @@ public class SwanAppConfigData {
                 }
                 Iterator<String> keys = optJSONObject.keys();
                 cVar = new c();
-                cVar.f12292a = new ArrayList();
+                cVar.f12163a = new ArrayList();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    d.b.h0.a.l1.f.a aVar = new d.b.h0.a.l1.f.a(optJSONObject.optJSONObject(next), i);
-                    aVar.f45944e = next;
-                    if (file != null && !TextUtils.isEmpty(aVar.i)) {
-                        aVar.i = new File(file, aVar.i).getAbsolutePath();
+                    d.a.h0.a.l1.f.a aVar = new d.a.h0.a.l1.f.a(optJSONObject.optJSONObject(next), i2);
+                    aVar.f43281e = next;
+                    if (file != null && !TextUtils.isEmpty(aVar.f43285i)) {
+                        aVar.f43285i = new File(file, aVar.f43285i).getAbsolutePath();
                     }
-                    cVar.f12292a.add(aVar);
+                    cVar.f12163a.add(aVar);
                 }
             }
             return cVar;
@@ -204,7 +207,7 @@ public class SwanAppConfigData {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<String> f12293a;
+        public ArrayList<String> f12164a;
 
         @Nullable
         public static d b(JSONObject jSONObject) {
@@ -213,9 +216,9 @@ public class SwanAppConfigData {
                 return null;
             }
             d dVar = new d();
-            dVar.f12293a = new ArrayList<>(optJSONArray.length());
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                dVar.f12293a.add(optJSONArray.optString(i));
+            dVar.f12164a = new ArrayList<>(optJSONArray.length());
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                dVar.f12164a.add(optJSONArray.optString(i2));
             }
             return dVar;
         }
@@ -225,20 +228,20 @@ public class SwanAppConfigData {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public HashMap<String, String> f12294a;
+        public HashMap<String, String> f12165a;
 
         public static e b(JSONObject jSONObject) {
             JSONArray optJSONArray;
             int length;
             e c2 = c();
             if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("routes")) != null && (length = optJSONArray.length()) != 0) {
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                for (int i2 = 0; i2 < length; i2++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     if (optJSONObject != null) {
                         String optString = optJSONObject.optString("path");
                         String optString2 = optJSONObject.optString("page");
-                        if (!c2.f12294a.containsKey(optString)) {
-                            c2.f12294a.put(optString, optString2);
+                        if (!c2.f12165a.containsKey(optString)) {
+                            c2.f12165a.put(optString, optString2);
                         }
                     }
                 }
@@ -248,7 +251,7 @@ public class SwanAppConfigData {
 
         public static e c() {
             e eVar = new e();
-            eVar.f12294a = new HashMap<>();
+            eVar.f12165a = new HashMap<>();
             return eVar;
         }
     }
@@ -257,7 +260,7 @@ public class SwanAppConfigData {
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f12295a;
+        public boolean f12166a;
 
         public static f b(JSONObject jSONObject) {
             if (jSONObject == null) {
@@ -267,16 +270,16 @@ public class SwanAppConfigData {
             if (optJSONObject == null) {
                 return c();
             }
-            d.b.h0.a.r1.e y = d.b.h0.a.r1.e.y();
-            String str = y != null ? y.f46461f : "";
+            d.a.h0.a.r1.e h2 = d.a.h0.a.r1.e.h();
+            String str = h2 != null ? h2.f43823f : "";
             f fVar = new f();
-            fVar.f12295a = optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
+            fVar.f12166a = optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("swan_conf");
             if (optJSONObject2 != null) {
-                d.b.h0.a.s1.a.c.o(str, "", optJSONObject2.optJSONArray("web_view_domains"));
+                d.a.h0.a.s1.a.c.o(str, "", optJSONObject2.optJSONArray("web_view_domains"));
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("domains");
                 if (optJSONObject3 != null) {
-                    d.b.h0.a.s1.a.c.m(str, optJSONObject3);
+                    d.a.h0.a.s1.a.c.m(str, optJSONObject3);
                 }
             }
             return fVar;
@@ -287,25 +290,25 @@ public class SwanAppConfigData {
                 Log.e("SwanAppConfigData", "SettingConfig createNullObject() " + Log.getStackTraceString(new Exception()));
             }
             f fVar = new f();
-            fVar.f12295a = true;
+            fVar.f12166a = true;
             return fVar;
         }
 
         public static boolean d() {
-            SwanAppConfigData I = d.b.h0.a.z0.f.V().I();
-            if (I == null) {
+            SwanAppConfigData u = d.a.h0.a.z0.f.V().u();
+            if (u == null) {
                 return true;
             }
-            f fVar = I.f12287f;
-            d.b.h0.a.r1.e y = d.b.h0.a.r1.e.y();
-            boolean d2 = d.b.h0.a.u.a.d(y != null ? y.L() : null);
-            boolean d3 = d.b.h0.a.c0.d.d.e.d();
-            boolean d4 = d.b.h0.a.e0.e.d();
-            boolean C = d.b.h0.a.m1.a.a.C();
+            f fVar = u.f12157f;
+            d.a.h0.a.r1.e h2 = d.a.h0.a.r1.e.h();
+            boolean d2 = d.a.h0.a.u.a.d(h2 != null ? h2.L() : null);
+            boolean d3 = d.a.h0.a.c0.d.d.e.d();
+            boolean d4 = d.a.h0.a.e0.e.d();
+            boolean C = d.a.h0.a.m1.a.a.C();
             if (SwanAppConfigData.p) {
-                Log.d("SwanAppConfigData", "isDevelop: " + d2 + " isRemoteDebug: " + d3 + " isMobileDebug: " + d4 + " urlCheck: " + fVar.f12295a);
+                Log.d("SwanAppConfigData", "isDevelop: " + d2 + " isRemoteDebug: " + d3 + " isMobileDebug: " + d4 + " urlCheck: " + fVar.f12166a);
             }
-            return (d2 || d3 || d4 || C) && !fVar.f12295a;
+            return (d2 || d3 || d4 || C) && !fVar.f12166a;
         }
     }
 
@@ -313,40 +316,40 @@ public class SwanAppConfigData {
     public static class g {
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f12296f = File.separator;
+        public static final String f12167f = File.separator;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12297a;
+        public String f12168a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<String> f12298b;
+        public List<String> f12169b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f12299c = false;
+        public boolean f12170c = false;
 
         /* renamed from: d  reason: collision with root package name */
-        public c f12300d;
+        public c f12171d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c f12301e;
+        public c f12172e;
 
         public static g c(JSONObject jSONObject, HashMap<String, String> hashMap, HashMap<String, String> hashMap2, File file) {
             if (jSONObject != null && hashMap != null) {
                 g gVar = new g();
-                gVar.f12297a = jSONObject.optString("root");
-                gVar.f12299c = jSONObject.optBoolean("independent");
+                gVar.f12168a = jSONObject.optString("root");
+                gVar.f12170c = jSONObject.optBoolean("independent");
                 JSONArray optJSONArray = jSONObject.optJSONArray(NotificationCompat.WearableExtender.KEY_PAGES);
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
-                    gVar.f12298b = new ArrayList();
-                    for (int i = 0; i < length; i++) {
-                        String optString = optJSONArray.optString(i);
-                        gVar.f12298b.add(optString);
-                        if (!TextUtils.isEmpty(gVar.f12297a) && !TextUtils.isEmpty(optString)) {
-                            String str = (!gVar.f12297a.endsWith(f12296f) && !optString.startsWith(f12296f)) ? gVar.f12297a + f12296f + optString : gVar.f12297a + optString;
-                            hashMap.put(str, gVar.f12297a);
-                            if (gVar.f12299c) {
-                                hashMap2.put(str, gVar.f12297a);
+                    gVar.f12169b = new ArrayList();
+                    for (int i2 = 0; i2 < length; i2++) {
+                        String optString = optJSONArray.optString(i2);
+                        gVar.f12169b.add(optString);
+                        if (!TextUtils.isEmpty(gVar.f12168a) && !TextUtils.isEmpty(optString)) {
+                            String str = (!gVar.f12168a.endsWith(f12167f) && !optString.startsWith(f12167f)) ? gVar.f12168a + f12167f + optString : gVar.f12168a + optString;
+                            hashMap.put(str, gVar.f12168a);
+                            if (gVar.f12170c) {
+                                hashMap2.put(str, gVar.f12168a);
                             }
                         }
                     }
@@ -358,24 +361,24 @@ public class SwanAppConfigData {
 
         public static g d() {
             g gVar = new g();
-            gVar.f12298b = new ArrayList();
+            gVar.f12169b = new ArrayList();
             return gVar;
         }
 
         public final String e() {
             List<String> list;
-            if (TextUtils.isEmpty(this.f12297a) || (list = this.f12298b) == null || list.size() <= 0) {
+            if (TextUtils.isEmpty(this.f12168a) || (list = this.f12169b) == null || list.size() <= 0) {
                 return null;
             }
-            String str = this.f12298b.get(0);
-            if (this.f12297a.endsWith(f12296f)) {
-                String str2 = this.f12297a;
-                this.f12297a = str2.substring(0, str2.length() - 1);
+            String str = this.f12169b.get(0);
+            if (this.f12168a.endsWith(f12167f)) {
+                String str2 = this.f12168a;
+                this.f12168a = str2.substring(0, str2.length() - 1);
             }
-            if (str.startsWith(f12296f)) {
+            if (str.startsWith(f12167f)) {
                 str = str.substring(1);
             }
-            return this.f12297a + f12296f + str;
+            return this.f12168a + f12167f + str;
         }
     }
 
@@ -383,16 +386,16 @@ public class SwanAppConfigData {
     public static class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<g> f12302a;
+        public List<g> f12173a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap<String, Boolean> f12303b;
+        public HashMap<String, Boolean> f12174b;
 
         /* renamed from: c  reason: collision with root package name */
-        public HashMap<String, String> f12304c;
+        public HashMap<String, String> f12175c;
 
         /* renamed from: d  reason: collision with root package name */
-        public HashMap<String, String> f12305d;
+        public HashMap<String, String> f12176d;
 
         public static h b(JSONObject jSONObject, File file) {
             if (jSONObject == null) {
@@ -401,14 +404,14 @@ public class SwanAppConfigData {
             JSONArray optJSONArray = jSONObject.optJSONArray("subPackages");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 h hVar = new h();
-                hVar.f12302a = new ArrayList();
-                hVar.f12304c = new HashMap<>();
-                hVar.f12303b = new HashMap<>();
-                hVar.f12305d = new HashMap<>();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                hVar.f12173a = new ArrayList();
+                hVar.f12175c = new HashMap<>();
+                hVar.f12174b = new HashMap<>();
+                hVar.f12176d = new HashMap<>();
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     if (optJSONObject != null) {
-                        hVar.f12302a.add(g.c(optJSONObject, hVar.f12304c, hVar.f12305d, file));
+                        hVar.f12173a.add(g.c(optJSONObject, hVar.f12175c, hVar.f12176d, file));
                     }
                 }
                 return hVar;
@@ -418,10 +421,10 @@ public class SwanAppConfigData {
 
         public static h c() {
             h hVar = new h();
-            hVar.f12302a = new ArrayList();
-            hVar.f12304c = new HashMap<>();
-            hVar.f12303b = new HashMap<>();
-            hVar.f12305d = new HashMap<>();
+            hVar.f12173a = new ArrayList();
+            hVar.f12175c = new HashMap<>();
+            hVar.f12174b = new HashMap<>();
+            hVar.f12176d = new HashMap<>();
             return hVar;
         }
     }
@@ -430,21 +433,21 @@ public class SwanAppConfigData {
     public static class i {
 
         /* renamed from: a  reason: collision with root package name */
-        public HashMap<String, String> f12306a;
+        public HashMap<String, String> f12177a;
 
         public static i b(JSONObject jSONObject, h hVar) {
             List<g> list;
-            if (jSONObject != null && hVar != null && (list = hVar.f12302a) != null && list.size() > 0) {
+            if (jSONObject != null && hVar != null && (list = hVar.f12173a) != null && list.size() > 0) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
                 if (optJSONObject == null) {
                     return c();
                 }
                 i iVar = new i();
-                iVar.f12306a = new HashMap<>();
-                for (g gVar : hVar.f12302a) {
-                    if (gVar != null && !TextUtils.isEmpty(gVar.f12297a)) {
-                        HashMap<String, String> hashMap = iVar.f12306a;
-                        String str = gVar.f12297a;
+                iVar.f12177a = new HashMap<>();
+                for (g gVar : hVar.f12173a) {
+                    if (gVar != null && !TextUtils.isEmpty(gVar.f12168a)) {
+                        HashMap<String, String> hashMap = iVar.f12177a;
+                        String str = gVar.f12168a;
                         hashMap.put(str, optJSONObject.optString(str));
                     }
                 }
@@ -455,7 +458,7 @@ public class SwanAppConfigData {
 
         public static i c() {
             i iVar = new i();
-            iVar.f12306a = new HashMap<>();
+            iVar.f12177a = new HashMap<>();
             return iVar;
         }
     }
@@ -464,19 +467,19 @@ public class SwanAppConfigData {
     public static class j {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f12307a;
+        public int f12178a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f12308b;
+        public int f12179b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f12309c;
+        public int f12180c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f12310d;
+        public int f12181d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ArrayList<k> f12311e;
+        public ArrayList<k> f12182e;
 
         public static j b(JSONObject jSONObject) {
             int length;
@@ -488,18 +491,18 @@ public class SwanAppConfigData {
                 return c();
             }
             j jVar = new j();
-            jVar.f12307a = SwanAppConfigData.s(optJSONObject.optString("color", "#999999"));
-            jVar.f12308b = SwanAppConfigData.s(optJSONObject.optString("selectedColor", "black"));
-            jVar.f12309c = SwanAppConfigData.s(optJSONObject.optString("borderStyle", "black"));
-            jVar.f12310d = SwanAppConfigData.s(optJSONObject.optString("backgroundColor", "white"));
+            jVar.f12178a = SwanAppConfigData.s(optJSONObject.optString("color", "#999999"));
+            jVar.f12179b = SwanAppConfigData.s(optJSONObject.optString("selectedColor", "black"));
+            jVar.f12180c = SwanAppConfigData.s(optJSONObject.optString("borderStyle", "black"));
+            jVar.f12181d = SwanAppConfigData.s(optJSONObject.optString("backgroundColor", "white"));
             JSONArray optJSONArray = optJSONObject.optJSONArray("list");
             if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
                 if (length > 5) {
                     length = 5;
                 }
-                jVar.f12311e = new ArrayList<>(length);
-                for (int i = 0; i < length; i++) {
-                    jVar.f12311e.add(k.b(optJSONArray.optJSONObject(i)));
+                jVar.f12182e = new ArrayList<>(length);
+                for (int i2 = 0; i2 < length; i2++) {
+                    jVar.f12182e.add(k.b(optJSONArray.optJSONObject(i2)));
                 }
             }
             return jVar;
@@ -510,16 +513,16 @@ public class SwanAppConfigData {
                 Log.e("SwanAppConfigData", "TabBarConfig createNullObject() " + Log.getStackTraceString(new Exception()));
             }
             j jVar = new j();
-            jVar.f12311e = new ArrayList<>();
+            jVar.f12182e = new ArrayList<>();
             return jVar;
         }
 
         public boolean d(String str) {
-            if (this.f12311e == null) {
+            if (this.f12182e == null) {
                 return false;
             }
-            for (int i = 0; i < this.f12311e.size(); i++) {
-                if (TextUtils.equals(this.f12311e.get(i).f12312a, str)) {
+            for (int i2 = 0; i2 < this.f12182e.size(); i2++) {
+                if (TextUtils.equals(this.f12182e.get(i2).f12183a, str)) {
                     return true;
                 }
             }
@@ -527,7 +530,7 @@ public class SwanAppConfigData {
         }
 
         public boolean e() {
-            ArrayList<k> arrayList = this.f12311e;
+            ArrayList<k> arrayList = this.f12182e;
             return arrayList != null && arrayList.size() >= 2;
         }
     }
@@ -536,26 +539,26 @@ public class SwanAppConfigData {
     public static class k {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12312a;
+        public String f12183a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12313b;
+        public String f12184b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12314c;
+        public String f12185c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f12315d;
+        public String f12186d;
 
         public static k b(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return c();
             }
             k kVar = new k();
-            kVar.f12312a = jSONObject.optString("pagePath");
-            kVar.f12313b = jSONObject.optString("iconPath");
-            kVar.f12314c = jSONObject.optString("selectedIconPath");
-            kVar.f12315d = jSONObject.optString("text");
+            kVar.f12183a = jSONObject.optString("pagePath");
+            kVar.f12184b = jSONObject.optString("iconPath");
+            kVar.f12185c = jSONObject.optString("selectedIconPath");
+            kVar.f12186d = jSONObject.optString("text");
             return kVar;
         }
 
@@ -583,21 +586,21 @@ public class SwanAppConfigData {
         swanAppConfigData.l = str;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            swanAppConfigData.i = c.c(jSONObject, file);
-            swanAppConfigData.f12289h = c.d(jSONObject, file);
+            swanAppConfigData.f12160i = c.c(jSONObject, file);
+            swanAppConfigData.f12159h = c.d(jSONObject, file);
             JSONArray optJSONArray = jSONObject.optJSONArray("remote_debug_plugins");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                swanAppConfigData.k = d.b.h0.a.l1.g.b.j(optJSONArray.toString(), false);
+                swanAppConfigData.k = d.a.h0.a.l1.g.b.j(optJSONArray.toString(), false);
             }
             jSONObject.optBoolean("debug");
-            swanAppConfigData.f12282a = a.b(jSONObject);
+            swanAppConfigData.f12152a = a.b(jSONObject);
             h b2 = h.b(jSONObject, file);
-            swanAppConfigData.f12283b = b2;
-            swanAppConfigData.f12284c = i.b(jSONObject, b2);
-            swanAppConfigData.f12285d = d.b.h0.a.r1.n.c.a(jSONObject);
-            swanAppConfigData.f12286e = j.b(jSONObject);
-            swanAppConfigData.f12287f = f.b(jSONObject);
-            swanAppConfigData.f12288g = b.a.a(jSONObject);
+            swanAppConfigData.f12153b = b2;
+            swanAppConfigData.f12154c = i.b(jSONObject, b2);
+            swanAppConfigData.f12155d = d.a.h0.a.r1.n.c.a(jSONObject);
+            swanAppConfigData.f12156e = j.b(jSONObject);
+            swanAppConfigData.f12157f = f.b(jSONObject);
+            swanAppConfigData.f12158g = b.a.a(jSONObject);
             swanAppConfigData.m = e.b(jSONObject);
             swanAppConfigData.j = d.b(jSONObject);
             JSONArray optJSONArray2 = jSONObject.optJSONArray("requiredBackgroundModes");
@@ -635,9 +638,9 @@ public class SwanAppConfigData {
     }
 
     public static void r(@NonNull SwanAppConfigData swanAppConfigData, @NonNull JSONObject jSONObject, @NonNull File file) {
-        File file2 = new File(file, d.b.h0.a.w0.a.k().g() + "_app.json");
+        File file2 = new File(file, d.a.h0.a.w0.a.k().f() + "_app.json");
         if (file2.exists()) {
-            String r = d.b.h0.p.d.r(file2);
+            String r = d.a.h0.p.d.r(file2);
             if (TextUtils.isEmpty(r)) {
                 return;
             }
@@ -645,12 +648,12 @@ public class SwanAppConfigData {
                 JSONObject jSONObject2 = new JSONObject(r);
                 JSONObject optJSONObject = jSONObject2.optJSONObject("window");
                 if (optJSONObject != null && optJSONObject.length() > 0) {
-                    swanAppConfigData.f12285d = d.b.h0.a.r1.n.c.a(jSONObject2);
+                    swanAppConfigData.f12155d = d.a.h0.a.r1.n.c.a(jSONObject2);
                     jSONObject.put("window", optJSONObject);
                 }
                 JSONObject optJSONObject2 = jSONObject2.optJSONObject("tabBar");
                 if (optJSONObject2 != null && optJSONObject2.length() > 0) {
-                    swanAppConfigData.f12286e = j.b(jSONObject2);
+                    swanAppConfigData.f12156e = j.b(jSONObject2);
                     jSONObject.put("tabBar", optJSONObject2);
                 }
                 swanAppConfigData.l = jSONObject.toString();
@@ -679,24 +682,24 @@ public class SwanAppConfigData {
         }
     }
 
-    public final void b(c cVar, List<d.b.h0.a.l1.f.a> list) {
-        List<d.b.h0.a.l1.f.a> list2;
-        if (cVar == null || list == null || (list2 = cVar.f12292a) == null || list2.size() <= 0) {
+    public final void b(c cVar, List<d.a.h0.a.l1.f.a> list) {
+        List<d.a.h0.a.l1.f.a> list2;
+        if (cVar == null || list == null || (list2 = cVar.f12163a) == null || list2.size() <= 0) {
             return;
         }
         list.addAll(list2);
     }
 
     public String e() {
-        return k() ? this.f12282a.f12290a.get(0) : "";
+        return k() ? this.f12152a.f12161a.get(0) : "";
     }
 
     public String f(String str) {
         List<g> list;
-        h hVar = this.f12283b;
-        if (hVar != null && (list = hVar.f12302a) != null) {
+        h hVar = this.f12153b;
+        if (hVar != null && (list = hVar.f12173a) != null) {
             for (g gVar : list) {
-                if (TextUtils.equals(gVar.f12297a, str)) {
+                if (TextUtils.equals(gVar.f12168a, str)) {
                     return gVar.e();
                 }
             }
@@ -705,9 +708,9 @@ public class SwanAppConfigData {
     }
 
     public String g(String str) {
-        String b2 = d.b.h0.a.t1.k.p0.j.b(i0.d(str));
+        String b2 = d.a.h0.a.t1.k.p0.j.b(i0.d(str));
         if (!TextUtils.isEmpty(b2)) {
-            if (d.b.h0.a.l1.b.a.d(b2)) {
+            if (d.a.h0.a.l1.b.a.d(b2)) {
                 return "dynamicLib";
             }
             if (p(b2)) {
@@ -717,29 +720,29 @@ public class SwanAppConfigData {
         return FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
     }
 
-    public List<d.b.h0.a.l1.f.a> h(int i2) {
+    public List<d.a.h0.a.l1.f.a> h(int i2) {
         h hVar;
         List<g> list;
         h hVar2;
         List<g> list2;
         if (i2 == 3) {
             ArrayList arrayList = new ArrayList();
-            b(this.i, arrayList);
-            if (!d.b.h0.a.j1.m.c.d() && (hVar2 = this.f12283b) != null && (list2 = hVar2.f12302a) != null) {
+            b(this.f12160i, arrayList);
+            if (!d.a.h0.a.j1.m.c.d() && (hVar2 = this.f12153b) != null && (list2 = hVar2.f12173a) != null) {
                 for (g gVar : list2) {
                     if (gVar != null) {
-                        b(gVar.f12300d, arrayList);
+                        b(gVar.f12171d, arrayList);
                     }
                 }
             }
             return arrayList;
         } else if (i2 == 4) {
             ArrayList arrayList2 = new ArrayList();
-            b(this.f12289h, arrayList2);
-            if (!d.b.h0.a.j1.m.c.d() && (hVar = this.f12283b) != null && (list = hVar.f12302a) != null) {
+            b(this.f12159h, arrayList2);
+            if (!d.a.h0.a.j1.m.c.d() && (hVar = this.f12153b) != null && (list = hVar.f12173a) != null) {
                 for (g gVar2 : list) {
                     if (gVar2 != null) {
-                        b(gVar2.f12301e, arrayList2);
+                        b(gVar2.f12172e, arrayList2);
                     }
                 }
             }
@@ -751,49 +754,49 @@ public class SwanAppConfigData {
 
     public String i(String str) {
         e eVar = this.m;
-        if (eVar == null || eVar.f12294a == null) {
+        if (eVar == null || eVar.f12165a == null) {
             return str;
         }
         String d2 = i0.d(str);
-        String str2 = this.m.f12294a.get(d2);
+        String str2 = this.m.f12165a.get(d2);
         return TextUtils.isEmpty(str2) ? str : str.replaceFirst(d2, str2);
     }
 
     public final boolean j() {
-        h hVar = this.f12283b;
-        return (hVar == null || hVar.f12302a == null || hVar.f12305d == null) ? false : true;
+        h hVar = this.f12153b;
+        return (hVar == null || hVar.f12173a == null || hVar.f12176d == null) ? false : true;
     }
 
     public boolean k() {
         ArrayList<String> arrayList;
-        a aVar = this.f12282a;
-        return (aVar == null || (arrayList = aVar.f12290a) == null || arrayList.isEmpty()) ? false : true;
+        a aVar = this.f12152a;
+        return (aVar == null || (arrayList = aVar.f12161a) == null || arrayList.isEmpty()) ? false : true;
     }
 
     public boolean l() {
-        h hVar = this.f12283b;
-        return (hVar == null || hVar.f12302a == null || hVar.f12304c == null) ? false : true;
+        h hVar = this.f12153b;
+        return (hVar == null || hVar.f12173a == null || hVar.f12175c == null) ? false : true;
     }
 
     public boolean m() {
-        j jVar = this.f12286e;
+        j jVar = this.f12156e;
         return jVar != null && jVar.e();
     }
 
     public boolean n(String str) {
-        return j() && this.f12283b.f12305d.containsKey(str);
+        return j() && this.f12153b.f12176d.containsKey(str);
     }
 
     public boolean o(String str) {
-        return (k() && this.f12282a.c(str)) || (l() && this.f12283b.f12304c.containsKey(str));
+        return (k() && this.f12152a.c(str)) || (l() && this.f12153b.f12175c.containsKey(str));
     }
 
     public boolean p(String str) {
-        return l() && this.f12283b.f12304c.containsKey(str);
+        return l() && this.f12153b.f12175c.containsKey(str);
     }
 
     public boolean q(String str) {
-        j jVar = this.f12286e;
+        j jVar = this.f12156e;
         return jVar != null && jVar.d(str);
     }
 }

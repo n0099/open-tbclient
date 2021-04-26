@@ -6,10 +6,10 @@ import android.view.View;
 import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.swan.bdprivate.activity.BaseActivity;
-import d.b.h0.a.i2.k0;
-import d.b.h0.b.e;
-import d.b.h0.b.f;
-import d.b.h0.b.g;
+import d.a.h0.a.i2.k0;
+import d.a.h0.b.e;
+import d.a.h0.b.f;
+import d.a.h0.b.g;
 /* loaded from: classes3.dex */
 public class LoginServiceAgreementActivity extends BaseActivity {
     public static final String KEY_URL = "url";

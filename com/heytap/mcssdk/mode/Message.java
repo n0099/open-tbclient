@@ -57,12 +57,12 @@ public abstract class Message {
         this.mAppPackage = str;
     }
 
-    public void setMessageID(int i) {
-        this.mMessageID = i;
+    public void setMessageID(int i2) {
+        this.mMessageID = i2;
     }
 
-    public void setTaskID(int i) {
-        this.mTaskID = String.valueOf(i);
+    public void setTaskID(int i2) {
+        this.mTaskID = String.valueOf(i2);
     }
 
     public void setTaskID(String str) {

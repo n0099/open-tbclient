@@ -57,12 +57,12 @@ public class NetInfoUtil {
         }
     }
 
-    public static int getNetworkClassByType(int i) {
-        int i2 = -101;
-        if (i != -101) {
-            i2 = -1;
-            if (i != -1) {
-                switch (i) {
+    public static int getNetworkClassByType(int i2) {
+        int i3 = -101;
+        if (i2 != -101) {
+            i3 = -1;
+            if (i2 != -1) {
+                switch (i2) {
                     case 1:
                     case 2:
                     case 4:
@@ -86,30 +86,30 @@ public class NetInfoUtil {
                 }
             }
         }
-        return i2;
+        return i3;
     }
 
     public static String getNetworkType(Context context) {
         TelephonyManager telephonyManager;
-        int i = 0;
+        int i2 = 0;
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
             if (activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.isConnected()) {
                 int type = activeNetworkInfo.getType();
                 if (type == 1) {
-                    i = -101;
+                    i2 = -101;
                 } else if (type == 0 && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
-                    i = telephonyManager.getNetworkType();
+                    i2 = telephonyManager.getNetworkType();
                 }
             } else {
-                i = -1;
+                i2 = -1;
             }
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        int networkClassByType = getNetworkClassByType(i);
-        return networkClassByType != -101 ? (networkClassByType == -1 || networkClassByType == 0) ? RomUtils.UNKNOWN : networkClassByType != 1 ? networkClassByType != 2 ? networkClassByType != 3 ? RomUtils.UNKNOWN : "4G" : g.f3909b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+        int networkClassByType = getNetworkClassByType(i2);
+        return networkClassByType != -101 ? (networkClassByType == -1 || networkClassByType == 0) ? RomUtils.UNKNOWN : networkClassByType != 1 ? networkClassByType != 2 ? networkClassByType != 3 ? RomUtils.UNKNOWN : "4G" : g.f3962b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
     }
 
     public static boolean is2GNetwork(Context context) {

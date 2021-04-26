@@ -28,50 +28,50 @@ public class BDIMManager implements IMManager {
     }
 
     @Override // com.baidu.livesdk.api.im.IMManager
-    public void fetchMsgByMsgId(Context context, int i, long j, long j2, long j3, int i2, int i3, final FetchMsgByIdListener fetchMsgByIdListener) {
-        BIMManager.fetchMsgByMsgid(context, i, j, j2, j3, i2, i3, new IFetchMsgByIdListener() { // from class: com.baidu.livesdk.sdk.im.BDIMManager.4
+    public void fetchMsgByMsgId(Context context, int i2, long j, long j2, long j3, int i3, int i4, final FetchMsgByIdListener fetchMsgByIdListener) {
+        BIMManager.fetchMsgByMsgid(context, i2, j, j2, j3, i3, i4, new IFetchMsgByIdListener() { // from class: com.baidu.livesdk.sdk.im.BDIMManager.4
             @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
-            public void onFetchMsgByIdResult(int i4, String str, String str2, int i5, long j4, long j5, long j6, int i6, int i7, long j7, ArrayList<ChatMsg> arrayList) {
+            public void onFetchMsgByIdResult(int i5, String str, String str2, int i6, long j4, long j5, long j6, int i7, int i8, long j7, ArrayList<ChatMsg> arrayList) {
                 if (fetchMsgByIdListener != null) {
                     ArrayList<Object> arrayList2 = new ArrayList<>();
                     arrayList2.addAll(arrayList);
-                    fetchMsgByIdListener.onFetchMsgByIdResult(i4, str, str2, i5, j4, j5, j6, i6, i7, j7, arrayList2);
+                    fetchMsgByIdListener.onFetchMsgByIdResult(i5, str, str2, i6, j4, j5, j6, i7, i8, j7, arrayList2);
                 }
             }
         });
     }
 
     @Override // com.baidu.livesdk.api.im.IMManager
-    public void fetchMsgRequest(Context context, long j, long j2, int i, long j3, long j4, long j5, int i2, int i3, final FetchMsgByIdListener fetchMsgByIdListener) {
-        BIMManager.fetchMsgRequest(context, j, j2, i, j3, j4, j5, i2, i3, new IFetchMsgByIdListener() { // from class: com.baidu.livesdk.sdk.im.BDIMManager.5
+    public void fetchMsgRequest(Context context, long j, long j2, int i2, long j3, long j4, long j5, int i3, int i4, final FetchMsgByIdListener fetchMsgByIdListener) {
+        BIMManager.fetchMsgRequest(context, j, j2, i2, j3, j4, j5, i3, i4, new IFetchMsgByIdListener() { // from class: com.baidu.livesdk.sdk.im.BDIMManager.5
             @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
-            public void onFetchMsgByIdResult(int i4, String str, String str2, int i5, long j6, long j7, long j8, int i6, int i7, long j9, ArrayList<ChatMsg> arrayList) {
+            public void onFetchMsgByIdResult(int i5, String str, String str2, int i6, long j6, long j7, long j8, int i7, int i8, long j9, ArrayList<ChatMsg> arrayList) {
                 if (fetchMsgByIdListener != null) {
                     ArrayList<Object> arrayList2 = new ArrayList<>();
                     arrayList2.addAll(arrayList);
-                    fetchMsgByIdListener.onFetchMsgByIdResult(i4, str, str2, i5, j6, j7, j8, i6, i7, j9, arrayList2);
+                    fetchMsgByIdListener.onFetchMsgByIdResult(i5, str, str2, i6, j6, j7, j8, i7, i8, j9, arrayList2);
                 }
             }
         });
     }
 
-    public void init(long j, int i, String str) {
-        BIMManager.init(this.mContext, j, i, str);
+    public void init(long j, int i2, String str) {
+        BIMManager.init(this.mContext, j, i2, str);
     }
 
     @Override // com.baidu.livesdk.api.im.IMManager
-    public void login(String str, String str2, int i, String str3, String str4, final LoginListener loginListener) {
-        BIMManager.login(str, str2, i, str3, str4, new ILoginListener() { // from class: com.baidu.livesdk.sdk.im.BDIMManager.1
+    public void login(String str, String str2, int i2, String str3, String str4, final LoginListener loginListener) {
+        BIMManager.login(str, str2, i2, str3, str4, new ILoginListener() { // from class: com.baidu.livesdk.sdk.im.BDIMManager.1
             @Override // com.baidu.android.imsdk.account.ILoginListener
-            public void onLoginResult(int i2, String str5) {
+            public void onLoginResult(int i3, String str5) {
                 LoginListener loginListener2 = loginListener;
                 if (loginListener2 != null) {
-                    loginListener2.onLoginResult(i2, str5);
+                    loginListener2.onLoginResult(i3, str5);
                 }
             }
 
             @Override // com.baidu.android.imsdk.account.ILoginListener
-            public void onLogoutResult(int i2, String str5, int i3) {
+            public void onLogoutResult(int i3, String str5, int i4) {
             }
         });
     }
@@ -80,14 +80,14 @@ public class BDIMManager implements IMManager {
     public void logout(final LogoutListener logoutListener) {
         BIMManager.logout(new ILoginListener() { // from class: com.baidu.livesdk.sdk.im.BDIMManager.2
             @Override // com.baidu.android.imsdk.account.ILoginListener
-            public void onLoginResult(int i, String str) {
+            public void onLoginResult(int i2, String str) {
             }
 
             @Override // com.baidu.android.imsdk.account.ILoginListener
-            public void onLogoutResult(int i, String str, int i2) {
+            public void onLogoutResult(int i2, String str, int i3) {
                 LogoutListener logoutListener2 = logoutListener;
                 if (logoutListener2 != null) {
-                    logoutListener2.onLogoutResult(i, str, i2);
+                    logoutListener2.onLogoutResult(i2, str, i3);
                 }
             }
         });
@@ -102,10 +102,10 @@ public class BDIMManager implements IMManager {
     public void registerConnectListener(final ConnectListener connectListener) {
         BIMManager.registerConnectListener(new IConnectListener() { // from class: com.baidu.livesdk.sdk.im.BDIMManager.3
             @Override // com.baidu.android.imsdk.account.IConnectListener
-            public void onResult(int i) {
+            public void onResult(int i2) {
                 ConnectListener connectListener2 = connectListener;
                 if (connectListener2 != null) {
-                    connectListener2.onResult(i);
+                    connectListener2.onResult(i2);
                 }
             }
         });

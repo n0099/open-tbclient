@@ -9,18 +9,18 @@ import java.io.IOException;
 public class b extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    public final j f37955a;
+    public final j f35506a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.meizu.cloud.pushsdk.b.g.c f37956b;
+    public com.meizu.cloud.pushsdk.b.g.c f35507b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f37957c;
+    public d f35508c;
 
     public b(j jVar, com.meizu.cloud.pushsdk.b.d.a aVar) {
-        this.f37955a = jVar;
+        this.f35506a = jVar;
         if (aVar != null) {
-            this.f37957c = new d(aVar);
+            this.f35508c = new d(aVar);
         }
     }
 
@@ -28,20 +28,20 @@ public class b extends j {
         return new f(lVar) { // from class: com.meizu.cloud.pushsdk.b.e.b.1
 
             /* renamed from: a  reason: collision with root package name */
-            public long f37958a = 0;
+            public long f35509a = 0;
 
             /* renamed from: b  reason: collision with root package name */
-            public long f37959b = 0;
+            public long f35510b = 0;
 
             @Override // com.meizu.cloud.pushsdk.b.g.f, com.meizu.cloud.pushsdk.b.g.l
             public void a(com.meizu.cloud.pushsdk.b.g.b bVar, long j) throws IOException {
                 super.a(bVar, j);
-                if (this.f37959b == 0) {
-                    this.f37959b = b.this.b();
+                if (this.f35510b == 0) {
+                    this.f35510b = b.this.b();
                 }
-                this.f37958a += j;
-                if (b.this.f37957c != null) {
-                    b.this.f37957c.obtainMessage(1, new com.meizu.cloud.pushsdk.b.f.a(this.f37958a, this.f37959b)).sendToTarget();
+                this.f35509a += j;
+                if (b.this.f35508c != null) {
+                    b.this.f35508c.obtainMessage(1, new com.meizu.cloud.pushsdk.b.f.a(this.f35509a, this.f35510b)).sendToTarget();
                 }
             }
         };
@@ -49,20 +49,20 @@ public class b extends j {
 
     @Override // com.meizu.cloud.pushsdk.b.c.j
     public g a() {
-        return this.f37955a.a();
+        return this.f35506a.a();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.c.j
     public void a(com.meizu.cloud.pushsdk.b.g.c cVar) throws IOException {
-        if (this.f37956b == null) {
-            this.f37956b = com.meizu.cloud.pushsdk.b.g.g.a(a((l) cVar));
+        if (this.f35507b == null) {
+            this.f35507b = com.meizu.cloud.pushsdk.b.g.g.a(a((l) cVar));
         }
-        this.f37955a.a(this.f37956b);
-        this.f37956b.flush();
+        this.f35506a.a(this.f35507b);
+        this.f35507b.flush();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.c.j
     public long b() throws IOException {
-        return this.f37955a.b();
+        return this.f35506a.b();
     }
 }

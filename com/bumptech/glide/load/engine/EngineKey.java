@@ -19,11 +19,11 @@ public class EngineKey implements Key {
     public final Map<Class<?>, Transformation<?>> transformations;
     public final int width;
 
-    public EngineKey(Object obj, Key key, int i, int i2, Map<Class<?>, Transformation<?>> map, Class<?> cls, Class<?> cls2, Options options) {
+    public EngineKey(Object obj, Key key, int i2, int i3, Map<Class<?>, Transformation<?>> map, Class<?> cls, Class<?> cls2, Options options) {
         this.model = Preconditions.checkNotNull(obj);
         this.signature = (Key) Preconditions.checkNotNull(key, "Signature must not be null");
-        this.width = i;
-        this.height = i2;
+        this.width = i2;
+        this.height = i3;
         this.transformations = (Map) Preconditions.checkNotNull(map);
         this.resourceClass = (Class) Preconditions.checkNotNull(cls, "Resource class must not be null");
         this.transcodeClass = (Class) Preconditions.checkNotNull(cls2, "Transcode class must not be null");
@@ -46,11 +46,11 @@ public class EngineKey implements Key {
             this.hashCode = hashCode;
             int hashCode2 = (hashCode * 31) + this.signature.hashCode();
             this.hashCode = hashCode2;
-            int i = (hashCode2 * 31) + this.width;
-            this.hashCode = i;
-            int i2 = (i * 31) + this.height;
+            int i2 = (hashCode2 * 31) + this.width;
             this.hashCode = i2;
-            int hashCode3 = (i2 * 31) + this.transformations.hashCode();
+            int i3 = (i2 * 31) + this.height;
+            this.hashCode = i3;
+            int hashCode3 = (i3 * 31) + this.transformations.hashCode();
             this.hashCode = hashCode3;
             int hashCode4 = (hashCode3 * 31) + this.resourceClass.hashCode();
             this.hashCode = hashCode4;

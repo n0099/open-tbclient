@@ -6,9 +6,9 @@ import com.baidu.tbadk.core.util.SvgManager;
 public class SvgPureType extends AbsSvgType {
     public int tintColorId;
 
-    public SvgPureType(int i, int i2) {
-        super(i);
-        this.tintColorId = i2;
+    public SvgPureType(int i2, int i3) {
+        super(i2);
+        this.tintColorId = i3;
     }
 
     @Override // com.baidu.tbadk.core.util.svg.AbsSvgType
@@ -16,8 +16,8 @@ public class SvgPureType extends AbsSvgType {
         return SvgManager.getInstance().getPureDrawable(this.drawableId, this.tintColorId, this.stateType);
     }
 
-    public SvgPureType(int i, SvgManager.SvgResourceStateType svgResourceStateType, int i2) {
-        super(i, svgResourceStateType);
-        this.tintColorId = i2;
+    public SvgPureType(int i2, SvgManager.SvgResourceStateType svgResourceStateType, int i3) {
+        super(i2, svgResourceStateType);
+        this.tintColorId = i3;
     }
 }

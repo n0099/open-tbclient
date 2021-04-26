@@ -37,22 +37,22 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
     }
 
     @Override // com.facebook.imagepipeline.decoder.ProgressiveJpegConfig
-    public int getNextScanNumberToDecode(int i) {
+    public int getNextScanNumberToDecode(int i2) {
         List<Integer> scansToDecode = this.mDynamicValueConfig.getScansToDecode();
         if (scansToDecode == null || scansToDecode.isEmpty()) {
-            return i + 1;
+            return i2 + 1;
         }
-        for (int i2 = 0; i2 < scansToDecode.size(); i2++) {
-            if (scansToDecode.get(i2).intValue() > i) {
-                return scansToDecode.get(i2).intValue();
+        for (int i3 = 0; i3 < scansToDecode.size(); i3++) {
+            if (scansToDecode.get(i3).intValue() > i2) {
+                return scansToDecode.get(i3).intValue();
             }
         }
         return Integer.MAX_VALUE;
     }
 
     @Override // com.facebook.imagepipeline.decoder.ProgressiveJpegConfig
-    public QualityInfo getQualityInfo(int i) {
-        return ImmutableQualityInfo.of(i, i >= this.mDynamicValueConfig.getGoodEnoughScanNumber(), false);
+    public QualityInfo getQualityInfo(int i2) {
+        return ImmutableQualityInfo.of(i2, i2 >= this.mDynamicValueConfig.getGoodEnoughScanNumber(), false);
     }
 
     public SimpleProgressiveJpegConfig(DynamicValueConfig dynamicValueConfig) {

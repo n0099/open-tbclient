@@ -176,22 +176,22 @@ public final class MultiDexExtractor implements Closeable {
         Log.i("MultiDex", "loading existing secondary dex files");
         String str2 = this.sourceApk.getName() + ".classes";
         SharedPreferences multiDexPreferences = getMultiDexPreferences(context);
-        int i = multiDexPreferences.getInt(str + "dex.number", 1);
-        ArrayList arrayList = new ArrayList(i + (-1));
-        int i2 = 2;
-        while (i2 <= i) {
-            ExtractedDex extractedDex = new ExtractedDex(this.dexDir, str2 + i2 + ".zip");
+        int i2 = multiDexPreferences.getInt(str + "dex.number", 1);
+        ArrayList arrayList = new ArrayList(i2 + (-1));
+        int i3 = 2;
+        while (i3 <= i2) {
+            ExtractedDex extractedDex = new ExtractedDex(this.dexDir, str2 + i3 + ".zip");
             if (extractedDex.isFile()) {
                 extractedDex.crc = getZipCrc(extractedDex);
-                long j = multiDexPreferences.getLong(str + KEY_DEX_CRC + i2, -1L);
-                long j2 = multiDexPreferences.getLong(str + KEY_DEX_TIME + i2, -1L);
+                long j = multiDexPreferences.getLong(str + KEY_DEX_CRC + i3, -1L);
+                long j2 = multiDexPreferences.getLong(str + KEY_DEX_TIME + i3, -1L);
                 long lastModified = extractedDex.lastModified();
                 if (j2 == lastModified) {
                     String str3 = str2;
                     SharedPreferences sharedPreferences = multiDexPreferences;
                     if (j == extractedDex.crc) {
                         arrayList.add(extractedDex);
-                        i2++;
+                        i3++;
                         multiDexPreferences = sharedPreferences;
                         str2 = str3;
                     }
@@ -211,15 +211,15 @@ public final class MultiDexExtractor implements Closeable {
         ZipFile zipFile = new ZipFile(this.sourceApk);
         try {
             ZipEntry entry = zipFile.getEntry(DEX_PREFIX + "2.dex");
-            int i = 2;
+            int i2 = 2;
             while (entry != null) {
-                ExtractedDex extractedDex = new ExtractedDex(this.dexDir, str + i + ".zip");
+                ExtractedDex extractedDex = new ExtractedDex(this.dexDir, str + i2 + ".zip");
                 arrayList.add(extractedDex);
                 Log.i("MultiDex", "Extraction is needed for file " + extractedDex);
-                int i2 = 0;
+                int i3 = 0;
                 boolean z2 = false;
-                while (i2 < 3 && !z2) {
-                    int i3 = i2 + 1;
+                while (i3 < 3 && !z2) {
+                    int i4 = i3 + 1;
                     extract(zipFile, entry, extractedDex, str);
                     try {
                         extractedDex.crc = getZipCrc(extractedDex);
@@ -230,7 +230,7 @@ public final class MultiDexExtractor implements Closeable {
                     }
                     StringBuilder sb = new StringBuilder();
                     sb.append("Extraction ");
-                    sb.append(z ? "succeeded" : e.f1994a);
+                    sb.append(z ? "succeeded" : e.f1950a);
                     sb.append(" '");
                     sb.append(extractedDex.getAbsolutePath());
                     sb.append("': length ");
@@ -245,13 +245,13 @@ public final class MultiDexExtractor implements Closeable {
                         }
                     }
                     z2 = z;
-                    i2 = i3;
+                    i3 = i4;
                 }
                 if (z2) {
-                    i++;
-                    entry = zipFile.getEntry(DEX_PREFIX + i + ".dex");
+                    i2++;
+                    entry = zipFile.getEntry(DEX_PREFIX + i2 + ".dex");
                 } else {
-                    throw new IOException("Could not create zip file " + extractedDex.getAbsolutePath() + " for secondary dex (" + i + SmallTailInfo.EMOTION_SUFFIX);
+                    throw new IOException("Could not create zip file " + extractedDex.getAbsolutePath() + " for secondary dex (" + i2 + SmallTailInfo.EMOTION_SUFFIX);
                 }
             }
             try {
@@ -275,11 +275,11 @@ public final class MultiDexExtractor implements Closeable {
         edit.putLong(str + "timestamp", j);
         edit.putLong(str + KEY_CRC, j2);
         edit.putInt(str + "dex.number", list.size() + 1);
-        int i = 2;
+        int i2 = 2;
         for (ExtractedDex extractedDex : list) {
-            edit.putLong(str + KEY_DEX_CRC + i, extractedDex.crc);
-            edit.putLong(str + KEY_DEX_TIME + i, extractedDex.lastModified());
-            i++;
+            edit.putLong(str + KEY_DEX_CRC + i2, extractedDex.crc);
+            edit.putLong(str + KEY_DEX_TIME + i2, extractedDex.lastModified());
+            i2++;
         }
         edit.commit();
     }

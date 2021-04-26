@@ -38,7 +38,7 @@ public enum k {
     
 
     /* renamed from: f  reason: collision with root package name */
-    public int f8817f;
+    public int f9132f;
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     private int c() {
@@ -89,7 +89,7 @@ public enum k {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized ArrayList<i> a(int i, int i2) {
+    public synchronized ArrayList<i> a(int i2, int i3) {
         ArrayList<i> arrayList = new ArrayList<>();
         j jVar = null;
         try {
@@ -100,7 +100,7 @@ public enum k {
                 }
                 return arrayList;
             }
-            arrayList = jVar.a(i, i2);
+            arrayList = jVar.a(i2, i3);
         } catch (Exception e2) {
             bb.c().b(e2);
         }
@@ -112,15 +112,15 @@ public enum k {
 
     @Override // java.lang.Enum
     public String toString() {
-        return String.valueOf(this.f8817f);
+        return String.valueOf(this.f9132f);
     }
 
-    k(int i) {
-        this.f8817f = i;
+    k(int i2) {
+        this.f9132f = i2;
     }
 
-    public synchronized boolean b(int i) {
-        return c() >= i;
+    public synchronized boolean b(int i2) {
+        return c() >= i2;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x001d, code lost:
@@ -156,7 +156,7 @@ public enum k {
     }
 
     public synchronized int a(ArrayList<Long> arrayList) {
-        int i = 0;
+        int i2 = 0;
         if (arrayList != null) {
             if (arrayList.size() != 0) {
                 j jVar = null;
@@ -172,43 +172,43 @@ public enum k {
                     return 0;
                 }
                 int size = arrayList.size();
-                int i2 = 0;
-                while (i < size) {
+                int i3 = 0;
+                while (i2 < size) {
                     try {
-                        if (!jVar.b(arrayList.get(i).longValue())) {
+                        if (!jVar.b(arrayList.get(i2).longValue())) {
                             if (jVar != null) {
                                 jVar.close();
                             }
-                            return i2;
+                            return i3;
                         }
+                        i3++;
                         i2++;
-                        i++;
                     } catch (Exception e3) {
                         e = e3;
-                        i = i2;
+                        i2 = i3;
                         bb.c().b(e);
                         if (jVar != null) {
                             jVar.close();
                         }
-                        i2 = i;
-                        return i2;
+                        i3 = i2;
+                        return i3;
                     }
                 }
                 if (jVar != null) {
                     jVar.close();
                 }
-                return i2;
+                return i3;
             }
         }
         return 0;
     }
 
-    public synchronized List<String> a(int i) {
+    public synchronized List<String> a(int i2) {
         List<String> arrayList;
         arrayList = new ArrayList<>();
         ArrayList<Long> arrayList2 = new ArrayList<>();
         ArrayList<i> arrayList3 = new ArrayList<>();
-        a(arrayList, arrayList2, arrayList3, i, 500);
+        a(arrayList, arrayList2, arrayList3, i2, 500);
         if (arrayList3.size() != 0 && arrayList.size() == 0 && arrayList2.size() == 0) {
             i iVar = arrayList3.get(0);
             long a2 = iVar.a();
@@ -223,16 +223,16 @@ public enum k {
         return arrayList;
     }
 
-    private int a(List<String> list, ArrayList<Long> arrayList, ArrayList<i> arrayList2, int i, int i2) {
+    private int a(List<String> list, ArrayList<Long> arrayList, ArrayList<i> arrayList2, int i2, int i3) {
         int c2 = c();
-        int i3 = 0;
         int i4 = 0;
+        int i5 = 0;
         while (c2 > 0) {
-            if (c2 < i2) {
-                i2 = c2;
+            if (c2 < i3) {
+                i3 = c2;
             }
-            ArrayList<i> a2 = a(i2, i4);
-            if (i4 == 0 && a2.size() != 0) {
+            ArrayList<i> a2 = a(i3, i5);
+            if (i5 == 0 && a2.size() != 0) {
                 arrayList2.add(a2.get(0));
             }
             Iterator<i> it = a2.iterator();
@@ -240,17 +240,17 @@ public enum k {
                 i next = it.next();
                 long a3 = next.a();
                 String b2 = next.b();
-                int length = b2.length() + i3;
-                if (length > i) {
+                int length = b2.length() + i4;
+                if (length > i2) {
                     break;
                 }
                 arrayList.add(Long.valueOf(a3));
                 list.add(b2);
-                i3 = length;
+                i4 = length;
             }
-            c2 -= i2;
-            i4 += i2;
+            c2 -= i3;
+            i5 += i3;
         }
-        return i3;
+        return i4;
     }
 }

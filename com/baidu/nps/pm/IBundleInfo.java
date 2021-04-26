@@ -25,6 +25,10 @@ public interface IBundleInfo {
 
     String getSignature();
 
+    int getSilence();
+
+    int getSilenceUpdate();
+
     long getSize();
 
     int getType();
@@ -32,6 +36,8 @@ public interface IBundleInfo {
     long getUpdateV();
 
     int getVersionCode();
+
+    int getWifiOnly();
 
     boolean isBroken();
 
@@ -45,7 +51,7 @@ public interface IBundleInfo {
 
     boolean needForceUpdate();
 
-    void setAbi(int i);
+    void setAbi(int i2);
 
     void setApkPath(String str);
 
@@ -67,7 +73,7 @@ public interface IBundleInfo {
 
     void setMd5(String str);
 
-    void setMinVersion(int i);
+    void setMinVersion(int i2);
 
     void setName(String str);
 
@@ -79,13 +85,19 @@ public interface IBundleInfo {
 
     void setSignature(String str);
 
+    void setSilence(int i2);
+
+    void setSilenceUpdate(int i2);
+
     void setSize(long j);
 
-    void setType(int i);
+    void setType(int i2);
 
     void setUpdateV(long j);
 
-    void setVersionCode(int i);
+    void setVersionCode(int i2);
 
     void setVisible(boolean z);
+
+    void setWifiOnly(int i2);
 }

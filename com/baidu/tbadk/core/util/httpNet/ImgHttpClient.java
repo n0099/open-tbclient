@@ -14,15 +14,15 @@ import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.tbadk.core.util.ImageLogger;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.c.e.j.a.e;
-import d.b.c.e.j.a.j.c;
-import d.b.c.e.j.a.j.d;
-import d.b.c.e.l.b;
-import d.b.c.e.n.a;
-import d.b.c.e.p.g;
-import d.b.c.e.p.j;
-import d.b.c.e.p.k;
-import d.b.i0.z0.o;
+import d.a.c.e.j.a.e;
+import d.a.c.e.j.a.j.c;
+import d.a.c.e.j.a.j.d;
+import d.a.c.e.l.b;
+import d.a.c.e.n.a;
+import d.a.c.e.p.g;
+import d.a.c.e.p.j;
+import d.a.c.e.p.k;
+import d.a.i0.z0.o;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -214,12 +214,12 @@ public class ImgHttpClient implements b.a {
                 }
                 if (o.d(str)) {
                     String a2 = d.a(str);
-                    c b2 = d.b.c.e.j.a.j.b.a().b(a2);
+                    c b2 = d.a.c.e.j.a.j.b.a().b(a2);
                     this.mHttpDnsResult = b2;
                     if (!k.isEmpty(b2.a())) {
                         this.mHttpRequest = getClientUseDnsIp(str, this.mHttpDnsResult.a(), a2);
                     } else if (this.mUseDnsIp) {
-                        c d2 = d.b.c.e.j.a.j.b.a().d(a2, null);
+                        c d2 = d.a.c.e.j.a.j.b.a().d(a2, null);
                         this.mHttpDnsResult = d2;
                         this.mHttpRequest = getClientUseDnsIp(str, d2.a(), a2);
                     } else {
@@ -284,21 +284,21 @@ public class ImgHttpClient implements b.a {
         if (TextUtils.isEmpty(str) || str.equals(sGinfoForCdn)) {
             return;
         }
-        int i = sGinfoDifferentCount;
-        if ((System.currentTimeMillis() - sGinfoAppStartTime) - ((i / 3) * 1800000) < 0) {
+        int i2 = sGinfoDifferentCount;
+        if ((System.currentTimeMillis() - sGinfoAppStartTime) - ((i2 / 3) * 1800000) < 0) {
             return;
         }
-        sGinfoDifferentCount = i + 1;
+        sGinfoDifferentCount = i2 + 1;
         try {
             char[] charArray = TbadkCoreApplication.getInst().getCuid().toCharArray();
             StringBuilder sb = new StringBuilder();
             sb.append("http://");
             sb.append(str);
-            int i2 = 0;
-            for (int i3 = 0; i3 < charArray.length && i2 < 32; i3++) {
-                if (Character.isLetterOrDigit(charArray[i3])) {
-                    sb.append(charArray[i3]);
-                    i2++;
+            int i3 = 0;
+            for (int i4 = 0; i4 < charArray.length && i3 < 32; i4++) {
+                if (Character.isLetterOrDigit(charArray[i4])) {
+                    sb.append(charArray[i4]);
+                    i3++;
                 }
             }
             sb.append(".tieba.galileo.baiduyundns.com");
@@ -328,7 +328,7 @@ public class ImgHttpClient implements b.a {
                     String string = query.getString(query.getColumnIndex("user"));
                     String string2 = query.getString(query.getColumnIndex("password"));
                     query.close();
-                    String j = d.b.c.e.p.c.j((string + ":" + string2).getBytes());
+                    String j = d.a.c.e.p.c.j((string + ":" + string2).getBytes());
                     StringBuilder sb = new StringBuilder();
                     sb.append("Basic ");
                     sb.append(j);
@@ -339,14 +339,14 @@ public class ImgHttpClient implements b.a {
         }
     }
 
-    @Override // d.b.c.e.l.b.a
+    @Override // d.a.c.e.l.b.a
     public void cancel() {
         cancelNetConnect();
     }
 
     public void cancelNetConnect() {
         this.mIsInterrupte = true;
-        this.netContext.c().f42534a = true;
+        this.netContext.c().f39732a = true;
         closeConnection();
     }
 
@@ -388,37 +388,37 @@ public class ImgHttpClient implements b.a {
         r0 = e;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1259:0x1cf7, code lost:
-        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51106a) goto L268;
+        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48710a) goto L268;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1260:0x1cf9, code lost:
         r3 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1336:0x1ed3, code lost:
-        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51106a) goto L724;
+        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48710a) goto L724;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1337:0x1ed5, code lost:
         r3 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1409:0x2099, code lost:
-        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51106a) goto L652;
+        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48710a) goto L652;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1410:0x209b, code lost:
         r3 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1482:0x225c, code lost:
-        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51106a) goto L798;
+        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48710a) goto L798;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1483:0x225e, code lost:
         r3 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1555:0x241f, code lost:
-        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51106a) goto L581;
+        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48710a) goto L581;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1556:0x2421, code lost:
         r3 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1633:0x2615, code lost:
-        if (r2 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51106a) goto L506;
+        if (r2 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48710a) goto L506;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1634:0x2617, code lost:
         r2 = true;
@@ -430,7 +430,7 @@ public class ImgHttpClient implements b.a {
         r7 = r35;
      */
     /* JADX WARN: Code restructure failed: missing block: B:253:0x0547, code lost:
-        if (r2 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51106a) goto L1372;
+        if (r2 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48710a) goto L1372;
      */
     /* JADX WARN: Code restructure failed: missing block: B:254:0x0549, code lost:
         r2 = true;
@@ -439,10 +439,10 @@ public class ImgHttpClient implements b.a {
         if (r37 != false) goto L204;
      */
     /* JADX WARN: Code restructure failed: missing block: B:767:0x1076, code lost:
-        if (d.b.i0.z0.o.d(r9) == false) goto L204;
+        if (d.a.i0.z0.o.d(r9) == false) goto L204;
      */
     /* JADX WARN: Code restructure failed: missing block: B:769:0x107c, code lost:
-        if (d.b.c.e.p.j.A() == false) goto L204;
+        if (d.a.c.e.p.j.A() == false) goto L204;
      */
     /* JADX WARN: Code restructure failed: missing block: B:770:0x107e, code lost:
         r3 = true;
@@ -463,7 +463,7 @@ public class ImgHttpClient implements b.a {
         if (r3 == null) goto L146;
      */
     /* JADX WARN: Code restructure failed: missing block: B:776:0x1089, code lost:
-        r3.m(r49.netContext.c().f42536c);
+        r3.m(r49.netContext.c().f39734c);
      */
     /* JADX WARN: Code restructure failed: missing block: B:777:0x1094, code lost:
         if (r37 != false) goto L163;
@@ -472,14 +472,14 @@ public class ImgHttpClient implements b.a {
         if (r6 != (r5 - 1)) goto L163;
      */
     /* JADX WARN: Code restructure failed: missing block: B:781:0x109e, code lost:
-        if (d.b.i0.z0.o.d(r9) == false) goto L163;
+        if (d.a.i0.z0.o.d(r9) == false) goto L163;
      */
     /* JADX WARN: Code restructure failed: missing block: B:782:0x10a0, code lost:
         r3 = com.baidu.tbadk.core.util.ImageLogger.getLogItem();
-        r3.b("netException", r8.f42522h);
+        r3.b("netException", r8.f39719h);
         r3.b(r10, r9);
-        r3.c(r46, java.lang.Boolean.valueOf(d.b.c.e.p.j.z()));
-        r3.c(r23, java.lang.Integer.valueOf(d.b.c.e.p.j.I()));
+        r3.c(r46, java.lang.Boolean.valueOf(d.a.c.e.p.j.z()));
+        r3.c(r23, java.lang.Integer.valueOf(d.a.c.e.p.j.I()));
         r3.b(r13, com.baidu.tbadk.core.util.CommonHelper.getIp());
      */
     /* JADX WARN: Code restructure failed: missing block: B:783:0x10d8, code lost:
@@ -498,7 +498,7 @@ public class ImgHttpClient implements b.a {
         r4[0] = r33;
      */
     /* JADX WARN: Code restructure failed: missing block: B:787:0x110a, code lost:
-        if (d.b.c.e.p.j.l() <= r21) goto L161;
+        if (d.a.c.e.p.j.l() <= r21) goto L161;
      */
     /* JADX WARN: Code restructure failed: missing block: B:788:0x110c, code lost:
         r10 = true;
@@ -719,13 +719,13 @@ public class ImgHttpClient implements b.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void getNetDataWithIp(String str, String str2, int i) {
+    public void getNetDataWithIp(String str, String str2, int i2) {
         ?? r3;
         String str3;
-        int i2;
+        int i3;
         byte[] bArr;
         long currentTimeMillis;
-        d.b.c.e.j.a.d dVar;
+        d.a.c.e.j.a.d dVar;
         String f2;
         byte[] bArr2;
         String str4;
@@ -771,24 +771,24 @@ public class ImgHttpClient implements b.a {
         String str23;
         boolean z3;
         boolean z4;
-        int i3;
+        int i4;
         c cVar;
         byte[] bArr13;
         Throwable th2;
         String str24;
         boolean z5;
         boolean z6;
-        int i4;
+        int i5;
         c cVar2;
         byte[] bArr14;
         boolean z7;
         boolean z8;
-        int i5;
+        int i6;
         c cVar3;
         byte[] bArr15;
         boolean z9;
         boolean z10;
-        int i6;
+        int i7;
         c cVar4;
         String str25;
         byte[] bArr16;
@@ -800,7 +800,7 @@ public class ImgHttpClient implements b.a {
         String str28;
         boolean z12;
         byte[] bArr18;
-        int i7;
+        int i8;
         c cVar5;
         String str29;
         String str30;
@@ -818,12 +818,12 @@ public class ImgHttpClient implements b.a {
         c cVar8;
         c cVar9;
         String str33;
-        int i8;
+        int i9;
         String str34;
         String str35;
         boolean z18;
         boolean z19;
-        int i9;
+        int i10;
         c cVar10;
         byte[] bArr19;
         String str36;
@@ -898,7 +898,7 @@ public class ImgHttpClient implements b.a {
         String str77;
         String str78;
         boolean z20;
-        int i10;
+        int i11;
         c cVar13;
         Object obj14;
         Object obj15;
@@ -930,7 +930,7 @@ public class ImgHttpClient implements b.a {
         String str92;
         String str93;
         InputStream inputStream2;
-        int i11;
+        int i12;
         String str94;
         c cVar15;
         String str95;
@@ -966,28 +966,28 @@ public class ImgHttpClient implements b.a {
         } else {
             r3 = 0;
         }
-        if (i <= 0) {
+        if (i2 <= 0) {
             str3 = "dnsMessage";
-            i2 = 5;
+            i3 = 5;
         } else {
             str3 = "dnsMessage";
-            i2 = i;
+            i3 = i2;
         }
         long currentTimeMillis3 = System.currentTimeMillis();
         String str111 = "requestUrl";
         String str112 = "currentActivity";
-        int i12 = 0;
+        int i13 = 0;
         byte[] bArr43 = 0;
         boolean z22 = false;
         String str113 = r3;
         String str114 = str104;
         while (true) {
-            if (this.mIsInterrupte || i12 >= i2) {
+            if (this.mIsInterrupte || i13 >= i3) {
                 break;
             }
-            this.currentLoadImageCount = i12;
+            this.currentLoadImageCount = i13;
             currentTimeMillis = System.currentTimeMillis();
-            dVar = new d.b.c.e.j.a.d();
+            dVar = new d.a.c.e.j.a.d();
             String str115 = str102;
             this.netContext.e(dVar);
             dVar.j = -1;
@@ -1179,10 +1179,10 @@ public class ImgHttpClient implements b.a {
                         str30 = str47;
                         str29 = str10;
                         try {
-                            this.netContext.c().f42536c = -10;
+                            this.netContext.c().f39734c = -10;
                             StringBuilder sb = new StringBuilder();
                             sb.append(str110);
-                            sb.append(String.valueOf(this.netContext.c().f42536c));
+                            sb.append(String.valueOf(this.netContext.c().f39734c));
                             String str124 = str109;
                             sb.append(str124);
                             str19 = str105;
@@ -1190,16 +1190,16 @@ public class ImgHttpClient implements b.a {
                                 sb.append(th.getClass());
                                 sb.append(str124);
                                 sb.append(th.getMessage());
-                                dVar.f42522h = sb.toString();
+                                dVar.f39719h = sb.toString();
                                 if (z) {
                                 }
                                 this.mUseDnsIp = z13;
                                 if (z13) {
-                                    cVar7.m(this.netContext.c().f42536c);
+                                    cVar7.m(this.netContext.c().f39734c);
                                 }
                                 if (!z) {
                                     a logItem = ImageLogger.getLogItem();
-                                    logItem.b("netException", dVar.f42522h);
+                                    logItem.b("netException", dVar.f39719h);
                                     logItem.b(str29, f2);
                                     logItem.c(str4, Boolean.valueOf(j.z()));
                                     logItem.c(str111, Integer.valueOf(j.I()));
@@ -1224,7 +1224,7 @@ public class ImgHttpClient implements b.a {
                                 if (str != null) {
                                 }
                                 H3 = j.H();
-                                if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                     long currentTimeMillis4 = System.currentTimeMillis() - currentTimeMillis;
                                     z14 = H3 ? false : false;
                                     z15 = z14;
@@ -1232,7 +1232,7 @@ public class ImgHttpClient implements b.a {
                                 }
                                 byte[] bArr44 = bArr4;
                                 this.mWapRetryConnt = 0;
-                                this.netContext.c().f42541h = bArr44;
+                                this.netContext.c().f39739h = bArr44;
                             } catch (Throwable th5) {
                                 th2 = th5;
                                 str24 = str30;
@@ -1308,8 +1308,8 @@ public class ImgHttpClient implements b.a {
                         try {
                             str35 = str34;
                             try {
-                                this.netContext.c().f42536c = -19;
-                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                this.netContext.c().f39734c = -19;
+                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                 if (z22) {
                                 }
                                 this.mUseDnsIp = z18;
@@ -1327,7 +1327,7 @@ public class ImgHttpClient implements b.a {
                                 if (str != null) {
                                 }
                                 H = j.H();
-                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                 }
                                 str22 = str18;
                                 str23 = str21;
@@ -1339,8 +1339,8 @@ public class ImgHttpClient implements b.a {
                                 str109 = str6;
                                 str28 = str8;
                                 str3 = str3;
-                                i8 = 1;
-                                i12 += i8;
+                                i9 = 1;
+                                i13 += i9;
                                 str101 = str;
                                 str108 = str25;
                                 str113 = str3;
@@ -1430,8 +1430,8 @@ public class ImgHttpClient implements b.a {
                         bArr16 = obj5;
                         str25 = str51;
                         try {
-                            this.netContext.c().f42536c = -12;
-                            dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                            this.netContext.c().f39734c = -12;
+                            dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                             if (z22) {
                             }
                             this.mUseDnsIp = z11;
@@ -1449,15 +1449,15 @@ public class ImgHttpClient implements b.a {
                             if (str != null) {
                             }
                             H2 = j.H();
-                            if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                            if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                             }
                             bArr17 = bArr16;
                             str28 = str8;
                             str110 = str15;
                             bArr18 = bArr17;
                             str3 = str3;
-                            i8 = 1;
-                            i12 += i8;
+                            i9 = 1;
+                            i13 += i9;
                             str101 = str;
                             str108 = str25;
                             str113 = str3;
@@ -1486,11 +1486,11 @@ public class ImgHttpClient implements b.a {
                             }
                             this.mUseDnsIp = z16;
                             if (z16) {
-                                cVar9.m(this.netContext.c().f42536c);
+                                cVar9.m(this.netContext.c().f39734c);
                             }
                             if (!z) {
                                 a logItem2 = ImageLogger.getLogItem();
-                                logItem2.b("netException", dVar.f42522h);
+                                logItem2.b("netException", dVar.f39719h);
                                 logItem2.b(str32, f2);
                                 logItem2.c(str4, Boolean.valueOf(j.z()));
                                 logItem2.c(str111, Integer.valueOf(j.I()));
@@ -1538,8 +1538,8 @@ public class ImgHttpClient implements b.a {
                         str106 = str105;
                         bArr15 = obj4;
                         str10 = str50;
-                        this.netContext.c().f42536c = -13;
-                        dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                        this.netContext.c().f39734c = -13;
+                        dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                         if (z22) {
                         }
                         this.mUseDnsIp = z9;
@@ -1557,7 +1557,7 @@ public class ImgHttpClient implements b.a {
                         if (str != null) {
                         }
                         H = j.H();
-                        if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                        if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                         }
                         str22 = str18;
                         str23 = str21;
@@ -1569,8 +1569,8 @@ public class ImgHttpClient implements b.a {
                         str109 = str6;
                         str28 = str8;
                         str3 = str3;
-                        i8 = 1;
-                        i12 += i8;
+                        i9 = 1;
+                        i13 += i9;
                         str101 = str;
                         str108 = str25;
                         str113 = str3;
@@ -1601,8 +1601,8 @@ public class ImgHttpClient implements b.a {
                         str106 = str105;
                         bArr14 = obj2;
                         str10 = str49;
-                        this.netContext.c().f42536c = -20;
-                        dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                        this.netContext.c().f39734c = -20;
+                        dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                         this.mDownToHttp = true;
                         if (z22) {
                         }
@@ -1621,7 +1621,7 @@ public class ImgHttpClient implements b.a {
                         if (str != null) {
                         }
                         H = j.H();
-                        if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                        if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                         }
                         str22 = str18;
                         str23 = str21;
@@ -1633,8 +1633,8 @@ public class ImgHttpClient implements b.a {
                         str109 = str6;
                         str28 = str8;
                         str3 = str3;
-                        i8 = 1;
-                        i12 += i8;
+                        i9 = 1;
+                        i13 += i9;
                         str101 = str;
                         str108 = str25;
                         str113 = str3;
@@ -1665,8 +1665,8 @@ public class ImgHttpClient implements b.a {
                         str106 = str105;
                         bArr13 = obj3;
                         try {
-                            this.netContext.c().f42536c = -19;
-                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                            this.netContext.c().f39734c = -19;
+                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                             if (z22) {
                             }
                             this.mUseDnsIp = z5;
@@ -1684,7 +1684,7 @@ public class ImgHttpClient implements b.a {
                             if (str != null) {
                             }
                             H = j.H();
-                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                             }
                             str22 = str18;
                             str23 = str21;
@@ -1696,8 +1696,8 @@ public class ImgHttpClient implements b.a {
                             str109 = str6;
                             str28 = str8;
                             str3 = str3;
-                            i8 = 1;
-                            i12 += i8;
+                            i9 = 1;
+                            i13 += i9;
                             str101 = str;
                             str108 = str25;
                             str113 = str3;
@@ -1723,11 +1723,11 @@ public class ImgHttpClient implements b.a {
                             z16 = z && o.d(f2) && j.A();
                             this.mUseDnsIp = z16;
                             if (z16 && (cVar9 = this.mHttpDnsResult) != null) {
-                                cVar9.m(this.netContext.c().f42536c);
+                                cVar9.m(this.netContext.c().f39734c);
                             }
-                            if (!z && i12 == i2 - 1 && o.d(f2)) {
+                            if (!z && i13 == i3 - 1 && o.d(f2)) {
                                 a logItem22 = ImageLogger.getLogItem();
-                                logItem22.b("netException", dVar.f42522h);
+                                logItem22.b("netException", dVar.f39719h);
                                 logItem22.b(str32, f2);
                                 logItem22.c(str4, Boolean.valueOf(j.z()));
                                 logItem22.c(str111, Integer.valueOf(j.I()));
@@ -1758,18 +1758,18 @@ public class ImgHttpClient implements b.a {
                             if ((str != null || str.length() == 0) && f2 != null) {
                                 H4 = j.H();
                                 if (!H4 && dVar.k == null && !z) {
-                                    if (i12 < i2 - 1) {
+                                    if (i13 < i3 - 1) {
                                         z17 = false;
                                         if (z17 && o.a(f2) && str3 != null) {
                                             long currentTimeMillis5 = System.currentTimeMillis() - currentTimeMillis;
-                                            ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z, H4 ? !(!j.t() ? currentTimeMillis5 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51107b) : currentTimeMillis5 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51108c)) : currentTimeMillis5 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51106a), H4);
+                                            ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z, H4 ? !(!j.t() ? currentTimeMillis5 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48711b) : currentTimeMillis5 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48712c)) : currentTimeMillis5 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48710a), H4);
                                         }
                                     }
                                 }
                                 z17 = true;
                                 if (z17) {
                                     long currentTimeMillis52 = System.currentTimeMillis() - currentTimeMillis;
-                                    ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z, H4 ? !(!j.t() ? currentTimeMillis52 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51107b) : currentTimeMillis52 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51108c)) : currentTimeMillis52 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51106a), H4);
+                                    ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z, H4 ? !(!j.t() ? currentTimeMillis52 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48711b) : currentTimeMillis52 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48712c)) : currentTimeMillis52 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48710a), H4);
                                 }
                             }
                             throw th2;
@@ -1790,8 +1790,8 @@ public class ImgHttpClient implements b.a {
                         str106 = str105;
                         bArr11 = obj;
                         str10 = str48;
-                        this.netContext.c().f42536c = -18;
-                        dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                        this.netContext.c().f39734c = -18;
+                        dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                         if (z22) {
                         }
                         this.mUseDnsIp = z2;
@@ -1809,7 +1809,7 @@ public class ImgHttpClient implements b.a {
                         if (str != null) {
                         }
                         H = j.H();
-                        if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                        if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                         }
                         str22 = str18;
                         str23 = str21;
@@ -1821,8 +1821,8 @@ public class ImgHttpClient implements b.a {
                         str109 = str6;
                         str28 = str8;
                         str3 = str3;
-                        i8 = 1;
-                        i12 += i8;
+                        i9 = 1;
+                        i13 += i9;
                         str101 = str;
                         str108 = str25;
                         str113 = str3;
@@ -1843,11 +1843,11 @@ public class ImgHttpClient implements b.a {
                             boolean z23 = !z22 && o.d(f2) && j.A();
                             this.mUseDnsIp = z23;
                             if (z23 && (cVar11 = this.mHttpDnsResult) != null) {
-                                cVar11.m(this.netContext.c().f42536c);
+                                cVar11.m(this.netContext.c().f39734c);
                             }
-                            if (!z22 && i12 == i2 - 1 && o.d(f2)) {
+                            if (!z22 && i13 == i3 - 1 && o.d(f2)) {
                                 a logItem3 = ImageLogger.getLogItem();
-                                logItem3.b("netException", dVar.f42522h);
+                                logItem3.b("netException", dVar.f39719h);
                                 logItem3.b(str108, f2);
                                 logItem3.c(str107, Boolean.valueOf(j.z()));
                                 logItem3.c(str106, Integer.valueOf(j.I()));
@@ -1871,9 +1871,9 @@ public class ImgHttpClient implements b.a {
                             this.netContext.f(dVar);
                             if ((str101 == null || str.length() == 0) && f2 != null) {
                                 boolean H5 = j.H();
-                                if ((!H5 || dVar.k != null || z22 || i12 >= i2 - 1) && o.a(f2) && str113 != null) {
+                                if ((!H5 || dVar.k != null || z22 || i13 >= i3 - 1) && o.a(f2) && str113 != null) {
                                     long currentTimeMillis6 = System.currentTimeMillis() - currentTimeMillis;
-                                    ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H5 ? !j.t() ? currentTimeMillis6 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51107b) : currentTimeMillis6 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51108c) : currentTimeMillis6 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51106a), H5);
+                                    ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H5 ? !j.t() ? currentTimeMillis6 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48711b) : currentTimeMillis6 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48712c) : currentTimeMillis6 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48710a), H5);
                                 }
                             }
                         } else {
@@ -1946,8 +1946,8 @@ public class ImgHttpClient implements b.a {
                                 str10 = str16;
                                 bArr2 = bArr3;
                                 str35 = str34;
-                                this.netContext.c().f42536c = -19;
-                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                this.netContext.c().f39734c = -19;
+                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                 if (z22) {
                                 }
                                 this.mUseDnsIp = z18;
@@ -1965,7 +1965,7 @@ public class ImgHttpClient implements b.a {
                                 if (str != null) {
                                 }
                                 H = j.H();
-                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                 }
                                 str22 = str18;
                                 str23 = str21;
@@ -1977,8 +1977,8 @@ public class ImgHttpClient implements b.a {
                                 str109 = str6;
                                 str28 = str8;
                                 str3 = str3;
-                                i8 = 1;
-                                i12 += i8;
+                                i9 = 1;
+                                i13 += i9;
                                 str101 = str;
                                 str108 = str25;
                                 str113 = str3;
@@ -2059,8 +2059,8 @@ public class ImgHttpClient implements b.a {
                                 inputStream = null;
                                 bArr16 = bArr9;
                                 str25 = str13;
-                                this.netContext.c().f42536c = -12;
-                                dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                this.netContext.c().f39734c = -12;
+                                dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                 if (z22) {
                                 }
                                 this.mUseDnsIp = z11;
@@ -2078,15 +2078,15 @@ public class ImgHttpClient implements b.a {
                                 if (str != null) {
                                 }
                                 H2 = j.H();
-                                if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                 }
                                 bArr17 = bArr16;
                                 str28 = str8;
                                 str110 = str15;
                                 bArr18 = bArr17;
                                 str3 = str3;
-                                i8 = 1;
-                                i12 += i8;
+                                i9 = 1;
+                                i13 += i9;
                                 str101 = str;
                                 str108 = str25;
                                 str113 = str3;
@@ -2127,8 +2127,8 @@ public class ImgHttpClient implements b.a {
                                 inputStream = null;
                                 bArr15 = bArr8;
                                 str10 = str12;
-                                this.netContext.c().f42536c = -13;
-                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                this.netContext.c().f39734c = -13;
+                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                 if (z22) {
                                 }
                                 this.mUseDnsIp = z9;
@@ -2146,7 +2146,7 @@ public class ImgHttpClient implements b.a {
                                 if (str != null) {
                                 }
                                 H = j.H();
-                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                 }
                                 str22 = str18;
                                 str23 = str21;
@@ -2158,8 +2158,8 @@ public class ImgHttpClient implements b.a {
                                 str109 = str6;
                                 str28 = str8;
                                 str3 = str3;
-                                i8 = 1;
-                                i12 += i8;
+                                i9 = 1;
+                                i13 += i9;
                                 str101 = str;
                                 str108 = str25;
                                 str113 = str3;
@@ -2200,8 +2200,8 @@ public class ImgHttpClient implements b.a {
                                 inputStream = null;
                                 bArr14 = bArr7;
                                 str10 = str11;
-                                this.netContext.c().f42536c = -20;
-                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                this.netContext.c().f39734c = -20;
+                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                 this.mDownToHttp = true;
                                 if (z22) {
                                 }
@@ -2220,7 +2220,7 @@ public class ImgHttpClient implements b.a {
                                 if (str != null) {
                                 }
                                 H = j.H();
-                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                 }
                                 str22 = str18;
                                 str23 = str21;
@@ -2232,8 +2232,8 @@ public class ImgHttpClient implements b.a {
                                 str109 = str6;
                                 str28 = str8;
                                 str3 = str3;
-                                i8 = 1;
-                                i12 += i8;
+                                i9 = 1;
+                                i13 += i9;
                                 str101 = str;
                                 str108 = str25;
                                 str113 = str3;
@@ -2272,8 +2272,8 @@ public class ImgHttpClient implements b.a {
                                 bArr2 = bArr20;
                                 inputStream = null;
                                 bArr13 = bArr6;
-                                this.netContext.c().f42536c = -19;
-                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                this.netContext.c().f39734c = -19;
+                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                 if (z22) {
                                 }
                                 this.mUseDnsIp = z5;
@@ -2291,7 +2291,7 @@ public class ImgHttpClient implements b.a {
                                 if (str != null) {
                                 }
                                 H = j.H();
-                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                 }
                                 str22 = str18;
                                 str23 = str21;
@@ -2303,8 +2303,8 @@ public class ImgHttpClient implements b.a {
                                 str109 = str6;
                                 str28 = str8;
                                 str3 = str3;
-                                i8 = 1;
-                                i12 += i8;
+                                i9 = 1;
+                                i13 += i9;
                                 str101 = str;
                                 str108 = str25;
                                 str113 = str3;
@@ -2351,8 +2351,8 @@ public class ImgHttpClient implements b.a {
                                 inputStream = null;
                                 bArr11 = bArr5;
                                 str10 = str5;
-                                this.netContext.c().f42536c = -18;
-                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                this.netContext.c().f39734c = -18;
+                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                 if (z22) {
                                 }
                                 this.mUseDnsIp = z2;
@@ -2370,7 +2370,7 @@ public class ImgHttpClient implements b.a {
                                 if (str != null) {
                                 }
                                 H = j.H();
-                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                 }
                                 str22 = str18;
                                 str23 = str21;
@@ -2382,8 +2382,8 @@ public class ImgHttpClient implements b.a {
                                 str109 = str6;
                                 str28 = str8;
                                 str3 = str3;
-                                i8 = 1;
-                                i12 += i8;
+                                i9 = 1;
+                                i13 += i9;
                                 str101 = str;
                                 str108 = str25;
                                 str113 = str3;
@@ -2409,8 +2409,8 @@ public class ImgHttpClient implements b.a {
                                 if (execute.getStatusLine() != null) {
                                     str9 = str126;
                                     try {
-                                        this.netContext.c().f42535b = execute.getStatusLine().getStatusCode();
-                                        dVar.i = this.netContext.c().f42535b;
+                                        this.netContext.c().f39733b = execute.getStatusLine().getStatusCode();
+                                        dVar.f39720i = this.netContext.c().f39733b;
                                     } catch (IllegalStateException e38) {
                                         e = e38;
                                         bArr2 = bArr43;
@@ -2437,8 +2437,8 @@ public class ImgHttpClient implements b.a {
                                         str10 = str16;
                                         bArr2 = bArr3;
                                         str35 = str34;
-                                        this.netContext.c().f42536c = -19;
-                                        dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                        this.netContext.c().f39734c = -19;
+                                        dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                         if (z22) {
                                         }
                                         this.mUseDnsIp = z18;
@@ -2456,7 +2456,7 @@ public class ImgHttpClient implements b.a {
                                         if (str != null) {
                                         }
                                         H = j.H();
-                                        if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                        if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                         }
                                         str22 = str18;
                                         str23 = str21;
@@ -2468,8 +2468,8 @@ public class ImgHttpClient implements b.a {
                                         str109 = str6;
                                         str28 = str8;
                                         str3 = str3;
-                                        i8 = 1;
-                                        i12 += i8;
+                                        i9 = 1;
+                                        i13 += i9;
                                         str101 = str;
                                         str108 = str25;
                                         str113 = str3;
@@ -2501,8 +2501,8 @@ public class ImgHttpClient implements b.a {
                                         inputStream = null;
                                         bArr16 = bArr9;
                                         str25 = str13;
-                                        this.netContext.c().f42536c = -12;
-                                        dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                        this.netContext.c().f39734c = -12;
+                                        dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                         if (z22) {
                                         }
                                         this.mUseDnsIp = z11;
@@ -2520,15 +2520,15 @@ public class ImgHttpClient implements b.a {
                                         if (str != null) {
                                         }
                                         H2 = j.H();
-                                        if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                        if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                         }
                                         bArr17 = bArr16;
                                         str28 = str8;
                                         str110 = str15;
                                         bArr18 = bArr17;
                                         str3 = str3;
-                                        i8 = 1;
-                                        i12 += i8;
+                                        i9 = 1;
+                                        i13 += i9;
                                         str101 = str;
                                         str108 = str25;
                                         str113 = str3;
@@ -2560,8 +2560,8 @@ public class ImgHttpClient implements b.a {
                                         inputStream = null;
                                         bArr15 = bArr8;
                                         str10 = str12;
-                                        this.netContext.c().f42536c = -13;
-                                        dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                        this.netContext.c().f39734c = -13;
+                                        dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                         if (z22) {
                                         }
                                         this.mUseDnsIp = z9;
@@ -2579,7 +2579,7 @@ public class ImgHttpClient implements b.a {
                                         if (str != null) {
                                         }
                                         H = j.H();
-                                        if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                        if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                         }
                                         str22 = str18;
                                         str23 = str21;
@@ -2591,8 +2591,8 @@ public class ImgHttpClient implements b.a {
                                         str109 = str6;
                                         str28 = str8;
                                         str3 = str3;
-                                        i8 = 1;
-                                        i12 += i8;
+                                        i9 = 1;
+                                        i13 += i9;
                                         str101 = str;
                                         str108 = str25;
                                         str113 = str3;
@@ -2624,8 +2624,8 @@ public class ImgHttpClient implements b.a {
                                         inputStream = null;
                                         bArr14 = bArr7;
                                         str10 = str11;
-                                        this.netContext.c().f42536c = -20;
-                                        dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                        this.netContext.c().f39734c = -20;
+                                        dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                         this.mDownToHttp = true;
                                         if (z22) {
                                         }
@@ -2644,7 +2644,7 @@ public class ImgHttpClient implements b.a {
                                         if (str != null) {
                                         }
                                         H = j.H();
-                                        if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                        if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                         }
                                         str22 = str18;
                                         str23 = str21;
@@ -2656,8 +2656,8 @@ public class ImgHttpClient implements b.a {
                                         str109 = str6;
                                         str28 = str8;
                                         str3 = str3;
-                                        i8 = 1;
-                                        i12 += i8;
+                                        i9 = 1;
+                                        i13 += i9;
                                         str101 = str;
                                         str108 = str25;
                                         str113 = str3;
@@ -2688,8 +2688,8 @@ public class ImgHttpClient implements b.a {
                                         str3 = str3;
                                         inputStream = null;
                                         bArr13 = bArr6;
-                                        this.netContext.c().f42536c = -19;
-                                        dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                        this.netContext.c().f39734c = -19;
+                                        dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                         if (z22) {
                                         }
                                         this.mUseDnsIp = z5;
@@ -2707,7 +2707,7 @@ public class ImgHttpClient implements b.a {
                                         if (str != null) {
                                         }
                                         H = j.H();
-                                        if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                        if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                         }
                                         str22 = str18;
                                         str23 = str21;
@@ -2719,8 +2719,8 @@ public class ImgHttpClient implements b.a {
                                         str109 = str6;
                                         str28 = str8;
                                         str3 = str3;
-                                        i8 = 1;
-                                        i12 += i8;
+                                        i9 = 1;
+                                        i13 += i9;
                                         str101 = str;
                                         str108 = str25;
                                         str113 = str3;
@@ -2752,8 +2752,8 @@ public class ImgHttpClient implements b.a {
                                         inputStream = null;
                                         bArr11 = bArr5;
                                         str10 = str5;
-                                        this.netContext.c().f42536c = -18;
-                                        dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                        this.netContext.c().f39734c = -18;
+                                        dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                         if (z22) {
                                         }
                                         this.mUseDnsIp = z2;
@@ -2771,7 +2771,7 @@ public class ImgHttpClient implements b.a {
                                         if (str != null) {
                                         }
                                         H = j.H();
-                                        if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                        if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                         }
                                         str22 = str18;
                                         str23 = str21;
@@ -2783,8 +2783,8 @@ public class ImgHttpClient implements b.a {
                                         str109 = str6;
                                         str28 = str8;
                                         str3 = str3;
-                                        i8 = 1;
-                                        i12 += i8;
+                                        i9 = 1;
+                                        i13 += i9;
                                         str101 = str;
                                         str108 = str25;
                                         str113 = str3;
@@ -2815,17 +2815,17 @@ public class ImgHttpClient implements b.a {
                                         inputStream = null;
                                         str30 = bArr43;
                                         str29 = str20;
-                                        this.netContext.c().f42536c = -10;
+                                        this.netContext.c().f39734c = -10;
                                         StringBuilder sb2 = new StringBuilder();
                                         sb2.append(str110);
-                                        sb2.append(String.valueOf(this.netContext.c().f42536c));
+                                        sb2.append(String.valueOf(this.netContext.c().f39734c));
                                         String str1242 = str109;
                                         sb2.append(str1242);
                                         str19 = str105;
                                         sb2.append(th.getClass());
                                         sb2.append(str1242);
                                         sb2.append(th.getMessage());
-                                        dVar.f42522h = sb2.toString();
+                                        dVar.f39719h = sb2.toString();
                                         if (z) {
                                         }
                                         this.mUseDnsIp = z13;
@@ -2840,11 +2840,11 @@ public class ImgHttpClient implements b.a {
                                         if (str != null) {
                                         }
                                         H3 = j.H();
-                                        if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                        if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                         }
                                         byte[] bArr442 = bArr4;
                                         this.mWapRetryConnt = 0;
-                                        this.netContext.c().f42541h = bArr442;
+                                        this.netContext.c().f39739h = bArr442;
                                     }
                                     if (execute.getEntity() != null) {
                                         HttpEntity entity = execute.getEntity();
@@ -2964,8 +2964,8 @@ public class ImgHttpClient implements b.a {
                                                 str10 = str54;
                                                 bArr2 = bArr2;
                                                 str35 = str34;
-                                                this.netContext.c().f42536c = -19;
-                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                this.netContext.c().f39734c = -19;
+                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                 if (z22) {
                                                 }
                                                 this.mUseDnsIp = z18;
@@ -2983,7 +2983,7 @@ public class ImgHttpClient implements b.a {
                                                 if (str != null) {
                                                 }
                                                 H = j.H();
-                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                 }
                                                 str22 = str18;
                                                 str23 = str21;
@@ -2995,8 +2995,8 @@ public class ImgHttpClient implements b.a {
                                                 str109 = str6;
                                                 str28 = str8;
                                                 str3 = str3;
-                                                i8 = 1;
-                                                i12 += i8;
+                                                i9 = 1;
+                                                i13 += i9;
                                                 str101 = str;
                                                 str108 = str25;
                                                 str113 = str3;
@@ -3027,8 +3027,8 @@ public class ImgHttpClient implements b.a {
                                                 str106 = str105;
                                                 bArr16 = obj5;
                                                 str25 = str51;
-                                                this.netContext.c().f42536c = -12;
-                                                dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                                this.netContext.c().f39734c = -12;
+                                                dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                                 if (z22) {
                                                 }
                                                 this.mUseDnsIp = z11;
@@ -3046,15 +3046,15 @@ public class ImgHttpClient implements b.a {
                                                 if (str != null) {
                                                 }
                                                 H2 = j.H();
-                                                if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                 }
                                                 bArr17 = bArr16;
                                                 str28 = str8;
                                                 str110 = str15;
                                                 bArr18 = bArr17;
                                                 str3 = str3;
-                                                i8 = 1;
-                                                i12 += i8;
+                                                i9 = 1;
+                                                i13 += i9;
                                                 str101 = str;
                                                 str108 = str25;
                                                 str113 = str3;
@@ -3086,8 +3086,8 @@ public class ImgHttpClient implements b.a {
                                                 str106 = str105;
                                                 bArr15 = obj4;
                                                 str10 = str50;
-                                                this.netContext.c().f42536c = -13;
-                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                                this.netContext.c().f39734c = -13;
+                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                                 if (z22) {
                                                 }
                                                 this.mUseDnsIp = z9;
@@ -3105,7 +3105,7 @@ public class ImgHttpClient implements b.a {
                                                 if (str != null) {
                                                 }
                                                 H = j.H();
-                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                 }
                                                 str22 = str18;
                                                 str23 = str21;
@@ -3117,8 +3117,8 @@ public class ImgHttpClient implements b.a {
                                                 str109 = str6;
                                                 str28 = str8;
                                                 str3 = str3;
-                                                i8 = 1;
-                                                i12 += i8;
+                                                i9 = 1;
+                                                i13 += i9;
                                                 str101 = str;
                                                 str108 = str25;
                                                 str113 = str3;
@@ -3150,8 +3150,8 @@ public class ImgHttpClient implements b.a {
                                                 str106 = str105;
                                                 bArr14 = obj2;
                                                 str10 = str49;
-                                                this.netContext.c().f42536c = -20;
-                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                                this.netContext.c().f39734c = -20;
+                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                 this.mDownToHttp = true;
                                                 if (z22) {
                                                 }
@@ -3170,7 +3170,7 @@ public class ImgHttpClient implements b.a {
                                                 if (str != null) {
                                                 }
                                                 H = j.H();
-                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                 }
                                                 str22 = str18;
                                                 str23 = str21;
@@ -3182,8 +3182,8 @@ public class ImgHttpClient implements b.a {
                                                 str109 = str6;
                                                 str28 = str8;
                                                 str3 = str3;
-                                                i8 = 1;
-                                                i12 += i8;
+                                                i9 = 1;
+                                                i13 += i9;
                                                 str101 = str;
                                                 str108 = str25;
                                                 str113 = str3;
@@ -3213,8 +3213,8 @@ public class ImgHttpClient implements b.a {
                                                 str3 = str3;
                                                 str106 = str105;
                                                 bArr13 = obj3;
-                                                this.netContext.c().f42536c = -19;
-                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                                this.netContext.c().f39734c = -19;
+                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                                 if (z22) {
                                                 }
                                                 this.mUseDnsIp = z5;
@@ -3232,7 +3232,7 @@ public class ImgHttpClient implements b.a {
                                                 if (str != null) {
                                                 }
                                                 H = j.H();
-                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                 }
                                                 str22 = str18;
                                                 str23 = str21;
@@ -3244,8 +3244,8 @@ public class ImgHttpClient implements b.a {
                                                 str109 = str6;
                                                 str28 = str8;
                                                 str3 = str3;
-                                                i8 = 1;
-                                                i12 += i8;
+                                                i9 = 1;
+                                                i13 += i9;
                                                 str101 = str;
                                                 str108 = str25;
                                                 str113 = str3;
@@ -3276,8 +3276,8 @@ public class ImgHttpClient implements b.a {
                                                 str106 = str105;
                                                 bArr11 = obj;
                                                 str10 = str48;
-                                                this.netContext.c().f42536c = -18;
-                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                                this.netContext.c().f39734c = -18;
+                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                                 if (z22) {
                                                 }
                                                 this.mUseDnsIp = z2;
@@ -3295,7 +3295,7 @@ public class ImgHttpClient implements b.a {
                                                 if (str != null) {
                                                 }
                                                 H = j.H();
-                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                 }
                                                 str22 = str18;
                                                 str23 = str21;
@@ -3307,8 +3307,8 @@ public class ImgHttpClient implements b.a {
                                                 str109 = str6;
                                                 str28 = str8;
                                                 str3 = str3;
-                                                i8 = 1;
-                                                i12 += i8;
+                                                i9 = 1;
+                                                i13 += i9;
                                                 str101 = str;
                                                 str108 = str25;
                                                 str113 = str3;
@@ -3339,17 +3339,17 @@ public class ImgHttpClient implements b.a {
                                                 str111 = str147;
                                                 bArr4 = obj7;
                                                 str29 = str66;
-                                                this.netContext.c().f42536c = -10;
+                                                this.netContext.c().f39734c = -10;
                                                 StringBuilder sb22 = new StringBuilder();
                                                 sb22.append(str110);
-                                                sb22.append(String.valueOf(this.netContext.c().f42536c));
+                                                sb22.append(String.valueOf(this.netContext.c().f39734c));
                                                 String str12422 = str109;
                                                 sb22.append(str12422);
                                                 str19 = str105;
                                                 sb22.append(th.getClass());
                                                 sb22.append(str12422);
                                                 sb22.append(th.getMessage());
-                                                dVar.f42522h = sb22.toString();
+                                                dVar.f39719h = sb22.toString();
                                                 if (z) {
                                                 }
                                                 this.mUseDnsIp = z13;
@@ -3364,11 +3364,11 @@ public class ImgHttpClient implements b.a {
                                                 if (str != null) {
                                                 }
                                                 H3 = j.H();
-                                                if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                                if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                                 }
                                                 byte[] bArr4422 = bArr4;
                                                 this.mWapRetryConnt = 0;
-                                                this.netContext.c().f42541h = bArr4422;
+                                                this.netContext.c().f39739h = bArr4422;
                                             }
                                             if (headers != null) {
                                                 org.apache.http.HttpResponse httpResponse = execute;
@@ -3382,7 +3382,7 @@ public class ImgHttpClient implements b.a {
                                                     if (entity.getContentType() != null) {
                                                         try {
                                                             obj13 = entity.getContentType().toString();
-                                                            this.netContext.c().f42538e = obj13;
+                                                            this.netContext.c().f39736e = obj13;
                                                         } catch (IllegalStateException e56) {
                                                             bArr25 = bArr43;
                                                             str4 = str107;
@@ -3401,8 +3401,8 @@ public class ImgHttpClient implements b.a {
                                                             str10 = str54;
                                                             bArr2 = bArr2;
                                                             str35 = str34;
-                                                            this.netContext.c().f42536c = -19;
-                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                            this.netContext.c().f39734c = -19;
+                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                             if (z22) {
                                                             }
                                                             this.mUseDnsIp = z18;
@@ -3420,7 +3420,7 @@ public class ImgHttpClient implements b.a {
                                                             if (str != null) {
                                                             }
                                                             H = j.H();
-                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                             }
                                                             str22 = str18;
                                                             str23 = str21;
@@ -3432,8 +3432,8 @@ public class ImgHttpClient implements b.a {
                                                             str109 = str6;
                                                             str28 = str8;
                                                             str3 = str3;
-                                                            i8 = 1;
-                                                            i12 += i8;
+                                                            i9 = 1;
+                                                            i13 += i9;
                                                             str101 = str;
                                                             str108 = str25;
                                                             str113 = str3;
@@ -3463,8 +3463,8 @@ public class ImgHttpClient implements b.a {
                                                             str106 = str105;
                                                             bArr16 = obj5;
                                                             str25 = str51;
-                                                            this.netContext.c().f42536c = -12;
-                                                            dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                                            this.netContext.c().f39734c = -12;
+                                                            dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                                             if (z22) {
                                                             }
                                                             this.mUseDnsIp = z11;
@@ -3482,15 +3482,15 @@ public class ImgHttpClient implements b.a {
                                                             if (str != null) {
                                                             }
                                                             H2 = j.H();
-                                                            if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                            if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                             }
                                                             bArr17 = bArr16;
                                                             str28 = str8;
                                                             str110 = str15;
                                                             bArr18 = bArr17;
                                                             str3 = str3;
-                                                            i8 = 1;
-                                                            i12 += i8;
+                                                            i9 = 1;
+                                                            i13 += i9;
                                                             str101 = str;
                                                             str108 = str25;
                                                             str113 = str3;
@@ -3520,8 +3520,8 @@ public class ImgHttpClient implements b.a {
                                                             str106 = str105;
                                                             bArr15 = obj4;
                                                             str10 = str50;
-                                                            this.netContext.c().f42536c = -13;
-                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                                            this.netContext.c().f39734c = -13;
+                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                                             if (z22) {
                                                             }
                                                             this.mUseDnsIp = z9;
@@ -3539,7 +3539,7 @@ public class ImgHttpClient implements b.a {
                                                             if (str != null) {
                                                             }
                                                             H = j.H();
-                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                             }
                                                             str22 = str18;
                                                             str23 = str21;
@@ -3551,8 +3551,8 @@ public class ImgHttpClient implements b.a {
                                                             str109 = str6;
                                                             str28 = str8;
                                                             str3 = str3;
-                                                            i8 = 1;
-                                                            i12 += i8;
+                                                            i9 = 1;
+                                                            i13 += i9;
                                                             str101 = str;
                                                             str108 = str25;
                                                             str113 = str3;
@@ -3582,8 +3582,8 @@ public class ImgHttpClient implements b.a {
                                                             str106 = str105;
                                                             bArr14 = obj2;
                                                             str10 = str49;
-                                                            this.netContext.c().f42536c = -20;
-                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                                            this.netContext.c().f39734c = -20;
+                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                             this.mDownToHttp = true;
                                                             if (z22) {
                                                             }
@@ -3602,7 +3602,7 @@ public class ImgHttpClient implements b.a {
                                                             if (str != null) {
                                                             }
                                                             H = j.H();
-                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                             }
                                                             str22 = str18;
                                                             str23 = str21;
@@ -3614,8 +3614,8 @@ public class ImgHttpClient implements b.a {
                                                             str109 = str6;
                                                             str28 = str8;
                                                             str3 = str3;
-                                                            i8 = 1;
-                                                            i12 += i8;
+                                                            i9 = 1;
+                                                            i13 += i9;
                                                             str101 = str;
                                                             str108 = str25;
                                                             str113 = str3;
@@ -3644,8 +3644,8 @@ public class ImgHttpClient implements b.a {
                                                             str3 = str3;
                                                             str106 = str105;
                                                             bArr13 = obj3;
-                                                            this.netContext.c().f42536c = -19;
-                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                                            this.netContext.c().f39734c = -19;
+                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                                             if (z22) {
                                                             }
                                                             this.mUseDnsIp = z5;
@@ -3663,7 +3663,7 @@ public class ImgHttpClient implements b.a {
                                                             if (str != null) {
                                                             }
                                                             H = j.H();
-                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                             }
                                                             str22 = str18;
                                                             str23 = str21;
@@ -3675,8 +3675,8 @@ public class ImgHttpClient implements b.a {
                                                             str109 = str6;
                                                             str28 = str8;
                                                             str3 = str3;
-                                                            i8 = 1;
-                                                            i12 += i8;
+                                                            i9 = 1;
+                                                            i13 += i9;
                                                             str101 = str;
                                                             str108 = str25;
                                                             str113 = str3;
@@ -3706,8 +3706,8 @@ public class ImgHttpClient implements b.a {
                                                             str106 = str105;
                                                             bArr11 = obj;
                                                             str10 = str48;
-                                                            this.netContext.c().f42536c = -18;
-                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                                            this.netContext.c().f39734c = -18;
+                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                                             if (z22) {
                                                             }
                                                             this.mUseDnsIp = z2;
@@ -3725,7 +3725,7 @@ public class ImgHttpClient implements b.a {
                                                             if (str != null) {
                                                             }
                                                             H = j.H();
-                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                             }
                                                             str22 = str18;
                                                             str23 = str21;
@@ -3737,8 +3737,8 @@ public class ImgHttpClient implements b.a {
                                                             str109 = str6;
                                                             str28 = str8;
                                                             str3 = str3;
-                                                            i8 = 1;
-                                                            i12 += i8;
+                                                            i9 = 1;
+                                                            i13 += i9;
                                                             str101 = str;
                                                             str108 = str25;
                                                             str113 = str3;
@@ -3793,8 +3793,8 @@ public class ImgHttpClient implements b.a {
                                                                 str10 = str54;
                                                                 bArr2 = bArr2;
                                                                 str35 = str34;
-                                                                this.netContext.c().f42536c = -19;
-                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                                this.netContext.c().f39734c = -19;
+                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                                 if (z22) {
                                                                 }
                                                                 this.mUseDnsIp = z18;
@@ -3812,7 +3812,7 @@ public class ImgHttpClient implements b.a {
                                                                 if (str != null) {
                                                                 }
                                                                 H = j.H();
-                                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                 }
                                                                 str22 = str18;
                                                                 str23 = str21;
@@ -3824,8 +3824,8 @@ public class ImgHttpClient implements b.a {
                                                                 str109 = str6;
                                                                 str28 = str8;
                                                                 str3 = str3;
-                                                                i8 = 1;
-                                                                i12 += i8;
+                                                                i9 = 1;
+                                                                i13 += i9;
                                                                 str101 = str;
                                                                 str108 = str25;
                                                                 str113 = str3;
@@ -3866,17 +3866,17 @@ public class ImgHttpClient implements b.a {
                                                                 str111 = str1472;
                                                                 bArr4 = obj7;
                                                                 str29 = str66;
-                                                                this.netContext.c().f42536c = -10;
+                                                                this.netContext.c().f39734c = -10;
                                                                 StringBuilder sb222 = new StringBuilder();
                                                                 sb222.append(str110);
-                                                                sb222.append(String.valueOf(this.netContext.c().f42536c));
+                                                                sb222.append(String.valueOf(this.netContext.c().f39734c));
                                                                 String str124222 = str109;
                                                                 sb222.append(str124222);
                                                                 str19 = str105;
                                                                 sb222.append(th.getClass());
                                                                 sb222.append(str124222);
                                                                 sb222.append(th.getMessage());
-                                                                dVar.f42522h = sb222.toString();
+                                                                dVar.f39719h = sb222.toString();
                                                                 if (z) {
                                                                 }
                                                                 this.mUseDnsIp = z13;
@@ -3891,38 +3891,38 @@ public class ImgHttpClient implements b.a {
                                                                 if (str != null) {
                                                                 }
                                                                 H3 = j.H();
-                                                                if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                                                if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                                                 }
                                                                 byte[] bArr44222 = bArr4;
                                                                 this.mWapRetryConnt = 0;
-                                                                this.netContext.c().f42541h = bArr44222;
+                                                                this.netContext.c().f39739h = bArr44222;
                                                             }
                                                             if (this.mWapRetryConnt < 1) {
                                                                 try {
                                                                     closeConnection();
                                                                     this.mWapRetryConnt++;
-                                                                    this.netContext.c().f42535b = 0;
-                                                                    i12--;
+                                                                    this.netContext.c().f39733b = 0;
+                                                                    i13--;
                                                                     boolean z24 = !z22 && o.d(f2) && j.A();
                                                                     this.mUseDnsIp = z24;
                                                                     if (z24 && (cVar13 = this.mHttpDnsResult) != null) {
-                                                                        cVar13.m(this.netContext.c().f42536c);
+                                                                        cVar13.m(this.netContext.c().f39734c);
                                                                     }
-                                                                    if (!z22 && i12 == i2 - 1 && o.d(f2)) {
+                                                                    if (!z22 && i13 == i3 - 1 && o.d(f2)) {
                                                                         a logItem4 = ImageLogger.getLogItem();
-                                                                        logItem4.b("netException", dVar.f42522h);
+                                                                        logItem4.b("netException", dVar.f39719h);
                                                                         logItem4.b(str108, f2);
                                                                         logItem4.c(str107, Boolean.valueOf(j.z()));
                                                                         logItem4.c(str106, Integer.valueOf(j.I()));
                                                                         logItem4.b(str105, CommonHelper.getIp());
                                                                         if (bArr43 != 0) {
-                                                                            i10 = bArr43.length;
+                                                                            i11 = bArr43.length;
                                                                             bArr29 = bArr43;
                                                                         } else {
                                                                             bArr29 = bArr43;
-                                                                            i10 = 0;
+                                                                            i11 = 0;
                                                                         }
-                                                                        logItem4.c(str117, Integer.valueOf(i10));
+                                                                        logItem4.c(str117, Integer.valueOf(i11));
                                                                         logItem4.c(str116, Long.valueOf(System.currentTimeMillis() - currentTimeMillis3));
                                                                         Object[] objArr4 = new Object[2];
                                                                         objArr4[0] = str115;
@@ -3969,8 +3969,8 @@ public class ImgHttpClient implements b.a {
                                                                     str106 = str105;
                                                                     bArr16 = obj5;
                                                                     str25 = str51;
-                                                                    this.netContext.c().f42536c = -12;
-                                                                    dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                                                    this.netContext.c().f39734c = -12;
+                                                                    dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                                                     if (z22) {
                                                                     }
                                                                     this.mUseDnsIp = z11;
@@ -3988,15 +3988,15 @@ public class ImgHttpClient implements b.a {
                                                                     if (str != null) {
                                                                     }
                                                                     H2 = j.H();
-                                                                    if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                    if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                     }
                                                                     bArr17 = bArr16;
                                                                     str28 = str8;
                                                                     str110 = str15;
                                                                     bArr18 = bArr17;
                                                                     str3 = str3;
-                                                                    i8 = 1;
-                                                                    i12 += i8;
+                                                                    i9 = 1;
+                                                                    i13 += i9;
                                                                     str101 = str;
                                                                     str108 = str25;
                                                                     str113 = str3;
@@ -4028,8 +4028,8 @@ public class ImgHttpClient implements b.a {
                                                                     str106 = str105;
                                                                     bArr15 = obj4;
                                                                     str10 = str50;
-                                                                    this.netContext.c().f42536c = -13;
-                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                                                    this.netContext.c().f39734c = -13;
+                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                                                     if (z22) {
                                                                     }
                                                                     this.mUseDnsIp = z9;
@@ -4047,7 +4047,7 @@ public class ImgHttpClient implements b.a {
                                                                     if (str != null) {
                                                                     }
                                                                     H = j.H();
-                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                     }
                                                                     str22 = str18;
                                                                     str23 = str21;
@@ -4059,8 +4059,8 @@ public class ImgHttpClient implements b.a {
                                                                     str109 = str6;
                                                                     str28 = str8;
                                                                     str3 = str3;
-                                                                    i8 = 1;
-                                                                    i12 += i8;
+                                                                    i9 = 1;
+                                                                    i13 += i9;
                                                                     str101 = str;
                                                                     str108 = str25;
                                                                     str113 = str3;
@@ -4092,8 +4092,8 @@ public class ImgHttpClient implements b.a {
                                                                     str106 = str105;
                                                                     bArr14 = obj2;
                                                                     str10 = str49;
-                                                                    this.netContext.c().f42536c = -20;
-                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                                                    this.netContext.c().f39734c = -20;
+                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                                     this.mDownToHttp = true;
                                                                     if (z22) {
                                                                     }
@@ -4112,7 +4112,7 @@ public class ImgHttpClient implements b.a {
                                                                     if (str != null) {
                                                                     }
                                                                     H = j.H();
-                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                     }
                                                                     str22 = str18;
                                                                     str23 = str21;
@@ -4124,8 +4124,8 @@ public class ImgHttpClient implements b.a {
                                                                     str109 = str6;
                                                                     str28 = str8;
                                                                     str3 = str3;
-                                                                    i8 = 1;
-                                                                    i12 += i8;
+                                                                    i9 = 1;
+                                                                    i13 += i9;
                                                                     str101 = str;
                                                                     str108 = str25;
                                                                     str113 = str3;
@@ -4155,8 +4155,8 @@ public class ImgHttpClient implements b.a {
                                                                     str3 = str3;
                                                                     str106 = str105;
                                                                     bArr13 = obj3;
-                                                                    this.netContext.c().f42536c = -19;
-                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                                                    this.netContext.c().f39734c = -19;
+                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                                                     if (z22) {
                                                                     }
                                                                     this.mUseDnsIp = z5;
@@ -4174,7 +4174,7 @@ public class ImgHttpClient implements b.a {
                                                                     if (str != null) {
                                                                     }
                                                                     H = j.H();
-                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                     }
                                                                     str22 = str18;
                                                                     str23 = str21;
@@ -4186,8 +4186,8 @@ public class ImgHttpClient implements b.a {
                                                                     str109 = str6;
                                                                     str28 = str8;
                                                                     str3 = str3;
-                                                                    i8 = 1;
-                                                                    i12 += i8;
+                                                                    i9 = 1;
+                                                                    i13 += i9;
                                                                     str101 = str;
                                                                     str108 = str25;
                                                                     str113 = str3;
@@ -4226,8 +4226,8 @@ public class ImgHttpClient implements b.a {
                                                                     str10 = str54;
                                                                     bArr2 = bArr2;
                                                                     str35 = str34;
-                                                                    this.netContext.c().f42536c = -19;
-                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                                    this.netContext.c().f39734c = -19;
+                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                                     if (z22) {
                                                                     }
                                                                     this.mUseDnsIp = z18;
@@ -4245,7 +4245,7 @@ public class ImgHttpClient implements b.a {
                                                                     if (str != null) {
                                                                     }
                                                                     H = j.H();
-                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                     }
                                                                     str22 = str18;
                                                                     str23 = str21;
@@ -4257,8 +4257,8 @@ public class ImgHttpClient implements b.a {
                                                                     str109 = str6;
                                                                     str28 = str8;
                                                                     str3 = str3;
-                                                                    i8 = 1;
-                                                                    i12 += i8;
+                                                                    i9 = 1;
+                                                                    i13 += i9;
                                                                     str101 = str;
                                                                     str108 = str25;
                                                                     str113 = str3;
@@ -4289,8 +4289,8 @@ public class ImgHttpClient implements b.a {
                                                                     str106 = str105;
                                                                     bArr11 = obj;
                                                                     str10 = str48;
-                                                                    this.netContext.c().f42536c = -18;
-                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                                                    this.netContext.c().f39734c = -18;
+                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                                                     if (z22) {
                                                                     }
                                                                     this.mUseDnsIp = z2;
@@ -4308,7 +4308,7 @@ public class ImgHttpClient implements b.a {
                                                                     if (str != null) {
                                                                     }
                                                                     H = j.H();
-                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                     }
                                                                     str22 = str18;
                                                                     str23 = str21;
@@ -4320,8 +4320,8 @@ public class ImgHttpClient implements b.a {
                                                                     str109 = str6;
                                                                     str28 = str8;
                                                                     str3 = str3;
-                                                                    i8 = 1;
-                                                                    i12 += i8;
+                                                                    i9 = 1;
+                                                                    i13 += i9;
                                                                     str101 = str;
                                                                     str108 = str25;
                                                                     str113 = str3;
@@ -4351,17 +4351,17 @@ public class ImgHttpClient implements b.a {
                                                                     str111 = str14722;
                                                                     bArr4 = obj7;
                                                                     str29 = str66;
-                                                                    this.netContext.c().f42536c = -10;
+                                                                    this.netContext.c().f39734c = -10;
                                                                     StringBuilder sb2222 = new StringBuilder();
                                                                     sb2222.append(str110);
-                                                                    sb2222.append(String.valueOf(this.netContext.c().f42536c));
+                                                                    sb2222.append(String.valueOf(this.netContext.c().f39734c));
                                                                     String str1242222 = str109;
                                                                     sb2222.append(str1242222);
                                                                     str19 = str105;
                                                                     sb2222.append(th.getClass());
                                                                     sb2222.append(str1242222);
                                                                     sb2222.append(th.getMessage());
-                                                                    dVar.f42522h = sb2222.toString();
+                                                                    dVar.f39719h = sb2222.toString();
                                                                     if (z) {
                                                                     }
                                                                     this.mUseDnsIp = z13;
@@ -4376,15 +4376,15 @@ public class ImgHttpClient implements b.a {
                                                                     if (str != null) {
                                                                     }
                                                                     H3 = j.H();
-                                                                    if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                                                    if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                                                     }
                                                                     byte[] bArr442222 = bArr4;
                                                                     this.mWapRetryConnt = 0;
-                                                                    this.netContext.c().f42541h = bArr442222;
+                                                                    this.netContext.c().f39739h = bArr442222;
                                                                 }
                                                                 if ((str == null || str.length() == 0) && f2 != null) {
                                                                     boolean H6 = j.H();
-                                                                    if ((!H6 || dVar.k != null || z22 || i12 >= i2 + (-1)) && o.a(f2) && str3 != null) {
+                                                                    if ((!H6 || dVar.k != null || z22 || i13 >= i3 + (-1)) && o.a(f2) && str3 != null) {
                                                                         long currentTimeMillis7 = System.currentTimeMillis() - currentTimeMillis;
                                                                         if (H6) {
                                                                             str78 = str76;
@@ -4398,11 +4398,11 @@ public class ImgHttpClient implements b.a {
                                                                         str25 = str108;
                                                                         str28 = str78;
                                                                         bArr18 = bArr29;
-                                                                        i8 = 1;
+                                                                        i9 = 1;
                                                                         str111 = str106;
                                                                         str106 = str105;
                                                                         str27 = str9;
-                                                                        i12 += i8;
+                                                                        i13 += i9;
                                                                         str101 = str;
                                                                         str108 = str25;
                                                                         str113 = str3;
@@ -4425,11 +4425,11 @@ public class ImgHttpClient implements b.a {
                                                                 str25 = str108;
                                                                 str28 = str78;
                                                                 bArr18 = bArr29;
-                                                                i8 = 1;
+                                                                i9 = 1;
                                                                 str111 = str106;
                                                                 str106 = str105;
                                                                 str27 = str9;
-                                                                i12 += i8;
+                                                                i13 += i9;
                                                                 str101 = str;
                                                                 str108 = str25;
                                                                 str113 = str3;
@@ -4449,11 +4449,11 @@ public class ImgHttpClient implements b.a {
                                                                 boolean z25 = !z22 && o.d(f2) && j.A();
                                                                 this.mUseDnsIp = z25;
                                                                 if (z25 && (cVar12 = this.mHttpDnsResult) != null) {
-                                                                    cVar12.m(this.netContext.c().f42536c);
+                                                                    cVar12.m(this.netContext.c().f39734c);
                                                                 }
-                                                                if (!z22 && i12 == i2 - 1 && o.d(f2)) {
+                                                                if (!z22 && i13 == i3 - 1 && o.d(f2)) {
                                                                     a logItem5 = ImageLogger.getLogItem();
-                                                                    logItem5.b("netException", dVar.f42522h);
+                                                                    logItem5.b("netException", dVar.f39719h);
                                                                     logItem5.b(str108, f2);
                                                                     logItem5.c(str107, Boolean.valueOf(j.z()));
                                                                     logItem5.c(str106, Integer.valueOf(j.I()));
@@ -4486,9 +4486,9 @@ public class ImgHttpClient implements b.a {
                                                                 this.netContext.f(dVar);
                                                                 if ((str == null || str.length() == 0) && f2 != null) {
                                                                     boolean H7 = j.H();
-                                                                    if ((!H7 || dVar.k != null || z22 || i12 >= i2 - 1) && o.a(f2) && str3 != null) {
+                                                                    if ((!H7 || dVar.k != null || z22 || i13 >= i3 - 1) && o.a(f2) && str3 != null) {
                                                                         long currentTimeMillis8 = System.currentTimeMillis() - currentTimeMillis;
-                                                                        ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H7 ? !j.t() ? currentTimeMillis8 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51107b) : currentTimeMillis8 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51108c) : currentTimeMillis8 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51106a), H7);
+                                                                        ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H7 ? !j.t() ? currentTimeMillis8 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48711b) : currentTimeMillis8 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48712c) : currentTimeMillis8 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48710a), H7);
                                                                     }
                                                                 }
                                                                 bArr = bArr28;
@@ -4500,16 +4500,16 @@ public class ImgHttpClient implements b.a {
                                                     try {
                                                         if (((int) entity.getContentLength()) > MAX_DATA_LENG) {
                                                             try {
-                                                                this.netContext.c().f42536c = -11;
-                                                                dVar.f42522h = this.mContext.getResources().getString(R.string.data_too_big);
+                                                                this.netContext.c().f39734c = -11;
+                                                                dVar.f39719h = this.mContext.getResources().getString(R.string.data_too_big);
                                                                 boolean z26 = !z22 && o.d(f2) && j.A();
                                                                 this.mUseDnsIp = z26;
                                                                 if (z26 && (cVar14 = this.mHttpDnsResult) != null) {
-                                                                    cVar14.m(this.netContext.c().f42536c);
+                                                                    cVar14.m(this.netContext.c().f39734c);
                                                                 }
-                                                                if (!z22 && i12 == i2 - 1 && o.d(f2)) {
+                                                                if (!z22 && i13 == i3 - 1 && o.d(f2)) {
                                                                     a logItem6 = ImageLogger.getLogItem();
-                                                                    logItem6.b("netException", dVar.f42522h);
+                                                                    logItem6.b("netException", dVar.f39719h);
                                                                     logItem6.b(str108, f2);
                                                                     logItem6.c(str107, Boolean.valueOf(j.z()));
                                                                     logItem6.c(str106, Integer.valueOf(j.I()));
@@ -4539,9 +4539,9 @@ public class ImgHttpClient implements b.a {
                                                                 this.netContext.f(dVar);
                                                                 if ((str == null || str.length() == 0) && f2 != null) {
                                                                     boolean H8 = j.H();
-                                                                    if ((!H8 || dVar.k != null || z22 || i12 >= i2 - 1) && o.a(f2) && str3 != null) {
+                                                                    if ((!H8 || dVar.k != null || z22 || i13 >= i3 - 1) && o.a(f2) && str3 != null) {
                                                                         long currentTimeMillis9 = System.currentTimeMillis() - currentTimeMillis;
-                                                                        ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H8 ? !j.t() ? currentTimeMillis9 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51107b) : currentTimeMillis9 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51108c) : currentTimeMillis9 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51106a), H8);
+                                                                        ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H8 ? !j.t() ? currentTimeMillis9 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48711b) : currentTimeMillis9 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48712c) : currentTimeMillis9 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48710a), H8);
                                                                         return;
                                                                     }
                                                                     return;
@@ -4564,8 +4564,8 @@ public class ImgHttpClient implements b.a {
                                                                 str106 = str105;
                                                                 bArr16 = obj5;
                                                                 str25 = str51;
-                                                                this.netContext.c().f42536c = -12;
-                                                                dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                                                this.netContext.c().f39734c = -12;
+                                                                dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                                                 if (z22) {
                                                                 }
                                                                 this.mUseDnsIp = z11;
@@ -4583,15 +4583,15 @@ public class ImgHttpClient implements b.a {
                                                                 if (str != null) {
                                                                 }
                                                                 H2 = j.H();
-                                                                if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                 }
                                                                 bArr17 = bArr16;
                                                                 str28 = str8;
                                                                 str110 = str15;
                                                                 bArr18 = bArr17;
                                                                 str3 = str3;
-                                                                i8 = 1;
-                                                                i12 += i8;
+                                                                i9 = 1;
+                                                                i13 += i9;
                                                                 str101 = str;
                                                                 str108 = str25;
                                                                 str113 = str3;
@@ -4622,8 +4622,8 @@ public class ImgHttpClient implements b.a {
                                                                 str3 = str3;
                                                                 str106 = str105;
                                                                 bArr13 = obj3;
-                                                                this.netContext.c().f42536c = -19;
-                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                                                this.netContext.c().f39734c = -19;
+                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                                                 if (z22) {
                                                                 }
                                                                 this.mUseDnsIp = z5;
@@ -4641,7 +4641,7 @@ public class ImgHttpClient implements b.a {
                                                                 if (str != null) {
                                                                 }
                                                                 H = j.H();
-                                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                 }
                                                                 str22 = str18;
                                                                 str23 = str21;
@@ -4653,8 +4653,8 @@ public class ImgHttpClient implements b.a {
                                                                 str109 = str6;
                                                                 str28 = str8;
                                                                 str3 = str3;
-                                                                i8 = 1;
-                                                                i12 += i8;
+                                                                i9 = 1;
+                                                                i13 += i9;
                                                                 str101 = str;
                                                                 str108 = str25;
                                                                 str113 = str3;
@@ -4686,8 +4686,8 @@ public class ImgHttpClient implements b.a {
                                                                 str10 = str54;
                                                                 bArr2 = bArr2;
                                                                 str35 = str34;
-                                                                this.netContext.c().f42536c = -19;
-                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                                this.netContext.c().f39734c = -19;
+                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                                 if (z22) {
                                                                 }
                                                                 this.mUseDnsIp = z18;
@@ -4705,7 +4705,7 @@ public class ImgHttpClient implements b.a {
                                                                 if (str != null) {
                                                                 }
                                                                 H = j.H();
-                                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                 }
                                                                 str22 = str18;
                                                                 str23 = str21;
@@ -4717,8 +4717,8 @@ public class ImgHttpClient implements b.a {
                                                                 str109 = str6;
                                                                 str28 = str8;
                                                                 str3 = str3;
-                                                                i8 = 1;
-                                                                i12 += i8;
+                                                                i9 = 1;
+                                                                i13 += i9;
                                                                 str101 = str;
                                                                 str108 = str25;
                                                                 str113 = str3;
@@ -4750,8 +4750,8 @@ public class ImgHttpClient implements b.a {
                                                                 str106 = str105;
                                                                 bArr15 = obj4;
                                                                 str10 = str50;
-                                                                this.netContext.c().f42536c = -13;
-                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                                                this.netContext.c().f39734c = -13;
+                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                                                 if (z22) {
                                                                 }
                                                                 this.mUseDnsIp = z9;
@@ -4769,7 +4769,7 @@ public class ImgHttpClient implements b.a {
                                                                 if (str != null) {
                                                                 }
                                                                 H = j.H();
-                                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                 }
                                                                 str22 = str18;
                                                                 str23 = str21;
@@ -4781,8 +4781,8 @@ public class ImgHttpClient implements b.a {
                                                                 str109 = str6;
                                                                 str28 = str8;
                                                                 str3 = str3;
-                                                                i8 = 1;
-                                                                i12 += i8;
+                                                                i9 = 1;
+                                                                i13 += i9;
                                                                 str101 = str;
                                                                 str108 = str25;
                                                                 str113 = str3;
@@ -4814,8 +4814,8 @@ public class ImgHttpClient implements b.a {
                                                                 str106 = str105;
                                                                 bArr14 = obj2;
                                                                 str10 = str49;
-                                                                this.netContext.c().f42536c = -20;
-                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                                                this.netContext.c().f39734c = -20;
+                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                                 this.mDownToHttp = true;
                                                                 if (z22) {
                                                                 }
@@ -4834,7 +4834,7 @@ public class ImgHttpClient implements b.a {
                                                                 if (str != null) {
                                                                 }
                                                                 H = j.H();
-                                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                 }
                                                                 str22 = str18;
                                                                 str23 = str21;
@@ -4846,8 +4846,8 @@ public class ImgHttpClient implements b.a {
                                                                 str109 = str6;
                                                                 str28 = str8;
                                                                 str3 = str3;
-                                                                i8 = 1;
-                                                                i12 += i8;
+                                                                i9 = 1;
+                                                                i13 += i9;
                                                                 str101 = str;
                                                                 str108 = str25;
                                                                 str113 = str3;
@@ -4879,8 +4879,8 @@ public class ImgHttpClient implements b.a {
                                                                 str106 = str105;
                                                                 bArr11 = obj;
                                                                 str10 = str48;
-                                                                this.netContext.c().f42536c = -18;
-                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                                                this.netContext.c().f39734c = -18;
+                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                                                 if (z22) {
                                                                 }
                                                                 this.mUseDnsIp = z2;
@@ -4898,7 +4898,7 @@ public class ImgHttpClient implements b.a {
                                                                 if (str != null) {
                                                                 }
                                                                 H = j.H();
-                                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                 }
                                                                 str22 = str18;
                                                                 str23 = str21;
@@ -4910,8 +4910,8 @@ public class ImgHttpClient implements b.a {
                                                                 str109 = str6;
                                                                 str28 = str8;
                                                                 str3 = str3;
-                                                                i8 = 1;
-                                                                i12 += i8;
+                                                                i9 = 1;
+                                                                i13 += i9;
                                                                 str101 = str;
                                                                 str108 = str25;
                                                                 str113 = str3;
@@ -5011,7 +5011,7 @@ public class ImgHttpClient implements b.a {
                                                                                                 try {
                                                                                                     if (!new String(bArr42, 0, 23).equalsIgnoreCase(WebClient.IMAGESECRET)) {
                                                                                                         byteArrayOutputStream.write(bArr42, 0, read2);
-                                                                                                        i11 = read2 + 0;
+                                                                                                        i12 = read2 + 0;
                                                                                                         if (r7.getFirstHeader("Src-Content-Type") != null) {
                                                                                                             if ("image/gif".equalsIgnoreCase(r7.getFirstHeader("Src-Content-Type").getValue())) {
                                                                                                                 this.mIsGif = true;
@@ -5019,20 +5019,20 @@ public class ImgHttpClient implements b.a {
                                                                                                                 this.mIsGif = false;
                                                                                                             }
                                                                                                         }
-                                                                                                        while (!this.mIsInterrupte && i11 < MAX_DATA_LENG && (read = inputStream2.read(bArr49)) != -1) {
+                                                                                                        while (!this.mIsInterrupte && i12 < MAX_DATA_LENG && (read = inputStream2.read(bArr49)) != -1) {
                                                                                                             byteArrayOutputStream.write(bArr49, 0, read);
-                                                                                                            i11 += read;
+                                                                                                            i12 += read;
                                                                                                         }
                                                                                                         dVar.j = -9;
                                                                                                         if (this.mIsInterrupte) {
                                                                                                             boolean z27 = !z22 && o.d(f2) && j.A();
                                                                                                             this.mUseDnsIp = z27;
                                                                                                             if (z27 && (cVar15 = this.mHttpDnsResult) != null) {
-                                                                                                                cVar15.m(this.netContext.c().f42536c);
+                                                                                                                cVar15.m(this.netContext.c().f39734c);
                                                                                                             }
-                                                                                                            if (!z22 && i12 == i2 - 1 && o.d(f2)) {
+                                                                                                            if (!z22 && i13 == i3 - 1 && o.d(f2)) {
                                                                                                                 a logItem7 = ImageLogger.getLogItem();
-                                                                                                                logItem7.b("netException", dVar.f42522h);
+                                                                                                                logItem7.b("netException", dVar.f39719h);
                                                                                                                 logItem7.b(str93, f2);
                                                                                                                 logItem7.c(str4, Boolean.valueOf(j.z()));
                                                                                                                 logItem7.c(str111, Integer.valueOf(j.I()));
@@ -5066,9 +5066,9 @@ public class ImgHttpClient implements b.a {
                                                                                                             this.netContext.f(dVar);
                                                                                                             if ((str == null || str.length() == 0) && f2 != null) {
                                                                                                                 boolean H9 = j.H();
-                                                                                                                if ((!H9 || dVar.k != null || z22 || i12 >= i2 - 1) && o.a(f2) && str3 != null) {
+                                                                                                                if ((!H9 || dVar.k != null || z22 || i13 >= i3 - 1) && o.a(f2) && str3 != null) {
                                                                                                                     long currentTimeMillis10 = System.currentTimeMillis() - currentTimeMillis;
-                                                                                                                    ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H9 ? !j.t() ? currentTimeMillis10 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51107b) : currentTimeMillis10 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51108c) : currentTimeMillis10 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51106a), H9);
+                                                                                                                    ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H9 ? !j.t() ? currentTimeMillis10 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48711b) : currentTimeMillis10 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48712c) : currentTimeMillis10 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48710a), H9);
                                                                                                                 }
                                                                                                             }
                                                                                                             bArr = str94;
@@ -5080,7 +5080,7 @@ public class ImgHttpClient implements b.a {
                                                                                                             str10 = str93;
                                                                                                             try {
                                                                                                                 try {
-                                                                                                                    if (i11 < MAX_DATA_LENG) {
+                                                                                                                    if (i12 < MAX_DATA_LENG) {
                                                                                                                         try {
                                                                                                                             byteArray = byteArrayOutputStream.toByteArray();
                                                                                                                         } catch (IllegalStateException e86) {
@@ -5097,8 +5097,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str10 = str10;
                                                                                                                             bArr2 = bArr2;
                                                                                                                             str35 = str34;
-                                                                                                                            this.netContext.c().f42536c = -19;
-                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                                                                                            this.netContext.c().f39734c = -19;
+                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                                                                                             if (z22) {
                                                                                                                             }
                                                                                                                             this.mUseDnsIp = z18;
@@ -5116,7 +5116,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                             if (str != null) {
                                                                                                                             }
                                                                                                                             H = j.H();
-                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                             }
                                                                                                                             str22 = str18;
                                                                                                                             str23 = str21;
@@ -5128,8 +5128,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str109 = str6;
                                                                                                                             str28 = str8;
                                                                                                                             str3 = str3;
-                                                                                                                            i8 = 1;
-                                                                                                                            i12 += i8;
+                                                                                                                            i9 = 1;
+                                                                                                                            i13 += i9;
                                                                                                                             str101 = str;
                                                                                                                             str108 = str25;
                                                                                                                             str113 = str3;
@@ -5153,17 +5153,17 @@ public class ImgHttpClient implements b.a {
                                                                                                                             bArr4 = bArr2;
                                                                                                                             str30 = str60;
                                                                                                                             str29 = str59;
-                                                                                                                            this.netContext.c().f42536c = -10;
+                                                                                                                            this.netContext.c().f39734c = -10;
                                                                                                                             StringBuilder sb22222 = new StringBuilder();
                                                                                                                             sb22222.append(str110);
-                                                                                                                            sb22222.append(String.valueOf(this.netContext.c().f42536c));
+                                                                                                                            sb22222.append(String.valueOf(this.netContext.c().f39734c));
                                                                                                                             String str12422222 = str109;
                                                                                                                             sb22222.append(str12422222);
                                                                                                                             str19 = str105;
                                                                                                                             sb22222.append(th.getClass());
                                                                                                                             sb22222.append(str12422222);
                                                                                                                             sb22222.append(th.getMessage());
-                                                                                                                            dVar.f42522h = sb22222.toString();
+                                                                                                                            dVar.f39719h = sb22222.toString();
                                                                                                                             if (z) {
                                                                                                                             }
                                                                                                                             this.mUseDnsIp = z13;
@@ -5178,11 +5178,11 @@ public class ImgHttpClient implements b.a {
                                                                                                                             if (str != null) {
                                                                                                                             }
                                                                                                                             H3 = j.H();
-                                                                                                                            if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                                                                                                            if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                                                                                                             }
                                                                                                                             byte[] bArr4422222 = bArr4;
                                                                                                                             this.mWapRetryConnt = 0;
-                                                                                                                            this.netContext.c().f42541h = bArr4422222;
+                                                                                                                            this.netContext.c().f39739h = bArr4422222;
                                                                                                                         }
                                                                                                                         try {
                                                                                                                             byteArrayOutputStream.close();
@@ -5213,8 +5213,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             str10 = str85;
                                                                                                                                             bArr2 = bArr2;
                                                                                                                                             str35 = str34;
-                                                                                                                                            this.netContext.c().f42536c = -19;
-                                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                                                                                                            this.netContext.c().f39734c = -19;
+                                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                                                                                                             if (z22) {
                                                                                                                                             }
                                                                                                                                             this.mUseDnsIp = z18;
@@ -5232,7 +5232,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             if (str != null) {
                                                                                                                                             }
                                                                                                                                             H = j.H();
-                                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                                             }
                                                                                                                                             str22 = str18;
                                                                                                                                             str23 = str21;
@@ -5244,8 +5244,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             str109 = str6;
                                                                                                                                             str28 = str8;
                                                                                                                                             str3 = str3;
-                                                                                                                                            i8 = 1;
-                                                                                                                                            i12 += i8;
+                                                                                                                                            i9 = 1;
+                                                                                                                                            i13 += i9;
                                                                                                                                             str101 = str;
                                                                                                                                             str108 = str25;
                                                                                                                                             str113 = str3;
@@ -5272,8 +5272,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             str15 = str110;
                                                                                                                                             bArr16 = str65;
                                                                                                                                             str25 = str10;
-                                                                                                                                            this.netContext.c().f42536c = -12;
-                                                                                                                                            dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                                                                                                                            this.netContext.c().f39734c = -12;
+                                                                                                                                            dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                                                                                                                             if (z22) {
                                                                                                                                             }
                                                                                                                                             this.mUseDnsIp = z11;
@@ -5291,15 +5291,15 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             if (str != null) {
                                                                                                                                             }
                                                                                                                                             H2 = j.H();
-                                                                                                                                            if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                                            if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                                             }
                                                                                                                                             bArr17 = bArr16;
                                                                                                                                             str28 = str8;
                                                                                                                                             str110 = str15;
                                                                                                                                             bArr18 = bArr17;
                                                                                                                                             str3 = str3;
-                                                                                                                                            i8 = 1;
-                                                                                                                                            i12 += i8;
+                                                                                                                                            i9 = 1;
+                                                                                                                                            i13 += i9;
                                                                                                                                             str101 = str;
                                                                                                                                             str108 = str25;
                                                                                                                                             str113 = str3;
@@ -5326,8 +5326,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             str7 = str110;
                                                                                                                                             bArr15 = str64;
                                                                                                                                             str10 = str10;
-                                                                                                                                            this.netContext.c().f42536c = -13;
-                                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                                                                                                                            this.netContext.c().f39734c = -13;
+                                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                                                                                                                             if (z22) {
                                                                                                                                             }
                                                                                                                                             this.mUseDnsIp = z9;
@@ -5345,7 +5345,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             if (str != null) {
                                                                                                                                             }
                                                                                                                                             H = j.H();
-                                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                                             }
                                                                                                                                             str22 = str18;
                                                                                                                                             str23 = str21;
@@ -5357,8 +5357,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             str109 = str6;
                                                                                                                                             str28 = str8;
                                                                                                                                             str3 = str3;
-                                                                                                                                            i8 = 1;
-                                                                                                                                            i12 += i8;
+                                                                                                                                            i9 = 1;
+                                                                                                                                            i13 += i9;
                                                                                                                                             str101 = str;
                                                                                                                                             str108 = str25;
                                                                                                                                             str113 = str3;
@@ -5385,8 +5385,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             str7 = str110;
                                                                                                                                             bArr14 = str62;
                                                                                                                                             str10 = str10;
-                                                                                                                                            this.netContext.c().f42536c = -20;
-                                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                                                                                                                            this.netContext.c().f39734c = -20;
+                                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                                                                                                             this.mDownToHttp = true;
                                                                                                                                             if (z22) {
                                                                                                                                             }
@@ -5405,7 +5405,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             if (str != null) {
                                                                                                                                             }
                                                                                                                                             H = j.H();
-                                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                                             }
                                                                                                                                             str22 = str18;
                                                                                                                                             str23 = str21;
@@ -5417,8 +5417,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             str109 = str6;
                                                                                                                                             str28 = str8;
                                                                                                                                             str3 = str3;
-                                                                                                                                            i8 = 1;
-                                                                                                                                            i12 += i8;
+                                                                                                                                            i9 = 1;
+                                                                                                                                            i13 += i9;
                                                                                                                                             str101 = str;
                                                                                                                                             str108 = str25;
                                                                                                                                             str113 = str3;
@@ -5444,8 +5444,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             str63 = str97;
                                                                                                                                             str7 = str110;
                                                                                                                                             bArr13 = str63;
-                                                                                                                                            this.netContext.c().f42536c = -19;
-                                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                                                                                                                            this.netContext.c().f39734c = -19;
+                                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                                                                                                                             if (z22) {
                                                                                                                                             }
                                                                                                                                             this.mUseDnsIp = z5;
@@ -5463,7 +5463,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             if (str != null) {
                                                                                                                                             }
                                                                                                                                             H = j.H();
-                                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                                             }
                                                                                                                                             str22 = str18;
                                                                                                                                             str23 = str21;
@@ -5475,8 +5475,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             str109 = str6;
                                                                                                                                             str28 = str8;
                                                                                                                                             str3 = str3;
-                                                                                                                                            i8 = 1;
-                                                                                                                                            i12 += i8;
+                                                                                                                                            i9 = 1;
+                                                                                                                                            i13 += i9;
                                                                                                                                             str101 = str;
                                                                                                                                             str108 = str25;
                                                                                                                                             str113 = str3;
@@ -5503,8 +5503,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             str7 = str110;
                                                                                                                                             bArr11 = str61;
                                                                                                                                             str10 = str10;
-                                                                                                                                            this.netContext.c().f42536c = -18;
-                                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                                                                                                                            this.netContext.c().f39734c = -18;
+                                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                                                                                                                             if (z22) {
                                                                                                                                             }
                                                                                                                                             this.mUseDnsIp = z2;
@@ -5522,7 +5522,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             if (str != null) {
                                                                                                                                             }
                                                                                                                                             H = j.H();
-                                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                                             }
                                                                                                                                             str22 = str18;
                                                                                                                                             str23 = str21;
@@ -5534,8 +5534,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             str109 = str6;
                                                                                                                                             str28 = str8;
                                                                                                                                             str3 = str3;
-                                                                                                                                            i8 = 1;
-                                                                                                                                            i12 += i8;
+                                                                                                                                            i9 = 1;
+                                                                                                                                            i13 += i9;
                                                                                                                                             str101 = str;
                                                                                                                                             str108 = str25;
                                                                                                                                             str113 = str3;
@@ -5560,17 +5560,17 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             bArr4 = bArr36;
                                                                                                                                             str30 = str91;
                                                                                                                                             str29 = str10;
-                                                                                                                                            this.netContext.c().f42536c = -10;
+                                                                                                                                            this.netContext.c().f39734c = -10;
                                                                                                                                             StringBuilder sb222222 = new StringBuilder();
                                                                                                                                             sb222222.append(str110);
-                                                                                                                                            sb222222.append(String.valueOf(this.netContext.c().f42536c));
+                                                                                                                                            sb222222.append(String.valueOf(this.netContext.c().f39734c));
                                                                                                                                             String str124222222 = str109;
                                                                                                                                             sb222222.append(str124222222);
                                                                                                                                             str19 = str105;
                                                                                                                                             sb222222.append(th.getClass());
                                                                                                                                             sb222222.append(str124222222);
                                                                                                                                             sb222222.append(th.getMessage());
-                                                                                                                                            dVar.f42522h = sb222222.toString();
+                                                                                                                                            dVar.f39719h = sb222222.toString();
                                                                                                                                             if (z) {
                                                                                                                                             }
                                                                                                                                             this.mUseDnsIp = z13;
@@ -5585,11 +5585,11 @@ public class ImgHttpClient implements b.a {
                                                                                                                                             if (str != null) {
                                                                                                                                             }
                                                                                                                                             H3 = j.H();
-                                                                                                                                            if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                                                                                                                            if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                                                                                                                             }
                                                                                                                                             byte[] bArr44222222 = bArr4;
                                                                                                                                             this.mWapRetryConnt = 0;
-                                                                                                                                            this.netContext.c().f42541h = bArr44222222;
+                                                                                                                                            this.netContext.c().f39739h = bArr44222222;
                                                                                                                                         }
                                                                                                                                     } else {
                                                                                                                                         bArr38 = byteArray;
@@ -5626,13 +5626,13 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str7 = str110;
                                                                                                                             bArr13 = byteArray;
                                                                                                                             str112 = str18;
-                                                                                                                            this.netContext.c().f42536c = -19;
-                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                                                                                                            this.netContext.c().f39734c = -19;
+                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                                                                                                             if (z22) {
                                                                                                                             }
                                                                                                                             this.mUseDnsIp = z5;
                                                                                                                             if (z5) {
-                                                                                                                                cVar2.m(this.netContext.c().f42536c);
+                                                                                                                                cVar2.m(this.netContext.c().f39734c);
                                                                                                                             }
                                                                                                                             if (z22) {
                                                                                                                             }
@@ -5646,7 +5646,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                             if (str != null) {
                                                                                                                             }
                                                                                                                             H = j.H();
-                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                                 long currentTimeMillis11 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                                 if (H) {
                                                                                                                                 }
@@ -5663,8 +5663,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                 str109 = str6;
                                                                                                                                 str28 = str8;
                                                                                                                                 str3 = str3;
-                                                                                                                                i8 = 1;
-                                                                                                                                i12 += i8;
+                                                                                                                                i9 = 1;
+                                                                                                                                i13 += i9;
                                                                                                                                 str101 = str;
                                                                                                                                 str108 = str25;
                                                                                                                                 str113 = str3;
@@ -5690,8 +5690,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str109 = str6;
                                                                                                                             str28 = str8;
                                                                                                                             str3 = str3;
-                                                                                                                            i8 = 1;
-                                                                                                                            i12 += i8;
+                                                                                                                            i9 = 1;
+                                                                                                                            i13 += i9;
                                                                                                                             str101 = str;
                                                                                                                             str108 = str25;
                                                                                                                             str113 = str3;
@@ -5719,8 +5719,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str10 = str10;
                                                                                                                             bArr2 = bArr2;
                                                                                                                             str35 = str34;
-                                                                                                                            this.netContext.c().f42536c = -19;
-                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                                                                                            this.netContext.c().f39734c = -19;
+                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                                                                                             if (z22) {
                                                                                                                             }
                                                                                                                             this.mUseDnsIp = z18;
@@ -5738,7 +5738,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                             if (str != null) {
                                                                                                                             }
                                                                                                                             H = j.H();
-                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                             }
                                                                                                                             str22 = str18;
                                                                                                                             str23 = str21;
@@ -5750,8 +5750,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str109 = str6;
                                                                                                                             str28 = str8;
                                                                                                                             str3 = str3;
-                                                                                                                            i8 = 1;
-                                                                                                                            i12 += i8;
+                                                                                                                            i9 = 1;
+                                                                                                                            i13 += i9;
                                                                                                                             str101 = str;
                                                                                                                             str108 = str25;
                                                                                                                             str113 = str3;
@@ -5774,13 +5774,13 @@ public class ImgHttpClient implements b.a {
                                                                                                                             bArr16 = byteArray;
                                                                                                                             str112 = str18;
                                                                                                                             str25 = str10;
-                                                                                                                            this.netContext.c().f42536c = -12;
-                                                                                                                            dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                                                                                                            this.netContext.c().f39734c = -12;
+                                                                                                                            dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                                                                                                             if (z22) {
                                                                                                                             }
                                                                                                                             this.mUseDnsIp = z11;
                                                                                                                             if (z11) {
-                                                                                                                                cVar5.m(this.netContext.c().f42536c);
+                                                                                                                                cVar5.m(this.netContext.c().f39734c);
                                                                                                                             }
                                                                                                                             if (z22) {
                                                                                                                             }
@@ -5794,7 +5794,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                             if (str != null) {
                                                                                                                             }
                                                                                                                             H2 = j.H();
-                                                                                                                            if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                            if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                                 long currentTimeMillis12 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                                 if (H2) {
                                                                                                                                 }
@@ -5802,8 +5802,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                 ICDNIPDirectConnect.getInstance().result(bArr2, dVar.k, z22, z12, H2);
                                                                                                                                 bArr18 = bArr17;
                                                                                                                                 str3 = str3;
-                                                                                                                                i8 = 1;
-                                                                                                                                i12 += i8;
+                                                                                                                                i9 = 1;
+                                                                                                                                i13 += i9;
                                                                                                                                 str101 = str;
                                                                                                                                 str108 = str25;
                                                                                                                                 str113 = str3;
@@ -5824,8 +5824,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str110 = str15;
                                                                                                                             bArr18 = bArr17;
                                                                                                                             str3 = str3;
-                                                                                                                            i8 = 1;
-                                                                                                                            i12 += i8;
+                                                                                                                            i9 = 1;
+                                                                                                                            i13 += i9;
                                                                                                                             str101 = str;
                                                                                                                             str108 = str25;
                                                                                                                             str113 = str3;
@@ -5848,13 +5848,13 @@ public class ImgHttpClient implements b.a {
                                                                                                                             bArr15 = byteArray;
                                                                                                                             str112 = str18;
                                                                                                                             str10 = str10;
-                                                                                                                            this.netContext.c().f42536c = -13;
-                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                                                                                                            this.netContext.c().f39734c = -13;
+                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                                                                                                             if (z22) {
                                                                                                                             }
                                                                                                                             this.mUseDnsIp = z9;
                                                                                                                             if (z9) {
-                                                                                                                                cVar4.m(this.netContext.c().f42536c);
+                                                                                                                                cVar4.m(this.netContext.c().f39734c);
                                                                                                                             }
                                                                                                                             if (z22) {
                                                                                                                             }
@@ -5868,7 +5868,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                             if (str != null) {
                                                                                                                             }
                                                                                                                             H = j.H();
-                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                                 long currentTimeMillis13 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                                 if (H) {
                                                                                                                                 }
@@ -5885,8 +5885,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                 str109 = str6;
                                                                                                                                 str28 = str8;
                                                                                                                                 str3 = str3;
-                                                                                                                                i8 = 1;
-                                                                                                                                i12 += i8;
+                                                                                                                                i9 = 1;
+                                                                                                                                i13 += i9;
                                                                                                                                 str101 = str;
                                                                                                                                 str108 = str25;
                                                                                                                                 str113 = str3;
@@ -5912,8 +5912,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str109 = str6;
                                                                                                                             str28 = str8;
                                                                                                                             str3 = str3;
-                                                                                                                            i8 = 1;
-                                                                                                                            i12 += i8;
+                                                                                                                            i9 = 1;
+                                                                                                                            i13 += i9;
                                                                                                                             str101 = str;
                                                                                                                             str108 = str25;
                                                                                                                             str113 = str3;
@@ -5936,14 +5936,14 @@ public class ImgHttpClient implements b.a {
                                                                                                                             bArr14 = byteArray;
                                                                                                                             str112 = str18;
                                                                                                                             str10 = str10;
-                                                                                                                            this.netContext.c().f42536c = -20;
-                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                                                                                                            this.netContext.c().f39734c = -20;
+                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                                                                                             this.mDownToHttp = true;
                                                                                                                             if (z22) {
                                                                                                                             }
                                                                                                                             this.mUseDnsIp = z7;
                                                                                                                             if (z7) {
-                                                                                                                                cVar3.m(this.netContext.c().f42536c);
+                                                                                                                                cVar3.m(this.netContext.c().f39734c);
                                                                                                                             }
                                                                                                                             if (z22) {
                                                                                                                             }
@@ -5957,7 +5957,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                             if (str != null) {
                                                                                                                             }
                                                                                                                             H = j.H();
-                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                                 long currentTimeMillis14 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                                 if (H) {
                                                                                                                                 }
@@ -5974,8 +5974,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                 str109 = str6;
                                                                                                                                 str28 = str8;
                                                                                                                                 str3 = str3;
-                                                                                                                                i8 = 1;
-                                                                                                                                i12 += i8;
+                                                                                                                                i9 = 1;
+                                                                                                                                i13 += i9;
                                                                                                                                 str101 = str;
                                                                                                                                 str108 = str25;
                                                                                                                                 str113 = str3;
@@ -6001,8 +6001,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str109 = str6;
                                                                                                                             str28 = str8;
                                                                                                                             str3 = str3;
-                                                                                                                            i8 = 1;
-                                                                                                                            i12 += i8;
+                                                                                                                            i9 = 1;
+                                                                                                                            i13 += i9;
                                                                                                                             str101 = str;
                                                                                                                             str108 = str25;
                                                                                                                             str113 = str3;
@@ -6025,13 +6025,13 @@ public class ImgHttpClient implements b.a {
                                                                                                                             bArr11 = byteArray;
                                                                                                                             str112 = str18;
                                                                                                                             str10 = str10;
-                                                                                                                            this.netContext.c().f42536c = -18;
-                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                                                                                                            this.netContext.c().f39734c = -18;
+                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                                                                                                             if (z22) {
                                                                                                                             }
                                                                                                                             this.mUseDnsIp = z2;
                                                                                                                             if (z2) {
-                                                                                                                                cVar.m(this.netContext.c().f42536c);
+                                                                                                                                cVar.m(this.netContext.c().f39734c);
                                                                                                                             }
                                                                                                                             if (z22) {
                                                                                                                             }
@@ -6045,7 +6045,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                             if (str != null) {
                                                                                                                             }
                                                                                                                             H = j.H();
-                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                                 long currentTimeMillis15 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                                 if (H) {
                                                                                                                                 }
@@ -6062,8 +6062,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                 str109 = str6;
                                                                                                                                 str28 = str8;
                                                                                                                                 str3 = str3;
-                                                                                                                                i8 = 1;
-                                                                                                                                i12 += i8;
+                                                                                                                                i9 = 1;
+                                                                                                                                i13 += i9;
                                                                                                                                 str101 = str;
                                                                                                                                 str108 = str25;
                                                                                                                                 str113 = str3;
@@ -6089,8 +6089,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str109 = str6;
                                                                                                                             str28 = str8;
                                                                                                                             str3 = str3;
-                                                                                                                            i8 = 1;
-                                                                                                                            i12 += i8;
+                                                                                                                            i9 = 1;
+                                                                                                                            i13 += i9;
                                                                                                                             str101 = str;
                                                                                                                             str108 = str25;
                                                                                                                             str113 = str3;
@@ -6116,8 +6116,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                     } else {
                                                                                                                         str148 = str8;
                                                                                                                         try {
-                                                                                                                            this.netContext.c().f42536c = -11;
-                                                                                                                            dVar.f42522h = this.mContext.getResources().getString(R.string.data_too_big);
+                                                                                                                            this.netContext.c().f39734c = -11;
+                                                                                                                            dVar.f39719h = this.mContext.getResources().getString(R.string.data_too_big);
                                                                                                                             str149 = str149;
                                                                                                                             bArr4 = bArr2;
                                                                                                                         } catch (SocketException e105) {
@@ -6131,8 +6131,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str15 = str110;
                                                                                                                             bArr16 = str65;
                                                                                                                             str25 = str10;
-                                                                                                                            this.netContext.c().f42536c = -12;
-                                                                                                                            dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                                                                                                            this.netContext.c().f39734c = -12;
+                                                                                                                            dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                                                                                                             if (z22) {
                                                                                                                             }
                                                                                                                             this.mUseDnsIp = z11;
@@ -6150,15 +6150,15 @@ public class ImgHttpClient implements b.a {
                                                                                                                             if (str != null) {
                                                                                                                             }
                                                                                                                             H2 = j.H();
-                                                                                                                            if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                            if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                             }
                                                                                                                             bArr17 = bArr16;
                                                                                                                             str28 = str8;
                                                                                                                             str110 = str15;
                                                                                                                             bArr18 = bArr17;
                                                                                                                             str3 = str3;
-                                                                                                                            i8 = 1;
-                                                                                                                            i12 += i8;
+                                                                                                                            i9 = 1;
+                                                                                                                            i13 += i9;
                                                                                                                             str101 = str;
                                                                                                                             str108 = str25;
                                                                                                                             str113 = str3;
@@ -6184,8 +6184,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str7 = str110;
                                                                                                                             bArr15 = str64;
                                                                                                                             str10 = str10;
-                                                                                                                            this.netContext.c().f42536c = -13;
-                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                                                                                                            this.netContext.c().f39734c = -13;
+                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                                                                                                             if (z22) {
                                                                                                                             }
                                                                                                                             this.mUseDnsIp = z9;
@@ -6203,7 +6203,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                             if (str != null) {
                                                                                                                             }
                                                                                                                             H = j.H();
-                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                             }
                                                                                                                             str22 = str18;
                                                                                                                             str23 = str21;
@@ -6215,8 +6215,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str109 = str6;
                                                                                                                             str28 = str8;
                                                                                                                             str3 = str3;
-                                                                                                                            i8 = 1;
-                                                                                                                            i12 += i8;
+                                                                                                                            i9 = 1;
+                                                                                                                            i13 += i9;
                                                                                                                             str101 = str;
                                                                                                                             str108 = str25;
                                                                                                                             str113 = str3;
@@ -6241,8 +6241,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str63 = str97;
                                                                                                                             str7 = str110;
                                                                                                                             bArr13 = str63;
-                                                                                                                            this.netContext.c().f42536c = -19;
-                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                                                                                                            this.netContext.c().f39734c = -19;
+                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                                                                                                             if (z22) {
                                                                                                                             }
                                                                                                                             this.mUseDnsIp = z5;
@@ -6260,7 +6260,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                             if (str != null) {
                                                                                                                             }
                                                                                                                             H = j.H();
-                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                             }
                                                                                                                             str22 = str18;
                                                                                                                             str23 = str21;
@@ -6272,8 +6272,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str109 = str6;
                                                                                                                             str28 = str8;
                                                                                                                             str3 = str3;
-                                                                                                                            i8 = 1;
-                                                                                                                            i12 += i8;
+                                                                                                                            i9 = 1;
+                                                                                                                            i13 += i9;
                                                                                                                             str101 = str;
                                                                                                                             str108 = str25;
                                                                                                                             str113 = str3;
@@ -6304,8 +6304,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str10 = str85;
                                                                                                                             bArr2 = bArr2;
                                                                                                                             str35 = str34;
-                                                                                                                            this.netContext.c().f42536c = -19;
-                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                                                                                            this.netContext.c().f39734c = -19;
+                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                                                                                             if (z22) {
                                                                                                                             }
                                                                                                                             this.mUseDnsIp = z18;
@@ -6323,7 +6323,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                             if (str != null) {
                                                                                                                             }
                                                                                                                             H = j.H();
-                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                             }
                                                                                                                             str22 = str18;
                                                                                                                             str23 = str21;
@@ -6335,8 +6335,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str109 = str6;
                                                                                                                             str28 = str8;
                                                                                                                             str3 = str3;
-                                                                                                                            i8 = 1;
-                                                                                                                            i12 += i8;
+                                                                                                                            i9 = 1;
+                                                                                                                            i13 += i9;
                                                                                                                             str101 = str;
                                                                                                                             str108 = str25;
                                                                                                                             str113 = str3;
@@ -6362,8 +6362,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str7 = str110;
                                                                                                                             bArr14 = str62;
                                                                                                                             str10 = str10;
-                                                                                                                            this.netContext.c().f42536c = -20;
-                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                                                                                                            this.netContext.c().f39734c = -20;
+                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                                                                                             this.mDownToHttp = true;
                                                                                                                             if (z22) {
                                                                                                                             }
@@ -6382,7 +6382,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                             if (str != null) {
                                                                                                                             }
                                                                                                                             H = j.H();
-                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                             }
                                                                                                                             str22 = str18;
                                                                                                                             str23 = str21;
@@ -6394,8 +6394,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str109 = str6;
                                                                                                                             str28 = str8;
                                                                                                                             str3 = str3;
-                                                                                                                            i8 = 1;
-                                                                                                                            i12 += i8;
+                                                                                                                            i9 = 1;
+                                                                                                                            i13 += i9;
                                                                                                                             str101 = str;
                                                                                                                             str108 = str25;
                                                                                                                             str113 = str3;
@@ -6421,8 +6421,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str7 = str110;
                                                                                                                             bArr11 = str61;
                                                                                                                             str10 = str10;
-                                                                                                                            this.netContext.c().f42536c = -18;
-                                                                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                                                                                                            this.netContext.c().f39734c = -18;
+                                                                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                                                                                                             if (z22) {
                                                                                                                             }
                                                                                                                             this.mUseDnsIp = z2;
@@ -6440,7 +6440,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                             if (str != null) {
                                                                                                                             }
                                                                                                                             H = j.H();
-                                                                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                             }
                                                                                                                             str22 = str18;
                                                                                                                             str23 = str21;
@@ -6452,8 +6452,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                             str109 = str6;
                                                                                                                             str28 = str8;
                                                                                                                             str3 = str3;
-                                                                                                                            i8 = 1;
-                                                                                                                            i12 += i8;
+                                                                                                                            i9 = 1;
+                                                                                                                            i13 += i9;
                                                                                                                             str101 = str;
                                                                                                                             str108 = str25;
                                                                                                                             str113 = str3;
@@ -6480,17 +6480,17 @@ public class ImgHttpClient implements b.a {
                                                                                                                             bArr4 = bArr2;
                                                                                                                             str30 = str60;
                                                                                                                             str29 = str59;
-                                                                                                                            this.netContext.c().f42536c = -10;
+                                                                                                                            this.netContext.c().f39734c = -10;
                                                                                                                             StringBuilder sb2222222 = new StringBuilder();
                                                                                                                             sb2222222.append(str110);
-                                                                                                                            sb2222222.append(String.valueOf(this.netContext.c().f42536c));
+                                                                                                                            sb2222222.append(String.valueOf(this.netContext.c().f39734c));
                                                                                                                             String str1242222222 = str109;
                                                                                                                             sb2222222.append(str1242222222);
                                                                                                                             str19 = str105;
                                                                                                                             sb2222222.append(th.getClass());
                                                                                                                             sb2222222.append(str1242222222);
                                                                                                                             sb2222222.append(th.getMessage());
-                                                                                                                            dVar.f42522h = sb2222222.toString();
+                                                                                                                            dVar.f39719h = sb2222222.toString();
                                                                                                                             if (z) {
                                                                                                                             }
                                                                                                                             this.mUseDnsIp = z13;
@@ -6505,18 +6505,18 @@ public class ImgHttpClient implements b.a {
                                                                                                                             if (str != null) {
                                                                                                                             }
                                                                                                                             H3 = j.H();
-                                                                                                                            if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                                                                                                            if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                                                                                                             }
                                                                                                                             byte[] bArr442222222 = bArr4;
                                                                                                                             this.mWapRetryConnt = 0;
-                                                                                                                            this.netContext.c().f42541h = bArr442222222;
+                                                                                                                            this.netContext.c().f39739h = bArr442222222;
                                                                                                                         }
                                                                                                                     }
                                                                                                                     try {
                                                                                                                         try {
-                                                                                                                            dVar.f42516b = i11;
-                                                                                                                            dVar.f42519e = i12 + 1;
-                                                                                                                            dVar.f42518d = System.currentTimeMillis() - currentTimeMillis2;
+                                                                                                                            dVar.f39713b = i12;
+                                                                                                                            dVar.f39716e = i13 + 1;
+                                                                                                                            dVar.f39715d = System.currentTimeMillis() - currentTimeMillis2;
                                                                                                                             if (r7.getFirstHeader("Error-Message") != null) {
                                                                                                                                 try {
                                                                                                                                     Header firstHeader = r7.getFirstHeader("Error-Message");
@@ -6535,13 +6535,13 @@ public class ImgHttpClient implements b.a {
                                                                                                                                     str10 = str10;
                                                                                                                                     bArr2 = bArr2;
                                                                                                                                     str35 = str34;
-                                                                                                                                    this.netContext.c().f42536c = -19;
-                                                                                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                                                                                                    this.netContext.c().f39734c = -19;
+                                                                                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                                                                                                     if (z22) {
                                                                                                                                     }
                                                                                                                                     this.mUseDnsIp = z18;
                                                                                                                                     if (z18) {
-                                                                                                                                        cVar10.m(this.netContext.c().f42536c);
+                                                                                                                                        cVar10.m(this.netContext.c().f39734c);
                                                                                                                                     }
                                                                                                                                     if (z22) {
                                                                                                                                     }
@@ -6555,7 +6555,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                                     if (str != null) {
                                                                                                                                     }
                                                                                                                                     H = j.H();
-                                                                                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                                         long currentTimeMillis16 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                                         if (H) {
                                                                                                                                         }
@@ -6572,8 +6572,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                         str109 = str6;
                                                                                                                                         str28 = str8;
                                                                                                                                         str3 = str3;
-                                                                                                                                        i8 = 1;
-                                                                                                                                        i12 += i8;
+                                                                                                                                        i9 = 1;
+                                                                                                                                        i13 += i9;
                                                                                                                                         str101 = str;
                                                                                                                                         str108 = str25;
                                                                                                                                         str113 = str3;
@@ -6599,8 +6599,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                     str109 = str6;
                                                                                                                                     str28 = str8;
                                                                                                                                     str3 = str3;
-                                                                                                                                    i8 = 1;
-                                                                                                                                    i12 += i8;
+                                                                                                                                    i9 = 1;
+                                                                                                                                    i13 += i9;
                                                                                                                                     str101 = str;
                                                                                                                                     str108 = str25;
                                                                                                                                     str113 = str3;
@@ -6622,17 +6622,17 @@ public class ImgHttpClient implements b.a {
                                                                                                                                     str30 = str149;
                                                                                                                                     bArr4 = bArr4;
                                                                                                                                     str29 = str10;
-                                                                                                                                    this.netContext.c().f42536c = -10;
+                                                                                                                                    this.netContext.c().f39734c = -10;
                                                                                                                                     StringBuilder sb22222222 = new StringBuilder();
                                                                                                                                     sb22222222.append(str110);
-                                                                                                                                    sb22222222.append(String.valueOf(this.netContext.c().f42536c));
+                                                                                                                                    sb22222222.append(String.valueOf(this.netContext.c().f39734c));
                                                                                                                                     String str12422222222 = str109;
                                                                                                                                     sb22222222.append(str12422222222);
                                                                                                                                     str19 = str105;
                                                                                                                                     sb22222222.append(th.getClass());
                                                                                                                                     sb22222222.append(str12422222222);
                                                                                                                                     sb22222222.append(th.getMessage());
-                                                                                                                                    dVar.f42522h = sb22222222.toString();
+                                                                                                                                    dVar.f39719h = sb22222222.toString();
                                                                                                                                     if (z) {
                                                                                                                                     }
                                                                                                                                     this.mUseDnsIp = z13;
@@ -6647,14 +6647,14 @@ public class ImgHttpClient implements b.a {
                                                                                                                                     if (str != null) {
                                                                                                                                     }
                                                                                                                                     H3 = j.H();
-                                                                                                                                    if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                                                                                                                    if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                                                                                                                     }
                                                                                                                                     byte[] bArr4422222222 = bArr4;
                                                                                                                                     this.mWapRetryConnt = 0;
-                                                                                                                                    this.netContext.c().f42541h = bArr4422222222;
+                                                                                                                                    this.netContext.c().f39739h = bArr4422222222;
                                                                                                                                 }
                                                                                                                             }
-                                                                                                                            z = (i11 <= 0 || !(this.netContext.c().f42535b == 200 || this.netContext.c().f42535b == 302)) ? z22 : true;
+                                                                                                                            z = (i12 <= 0 || !(this.netContext.c().f39733b == 200 || this.netContext.c().f39733b == 302)) ? z22 : true;
                                                                                                                         } catch (IllegalStateException e112) {
                                                                                                                             str86 = str149;
                                                                                                                             illegalStateException = e112;
@@ -6721,17 +6721,17 @@ public class ImgHttpClient implements b.a {
                                                                                                                     bArr4 = bArr2;
                                                                                                                     str30 = str60;
                                                                                                                     str29 = str59;
-                                                                                                                    this.netContext.c().f42536c = -10;
+                                                                                                                    this.netContext.c().f39734c = -10;
                                                                                                                     StringBuilder sb222222222 = new StringBuilder();
                                                                                                                     sb222222222.append(str110);
-                                                                                                                    sb222222222.append(String.valueOf(this.netContext.c().f42536c));
+                                                                                                                    sb222222222.append(String.valueOf(this.netContext.c().f39734c));
                                                                                                                     String str124222222222 = str109;
                                                                                                                     sb222222222.append(str124222222222);
                                                                                                                     str19 = str105;
                                                                                                                     sb222222222.append(th.getClass());
                                                                                                                     sb222222222.append(str124222222222);
                                                                                                                     sb222222222.append(th.getMessage());
-                                                                                                                    dVar.f42522h = sb222222222.toString();
+                                                                                                                    dVar.f39719h = sb222222222.toString();
                                                                                                                     if (z) {
                                                                                                                     }
                                                                                                                     this.mUseDnsIp = z13;
@@ -6746,11 +6746,11 @@ public class ImgHttpClient implements b.a {
                                                                                                                     if (str != null) {
                                                                                                                     }
                                                                                                                     H3 = j.H();
-                                                                                                                    if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                                                                                                    if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                                                                                                     }
                                                                                                                     byte[] bArr44222222222 = bArr4;
                                                                                                                     this.mWapRetryConnt = 0;
-                                                                                                                    this.netContext.c().f42541h = bArr44222222222;
+                                                                                                                    this.netContext.c().f39739h = bArr44222222222;
                                                                                                                 }
                                                                                                             } catch (SocketException e119) {
                                                                                                                 socketException = e119;
@@ -6761,28 +6761,28 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str15 = str110;
                                                                                                                 bArr16 = bArr2;
                                                                                                                 str25 = str10;
-                                                                                                                this.netContext.c().f42536c = -12;
-                                                                                                                dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                                                                                                this.netContext.c().f39734c = -12;
+                                                                                                                dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                                                                                                 z11 = z22 && o.d(f2) && j.A();
                                                                                                                 this.mUseDnsIp = z11;
                                                                                                                 if (z11 && (cVar5 = this.mHttpDnsResult) != null) {
-                                                                                                                    cVar5.m(this.netContext.c().f42536c);
+                                                                                                                    cVar5.m(this.netContext.c().f39734c);
                                                                                                                 }
-                                                                                                                if (z22 && i12 == i2 - 1 && o.d(f2)) {
+                                                                                                                if (z22 && i13 == i3 - 1 && o.d(f2)) {
                                                                                                                     a logItem8 = ImageLogger.getLogItem();
-                                                                                                                    logItem8.b("netException", dVar.f42522h);
+                                                                                                                    logItem8.b("netException", dVar.f39719h);
                                                                                                                     logItem8.b(str25, f2);
                                                                                                                     logItem8.c(str4, Boolean.valueOf(j.z()));
                                                                                                                     logItem8.c(str111, Integer.valueOf(j.I()));
                                                                                                                     logItem8.b(str106, CommonHelper.getIp());
                                                                                                                     if (bArr16 != null) {
-                                                                                                                        i7 = bArr16.length;
+                                                                                                                        i8 = bArr16.length;
                                                                                                                         str109 = str14;
                                                                                                                     } else {
                                                                                                                         str109 = str14;
-                                                                                                                        i7 = 0;
+                                                                                                                        i8 = 0;
                                                                                                                     }
-                                                                                                                    logItem8.c(str117, Integer.valueOf(i7));
+                                                                                                                    logItem8.c(str117, Integer.valueOf(i8));
                                                                                                                     logItem8.c(str116, Long.valueOf(System.currentTimeMillis() - currentTimeMillis3));
                                                                                                                     Object[] objArr8 = new Object[2];
                                                                                                                     objArr8[0] = str115;
@@ -6815,7 +6815,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                 this.netContext.f(dVar);
                                                                                                                 if ((str != null || str.length() == 0) && f2 != null) {
                                                                                                                     H2 = j.H();
-                                                                                                                    if ((H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) && o.a(f2) && str3 != null) {
+                                                                                                                    if ((H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) && o.a(f2) && str3 != null) {
                                                                                                                         long currentTimeMillis122 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                         if (H2) {
                                                                                                                             bArr17 = bArr16;
@@ -6831,8 +6831,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                         ICDNIPDirectConnect.getInstance().result(bArr2, dVar.k, z22, z12, H2);
                                                                                                                         bArr18 = bArr17;
                                                                                                                         str3 = str3;
-                                                                                                                        i8 = 1;
-                                                                                                                        i12 += i8;
+                                                                                                                        i9 = 1;
+                                                                                                                        i13 += i9;
                                                                                                                         str101 = str;
                                                                                                                         str108 = str25;
                                                                                                                         str113 = str3;
@@ -6854,8 +6854,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str110 = str15;
                                                                                                                 bArr18 = bArr17;
                                                                                                                 str3 = str3;
-                                                                                                                i8 = 1;
-                                                                                                                i12 += i8;
+                                                                                                                i9 = 1;
+                                                                                                                i13 += i9;
                                                                                                                 str101 = str;
                                                                                                                 str108 = str25;
                                                                                                                 str113 = str3;
@@ -6881,28 +6881,28 @@ public class ImgHttpClient implements b.a {
                                                                                                                 bArr2 = str75;
                                                                                                                 bArr15 = bArr2;
                                                                                                                 str10 = str74;
-                                                                                                                this.netContext.c().f42536c = -13;
-                                                                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                                                                                                this.netContext.c().f39734c = -13;
+                                                                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                                                                                                 z9 = z22 && o.d(f2) && j.A();
                                                                                                                 this.mUseDnsIp = z9;
                                                                                                                 if (z9 && (cVar4 = this.mHttpDnsResult) != null) {
-                                                                                                                    cVar4.m(this.netContext.c().f42536c);
+                                                                                                                    cVar4.m(this.netContext.c().f39734c);
                                                                                                                 }
-                                                                                                                if (z22 && i12 == i2 - 1 && o.d(f2)) {
+                                                                                                                if (z22 && i13 == i3 - 1 && o.d(f2)) {
                                                                                                                     a logItem9 = ImageLogger.getLogItem();
-                                                                                                                    logItem9.b("netException", dVar.f42522h);
+                                                                                                                    logItem9.b("netException", dVar.f39719h);
                                                                                                                     logItem9.b(str10, f2);
                                                                                                                     logItem9.c(str4, Boolean.valueOf(j.z()));
                                                                                                                     logItem9.c(str111, Integer.valueOf(j.I()));
                                                                                                                     logItem9.b(str106, CommonHelper.getIp());
                                                                                                                     if (bArr15 != null) {
-                                                                                                                        i6 = bArr15.length;
+                                                                                                                        i7 = bArr15.length;
                                                                                                                         bArr12 = bArr15;
                                                                                                                     } else {
                                                                                                                         bArr12 = bArr15;
-                                                                                                                        i6 = 0;
+                                                                                                                        i7 = 0;
                                                                                                                     }
-                                                                                                                    logItem9.c(str117, Integer.valueOf(i6));
+                                                                                                                    logItem9.c(str117, Integer.valueOf(i7));
                                                                                                                     logItem9.c(str116, Long.valueOf(System.currentTimeMillis() - currentTimeMillis3));
                                                                                                                     Object[] objArr9 = new Object[2];
                                                                                                                     objArr9[0] = str115;
@@ -6935,7 +6935,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                 this.netContext.f(dVar);
                                                                                                                 if ((str != null || str.length() == 0) && f2 != null) {
                                                                                                                     H = j.H();
-                                                                                                                    if ((H || dVar.k != null || z22 || i12 >= i2 + (-1)) && o.a(f2) && str3 != null) {
+                                                                                                                    if ((H || dVar.k != null || z22 || i13 >= i3 + (-1)) && o.a(f2) && str3 != null) {
                                                                                                                         long currentTimeMillis132 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                         if (H) {
                                                                                                                             str22 = str18;
@@ -6958,8 +6958,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                         str109 = str6;
                                                                                                                         str28 = str8;
                                                                                                                         str3 = str3;
-                                                                                                                        i8 = 1;
-                                                                                                                        i12 += i8;
+                                                                                                                        i9 = 1;
+                                                                                                                        i13 += i9;
                                                                                                                         str101 = str;
                                                                                                                         str108 = str25;
                                                                                                                         str113 = str3;
@@ -6986,8 +6986,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str109 = str6;
                                                                                                                 str28 = str8;
                                                                                                                 str3 = str3;
-                                                                                                                i8 = 1;
-                                                                                                                i12 += i8;
+                                                                                                                i9 = 1;
+                                                                                                                i13 += i9;
                                                                                                                 str101 = str;
                                                                                                                 str108 = str25;
                                                                                                                 str113 = str3;
@@ -7013,29 +7013,29 @@ public class ImgHttpClient implements b.a {
                                                                                                                 bArr2 = str73;
                                                                                                                 bArr14 = bArr2;
                                                                                                                 str10 = str72;
-                                                                                                                this.netContext.c().f42536c = -20;
-                                                                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                                                                                                this.netContext.c().f39734c = -20;
+                                                                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                                                                                 this.mDownToHttp = true;
                                                                                                                 z7 = z22 && o.d(f2) && j.A();
                                                                                                                 this.mUseDnsIp = z7;
                                                                                                                 if (z7 && (cVar3 = this.mHttpDnsResult) != null) {
-                                                                                                                    cVar3.m(this.netContext.c().f42536c);
+                                                                                                                    cVar3.m(this.netContext.c().f39734c);
                                                                                                                 }
-                                                                                                                if (z22 && i12 == i2 - 1 && o.d(f2)) {
+                                                                                                                if (z22 && i13 == i3 - 1 && o.d(f2)) {
                                                                                                                     a logItem10 = ImageLogger.getLogItem();
-                                                                                                                    logItem10.b("netException", dVar.f42522h);
+                                                                                                                    logItem10.b("netException", dVar.f39719h);
                                                                                                                     logItem10.b(str10, f2);
                                                                                                                     logItem10.c(str4, Boolean.valueOf(j.z()));
                                                                                                                     logItem10.c(str111, Integer.valueOf(j.I()));
                                                                                                                     logItem10.b(str106, CommonHelper.getIp());
                                                                                                                     if (bArr14 != null) {
-                                                                                                                        i5 = bArr14.length;
+                                                                                                                        i6 = bArr14.length;
                                                                                                                         bArr12 = bArr14;
                                                                                                                     } else {
                                                                                                                         bArr12 = bArr14;
-                                                                                                                        i5 = 0;
+                                                                                                                        i6 = 0;
                                                                                                                     }
-                                                                                                                    logItem10.c(str117, Integer.valueOf(i5));
+                                                                                                                    logItem10.c(str117, Integer.valueOf(i6));
                                                                                                                     logItem10.c(str116, Long.valueOf(System.currentTimeMillis() - currentTimeMillis3));
                                                                                                                     Object[] objArr10 = new Object[2];
                                                                                                                     objArr10[0] = str115;
@@ -7068,7 +7068,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                 this.netContext.f(dVar);
                                                                                                                 if ((str != null || str.length() == 0) && f2 != null) {
                                                                                                                     H = j.H();
-                                                                                                                    if ((H || dVar.k != null || z22 || i12 >= i2 + (-1)) && o.a(f2) && str3 != null) {
+                                                                                                                    if ((H || dVar.k != null || z22 || i13 >= i3 + (-1)) && o.a(f2) && str3 != null) {
                                                                                                                         long currentTimeMillis142 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                         if (H) {
                                                                                                                             str22 = str18;
@@ -7091,8 +7091,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                         str109 = str6;
                                                                                                                         str28 = str8;
                                                                                                                         str3 = str3;
-                                                                                                                        i8 = 1;
-                                                                                                                        i12 += i8;
+                                                                                                                        i9 = 1;
+                                                                                                                        i13 += i9;
                                                                                                                         str101 = str;
                                                                                                                         str108 = str25;
                                                                                                                         str113 = str3;
@@ -7119,8 +7119,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str109 = str6;
                                                                                                                 str28 = str8;
                                                                                                                 str3 = str3;
-                                                                                                                i8 = 1;
-                                                                                                                i12 += i8;
+                                                                                                                i9 = 1;
+                                                                                                                i13 += i9;
                                                                                                                 str101 = str;
                                                                                                                 str108 = str25;
                                                                                                                 str113 = str3;
@@ -7144,28 +7144,28 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str7 = str110;
                                                                                                                 bArr2 = str71;
                                                                                                                 bArr13 = bArr2;
-                                                                                                                this.netContext.c().f42536c = -19;
-                                                                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                                                                                                this.netContext.c().f39734c = -19;
+                                                                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                                                                                                 z5 = z22 && o.d(f2) && j.A();
                                                                                                                 this.mUseDnsIp = z5;
                                                                                                                 if (z5 && (cVar2 = this.mHttpDnsResult) != null) {
-                                                                                                                    cVar2.m(this.netContext.c().f42536c);
+                                                                                                                    cVar2.m(this.netContext.c().f39734c);
                                                                                                                 }
-                                                                                                                if (z22 && i12 == i2 - 1 && o.d(f2)) {
+                                                                                                                if (z22 && i13 == i3 - 1 && o.d(f2)) {
                                                                                                                     a logItem11 = ImageLogger.getLogItem();
-                                                                                                                    logItem11.b("netException", dVar.f42522h);
+                                                                                                                    logItem11.b("netException", dVar.f39719h);
                                                                                                                     logItem11.b(str10, f2);
                                                                                                                     logItem11.c(str4, Boolean.valueOf(j.z()));
                                                                                                                     logItem11.c(str111, Integer.valueOf(j.I()));
                                                                                                                     logItem11.b(str106, CommonHelper.getIp());
                                                                                                                     if (bArr13 != null) {
-                                                                                                                        i4 = bArr13.length;
+                                                                                                                        i5 = bArr13.length;
                                                                                                                         bArr12 = bArr13;
                                                                                                                     } else {
                                                                                                                         bArr12 = bArr13;
-                                                                                                                        i4 = 0;
+                                                                                                                        i5 = 0;
                                                                                                                     }
-                                                                                                                    logItem11.c(str117, Integer.valueOf(i4));
+                                                                                                                    logItem11.c(str117, Integer.valueOf(i5));
                                                                                                                     logItem11.c(str116, Long.valueOf(System.currentTimeMillis() - currentTimeMillis3));
                                                                                                                     Object[] objArr11 = new Object[2];
                                                                                                                     objArr11[0] = str115;
@@ -7198,7 +7198,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                 this.netContext.f(dVar);
                                                                                                                 if ((str != null || str.length() == 0) && f2 != null) {
                                                                                                                     H = j.H();
-                                                                                                                    if ((H || dVar.k != null || z22 || i12 >= i2 + (-1)) && o.a(f2) && str3 != null) {
+                                                                                                                    if ((H || dVar.k != null || z22 || i13 >= i3 + (-1)) && o.a(f2) && str3 != null) {
                                                                                                                         long currentTimeMillis112 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                         if (H) {
                                                                                                                             str22 = str18;
@@ -7221,8 +7221,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                         str109 = str6;
                                                                                                                         str28 = str8;
                                                                                                                         str3 = str3;
-                                                                                                                        i8 = 1;
-                                                                                                                        i12 += i8;
+                                                                                                                        i9 = 1;
+                                                                                                                        i13 += i9;
                                                                                                                         str101 = str;
                                                                                                                         str108 = str25;
                                                                                                                         str113 = str3;
@@ -7249,8 +7249,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str109 = str6;
                                                                                                                 str28 = str8;
                                                                                                                 str3 = str3;
-                                                                                                                i8 = 1;
-                                                                                                                i12 += i8;
+                                                                                                                i9 = 1;
+                                                                                                                i13 += i9;
                                                                                                                 str101 = str;
                                                                                                                 str108 = str25;
                                                                                                                 str113 = str3;
@@ -7275,28 +7275,28 @@ public class ImgHttpClient implements b.a {
                                                                                                                 bArr2 = str70;
                                                                                                                 bArr11 = bArr2;
                                                                                                                 str10 = str10;
-                                                                                                                this.netContext.c().f42536c = -18;
-                                                                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                                                                                                this.netContext.c().f39734c = -18;
+                                                                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                                                                                                 z2 = z22 && o.d(f2) && j.A();
                                                                                                                 this.mUseDnsIp = z2;
                                                                                                                 if (z2 && (cVar = this.mHttpDnsResult) != null) {
-                                                                                                                    cVar.m(this.netContext.c().f42536c);
+                                                                                                                    cVar.m(this.netContext.c().f39734c);
                                                                                                                 }
-                                                                                                                if (z22 && i12 == i2 - 1 && o.d(f2)) {
+                                                                                                                if (z22 && i13 == i3 - 1 && o.d(f2)) {
                                                                                                                     a logItem12 = ImageLogger.getLogItem();
-                                                                                                                    logItem12.b("netException", dVar.f42522h);
+                                                                                                                    logItem12.b("netException", dVar.f39719h);
                                                                                                                     logItem12.b(str10, f2);
                                                                                                                     logItem12.c(str4, Boolean.valueOf(j.z()));
                                                                                                                     logItem12.c(str111, Integer.valueOf(j.I()));
                                                                                                                     logItem12.b(str106, CommonHelper.getIp());
                                                                                                                     if (bArr11 != null) {
-                                                                                                                        i3 = bArr11.length;
+                                                                                                                        i4 = bArr11.length;
                                                                                                                         bArr12 = bArr11;
                                                                                                                     } else {
                                                                                                                         bArr12 = bArr11;
-                                                                                                                        i3 = 0;
+                                                                                                                        i4 = 0;
                                                                                                                     }
-                                                                                                                    logItem12.c(str117, Integer.valueOf(i3));
+                                                                                                                    logItem12.c(str117, Integer.valueOf(i4));
                                                                                                                     logItem12.c(str116, Long.valueOf(System.currentTimeMillis() - currentTimeMillis3));
                                                                                                                     Object[] objArr12 = new Object[2];
                                                                                                                     objArr12[0] = str115;
@@ -7329,7 +7329,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                 this.netContext.f(dVar);
                                                                                                                 if ((str != null || str.length() == 0) && f2 != null) {
                                                                                                                     H = j.H();
-                                                                                                                    if ((H || dVar.k != null || z22 || i12 >= i2 + (-1)) && o.a(f2) && str3 != null) {
+                                                                                                                    if ((H || dVar.k != null || z22 || i13 >= i3 + (-1)) && o.a(f2) && str3 != null) {
                                                                                                                         long currentTimeMillis152 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                         if (H) {
                                                                                                                             str22 = str18;
@@ -7352,8 +7352,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                         str109 = str6;
                                                                                                                         str28 = str8;
                                                                                                                         str3 = str3;
-                                                                                                                        i8 = 1;
-                                                                                                                        i12 += i8;
+                                                                                                                        i9 = 1;
+                                                                                                                        i13 += i9;
                                                                                                                         str101 = str;
                                                                                                                         str108 = str25;
                                                                                                                         str113 = str3;
@@ -7380,8 +7380,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str109 = str6;
                                                                                                                 str28 = str8;
                                                                                                                 str3 = str3;
-                                                                                                                i8 = 1;
-                                                                                                                i12 += i8;
+                                                                                                                i9 = 1;
+                                                                                                                i13 += i9;
                                                                                                                 str101 = str;
                                                                                                                 str108 = str25;
                                                                                                                 str113 = str3;
@@ -7421,28 +7421,28 @@ public class ImgHttpClient implements b.a {
                                                                                                                         str10 = str10;
                                                                                                                         bArr2 = bArr2;
                                                                                                                         str35 = str34;
-                                                                                                                        this.netContext.c().f42536c = -19;
-                                                                                                                        dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                                                                                        this.netContext.c().f39734c = -19;
+                                                                                                                        dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                                                                                         z18 = z22 && o.d(f2) && j.A();
                                                                                                                         this.mUseDnsIp = z18;
                                                                                                                         if (z18 && (cVar10 = this.mHttpDnsResult) != null) {
-                                                                                                                            cVar10.m(this.netContext.c().f42536c);
+                                                                                                                            cVar10.m(this.netContext.c().f39734c);
                                                                                                                         }
-                                                                                                                        if (z22 && i12 == i2 - 1 && o.d(f2)) {
+                                                                                                                        if (z22 && i13 == i3 - 1 && o.d(f2)) {
                                                                                                                             a logItem13 = ImageLogger.getLogItem();
-                                                                                                                            logItem13.b("netException", dVar.f42522h);
+                                                                                                                            logItem13.b("netException", dVar.f39719h);
                                                                                                                             logItem13.b(str10, f2);
                                                                                                                             logItem13.c(str4, Boolean.valueOf(j.z()));
                                                                                                                             logItem13.c(str111, Integer.valueOf(j.I()));
                                                                                                                             logItem13.b(str106, CommonHelper.getIp());
                                                                                                                             if (bArr10 != null) {
-                                                                                                                                i9 = bArr10.length;
+                                                                                                                                i10 = bArr10.length;
                                                                                                                                 bArr12 = bArr10;
                                                                                                                             } else {
                                                                                                                                 bArr12 = bArr10;
-                                                                                                                                i9 = 0;
+                                                                                                                                i10 = 0;
                                                                                                                             }
-                                                                                                                            logItem13.c(str117, Integer.valueOf(i9));
+                                                                                                                            logItem13.c(str117, Integer.valueOf(i10));
                                                                                                                             logItem13.c(str116, Long.valueOf(System.currentTimeMillis() - currentTimeMillis3));
                                                                                                                             Object[] objArr13 = new Object[2];
                                                                                                                             objArr13[0] = str115;
@@ -7476,7 +7476,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                         this.netContext.f(dVar);
                                                                                                                         if ((str != null || str.length() == 0) && f2 != null) {
                                                                                                                             H = j.H();
-                                                                                                                            if ((H || dVar.k != null || z22 || i12 >= i2 + (-1)) && o.a(f2) && str3 != null) {
+                                                                                                                            if ((H || dVar.k != null || z22 || i13 >= i3 + (-1)) && o.a(f2) && str3 != null) {
                                                                                                                                 long currentTimeMillis162 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                                 if (H) {
                                                                                                                                     str22 = str18;
@@ -7499,8 +7499,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                                 str109 = str6;
                                                                                                                                 str28 = str8;
                                                                                                                                 str3 = str3;
-                                                                                                                                i8 = 1;
-                                                                                                                                i12 += i8;
+                                                                                                                                i9 = 1;
+                                                                                                                                i13 += i9;
                                                                                                                                 str101 = str;
                                                                                                                                 str108 = str25;
                                                                                                                                 str113 = str3;
@@ -7527,8 +7527,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                         str109 = str6;
                                                                                                                         str28 = str8;
                                                                                                                         str3 = str3;
-                                                                                                                        i8 = 1;
-                                                                                                                        i12 += i8;
+                                                                                                                        i9 = 1;
+                                                                                                                        i13 += i9;
                                                                                                                         str101 = str;
                                                                                                                         str108 = str25;
                                                                                                                         str113 = str3;
@@ -7549,17 +7549,17 @@ public class ImgHttpClient implements b.a {
                                                                                                                         str30 = str149;
                                                                                                                         bArr4 = bArr4;
                                                                                                                         str29 = str10;
-                                                                                                                        this.netContext.c().f42536c = -10;
+                                                                                                                        this.netContext.c().f39734c = -10;
                                                                                                                         StringBuilder sb2222222222 = new StringBuilder();
                                                                                                                         sb2222222222.append(str110);
-                                                                                                                        sb2222222222.append(String.valueOf(this.netContext.c().f42536c));
+                                                                                                                        sb2222222222.append(String.valueOf(this.netContext.c().f39734c));
                                                                                                                         String str1242222222222 = str109;
                                                                                                                         sb2222222222.append(str1242222222222);
                                                                                                                         str19 = str105;
                                                                                                                         sb2222222222.append(th.getClass());
                                                                                                                         sb2222222222.append(str1242222222222);
                                                                                                                         sb2222222222.append(th.getMessage());
-                                                                                                                        dVar.f42522h = sb2222222222.toString();
+                                                                                                                        dVar.f39719h = sb2222222222.toString();
                                                                                                                         if (z) {
                                                                                                                         }
                                                                                                                         this.mUseDnsIp = z13;
@@ -7574,11 +7574,11 @@ public class ImgHttpClient implements b.a {
                                                                                                                         if (str != null) {
                                                                                                                         }
                                                                                                                         H3 = j.H();
-                                                                                                                        if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                                                                                                        if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                                                                                                         }
                                                                                                                         byte[] bArr442222222222 = bArr4;
                                                                                                                         this.mWapRetryConnt = 0;
-                                                                                                                        this.netContext.c().f42541h = bArr442222222222;
+                                                                                                                        this.netContext.c().f39739h = bArr442222222222;
                                                                                                                     }
                                                                                                                 } catch (IllegalStateException e125) {
                                                                                                                     str86 = str149;
@@ -7594,8 +7594,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                     str10 = str85;
                                                                                                                     bArr2 = bArr2;
                                                                                                                     str35 = str34;
-                                                                                                                    this.netContext.c().f42536c = -19;
-                                                                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                                                                                    this.netContext.c().f39734c = -19;
+                                                                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                                                                                     if (z22) {
                                                                                                                     }
                                                                                                                     this.mUseDnsIp = z18;
@@ -7613,7 +7613,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                     if (str != null) {
                                                                                                                     }
                                                                                                                     H = j.H();
-                                                                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                     }
                                                                                                                     str22 = str18;
                                                                                                                     str23 = str21;
@@ -7625,8 +7625,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                     str109 = str6;
                                                                                                                     str28 = str8;
                                                                                                                     str3 = str3;
-                                                                                                                    i8 = 1;
-                                                                                                                    i12 += i8;
+                                                                                                                    i9 = 1;
+                                                                                                                    i13 += i9;
                                                                                                                     str101 = str;
                                                                                                                     str108 = str25;
                                                                                                                     str113 = str3;
@@ -7649,17 +7649,17 @@ public class ImgHttpClient implements b.a {
                                                                                                                     bArr4 = bArr4;
                                                                                                                     str30 = str47;
                                                                                                                     str29 = str10;
-                                                                                                                    this.netContext.c().f42536c = -10;
+                                                                                                                    this.netContext.c().f39734c = -10;
                                                                                                                     StringBuilder sb22222222222 = new StringBuilder();
                                                                                                                     sb22222222222.append(str110);
-                                                                                                                    sb22222222222.append(String.valueOf(this.netContext.c().f42536c));
+                                                                                                                    sb22222222222.append(String.valueOf(this.netContext.c().f39734c));
                                                                                                                     String str12422222222222 = str109;
                                                                                                                     sb22222222222.append(str12422222222222);
                                                                                                                     str19 = str105;
                                                                                                                     sb22222222222.append(th.getClass());
                                                                                                                     sb22222222222.append(str12422222222222);
                                                                                                                     sb22222222222.append(th.getMessage());
-                                                                                                                    dVar.f42522h = sb22222222222.toString();
+                                                                                                                    dVar.f39719h = sb22222222222.toString();
                                                                                                                     if (z) {
                                                                                                                     }
                                                                                                                     this.mUseDnsIp = z13;
@@ -7674,11 +7674,11 @@ public class ImgHttpClient implements b.a {
                                                                                                                     if (str != null) {
                                                                                                                     }
                                                                                                                     H3 = j.H();
-                                                                                                                    if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                                                                                                    if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                                                                                                     }
                                                                                                                     byte[] bArr4422222222222 = bArr4;
                                                                                                                     this.mWapRetryConnt = 0;
-                                                                                                                    this.netContext.c().f42541h = bArr4422222222222;
+                                                                                                                    this.netContext.c().f39739h = bArr4422222222222;
                                                                                                                 }
                                                                                                             } catch (SocketException e126) {
                                                                                                                 socketException = e126;
@@ -7692,8 +7692,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str9 = str149;
                                                                                                                 bArr16 = bArr35;
                                                                                                                 str25 = str10;
-                                                                                                                this.netContext.c().f42536c = -12;
-                                                                                                                dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                                                                                                this.netContext.c().f39734c = -12;
+                                                                                                                dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                                                                                                 if (z22) {
                                                                                                                 }
                                                                                                                 this.mUseDnsIp = z11;
@@ -7711,15 +7711,15 @@ public class ImgHttpClient implements b.a {
                                                                                                                 if (str != null) {
                                                                                                                 }
                                                                                                                 H2 = j.H();
-                                                                                                                if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                 }
                                                                                                                 bArr17 = bArr16;
                                                                                                                 str28 = str8;
                                                                                                                 str110 = str15;
                                                                                                                 bArr18 = bArr17;
                                                                                                                 str3 = str3;
-                                                                                                                i8 = 1;
-                                                                                                                i12 += i8;
+                                                                                                                i9 = 1;
+                                                                                                                i13 += i9;
                                                                                                                 str101 = str;
                                                                                                                 str108 = str25;
                                                                                                                 str113 = str3;
@@ -7746,8 +7746,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str9 = str149;
                                                                                                                 bArr15 = bArr34;
                                                                                                                 str10 = str10;
-                                                                                                                this.netContext.c().f42536c = -13;
-                                                                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                                                                                                this.netContext.c().f39734c = -13;
+                                                                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                                                                                                 if (z22) {
                                                                                                                 }
                                                                                                                 this.mUseDnsIp = z9;
@@ -7765,7 +7765,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                 if (str != null) {
                                                                                                                 }
                                                                                                                 H = j.H();
-                                                                                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                 }
                                                                                                                 str22 = str18;
                                                                                                                 str23 = str21;
@@ -7777,8 +7777,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str109 = str6;
                                                                                                                 str28 = str8;
                                                                                                                 str3 = str3;
-                                                                                                                i8 = 1;
-                                                                                                                i12 += i8;
+                                                                                                                i9 = 1;
+                                                                                                                i13 += i9;
                                                                                                                 str101 = str;
                                                                                                                 str108 = str25;
                                                                                                                 str113 = str3;
@@ -7805,8 +7805,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str9 = str149;
                                                                                                                 bArr14 = bArr33;
                                                                                                                 str10 = str10;
-                                                                                                                this.netContext.c().f42536c = -20;
-                                                                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                                                                                                this.netContext.c().f39734c = -20;
+                                                                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                                                                                 this.mDownToHttp = true;
                                                                                                                 if (z22) {
                                                                                                                 }
@@ -7825,7 +7825,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                 if (str != null) {
                                                                                                                 }
                                                                                                                 H = j.H();
-                                                                                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                 }
                                                                                                                 str22 = str18;
                                                                                                                 str23 = str21;
@@ -7837,8 +7837,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str109 = str6;
                                                                                                                 str28 = str8;
                                                                                                                 str3 = str3;
-                                                                                                                i8 = 1;
-                                                                                                                i12 += i8;
+                                                                                                                i9 = 1;
+                                                                                                                i13 += i9;
                                                                                                                 str101 = str;
                                                                                                                 str108 = str25;
                                                                                                                 str113 = str3;
@@ -7864,8 +7864,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str8 = str148;
                                                                                                                 str9 = str149;
                                                                                                                 bArr13 = bArr32;
-                                                                                                                this.netContext.c().f42536c = -19;
-                                                                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                                                                                                this.netContext.c().f39734c = -19;
+                                                                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                                                                                                 if (z22) {
                                                                                                                 }
                                                                                                                 this.mUseDnsIp = z5;
@@ -7883,7 +7883,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                 if (str != null) {
                                                                                                                 }
                                                                                                                 H = j.H();
-                                                                                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                 }
                                                                                                                 str22 = str18;
                                                                                                                 str23 = str21;
@@ -7895,8 +7895,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str109 = str6;
                                                                                                                 str28 = str8;
                                                                                                                 str3 = str3;
-                                                                                                                i8 = 1;
-                                                                                                                i12 += i8;
+                                                                                                                i9 = 1;
+                                                                                                                i13 += i9;
                                                                                                                 str101 = str;
                                                                                                                 str108 = str25;
                                                                                                                 str113 = str3;
@@ -7923,8 +7923,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str9 = str149;
                                                                                                                 bArr11 = bArr31;
                                                                                                                 str10 = str10;
-                                                                                                                this.netContext.c().f42536c = -18;
-                                                                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                                                                                                this.netContext.c().f39734c = -18;
+                                                                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                                                                                                 if (z22) {
                                                                                                                 }
                                                                                                                 this.mUseDnsIp = z2;
@@ -7942,7 +7942,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                 if (str != null) {
                                                                                                                 }
                                                                                                                 H = j.H();
-                                                                                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                                 }
                                                                                                                 str22 = str18;
                                                                                                                 str23 = str21;
@@ -7954,8 +7954,8 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str109 = str6;
                                                                                                                 str28 = str8;
                                                                                                                 str3 = str3;
-                                                                                                                i8 = 1;
-                                                                                                                i12 += i8;
+                                                                                                                i9 = 1;
+                                                                                                                i13 += i9;
                                                                                                                 str101 = str;
                                                                                                                 str108 = str25;
                                                                                                                 str113 = str3;
@@ -7984,8 +7984,8 @@ public class ImgHttpClient implements b.a {
                                                                                                     str112 = str112;
                                                                                                     str106 = str92;
                                                                                                     str25 = str93;
-                                                                                                    this.netContext.c().f42536c = -12;
-                                                                                                    dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                                                                                    this.netContext.c().f39734c = -12;
+                                                                                                    dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                                                                                     if (z22) {
                                                                                                     }
                                                                                                     this.mUseDnsIp = z11;
@@ -8003,15 +8003,15 @@ public class ImgHttpClient implements b.a {
                                                                                                     if (str != null) {
                                                                                                     }
                                                                                                     H2 = j.H();
-                                                                                                    if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                    if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                     }
                                                                                                     bArr17 = bArr16;
                                                                                                     str28 = str8;
                                                                                                     str110 = str15;
                                                                                                     bArr18 = bArr17;
                                                                                                     str3 = str3;
-                                                                                                    i8 = 1;
-                                                                                                    i12 += i8;
+                                                                                                    i9 = 1;
+                                                                                                    i13 += i9;
                                                                                                     str101 = str;
                                                                                                     str108 = str25;
                                                                                                     str113 = str3;
@@ -8037,8 +8037,8 @@ public class ImgHttpClient implements b.a {
                                                                                                     str112 = str112;
                                                                                                     str106 = str92;
                                                                                                     str10 = str93;
-                                                                                                    this.netContext.c().f42536c = -13;
-                                                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                                                                                    this.netContext.c().f39734c = -13;
+                                                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                                                                                     if (z22) {
                                                                                                     }
                                                                                                     this.mUseDnsIp = z9;
@@ -8056,7 +8056,7 @@ public class ImgHttpClient implements b.a {
                                                                                                     if (str != null) {
                                                                                                     }
                                                                                                     H = j.H();
-                                                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                     }
                                                                                                     str22 = str18;
                                                                                                     str23 = str21;
@@ -8068,8 +8068,8 @@ public class ImgHttpClient implements b.a {
                                                                                                     str109 = str6;
                                                                                                     str28 = str8;
                                                                                                     str3 = str3;
-                                                                                                    i8 = 1;
-                                                                                                    i12 += i8;
+                                                                                                    i9 = 1;
+                                                                                                    i13 += i9;
                                                                                                     str101 = str;
                                                                                                     str108 = str25;
                                                                                                     str113 = str3;
@@ -8095,8 +8095,8 @@ public class ImgHttpClient implements b.a {
                                                                                                     str112 = str112;
                                                                                                     str106 = str92;
                                                                                                     str10 = str93;
-                                                                                                    this.netContext.c().f42536c = -20;
-                                                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                                                                                    this.netContext.c().f39734c = -20;
+                                                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                                                                     this.mDownToHttp = true;
                                                                                                     if (z22) {
                                                                                                     }
@@ -8115,7 +8115,7 @@ public class ImgHttpClient implements b.a {
                                                                                                     if (str != null) {
                                                                                                     }
                                                                                                     H = j.H();
-                                                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                     }
                                                                                                     str22 = str18;
                                                                                                     str23 = str21;
@@ -8127,8 +8127,8 @@ public class ImgHttpClient implements b.a {
                                                                                                     str109 = str6;
                                                                                                     str28 = str8;
                                                                                                     str3 = str3;
-                                                                                                    i8 = 1;
-                                                                                                    i12 += i8;
+                                                                                                    i9 = 1;
+                                                                                                    i13 += i9;
                                                                                                     str101 = str;
                                                                                                     str108 = str25;
                                                                                                     str113 = str3;
@@ -8154,8 +8154,8 @@ public class ImgHttpClient implements b.a {
                                                                                                     str112 = str112;
                                                                                                     str106 = str92;
                                                                                                     str10 = str93;
-                                                                                                    this.netContext.c().f42536c = -19;
-                                                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                                                                                    this.netContext.c().f39734c = -19;
+                                                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                                                                                     if (z22) {
                                                                                                     }
                                                                                                     this.mUseDnsIp = z5;
@@ -8173,7 +8173,7 @@ public class ImgHttpClient implements b.a {
                                                                                                     if (str != null) {
                                                                                                     }
                                                                                                     H = j.H();
-                                                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                     }
                                                                                                     str22 = str18;
                                                                                                     str23 = str21;
@@ -8185,8 +8185,8 @@ public class ImgHttpClient implements b.a {
                                                                                                     str109 = str6;
                                                                                                     str28 = str8;
                                                                                                     str3 = str3;
-                                                                                                    i8 = 1;
-                                                                                                    i12 += i8;
+                                                                                                    i9 = 1;
+                                                                                                    i13 += i9;
                                                                                                     str101 = str;
                                                                                                     str108 = str25;
                                                                                                     str113 = str3;
@@ -8214,8 +8214,8 @@ public class ImgHttpClient implements b.a {
                                                                                                     str10 = str93;
                                                                                                     bArr2 = bArr2;
                                                                                                     str35 = str34;
-                                                                                                    this.netContext.c().f42536c = -19;
-                                                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                                                                    this.netContext.c().f39734c = -19;
+                                                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                                                                     if (z22) {
                                                                                                     }
                                                                                                     this.mUseDnsIp = z18;
@@ -8233,7 +8233,7 @@ public class ImgHttpClient implements b.a {
                                                                                                     if (str != null) {
                                                                                                     }
                                                                                                     H = j.H();
-                                                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                     }
                                                                                                     str22 = str18;
                                                                                                     str23 = str21;
@@ -8245,8 +8245,8 @@ public class ImgHttpClient implements b.a {
                                                                                                     str109 = str6;
                                                                                                     str28 = str8;
                                                                                                     str3 = str3;
-                                                                                                    i8 = 1;
-                                                                                                    i12 += i8;
+                                                                                                    i9 = 1;
+                                                                                                    i13 += i9;
                                                                                                     str101 = str;
                                                                                                     str108 = str25;
                                                                                                     str113 = str3;
@@ -8272,8 +8272,8 @@ public class ImgHttpClient implements b.a {
                                                                                                     str112 = str112;
                                                                                                     str106 = str92;
                                                                                                     str10 = str93;
-                                                                                                    this.netContext.c().f42536c = -18;
-                                                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                                                                                    this.netContext.c().f39734c = -18;
+                                                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                                                                                     if (z22) {
                                                                                                     }
                                                                                                     this.mUseDnsIp = z2;
@@ -8291,7 +8291,7 @@ public class ImgHttpClient implements b.a {
                                                                                                     if (str != null) {
                                                                                                     }
                                                                                                     H = j.H();
-                                                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                     }
                                                                                                     str22 = str18;
                                                                                                     str23 = str21;
@@ -8303,8 +8303,8 @@ public class ImgHttpClient implements b.a {
                                                                                                     str109 = str6;
                                                                                                     str28 = str8;
                                                                                                     str3 = str3;
-                                                                                                    i8 = 1;
-                                                                                                    i12 += i8;
+                                                                                                    i9 = 1;
+                                                                                                    i13 += i9;
                                                                                                     str101 = str;
                                                                                                     str108 = str25;
                                                                                                     str113 = str3;
@@ -8345,8 +8345,8 @@ public class ImgHttpClient implements b.a {
                                                                                                 str106 = str92;
                                                                                                 bArr2 = bArr2;
                                                                                                 str35 = str34;
-                                                                                                this.netContext.c().f42536c = -19;
-                                                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                                                                this.netContext.c().f39734c = -19;
+                                                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                                                                 if (z22) {
                                                                                                 }
                                                                                                 this.mUseDnsIp = z18;
@@ -8364,7 +8364,7 @@ public class ImgHttpClient implements b.a {
                                                                                                 if (str != null) {
                                                                                                 }
                                                                                                 H = j.H();
-                                                                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                 }
                                                                                                 str22 = str18;
                                                                                                 str23 = str21;
@@ -8376,8 +8376,8 @@ public class ImgHttpClient implements b.a {
                                                                                                 str109 = str6;
                                                                                                 str28 = str8;
                                                                                                 str3 = str3;
-                                                                                                i8 = 1;
-                                                                                                i12 += i8;
+                                                                                                i9 = 1;
+                                                                                                i13 += i9;
                                                                                                 str101 = str;
                                                                                                 str108 = str25;
                                                                                                 str113 = str3;
@@ -8405,8 +8405,8 @@ public class ImgHttpClient implements b.a {
                                                                                                 str9 = str149;
                                                                                                 str112 = str112;
                                                                                                 str106 = str92;
-                                                                                                this.netContext.c().f42536c = -12;
-                                                                                                dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                                                                                this.netContext.c().f39734c = -12;
+                                                                                                dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                                                                                 if (z22) {
                                                                                                 }
                                                                                                 this.mUseDnsIp = z11;
@@ -8424,15 +8424,15 @@ public class ImgHttpClient implements b.a {
                                                                                                 if (str != null) {
                                                                                                 }
                                                                                                 H2 = j.H();
-                                                                                                if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                 }
                                                                                                 bArr17 = bArr16;
                                                                                                 str28 = str8;
                                                                                                 str110 = str15;
                                                                                                 bArr18 = bArr17;
                                                                                                 str3 = str3;
-                                                                                                i8 = 1;
-                                                                                                i12 += i8;
+                                                                                                i9 = 1;
+                                                                                                i13 += i9;
                                                                                                 str101 = str;
                                                                                                 str108 = str25;
                                                                                                 str113 = str3;
@@ -8460,8 +8460,8 @@ public class ImgHttpClient implements b.a {
                                                                                                 str9 = str149;
                                                                                                 str112 = str112;
                                                                                                 str106 = str92;
-                                                                                                this.netContext.c().f42536c = -13;
-                                                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                                                                                this.netContext.c().f39734c = -13;
+                                                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                                                                                 if (z22) {
                                                                                                 }
                                                                                                 this.mUseDnsIp = z9;
@@ -8479,7 +8479,7 @@ public class ImgHttpClient implements b.a {
                                                                                                 if (str != null) {
                                                                                                 }
                                                                                                 H = j.H();
-                                                                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                 }
                                                                                                 str22 = str18;
                                                                                                 str23 = str21;
@@ -8491,8 +8491,8 @@ public class ImgHttpClient implements b.a {
                                                                                                 str109 = str6;
                                                                                                 str28 = str8;
                                                                                                 str3 = str3;
-                                                                                                i8 = 1;
-                                                                                                i12 += i8;
+                                                                                                i9 = 1;
+                                                                                                i13 += i9;
                                                                                                 str101 = str;
                                                                                                 str108 = str25;
                                                                                                 str113 = str3;
@@ -8520,8 +8520,8 @@ public class ImgHttpClient implements b.a {
                                                                                                 str9 = str149;
                                                                                                 str112 = str112;
                                                                                                 str106 = str92;
-                                                                                                this.netContext.c().f42536c = -20;
-                                                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                                                                                this.netContext.c().f39734c = -20;
+                                                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                                                                 this.mDownToHttp = true;
                                                                                                 if (z22) {
                                                                                                 }
@@ -8540,7 +8540,7 @@ public class ImgHttpClient implements b.a {
                                                                                                 if (str != null) {
                                                                                                 }
                                                                                                 H = j.H();
-                                                                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                 }
                                                                                                 str22 = str18;
                                                                                                 str23 = str21;
@@ -8552,8 +8552,8 @@ public class ImgHttpClient implements b.a {
                                                                                                 str109 = str6;
                                                                                                 str28 = str8;
                                                                                                 str3 = str3;
-                                                                                                i8 = 1;
-                                                                                                i12 += i8;
+                                                                                                i9 = 1;
+                                                                                                i13 += i9;
                                                                                                 str101 = str;
                                                                                                 str108 = str25;
                                                                                                 str113 = str3;
@@ -8581,8 +8581,8 @@ public class ImgHttpClient implements b.a {
                                                                                                 str9 = str149;
                                                                                                 str112 = str112;
                                                                                                 str106 = str92;
-                                                                                                this.netContext.c().f42536c = -19;
-                                                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                                                                                this.netContext.c().f39734c = -19;
+                                                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                                                                                 if (z22) {
                                                                                                 }
                                                                                                 this.mUseDnsIp = z5;
@@ -8600,7 +8600,7 @@ public class ImgHttpClient implements b.a {
                                                                                                 if (str != null) {
                                                                                                 }
                                                                                                 H = j.H();
-                                                                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                 }
                                                                                                 str22 = str18;
                                                                                                 str23 = str21;
@@ -8612,8 +8612,8 @@ public class ImgHttpClient implements b.a {
                                                                                                 str109 = str6;
                                                                                                 str28 = str8;
                                                                                                 str3 = str3;
-                                                                                                i8 = 1;
-                                                                                                i12 += i8;
+                                                                                                i9 = 1;
+                                                                                                i13 += i9;
                                                                                                 str101 = str;
                                                                                                 str108 = str25;
                                                                                                 str113 = str3;
@@ -8641,8 +8641,8 @@ public class ImgHttpClient implements b.a {
                                                                                                 str9 = str149;
                                                                                                 str112 = str112;
                                                                                                 str106 = str92;
-                                                                                                this.netContext.c().f42536c = -18;
-                                                                                                dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                                                                                this.netContext.c().f39734c = -18;
+                                                                                                dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                                                                                 if (z22) {
                                                                                                 }
                                                                                                 this.mUseDnsIp = z2;
@@ -8660,7 +8660,7 @@ public class ImgHttpClient implements b.a {
                                                                                                 if (str != null) {
                                                                                                 }
                                                                                                 H = j.H();
-                                                                                                if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                                if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                                 }
                                                                                                 str22 = str18;
                                                                                                 str23 = str21;
@@ -8672,8 +8672,8 @@ public class ImgHttpClient implements b.a {
                                                                                                 str109 = str6;
                                                                                                 str28 = str8;
                                                                                                 str3 = str3;
-                                                                                                i8 = 1;
-                                                                                                i12 += i8;
+                                                                                                i9 = 1;
+                                                                                                i13 += i9;
                                                                                                 str101 = str;
                                                                                                 str108 = str25;
                                                                                                 str113 = str3;
@@ -8700,17 +8700,17 @@ public class ImgHttpClient implements b.a {
                                                                                                 str30 = str149;
                                                                                                 str18 = str112;
                                                                                                 str106 = str92;
-                                                                                                this.netContext.c().f42536c = -10;
+                                                                                                this.netContext.c().f39734c = -10;
                                                                                                 StringBuilder sb222222222222 = new StringBuilder();
                                                                                                 sb222222222222.append(str110);
-                                                                                                sb222222222222.append(String.valueOf(this.netContext.c().f42536c));
+                                                                                                sb222222222222.append(String.valueOf(this.netContext.c().f39734c));
                                                                                                 String str124222222222222 = str109;
                                                                                                 sb222222222222.append(str124222222222222);
                                                                                                 str19 = str105;
                                                                                                 sb222222222222.append(th.getClass());
                                                                                                 sb222222222222.append(str124222222222222);
                                                                                                 sb222222222222.append(th.getMessage());
-                                                                                                dVar.f42522h = sb222222222222.toString();
+                                                                                                dVar.f39719h = sb222222222222.toString();
                                                                                                 if (z) {
                                                                                                 }
                                                                                                 this.mUseDnsIp = z13;
@@ -8725,11 +8725,11 @@ public class ImgHttpClient implements b.a {
                                                                                                 if (str != null) {
                                                                                                 }
                                                                                                 H3 = j.H();
-                                                                                                if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                                                                                if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                                                                                 }
                                                                                                 byte[] bArr44222222222222 = bArr4;
                                                                                                 this.mWapRetryConnt = 0;
-                                                                                                this.netContext.c().f42541h = bArr44222222222222;
+                                                                                                this.netContext.c().f39739h = bArr44222222222222;
                                                                                             }
                                                                                         } else {
                                                                                             str92 = str105;
@@ -8738,12 +8738,12 @@ public class ImgHttpClient implements b.a {
                                                                                             inputStream2 = content;
                                                                                             str111 = str106;
                                                                                         }
-                                                                                        i11 = 0;
+                                                                                        i12 = 0;
                                                                                         if (r7.getFirstHeader("Src-Content-Type") != null) {
                                                                                         }
                                                                                         while (!this.mIsInterrupte) {
                                                                                             byteArrayOutputStream.write(bArr49, 0, read);
-                                                                                            i11 += read;
+                                                                                            i12 += read;
                                                                                         }
                                                                                         dVar.j = -9;
                                                                                         if (this.mIsInterrupte) {
@@ -8766,8 +8766,8 @@ public class ImgHttpClient implements b.a {
                                                                                     str106 = str105;
                                                                                     bArr16 = obj5;
                                                                                     str25 = str51;
-                                                                                    this.netContext.c().f42536c = -12;
-                                                                                    dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                                                                    this.netContext.c().f39734c = -12;
+                                                                                    dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                                                                     if (z22) {
                                                                                     }
                                                                                     this.mUseDnsIp = z11;
@@ -8785,15 +8785,15 @@ public class ImgHttpClient implements b.a {
                                                                                     if (str != null) {
                                                                                     }
                                                                                     H2 = j.H();
-                                                                                    if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                    if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                     }
                                                                                     bArr17 = bArr16;
                                                                                     str28 = str8;
                                                                                     str110 = str15;
                                                                                     bArr18 = bArr17;
                                                                                     str3 = str3;
-                                                                                    i8 = 1;
-                                                                                    i12 += i8;
+                                                                                    i9 = 1;
+                                                                                    i13 += i9;
                                                                                     str101 = str;
                                                                                     str108 = str25;
                                                                                     str113 = str3;
@@ -8826,8 +8826,8 @@ public class ImgHttpClient implements b.a {
                                                                                     str106 = str105;
                                                                                     bArr15 = obj4;
                                                                                     str10 = str50;
-                                                                                    this.netContext.c().f42536c = -13;
-                                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                                                                    this.netContext.c().f39734c = -13;
+                                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                                                                     if (z22) {
                                                                                     }
                                                                                     this.mUseDnsIp = z9;
@@ -8845,7 +8845,7 @@ public class ImgHttpClient implements b.a {
                                                                                     if (str != null) {
                                                                                     }
                                                                                     H = j.H();
-                                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                     }
                                                                                     str22 = str18;
                                                                                     str23 = str21;
@@ -8857,8 +8857,8 @@ public class ImgHttpClient implements b.a {
                                                                                     str109 = str6;
                                                                                     str28 = str8;
                                                                                     str3 = str3;
-                                                                                    i8 = 1;
-                                                                                    i12 += i8;
+                                                                                    i9 = 1;
+                                                                                    i13 += i9;
                                                                                     str101 = str;
                                                                                     str108 = str25;
                                                                                     str113 = str3;
@@ -8889,8 +8889,8 @@ public class ImgHttpClient implements b.a {
                                                                                     str3 = str3;
                                                                                     str106 = str105;
                                                                                     bArr13 = obj3;
-                                                                                    this.netContext.c().f42536c = -19;
-                                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                                                                    this.netContext.c().f39734c = -19;
+                                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                                                                     if (z22) {
                                                                                     }
                                                                                     this.mUseDnsIp = z5;
@@ -8908,7 +8908,7 @@ public class ImgHttpClient implements b.a {
                                                                                     if (str != null) {
                                                                                     }
                                                                                     H = j.H();
-                                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                     }
                                                                                     str22 = str18;
                                                                                     str23 = str21;
@@ -8920,8 +8920,8 @@ public class ImgHttpClient implements b.a {
                                                                                     str109 = str6;
                                                                                     str28 = str8;
                                                                                     str3 = str3;
-                                                                                    i8 = 1;
-                                                                                    i12 += i8;
+                                                                                    i9 = 1;
+                                                                                    i13 += i9;
                                                                                     str101 = str;
                                                                                     str108 = str25;
                                                                                     str113 = str3;
@@ -8957,8 +8957,8 @@ public class ImgHttpClient implements b.a {
                                                                                     str10 = str54;
                                                                                     bArr2 = bArr2;
                                                                                     str35 = str34;
-                                                                                    this.netContext.c().f42536c = -19;
-                                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                                                    this.netContext.c().f39734c = -19;
+                                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                                                     if (z22) {
                                                                                     }
                                                                                     this.mUseDnsIp = z18;
@@ -8976,7 +8976,7 @@ public class ImgHttpClient implements b.a {
                                                                                     if (str != null) {
                                                                                     }
                                                                                     H = j.H();
-                                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                     }
                                                                                     str22 = str18;
                                                                                     str23 = str21;
@@ -8988,8 +8988,8 @@ public class ImgHttpClient implements b.a {
                                                                                     str109 = str6;
                                                                                     str28 = str8;
                                                                                     str3 = str3;
-                                                                                    i8 = 1;
-                                                                                    i12 += i8;
+                                                                                    i9 = 1;
+                                                                                    i13 += i9;
                                                                                     str101 = str;
                                                                                     str108 = str25;
                                                                                     str113 = str3;
@@ -9022,8 +9022,8 @@ public class ImgHttpClient implements b.a {
                                                                                     str106 = str105;
                                                                                     bArr14 = obj2;
                                                                                     str10 = str49;
-                                                                                    this.netContext.c().f42536c = -20;
-                                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                                                                    this.netContext.c().f39734c = -20;
+                                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                                                     this.mDownToHttp = true;
                                                                                     if (z22) {
                                                                                     }
@@ -9042,7 +9042,7 @@ public class ImgHttpClient implements b.a {
                                                                                     if (str != null) {
                                                                                     }
                                                                                     H = j.H();
-                                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                     }
                                                                                     str22 = str18;
                                                                                     str23 = str21;
@@ -9054,8 +9054,8 @@ public class ImgHttpClient implements b.a {
                                                                                     str109 = str6;
                                                                                     str28 = str8;
                                                                                     str3 = str3;
-                                                                                    i8 = 1;
-                                                                                    i12 += i8;
+                                                                                    i9 = 1;
+                                                                                    i13 += i9;
                                                                                     str101 = str;
                                                                                     str108 = str25;
                                                                                     str113 = str3;
@@ -9087,8 +9087,8 @@ public class ImgHttpClient implements b.a {
                                                                                     str106 = str105;
                                                                                     bArr11 = obj;
                                                                                     str10 = str48;
-                                                                                    this.netContext.c().f42536c = -18;
-                                                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                                                                    this.netContext.c().f39734c = -18;
+                                                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                                                                     if (z22) {
                                                                                     }
                                                                                     this.mUseDnsIp = z2;
@@ -9106,7 +9106,7 @@ public class ImgHttpClient implements b.a {
                                                                                     if (str != null) {
                                                                                     }
                                                                                     H = j.H();
-                                                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                                     }
                                                                                     str22 = str18;
                                                                                     str23 = str21;
@@ -9118,8 +9118,8 @@ public class ImgHttpClient implements b.a {
                                                                                     str109 = str6;
                                                                                     str28 = str8;
                                                                                     str3 = str3;
-                                                                                    i8 = 1;
-                                                                                    i12 += i8;
+                                                                                    i9 = 1;
+                                                                                    i13 += i9;
                                                                                     str101 = str;
                                                                                     str108 = str25;
                                                                                     str113 = str3;
@@ -9149,17 +9149,17 @@ public class ImgHttpClient implements b.a {
                                                                                     bArr4 = bArr36;
                                                                                     str30 = str91;
                                                                                     str29 = str10;
-                                                                                    this.netContext.c().f42536c = -10;
+                                                                                    this.netContext.c().f39734c = -10;
                                                                                     StringBuilder sb2222222222222 = new StringBuilder();
                                                                                     sb2222222222222.append(str110);
-                                                                                    sb2222222222222.append(String.valueOf(this.netContext.c().f42536c));
+                                                                                    sb2222222222222.append(String.valueOf(this.netContext.c().f39734c));
                                                                                     String str1242222222222222 = str109;
                                                                                     sb2222222222222.append(str1242222222222222);
                                                                                     str19 = str105;
                                                                                     sb2222222222222.append(th.getClass());
                                                                                     sb2222222222222.append(str1242222222222222);
                                                                                     sb2222222222222.append(th.getMessage());
-                                                                                    dVar.f42522h = sb2222222222222.toString();
+                                                                                    dVar.f39719h = sb2222222222222.toString();
                                                                                     if (z) {
                                                                                     }
                                                                                     this.mUseDnsIp = z13;
@@ -9174,11 +9174,11 @@ public class ImgHttpClient implements b.a {
                                                                                     if (str != null) {
                                                                                     }
                                                                                     H3 = j.H();
-                                                                                    if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                                                                    if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                                                                     }
                                                                                     byte[] bArr442222222222222 = bArr4;
                                                                                     this.mWapRetryConnt = 0;
-                                                                                    this.netContext.c().f42541h = bArr442222222222222;
+                                                                                    this.netContext.c().f39739h = bArr442222222222222;
                                                                                 }
                                                                             }
                                                                             if (r7.getFirstHeader("Src-Content-Type") != null) {
@@ -9208,8 +9208,8 @@ public class ImgHttpClient implements b.a {
                                                                             str9 = str149;
                                                                             str112 = str112;
                                                                             str25 = str90;
-                                                                            this.netContext.c().f42536c = -12;
-                                                                            dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                                                            this.netContext.c().f39734c = -12;
+                                                                            dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                                                             if (z22) {
                                                                             }
                                                                             this.mUseDnsIp = z11;
@@ -9227,15 +9227,15 @@ public class ImgHttpClient implements b.a {
                                                                             if (str != null) {
                                                                             }
                                                                             H2 = j.H();
-                                                                            if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                            if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                             }
                                                                             bArr17 = bArr16;
                                                                             str28 = str8;
                                                                             str110 = str15;
                                                                             bArr18 = bArr17;
                                                                             str3 = str3;
-                                                                            i8 = 1;
-                                                                            i12 += i8;
+                                                                            i9 = 1;
+                                                                            i13 += i9;
                                                                             str101 = str;
                                                                             str108 = str25;
                                                                             str113 = str3;
@@ -9263,8 +9263,8 @@ public class ImgHttpClient implements b.a {
                                                                             str9 = str149;
                                                                             str112 = str112;
                                                                             str10 = str89;
-                                                                            this.netContext.c().f42536c = -13;
-                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                                                            this.netContext.c().f39734c = -13;
+                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                                                             if (z22) {
                                                                             }
                                                                             this.mUseDnsIp = z9;
@@ -9282,7 +9282,7 @@ public class ImgHttpClient implements b.a {
                                                                             if (str != null) {
                                                                             }
                                                                             H = j.H();
-                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                             }
                                                                             str22 = str18;
                                                                             str23 = str21;
@@ -9294,8 +9294,8 @@ public class ImgHttpClient implements b.a {
                                                                             str109 = str6;
                                                                             str28 = str8;
                                                                             str3 = str3;
-                                                                            i8 = 1;
-                                                                            i12 += i8;
+                                                                            i9 = 1;
+                                                                            i13 += i9;
                                                                             str101 = str;
                                                                             str108 = str25;
                                                                             str113 = str3;
@@ -9323,8 +9323,8 @@ public class ImgHttpClient implements b.a {
                                                                             str9 = str149;
                                                                             str112 = str112;
                                                                             str10 = str88;
-                                                                            this.netContext.c().f42536c = -20;
-                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                                                            this.netContext.c().f39734c = -20;
+                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                                             this.mDownToHttp = true;
                                                                             if (z22) {
                                                                             }
@@ -9343,7 +9343,7 @@ public class ImgHttpClient implements b.a {
                                                                             if (str != null) {
                                                                             }
                                                                             H = j.H();
-                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                             }
                                                                             str22 = str18;
                                                                             str23 = str21;
@@ -9355,8 +9355,8 @@ public class ImgHttpClient implements b.a {
                                                                             str109 = str6;
                                                                             str28 = str8;
                                                                             str3 = str3;
-                                                                            i8 = 1;
-                                                                            i12 += i8;
+                                                                            i9 = 1;
+                                                                            i13 += i9;
                                                                             str101 = str;
                                                                             str108 = str25;
                                                                             str113 = str3;
@@ -9383,8 +9383,8 @@ public class ImgHttpClient implements b.a {
                                                                             str8 = str148;
                                                                             str9 = str149;
                                                                             str112 = str112;
-                                                                            this.netContext.c().f42536c = -19;
-                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                                                            this.netContext.c().f39734c = -19;
+                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                                                             if (z22) {
                                                                             }
                                                                             this.mUseDnsIp = z5;
@@ -9402,7 +9402,7 @@ public class ImgHttpClient implements b.a {
                                                                             if (str != null) {
                                                                             }
                                                                             H = j.H();
-                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                             }
                                                                             str22 = str18;
                                                                             str23 = str21;
@@ -9414,8 +9414,8 @@ public class ImgHttpClient implements b.a {
                                                                             str109 = str6;
                                                                             str28 = str8;
                                                                             str3 = str3;
-                                                                            i8 = 1;
-                                                                            i12 += i8;
+                                                                            i9 = 1;
+                                                                            i13 += i9;
                                                                             str101 = str;
                                                                             str108 = str25;
                                                                             str113 = str3;
@@ -9443,8 +9443,8 @@ public class ImgHttpClient implements b.a {
                                                                             str9 = str149;
                                                                             str112 = str112;
                                                                             str10 = str87;
-                                                                            this.netContext.c().f42536c = -18;
-                                                                            dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                                                            this.netContext.c().f39734c = -18;
+                                                                            dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                                                             if (z22) {
                                                                             }
                                                                             this.mUseDnsIp = z2;
@@ -9462,7 +9462,7 @@ public class ImgHttpClient implements b.a {
                                                                             if (str != null) {
                                                                             }
                                                                             H = j.H();
-                                                                            if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                            if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                             }
                                                                             str22 = str18;
                                                                             str23 = str21;
@@ -9474,8 +9474,8 @@ public class ImgHttpClient implements b.a {
                                                                             str109 = str6;
                                                                             str28 = str8;
                                                                             str3 = str3;
-                                                                            i8 = 1;
-                                                                            i12 += i8;
+                                                                            i9 = 1;
+                                                                            i13 += i9;
                                                                             str101 = str;
                                                                             str108 = str25;
                                                                             str113 = str3;
@@ -9503,7 +9503,7 @@ public class ImgHttpClient implements b.a {
                                                                         z21 = false;
                                                                         if (!z21) {
                                                                         }
-                                                                        i11 = 0;
+                                                                        i12 = 0;
                                                                     } catch (IllegalStateException e155) {
                                                                         e = e155;
                                                                         bArr2 = bArr48;
@@ -9528,8 +9528,8 @@ public class ImgHttpClient implements b.a {
                                                                         str10 = str85;
                                                                         bArr2 = bArr2;
                                                                         str35 = str34;
-                                                                        this.netContext.c().f42536c = -19;
-                                                                        dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                                        this.netContext.c().f39734c = -19;
+                                                                        dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                                         if (z22) {
                                                                         }
                                                                         this.mUseDnsIp = z18;
@@ -9547,7 +9547,7 @@ public class ImgHttpClient implements b.a {
                                                                         if (str != null) {
                                                                         }
                                                                         H = j.H();
-                                                                        if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                                        if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                                         }
                                                                         str22 = str18;
                                                                         str23 = str21;
@@ -9559,8 +9559,8 @@ public class ImgHttpClient implements b.a {
                                                                         str109 = str6;
                                                                         str28 = str8;
                                                                         str3 = str3;
-                                                                        i8 = 1;
-                                                                        i12 += i8;
+                                                                        i9 = 1;
+                                                                        i13 += i9;
                                                                         str101 = str;
                                                                         str108 = str25;
                                                                         str113 = str3;
@@ -9635,17 +9635,17 @@ public class ImgHttpClient implements b.a {
                                                                         bArr4 = bArr2;
                                                                         str30 = str60;
                                                                         str29 = str59;
-                                                                        this.netContext.c().f42536c = -10;
+                                                                        this.netContext.c().f39734c = -10;
                                                                         StringBuilder sb22222222222222 = new StringBuilder();
                                                                         sb22222222222222.append(str110);
-                                                                        sb22222222222222.append(String.valueOf(this.netContext.c().f42536c));
+                                                                        sb22222222222222.append(String.valueOf(this.netContext.c().f39734c));
                                                                         String str12422222222222222 = str109;
                                                                         sb22222222222222.append(str12422222222222222);
                                                                         str19 = str105;
                                                                         sb22222222222222.append(th.getClass());
                                                                         sb22222222222222.append(str12422222222222222);
                                                                         sb22222222222222.append(th.getMessage());
-                                                                        dVar.f42522h = sb22222222222222.toString();
+                                                                        dVar.f39719h = sb22222222222222.toString();
                                                                         if (z) {
                                                                         }
                                                                         this.mUseDnsIp = z13;
@@ -9660,11 +9660,11 @@ public class ImgHttpClient implements b.a {
                                                                         if (str != null) {
                                                                         }
                                                                         H3 = j.H();
-                                                                        if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                                                        if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                                                         }
                                                                         byte[] bArr4422222222222222 = bArr4;
                                                                         this.mWapRetryConnt = 0;
-                                                                        this.netContext.c().f42541h = bArr4422222222222222;
+                                                                        this.netContext.c().f39739h = bArr4422222222222222;
                                                                     }
                                                                 } catch (SocketException e161) {
                                                                     byte[] bArr50 = bArr48;
@@ -9853,8 +9853,8 @@ public class ImgHttpClient implements b.a {
                                                         str10 = str57;
                                                         bArr2 = bArr2;
                                                         str35 = str34;
-                                                        this.netContext.c().f42536c = -19;
-                                                        dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                        this.netContext.c().f39734c = -19;
+                                                        dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                         if (z22) {
                                                         }
                                                         this.mUseDnsIp = z18;
@@ -9872,7 +9872,7 @@ public class ImgHttpClient implements b.a {
                                                         if (str != null) {
                                                         }
                                                         H = j.H();
-                                                        if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                        if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                         }
                                                         str22 = str18;
                                                         str23 = str21;
@@ -9884,8 +9884,8 @@ public class ImgHttpClient implements b.a {
                                                         str109 = str6;
                                                         str28 = str8;
                                                         str3 = str3;
-                                                        i8 = 1;
-                                                        i12 += i8;
+                                                        i9 = 1;
+                                                        i13 += i9;
                                                         str101 = str;
                                                         str108 = str25;
                                                         str113 = str3;
@@ -9915,8 +9915,8 @@ public class ImgHttpClient implements b.a {
                                                         str112 = str112;
                                                         bArr16 = bArr2;
                                                         str25 = str10;
-                                                        this.netContext.c().f42536c = -12;
-                                                        dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                                        this.netContext.c().f39734c = -12;
+                                                        dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                                         if (z22) {
                                                         }
                                                         this.mUseDnsIp = z11;
@@ -9934,15 +9934,15 @@ public class ImgHttpClient implements b.a {
                                                         if (str != null) {
                                                         }
                                                         H2 = j.H();
-                                                        if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                        if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                         }
                                                         bArr17 = bArr16;
                                                         str28 = str8;
                                                         str110 = str15;
                                                         bArr18 = bArr17;
                                                         str3 = str3;
-                                                        i8 = 1;
-                                                        i12 += i8;
+                                                        i9 = 1;
+                                                        i13 += i9;
                                                         str101 = str;
                                                         str108 = str25;
                                                         str113 = str3;
@@ -9972,8 +9972,8 @@ public class ImgHttpClient implements b.a {
                                                         str112 = str112;
                                                         bArr15 = bArr2;
                                                         str10 = str74;
-                                                        this.netContext.c().f42536c = -13;
-                                                        dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                                        this.netContext.c().f39734c = -13;
+                                                        dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                                         if (z22) {
                                                         }
                                                         this.mUseDnsIp = z9;
@@ -9991,7 +9991,7 @@ public class ImgHttpClient implements b.a {
                                                         if (str != null) {
                                                         }
                                                         H = j.H();
-                                                        if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                        if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                         }
                                                         str22 = str18;
                                                         str23 = str21;
@@ -10003,8 +10003,8 @@ public class ImgHttpClient implements b.a {
                                                         str109 = str6;
                                                         str28 = str8;
                                                         str3 = str3;
-                                                        i8 = 1;
-                                                        i12 += i8;
+                                                        i9 = 1;
+                                                        i13 += i9;
                                                         str101 = str;
                                                         str108 = str25;
                                                         str113 = str3;
@@ -10034,8 +10034,8 @@ public class ImgHttpClient implements b.a {
                                                         str112 = str112;
                                                         bArr14 = bArr2;
                                                         str10 = str72;
-                                                        this.netContext.c().f42536c = -20;
-                                                        dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                                        this.netContext.c().f39734c = -20;
+                                                        dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                         this.mDownToHttp = true;
                                                         if (z22) {
                                                         }
@@ -10054,7 +10054,7 @@ public class ImgHttpClient implements b.a {
                                                         if (str != null) {
                                                         }
                                                         H = j.H();
-                                                        if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                        if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                         }
                                                         str22 = str18;
                                                         str23 = str21;
@@ -10066,8 +10066,8 @@ public class ImgHttpClient implements b.a {
                                                         str109 = str6;
                                                         str28 = str8;
                                                         str3 = str3;
-                                                        i8 = 1;
-                                                        i12 += i8;
+                                                        i9 = 1;
+                                                        i13 += i9;
                                                         str101 = str;
                                                         str108 = str25;
                                                         str113 = str3;
@@ -10096,8 +10096,8 @@ public class ImgHttpClient implements b.a {
                                                         str8 = str19;
                                                         str112 = str112;
                                                         bArr13 = bArr2;
-                                                        this.netContext.c().f42536c = -19;
-                                                        dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                                        this.netContext.c().f39734c = -19;
+                                                        dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                                         if (z22) {
                                                         }
                                                         this.mUseDnsIp = z5;
@@ -10115,7 +10115,7 @@ public class ImgHttpClient implements b.a {
                                                         if (str != null) {
                                                         }
                                                         H = j.H();
-                                                        if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                        if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                         }
                                                         str22 = str18;
                                                         str23 = str21;
@@ -10127,8 +10127,8 @@ public class ImgHttpClient implements b.a {
                                                         str109 = str6;
                                                         str28 = str8;
                                                         str3 = str3;
-                                                        i8 = 1;
-                                                        i12 += i8;
+                                                        i9 = 1;
+                                                        i13 += i9;
                                                         str101 = str;
                                                         str108 = str25;
                                                         str113 = str3;
@@ -10158,8 +10158,8 @@ public class ImgHttpClient implements b.a {
                                                         str112 = str112;
                                                         bArr11 = bArr2;
                                                         str10 = str10;
-                                                        this.netContext.c().f42536c = -18;
-                                                        dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                                        this.netContext.c().f39734c = -18;
+                                                        dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                                         if (z22) {
                                                         }
                                                         this.mUseDnsIp = z2;
@@ -10177,7 +10177,7 @@ public class ImgHttpClient implements b.a {
                                                         if (str != null) {
                                                         }
                                                         H = j.H();
-                                                        if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                        if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                         }
                                                         str22 = str18;
                                                         str23 = str21;
@@ -10189,8 +10189,8 @@ public class ImgHttpClient implements b.a {
                                                         str109 = str6;
                                                         str28 = str8;
                                                         str3 = str3;
-                                                        i8 = 1;
-                                                        i12 += i8;
+                                                        i9 = 1;
+                                                        i13 += i9;
                                                         str101 = str;
                                                         str108 = str25;
                                                         str113 = str3;
@@ -10217,25 +10217,25 @@ public class ImgHttpClient implements b.a {
                                                         str106 = str105;
                                                         str105 = str19;
                                                     }
-                                                    this.netContext.c().f42536c = -10;
+                                                    this.netContext.c().f39734c = -10;
                                                     StringBuilder sb222222222222222 = new StringBuilder();
                                                     sb222222222222222.append(str110);
-                                                    sb222222222222222.append(String.valueOf(this.netContext.c().f42536c));
+                                                    sb222222222222222.append(String.valueOf(this.netContext.c().f39734c));
                                                     String str124222222222222222 = str109;
                                                     sb222222222222222.append(str124222222222222222);
                                                     str19 = str105;
                                                     sb222222222222222.append(th.getClass());
                                                     sb222222222222222.append(str124222222222222222);
                                                     sb222222222222222.append(th.getMessage());
-                                                    dVar.f42522h = sb222222222222222.toString();
+                                                    dVar.f39719h = sb222222222222222.toString();
                                                     z13 = z && o.d(f2) && j.A();
                                                     this.mUseDnsIp = z13;
                                                     if (z13 && (cVar7 = this.mHttpDnsResult) != null) {
-                                                        cVar7.m(this.netContext.c().f42536c);
+                                                        cVar7.m(this.netContext.c().f39734c);
                                                     }
-                                                    if (!z && i12 == i2 - 1 && o.d(f2)) {
+                                                    if (!z && i13 == i3 - 1 && o.d(f2)) {
                                                         a logItem14 = ImageLogger.getLogItem();
-                                                        logItem14.b("netException", dVar.f42522h);
+                                                        logItem14.b("netException", dVar.f39719h);
                                                         logItem14.b(str29, f2);
                                                         logItem14.c(str4, Boolean.valueOf(j.z()));
                                                         logItem14.c(str111, Integer.valueOf(j.I()));
@@ -10265,9 +10265,9 @@ public class ImgHttpClient implements b.a {
                                                     this.netContext.f(dVar);
                                                     if ((str != null || str.length() == 0) && f2 != null) {
                                                         H3 = j.H();
-                                                        if ((H3 || dVar.k != null || z || i12 >= i2 - 1) && o.a(f2) && str3 != null) {
+                                                        if ((H3 || dVar.k != null || z || i13 >= i3 - 1) && o.a(f2) && str3 != null) {
                                                             long currentTimeMillis42 = System.currentTimeMillis() - currentTimeMillis;
-                                                            if (H3 ? !(!j.t() ? currentTimeMillis42 <= ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51107b : currentTimeMillis42 <= ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51108c) : currentTimeMillis42 > ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51106a) {
+                                                            if (H3 ? !(!j.t() ? currentTimeMillis42 <= ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48711b : currentTimeMillis42 <= ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48712c) : currentTimeMillis42 > ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48710a) {
                                                                 z14 = true;
                                                             }
                                                             z15 = z14;
@@ -10276,7 +10276,7 @@ public class ImgHttpClient implements b.a {
                                                     }
                                                     byte[] bArr44222222222222222 = bArr4;
                                                     this.mWapRetryConnt = 0;
-                                                    this.netContext.c().f42541h = bArr44222222222222222;
+                                                    this.netContext.c().f39739h = bArr44222222222222222;
                                                 }
                                                 bArr2 = bArr43;
                                                 inputStream = content;
@@ -10301,8 +10301,8 @@ public class ImgHttpClient implements b.a {
                                                     str15 = str110;
                                                     bArr16 = bArr2;
                                                     str25 = str10;
-                                                    this.netContext.c().f42536c = -12;
-                                                    dVar.f42522h = str15 + String.valueOf(this.netContext.c().f42536c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
+                                                    this.netContext.c().f39734c = -12;
+                                                    dVar.f39719h = str15 + String.valueOf(this.netContext.c().f39734c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
                                                     if (z22) {
                                                     }
                                                     this.mUseDnsIp = z11;
@@ -10320,15 +10320,15 @@ public class ImgHttpClient implements b.a {
                                                     if (str != null) {
                                                     }
                                                     H2 = j.H();
-                                                    if (H2 || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                    if (H2 || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                     }
                                                     bArr17 = bArr16;
                                                     str28 = str8;
                                                     str110 = str15;
                                                     bArr18 = bArr17;
                                                     str3 = str3;
-                                                    i8 = 1;
-                                                    i12 += i8;
+                                                    i9 = 1;
+                                                    i13 += i9;
                                                     str101 = str;
                                                     str108 = str25;
                                                     str113 = str3;
@@ -10355,8 +10355,8 @@ public class ImgHttpClient implements b.a {
                                                     bArr2 = str73;
                                                     bArr14 = bArr2;
                                                     str10 = str72;
-                                                    this.netContext.c().f42536c = -20;
-                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
+                                                    this.netContext.c().f39734c = -20;
+                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                     this.mDownToHttp = true;
                                                     if (z22) {
                                                     }
@@ -10375,7 +10375,7 @@ public class ImgHttpClient implements b.a {
                                                     if (str != null) {
                                                     }
                                                     H = j.H();
-                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                     }
                                                     str22 = str18;
                                                     str23 = str21;
@@ -10387,8 +10387,8 @@ public class ImgHttpClient implements b.a {
                                                     str109 = str6;
                                                     str28 = str8;
                                                     str3 = str3;
-                                                    i8 = 1;
-                                                    i12 += i8;
+                                                    i9 = 1;
+                                                    i13 += i9;
                                                     str101 = str;
                                                     str108 = str25;
                                                     str113 = str3;
@@ -10413,8 +10413,8 @@ public class ImgHttpClient implements b.a {
                                                     str7 = str110;
                                                     bArr2 = str71;
                                                     bArr13 = bArr2;
-                                                    this.netContext.c().f42536c = -19;
-                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
+                                                    this.netContext.c().f39734c = -19;
+                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
                                                     if (z22) {
                                                     }
                                                     this.mUseDnsIp = z5;
@@ -10432,7 +10432,7 @@ public class ImgHttpClient implements b.a {
                                                     if (str != null) {
                                                     }
                                                     H = j.H();
-                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                     }
                                                     str22 = str18;
                                                     str23 = str21;
@@ -10444,8 +10444,8 @@ public class ImgHttpClient implements b.a {
                                                     str109 = str6;
                                                     str28 = str8;
                                                     str3 = str3;
-                                                    i8 = 1;
-                                                    i12 += i8;
+                                                    i9 = 1;
+                                                    i13 += i9;
                                                     str101 = str;
                                                     str108 = str25;
                                                     str113 = str3;
@@ -10473,8 +10473,8 @@ public class ImgHttpClient implements b.a {
                                                     str10 = str57;
                                                     bArr2 = bArr2;
                                                     str35 = str34;
-                                                    this.netContext.c().f42536c = -19;
-                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
+                                                    this.netContext.c().f39734c = -19;
+                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
                                                     if (z22) {
                                                     }
                                                     this.mUseDnsIp = z18;
@@ -10492,7 +10492,7 @@ public class ImgHttpClient implements b.a {
                                                     if (str != null) {
                                                     }
                                                     H = j.H();
-                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                     }
                                                     str22 = str18;
                                                     str23 = str21;
@@ -10504,8 +10504,8 @@ public class ImgHttpClient implements b.a {
                                                     str109 = str6;
                                                     str28 = str8;
                                                     str3 = str3;
-                                                    i8 = 1;
-                                                    i12 += i8;
+                                                    i9 = 1;
+                                                    i13 += i9;
                                                     str101 = str;
                                                     str108 = str25;
                                                     str113 = str3;
@@ -10532,8 +10532,8 @@ public class ImgHttpClient implements b.a {
                                                     bArr2 = str75;
                                                     bArr15 = bArr2;
                                                     str10 = str74;
-                                                    this.netContext.c().f42536c = -13;
-                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
+                                                    this.netContext.c().f39734c = -13;
+                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
                                                     if (z22) {
                                                     }
                                                     this.mUseDnsIp = z9;
@@ -10551,7 +10551,7 @@ public class ImgHttpClient implements b.a {
                                                     if (str != null) {
                                                     }
                                                     H = j.H();
-                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                     }
                                                     str22 = str18;
                                                     str23 = str21;
@@ -10563,8 +10563,8 @@ public class ImgHttpClient implements b.a {
                                                     str109 = str6;
                                                     str28 = str8;
                                                     str3 = str3;
-                                                    i8 = 1;
-                                                    i12 += i8;
+                                                    i9 = 1;
+                                                    i13 += i9;
                                                     str101 = str;
                                                     str108 = str25;
                                                     str113 = str3;
@@ -10590,8 +10590,8 @@ public class ImgHttpClient implements b.a {
                                                     bArr2 = str70;
                                                     bArr11 = bArr2;
                                                     str10 = str10;
-                                                    this.netContext.c().f42536c = -18;
-                                                    dVar.f42522h = str7 + String.valueOf(this.netContext.c().f42536c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
+                                                    this.netContext.c().f39734c = -18;
+                                                    dVar.f39719h = str7 + String.valueOf(this.netContext.c().f39734c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
                                                     if (z22) {
                                                     }
                                                     this.mUseDnsIp = z2;
@@ -10609,7 +10609,7 @@ public class ImgHttpClient implements b.a {
                                                     if (str != null) {
                                                     }
                                                     H = j.H();
-                                                    if (H || dVar.k != null || z22 || i12 >= i2 + (-1)) {
+                                                    if (H || dVar.k != null || z22 || i13 >= i3 + (-1)) {
                                                     }
                                                     str22 = str18;
                                                     str23 = str21;
@@ -10621,8 +10621,8 @@ public class ImgHttpClient implements b.a {
                                                     str109 = str6;
                                                     str28 = str8;
                                                     str3 = str3;
-                                                    i8 = 1;
-                                                    i12 += i8;
+                                                    i9 = 1;
+                                                    i13 += i9;
                                                     str101 = str;
                                                     str108 = str25;
                                                     str113 = str3;
@@ -10646,17 +10646,17 @@ public class ImgHttpClient implements b.a {
                                                     bArr4 = bArr2;
                                                     str30 = str60;
                                                     str29 = str59;
-                                                    this.netContext.c().f42536c = -10;
+                                                    this.netContext.c().f39734c = -10;
                                                     StringBuilder sb2222222222222222 = new StringBuilder();
                                                     sb2222222222222222.append(str110);
-                                                    sb2222222222222222.append(String.valueOf(this.netContext.c().f42536c));
+                                                    sb2222222222222222.append(String.valueOf(this.netContext.c().f39734c));
                                                     String str1242222222222222222 = str109;
                                                     sb2222222222222222.append(str1242222222222222222);
                                                     str19 = str105;
                                                     sb2222222222222222.append(th.getClass());
                                                     sb2222222222222222.append(str1242222222222222222);
                                                     sb2222222222222222.append(th.getMessage());
-                                                    dVar.f42522h = sb2222222222222222.toString();
+                                                    dVar.f39719h = sb2222222222222222.toString();
                                                     if (z) {
                                                     }
                                                     this.mUseDnsIp = z13;
@@ -10671,11 +10671,11 @@ public class ImgHttpClient implements b.a {
                                                     if (str != null) {
                                                     }
                                                     H3 = j.H();
-                                                    if (H3 || dVar.k != null || z || i12 >= i2 - 1) {
+                                                    if (H3 || dVar.k != null || z || i13 >= i3 - 1) {
                                                     }
                                                     byte[] bArr442222222222222222 = bArr4;
                                                     this.mWapRetryConnt = 0;
-                                                    this.netContext.c().f42541h = bArr442222222222222222;
+                                                    this.netContext.c().f39739h = bArr442222222222222222;
                                                 }
                                             }
                                         }
@@ -10713,15 +10713,15 @@ public class ImgHttpClient implements b.a {
         this.netContext.f(dVar);
         if ((str == null || str.length() == 0) && f2 != null) {
             H3 = j.H();
-            if ((!H3 || dVar.k != null || z || i12 >= i2 - 1) && o.a(f2) && str3 != null) {
+            if ((!H3 || dVar.k != null || z || i13 >= i3 - 1) && o.a(f2) && str3 != null) {
                 long currentTimeMillis17 = System.currentTimeMillis() - currentTimeMillis;
-                z15 = !H3 ? !j.t() ? currentTimeMillis17 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51107b) : currentTimeMillis17 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51108c) : currentTimeMillis17 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f51106a);
+                z15 = !H3 ? !j.t() ? currentTimeMillis17 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48711b) : currentTimeMillis17 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48712c) : currentTimeMillis17 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f48710a);
                 ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z, z15, H3);
             }
         }
         byte[] bArr4422222222222222222 = bArr4;
         this.mWapRetryConnt = 0;
-        this.netContext.c().f42541h = bArr4422222222222222222;
+        this.netContext.c().f39739h = bArr4422222222222222222;
     }
 
     public boolean isCrackPic() {

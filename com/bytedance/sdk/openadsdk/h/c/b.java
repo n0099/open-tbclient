@@ -12,43 +12,43 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f29120a;
+    public static volatile b f30014a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f29121b;
+    public Context f30015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f29122c = new AtomicBoolean(false);
+    public AtomicBoolean f30016c = new AtomicBoolean(false);
 
     public b() {
         b();
     }
 
     public static b a() {
-        if (f29120a == null) {
+        if (f30014a == null) {
             synchronized (b.class) {
-                if (f29120a == null) {
-                    f29120a = new b();
+                if (f30014a == null) {
+                    f30014a = new b();
                 }
             }
         }
-        return f29120a;
+        return f30014a;
     }
 
     public void b() {
-        if (this.f29122c.get() || p.a() == null) {
+        if (this.f30016c.get() || p.a() == null) {
             return;
         }
-        this.f29121b = p.a();
-        this.f29122c.set(true);
+        this.f30015b = p.a();
+        this.f30016c.set(true);
     }
 
     public synchronized void c() {
-        if (!this.f29122c.get()) {
+        if (!this.f30016c.get()) {
             b();
         } else {
             try {
-                com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f29121b, "logstats", "retry >=?", new String[]{String.valueOf(5)});
+                com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f30015b, "logstats", "retry >=?", new String[]{String.valueOf(5)});
             } catch (Throwable unused) {
             }
         }
@@ -68,11 +68,11 @@ public class b {
     */
     public synchronized List<c.a> d() {
         LinkedList linkedList = new LinkedList();
-        if (!this.f29122c.get()) {
+        if (!this.f30016c.get()) {
             b();
             return linkedList;
         }
-        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f29121b, "logstats", new String[]{"id", "value"}, "retry <?", new String[]{String.valueOf(5)}, null, null, null);
+        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f30015b, "logstats", new String[]{"id", "value"}, "retry <?", new String[]{String.valueOf(5)}, null, null, null);
         if (a2 != null) {
             while (a2.moveToNext()) {
                 try {

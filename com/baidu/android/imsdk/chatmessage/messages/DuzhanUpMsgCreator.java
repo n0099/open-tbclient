@@ -73,21 +73,21 @@ public class DuzhanUpMsgCreator {
         return new JSONObject();
     }
 
-    public static int getReqType(int i) {
-        if (i == 7) {
+    public static int getReqType(int i2) {
+        if (i2 == 7) {
             return REQ_TYPE_PA;
         }
-        if (i == 16) {
+        if (i2 == 16) {
             return REQ_TYPE_CLUE;
         }
-        if (i == 25) {
+        if (i2 == 25) {
             return REQ_TYPE_LEMON;
         }
         return REQ_TYPE_BOX;
     }
 
-    public static ChatMsg reCreateChatMsg(int i, ChatMsg chatMsg) {
-        chatMsg.setChatType(i);
+    public static ChatMsg reCreateChatMsg(int i2, ChatMsg chatMsg) {
+        chatMsg.setChatType(i2);
         chatMsg.setExtraContent(generateExtJson(chatMsg));
         return chatMsg;
     }

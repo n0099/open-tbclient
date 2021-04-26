@@ -41,10 +41,10 @@ public class FixedSizeDrawable extends Drawable {
             return new FixedSizeDrawable(this, this.wrapped.newDrawable());
         }
 
-        public State(Drawable.ConstantState constantState, int i, int i2) {
+        public State(Drawable.ConstantState constantState, int i2, int i3) {
             this.wrapped = constantState;
-            this.width = i;
-            this.height = i2;
+            this.width = i2;
+            this.height = i3;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
@@ -54,8 +54,8 @@ public class FixedSizeDrawable extends Drawable {
         }
     }
 
-    public FixedSizeDrawable(Drawable drawable, int i, int i2) {
-        this(new State(drawable.getConstantState(), i, i2), drawable);
+    public FixedSizeDrawable(Drawable drawable, int i2, int i3) {
+        this(new State(drawable.getConstantState(), i2, i3), drawable);
     }
 
     private void updateMatrix() {
@@ -156,25 +156,25 @@ public class FixedSizeDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        this.wrapped.setAlpha(i);
+    public void setAlpha(int i2) {
+        this.wrapped.setAlpha(i2);
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setBounds(int i, int i2, int i3, int i4) {
-        super.setBounds(i, i2, i3, i4);
-        this.bounds.set(i, i2, i3, i4);
+    public void setBounds(int i2, int i3, int i4, int i5) {
+        super.setBounds(i2, i3, i4, i5);
+        this.bounds.set(i2, i3, i4, i5);
         updateMatrix();
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setChangingConfigurations(int i) {
-        this.wrapped.setChangingConfigurations(i);
+    public void setChangingConfigurations(int i2) {
+        this.wrapped.setChangingConfigurations(i2);
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(int i, @NonNull PorterDuff.Mode mode) {
-        this.wrapped.setColorFilter(i, mode);
+    public void setColorFilter(int i2, @NonNull PorterDuff.Mode mode) {
+        this.wrapped.setColorFilter(i2, mode);
     }
 
     @Override // android.graphics.drawable.Drawable

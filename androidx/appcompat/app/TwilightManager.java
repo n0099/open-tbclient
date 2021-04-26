@@ -111,7 +111,7 @@ public class TwilightManager {
             return twilightState.isNight;
         }
         Log.i(TAG, "Could not get last known location. This is probably because the app does not have any location permissions. Falling back to hardcoded sunrise/sunset values.");
-        int i = Calendar.getInstance().get(11);
-        return i < 6 || i >= 22;
+        int i2 = Calendar.getInstance().get(11);
+        return i2 < 6 || i2 >= 22;
     }
 }

@@ -6,10 +6,10 @@ public class Rectangle {
     public int x;
     public int y;
 
-    public boolean contains(int i, int i2) {
-        int i3;
-        int i4 = this.x;
-        return i >= i4 && i < i4 + this.width && i2 >= (i3 = this.y) && i2 < i3 + this.height;
+    public boolean contains(int i2, int i3) {
+        int i4;
+        int i5 = this.x;
+        return i2 >= i5 && i2 < i5 + this.width && i3 >= (i4 = this.y) && i3 < i4 + this.height;
     }
 
     public int getCenterX() {
@@ -20,25 +20,25 @@ public class Rectangle {
         return (this.y + this.height) / 2;
     }
 
-    public void grow(int i, int i2) {
-        this.x -= i;
-        this.y -= i2;
-        this.width += i * 2;
-        this.height += i2 * 2;
+    public void grow(int i2, int i3) {
+        this.x -= i2;
+        this.y -= i3;
+        this.width += i2 * 2;
+        this.height += i3 * 2;
     }
 
     public boolean intersects(Rectangle rectangle) {
-        int i;
         int i2;
-        int i3 = this.x;
-        int i4 = rectangle.x;
-        return i3 >= i4 && i3 < i4 + rectangle.width && (i = this.y) >= (i2 = rectangle.y) && i < i2 + rectangle.height;
+        int i3;
+        int i4 = this.x;
+        int i5 = rectangle.x;
+        return i4 >= i5 && i4 < i5 + rectangle.width && (i2 = this.y) >= (i3 = rectangle.y) && i2 < i3 + rectangle.height;
     }
 
-    public void setBounds(int i, int i2, int i3, int i4) {
-        this.x = i;
-        this.y = i2;
-        this.width = i3;
-        this.height = i4;
+    public void setBounds(int i2, int i3, int i4, int i5) {
+        this.x = i2;
+        this.y = i3;
+        this.width = i4;
+        this.height = i5;
     }
 }

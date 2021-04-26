@@ -40,8 +40,8 @@ public class Utils {
             return EMPTY_CLASS_ARRAY;
         }
         Class<?>[] clsArr = new Class[objArr.length];
-        for (int i = 0; i < objArr.length; i++) {
-            clsArr[i] = objArr[i] == null ? null : objArr[i].getClass();
+        for (int i2 = 0; i2 < objArr.length; i2++) {
+            clsArr[i2] = objArr[i2] == null ? null : objArr[i2].getClass();
         }
         return clsArr;
     }

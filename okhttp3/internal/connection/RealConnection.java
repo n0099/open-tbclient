@@ -75,7 +75,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         this.route = route;
     }
 
-    private void connectSocket(int i, int i2, Call call, EventListener eventListener) throws IOException {
+    private void connectSocket(int i2, int i3, Call call, EventListener eventListener) throws IOException {
         Socket createSocket;
         Proxy proxy = this.route.proxy();
         Address address = this.route.address();
@@ -86,9 +86,9 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         }
         this.rawSocket = createSocket;
         eventListener.connectStart(call, this.route.socketAddress(), proxy);
-        this.rawSocket.setSoTimeout(i2);
+        this.rawSocket.setSoTimeout(i3);
         try {
-            Platform.get().connectSocket(this.rawSocket, this.route.socketAddress(), i);
+            Platform.get().connectSocket(this.rawSocket, this.route.socketAddress(), i2);
             try {
                 this.source = Okio.buffer(Okio.source(this.rawSocket));
                 this.sink = Okio.buffer(Okio.sink(this.rawSocket));
@@ -164,12 +164,12 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         }
     }
 
-    private void connectTunnel(int i, int i2, int i3, Call call, EventListener eventListener) throws IOException {
+    private void connectTunnel(int i2, int i3, int i4, Call call, EventListener eventListener) throws IOException {
         Request createTunnelRequest = createTunnelRequest();
         HttpUrl url = createTunnelRequest.url();
-        for (int i4 = 0; i4 < 21; i4++) {
-            connectSocket(i, i2, call, eventListener);
-            createTunnelRequest = createTunnel(i2, i3, createTunnelRequest, url);
+        for (int i5 = 0; i5 < 21; i5++) {
+            connectSocket(i2, i3, call, eventListener);
+            createTunnelRequest = createTunnel(i3, i4, createTunnelRequest, url);
             if (createTunnelRequest == null) {
                 return;
             }
@@ -181,12 +181,12 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         }
     }
 
-    private Request createTunnel(int i, int i2, Request request, HttpUrl httpUrl) throws IOException {
+    private Request createTunnel(int i2, int i3, Request request, HttpUrl httpUrl) throws IOException {
         String str = "CONNECT " + Util.hostHeader(httpUrl, true) + " HTTP/1.1";
         while (true) {
             Http1Codec http1Codec = new Http1Codec(null, null, this.source, this.sink);
-            this.source.timeout().timeout(i, TimeUnit.MILLISECONDS);
-            this.sink.timeout().timeout(i2, TimeUnit.MILLISECONDS);
+            this.source.timeout().timeout(i2, TimeUnit.MILLISECONDS);
+            this.sink.timeout().timeout(i3, TimeUnit.MILLISECONDS);
             http1Codec.writeRequest(request.headers(), str);
             http1Codec.finishRequest();
             Response build = http1Codec.readResponseHeaders(false).request(request).build();
@@ -223,12 +223,12 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         return new Request.Builder().url(this.route.address().url()).header("Host", Util.hostHeader(this.route.address().url(), true)).header("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).header("User-Agent", Version.userAgent()).build();
     }
 
-    private void establishProtocol(ConnectionSpecSelector connectionSpecSelector, int i, Call call, EventListener eventListener) throws IOException {
+    private void establishProtocol(ConnectionSpecSelector connectionSpecSelector, int i2, Call call, EventListener eventListener) throws IOException {
         if (this.route.address().sslSocketFactory() == null) {
             if (this.route.address().protocols().contains(Protocol.H2_PRIOR_KNOWLEDGE)) {
                 this.socket = this.rawSocket;
                 this.protocol = Protocol.H2_PRIOR_KNOWLEDGE;
-                startHttp2(i);
+                startHttp2(i2);
                 return;
             }
             this.socket = this.rawSocket;
@@ -239,13 +239,13 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         connectTls(connectionSpecSelector);
         eventListener.secureConnectEnd(call, this.handshake);
         if (this.protocol == Protocol.HTTP_2) {
-            startHttp2(i);
+            startHttp2(i2);
         }
     }
 
-    private void startHttp2(int i) throws IOException {
+    private void startHttp2(int i2) throws IOException {
         this.socket.setSoTimeout(0);
-        Http2Connection build = new Http2Connection.Builder(true).socket(this.socket, this.route.address().url().host(), this.source, this.sink).listener(this).pingIntervalMillis(i).build();
+        Http2Connection build = new Http2Connection.Builder(true).socket(this.socket, this.route.address().url().host(), this.source, this.sink).listener(this).pingIntervalMillis(i2).build();
         this.http2Connection = build;
         build.start();
     }
@@ -272,7 +272,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void connect(int i, int i2, int i3, int i4, boolean z, Call call, EventListener eventListener) {
+    public void connect(int i2, int i3, int i4, int i5, boolean z, Call call, EventListener eventListener) {
         if (this.protocol == null) {
             List<ConnectionSpec> connectionSpecs = this.route.address().connectionSpecs();
             ConnectionSpecSelector connectionSpecSelector = new ConnectionSpecSelector(connectionSpecs);
@@ -296,7 +296,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                 }
                 try {
                     if (this.route.requiresTunnel()) {
-                        connectTunnel(i, i2, i3, call, eventListener);
+                        connectTunnel(i2, i3, i4, call, eventListener);
                         if (this.rawSocket == null) {
                             if (!this.route.requiresTunnel() && this.rawSocket == null) {
                                 throw new RouteException(new ProtocolException("Too many tunnel connections attempted: 21"));
@@ -311,7 +311,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                         }
                     } else {
                         try {
-                            connectSocket(i, i2, call, eventListener);
+                            connectSocket(i2, i3, call, eventListener);
                         } catch (IOException e3) {
                             e = e3;
                             Util.closeQuietly(this.socket);
@@ -335,7 +335,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                             do {
                                 if (this.route.requiresTunnel()) {
                                 }
-                                establishProtocol(connectionSpecSelector, i4, call, eventListener);
+                                establishProtocol(connectionSpecSelector, i5, call, eventListener);
                                 eventListener.connectEnd(call, this.route.socketAddress(), this.route.proxy(), this.protocol);
                                 if (!this.route.requiresTunnel()) {
                                 }
@@ -345,7 +345,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                             throw routeException;
                         }
                     }
-                    establishProtocol(connectionSpecSelector, i4, call, eventListener);
+                    establishProtocol(connectionSpecSelector, i5, call, eventListener);
                     eventListener.connectEnd(call, this.route.socketAddress(), this.route.proxy(), this.protocol);
                     if (!this.route.requiresTunnel()) {
                     }
@@ -370,7 +370,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                     do {
                         if (this.route.requiresTunnel()) {
                         }
-                        establishProtocol(connectionSpecSelector, i4, call, eventListener);
+                        establishProtocol(connectionSpecSelector, i5, call, eventListener);
                         eventListener.connectEnd(call, this.route.socketAddress(), this.route.proxy(), this.protocol);
                         if (!this.route.requiresTunnel()) {
                         }

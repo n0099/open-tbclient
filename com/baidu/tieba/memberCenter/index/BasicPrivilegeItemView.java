@@ -12,7 +12,7 @@ public class BasicPrivilegeItemView extends PrivilegeItemView {
         super(context, attributeSet);
     }
 
-    public BasicPrivilegeItemView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BasicPrivilegeItemView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

@@ -4,12 +4,14 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import d.b.i0.z0.i;
-/* loaded from: classes3.dex */
+import d.a.i0.z0.i;
+/* loaded from: classes4.dex */
 public class PersonGaussianBlurView extends PersonExpandImageView {
-    public a i;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: i  reason: collision with root package name */
+    public a f20704i;
+
+    /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<Bitmap, String, Bitmap> {
         public a() {
         }
@@ -69,12 +71,12 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
         if (bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        a aVar = this.i;
+        a aVar = this.f20704i;
         if (aVar != null) {
             aVar.cancel();
         }
         a aVar2 = new a();
-        this.i = aVar2;
+        this.f20704i = aVar2;
         aVar2.execute(bitmap);
     }
 }

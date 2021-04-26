@@ -70,11 +70,11 @@ public final class PayBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PayBeanFactory f25159a = new PayBeanFactory();
+        public static PayBeanFactory f25929a = new PayBeanFactory();
     }
 
     public static PayBeanFactory getInstance() {
-        return a.f25159a;
+        return a.f25929a;
     }
 
     public PayBeanFactory() {
@@ -82,37 +82,37 @@ public final class PayBeanFactory implements IBeanFactory {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.apollon.beans.IBeanFactory
-    public BaseBean<?> getBean(Context context, int i, String str) {
+    public BaseBean<?> getBean(Context context, int i2, String str) {
         Context applicationContext = context.getApplicationContext();
         BaseBean<?> baseBean = null;
-        if (i == 4) {
+        if (i2 == 4) {
             baseBean = new t(applicationContext);
-        } else if (i == 5) {
+        } else if (i2 == 5) {
             baseBean = new h(applicationContext);
-        } else if (i == 6) {
+        } else if (i2 == 6) {
             baseBean = new UserInfoBean(applicationContext);
-        } else if (i == 7) {
+        } else if (i2 == 7) {
             baseBean = new aa(applicationContext);
-        } else if (i == 263) {
+        } else if (i2 == 263) {
             baseBean = new j(applicationContext);
-        } else if (i == 264) {
+        } else if (i2 == 264) {
             baseBean = new ag(applicationContext);
-        } else if (i == 513) {
+        } else if (i2 == 513) {
             baseBean = new b(applicationContext);
-        } else if (i == 514) {
+        } else if (i2 == 514) {
             baseBean = new r(applicationContext);
-        } else if (i == 516) {
+        } else if (i2 == 516) {
             baseBean = new UnbindCardBean(applicationContext);
-        } else if (i == 517) {
+        } else if (i2 == 517) {
             baseBean = new af(applicationContext);
-        } else if (i == 528) {
+        } else if (i2 == 528) {
             baseBean = new u(applicationContext);
-        } else if (i == 529) {
+        } else if (i2 == 529) {
             baseBean = new i(applicationContext);
-        } else if (i == 606) {
+        } else if (i2 == 606) {
             baseBean = new f(applicationContext);
-        } else if (i != 607) {
-            switch (i) {
+        } else if (i2 != 607) {
+            switch (i2) {
                 case 1:
                     baseBean = new v(applicationContext);
                     break;
@@ -165,7 +165,7 @@ public final class PayBeanFactory implements IBeanFactory {
                     baseBean = new ac(applicationContext);
                     break;
                 default:
-                    switch (i) {
+                    switch (i2) {
                         case 257:
                         case 258:
                         case 259:
@@ -175,7 +175,7 @@ public final class PayBeanFactory implements IBeanFactory {
                             baseBean = new p(applicationContext);
                             break;
                         default:
-                            switch (i) {
+                            switch (i2) {
                                 case BEAN_ID_SET_PASSFREE /* 521 */:
                                     baseBean = new ae(applicationContext);
                                     break;
@@ -195,23 +195,23 @@ public final class PayBeanFactory implements IBeanFactory {
                                     baseBean = new m(applicationContext);
                                     break;
                                 default:
-                                    switch (i) {
+                                    switch (i2) {
                                         case BEAN_ID_SCANCODE_PAY /* 594 */:
                                             final BaseBean<?>[] baseBeanArr = {null};
                                             LocalRouter.getInstance(applicationContext).route(applicationContext, new RouterRequest().provider("scancode").action("getLimitPayBean"), new RouterCallback() { // from class: com.baidu.wallet.paysdk.beans.PayBeanFactory.1
                                                 @Override // com.baidu.wallet.router.RouterCallback
-                                                public void onResult(int i2, HashMap hashMap) {
-                                                    if (i2 == 0 && hashMap != null && hashMap.get("data") != null) {
+                                                public void onResult(int i3, HashMap hashMap) {
+                                                    if (i3 == 0 && hashMap != null && hashMap.get("data") != null) {
                                                         Object obj = hashMap.get("data");
                                                         if (obj == null || !(obj instanceof BaseBean)) {
                                                             return;
                                                         }
                                                         baseBeanArr[0] = (BaseBean) obj;
-                                                    } else if (i2 == 5) {
+                                                    } else if (i3 == 5) {
                                                         HashMap hashMap2 = new HashMap();
                                                         hashMap2.put("provider", "scancode");
                                                         hashMap2.put("action", "getLimitPayBean");
-                                                        StatisticManager.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
+                                                        StatisticManager.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i3, hashMap2.values());
                                                     }
                                                 }
                                             });
@@ -221,18 +221,18 @@ public final class PayBeanFactory implements IBeanFactory {
                                             final BaseBean<?>[] baseBeanArr2 = {null};
                                             LocalRouter.getInstance(applicationContext).route(applicationContext, new RouterRequest().provider("scancode").action("getSendSmsBean"), new RouterCallback() { // from class: com.baidu.wallet.paysdk.beans.PayBeanFactory.2
                                                 @Override // com.baidu.wallet.router.RouterCallback
-                                                public void onResult(int i2, HashMap hashMap) {
-                                                    if (i2 == 0 && hashMap != null) {
+                                                public void onResult(int i3, HashMap hashMap) {
+                                                    if (i3 == 0 && hashMap != null) {
                                                         Object obj = hashMap.get("data");
                                                         if (obj == null || !(obj instanceof BaseBean)) {
                                                             return;
                                                         }
                                                         baseBeanArr2[0] = (BaseBean) obj;
-                                                    } else if (i2 == 5) {
+                                                    } else if (i3 == 5) {
                                                         HashMap hashMap2 = new HashMap();
                                                         hashMap2.put("provider", "scancode");
                                                         hashMap2.put("action", "getSendSmsBean");
-                                                        StatisticManager.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
+                                                        StatisticManager.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i3, hashMap2.values());
                                                     }
                                                 }
                                             });

@@ -8,27 +8,27 @@ public final class UShortKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     public static final short toUShort(byte b2) {
-        return UShort.m883constructorimpl(b2);
+        return UShort.m890constructorimpl(b2);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     public static final short toUShort(short s) {
-        return UShort.m883constructorimpl(s);
+        return UShort.m890constructorimpl(s);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
-    public static final short toUShort(int i) {
-        return UShort.m883constructorimpl((short) i);
+    public static final short toUShort(int i2) {
+        return UShort.m890constructorimpl((short) i2);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     public static final short toUShort(long j) {
-        return UShort.m883constructorimpl((short) j);
+        return UShort.m890constructorimpl((short) j);
     }
 }

@@ -8,11 +8,11 @@ public class RequestOfficialBarInfoMessage extends TbSocketMessage {
     public int mForumId;
     public String mForumName;
 
-    public RequestOfficialBarInfoMessage(int i, String str) {
+    public RequestOfficialBarInfoMessage(int i2, String str) {
         super(208001);
         this.mForumId = 0;
         this.mForumName = null;
-        this.mForumId = i;
+        this.mForumId = i2;
         this.mForumName = str;
     }
 

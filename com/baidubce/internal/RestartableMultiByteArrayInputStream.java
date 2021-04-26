@@ -31,41 +31,41 @@ public class RestartableMultiByteArrayInputStream extends RestartableInputStream
         }
         CheckUtils.checkArgument(j2 >= j, "The specified length(%s) is greater than the total length(%s) of elements in byteArrayList.", Long.valueOf(j), Long.valueOf(j2));
         this.blockSize = list.get(0).length;
-        for (int i = 1; i < list.size() - 1; i++) {
-            int length = list.get(i).length;
-            CheckUtils.checkArgument(length == this.blockSize, "All elements in byteArrayList except the last one should have the same length. The first element's length is %s but the %sth element's length is %s.", Integer.valueOf(this.blockSize), Integer.valueOf(i), Integer.valueOf(length));
+        for (int i2 = 1; i2 < list.size() - 1; i2++) {
+            int length = list.get(i2).length;
+            CheckUtils.checkArgument(length == this.blockSize, "All elements in byteArrayList except the last one should have the same length. The first element's length is %s but the %sth element's length is %s.", Integer.valueOf(this.blockSize), Integer.valueOf(i2), Integer.valueOf(length));
         }
         this.byteArrayList = list;
         this.length = j;
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
         CheckUtils.isNotNull(bArr, "b should not be null.");
-        if (i >= 0 && i2 >= 0 && i2 <= bArr.length - i) {
+        if (i2 >= 0 && i3 >= 0 && i3 <= bArr.length - i2) {
             if (this.pos == this.length) {
                 return -1;
             }
-            int i3 = 0;
-            while (i2 > 0) {
+            int i4 = 0;
+            while (i3 > 0) {
                 long j = this.pos;
                 if (j >= this.length) {
                     break;
                 }
-                int i4 = this.blockSize;
-                int i5 = (int) (j % i4);
-                byte[] bArr2 = this.byteArrayList.get((int) (j / i4));
-                int length = bArr2.length - i5;
-                if (length > i2) {
-                    length = i2;
+                int i5 = this.blockSize;
+                int i6 = (int) (j % i5);
+                byte[] bArr2 = this.byteArrayList.get((int) (j / i5));
+                int length = bArr2.length - i6;
+                if (length > i3) {
+                    length = i3;
                 }
-                System.arraycopy(bArr2, i5, bArr, i, length);
+                System.arraycopy(bArr2, i6, bArr, i2, length);
                 this.pos += length;
-                i += length;
-                i2 -= length;
-                i3 += length;
+                i2 += length;
+                i3 -= length;
+                i4 += length;
             }
-            return i3;
+            return i4;
         }
         throw new IndexOutOfBoundsException();
     }
@@ -81,8 +81,8 @@ public class RestartableMultiByteArrayInputStream extends RestartableInputStream
         if (j == this.length) {
             return -1;
         }
-        int i = this.blockSize;
+        int i2 = this.blockSize;
         this.pos = j + 1;
-        return this.byteArrayList.get((int) (j / i))[(int) (j % i)] & 255;
+        return this.byteArrayList.get((int) (j / i2))[(int) (j % i2)] & 255;
     }
 }

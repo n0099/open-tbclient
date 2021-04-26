@@ -80,8 +80,8 @@ public final class FloatView {
             return this;
         }
 
-        public final Builder setLocation(int i, int i2) {
-            this.mConfig.setLocation(new Pair<>(Integer.valueOf(i), Integer.valueOf(i2)));
+        public final Builder setLocation(int i2, int i3) {
+            this.mConfig.setLocation(new Pair<>(Integer.valueOf(i2), Integer.valueOf(i3)));
             return this;
         }
 
@@ -117,8 +117,8 @@ public final class FloatView {
         }
 
         @JvmStatic
-        public static /* bridge */ /* synthetic */ void dismissAppFloatView$default(Companion companion, Context context, boolean z, int i, Object obj) {
-            if ((i & 2) != 0) {
+        public static /* bridge */ /* synthetic */ void dismissAppFloatView$default(Companion companion, Context context, boolean z, int i2, Object obj) {
+            if ((i2 & 2) != 0) {
                 z = false;
             }
             companion.dismissAppFloatView(context, z);

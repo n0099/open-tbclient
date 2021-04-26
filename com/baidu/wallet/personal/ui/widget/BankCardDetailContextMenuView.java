@@ -11,8 +11,8 @@ public class BankCardDetailContextMenuView extends BdContextMenuView {
     }
 
     @SuppressLint({"NewApi"})
-    public BankCardDetailContextMenuView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BankCardDetailContextMenuView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 
     @Override // com.baidu.wallet.base.widget.BdContextMenuView
@@ -21,7 +21,7 @@ public class BankCardDetailContextMenuView extends BdContextMenuView {
     }
 
     @Override // com.baidu.wallet.base.widget.BdContextMenuView
-    public String getMenuItemBackgroudResId(int i, int i2) {
+    public String getMenuItemBackgroudResId(int i2, int i3) {
         return "ebpay_transparent";
     }
 

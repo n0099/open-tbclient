@@ -15,21 +15,21 @@ public class PoolParams {
     public final int maxSizeSoftCap;
     public final int minBucketSize;
 
-    public PoolParams(int i, @Nullable SparseIntArray sparseIntArray) {
-        this(i, i, sparseIntArray, 0, Integer.MAX_VALUE, -1);
+    public PoolParams(int i2, @Nullable SparseIntArray sparseIntArray) {
+        this(i2, i2, sparseIntArray, 0, Integer.MAX_VALUE, -1);
     }
 
-    public PoolParams(int i, int i2, @Nullable SparseIntArray sparseIntArray) {
-        this(i, i2, sparseIntArray, 0, Integer.MAX_VALUE, -1);
+    public PoolParams(int i2, int i3, @Nullable SparseIntArray sparseIntArray) {
+        this(i2, i3, sparseIntArray, 0, Integer.MAX_VALUE, -1);
     }
 
-    public PoolParams(int i, int i2, @Nullable SparseIntArray sparseIntArray, int i3, int i4, int i5) {
-        Preconditions.checkState(i >= 0 && i2 >= i);
-        this.maxSizeSoftCap = i;
-        this.maxSizeHardCap = i2;
+    public PoolParams(int i2, int i3, @Nullable SparseIntArray sparseIntArray, int i4, int i5, int i6) {
+        Preconditions.checkState(i2 >= 0 && i3 >= i2);
+        this.maxSizeSoftCap = i2;
+        this.maxSizeHardCap = i3;
         this.bucketSizes = sparseIntArray;
-        this.minBucketSize = i3;
-        this.maxBucketSize = i4;
-        this.maxNumThreads = i5;
+        this.minBucketSize = i4;
+        this.maxBucketSize = i5;
+        this.maxNumThreads = i6;
     }
 }

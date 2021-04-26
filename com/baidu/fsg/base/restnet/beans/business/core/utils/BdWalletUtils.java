@@ -106,11 +106,11 @@ public class BdWalletUtils {
         aVar.a(getSpParams(map));
         aVar.setResponseCallback(new IBeanResponseCallback() { // from class: com.baidu.fsg.base.restnet.beans.business.core.utils.BdWalletUtils.1
             @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
-            public void onBeanExecFailure(int i, int i2, String str) {
+            public void onBeanExecFailure(int i2, int i3, String str) {
             }
 
             @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
-            public void onBeanExecSuccess(int i, Object obj, String str, String str2) {
+            public void onBeanExecSuccess(int i2, Object obj, String str, String str2) {
             }
         });
         aVar.execBean();

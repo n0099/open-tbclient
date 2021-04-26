@@ -25,8 +25,8 @@ public final class IntRange extends IntProgression implements ClosedRange<Intege
         }
     }
 
-    public IntRange(int i, int i2) {
-        super(i, i2, 1);
+    public IntRange(int i2, int i3) {
+        super(i2, i3, 1);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable] */
@@ -66,8 +66,8 @@ public final class IntRange extends IntProgression implements ClosedRange<Intege
         return getFirst() + IStringUtil.TOP_PATH + getLast();
     }
 
-    public boolean contains(int i) {
-        return getFirst() <= i && i <= getLast();
+    public boolean contains(int i2) {
+        return getFirst() <= i2 && i2 <= getLast();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

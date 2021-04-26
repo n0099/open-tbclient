@@ -1,6 +1,5 @@
 package com.alibaba.fastjson.util;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONException;
@@ -21,7 +20,6 @@ import com.alibaba.fastjson.serializer.SerializeBeanInfo;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.webkit.internal.ABTestConstants;
-import com.kwai.video.player.KsMediaMeta;
 import com.vivo.push.PushClientConstants;
 import java.io.InputStream;
 import java.io.Reader;
@@ -165,8 +163,8 @@ public class TypeUtils {
         mappings.put("[C", char[].class);
         mappings.put("[Z", boolean[].class);
         Class<?>[] clsArr = {Object.class, Cloneable.class, loadClass("java.lang.AutoCloseable"), Exception.class, RuntimeException.class, IllegalAccessError.class, IllegalAccessException.class, IllegalArgumentException.class, IllegalMonitorStateException.class, IllegalStateException.class, IllegalThreadStateException.class, IndexOutOfBoundsException.class, InstantiationError.class, InstantiationException.class, InternalError.class, InterruptedException.class, LinkageError.class, NegativeArraySizeException.class, NoClassDefFoundError.class, NoSuchFieldError.class, NoSuchFieldException.class, NoSuchMethodError.class, NoSuchMethodException.class, NullPointerException.class, NumberFormatException.class, OutOfMemoryError.class, SecurityException.class, StackOverflowError.class, StringIndexOutOfBoundsException.class, TypeNotPresentException.class, VerifyError.class, StackTraceElement.class, HashMap.class, Hashtable.class, TreeMap.class, java.util.IdentityHashMap.class, WeakHashMap.class, LinkedHashMap.class, HashSet.class, LinkedHashSet.class, TreeSet.class, ArrayList.class, TimeUnit.class, ConcurrentHashMap.class, AtomicInteger.class, AtomicLong.class, Collections.EMPTY_MAP.getClass(), Boolean.class, Character.class, Byte.class, Short.class, Integer.class, Long.class, Float.class, Double.class, Number.class, String.class, BigDecimal.class, BigInteger.class, BitSet.class, Calendar.class, Date.class, Locale.class, UUID.class, Time.class, java.sql.Date.class, Timestamp.class, SimpleDateFormat.class, JSONObject.class, JSONPObject.class, JSONArray.class};
-        for (int i = 0; i < 71; i++) {
-            Class<?> cls = clsArr[i];
+        for (int i2 = 0; i2 < 71; i2++) {
+            Class<?> cls = clsArr[i2];
             if (cls != null) {
                 mappings.put(cls.getName(), cls);
             }
@@ -196,7 +194,7 @@ public class TypeUtils {
     /* JADX WARN: Multi-variable type inference failed */
     public static <T> T cast(Object obj, Class<T> cls, ParserConfig parserConfig) {
         T t;
-        int i = 0;
+        int i2 = 0;
         if (obj == 0) {
             if (cls == Integer.TYPE) {
                 return (T) 0;
@@ -236,8 +234,8 @@ public class TypeUtils {
                     Collection<Object> collection = (Collection) obj;
                     T t2 = (T) Array.newInstance(cls.getComponentType(), collection.size());
                     for (Object obj2 : collection) {
-                        Array.set(t2, i, cast(obj2, (Class<Object>) cls.getComponentType(), parserConfig));
-                        i++;
+                        Array.set(t2, i2, cast(obj2, (Class<Object>) cls.getComponentType(), parserConfig));
+                        i2++;
                     }
                     return t2;
                 } else if (cls == byte[].class) {
@@ -428,7 +426,7 @@ public class TypeUtils {
                 }
                 if (!"true".equalsIgnoreCase(str) && !"1".equals(str)) {
                     if (!"false".equalsIgnoreCase(str) && !"0".equals(str)) {
-                        if (!"Y".equalsIgnoreCase(str) && !ExifInterface.GPS_DIRECTION_TRUE.equals(str)) {
+                        if (!"Y".equalsIgnoreCase(str) && !"T".equals(str)) {
                             if ("F".equalsIgnoreCase(str) || "N".equals(str)) {
                                 return Boolean.FALSE;
                             }
@@ -862,7 +860,7 @@ public class TypeUtils {
                     } else if (cls == Byte.TYPE) {
                         genericArrayType = Class.forName(str + "B");
                     } else if (cls == Short.TYPE) {
-                        genericArrayType = Class.forName(str + ExifInterface.LATITUDE_SOUTH);
+                        genericArrayType = Class.forName(str + "S");
                     } else if (cls == Integer.TYPE) {
                         genericArrayType = Class.forName(str + "I");
                     } else if (cls == Long.TYPE) {
@@ -889,18 +887,18 @@ public class TypeUtils {
 
     public static void computeFields(Class<?> cls, Map<String, String> map, PropertyNamingStrategy propertyNamingStrategy, Map<String, FieldInfo> map2, Field[] fieldArr) {
         String str;
-        int i;
         int i2;
         int i3;
+        int i4;
         for (Field field : fieldArr) {
             if (!Modifier.isStatic(field.getModifiers())) {
                 JSONField jSONField = (JSONField) getAnnotation(field, JSONField.class);
                 String name = field.getName();
                 if (jSONField == null) {
                     str = null;
-                    i = 0;
                     i2 = 0;
                     i3 = 0;
+                    i4 = 0;
                 } else if (jSONField.serialize()) {
                     int ordinal = jSONField.ordinal();
                     int of = SerializerFeature.of(jSONField.serialzeFeatures());
@@ -909,9 +907,9 @@ public class TypeUtils {
                         name = jSONField.name();
                     }
                     str = jSONField.label().length() != 0 ? jSONField.label() : null;
-                    i = ordinal;
-                    i2 = of;
-                    i3 = of2;
+                    i2 = ordinal;
+                    i3 = of;
+                    i4 = of2;
                 }
                 if (map == null || (name = map.get(name)) != null) {
                     if (propertyNamingStrategy != null) {
@@ -919,7 +917,7 @@ public class TypeUtils {
                     }
                     String str2 = name;
                     if (!map2.containsKey(str2)) {
-                        map2.put(str2, new FieldInfo(str2, null, field, cls, null, i, i2, i3, null, jSONField, str));
+                        map2.put(str2, new FieldInfo(str2, null, field, cls, null, i2, i3, i4, null, jSONField, str));
                     }
                 }
             }
@@ -941,8 +939,8 @@ public class TypeUtils {
     public static Map<TypeVariable, Type> createActualTypeMap(TypeVariable[] typeVariableArr, Type[] typeArr) {
         int length = typeVariableArr.length;
         HashMap hashMap = new HashMap(length);
-        for (int i = 0; i < length; i++) {
-            hashMap.put(typeVariableArr[i], typeArr[i]);
+        for (int i2 = 0; i2 < length; i2++) {
+            hashMap.put(typeVariableArr[i2], typeArr[i2]);
         }
         return hashMap;
     }
@@ -998,16 +996,16 @@ public class TypeUtils {
 
     public static long fnv1a_64(String str) {
         long j = -3750763034362895579L;
-        for (int i = 0; i < str.length(); i++) {
-            j = (j ^ str.charAt(i)) * 1099511628211L;
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            j = (j ^ str.charAt(i2)) * 1099511628211L;
         }
         return j;
     }
 
     public static long fnv1a_64_extract(String str) {
         long j = -3750763034362895579L;
-        for (int i = 0; i < str.length(); i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            char charAt = str.charAt(i2);
             if (charAt != '_' && charAt != '-') {
                 if (charAt >= 'A' && charAt <= 'Z') {
                     charAt = (char) (charAt + ' ');
@@ -1020,8 +1018,8 @@ public class TypeUtils {
 
     public static long fnv1a_64_lower(String str) {
         long j = -3750763034362895579L;
-        for (int i = 0; i < str.length(); i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            char charAt = str.charAt(i2);
             if (charAt >= 'A' && charAt <= 'Z') {
                 charAt = (char) (charAt + ' ');
             }
@@ -1245,8 +1243,8 @@ public class TypeUtils {
             }
             List list2 = (List) kotlin_kfunction_getParameters.invoke(obj, new Object[0]);
             String[] strArr = new String[list2.size()];
-            for (int i = 0; i < list2.size(); i++) {
-                strArr[i] = (String) kotlin_kparameter_getName.invoke(list2.get(i), new Object[0]);
+            for (int i2 = 0; i2 < list2.size(); i2++) {
+                strArr[i2] = (String) kotlin_kparameter_getName.invoke(list2.get(i2), new Object[0]);
             }
             return strArr;
         } catch (Throwable th) {
@@ -1292,11 +1290,11 @@ public class TypeUtils {
         return Feature.of(jSONType.parseFeatures());
     }
 
-    public static String getPropertyNameByCompatibleFieldName(Map<String, Field> map, String str, String str2, int i) {
+    public static String getPropertyNameByCompatibleFieldName(Map<String, Field> map, String str, String str2, int i2) {
         if (!compatibleWithFieldName || map.containsKey(str2)) {
             return str2;
         }
-        String substring = str.substring(i);
+        String substring = str.substring(i2);
         return map.containsKey(substring) ? substring : str2;
     }
 
@@ -1343,16 +1341,16 @@ public class TypeUtils {
                 for (Method method2 : cls2.getMethods()) {
                     Class<?>[] parameterTypes2 = method2.getParameterTypes();
                     if (parameterTypes2.length == parameterTypes.length && method2.getName().equals(method.getName())) {
-                        int i = 0;
+                        int i2 = 0;
                         while (true) {
-                            if (i >= parameterTypes.length) {
+                            if (i2 >= parameterTypes.length) {
                                 z2 = true;
                                 break;
-                            } else if (!parameterTypes2[i].equals(parameterTypes[i])) {
+                            } else if (!parameterTypes2[i2].equals(parameterTypes[i2])) {
                                 z2 = false;
                                 break;
                             } else {
-                                i++;
+                                i2++;
                             }
                         }
                         if (z2 && (jSONField2 = (JSONField) getAnnotation(method2, JSONField.class)) != null) {
@@ -1368,16 +1366,16 @@ public class TypeUtils {
             for (Method method3 : superclass.getMethods()) {
                 Class<?>[] parameterTypes4 = method3.getParameterTypes();
                 if (parameterTypes4.length == parameterTypes3.length && method3.getName().equals(method.getName())) {
-                    int i2 = 0;
+                    int i3 = 0;
                     while (true) {
-                        if (i2 >= parameterTypes3.length) {
+                        if (i3 >= parameterTypes3.length) {
                             z = true;
                             break;
-                        } else if (!parameterTypes4[i2].equals(parameterTypes3[i2])) {
+                        } else if (!parameterTypes4[i3].equals(parameterTypes3[i3])) {
                             z = false;
                             break;
                         } else {
-                            i2++;
+                            i3++;
                         }
                     }
                     if (z && (jSONField = (JSONField) getAnnotation(method3, JSONField.class)) != null) {
@@ -1569,10 +1567,10 @@ public class TypeUtils {
     }
 
     public static boolean isNumber(String str) {
-        for (int i = 0; i < str.length(); i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            char charAt = str.charAt(i2);
             if (charAt == '+' || charAt == '-') {
-                if (i != 0) {
+                if (i2 != 0) {
                     return false;
                 }
             } else if (charAt < '0' || charAt > '9') {
@@ -1704,8 +1702,8 @@ public class TypeUtils {
     public static ParameterizedType makeParameterizedType(Class<?> cls, Type[] typeArr, Map<TypeVariable, Type> map) {
         int length = typeArr.length;
         Type[] typeArr2 = new Type[length];
-        for (int i = 0; i < length; i++) {
-            typeArr2[i] = getActualType(typeArr[i], map);
+        for (int i2 = 0; i2 < length; i2++) {
+            typeArr2[i2] = getActualType(typeArr[i2], map);
         }
         return new ParameterizedTypeImpl(typeArr2, null, cls);
     }
@@ -1740,16 +1738,16 @@ public class TypeUtils {
         }
         long j = 0;
         boolean z = false;
-        int i = 0;
-        for (int i2 = 0; i2 < length; i2++) {
-            char charAt = str.charAt(i2);
-            if (charAt == '-' && i2 == 0) {
+        int i2 = 0;
+        for (int i3 = 0; i3 < length; i3++) {
+            char charAt = str.charAt(i3);
+            if (charAt == '-' && i3 == 0) {
                 z = true;
             } else if (charAt == '.') {
-                if (i != 0) {
+                if (i2 != 0) {
                     return Double.parseDouble(str);
                 }
-                i = (length - i2) - 1;
+                i2 = (length - i3) - 1;
             } else if (charAt < '0' || charAt > '9') {
                 return Double.parseDouble(str);
             } else {
@@ -1759,7 +1757,7 @@ public class TypeUtils {
         if (z) {
             j = -j;
         }
-        switch (i) {
+        switch (i2) {
             case 0:
                 return j;
             case 1:
@@ -1813,16 +1811,16 @@ public class TypeUtils {
         }
         long j = 0;
         boolean z = false;
-        int i = 0;
-        for (int i2 = 0; i2 < length; i2++) {
-            char charAt = str.charAt(i2);
-            if (charAt == '-' && i2 == 0) {
+        int i2 = 0;
+        for (int i3 = 0; i3 < length; i3++) {
+            char charAt = str.charAt(i3);
+            if (charAt == '-' && i3 == 0) {
                 z = true;
             } else if (charAt == '.') {
-                if (i != 0) {
+                if (i2 != 0) {
                     return Float.parseFloat(str);
                 }
-                i = (length - i2) - 1;
+                i2 = (length - i3) - 1;
             } else if (charAt < '0' || charAt > '9') {
                 return Float.parseFloat(str);
             } else {
@@ -1832,7 +1830,7 @@ public class TypeUtils {
         if (z) {
             j = -j;
         }
-        switch (i) {
+        switch (i2) {
             case 0:
                 return (float) j;
             case 1:
@@ -1932,7 +1930,7 @@ public class TypeUtils {
         String[] strArr;
         String str;
         String str2;
-        int i;
+        int i2;
         List<FieldInfo> computeGetters;
         List<FieldInfo> list;
         JSONType jSONType = (JSONType) getAnnotation(cls, JSONType.class);
@@ -1975,13 +1973,13 @@ public class TypeUtils {
             strArr = orders;
             str = typeName;
             propertyNamingStrategy2 = naming;
-            i = of;
+            i2 = of;
         } else {
             propertyNamingStrategy2 = propertyNamingStrategy;
             strArr = null;
             str = null;
             str2 = null;
-            i = 0;
+            i2 = 0;
         }
         HashMap hashMap = new HashMap();
         ParserConfig.parserAllFieldToCache(cls, hashMap);
@@ -2003,7 +2001,7 @@ public class TypeUtils {
         }
         FieldInfo[] fieldInfoArr2 = new FieldInfo[list.size()];
         list.toArray(fieldInfoArr2);
-        return new SerializeBeanInfo(cls, jSONType, str, str2, i, fieldInfoArr, Arrays.equals(fieldInfoArr2, fieldInfoArr) ? fieldInfoArr : fieldInfoArr2);
+        return new SerializeBeanInfo(cls, jSONType, str, str2, i2, fieldInfoArr, Arrays.equals(fieldInfoArr2, fieldInfoArr) ? fieldInfoArr : fieldInfoArr2);
     }
 
     public static Date castToDate(Object obj, String str) {
@@ -2117,7 +2115,7 @@ public class TypeUtils {
     /* JADX WARN: Multi-variable type inference failed */
     public static <T> T castToJavaBean(Map<String, Object> map, Class<T> cls, ParserConfig parserConfig) {
         JSONObject jSONObject;
-        int i = 0;
+        int i2 = 0;
         try {
             if (cls == StackTraceElement.class) {
                 String str = (String) map.get(PushClientConstants.TAG_CLASS_NAME);
@@ -2126,12 +2124,12 @@ public class TypeUtils {
                 Number number = (Number) map.get("lineNumber");
                 if (number != null) {
                     if (number instanceof BigDecimal) {
-                        i = ((BigDecimal) number).intValueExact();
+                        i2 = ((BigDecimal) number).intValueExact();
                     } else {
-                        i = number.intValue();
+                        i2 = number.intValue();
                     }
                 }
-                return (T) new StackTraceElement(str, str2, str3, i);
+                return (T) new StackTraceElement(str, str2, str3, i2);
             }
             Object obj = map.get(JSON.DEFAULT_TYPE_KEY);
             if (obj instanceof String) {
@@ -2160,7 +2158,7 @@ public class TypeUtils {
                 return parserConfig.get(cls) != null ? (T) JSON.parseObject(JSON.toJSONString(jSONObject), cls) : (T) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, jSONObject);
             }
             if (cls == Locale.class) {
-                Object obj2 = map.get(KsMediaMeta.KSM_KEY_LANGUAGE);
+                Object obj2 = map.get("language");
                 Object obj3 = map.get("country");
                 if (obj2 instanceof String) {
                     String str5 = (String) obj2;
@@ -2301,38 +2299,38 @@ public class TypeUtils {
     public static List<FieldInfo> computeGetters(Class<?> cls, JSONType jSONType, Map<String, String> map, Map<String, Field> map2, boolean z, PropertyNamingStrategy propertyNamingStrategy) {
         String[] strArr;
         Class<?> cls2;
-        int i;
+        int i2;
         Constructor<?>[] constructorArr;
         short[] sArr;
         Annotation[][] annotationArr;
         JSONField jSONField;
-        int i2;
+        int i3;
         Method[] methodArr;
         LinkedHashMap linkedHashMap;
-        int i3;
         int i4;
         int i5;
+        int i6;
         String str;
         LinkedHashMap linkedHashMap2;
         Class<?> cls3;
-        int i6;
+        int i7;
         Method method;
         LinkedHashMap linkedHashMap3;
         String substring;
         Field fieldFromCache;
-        int i7;
         int i8;
         int i9;
+        int i10;
         JSONField jSONField2;
         String propertyNameByMethodName;
         String propertyNameByCompatibleFieldName;
         Field field;
-        int i10;
+        int i11;
         JSONField jSONField3;
         String str2;
         Boolean bool;
-        int i11;
         int i12;
+        int i13;
         String str3;
         Boolean bool2;
         char charAt;
@@ -2354,9 +2352,9 @@ public class TypeUtils {
         String[] strArr3 = null;
         short[] sArr3 = null;
         Annotation[][] annotationArr3 = null;
-        int i13 = 0;
-        while (i13 < length) {
-            Method method2 = methods[i13];
+        int i14 = 0;
+        while (i14 < length) {
+            Method method2 = methods[i14];
             String name = method2.getName();
             if (!Modifier.isStatic(method2.getModifiers())) {
                 Class<?> returnType = method2.getReturnType();
@@ -2397,17 +2395,17 @@ public class TypeUtils {
                                     String decapitalize = decapitalize(name.substring(3));
                                     int binarySearch = Arrays.binarySearch(strArr2, decapitalize);
                                     constructorArr = constructorArr2;
-                                    i = i13;
+                                    i2 = i14;
                                     if (binarySearch < 0) {
-                                        int i14 = 0;
+                                        int i15 = 0;
                                         while (true) {
-                                            if (i14 >= strArr2.length) {
+                                            if (i15 >= strArr2.length) {
                                                 break;
-                                            } else if (decapitalize.equalsIgnoreCase(strArr2[i14])) {
-                                                binarySearch = i14;
+                                            } else if (decapitalize.equalsIgnoreCase(strArr2[i15])) {
+                                                binarySearch = i15;
                                                 break;
                                             } else {
-                                                i14++;
+                                                i15++;
                                             }
                                         }
                                     }
@@ -2416,19 +2414,19 @@ public class TypeUtils {
                                         if (annotationArr4 != null) {
                                             int length2 = annotationArr4.length;
                                             sArr2 = sArr3;
-                                            int i15 = 0;
+                                            int i16 = 0;
                                             while (true) {
                                                 annotationArr2 = annotationArr3;
-                                                if (i15 >= length2) {
+                                                if (i16 >= length2) {
                                                     break;
                                                 }
-                                                Annotation annotation = annotationArr4[i15];
+                                                Annotation annotation = annotationArr4[i16];
                                                 Annotation[] annotationArr5 = annotationArr4;
                                                 if (annotation instanceof JSONField) {
                                                     jSONField4 = (JSONField) annotation;
                                                     break;
                                                 }
-                                                i15++;
+                                                i16++;
                                                 annotationArr3 = annotationArr2;
                                                 annotationArr4 = annotationArr5;
                                             }
@@ -2450,7 +2448,7 @@ public class TypeUtils {
                                     constructorArr = constructorArr2;
                                     sArr2 = sArr3;
                                     annotationArr2 = annotationArr3;
-                                    i = i13;
+                                    i2 = i14;
                                 }
                                 jSONField = jSONField4;
                                 annotationArr = annotationArr2;
@@ -2464,14 +2462,14 @@ public class TypeUtils {
                             constructorArr = constructorArr2;
                             sArr2 = sArr3;
                             annotationArr2 = annotationArr3;
-                            i = i13;
+                            i2 = i14;
                             jSONField = jSONField4;
                             annotationArr = annotationArr2;
                             sArr = sArr2;
                             strArr = strArr2;
                         } else {
                             cls2 = returnType;
-                            i = i13;
+                            i2 = i14;
                             constructorArr = constructorArr2;
                             sArr = sArr3;
                             annotationArr = annotationArr3;
@@ -2481,55 +2479,55 @@ public class TypeUtils {
                             if (jSONField.serialize()) {
                                 int ordinal = jSONField.ordinal();
                                 int of = SerializerFeature.of(jSONField.serialzeFeatures());
-                                i5 = Feature.of(jSONField.parseFeatures());
+                                i6 = Feature.of(jSONField.parseFeatures());
                                 if (jSONField.name().length() != 0) {
                                     String name2 = jSONField.name();
                                     if (map3 == null || (name2 = map3.get(name2)) != null) {
                                         String str4 = name2;
-                                        i2 = length;
+                                        i3 = length;
                                         methodArr = methods;
                                         linkedHashMap = linkedHashMap5;
-                                        linkedHashMap.put(str4, new FieldInfo(str4, method2, null, cls, null, ordinal, of, i5, jSONField, null, null));
+                                        linkedHashMap.put(str4, new FieldInfo(str4, method2, null, cls, null, ordinal, of, i6, jSONField, null, null));
                                         linkedHashMap3 = linkedHashMap;
                                         propertyNamingStrategy2 = propertyNamingStrategy;
                                         constructorArr2 = constructorArr;
                                         sArr3 = sArr;
                                         annotationArr3 = annotationArr;
-                                        i13 = i + 1;
+                                        i14 = i2 + 1;
                                         map4 = map2;
                                         linkedHashMap4 = linkedHashMap3;
                                         strArr3 = strArr;
-                                        length = i2;
+                                        length = i3;
                                         methods = methodArr;
                                     }
                                 } else {
-                                    i2 = length;
+                                    i3 = length;
                                     methodArr = methods;
                                     linkedHashMap = linkedHashMap5;
                                     r18 = jSONField.label().length() != 0 ? jSONField.label() : null;
-                                    i3 = of;
-                                    i4 = ordinal;
+                                    i4 = of;
+                                    i5 = ordinal;
                                 }
                             }
-                            i2 = length;
+                            i3 = length;
                             methodArr = methods;
                             linkedHashMap3 = linkedHashMap5;
                             constructorArr2 = constructorArr;
                             sArr3 = sArr;
                             annotationArr3 = annotationArr;
-                            i13 = i + 1;
+                            i14 = i2 + 1;
                             map4 = map2;
                             linkedHashMap4 = linkedHashMap3;
                             strArr3 = strArr;
-                            length = i2;
+                            length = i3;
                             methods = methodArr;
                         } else {
-                            i2 = length;
+                            i3 = length;
                             methodArr = methods;
                             linkedHashMap = linkedHashMap5;
-                            i3 = 0;
                             i4 = 0;
                             i5 = 0;
+                            i6 = 0;
                         }
                         if (name.startsWith("get")) {
                             if (name.length() >= 4 && !name.equals("getClass") && (!name.equals("getDeclaringClass") || !cls.isEnum())) {
@@ -2563,9 +2561,9 @@ public class TypeUtils {
                                             if (field2 != null) {
                                                 JSONField jSONField5 = (JSONField) getAnnotation(field2, JSONField.class);
                                                 if (jSONField5 == null) {
-                                                    i10 = i5;
+                                                    i11 = i6;
                                                     str2 = r18;
-                                                    i11 = i3;
+                                                    i12 = i4;
                                                     jSONField3 = jSONField5;
                                                     bool = bool3;
                                                 } else if (jSONField5.serialize()) {
@@ -2585,10 +2583,10 @@ public class TypeUtils {
                                                     if (jSONField5.label().length() != 0) {
                                                         r18 = jSONField5.label();
                                                     }
-                                                    i12 = ordinal2;
-                                                    i10 = of3;
+                                                    i13 = ordinal2;
+                                                    i11 = of3;
                                                     str2 = r18;
-                                                    i11 = of2;
+                                                    i12 = of2;
                                                     String str5 = str3;
                                                     jSONField3 = jSONField5;
                                                     bool = bool2;
@@ -2601,23 +2599,23 @@ public class TypeUtils {
                                                         cls3 = cls2;
                                                         str = name;
                                                         method = method2;
-                                                        i6 = 3;
+                                                        i7 = 3;
                                                         linkedHashMap2 = linkedHashMap6;
-                                                        linkedHashMap2.put(propertyNameByCompatibleFieldName, new FieldInfo(propertyNameByCompatibleFieldName, method2, field2, cls, null, i12, i11, i10, jSONField, jSONField3, str2));
-                                                        i3 = i11;
+                                                        linkedHashMap2.put(propertyNameByCompatibleFieldName, new FieldInfo(propertyNameByCompatibleFieldName, method2, field2, cls, null, i13, i12, i11, jSONField, jSONField3, str2));
                                                         i4 = i12;
-                                                        i5 = i10;
+                                                        i5 = i13;
+                                                        i6 = i11;
                                                         r18 = str2;
                                                     }
                                                 }
                                             } else {
-                                                i10 = i5;
+                                                i11 = i6;
                                                 jSONField3 = null;
                                                 str2 = r18;
                                                 bool = bool3;
-                                                i11 = i3;
+                                                i12 = i4;
                                             }
-                                            i12 = i4;
+                                            i13 = i5;
                                             if (map3 != null) {
                                             }
                                             LinkedHashMap linkedHashMap62 = linkedHashMap;
@@ -2627,12 +2625,12 @@ public class TypeUtils {
                                             cls3 = cls2;
                                             str = name;
                                             method = method2;
-                                            i6 = 3;
+                                            i7 = 3;
                                             linkedHashMap2 = linkedHashMap62;
-                                            linkedHashMap2.put(propertyNameByCompatibleFieldName, new FieldInfo(propertyNameByCompatibleFieldName, method2, field2, cls, null, i12, i11, i10, jSONField, jSONField3, str2));
-                                            i3 = i11;
+                                            linkedHashMap2.put(propertyNameByCompatibleFieldName, new FieldInfo(propertyNameByCompatibleFieldName, method2, field2, cls, null, i13, i12, i11, jSONField, jSONField3, str2));
                                             i4 = i12;
-                                            i5 = i10;
+                                            i5 = i13;
+                                            i6 = i11;
                                             r18 = str2;
                                         }
                                     } else if (charAt2 == 'f') {
@@ -2656,26 +2654,26 @@ public class TypeUtils {
                             constructorArr2 = constructorArr;
                             sArr3 = sArr;
                             annotationArr3 = annotationArr;
-                            i13 = i + 1;
+                            i14 = i2 + 1;
                             map4 = map2;
                             linkedHashMap4 = linkedHashMap3;
                             strArr3 = strArr;
-                            length = i2;
+                            length = i3;
                             methods = methodArr;
                         } else {
                             str = name;
                             linkedHashMap2 = linkedHashMap;
                             cls3 = cls2;
-                            i6 = 3;
+                            i7 = 3;
                             method = method2;
                         }
-                        if (str.startsWith("is") && str.length() >= i6 && (cls3 == Boolean.TYPE || cls3 == Boolean.class)) {
+                        if (str.startsWith("is") && str.length() >= i7 && (cls3 == Boolean.TYPE || cls3 == Boolean.class)) {
                             char charAt3 = str.charAt(2);
                             if (Character.isUpperCase(charAt3)) {
-                                substring = getPropertyNameByCompatibleFieldName(map4, str, compatibleWithJavaBean ? decapitalize(str.substring(2)) : Character.toLowerCase(str.charAt(2)) + str.substring(i6), 2);
+                                substring = getPropertyNameByCompatibleFieldName(map4, str, compatibleWithJavaBean ? decapitalize(str.substring(2)) : Character.toLowerCase(str.charAt(2)) + str.substring(i7), 2);
                             } else {
                                 if (charAt3 == '_') {
-                                    String substring3 = str.substring(i6);
+                                    String substring3 = str.substring(i7);
                                     fieldFromCache = map4.get(substring3);
                                     if (fieldFromCache == null) {
                                         substring = str.substring(2);
@@ -2697,9 +2695,9 @@ public class TypeUtils {
                                                 JSONField jSONField6 = (JSONField) getAnnotation(fieldFromCache, JSONField.class);
                                                 if (jSONField6 == null) {
                                                     map3 = map;
-                                                    i7 = i3;
                                                     i8 = i4;
                                                     i9 = i5;
+                                                    i10 = i6;
                                                     jSONField2 = jSONField6;
                                                 } else if (jSONField6.serialize()) {
                                                     int ordinal3 = jSONField6.ordinal();
@@ -2716,22 +2714,22 @@ public class TypeUtils {
                                                     }
                                                     if (jSONField6.label().length() != 0) {
                                                         jSONField2 = jSONField6;
-                                                        i7 = of4;
-                                                        i9 = of5;
+                                                        i8 = of4;
+                                                        i10 = of5;
                                                         r18 = jSONField6.label();
-                                                        i8 = ordinal3;
+                                                        i9 = ordinal3;
                                                     } else {
-                                                        i8 = ordinal3;
+                                                        i9 = ordinal3;
                                                         jSONField2 = jSONField6;
-                                                        i7 = of4;
-                                                        i9 = of5;
+                                                        i8 = of4;
+                                                        i10 = of5;
                                                     }
                                                 }
                                             } else {
                                                 map3 = map;
-                                                i7 = i3;
                                                 i8 = i4;
                                                 i9 = i5;
+                                                i10 = i6;
                                                 jSONField2 = null;
                                             }
                                             if (map3 == null || (substring = map3.get(substring)) != null) {
@@ -2742,26 +2740,26 @@ public class TypeUtils {
                                                 String str6 = substring;
                                                 if (!linkedHashMap2.containsKey(str6)) {
                                                     linkedHashMap3 = linkedHashMap2;
-                                                    linkedHashMap3.put(str6, new FieldInfo(str6, method, fieldFromCache, cls, null, i8, i7, i9, jSONField, jSONField2, r18));
+                                                    linkedHashMap3.put(str6, new FieldInfo(str6, method, fieldFromCache, cls, null, i9, i8, i10, jSONField, jSONField2, r18));
                                                     constructorArr2 = constructorArr;
                                                     sArr3 = sArr;
                                                     annotationArr3 = annotationArr;
-                                                    i13 = i + 1;
+                                                    i14 = i2 + 1;
                                                     map4 = map2;
                                                     linkedHashMap4 = linkedHashMap3;
                                                     strArr3 = strArr;
-                                                    length = i2;
+                                                    length = i3;
                                                     methods = methodArr;
                                                 }
                                                 linkedHashMap3 = linkedHashMap2;
                                                 constructorArr2 = constructorArr;
                                                 sArr3 = sArr;
                                                 annotationArr3 = annotationArr;
-                                                i13 = i + 1;
+                                                i14 = i2 + 1;
                                                 map4 = map2;
                                                 linkedHashMap4 = linkedHashMap3;
                                                 strArr3 = strArr;
-                                                length = i2;
+                                                length = i3;
                                                 methods = methodArr;
                                             }
                                             propertyNamingStrategy2 = propertyNamingStrategy;
@@ -2769,11 +2767,11 @@ public class TypeUtils {
                                             constructorArr2 = constructorArr;
                                             sArr3 = sArr;
                                             annotationArr3 = annotationArr;
-                                            i13 = i + 1;
+                                            i14 = i2 + 1;
                                             map4 = map2;
                                             linkedHashMap4 = linkedHashMap3;
                                             strArr3 = strArr;
-                                            length = i2;
+                                            length = i3;
                                             methods = methodArr;
                                         }
                                         map3 = map;
@@ -2782,11 +2780,11 @@ public class TypeUtils {
                                         constructorArr2 = constructorArr;
                                         sArr3 = sArr;
                                         annotationArr3 = annotationArr;
-                                        i13 = i + 1;
+                                        i14 = i2 + 1;
                                         map4 = map2;
                                         linkedHashMap4 = linkedHashMap3;
                                         strArr3 = strArr;
-                                        length = i2;
+                                        length = i3;
                                         methods = methodArr;
                                     }
                                 } else if (charAt3 == 'f') {
@@ -2804,11 +2802,11 @@ public class TypeUtils {
                                 constructorArr2 = constructorArr;
                                 sArr3 = sArr;
                                 annotationArr3 = annotationArr;
-                                i13 = i + 1;
+                                i14 = i2 + 1;
                                 map4 = map2;
                                 linkedHashMap4 = linkedHashMap3;
                                 strArr3 = strArr;
-                                length = i2;
+                                length = i3;
                                 methods = methodArr;
                             }
                             cls4 = cls;
@@ -2821,11 +2819,11 @@ public class TypeUtils {
                             constructorArr2 = constructorArr;
                             sArr3 = sArr;
                             annotationArr3 = annotationArr;
-                            i13 = i + 1;
+                            i14 = i2 + 1;
                             map4 = map2;
                             linkedHashMap4 = linkedHashMap3;
                             strArr3 = strArr;
-                            length = i2;
+                            length = i3;
                             methods = methodArr;
                         }
                         cls4 = cls;
@@ -2835,35 +2833,35 @@ public class TypeUtils {
                         constructorArr2 = constructorArr;
                         sArr3 = sArr;
                         annotationArr3 = annotationArr;
-                        i13 = i + 1;
+                        i14 = i2 + 1;
                         map4 = map2;
                         linkedHashMap4 = linkedHashMap3;
                         strArr3 = strArr;
-                        length = i2;
+                        length = i3;
                         methods = methodArr;
                     }
-                    i = i13;
-                    i2 = length;
+                    i2 = i14;
+                    i3 = length;
                     methodArr = methods;
                     linkedHashMap3 = linkedHashMap4;
-                    i13 = i + 1;
+                    i14 = i2 + 1;
                     map4 = map2;
                     linkedHashMap4 = linkedHashMap3;
                     strArr3 = strArr;
-                    length = i2;
+                    length = i3;
                     methods = methodArr;
                 }
             }
             strArr = strArr3;
-            i = i13;
-            i2 = length;
+            i2 = i14;
+            i3 = length;
             methodArr = methods;
             linkedHashMap3 = linkedHashMap4;
-            i13 = i + 1;
+            i14 = i2 + 1;
             map4 = map2;
             linkedHashMap4 = linkedHashMap3;
             strArr3 = strArr;
-            length = i2;
+            length = i3;
             methods = methodArr;
         }
         LinkedHashMap linkedHashMap7 = linkedHashMap4;
@@ -2918,9 +2916,9 @@ public class TypeUtils {
                     if (size != 0) {
                         Class<?>[] clsArr = new Class[parameterTypes.length + size];
                         System.arraycopy(parameterTypes, 0, clsArr, size, parameterTypes.length);
-                        for (int i = size; i > 0; i--) {
-                            int i2 = i - 1;
-                            clsArr[i2] = (Class) arrayList.get(i2);
+                        for (int i2 = size; i2 > 0; i2--) {
+                            int i3 = i2 - 1;
+                            clsArr[i3] = (Class) arrayList.get(i3);
                         }
                         declaredConstructor = cls.getDeclaredConstructor(clsArr);
                     } else {
@@ -3023,8 +3021,8 @@ public class TypeUtils {
             if (obj instanceof List) {
                 List list = (List) obj;
                 ?? r7 = (T) new ArrayList(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Object obj2 = list.get(i);
+                for (int i2 = 0; i2 < list.size(); i2++) {
+                    Object obj2 = list.get(i2);
                     if (type instanceof Class) {
                         if (obj2 != null && obj2.getClass() == JSONObject.class) {
                             cast = ((JSONObject) obj2).toJavaObject((Class) type, parserConfig, 0);

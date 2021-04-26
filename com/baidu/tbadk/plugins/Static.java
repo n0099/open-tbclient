@@ -12,18 +12,18 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import d.b.c.h.j.g.d;
+import d.a.c.h.j.g.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class Static {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f13670a = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+    public static final String[] f13672a = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
 
     /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -38,8 +38,8 @@ public class Static {
 
     /* loaded from: classes3.dex */
     public static class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -53,21 +53,21 @@ public class Static {
                 return;
             }
             ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-            String[] strArr = Static.f13670a;
+            String[] strArr = Static.f13672a;
             int length = strArr.length;
-            int i = 0;
+            int i2 = 0;
             while (true) {
-                if (i >= length) {
+                if (i2 >= length) {
                     z = true;
                     break;
                 }
-                String str2 = strArr[i];
+                String str2 = strArr[i2];
                 if (exceptionData != null && (str = exceptionData.info) != null && str.contains(str2) && !exceptionData.info.contains("java.lang.OutOfMemoryError")) {
-                    d.b.c.h.h.a.b().g("plugin_crash_inflate");
+                    d.a.c.h.h.a.b().g("plugin_crash_inflate");
                     z = false;
                     break;
                 }
-                i++;
+                i2++;
             }
             Throwable th = exceptionData.mExcep;
             if (th == null || th.getCause() == null || exceptionData.mExcep.getCause().getStackTrace() == null || !z || exceptionData == null || exceptionData.info == null) {
@@ -81,7 +81,7 @@ public class Static {
                             for (StackTraceElement stackTraceElement : stackTrace) {
                                 try {
                                     plugin2.getDexClassLoader().loadClass(stackTraceElement.getClassName());
-                                    d.b.i0.r.d0.b.j().v("plugin_patch_hook_failed_count", d.b.i0.r.d0.b.j().k("plugin_patch_hook_failed_count", 0) + 1);
+                                    d.a.i0.r.d0.b.j().v("plugin_patch_hook_failed_count", d.a.i0.r.d0.b.j().k("plugin_patch_hook_failed_count", 0) + 1);
                                     break;
                                 } catch (ClassNotFoundException unused) {
                                 }
@@ -96,14 +96,14 @@ public class Static {
     }
 
     /* loaded from: classes3.dex */
-    public static class c extends d.b.c.c.f.b {
-        public c(int i) {
-            super(i);
+    public static class c extends d.a.c.c.f.b {
+        public c(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
         /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-        @Override // d.b.c.c.f.f
+        @Override // d.a.c.c.f.f
         public /* bridge */ /* synthetic */ CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
             CustomMessage<?> customMessage2 = customMessage;
             process2(customMessage2, customMessageTask);

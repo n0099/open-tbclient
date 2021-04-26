@@ -21,11 +21,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f39949a;
+    public static Boolean f37554a;
 
     public static com.vivo.push.model.b a(Context context) {
         com.vivo.push.model.b e2;
@@ -61,8 +61,8 @@ public final class s {
                 e4 = null;
             }
             int size = f2.size();
-            for (int i = 0; i < size; i++) {
-                String str = f2.get(i);
+            for (int i2 = 0; i2 < size; i2++) {
+                String str = f2.get(i2);
                 if (!TextUtils.isEmpty(str) && (e2 = e(applicationContext, str)) != null) {
                     hashMap.put(str, e2);
                     if (e2.d()) {
@@ -105,7 +105,7 @@ public final class s {
         try {
             try {
                 try {
-                    query = context.getContentResolver().query(com.vivo.push.z.f39981a, null, null, null, null);
+                    query = context.getContentResolver().query(com.vivo.push.z.f37586a, null, null, null, null);
                     try {
                     } catch (Throwable th) {
                         th = th;
@@ -264,8 +264,8 @@ public final class s {
         }
         if (list != null && list.size() > 0) {
             int size = list.size();
-            for (int i = 0; i < size; i++) {
-                ResolveInfo resolveInfo = list.get(i);
+            for (int i2 = 0; i2 < size; i2++) {
+                ResolveInfo resolveInfo = list.get(i2);
                 if (resolveInfo != null) {
                     String str = resolveInfo.serviceInfo.packageName;
                     if (!TextUtils.isEmpty(str)) {
@@ -282,7 +282,7 @@ public final class s {
 
     public static boolean d(Context context) {
         ProviderInfo resolveContentProvider;
-        Boolean bool = f39949a;
+        Boolean bool = f37554a;
         if (bool != null) {
             return bool.booleanValue();
         }
@@ -291,7 +291,7 @@ public final class s {
             str = resolveContentProvider.packageName;
         }
         Boolean valueOf = Boolean.valueOf("BCC35D4D3606F154F0402AB7634E8490C0B244C2675C3C6238986987024F0C02".equals(f(context, str)));
-        f39949a = valueOf;
+        f37554a = valueOf;
         return valueOf.booleanValue();
     }
 
@@ -359,8 +359,8 @@ public final class s {
             if (queryIntentServices != null && queryIntentServices.size() > 0) {
                 int size = queryIntentServices.size();
                 boolean z = false;
-                for (int i = 0; i < size; i++) {
-                    ResolveInfo resolveInfo = queryIntentServices.get(i);
+                for (int i2 = 0; i2 < size; i2++) {
+                    ResolveInfo resolveInfo = queryIntentServices.get(i2);
                     if (resolveInfo != null && (serviceInfo = resolveInfo.serviceInfo) != null) {
                         String str2 = serviceInfo.name;
                         boolean z2 = serviceInfo.exported;

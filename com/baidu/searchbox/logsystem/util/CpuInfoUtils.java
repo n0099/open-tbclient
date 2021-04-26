@@ -18,23 +18,23 @@ public class CpuInfoUtils {
     public static int sCoreNum = -1;
 
     public static float getAveCpuFrequency() {
-        int i = 0;
+        int i2 = 0;
         float f2 = 0.0f;
-        for (int i2 = 0; i2 < getNumCores(); i2++) {
-            float singleCpuFrequency = getSingleCpuFrequency(getCpuInfoFilePath(i2));
+        for (int i3 = 0; i3 < getNumCores(); i3++) {
+            float singleCpuFrequency = getSingleCpuFrequency(getCpuInfoFilePath(i3));
             if (singleCpuFrequency > 0.0f) {
                 f2 += singleCpuFrequency;
-                i++;
+                i2++;
             }
         }
-        if (i > 0) {
-            return f2 / i;
+        if (i2 > 0) {
+            return f2 / i2;
         }
         return -1.0f;
     }
 
-    public static String getCpuInfoFilePath(int i) {
-        return "/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_max_freq";
+    public static String getCpuInfoFilePath(int i2) {
+        return "/sys/devices/system/cpu/cpu" + i2 + "/cpufreq/cpuinfo_max_freq";
     }
 
     public static int getNumCores() {

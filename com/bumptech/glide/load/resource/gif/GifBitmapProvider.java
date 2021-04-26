@@ -18,28 +18,28 @@ public final class GifBitmapProvider implements GifDecoder.BitmapProvider {
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder.BitmapProvider
     @NonNull
-    public Bitmap obtain(int i, int i2, @NonNull Bitmap.Config config) {
-        return this.bitmapPool.getDirty(i, i2, config);
+    public Bitmap obtain(int i2, int i3, @NonNull Bitmap.Config config) {
+        return this.bitmapPool.getDirty(i2, i3, config);
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder.BitmapProvider
     @NonNull
-    public byte[] obtainByteArray(int i) {
+    public byte[] obtainByteArray(int i2) {
         ArrayPool arrayPool = this.arrayPool;
         if (arrayPool == null) {
-            return new byte[i];
+            return new byte[i2];
         }
-        return (byte[]) arrayPool.get(i, byte[].class);
+        return (byte[]) arrayPool.get(i2, byte[].class);
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder.BitmapProvider
     @NonNull
-    public int[] obtainIntArray(int i) {
+    public int[] obtainIntArray(int i2) {
         ArrayPool arrayPool = this.arrayPool;
         if (arrayPool == null) {
-            return new int[i];
+            return new int[i2];
         }
-        return (int[]) arrayPool.get(i, int[].class);
+        return (int[]) arrayPool.get(i2, int[].class);
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder.BitmapProvider

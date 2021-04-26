@@ -10,44 +10,32 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import d.b.i0.z0.b0;
-import d.b.j0.a1.d.b.c;
-import d.b.j0.q0.o0;
+import d.a.i0.z0.b0;
+import d.a.j0.a1.d.b.c;
+import d.a.j0.q0.o0;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class GameVideoFragment extends BaseFragment implements o0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f16833e;
+    public c f17095e;
 
-    @Override // d.b.j0.q0.o0
-    public void A() {
+    @Override // d.a.j0.q0.o0
+    public void G() {
     }
 
-    @Override // d.b.j0.q0.o0
-    public void F() {
-    }
-
-    @Override // d.b.j0.q0.o0
-    public void K(b0 b0Var) {
-    }
-
-    @Override // d.b.j0.q0.o0
-    public void W() {
-    }
-
-    @Override // d.b.j0.q0.o0
-    public void b0() {
+    @Override // d.a.j0.q0.o0
+    public void H() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, d.b.i0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, d.a.i0.k0.a
     public String getCurrentPageKey() {
         return "a066";
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, d.b.i0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, d.a.i0.k0.a
     public List<String> getCurrentPageSourceKeyList() {
         ArrayList arrayList;
         if (super.getCurrentPageSourceKeyList() != null) {
@@ -62,9 +50,9 @@ public class GameVideoFragment extends BaseFragment implements o0 {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        c cVar = this.f16833e;
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        c cVar = this.f17095e;
         if (cVar != null) {
             cVar.n();
         }
@@ -73,21 +61,21 @@ public class GameVideoFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.f16833e == null) {
-            this.f16833e = new c(getPageContext(), getUniqueId());
+        if (this.f17095e == null) {
+            this.f17095e = new c(getPageContext(), getUniqueId());
         }
-        this.f16833e.s();
+        this.f17095e.s();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        c cVar = this.f16833e;
+        c cVar = this.f17095e;
         if (cVar != null && cVar.r() != null) {
-            if (this.f16833e.r().getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.f16833e.r().getParent()).removeView(this.f16833e.r());
+            if (this.f17095e.r().getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.f17095e.r().getParent()).removeView(this.f17095e.r());
             }
-            return this.f16833e.r();
+            return this.f17095e.r();
         }
         return super.onCreateView(layoutInflater, viewGroup, bundle);
     }
@@ -95,7 +83,7 @@ public class GameVideoFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        c cVar = this.f16833e;
+        c cVar = this.f17095e;
         if (cVar != null) {
             cVar.v();
         }
@@ -104,7 +92,7 @@ public class GameVideoFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        c cVar = this.f16833e;
+        c cVar = this.f17095e;
         if (cVar != null) {
             cVar.t();
         }
@@ -113,7 +101,7 @@ public class GameVideoFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        c cVar = this.f16833e;
+        c cVar = this.f17095e;
         if (cVar != null) {
             cVar.w();
         }
@@ -125,17 +113,29 @@ public class GameVideoFragment extends BaseFragment implements o0 {
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
         }
-        c cVar = this.f16833e;
+        c cVar = this.f17095e;
         if (cVar != null) {
             cVar.y(isPrimary());
         }
     }
 
-    @Override // d.b.j0.q0.o0
-    public void w() {
-        c cVar = this.f16833e;
+    @Override // d.a.j0.q0.o0
+    public void p() {
+        c cVar = this.f17095e;
         if (cVar != null) {
             cVar.x();
         }
+    }
+
+    @Override // d.a.j0.q0.o0
+    public void s() {
+    }
+
+    @Override // d.a.j0.q0.o0
+    public void u() {
+    }
+
+    @Override // d.a.j0.q0.o0
+    public void y(b0 b0Var) {
     }
 }

@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.preload.a.b;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f29738a = c();
+    public static final int f30645a = c();
 
     public static int a(String str) {
         int b2 = b(str);
@@ -31,14 +31,14 @@ public final class e {
     }
 
     public static int a() {
-        return f29738a;
+        return f30645a;
     }
 
     public static int c(String str) {
         try {
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < str.length(); i++) {
-                char charAt = str.charAt(i);
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                char charAt = str.charAt(i2);
                 if (!Character.isDigit(charAt)) {
                     break;
                 }
@@ -51,6 +51,6 @@ public final class e {
     }
 
     public static boolean b() {
-        return f29738a >= 9;
+        return f30645a >= 9;
     }
 }

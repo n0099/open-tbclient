@@ -31,7 +31,7 @@ public class DatagramSocketWrapper extends Socket {
         }
 
         @Override // java.net.SocketImpl
-        public void bind(InetAddress inetAddress, int i) throws IOException {
+        public void bind(InetAddress inetAddress, int i2) throws IOException {
             throw new UnsupportedOperationException();
         }
 
@@ -41,7 +41,7 @@ public class DatagramSocketWrapper extends Socket {
         }
 
         @Override // java.net.SocketImpl
-        public void connect(String str, int i) throws IOException {
+        public void connect(String str, int i2) throws IOException {
             throw new UnsupportedOperationException();
         }
 
@@ -56,7 +56,7 @@ public class DatagramSocketWrapper extends Socket {
         }
 
         @Override // java.net.SocketOptions
-        public Object getOption(int i) throws SocketException {
+        public Object getOption(int i2) throws SocketException {
             throw new UnsupportedOperationException();
         }
 
@@ -66,27 +66,27 @@ public class DatagramSocketWrapper extends Socket {
         }
 
         @Override // java.net.SocketImpl
-        public void listen(int i) throws IOException {
+        public void listen(int i2) throws IOException {
             throw new UnsupportedOperationException();
         }
 
         @Override // java.net.SocketImpl
-        public void sendUrgentData(int i) throws IOException {
+        public void sendUrgentData(int i2) throws IOException {
             throw new UnsupportedOperationException();
         }
 
         @Override // java.net.SocketOptions
-        public void setOption(int i, Object obj) throws SocketException {
+        public void setOption(int i2, Object obj) throws SocketException {
             throw new UnsupportedOperationException();
         }
 
         @Override // java.net.SocketImpl
-        public void connect(InetAddress inetAddress, int i) throws IOException {
+        public void connect(InetAddress inetAddress, int i2) throws IOException {
             throw new UnsupportedOperationException();
         }
 
         @Override // java.net.SocketImpl
-        public void connect(SocketAddress socketAddress, int i) throws IOException {
+        public void connect(SocketAddress socketAddress, int i2) throws IOException {
             throw new UnsupportedOperationException();
         }
     }

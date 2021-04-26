@@ -21,29 +21,31 @@ public class CHFinanceProductItem extends BaseItemView {
     public static final float TAG_PADDING_DP = 7.5f;
 
     /* renamed from: a  reason: collision with root package name */
-    public MaskTextView f24353a;
+    public MaskTextView f25106a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f24354b;
+    public MaskTextView f25107b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f24355c;
+    public MaskTextView f25108c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f24356d;
+    public MaskTextView f25109d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f24357e;
+    public MaskTextView f25110e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MaskTextView f24358f;
+    public MaskTextView f25111f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MaskTextView f24359g;
+    public MaskTextView f25112g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MaskTextView f24360h;
-    public LinearLayout i;
+    public MaskTextView f25113h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public LinearLayout f25114i;
 
     public CHFinanceProductItem(Context context) {
         super(context);
@@ -71,17 +73,17 @@ public class CHFinanceProductItem extends BaseItemView {
 
     public void addTags() {
         if (getData().icons != null && getData().icons.length > 0) {
-            int i = 0;
-            this.i.setVisibility(0);
+            int i2 = 0;
+            this.f25114i.setVisibility(0);
             while (true) {
-                if (i >= (3 >= getData().icons.length ? getData().icons.length : 3)) {
+                if (i2 >= (3 >= getData().icons.length ? getData().icons.length : 3)) {
                     return;
                 }
-                a(this.i, getData().icons[i].name);
-                i++;
+                a(this.f25114i, getData().icons[i2].name);
+                i2++;
             }
         } else {
-            this.i.setVisibility(8);
+            this.f25114i.setVisibility(8);
         }
     }
 
@@ -92,29 +94,29 @@ public class CHFinanceProductItem extends BaseItemView {
 
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_finance_product_item"), this);
-        this.f24353a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_title"));
-        this.f24354b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_rate"));
-        this.f24355c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_percent"));
-        this.f24356d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_desc"));
-        this.f24357e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_date"));
-        this.f24358f = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_date_unit"));
-        this.f24359g = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_amount"));
-        this.f24360h = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_amount_unit"));
-        this.i = (LinearLayout) findViewById(ResUtils.id(getContext(), "ch_fp_tags"));
+        this.f25106a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_title"));
+        this.f25107b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_rate"));
+        this.f25108c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_percent"));
+        this.f25109d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_desc"));
+        this.f25110e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_date"));
+        this.f25111f = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_date_unit"));
+        this.f25112g = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_amount"));
+        this.f25113h = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_amount_unit"));
+        this.f25114i = (LinearLayout) findViewById(ResUtils.id(getContext(), "ch_fp_tags"));
     }
 
     public void refresh() {
         if (getData() == null) {
             return;
         }
-        this.f24353a.setMaskText(getData().name);
-        this.f24354b.setMaskText(getData().value1);
-        this.f24355c.setVisibility(TextUtils.isEmpty(getData().value1) ? 8 : 0);
-        this.f24356d.setMaskText(getData().desc);
-        this.f24357e.setMaskText(getData().value2);
-        this.f24358f.setMaskText(getData().unit);
-        this.f24359g.setMaskText(getData().value3);
-        this.f24360h.setMaskText(getData().detail);
+        this.f25106a.setMaskText(getData().name);
+        this.f25107b.setMaskText(getData().value1);
+        this.f25108c.setVisibility(TextUtils.isEmpty(getData().value1) ? 8 : 0);
+        this.f25109d.setMaskText(getData().desc);
+        this.f25110e.setMaskText(getData().value2);
+        this.f25111f.setMaskText(getData().unit);
+        this.f25112g.setMaskText(getData().value3);
+        this.f25113h.setMaskText(getData().detail);
         addTags();
         handlePoint();
     }

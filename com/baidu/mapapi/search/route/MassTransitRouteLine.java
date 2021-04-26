@@ -20,36 +20,38 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
     public static final Parcelable.Creator<MassTransitRouteLine> CREATOR = new i();
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7314b;
+    public String f7573b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f7315c;
+    public double f7574c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<PriceInfo> f7316d;
+    public List<PriceInfo> f7575d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<List<TransitStep>> f7317e;
+    public List<List<TransitStep>> f7576e;
 
     /* loaded from: classes2.dex */
     public static class TransitStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<TransitStep> CREATOR = new j();
 
         /* renamed from: d  reason: collision with root package name */
-        public List<TrafficCondition> f7318d;
+        public List<TrafficCondition> f7577d;
 
         /* renamed from: e  reason: collision with root package name */
-        public LatLng f7319e;
+        public LatLng f7578e;
 
         /* renamed from: f  reason: collision with root package name */
-        public LatLng f7320f;
+        public LatLng f7579f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TrainInfo f7321g;
+        public TrainInfo f7580g;
 
         /* renamed from: h  reason: collision with root package name */
-        public PlaneInfo f7322h;
-        public CoachInfo i;
+        public PlaneInfo f7581h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public CoachInfo f7582i;
         public BusInfo j;
         public StepVehicleInfoType k;
         public String l;
@@ -66,15 +68,15 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             
 
             /* renamed from: a  reason: collision with root package name */
-            public int f7323a;
+            public int f7583a;
 
-            StepVehicleInfoType(int i) {
-                this.f7323a = 0;
-                this.f7323a = i;
+            StepVehicleInfoType(int i2) {
+                this.f7583a = 0;
+                this.f7583a = i2;
             }
 
             public int getInt() {
-                return this.f7323a;
+                return this.f7583a;
             }
         }
 
@@ -83,17 +85,17 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             public static final Parcelable.Creator<TrafficCondition> CREATOR = new k();
 
             /* renamed from: a  reason: collision with root package name */
-            public int f7324a;
+            public int f7584a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f7325b;
+            public int f7585b;
 
             public TrafficCondition() {
             }
 
             public TrafficCondition(Parcel parcel) {
-                this.f7324a = parcel.readInt();
-                this.f7325b = parcel.readInt();
+                this.f7584a = parcel.readInt();
+                this.f7585b = parcel.readInt();
             }
 
             @Override // android.os.Parcelable
@@ -102,25 +104,25 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             }
 
             public int getTrafficGeoCnt() {
-                return this.f7325b;
+                return this.f7585b;
             }
 
             public int getTrafficStatus() {
-                return this.f7324a;
+                return this.f7584a;
             }
 
-            public void setTrafficGeoCnt(int i) {
-                this.f7325b = i;
+            public void setTrafficGeoCnt(int i2) {
+                this.f7585b = i2;
             }
 
-            public void setTrafficStatus(int i) {
-                this.f7324a = i;
+            public void setTrafficStatus(int i2) {
+                this.f7584a = i2;
             }
 
             @Override // android.os.Parcelable
-            public void writeToParcel(Parcel parcel, int i) {
-                parcel.writeInt(this.f7324a);
-                parcel.writeInt(this.f7325b);
+            public void writeToParcel(Parcel parcel, int i2) {
+                parcel.writeInt(this.f7584a);
+                parcel.writeInt(this.f7585b);
             }
         }
 
@@ -130,12 +132,12 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         public TransitStep(Parcel parcel) {
             super(parcel);
             StepVehicleInfoType stepVehicleInfoType;
-            this.f7318d = parcel.createTypedArrayList(TrafficCondition.CREATOR);
-            this.f7319e = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-            this.f7320f = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-            this.f7321g = (TrainInfo) parcel.readParcelable(TrainInfo.class.getClassLoader());
-            this.f7322h = (PlaneInfo) parcel.readParcelable(PlaneInfo.class.getClassLoader());
-            this.i = (CoachInfo) parcel.readParcelable(CoachInfo.class.getClassLoader());
+            this.f7577d = parcel.createTypedArrayList(TrafficCondition.CREATOR);
+            this.f7578e = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+            this.f7579f = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+            this.f7580g = (TrainInfo) parcel.readParcelable(TrainInfo.class.getClassLoader());
+            this.f7581h = (PlaneInfo) parcel.readParcelable(PlaneInfo.class.getClassLoader());
+            this.f7582i = (CoachInfo) parcel.readParcelable(CoachInfo.class.getClassLoader());
             this.j = (BusInfo) parcel.readParcelable(BusInfo.class.getClassLoader());
             switch (parcel.readInt()) {
                 case 1:
@@ -170,8 +172,8 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             ArrayList arrayList = new ArrayList();
             String[] split2 = str.split(";");
             if (split2 != null) {
-                for (int i = 0; i < split2.length; i++) {
-                    if (split2[i] != null && split2[i] != "" && (split = split2[i].split(",")) != null && split[1] != "" && split[0] != "") {
+                for (int i2 = 0; i2 < split2.length; i2++) {
+                    if (split2[i2] != null && split2[i2] != "" && (split = split2[i2].split(",")) != null && split[1] != "" && split[0] != "") {
                         LatLng latLng = new LatLng(Double.parseDouble(split[1]), Double.parseDouble(split[0]));
                         if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                             latLng = CoordTrans.baiduToGcj(latLng);
@@ -193,11 +195,11 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         }
 
         public CoachInfo getCoachInfo() {
-            return this.i;
+            return this.f7582i;
         }
 
         public LatLng getEndLocation() {
-            return this.f7320f;
+            return this.f7579f;
         }
 
         public String getInstructions() {
@@ -205,19 +207,19 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         }
 
         public PlaneInfo getPlaneInfo() {
-            return this.f7322h;
+            return this.f7581h;
         }
 
         public LatLng getStartLocation() {
-            return this.f7319e;
+            return this.f7578e;
         }
 
         public List<TrafficCondition> getTrafficConditions() {
-            return this.f7318d;
+            return this.f7577d;
         }
 
         public TrainInfo getTrainInfo() {
-            return this.f7321g;
+            return this.f7580g;
         }
 
         public StepVehicleInfoType getVehileType() {
@@ -237,11 +239,11 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         }
 
         public void setCoachInfo(CoachInfo coachInfo) {
-            this.i = coachInfo;
+            this.f7582i = coachInfo;
         }
 
         public void setEndLocation(LatLng latLng) {
-            this.f7320f = latLng;
+            this.f7579f = latLng;
         }
 
         public void setInstructions(String str) {
@@ -253,19 +255,19 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         }
 
         public void setPlaneInfo(PlaneInfo planeInfo) {
-            this.f7322h = planeInfo;
+            this.f7581h = planeInfo;
         }
 
         public void setStartLocation(LatLng latLng) {
-            this.f7319e = latLng;
+            this.f7578e = latLng;
         }
 
         public void setTrafficConditions(List<TrafficCondition> list) {
-            this.f7318d = list;
+            this.f7577d = list;
         }
 
         public void setTrainInfo(TrainInfo trainInfo) {
-            this.f7321g = trainInfo;
+            this.f7580g = trainInfo;
         }
 
         public void setVehileType(StepVehicleInfoType stepVehicleInfoType) {
@@ -273,15 +275,15 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep, android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            super.writeToParcel(parcel, i);
-            parcel.writeTypedList(this.f7318d);
-            parcel.writeParcelable(this.f7319e, i);
-            parcel.writeParcelable(this.f7320f, i);
-            parcel.writeParcelable(this.f7321g, i);
-            parcel.writeParcelable(this.f7322h, i);
-            parcel.writeParcelable(this.i, i);
-            parcel.writeParcelable(this.j, i);
+        public void writeToParcel(Parcel parcel, int i2) {
+            super.writeToParcel(parcel, i2);
+            parcel.writeTypedList(this.f7577d);
+            parcel.writeParcelable(this.f7578e, i2);
+            parcel.writeParcelable(this.f7579f, i2);
+            parcel.writeParcelable(this.f7580g, i2);
+            parcel.writeParcelable(this.f7581h, i2);
+            parcel.writeParcelable(this.f7582i, i2);
+            parcel.writeParcelable(this.j, i2);
             parcel.writeInt(this.k.getInt());
             parcel.writeString(this.l);
             parcel.writeString(this.m);
@@ -289,20 +291,20 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
     }
 
     public MassTransitRouteLine() {
-        this.f7317e = null;
+        this.f7576e = null;
     }
 
     public MassTransitRouteLine(Parcel parcel) {
         super(parcel);
-        this.f7317e = null;
+        this.f7576e = null;
         int readInt = parcel.readInt();
-        this.f7314b = parcel.readString();
-        this.f7315c = parcel.readDouble();
-        this.f7316d = parcel.createTypedArrayList(PriceInfo.CREATOR);
+        this.f7573b = parcel.readString();
+        this.f7574c = parcel.readDouble();
+        this.f7575d = parcel.createTypedArrayList(PriceInfo.CREATOR);
         if (readInt > 0) {
-            this.f7317e = new ArrayList();
-            for (int i = 0; i < readInt; i++) {
-                this.f7317e.add(parcel.createTypedArrayList(TransitStep.CREATOR));
+            this.f7576e = new ArrayList();
+            for (int i2 = 0; i2 < readInt; i2++) {
+                this.f7576e.add(parcel.createTypedArrayList(TransitStep.CREATOR));
             }
         }
     }
@@ -313,46 +315,46 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
     }
 
     public String getArriveTime() {
-        return this.f7314b;
+        return this.f7573b;
     }
 
     public List<List<TransitStep>> getNewSteps() {
-        return this.f7317e;
+        return this.f7576e;
     }
 
     public double getPrice() {
-        return this.f7315c;
+        return this.f7574c;
     }
 
     public List<PriceInfo> getPriceInfo() {
-        return this.f7316d;
+        return this.f7575d;
     }
 
     public void setArriveTime(String str) {
-        this.f7314b = str;
+        this.f7573b = str;
     }
 
     public void setNewSteps(List<List<TransitStep>> list) {
-        this.f7317e = list;
+        this.f7576e = list;
     }
 
     public void setPrice(double d2) {
-        this.f7315c = d2;
+        this.f7574c = d2;
     }
 
     public void setPriceInfo(List<PriceInfo> list) {
-        this.f7316d = list;
+        this.f7575d = list;
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
-        List<List<TransitStep>> list = this.f7317e;
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
+        List<List<TransitStep>> list = this.f7576e;
         parcel.writeInt(list == null ? 0 : list.size());
-        parcel.writeString(this.f7314b);
-        parcel.writeDouble(this.f7315c);
-        parcel.writeTypedList(this.f7316d);
-        for (List<TransitStep> list2 : this.f7317e) {
+        parcel.writeString(this.f7573b);
+        parcel.writeDouble(this.f7574c);
+        parcel.writeTypedList(this.f7575d);
+        for (List<TransitStep> list2 : this.f7576e) {
             parcel.writeTypedList(list2);
         }
     }

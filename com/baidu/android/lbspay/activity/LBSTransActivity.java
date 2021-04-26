@@ -16,22 +16,22 @@ public class LBSTransActivity extends LBSBaseActivity {
     }
 
     @Override // com.baidu.android.lbspay.activity.LBSBaseActivity
-    public void handleFailure(int i, int i2, String str) {
+    public void handleFailure(int i2, int i3, String str) {
         LBSTransPresenter lBSTransPresenter = this.mPresenter;
         if (lBSTransPresenter != null) {
-            lBSTransPresenter.handleFailure(i, i2, str);
+            lBSTransPresenter.handleFailure(i2, i3, str);
         }
     }
 
     @Override // com.baidu.android.lbspay.activity.LBSBaseActivity
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
         LBSTransPresenter lBSTransPresenter = this.mPresenter;
         if (lBSTransPresenter != null) {
-            lBSTransPresenter.handleResponse(i, obj, str);
+            lBSTransPresenter.handleResponse(i2, obj, str);
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         LBSTransPresenter lBSTransPresenter = this.mPresenter;
         if (lBSTransPresenter != null) {
@@ -40,7 +40,7 @@ public class LBSTransActivity extends LBSBaseActivity {
         onBackPressedWithoutAnim();
     }
 
-    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mPresenter = LBSTransPresenterFactory.getInstance().getTransPresenter(this, getIntent().getExtras().getString(PRESENTER_TYPE));
@@ -60,7 +60,7 @@ public class LBSTransActivity extends LBSBaseActivity {
         BeanManager.getInstance().removeAllBeans(BEAN_TAG);
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         LBSTransPresenter lBSTransPresenter = this.mPresenter;
         if (lBSTransPresenter != null) {

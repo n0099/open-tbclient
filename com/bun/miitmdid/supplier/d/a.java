@@ -3,15 +3,15 @@ package com.bun.miitmdid.supplier.d;
 import android.content.Context;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
-import d.k.b.a.b;
+import d.j.b.a.b;
 /* loaded from: classes5.dex */
 public class a implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f26797a;
+    public Context f27610a;
 
     public a(Context context) {
-        this.f26797a = context;
+        this.f27610a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -26,7 +26,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
         try {
-            return b.e(this.f26797a);
+            return b.e(this.f27610a);
         } catch (Exception unused) {
             return "";
         }
@@ -35,7 +35,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
         try {
-            return b.c(this.f26797a);
+            return b.c(this.f27610a);
         } catch (Exception unused) {
             return "";
         }
@@ -44,7 +44,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public String getUDID() {
         try {
-            return b.a(this.f26797a);
+            return b.a(this.f27610a);
         } catch (Exception unused) {
             return "";
         }
@@ -53,7 +53,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
         try {
-            return b.d(this.f26797a);
+            return b.d(this.f27610a);
         } catch (Exception unused) {
             return "";
         }

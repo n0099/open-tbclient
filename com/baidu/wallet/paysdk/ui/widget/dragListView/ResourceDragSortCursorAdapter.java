@@ -9,51 +9,51 @@ import android.view.ViewGroup;
 public abstract class ResourceDragSortCursorAdapter extends DragSortCursorAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f26209a;
+    public int f27011a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26210b;
+    public int f27012b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LayoutInflater f26211c;
+    public LayoutInflater f27013c;
 
     @Deprecated
-    public ResourceDragSortCursorAdapter(Context context, int i, Cursor cursor) {
+    public ResourceDragSortCursorAdapter(Context context, int i2, Cursor cursor) {
         super(context, cursor);
-        this.f26210b = i;
-        this.f26209a = i;
-        this.f26211c = (LayoutInflater) context.getSystemService("layout_inflater");
+        this.f27012b = i2;
+        this.f27011a = i2;
+        this.f27013c = (LayoutInflater) context.getSystemService("layout_inflater");
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter
     public View newDropDownView(Context context, Cursor cursor, ViewGroup viewGroup) {
-        return this.f26211c.inflate(this.f26210b, viewGroup, false);
+        return this.f27013c.inflate(this.f27012b, viewGroup, false);
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter
     public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
-        return this.f26211c.inflate(this.f26209a, viewGroup, false);
+        return this.f27013c.inflate(this.f27011a, viewGroup, false);
     }
 
-    public void setDropDownViewResource(int i) {
-        this.f26210b = i;
+    public void setDropDownViewResource(int i2) {
+        this.f27012b = i2;
     }
 
-    public void setViewResource(int i) {
-        this.f26209a = i;
+    public void setViewResource(int i2) {
+        this.f27011a = i2;
     }
 
-    public ResourceDragSortCursorAdapter(Context context, int i, Cursor cursor, boolean z) {
+    public ResourceDragSortCursorAdapter(Context context, int i2, Cursor cursor, boolean z) {
         super(context, cursor, z);
-        this.f26210b = i;
-        this.f26209a = i;
-        this.f26211c = (LayoutInflater) context.getSystemService("layout_inflater");
+        this.f27012b = i2;
+        this.f27011a = i2;
+        this.f27013c = (LayoutInflater) context.getSystemService("layout_inflater");
     }
 
-    public ResourceDragSortCursorAdapter(Context context, int i, Cursor cursor, int i2) {
-        super(context, cursor, i2);
-        this.f26210b = i;
-        this.f26209a = i;
-        this.f26211c = (LayoutInflater) context.getSystemService("layout_inflater");
+    public ResourceDragSortCursorAdapter(Context context, int i2, Cursor cursor, int i3) {
+        super(context, cursor, i3);
+        this.f27012b = i2;
+        this.f27011a = i2;
+        this.f27013c = (LayoutInflater) context.getSystemService("layout_inflater");
     }
 }

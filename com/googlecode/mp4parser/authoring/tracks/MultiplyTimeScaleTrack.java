@@ -15,16 +15,16 @@ public class MultiplyTimeScaleTrack implements Track {
     public Track source;
     public int timeScaleFactor;
 
-    public MultiplyTimeScaleTrack(Track track, int i) {
+    public MultiplyTimeScaleTrack(Track track, int i2) {
         this.source = track;
-        this.timeScaleFactor = i;
+        this.timeScaleFactor = i2;
     }
 
-    public static List<CompositionTimeToSample.Entry> adjustCtts(List<CompositionTimeToSample.Entry> list, int i) {
+    public static List<CompositionTimeToSample.Entry> adjustCtts(List<CompositionTimeToSample.Entry> list, int i2) {
         if (list != null) {
             ArrayList arrayList = new ArrayList(list.size());
             for (CompositionTimeToSample.Entry entry : list) {
-                arrayList.add(new CompositionTimeToSample.Entry(entry.getCount(), entry.getOffset() * i));
+                arrayList.add(new CompositionTimeToSample.Entry(entry.getCount(), entry.getOffset() * i2));
             }
             return arrayList;
         }
@@ -64,8 +64,8 @@ public class MultiplyTimeScaleTrack implements Track {
     @Override // com.googlecode.mp4parser.authoring.Track
     public long[] getSampleDurations() {
         long[] jArr = new long[this.source.getSampleDurations().length];
-        for (int i = 0; i < this.source.getSampleDurations().length; i++) {
-            jArr[i] = this.source.getSampleDurations()[i] * this.timeScaleFactor;
+        for (int i2 = 0; i2 < this.source.getSampleDurations().length; i2++) {
+            jArr[i2] = this.source.getSampleDurations()[i2] * this.timeScaleFactor;
         }
         return jArr;
     }

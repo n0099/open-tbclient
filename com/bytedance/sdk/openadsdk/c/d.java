@@ -14,7 +14,6 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.al;
 import com.bytedance.sdk.openadsdk.utils.u;
 import com.coremedia.iso.boxes.FreeSpaceBox;
-import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -240,15 +239,15 @@ public class d {
             }
         }
 
-        public static void a(int i, int i2, com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        public static void a(int i2, int i3, com.bytedance.sdk.openadsdk.core.d.l lVar) {
             try {
                 String a2 = ak.a(lVar);
                 if (a2 == null) {
                     return;
                 }
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("all_times", i2);
-                jSONObject.put("hit_times", i);
+                jSONObject.put("all_times", i3);
+                jSONObject.put("hit_times", i2);
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("ad_extra_data", jSONObject.toString());
                 d.e(com.bytedance.sdk.openadsdk.core.p.a(), lVar, a2 + "_landingpage", "local_res_hit_rate", jSONObject2);
@@ -295,7 +294,7 @@ public class d {
             jSONObject.put("duration", j);
         } catch (Exception unused) {
         }
-        c(context, lVar, str, TrackLoadSettingsAtom.TYPE, jSONObject);
+        c(context, lVar, str, "load", jSONObject);
     }
 
     public static void c(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, String str, String str2, JSONObject jSONObject) {
@@ -384,7 +383,7 @@ public class d {
         if (lVar == null || jSONObject == null || TextUtils.isEmpty(str) || !str.equals("embeded_ad")) {
             return;
         }
-        int i = 1;
+        int i2 = 1;
         try {
             jSONObject.put("video_middle_page", (lVar.aG() != 1 || lVar.T() == null) ? 0 : 0);
         } catch (Exception e2) {
@@ -449,12 +448,12 @@ public class d {
         c(context, lVar, str, "click_close");
     }
 
-    public static void a(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, String str, String str2, long j, int i, Map<String, Object> map) {
+    public static void a(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, String str, String str2, long j, int i2, Map<String, Object> map) {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
             jSONObject.put("duration", j);
-            jSONObject.put(SapiOptions.s, i);
+            jSONObject.put(SapiOptions.KEY_CACHE_PERCENT, i2);
             if (map != null) {
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
                     jSONObject2.put(entry.getKey(), entry.getValue());
@@ -609,12 +608,12 @@ public class d {
         }
     }
 
-    public static void a(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, String str, String str2, int i, int i2) {
+    public static void a(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, String str, String str2, int i2, int i3) {
         if (lVar == null || context == null) {
             return;
         }
         HashMap hashMap = new HashMap();
-        hashMap.put("color_percent", Integer.valueOf(i));
+        hashMap.put("color_percent", Integer.valueOf(i2));
         if (lVar.X() != null) {
             hashMap.put("playable_url", lVar.X().j());
         }
@@ -622,7 +621,7 @@ public class d {
         hashMap.put("memory_use", Integer.valueOf(ak.l() - ak.k()));
         hashMap.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, ak.h(lVar.ap()));
         hashMap.put("timestamp", Long.valueOf(System.currentTimeMillis()));
-        hashMap.put("color_percent_type", Integer.valueOf(i2));
+        hashMap.put("color_percent_type", Integer.valueOf(i3));
         k(context, lVar, str, str2, hashMap);
     }
 

@@ -2,9 +2,9 @@ package com.baidu.tieba.ala.frsgamelive.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.c.j.e.n;
-import d.b.i0.r.q.a2;
-import d.b.j0.t.e.b.c;
+import d.a.c.j.e.n;
+import d.a.i0.r.q.a2;
+import d.a.j0.t.e.b.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -23,8 +23,8 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i, jSONObject);
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        super.decodeLogicInBackGround(i2, jSONObject);
         JSONObject optJSONObject = jSONObject.optJSONObject("page");
         if (optJSONObject != null) {
             this.hasMore = optJSONObject.optInt("has_more") == 1;
@@ -35,13 +35,13 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
         JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
         if (optJSONArray != null) {
             int length = optJSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
+            for (int i3 = 0; i3 < length; i3++) {
+                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                 if (optJSONObject2 != null) {
                     c cVar = new c();
                     a2 a2Var = new a2();
                     a2Var.Q2(optJSONObject2);
-                    cVar.f62671e = a2Var;
+                    cVar.f60859e = a2Var;
                     this.liveList.add(cVar);
                 }
             }
@@ -49,13 +49,13 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
         JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
         if (optJSONArray2 != null) {
             int length2 = optJSONArray2.length();
-            for (int i3 = 0; i3 < length2; i3++) {
-                JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
+            for (int i4 = 0; i4 < length2; i4++) {
+                JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i4);
                 if (optJSONObject3 != null) {
                     c cVar2 = new c();
                     a2 a2Var2 = new a2();
                     a2Var2.Q2(optJSONObject3);
-                    cVar2.f62671e = a2Var2;
+                    cVar2.f60859e = a2Var2;
                     this.recommandList.add(cVar2);
                 }
             }

@@ -110,7 +110,7 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                 }
             });
         }
-        TopProxyLayout topProxyLayout = this.f27022c;
+        TopProxyLayout topProxyLayout = this.f27842c;
         if (topProxyLayout != null) {
             topProxyLayout.setListener(new b() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity.3
                 @Override // com.bytedance.sdk.openadsdk.component.reward.top.b
@@ -194,19 +194,19 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
 
     private JSONObject Z() {
         JSONObject jSONObject = new JSONObject();
-        float f2 = d.a(this.f27024e) == null ? 0.0f : d.a(this.f27024e).f30090a;
-        float f3 = d.a(this.f27024e) != null ? d.a(this.f27024e).f30091b : 0.0f;
+        float f2 = d.a(this.f27844e) == null ? 0.0f : d.a(this.f27844e).f31007a;
+        float f3 = d.a(this.f27844e) != null ? d.a(this.f27844e).f31008b : 0.0f;
         c cVar = this.D;
         int s = cVar != null ? (int) cVar.s() : 0;
         try {
             jSONObject.put("oversea_version_type", 0);
             jSONObject.put("reward_name", this.aV);
             jSONObject.put("reward_amount", this.aW);
-            jSONObject.put("network", x.c(this.f27024e));
+            jSONObject.put("network", x.c(this.f27844e));
             jSONObject.put("latitude", f2);
             jSONObject.put("longitude", f3);
             jSONObject.put("sdk_version", "3.4.5.5");
-            jSONObject.put(com.alipay.sdk.cons.b.f1877b, ak.b());
+            jSONObject.put(com.alipay.sdk.cons.b.f1825b, ak.b());
             jSONObject.put("extra", new JSONObject(this.L));
             jSONObject.put("media_extra", this.aX);
             jSONObject.put(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, L());
@@ -228,14 +228,14 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
         if (lVar != null && lVar.i() == 1 && this.s.C()) {
             hashMap.put("duration", Long.valueOf(System.currentTimeMillis() - this.ax));
         }
-        com.bytedance.sdk.openadsdk.c.d.g(this.f27024e, this.s, "rewarded_video", "click_close", null);
+        com.bytedance.sdk.openadsdk.c.d.g(this.f27844e, this.s, "rewarded_video", "click_close", null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ab() {
         Bitmap b2;
         l lVar = this.s;
-        if (lVar == null || this.f27025f == null || !lVar.C() || (b2 = al.b((WebView) this.f27025f)) == null) {
+        if (lVar == null || this.f27845f == null || !lVar.C() || (b2 = al.b((WebView) this.f27845f)) == null) {
             return;
         }
         al.a(p.a(), this.s, "rewarded_video", "playable_show_status", b2, false, 1);
@@ -352,28 +352,28 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
         }
         this.aU.a(Z(), new q.c() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity.6
             @Override // com.bytedance.sdk.openadsdk.core.q.c
-            public void a(int i, String str) {
+            public void a(int i2, String str) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                    TTRewardVideoActivity.this.a("onRewardVerify", false, 0, "", i, str);
+                    TTRewardVideoActivity.this.a("onRewardVerify", false, 0, "", i2, str);
                     return;
                 }
                 TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener2 = TTRewardVideoActivity.this.be;
                 if (rewardAdInteractionListener2 != null) {
-                    rewardAdInteractionListener2.onRewardVerify(false, 0, "", i, str);
+                    rewardAdInteractionListener2.onRewardVerify(false, 0, "", i2, str);
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.q.c
             public void a(r.c cVar) {
-                int a2 = cVar.f28317c.a();
-                String b2 = cVar.f28317c.b();
+                int a2 = cVar.f29186c.a();
+                String b2 = cVar.f29186c.b();
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                    TTRewardVideoActivity.this.a("onRewardVerify", cVar.f28316b, a2, b2, 0, "");
+                    TTRewardVideoActivity.this.a("onRewardVerify", cVar.f29185b, a2, b2, 0, "");
                     return;
                 }
                 TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener2 = TTRewardVideoActivity.this.be;
                 if (rewardAdInteractionListener2 != null) {
-                    rewardAdInteractionListener2.onRewardVerify(cVar.f28316b, a2, b2, 0, "");
+                    rewardAdInteractionListener2.onRewardVerify(cVar.f29185b, a2, b2, 0, "");
                 }
             }
         });
@@ -523,12 +523,12 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final String str, final boolean z, final int i, final String str2, final int i2, final String str3) {
+    public void a(final String str, final boolean z, final int i2, final String str2, final int i3, final String str3) {
         e.b(new g("executeMultiProcessCallback") { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    TTRewardVideoActivity.this.b(0).executeRewardVideoCallback(TTRewardVideoActivity.this.u, str, z, i, str2, i2, str3);
+                    TTRewardVideoActivity.this.b(0).executeRewardVideoCallback(TTRewardVideoActivity.this.u, str, z, i2, str2, i3, str3);
                 } catch (Throwable th) {
                     u.c("TTRewardVideoActivity", "executeRewardVideoCallback execute throw Exception : ", th);
                 }
@@ -553,7 +553,7 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
             }
             l lVar2 = this.s;
             if (lVar2 != null && lVar2.Z() == 4) {
-                this.E = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27024e, this.s, "rewarded_video");
+                this.E = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27844e, this.s, "rewarded_video");
             }
         } else {
             this.s = com.bytedance.sdk.openadsdk.core.u.a().c();
@@ -575,15 +575,15 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                 this.af = bundle.getString("rit_scene");
                 this.s = com.bytedance.sdk.openadsdk.core.c.a(new JSONObject(string));
                 this.W.set(bundle.getBoolean("has_show_skip_btn"));
-                if (this.W.get() && this.f27022c != null) {
-                    this.f27022c.setShowSkip(true);
-                    this.f27022c.a((CharSequence) null, "跳过");
-                    this.f27022c.setSkipEnable(true);
+                if (this.W.get() && this.f27842c != null) {
+                    this.f27842c.setShowSkip(true);
+                    this.f27842c.a((CharSequence) null, "跳过");
+                    this.f27842c.setSkipEnable(true);
                 }
             } catch (Throwable unused) {
             }
             if (this.E == null && (lVar = this.s) != null && lVar.Z() == 4) {
-                this.E = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27024e, this.s, "rewarded_video");
+                this.E = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27844e, this.s, "rewarded_video");
             }
         }
         com.bytedance.sdk.openadsdk.core.e.a().a(this.s);
@@ -603,17 +603,17 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.b
-    public void f(int i) {
-        if (i == 10000) {
+    public void f(int i2) {
+        if (i2 == 10000) {
             V();
-        } else if (i == 10001) {
+        } else if (i2 == 10001) {
             Y();
         }
     }
 
     public void a(long j, long j2) {
         if (this.bg == -1) {
-            this.bg = p.h().q(String.valueOf(this.T)).f28087f;
+            this.bg = p.h().q(String.valueOf(this.T)).f28945f;
         }
         if (j2 <= 0) {
             return;
@@ -628,7 +628,7 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
     public boolean a(long j, boolean z) {
         HashMap hashMap;
         if (this.D == null) {
-            this.D = new com.bytedance.sdk.openadsdk.component.reward.g(this.f27024e, this.o, this.s);
+            this.D = new com.bytedance.sdk.openadsdk.component.reward.g(this.f27844e, this.o, this.s);
         }
         if (TextUtils.isEmpty(this.af)) {
             hashMap = null;
@@ -639,7 +639,7 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
         this.D.a(hashMap);
         this.D.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity.5
             @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
-            public void a(long j2, int i) {
+            public void a(long j2, int i2) {
                 am amVar = TTRewardVideoActivity.this.I;
                 if (amVar != null) {
                     amVar.removeMessages(300);
@@ -652,7 +652,7 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
-            public void b(long j2, int i) {
+            public void b(long j2, int i2) {
                 am amVar = TTRewardVideoActivity.this.I;
                 if (amVar != null) {
                     amVar.removeMessages(300);
@@ -717,17 +717,17 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                 long j4 = j2 / 1000;
                 tTRewardVideoActivity3.Q = (int) (tTRewardVideoActivity3.L() - j4);
                 TTRewardVideoActivity tTRewardVideoActivity4 = TTRewardVideoActivity.this;
-                if (tTRewardVideoActivity4.Q >= 0 && (topProxyLayout2 = tTRewardVideoActivity4.f27022c) != null) {
+                if (tTRewardVideoActivity4.Q >= 0 && (topProxyLayout2 = tTRewardVideoActivity4.f27842c) != null) {
                     topProxyLayout2.setShowSkip(true);
                     TTRewardVideoActivity tTRewardVideoActivity5 = TTRewardVideoActivity.this;
-                    tTRewardVideoActivity5.f27022c.a(String.valueOf(tTRewardVideoActivity5.Q), (CharSequence) null);
+                    tTRewardVideoActivity5.f27842c.a(String.valueOf(tTRewardVideoActivity5.Q), (CharSequence) null);
                 }
-                int i = (int) j4;
+                int i2 = (int) j4;
                 TTRewardVideoActivity tTRewardVideoActivity6 = TTRewardVideoActivity.this;
-                int i2 = tTRewardVideoActivity6.S;
+                int i3 = tTRewardVideoActivity6.S;
                 boolean z2 = false;
-                if (i2 != -1 && i == i2 && !tTRewardVideoActivity6.bf.get()) {
-                    TTRewardVideoActivity.this.f27023d.setVisibility(0);
+                if (i3 != -1 && i2 == i3 && !tTRewardVideoActivity6.bf.get()) {
+                    TTRewardVideoActivity.this.f27843d.setVisibility(0);
                     TTRewardVideoActivity.this.bf.set(true);
                     TTRewardVideoActivity.this.r();
                 }
@@ -735,14 +735,14 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                 if (g2 != -1 && g2 >= 0) {
                     z2 = true;
                 }
-                if (z2 && i >= g2) {
-                    if (!TTRewardVideoActivity.this.W.getAndSet(true) && (topProxyLayout = TTRewardVideoActivity.this.f27022c) != null) {
+                if (z2 && i2 >= g2) {
+                    if (!TTRewardVideoActivity.this.W.getAndSet(true) && (topProxyLayout = TTRewardVideoActivity.this.f27842c) != null) {
                         topProxyLayout.setShowSkip(true);
                     }
-                    TopProxyLayout topProxyLayout3 = TTRewardVideoActivity.this.f27022c;
+                    TopProxyLayout topProxyLayout3 = TTRewardVideoActivity.this.f27842c;
                     if (topProxyLayout3 != null) {
                         topProxyLayout3.a((CharSequence) null, "跳过");
-                        TTRewardVideoActivity.this.f27022c.setSkipEnable(true);
+                        TTRewardVideoActivity.this.f27842c.setSkipEnable(true);
                     }
                 }
                 TTRewardVideoActivity tTRewardVideoActivity7 = TTRewardVideoActivity.this;
@@ -754,15 +754,15 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                 }
             }
         });
-        String i = this.s.X() != null ? this.s.X().i() : null;
+        String i2 = this.s.X() != null ? this.s.X().i() : null;
         if (this.x != null) {
             File file = new File(this.x);
             if (file.exists() && file.length() > 0) {
-                i = this.x;
+                i2 = this.x;
                 this.z = true;
             }
         }
-        String str = i;
+        String str = i2;
         u.f("wzj", "videoUrl:" + str);
         if (this.D == null) {
             return false;
@@ -774,7 +774,7 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
         boolean a2 = this.D.a(str, this.s.am(), this.o.getWidth(), this.o.getHeight(), null, this.s.ap(), j, this.P);
         if (a2 && !z) {
             u.e("AdEvent", "pangolin ad show " + ak.a(this.s, (View) null));
-            com.bytedance.sdk.openadsdk.c.d.a(this.f27024e, this.s, "rewarded_video", hashMap);
+            com.bytedance.sdk.openadsdk.c.d.a(this.f27844e, this.s, "rewarded_video", hashMap);
             U();
             this.bc = (int) (System.currentTimeMillis() / 1000);
         }
@@ -782,7 +782,7 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.b
-    public void a(View view, int i, int i2, int i3, int i4) {
+    public void a(View view, int i2, int i3, int i4, int i5) {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             e("onAdVideoBarClick");
             return;

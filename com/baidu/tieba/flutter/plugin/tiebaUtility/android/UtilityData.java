@@ -5,24 +5,24 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityDataAuto;
-import d.b.c.a.h;
-import d.b.c.e.m.a;
-import d.b.c.e.p.k;
+import d.a.c.a.h;
+import d.a.c.e.m.a;
+import d.a.c.e.p.k;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes4.dex */
 public class UtilityData implements TiebaUtilityDataAuto.HostUtilityData {
-    private int getResIdBySkin(String str, int i) {
+    private int getResIdBySkin(String str, int i2) {
         int darkResourceId;
         int nightResouceId;
         if (k.isEmpty(str)) {
-            return i;
+            return i2;
         }
-        if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str) && (nightResouceId = SkinManager.getNightResouceId(TbadkCoreApplication.getInst().getResources(), i)) > 0) {
-            i = nightResouceId;
+        if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str) && (nightResouceId = SkinManager.getNightResouceId(TbadkCoreApplication.getInst().getResources(), i2)) > 0) {
+            i2 = nightResouceId;
         }
-        return (!SkinManager.SKIN_TYPE_STR_DARK.equals(str) || (darkResourceId = SkinManager.getDarkResourceId(TbadkCoreApplication.getInst().getResources(), i)) <= 0) ? i : darkResourceId;
+        return (!SkinManager.SKIN_TYPE_STR_DARK.equals(str) || (darkResourceId = SkinManager.getDarkResourceId(TbadkCoreApplication.getInst().getResources(), i2)) <= 0) ? i2 : darkResourceId;
     }
 
     @Override // com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityDataAuto.HostUtilityData
@@ -122,14 +122,14 @@ public class UtilityData implements TiebaUtilityDataAuto.HostUtilityData {
     /* JADX WARN: Type inference failed for: r6v0, types: [int] */
     /* JADX WARN: Type inference failed for: r6v4 */
     /* JADX WARN: Type inference failed for: r6v6 */
-    public byte[] readFileFromRaw(Resources resources, int i) {
+    public byte[] readFileFromRaw(Resources resources, int i2) {
         OutputStream outputStream;
         ByteArrayOutputStream byteArrayOutputStream;
         byte[] bArr = new byte[1024];
         InputStream inputStream = null;
         try {
             try {
-                resources = resources.openRawResource(i);
+                resources = resources.openRawResource(i2);
             } catch (Throwable th) {
                 th = th;
             }
@@ -171,9 +171,9 @@ public class UtilityData implements TiebaUtilityDataAuto.HostUtilityData {
             byteArrayOutputStream = null;
         } catch (Throwable th3) {
             th = th3;
-            i = 0;
+            i2 = 0;
             inputStream = resources;
-            outputStream = i;
+            outputStream = i2;
             a.c(inputStream);
             a.d(outputStream);
             throw th;

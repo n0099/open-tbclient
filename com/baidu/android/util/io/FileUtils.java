@@ -6,10 +6,10 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
+import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.kwai.video.player.KsMediaMeta;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -31,6 +31,7 @@ public final class FileUtils {
     public static final String EXTERNAL_STORAGE_DIRECTORY = "/baidu";
     public static final String FILE_SCHEMA = "file://";
     public static final int FILE_STREAM_BUFFER_SIZE = 8192;
+    public static int FS_BLOCK_SIZE = 0;
     public static int INVALID_INDEX = -1;
     public static int ONE_INCREAMENT = 1;
     public static final String SEARCHBOX_FOLDER = "searchbox";
@@ -39,8 +40,8 @@ public final class FileUtils {
     public static final int UNZIP_BUFFER = 2048;
     public static String sCacheDir;
 
-    public static boolean cache(Context context, String str, String str2, int i) {
-        return cache(context, str, str2.getBytes(), i);
+    public static boolean cache(Context context, String str, String str2, int i2) {
+        return cache(context, str, str2.getBytes(), i2);
     }
 
     public static long copy(File file, File file2) {
@@ -176,7 +177,7 @@ public final class FileUtils {
         if (j < 1048576) {
             valueOf = Float.valueOf(((float) j) / 1024.0f);
             str = "KB";
-        } else if (j < KsMediaMeta.AV_CH_STEREO_RIGHT) {
+        } else if (j < 1073741824) {
             valueOf = Float.valueOf(((float) j) / 1048576.0f);
             str = "MB";
         } else {
@@ -219,15 +220,26 @@ public final class FileUtils {
         }
         int length2 = listFiles.length;
         long j = 0;
-        for (int i = 0; i < length2; i++) {
-            if (listFiles[i].isDirectory()) {
-                length = getDirectorySize(listFiles[i]);
+        for (int i2 = 0; i2 < length2; i2++) {
+            if (listFiles[i2].isDirectory()) {
+                length = getDirectorySize(listFiles[i2]);
             } else {
-                length = listFiles[i].length();
+                length = listFiles[i2].length();
             }
             j += length;
         }
         return j;
+    }
+
+    public static int getFSBlockSize() {
+        if (FS_BLOCK_SIZE == 0) {
+            int blockSize = new StatFs("/data").getBlockSize();
+            FS_BLOCK_SIZE = blockSize;
+            if (blockSize <= 0) {
+                FS_BLOCK_SIZE = 8192;
+            }
+        }
+        return FS_BLOCK_SIZE;
     }
 
     public static String getFileNameFromPath(String str) {
@@ -626,7 +638,7 @@ public final class FileUtils {
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:12:0x0018 -> B:31:0x0031). Please submit an issue!!! */
-    public static boolean cache(Context context, String str, byte[] bArr, int i) {
+    public static boolean cache(Context context, String str, byte[] bArr, int i2) {
         boolean z = false;
         if (bArr == null) {
             bArr = new byte[0];
@@ -636,7 +648,7 @@ public final class FileUtils {
             try {
                 try {
                     try {
-                        fileOutputStream = context.openFileOutput(str, i);
+                        fileOutputStream = context.openFileOutput(str, i2);
                         fileOutputStream.write(bArr);
                         fileOutputStream.flush();
                         z = true;
@@ -749,11 +761,11 @@ public final class FileUtils {
         }
         int length2 = listFiles.length;
         long j = 0;
-        for (int i = 0; i < length2; i++) {
-            if (listFiles[i].isDirectory()) {
-                length = getDirectorySize(listFiles[i]);
+        for (int i2 = 0; i2 < length2; i2++) {
+            if (listFiles[i2].isDirectory()) {
+                length = getDirectorySize(listFiles[i2]);
             } else {
-                length = listFiles[i].length();
+                length = listFiles[i2].length();
             }
             j += length;
         }
@@ -772,7 +784,7 @@ public final class FileUtils {
             return null;
         }
         File externalFilesDir = context.getExternalFilesDir(str);
-        if (!externalFilesDir.exists()) {
+        if (externalFilesDir != null && !externalFilesDir.exists()) {
             externalFilesDir.mkdirs();
         }
         File file = new File(externalFilesDir, str2);

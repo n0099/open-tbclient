@@ -9,7 +9,7 @@ import tbclient.UrlParser.UrlParserResIdl;
 public class UrlParserHttpResponseMessage extends TbHttpResponsedMessage {
     public UrlParserResIdl mResponseData;
 
-    public UrlParserHttpResponseMessage(int i) {
+    public UrlParserHttpResponseMessage(int i2) {
         super(CmdConfigHttp.CMD_URL_PARSER_MESSAGE);
     }
 
@@ -19,8 +19,8 @@ public class UrlParserHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        super.decodeInBackGround(i, bArr);
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+        super.decodeInBackGround(i2, bArr);
         UrlParserResIdl urlParserResIdl = (UrlParserResIdl) new Wire(new Class[0]).parseFrom(bArr, UrlParserResIdl.class);
         this.mResponseData = urlParserResIdl;
         Error error = urlParserResIdl.error;

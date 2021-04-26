@@ -75,9 +75,9 @@ public class FaceSDK {
         CLASS_NUM_10
     }
 
-    public static native int AlignModelInit(AssetManager assetManager, String str, String str2, int i);
+    public static native int AlignModelInit(AssetManager assetManager, String str, String str2, int i2);
 
-    public static native int CropFaceImg(int[] iArr, int i, int i2, int i3, int[] iArr2, int i4, int i5, int i6, int[] iArr3, int[] iArr4);
+    public static native int CropFaceImg(int[] iArr, int i2, int i3, int i4, int[] iArr2, int i5, int i6, int i7, int[] iArr3, int[] iArr4);
 
     @Deprecated
     public static boolean copyFileFromAssets(Context context, String str, String str2) {
@@ -103,9 +103,9 @@ public class FaceSDK {
         }
     }
 
-    public static native int getARGBFromYUV420img(byte[] bArr, int[] iArr, int i, int i2);
+    public static native int getARGBFromYUV420img(byte[] bArr, int[] iArr, int i2, int i3);
 
-    public static native int getARGBFromYUVimg(byte[] bArr, int[] iArr, int i, int i2, int i3, int i4);
+    public static native int getARGBFromYUVimg(byte[] bArr, int[] iArr, int i2, int i3, int i4, int i5);
 
     public static synchronized void getInstance(AssetManager assetManager, final Context context, final String str, final String str2, final String str3, AlignMethodType alignMethodType, ParsMethodType parsMethodType) {
         synchronized (FaceSDK.class) {
@@ -217,17 +217,17 @@ public class FaceSDK {
         }
     }
 
-    public static native int setBaseInfoValueLogFlag(int i);
+    public static native int setBaseInfoValueLogFlag(int i2);
 
-    public static native int setLivenessValueLogFlag(int i);
+    public static native int setLivenessValueLogFlag(int i2);
 
-    public static native int setNumberOfThreads(int i);
+    public static native int setNumberOfThreads(int i2);
 
-    public static native int setPerfLogFlag(int i);
+    public static native int setPerfLogFlag(int i2);
 
-    public static native int setQualityValueLogFlag(int i);
+    public static native int setQualityValueLogFlag(int i2);
 
-    public static native int setValueLogFlag(int i);
+    public static native int setValueLogFlag(int i2);
 
     @Deprecated
     public static synchronized int init(Context context, String str, String str2) throws AlgorithmOnMainThreadException, IDLAuthorityException {

@@ -21,15 +21,15 @@ public class MassTransitRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public int f7327a;
+        public int f7587a;
 
-        TacticsIncity(int i) {
-            this.f7327a = 0;
-            this.f7327a = i;
+        TacticsIncity(int i2) {
+            this.f7587a = 0;
+            this.f7587a = i2;
         }
 
         public int getInt() {
-            return this.f7327a;
+            return this.f7587a;
         }
     }
 
@@ -41,15 +41,15 @@ public class MassTransitRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public int f7329a;
+        public int f7589a;
 
-        TacticsIntercity(int i) {
-            this.f7329a = 0;
-            this.f7329a = i;
+        TacticsIntercity(int i2) {
+            this.f7589a = 0;
+            this.f7589a = i2;
         }
 
         public int getInt() {
-            return this.f7329a;
+            return this.f7589a;
         }
     }
 
@@ -61,15 +61,15 @@ public class MassTransitRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public int f7331a;
+        public int f7591a;
 
-        TransTypeIntercity(int i) {
-            this.f7331a = 0;
-            this.f7331a = i;
+        TransTypeIntercity(int i2) {
+            this.f7591a = 0;
+            this.f7591a = i2;
         }
 
         public int getInt() {
-            return this.f7331a;
+            return this.f7591a;
         }
     }
 
@@ -84,16 +84,16 @@ public class MassTransitRoutePlanOption {
         return this;
     }
 
-    public MassTransitRoutePlanOption pageIndex(int i) {
-        if (i >= 0 && i <= 2147483646) {
-            this.mPageIndex = i + 1;
+    public MassTransitRoutePlanOption pageIndex(int i2) {
+        if (i2 >= 0 && i2 <= 2147483646) {
+            this.mPageIndex = i2 + 1;
         }
         return this;
     }
 
-    public MassTransitRoutePlanOption pageSize(int i) {
-        if (i >= 1 && i <= 10) {
-            this.mPageSize = i;
+    public MassTransitRoutePlanOption pageSize(int i2) {
+        if (i2 >= 1 && i2 <= 10) {
+            this.mPageSize = i2;
         }
         return this;
     }

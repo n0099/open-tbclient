@@ -13,22 +13,24 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class SusPendedView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f13677e;
+    public LinearLayout f13680e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TranView f13678f;
+    public TranView f13681f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f13679g;
+    public LinearLayout f13682g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.t0.a f13680h;
-    public float i;
+    public d.a.i0.t0.a f13683h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public float f13684i;
     public float j;
     public boolean k;
     public boolean l;
@@ -74,7 +76,7 @@ public class SusPendedView extends LinearLayout {
     */
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         boolean z;
-        if (this.f13678f == null) {
+        if (this.f13681f == null) {
             return super.dispatchTouchEvent(motionEvent);
         }
         if (this.m.isRunning()) {
@@ -86,25 +88,25 @@ public class SusPendedView extends LinearLayout {
             if (action != 1) {
                 if (action == 2) {
                     this.j = motionEvent.getRawY();
-                    if (this.i == 0.0f && e()) {
-                        this.i = motionEvent.getRawY();
+                    if (this.f13684i == 0.0f && e()) {
+                        this.f13684i = motionEvent.getRawY();
                     }
-                    this.p = 1.0f - ((this.j - this.i) / l.i(getContext()));
+                    this.p = 1.0f - ((this.j - this.f13684i) / l.i(getContext()));
                 }
             }
-            z = this.j > this.i && e();
-            boolean z2 = this.j - this.i > ((float) this.o) && e();
+            z = this.j > this.f13684i && e();
+            boolean z2 = this.j - this.f13684i > ((float) this.o) && e();
             this.l = z2;
             if (z2) {
-                this.m.setIntValues((int) (this.j - this.i), l.i(getContext()));
+                this.m.setIntValues((int) (this.j - this.f13684i), l.i(getContext()));
                 this.m.start();
             } else {
                 this.p = 1.0f;
-                this.i = 0.0f;
+                this.f13684i = 0.0f;
                 this.j = 0.0f;
                 requestLayout();
             }
-            if (this.j <= this.i && e()) {
+            if (this.j <= this.f13684i && e()) {
                 this.k = true;
                 requestLayout();
                 return true;
@@ -118,26 +120,26 @@ public class SusPendedView extends LinearLayout {
         }
         this.j = motionEvent.getRawY();
         if (e()) {
-            this.i = motionEvent.getRawY();
+            this.f13684i = motionEvent.getRawY();
         } else {
-            this.i = 0.0f;
+            this.f13684i = 0.0f;
         }
         z = false;
-        if (this.j <= this.i) {
+        if (this.j <= this.f13684i) {
         }
         if (!z) {
         }
     }
 
     public boolean e() {
-        d.b.i0.t0.a aVar = this.f13680h;
+        d.a.i0.t0.a aVar = this.f13683h;
         if (aVar == null) {
             return false;
         }
         return aVar.isOnViewTop();
     }
 
-    public void f(int i) {
+    public void f(int i2) {
     }
 
     public void g() {
@@ -165,58 +167,58 @@ public class SusPendedView extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     public void onDraw(Canvas canvas) {
         float f2 = this.p;
-        if (f2 >= 0.0f && this.f13678f != null) {
+        if (f2 >= 0.0f && this.f13681f != null) {
             canvas.drawColor(Color.argb((int) (f2 * 168.0f), 0, 0, 0), PorterDuff.Mode.SRC);
         }
         super.onDraw(canvas);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         if (this.m == null) {
-            super.onLayout(z, i, i2, i3, i4);
+            super.onLayout(z, i2, i3, i4, i5);
             return;
         }
-        int i5 = this.n;
-        if (i5 == 0) {
-            super.onLayout(z, i, i2, i3, i4);
+        int i6 = this.n;
+        if (i6 == 0) {
+            super.onLayout(z, i2, i3, i4, i5);
             float f2 = this.j;
-            float f3 = this.i;
+            float f3 = this.f13684i;
             if (f2 <= f3 || !this.k) {
                 return;
             }
-            LinearLayout linearLayout = this.f13677e;
-            linearLayout.layout(i, (int) (f2 - f3), i3, ((int) (f2 - f3)) + linearLayout.getHeight());
-            this.f13679g.layout(i, ((int) (this.j - this.i)) + this.f13677e.getHeight(), i3, i4);
+            LinearLayout linearLayout = this.f13680e;
+            linearLayout.layout(i2, (int) (f2 - f3), i4, ((int) (f2 - f3)) + linearLayout.getHeight());
+            this.f13682g.layout(i2, ((int) (this.j - this.f13684i)) + this.f13680e.getHeight(), i4, i5);
             return;
         }
-        LinearLayout linearLayout2 = this.f13677e;
-        linearLayout2.layout(i, i5, i3, linearLayout2.getMeasuredHeight() + i5);
-        this.f13679g.layout(i, this.n + this.f13677e.getMeasuredHeight(), i3, i4);
+        LinearLayout linearLayout2 = this.f13680e;
+        linearLayout2.layout(i2, i6, i4, linearLayout2.getMeasuredHeight() + i6);
+        this.f13682g.layout(i2, this.n + this.f13680e.getMeasuredHeight(), i4, i5);
     }
 
     public void setContentView(LinearLayout linearLayout) {
-        this.f13679g = linearLayout;
+        this.f13682g = linearLayout;
     }
 
-    public void setContentViewTop(d.b.i0.t0.a aVar) {
-        this.f13680h = aVar;
+    public void setContentViewTop(d.a.i0.t0.a aVar) {
+        this.f13683h = aVar;
     }
 
     public void setNavigationBar(LinearLayout linearLayout) {
-        this.f13677e = linearLayout;
+        this.f13680e = linearLayout;
     }
 
     public void setTranView(TranView tranView) {
-        this.f13678f = tranView;
+        this.f13681f = tranView;
     }
 
     public SusPendedView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public SusPendedView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public SusPendedView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.p = 0.0f;
         this.o = (l.i(context) / 3) - l.g(TbadkCoreApplication.getInst(), R.dimen.tbds153);
         this.n = l.i(context);

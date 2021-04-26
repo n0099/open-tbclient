@@ -7,7 +7,6 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.walknavi.segmentbrowse.c;
 import com.baidu.platform.comapi.wnplatform.o.e;
-import com.baidu.tbadk.TbConfig;
 /* loaded from: classes2.dex */
 public class RGStateCar3D extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
@@ -34,11 +33,11 @@ public class RGStateCar3D extends RGState {
         b.a().Q().o();
         b.a().G().b(true);
         GeoPoint e2 = b.a().D().e();
-        MapStatus i = b.a().G().i();
-        if (i != null) {
-            MapStatus.Builder builder = new MapStatus.Builder(i);
-            WinRound winRound = i.winRound;
-            WinRound winRound2 = i.winRound;
+        MapStatus i2 = b.a().G().i();
+        if (i2 != null) {
+            MapStatus.Builder builder = new MapStatus.Builder(i2);
+            WinRound winRound = i2.winRound;
+            WinRound winRound2 = i2.winRound;
             builder.targetScreen(new Point((winRound2.right + winRound2.left) / 2, ((winRound2.top + winRound2.bottom) / 2) - ((int) (0.0f - (Math.abs(winRound.bottom - winRound.top) * 0.2f)))));
             builder.rotate(b.a().D().d());
             if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
@@ -46,11 +45,11 @@ public class RGStateCar3D extends RGState {
             } else if (com.baidu.platform.comapi.wnplatform.a.a().g()) {
                 builder.overlook(-47.0f);
             }
-            if (i.zoom < 19.0f) {
+            if (i2.zoom < 19.0f) {
                 builder.zoom(19.0f);
             }
             builder.target(e.a(e2));
-            b.a().G().a(builder.build(), TbConfig.POST_IMAGE_SMALL);
+            b.a().G().a(builder.build(), 1300);
         }
     }
 

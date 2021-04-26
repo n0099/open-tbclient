@@ -14,16 +14,16 @@ import org.json.JSONObject;
 public class g extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5938a = "bduss";
+    public static final String f6101a = "bduss";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5939b = "certinfo";
+    public static final String f6102b = "certinfo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5940c = "authtoken";
+    public static final String f6103c = "authtoken";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5941d = "outer";
+    public static final String f6104d = "outer";
 
     public g(Context context) {
         super(context);

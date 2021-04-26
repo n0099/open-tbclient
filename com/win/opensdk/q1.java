@@ -1,44 +1,74 @@
 package com.win.opensdk;
 
+import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
-public class q1 implements S0 {
+import com.fun.openid.sdk.FunOpenIDSdk;
+/* loaded from: classes6.dex */
+public class q1 {
+
+    /* renamed from: b  reason: collision with root package name */
+    public static q1 f37931b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f37932c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f37933d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static String f37934e;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ r1 f40403a;
+    public Context f37935a;
 
-    public q1(r1 r1Var) {
-        this.f40403a = r1Var;
+    public q1(Context context) {
+        this.f37935a = context;
     }
 
-    @Override // com.win.opensdk.S0
-    public void a() {
-        S0 s0 = this.f40403a.f40407a.f40413d;
-        if (s0 != null) {
-            s0.a();
+    public static q1 a(Context context) {
+        if (f37931b == null) {
+            synchronized (q1.class) {
+                if (f37931b == null) {
+                    f37931b = new q1(context);
+                }
+            }
         }
+        return f37931b;
     }
 
-    @Override // com.win.opensdk.S0
-    public void a(int i, String str) {
-        S0 s0 = this.f40403a.f40407a.f40413d;
-        if (s0 != null) {
-            s0.a(i, str);
+    public String a() {
+        return f37933d;
+    }
+
+    public String b() {
+        if (TextUtils.isEmpty(f37932c)) {
+            try {
+                return s1.j(this.f37935a);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return "";
+            }
         }
+        return f37932c;
     }
 
-    @Override // com.win.opensdk.S0
-    public void a(Object obj) {
-        D a2 = t1.a(((u1) obj).f40432c);
-        s1 s1Var = this.f40403a.f40407a;
-        S0 s0 = s1Var.f40413d;
-        if (s0 != null) {
-            if (a2 == null) {
-                s0.a(101, "");
-            } else if (TextUtils.isEmpty(s1Var.f40411b) || !this.f40403a.f40407a.f40411b.equalsIgnoreCase(a2.a())) {
-                this.f40403a.f40407a.f40413d.a(2003, "");
-            } else {
-                this.f40403a.f40407a.f40413d.a(a2);
+    public String c() {
+        return f37934e;
+    }
+
+    public void d() {
+        boolean z;
+        try {
+            Class.forName("com.fun.openid.sdk.FunOpenIDSdk");
+            Class.forName("com.fun.openid.sdk.OnGetOaidListener");
+            z = true;
+        } catch (Exception unused) {
+            z = false;
+        }
+        if (z) {
+            try {
+                FunOpenIDSdk.getOaid(this.f37935a, new p1(this));
+            } catch (Exception unused2) {
             }
         }
     }

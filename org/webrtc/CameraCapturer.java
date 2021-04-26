@@ -219,9 +219,9 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     }
 
     public static /* synthetic */ int access$1610(CameraCapturer cameraCapturer) {
-        int i = cameraCapturer.openAttemptsRemaining;
-        cameraCapturer.openAttemptsRemaining = i - 1;
-        return i;
+        int i2 = cameraCapturer.openAttemptsRemaining;
+        cameraCapturer.openAttemptsRemaining = i2 - 1;
+        return i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -234,15 +234,15 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void createSessionInternal(int i) {
-        this.uiThreadHandler.postDelayed(this.openCameraTimeoutRunnable, i + 10000);
+    public void createSessionInternal(int i2) {
+        this.uiThreadHandler.postDelayed(this.openCameraTimeoutRunnable, i2 + 10000);
         this.cameraThreadHandler.postDelayed(new Runnable() { // from class: org.webrtc.CameraCapturer.5
             @Override // java.lang.Runnable
             public void run() {
                 CameraCapturer cameraCapturer = CameraCapturer.this;
                 cameraCapturer.createCameraSession(cameraCapturer.createSessionCallback, CameraCapturer.this.cameraSessionEventsHandler, CameraCapturer.this.applicationContext, CameraCapturer.this.surfaceHelper, CameraCapturer.this.cameraName, CameraCapturer.this.width, CameraCapturer.this.height, CameraCapturer.this.framerate);
             }
-        }, i);
+        }, i2);
     }
 
     private void reportCameraSwitchError(String str, @Nullable CameraVideoCapturer.CameraSwitchHandler cameraSwitchHandler) {
@@ -302,15 +302,15 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void changeCaptureFormat(int i, int i2, int i3) {
-        Logging.d(TAG, "changeCaptureFormat: " + i + "x" + i2 + "@" + i3);
+    public void changeCaptureFormat(int i2, int i3, int i4) {
+        Logging.d(TAG, "changeCaptureFormat: " + i2 + "x" + i3 + "@" + i4);
         synchronized (this.stateLock) {
             stopCapture();
-            startCapture(i, i2, i3);
+            startCapture(i2, i3, i4);
         }
     }
 
-    public abstract void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3);
+    public abstract void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i2, int i3, int i4);
 
     @Override // org.webrtc.VideoCapturer
     public void dispose() {
@@ -360,16 +360,16 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void startCapture(int i, int i2, int i3) {
-        Logging.d(TAG, "startCapture: " + i + "x" + i2 + "@" + i3);
+    public void startCapture(int i2, int i3, int i4) {
+        Logging.d(TAG, "startCapture: " + i2 + "x" + i3 + "@" + i4);
         if (this.applicationContext == null) {
             throw new RuntimeException("CameraCapturer must be initialized before calling startCapture.");
         }
         synchronized (this.stateLock) {
             if (!this.sessionOpening && this.currentSession == null) {
-                this.width = i;
-                this.height = i2;
-                this.framerate = i3;
+                this.width = i2;
+                this.height = i3;
+                this.framerate = i4;
                 this.sessionOpening = true;
                 this.openAttemptsRemaining = 3;
                 createSessionInternal(0);

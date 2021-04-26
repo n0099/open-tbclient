@@ -8,7 +8,7 @@ import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
 import com.baidu.searchbox.logsystem.util.Utility;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import d.b.c0.b.a.a;
+import d.a.c0.b.a.a;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -61,8 +61,8 @@ public class LokiTrackUISaver {
         if (mFirstSaveTempFile) {
             mFirstSaveTempFile = false;
             if (Utility.createNewEmptyFile(tempTraceFile) && (allTrackUIs = Track.getInstance().getAllTrackUIs()) != null && allTrackUIs.size() > 0) {
-                for (int i = 0; i < allTrackUIs.size(); i++) {
-                    TrackUI trackUI2 = allTrackUIs.get(i);
+                for (int i2 = 0; i2 < allTrackUIs.size(); i2++) {
+                    TrackUI trackUI2 = allTrackUIs.get(i2);
                     if (trackUI2 != trackUI) {
                         if (AppConfig.isDebug()) {
                             Log.d(TAG, "perTrack = " + trackUI2.toString());

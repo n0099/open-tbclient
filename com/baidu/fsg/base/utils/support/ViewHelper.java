@@ -112,12 +112,12 @@ public final class ViewHelper {
             view.setY(f2);
         }
 
-        public static void a(View view, int i) {
-            view.setScrollX(i);
+        public static void a(View view, int i2) {
+            view.setScrollX(i2);
         }
 
-        public static void b(View view, int i) {
-            view.setScrollY(i);
+        public static void b(View view, int i2) {
+            view.setScrollY(i2);
         }
     }
 
@@ -126,8 +126,8 @@ public final class ViewHelper {
             return;
         }
         ArrayList<View> a2 = a(view);
-        for (int i = 1; i < a2.size(); i++) {
-            View view2 = a2.get(i);
+        for (int i2 = 1; i2 < a2.size(); i2++) {
+            View view2 = a2.get(i2);
             if (view2 != null && arrayList.contains(view2)) {
                 arrayList.remove(view2);
             }
@@ -225,14 +225,14 @@ public final class ViewHelper {
                 for (View view2 : viewArr) {
                     b(a2, view2, true);
                 }
-                for (int i = 0; i < a2.size(); i++) {
-                    View view3 = a2.get(i);
+                for (int i2 = 0; i2 < a2.size(); i2++) {
+                    View view3 = a2.get(i2);
                     if ((view3 instanceof ViewGroup) && ((ViewGroup) view3).getChildCount() > 0) {
                         a(a2, view3, false);
                     }
                 }
-                for (int i2 = 0; i2 < a2.size(); i2++) {
-                    View view4 = a2.get(i2);
+                for (int i3 = 0; i3 < a2.size(); i3++) {
+                    View view4 = a2.get(i3);
                     if (view4 != null) {
                         setAlpha(view4, f2);
                     }
@@ -301,19 +301,19 @@ public final class ViewHelper {
         }
     }
 
-    public static void setScrollX(View view, int i) {
+    public static void setScrollX(View view, int i2) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view).setScrollX(i);
+            AnimatorProxy.wrap(view).setScrollX(i2);
         } else {
-            Honeycomb.a(view, i);
+            Honeycomb.a(view, i2);
         }
     }
 
-    public static void setScrollY(View view, int i) {
+    public static void setScrollY(View view, int i2) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view).setScrollY(i);
+            AnimatorProxy.wrap(view).setScrollY(i2);
         } else {
-            Honeycomb.b(view, i);
+            Honeycomb.b(view, i2);
         }
     }
 
@@ -358,8 +358,8 @@ public final class ViewHelper {
         ArrayList<View> arrayList2 = new ArrayList<>();
         arrayList2.add(view);
         ViewGroup viewGroup = (ViewGroup) view;
-        for (int i = 0; i < viewGroup.getChildCount(); i++) {
-            View childAt = viewGroup.getChildAt(i);
+        for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
+            View childAt = viewGroup.getChildAt(i2);
             ArrayList arrayList3 = new ArrayList();
             arrayList3.addAll(a(childAt));
             arrayList2.addAll(arrayList3);

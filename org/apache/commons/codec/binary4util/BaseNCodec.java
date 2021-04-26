@@ -38,8 +38,8 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         }
     }
 
-    public BaseNCodec(int i, int i2, int i3, int i4) {
-        this(i, i2, i3, i4, (byte) 61);
+    public BaseNCodec(int i2, int i3, int i4, int i5) {
+        this(i2, i3, i4, i5, (byte) 61);
     }
 
     public static boolean isWhiteSpace(byte b2) {
@@ -90,7 +90,7 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         throw new DecoderException("Parameter supplied to Base-N decode is not a byte[] or a String");
     }
 
-    public abstract void decode(byte[] bArr, int i, int i2, Context context);
+    public abstract void decode(byte[] bArr, int i2, int i3, Context context);
 
     @Override // org.apache.commons.base.Encoder
     public Object encode(Object obj) throws EncoderException {
@@ -100,7 +100,7 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         throw new EncoderException("Parameter supplied to Base-N encode is not a byte[]");
     }
 
-    public abstract void encode(byte[] bArr, int i, int i2, Context context);
+    public abstract void encode(byte[] bArr, int i2, int i3, Context context);
 
     public String encodeAsString(byte[] bArr) {
         return org.apache.commons.base.binary4util.CodecStringUtils.newStringUtf8(encode(bArr));
@@ -110,9 +110,9 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         return org.apache.commons.base.binary4util.CodecStringUtils.newStringUtf8(encode(bArr));
     }
 
-    public byte[] ensureBufferSize(int i, Context context) {
+    public byte[] ensureBufferSize(int i2, Context context) {
         byte[] bArr = context.buffer;
-        return (bArr == null || bArr.length < context.pos + i) ? resizeBuffer(context) : bArr;
+        return (bArr == null || bArr.length < context.pos + i2) ? resizeBuffer(context) : bArr;
     }
 
     public int getDefaultBufferSize() {
@@ -121,10 +121,10 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
 
     public long getEncodedLength(byte[] bArr) {
         int length = bArr.length;
-        int i = this.unencodedBlockSize;
-        long j = (((length + i) - 1) / i) * this.encodedBlockSize;
-        int i2 = this.lineLength;
-        return i2 > 0 ? j + ((((i2 + j) - 1) / i2) * this.chunkSeparatorLength) : j;
+        int i2 = this.unencodedBlockSize;
+        long j = (((length + i2) - 1) / i2) * this.encodedBlockSize;
+        int i3 = this.lineLength;
+        return i3 > 0 ? j + ((((i3 + j) - 1) / i3) * this.chunkSeparatorLength) : j;
     }
 
     public boolean hasData(Context context) {
@@ -142,26 +142,26 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         return true;
     }
 
-    public int readResults(byte[] bArr, int i, int i2, Context context) {
+    public int readResults(byte[] bArr, int i2, int i3, Context context) {
         if (context.buffer == null) {
             return context.eof ? -1 : 0;
         }
-        int min = Math.min(available(context), i2);
-        System.arraycopy(context.buffer, context.readPos, bArr, i, min);
-        int i3 = context.readPos + min;
-        context.readPos = i3;
-        if (i3 >= context.pos) {
+        int min = Math.min(available(context), i3);
+        System.arraycopy(context.buffer, context.readPos, bArr, i2, min);
+        int i4 = context.readPos + min;
+        context.readPos = i4;
+        if (i4 >= context.pos) {
             context.buffer = null;
         }
         return min;
     }
 
-    public BaseNCodec(int i, int i2, int i3, int i4, byte b2) {
+    public BaseNCodec(int i2, int i3, int i4, int i5, byte b2) {
         this.PAD = (byte) 61;
-        this.unencodedBlockSize = i;
-        this.encodedBlockSize = i2;
-        this.lineLength = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
-        this.chunkSeparatorLength = i4;
+        this.unencodedBlockSize = i2;
+        this.encodedBlockSize = i3;
+        this.lineLength = i4 > 0 && i5 > 0 ? (i4 / i3) * i3 : 0;
+        this.chunkSeparatorLength = i5;
         this.pad = b2;
     }
 
@@ -178,16 +178,16 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         return decode(org.apache.commons.base.binary4util.CodecStringUtils.getBytesUtf8(str));
     }
 
-    public byte[] encode(byte[] bArr, int i, int i2) {
+    public byte[] encode(byte[] bArr, int i2, int i3) {
         if (bArr == null || bArr.length == 0) {
             return bArr;
         }
         Context context = new Context();
-        encode(bArr, i, i2, context);
-        encode(bArr, i, -1, context);
-        int i3 = context.pos - context.readPos;
-        byte[] bArr2 = new byte[i3];
-        readResults(bArr2, 0, i3, context);
+        encode(bArr, i2, i3, context);
+        encode(bArr, i2, -1, context);
+        int i4 = context.pos - context.readPos;
+        byte[] bArr2 = new byte[i4];
+        readResults(bArr2, 0, i4, context);
         return bArr2;
     }
 
@@ -199,9 +199,9 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         Context context = new Context();
         decode(bArr, 0, bArr.length, context);
         decode(bArr, 0, -1, context);
-        int i = context.pos;
-        byte[] bArr2 = new byte[i];
-        readResults(bArr2, 0, i, context);
+        int i2 = context.pos;
+        byte[] bArr2 = new byte[i2];
+        readResults(bArr2, 0, i2, context);
         return bArr2;
     }
 }

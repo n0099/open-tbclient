@@ -15,14 +15,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class f extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f39617a = {"key"};
+    public static final String[] f37218a = {"key"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f39618b;
+    public static f f37219b;
 
     public f(Context context) {
         super(context, "sdk_report.db", (SQLiteDatabase.CursorFactory) null, 2);
@@ -31,10 +31,10 @@ public class f extends SQLiteOpenHelper {
     public static synchronized f a() {
         f fVar;
         synchronized (f.class) {
-            if (f39618b == null) {
-                f39618b = new f(com.tencent.open.utils.e.a());
+            if (f37219b == null) {
+                f37219b = new f(com.tencent.open.utils.e.a());
             }
-            fVar = f39618b;
+            fVar = f37219b;
         }
         return fVar;
     }
@@ -75,7 +75,7 @@ public class f extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
         sQLiteDatabase.execSQL("DROP TABLE IF EXISTS via_cgi_report");
         onCreate(sQLiteDatabase);
     }
@@ -240,8 +240,8 @@ public class f extends SQLiteOpenHelper {
         writableDatabase.beginTransaction();
         try {
             ContentValues contentValues = new ContentValues();
-            for (int i = 0; i < size; i++) {
-                Serializable serializable = list.get(i);
+            for (int i2 = 0; i2 < size; i2++) {
+                Serializable serializable = list.get(i2);
                 if (serializable != null) {
                     contentValues.put("type", str);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(512);

@@ -56,7 +56,7 @@ public class ChatMessageDBManager extends DBBase {
 
     /* loaded from: classes.dex */
     public interface ChatMessageDbOberser {
-        void notifyDbChange(int i, ChatSession chatSession);
+        void notifyDbChange(int i2, ChatSession chatSession);
     }
 
     public ChatMessageDBManager(Context context) {
@@ -104,43 +104,43 @@ public class ChatMessageDBManager extends DBBase {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private ChatMsg construChatMsg(Cursor cursor) {
-        int i;
+        int i2;
         long j;
         String str;
-        int i2;
-        String str2;
         int i3;
+        String str2;
+        int i4;
         JSONObject optJSONObject;
         JSONObject jSONObject;
         String jSONObject2;
         ChatMsg newChatMsg;
-        int i4 = cursor.getInt(cursor.getColumnIndex("_id"));
-        int i5 = cursor.getInt(cursor.getColumnIndex("type"));
+        int i5 = cursor.getInt(cursor.getColumnIndex("_id"));
+        int i6 = cursor.getInt(cursor.getColumnIndex("type"));
         long j2 = cursor.getLong(cursor.getColumnIndex("from_user"));
         long j3 = cursor.getLong(cursor.getColumnIndex("msgid"));
         long j4 = cursor.getLong(cursor.getColumnIndex("time"));
-        int i6 = cursor.getInt(cursor.getColumnIndex("is_read"));
-        int i7 = cursor.getInt(cursor.getColumnIndex("status"));
+        int i7 = cursor.getInt(cursor.getColumnIndex("is_read"));
+        int i8 = cursor.getInt(cursor.getColumnIndex("status"));
         String string = cursor.getString(cursor.getColumnIndex("content"));
-        int i8 = cursor.getInt(cursor.getColumnIndex("category"));
+        int i9 = cursor.getInt(cursor.getColumnIndex("category"));
         long j5 = cursor.getLong(cursor.getColumnIndex("contacter"));
-        int i9 = cursor.getInt(cursor.getColumnIndex("cmd"));
+        int i10 = cursor.getInt(cursor.getColumnIndex("cmd"));
         String string2 = cursor.getString(cursor.getColumnIndex("local_url"));
         boolean z = cursor.getInt(cursor.getColumnIndex(TableDefine.MessageColumns.COLUMN_ISZHIDA)) == 1;
         boolean z2 = cursor.getInt(cursor.getColumnIndex("isclicked")) == 1;
         long j6 = cursor.getLong(cursor.getColumnIndex("paid"));
-        int i10 = cursor.getInt(cursor.getColumnIndex("device_flag"));
+        int i11 = cursor.getInt(cursor.getColumnIndex("device_flag"));
         String string3 = cursor.getString(cursor.getColumnIndex("sendid"));
         String string4 = cursor.getString(cursor.getColumnIndex("buid"));
         String string5 = cursor.getString(cursor.getColumnIndex("msg_key"));
         long j7 = cursor.getLong(cursor.getColumnIndex("expires_time"));
         String string6 = cursor.getString(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_SERVICE_TYPE));
-        int i11 = cursor.getInt(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_TIPS_CODE));
+        int i12 = cursor.getInt(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_TIPS_CODE));
         String string7 = cursor.getString(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_TIPS));
-        int i12 = cursor.getInt(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_TEMPLATE));
-        if (i5 == 80) {
+        int i13 = cursor.getInt(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_TEMPLATE));
+        if (i6 == 80) {
             try {
-                int i13 = i5;
+                int i14 = i6;
                 try {
                     try {
                         JSONObject jSONObject3 = new JSONObject(new JSONObject(new JSONObject(new JSONObject(string).optString("text")).optString("msg")).optString("ext"));
@@ -158,10 +158,10 @@ public class ChatMessageDBManager extends DBBase {
                                 } else {
                                     JSONArray jSONArray = new JSONArray(jSONObject3.optString("body"));
                                     int length = jSONArray.length();
-                                    i2 = i12;
+                                    i3 = i13;
                                     str = string6;
                                     if (length == 1) {
-                                        i = i4;
+                                        i2 = i5;
                                         try {
                                             optJSONObject = jSONArray.optJSONObject(0);
                                             jSONObject = new JSONObject();
@@ -175,39 +175,39 @@ public class ChatMessageDBManager extends DBBase {
                                             jSONObject.put("article_url", optJSONObject.optString("url"));
                                             jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, optJSONObject.optString("headImage"));
                                             str2 = jSONObject.toString();
-                                            i3 = 1;
-                                            i13 = 8;
+                                            i4 = 1;
+                                            i14 = 8;
                                         } catch (Exception e3) {
                                             e = e3;
                                             string = string;
-                                            i5 = 8;
+                                            i6 = 8;
                                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                                             LogUtils.e(TAG, "du construChatMsg:", e);
-                                            newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i8, i5, i9);
+                                            newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i9, i6, i10);
                                             if (newChatMsg != null) {
                                             }
                                         }
                                     } else {
-                                        i = i4;
+                                        i2 = i5;
                                         j = j2;
                                         str2 = string;
-                                        i3 = 1;
+                                        i4 = 1;
                                     }
-                                    if (length > i3) {
-                                        i13 = 9;
+                                    if (length > i4) {
+                                        i14 = 9;
                                         try {
                                             JSONArray jSONArray2 = new JSONArray();
-                                            int i14 = 0;
-                                            while (i14 < length) {
-                                                JSONObject optJSONObject2 = jSONArray.optJSONObject(i14);
-                                                int i15 = length;
+                                            int i15 = 0;
+                                            while (i15 < length) {
+                                                JSONObject optJSONObject2 = jSONArray.optJSONObject(i15);
+                                                int i16 = length;
                                                 JSONObject jSONObject6 = new JSONObject();
                                                 jSONObject6.put("title", optJSONObject2.optString("title"));
                                                 jSONObject6.put("article_url", optJSONObject2.optString("url"));
                                                 jSONObject6.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, optJSONObject2.optString("headImage"));
                                                 jSONArray2.put(jSONObject6);
-                                                i14++;
-                                                length = i15;
+                                                i15++;
+                                                length = i16;
                                                 jSONArray = jSONArray;
                                             }
                                             JSONObject jSONObject7 = new JSONObject();
@@ -216,206 +216,206 @@ public class ChatMessageDBManager extends DBBase {
                                         } catch (Exception e4) {
                                             e = e4;
                                             string = str2;
-                                            i5 = 9;
+                                            i6 = 9;
                                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                                             LogUtils.e(TAG, "du construChatMsg:", e);
-                                            newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i8, i5, i9);
+                                            newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i9, i6, i10);
                                             if (newChatMsg != null) {
                                             }
                                         }
                                     }
                                     string = str2;
-                                    i5 = i13;
+                                    i6 = i14;
                                 }
                             } else {
-                                i = i4;
+                                i2 = i5;
                                 j = j2;
                                 str = string6;
-                                i2 = i12;
+                                i3 = i13;
                                 try {
                                     string = jSONObject3.optString("content");
-                                    i5 = optInt;
+                                    i6 = optInt;
                                 } catch (Exception e5) {
                                     e = e5;
-                                    i5 = optInt;
+                                    i6 = optInt;
                                     string = string;
                                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                                     LogUtils.e(TAG, "du construChatMsg:", e);
-                                    newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i8, i5, i9);
+                                    newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i9, i6, i10);
                                     if (newChatMsg != null) {
                                     }
                                 }
                             }
                             string = jSONObject2;
-                            i = i4;
+                            i2 = i5;
                             j = j2;
                             str = string6;
-                            i2 = i12;
-                            i5 = 0;
+                            i3 = i13;
+                            i6 = 0;
                         } catch (Exception e6) {
                             e = e6;
-                            i = i4;
+                            i2 = i5;
                             j = j2;
                             str = string6;
-                            i2 = i12;
+                            i3 = i13;
                             string = string;
-                            i5 = 0;
+                            i6 = 0;
                         }
                     } catch (Exception e7) {
                         e = e7;
-                        i = i4;
+                        i2 = i5;
                         j = j2;
                         str = string6;
-                        i2 = i12;
-                        i5 = i13;
+                        i3 = i13;
+                        i6 = i14;
                     }
                 } catch (Exception e8) {
                     e = e8;
-                    i = i4;
+                    i2 = i5;
                     j = j2;
                     str = string6;
-                    i2 = i12;
-                    i5 = i13;
+                    i3 = i13;
+                    i6 = i14;
                 }
             } catch (Exception e9) {
                 e = e9;
-                i = i4;
+                i2 = i5;
                 j = j2;
                 str = string6;
-                i2 = i12;
+                i3 = i13;
             }
         } else {
-            i = i4;
+            i2 = i5;
             j = j2;
             str = string6;
-            i2 = i12;
+            i3 = i13;
         }
-        newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i8, i5, i9);
+        newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i9, i6, i10);
         if (newChatMsg != null) {
             return null;
         }
-        newChatMsg.setCategory(i8);
+        newChatMsg.setCategory(i9);
         newChatMsg.setContacter(j5);
         newChatMsg.setFromUser(j);
         newChatMsg.setMsgContent(string);
-        newChatMsg.setRowId(i);
+        newChatMsg.setRowId(i2);
         newChatMsg.setMsgId(j3);
         newChatMsg.setMsgTime(j4);
-        newChatMsg.setMsgReaded(i6);
-        newChatMsg.setStatus(i7);
-        newChatMsg.setCategory(i8);
+        newChatMsg.setMsgReaded(i7);
+        newChatMsg.setStatus(i8);
+        newChatMsg.setCategory(i9);
         newChatMsg.setContacter(j5);
-        newChatMsg.setNotifyCmd(i9);
+        newChatMsg.setNotifyCmd(i10);
         newChatMsg.setLocalUrl(string2);
         newChatMsg.setIsZhida(z);
         newChatMsg.setIsClicked(z2);
         newChatMsg.setPaid(j6);
-        newChatMsg.setMsgType(i5);
-        newChatMsg.setDeviceFlag(i10);
+        newChatMsg.setMsgType(i6);
+        newChatMsg.setDeviceFlag(i11);
         newChatMsg.setSendMsgId(string3);
         newChatMsg.setSenderUid(string4);
         newChatMsg.setMsgKey(string5);
         newChatMsg.setExpiresTime(j7);
         newChatMsg.setServiceType(str);
-        newChatMsg.setTipsCode(i11);
+        newChatMsg.setTipsCode(i12);
         newChatMsg.setTips(string7);
-        newChatMsg.setTemplateType(i2);
+        newChatMsg.setTemplateType(i3);
         return newChatMsg;
     }
 
     private ChatSession constructChatRecord(SQLiteDatabase sQLiteDatabase, Cursor cursor) {
-        int i;
+        int i2;
         long j;
         long j2;
-        int i2;
-        String str;
         int i3;
+        String str;
         int i4;
-        long j3;
         int i5;
+        long j3;
         int i6;
+        int i7;
         String str2;
         String str3;
-        int i7;
+        int i8;
         long j4;
         String str4;
         String str5;
         String str6;
         String str7;
         String str8;
-        int i8;
+        int i9;
         long j5;
         long j6;
         String senderUid;
-        int i9 = cursor.getInt(cursor.getColumnIndex("category"));
+        int i10 = cursor.getInt(cursor.getColumnIndex("category"));
         long j7 = cursor.getLong(cursor.getColumnIndex("contacter"));
         String string = cursor.getString(cursor.getColumnIndex("name"));
         String string2 = cursor.getString(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_MSG));
         long j8 = cursor.getLong(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_MSG_TIME));
         long j9 = cursor.getLong(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_OPEN_TIME));
         long j10 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM));
-        int i10 = cursor.getInt(cursor.getColumnIndex("weight"));
-        int i11 = cursor.getInt(cursor.getColumnIndex("show"));
-        int i12 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_COLLECTION_TYPE));
-        int i13 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_CHAT_TYPE));
+        int i11 = cursor.getInt(cursor.getColumnIndex("weight"));
+        int i12 = cursor.getInt(cursor.getColumnIndex("show"));
+        int i13 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_COLLECTION_TYPE));
+        int i14 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_CHAT_TYPE));
         String string3 = cursor.getString(cursor.getColumnIndex("icon_url"));
-        int i14 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_STATE));
-        int i15 = cursor.getInt(cursor.getColumnIndex("isclicked"));
+        int i15 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_STATE));
+        int i16 = cursor.getInt(cursor.getColumnIndex("isclicked"));
         long j11 = cursor.getLong(cursor.getColumnIndex("paid"));
-        int i16 = cursor.getInt(cursor.getColumnIndex("classtype"));
-        int i17 = cursor.getInt(cursor.getColumnIndex("classshow"));
+        int i17 = cursor.getInt(cursor.getColumnIndex("classtype"));
+        int i18 = cursor.getInt(cursor.getColumnIndex("classshow"));
         String string4 = cursor.getString(cursor.getColumnIndex("classtitle"));
         String string5 = cursor.getString(cursor.getColumnIndex("classavatar"));
-        int i18 = cursor.getInt(cursor.getColumnIndex("marktop"));
+        int i19 = cursor.getInt(cursor.getColumnIndex("marktop"));
         long j12 = cursor.getLong(cursor.getColumnIndex("marktoptime"));
         String string6 = cursor.getString(cursor.getColumnIndex("nickname"));
         String string7 = cursor.getString(cursor.getColumnIndex("extra"));
         String string8 = cursor.getString(cursor.getColumnIndex("v_portrait"));
         String string9 = cursor.getString(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_CERTIFICATION));
         String string10 = cursor.getString(cursor.getColumnIndex("vip_id"));
-        int i19 = cursor.getInt(cursor.getColumnIndex("shield"));
+        int i20 = cursor.getInt(cursor.getColumnIndex("shield"));
         long j13 = cursor.getLong(cursor.getColumnIndex("shield_time"));
-        if (i9 == 0 && i13 == 0) {
+        if (i10 == 0 && i14 == 0) {
             long buidByUK = IMUserManager.getInstance(this.mContext).getBuidByUK(j7);
             if (buidByUK >= 0 || TextUtils.isEmpty(string2)) {
-                i = i11;
+                i2 = i12;
                 j = j10;
                 j2 = j13;
-                i2 = i12;
+                i3 = i13;
                 str = string3;
-                i3 = i14;
                 i4 = i15;
-                j3 = j9;
                 i5 = i16;
+                j3 = j9;
                 i6 = i17;
+                i7 = i18;
                 str2 = string4;
                 str3 = string5;
-                i7 = i18;
+                i8 = i19;
                 j4 = j11;
                 str4 = string6;
                 str5 = string7;
                 str6 = string8;
                 str7 = string9;
                 str8 = string10;
-                i8 = i19;
+                i9 = i20;
                 j5 = j12;
             } else {
-                i2 = i12;
+                i3 = i13;
                 str = string3;
-                i3 = i14;
                 i4 = i15;
                 i5 = i16;
                 i6 = i17;
+                i7 = i18;
                 str2 = string4;
                 str3 = string5;
-                i7 = i18;
+                i8 = i19;
                 str4 = string6;
                 str5 = string7;
                 str6 = string8;
                 str7 = string9;
                 str8 = string10;
-                i8 = i19;
-                i = i11;
+                i9 = i20;
+                i2 = i12;
                 j = j10;
                 j2 = j13;
                 j3 = j9;
@@ -444,65 +444,65 @@ public class ChatMessageDBManager extends DBBase {
             }
             j6 = buidByUK;
         } else {
-            i = i11;
+            i2 = i12;
             j = j10;
             j2 = j13;
-            i2 = i12;
+            i3 = i13;
             str = string3;
-            i3 = i14;
             i4 = i15;
-            j3 = j9;
             i5 = i16;
+            j3 = j9;
             i6 = i17;
+            i7 = i18;
             str2 = string4;
             str3 = string5;
-            i7 = i18;
+            i8 = i19;
             j4 = j11;
             str4 = string6;
             str5 = string7;
             str6 = string8;
             str7 = string9;
             str8 = string10;
-            i8 = i19;
+            i9 = i20;
             j5 = j12;
             j6 = j7;
         }
         if (0 != j7) {
-            if (!TextUtils.isEmpty(string2) || i13 == 27 || i13 == 17) {
-                ChatSession chatSession = new ChatSession(i9, j7, j6, string);
+            if (!TextUtils.isEmpty(string2) || i14 == 27 || i14 == 17) {
+                ChatSession chatSession = new ChatSession(i10, j7, j6, string);
                 chatSession.setLastMsg(string2);
                 chatSession.setLastMsgTime(j8);
                 chatSession.setLastOpenTime(j3);
                 chatSession.setNewMsgSum(j);
-                chatSession.setWeight(i10);
-                chatSession.setShow(i);
-                chatSession.setCollectionType(i2);
-                chatSession.setChatType(i13);
+                chatSession.setWeight(i11);
+                chatSession.setShow(i2);
+                chatSession.setCollectionType(i3);
+                chatSession.setChatType(i14);
                 chatSession.setIconUrl(str);
-                chatSession.setState(i3);
-                chatSession.setIsClicked(i4);
+                chatSession.setState(i4);
+                chatSession.setIsClicked(i5);
                 chatSession.setPaid(j4);
-                chatSession.setClassType(i5);
+                chatSession.setClassType(i6);
                 chatSession.setClassTitle(str2);
                 chatSession.setClassAvatar(str3);
-                chatSession.setClassShow(i6);
-                chatSession.setMarkTop(i7);
+                chatSession.setClassShow(i7);
+                chatSession.setMarkTop(i8);
                 chatSession.setMarkTopTime(j5);
                 chatSession.setNickName(str4);
                 chatSession.setExt(str5);
                 chatSession.setVPortrait(str6);
                 chatSession.setCertification(str7);
                 chatSession.setVipId(str8);
-                chatSession.setShield(i8);
+                chatSession.setShield(i9);
                 chatSession.setShieldTime(j2);
                 return chatSession;
             }
             return null;
         }
-        return new ChatSession(i9, j7, j6, string);
+        return new ChatSession(i10, j7, j6, string);
     }
 
-    private void contructChatRecordValues(int i, ChatSession chatSession, ContentValues contentValues) {
+    private void contructChatRecordValues(int i2, ChatSession chatSession, ContentValues contentValues) {
         if (chatSession.getName() != null) {
             contentValues.put("name", chatSession.getName());
         }
@@ -520,7 +520,7 @@ public class ChatMessageDBManager extends DBBase {
         }
         contentValues.put("show", Integer.valueOf(chatSession.getShow()));
         contentValues.put(TableDefine.SessionColumns.COLUMN_STATE, Integer.valueOf(chatSession.getState()));
-        if (i == 0) {
+        if (i2 == 0) {
             contentValues.put("weight", Integer.valueOf(chatSession.getWeight()));
         }
         contentValues.put(TableDefine.SessionColumns.COLUMN_CHAT_TYPE, Integer.valueOf(chatSession.getChatType()));
@@ -555,10 +555,10 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     private int delMsgs(long[] jArr) {
-        int i;
+        int i2;
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
-            int i2 = -1;
+            int i3 = -1;
             if (openDatabase == null) {
                 LogUtils.d(TAG, "getWritableDb fail!");
                 return -1;
@@ -572,18 +572,18 @@ public class ChatMessageDBManager extends DBBase {
                     try {
                         String[] strArr = new String[2];
                         strArr[1] = String.valueOf(0);
-                        i = 0;
+                        i2 = 0;
                         for (long j : jArr) {
                             try {
                                 strArr[0] = String.valueOf(j);
-                                i = (int) (i + openDatabase.delete("message", "msgid = ? AND status=?", strArr));
+                                i2 = (int) (i2 + openDatabase.delete("message", "msgid = ? AND status=?", strArr));
                             } catch (Exception e3) {
                                 e = e3;
-                                i2 = i;
+                                i3 = i2;
                                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                                 LogUtils.e(TAG, "delMsg:", e);
-                                i = i2;
-                                return i;
+                                i2 = i3;
+                                return i2;
                             }
                         }
                         for (long j2 : jArr) {
@@ -593,9 +593,9 @@ public class ChatMessageDBManager extends DBBase {
                         }
                     } catch (Exception e4) {
                         e = e4;
-                        i2 = 0;
+                        i3 = 0;
                     }
-                    return i;
+                    return i2;
                 }
             }
             return -1;
@@ -605,7 +605,7 @@ public class ChatMessageDBManager extends DBBase {
     private int delMsgsOfCertainContacterForSingle(ChatObject chatObject, long j) {
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
-            int i = -1;
+            int i2 = -1;
             if (openDatabase == null) {
                 LogUtils.d(TAG, "getWritableDb fail!");
                 return -1;
@@ -614,43 +614,43 @@ public class ChatMessageDBManager extends DBBase {
                 openDatabase.beginTransaction();
                 String str = "contacter = ?  AND category = ?";
                 boolean z = false;
-                int i2 = 1;
+                int i3 = 1;
                 String[] strArr = {String.valueOf(chatObject.getContacter()), String.valueOf(chatObject.getCategory())};
-                int i3 = (j > (-1L) ? 1 : (j == (-1L) ? 0 : -1));
-                if (i3 != 0) {
+                int i4 = (j > (-1L) ? 1 : (j == (-1L) ? 0 : -1));
+                if (i4 != 0) {
                     str = "contacter = ?  AND category = ? AND msgid <= " + j;
                 }
                 String addPaidCondition = addPaidCondition(str, "paid", chatObject.getPaid());
                 int delete = addPaidCondition != null ? openDatabase.delete("message", addPaidCondition, strArr) : -1;
                 long maxMsgid = getMaxMsgid(chatObject);
                 ChatSession chatSession = null;
-                if (i3 == 0 || maxMsgid <= j) {
+                if (i4 == 0 || maxMsgid <= j) {
                     String[] strArr2 = {String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())};
                     String addPaidCondition2 = addPaidCondition("category = ? AND contacter = ?", "paid", chatObject.getPaid());
                     chatSession = getChatRecordInternal(openDatabase, chatObject);
                     int delete2 = delete(openDatabase, TableDefine.DB_TABLE_CHAT_SESSION, addPaidCondition2, strArr2);
-                    i2 = delete2;
+                    i3 = delete2;
                     if (delete2 > 0) {
                         z = true;
                     }
                 }
-                if (i2 < 0) {
+                if (i3 < 0) {
                     if (openDatabase != null) {
                         openDatabase.endTransaction();
                     }
                     return -1;
                 }
-                if (i2 >= 0) {
+                if (i3 >= 0) {
                     openDatabase.setTransactionSuccessful();
                     if (z && chatSession != null) {
                         notifyDbChange(2, chatSession);
                     }
-                    i = delete;
+                    i2 = delete;
                 }
                 if (openDatabase != null) {
                     openDatabase.endTransaction();
                 }
-                return i;
+                return i2;
             } catch (Exception e2) {
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 LogUtils.e(TAG, "delMsg:", e2);
@@ -663,13 +663,13 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     private int delMsgsOfPaByPaId(long j) {
-        int i;
         int i2;
         int i3;
         int i4;
+        int i5;
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
-            int i5 = -1;
+            int i6 = -1;
             if (openDatabase == null) {
                 LogUtils.d(TAG, "getWritableDb fail!");
                 return -1;
@@ -678,41 +678,41 @@ public class ChatMessageDBManager extends DBBase {
                 openDatabase.beginTransaction();
                 String[] strArr = {String.valueOf(j)};
                 if (TextUtils.isEmpty("from_user = ? ")) {
-                    i = -1;
-                } else {
-                    i = openDatabase.delete("message", "from_user = ? ", strArr);
-                    String str = TAG;
-                    LogUtils.d(str, "--delMsgsOfPaByPaId--delMsgs = " + i);
-                }
-                if (TextUtils.isEmpty("contacter = ? ")) {
                     i2 = -1;
                 } else {
-                    i2 = delete(openDatabase, TableDefine.DB_TABLE_CHAT_SESSION, "contacter = ? ", strArr);
-                    String str2 = TAG;
-                    LogUtils.d(str2, "--delMsgsOfPaByPaId--delChatRecord = " + i2);
+                    i2 = openDatabase.delete("message", "from_user = ? ", strArr);
+                    String str = TAG;
+                    LogUtils.d(str, "--delMsgsOfPaByPaId--delMsgs = " + i2);
                 }
-                if (TextUtils.isEmpty("paid = ? ")) {
+                if (TextUtils.isEmpty("contacter = ? ")) {
                     i3 = -1;
                 } else {
-                    i3 = delete(openDatabase, TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid = ? ", strArr);
-                    String str3 = TAG;
-                    LogUtils.d(str3, "--delMsgsOfPaByPaId--delPaInfoRecord = " + i3);
+                    i3 = delete(openDatabase, TableDefine.DB_TABLE_CHAT_SESSION, "contacter = ? ", strArr);
+                    String str2 = TAG;
+                    LogUtils.d(str2, "--delMsgsOfPaByPaId--delChatRecord = " + i3);
                 }
                 if (TextUtils.isEmpty("paid = ? ")) {
                     i4 = -1;
                 } else {
-                    i4 = delete(openDatabase, TableDefine.DB_TABLE_ZHIDAINFO, "paid = ? ", strArr);
-                    String str4 = TAG;
-                    LogUtils.d(str4, "--delMsgsOfPaByPaId--delZhiDaPaInfoRecord = " + i4);
+                    i4 = delete(openDatabase, TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid = ? ", strArr);
+                    String str3 = TAG;
+                    LogUtils.d(str3, "--delMsgsOfPaByPaId--delPaInfoRecord = " + i4);
                 }
-                if (i >= 0 || i2 >= 0 || i3 >= 0 || i4 >= 0) {
+                if (TextUtils.isEmpty("paid = ? ")) {
+                    i5 = -1;
+                } else {
+                    i5 = delete(openDatabase, TableDefine.DB_TABLE_ZHIDAINFO, "paid = ? ", strArr);
+                    String str4 = TAG;
+                    LogUtils.d(str4, "--delMsgsOfPaByPaId--delZhiDaPaInfoRecord = " + i5);
+                }
+                if (i2 >= 0 || i3 >= 0 || i4 >= 0 || i5 >= 0) {
                     openDatabase.setTransactionSuccessful();
-                    i5 = i;
+                    i6 = i2;
                 }
                 if (openDatabase != null) {
                     openDatabase.endTransaction();
                 }
-                return i5;
+                return i6;
             } catch (Exception e2) {
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 LogUtils.e(TAG, "delMsgsOfPaByPaId:", e2);
@@ -814,26 +814,26 @@ public class ChatMessageDBManager extends DBBase {
 
     private ChatMsg generateStudioUsePaMsg(Cursor cursor) {
         long j = cursor.getLong(cursor.getColumnIndex("msgid"));
-        int i = cursor.getInt(cursor.getColumnIndex("type"));
+        int i2 = cursor.getInt(cursor.getColumnIndex("type"));
         long j2 = cursor.getLong(cursor.getColumnIndex("from_user"));
         long j3 = cursor.getLong(cursor.getColumnIndex("input_time"));
-        int i2 = cursor.getInt(cursor.getColumnIndex("category"));
+        int i3 = cursor.getInt(cursor.getColumnIndex("category"));
         long j4 = cursor.getLong(cursor.getColumnIndex("contacter"));
         String string = cursor.getString(cursor.getColumnIndex("msg_key"));
         String string2 = cursor.getString(cursor.getColumnIndex("content"));
-        int i3 = cursor.getInt(cursor.getColumnIndex("is_read"));
-        ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i2, i, -1);
+        int i4 = cursor.getInt(cursor.getColumnIndex("is_read"));
+        ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i3, i2, -1);
         if (newChatMsg == null) {
             return null;
         }
-        newChatMsg.setCategory(i2);
+        newChatMsg.setCategory(i3);
         newChatMsg.setContacter(j4);
         newChatMsg.setFromUser(j2);
         newChatMsg.setMsgContent(string2);
         newChatMsg.setMsgId(j);
         newChatMsg.setMsgKey(string);
         newChatMsg.setMsgTime(j3);
-        newChatMsg.setMsgReaded(i3);
+        newChatMsg.setMsgReaded(i4);
         return newChatMsg;
     }
 
@@ -908,9 +908,9 @@ public class ChatMessageDBManager extends DBBase {
         }
         StringBuilder sb = new StringBuilder();
         sb.append(list.get(0));
-        for (int i = 1; i < list.size(); i++) {
+        for (int i2 = 1; i2 < list.size(); i2++) {
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(list.get(i));
+            sb.append(list.get(i2));
         }
         String str = "chat_type in (" + sb.toString() + ") ";
         if (sQLiteDatabase == null) {
@@ -966,7 +966,7 @@ public class ChatMessageDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private ChatMsg getDraftMsgForSingle(int i, long j) {
+    private ChatMsg getDraftMsgForSingle(int i2, long j) {
         Cursor cursor;
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
@@ -981,7 +981,7 @@ public class ChatMessageDBManager extends DBBase {
                     return null;
                 }
                 try {
-                    cursor = openDatabase.query("message", null, "category=? AND contacter=? AND status=?", new String[]{String.valueOf(i), String.valueOf(j), String.valueOf(3)}, null, null, null, null);
+                    cursor = openDatabase.query("message", null, "category=? AND contacter=? AND status=?", new String[]{String.valueOf(i2), String.valueOf(j), String.valueOf(3)}, null, null, null, null);
                     if (cursor != null) {
                         try {
                             if (cursor.moveToNext()) {
@@ -1005,7 +1005,7 @@ public class ChatMessageDBManager extends DBBase {
                 }
             } catch (Throwable th2) {
                 th = th2;
-                cursor2 = i;
+                cursor2 = i2;
             }
         }
     }
@@ -1029,9 +1029,9 @@ public class ChatMessageDBManager extends DBBase {
         }
         StringBuilder sb = new StringBuilder();
         sb.append(list.get(0));
-        for (int i = 1; i < list.size(); i++) {
+        for (int i2 = 1; i2 < list.size(); i2++) {
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(list.get(i));
+            sb.append(list.get(i2));
         }
         String str = "chat_type in (" + sb.toString() + ")  AND " + TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM + ">0";
         if (sQLiteDatabase == null) {
@@ -1258,9 +1258,9 @@ public class ChatMessageDBManager extends DBBase {
         try {
             StringBuilder sb = new StringBuilder();
             sb.append(list.get(0));
-            for (int i = 1; i < list.size(); i++) {
+            for (int i2 = 1; i2 < list.size(); i2++) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                sb.append(list.get(i));
+                sb.append(list.get(i2));
             }
             ContentValues contentValues = new ContentValues();
             contentValues.put("is_read", (Integer) 1);
@@ -1373,9 +1373,9 @@ public class ChatMessageDBManager extends DBBase {
                 ArrayList<ChatMsg> arrayList5 = new ArrayList<>();
                 ArrayList<ChatMsg> arrayList6 = new ArrayList<>();
                 HashMap<ChatObject, Integer> hashMap = new HashMap<>();
-                int i = 0;
-                while (i < arrayList.size()) {
-                    ChatMsg chatMsg = arrayList3.get(i);
+                int i2 = 0;
+                while (i2 < arrayList.size()) {
+                    ChatMsg chatMsg = arrayList3.get(i2);
                     chatMsg.setTriggerReasonn(j);
                     try {
                         JSONObject jSONObject = new JSONObject(chatMsg.getMsgContent());
@@ -1427,13 +1427,13 @@ public class ChatMessageDBManager extends DBBase {
                                     hashMap.put(chatObject, 1);
                                 } else {
                                     hashMap.put(chatObject, 0);
-                                    i++;
+                                    i2++;
                                     arrayList3 = arrayList;
                                 }
                             }
                         }
                     }
-                    i++;
+                    i2++;
                     arrayList3 = arrayList;
                 }
                 recordLastMsg(hashMap);
@@ -1464,10 +1464,10 @@ public class ChatMessageDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public long createChatSession(ChatObject chatObject, String str, int i, String str2, int i2, String str3, String str4, int i3, int i4, long j, int i5, long j2, String str5, String str6, String str7) {
+    public long createChatSession(ChatObject chatObject, String str, int i2, String str2, int i3, String str3, String str4, int i4, int i5, long j, int i6, long j2, String str5, String str6, String str7) {
         ChatMsg chatMsg;
         ChatMsg chatMsg2;
-        int i6;
+        int i7;
         int unReadMsgCount;
         ChatMsg chatMsg3;
         String str8;
@@ -1478,7 +1478,7 @@ public class ChatMessageDBManager extends DBBase {
         int category = chatObject.getCategory();
         long contacter = chatObject.getContacter();
         synchronized (DBBase.mSyncLock) {
-            if (category == 0 && i == 0) {
+            if (category == 0 && i2 == 0) {
                 contacter = IMUserManager.getInstance(this.mContext).getBuidByUK(contacter);
             }
             ChatSession chatSession = new ChatSession(category, chatObject.getContacter(), contacter, str);
@@ -1486,7 +1486,7 @@ public class ChatMessageDBManager extends DBBase {
             if (draftMsg == null) {
                 if (1 != chatObject.getCategory()) {
                     fetchMsg = getInstance(this.mContext).fetchMsg(chatObject, 0L, 2L);
-                } else if (i == 4) {
+                } else if (i2 == 4) {
                     fetchMsg = GroupMessageDAOImpl.fetchLastChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
                 } else {
                     fetchMsg = GroupMessageDAOImpl.fetchAllChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
@@ -1506,15 +1506,15 @@ public class ChatMessageDBManager extends DBBase {
                         String str9 = "";
                         if (chatObject.getCategory() == 0 || (chatObject.getContacter() & Constants.PAFLAG) == 0) {
                             chatMsg2 = chatMsg;
-                            i6 = 1;
+                            i7 = 1;
                         } else {
                             if (!chatMsg.isSelf(this.mContext)) {
                                 chatMsg2 = chatMsg;
                                 str8 = chatMsg.getExtLog();
-                                i6 = 1;
+                                i7 = 1;
                             } else {
                                 chatMsg2 = chatMsg;
-                                i6 = 1;
+                                i7 = 1;
                                 ArrayList<ChatMsg> fetchMsg2 = fetchMsg(chatObject, 0L, 1L, -1L, false, "from_user != " + Utility.getUK(this.mContext));
                                 if (fetchMsg2 != null && fetchMsg2.size() > 0) {
                                     str9 = fetchMsg2.get(0).getExtLog();
@@ -1523,12 +1523,12 @@ public class ChatMessageDBManager extends DBBase {
                             }
                             chatSession.addExt("ext_log", str8);
                         }
-                        if (i6 != chatObject.getCategory()) {
+                        if (i7 != chatObject.getCategory()) {
                             unReadMsgCount = GroupMessageDAOImpl.getUnReadCount(this.mContext, String.valueOf(chatObject.getContacter()));
                         } else {
                             unReadMsgCount = getUnReadMsgCount(chatObject);
                         }
-                        chatSession.setChatType(i);
+                        chatSession.setChatType(i2);
                         if (unReadMsgCount >= 0) {
                             chatSession.setNewMsgSum(unReadMsgCount);
                         }
@@ -1544,21 +1544,21 @@ public class ChatMessageDBManager extends DBBase {
                         chatSession.setIconUrl(str2);
                         chatSession.setIsClicked(Utility.getClickState(chatMsg3));
                         chatSession.setPaid(chatObject.getPaid());
-                        chatSession.setClassType(i2);
+                        chatSession.setClassType(i3);
                         chatSession.setClassTitle(str3);
                         chatSession.setClassAvatar(str4);
-                        chatSession.setClassShow(i3);
-                        chatSession.setMarkTop(i4);
+                        chatSession.setClassShow(i4);
+                        chatSession.setMarkTop(i5);
                         chatSession.setMarkTopTime(j);
                         chatSession.setVipId(str5);
                         chatSession.setVPortrait(str6);
                         chatSession.setCertification(str7);
-                        chatSession.setShield(i5);
+                        chatSession.setShield(i6);
                         chatSession.setShieldTime(j2);
                         if (chatMsg3.isStarMessage()) {
                             chatSession.setChatType(4);
                         }
-                        return getInstance(this.mContext).updateChatSession(i6, chatSession);
+                        return getInstance(this.mContext).updateChatSession(i7, chatSession);
                     }
                 }
             }
@@ -1567,10 +1567,10 @@ public class ChatMessageDBManager extends DBBase {
             if (chatObject.getCategory() == 0) {
             }
             chatMsg2 = chatMsg;
-            i6 = 1;
-            if (i6 != chatObject.getCategory()) {
+            i7 = 1;
+            if (i7 != chatObject.getCategory()) {
             }
-            chatSession.setChatType(i);
+            chatSession.setChatType(i2);
             if (unReadMsgCount >= 0) {
             }
             String recommendDescription2 = chatMsg2.getRecommendDescription();
@@ -1584,20 +1584,20 @@ public class ChatMessageDBManager extends DBBase {
             chatSession.setIconUrl(str2);
             chatSession.setIsClicked(Utility.getClickState(chatMsg3));
             chatSession.setPaid(chatObject.getPaid());
-            chatSession.setClassType(i2);
+            chatSession.setClassType(i3);
             chatSession.setClassTitle(str3);
             chatSession.setClassAvatar(str4);
-            chatSession.setClassShow(i3);
-            chatSession.setMarkTop(i4);
+            chatSession.setClassShow(i4);
+            chatSession.setMarkTop(i5);
             chatSession.setMarkTopTime(j);
             chatSession.setVipId(str5);
             chatSession.setVPortrait(str6);
             chatSession.setCertification(str7);
-            chatSession.setShield(i5);
+            chatSession.setShield(i6);
             chatSession.setShieldTime(j2);
             if (chatMsg3.isStarMessage()) {
             }
-            return getInstance(this.mContext).updateChatSession(i6, chatSession);
+            return getInstance(this.mContext).updateChatSession(i7, chatSession);
         }
     }
 
@@ -1629,11 +1629,11 @@ public class ChatMessageDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public long delChatRecordForChatType(int i) {
+    public long delChatRecordForChatType(int i2) {
         Cursor cursor;
         long j;
         synchronized (DBBase.mSyncLock) {
-            LogUtils.d(TAG, "delChatRecordForChatType chatType = " + i);
+            LogUtils.d(TAG, "delChatRecordForChatType chatType = " + i2);
             SQLiteDatabase openDatabase = openDatabase();
             if (openDatabase == null) {
                 LogUtils.d(TAG, "getWritableDb fail!");
@@ -1641,7 +1641,7 @@ public class ChatMessageDBManager extends DBBase {
             }
             ArrayList arrayList = new ArrayList();
             try {
-                String[] strArr = {String.valueOf(i)};
+                String[] strArr = {String.valueOf(i2)};
                 Cursor query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, new String[]{"contacter"}, "chat_type = ?", strArr, null, null, null);
                 if (query != null) {
                     while (query.moveToNext()) {
@@ -1675,8 +1675,8 @@ public class ChatMessageDBManager extends DBBase {
                 if (arrayList.size() > 0) {
                     j = openDatabase.delete(TableDefine.DB_TABLE_CHAT_SESSION, "chat_type = ?", strArr);
                     openDatabase.delete(TableDefine.DB_TABLE_PA_SUBSCRIBE, "pasubtype = ?", strArr);
-                    for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                        openDatabase.delete("message", "from_user = ?", new String[]{String.valueOf(arrayList.get(i2))});
+                    for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                        openDatabase.delete("message", "from_user = ?", new String[]{String.valueOf(arrayList.get(i3))});
                     }
                 } else {
                     j = -1;
@@ -1755,8 +1755,8 @@ public class ChatMessageDBManager extends DBBase {
                         }
                         if (arrayList.size() > 0) {
                             j = openDatabase.delete(TableDefine.DB_TABLE_CHAT_SESSION, "classtype = ? AND chat_type = ?", strArr);
-                            for (int i = 0; i < arrayList.size(); i++) {
-                                openDatabase.delete("message", "from_user = ?", new String[]{String.valueOf(arrayList.get(i))});
+                            for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                                openDatabase.delete("message", "from_user = ?", new String[]{String.valueOf(arrayList.get(i2))});
                             }
                         } else {
                             j = -1;
@@ -1787,7 +1787,7 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     public int delMsgsOfCertainContacter(ChatObject chatObject, long j) {
-        int i = 1;
+        int i2 = 1;
         if (1 == chatObject.getCategory()) {
             int delMsgsOfCertainContacter = GroupMessageDAOImpl.delMsgsOfCertainContacter(this.mContext, String.valueOf(chatObject.getContacter()), j);
             synchronized (DBBase.mSyncLock) {
@@ -1802,15 +1802,15 @@ public class ChatMessageDBManager extends DBBase {
                         String[] strArr = {String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())};
                         String addPaidCondition = addPaidCondition("category = ? AND contacter = ?", "paid", chatObject.getPaid());
                         ChatSession chatRecordInternal = getChatRecordInternal(openDatabase, chatObject);
-                        i = delete(openDatabase, TableDefine.DB_TABLE_CHAT_SESSION, addPaidCondition, strArr);
-                        if (i > 0 && chatRecordInternal != null) {
+                        i2 = delete(openDatabase, TableDefine.DB_TABLE_CHAT_SESSION, addPaidCondition, strArr);
+                        if (i2 > 0 && chatRecordInternal != null) {
                             notifyDbChange(2, chatRecordInternal);
                         }
                     }
-                    if (i < 0) {
+                    if (i2 < 0) {
                         return -1;
                     }
-                    if (i < 0) {
+                    if (i2 < 0) {
                         delMsgsOfCertainContacter = -1;
                     }
                     return delMsgsOfCertainContacter;
@@ -1824,8 +1824,8 @@ public class ChatMessageDBManager extends DBBase {
         return delMsgsOfCertainContacterForSingle(chatObject, j);
     }
 
-    public void delPaLocalInfosByPaType(int i) {
-        ArrayList<Long> queryPaIdByPaType = PaInfoDBManager.getInstance(this.mContext).queryPaIdByPaType(i);
+    public void delPaLocalInfosByPaType(int i2) {
+        ArrayList<Long> queryPaIdByPaType = PaInfoDBManager.getInstance(this.mContext).queryPaIdByPaType(i2);
         if (queryPaIdByPaType != null && !queryPaIdByPaType.isEmpty()) {
             String str = TAG;
             LogUtils.d(str, "---delPaLocalInfosByPaType---paids.size = " + queryPaIdByPaType.size());
@@ -1838,10 +1838,10 @@ public class ChatMessageDBManager extends DBBase {
         LogUtils.d(TAG, "---delPaLocalInfosByPaType---paids is null ---- ");
     }
 
-    public long delSysMsg(int i, long j, int i2) {
+    public long delSysMsg(int i2, long j, int i3) {
         long delete;
         synchronized (DBBase.mSyncLock) {
-            delete = delete("message", "category = ?  AND (contacter = ? OR from_user = ? ) AND cmd = ? ", new String[]{String.valueOf(i), String.valueOf(j), String.valueOf(j), String.valueOf(i2)});
+            delete = delete("message", "category = ?  AND (contacter = ? OR from_user = ? ) AND cmd = ? ", new String[]{String.valueOf(i2), String.valueOf(j), String.valueOf(j), String.valueOf(i3)});
         }
         return delete;
     }
@@ -2011,22 +2011,22 @@ public class ChatMessageDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ArrayList<ChatMsg> fetchMsgByContacterIdOrderByMsgid(List<Long> list, long j, int i) {
+    public ArrayList<ChatMsg> fetchMsgByContacterIdOrderByMsgid(List<Long> list, long j, int i2) {
         ArrayList<ChatMsg> arrayList = new ArrayList<>();
         if (list == null || list.size() <= 0) {
             return arrayList;
         }
         StringBuilder sb = new StringBuilder();
         sb.append(list.get(0));
-        for (int i2 = 1; i2 < list.size(); i2++) {
+        for (int i3 = 1; i3 < list.size(); i3++) {
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(list.get(i2));
+            sb.append(list.get(i3));
         }
         String str = "contacter in (" + sb.toString() + SmallTailInfo.EMOTION_SUFFIX;
         if (j > 0) {
             str = str + " AND msgid < " + j;
         }
-        String str2 = "select * from message where " + str + " ORDER BY msgid desc limit " + Math.abs(i);
+        String str2 = "select * from message where " + str + " ORDER BY msgid desc limit " + Math.abs(i2);
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
             Cursor cursor = null;
@@ -2100,18 +2100,18 @@ public class ChatMessageDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List<ChatMsg> fetchPaMsgByChatType(int i, int i2) {
+    public List<ChatMsg> fetchPaMsgByChatType(int i2, int i3) {
         ArrayList arrayList = new ArrayList();
-        List<PaInfo> queryPaInfoByChatType = PaInfoDBManager.getInstance(this.mContext).queryPaInfoByChatType(i);
+        List<PaInfo> queryPaInfoByChatType = PaInfoDBManager.getInstance(this.mContext).queryPaInfoByChatType(i2);
         Cursor cursor = null;
         if (queryPaInfoByChatType == null || queryPaInfoByChatType.size() <= 0) {
             return null;
         }
         String str = "" + queryPaInfoByChatType.get(0).getPaId();
-        for (int i3 = 1; i3 < queryPaInfoByChatType.size(); i3++) {
-            str = str + StringUtil.ARRAY_ELEMENT_SEPARATOR + queryPaInfoByChatType.get(i3).getPaId();
+        for (int i4 = 1; i4 < queryPaInfoByChatType.size(); i4++) {
+            str = str + StringUtil.ARRAY_ELEMENT_SEPARATOR + queryPaInfoByChatType.get(i4).getPaId();
         }
-        String str2 = "select * from message where " + ("paid in (" + str + ") ") + " ORDER BY time desc limit " + Math.abs(i2);
+        String str2 = "select * from message where " + ("paid in (" + str + ") ") + " ORDER BY time desc limit " + Math.abs(i3);
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
             if (openDatabase == null) {
@@ -2150,22 +2150,22 @@ public class ChatMessageDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ArrayList<ChatMsg> fetchPaMsgByPaids(List<Long> list, long j, int i) {
+    public ArrayList<ChatMsg> fetchPaMsgByPaids(List<Long> list, long j, int i2) {
         ArrayList<ChatMsg> arrayList = new ArrayList<>();
         if (list == null || list.size() <= 0) {
             return arrayList;
         }
         StringBuilder sb = new StringBuilder();
         sb.append(list.get(0));
-        for (int i2 = 1; i2 < list.size(); i2++) {
+        for (int i3 = 1; i3 < list.size(); i3++) {
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(list.get(i2));
+            sb.append(list.get(i3));
         }
         String str = "contacter in (" + sb.toString() + SmallTailInfo.EMOTION_SUFFIX;
         if (j > 0) {
             str = str + " AND msgid < " + j;
         }
-        String str2 = "select * from message where " + str + " ORDER BY msgid desc limit " + Math.abs(i);
+        String str2 = "select * from message where " + str + " ORDER BY msgid desc limit " + Math.abs(i2);
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
             Cursor cursor = null;
@@ -2190,8 +2190,8 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    public ArrayList<ChatMsg> fetchSpecifyMsgsSync(ChatObject chatObject, int i, long j, long j2, long j3, boolean z) {
-        return fetchMsg(chatObject, j, j2, j3, z, "type = " + i);
+    public ArrayList<ChatMsg> fetchSpecifyMsgsSync(ChatObject chatObject, int i2, long j, long j2, long j3, boolean z) {
+        return fetchMsg(chatObject, j, j2, j3, z, "type = " + i2);
     }
 
     public ArrayList<SessionClass> getAllClassType() {
@@ -2221,15 +2221,15 @@ public class ChatMessageDBManager extends DBBase {
                     String str2 = TAG;
                     LogUtils.e(str2, "cursor count " + query.getCount());
                     while (query.moveToNext()) {
-                        int i = query.getInt(query.getColumnIndex("classtype"));
-                        int i2 = query.getInt(query.getColumnIndex("classshow"));
+                        int i2 = query.getInt(query.getColumnIndex("classtype"));
+                        int i3 = query.getInt(query.getColumnIndex("classshow"));
                         String string = query.getString(query.getColumnIndex("classtitle"));
                         String string2 = query.getString(query.getColumnIndex("classavatar"));
                         SessionClass sessionClass = new SessionClass();
-                        sessionClass.setType(i);
+                        sessionClass.setType(i2);
                         sessionClass.setTitle(string);
                         sessionClass.setAvatarurl(string2);
-                        sessionClass.setShow(i2);
+                        sessionClass.setShow(i3);
                         arrayList.add(sessionClass);
                     }
                     if (query != null) {
@@ -2458,8 +2458,8 @@ public class ChatMessageDBManager extends DBBase {
                         str = addPaidCondition;
                     } else {
                         String str2 = "" + list.get(0);
-                        for (int i = 1; i < list.size(); i++) {
-                            str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i);
+                        for (int i2 = 1; i2 < list.size(); i2++) {
+                            str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i2);
                         }
                         str = addPaidCondition + " AND classtype in (" + str2 + ") ";
                     }
@@ -2511,11 +2511,11 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    public ChatMsg getDraftMsg(int i, long j) {
-        if (1 == i) {
+    public ChatMsg getDraftMsg(int i2, long j) {
+        if (1 == i2) {
             return GroupMessageDAOImpl.getDraftMsg(this.mContext, String.valueOf(j));
         }
-        return getDraftMsgForSingle(i, j);
+        return getDraftMsgForSingle(i2, j);
     }
 
     public List<ChatSession> getGroupSession() {
@@ -2588,7 +2588,7 @@ public class ChatMessageDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ChatMsg getLatestMsg(int i, long j) {
+    public ChatMsg getLatestMsg(int i2, long j) {
         Cursor cursor;
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
@@ -2603,7 +2603,7 @@ public class ChatMessageDBManager extends DBBase {
                     return null;
                 }
                 try {
-                    cursor = openDatabase.query("message", null, "category=? AND contacter=? ", new String[]{String.valueOf(i), String.valueOf(j)}, null, null, "msgid desc ", String.valueOf(1));
+                    cursor = openDatabase.query("message", null, "category=? AND contacter=? ", new String[]{String.valueOf(i2), String.valueOf(j)}, null, null, "msgid desc ", String.valueOf(1));
                     if (cursor != null) {
                         try {
                             if (cursor.moveToNext()) {
@@ -2627,7 +2627,7 @@ public class ChatMessageDBManager extends DBBase {
                 }
             } catch (Throwable th2) {
                 th = th2;
-                cursor2 = i;
+                cursor2 = i2;
             }
         }
     }
@@ -2663,13 +2663,13 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    public ArrayList<ChatMsg> getMaxMsgidByChatTypes(List<Integer> list, long j, int i) {
+    public ArrayList<ChatMsg> getMaxMsgidByChatTypes(List<Integer> list, long j, int i2) {
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
             if (openDatabase == null) {
                 return null;
             }
-            return fetchMsgByContacterIdOrderByMsgid(getContacterByChatTypes(openDatabase, list), j, i);
+            return fetchMsgByContacterIdOrderByMsgid(getContacterByChatTypes(openDatabase, list), j, i2);
         }
     }
 
@@ -2810,7 +2810,7 @@ public class ChatMessageDBManager extends DBBase {
             return 0;
         }
         synchronized (DBBase.mSyncLock) {
-            int i = -1;
+            int i2 = -1;
             SQLiteDatabase openDatabase = openDatabase();
             if (openDatabase == null) {
                 return -1;
@@ -2821,8 +2821,8 @@ public class ChatMessageDBManager extends DBBase {
                 try {
                     if (list.size() > 0) {
                         String str2 = " ( " + list.get(0);
-                        for (int i2 = 1; i2 < list.size(); i2++) {
-                            str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i2);
+                        for (int i3 = 1; i3 < list.size(); i3++) {
+                            str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i3);
                         }
                         str = "chat_type in " + (str2 + " ) ");
                     }
@@ -2833,7 +2833,7 @@ public class ChatMessageDBManager extends DBBase {
             }
             cursor = openDatabase.rawQuery(TextUtils.isEmpty(str) ? "select sum(new_msg_sum) from chatrecord" : "select sum(new_msg_sum) from chatrecord where " + str, null);
             if (cursor != null && cursor.moveToNext()) {
-                i = cursor.getInt(0);
+                i2 = cursor.getInt(0);
             }
         }
     }
@@ -2853,23 +2853,23 @@ public class ChatMessageDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int getNewMsgCountOfClass(int i) {
+    public int getNewMsgCountOfClass(int i2) {
         synchronized (DBBase.mSyncLock) {
-            int i2 = -1;
+            int i3 = -1;
             SQLiteDatabase openDatabase = openDatabase();
             if (openDatabase == null) {
                 return -1;
             }
             Cursor cursor = null;
             try {
-                String str = "classtype = " + i;
+                String str = "classtype = " + i2;
                 String str2 = "select sum(new_msg_sum) from chatrecord";
                 if (!TextUtils.isEmpty(str)) {
                     str2 = "select sum(new_msg_sum) from chatrecord where " + str;
                 }
                 cursor = openDatabase.rawQuery(str2, null);
                 if (cursor != null && cursor.moveToNext()) {
-                    i2 = cursor.getInt(0);
+                    i3 = cursor.getInt(0);
                 }
             } catch (Exception e2) {
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
@@ -2900,11 +2900,11 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    public ArrayList<ChatMsg> getNotificationMsgDataList(SparseArray<List<Integer>> sparseArray, long j, int i) {
-        return fetchPaMsgByPaids(new ArrayList(PaInfoDBManager.getInstance(this.mContext).getPaidListByPainfos(sparseArray)), j, i);
+    public ArrayList<ChatMsg> getNotificationMsgDataList(SparseArray<List<Integer>> sparseArray, long j, int i2) {
+        return fetchPaMsgByPaids(new ArrayList(PaInfoDBManager.getInstance(this.mContext).getPaidListByPainfos(sparseArray)), j, i2);
     }
 
-    public ArrayList<ChatMsg> getPaMsgByChatTypeAndPaidList(List<Integer> list, List<Long> list2, long j, int i) {
+    public ArrayList<ChatMsg> getPaMsgByChatTypeAndPaidList(List<Integer> list, List<Long> list2, long j, int i2) {
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
             if (openDatabase == null) {
@@ -2918,7 +2918,7 @@ public class ChatMessageDBManager extends DBBase {
             if (contacterByChatTypes != null) {
                 hashSet.addAll(contacterByChatTypes);
             }
-            return fetchPaMsgByPaids(new ArrayList(hashSet), j, i);
+            return fetchPaMsgByPaids(new ArrayList(hashSet), j, i2);
         }
     }
 
@@ -3053,11 +3053,11 @@ public class ChatMessageDBManager extends DBBase {
         return markChatMsgClicked(chatMsg);
     }
 
-    public synchronized void notifyDbChange(int i, ChatSession chatSession) {
+    public synchronized void notifyDbChange(int i2, ChatSession chatSession) {
         if (this.mObservers != null && this.mObservers.size() != 0 && chatSession != null) {
             for (ChatMessageDbOberser chatMessageDbOberser : this.mObservers) {
                 if (chatMessageDbOberser != null) {
-                    chatMessageDbOberser.notifyDbChange(i, chatSession);
+                    chatMessageDbOberser.notifyDbChange(i2, chatSession);
                 }
             }
         }
@@ -3082,7 +3082,7 @@ public class ChatMessageDBManager extends DBBase {
                 }
                 String str2 = recommendDescription;
                 long newMsgNum = getNewMsgNum(key);
-                int i = newMsgNum >= 0 ? (int) (intValue + newMsgNum) : intValue;
+                int i2 = newMsgNum >= 0 ? (int) (intValue + newMsgNum) : intValue;
                 int clickState = Utility.getClickState(chatMsg2);
                 if (key.getCategory() == 0 && (key.getContacter() & Constants.PAFLAG) != 0) {
                     if (!chatMsg2.isSelf(this.mContext)) {
@@ -3093,10 +3093,10 @@ public class ChatMessageDBManager extends DBBase {
                             str = fetchMsg2.get(0).getExtLog();
                         }
                     }
-                    recordLastMsg(key, str2, chatMsg2.getMsgTime(), i, 0, clickState, chatMsg2.isStarMessage(), str);
+                    recordLastMsg(key, str2, chatMsg2.getMsgTime(), i2, 0, clickState, chatMsg2.isStarMessage(), str);
                 }
                 str = "";
-                recordLastMsg(key, str2, chatMsg2.getMsgTime(), i, 0, clickState, chatMsg2.isStarMessage(), str);
+                recordLastMsg(key, str2, chatMsg2.getMsgTime(), i2, 0, clickState, chatMsg2.isStarMessage(), str);
             }
         }
     }
@@ -3341,13 +3341,13 @@ public class ChatMessageDBManager extends DBBase {
         return -1;
     }
 
-    public int updateSession(int i, ChatObject chatObject) {
+    public int updateSession(int i2, ChatObject chatObject) {
         ArrayList<ChatMsg> fetchMsg;
         synchronized (DBBase.mSyncLock) {
             ChatMsg chatMsg = null;
             ChatSession chatSession = getChatSession(chatObject);
             if (chatSession != null && chatSession.getState() != 3) {
-                if (i != 0) {
+                if (i2 != 0) {
                     if (1 == chatObject.getCategory()) {
                         fetchMsg = GroupMessageDAOImpl.fetchChatMsgExceptGroupSystem(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
                     } else {
@@ -3361,9 +3361,9 @@ public class ChatMessageDBManager extends DBBase {
                     }
                     updateSession(true, chatSession, chatMsg);
                 }
-                return i;
+                return i2;
             }
-            return i;
+            return i2;
         }
     }
 
@@ -3390,7 +3390,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    public long updateChatSession(int i, ChatSession chatSession) {
+    public long updateChatSession(int i2, ChatSession chatSession) {
         long update;
         synchronized (DBBase.mSyncLock) {
             if (chatSession == null) {
@@ -3402,7 +3402,7 @@ public class ChatMessageDBManager extends DBBase {
             }
             try {
                 ContentValues contentValues = new ContentValues();
-                contructChatRecordValues(i, chatSession, contentValues);
+                contructChatRecordValues(i2, chatSession, contentValues);
                 if (!isRecordExist(openDatabase, new ChatObject(this.mContext, chatSession.getCategory(), chatSession.getContacter(), chatSession.getPaid(), chatSession.getChatType()))) {
                     String str = TAG;
                     LogUtils.e(str, "create chatsession! " + chatSession.toString());
@@ -3445,8 +3445,8 @@ public class ChatMessageDBManager extends DBBase {
                         str = addPaidCondition;
                     } else {
                         String str2 = "" + list.get(0);
-                        for (int i = 1; i < list.size(); i++) {
-                            str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i);
+                        for (int i2 = 1; i2 < list.size(); i2++) {
+                            str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i2);
                         }
                         str = addPaidCondition + " AND chat_type in (" + str2 + ") ";
                     }
@@ -3505,10 +3505,10 @@ public class ChatMessageDBManager extends DBBase {
         return fetchMsg;
     }
 
-    public int updateMsgStatus(long j, int i) {
+    public int updateMsgStatus(long j, int i2) {
         int update;
         ContentValues contentValues = new ContentValues();
-        contentValues.put("status", Integer.valueOf(i));
+        contentValues.put("status", Integer.valueOf(i2));
         synchronized (DBBase.mSyncLock) {
             update = update("message", "_id = ?", new String[]{String.valueOf(j)}, contentValues);
         }
@@ -3595,16 +3595,16 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     private int deleteChatMsg(long j) {
-        int i;
+        int i2;
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
             if (openDatabase == null) {
                 LogUtils.d(TAG, "getWritableDb fail!");
                 return -1;
             }
-            int i2 = 0;
+            int i3 = 0;
             try {
-                i = openDatabase.delete("message", "_id = ? ", new String[]{String.valueOf(j)});
+                i2 = openDatabase.delete("message", "_id = ? ", new String[]{String.valueOf(j)});
                 try {
                     long j2 = j + 1;
                     openDatabase.execSQL("delete from message where _id=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j2), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2001, Integer.valueOf((int) IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL)});
@@ -3612,16 +3612,16 @@ public class ChatMessageDBManager extends DBBase {
                     LogUtils.e(str, "deleteChatMsg notSendButShowTipMsg :delete from message where _id=? and type in (?, ?, ?), rowId :" + j2);
                 } catch (Exception e2) {
                     e = e2;
-                    i2 = i;
+                    i3 = i2;
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                     LogUtils.e(TAG, "deleteChatMsg:", e);
-                    i = i2;
-                    return i;
+                    i2 = i3;
+                    return i2;
                 }
             } catch (Exception e3) {
                 e = e3;
             }
-            return i;
+            return i2;
         }
     }
 
@@ -3629,7 +3629,7 @@ public class ChatMessageDBManager extends DBBase {
         if (chatMsg == null) {
             return -1L;
         }
-        int i = 1;
+        int i2 = 1;
         if (chatMsg.getCategory() == 0 || 1 == chatMsg.getCategory() || 2 == chatMsg.getCategory()) {
             SQLiteDatabase openDatabase = openDatabase();
             try {
@@ -3664,9 +3664,9 @@ public class ChatMessageDBManager extends DBBase {
                     }
                     contentValues.put(TableDefine.MessageColumns.COLUMN_ISZHIDA, Integer.valueOf(chatMsg.isZhida() ? 1 : 0));
                     if (!chatMsg.isClicked()) {
-                        i = 0;
+                        i2 = 0;
                     }
-                    contentValues.put("isclicked", Integer.valueOf(i));
+                    contentValues.put("isclicked", Integer.valueOf(i2));
                     contentValues.put("paid", Long.valueOf(chatMsg.getPaid()));
                     contentValues.put("device_flag", Integer.valueOf(chatMsg.getDeviceFlag()));
                     contentValues.put("msg_key", chatMsg.getMsgKey());
@@ -3713,11 +3713,11 @@ public class ChatMessageDBManager extends DBBase {
                 if (cursor != null && cursor.moveToNext()) {
                     String str = TAG;
                     LogUtils.d(str, "get new msg num for category : " + chatObject.getCategory() + " contacter:" + chatObject.getContacter());
-                    int i = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM));
+                    int i2 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM));
                     if (cursor != null) {
                         cursor.close();
                     }
-                    return i;
+                    return i2;
                 }
                 String str2 = TAG;
                 LogUtils.d(str2, "getNewMsgNum record not found! " + chatObject.toString());
@@ -3739,7 +3739,7 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     /* JADX WARN: Not initialized variable reg: 3, insn: 0x0063: MOVE  (r12 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:33:0x0063 */
-    public ChatSession getChatRecord(int i, long j, long j2) {
+    public ChatSession getChatRecord(int i2, long j, long j2) {
         Cursor cursor;
         Cursor cursor2;
         synchronized (DBBase.mSyncLock) {
@@ -3750,7 +3750,7 @@ public class ChatMessageDBManager extends DBBase {
                     return null;
                 }
                 try {
-                    cursor2 = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, addPaidCondition("category = ? AND contacter=?", "paid", j2), new String[]{String.valueOf(i), String.valueOf(j)}, null, null, null, null);
+                    cursor2 = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, addPaidCondition("category = ? AND contacter=?", "paid", j2), new String[]{String.valueOf(i2), String.valueOf(j)}, null, null, null, null);
                     if (cursor2 != null) {
                         try {
                             if (cursor2.moveToNext()) {
@@ -3867,7 +3867,7 @@ public class ChatMessageDBManager extends DBBase {
     */
     public int getNewMsgCount(long j) {
         synchronized (DBBase.mSyncLock) {
-            int i = -1;
+            int i2 = -1;
             SQLiteDatabase openDatabase = openDatabase();
             if (openDatabase == null) {
                 return -1;
@@ -3888,12 +3888,12 @@ public class ChatMessageDBManager extends DBBase {
             }
             cursor = openDatabase.rawQuery(str2, null);
             if (cursor != null && cursor.moveToNext()) {
-                i = cursor.getInt(0);
+                i2 = cursor.getInt(0);
             }
         }
     }
 
-    public void recordLastMsg(ChatObject chatObject, String str, long j, int i, int i2, int i3, boolean z, String str2) {
+    public void recordLastMsg(ChatObject chatObject, String str, long j, int i2, int i3, int i4, boolean z, String str2) {
         String str3 = TAG;
         LogUtils.d(str3, "recordSendLastMsg " + chatObject.toString());
         ChatSession chatRecord = getInstance(this.mContext).getChatRecord(chatObject);
@@ -3907,12 +3907,12 @@ public class ChatMessageDBManager extends DBBase {
         }
         if (chatRecord.getState() != 3) {
             chatRecord.setLastMsg(str);
-            chatRecord.setState(i2);
-            chatRecord.setIsClicked(i3);
+            chatRecord.setState(i3);
+            chatRecord.setIsClicked(i4);
         }
         chatRecord.setLastMsgTime(j);
-        if (i >= 0) {
-            chatRecord.setNewMsgSum(i);
+        if (i2 >= 0) {
+            chatRecord.setNewMsgSum(i2);
         }
         chatRecord.setLastMsgTime(j);
         chatRecord.setShow(1);
@@ -3980,8 +3980,8 @@ public class ChatMessageDBManager extends DBBase {
             LogUtils.d(TAG, "getReadableDb fail!");
             return null;
         }
-        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i <= 0 && j5 >= 0) {
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i2 <= 0 && j5 >= 0) {
             j5 = -j5;
         }
         try {
@@ -3993,11 +3993,11 @@ public class ChatMessageDBManager extends DBBase {
                 if (0 == j && j3 == -1) {
                     str2 = " >= ";
                 } else {
-                    int i2 = (j5 > 0L ? 1 : (j5 == 0L ? 0 : -1));
-                    if (i2 == 0) {
+                    int i3 = (j5 > 0L ? 1 : (j5 == 0L ? 0 : -1));
+                    if (i3 == 0) {
                         str2 = " = ";
                         j4 = -2;
-                    } else if (i2 > 0) {
+                    } else if (i3 > 0) {
                         str2 = " > ";
                         j4 = j3 == Long.MAX_VALUE ? 0L : j3;
                     } else {
@@ -4024,7 +4024,7 @@ public class ChatMessageDBManager extends DBBase {
                                     j5 = 1;
                                 }
                                 long j6 = j5;
-                                String str6 = (j6 > 0 || i <= 0) ? " desc " : " asc ";
+                                String str6 = (j6 > 0 || i2 <= 0) ? " desc " : " asc ";
                                 String str7 = "select * from message where " + str5 + " ORDER BY msgid" + str6 + ",_id" + str6 + " limit " + Math.abs(j6);
                                 synchronized (DBBase.mSyncLock) {
                                     try {

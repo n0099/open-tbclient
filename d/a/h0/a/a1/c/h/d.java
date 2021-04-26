@@ -1,0 +1,226 @@
+package d.a.h0.a.a1.c.h;
+
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompatJellybean;
+import d.a.h0.a.i2.h0;
+import org.json.JSONException;
+import org.json.JSONObject;
+@SuppressLint({"SwanCommentWar"})
+/* loaded from: classes.dex */
+public class d implements d.a.h0.a.e1.a {
+
+    /* renamed from: f  reason: collision with root package name */
+    public d.a.h0.a.a1.c.h.c f41181f;
+    public b m;
+    public c n;
+    public a o;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f41180e = "";
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f41182g = "";
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f41183h = "";
+
+    /* renamed from: i  reason: collision with root package name */
+    public double f41184i = 0.0d;
+    public double j = 1.0d;
+    public int k = -1;
+    public int l = -1;
+
+    @SuppressLint({"SwanCommentWar"})
+    /* loaded from: classes.dex */
+    public static class a implements d.a.h0.a.e1.a {
+
+        /* renamed from: e  reason: collision with root package name */
+        public double f41185e = 0.5d;
+
+        /* renamed from: f  reason: collision with root package name */
+        public double f41186f = 1.0d;
+
+        @Override // d.a.h0.a.e1.a
+        public void a(JSONObject jSONObject) throws JSONException {
+            if (jSONObject == null) {
+                return;
+            }
+            this.f41185e = Math.abs(jSONObject.optDouble("x", 0.5d));
+            double d2 = 1.0d;
+            this.f41186f = Math.abs(jSONObject.optDouble("y", 1.0d));
+            double d3 = this.f41185e;
+            if (d3 < 0.0d) {
+                d3 = 0.0d;
+            } else if (d3 > 1.0d) {
+                d3 = 1.0d;
+            }
+            this.f41185e = d3;
+            double d4 = this.f41186f;
+            if (d4 < 0.0d) {
+                d2 = 0.0d;
+            } else if (d4 <= 1.0d) {
+                d2 = d4;
+            }
+            this.f41186f = d2;
+        }
+
+        @Override // d.a.h0.a.e1.a
+        public boolean isValid() {
+            return true;
+        }
+    }
+
+    @SuppressLint({"SwanCommentWar"})
+    /* loaded from: classes.dex */
+    public static class b extends C0568d {
+        public float j;
+        public String k;
+        public int l;
+
+        public b(d dVar) {
+            super(dVar);
+            this.j = 0.0f;
+            this.k = "BYCLICK";
+            this.l = -1;
+        }
+
+        @Override // d.a.h0.a.a1.c.h.d.C0568d, d.a.h0.a.e1.a
+        public void a(JSONObject jSONObject) throws JSONException {
+            if (jSONObject == null) {
+                return;
+            }
+            super.a(jSONObject);
+            this.j = (float) jSONObject.optDouble("borderRadius", 0.0d);
+            jSONObject.optDouble("borderWidth", 0.0d);
+            d.a.h0.a.a1.c.d.a(jSONObject.optString("borderColor"), -7829368);
+            this.k = jSONObject.has("display") ? jSONObject.optString("display") : "BYCLICK";
+            this.l = d.a.h0.a.a1.c.d.a(jSONObject.optString("bgColor"), -1);
+        }
+    }
+
+    @SuppressLint({"SwanCommentWar"})
+    /* loaded from: classes.dex */
+    public static class c extends C0568d implements d.a.h0.a.e1.a {
+        public float j;
+        public float k;
+        public float l;
+        public int m;
+        public float n;
+
+        public c(d dVar) {
+            super(dVar);
+            this.j = 0.0f;
+            this.k = 0.0f;
+            this.l = 0.0f;
+            this.m = 0;
+            this.n = 0.0f;
+        }
+
+        @Override // d.a.h0.a.a1.c.h.d.C0568d, d.a.h0.a.e1.a
+        public void a(JSONObject jSONObject) throws JSONException {
+            if (jSONObject == null) {
+                return;
+            }
+            super.a(jSONObject);
+            this.j = d.a.h0.a.a1.c.d.b(jSONObject.optDouble("x", 0.0d));
+            float b2 = d.a.h0.a.a1.c.d.b(jSONObject.optDouble("y", 0.0d));
+            this.k = b2;
+            if (this.j == 0.0f && b2 == 0.0f) {
+                this.j = d.a.h0.a.a1.c.d.b(jSONObject.optDouble("anchorX", 0.0d));
+                this.k = d.a.h0.a.a1.c.d.b(jSONObject.optDouble("anchorY", 0.0d));
+            }
+            this.l = (float) jSONObject.optDouble("borderWidth", 0.0d);
+            this.m = d.a.h0.a.a1.c.d.a(jSONObject.optString("borderColor"), 0);
+            this.n = (float) jSONObject.optDouble("borderRadius", 0.0d);
+        }
+    }
+
+    @SuppressLint({"SwanCommentWar"})
+    /* renamed from: d.a.h0.a.a1.c.h.d$d  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public static class C0568d implements d.a.h0.a.e1.a {
+
+        /* renamed from: e  reason: collision with root package name */
+        public String f41187e = "";
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f41188f = -16777216;
+
+        /* renamed from: g  reason: collision with root package name */
+        public float f41189g = d.a.h0.a.a1.c.d.b(10.0d);
+
+        /* renamed from: h  reason: collision with root package name */
+        public int f41190h = 0;
+
+        /* renamed from: i  reason: collision with root package name */
+        public float f41191i = 0.0f;
+
+        public C0568d(d dVar) {
+        }
+
+        @Override // d.a.h0.a.e1.a
+        public void a(JSONObject jSONObject) throws JSONException {
+            float b2;
+            if (jSONObject != null && jSONObject.has("content")) {
+                this.f41187e = jSONObject.optString("content");
+                this.f41188f = d.a.h0.a.a1.c.d.a(jSONObject.optString("color"), -16777216);
+                if (jSONObject.has("fontSize")) {
+                    b2 = Math.abs(d.a.h0.a.a1.c.d.b(jSONObject.optDouble("fontSize", 10.0d)));
+                } else {
+                    b2 = d.a.h0.a.a1.c.d.b(10.0d);
+                }
+                this.f41189g = b2;
+                this.f41190h = d.a.h0.a.a1.c.d.a(jSONObject.optString("bgColor"), 0);
+                this.f41191i = d.a.h0.a.a1.c.d.b(jSONObject.optDouble("padding", 0.0d));
+                if (jSONObject.has("textAlign")) {
+                    jSONObject.optString("textAlign");
+                }
+            }
+        }
+
+        @Override // d.a.h0.a.e1.a
+        public boolean isValid() {
+            return !TextUtils.isEmpty(this.f41187e);
+        }
+    }
+
+    @Override // d.a.h0.a.e1.a
+    public void a(JSONObject jSONObject) throws JSONException {
+        if (jSONObject == null) {
+            return;
+        }
+        d.a.h0.a.a1.c.h.c cVar = new d.a.h0.a.a1.c.h.c();
+        this.f41181f = cVar;
+        cVar.a(jSONObject);
+        if (this.f41181f.isValid()) {
+            String optString = jSONObject.optString("markerId");
+            this.f41180e = optString;
+            if (TextUtils.isEmpty(optString)) {
+                this.f41180e = jSONObject.optString("id");
+            }
+            this.f41182g = jSONObject.optString("title");
+            this.f41183h = jSONObject.optString("iconPath");
+            this.f41184i = jSONObject.optDouble("rotate", 0.0d);
+            this.j = Math.abs(jSONObject.optDouble("alpha", 1.0d));
+            this.k = jSONObject.has("width") ? Math.abs(h0.f(jSONObject.optInt("width"))) : -1;
+            this.l = jSONObject.has("height") ? Math.abs(h0.f(jSONObject.optInt("height"))) : -1;
+            jSONObject.optInt("zIndex", 0);
+            b bVar = new b(this);
+            this.m = bVar;
+            bVar.a(jSONObject.optJSONObject("callout"));
+            c cVar2 = new c(this);
+            this.n = cVar2;
+            cVar2.a(jSONObject.optJSONObject(NotificationCompatJellybean.KEY_LABEL));
+            a aVar = new a();
+            this.o = aVar;
+            aVar.a(jSONObject.optJSONObject("anchor"));
+        }
+    }
+
+    @Override // d.a.h0.a.e1.a
+    public boolean isValid() {
+        d.a.h0.a.a1.c.h.c cVar = this.f41181f;
+        return cVar != null && cVar.isValid();
+    }
+}

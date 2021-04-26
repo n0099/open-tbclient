@@ -21,26 +21,28 @@ import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.EBusinessProtocolView;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.ChannelNativeAds_5;
+import com.fun.ad.sdk.ChannelNativeAds_6;
 import com.fun.ad.sdk.FunNativeAd;
 import com.kwad.sdk.api.KsNativeAd;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
-import d.b.c.e.m.g;
+import d.a.c.e.m.g;
 /* loaded from: classes4.dex */
 public class FunAdDownloadView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f16498e;
+    public final Context f16740e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FunAdButton f16499f;
+    public FunAdButton f16741f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16500g;
+    public TextView f16742g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f16501h;
-    public RankStarView i;
+    public LinearLayout f16743h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public RankStarView f16744i;
     public TextView j;
     public TextView k;
     public TextView l;
@@ -54,20 +56,20 @@ public class FunAdDownloadView extends RelativeLayout {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f16502e;
+        public final /* synthetic */ Activity f16745e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f16503f;
+        public final /* synthetic */ String f16746f;
 
         public a(Activity activity, String str) {
-            this.f16502e = activity;
-            this.f16503f = str;
+            this.f16745e = activity;
+            this.f16746f = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            g.i(FunAdDownloadView.this.q, this.f16502e);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_AUTHORITY_CLICK).param("obj_source", 6).param("obj_type", this.f16503f));
+            g.i(FunAdDownloadView.this.q, this.f16745e);
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_AUTHORITY_CLICK).param("obj_source", 6).param("obj_type", this.f16746f));
         }
     }
 
@@ -75,20 +77,20 @@ public class FunAdDownloadView extends RelativeLayout {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f16505e;
+        public final /* synthetic */ c f16748e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f16506f;
+        public final /* synthetic */ String f16749f;
 
         public b(c cVar, String str) {
-            this.f16505e = cVar;
-            this.f16506f = str;
+            this.f16748e = cVar;
+            this.f16749f = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.i0.l.a.e(FunAdDownloadView.this.f16498e, this.f16505e.d());
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_PRIVACY_CLICK).param("obj_source", 6).param("obj_type", this.f16506f));
+            d.a.i0.l.a.e(FunAdDownloadView.this.f16740e, this.f16748e.d());
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_PRIVACY_CLICK).param("obj_source", 6).param("obj_type", this.f16749f));
         }
     }
 
@@ -96,92 +98,92 @@ public class FunAdDownloadView extends RelativeLayout {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final CharSequence f16508a;
+        public final CharSequence f16751a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final float f16509b;
+        public final float f16752b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f16510c;
+        public final String f16753c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f16511d;
+        public final String f16754d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f16512e;
+        public final String f16755e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f16513f;
+        public final String f16756f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final String f16514g;
+        public final String f16757g;
 
         public c(@NonNull FunNativeAd funNativeAd) {
             NativeUnifiedADData nativeUnifiedADData;
             KsNativeAd ksNativeAd;
             TTNativeAd tTNativeAd;
-            ChannelNativeAds_5 channelNativeAds_5 = funNativeAd.getChannelNativeAds_5();
-            if (channelNativeAds_5 != null && (tTNativeAd = channelNativeAds_5.csjNative) != null) {
-                this.f16509b = tTNativeAd.getAppScore();
-                this.f16510c = null;
-                this.f16511d = null;
-                this.f16512e = tTNativeAd.getSource();
-                this.f16514g = null;
-                this.f16513f = null;
-                this.f16508a = tTNativeAd.getTitle();
-            } else if (channelNativeAds_5 != null && (ksNativeAd = channelNativeAds_5.ksNative) != null) {
-                this.f16508a = ksNativeAd.getAppName();
-                this.f16509b = ksNativeAd.getAppScore() / 2.0f;
-                this.f16510c = ksNativeAd.getAppDownloadCountDes();
-                this.f16511d = TbadkCoreApplication.getInst().getString(R.string.fun_ad_item_version) + ksNativeAd.getAppVersion();
-                this.f16512e = ksNativeAd.getCorporationName();
-                this.f16514g = ksNativeAd.getPermissionInfo();
-                this.f16513f = ksNativeAd.getAppPrivacyUrl();
-            } else if (channelNativeAds_5 != null && (nativeUnifiedADData = channelNativeAds_5.gdtNative) != null) {
-                this.f16508a = nativeUnifiedADData.getTitle();
-                this.f16509b = nativeUnifiedADData.getAppScore() / 2.0f;
-                this.f16510c = TbadkCoreApplication.getInst().getString(R.string.fun_ad_item_download_count, new Object[]{StringHelper.numberUniformFormat(nativeUnifiedADData.getDownloadCount())});
-                this.f16511d = null;
-                this.f16512e = null;
-                this.f16514g = null;
-                this.f16513f = null;
+            ChannelNativeAds_6 channelNativeAds_6 = funNativeAd.getChannelNativeAds_6();
+            if (channelNativeAds_6 != null && (tTNativeAd = channelNativeAds_6.csjNative) != null) {
+                this.f16752b = tTNativeAd.getAppScore();
+                this.f16753c = null;
+                this.f16754d = null;
+                this.f16755e = tTNativeAd.getSource();
+                this.f16757g = null;
+                this.f16756f = null;
+                this.f16751a = tTNativeAd.getTitle();
+            } else if (channelNativeAds_6 != null && (ksNativeAd = channelNativeAds_6.ksNative) != null) {
+                this.f16751a = ksNativeAd.getAppName();
+                this.f16752b = ksNativeAd.getAppScore() / 2.0f;
+                this.f16753c = ksNativeAd.getAppDownloadCountDes();
+                this.f16754d = TbadkCoreApplication.getInst().getString(R.string.fun_ad_item_version) + ksNativeAd.getAppVersion();
+                this.f16755e = ksNativeAd.getCorporationName();
+                this.f16757g = ksNativeAd.getPermissionInfo();
+                this.f16756f = ksNativeAd.getAppPrivacyUrl();
+            } else if (channelNativeAds_6 != null && (nativeUnifiedADData = channelNativeAds_6.gdtNative) != null) {
+                this.f16751a = nativeUnifiedADData.getTitle();
+                this.f16752b = nativeUnifiedADData.getAppScore() / 2.0f;
+                this.f16753c = TbadkCoreApplication.getInst().getString(R.string.fun_ad_item_download_count, new Object[]{StringHelper.numberUniformFormat(nativeUnifiedADData.getDownloadCount())});
+                this.f16754d = null;
+                this.f16755e = null;
+                this.f16757g = null;
+                this.f16756f = null;
             } else {
-                this.f16509b = 0.0f;
-                this.f16510c = null;
-                this.f16511d = null;
-                this.f16512e = null;
-                this.f16514g = null;
-                this.f16513f = null;
-                this.f16508a = "";
+                this.f16752b = 0.0f;
+                this.f16753c = null;
+                this.f16754d = null;
+                this.f16755e = null;
+                this.f16757g = null;
+                this.f16756f = null;
+                this.f16751a = "";
             }
         }
 
         public String a() {
-            return this.f16514g;
+            return this.f16757g;
         }
 
         public String b() {
-            return this.f16512e;
+            return this.f16755e;
         }
 
         public String c() {
-            return this.f16510c;
+            return this.f16753c;
         }
 
         public String d() {
-            return this.f16513f;
+            return this.f16756f;
         }
 
         public String e() {
-            return this.f16511d;
+            return this.f16754d;
         }
 
         public float f() {
-            return this.f16509b;
+            return this.f16752b;
         }
 
         public CharSequence g() {
-            return this.f16508a;
+            return this.f16751a;
         }
     }
 
@@ -190,11 +192,11 @@ public class FunAdDownloadView extends RelativeLayout {
     }
 
     public final void c() {
-        LayoutInflater.from(this.f16498e).inflate(R.layout.fun_ad_download_info, (ViewGroup) this, true);
-        this.f16499f = (FunAdButton) findViewById(R.id.fun_ad_download_button);
-        this.f16500g = (TextView) findViewById(R.id.fun_ad_download_title);
-        this.f16501h = (LinearLayout) findViewById(R.id.fun_ad_download_score_layout);
-        this.i = (RankStarView) findViewById(R.id.fun_ad_download_star);
+        LayoutInflater.from(this.f16740e).inflate(R.layout.fun_ad_download_info, (ViewGroup) this, true);
+        this.f16741f = (FunAdButton) findViewById(R.id.fun_ad_download_button);
+        this.f16742g = (TextView) findViewById(R.id.fun_ad_download_title);
+        this.f16743h = (LinearLayout) findViewById(R.id.fun_ad_download_score_layout);
+        this.f16744i = (RankStarView) findViewById(R.id.fun_ad_download_star);
         this.j = (TextView) findViewById(R.id.fun_ad_download_score);
         this.k = (TextView) findViewById(R.id.fun_ad_download_count);
         this.l = (TextView) findViewById(R.id.fun_ad_download_version);
@@ -202,45 +204,45 @@ public class FunAdDownloadView extends RelativeLayout {
         this.n = (TextView) findViewById(R.id.fun_ad_download_company);
         this.o = (TextView) findViewById(R.id.fun_ad_download_privacy);
         this.p = (TextView) findViewById(R.id.fun_ad_download_authority);
-        this.q = new EBusinessProtocolView(this.f16498e, EBusinessProtocolView.WindowType.TIP);
+        this.q = new EBusinessProtocolView(this.f16740e, EBusinessProtocolView.WindowType.TIP);
     }
 
-    public void d(int i) {
-        d.b.i0.r.u.c d2 = d.b.i0.r.u.c.d(this);
+    public void d(int i2) {
+        d.a.i0.r.u.c d2 = d.a.i0.r.u.c.d(this);
         d2.k(R.string.J_X05);
         d2.f(R.color.CAM_X0206);
-        d.b.i0.r.u.c.d(this.f16500g).q(R.color.CAM_X0107);
-        d.b.i0.r.u.c.d(this.l).q(R.color.CAM_X0109);
-        d.b.i0.r.u.c.d(this.j).q(R.color.CAM_X0109);
-        d.b.i0.r.u.c.d(this.k).q(R.color.CAM_X0109);
-        d.b.i0.r.u.c.d(this.n).q(R.color.CAM_X0109);
-        d.b.i0.r.u.c.d(this.o).q(R.color.CAM_X0109);
-        d.b.i0.r.u.c.d(this.p).q(R.color.CAM_X0109);
-        this.f16499f.h();
-        this.i.e(i);
+        d.a.i0.r.u.c.d(this.f16742g).q(R.color.CAM_X0107);
+        d.a.i0.r.u.c.d(this.l).q(R.color.CAM_X0109);
+        d.a.i0.r.u.c.d(this.j).q(R.color.CAM_X0109);
+        d.a.i0.r.u.c.d(this.k).q(R.color.CAM_X0109);
+        d.a.i0.r.u.c.d(this.n).q(R.color.CAM_X0109);
+        d.a.i0.r.u.c.d(this.o).q(R.color.CAM_X0109);
+        d.a.i0.r.u.c.d(this.p).q(R.color.CAM_X0109);
+        this.f16741f.h();
+        this.f16744i.e(i2);
     }
 
     public FunAdButton getDownloadButton() {
-        return this.f16499f;
+        return this.f16741f;
     }
 
     public void setViewData(FunNativeAd funNativeAd, Activity activity, String str) {
-        if (d.b.j0.s0.b.j(funNativeAd) && FunAdSdkSwitch.isOn()) {
+        if (d.a.j0.s0.b.j(funNativeAd) && FunAdSdkSwitch.isOn()) {
             setVisibility(0);
             c cVar = new c(funNativeAd);
-            this.f16500g.setText(cVar.g());
+            this.f16742g.setText(cVar.g());
             float f2 = cVar.f();
             if (f2 > 2.5d) {
-                this.f16501h.setVisibility(0);
+                this.f16743h.setVisibility(0);
                 this.k.setVisibility(8);
                 this.j.setText(String.valueOf(f2));
-                this.i.setStarCount(f2);
+                this.f16744i.setStarCount(f2);
             } else if (!TextUtils.isEmpty(cVar.c())) {
-                this.f16501h.setVisibility(8);
+                this.f16743h.setVisibility(8);
                 this.k.setVisibility(0);
                 this.k.setText(cVar.c());
             } else {
-                this.f16501h.setVisibility(8);
+                this.f16743h.setVisibility(8);
                 this.k.setVisibility(8);
             }
             if (!TextUtils.isEmpty(cVar.e())) {
@@ -259,7 +261,7 @@ public class FunAdDownloadView extends RelativeLayout {
             if (!TextUtils.isEmpty(cVar.a())) {
                 this.p.setVisibility(0);
                 this.q.k(cVar.a());
-                this.q.o(this.f16498e.getString(R.string.fun_ad_privacy_dialog_title));
+                this.q.o(this.f16740e.getString(R.string.fun_ad_privacy_dialog_title));
                 this.p.setOnClickListener(new a(activity, str));
             } else {
                 this.p.setVisibility(8);
@@ -285,9 +287,9 @@ public class FunAdDownloadView extends RelativeLayout {
         this(context, attributeSet, 0);
     }
 
-    public FunAdDownloadView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f16498e = context;
+    public FunAdDownloadView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f16740e = context;
         c();
     }
 }

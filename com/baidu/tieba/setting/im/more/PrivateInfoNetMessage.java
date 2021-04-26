@@ -3,11 +3,11 @@ package com.baidu.tieba.setting.im.more;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.c.e.m.b;
-import d.b.i0.z0.w;
+import d.a.c.e.m.b;
+import d.a.i0.z0.w;
 import tbclient.GetPrivateInfo.GetPrivateInfoReqIdl;
 import tbclient.GetPrivateInfo.ReqData;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PrivateInfoNetMessage extends NetMessage {
     public PrivateInfoNetMessage() {
         super(CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);

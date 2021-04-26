@@ -112,7 +112,7 @@ public class WbShareTransActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendCallback(int i) {
+    public void sendCallback(int i2) {
         FrameLayout frameLayout = this.rootLayout;
         if (frameLayout != null) {
             frameLayout.setVisibility(8);
@@ -120,7 +120,7 @@ public class WbShareTransActivity extends BaseActivity {
         try {
             Intent intent = new Intent();
             Bundle bundle = new Bundle();
-            bundle.putInt(WBConstants.Response.ERRCODE, i);
+            bundle.putInt(WBConstants.Response.ERRCODE, i2);
             intent.putExtras(bundle);
             setResult(-1, intent);
         } catch (Exception e2) {
@@ -164,8 +164,8 @@ public class WbShareTransActivity extends BaseActivity {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
         Handler handler = this.handler;
         if (handler != null) {
             handler.sendEmptyMessageDelayed(0, 100L);
@@ -188,11 +188,11 @@ public class WbShareTransActivity extends BaseActivity {
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4) {
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // android.app.Activity

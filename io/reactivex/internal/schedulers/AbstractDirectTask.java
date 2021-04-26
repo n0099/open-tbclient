@@ -1,23 +1,24 @@
 package io.reactivex.internal.schedulers;
 
-import f.b.t.b;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.functions.Functions;
+import io.reactivex.schedulers.SchedulerRunnableIntrospection;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public abstract class AbstractDirectTask extends AtomicReference<Future<?>> implements b {
+public abstract class AbstractDirectTask extends AtomicReference<Future<?>> implements Disposable, SchedulerRunnableIntrospection {
     public static final long serialVersionUID = 1811839108042568751L;
     public final Runnable runnable;
     public Thread runner;
-    public static final FutureTask<Void> FINISHED = new FutureTask<>(Functions.f69179a, null);
-    public static final FutureTask<Void> DISPOSED = new FutureTask<>(Functions.f69179a, null);
+    public static final FutureTask<Void> FINISHED = new FutureTask<>(Functions.EMPTY_RUNNABLE, null);
+    public static final FutureTask<Void> DISPOSED = new FutureTask<>(Functions.EMPTY_RUNNABLE, null);
 
     public AbstractDirectTask(Runnable runnable) {
         this.runnable = runnable;
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public final void dispose() {
         FutureTask<Void> futureTask;
         Future<?> future = get();
@@ -27,11 +28,12 @@ public abstract class AbstractDirectTask extends AtomicReference<Future<?>> impl
         future.cancel(this.runner != Thread.currentThread());
     }
 
+    @Override // io.reactivex.schedulers.SchedulerRunnableIntrospection
     public Runnable getWrappedRunnable() {
         return this.runnable;
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public final boolean isDisposed() {
         Future<?> future = get();
         return future == FINISHED || future == DISPOSED;

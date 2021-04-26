@@ -12,5 +12,5 @@ public interface RouterCallback {
     public static final String KEY_ERROR_MSG = "retMsg";
     public static final String KEY_VALUE = "result";
 
-    void onResult(int i, HashMap hashMap);
+    void onResult(int i2, HashMap hashMap);
 }

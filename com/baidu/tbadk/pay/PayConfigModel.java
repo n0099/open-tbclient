@@ -12,25 +12,25 @@ import com.baidu.tbadk.clientConfig.ClientConfigSocketResponse;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import d.b.i0.l0.c;
+import d.a.i0.l0.d;
 import tbclient.GetClientConfig.CPayType;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes3.dex */
 public class PayConfigModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.l0.a f13655e;
+    public d.a.i0.l0.a f13655e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.b.c.c.g.a f13656f;
+    public final d.a.c.c.g.a f13656f;
 
     /* loaded from: classes3.dex */
-    public class a extends d.b.c.c.g.a {
-        public a(int i, int i2) {
-            super(i, i2);
+    public class a extends d.a.c.c.g.a {
+        public a(int i2, int i3) {
+            super(i2, i3);
         }
 
-        @Override // d.b.c.c.g.a
+        @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (PayConfigModel.this.v(responsedMessage)) {
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
@@ -56,7 +56,7 @@ public class PayConfigModel extends BdBaseModel {
         }
     }
 
-    public PayConfigModel(BaseActivity<?> baseActivity, d.b.i0.l0.a aVar) {
+    public PayConfigModel(BaseActivity<?> baseActivity, d.a.i0.l0.a aVar) {
         super(baseActivity.getPageContext());
         a aVar2 = new a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.f13656f = aVar2;
@@ -86,17 +86,17 @@ public class PayConfigModel extends BdBaseModel {
         CPayType cPayType;
         if (dataRes != null && (cPayType = dataRes.payType) != null) {
             if (cPayType.pay_type.intValue() == 1) {
-                d.b.i0.l0.a aVar = this.f13655e;
+                d.a.i0.l0.a aVar = this.f13655e;
                 if (aVar != null) {
                     aVar.b();
                 }
             } else if (dataRes.payType.pay_type.intValue() == 2) {
-                d.b.i0.l0.a aVar2 = this.f13655e;
+                d.a.i0.l0.a aVar2 = this.f13655e;
                 if (aVar2 != null) {
                     aVar2.a();
                 }
             } else {
-                d.b.i0.l0.a aVar3 = this.f13655e;
+                d.a.i0.l0.a aVar3 = this.f13655e;
                 if (aVar3 != null) {
                     aVar3.onError("");
                 }
@@ -107,13 +107,13 @@ public class PayConfigModel extends BdBaseModel {
     }
 
     public void x() {
-        if (!c.c().g()) {
-            d.b.i0.l0.a aVar = this.f13655e;
+        if (!d.c().g()) {
+            d.a.i0.l0.a aVar = this.f13655e;
             if (aVar != null) {
                 aVar.a();
             }
         } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
-            d.b.i0.l0.a aVar2 = this.f13655e;
+            d.a.i0.l0.a aVar2 = this.f13655e;
             if (aVar2 != null) {
                 aVar2.b();
             }
@@ -124,7 +124,7 @@ public class PayConfigModel extends BdBaseModel {
         }
     }
 
-    public PayConfigModel(TbPageContext tbPageContext, d.b.i0.l0.a aVar) {
+    public PayConfigModel(TbPageContext tbPageContext, d.a.i0.l0.a aVar) {
         super(tbPageContext);
         a aVar2 = new a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.f13656f = aVar2;

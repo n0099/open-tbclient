@@ -15,8 +15,8 @@ import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tieba.flutter.plugin.networkService.FlutterNetModel;
 import com.baidu.tieba.flutter.plugin.networkService.FlutterNetModelAuto;
 import com.baidu.tieba.flutter.plugin.networkService.NetworkServiceAuto;
-import d.b.i0.g0.b.g;
-import d.b.j0.m0.a.f.f;
+import d.a.i0.g0.b.g;
+import d.a.j0.m0.a.f.f;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,18 +31,18 @@ public class NetworkServicePlugin implements FlutterPlugin, NetworkServiceAuto.H
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public NetworkServiceAuto.NetworkResult wrapEventData(HashMap<String, String> hashMap, String str, int i, String str2, String str3) {
+    public NetworkServiceAuto.NetworkResult wrapEventData(HashMap<String, String> hashMap, String str, int i2, String str2, String str3) {
         NetworkServiceAuto.NetworkResult networkResult = new NetworkServiceAuto.NetworkResult();
-        networkResult.setErrorNumber(Long.valueOf(i));
+        networkResult.setErrorNumber(Long.valueOf(i2));
         networkResult.setErrorMessage(str2);
-        if (i == -1 && "cancle".equals(str2)) {
+        if (i2 == -1 && "cancle".equals(str2)) {
             networkResult.setCanceled(Boolean.TRUE);
         } else {
             networkResult.setCanceled(Boolean.FALSE);
         }
         networkResult.setRequestInfo(hashMap);
         networkResult.setIdentifier(str3);
-        if (i == 0) {
+        if (i2 == 0) {
             networkResult.setData(str);
         }
         return networkResult;
@@ -51,8 +51,8 @@ public class NetworkServicePlugin implements FlutterPlugin, NetworkServiceAuto.H
     @Override // com.baidu.tieba.flutter.plugin.networkService.NetworkServiceAuto.HostNetworkService
     public void cancel(NetworkServiceAuto.NetServiceCancelParam netServiceCancelParam) {
         ArrayList list = netServiceCancelParam.getList();
-        for (int i = 0; i < list.size(); i++) {
-            Map map = (Map) list.get(i);
+        for (int i2 = 0; i2 < list.size(); i2++) {
+            Map map = (Map) list.get(i2);
             String str = (String) map.get(RetrieveTaskManager.KEY);
             ((Integer) map.get("cmd")).intValue();
             NetModel netModel = this.netModels.get((String) map.get("identifier"));
@@ -119,12 +119,12 @@ public class NetworkServicePlugin implements FlutterPlugin, NetworkServiceAuto.H
         flutterNetModel.setStartRequestTime(currentTimeMillis);
         flutterNetModel.setHttpCallback(new FlutterNetModel.NetResponseCallback() { // from class: com.baidu.tieba.flutter.plugin.networkService.NetworkServicePlugin.2
             @Override // com.baidu.tieba.flutter.plugin.networkService.FlutterNetModel.NetResponseCallback
-            public void onHttpResponseMessage(HashMap<String, String> hashMap, HashMap<String, String> hashMap2, int i, String str, String str2, String str3) {
+            public void onHttpResponseMessage(HashMap<String, String> hashMap, HashMap<String, String> hashMap2, int i2, String str, String str2, String str3) {
                 NetworkServicePlugin.this.netModels.remove(str3);
                 if (hashMap != null) {
                     hashMap.put("start_time", String.valueOf(currentTimeMillis));
                 }
-                NetworkServiceAuto.NetworkResult wrapEventData = NetworkServicePlugin.this.wrapEventData(hashMap, str2, i, str, str3);
+                NetworkServiceAuto.NetworkResult wrapEventData = NetworkServicePlugin.this.wrapEventData(hashMap, str2, i2, str, str3);
                 HashMap hashMap3 = extra;
                 if (hashMap3 != null && (hashMap3.get("performance") instanceof Boolean) && ((Boolean) extra.get("performance")).booleanValue()) {
                     HashMap hashMap4 = new HashMap();

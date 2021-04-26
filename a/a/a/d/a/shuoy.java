@@ -7,8 +7,8 @@ import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class shuoy {
     public static bv a() {
-        int i = Build.VERSION.SDK_INT;
-        return i >= 26 ? new trw() : i >= 23 ? new we() : i >= 14 ? new ac() : new uiou();
+        int i2 = Build.VERSION.SDK_INT;
+        return i2 >= 26 ? new trw() : i2 >= 23 ? new we() : i2 >= 14 ? new ac() : new uiou();
     }
 
     public static Object a(Class<?> cls, Class<?>[] clsArr, Object[] objArr) {
@@ -25,8 +25,8 @@ public class shuoy {
     public static Object a(Class cls, Object[] objArr, Object obj) {
         Object newInstance = Array.newInstance(cls, objArr.length + 1);
         Array.set(newInstance, 0, obj);
-        for (int i = 1; i < objArr.length + 1; i++) {
-            Array.set(newInstance, i, objArr[i - 1]);
+        for (int i2 = 1; i2 < objArr.length + 1; i2++) {
+            Array.set(newInstance, i2, objArr[i2 - 1]);
         }
         return newInstance;
     }
@@ -54,19 +54,19 @@ public class shuoy {
     }
 
     public static <T> boolean a(T[] tArr, T t) {
-        int i;
+        int i2;
         if (tArr != null) {
-            i = 0;
-            while (i < tArr.length) {
-                T t2 = tArr[i];
+            i2 = 0;
+            while (i2 < tArr.length) {
+                T t2 = tArr[i2];
                 if (t2 == t || (t2 != null && t2.equals(t))) {
                     break;
                 }
-                i++;
+                i2++;
             }
         }
-        i = -1;
-        return i != -1;
+        i2 = -1;
+        return i2 != -1;
     }
 
     public static Object b(Object obj, String str) {

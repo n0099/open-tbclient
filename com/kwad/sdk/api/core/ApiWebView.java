@@ -24,21 +24,21 @@ public class ApiWebView extends WebView {
 
     @KsAdSdkDynamicApi
     @Keep
-    public ApiWebView(Context context, AttributeSet attributeSet, int i) {
-        super(Wrapper.unwrapContextIfNeed(context), attributeSet, i);
+    public ApiWebView(Context context, AttributeSet attributeSet, int i2) {
+        super(Wrapper.unwrapContextIfNeed(context), attributeSet, i2);
     }
 
     @KsAdSdkDynamicApi
     @Keep
     @RequiresApi(api = 21)
-    public ApiWebView(Context context, AttributeSet attributeSet, int i, int i2) {
-        super(Wrapper.unwrapContextIfNeed(context), attributeSet, i, i2);
+    public ApiWebView(Context context, AttributeSet attributeSet, int i2, int i3) {
+        super(Wrapper.unwrapContextIfNeed(context), attributeSet, i2, i3);
     }
 
     @KsAdSdkDynamicApi
     @Keep
-    public ApiWebView(Context context, AttributeSet attributeSet, int i, boolean z) {
-        super(Wrapper.unwrapContextIfNeed(context), attributeSet, i, z);
+    public ApiWebView(Context context, AttributeSet attributeSet, int i2, boolean z) {
+        super(Wrapper.unwrapContextIfNeed(context), attributeSet, i2, z);
     }
 
     @KsAdSdkDynamicApi

@@ -88,14 +88,14 @@ public abstract class UploadBean extends NetworkBean {
             }
         }
         boolean z = false;
-        int i = 0;
-        while (i < this.files.size()) {
-            boolean z2 = i == this.files.size() - 1 ? true : z;
-            UploadFileModel uploadFileModel = this.files.get(i);
+        int i2 = 0;
+        while (i2 < this.files.size()) {
+            boolean z2 = i2 == this.files.size() - 1 ? true : z;
+            UploadFileModel uploadFileModel = this.files.get(i2);
             if (uploadFileModel != null && uploadFileModel.filedata != null) {
                 restMultipartEntity.addPart(uploadFileModel.name, uploadFileModel.fileName, new ByteArrayInputStream(uploadFileModel.filedata), uploadFileModel.contentType, z2);
             }
-            i++;
+            i2++;
             z = z2;
         }
         restMultipartEntity.setProgressListener(this.listener);
@@ -257,11 +257,11 @@ public abstract class UploadBean extends NetworkBean {
         }
     }
 
-    public UploadBean(Context context, int i) {
+    public UploadBean(Context context, int i2) {
         super(context);
         this.mTskKey = "";
         this.beanType = -1;
         this.files = new ArrayList();
-        this.beanType = i;
+        this.beanType = i2;
     }
 }

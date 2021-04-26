@@ -20,8 +20,8 @@ public final class PreFillType {
         public int weight;
         public final int width;
 
-        public Builder(int i) {
-            this(i, i);
+        public Builder(int i2) {
+            this(i2, i2);
         }
 
         public PreFillType build() {
@@ -37,33 +37,33 @@ public final class PreFillType {
             return this;
         }
 
-        public Builder setWeight(int i) {
-            if (i > 0) {
-                this.weight = i;
+        public Builder setWeight(int i2) {
+            if (i2 > 0) {
+                this.weight = i2;
                 return this;
             }
             throw new IllegalArgumentException("Weight must be > 0");
         }
 
-        public Builder(int i, int i2) {
+        public Builder(int i2, int i3) {
             this.weight = 1;
-            if (i <= 0) {
+            if (i2 <= 0) {
                 throw new IllegalArgumentException("Width must be > 0");
             }
-            if (i2 > 0) {
-                this.width = i;
-                this.height = i2;
+            if (i3 > 0) {
+                this.width = i2;
+                this.height = i3;
                 return;
             }
             throw new IllegalArgumentException("Height must be > 0");
         }
     }
 
-    public PreFillType(int i, int i2, Bitmap.Config config, int i3) {
+    public PreFillType(int i2, int i3, Bitmap.Config config, int i4) {
         this.config = (Bitmap.Config) Preconditions.checkNotNull(config, "Config must not be null");
-        this.width = i;
-        this.height = i2;
-        this.weight = i3;
+        this.width = i2;
+        this.height = i3;
+        this.weight = i4;
     }
 
     public boolean equals(Object obj) {

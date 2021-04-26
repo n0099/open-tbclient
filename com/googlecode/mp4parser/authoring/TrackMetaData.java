@@ -82,8 +82,8 @@ public class TrackMetaData implements Cloneable {
         this.editList = editListBox;
     }
 
-    public void setGroup(int i) {
-        this.group = i;
+    public void setGroup(int i2) {
+        this.group = i2;
     }
 
     public void setHeight(double d2) {
@@ -94,8 +94,8 @@ public class TrackMetaData implements Cloneable {
         this.language = str;
     }
 
-    public void setLayer(int i) {
-        this.layer = i;
+    public void setLayer(int i2) {
+        this.layer = i2;
     }
 
     public void setMatrix(Matrix matrix) {

@@ -500,9 +500,9 @@ public class ImagePipeline {
 
     public boolean isInDiskCacheSync(ImageRequest imageRequest) {
         CacheKey encodedCacheKey = this.mCacheKeyFactory.getEncodedCacheKey(imageRequest, null);
-        int i = AnonymousClass8.$SwitchMap$com$facebook$imagepipeline$request$ImageRequest$CacheChoice[imageRequest.getCacheChoice().ordinal()];
-        if (i != 1) {
-            if (i != 2) {
+        int i2 = AnonymousClass8.$SwitchMap$com$facebook$imagepipeline$request$ImageRequest$CacheChoice[imageRequest.getCacheChoice().ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
                 return false;
             }
             return this.mSmallImageBufferedDiskCache.diskCheckSync(encodedCacheKey);

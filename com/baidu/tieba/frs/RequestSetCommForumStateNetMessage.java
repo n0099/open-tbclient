@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.SetCommonForumState.DataReq;
 import tbclient.SetCommonForumState.SetCommonForumStateReqIdl;
 /* loaded from: classes4.dex */
@@ -31,7 +31,7 @@ public class RequestSetCommForumStateNetMessage extends NetMessage {
         this.mForumId = j;
     }
 
-    public void setOperation(int i) {
-        this.operation = i;
+    public void setOperation(int i2) {
+        this.operation = i2;
     }
 }

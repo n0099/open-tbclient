@@ -14,7 +14,7 @@ public final class n implements Parcelable.Creator<SuggestAddrInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public SuggestAddrInfo[] newArray(int i) {
-        return new SuggestAddrInfo[i];
+    public SuggestAddrInfo[] newArray(int i2) {
+        return new SuggestAddrInfo[i2];
     }
 }

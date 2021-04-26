@@ -18,26 +18,26 @@ import java.util.List;
 public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f18557a;
+    public String f18925a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f18558b;
+    public Context f18926b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f18559c;
+    public List<String> f18927c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f18560d;
+    public b f18928d;
 
     /* loaded from: classes3.dex */
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f18561a;
+        public TextView f18929a;
 
         public ViewHolder(SearchMajorResultItemAdapter searchMajorResultItemAdapter, View view) {
             super(view);
-            this.f18561a = (TextView) view.findViewById(R.id.tv_major_name);
+            this.f18929a = (TextView) view.findViewById(R.id.tv_major_name);
         }
     }
 
@@ -45,16 +45,16 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f18562e;
+        public final /* synthetic */ String f18930e;
 
         public a(String str) {
-            this.f18562e = str;
+            this.f18930e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (SearchMajorResultItemAdapter.this.f18560d != null) {
-                SearchMajorResultItemAdapter.this.f18560d.a(this.f18562e);
+            if (SearchMajorResultItemAdapter.this.f18928d != null) {
+                SearchMajorResultItemAdapter.this.f18928d.a(this.f18930e);
             }
         }
     }
@@ -65,15 +65,15 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
     }
 
     public SearchMajorResultItemAdapter(Context context) {
-        this.f18558b = context;
+        this.f18926b = context;
     }
 
     public final void d(TextView textView, String str) {
-        if (textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f18557a)) {
+        if (textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f18925a)) {
             return;
         }
         String lowerCase = str.toLowerCase();
-        String lowerCase2 = this.f18557a.toLowerCase();
+        String lowerCase2 = this.f18925a.toLowerCase();
         if (!lowerCase.contains(lowerCase2)) {
             textView.setText(str);
             return;
@@ -81,26 +81,26 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
         int indexOf = lowerCase.indexOf(lowerCase2);
         ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f18557a.length() + indexOf, 33);
+        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f18925a.length() + indexOf, 33);
         textView.setText(spannableStringBuilder);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: e */
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        List<String> list = this.f18559c;
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i2) {
+        List<String> list = this.f18927c;
         if (list == null) {
             return;
         }
-        String str = list.get(i);
+        String str = list.get(i2);
         if (StringUtils.isNull(str)) {
             return;
         }
-        viewHolder.f18561a.setText(str);
-        SkinManager.setViewTextColor(viewHolder.f18561a, R.color.CAM_X0105);
+        viewHolder.f18929a.setText(str);
+        SkinManager.setViewTextColor(viewHolder.f18929a, R.color.CAM_X0105);
         SkinManager.setBackgroundResource(viewHolder.itemView, R.drawable.more_pop_item_bg_selector);
-        d(viewHolder.f18561a, str);
+        d(viewHolder.f18929a, str);
         viewHolder.itemView.setOnClickListener(new a(str));
     }
 
@@ -108,37 +108,37 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
     /* renamed from: f */
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new ViewHolder(this, LayoutInflater.from(this.f18558b).inflate(R.layout.search_major_item_layout, viewGroup, false));
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
+        return new ViewHolder(this, LayoutInflater.from(this.f18926b).inflate(R.layout.search_major_item_layout, viewGroup, false));
     }
 
     public void g(String str) {
-        this.f18557a = str;
+        this.f18925a = str;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        List<String> list = this.f18559c;
+        List<String> list = this.f18927c;
         if (list == null) {
             return 0;
         }
         return list.size();
     }
 
-    public void m() {
-        List<String> list = this.f18559c;
+    public void h() {
+        List<String> list = this.f18927c;
         if (list != null) {
             list.clear();
             notifyDataSetChanged();
         }
     }
 
-    public void n(b bVar) {
-        this.f18560d = bVar;
+    public void i(b bVar) {
+        this.f18928d = bVar;
     }
 
     public void setData(List<String> list) {
-        this.f18559c = list;
+        this.f18927c = list;
         notifyDataSetChanged();
     }
 }

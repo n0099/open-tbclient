@@ -2,7 +2,7 @@ package com.baidu.tbadk.BdToken.backUser;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.a.a0.a;
+import d.a.i0.a.a0.a;
 import tbclient.BackUser.BackUserResIdl;
 import tbclient.Error;
 /* loaded from: classes3.dex */
@@ -19,7 +19,7 @@ public class BackUserSocketResMsg extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         BackUserResIdl backUserResIdl = (BackUserResIdl) new Wire(new Class[0]).parseFrom(bArr, BackUserResIdl.class);
         if (backUserResIdl != null) {
             Error error = backUserResIdl.error;

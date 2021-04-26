@@ -29,7 +29,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class StatisticPoster {
     public static final boolean DEBUG = false;
     public static final int DOWNLOAD_STATUS_ERROR = 2;
@@ -75,12 +75,12 @@ public final class StatisticPoster {
         return arrayList;
     }
 
-    public void sendStatisticData(String str, int i) {
+    public void sendStatisticData(String str, int i2) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
         String processCommonParams = IdentityManager.getInstance(this.mContext).processCommonParams(DownPrefUtils.getString(this.mContext, DownPrefUtils.PREF_LOG_HOST, Constants.PREF_LOG_HOST_DEFAULT));
-        this.mUrl = processCommonParams + "&type=" + i + "&packagename=" + this.mContext.getPackageName();
+        this.mUrl = processCommonParams + "&type=" + i2 + "&packagename=" + this.mContext.getPackageName();
         this.mPostContent = str;
         this.mNetThreadPool.schedule(new Runnable() { // from class: com.baidu.down.statistic.StatisticPoster.1
             @Override // java.lang.Runnable
@@ -98,7 +98,7 @@ public final class StatisticPoster {
         }, 1000L, TimeUnit.MILLISECONDS);
     }
 
-    public void statisticDownload(AbstractTask abstractTask, int i) {
+    public void statisticDownload(AbstractTask abstractTask, int i2) {
         long j;
         String str;
         long j2;
@@ -122,9 +122,9 @@ public final class StatisticPoster {
                 } catch (URISyntaxException e2) {
                     e2.printStackTrace();
                 }
-                int i2 = next.mStatus;
-                if (i2 != 2) {
-                    str2 = i2 != 3 ? str3 + "2@-1@-1" : str3 + "1@-1@-1";
+                int i3 = next.mStatus;
+                if (i3 != 2) {
+                    str2 = i3 != 3 ? str3 + "2@-1@-1" : str3 + "1@-1@-1";
                     j2 = j3;
                 } else {
                     String str4 = str3 + "0@";
@@ -133,8 +133,8 @@ public final class StatisticPoster {
                     String str5 = next.mDownloadTimes == 0 ? str4 + "0@" : str4 + next.getTestAverageSpeed() + "@";
                     List<Long> list = next.mHttpConnectTime;
                     if (list != null && list.size() > 0) {
-                        for (int i3 = 0; i3 < next.mHttpConnectTime.size(); i3++) {
-                            j4 += next.mHttpConnectTime.get(i3).longValue();
+                        for (int i4 = 0; i4 < next.mHttpConnectTime.size(); i4++) {
+                            j4 += next.mHttpConnectTime.get(i4).longValue();
                         }
                         str2 = str5 + (j4 / next.mHttpConnectTime.size());
                     } else {
@@ -172,6 +172,6 @@ public final class StatisticPoster {
         } catch (JSONException e3) {
             e3.printStackTrace();
         }
-        sendStatisticData(jSONObject.toString(), i);
+        sendStatisticData(jSONObject.toString(), i2);
     }
 }

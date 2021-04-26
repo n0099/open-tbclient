@@ -1,12 +1,12 @@
 package com.google.common.collect;
 
 import com.google.common.collect.ImmutableCollection;
-import d.h.c.a.n;
-import d.h.c.c.c1;
-import d.h.c.c.d1;
-import d.h.c.c.f0;
-import d.h.c.c.j0;
-import d.h.c.c.m;
+import d.g.c.a.n;
+import d.g.c.c.c1;
+import d.g.c.c.d1;
+import d.g.c.c.f0;
+import d.g.c.c.j0;
+import d.g.c.c.m;
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
@@ -25,34 +25,34 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
     public static class ReverseImmutableList<E> extends ImmutableList<E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final transient ImmutableList<E> f30885e;
+        public final transient ImmutableList<E> f31844e;
 
         public ReverseImmutableList(ImmutableList<E> immutableList) {
-            this.f30885e = immutableList;
+            this.f31844e = immutableList;
         }
 
-        public final int a(int i) {
-            return (size() - 1) - i;
+        public final int a(int i2) {
+            return (size() - 1) - i2;
         }
 
-        public final int b(int i) {
-            return size() - i;
+        public final int b(int i2) {
+            return size() - i2;
         }
 
         @Override // com.google.common.collect.ImmutableList, com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
-            return this.f30885e.contains(obj);
+            return this.f31844e.contains(obj);
         }
 
         @Override // java.util.List
-        public E get(int i) {
-            n.n(i, size());
-            return this.f30885e.get(a(i));
+        public E get(int i2) {
+            n.n(i2, size());
+            return this.f31844e.get(a(i2));
         }
 
         @Override // com.google.common.collect.ImmutableList, java.util.List
         public int indexOf(Object obj) {
-            int lastIndexOf = this.f30885e.lastIndexOf(obj);
+            int lastIndexOf = this.f31844e.lastIndexOf(obj);
             if (lastIndexOf >= 0) {
                 return a(lastIndexOf);
             }
@@ -61,7 +61,7 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
 
         @Override // com.google.common.collect.ImmutableCollection
         public boolean isPartialView() {
-            return this.f30885e.isPartialView();
+            return this.f31844e.isPartialView();
         }
 
         @Override // com.google.common.collect.ImmutableList, com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set, java.util.NavigableSet
@@ -71,7 +71,7 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
 
         @Override // com.google.common.collect.ImmutableList, java.util.List
         public int lastIndexOf(Object obj) {
-            int indexOf = this.f30885e.indexOf(obj);
+            int indexOf = this.f31844e.indexOf(obj);
             if (indexOf >= 0) {
                 return a(indexOf);
             }
@@ -85,24 +85,24 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
 
         @Override // com.google.common.collect.ImmutableList
         public ImmutableList<E> reverse() {
-            return this.f30885e;
+            return this.f31844e;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
         public int size() {
-            return this.f30885e.size();
+            return this.f31844e.size();
         }
 
         @Override // com.google.common.collect.ImmutableList, java.util.List
-        public /* bridge */ /* synthetic */ ListIterator listIterator(int i) {
-            return super.listIterator(i);
+        public /* bridge */ /* synthetic */ ListIterator listIterator(int i2) {
+            return super.listIterator(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.ImmutableList, java.util.List
-        public ImmutableList<E> subList(int i, int i2) {
-            n.v(i, i2, size());
-            return this.f30885e.subList(b(i2), b(i)).reverse();
+        public ImmutableList<E> subList(int i2, int i3) {
+            n.v(i2, i3, size());
+            return this.f31844e.subList(b(i3), b(i2)).reverse();
         }
     }
 
@@ -125,15 +125,15 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
         public final transient int length;
         public final transient int offset;
 
-        public SubList(int i, int i2) {
-            this.offset = i;
-            this.length = i2;
+        public SubList(int i2, int i3) {
+            this.offset = i2;
+            this.length = i3;
         }
 
         @Override // java.util.List
-        public E get(int i) {
-            n.n(i, this.length);
-            return ImmutableList.this.get(i + this.offset);
+        public E get(int i2) {
+            n.n(i2, this.length);
+            return ImmutableList.this.get(i2 + this.offset);
         }
 
         @Override // com.google.common.collect.ImmutableCollection
@@ -172,17 +172,17 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
         }
 
         @Override // com.google.common.collect.ImmutableList, java.util.List
-        public /* bridge */ /* synthetic */ ListIterator listIterator(int i) {
-            return super.listIterator(i);
+        public /* bridge */ /* synthetic */ ListIterator listIterator(int i2) {
+            return super.listIterator(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.ImmutableList, java.util.List
-        public ImmutableList<E> subList(int i, int i2) {
-            n.v(i, i2, this.length);
+        public ImmutableList<E> subList(int i2, int i3) {
+            n.v(i2, i3, this.length);
             ImmutableList immutableList = ImmutableList.this;
-            int i3 = this.offset;
-            return immutableList.subList(i + i3, i2 + i3);
+            int i4 = this.offset;
+            return immutableList.subList(i2 + i4, i3 + i4);
         }
     }
 
@@ -211,29 +211,29 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
         }
 
         public ImmutableList<E> j() {
-            this.f30881c = true;
-            return ImmutableList.asImmutableList(this.f30879a, this.f30880b);
+            this.f31840c = true;
+            return ImmutableList.asImmutableList(this.f31838a, this.f31839b);
         }
 
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b<E> extends d.h.c.c.a<E> {
+    public static class b<E> extends d.g.c.c.a<E> {
 
         /* renamed from: g  reason: collision with root package name */
-        public final ImmutableList<E> f30886g;
+        public final ImmutableList<E> f31845g;
 
-        public b(ImmutableList<E> immutableList, int i) {
-            super(immutableList.size(), i);
-            this.f30886g = immutableList;
+        public b(ImmutableList<E> immutableList, int i2) {
+            super(immutableList.size(), i2);
+            this.f31845g = immutableList;
         }
 
-        @Override // d.h.c.c.a
-        public E a(int i) {
-            return this.f30886g.get(i);
+        @Override // d.g.c.c.a
+        public E a(int i2) {
+            return this.f31845g.get(i2);
         }
     }
 
@@ -245,9 +245,9 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
         return new a<>();
     }
 
-    public static <E> a<E> builderWithExpectedSize(int i) {
-        m.b(i, "expectedSize");
-        return new a<>(i);
+    public static <E> a<E> builderWithExpectedSize(int i2) {
+        m.b(i2, "expectedSize");
+        return new a<>(i2);
     }
 
     public static <E> ImmutableList<E> construct(Object... objArr) {
@@ -280,13 +280,13 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
 
     @Override // java.util.List
     @Deprecated
-    public final void add(int i, E e2) {
+    public final void add(int i2, E e2) {
         throw new UnsupportedOperationException();
     }
 
     @Override // java.util.List
     @Deprecated
-    public final boolean addAll(int i, Collection<? extends E> collection) {
+    public final boolean addAll(int i2, Collection<? extends E> collection) {
         throw new UnsupportedOperationException();
     }
 
@@ -301,12 +301,12 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
     }
 
     @Override // com.google.common.collect.ImmutableCollection
-    public int copyIntoArray(Object[] objArr, int i) {
+    public int copyIntoArray(Object[] objArr, int i2) {
         int size = size();
-        for (int i2 = 0; i2 < size; i2++) {
-            objArr[i + i2] = get(i2);
+        for (int i3 = 0; i3 < size; i3++) {
+            objArr[i2 + i3] = get(i3);
         }
-        return i + size;
+        return i2 + size;
     }
 
     @Override // java.util.Collection, java.util.List
@@ -317,11 +317,11 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
         int size = size();
-        int i = 1;
-        for (int i2 = 0; i2 < size; i2++) {
-            i = ~(~((i * 31) + get(i2).hashCode()));
+        int i2 = 1;
+        for (int i3 = 0; i3 < size; i3++) {
+            i2 = ~(~((i2 * 31) + get(i3).hashCode()));
         }
-        return i;
+        return i2;
     }
 
     @Override // java.util.List
@@ -342,7 +342,7 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
 
     @Override // java.util.List
     @Deprecated
-    public final E remove(int i) {
+    public final E remove(int i2) {
         throw new UnsupportedOperationException();
     }
 
@@ -352,12 +352,12 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
 
     @Override // java.util.List
     @Deprecated
-    public final E set(int i, E e2) {
+    public final E set(int i2, E e2) {
         throw new UnsupportedOperationException();
     }
 
-    public ImmutableList<E> subListUnchecked(int i, int i2) {
-        return new SubList(i, i2 - i);
+    public ImmutableList<E> subListUnchecked(int i2, int i3) {
+        return new SubList(i2, i3 - i2);
     }
 
     @Override // com.google.common.collect.ImmutableCollection
@@ -365,11 +365,11 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
         return new SerializedForm(toArray());
     }
 
-    public static <E> ImmutableList<E> asImmutableList(Object[] objArr, int i) {
-        if (i == 0) {
+    public static <E> ImmutableList<E> asImmutableList(Object[] objArr, int i2) {
+        if (i2 == 0) {
             return of();
         }
-        return new RegularImmutableList(objArr, i);
+        return new RegularImmutableList(objArr, i2);
     }
 
     public static <E> ImmutableList<E> of(E e2) {
@@ -384,16 +384,16 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.List
-    public ImmutableList<E> subList(int i, int i2) {
-        n.v(i, i2, size());
-        int i3 = i2 - i;
-        if (i3 == size()) {
+    public ImmutableList<E> subList(int i2, int i3) {
+        n.v(i2, i3, size());
+        int i4 = i3 - i2;
+        if (i4 == size()) {
             return this;
         }
-        if (i3 == 0) {
+        if (i4 == 0) {
             return of();
         }
-        return subListUnchecked(i, i2);
+        return subListUnchecked(i2, i3);
     }
 
     public static <E> ImmutableList<E> of(E e2, E e3) {
@@ -412,12 +412,12 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.List
-    public d1<E> listIterator(int i) {
-        n.t(i, size());
+    public d1<E> listIterator(int i2) {
+        n.t(i2, size());
         if (isEmpty()) {
             return (d1<E>) EMPTY_ITR;
         }
-        return new b(this, i);
+        return new b(this, i2);
     }
 
     public static <E> ImmutableList<E> copyOf(Collection<? extends E> collection) {

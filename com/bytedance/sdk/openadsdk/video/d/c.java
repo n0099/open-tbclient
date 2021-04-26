@@ -30,13 +30,13 @@ public class c {
         }
     }
 
-    public static void a(Context context, int i) {
-        if (i < 0) {
+    public static void a(Context context, int i2) {
+        if (i2 < 0) {
             return;
         }
         try {
             File[] listFiles = a(context).listFiles();
-            if (listFiles == null || listFiles.length <= i) {
+            if (listFiles == null || listFiles.length <= i2) {
                 return;
             }
             List asList = Arrays.asList(listFiles);
@@ -45,19 +45,19 @@ public class c {
                 @Override // java.util.Comparator
                 /* renamed from: a */
                 public int compare(File file, File file2) {
-                    int i2 = ((file2.lastModified() - file.lastModified()) > 0L ? 1 : ((file2.lastModified() - file.lastModified()) == 0L ? 0 : -1));
-                    if (i2 == 0) {
+                    int i3 = ((file2.lastModified() - file.lastModified()) > 0L ? 1 : ((file2.lastModified() - file.lastModified()) == 0L ? 0 : -1));
+                    if (i3 == 0) {
                         return 0;
                     }
-                    return i2 < 0 ? -1 : 1;
+                    return i3 < 0 ? -1 : 1;
                 }
             });
-            while (i < asList.size()) {
-                String name = ((File) asList.get(i)).getName();
-                if (!com.bytedance.sdk.openadsdk.video.a.b.a.f30162a.contains(name.replace(name, ".download"))) {
-                    ((File) asList.get(i)).delete();
+            while (i2 < asList.size()) {
+                String name = ((File) asList.get(i2)).getName();
+                if (!com.bytedance.sdk.openadsdk.video.a.b.a.f31079a.contains(name.replace(name, ".download"))) {
+                    ((File) asList.get(i2)).delete();
                 }
-                i++;
+                i2++;
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -82,14 +82,14 @@ public class c {
         return !file.getName().endsWith(".download");
     }
 
-    public static void a(RandomAccessFile randomAccessFile, byte[] bArr, int i, int i2, String str) throws IOException {
+    public static void a(RandomAccessFile randomAccessFile, byte[] bArr, int i2, int i3, String str) throws IOException {
         try {
-            randomAccessFile.seek(i);
-            randomAccessFile.write(bArr, 0, i2);
-            a.b("VideoFilesUtils", "append:  pisition =", Integer.valueOf(i), "  length =", Integer.valueOf(i2), " completed length=", Integer.valueOf(i + i2), " ", " hash =", str);
+            randomAccessFile.seek(i2);
+            randomAccessFile.write(bArr, 0, i3);
+            a.b("VideoFilesUtils", "append:  pisition =", Integer.valueOf(i2), "  length =", Integer.valueOf(i3), " completed length=", Integer.valueOf(i2 + i3), " ", " hash =", str);
         } catch (Throwable th) {
             th.printStackTrace();
-            a.b("VideoFilesUtils", "append:  pisition =", Integer.valueOf(i), "  length =", Integer.valueOf(i2), " ", " hash =", str, th.getMessage());
+            a.b("VideoFilesUtils", "append:  pisition =", Integer.valueOf(i2), "  length =", Integer.valueOf(i3), " ", " hash =", str, th.getMessage());
         }
     }
 }

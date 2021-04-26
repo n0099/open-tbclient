@@ -8,40 +8,40 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DpRTCSession {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f5089a = new c(DpStatConstants.SESSION_TYPE_RTC_COMMON);
+    public c f5218a = new c(DpStatConstants.SESSION_TYPE_RTC_COMMON);
 
     private synchronized JSONObject a(JSONObject jSONObject) throws JSONException {
-        this.f5089a.a(jSONObject);
+        this.f5218a.a(jSONObject);
         return jSONObject;
     }
 
-    public static synchronized void uploadSession(int i, HashMap<String, String> hashMap) {
+    public static synchronized void uploadSession(int i2, HashMap<String, String> hashMap) {
         synchronized (DpRTCSession.class) {
             if (hashMap != null) {
                 if (hashMap.size() > 0) {
                     DpRTCSession dpRTCSession = new DpRTCSession();
-                    dpRTCSession.add(i, hashMap);
+                    dpRTCSession.add(i2, hashMap);
                     dpRTCSession.upload();
                 }
             }
         }
     }
 
-    public synchronized void add(int i, String str, String str2) {
-        if (20488 == i) {
-            this.f5089a.a(new e((int) DpStatConstants.SESSION_TYPE_RTC_COMMON, str, str2));
+    public synchronized void add(int i2, String str, String str2) {
+        if (20488 == i2) {
+            this.f5218a.a(new e((int) DpStatConstants.SESSION_TYPE_RTC_COMMON, str, str2));
         }
     }
 
-    public synchronized void add(int i, HashMap<String, String> hashMap) {
+    public synchronized void add(int i2, HashMap<String, String> hashMap) {
         if (hashMap != null) {
             if (hashMap.size() > 0) {
                 for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                    add(i, entry.getKey(), entry.getValue());
+                    add(i2, entry.getKey(), entry.getValue());
                 }
             }
         }

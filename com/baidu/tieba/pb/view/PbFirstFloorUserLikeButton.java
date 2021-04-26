@@ -6,13 +6,13 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import d.b.i0.r.f0.q.b;
+import d.a.i0.r.f0.q.b;
 /* loaded from: classes3.dex */
 public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b {
     public String s;
     public String t;
-    public d.b.i0.r.f0.m.b u;
-    public d.b.i0.r.f0.m.b v;
+    public d.a.i0.r.f0.m.b u;
+    public d.a.i0.r.f0.m.b v;
     public View.OnClickListener w;
 
     public PbFirstFloorUserLikeButton(Context context) {
@@ -25,18 +25,19 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
         this.t = TbadkCoreApplication.getInst().getString(R.string.attention);
         setTextSize(R.dimen.T_X08);
         setText(this.t);
-        d.b.i0.r.f0.m.b bVar = new d.b.i0.r.f0.m.b();
+        d.a.i0.r.f0.m.b bVar = new d.a.i0.r.f0.m.b();
         this.u = bVar;
         bVar.q(R.color.CAM_X0302);
-        d.b.i0.r.f0.m.b bVar2 = new d.b.i0.r.f0.m.b();
+        d.a.i0.r.f0.m.b bVar2 = new d.a.i0.r.f0.m.b();
         this.v = bVar2;
         bVar2.r(R.color.CAM_X0109);
         setConfig(this.u);
     }
 
-    @Override // d.b.i0.r.f0.q.b
-    public void a(boolean z, int i) {
+    @Override // d.a.i0.r.f0.q.b
+    public void a(boolean z, int i2, boolean z2) {
         s(z);
+        setVisibility(0);
     }
 
     public void b(View view) {
@@ -46,31 +47,30 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
         }
     }
 
-    @Override // d.b.i0.r.f0.q.b
+    @Override // d.a.i0.r.f0.q.b
     public void c(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
     }
 
-    @Override // d.b.i0.r.f0.q.b
-    public void d(boolean z, int i, boolean z2) {
+    @Override // d.a.i0.r.f0.q.b
+    public void d(int i2) {
+    }
+
+    @Override // d.a.i0.r.f0.q.b
+    public void e(boolean z, int i2) {
         s(z);
-        setVisibility(0);
     }
 
-    @Override // d.b.i0.r.f0.q.b
-    public void e(int i) {
-    }
-
-    public void r(int i) {
+    public void r(int i2) {
         k();
     }
 
     public void s(boolean z) {
-        Object obj = this.f13270e;
+        Object obj = this.f13229e;
         if ((obj instanceof Boolean) && ((Boolean) obj).booleanValue() == z) {
             return;
         }
-        this.f13270e = Boolean.valueOf(z);
+        this.f13229e = Boolean.valueOf(z);
         if (z) {
             setVisibility(8);
             setClickable(false);
@@ -85,13 +85,13 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
         r(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void setFollowIconSize(int i) {
-        this.u.g(i);
+    public void setFollowIconSize(int i2) {
+        this.u.g(i2);
     }
 
     @Override // android.view.View
-    public void setVisibility(int i) {
-        super.setVisibility(i);
+    public void setVisibility(int i2) {
+        super.setVisibility(i2);
     }
 
     public PbFirstFloorUserLikeButton(Context context, AttributeSet attributeSet) {
@@ -99,8 +99,8 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
         m();
     }
 
-    public PbFirstFloorUserLikeButton(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public PbFirstFloorUserLikeButton(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         m();
     }
 }

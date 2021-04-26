@@ -3,13 +3,13 @@ package com.baidu.tieba.person;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.c.e.p.l;
-import d.b.i0.r.k;
-import d.b.i0.z0.w;
-import d.b.j0.f2.b;
+import d.a.c.e.p.l;
+import d.a.i0.r.k;
+import d.a.i0.z0.w;
+import d.a.j0.f2.b;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ProfileRequestMessage extends NetMessage {
     public boolean error_hint;
     public Long friend_uid;
@@ -47,10 +47,10 @@ public class ProfileRequestMessage extends NetMessage {
             builder.is_from_usercenter = is_from_usercenter();
             builder.page = getPage();
             int k = l.k(TbadkCoreApplication.getInst().getApp());
-            int i = l.i(TbadkCoreApplication.getInst().getApp());
+            int i2 = l.i(TbadkCoreApplication.getInst().getApp());
             int e2 = k.c().e();
             builder.scr_w = Integer.valueOf(k);
-            builder.scr_h = Integer.valueOf(i);
+            builder.scr_h = Integer.valueOf(i2);
             builder.scr_dip = Double.valueOf(l.h(TbadkCoreApplication.getInst().getApp()));
             builder.q_type = Integer.valueOf(e2);
             if (z) {

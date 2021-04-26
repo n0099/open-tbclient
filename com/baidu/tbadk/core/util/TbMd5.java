@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.content.pm.PackageInfo;
 import android.content.pm.Signature;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.c.e.p.q;
+import d.a.c.e.p.q;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,8 +13,8 @@ public class TbMd5 {
     public static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String creatSignInt(PackageInfo packageInfo) throws NumberFormatException {
-        int i;
         int i2;
+        int i3;
         String signMd5 = getSignMd5(packageInfo);
         if (signMd5 == null || signMd5.length() < 32) {
             return "-1";
@@ -22,11 +22,11 @@ public class TbMd5 {
         String substring = signMd5.substring(8, 24);
         long j = 0;
         long j2 = 0;
-        for (int i3 = 0; i3 < 8; i3++) {
-            j2 = (j2 * 16) + Integer.parseInt(substring.substring(i3, i2), 16);
+        for (int i4 = 0; i4 < 8; i4++) {
+            j2 = (j2 * 16) + Integer.parseInt(substring.substring(i4, i3), 16);
         }
-        for (int i4 = 8; i4 < substring.length(); i4++) {
-            j = (j * 16) + Integer.parseInt(substring.substring(i4, i), 16);
+        for (int i5 = 8; i5 < substring.length(); i5++) {
+            j = (j * 16) + Integer.parseInt(substring.substring(i5, i2), 16);
         }
         return String.valueOf(4294967295L & (j + j2));
     }
@@ -37,13 +37,13 @@ public class TbMd5 {
             messageDigest.update(bArr);
             byte[] digest = messageDigest.digest();
             char[] cArr = new char[32];
-            int i = 0;
-            for (int i2 = 0; i2 < 16; i2++) {
-                byte b2 = digest[i2];
-                int i3 = i + 1;
-                cArr[i] = HEX_DIGITS[(b2 >>> 4) & 15];
-                i = i3 + 1;
-                cArr[i3] = HEX_DIGITS[b2 & 15];
+            int i2 = 0;
+            for (int i3 = 0; i3 < 16; i3++) {
+                byte b2 = digest[i3];
+                int i4 = i2 + 1;
+                cArr[i2] = HEX_DIGITS[(b2 >>> 4) & 15];
+                i2 = i4 + 1;
+                cArr[i4] = HEX_DIGITS[b2 & 15];
             }
             return new String(cArr);
         } catch (Exception e2) {

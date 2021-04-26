@@ -72,7 +72,7 @@ public class ScrollLayout extends FrameLayout {
 
     /* loaded from: classes2.dex */
     public interface OnScrollChangedListener {
-        void onChildScroll(int i);
+        void onChildScroll(int i2);
 
         void onScrollFinished(Status status);
 
@@ -112,9 +112,9 @@ public class ScrollLayout extends FrameLayout {
                     }
                     return true;
                 }
-                int i = (f3 > 80.0f ? 1 : (f3 == 80.0f ? 0 : -1));
-                if (i >= 0 || ScrollLayout.this.getScrollY() > (-ScrollLayout.this.maxOffset)) {
-                    if (i >= 0 || ScrollLayout.this.getScrollY() <= (-ScrollLayout.this.maxOffset)) {
+                int i2 = (f3 > 80.0f ? 1 : (f3 == 80.0f ? 0 : -1));
+                if (i2 >= 0 || ScrollLayout.this.getScrollY() > (-ScrollLayout.this.maxOffset)) {
+                    if (i2 >= 0 || ScrollLayout.this.getScrollY() <= (-ScrollLayout.this.maxOffset)) {
                         return false;
                     }
                     ScrollLayout.this.scrollToOpened();
@@ -128,14 +128,14 @@ public class ScrollLayout extends FrameLayout {
         };
         this.associatedRecyclerViewListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.pass.ecommerce.view.ScrollLayout.2
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                super.onScrollStateChanged(recyclerView, i);
+            public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
+                super.onScrollStateChanged(recyclerView, i2);
                 ScrollLayout.this.updateRecyclerViewScrollState(recyclerView);
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrolled(RecyclerView recyclerView, int i, int i2) {
-                super.onScrolled(recyclerView, i, i2);
+            public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
+                super.onScrolled(recyclerView, i2, i3);
                 ScrollLayout.this.updateRecyclerViewScrollState(recyclerView);
             }
         };
@@ -148,9 +148,9 @@ public class ScrollLayout extends FrameLayout {
         if (getScrollY() > f2) {
             scrollToOpened();
         } else if (this.isSupportExit) {
-            int i = this.exitOffset;
-            int i2 = this.maxOffset;
-            float f3 = -(((i - i2) * 0.8f) + i2);
+            int i2 = this.exitOffset;
+            int i3 = this.maxOffset;
+            float f3 = -(((i2 - i3) * 0.8f) + i3);
             if (getScrollY() <= f2 && getScrollY() > f3) {
                 scrollToHalf();
             } else {
@@ -161,14 +161,14 @@ public class ScrollLayout extends FrameLayout {
         }
     }
 
-    private boolean disposeEdgeValue(int i) {
+    private boolean disposeEdgeValue(int i2) {
         if (this.isSupportExit) {
-            if (i > 0 || getScrollY() < (-this.openedOffset)) {
-                return i >= 0 && getScrollY() <= (-this.exitOffset);
+            if (i2 > 0 || getScrollY() < (-this.openedOffset)) {
+                return i2 >= 0 && getScrollY() <= (-this.exitOffset);
             }
             return true;
-        } else if (i > 0 || getScrollY() < (-this.openedOffset)) {
-            return i >= 0 && getScrollY() <= (-this.maxOffset);
+        } else if (i2 > 0 || getScrollY() < (-this.openedOffset)) {
+            return i2 >= 0 && getScrollY() <= (-this.maxOffset);
         } else {
             return true;
         }
@@ -257,9 +257,9 @@ public class ScrollLayout extends FrameLayout {
     }
 
     public Status getCurrentStatus() {
-        int i = AnonymousClass3.$SwitchMap$com$baidu$pass$ecommerce$view$ScrollLayout$InnerStatus[this.currentInnerStatus.ordinal()];
-        if (i != 1) {
-            if (i != 2) {
+        int i2 = AnonymousClass3.$SwitchMap$com$baidu$pass$ecommerce$view$ScrollLayout$InnerStatus[this.currentInnerStatus.ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
                 return Status.HALF;
             }
             return Status.EXIT;
@@ -359,13 +359,13 @@ public class ScrollLayout extends FrameLayout {
                         }
                         this.currentInnerStatus = InnerStatus.MOVING;
                         int scrollY = getScrollY() - signum;
-                        int i = -this.openedOffset;
-                        if (scrollY >= i) {
-                            scrollTo(0, i);
+                        int i2 = -this.openedOffset;
+                        if (scrollY >= i2) {
+                            scrollTo(0, i2);
                         } else {
-                            int i2 = -this.maxOffset;
-                            if (scrollY <= i2 && !this.isSupportExit) {
-                                scrollTo(0, i2);
+                            int i3 = -this.maxOffset;
+                            if (scrollY <= i3 && !this.isSupportExit) {
+                                scrollTo(0, i3);
                             } else {
                                 scrollTo(0, scrollY);
                             }
@@ -389,34 +389,34 @@ public class ScrollLayout extends FrameLayout {
     }
 
     @Override // android.view.View
-    public void scrollTo(int i, int i2) {
-        super.scrollTo(i, i2);
-        int i3 = this.maxOffset;
-        int i4 = this.openedOffset;
-        if (i3 == i4) {
+    public void scrollTo(int i2, int i3) {
+        super.scrollTo(i2, i3);
+        int i4 = this.maxOffset;
+        int i5 = this.openedOffset;
+        if (i4 == i5) {
             return;
         }
-        int i5 = -i2;
-        if (i5 <= i3) {
-            onScrollProgressChanged((i5 - i4) / (i3 - i4));
+        int i6 = -i3;
+        if (i6 <= i4) {
+            onScrollProgressChanged((i6 - i5) / (i4 - i5));
         } else {
-            onScrollProgressChanged((i5 - i3) / (i3 - this.exitOffset));
+            onScrollProgressChanged((i6 - i4) / (i4 - this.exitOffset));
         }
-        if (i2 == (-this.openedOffset)) {
+        if (i3 == (-this.openedOffset)) {
             InnerStatus innerStatus = this.currentInnerStatus;
             InnerStatus innerStatus2 = InnerStatus.OPENED;
             if (innerStatus != innerStatus2) {
                 this.currentInnerStatus = innerStatus2;
                 onScrollFinished(Status.OPENED);
             }
-        } else if (i2 == (-this.maxOffset)) {
+        } else if (i3 == (-this.maxOffset)) {
             InnerStatus innerStatus3 = this.currentInnerStatus;
             InnerStatus innerStatus4 = InnerStatus.HALF;
             if (innerStatus3 != innerStatus4) {
                 this.currentInnerStatus = innerStatus4;
                 onScrollFinished(Status.HALF);
             }
-        } else if (this.isSupportExit && i2 == (-this.exitOffset)) {
+        } else if (this.isSupportExit && i3 == (-this.exitOffset)) {
             InnerStatus innerStatus5 = this.currentInnerStatus;
             InnerStatus innerStatus6 = InnerStatus.EXIT;
             if (innerStatus5 != innerStatus6) {
@@ -427,35 +427,35 @@ public class ScrollLayout extends FrameLayout {
     }
 
     public void scrollToExit() {
-        int i;
         int i2;
-        if (!this.isSupportExit || this.currentInnerStatus == InnerStatus.EXIT || this.exitOffset == this.maxOffset || (i2 = (-getScrollY()) - (i = this.exitOffset)) == 0) {
+        int i3;
+        if (!this.isSupportExit || this.currentInnerStatus == InnerStatus.EXIT || this.exitOffset == this.maxOffset || (i3 = (-getScrollY()) - (i2 = this.exitOffset)) == 0) {
             return;
         }
         this.currentInnerStatus = InnerStatus.SCROLLING;
-        this.scroller.startScroll(0, getScrollY(), 0, i2, Math.abs((i2 * 300) / (i - this.maxOffset)) + 100);
+        this.scroller.startScroll(0, getScrollY(), 0, i3, Math.abs((i3 * 300) / (i2 - this.maxOffset)) + 100);
         invalidate();
     }
 
     public void scrollToHalf() {
-        int i;
         int i2;
-        if (this.currentInnerStatus == InnerStatus.HALF || this.maxOffset == this.openedOffset || (i2 = (-getScrollY()) - (i = this.maxOffset)) == 0) {
+        int i3;
+        if (this.currentInnerStatus == InnerStatus.HALF || this.maxOffset == this.openedOffset || (i3 = (-getScrollY()) - (i2 = this.maxOffset)) == 0) {
             return;
         }
         this.currentInnerStatus = InnerStatus.SCROLLING;
-        this.scroller.startScroll(0, getScrollY(), 0, i2, Math.abs((i2 * 300) / (i - this.openedOffset)) + 100);
+        this.scroller.startScroll(0, getScrollY(), 0, i3, Math.abs((i3 * 300) / (i2 - this.openedOffset)) + 100);
         invalidate();
     }
 
     public void scrollToOpened() {
-        int i;
         int i2;
-        if (this.currentInnerStatus == InnerStatus.OPENED || this.maxOffset == this.openedOffset || (i2 = (-getScrollY()) - (i = this.openedOffset)) == 0) {
+        int i3;
+        if (this.currentInnerStatus == InnerStatus.OPENED || this.maxOffset == this.openedOffset || (i3 = (-getScrollY()) - (i2 = this.openedOffset)) == 0) {
             return;
         }
         this.currentInnerStatus = InnerStatus.SCROLLING;
-        this.scroller.startScroll(0, getScrollY(), 0, i2, Math.abs((i2 * 300) / (this.maxOffset - i)) + 100);
+        this.scroller.startScroll(0, getScrollY(), 0, i3, Math.abs((i3 * 300) / (this.maxOffset - i2)) + 100);
         invalidate();
     }
 
@@ -468,8 +468,8 @@ public class ScrollLayout extends FrameLayout {
         updateRecyclerViewScrollState(recyclerView);
     }
 
-    public void setContentHeight(int i) {
-        this.contentHeight = i;
+    public void setContentHeight(int i2) {
+        this.contentHeight = i2;
     }
 
     public void setDraggable(boolean z) {
@@ -480,8 +480,8 @@ public class ScrollLayout extends FrameLayout {
         this.isEnable = z;
     }
 
-    public void setExitOffset(int i) {
-        this.exitOffset = getContentHeight() - i;
+    public void setExitOffset(int i2) {
+        this.exitOffset = getContentHeight() - i2;
     }
 
     public void setHalf() {
@@ -490,8 +490,8 @@ public class ScrollLayout extends FrameLayout {
         this.lastFlingStatus = Status.HALF;
     }
 
-    public void setHalfOffset(int i) {
-        this.maxOffset = getContentHeight() - i;
+    public void setHalfOffset(int i2) {
+        this.maxOffset = getContentHeight() - i2;
     }
 
     public void setIsSupportExit(boolean z) {
@@ -502,8 +502,8 @@ public class ScrollLayout extends FrameLayout {
         this.onScrollChangedListener = onScrollChangedListener;
     }
 
-    public void setOpenedOffset(int i) {
-        this.openedOffset = i;
+    public void setOpenedOffset(int i2) {
+        this.openedOffset = i2;
     }
 
     public void setToExit() {
@@ -554,9 +554,9 @@ public class ScrollLayout extends FrameLayout {
                     }
                     return true;
                 }
-                int i = (f3 > 80.0f ? 1 : (f3 == 80.0f ? 0 : -1));
-                if (i >= 0 || ScrollLayout.this.getScrollY() > (-ScrollLayout.this.maxOffset)) {
-                    if (i >= 0 || ScrollLayout.this.getScrollY() <= (-ScrollLayout.this.maxOffset)) {
+                int i2 = (f3 > 80.0f ? 1 : (f3 == 80.0f ? 0 : -1));
+                if (i2 >= 0 || ScrollLayout.this.getScrollY() > (-ScrollLayout.this.maxOffset)) {
+                    if (i2 >= 0 || ScrollLayout.this.getScrollY() <= (-ScrollLayout.this.maxOffset)) {
                         return false;
                     }
                     ScrollLayout.this.scrollToOpened();
@@ -570,14 +570,14 @@ public class ScrollLayout extends FrameLayout {
         };
         this.associatedRecyclerViewListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.pass.ecommerce.view.ScrollLayout.2
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                super.onScrollStateChanged(recyclerView, i);
+            public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
+                super.onScrollStateChanged(recyclerView, i2);
                 ScrollLayout.this.updateRecyclerViewScrollState(recyclerView);
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrolled(RecyclerView recyclerView, int i, int i2) {
-                super.onScrolled(recyclerView, i, i2);
+            public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
+                super.onScrolled(recyclerView, i2, i3);
                 ScrollLayout.this.updateRecyclerViewScrollState(recyclerView);
             }
         };
@@ -586,8 +586,8 @@ public class ScrollLayout extends FrameLayout {
         initFromAttributes(context, attributeSet);
     }
 
-    public ScrollLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ScrollLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.lastFlingStatus = Status.OPENED;
         this.isEnable = true;
         this.isSupportExit = false;
@@ -612,9 +612,9 @@ public class ScrollLayout extends FrameLayout {
                     }
                     return true;
                 }
-                int i2 = (f3 > 80.0f ? 1 : (f3 == 80.0f ? 0 : -1));
-                if (i2 >= 0 || ScrollLayout.this.getScrollY() > (-ScrollLayout.this.maxOffset)) {
-                    if (i2 >= 0 || ScrollLayout.this.getScrollY() <= (-ScrollLayout.this.maxOffset)) {
+                int i22 = (f3 > 80.0f ? 1 : (f3 == 80.0f ? 0 : -1));
+                if (i22 >= 0 || ScrollLayout.this.getScrollY() > (-ScrollLayout.this.maxOffset)) {
+                    if (i22 >= 0 || ScrollLayout.this.getScrollY() <= (-ScrollLayout.this.maxOffset)) {
                         return false;
                     }
                     ScrollLayout.this.scrollToOpened();
@@ -628,14 +628,14 @@ public class ScrollLayout extends FrameLayout {
         };
         this.associatedRecyclerViewListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.pass.ecommerce.view.ScrollLayout.2
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
-                super.onScrollStateChanged(recyclerView, i2);
+            public void onScrollStateChanged(RecyclerView recyclerView, int i22) {
+                super.onScrollStateChanged(recyclerView, i22);
                 ScrollLayout.this.updateRecyclerViewScrollState(recyclerView);
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrolled(RecyclerView recyclerView, int i2, int i22) {
-                super.onScrolled(recyclerView, i2, i22);
+            public void onScrolled(RecyclerView recyclerView, int i22, int i3) {
+                super.onScrolled(recyclerView, i22, i3);
                 ScrollLayout.this.updateRecyclerViewScrollState(recyclerView);
             }
         };

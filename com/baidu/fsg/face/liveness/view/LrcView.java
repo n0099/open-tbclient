@@ -16,29 +16,31 @@ public class LrcView extends FrameLayout {
     public static int B;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f6180a;
+    public boolean f6357a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6181b;
+    public boolean f6358b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f6182c;
+    public boolean f6359c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6183d;
+    public int f6360d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6184e;
+    public int f6361e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6185f;
+    public int f6362f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6186g;
+    public int f6363g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6187h;
-    public int i;
+    public int f6364h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f6365i;
     public int j;
     public int k;
     public int l;
@@ -64,11 +66,11 @@ public class LrcView extends FrameLayout {
 
     public LrcView(@NonNull Context context) {
         super(context);
-        this.f6180a = false;
-        this.f6181b = false;
-        this.f6182c = false;
-        this.f6183d = 255;
-        this.f6184e = 127;
+        this.f6357a = false;
+        this.f6358b = false;
+        this.f6359c = false;
+        this.f6360d = 255;
+        this.f6361e = 127;
         this.y = 72;
         this.z = 54;
         this.m = new Runnable() { // from class: com.baidu.fsg.face.liveness.view.LrcView.1
@@ -82,19 +84,19 @@ public class LrcView extends FrameLayout {
                     return;
                 }
                 LrcView lrcView = LrcView.this;
-                lrcView.f6181b = false;
+                lrcView.f6358b = false;
                 LrcView.d(lrcView);
                 LrcView.this.toInvalidate();
-                LrcView.this.f6180a = false;
+                LrcView.this.f6357a = false;
             }
         };
         a();
     }
 
     public static /* synthetic */ int d(LrcView lrcView) {
-        int i = lrcView.q;
-        lrcView.q = i + 1;
-        return i;
+        int i2 = lrcView.q;
+        lrcView.q = i2 + 1;
+        return i2;
     }
 
     @Override // android.view.View
@@ -106,18 +108,18 @@ public class LrcView extends FrameLayout {
             return;
         }
         a(canvas, this.p);
-        if (this.f6182c) {
+        if (this.f6359c) {
             return;
         }
-        if (this.f6181b && !this.f6180a) {
-            this.f6180a = true;
-            int i = this.q;
-            if (i == 0) {
+        if (this.f6358b && !this.f6357a) {
+            this.f6357a = true;
+            int i2 = this.q;
+            if (i2 == 0) {
                 getHandler().postDelayed(this.m, 200L);
                 return;
             }
             List<String> list2 = this.p;
-            if (list2 != null && i >= 0 && i <= list2.size()) {
+            if (list2 != null && i2 >= 0 && i2 <= list2.size()) {
                 getHandler().postDelayed(this.m, (long) (this.p.get(this.q).length() * 0.25d * 1000.0d));
                 return;
             } else {
@@ -129,20 +131,20 @@ public class LrcView extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
         this.n = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
         this.o = measuredHeight;
         float[] fArr = this.v;
-        int i3 = this.n;
-        int i4 = this.x;
-        int i5 = this.w;
-        fArr[0] = ((i3 / 2) - i4) - (i5 * 2);
+        int i4 = this.n;
+        int i5 = this.x;
+        int i6 = this.w;
+        fArr[0] = ((i4 / 2) - i5) - (i6 * 2);
         fArr[1] = measuredHeight / 2;
-        fArr[2] = i3 / 2;
+        fArr[2] = i4 / 2;
         fArr[3] = measuredHeight / 2;
-        fArr[4] = (i3 / 2) + i4 + (i5 * 2);
+        fArr[4] = (i4 / 2) + i5 + (i6 * 2);
         fArr[5] = measuredHeight / 2;
     }
 
@@ -155,13 +157,13 @@ public class LrcView extends FrameLayout {
     }
 
     public void stopLrc() {
-        this.f6182c = true;
+        this.f6359c = true;
         this.r = null;
     }
 
     public void toInvalidate() {
-        this.f6185f = 0;
-        this.f6186g = 0;
+        this.f6362f = 0;
+        this.f6363g = 0;
         this.l = 0;
         setBackgroundColor(Color.argb(0, 0, 0, 0));
         invalidate();
@@ -192,11 +194,11 @@ public class LrcView extends FrameLayout {
 
     public LrcView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f6180a = false;
-        this.f6181b = false;
-        this.f6182c = false;
-        this.f6183d = 255;
-        this.f6184e = 127;
+        this.f6357a = false;
+        this.f6358b = false;
+        this.f6359c = false;
+        this.f6360d = 255;
+        this.f6361e = 127;
         this.y = 72;
         this.z = 54;
         this.m = new Runnable() { // from class: com.baidu.fsg.face.liveness.view.LrcView.1
@@ -210,33 +212,33 @@ public class LrcView extends FrameLayout {
                     return;
                 }
                 LrcView lrcView = LrcView.this;
-                lrcView.f6181b = false;
+                lrcView.f6358b = false;
                 LrcView.d(lrcView);
                 LrcView.this.toInvalidate();
-                LrcView.this.f6180a = false;
+                LrcView.this.f6357a = false;
             }
         };
         a();
     }
 
     private void a(Canvas canvas, List<String> list) {
-        int i;
         int i2;
         int i3;
         int i4;
         int i5;
         int i6;
-        for (int i7 = 0; i7 < list.size(); i7++) {
-            int i8 = this.q;
-            if (i8 == 0) {
-                if (i7 == 0) {
-                    int i9 = this.f6185f;
-                    if (i9 < 108) {
-                        this.f6185f = i9 + 2;
-                    } else if (i9 >= 108 && i9 <= 144) {
-                        this.f6185f = i9 + 2;
+        int i7;
+        for (int i8 = 0; i8 < list.size(); i8++) {
+            int i9 = this.q;
+            if (i9 == 0) {
+                if (i8 == 0) {
+                    int i10 = this.f6362f;
+                    if (i10 < 108) {
+                        this.f6362f = i10 + 2;
+                    } else if (i10 >= 108 && i10 <= 144) {
+                        this.f6362f = i10 + 2;
                     } else {
-                        this.f6181b = true;
+                        this.f6358b = true;
                     }
                     this.u.setColor(Color.argb(111, 255, 255, 255));
                     float[] fArr = this.v;
@@ -245,8 +247,8 @@ public class LrcView extends FrameLayout {
                     canvas.drawCircle(fArr2[2], fArr2[3], this.w, this.u);
                     float[] fArr3 = this.v;
                     canvas.drawCircle(fArr3[4], fArr3[5], this.w, this.u);
-                    int i10 = this.f6185f;
-                    if (i10 >= 144) {
+                    int i11 = this.f6362f;
+                    if (i11 >= 144) {
                         this.u.setColor(Color.argb(255, 255, 255, 255));
                         float[] fArr4 = this.v;
                         canvas.drawCircle(fArr4[0], fArr4[1], this.w, this.u);
@@ -254,116 +256,116 @@ public class LrcView extends FrameLayout {
                         canvas.drawCircle(fArr5[2], fArr5[3], this.w, this.u);
                         float[] fArr6 = this.v;
                         canvas.drawCircle(fArr6[4], fArr6[5], this.w, this.u);
-                    } else if (i10 >= 108) {
+                    } else if (i11 >= 108) {
                         this.u.setColor(Color.argb(255, 255, 255, 255));
                         float[] fArr7 = this.v;
                         canvas.drawCircle(fArr7[0], fArr7[1], this.w, this.u);
                         float[] fArr8 = this.v;
                         canvas.drawCircle(fArr8[2], fArr8[3], this.w, this.u);
-                        this.u.setAlpha(((int) (((this.f6185f - 108) / 36.0f) * 144.0f)) + 111);
+                        this.u.setAlpha(((int) (((this.f6362f - 108) / 36.0f) * 144.0f)) + 111);
                         float[] fArr9 = this.v;
                         canvas.drawCircle(fArr9[4], fArr9[5], this.w, this.u);
-                    } else if (i10 >= 72) {
+                    } else if (i11 >= 72) {
                         this.u.setColor(Color.argb(255, 255, 255, 255));
                         float[] fArr10 = this.v;
                         canvas.drawCircle(fArr10[0], fArr10[1], this.w, this.u);
-                        this.u.setAlpha(((int) (((this.f6185f - 72) / 36.0f) * 144.0f)) + 111);
+                        this.u.setAlpha(((int) (((this.f6362f - 72) / 36.0f) * 144.0f)) + 111);
                         float[] fArr11 = this.v;
                         canvas.drawCircle(fArr11[2], fArr11[3], this.w, this.u);
-                    } else if (i10 >= 36) {
-                        this.u.setAlpha(((int) (((i10 - 36) / 36.0f) * 144.0f)) + 111);
+                    } else if (i11 >= 36) {
+                        this.u.setAlpha(((int) (((i11 - 36) / 36.0f) * 144.0f)) + 111);
                         this.u.setColor(Color.argb(255, 255, 255, 255));
                         float[] fArr12 = this.v;
                         canvas.drawCircle(fArr12[0], fArr12[1], this.w, this.u);
                     }
-                } else if (i7 == 1) {
-                    if (this.f6187h <= A) {
+                } else if (i8 == 1) {
+                    if (this.f6364h <= A) {
                         this.s.setTextSize(this.z);
-                        this.s.setAlpha(this.f6184e);
-                        int i11 = B;
-                        int i12 = A;
-                        canvas.drawText(list.get(1), this.n / 2, (this.o / 2) + i11 + ((i11 * (i12 - this.f6187h)) / i12), this.s);
-                        this.f6187h++;
+                        this.s.setAlpha(this.f6361e);
+                        int i12 = B;
+                        int i13 = A;
+                        canvas.drawText(list.get(1), this.n / 2, (this.o / 2) + i12 + ((i12 * (i13 - this.f6364h)) / i13), this.s);
+                        this.f6364h++;
                     } else {
                         this.s.setTextSize(this.z);
-                        this.s.setAlpha(this.f6184e);
+                        this.s.setAlpha(this.f6361e);
                         canvas.drawText(list.get(1), this.n / 2, (this.o / 2) + B, this.s);
                     }
-                } else if (i7 == 2) {
-                    if (this.i <= A) {
+                } else if (i8 == 2) {
+                    if (this.f6365i <= A) {
                         this.s.setTextSize(this.z);
-                        this.s.setAlpha(this.f6184e);
-                        int i13 = A;
-                        canvas.drawText(list.get(2), this.n / 2, (this.o / 2) + 300 + ((B * (i13 - this.i)) / i13), this.s);
-                        this.i++;
+                        this.s.setAlpha(this.f6361e);
+                        int i14 = A;
+                        canvas.drawText(list.get(2), this.n / 2, (this.o / 2) + 300 + ((B * (i14 - this.f6365i)) / i14), this.s);
+                        this.f6365i++;
                     } else {
                         this.s.setTextSize(this.z);
-                        this.s.setAlpha(this.f6184e);
+                        this.s.setAlpha(this.f6361e);
                         canvas.drawText(list.get(2), this.n / 2, (this.o / 2) + (B * 2), this.s);
                     }
                 }
-            } else if (i8 == 1) {
-                if (i7 == 1) {
+            } else if (i9 == 1) {
+                if (i8 == 1) {
                     if (this.j < A) {
-                        this.s.setTextSize(this.z + i5);
-                        this.s.setAlpha(this.f6184e + ((int) (((this.f6183d - i6) * this.j) / A)));
-                        int i14 = A;
-                        canvas.drawText(list.get(i7), this.n / 2, (this.o / 2) + ((int) ((B * (i14 - this.j)) / i14)), this.s);
+                        this.s.setTextSize(this.z + i6);
+                        this.s.setAlpha(this.f6361e + ((int) (((this.f6360d - i7) * this.j) / A)));
+                        int i15 = A;
+                        canvas.drawText(list.get(i8), this.n / 2, (this.o / 2) + ((int) ((B * (i15 - this.j)) / i15)), this.s);
                         this.j++;
                     } else {
-                        this.f6181b = true;
+                        this.f6358b = true;
                         this.s.setTextSize(this.y);
-                        this.s.setAlpha(this.f6183d);
-                        canvas.drawText(list.get(i7), this.n / 2, this.o / 2, this.s);
+                        this.s.setAlpha(this.f6360d);
+                        canvas.drawText(list.get(i8), this.n / 2, this.o / 2, this.s);
                     }
-                } else if (i7 == 2) {
-                    int i15 = this.k;
-                    if (i15 < A) {
-                        this.k = i15 + 1;
+                } else if (i8 == 2) {
+                    int i16 = this.k;
+                    if (i16 < A) {
+                        this.k = i16 + 1;
                     } else {
-                        this.f6181b = true;
+                        this.f6358b = true;
                     }
                     this.s.setTextSize(this.z);
-                    this.s.setAlpha(this.f6184e);
-                    int i16 = B;
-                    int i17 = A;
-                    canvas.drawText(list.get(i7), this.n / 2, (this.o / 2) + i16 + ((int) ((i16 * (i17 - this.k)) / i17)), this.s);
-                }
-            } else if (i7 == i8) {
-                if (this.f6185f < A) {
-                    this.s.setTextSize(this.z + i3);
-                    this.s.setAlpha(this.f6184e + ((int) (((this.f6183d - i4) * this.f6185f) / A)));
+                    this.s.setAlpha(this.f6361e);
+                    int i17 = B;
                     int i18 = A;
-                    canvas.drawText(list.get(i7), this.n / 2, (this.o / 2) + ((int) ((B * (i18 - this.f6185f)) / i18)), this.s);
-                    this.f6185f++;
-                } else {
-                    this.f6181b = true;
-                    this.s.setTextSize(this.y);
-                    this.s.setAlpha(this.f6183d);
-                    canvas.drawText(list.get(i7), this.n / 2, this.o / 2, this.s);
+                    canvas.drawText(list.get(i8), this.n / 2, (this.o / 2) + i17 + ((int) ((i17 * (i18 - this.k)) / i18)), this.s);
                 }
-            } else if (i7 == i8 - 1) {
-                if (this.f6186g < A) {
-                    this.s.setTextSize(this.y - i);
-                    this.s.setAlpha(this.f6183d - ((int) (((i2 - this.f6184e) * this.f6186g) / A)));
-                    canvas.drawText(list.get(i7), this.n / 2, (this.o / 2) - ((int) (((B * this.f6186g) * 1.0d) / A)), this.s);
-                    this.f6186g++;
+            } else if (i8 == i9) {
+                if (this.f6362f < A) {
+                    this.s.setTextSize(this.z + i4);
+                    this.s.setAlpha(this.f6361e + ((int) (((this.f6360d - i5) * this.f6362f) / A)));
+                    int i19 = A;
+                    canvas.drawText(list.get(i8), this.n / 2, (this.o / 2) + ((int) ((B * (i19 - this.f6362f)) / i19)), this.s);
+                    this.f6362f++;
+                } else {
+                    this.f6358b = true;
+                    this.s.setTextSize(this.y);
+                    this.s.setAlpha(this.f6360d);
+                    canvas.drawText(list.get(i8), this.n / 2, this.o / 2, this.s);
+                }
+            } else if (i8 == i9 - 1) {
+                if (this.f6363g < A) {
+                    this.s.setTextSize(this.y - i2);
+                    this.s.setAlpha(this.f6360d - ((int) (((i3 - this.f6361e) * this.f6363g) / A)));
+                    canvas.drawText(list.get(i8), this.n / 2, (this.o / 2) - ((int) (((B * this.f6363g) * 1.0d) / A)), this.s);
+                    this.f6363g++;
                 } else {
                     this.s.setTextSize(this.z);
-                    this.s.setAlpha(this.f6184e);
-                    canvas.drawText(list.get(i7), this.n / 2, (this.o / 2) - B, this.s);
+                    this.s.setAlpha(this.f6361e);
+                    canvas.drawText(list.get(i8), this.n / 2, (this.o / 2) - B, this.s);
                 }
-            } else if (i7 == i8 + 1) {
+            } else if (i8 == i9 + 1) {
                 if (this.l < A) {
                     this.s.setTextSize(this.z);
-                    this.s.setAlpha(this.f6184e);
-                    int i19 = B;
-                    canvas.drawText(list.get(i7), this.n / 2, ((this.o / 2) + (i19 * 2)) - ((int) (((i19 * this.l) * 1.0d) / A)), this.s);
+                    this.s.setAlpha(this.f6361e);
+                    int i20 = B;
+                    canvas.drawText(list.get(i8), this.n / 2, ((this.o / 2) + (i20 * 2)) - ((int) (((i20 * this.l) * 1.0d) / A)), this.s);
                     this.l++;
                 } else {
                     this.s.setTextSize(this.z);
-                    this.s.setAlpha(this.f6184e);
-                    canvas.drawText(list.get(i7), this.n / 2, (this.o / 2) + B, this.s);
+                    this.s.setAlpha(this.f6361e);
+                    canvas.drawText(list.get(i8), this.n / 2, (this.o / 2) + B, this.s);
                 }
             }
         }

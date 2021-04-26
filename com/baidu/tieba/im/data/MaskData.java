@@ -20,8 +20,8 @@ public class MaskData implements Serializable {
         return this.isMask != 0;
     }
 
-    public void setIsMask(int i) {
-        this.isMask = i;
+    public void setIsMask(int i2) {
+        this.isMask = i2;
     }
 
     public void setList(String str) {

@@ -11,7 +11,7 @@ public class VideoFrame implements RefCounted {
     /* loaded from: classes7.dex */
     public interface Buffer extends RefCounted {
         @CalledByNative("Buffer")
-        Buffer cropAndScale(int i, int i2, int i3, int i4, int i5, int i6);
+        Buffer cropAndScale(int i2, int i3, int i4, int i5, int i6, int i7);
 
         @CalledByNative("Buffer")
         int getHeight();
@@ -62,8 +62,8 @@ public class VideoFrame implements RefCounted {
             
             public final int glTarget;
 
-            Type(int i) {
-                this.glTarget = i;
+            Type(int i2) {
+                this.glTarget = i2;
             }
 
             public int getGlTarget() {
@@ -79,15 +79,15 @@ public class VideoFrame implements RefCounted {
     }
 
     @CalledByNative
-    public VideoFrame(Buffer buffer, int i, long j) {
+    public VideoFrame(Buffer buffer, int i2, long j) {
         if (buffer == null) {
             throw new IllegalArgumentException("buffer not allowed to be null");
         }
-        if (i % 90 != 0) {
+        if (i2 % 90 != 0) {
             throw new IllegalArgumentException("rotation must be a multiple of 90");
         }
         this.buffer = buffer;
-        this.rotation = i;
+        this.rotation = i2;
         this.timestampNs = j;
     }
 

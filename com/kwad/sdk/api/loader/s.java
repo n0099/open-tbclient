@@ -5,11 +5,11 @@ import android.os.Process;
 /* loaded from: classes6.dex */
 public class s {
     public static boolean a() {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 23) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 23) {
             return Process.is64Bit();
         }
-        if (i >= 21) {
+        if (i2 >= 21) {
             try {
                 return ((Boolean) Reflect.a("dalvik.system.VMRuntime").d("getRuntime").d("is64Bit").a()).booleanValue();
             } catch (Exception e2) {

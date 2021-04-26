@@ -59,33 +59,33 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         LogUtils.d("IMUnBindPushRequest", "  errorCode: " + transErrorCode.first);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str;
-        int i2;
+        int i3;
         String str2 = new String(bArr);
         LogUtils.d("IMUnBindPushRequest", str2);
         long j = 0;
         try {
             JSONObject jSONObject = new JSONObject(str2);
             j = jSONObject.optLong(BaseJsonData.TAG_REQUESTID);
-            i2 = jSONObject.optInt("error_code", 0);
-            str = i2 != 0 ? jSONObject.optString("error_msg") : Constants.ERROR_MSG_SUCCESS;
-            if (i2 == 0) {
+            i3 = jSONObject.optInt("error_code", 0);
+            str = i3 != 0 ? jSONObject.optString("error_msg") : Constants.ERROR_MSG_SUCCESS;
+            if (i3 == 0) {
                 BindStateManager.clearUnBindInfo(this.mContext);
             }
         } catch (JSONException e2) {
             LogUtils.e("IMUnBindPushRequest", e2.getMessage(), e2);
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-            i2 = 1010;
+            i3 = 1010;
         }
-        LogUtils.d("IMUnBindPushRequest", "requestid : " + j + " , resultCode: " + i2 + " , resultMsg : " + str);
+        LogUtils.d("IMUnBindPushRequest", "requestid : " + j + " , resultCode: " + i3 + " , resultMsg : " + str);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

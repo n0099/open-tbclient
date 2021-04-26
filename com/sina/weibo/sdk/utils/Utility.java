@@ -69,8 +69,8 @@ public class Utility {
     public static String getSign(Context context, String str) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-            for (int i = 0; i < packageInfo.signatures.length; i++) {
-                byte[] byteArray = packageInfo.signatures[i].toByteArray();
+            for (int i2 = 0; i2 < packageInfo.signatures.length; i2++) {
+                byte[] byteArray = packageInfo.signatures[i2].toByteArray();
                 if (byteArray != null) {
                     return MD5.hexdigest(byteArray);
                 }

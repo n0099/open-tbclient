@@ -279,11 +279,11 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     }
 
     private DataFetcherGenerator getNextGenerator() {
-        int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[this.stage.ordinal()];
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i == 4) {
+        int i2 = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[this.stage.ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 != 3) {
+                    if (i2 == 4) {
                         return null;
                     }
                     throw new IllegalStateException("Unrecognized stage: " + this.stage);
@@ -296,22 +296,16 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     }
 
     private Stage getNextStage(Stage stage) {
-        int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[stage.ordinal()];
-        if (i == 1) {
-            if (this.diskCacheStrategy.decodeCachedData()) {
-                return Stage.DATA_CACHE;
-            }
-            return getNextStage(Stage.DATA_CACHE);
-        } else if (i == 2) {
+        int i2 = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[stage.ordinal()];
+        if (i2 == 1) {
+            return this.diskCacheStrategy.decodeCachedData() ? Stage.DATA_CACHE : getNextStage(Stage.DATA_CACHE);
+        } else if (i2 == 2) {
             return this.onlyRetrieveFromCache ? Stage.FINISHED : Stage.SOURCE;
-        } else if (i == 3 || i == 4) {
+        } else if (i2 == 3 || i2 == 4) {
             return Stage.FINISHED;
         } else {
-            if (i == 5) {
-                if (this.diskCacheStrategy.decodeCachedResource()) {
-                    return Stage.RESOURCE_CACHE;
-                }
-                return getNextStage(Stage.RESOURCE_CACHE);
+            if (i2 == 5) {
+                return this.diskCacheStrategy.decodeCachedResource() ? Stage.RESOURCE_CACHE : getNextStage(Stage.RESOURCE_CACHE);
             }
             throw new IllegalArgumentException("Unrecognized stage: " + stage);
         }
@@ -445,14 +439,14 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     }
 
     private void runWrapped() {
-        int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason[this.runReason.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason[this.runReason.ordinal()];
+        if (i2 == 1) {
             this.stage = getNextStage(Stage.INITIALIZE);
             this.currentGenerator = getNextGenerator();
             runGenerators();
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             runGenerators();
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             decodeFromRetrievedData();
         } else {
             throw new IllegalStateException("Unrecognized run reason: " + this.runReason);
@@ -460,18 +454,12 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     }
 
     private void setNotifiedOrThrow() {
-        Throwable th;
         this.stateVerifier.throwIfRecycled();
-        if (this.isCallbackNotified) {
-            if (this.throwables.isEmpty()) {
-                th = null;
-            } else {
-                List<Throwable> list = this.throwables;
-                th = list.get(list.size() - 1);
-            }
-            throw new IllegalStateException("Already notified", th);
+        if (!this.isCallbackNotified) {
+            this.isCallbackNotified = true;
+            return;
         }
-        this.isCallbackNotified = true;
+        throw new IllegalStateException("Already notified");
     }
 
     public void cancel() {
@@ -488,19 +476,19 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         return this.stateVerifier;
     }
 
-    public DecodeJob<R> init(GlideContext glideContext, Object obj, EngineKey engineKey, Key key, int i, int i2, Class<?> cls, Class<R> cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, boolean z3, Options options, Callback<R> callback, int i3) {
-        this.decodeHelper.init(glideContext, obj, key, i, i2, diskCacheStrategy, cls, cls2, priority, options, map, z, z2, this.diskCacheProvider);
+    public DecodeJob<R> init(GlideContext glideContext, Object obj, EngineKey engineKey, Key key, int i2, int i3, Class<?> cls, Class<R> cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, boolean z3, Options options, Callback<R> callback, int i4) {
+        this.decodeHelper.init(glideContext, obj, key, i2, i3, diskCacheStrategy, cls, cls2, priority, options, map, z, z2, this.diskCacheProvider);
         this.glideContext = glideContext;
         this.signature = key;
         this.priority = priority;
         this.loadKey = engineKey;
-        this.width = i;
-        this.height = i2;
+        this.width = i2;
+        this.height = i3;
         this.diskCacheStrategy = diskCacheStrategy;
         this.onlyRetrieveFromCache = z3;
         this.options = options;
         this.callback = callback;
-        this.order = i3;
+        this.order = i4;
         this.runReason = RunReason.INITIALIZE;
         this.model = obj;
         return this;
@@ -568,10 +556,10 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         ResourceEncoder resourceEncoder2 = resourceEncoder;
         if (this.diskCacheStrategy.isResourceCacheable(!this.decodeHelper.isSourceKey(this.currentSourceKey), dataSource, encodeStrategy)) {
             if (resourceEncoder2 != null) {
-                int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$EncodeStrategy[encodeStrategy.ordinal()];
-                if (i == 1) {
+                int i2 = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$EncodeStrategy[encodeStrategy.ordinal()];
+                if (i2 == 1) {
                     dataCacheKey = new DataCacheKey(this.currentSourceKey, this.signature);
-                } else if (i == 2) {
+                } else if (i2 == 2) {
                     dataCacheKey = new ResourceCacheKey(this.decodeHelper.getArrayPool(), this.currentSourceKey, this.signature, this.width, this.height, transformation, cls, this.options);
                 } else {
                     throw new IllegalArgumentException("Unknown strategy: " + encodeStrategy);
@@ -597,27 +585,46 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         this.callback.reschedule(this);
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, INVOKE] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x001e, code lost:
+        if (r1 != null) goto L13;
+     */
     @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void run() {
         GlideTrace.beginSectionFormat("DecodeJob#run(model=%s)", this.model);
         DataFetcher<?> dataFetcher = this.currentFetcher;
         try {
+            if (this.isCancelled) {
+                notifyFailed();
+                return;
+            }
+            runWrapped();
+        } catch (Throwable th) {
             try {
-                if (this.isCancelled) {
+                if (Log.isLoggable(TAG, 3)) {
+                    Log.d(TAG, "DecodeJob threw unexpectedly, isCancelled: " + this.isCancelled + ", stage: " + this.stage, th);
+                }
+                if (this.stage != Stage.ENCODE) {
+                    this.throwables.add(th);
                     notifyFailed();
+                }
+                if (this.isCancelled) {
                     if (dataFetcher != null) {
                         dataFetcher.cleanup();
                     }
                     GlideTrace.endSection();
                     return;
                 }
-                runWrapped();
+                throw th;
+            } finally {
                 if (dataFetcher != null) {
                     dataFetcher.cleanup();
                 }
                 GlideTrace.endSection();
-            } catch (CallbackException e2) {
-                throw e2;
             }
         }
     }

@@ -34,9 +34,9 @@ public class GroupInfoSyncManagerImpl {
             }
             if (arrayList.size() > 0) {
                 int size = arrayList.size() / 20;
-                for (int i = 0; i < size; i++) {
-                    int i2 = i * 20;
-                    handleGetGroupinfos(context, new ArrayList(arrayList.subList(i2, i2 + 20)));
+                for (int i2 = 0; i2 < size; i2++) {
+                    int i3 = i2 * 20;
+                    handleGetGroupinfos(context, new ArrayList(arrayList.subList(i3, i3 + 20)));
                 }
                 if (arrayList.size() % 20 != 0) {
                     handleGetGroupinfos(context, new ArrayList(arrayList.subList(size * 20, arrayList.size())));
@@ -138,8 +138,8 @@ public class GroupInfoSyncManagerImpl {
         GroupManagerImpl.getInstance(context).getGroupMember(1, str, arrayList, new BIMValueCallBack<ArrayList<GroupMember>>() { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-            public void onResult(int i, String str2, ArrayList<GroupMember> arrayList2) {
-                if (i != 0) {
+            public void onResult(int i2, String str2, ArrayList<GroupMember> arrayList2) {
+                if (i2 != 0) {
                     GroupInfoSyncManagerImpl.addSyncGroupMemeber(str, arrayList);
                 }
             }
@@ -150,8 +150,8 @@ public class GroupInfoSyncManagerImpl {
         GroupManagerImpl.getInstance(context).getGroupsInfo(1, arrayList, new BIMValueCallBack<ArrayList<GroupInfo>>() { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-            public void onResult(int i, String str, ArrayList<GroupInfo> arrayList2) {
-                if (i != 0) {
+            public void onResult(int i2, String str, ArrayList<GroupInfo> arrayList2) {
+                if (i2 != 0) {
                     Iterator it = arrayList.iterator();
                     while (it.hasNext()) {
                         GroupInfoSyncManagerImpl.addSyncGroupInfo((String) it.next());

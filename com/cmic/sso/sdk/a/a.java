@@ -2,34 +2,35 @@ package com.cmic.sso.sdk.a;
 
 import android.annotation.SuppressLint;
 import android.os.Build;
+import com.google.android.material.internal.ManufacturerUtils;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: com.cmic.sso.sdk.a.a$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30309a;
+        public static final /* synthetic */ int[] f31233a;
 
         static {
-            int[] iArr = new int[EnumC0344a.values().length];
-            f30309a = iArr;
+            int[] iArr = new int[EnumC0337a.values().length];
+            f31233a = iArr;
             try {
-                iArr[EnumC0344a.HUAWEI.ordinal()] = 1;
+                iArr[EnumC0337a.HUAWEI.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f30309a[EnumC0344a.SAMSUNG.ordinal()] = 2;
+                f31233a[EnumC0337a.SAMSUNG.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
     }
 
     /* renamed from: com.cmic.sso.sdk.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public enum EnumC0344a {
+    /* loaded from: classes6.dex */
+    public enum EnumC0337a {
         UNKNOWN,
         SAMSUNG,
         HUAWEI
@@ -39,21 +40,21 @@ public class a {
         return a(b());
     }
 
-    public static EnumC0344a b() {
+    public static EnumC0337a b() {
         String str = Build.BRAND;
-        if (str.equalsIgnoreCase("samsung")) {
-            return EnumC0344a.SAMSUNG;
+        if (str.equalsIgnoreCase(ManufacturerUtils.SAMSUNG)) {
+            return EnumC0337a.SAMSUNG;
         }
         if (str.equalsIgnoreCase("Huawei")) {
-            return EnumC0344a.HUAWEI;
+            return EnumC0337a.HUAWEI;
         }
-        return EnumC0344a.UNKNOWN;
+        return EnumC0337a.UNKNOWN;
     }
 
-    public static int a(EnumC0344a enumC0344a) {
-        int i = AnonymousClass1.f30309a[enumC0344a.ordinal()];
-        if (i != 1) {
-            return i != 2 ? -1 : 1;
+    public static int a(EnumC0337a enumC0337a) {
+        int i2 = AnonymousClass1.f31233a[enumC0337a.ordinal()];
+        if (i2 != 1) {
+            return i2 != 2 ? -1 : 1;
         }
         return 0;
     }

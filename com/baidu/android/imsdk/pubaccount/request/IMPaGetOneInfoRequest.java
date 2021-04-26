@@ -110,8 +110,8 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         onRequestReturn((Integer) transErrorCode.first, (String) transErrorCode.second, (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey));
     }
 
@@ -121,9 +121,9 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         ArrayList arrayList;
-        int i2;
+        int i3;
         String str;
         IGetPaInfoListener iGetPaInfoListener;
         JSONObject jSONObject;
@@ -131,20 +131,20 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         PaInfo paInfo = null;
         try {
             jSONObject = new JSONObject(str2);
-            i2 = jSONObject.getInt("error_code");
+            i3 = jSONObject.getInt("error_code");
             str = jSONObject.optString("error_msg", "");
         } catch (JSONException e2) {
             e = e2;
             arrayList = null;
         }
-        if (i2 != 0) {
-            LogUtils.e(TAG, "error code :" + i2 + "===errorMsg:" + str);
+        if (i3 != 0) {
+            LogUtils.e(TAG, "error code :" + i3 + "===errorMsg:" + str);
         } else if (jSONObject.has("response_params")) {
             JSONArray jSONArray = jSONObject.getJSONArray("response_params");
             arrayList = new ArrayList();
-            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+            for (int i4 = 0; i4 < jSONArray.length(); i4++) {
                 try {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i4);
                     if (jSONObject2.optInt("pa_type") != 16) {
                         PaInfo paInfo2 = new PaInfo();
                         paInfo2.setPaId(jSONObject2.optLong("pa_uid"));
@@ -191,7 +191,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                 } catch (JSONException e4) {
                     e = e4;
                     LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", e);
-                    i2 = 1010;
+                    i3 = 1010;
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                     str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                     iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey);
@@ -209,10 +209,10 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                     paInfo = (PaInfo) arrayList.get(0);
                 }
                 if (paInfo != null) {
-                    iGetPaInfoListener.onGetPaInfoResult(i2, str, PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo.getPaId()));
+                    iGetPaInfoListener.onGetPaInfoResult(i3, str, PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo.getPaId()));
                     return;
                 } else {
-                    onRequestReturn(Integer.valueOf(i2), str, iGetPaInfoListener);
+                    onRequestReturn(Integer.valueOf(i3), str, iGetPaInfoListener);
                     return;
                 }
             }

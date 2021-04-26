@@ -7,24 +7,24 @@ import java.util.ArrayList;
 public class a implements v {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ MKOfflineMap f7125a;
+    public final /* synthetic */ MKOfflineMap f7380a;
 
     public a(MKOfflineMap mKOfflineMap) {
-        this.f7125a = mKOfflineMap;
+        this.f7380a = mKOfflineMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.v
-    public void a(int i, int i2) {
+    public void a(int i2, int i3) {
         MKOfflineMapListener mKOfflineMapListener;
         MKOfflineMapListener mKOfflineMapListener2;
         MKOfflineMapListener mKOfflineMapListener3;
         r rVar;
-        if (i == 4) {
-            ArrayList<MKOLUpdateElement> allUpdateInfo = this.f7125a.getAllUpdateInfo();
+        if (i2 == 4) {
+            ArrayList<MKOLUpdateElement> allUpdateInfo = this.f7380a.getAllUpdateInfo();
             if (allUpdateInfo != null) {
                 for (MKOLUpdateElement mKOLUpdateElement : allUpdateInfo) {
                     if (mKOLUpdateElement.update) {
-                        mKOfflineMapListener = this.f7125a.f7124c;
+                        mKOfflineMapListener = this.f7380a.f7379c;
                         mKOfflineMapListener.onGetOfflineMapState(4, mKOLUpdateElement.cityID);
                     }
                 }
@@ -32,25 +32,25 @@ public class a implements v {
             }
             return;
         }
-        int i3 = 6;
-        if (i == 6) {
-            mKOfflineMapListener2 = this.f7125a.f7124c;
-        } else if (i == 8) {
-            int i4 = i2 >> 8;
-            mKOfflineMapListener3 = this.f7125a.f7124c;
-            mKOfflineMapListener3.onGetOfflineMapState(0, i4);
+        int i4 = 6;
+        if (i2 == 6) {
+            mKOfflineMapListener2 = this.f7380a.f7379c;
+        } else if (i2 == 8) {
+            int i5 = i3 >> 8;
+            mKOfflineMapListener3 = this.f7380a.f7379c;
+            mKOfflineMapListener3.onGetOfflineMapState(0, i5);
             return;
-        } else if (i != 10) {
-            if (i != 12) {
+        } else if (i2 != 10) {
+            if (i2 != 12) {
                 return;
             }
-            rVar = this.f7125a.f7123b;
+            rVar = this.f7380a.f7378b;
             rVar.a(true, false);
             return;
         } else {
-            mKOfflineMapListener2 = this.f7125a.f7124c;
-            i3 = 2;
+            mKOfflineMapListener2 = this.f7380a.f7379c;
+            i4 = 2;
         }
-        mKOfflineMapListener2.onGetOfflineMapState(i3, i2);
+        mKOfflineMapListener2.onGetOfflineMapState(i4, i3);
     }
 }

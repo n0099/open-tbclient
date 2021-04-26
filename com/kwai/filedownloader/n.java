@@ -12,18 +12,18 @@ import java.util.List;
 public class n implements e.a, t {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Class<?> f37467a = KsAdSDKImpl.getProxyRealClass(FileDownloadServiceProxy.SharedMainProcessServiceProxy.class);
+    public static final Class<?> f35189a = KsAdSDKImpl.getProxyRealClass(FileDownloadServiceProxy.SharedMainProcessServiceProxy.class);
 
     /* renamed from: b  reason: collision with root package name */
-    public final ArrayList<Runnable> f37468b = new ArrayList<>();
+    public final ArrayList<Runnable> f35190b = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwai.filedownloader.services.e f37469c;
+    public com.kwai.filedownloader.services.e f35191c;
 
     @Override // com.kwai.filedownloader.services.e.a
     public void a() {
-        this.f37469c = null;
-        f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.disconnected, f37467a));
+        this.f35191c = null;
+        f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.disconnected, f35189a));
     }
 
     @Override // com.kwai.filedownloader.t
@@ -32,48 +32,48 @@ public class n implements e.a, t {
     }
 
     public void a(Context context, Runnable runnable) {
-        if (runnable != null && !this.f37468b.contains(runnable)) {
-            this.f37468b.add(runnable);
+        if (runnable != null && !this.f35190b.contains(runnable)) {
+            this.f35190b.add(runnable);
         }
-        context.startService(new Intent(context, f37467a));
+        context.startService(new Intent(context, f35189a));
     }
 
     @Override // com.kwai.filedownloader.services.e.a
     public void a(com.kwai.filedownloader.services.e eVar) {
-        this.f37469c = eVar;
-        this.f37468b.clear();
-        for (Runnable runnable : (List) this.f37468b.clone()) {
+        this.f35191c = eVar;
+        this.f35190b.clear();
+        for (Runnable runnable : (List) this.f35190b.clone()) {
             runnable.run();
         }
-        f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.connected, f37467a));
+        f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.connected, f35189a));
     }
 
     @Override // com.kwai.filedownloader.t
-    public boolean a(int i) {
-        return !c() ? com.kwai.filedownloader.f.a.a(i) : this.f37469c.a(i);
+    public boolean a(int i2) {
+        return !c() ? com.kwai.filedownloader.f.a.a(i2) : this.f35191c.a(i2);
     }
 
     @Override // com.kwai.filedownloader.t
-    public boolean a(String str, String str2, boolean z, int i, int i2, int i3, boolean z2, com.kwai.filedownloader.d.b bVar, boolean z3) {
+    public boolean a(String str, String str2, boolean z, int i2, int i3, int i4, boolean z2, com.kwai.filedownloader.d.b bVar, boolean z3) {
         if (c()) {
-            this.f37469c.a(str, str2, z, i, i2, i3, z2, bVar, z3);
+            this.f35191c.a(str, str2, z, i2, i3, i4, z2, bVar, z3);
             return true;
         }
         return com.kwai.filedownloader.f.a.a(str, str2, z);
     }
 
     @Override // com.kwai.filedownloader.t
-    public byte b(int i) {
-        return !c() ? com.kwai.filedownloader.f.a.b(i) : this.f37469c.e(i);
+    public byte b(int i2) {
+        return !c() ? com.kwai.filedownloader.f.a.b(i2) : this.f35191c.e(i2);
     }
 
     @Override // com.kwai.filedownloader.t
     public boolean c() {
-        return this.f37469c != null;
+        return this.f35191c != null;
     }
 
     @Override // com.kwai.filedownloader.t
-    public boolean c(int i) {
-        return !c() ? com.kwai.filedownloader.f.a.c(i) : this.f37469c.f(i);
+    public boolean c(int i2) {
+        return !c() ? com.kwai.filedownloader.f.a.c(i2) : this.f35191c.f(i2);
     }
 }

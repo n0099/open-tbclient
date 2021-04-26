@@ -29,12 +29,12 @@ public class BOSResponseEntity {
         this.mResponseMessage = str;
     }
 
-    public BOSResponseEntity(boolean z, String str, int i) {
+    public BOSResponseEntity(boolean z, String str, int i2) {
         this.mSuccess = true;
         this.mResponseMessage = null;
         this.mSuccess = z;
         this.mResponseMessage = str;
-        this.mErrorCode = i;
+        this.mErrorCode = i2;
     }
 
     public BOSResponseEntity(boolean z) {

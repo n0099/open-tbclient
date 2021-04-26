@@ -51,14 +51,14 @@ public class BdSailor implements INoProGuard {
         WebKitFactory.addListener(iForceInitZeusListener);
     }
 
-    public static void crashIntentionally(int i) {
-        Log.d("CRASHPAD", "bdsailor.crashIntentionally type:" + i);
-        if (i == 4) {
+    public static void crashIntentionally(int i2) {
+        Log.d("CRASHPAD", "bdsailor.crashIntentionally type:" + i2);
+        if (i2 == 4) {
             ZwDebug.crashIntentionally(2);
-        } else if (i == 5) {
+        } else if (i2 == 5) {
             ZwDebug.crashIntentionally(3);
         } else {
-            Log.d("CRASHPAD", "bdsailor.crashIntentionally default type:" + i);
+            Log.d("CRASHPAD", "bdsailor.crashIntentionally default type:" + i2);
         }
     }
 
@@ -212,7 +212,7 @@ public class BdSailor implements INoProGuard {
         return this.mSettings;
     }
 
-    public d.b.h.b.d.c.a getStatic() {
+    public d.a.h.b.d.c.a getStatic() {
         BdSailorPlatform.getInstance();
         return BdSailorPlatform.getStatic();
     }
@@ -263,9 +263,9 @@ public class BdSailor implements INoProGuard {
         initWebkit(str, z, (Class<? extends CrashCallback>) null);
     }
 
-    public void initWebkit(String str, boolean z, int i) {
-        if (1 == i && z) {
-            WebKitFactory.forceInitT7(i);
+    public void initWebkit(String str, boolean z, int i2) {
+        if (1 == i2 && z) {
+            WebKitFactory.forceInitT7(i2);
         }
         initWebkit(str, z);
     }
@@ -274,7 +274,7 @@ public class BdSailor implements INoProGuard {
         StringBuilder sb;
         String zeusInitTiming;
         long currentTimeMillis = System.currentTimeMillis();
-        boolean z2 = BdWebkitManager.a.f4362a == BdSailorPlatform.getWebkitManager().getWebkitType$630ca8f2();
+        boolean z2 = BdWebkitManager.a.f4440a == BdSailorPlatform.getWebkitManager().getWebkitType$630ca8f2();
         ZeusPerformanceTiming.Stage stage = ZeusPerformanceTiming.Stage.Start;
         if (z2) {
             ZeusPerformanceTiming.record(stage, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
@@ -340,21 +340,21 @@ public class BdSailor implements INoProGuard {
         BdSailorPlatform.getInstance().onActivityDestory(activity);
     }
 
-    public void onActivityResult(Activity activity, int i, int i2, Intent intent) {
-        BdSailorPlatform.getInstance().onActivityResult(activity, i, i2, intent);
+    public void onActivityResult(Activity activity, int i2, int i3, Intent intent) {
+        BdSailorPlatform.getInstance().onActivityResult(activity, i2, i3, intent);
     }
 
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         if (getCurSailorWebView() != null) {
-            getCurSailorWebView().onKeyDown(i, keyEvent);
+            getCurSailorWebView().onKeyDown(i2, keyEvent);
             return false;
         }
         return false;
     }
 
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
         if (getCurSailorWebView() != null) {
-            getCurSailorWebView().onKeyUp(i, keyEvent);
+            getCurSailorWebView().onKeyUp(i2, keyEvent);
             return false;
         }
         return false;
@@ -395,7 +395,7 @@ public class BdSailor implements INoProGuard {
         BdSailorPlatform.getWebkitManager().removeListener(iWebkitLoaderListener);
     }
 
-    public void requestFocusNodeHref(int i) {
+    public void requestFocusNodeHref(int i2) {
     }
 
     public void resume() {
@@ -439,7 +439,7 @@ public class BdSailor implements INoProGuard {
         this.mClient = bdSailorClient;
         WebKitFactory.setWebKitClient(bdSailorClient);
         setSailorFeatureListener();
-        BdSailorPlatform.getStatic().f43794a = this.mClient;
+        BdSailorPlatform.getStatic().f41051a = this.mClient;
     }
 
     public void setSailorCronetListenerInterface(ICronetListenerInterface iCronetListenerInterface) {

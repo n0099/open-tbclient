@@ -21,12 +21,12 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
     public int algorithmId;
     public List<CencSampleAuxiliaryDataFormat> entries;
     public int ivSize;
@@ -54,7 +54,7 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
         ajc$tjp_5 = bVar.g("method-execution", bVar.f("1", "getEntrySizes", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "", "", "", "java.util.List"), Opcodes.IFNONNULL);
     }
 
-    private List<CencSampleAuxiliaryDataFormat> parseEntries(ByteBuffer byteBuffer, long j, int i) {
+    private List<CencSampleAuxiliaryDataFormat> parseEntries(ByteBuffer byteBuffer, long j, int i2) {
         LinkedList linkedList = new LinkedList();
         while (true) {
             long j2 = j - 1;
@@ -63,19 +63,19 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
             }
             try {
                 CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat = new CencSampleAuxiliaryDataFormat();
-                byte[] bArr = new byte[i];
+                byte[] bArr = new byte[i2];
                 cencSampleAuxiliaryDataFormat.iv = bArr;
                 byteBuffer.get(bArr);
                 if ((getFlags() & 2) > 0) {
                     int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
                     cencSampleAuxiliaryDataFormat.pairs = new LinkedList();
                     while (true) {
-                        int i2 = readUInt16 - 1;
+                        int i3 = readUInt16 - 1;
                         if (readUInt16 <= 0) {
                             break;
                         }
                         cencSampleAuxiliaryDataFormat.pairs.add(cencSampleAuxiliaryDataFormat.createPair(IsoTypeReader.readUInt16(byteBuffer), IsoTypeReader.readUInt32(byteBuffer)));
-                        readUInt16 = i2;
+                        readUInt16 = i3;
                     }
                 }
                 linkedList.add(cencSampleAuxiliaryDataFormat);
@@ -195,9 +195,9 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
 
     public int hashCode() {
         RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_4, this, this));
-        int i = ((this.algorithmId * 31) + this.ivSize) * 31;
+        int i2 = ((this.algorithmId * 31) + this.ivSize) * 31;
         byte[] bArr = this.kid;
-        int hashCode = (i + (bArr != null ? Arrays.hashCode(bArr) : 0)) * 31;
+        int hashCode = (i2 + (bArr != null ? Arrays.hashCode(bArr) : 0)) * 31;
         List<CencSampleAuxiliaryDataFormat> list = this.entries;
         return hashCode + (list != null ? list.hashCode() : 0);
     }

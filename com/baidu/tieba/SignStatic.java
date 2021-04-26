@@ -29,7 +29,7 @@ import com.baidu.tieba.signall.SignAllForumActivity;
 import com.baidu.tieba.signall.SignAllForumAdvertActivity;
 import com.baidu.tieba.supplementSign.SupplementSignActivity;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import d.b.c.e.p.k;
+import d.a.c.e.p.k;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SignStatic {
@@ -132,7 +132,7 @@ public class SignStatic {
         Address h2;
         String locationLng = TbadkCoreApplication.getInst().getLocationLng();
         String locationLat = TbadkCoreApplication.getInst().getLocationLat();
-        if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (h2 = d.b.c.e.i.a.l().h(false)) != null) {
+        if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (h2 = d.a.c.e.i.a.l().h(false)) != null) {
             locationLng = String.valueOf(h2.getLongitude());
             locationLat = String.valueOf(h2.getLatitude());
         }

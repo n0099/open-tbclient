@@ -11,10 +11,10 @@ import java.util.Date;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f4782a;
+    public static SimpleDateFormat f4895a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static PackageManager f4783b;
+    public static PackageManager f4896b;
 
     public static String a(long j) {
         StringBuilder sb;
@@ -41,10 +41,10 @@ public final class c {
     }
 
     public static String b(Date date) {
-        if (f4782a == null) {
-            f4782a = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (f4895a == null) {
+            f4895a = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return f4782a.format(date);
+        return f4895a.format(date);
     }
 
     public static void c(SharedPreferences.Editor editor, boolean z) {
@@ -64,10 +64,10 @@ public final class c {
     }
 
     public static boolean e(Context context, String str) {
-        if (f4783b == null) {
-            f4783b = context.getPackageManager();
+        if (f4896b == null) {
+            f4896b = context.getPackageManager();
         }
-        return f4783b.checkPermission(str, context.getPackageName()) == 0;
+        return f4896b.checkPermission(str, context.getPackageName()) == 0;
     }
 
     public static String f(Throwable th) {
@@ -80,14 +80,14 @@ public final class c {
         }
         StackTraceElement[] stackTrace = th.getStackTrace();
         String b2 = n.b();
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            if (i < stackTrace.length) {
-                if (stackTrace[i].getClassName().contains(b2)) {
-                    stackTraceElement = stackTrace[i];
+            if (i2 < stackTrace.length) {
+                if (stackTrace[i2].getClassName().contains(b2)) {
+                    stackTraceElement = stackTrace[i2];
                     break;
                 }
-                i++;
+                i2++;
             } else if (stackTrace.length <= 0) {
                 return "N/A";
             } else {

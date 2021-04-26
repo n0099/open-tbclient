@@ -9,62 +9,62 @@ import java.util.List;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<a.b> f37411a;
+    public final ArrayList<a.b> f35133a;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final h f37412a = new h();
+        public static final h f35134a = new h();
     }
 
     public h() {
-        this.f37411a = new ArrayList<>();
+        this.f35133a = new ArrayList<>();
     }
 
     public static h a() {
-        return a.f37412a;
+        return a.f35134a;
     }
 
-    public int a(int i) {
-        int i2;
-        synchronized (this.f37411a) {
-            Iterator<a.b> it = this.f37411a.iterator();
-            i2 = 0;
+    public int a(int i2) {
+        int i3;
+        synchronized (this.f35133a) {
+            Iterator<a.b> it = this.f35133a.iterator();
+            i3 = 0;
             while (it.hasNext()) {
-                if (it.next().b(i)) {
-                    i2++;
+                if (it.next().b(i2)) {
+                    i3++;
                 }
             }
         }
-        return i2;
+        return i3;
     }
 
     public void a(List<a.b> list) {
-        synchronized (this.f37411a) {
-            Iterator<a.b> it = this.f37411a.iterator();
+        synchronized (this.f35133a) {
+            Iterator<a.b> it = this.f35133a.iterator();
             while (it.hasNext()) {
                 a.b next = it.next();
                 if (!list.contains(next)) {
                     list.add(next);
                 }
             }
-            this.f37411a.clear();
+            this.f35133a.clear();
         }
     }
 
     public boolean a(a.b bVar) {
-        return this.f37411a.isEmpty() || !this.f37411a.contains(bVar);
+        return this.f35133a.isEmpty() || !this.f35133a.contains(bVar);
     }
 
     public boolean a(a.b bVar, MessageSnapshot messageSnapshot) {
         boolean remove;
         byte b2 = messageSnapshot.b();
-        synchronized (this.f37411a) {
-            remove = this.f37411a.remove(bVar);
+        synchronized (this.f35133a) {
+            remove = this.f35133a.remove(bVar);
         }
-        if (com.kwai.filedownloader.f.d.f37396a && this.f37411a.size() == 0) {
-            com.kwai.filedownloader.f.d.e(this, "remove %s left %d %d", bVar, Byte.valueOf(b2), Integer.valueOf(this.f37411a.size()));
+        if (com.kwai.filedownloader.f.d.f35118a && this.f35133a.size() == 0) {
+            com.kwai.filedownloader.f.d.e(this, "remove %s left %d %d", bVar, Byte.valueOf(b2), Integer.valueOf(this.f35133a.size()));
         }
         if (remove) {
             s d2 = bVar.G().d();
@@ -84,17 +84,17 @@ public class h {
     }
 
     public int b() {
-        return this.f37411a.size();
+        return this.f35133a.size();
     }
 
-    public List<a.b> b(int i) {
+    public List<a.b> b(int i2) {
         byte v;
         ArrayList arrayList = new ArrayList();
-        synchronized (this.f37411a) {
-            Iterator<a.b> it = this.f37411a.iterator();
+        synchronized (this.f35133a) {
+            Iterator<a.b> it = this.f35133a.iterator();
             while (it.hasNext()) {
                 a.b next = it.next();
-                if (next.b(i) && !next.H() && (v = next.F().v()) != 0 && v != 10) {
+                if (next.b(i2) && !next.H() && (v = next.F().v()) != 0 && v != 10) {
                     arrayList.add(next);
                 }
             }
@@ -111,13 +111,13 @@ public class h {
         }
     }
 
-    public List<a.b> c(int i) {
+    public List<a.b> c(int i2) {
         ArrayList arrayList = new ArrayList();
-        synchronized (this.f37411a) {
-            Iterator<a.b> it = this.f37411a.iterator();
+        synchronized (this.f35133a) {
+            Iterator<a.b> it = this.f35133a.iterator();
             while (it.hasNext()) {
                 a.b next = it.next();
-                if (next.b(i) && !next.H()) {
+                if (next.b(i2) && !next.H()) {
                     arrayList.add(next);
                 }
             }
@@ -129,14 +129,14 @@ public class h {
         if (bVar.K()) {
             return;
         }
-        synchronized (this.f37411a) {
-            if (this.f37411a.contains(bVar)) {
+        synchronized (this.f35133a) {
+            if (this.f35133a.contains(bVar)) {
                 com.kwai.filedownloader.f.d.d(this, "already has %s", bVar);
             } else {
                 bVar.L();
-                this.f37411a.add(bVar);
-                if (com.kwai.filedownloader.f.d.f37396a) {
-                    com.kwai.filedownloader.f.d.e(this, "add list in all %s %d %d", bVar, Byte.valueOf(bVar.F().v()), Integer.valueOf(this.f37411a.size()));
+                this.f35133a.add(bVar);
+                if (com.kwai.filedownloader.f.d.f35118a) {
+                    com.kwai.filedownloader.f.d.e(this, "add list in all %s %d %d", bVar, Byte.valueOf(bVar.F().v()), Integer.valueOf(this.f35133a.size()));
                 }
             }
         }

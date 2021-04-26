@@ -73,11 +73,11 @@ public class ConvertUtils {
 
     public static JSONArray list2Json(List<String[]> list) {
         JSONArray jSONArray = new JSONArray();
-        for (int i = 0; i < list.size(); i++) {
+        for (int i2 = 0; i2 < list.size(); i2++) {
             try {
                 JSONArray jSONArray2 = new JSONArray();
-                for (int i2 = 0; i2 < list.get(i).length; i2++) {
-                    jSONArray2.put(list.get(i)[i2]);
+                for (int i3 = 0; i3 < list.get(i2).length; i3++) {
+                    jSONArray2.put(list.get(i2)[i3]);
                 }
                 jSONArray.put(jSONArray2);
             } catch (Exception e2) {

@@ -8,16 +8,18 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import d.b.h0.a.f;
-import d.b.h0.a.g;
-import d.b.h0.a.h;
-import d.b.h0.a.i2.h0;
+import d.a.h0.a.f;
+import d.a.h0.a.g;
+import d.a.h0.a.h;
+import d.a.h0.a.i2.h0;
 /* loaded from: classes3.dex */
 public class CommonHeaderLoadingLayout extends LoadingLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12189h;
-    public int i;
+    public int f12045h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f12046i;
     public int j;
     public int k;
     public View l;
@@ -39,10 +41,10 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
     public class b implements Animator.AnimatorListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f12191e;
+        public final /* synthetic */ Runnable f12048e;
 
         public b(Runnable runnable) {
-            this.f12191e = runnable;
+            this.f12048e = runnable;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -51,7 +53,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            CommonHeaderLoadingLayout.this.postDelayed(this.f12191e, 800L);
+            CommonHeaderLoadingLayout.this.postDelayed(this.f12048e, 800L);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -67,14 +69,14 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
 
     public CommonHeaderLoadingLayout(Context context) {
         super(context);
-        this.f12189h = 0;
+        this.f12045h = 0;
         this.m = (RefreshingAnimView) findViewById(f.refreshing_anim_view);
         int e2 = h0.e(getContext(), 29.0f);
-        this.f12189h = e2;
-        this.i = (int) (e2 * 2.4f);
-        int i = (int) (e2 * 1.5f);
-        this.k = i;
-        this.j = i;
+        this.f12045h = e2;
+        this.f12046i = (int) (e2 * 2.4f);
+        int i2 = (int) (e2 * 1.5f);
+        this.k = i2;
+        this.j = i2;
         HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(f.refresh_over_tip);
         this.n = headerRefreshIndicator;
         headerRefreshIndicator.i();
@@ -88,13 +90,13 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void e(int i) {
+    public void e(int i2) {
         if (getState() == ILoadingLayout$State.PULL_TO_REFRESH) {
-            this.m.setAnimPercent(o(i));
+            this.m.setAnimPercent(o(i2));
         }
-        int i2 = this.j;
-        if (i > i2) {
-            setTranslationY((i2 - i) / 2);
+        int i3 = this.j;
+        if (i2 > i3) {
+            setTranslationY((i3 - i2) / 2);
         }
     }
 
@@ -126,7 +128,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getCanRefreshPullLength() {
-        return this.i;
+        return this.f12046i;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -166,12 +168,12 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         this.n.setVisibility(4);
     }
 
-    public float o(int i) {
+    public float o(int i2) {
         float f2;
-        int i2 = this.i;
-        if (i < i2) {
-            int i3 = this.f12189h;
-            f2 = i < i3 ? 0.0f : (i - i3) / (i2 - i3);
+        int i3 = this.f12046i;
+        if (i2 < i3) {
+            int i4 = this.f12045h;
+            f2 = i2 < i4 ? 0.0f : (i2 - i4) / (i3 - i4);
         } else {
             f2 = 1.0f;
         }
@@ -183,8 +185,8 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void setHeaderBackgroundResource(int i) {
-        super.setHeaderBackgroundResource(i);
+    public void setHeaderBackgroundResource(int i2) {
+        super.setHeaderBackgroundResource(i2);
         this.n.j();
     }
 }

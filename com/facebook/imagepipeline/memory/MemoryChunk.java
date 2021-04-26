@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 public interface MemoryChunk {
     void close();
 
-    void copy(int i, MemoryChunk memoryChunk, int i2, int i3);
+    void copy(int i2, MemoryChunk memoryChunk, int i3, int i4);
 
     @Nullable
     ByteBuffer getByteBuffer();
@@ -19,9 +19,9 @@ public interface MemoryChunk {
 
     boolean isClosed();
 
-    byte read(int i);
+    byte read(int i2);
 
-    int read(int i, byte[] bArr, int i2, int i3);
+    int read(int i2, byte[] bArr, int i3, int i4);
 
-    int write(int i, byte[] bArr, int i2, int i3);
+    int write(int i2, byte[] bArr, int i3, int i4);
 }

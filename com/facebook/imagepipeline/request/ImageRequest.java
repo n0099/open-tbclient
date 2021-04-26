@@ -61,8 +61,8 @@ public class ImageRequest {
         
         public int mValue;
 
-        RequestLevel(int i) {
-            this.mValue = i;
+        RequestLevel(int i2) {
+            this.mValue = i2;
         }
 
         public static RequestLevel getMax(RequestLevel requestLevel, RequestLevel requestLevel2) {

@@ -92,20 +92,20 @@ public class TextTrackImpl extends AbstractTrack {
         long j = 0;
         for (Line line : this.subs) {
             long j2 = line.from - j;
-            int i = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-            if (i > 0) {
+            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+            if (i2 > 0) {
                 arrayList.add(Long.valueOf(j2));
-            } else if (i < 0) {
+            } else if (i2 < 0) {
                 throw new Error("Subtitle display times may not intersect");
             }
             arrayList.add(Long.valueOf(line.to - line.from));
             j = line.to;
         }
         long[] jArr = new long[arrayList.size()];
-        int i2 = 0;
+        int i3 = 0;
         for (Long l : arrayList) {
-            jArr[i2] = l.longValue();
-            i2++;
+            jArr[i3] = l.longValue();
+            i3++;
         }
         return jArr;
     }
@@ -115,10 +115,10 @@ public class TextTrackImpl extends AbstractTrack {
         LinkedList linkedList = new LinkedList();
         long j = 0;
         for (Line line : this.subs) {
-            int i = ((line.from - j) > 0L ? 1 : ((line.from - j) == 0L ? 0 : -1));
-            if (i > 0) {
+            int i2 = ((line.from - j) > 0L ? 1 : ((line.from - j) == 0L ? 0 : -1));
+            if (i2 > 0) {
                 linkedList.add(new SampleImpl(ByteBuffer.wrap(new byte[2])));
-            } else if (i < 0) {
+            } else if (i2 < 0) {
                 throw new Error("Subtitle display times may not intersect");
             }
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

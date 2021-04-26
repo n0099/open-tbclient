@@ -1,8 +1,8 @@
 package com.google.common.collect;
 
-import d.h.c.a.n;
-import d.h.c.c.c0;
-import d.h.c.c.i0;
+import d.g.c.a.n;
+import d.g.c.c.c0;
+import d.g.c.c.i0;
 import java.io.Serializable;
 import java.util.AbstractSet;
 import java.util.Collection;
@@ -51,20 +51,20 @@ public final class Sets {
 
     public static int b(Set<?> set) {
         Iterator<?> it = set.iterator();
-        int i = 0;
+        int i2 = 0;
         while (it.hasNext()) {
             Object next = it.next();
-            i = ~(~(i + (next != null ? next.hashCode() : 0)));
+            i2 = ~(~(i2 + (next != null ? next.hashCode() : 0)));
         }
-        return i;
+        return i2;
     }
 
     public static <E> HashSet<E> c() {
         return new HashSet<>();
     }
 
-    public static <E> HashSet<E> d(int i) {
-        return new HashSet<>(Maps.e(i));
+    public static <E> HashSet<E> d(int i2) {
+        return new HashSet<>(Maps.e(i2));
     }
 
     public static <E> Set<E> e() {
@@ -104,7 +104,7 @@ public final class Sets {
         public final NavigableSet<E> delegate;
 
         /* renamed from: e  reason: collision with root package name */
-        public transient UnmodifiableNavigableSet<E> f31103e;
+        public transient UnmodifiableNavigableSet<E> f32072e;
         public final SortedSet<E> unmodifiableDelegate;
 
         public UnmodifiableNavigableSet(NavigableSet<E> navigableSet) {
@@ -125,11 +125,11 @@ public final class Sets {
 
         @Override // java.util.NavigableSet
         public NavigableSet<E> descendingSet() {
-            UnmodifiableNavigableSet<E> unmodifiableNavigableSet = this.f31103e;
+            UnmodifiableNavigableSet<E> unmodifiableNavigableSet = this.f32072e;
             if (unmodifiableNavigableSet == null) {
                 UnmodifiableNavigableSet<E> unmodifiableNavigableSet2 = new UnmodifiableNavigableSet<>(this.delegate.descendingSet());
-                this.f31103e = unmodifiableNavigableSet2;
-                unmodifiableNavigableSet2.f31103e = this;
+                this.f32072e = unmodifiableNavigableSet2;
+                unmodifiableNavigableSet2.f32072e = this;
                 return unmodifiableNavigableSet2;
             }
             return unmodifiableNavigableSet;
@@ -176,7 +176,7 @@ public final class Sets {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.h.c.c.c0, d.h.c.c.a0, d.h.c.c.r, d.h.c.c.y
+        @Override // d.g.c.c.c0, d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
         public SortedSet<E> delegate() {
             return this.unmodifiableDelegate;
         }

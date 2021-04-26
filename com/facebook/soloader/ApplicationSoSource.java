@@ -14,15 +14,15 @@ public class ApplicationSoSource extends SoSource {
     public int flags;
     public DirectorySoSource soSource;
 
-    public ApplicationSoSource(Context context, int i) {
+    public ApplicationSoSource(Context context, int i2) {
         Context applicationContext = context.getApplicationContext();
         this.applicationContext = applicationContext;
         if (applicationContext == null) {
             Log.w("SoLoader", "context.getApplicationContext returned null, holding reference to original context.");
             this.applicationContext = context;
         }
-        this.flags = i;
-        this.soSource = new DirectorySoSource(new File(this.applicationContext.getApplicationInfo().nativeLibraryDir), i);
+        this.flags = i2;
+        this.soSource = new DirectorySoSource(new File(this.applicationContext.getApplicationInfo().nativeLibraryDir), i2);
     }
 
     @Override // com.facebook.soloader.SoSource
@@ -39,9 +39,9 @@ public class ApplicationSoSource extends SoSource {
                 return false;
             }
             Log.d("SoLoader", "Native library directory updated from " + file + " to " + file2);
-            int i = this.flags | 1;
-            this.flags = i;
-            DirectorySoSource directorySoSource = new DirectorySoSource(file2, i);
+            int i2 = this.flags | 1;
+            this.flags = i2;
+            DirectorySoSource directorySoSource = new DirectorySoSource(file2, i2);
             this.soSource = directorySoSource;
             directorySoSource.prepare(this.flags);
             this.applicationContext = createPackageContext;
@@ -52,13 +52,13 @@ public class ApplicationSoSource extends SoSource {
     }
 
     @Override // com.facebook.soloader.SoSource
-    public int loadLibrary(String str, int i, StrictMode.ThreadPolicy threadPolicy) throws IOException {
-        return this.soSource.loadLibrary(str, i, threadPolicy);
+    public int loadLibrary(String str, int i2, StrictMode.ThreadPolicy threadPolicy) throws IOException {
+        return this.soSource.loadLibrary(str, i2, threadPolicy);
     }
 
     @Override // com.facebook.soloader.SoSource
-    public void prepare(int i) throws IOException {
-        this.soSource.prepare(i);
+    public void prepare(int i2) throws IOException {
+        this.soSource.prepare(i2);
     }
 
     @Override // com.facebook.soloader.SoSource

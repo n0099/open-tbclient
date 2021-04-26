@@ -19,22 +19,22 @@ import org.json.JSONObject;
 public class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final l f28963a;
+    public final l f29853a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f28964b;
+    public final b f29854b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, com.bytedance.sdk.openadsdk.downloadnew.core.b> f28965c = new HashMap();
+    public final Map<String, com.bytedance.sdk.openadsdk.downloadnew.core.b> f29855c = new HashMap();
 
     public a(b bVar, l lVar) {
-        this.f28964b = bVar;
-        this.f28963a = lVar;
+        this.f29854b = bVar;
+        this.f29853a = lVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.e.c
     public void b() {
-        for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.f28965c.values()) {
+        for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.f29855c.values()) {
             if (bVar != null) {
                 bVar.c();
             }
@@ -44,12 +44,12 @@ public class a implements c {
     @Override // com.bytedance.sdk.openadsdk.e.c
     public void c() {
         b();
-        for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.f28965c.values()) {
+        for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.f29855c.values()) {
             if (bVar != null) {
                 bVar.d();
             }
         }
-        this.f28965c.clear();
+        this.f29855c.clear();
     }
 
     public static a a(b bVar, l lVar) {
@@ -58,7 +58,7 @@ public class a implements c {
 
     @Override // com.bytedance.sdk.openadsdk.e.c
     public void a() {
-        for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.f28965c.values()) {
+        for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.f29855c.values()) {
             if (bVar != null) {
                 bVar.b();
             }
@@ -68,10 +68,10 @@ public class a implements c {
     @Override // com.bytedance.sdk.openadsdk.e.c
     public void b(JSONObject jSONObject) {
         JSONObject optJSONObject;
-        if (jSONObject == null || this.f28964b == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+        if (jSONObject == null || this.f29854b == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
             return;
         }
-        com.bytedance.sdk.openadsdk.downloadnew.core.b bVar = this.f28965c.get(a(optJSONObject, (String) null).an().b());
+        com.bytedance.sdk.openadsdk.downloadnew.core.b bVar = this.f29855c.get(a(optJSONObject, (String) null).an().b());
         if (bVar != null) {
             bVar.f();
         }
@@ -86,31 +86,31 @@ public class a implements c {
         if (!TextUtils.isEmpty(str)) {
             lVar.m(str);
         }
-        if (this.f28963a == null) {
+        if (this.f29853a == null) {
             return lVar;
         }
         String b2 = lVar.an() != null ? lVar.an().b() : null;
         if (TextUtils.isEmpty(b2)) {
-            return this.f28963a;
+            return this.f29853a;
         }
-        return (this.f28963a.an() == null || !b2.equals(this.f28963a.an().b())) ? lVar : this.f28963a;
+        return (this.f29853a.an() == null || !b2.equals(this.f29853a.an().b())) ? lVar : this.f29853a;
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0323a {
+    public static class C0316a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static ConcurrentHashMap<String, JSONObject> f28976a = new ConcurrentHashMap<>();
+        public static ConcurrentHashMap<String, JSONObject> f29866a = new ConcurrentHashMap<>();
 
         public static synchronized JSONObject a(String str) {
-            synchronized (C0323a.class) {
+            synchronized (C0316a.class) {
                 if (TextUtils.isEmpty(str)) {
                     return new JSONObject();
-                } else if (f28976a == null) {
+                } else if (f29866a == null) {
                     return new JSONObject();
                 } else {
-                    JSONObject jSONObject = f28976a.get(str);
+                    JSONObject jSONObject = f29866a.get(str);
                     if (jSONObject == null) {
                         return new JSONObject();
                     }
@@ -119,22 +119,22 @@ public class a implements c {
             }
         }
 
-        public static synchronized void a(String str, int i, int i2) {
-            synchronized (C0323a.class) {
+        public static synchronized void a(String str, int i2, int i3) {
+            synchronized (C0316a.class) {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                if (f28976a == null) {
-                    f28976a = new ConcurrentHashMap<>();
+                if (f29866a == null) {
+                    f29866a = new ConcurrentHashMap<>();
                 }
-                JSONObject jSONObject = f28976a.get(str);
+                JSONObject jSONObject = f29866a.get(str);
                 if (jSONObject == null) {
                     jSONObject = new JSONObject();
-                    f28976a.put(str, jSONObject);
+                    f29866a.put(str, jSONObject);
                 }
                 try {
-                    jSONObject.put("downloadStatus", i);
-                    jSONObject.put("downloadProcessRate", i2);
+                    jSONObject.put("downloadStatus", i2);
+                    jSONObject.put("downloadProcessRate", i3);
                     jSONObject.put("code", 0);
                     jSONObject.put("codeMsg", "get ad_down_load_id success");
                 } catch (Exception e2) {
@@ -145,23 +145,23 @@ public class a implements c {
     }
 
     @Override // com.bytedance.sdk.openadsdk.e.c
-    public void a(Context context, JSONObject jSONObject, String str, int i, boolean z) {
+    public void a(Context context, JSONObject jSONObject, String str, int i2, boolean z) {
         JSONObject optJSONObject;
         if (context == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
             return;
         }
-        a(context, a(optJSONObject, str), optJSONObject, i, z);
+        a(context, a(optJSONObject, str), optJSONObject, i2, z);
     }
 
-    private void a(Context context, l lVar, JSONObject jSONObject, int i, boolean z) {
-        if (context == null || lVar == null || lVar.an() == null || jSONObject == null || this.f28964b == null || this.f28965c.get(lVar.an().b()) != null) {
+    private void a(Context context, l lVar, JSONObject jSONObject, int i2, boolean z) {
+        if (context == null || lVar == null || lVar.an() == null || jSONObject == null || this.f29854b == null || this.f29855c.get(lVar.an().b()) != null) {
             return;
         }
-        String a2 = ak.a(i);
+        String a2 = ak.a(i2);
         if (TextUtils.isEmpty(a2)) {
             return;
         }
-        this.f28965c.put(lVar.an().b(), a(context, lVar, jSONObject, a2, z));
+        this.f29855c.put(lVar.an().b(), a(context, lVar, jSONObject, a2, z));
     }
 
     @Override // com.bytedance.sdk.openadsdk.e.c
@@ -178,44 +178,44 @@ public class a implements c {
             return;
         }
         final String am = lVar.am();
-        com.bytedance.sdk.openadsdk.downloadnew.core.b bVar = this.f28965c.get(lVar.an().b());
+        com.bytedance.sdk.openadsdk.downloadnew.core.b bVar = this.f29855c.get(lVar.an().b());
         if (bVar != null) {
             bVar.g();
             bVar.a(new TTAppDownloadListener() { // from class: com.bytedance.sdk.openadsdk.e.a.1
                 @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
                 public void onDownloadActive(long j, long j2, String str, String str2) {
                     if (j > 0) {
-                        C0323a.a(am, 3, (int) ((j2 * 100) / j));
+                        C0316a.a(am, 3, (int) ((j2 * 100) / j));
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
                 public void onDownloadFailed(long j, long j2, String str, String str2) {
                     if (j > 0) {
-                        C0323a.a(am, 4, (int) ((j2 * 100) / j));
+                        C0316a.a(am, 4, (int) ((j2 * 100) / j));
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
                 public void onDownloadFinished(long j, String str, String str2) {
-                    C0323a.a(am, 5, 100);
+                    C0316a.a(am, 5, 100);
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
                 public void onDownloadPaused(long j, long j2, String str, String str2) {
                     if (j > 0) {
-                        C0323a.a(am, 2, (int) ((j2 * 100) / j));
+                        C0316a.a(am, 2, (int) ((j2 * 100) / j));
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
                 public void onIdle() {
-                    C0323a.a(am, 1, 0);
+                    C0316a.a(am, 1, 0);
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
                 public void onInstalled(String str, String str2) {
-                    C0323a.a(am, 6, 100);
+                    C0316a.a(am, 6, 100);
                 }
             });
         }
@@ -234,18 +234,18 @@ public class a implements c {
     }
 
     private void a(l lVar, JSONObject jSONObject) {
-        if (this.f28964b == null || lVar == null || lVar.an() == null) {
+        if (this.f29854b == null || lVar == null || lVar.an() == null) {
             return;
         }
         String b2 = lVar.an().b();
-        if (this.f28965c.containsKey(b2)) {
-            this.f28965c.remove(b2);
+        if (this.f29855c.containsKey(b2)) {
+            this.f29855c.remove(b2);
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("message", "success");
                 jSONObject2.put("status", "unsubscribed");
                 jSONObject2.put("appad", jSONObject);
-                this.f28964b.a("app_ad_event", jSONObject2);
+                this.f29854b.a("app_ad_event", jSONObject2);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -263,10 +263,10 @@ public class a implements c {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("message", "success");
                     jSONObject2.put("appad", jSONObject);
-                    for (int i = 0; i < strArr.length; i += 2) {
-                        jSONObject2.put(strArr[i], strArr[i + 1]);
+                    for (int i2 = 0; i2 < strArr.length; i2 += 2) {
+                        jSONObject2.put(strArr[i2], strArr[i2 + 1]);
                     }
-                    a.this.f28964b.a("app_ad_event", jSONObject2);
+                    a.this.f29854b.a("app_ad_event", jSONObject2);
                 } catch (JSONException unused) {
                     u.b("JsAppAdDownloadManager", "JSONException");
                 }
@@ -274,22 +274,22 @@ public class a implements c {
 
             @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
             public void onDownloadActive(long j, long j2, String str2, String str3) {
-                a("status", "download_active", "total_bytes", String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j2));
+                a("status", "download_active", DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j2));
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
             public void onDownloadFailed(long j, long j2, String str2, String str3) {
-                a("status", "download_failed", "total_bytes", String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j2));
+                a("status", "download_failed", DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j2));
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
             public void onDownloadFinished(long j, String str2, String str3) {
-                a("status", "download_finished", "total_bytes", String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j));
+                a("status", "download_finished", DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j));
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
             public void onDownloadPaused(long j, long j2, String str2, String str3) {
-                a("status", "download_paused", "total_bytes", String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j2));
+                a("status", "download_paused", DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j2));
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
@@ -304,10 +304,10 @@ public class a implements c {
         });
         b2.a(new b.a() { // from class: com.bytedance.sdk.openadsdk.e.a.3
         });
-        b2.a(3, new a.InterfaceC0322a() { // from class: com.bytedance.sdk.openadsdk.e.a.4
-            @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC0322a
-            public boolean a(int i, l lVar2, String str2, String str3, Object obj) {
-                if (i == 3 && lVar2 != null && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+        b2.a(3, new a.InterfaceC0315a() { // from class: com.bytedance.sdk.openadsdk.e.a.4
+            @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC0315a
+            public boolean a(int i2, l lVar2, String str2, String str3, Object obj) {
+                if (i2 == 3 && lVar2 != null && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
                     if (!z) {
                         char c2 = 65535;
                         switch (str3.hashCode()) {

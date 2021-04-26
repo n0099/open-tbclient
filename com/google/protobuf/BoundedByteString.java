@@ -1,6 +1,7 @@
 package com.google.protobuf;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.protobuf.ByteString;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -21,11 +22,11 @@ public class BoundedByteString extends LiteralByteString {
 
         @Override // com.google.protobuf.ByteString.ByteIterator
         public byte nextByte() {
-            int i = this.position;
-            if (i < this.limit) {
+            int i2 = this.position;
+            if (i2 < this.limit) {
                 byte[] bArr = BoundedByteString.this.bytes;
-                this.position = i + 1;
-                return bArr[i];
+                this.position = i2 + 1;
+                return bArr[i2];
             }
             throw new NoSuchElementException();
         }
@@ -49,36 +50,36 @@ public class BoundedByteString extends LiteralByteString {
         }
     }
 
-    public BoundedByteString(byte[] bArr, int i, int i2) {
+    public BoundedByteString(byte[] bArr, int i2, int i3) {
         super(bArr);
-        if (i < 0) {
-            throw new IllegalArgumentException("Offset too small: " + i);
-        } else if (i2 >= 0) {
-            if (i + i2 <= bArr.length) {
-                this.bytesOffset = i;
-                this.bytesLength = i2;
+        if (i2 < 0) {
+            throw new IllegalArgumentException("Offset too small: " + i2);
+        } else if (i3 >= 0) {
+            if (i2 + i3 <= bArr.length) {
+                this.bytesOffset = i2;
+                this.bytesLength = i3;
                 return;
             }
-            throw new IllegalArgumentException("Offset+Length too large: " + i + "+" + i2);
+            throw new IllegalArgumentException("Offset+Length too large: " + i2 + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + i3);
         } else {
-            throw new IllegalArgumentException("Length too small: " + i);
+            throw new IllegalArgumentException("Length too small: " + i2);
         }
     }
 
     @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString
-    public byte byteAt(int i) {
-        if (i >= 0) {
-            if (i < size()) {
-                return this.bytes[this.bytesOffset + i];
+    public byte byteAt(int i2) {
+        if (i2 >= 0) {
+            if (i2 < size()) {
+                return this.bytes[this.bytesOffset + i2];
             }
-            throw new ArrayIndexOutOfBoundsException("Index too large: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + size());
+            throw new ArrayIndexOutOfBoundsException("Index too large: " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + size());
         }
-        throw new ArrayIndexOutOfBoundsException("Index too small: " + i);
+        throw new ArrayIndexOutOfBoundsException("Index too small: " + i2);
     }
 
     @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString
-    public void copyToInternal(byte[] bArr, int i, int i2, int i3) {
-        System.arraycopy(this.bytes, getOffsetIntoBytes() + i, bArr, i2, i3);
+    public void copyToInternal(byte[] bArr, int i2, int i3, int i4) {
+        System.arraycopy(this.bytes, getOffsetIntoBytes() + i2, bArr, i3, i4);
     }
 
     @Override // com.google.protobuf.LiteralByteString

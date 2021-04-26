@@ -3,9 +3,9 @@ package com.kwad.sdk.core.webview.jshandler;
 import androidx.annotation.NonNull;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.utils.ah;
-import com.kwad.sdk.utils.ao;
-import com.kwad.sdk.utils.v;
+import com.kwad.sdk.utils.ai;
+import com.kwad.sdk.utils.an;
+import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d implements com.kwad.sdk.core.webview.a.a {
@@ -14,29 +14,31 @@ public class d implements com.kwad.sdk.core.webview.a.a {
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f34709a;
+        public String f33668a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f34710b;
+        public String f33669b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f34711c;
+        public String f33670c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f34712d;
+        public String f33671d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f34713e;
+        public String f33672e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f34714f;
+        public String f33673f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f34715g;
+        public String f33674g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f34716h;
-        public int i;
+        public String f33675h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public int f33676i;
         public int j;
         public String k;
         public String l;
@@ -47,37 +49,37 @@ public class d implements com.kwad.sdk.core.webview.a.a {
 
         public static a a() {
             a aVar = new a();
-            aVar.f34709a = ah.l(KsAdSDKImpl.get().getContext());
-            aVar.f34710b = "";
-            aVar.f34711c = String.valueOf(v.d(KsAdSDKImpl.get().getContext()));
-            aVar.f34712d = ah.g();
-            aVar.f34713e = ah.e();
-            aVar.f34714f = ah.i();
-            aVar.f34715g = ah.d();
-            aVar.f34716h = ah.m();
-            aVar.i = ao.c(KsAdSDKImpl.get().getContext());
-            aVar.j = ao.b(KsAdSDKImpl.get().getContext());
-            aVar.k = ah.d(KsAdSDKImpl.get().getContext());
-            aVar.l = com.kwad.sdk.core.f.a.a();
-            aVar.m = ah.i(KsAdSDKImpl.get().getContext());
-            aVar.n = ah.k(KsAdSDKImpl.get().getContext());
-            aVar.o = ao.a(KsAdSDKImpl.get().getContext());
-            aVar.p = ao.a(KsAdSDKImpl.get().getContext(), 50.0f);
+            aVar.f33668a = ai.n(KsAdSDKImpl.get().getContext());
+            aVar.f33669b = "";
+            aVar.f33670c = String.valueOf(t.c(KsAdSDKImpl.get().getContext()));
+            aVar.f33671d = ai.g();
+            aVar.f33672e = ai.e();
+            aVar.f33673f = ai.j();
+            aVar.f33674g = ai.d();
+            aVar.f33675h = ai.n();
+            aVar.f33676i = an.c(KsAdSDKImpl.get().getContext());
+            aVar.j = an.b(KsAdSDKImpl.get().getContext());
+            aVar.k = ai.d(KsAdSDKImpl.get().getContext());
+            aVar.l = com.kwad.sdk.core.f.a.b();
+            aVar.m = ai.k(KsAdSDKImpl.get().getContext());
+            aVar.n = ai.m(KsAdSDKImpl.get().getContext());
+            aVar.o = an.a(KsAdSDKImpl.get().getContext());
+            aVar.p = an.a(KsAdSDKImpl.get().getContext(), 50.0f);
             return aVar;
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "appVersion", this.f34709a);
-            com.kwad.sdk.utils.o.a(jSONObject, "globalId", this.f34710b);
-            com.kwad.sdk.utils.o.a(jSONObject, "networkType", this.f34711c);
-            com.kwad.sdk.utils.o.a(jSONObject, "manufacturer", this.f34712d);
-            com.kwad.sdk.utils.o.a(jSONObject, "model", this.f34713e);
-            com.kwad.sdk.utils.o.a(jSONObject, "systemVersion", this.f34714f);
-            com.kwad.sdk.utils.o.a(jSONObject, "locale", this.f34715g);
-            com.kwad.sdk.utils.o.a(jSONObject, "uuid", this.f34716h);
-            com.kwad.sdk.utils.o.a(jSONObject, "screenWidth", this.i);
+            com.kwad.sdk.utils.o.a(jSONObject, "appVersion", this.f33668a);
+            com.kwad.sdk.utils.o.a(jSONObject, "globalId", this.f33669b);
+            com.kwad.sdk.utils.o.a(jSONObject, "networkType", this.f33670c);
+            com.kwad.sdk.utils.o.a(jSONObject, "manufacturer", this.f33671d);
+            com.kwad.sdk.utils.o.a(jSONObject, "model", this.f33672e);
+            com.kwad.sdk.utils.o.a(jSONObject, "systemVersion", this.f33673f);
+            com.kwad.sdk.utils.o.a(jSONObject, "locale", this.f33674g);
+            com.kwad.sdk.utils.o.a(jSONObject, "uuid", this.f33675h);
+            com.kwad.sdk.utils.o.a(jSONObject, "screenWidth", this.f33676i);
             com.kwad.sdk.utils.o.a(jSONObject, "screenHeight", this.j);
             com.kwad.sdk.utils.o.a(jSONObject, "imei", this.k);
             com.kwad.sdk.utils.o.a(jSONObject, "oaid", this.l);

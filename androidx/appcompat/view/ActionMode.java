@@ -47,14 +47,14 @@ public abstract class ActionMode {
         return false;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean isUiFocusable() {
         return true;
     }
 
     public abstract void setCustomView(View view);
 
-    public abstract void setSubtitle(int i);
+    public abstract void setSubtitle(int i2);
 
     public abstract void setSubtitle(CharSequence charSequence);
 
@@ -62,7 +62,7 @@ public abstract class ActionMode {
         this.mTag = obj;
     }
 
-    public abstract void setTitle(int i);
+    public abstract void setTitle(int i2);
 
     public abstract void setTitle(CharSequence charSequence);
 

@@ -2,8 +2,8 @@ package com.baidu.tieba.forumMember.member;
 
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.d3.w;
-import d.b.j0.o0.c.c;
+import d.a.j0.d3.w;
+import d.a.j0.o0.c.c;
 import java.util.List;
 import tbclient.Error;
 import tbclient.GetMemberInfo.DataRes;
@@ -23,8 +23,8 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
     public PriManagerApplyInfo mPrivateMgrApplyInfo;
     public w mUserInfo;
 
-    public ForumMemberHttpResponseMessage(int i) {
-        super(i);
+    public ForumMemberHttpResponseMessage(int i2) {
+        super(i2);
         this.isNeedUpdateCache = false;
     }
 
@@ -62,7 +62,7 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
         if (this.isNeedUpdateCache) {
             ForumMemberRequestMessage forumMemberRequestMessage = null;
             if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
@@ -77,7 +77,7 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetMemberInfoResIdl getMemberInfoResIdl = (GetMemberInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMemberInfoResIdl.class);
         if (getMemberInfoResIdl != null) {
             Error error = getMemberInfoResIdl.error;

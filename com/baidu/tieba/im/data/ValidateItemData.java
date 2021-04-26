@@ -112,8 +112,8 @@ public class ValidateItemData extends AbstractImageProvider implements Serializa
         this.inviterUserId = j;
     }
 
-    public void setJoinType(int i) {
-        this.joinType = i;
+    public void setJoinType(int i2) {
+        this.joinType = i2;
     }
 
     public void setNotice_id(String str) {

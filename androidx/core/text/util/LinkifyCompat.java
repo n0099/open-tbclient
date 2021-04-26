@@ -5,7 +5,6 @@ import android.os.Build;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
-import android.text.method.MovementMethod;
 import android.text.style.URLSpan;
 import android.text.util.Linkify;
 import android.widget.TextView;
@@ -32,15 +31,15 @@ public final class LinkifyCompat {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(LinkSpec linkSpec, LinkSpec linkSpec2) {
-            int i;
             int i2;
-            int i3 = linkSpec.start;
-            int i4 = linkSpec2.start;
-            if (i3 < i4) {
+            int i3;
+            int i4 = linkSpec.start;
+            int i5 = linkSpec2.start;
+            if (i4 < i5) {
                 return -1;
             }
-            if (i3 <= i4 && (i = linkSpec.end) >= (i2 = linkSpec2.end)) {
-                return i > i2 ? -1 : 0;
+            if (i4 <= i5 && (i2 = linkSpec.end) >= (i3 = linkSpec2.end)) {
+                return i2 > i3 ? -1 : 0;
             }
             return 1;
         }
@@ -55,40 +54,40 @@ public final class LinkifyCompat {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface LinkifyMask {
     }
 
     public static void addLinkMovementMethod(@NonNull TextView textView) {
-        MovementMethod movementMethod = textView.getMovementMethod();
-        if ((movementMethod == null || !(movementMethod instanceof LinkMovementMethod)) && textView.getLinksClickable()) {
-            textView.setMovementMethod(LinkMovementMethod.getInstance());
+        if ((textView.getMovementMethod() instanceof LinkMovementMethod) || !textView.getLinksClickable()) {
+            return;
         }
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
-    public static boolean addLinks(@NonNull Spannable spannable, int i) {
+    public static boolean addLinks(@NonNull Spannable spannable, int i2) {
         if (shouldAddLinksFallbackToFramework()) {
-            return Linkify.addLinks(spannable, i);
+            return Linkify.addLinks(spannable, i2);
         }
-        if (i == 0) {
+        if (i2 == 0) {
             return false;
         }
         URLSpan[] uRLSpanArr = (URLSpan[]) spannable.getSpans(0, spannable.length(), URLSpan.class);
         for (int length = uRLSpanArr.length - 1; length >= 0; length--) {
             spannable.removeSpan(uRLSpanArr[length]);
         }
-        if ((i & 4) != 0) {
+        if ((i2 & 4) != 0) {
             Linkify.addLinks(spannable, 4);
         }
         ArrayList arrayList = new ArrayList();
-        if ((i & 1) != 0) {
+        if ((i2 & 1) != 0) {
             gatherLinks(arrayList, spannable, PatternsCompat.AUTOLINK_WEB_URL, new String[]{"http://", "https://", "rtsp://"}, Linkify.sUrlMatchFilter, null);
         }
-        if ((i & 2) != 0) {
+        if ((i2 & 2) != 0) {
             gatherLinks(arrayList, spannable, PatternsCompat.AUTOLINK_EMAIL_ADDRESS, new String[]{WebView.SCHEME_MAILTO}, null, null);
         }
-        if ((i & 8) != 0) {
+        if ((i2 & 8) != 0) {
             gatherMapLinks(arrayList, spannable);
         }
         pruneOverlaps(arrayList, spannable);
@@ -105,8 +104,8 @@ public final class LinkifyCompat {
         return true;
     }
 
-    public static void applyLink(String str, int i, int i2, Spannable spannable) {
-        spannable.setSpan(new URLSpan(str), i, i2, 33);
+    public static void applyLink(String str, int i2, int i3, Spannable spannable) {
+        spannable.setSpan(new URLSpan(str), i2, i3, 33);
     }
 
     public static String findAddress(String str) {
@@ -134,16 +133,16 @@ public final class LinkifyCompat {
     public static void gatherMapLinks(ArrayList<LinkSpec> arrayList, Spannable spannable) {
         int indexOf;
         String obj = spannable.toString();
-        int i = 0;
+        int i2 = 0;
         while (true) {
             try {
                 String findAddress = findAddress(obj);
                 if (findAddress != null && (indexOf = obj.indexOf(findAddress)) >= 0) {
                     LinkSpec linkSpec = new LinkSpec();
                     int length = findAddress.length() + indexOf;
-                    linkSpec.start = indexOf + i;
-                    i += length;
-                    linkSpec.end = i;
+                    linkSpec.start = indexOf + i2;
+                    i2 += length;
+                    linkSpec.end = i2;
                     obj = obj.substring(length);
                     try {
                         String encode = URLEncoder.encode(findAddress, "UTF-8");
@@ -164,19 +163,19 @@ public final class LinkifyCompat {
         if (transformFilter != null) {
             str = transformFilter.transformUrl(matcher, str);
         }
-        int i = 0;
+        int i2 = 0;
         while (true) {
             z = true;
-            if (i >= strArr.length) {
+            if (i2 >= strArr.length) {
                 z = false;
                 break;
             }
-            if (str.regionMatches(true, 0, strArr[i], 0, strArr[i].length())) {
-                if (!str.regionMatches(false, 0, strArr[i], 0, strArr[i].length())) {
-                    str = strArr[i] + str.substring(strArr[i].length());
+            if (str.regionMatches(true, 0, strArr[i2], 0, strArr[i2].length())) {
+                if (!str.regionMatches(false, 0, strArr[i2], 0, strArr[i2].length())) {
+                    str = strArr[i2] + str.substring(strArr[i2].length());
                 }
             } else {
-                i++;
+                i2++;
             }
         }
         if (z || strArr.length <= 0) {
@@ -186,37 +185,37 @@ public final class LinkifyCompat {
     }
 
     public static void pruneOverlaps(ArrayList<LinkSpec> arrayList, Spannable spannable) {
-        int i;
-        int i2 = 0;
+        int i2;
+        int i3 = 0;
         Object[] objArr = (URLSpan[]) spannable.getSpans(0, spannable.length(), URLSpan.class);
-        for (int i3 = 0; i3 < objArr.length; i3++) {
+        for (int i4 = 0; i4 < objArr.length; i4++) {
             LinkSpec linkSpec = new LinkSpec();
-            linkSpec.frameworkAddedSpan = objArr[i3];
-            linkSpec.start = spannable.getSpanStart(objArr[i3]);
-            linkSpec.end = spannable.getSpanEnd(objArr[i3]);
+            linkSpec.frameworkAddedSpan = objArr[i4];
+            linkSpec.start = spannable.getSpanStart(objArr[i4]);
+            linkSpec.end = spannable.getSpanEnd(objArr[i4]);
             arrayList.add(linkSpec);
         }
         Collections.sort(arrayList, COMPARATOR);
         int size = arrayList.size();
-        while (i2 < size - 1) {
-            LinkSpec linkSpec2 = arrayList.get(i2);
-            int i4 = i2 + 1;
-            LinkSpec linkSpec3 = arrayList.get(i4);
-            int i5 = linkSpec2.start;
-            int i6 = linkSpec3.start;
-            if (i5 <= i6 && (i = linkSpec2.end) > i6) {
-                int i7 = linkSpec3.end;
-                int i8 = (i7 > i && i - i5 <= i7 - i6) ? i - i5 < i7 - i6 ? i2 : -1 : i4;
-                if (i8 != -1) {
-                    Object obj = arrayList.get(i8).frameworkAddedSpan;
+        while (i3 < size - 1) {
+            LinkSpec linkSpec2 = arrayList.get(i3);
+            int i5 = i3 + 1;
+            LinkSpec linkSpec3 = arrayList.get(i5);
+            int i6 = linkSpec2.start;
+            int i7 = linkSpec3.start;
+            if (i6 <= i7 && (i2 = linkSpec2.end) > i7) {
+                int i8 = linkSpec3.end;
+                int i9 = (i8 > i2 && i2 - i6 <= i8 - i7) ? i2 - i6 < i8 - i7 ? i3 : -1 : i5;
+                if (i9 != -1) {
+                    Object obj = arrayList.get(i9).frameworkAddedSpan;
                     if (obj != null) {
                         spannable.removeSpan(obj);
                     }
-                    arrayList.remove(i8);
+                    arrayList.remove(i9);
                     size--;
                 }
             }
-            i2 = i4;
+            i3 = i5;
         }
     }
 
@@ -224,23 +223,23 @@ public final class LinkifyCompat {
         return Build.VERSION.SDK_INT >= 28;
     }
 
-    public static boolean addLinks(@NonNull TextView textView, int i) {
+    public static boolean addLinks(@NonNull TextView textView, int i2) {
         if (shouldAddLinksFallbackToFramework()) {
-            return Linkify.addLinks(textView, i);
+            return Linkify.addLinks(textView, i2);
         }
-        if (i == 0) {
+        if (i2 == 0) {
             return false;
         }
         CharSequence text = textView.getText();
         if (text instanceof Spannable) {
-            if (addLinks((Spannable) text, i)) {
+            if (addLinks((Spannable) text, i2)) {
                 addLinkMovementMethod(textView);
                 return true;
             }
             return false;
         }
         SpannableString valueOf = SpannableString.valueOf(text);
-        if (addLinks(valueOf, i)) {
+        if (addLinks(valueOf, i2)) {
             addLinkMovementMethod(textView);
             textView.setText(valueOf);
             return true;
@@ -304,11 +303,11 @@ public final class LinkifyCompat {
         }
         String[] strArr2 = new String[strArr.length + 1];
         strArr2[0] = str.toLowerCase(Locale.ROOT);
-        int i = 0;
-        while (i < strArr.length) {
-            String str2 = strArr[i];
-            i++;
-            strArr2[i] = str2 == null ? "" : str2.toLowerCase(Locale.ROOT);
+        int i2 = 0;
+        while (i2 < strArr.length) {
+            String str2 = strArr[i2];
+            i2++;
+            strArr2[i2] = str2 == null ? "" : str2.toLowerCase(Locale.ROOT);
         }
         Matcher matcher = pattern.matcher(spannable);
         boolean z = false;

@@ -12,14 +12,14 @@ import java.util.List;
 public class LifeSingleLineLayoutForType6 extends BaseItemLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public GridLayout f24296a;
+    public GridLayout f25048a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<BaseItemView> f24297b;
+    public List<BaseItemView> f25049b;
 
     public LifeSingleLineLayoutForType6(Context context) {
         super(context);
-        this.f24297b = new ArrayList();
+        this.f25049b = new ArrayList();
     }
 
     private void a(GridLayout gridLayout) {
@@ -28,14 +28,14 @@ public class LifeSingleLineLayoutForType6 extends BaseItemLayout {
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f24297b;
+        return this.f25049b;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_life_layout"), this);
         GridLayout gridLayout = (GridLayout) findViewById(ResUtils.id(getContext(), "grid_layout"));
-        this.f24296a = gridLayout;
+        this.f25048a = gridLayout;
         gridLayout.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_base_font_text6Color"));
     }
 
@@ -49,18 +49,18 @@ public class LifeSingleLineLayoutForType6 extends BaseItemLayout {
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void refreshData() {
         HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
-        this.f24296a.setColumnCount(dataItemArr.length);
-        a(this.f24296a);
+        this.f25048a.setColumnCount(dataItemArr.length);
+        a(this.f25048a);
         for (HomeCfgResponse.DataItem dataItem : dataItemArr) {
             LifeItemViewForType6 lifeItemViewForType6 = new LifeItemViewForType6(getContext());
             lifeItemViewForType6.setData(dataItem, getWalletInterface());
-            this.f24296a.addView(lifeItemViewForType6);
-            this.f24297b.add(lifeItemViewForType6);
+            this.f25048a.addView(lifeItemViewForType6);
+            this.f25049b.add(lifeItemViewForType6);
         }
     }
 
     public LifeSingleLineLayoutForType6(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24297b = new ArrayList();
+        this.f25049b = new ArrayList();
     }
 }

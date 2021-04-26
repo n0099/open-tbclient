@@ -1,22 +1,25 @@
 package com.win.opensdk;
 
-import com.win.opensdk.image.gif2.GifImageView;
-/* loaded from: classes7.dex */
-public class e0 implements Runnable {
+import android.os.Handler;
+import android.view.View;
+/* loaded from: classes6.dex */
+public class e0 implements l0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ GifImageView f40311a;
+    public final /* synthetic */ View f37860a;
 
-    public e0(GifImageView gifImageView) {
-        this.f40311a = gifImageView;
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ i0 f37861b;
+
+    public e0(i0 i0Var, View view) {
+        this.f37861b = i0Var;
+        this.f37860a = view;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        GifImageView gifImageView = this.f40311a;
-        gifImageView.f40332b = null;
-        gifImageView.f40331a = null;
-        gifImageView.f40337g = null;
-        gifImageView.f40336f = false;
+    @Override // com.win.opensdk.l0
+    public void a() {
+        if (this.f37860a != null) {
+            new Handler().postDelayed(new d0(this), this.f37861b.f37882c.getSpet());
+        }
     }
 }

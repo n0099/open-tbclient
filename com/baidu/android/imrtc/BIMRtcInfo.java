@@ -19,8 +19,8 @@ public class BIMRtcInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public BIMRtcInfo[] newArray(int i) {
-            return new BIMRtcInfo[i];
+        public BIMRtcInfo[] newArray(int i2) {
+            return new BIMRtcInfo[i2];
         }
     };
     public static final String TAG = "IMRtcInfo";
@@ -59,8 +59,8 @@ public class BIMRtcInfo implements Parcelable {
         return this.mSeq;
     }
 
-    public void setAction(int i) {
-        this.mAction = i;
+    public void setAction(int i2) {
+        this.mAction = i2;
     }
 
     public void setRtcDeviceId(String str) {
@@ -80,11 +80,11 @@ public class BIMRtcInfo implements Parcelable {
     }
 
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
+    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
         BIMRtcInfo bIMRtcInfo = new BIMRtcInfo();
         try {
             JSONObject jSONObject = new JSONObject(str2);
-            bIMRtcInfo.setAction(i);
+            bIMRtcInfo.setAction(i2);
             bIMRtcInfo.setRtcRoomId(str);
             bIMRtcInfo.setRtcExt(jSONObject.optString("ext"));
             bIMRtcInfo.setRtcDeviceId(jSONObject.optString("rtc_device_id"));
@@ -123,7 +123,7 @@ public class BIMRtcInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.mAction);
         parcel.writeString(this.mRtcRoomId);
         parcel.writeLong(this.mSeq);

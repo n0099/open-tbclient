@@ -23,7 +23,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class WrappingUtils {
     public static final String TAG = "WrappingUtils";
     public static final Drawable sEmptyDrawable = new ColorDrawable(0);

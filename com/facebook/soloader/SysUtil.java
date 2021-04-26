@@ -27,8 +27,8 @@ public final class SysUtil {
             try {
                 Os.posix_fallocate(fileDescriptor, 0L, j);
             } catch (ErrnoException e2) {
-                int i = e2.errno;
-                if (i != OsConstants.EOPNOTSUPP && i != OsConstants.ENOSYS && i != OsConstants.EINVAL) {
+                int i2 = e2.errno;
+                if (i2 != OsConstants.EOPNOTSUPP && i2 != OsConstants.ENOSYS && i2 != OsConstants.EINVAL) {
                     throw new IOException(e2.toString(), e2);
                 }
             }
@@ -40,17 +40,17 @@ public final class SysUtil {
         }
     }
 
-    public static int copyBytes(RandomAccessFile randomAccessFile, InputStream inputStream, int i, byte[] bArr) throws IOException {
-        int i2 = 0;
-        while (i2 < i) {
-            int read = inputStream.read(bArr, 0, Math.min(bArr.length, i - i2));
+    public static int copyBytes(RandomAccessFile randomAccessFile, InputStream inputStream, int i2, byte[] bArr) throws IOException {
+        int i3 = 0;
+        while (i3 < i2) {
+            int read = inputStream.read(bArr, 0, Math.min(bArr.length, i2 - i3));
             if (read == -1) {
                 break;
             }
             randomAccessFile.write(bArr, 0, read);
-            i2 += read;
+            i3 += read;
         }
-        return i2;
+        return i3;
     }
 
     public static void deleteOrThrow(File file) throws IOException {
@@ -83,9 +83,9 @@ public final class SysUtil {
     }
 
     public static int findAbiScore(String[] strArr, String str) {
-        for (int i = 0; i < strArr.length; i++) {
-            if (strArr[i] != null && str.equals(strArr[i])) {
-                return i;
+        for (int i2 = 0; i2 < strArr.length; i2++) {
+            if (strArr[i2] != null && str.equals(strArr[i2])) {
+                return i2;
             }
         }
         return -1;
@@ -104,7 +104,7 @@ public final class SysUtil {
             }
             throw new IOException("cannot list directory " + file);
         } else if (!file.getPath().endsWith("_lock")) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7699a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7975a);
             try {
                 randomAccessFile.getFD().sync();
                 randomAccessFile.close();

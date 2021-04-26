@@ -3,7 +3,6 @@ package com.baidu.mobstat;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
-import androidx.exifinterface.media.ExifInterface;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -29,9 +28,9 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f8454a = false;
-                acVar.f8455b = "M";
-                acVar.f8456c = false;
+                acVar.f8756a = false;
+                acVar.f8757b = "M";
+                acVar.f8758c = false;
                 a2.a(applicationContext, acVar.a());
             }
         }
@@ -43,9 +42,9 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f8454a = false;
-                acVar.f8455b = "R";
-                acVar.f8456c = false;
+                acVar.f8756a = false;
+                acVar.f8757b = "R";
+                acVar.f8758c = false;
                 a2.a(applicationContext, acVar.a());
             }
         }
@@ -57,9 +56,9 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f8454a = false;
-                acVar.f8455b = ExifInterface.LONGITUDE_EAST;
-                acVar.f8456c = false;
+                acVar.f8756a = false;
+                acVar.f8757b = "E";
+                acVar.f8758c = false;
                 a2.a(applicationContext, acVar.a());
             }
         }
@@ -67,12 +66,12 @@ public enum t {
     
 
     /* renamed from: e  reason: collision with root package name */
-    public int f8832e;
+    public int f9147e;
 
-    public static t a(int i) {
+    public static t a(int i2) {
         t[] values;
         for (t tVar : values()) {
-            if (tVar.f8832e == i) {
+            if (tVar.f9147e == i2) {
                 return tVar;
             }
         }
@@ -84,14 +83,14 @@ public enum t {
         if (activityManager != null) {
             try {
                 List<ActivityManager.RunningServiceInfo> runningServices = activityManager.getRunningServices(Integer.MAX_VALUE);
-                int i = 0;
+                int i2 = 0;
                 while (runningServices != null) {
-                    if (i >= runningServices.size()) {
+                    if (i2 >= runningServices.size()) {
                         break;
-                    } else if ("com.baidu.bottom.service.BottomService".equals(runningServices.get(i).service.getClassName())) {
+                    } else if ("com.baidu.bottom.service.BottomService".equals(runningServices.get(i2).service.getClassName())) {
                         return true;
                     } else {
-                        i++;
+                        i2++;
                     }
                 }
             } catch (Exception e2) {
@@ -109,10 +108,10 @@ public enum t {
 
     @Override // java.lang.Enum
     public String toString() {
-        return String.valueOf(this.f8832e);
+        return String.valueOf(this.f9147e);
     }
 
-    t(int i) {
-        this.f8832e = i;
+    t(int i2) {
+        this.f9147e = i2;
     }
 }

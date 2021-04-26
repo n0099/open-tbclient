@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import d.b.c.e.p.j;
+import d.a.c.e.p.j;
 /* loaded from: classes4.dex */
 public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity> {
     public static final String PUBLISH_COMMENT_URL = "game/forum/addComment";
@@ -115,18 +115,18 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         }
 
         @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
 
         @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
     }
 
     /* loaded from: classes4.dex */
     public class d extends HttpMessageListener {
-        public d(int i) {
-            super(i);
+        public d(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -177,32 +177,32 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         EditText editText = (EditText) findViewById(R.id.frs_game_comment_edit);
         this.mCommentEdit = editText;
         editText.addTextChangedListener(this.mCommentChangeListener);
-        int i = this.mScore;
-        if (i == 2) {
+        int i2 = this.mScore;
+        if (i2 == 2) {
             this.mGrade1.setChecked(true);
             this.mGrade2.setChecked(false);
             this.mGrade3.setChecked(false);
             this.mGrade4.setChecked(false);
             this.mGrade5.setChecked(false);
-        } else if (i == 4) {
+        } else if (i2 == 4) {
             this.mGrade1.setChecked(true);
             this.mGrade2.setChecked(true);
             this.mGrade3.setChecked(false);
             this.mGrade4.setChecked(false);
             this.mGrade5.setChecked(false);
-        } else if (i == 6) {
+        } else if (i2 == 6) {
             this.mGrade1.setChecked(true);
             this.mGrade2.setChecked(true);
             this.mGrade3.setChecked(true);
             this.mGrade4.setChecked(false);
             this.mGrade5.setChecked(false);
-        } else if (i == 8) {
+        } else if (i2 == 8) {
             this.mGrade1.setChecked(true);
             this.mGrade2.setChecked(true);
             this.mGrade3.setChecked(true);
             this.mGrade4.setChecked(true);
             this.mGrade5.setChecked(false);
-        } else if (i != 10) {
+        } else if (i2 != 10) {
         } else {
             this.mGrade1.setChecked(true);
             this.mGrade2.setChecked(true);
@@ -235,8 +235,8 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         SkinManager.setBackgroundResource(this.mGrade1, R.drawable.game_comment_score_btn_bg);
         SkinManager.setBackgroundResource(this.mGrade2, R.drawable.game_comment_score_btn_bg);
         SkinManager.setBackgroundResource(this.mGrade3, R.drawable.game_comment_score_btn_bg);

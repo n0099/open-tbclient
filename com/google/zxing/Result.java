@@ -83,10 +83,10 @@ public final class Result {
         this(str, bArr, bArr == null ? 0 : bArr.length * 8, resultPointArr, barcodeFormat, j);
     }
 
-    public Result(String str, byte[] bArr, int i, ResultPoint[] resultPointArr, BarcodeFormat barcodeFormat, long j) {
+    public Result(String str, byte[] bArr, int i2, ResultPoint[] resultPointArr, BarcodeFormat barcodeFormat, long j) {
         this.text = str;
         this.rawBytes = bArr;
-        this.numBits = i;
+        this.numBits = i2;
         this.resultPoints = resultPointArr;
         this.format = barcodeFormat;
         this.resultMetadata = null;

@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.b.j0.d2.h.e;
+import d.a.j0.d2.h.e;
 import tbclient.PbPage.PbPageResIdl;
 /* loaded from: classes3.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
@@ -16,7 +16,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         super(2004003);
     }
 
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         if (bArr == null) {
             return;
         }
@@ -68,7 +68,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         this.postId = str;
     }
 
-    public void setUpdateType(int i) {
-        this.updateType = i;
+    public void setUpdateType(int i2) {
+        this.updateType = i2;
     }
 }

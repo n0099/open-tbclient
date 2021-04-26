@@ -17,8 +17,8 @@ public class MultiImageObject extends BaseMediaObject {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public MultiImageObject[] newArray(int i) {
-            return new MultiImageObject[i];
+        public MultiImageObject[] newArray(int i2) {
+            return new MultiImageObject[i2];
         }
     };
     public ArrayList<Uri> imageList;
@@ -55,8 +55,8 @@ public class MultiImageObject extends BaseMediaObject {
     }
 
     @Override // com.sina.weibo.sdk.api.BaseMediaObject, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeTypedList(this.imageList);
     }
 

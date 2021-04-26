@@ -57,17 +57,17 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
                     ParameterizedType parameterizedType = (ParameterizedType) type;
                     Class[] clsArr = new Class[parameterizedType.getActualTypeArguments().length];
                     Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
-                    for (int i = 0; i < actualTypeArguments.length; i++) {
-                        Type type2 = actualTypeArguments[i];
+                    for (int i2 = 0; i2 < actualTypeArguments.length; i2++) {
+                        Type type2 = actualTypeArguments[i2];
                         if (type2 instanceof TypeVariable) {
                             ResolvableType resolveVariable2 = resolveVariable((TypeVariable) type2, ResolvableType.forClass(cls));
                             if (resolveVariable2 != ResolvableType.NONE) {
-                                clsArr[i] = resolveVariable2.resolve();
+                                clsArr[i2] = resolveVariable2.resolve();
                             } else {
-                                clsArr[i] = ResolvableType.forType(type2).resolve();
+                                clsArr[i2] = ResolvableType.forType(type2).resolve();
                             }
                         } else {
-                            clsArr[i] = ResolvableType.forType(type2).resolve();
+                            clsArr[i2] = ResolvableType.forType(type2).resolve();
                         }
                     }
                     return ResolvableType.forClassWithGenerics(forType.getRawClass(), clsArr).getType();
@@ -133,10 +133,10 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
             return;
         }
         int length = this.fastJsonConfig.getSerializeFilters().length;
-        int i = length + 1;
-        SerializeFilter[] serializeFilterArr = new SerializeFilter[i];
+        int i2 = length + 1;
+        SerializeFilter[] serializeFilterArr = new SerializeFilter[i2];
         System.arraycopy(this.fastJsonConfig.getSerializeFilters(), 0, serializeFilterArr, 0, length);
-        serializeFilterArr[i - 1] = serializeFilter;
+        serializeFilterArr[i2 - 1] = serializeFilter;
         this.fastJsonConfig.setSerializeFilters(serializeFilterArr);
     }
 

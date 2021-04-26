@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class AnimatorInflaterCompat {
     public static final boolean DBG_ANIMATOR_INFLATER = false;
@@ -58,12 +58,11 @@ public class AnimatorInflaterCompat {
         @Override // android.animation.TypeEvaluator
         public PathParser.PathDataNode[] evaluate(float f2, PathParser.PathDataNode[] pathDataNodeArr, PathParser.PathDataNode[] pathDataNodeArr2) {
             if (PathParser.canMorph(pathDataNodeArr, pathDataNodeArr2)) {
-                PathParser.PathDataNode[] pathDataNodeArr3 = this.mNodeArray;
-                if (pathDataNodeArr3 == null || !PathParser.canMorph(pathDataNodeArr3, pathDataNodeArr)) {
+                if (!PathParser.canMorph(this.mNodeArray, pathDataNodeArr)) {
                     this.mNodeArray = PathParser.deepCopyNodes(pathDataNodeArr);
                 }
-                for (int i = 0; i < pathDataNodeArr.length; i++) {
-                    this.mNodeArray[i].interpolatePathDataNode(pathDataNodeArr[i], pathDataNodeArr2[i], f2);
+                for (int i2 = 0; i2 < pathDataNodeArr.length; i2++) {
+                    this.mNodeArray[i2].interpolatePathDataNode(pathDataNodeArr[i2], pathDataNodeArr2[i2], f2);
                 }
                 return this.mNodeArray;
             }
@@ -85,11 +84,11 @@ public class AnimatorInflaterCompat {
         return Keyframe.ofObject(f2);
     }
 
-    public static void distributeKeyframes(Keyframe[] keyframeArr, float f2, int i, int i2) {
-        float f3 = f2 / ((i2 - i) + 2);
-        while (i <= i2) {
-            keyframeArr[i].setFraction(keyframeArr[i - 1].getFraction() + f3);
-            i++;
+    public static void distributeKeyframes(Keyframe[] keyframeArr, float f2, int i2, int i3) {
+        float f3 = f2 / ((i3 - i2) + 2);
+        while (i2 <= i3) {
+            keyframeArr[i2].setFraction(keyframeArr[i2 - 1].getFraction() + f3);
+            i2++;
         }
     }
 
@@ -99,17 +98,16 @@ public class AnimatorInflaterCompat {
         }
         Log.d(TAG, str);
         int length = objArr.length;
-        for (int i = 0; i < length; i++) {
-            Keyframe keyframe = (Keyframe) objArr[i];
+        for (int i2 = 0; i2 < length; i2++) {
+            Keyframe keyframe = (Keyframe) objArr[i2];
             StringBuilder sb = new StringBuilder();
             sb.append("Keyframe ");
-            sb.append(i);
+            sb.append(i2);
             sb.append(": fraction ");
             float fraction = keyframe.getFraction();
             Object obj = StringUtil.NULL_STRING;
             sb.append(fraction < 0.0f ? StringUtil.NULL_STRING : Float.valueOf(keyframe.getFraction()));
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(", value : ");
+            sb.append(", , value : ");
             if (keyframe.hasValue()) {
                 obj = keyframe.getValue();
             }
@@ -118,29 +116,29 @@ public class AnimatorInflaterCompat {
         }
     }
 
-    public static PropertyValuesHolder getPVH(TypedArray typedArray, int i, int i2, int i3, String str) {
-        int i4;
+    public static PropertyValuesHolder getPVH(TypedArray typedArray, int i2, int i3, int i4, String str) {
         int i5;
         int i6;
+        int i7;
         float f2;
         PropertyValuesHolder ofFloat;
         float f3;
         float f4;
         PropertyValuesHolder ofObject;
-        TypedValue peekValue = typedArray.peekValue(i2);
+        TypedValue peekValue = typedArray.peekValue(i3);
         boolean z = peekValue != null;
-        int i7 = z ? peekValue.type : 0;
-        TypedValue peekValue2 = typedArray.peekValue(i3);
+        int i8 = z ? peekValue.type : 0;
+        TypedValue peekValue2 = typedArray.peekValue(i4);
         boolean z2 = peekValue2 != null;
-        int i8 = z2 ? peekValue2.type : 0;
-        if (i == 4) {
-            i = ((z && isColorType(i7)) || (z2 && isColorType(i8))) ? 3 : 0;
+        int i9 = z2 ? peekValue2.type : 0;
+        if (i2 == 4) {
+            i2 = ((z && isColorType(i8)) || (z2 && isColorType(i9))) ? 3 : 0;
         }
-        boolean z3 = i == 0;
+        boolean z3 = i2 == 0;
         PropertyValuesHolder propertyValuesHolder = null;
-        if (i == 2) {
-            String string = typedArray.getString(i2);
-            String string2 = typedArray.getString(i3);
+        if (i2 == 2) {
+            String string = typedArray.getString(i3);
+            String string2 = typedArray.getString(i4);
             PathParser.PathDataNode[] createNodesFromPathData = PathParser.createNodesFromPathData(string);
             PathParser.PathDataNode[] createNodesFromPathData2 = PathParser.createNodesFromPathData(string2);
             if (createNodesFromPathData == null && createNodesFromPathData2 == null) {
@@ -164,62 +162,62 @@ public class AnimatorInflaterCompat {
             }
             return ofObject;
         }
-        ArgbEvaluator argbEvaluator = i == 3 ? ArgbEvaluator.getInstance() : null;
+        ArgbEvaluator argbEvaluator = i2 == 3 ? ArgbEvaluator.getInstance() : null;
         if (z3) {
             if (z) {
-                if (i7 == 5) {
-                    f3 = typedArray.getDimension(i2, 0.0f);
+                if (i8 == 5) {
+                    f3 = typedArray.getDimension(i3, 0.0f);
                 } else {
-                    f3 = typedArray.getFloat(i2, 0.0f);
+                    f3 = typedArray.getFloat(i3, 0.0f);
                 }
                 if (z2) {
-                    if (i8 == 5) {
-                        f4 = typedArray.getDimension(i3, 0.0f);
+                    if (i9 == 5) {
+                        f4 = typedArray.getDimension(i4, 0.0f);
                     } else {
-                        f4 = typedArray.getFloat(i3, 0.0f);
+                        f4 = typedArray.getFloat(i4, 0.0f);
                     }
                     ofFloat = PropertyValuesHolder.ofFloat(str, f3, f4);
                 } else {
                     ofFloat = PropertyValuesHolder.ofFloat(str, f3);
                 }
             } else {
-                if (i8 == 5) {
-                    f2 = typedArray.getDimension(i3, 0.0f);
+                if (i9 == 5) {
+                    f2 = typedArray.getDimension(i4, 0.0f);
                 } else {
-                    f2 = typedArray.getFloat(i3, 0.0f);
+                    f2 = typedArray.getFloat(i4, 0.0f);
                 }
                 ofFloat = PropertyValuesHolder.ofFloat(str, f2);
             }
             propertyValuesHolder = ofFloat;
         } else if (z) {
-            if (i7 == 5) {
-                i5 = (int) typedArray.getDimension(i2, 0.0f);
-            } else if (isColorType(i7)) {
-                i5 = typedArray.getColor(i2, 0);
+            if (i8 == 5) {
+                i6 = (int) typedArray.getDimension(i3, 0.0f);
+            } else if (isColorType(i8)) {
+                i6 = typedArray.getColor(i3, 0);
             } else {
-                i5 = typedArray.getInt(i2, 0);
+                i6 = typedArray.getInt(i3, 0);
             }
             if (z2) {
-                if (i8 == 5) {
-                    i6 = (int) typedArray.getDimension(i3, 0.0f);
-                } else if (isColorType(i8)) {
-                    i6 = typedArray.getColor(i3, 0);
+                if (i9 == 5) {
+                    i7 = (int) typedArray.getDimension(i4, 0.0f);
+                } else if (isColorType(i9)) {
+                    i7 = typedArray.getColor(i4, 0);
                 } else {
-                    i6 = typedArray.getInt(i3, 0);
+                    i7 = typedArray.getInt(i4, 0);
                 }
-                propertyValuesHolder = PropertyValuesHolder.ofInt(str, i5, i6);
+                propertyValuesHolder = PropertyValuesHolder.ofInt(str, i6, i7);
             } else {
-                propertyValuesHolder = PropertyValuesHolder.ofInt(str, i5);
+                propertyValuesHolder = PropertyValuesHolder.ofInt(str, i6);
             }
         } else if (z2) {
-            if (i8 == 5) {
-                i4 = (int) typedArray.getDimension(i3, 0.0f);
-            } else if (isColorType(i8)) {
-                i4 = typedArray.getColor(i3, 0);
+            if (i9 == 5) {
+                i5 = (int) typedArray.getDimension(i4, 0.0f);
+            } else if (isColorType(i9)) {
+                i5 = typedArray.getColor(i4, 0);
             } else {
-                i4 = typedArray.getInt(i3, 0);
+                i5 = typedArray.getInt(i4, 0);
             }
-            propertyValuesHolder = PropertyValuesHolder.ofInt(str, i4);
+            propertyValuesHolder = PropertyValuesHolder.ofInt(str, i5);
         }
         if (propertyValuesHolder == null || argbEvaluator == null) {
             return propertyValuesHolder;
@@ -228,53 +226,53 @@ public class AnimatorInflaterCompat {
         return propertyValuesHolder;
     }
 
-    public static int inferValueTypeFromValues(TypedArray typedArray, int i, int i2) {
-        TypedValue peekValue = typedArray.peekValue(i);
+    public static int inferValueTypeFromValues(TypedArray typedArray, int i2, int i3) {
+        TypedValue peekValue = typedArray.peekValue(i2);
         boolean z = peekValue != null;
-        int i3 = z ? peekValue.type : 0;
-        TypedValue peekValue2 = typedArray.peekValue(i2);
+        int i4 = z ? peekValue.type : 0;
+        TypedValue peekValue2 = typedArray.peekValue(i3);
         boolean z2 = peekValue2 != null;
-        return ((z && isColorType(i3)) || (z2 && isColorType(z2 ? peekValue2.type : 0))) ? 3 : 0;
+        return ((z && isColorType(i4)) || (z2 && isColorType(z2 ? peekValue2.type : 0))) ? 3 : 0;
     }
 
     public static int inferValueTypeOfKeyframe(Resources resources, Resources.Theme theme, AttributeSet attributeSet, XmlPullParser xmlPullParser) {
         TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_KEYFRAME);
-        int i = 0;
+        int i2 = 0;
         TypedValue peekNamedValue = TypedArrayUtils.peekNamedValue(obtainAttributes, xmlPullParser, "value", 0);
         if ((peekNamedValue != null) && isColorType(peekNamedValue.type)) {
-            i = 3;
+            i2 = 3;
         }
         obtainAttributes.recycle();
-        return i;
+        return i2;
     }
 
-    public static boolean isColorType(int i) {
-        return i >= 28 && i <= 31;
+    public static boolean isColorType(int i2) {
+        return i2 >= 28 && i2 <= 31;
     }
 
-    public static Animator loadAnimator(Context context, @AnimatorRes int i) throws Resources.NotFoundException {
+    public static Animator loadAnimator(Context context, @AnimatorRes int i2) throws Resources.NotFoundException {
         if (Build.VERSION.SDK_INT >= 24) {
-            return AnimatorInflater.loadAnimator(context, i);
+            return AnimatorInflater.loadAnimator(context, i2);
         }
-        return loadAnimator(context, context.getResources(), context.getTheme(), i);
+        return loadAnimator(context, context.getResources(), context.getTheme(), i2);
     }
 
-    public static Keyframe loadKeyframe(Context context, Resources resources, Resources.Theme theme, AttributeSet attributeSet, int i, XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
+    public static Keyframe loadKeyframe(Context context, Resources resources, Resources.Theme theme, AttributeSet attributeSet, int i2, XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
         Keyframe ofInt;
         TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_KEYFRAME);
         float namedFloat = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "fraction", 3, -1.0f);
         TypedValue peekNamedValue = TypedArrayUtils.peekNamedValue(obtainAttributes, xmlPullParser, "value", 0);
         boolean z = peekNamedValue != null;
-        if (i == 4) {
-            i = (z && isColorType(peekNamedValue.type)) ? 3 : 0;
+        if (i2 == 4) {
+            i2 = (z && isColorType(peekNamedValue.type)) ? 3 : 0;
         }
         if (z) {
-            if (i != 0) {
-                ofInt = (i == 1 || i == 3) ? Keyframe.ofInt(namedFloat, TypedArrayUtils.getNamedInt(obtainAttributes, xmlPullParser, "value", 0, 0)) : null;
+            if (i2 != 0) {
+                ofInt = (i2 == 1 || i2 == 3) ? Keyframe.ofInt(namedFloat, TypedArrayUtils.getNamedInt(obtainAttributes, xmlPullParser, "value", 0, 0)) : null;
             } else {
                 ofInt = Keyframe.ofFloat(namedFloat, TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "value", 0, 0.0f));
             }
-        } else if (i == 0) {
+        } else if (i2 == 0) {
             ofInt = Keyframe.ofFloat(namedFloat);
         } else {
             ofInt = Keyframe.ofInt(namedFloat);
@@ -293,7 +291,7 @@ public class AnimatorInflaterCompat {
         return objectAnimator;
     }
 
-    public static PropertyValuesHolder loadPvh(Context context, Resources resources, Resources.Theme theme, XmlPullParser xmlPullParser, String str, int i) throws XmlPullParserException, IOException {
+    public static PropertyValuesHolder loadPvh(Context context, Resources resources, Resources.Theme theme, XmlPullParser xmlPullParser, String str, int i2) throws XmlPullParserException, IOException {
         int size;
         PropertyValuesHolder propertyValuesHolder = null;
         ArrayList arrayList = null;
@@ -302,10 +300,10 @@ public class AnimatorInflaterCompat {
             if (next == 3 || next == 1) {
                 break;
             } else if (xmlPullParser.getName().equals("keyframe")) {
-                if (i == 4) {
-                    i = inferValueTypeOfKeyframe(resources, theme, Xml.asAttributeSet(xmlPullParser), xmlPullParser);
+                if (i2 == 4) {
+                    i2 = inferValueTypeOfKeyframe(resources, theme, Xml.asAttributeSet(xmlPullParser), xmlPullParser);
                 }
-                Keyframe loadKeyframe = loadKeyframe(context, resources, theme, Xml.asAttributeSet(xmlPullParser), i, xmlPullParser);
+                Keyframe loadKeyframe = loadKeyframe(context, resources, theme, Xml.asAttributeSet(xmlPullParser), i2, xmlPullParser);
                 if (loadKeyframe != null) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
@@ -338,27 +336,27 @@ public class AnimatorInflaterCompat {
             }
             Keyframe[] keyframeArr = new Keyframe[size];
             arrayList.toArray(keyframeArr);
-            for (int i2 = 0; i2 < size; i2++) {
-                Keyframe keyframe3 = keyframeArr[i2];
+            for (int i3 = 0; i3 < size; i3++) {
+                Keyframe keyframe3 = keyframeArr[i3];
                 if (keyframe3.getFraction() < 0.0f) {
-                    if (i2 == 0) {
+                    if (i3 == 0) {
                         keyframe3.setFraction(0.0f);
                     } else {
-                        int i3 = size - 1;
-                        if (i2 == i3) {
+                        int i4 = size - 1;
+                        if (i3 == i4) {
                             keyframe3.setFraction(1.0f);
                         } else {
-                            int i4 = i2;
-                            for (int i5 = i2 + 1; i5 < i3 && keyframeArr[i5].getFraction() < 0.0f; i5++) {
-                                i4 = i5;
+                            int i5 = i3;
+                            for (int i6 = i3 + 1; i6 < i4 && keyframeArr[i6].getFraction() < 0.0f; i6++) {
+                                i5 = i6;
                             }
-                            distributeKeyframes(keyframeArr, keyframeArr[i4 + 1].getFraction() - keyframeArr[i2 - 1].getFraction(), i2, i4);
+                            distributeKeyframes(keyframeArr, keyframeArr[i5 + 1].getFraction() - keyframeArr[i3 - 1].getFraction(), i3, i5);
                         }
                     }
                 }
             }
             propertyValuesHolder = PropertyValuesHolder.ofKeyframe(str, keyframeArr);
-            if (i == 3) {
+            if (i2 == 3) {
                 propertyValuesHolder.setEvaluator(ArgbEvaluator.getInstance());
             }
         }
@@ -366,7 +364,7 @@ public class AnimatorInflaterCompat {
     }
 
     public static PropertyValuesHolder[] loadValues(Context context, Resources resources, Resources.Theme theme, XmlPullParser xmlPullParser, AttributeSet attributeSet) throws XmlPullParserException, IOException {
-        int i;
+        int i2;
         PropertyValuesHolder[] propertyValuesHolderArr = null;
         ArrayList arrayList = null;
         while (true) {
@@ -398,8 +396,8 @@ public class AnimatorInflaterCompat {
         if (arrayList != null) {
             int size = arrayList.size();
             propertyValuesHolderArr = new PropertyValuesHolder[size];
-            for (i = 0; i < size; i++) {
-                propertyValuesHolderArr[i] = (PropertyValuesHolder) arrayList.get(i);
+            for (i2 = 0; i2 < size; i2++) {
+                propertyValuesHolderArr[i2] = (PropertyValuesHolder) arrayList.get(i2);
             }
         }
         return propertyValuesHolderArr;
@@ -427,13 +425,13 @@ public class AnimatorInflaterCompat {
         }
     }
 
-    public static void setupObjectAnimator(ValueAnimator valueAnimator, TypedArray typedArray, int i, float f2, XmlPullParser xmlPullParser) {
+    public static void setupObjectAnimator(ValueAnimator valueAnimator, TypedArray typedArray, int i2, float f2, XmlPullParser xmlPullParser) {
         ObjectAnimator objectAnimator = (ObjectAnimator) valueAnimator;
         String namedString = TypedArrayUtils.getNamedString(typedArray, xmlPullParser, "pathData", 1);
         if (namedString != null) {
             String namedString2 = TypedArrayUtils.getNamedString(typedArray, xmlPullParser, "propertyXName", 2);
             String namedString3 = TypedArrayUtils.getNamedString(typedArray, xmlPullParser, "propertyYName", 3);
-            if (i != 2) {
+            if (i2 != 2) {
             }
             if (namedString2 == null && namedString3 == null) {
                 throw new InflateException(typedArray.getPositionDescription() + " propertyXName or propertyYName is needed for PathData");
@@ -460,22 +458,22 @@ public class AnimatorInflaterCompat {
         float[] fArr2 = new float[min];
         float[] fArr3 = new float[2];
         float f5 = f4 / (min - 1);
-        int i = 0;
         int i2 = 0;
+        int i3 = 0;
         while (true) {
-            if (i >= min) {
+            if (i2 >= min) {
                 break;
             }
-            pathMeasure2.getPosTan(f3 - ((Float) arrayList.get(i2)).floatValue(), fArr3, null);
-            fArr[i] = fArr3[0];
-            fArr2[i] = fArr3[1];
+            pathMeasure2.getPosTan(f3 - ((Float) arrayList.get(i3)).floatValue(), fArr3, null);
+            fArr[i2] = fArr3[0];
+            fArr2[i2] = fArr3[1];
             f3 += f5;
-            int i3 = i2 + 1;
-            if (i3 < arrayList.size() && f3 > ((Float) arrayList.get(i3)).floatValue()) {
+            int i4 = i3 + 1;
+            if (i4 < arrayList.size() && f3 > ((Float) arrayList.get(i4)).floatValue()) {
                 pathMeasure2.nextContour();
-                i2 = i3;
+                i3 = i4;
             }
-            i++;
+            i2++;
         }
         PropertyValuesHolder ofFloat = str != null ? PropertyValuesHolder.ofFloat(str, fArr) : null;
         PropertyValuesHolder ofFloat2 = str2 != null ? PropertyValuesHolder.ofFloat(str2, fArr2) : null;
@@ -490,18 +488,18 @@ public class AnimatorInflaterCompat {
 
     /* JADX DEBUG: Multi-variable search result rejected for r15v0, resolved type: android.animation.AnimatorSet */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x00ba  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00b8  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Animator createAnimatorFromXml(Context context, Resources resources, Resources.Theme theme, XmlPullParser xmlPullParser, AttributeSet attributeSet, AnimatorSet animatorSet, int i, float f2) throws XmlPullParserException, IOException {
-        int i2;
+    public static Animator createAnimatorFromXml(Context context, Resources resources, Resources.Theme theme, XmlPullParser xmlPullParser, AttributeSet attributeSet, AnimatorSet animatorSet, int i2, float f2) throws XmlPullParserException, IOException {
+        int i3;
         int depth = xmlPullParser.getDepth();
         ValueAnimator valueAnimator = null;
         ArrayList arrayList = null;
         while (true) {
             int next = xmlPullParser.next();
-            i2 = 0;
+            i3 = 0;
             if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
                 if (next == 2) {
                     String name = xmlPullParser.getName();
@@ -518,14 +516,14 @@ public class AnimatorInflaterCompat {
                             valueAnimator = animatorSet2;
                         } else if (name.equals("propertyValuesHolder")) {
                             PropertyValuesHolder[] loadValues = loadValues(context, resources, theme, xmlPullParser, Xml.asAttributeSet(xmlPullParser));
-                            if (loadValues != null && valueAnimator != null && (valueAnimator instanceof ValueAnimator)) {
+                            if (loadValues != null && (valueAnimator instanceof ValueAnimator)) {
                                 valueAnimator.setValues(loadValues);
                             }
-                            i2 = 1;
+                            i3 = 1;
                         } else {
                             throw new RuntimeException("Unknown animator name: " + xmlPullParser.getName());
                         }
-                        if (animatorSet != null && i2 == 0) {
+                        if (animatorSet != null && i3 == 0) {
                             if (arrayList == null) {
                                 arrayList = new ArrayList();
                             }
@@ -544,10 +542,10 @@ public class AnimatorInflaterCompat {
             Animator[] animatorArr = new Animator[arrayList.size()];
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                animatorArr[i2] = (Animator) it.next();
-                i2++;
+                animatorArr[i3] = (Animator) it.next();
+                i3++;
             }
-            if (i == 0) {
+            if (i2 == 0) {
                 animatorSet.playTogether(animatorArr);
             } else {
                 animatorSet.playSequentially(animatorArr);
@@ -556,24 +554,24 @@ public class AnimatorInflaterCompat {
         return valueAnimator;
     }
 
-    public static Animator loadAnimator(Context context, Resources resources, Resources.Theme theme, @AnimatorRes int i) throws Resources.NotFoundException {
-        return loadAnimator(context, resources, theme, i, 1.0f);
+    public static Animator loadAnimator(Context context, Resources resources, Resources.Theme theme, @AnimatorRes int i2) throws Resources.NotFoundException {
+        return loadAnimator(context, resources, theme, i2, 1.0f);
     }
 
-    public static Animator loadAnimator(Context context, Resources resources, Resources.Theme theme, @AnimatorRes int i, float f2) throws Resources.NotFoundException {
+    public static Animator loadAnimator(Context context, Resources resources, Resources.Theme theme, @AnimatorRes int i2, float f2) throws Resources.NotFoundException {
         XmlResourceParser xmlResourceParser = null;
         try {
             try {
                 try {
-                    xmlResourceParser = resources.getAnimation(i);
+                    xmlResourceParser = resources.getAnimation(i2);
                     return createAnimatorFromXml(context, resources, theme, xmlResourceParser, f2);
                 } catch (XmlPullParserException e2) {
-                    Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i));
+                    Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i2));
                     notFoundException.initCause(e2);
                     throw notFoundException;
                 }
             } catch (IOException e3) {
-                Resources.NotFoundException notFoundException2 = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i));
+                Resources.NotFoundException notFoundException2 = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i2));
                 notFoundException2.initCause(e3);
                 throw notFoundException2;
             }

@@ -7,8 +7,8 @@ public class CommonEventMessage {
     public int messageId;
     public Object obj;
 
-    public CommonEventMessage(int i) {
-        this.messageId = i;
+    public CommonEventMessage(int i2) {
+        this.messageId = i2;
     }
 
     public String toString() {

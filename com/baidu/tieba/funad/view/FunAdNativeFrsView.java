@@ -20,11 +20,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.fun.ad.sdk.FunNativeAd;
-import d.b.i0.b.d;
-import d.b.i0.r.u.c;
-import d.b.j0.b1.a.a;
-import d.b.j0.d3.h0.n;
-import d.b.j0.r0.a;
+import d.a.i0.b.d;
+import d.a.i0.r.u.c;
+import d.a.j0.b1.a.a;
+import d.a.j0.d3.h0.n;
+import d.a.j0.r0.a;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -48,10 +48,10 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public void d(int i) {
-        this.v.setVisibility(i);
+    public void d(int i2) {
+        this.v.setVisibility(i2);
         ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-        marginLayoutParams.topMargin = i == 0 ? UtilHelper.getDimenPixelSize(R.dimen.M_H_X003) : 0;
+        marginLayoutParams.topMargin = i2 == 0 ? UtilHelper.getDimenPixelSize(R.dimen.M_H_X003) : 0;
         setLayoutParams(marginLayoutParams);
     }
 
@@ -72,11 +72,11 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             agreeData.agreeNum = a.a(25, 1000);
             nVar.h(agreeData);
         }
-        this.y.setText(this.f16484e);
+        this.y.setText(this.f16724e);
         AgreeData a2 = nVar.a();
         this.z.setAgreeAlone(true);
         this.z.setData(a2);
-        this.w.W(funNativeAd.getIconUrl(), 10, false);
+        this.w.V(funNativeAd.getIconUrl(), 10, false);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -95,16 +95,16 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         this.C = (TextView) findViewById(R.id.share_num);
         this.G = (ViewGroup) findViewById(R.id.layout_card_top);
         this.H = (ImageView) findViewById(R.id.fun_ad_feedback);
-        this.f16516g.setVisibility(8);
+        this.f16759g.setVisibility(8);
         m(this.w);
         l();
-        RelativeLayout relativeLayout = this.f16515f;
-        relativeLayout.setPadding(relativeLayout.getPaddingLeft(), this.f16515f.getPaddingTop(), this.f16515f.getPaddingRight(), 0);
+        RelativeLayout relativeLayout = this.f16758f;
+        relativeLayout.setPadding(relativeLayout.getPaddingLeft(), this.f16758f.getPaddingTop(), this.f16758f.getPaddingRight(), 0);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
     public List<View> getClickViews() {
-        return Arrays.asList(this, this.f16515f, this.k, this.n, this.t, this.s, this.G);
+        return Arrays.asList(this, this.f16758f, this.k, this.n, this.t, this.s, this.G);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -119,7 +119,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
     public a.d getLogItem() {
-        return d.b.j0.r0.a.a("frs", d.m() ? "1" : "0");
+        return d.a.j0.r0.a.a("frs", d.m() ? "1" : "0");
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -136,10 +136,10 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         c.d(this.x).q(R.color.CAM_X0109);
         c.d(this.y).q(R.color.CAM_X0105);
         WebPManager.setPureDrawable(this.H, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-        this.B.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_share22, d.b.j0.d3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
-        this.E.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_comment22, d.b.j0.d3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
-        this.C.setTextColor(d.b.j0.d3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
-        this.F.setTextColor(d.b.j0.d3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+        this.B.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_share22, d.a.j0.d3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
+        this.E.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_comment22, d.a.j0.d3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
+        this.C.setTextColor(d.a.j0.d3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+        this.F.setTextColor(d.a.j0.d3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
         this.w.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
     }
 
@@ -150,8 +150,8 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
 
     public final void l() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.z.getLayoutParams();
-        int i = layoutParams.width;
-        if (layoutParams.weight == 1.0f && i == 0) {
+        int i2 = layoutParams.width;
+        if (layoutParams.weight == 1.0f && i2 == 0) {
             return;
         }
         layoutParams.width = 0;
@@ -184,7 +184,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         super(context, attributeSet);
     }
 
-    public FunAdNativeFrsView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public FunAdNativeFrsView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

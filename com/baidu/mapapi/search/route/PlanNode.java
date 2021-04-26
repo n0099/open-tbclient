@@ -8,34 +8,34 @@ public class PlanNode implements Parcelable {
     public static final Parcelable.Creator<PlanNode> CREATOR = new m();
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f7338a;
+    public LatLng f7598a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7339b;
+    public String f7599b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7340c;
+    public String f7600c;
 
     public PlanNode(Parcel parcel) {
-        this.f7338a = null;
-        this.f7339b = null;
-        this.f7340c = null;
-        this.f7338a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f7339b = parcel.readString();
-        this.f7340c = parcel.readString();
+        this.f7598a = null;
+        this.f7599b = null;
+        this.f7600c = null;
+        this.f7598a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f7599b = parcel.readString();
+        this.f7600c = parcel.readString();
     }
 
     public PlanNode(LatLng latLng, String str, String str2) {
-        this.f7338a = null;
-        this.f7339b = null;
-        this.f7340c = null;
-        this.f7338a = latLng;
-        this.f7339b = str;
-        this.f7340c = str2;
+        this.f7598a = null;
+        this.f7599b = null;
+        this.f7600c = null;
+        this.f7598a = latLng;
+        this.f7599b = str;
+        this.f7600c = str2;
     }
 
-    public static PlanNode withCityCodeAndPlaceName(int i, String str) {
-        return new PlanNode(null, String.valueOf(i), str);
+    public static PlanNode withCityCodeAndPlaceName(int i2, String str) {
+        return new PlanNode(null, String.valueOf(i2), str);
     }
 
     public static PlanNode withCityNameAndPlaceName(String str, String str2) {
@@ -52,21 +52,21 @@ public class PlanNode implements Parcelable {
     }
 
     public String getCity() {
-        return this.f7339b;
+        return this.f7599b;
     }
 
     public LatLng getLocation() {
-        return this.f7338a;
+        return this.f7598a;
     }
 
     public String getName() {
-        return this.f7340c;
+        return this.f7600c;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeValue(this.f7338a);
-        parcel.writeString(this.f7339b);
-        parcel.writeString(this.f7340c);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeValue(this.f7598a);
+        parcel.writeString(this.f7599b);
+        parcel.writeString(this.f7600c);
     }
 }

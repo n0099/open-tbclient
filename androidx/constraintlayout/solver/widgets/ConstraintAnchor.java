@@ -110,8 +110,8 @@ public class ConstraintAnchor {
         }
         ArrayList<ConstraintAnchor> anchors = constraintWidget.getAnchors();
         int size = anchors.size();
-        for (int i = 0; i < size; i++) {
-            ConstraintAnchor constraintAnchor = anchors.get(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            ConstraintAnchor constraintAnchor = anchors.get(i2);
             if (constraintAnchor.isSimilarDimensionConnection(this) && constraintAnchor.isConnected() && isConnectionToMe(constraintAnchor.getTarget().getOwner(), hashSet)) {
                 return true;
             }
@@ -119,8 +119,8 @@ public class ConstraintAnchor {
         return false;
     }
 
-    public boolean connect(ConstraintAnchor constraintAnchor, int i, Strength strength, int i2) {
-        return connect(constraintAnchor, i, -1, strength, i2, false);
+    public boolean connect(ConstraintAnchor constraintAnchor, int i2, Strength strength, int i3) {
+        return connect(constraintAnchor, i2, -1, strength, i3, false);
     }
 
     public int getConnectionCreator() {
@@ -294,23 +294,23 @@ public class ConstraintAnchor {
             case 9:
                 return false;
             case 2:
-                int i = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
-                return i == 3 || i == 7;
-            case 3:
                 int i2 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
-                return i2 == 2 || i2 == 7;
-            case 4:
+                return i2 == 3 || i2 == 7;
+            case 3:
                 int i3 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
-                return i3 == 5 || i3 == 8;
-            case 5:
+                return i3 == 2 || i3 == 7;
+            case 4:
                 int i4 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
-                return i4 == 4 || i4 == 8;
-            case 7:
+                return i4 == 5 || i4 == 8;
+            case 5:
                 int i5 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
-                return i5 == 2 || i5 == 3;
-            case 8:
+                return i5 == 4 || i5 == 8;
+            case 7:
                 int i6 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
-                return i6 == 4 || i6 == 5;
+                return i6 == 2 || i6 == 3;
+            case 8:
+                int i7 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
+                return i7 == 4 || i7 == 5;
             default:
                 throw new AssertionError(this.mType.name());
         }
@@ -390,23 +390,23 @@ public class ConstraintAnchor {
         }
     }
 
-    public void setConnectionCreator(int i) {
-        this.mConnectionCreator = i;
+    public void setConnectionCreator(int i2) {
+        this.mConnectionCreator = i2;
     }
 
     public void setConnectionType(ConnectionType connectionType) {
         this.mConnectionType = connectionType;
     }
 
-    public void setGoneMargin(int i) {
+    public void setGoneMargin(int i2) {
         if (isConnected()) {
-            this.mGoneMargin = i;
+            this.mGoneMargin = i2;
         }
     }
 
-    public void setMargin(int i) {
+    public void setMargin(int i2) {
         if (isConnected()) {
-            this.mMargin = i;
+            this.mMargin = i2;
         }
     }
 
@@ -420,7 +420,7 @@ public class ConstraintAnchor {
         return this.mOwner.getDebugName() + ":" + this.mType.toString();
     }
 
-    public boolean connect(ConstraintAnchor constraintAnchor, int i, int i2, Strength strength, int i3, boolean z) {
+    public boolean connect(ConstraintAnchor constraintAnchor, int i2, int i3, Strength strength, int i4, boolean z) {
         if (constraintAnchor == null) {
             this.mTarget = null;
             this.mMargin = 0;
@@ -430,14 +430,14 @@ public class ConstraintAnchor {
             return true;
         } else if (z || isValidConnection(constraintAnchor)) {
             this.mTarget = constraintAnchor;
-            if (i > 0) {
-                this.mMargin = i;
+            if (i2 > 0) {
+                this.mMargin = i2;
             } else {
                 this.mMargin = 0;
             }
-            this.mGoneMargin = i2;
+            this.mGoneMargin = i3;
             this.mStrength = strength;
-            this.mConnectionCreator = i3;
+            this.mConnectionCreator = i4;
             return true;
         } else {
             return false;
@@ -452,11 +452,11 @@ public class ConstraintAnchor {
         return parent == constraintWidget || constraintWidget.getParent() == parent;
     }
 
-    public boolean connect(ConstraintAnchor constraintAnchor, int i, int i2) {
-        return connect(constraintAnchor, i, -1, Strength.STRONG, i2, false);
+    public boolean connect(ConstraintAnchor constraintAnchor, int i2, int i3) {
+        return connect(constraintAnchor, i2, -1, Strength.STRONG, i3, false);
     }
 
-    public boolean connect(ConstraintAnchor constraintAnchor, int i) {
-        return connect(constraintAnchor, i, -1, Strength.STRONG, 0, false);
+    public boolean connect(ConstraintAnchor constraintAnchor, int i2) {
+        return connect(constraintAnchor, i2, -1, Strength.STRONG, 0, false);
     }
 }

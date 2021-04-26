@@ -1,6 +1,6 @@
 package com.baidu.searchbox.websocket;
 
-import com.baidu.searchbox.bddownload.core.breakpoint.sqllite.BreakpointSQLiteHelper;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;

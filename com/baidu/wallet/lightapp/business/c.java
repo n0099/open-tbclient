@@ -34,17 +34,17 @@ public final class c {
     public static class b extends FilterInputStream {
 
         /* renamed from: a  reason: collision with root package name */
-        public final HttpURLConnection f24812a;
+        public final HttpURLConnection f25576a;
 
         public b(HttpURLConnection httpURLConnection) {
             super(c.b(httpURLConnection));
-            this.f24812a = httpURLConnection;
+            this.f25576a = httpURLConnection;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             super.close();
-            this.f24812a.disconnect();
+            this.f25576a.disconnect();
         }
     }
 
@@ -138,15 +138,15 @@ public final class c {
         LogUtil.i("WebViewCacheManager", "START: load local");
         String str3 = null;
         boolean z = false;
-        for (int i = 0; i < strArr.length; i++) {
-            byte[] a2 = a(context.getAssets().open(str2 + strArr[i] + ".sig"), true);
-            byte[] a3 = a(context.getAssets().open(str2 + strArr[i]), true);
+        for (int i2 = 0; i2 < strArr.length; i2++) {
+            byte[] a2 = a(context.getAssets().open(str2 + strArr[i2] + ".sig"), true);
+            byte[] a3 = a(context.getAssets().open(str2 + strArr[i2]), true);
             if (VerSig.verify(a2, a3, "SHA-1")) {
-                strArr2[i] = new String(a3);
-                LogUtil.i("WebViewCacheManager", strArr[i] + " verify passed");
+                strArr2[i2] = new String(a3);
+                LogUtil.i("WebViewCacheManager", strArr[i2] + " verify passed");
             } else {
-                LogUtil.i("WebViewCacheManager", strArr[i] + " verify failed");
-                str3 = TextUtils.isEmpty(str3) ? strArr[i] : str3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + strArr[i];
+                LogUtil.i("WebViewCacheManager", strArr[i2] + " verify failed");
+                str3 = TextUtils.isEmpty(str3) ? strArr[i2] : str3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + strArr[i2];
                 z = true;
             }
         }
@@ -164,7 +164,7 @@ public final class c {
         }
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         linkedHashMap.put("url", str2);
-        linkedHashMap.put(com.baidu.fsg.face.base.b.c.f5592g, str);
+        linkedHashMap.put(com.baidu.fsg.face.base.b.c.f5743g, str);
         Tracker.send(LightAppStatEvent.JS_FILE_VERIFY_FAILED, linkedHashMap, context);
     }
 
@@ -243,12 +243,12 @@ public final class c {
                     }
                 }
                 boolean z3 = false;
-                for (int i = 0; i < length; i++) {
-                    if (VerSig.verify(strArr3[i], strArr2[i], "SHA-1")) {
-                        LogUtil.i("WebViewCacheManager", strArr[i] + " verify passed");
+                for (int i2 = 0; i2 < length; i2++) {
+                    if (VerSig.verify(strArr3[i2], strArr2[i2], "SHA-1")) {
+                        LogUtil.i("WebViewCacheManager", strArr[i2] + " verify passed");
                     } else {
-                        LogUtil.i("WebViewCacheManager", strArr[i] + " verify failed");
-                        str2 = TextUtils.isEmpty(str2) ? strArr[i] : str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + strArr[i];
+                        LogUtil.i("WebViewCacheManager", strArr[i2] + " verify failed");
+                        str2 = TextUtils.isEmpty(str2) ? strArr[i2] : str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + strArr[i2];
                         z3 = true;
                     }
                 }

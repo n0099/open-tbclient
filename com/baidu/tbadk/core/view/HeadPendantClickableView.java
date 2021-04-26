@@ -1,20 +1,30 @@
 package com.baidu.tbadk.core.view;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
-import d.b.i0.b.d;
-import d.b.i0.r.q.a2;
+import d.a.i0.b.d;
+import d.a.i0.r.q.a2;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class HeadPendantClickableView extends HeadPendantView {
     public a2 q;
@@ -38,14 +48,23 @@ public class HeadPendantClickableView extends HeadPendantView {
             } else if (HeadPendantClickableView.this.q.Y1()) {
                 str = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
             } else {
-                str = HeadPendantClickableView.this.q.o() ? AddFriendActivityConfig.TYPE_FRS_HEAD : "";
+                str = HeadPendantClickableView.this.q.p() ? AddFriendActivityConfig.TYPE_FRS_HEAD : "";
             }
             String str2 = str;
             AlaUserInfoData alaUserData = HeadPendantClickableView.this.q.T().getAlaUserData();
-            if (alaUserData != null && alaUserData.live_status == 1 && alaUserData.live_id > 0) {
+            AlaInfoData alaInfo = HeadPendantClickableView.this.q.T().getAlaInfo();
+            if (alaInfo != null && alaInfo.isLegalYYLiveData()) {
+                YYLiveUtil.jumpYYLiveRoom(HeadPendantClickableView.this.getTbPageContext(), alaInfo);
+                HeadPendantClickableView headPendantClickableView = HeadPendantClickableView.this;
+                headPendantClickableView.r(headPendantClickableView.q.w1(), String.valueOf(HeadPendantClickableView.this.q.c0()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+            } else if (alaUserData != null && alaUserData.live_status == 1 && alaUserData.live_id > 0) {
                 AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                 alaLiveInfoCoreData.liveID = alaUserData.live_id;
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(HeadPendantClickableView.this.r, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_ATTENTION, null, false, "")));
+                if (alaInfo != null) {
+                    HeadPendantClickableView headPendantClickableView2 = HeadPendantClickableView.this;
+                    headPendantClickableView2.r(headPendantClickableView2.q.w1(), String.valueOf(HeadPendantClickableView.this.q.c0()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), null);
+                }
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(HeadPendantClickableView.this.r, HeadPendantClickableView.this.q.T().getUserId(), HeadPendantClickableView.this.q.T().getName_show(), HeadPendantClickableView.this.q.i0(), str2, HeadPendantClickableView.this.q.w1(), HeadPendantClickableView.this.q.L0())));
             }
@@ -61,6 +80,38 @@ public class HeadPendantClickableView extends HeadPendantView {
         this.t = aVar;
         this.r = context;
         setOnClickListener(aVar);
+    }
+
+    public TbPageContext getTbPageContext() {
+        Context context = getContext();
+        if (context instanceof BaseActivity) {
+            return ((BaseActivity) context).getPageContext();
+        }
+        if (context instanceof BaseFragmentActivity) {
+            return ((BaseFragmentActivity) context).getPageContext();
+        }
+        return null;
+    }
+
+    public final void r(String str, String str2, String str3, String str4, String str5) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("tid", str);
+            jSONObject.put("fid", str2);
+            if (TextUtils.equals("0", str3)) {
+                str3 = null;
+            }
+            jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, str3);
+            if (TextUtils.equals("0", str4)) {
+                str4 = null;
+            }
+            jSONObject.put("liveId", str4);
+            jSONObject.put("sid", str5);
+            jSONObject.put("roomInfo", "roomInfo");
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921547, jSONObject));
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
@@ -82,13 +133,13 @@ public class HeadPendantClickableView extends HeadPendantView {
         getHeadView().setUserName(T.getUserName());
         getHeadView().setUrl(T.getAvater());
         if (T.isDefaultAvatar && d.T()) {
-            getHeadView().W(String.valueOf(R.drawable.pic_mask_pass_head), 24, false);
+            getHeadView().V(String.valueOf(R.drawable.pic_mask_pass_head), 24, false);
         } else if (!StringUtils.isNull(T.getAvater()) && T.getAvater().startsWith("http")) {
-            getHeadView().W(T.getAvater(), 10, false);
+            getHeadView().V(T.getAvater(), 10, false);
         } else if (z) {
-            getHeadView().W(T.getAvater(), 25, false);
+            getHeadView().V(T.getAvater(), 25, false);
         } else {
-            getHeadView().W(T.getAvater(), 28, false);
+            getHeadView().V(T.getAvater(), 28, false);
         }
         i(T, 0);
     }

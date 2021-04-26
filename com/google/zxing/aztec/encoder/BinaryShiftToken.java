@@ -7,33 +7,33 @@ public final class BinaryShiftToken extends Token {
     public final short binaryShiftByteCount;
     public final short binaryShiftStart;
 
-    public BinaryShiftToken(Token token, int i, int i2) {
+    public BinaryShiftToken(Token token, int i2, int i3) {
         super(token);
-        this.binaryShiftStart = (short) i;
-        this.binaryShiftByteCount = (short) i2;
+        this.binaryShiftStart = (short) i2;
+        this.binaryShiftByteCount = (short) i3;
     }
 
     @Override // com.google.zxing.aztec.encoder.Token
     public void appendTo(BitArray bitArray, byte[] bArr) {
-        int i = 0;
+        int i2 = 0;
         while (true) {
             short s = this.binaryShiftByteCount;
-            if (i >= s) {
+            if (i2 >= s) {
                 return;
             }
-            if (i == 0 || (i == 31 && s <= 62)) {
+            if (i2 == 0 || (i2 == 31 && s <= 62)) {
                 bitArray.appendBits(31, 5);
                 short s2 = this.binaryShiftByteCount;
                 if (s2 > 62) {
                     bitArray.appendBits(s2 - 31, 16);
-                } else if (i == 0) {
+                } else if (i2 == 0) {
                     bitArray.appendBits(Math.min((int) s2, 31), 5);
                 } else {
                     bitArray.appendBits(s2 - 31, 5);
                 }
             }
-            bitArray.appendBits(bArr[this.binaryShiftStart + i], 8);
-            i++;
+            bitArray.appendBits(bArr[this.binaryShiftStart + i2], 8);
+            i2++;
         }
     }
 

@@ -15,20 +15,22 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
-import d.b.h0.a.d;
-import d.b.h0.a.e;
-import d.b.h0.a.f;
-import d.b.h0.a.g;
-import d.b.h0.a.h;
-import d.b.h0.a.i2.c;
+import d.a.h0.a.d;
+import d.a.h0.a.e;
+import d.a.h0.a.f;
+import d.a.h0.a.g;
+import d.a.h0.a.h;
+import d.a.h0.a.i2.c;
 @SuppressLint({"NewApi"})
 /* loaded from: classes3.dex */
 public class RotateLoadingLayout extends LoadingLayout {
     public static final Interpolator n = new LinearInterpolator();
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f12258h;
-    public ImageView i;
+    public RelativeLayout f12125h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public ImageView f12126i;
     public TextView j;
     public TextView k;
     public TextView l;
@@ -47,7 +49,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void d(float f2) {
         if (c.c()) {
-            this.i.setRotation(f2 * 180.0f);
+            this.f12126i.setRotation(f2 * 180.0f);
         }
     }
 
@@ -58,7 +60,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getContentSize() {
-        RelativeLayout relativeLayout = this.f12258h;
+        RelativeLayout relativeLayout = this.f12125h;
         if (relativeLayout != null) {
             return relativeLayout.getHeight();
         }
@@ -68,7 +70,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void h() {
         o();
-        this.i.startAnimation(this.m);
+        this.f12126i.startAnimation(this.m);
         this.j.setText(h.aiapps_pull_to_refresh_header_hint_loading);
     }
 
@@ -95,13 +97,13 @@ public class RotateLoadingLayout extends LoadingLayout {
     }
 
     public final void n(Context context) {
-        this.f12258h = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
-        this.i = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
+        this.f12125h = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
+        this.f12126i = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
         this.j = (TextView) findViewById(f.pull_to_refresh_header_hint_textview);
         this.k = (TextView) findViewById(f.pull_to_refresh_header_time);
         this.l = (TextView) findViewById(f.pull_to_refresh_last_update_time_text);
-        this.i.setScaleType(ImageView.ScaleType.CENTER);
-        this.i.setImageResource(e.aiapps_default_ptr_rotate);
+        this.f12126i.setScaleType(ImageView.ScaleType.CENTER);
+        this.f12126i.setImageResource(e.aiapps_default_ptr_rotate);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
         this.m = rotateAnimation;
         rotateAnimation.setFillAfter(true);
@@ -112,9 +114,9 @@ public class RotateLoadingLayout extends LoadingLayout {
     }
 
     public final void o() {
-        this.i.clearAnimation();
+        this.f12126i.clearAnimation();
         if (c.c()) {
-            this.i.setRotation(0.0f);
+            this.f12126i.setRotation(0.0f);
         }
     }
 

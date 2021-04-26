@@ -71,7 +71,7 @@ public class RequestManagerRetriever implements Handler.Callback {
     }
 
     @Nullable
-    public static Activity findActivity(@NonNull Context context) {
+    private Activity findActivity(@NonNull Context context) {
         if (context instanceof Activity) {
             return (Activity) context;
         }
@@ -98,10 +98,10 @@ public class RequestManagerRetriever implements Handler.Callback {
 
     @Deprecated
     private void findAllFragmentsWithViewsPreO(@NonNull FragmentManager fragmentManager, @NonNull ArrayMap<View, android.app.Fragment> arrayMap) {
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            int i2 = i + 1;
-            this.tempBundle.putInt("key", i);
+            int i3 = i2 + 1;
+            this.tempBundle.putInt("key", i2);
             android.app.Fragment fragment = null;
             try {
                 fragment = fragmentManager.getFragment(this.tempBundle, "key");
@@ -116,7 +116,7 @@ public class RequestManagerRetriever implements Handler.Callback {
                     findAllFragmentsWithViews(fragment.getChildFragmentManager(), arrayMap);
                 }
             }
-            i = i2;
+            i2 = i3;
         }
     }
 
@@ -184,9 +184,8 @@ public class RequestManagerRetriever implements Handler.Callback {
         return this.applicationManager;
     }
 
-    public static boolean isActivityVisible(Context context) {
-        Activity findActivity = findActivity(context);
-        return findActivity == null || !findActivity.isFinishing();
+    public static boolean isActivityVisible(Activity activity) {
+        return !activity.isFinishing();
     }
 
     @NonNull
@@ -212,10 +211,7 @@ public class RequestManagerRetriever implements Handler.Callback {
                     return get((Activity) context);
                 }
                 if (context instanceof ContextWrapper) {
-                    ContextWrapper contextWrapper = (ContextWrapper) context;
-                    if (contextWrapper.getBaseContext().getApplicationContext() != null) {
-                        return get(contextWrapper.getBaseContext());
-                    }
+                    return get(((ContextWrapper) context).getBaseContext());
                 }
             }
             return getApplicationManager(context);
@@ -230,8 +226,8 @@ public class RequestManagerRetriever implements Handler.Callback {
     }
 
     @NonNull
-    public SupportRequestManagerFragment getSupportRequestManagerFragment(Context context, androidx.fragment.app.FragmentManager fragmentManager) {
-        return getSupportRequestManagerFragment(fragmentManager, null, isActivityVisible(context));
+    public SupportRequestManagerFragment getSupportRequestManagerFragment(FragmentActivity fragmentActivity) {
+        return getSupportRequestManagerFragment(fragmentActivity.getSupportFragmentManager(), null, isActivityVisible(fragmentActivity));
     }
 
     @Override // android.os.Handler.Callback
@@ -239,13 +235,13 @@ public class RequestManagerRetriever implements Handler.Callback {
         Object obj;
         Object remove;
         Object obj2;
-        int i = message.what;
+        int i2 = message.what;
         Object obj3 = null;
         boolean z = true;
-        if (i == 1) {
+        if (i2 == 1) {
             obj = (FragmentManager) message.obj;
             remove = this.pendingRequestManagerFragments.remove(obj);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             obj = (androidx.fragment.app.FragmentManager) message.obj;
             remove = this.pendingSupportRequestManagerFragments.remove(obj);
         } else {
@@ -308,11 +304,11 @@ public class RequestManagerRetriever implements Handler.Callback {
 
     @NonNull
     public RequestManager get(@NonNull Fragment fragment) {
-        Preconditions.checkNotNull(fragment.getContext(), "You cannot start a load on a fragment before it is attached or after it is destroyed");
+        Preconditions.checkNotNull(fragment.getActivity(), "You cannot start a load on a fragment before it is attached or after it is destroyed");
         if (Util.isOnBackgroundThread()) {
-            return get(fragment.getContext().getApplicationContext());
+            return get(fragment.getActivity().getApplicationContext());
         }
-        return supportFragmentGet(fragment.getContext(), fragment.getChildFragmentManager(), fragment, fragment.isVisible());
+        return supportFragmentGet(fragment.getActivity(), fragment.getChildFragmentManager(), fragment, fragment.isVisible());
     }
 
     @NonNull
@@ -336,9 +332,8 @@ public class RequestManagerRetriever implements Handler.Callback {
             return get(view.getContext().getApplicationContext());
         }
         if (findActivity instanceof FragmentActivity) {
-            FragmentActivity fragmentActivity = (FragmentActivity) findActivity;
-            Fragment findSupportFragment = findSupportFragment(view, fragmentActivity);
-            return findSupportFragment != null ? get(findSupportFragment) : get(fragmentActivity);
+            Fragment findSupportFragment = findSupportFragment(view, (FragmentActivity) findActivity);
+            return findSupportFragment != null ? get(findSupportFragment) : get(findActivity);
         }
         android.app.Fragment findFragment = findFragment(view, findActivity);
         if (findFragment == null) {

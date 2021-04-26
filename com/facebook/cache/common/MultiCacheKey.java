@@ -3,7 +3,7 @@ package com.facebook.cache.common;
 import android.net.Uri;
 import com.facebook.common.internal.Preconditions;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MultiCacheKey implements CacheKey {
     public final List<CacheKey> mCacheKeys;
 
@@ -13,8 +13,8 @@ public class MultiCacheKey implements CacheKey {
 
     @Override // com.facebook.cache.common.CacheKey
     public boolean containsUri(Uri uri) {
-        for (int i = 0; i < this.mCacheKeys.size(); i++) {
-            if (this.mCacheKeys.get(i).containsUri(uri)) {
+        for (int i2 = 0; i2 < this.mCacheKeys.size(); i2++) {
+            if (this.mCacheKeys.get(i2).containsUri(uri)) {
                 return true;
             }
         }

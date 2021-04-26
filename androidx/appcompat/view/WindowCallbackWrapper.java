@@ -14,7 +14,7 @@ import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import java.util.List;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class WindowCallbackWrapper implements Window.Callback {
     public final Window.Callback mWrapped;
@@ -57,6 +57,10 @@ public class WindowCallbackWrapper implements Window.Callback {
         return this.mWrapped.dispatchTrackballEvent(motionEvent);
     }
 
+    public final Window.Callback getWrapped() {
+        return this.mWrapped;
+    }
+
     @Override // android.view.Window.Callback
     public void onActionModeFinished(android.view.ActionMode actionMode) {
         this.mWrapped.onActionModeFinished(actionMode);
@@ -78,13 +82,13 @@ public class WindowCallbackWrapper implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
-    public boolean onCreatePanelMenu(int i, Menu menu) {
-        return this.mWrapped.onCreatePanelMenu(i, menu);
+    public boolean onCreatePanelMenu(int i2, Menu menu) {
+        return this.mWrapped.onCreatePanelMenu(i2, menu);
     }
 
     @Override // android.view.Window.Callback
-    public View onCreatePanelView(int i) {
-        return this.mWrapped.onCreatePanelView(i);
+    public View onCreatePanelView(int i2) {
+        return this.mWrapped.onCreatePanelView(i2);
     }
 
     @Override // android.view.Window.Callback
@@ -93,18 +97,18 @@ public class WindowCallbackWrapper implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
-    public boolean onMenuItemSelected(int i, MenuItem menuItem) {
-        return this.mWrapped.onMenuItemSelected(i, menuItem);
+    public boolean onMenuItemSelected(int i2, MenuItem menuItem) {
+        return this.mWrapped.onMenuItemSelected(i2, menuItem);
     }
 
     @Override // android.view.Window.Callback
-    public boolean onMenuOpened(int i, Menu menu) {
-        return this.mWrapped.onMenuOpened(i, menu);
+    public boolean onMenuOpened(int i2, Menu menu) {
+        return this.mWrapped.onMenuOpened(i2, menu);
     }
 
     @Override // android.view.Window.Callback
-    public void onPanelClosed(int i, Menu menu) {
-        this.mWrapped.onPanelClosed(i, menu);
+    public void onPanelClosed(int i2, Menu menu) {
+        this.mWrapped.onPanelClosed(i2, menu);
     }
 
     @Override // android.view.Window.Callback
@@ -114,14 +118,14 @@ public class WindowCallbackWrapper implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view, Menu menu) {
-        return this.mWrapped.onPreparePanel(i, view, menu);
+    public boolean onPreparePanel(int i2, View view, Menu menu) {
+        return this.mWrapped.onPreparePanel(i2, view, menu);
     }
 
     @Override // android.view.Window.Callback
     @RequiresApi(24)
-    public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i) {
-        this.mWrapped.onProvideKeyboardShortcuts(list, menu, i);
+    public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i2) {
+        this.mWrapped.onProvideKeyboardShortcuts(list, menu, i2);
     }
 
     @Override // android.view.Window.Callback
@@ -152,7 +156,7 @@ public class WindowCallbackWrapper implements Window.Callback {
 
     @Override // android.view.Window.Callback
     @RequiresApi(23)
-    public android.view.ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
-        return this.mWrapped.onWindowStartingActionMode(callback, i);
+    public android.view.ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i2) {
+        return this.mWrapped.onWindowStartingActionMode(callback, i2);
     }
 }

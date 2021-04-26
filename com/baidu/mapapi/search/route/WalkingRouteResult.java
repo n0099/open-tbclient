@@ -11,23 +11,23 @@ public class WalkingRouteResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<WalkingRouteResult> CREATOR = new t();
 
     /* renamed from: a  reason: collision with root package name */
-    public List<WalkingRouteLine> f7365a;
+    public List<WalkingRouteLine> f7627a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TaxiInfo f7366b;
+    public TaxiInfo f7628b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SuggestAddrInfo f7367c;
+    public SuggestAddrInfo f7629c;
 
     public WalkingRouteResult() {
     }
 
     public WalkingRouteResult(Parcel parcel) {
         ArrayList arrayList = new ArrayList();
-        this.f7365a = arrayList;
+        this.f7627a = arrayList;
         parcel.readList(arrayList, WalkingRouteLine.class.getClassLoader());
-        this.f7366b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
-        this.f7367c = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+        this.f7628b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
+        this.f7629c = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -36,33 +36,33 @@ public class WalkingRouteResult extends SearchResult implements Parcelable {
     }
 
     public List<WalkingRouteLine> getRouteLines() {
-        return this.f7365a;
+        return this.f7627a;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
-        return this.f7367c;
+        return this.f7629c;
     }
 
     public TaxiInfo getTaxiInfo() {
-        return this.f7366b;
+        return this.f7628b;
     }
 
     public void setRouteLines(List<WalkingRouteLine> list) {
-        this.f7365a = list;
+        this.f7627a = list;
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
-        this.f7367c = suggestAddrInfo;
+        this.f7629c = suggestAddrInfo;
     }
 
     public void setTaxiInfo(TaxiInfo taxiInfo) {
-        this.f7366b = taxiInfo;
+        this.f7628b = taxiInfo;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeList(this.f7365a);
-        parcel.writeParcelable(this.f7366b, 1);
-        parcel.writeParcelable(this.f7367c, 1);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeList(this.f7627a);
+        parcel.writeParcelable(this.f7628b, 1);
+        parcel.writeParcelable(this.f7629c, 1);
     }
 }

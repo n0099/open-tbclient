@@ -14,9 +14,9 @@ public class DecoderJNI implements INoProGuard {
         public a lastStatus = a.NEEDS_MORE_INPUT;
         public boolean fresh = true;
 
-        public Wrapper(int i) throws IOException {
+        public Wrapper(int i2) throws IOException {
             this.context = r0;
-            long[] jArr = {0, i};
+            long[] jArr = {0, i2};
             this.inputBuffer = WebSettingsGlobalBlink.kernelBrotliCreate(jArr);
             if (this.context[0] == 0) {
                 throw new IOException("failed to initialize native brotli decoder");
@@ -69,8 +69,8 @@ public class DecoderJNI implements INoProGuard {
             throw new IllegalStateException("brotli decoder is already destroyed");
         }
 
-        public void push(int i) {
-            if (i < 0) {
+        public void push(int i2) {
+            if (i2 < 0) {
                 throw new IllegalArgumentException("negative block length");
             }
             if (this.context[0] == 0) {
@@ -79,11 +79,11 @@ public class DecoderJNI implements INoProGuard {
             a aVar = this.lastStatus;
             if (aVar != a.NEEDS_MORE_INPUT && aVar != a.OK) {
                 throw new IllegalStateException("pushing input to decoder in " + this.lastStatus + " state");
-            } else if (this.lastStatus == a.OK && i != 0) {
+            } else if (this.lastStatus == a.OK && i2 != 0) {
                 throw new IllegalStateException("pushing input to decoder in OK state");
             } else {
                 this.fresh = false;
-                WebSettingsGlobalBlink.kernelBrotliPush(this.context, i);
+                WebSettingsGlobalBlink.kernelBrotliPush(this.context, i2);
                 parseStatus();
             }
         }

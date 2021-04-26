@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Outline;
 import android.graphics.Rect;
 import android.view.Gravity;
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 @RequiresApi(21)
 /* loaded from: classes.dex */
@@ -14,14 +15,14 @@ public class RoundedBitmapDrawable21 extends RoundedBitmapDrawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void getOutline(Outline outline) {
+    public void getOutline(@NonNull Outline outline) {
         updateDstRect();
         outline.setRoundRect(this.mDstRect, getCornerRadius());
     }
 
     @Override // androidx.core.graphics.drawable.RoundedBitmapDrawable
-    public void gravityCompatApply(int i, int i2, int i3, Rect rect, Rect rect2) {
-        Gravity.apply(i, i2, i3, rect, rect2, 0);
+    public void gravityCompatApply(int i2, int i3, int i4, Rect rect, Rect rect2) {
+        Gravity.apply(i2, i3, i4, rect, rect2, 0);
     }
 
     @Override // androidx.core.graphics.drawable.RoundedBitmapDrawable

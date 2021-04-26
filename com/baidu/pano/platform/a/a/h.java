@@ -14,18 +14,18 @@ public class h {
         long j4;
         long j5;
         long currentTimeMillis = System.currentTimeMillis();
-        Map<String, String> map = lVar.f8939c;
+        Map<String, String> map = lVar.f9267c;
         String str = map.get("Date");
         long a2 = str != null ? a(str) : 0L;
         String str2 = map.get("Cache-Control");
-        int i = 0;
+        int i2 = 0;
         if (str2 != null) {
             String[] split = str2.split(",");
-            int i2 = 0;
+            int i3 = 0;
             j = 0;
             j2 = 0;
-            while (i < split.length) {
-                String trim = split[i].trim();
+            while (i2 < split.length) {
+                String trim = split[i2].trim();
                 if (trim.equals("no-cache") || trim.equals("no-store")) {
                     return null;
                 }
@@ -37,11 +37,11 @@ public class h {
                 } else if (trim.startsWith("stale-while-revalidate=")) {
                     j2 = Long.parseLong(trim.substring(23));
                 } else if (trim.equals("must-revalidate") || trim.equals("proxy-revalidate")) {
-                    i2 = 1;
+                    i3 = 1;
                 }
-                i++;
+                i2++;
             }
-            i = i2;
+            i2 = i3;
             z = true;
         } else {
             z = false;
@@ -55,7 +55,7 @@ public class h {
         String str5 = map.get("ETag");
         if (z) {
             j4 = currentTimeMillis + (j * 1000);
-            if (i != 0) {
+            if (i2 != 0) {
                 j5 = j4;
             } else {
                 Long.signum(j2);
@@ -72,13 +72,13 @@ public class h {
             }
         }
         b.a aVar = new b.a();
-        aVar.f8905a = lVar.f8938b;
-        aVar.f8906b = str5;
-        aVar.f8910f = j4;
-        aVar.f8909e = j3;
-        aVar.f8907c = a2;
-        aVar.f8908d = a4;
-        aVar.f8911g = map;
+        aVar.f9233a = lVar.f9266b;
+        aVar.f9234b = str5;
+        aVar.f9238f = j4;
+        aVar.f9237e = j3;
+        aVar.f9235c = a2;
+        aVar.f9236d = a4;
+        aVar.f9239g = map;
         return aVar;
     }
 
@@ -94,8 +94,8 @@ public class h {
         String str2 = map.get("Content-Type");
         if (str2 != null) {
             String[] split = str2.split(";");
-            for (int i = 1; i < split.length; i++) {
-                String[] split2 = split[i].trim().split("=");
+            for (int i2 = 1; i2 < split.length; i2++) {
+                String[] split2 = split[i2].trim().split("=");
                 if (split2.length == 2 && split2[0].equals("charset")) {
                     return split2[1];
                 }

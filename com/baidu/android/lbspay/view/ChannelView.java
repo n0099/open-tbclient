@@ -90,12 +90,12 @@ public class ChannelView extends ChannelViewBase {
         }
     }
 
-    public void setDividerMargin(int i) {
+    public void setDividerMargin(int i2) {
         View view = this.devider;
         if (view != null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
-            layoutParams.leftMargin = i;
-            layoutParams.rightMargin = i;
+            layoutParams.leftMargin = i2;
+            layoutParams.rightMargin = i2;
             this.devider.requestLayout();
         }
     }
@@ -169,8 +169,8 @@ public class ChannelView extends ChannelViewBase {
     }
 
     @TargetApi(11)
-    public ChannelView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ChannelView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         initView();
     }
 }

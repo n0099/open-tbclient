@@ -13,7 +13,7 @@ public class AlaLiveUserNotifyController {
         this.mTbPageContext = tbPageContext;
     }
 
-    private void showNotifyDialog(final int i, AlaLiveUserNotifyData alaLiveUserNotifyData, final ArrayList<AlaLiveUserNotifyData> arrayList) {
+    private void showNotifyDialog(final int i2, AlaLiveUserNotifyData alaLiveUserNotifyData, final ArrayList<AlaLiveUserNotifyData> arrayList) {
         if (this.mTbPageContext == null) {
             return;
         }
@@ -23,7 +23,7 @@ public class AlaLiveUserNotifyController {
         this.mBdAlertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.ala.notify.AlaLiveUserNotifyController.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                AlaLiveUserNotifyController.this.showNextNotifyDialog(i + 1, arrayList);
+                AlaLiveUserNotifyController.this.showNextNotifyDialog(i2 + 1, arrayList);
             }
         });
         this.mBdAlertDialog.show(alaLiveUserNotifyData);
@@ -38,10 +38,10 @@ public class AlaLiveUserNotifyController {
         this.mTbPageContext = null;
     }
 
-    public void showNextNotifyDialog(int i, ArrayList<AlaLiveUserNotifyData> arrayList) {
-        if (i < 0 || i >= ListUtils.getCount(arrayList)) {
+    public void showNextNotifyDialog(int i2, ArrayList<AlaLiveUserNotifyData> arrayList) {
+        if (i2 < 0 || i2 >= ListUtils.getCount(arrayList)) {
             return;
         }
-        showNotifyDialog(i, arrayList.get(i), arrayList);
+        showNotifyDialog(i2, arrayList.get(i2), arrayList);
     }
 }

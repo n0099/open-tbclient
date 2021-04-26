@@ -57,10 +57,10 @@ public class GetFPResponse implements IBeanResponse {
         public static final int YAW = 15;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f5246a = 6;
+        public static final int f5378a = 6;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f5247b = 3;
+        public static final int f5379b = 3;
         public String custom_sp_config;
         public String custom_verfitytext_spno_list;
         public String custom_verifytext;
@@ -227,12 +227,12 @@ public class GetFPResponse implements IBeanResponse {
             }
         }
 
-        public int getRecogUploadPortraitCount(int i) {
+        public int getRecogUploadPortraitCount(int i2) {
             try {
                 if (TextUtils.isEmpty(this.recog_upload_portrait_count)) {
                     return 3;
                 }
-                return Math.min(i, Math.max(1, Integer.valueOf(this.recog_upload_portrait_count).intValue()));
+                return Math.min(i2, Math.max(1, Integer.valueOf(this.recog_upload_portrait_count).intValue()));
             } catch (NumberFormatException e2) {
                 e2.printStackTrace();
                 return 3;
@@ -342,7 +342,7 @@ public class GetFPResponse implements IBeanResponse {
     public static class RimConfig implements NoProguard {
 
         /* renamed from: common  reason: collision with root package name */
-        public CommonConfig f5248common;
+        public CommonConfig f5380common;
         public LivenessConfig living;
         public OcrConfig ocr;
     }

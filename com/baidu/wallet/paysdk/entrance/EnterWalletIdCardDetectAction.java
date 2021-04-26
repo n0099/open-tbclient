@@ -8,13 +8,13 @@ import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class EnterWalletIdCardDetectAction implements RouterAction {
-    private void a(Context context, int i, boolean z, final RouterCallback routerCallback) {
-        IdCardDetectionController.getInstance().startIdcarddetect(context, i, new IdCardDetectionController.IIdCardDetectionListener() { // from class: com.baidu.wallet.paysdk.entrance.EnterWalletIdCardDetectAction.1
+    private void a(Context context, int i2, boolean z, final RouterCallback routerCallback) {
+        IdCardDetectionController.getInstance().startIdcarddetect(context, i2, new IdCardDetectionController.IIdCardDetectionListener() { // from class: com.baidu.wallet.paysdk.entrance.EnterWalletIdCardDetectAction.1
             @Override // com.baidu.wallet.base.controllers.IdCardDetectionController.IIdCardDetectionListener
-            public void onDetectFailed(int i2, String str) {
+            public void onDetectFailed(int i3, String str) {
                 if (routerCallback != null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(RouterCallback.KEY_ERROR_CODE, Integer.valueOf(i2));
+                    hashMap.put(RouterCallback.KEY_ERROR_CODE, Integer.valueOf(i3));
                     hashMap.put("errMsg", str);
                     routerCallback.onResult(1, hashMap);
                 }

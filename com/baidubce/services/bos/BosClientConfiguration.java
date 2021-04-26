@@ -25,9 +25,9 @@ public class BosClientConfiguration extends BceClientConfiguration {
         this.cnameEnabled = bool;
     }
 
-    public void setStreamBufferSize(int i) {
-        CheckUtils.checkArgument(i > 0, "streamBufferSize should be positive.");
-        this.streamBufferSize = i;
+    public void setStreamBufferSize(int i2) {
+        CheckUtils.checkArgument(i2 > 0, "streamBufferSize should be positive.");
+        this.streamBufferSize = i2;
     }
 
     public BosClientConfiguration withCnameEnabled(Boolean bool) {
@@ -41,15 +41,15 @@ public class BosClientConfiguration extends BceClientConfiguration {
         return this;
     }
 
-    public BosClientConfiguration withStreamBufferSize(int i) {
-        setStreamBufferSize(i);
+    public BosClientConfiguration withStreamBufferSize(int i2) {
+        setStreamBufferSize(i2);
         return this;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withConnectionTimeoutInMillis(int i) {
-        setConnectionTimeoutInMillis(i);
+    public BosClientConfiguration withConnectionTimeoutInMillis(int i2) {
+        setConnectionTimeoutInMillis(i2);
         return this;
     }
 
@@ -76,8 +76,8 @@ public class BosClientConfiguration extends BceClientConfiguration {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withMaxConnections(int i) {
-        setMaxConnections(i);
+    public BosClientConfiguration withMaxConnections(int i2) {
+        setMaxConnections(i2);
         return this;
     }
 
@@ -111,8 +111,8 @@ public class BosClientConfiguration extends BceClientConfiguration {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withProxyPort(int i) {
-        setProxyPort(i);
+    public BosClientConfiguration withProxyPort(int i2) {
+        setProxyPort(i2);
         return this;
     }
 
@@ -146,15 +146,15 @@ public class BosClientConfiguration extends BceClientConfiguration {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withSocketBufferSizeInBytes(int i) {
-        setSocketBufferSizeInBytes(i);
+    public BosClientConfiguration withSocketBufferSizeInBytes(int i2) {
+        setSocketBufferSizeInBytes(i2);
         return this;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withSocketTimeoutInMillis(int i) {
-        setSocketTimeoutInMillis(i);
+    public BosClientConfiguration withSocketTimeoutInMillis(int i2) {
+        setSocketTimeoutInMillis(i2);
         return this;
     }
 

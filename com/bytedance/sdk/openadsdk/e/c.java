@@ -8,7 +8,7 @@ public interface c {
 
     void a(Context context, JSONObject jSONObject);
 
-    void a(Context context, JSONObject jSONObject, String str, int i, boolean z);
+    void a(Context context, JSONObject jSONObject, String str, int i2, boolean z);
 
     void a(JSONObject jSONObject);
 

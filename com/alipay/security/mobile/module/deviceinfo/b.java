@@ -48,11 +48,12 @@ import java.util.Locale;
 import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f2097a = new b();
+    public static b f2057a = new b();
 
     public static String B() {
         try {
@@ -66,8 +67,8 @@ public class b {
                         }
                         StringBuilder sb = new StringBuilder();
                         int length = hardwareAddress.length;
-                        for (int i = 0; i < length; i++) {
-                            sb.append(String.format("%02X:", Integer.valueOf(hardwareAddress[i] & 255)));
+                        for (int i2 = 0; i2 < length; i2++) {
+                            sb.append(String.format("%02X:", Integer.valueOf(hardwareAddress[i2] & 255)));
                         }
                         if (sb.length() > 0) {
                             sb.deleteCharAt(sb.length() - 1);
@@ -188,7 +189,7 @@ public class b {
     }
 
     public static b a() {
-        return f2097a;
+        return f2057a;
     }
 
     public static String a(BluetoothAdapter bluetoothAdapter) {
@@ -255,7 +256,7 @@ public class b {
                     if (subtype != 3 && subtype != 5 && subtype != 6 && subtype != 8 && subtype != 9 && subtype != 10 && subtype != 12 && subtype != 14 && subtype != 15) {
                         return subtype == 13 ? "4G" : "UNKNOW";
                     }
-                    return g.f3909b;
+                    return g.f3962b;
                 }
                 return "2G";
             }
@@ -356,12 +357,12 @@ public class b {
     }
 
     public String c(Context context) {
-        int i = 0;
+        int i2 = 0;
         try {
-            i = Settings.System.getInt(context.getContentResolver(), "airplane_mode_on", 0);
+            i2 = Settings.System.getInt(context.getContentResolver(), "airplane_mode_on", 0);
         } catch (Throwable unused) {
         }
-        return i == 1 ? "1" : "0";
+        return i2 == 1 ? "1" : "0";
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:33:0x0066, code lost:
@@ -381,7 +382,7 @@ public class b {
                 inputStreamReader = new InputStreamReader(fileInputStream);
                 try {
                     LineNumberReader lineNumberReader2 = new LineNumberReader(inputStreamReader);
-                    for (int i = 1; i < 100; i++) {
+                    for (int i2 = 1; i2 < 100; i2++) {
                         try {
                             String readLine = lineNumberReader2.readLine();
                             if (readLine != null) {
@@ -433,14 +434,14 @@ public class b {
     public String d(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-            int i = audioManager.getRingerMode() == 0 ? 1 : 0;
+            AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            int i2 = audioManager.getRingerMode() == 0 ? 1 : 0;
             int streamVolume = audioManager.getStreamVolume(0);
             int streamVolume2 = audioManager.getStreamVolume(1);
             int streamVolume3 = audioManager.getStreamVolume(2);
             int streamVolume4 = audioManager.getStreamVolume(3);
             int streamVolume5 = audioManager.getStreamVolume(4);
-            jSONObject.put("ringermode", String.valueOf(i));
+            jSONObject.put("ringermode", String.valueOf(i2));
             jSONObject.put(NotificationCompat.CATEGORY_CALL, String.valueOf(streamVolume));
             jSONObject.put("system", String.valueOf(streamVolume2));
             jSONObject.put("ring", String.valueOf(streamVolume3));
@@ -468,7 +469,7 @@ public class b {
                 inputStreamReader = new InputStreamReader(fileInputStream);
                 try {
                     LineNumberReader lineNumberReader2 = new LineNumberReader(inputStreamReader);
-                    for (int i = 1; i < 100; i++) {
+                    for (int i2 = 1; i2 < 100; i2++) {
                         try {
                             String readLine = lineNumberReader2.readLine();
                             if (readLine != null) {
@@ -1085,8 +1086,8 @@ public class b {
             StringBuilder sb = new StringBuilder();
             String[] strArr = {"/dev/qemu_pipe", "/dev/socket/qemud", "/system/lib/libc_malloc_debug_qemu.so", "/sys/qemu_trace", "/system/bin/qemu-props", "/dev/socket/genyd", "/dev/socket/baseband_genyd"};
             sb.append("00:");
-            for (int i = 0; i < 7; i++) {
-                sb.append(new File(strArr[i]).exists() ? "1" : "0");
+            for (int i2 = 0; i2 < 7; i2++) {
+                sb.append(new File(strArr[i2]).exists() ? "1" : "0");
             }
             return sb.toString();
         } catch (Throwable unused) {
@@ -1099,7 +1100,7 @@ public class b {
         StringBuilder sb = new StringBuilder();
         sb.append("00");
         sb.append(":");
-        for (int i = 0; i <= 0; i++) {
+        for (int i2 = 0; i2 <= 0; i2++) {
             try {
                 Class.forName(strArr[0]);
                 sb.append("1");
@@ -1115,10 +1116,10 @@ public class b {
             long j = 0;
             if (((KeyguardManager) context.getSystemService("keyguard")).isKeyguardSecure()) {
                 String[] strArr = {"/data/system/password.key", "/data/system/gesture.key", "/data/system/gatekeeper.password.key", "/data/system/gatekeeper.gesture.key", "/data/system/gatekeeper.pattern.key"};
-                for (int i = 0; i < 5; i++) {
+                for (int i2 = 0; i2 < 5; i2++) {
                     long j2 = -1;
                     try {
-                        j2 = new File(strArr[i]).lastModified();
+                        j2 = new File(strArr[i2]).lastModified();
                     } catch (Throwable unused) {
                     }
                     j = Math.max(j2, j);

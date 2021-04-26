@@ -1,21 +1,13 @@
 package com.airbnb.lottie.model.content;
 
-import d.a.a.u.i.d;
-import d.a.a.u.i.h;
+import com.airbnb.lottie.model.animatable.AnimatableIntegerValue;
+import com.airbnb.lottie.model.animatable.AnimatableShapeValue;
 /* loaded from: classes.dex */
 public class Mask {
-
-    /* renamed from: a  reason: collision with root package name */
-    public final MaskMode f1587a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final h f1588b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final d f1589c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final boolean f1590d;
+    public final boolean inverted;
+    public final MaskMode maskMode;
+    public final AnimatableShapeValue maskPath;
+    public final AnimatableIntegerValue opacity;
 
     /* loaded from: classes.dex */
     public enum MaskMode {
@@ -25,26 +17,26 @@ public class Mask {
         MASK_MODE_NONE
     }
 
-    public Mask(MaskMode maskMode, h hVar, d dVar, boolean z) {
-        this.f1587a = maskMode;
-        this.f1588b = hVar;
-        this.f1589c = dVar;
-        this.f1590d = z;
+    public Mask(MaskMode maskMode, AnimatableShapeValue animatableShapeValue, AnimatableIntegerValue animatableIntegerValue, boolean z) {
+        this.maskMode = maskMode;
+        this.maskPath = animatableShapeValue;
+        this.opacity = animatableIntegerValue;
+        this.inverted = z;
     }
 
-    public MaskMode a() {
-        return this.f1587a;
+    public MaskMode getMaskMode() {
+        return this.maskMode;
     }
 
-    public h b() {
-        return this.f1588b;
+    public AnimatableShapeValue getMaskPath() {
+        return this.maskPath;
     }
 
-    public d c() {
-        return this.f1589c;
+    public AnimatableIntegerValue getOpacity() {
+        return this.opacity;
     }
 
-    public boolean d() {
-        return this.f1590d;
+    public boolean isInverted() {
+        return this.inverted;
     }
 }

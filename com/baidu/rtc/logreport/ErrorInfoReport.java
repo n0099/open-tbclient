@@ -55,8 +55,8 @@ public class ErrorInfoReport {
         public int code;
         public String message;
 
-        ErrorCode(int i, String str) {
-            this.code = i;
+        ErrorCode(int i2, String str) {
+            this.code = i2;
             this.message = str;
         }
 
@@ -188,8 +188,8 @@ public class ErrorInfoReport {
         this.clientIp = str;
     }
 
-    public void setCode(int i) {
-        this.code = i;
+    public void setCode(int i2) {
+        this.code = i2;
     }
 
     public void setDevice(String str) {

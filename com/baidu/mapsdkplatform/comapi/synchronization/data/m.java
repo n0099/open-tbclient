@@ -9,36 +9,36 @@ import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7849a = "m";
+    public static final String f8134a = "m";
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f7850e = true;
+    public static boolean f8135e = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.synchronization.d.d f7851b = new com.baidu.mapsdkplatform.comapi.synchronization.d.d();
+    public com.baidu.mapsdkplatform.comapi.synchronization.d.d f8136b = new com.baidu.mapsdkplatform.comapi.synchronization.d.d();
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f7852c = true;
+    public boolean f8137c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f7853d = true;
+    public boolean f8138d = true;
 
     public m(f fVar) {
         a(fVar);
     }
 
     private void a(f fVar) {
-        this.f7851b.a("order_id", b(fVar));
-        this.f7851b.a("company", fVar.c());
-        this.f7851b.a("order_attr", fVar.b());
-        this.f7851b.a("status", String.valueOf(fVar.h()));
-        this.f7851b.a("pull_type", String.valueOf(fVar.i()));
-        this.f7851b.a("route_finger", fVar.d());
-        this.f7851b.a("traffic_finger", fVar.e());
-        this.f7851b.a("pos_num", String.valueOf(fVar.j()));
+        this.f8136b.a("order_id", b(fVar));
+        this.f8136b.a("company", fVar.c());
+        this.f8136b.a("order_attr", fVar.b());
+        this.f8136b.a("status", String.valueOf(fVar.h()));
+        this.f8136b.a("pull_type", String.valueOf(fVar.i()));
+        this.f8136b.a("route_finger", fVar.d());
+        this.f8136b.a("traffic_finger", fVar.e());
+        this.f8136b.a("pos_num", String.valueOf(fVar.j()));
         c(fVar);
         d(fVar);
-        if (this.f7852c) {
+        if (this.f8137c) {
             b();
         }
     }
@@ -51,7 +51,7 @@ public class m {
         stringBuffer.append("-");
         stringBuffer.append("9sc87244121ip32590fq234mn6641tx7".toLowerCase());
         String a2 = com.baidu.mapsdkplatform.comapi.synchronization.d.c.a(stringBuffer.toString());
-        String str = f7849a;
+        String str = f8134a;
         com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(str, "The orderId = " + stringBuffer.toString() + "; result = " + a2);
         return a2;
     }
@@ -59,27 +59,27 @@ public class m {
     private void b() {
         String authToken = SyncSysInfo.getAuthToken();
         if (authToken == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7849a, "Token is null, permission check again");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f8134a, "Token is null, permission check again");
             int permissionCheck = PermissionCheck.permissionCheck();
             if (permissionCheck != 0) {
-                String str = f7849a;
+                String str = f8134a;
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, "Permission check result is: " + permissionCheck);
             }
             authToken = SyncSysInfo.getAuthToken();
         }
-        this.f7851b.a("token", authToken);
+        this.f8136b.a("token", authToken);
     }
 
     private String c() {
-        return f7850e ? com.baidu.mapsdkplatform.comapi.synchronization.c.f.a() : com.baidu.mapsdkplatform.comapi.synchronization.c.f.b();
+        return f8135e ? com.baidu.mapsdkplatform.comapi.synchronization.c.f.a() : com.baidu.mapsdkplatform.comapi.synchronization.c.f.b();
     }
 
     private void c(f fVar) {
         f.b g2 = fVar.g();
         if (f.b.DRIVING != g2 && f.b.RIDING == g2) {
-            this.f7851b.a("trip_mode", "riding");
+            this.f8136b.a("trip_mode", "riding");
         } else {
-            this.f7851b.a("trip_mode", "driving");
+            this.f8136b.a("trip_mode", "driving");
         }
     }
 
@@ -89,25 +89,25 @@ public class m {
         f.a f2 = fVar.f();
         if (f.a.BD09LL != f2) {
             if (f.a.BD09MC == f2) {
-                dVar = this.f7851b;
+                dVar = this.f8136b;
                 str = CoordinateType.BD09MC;
             } else if (f.a.GPS == f2) {
-                dVar = this.f7851b;
+                dVar = this.f8136b;
                 str = CoordinateType.WGS84;
             } else if (f.a.COMMON == f2) {
-                dVar = this.f7851b;
+                dVar = this.f8136b;
                 str = "gcj02";
             }
             dVar.a("coord_type", str);
             return;
         }
-        this.f7851b.a("coord_type", "bd09ll");
+        this.f8136b.a("coord_type", "bd09ll");
     }
 
     public String a() {
-        StringBuffer stringBuffer = new StringBuffer(this.f7851b.a());
+        StringBuffer stringBuffer = new StringBuffer(this.f8136b.a());
         stringBuffer.append(SyncSysInfo.getPhoneInfo());
-        if (this.f7853d) {
+        if (this.f8138d) {
             String signMD5String = AppMD5.getSignMD5String(stringBuffer.toString());
             stringBuffer.append("&sign=");
             stringBuffer.append(signMD5String);

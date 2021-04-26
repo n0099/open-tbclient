@@ -1,8 +1,8 @@
 package com.baidu.bdhttpdns;
 
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
-import d.b.g.k;
-import d.b.g.l;
+import d.a.g.k;
+import d.a.g.l;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -34,89 +34,93 @@ public final class i {
     public static c p;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4323b;
+    public String f4399b;
     public int l;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4322a = "180.76.76.200";
+    public String f4398a = "180.76.76.200";
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4324c = true;
+    public boolean f4400c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f4325d = 0;
+    public long f4401d = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Object f4328g = new Object();
+    public final Object f4404g = new Object();
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<String> f4329h = new ArrayList<>();
-    public String i = "";
+    public ArrayList<String> f4405h = new ArrayList<>();
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f4406i = "";
     public String j = "";
     public boolean k = false;
     public int m = 10;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f4327f = new Object();
+    public final Object f4403f = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public final HashSet<String> f4326e = new HashSet<>();
+    public final HashSet<String> f4402e = new HashSet<>();
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(int i, d dVar, Map<String, e> map, String str);
+        void a(int i2, d dVar, Map<String, e> map, String str);
     }
 
     /* loaded from: classes.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f4330e;
+        public String f4407e;
 
         /* renamed from: f  reason: collision with root package name */
-        public d f4331f;
+        public d f4408f;
 
         /* renamed from: g  reason: collision with root package name */
-        public a f4332g;
+        public a f4409g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f4333h = false;
-        public boolean i = false;
+        public boolean f4410h = false;
+
+        /* renamed from: i  reason: collision with root package name */
+        public boolean f4411i = false;
 
         public b(String str, d dVar, a aVar) {
-            this.f4330e = str;
-            this.f4331f = dVar;
-            this.f4332g = aVar;
+            this.f4407e = str;
+            this.f4408f = dVar;
+            this.f4409g = aVar;
         }
 
         public final String a(String str, d dVar) {
             String str2;
-            long currentTimeMillis = (System.currentTimeMillis() / 1000) + 300 + i.this.f4325d;
+            long currentTimeMillis = (System.currentTimeMillis() / 1000) + 300 + i.this.f4401d;
             String g2 = i.this.g(str, currentTimeMillis);
             if (g2 == null) {
                 return null;
             }
-            if (i.this.f4323b == null || i.this.l >= 3) {
-                str2 = i.this.f4322a;
-                this.i = false;
-                k.a("Using BGPServerIp(%s)", i.this.f4322a);
+            if (i.this.f4399b == null || i.this.l >= 3) {
+                str2 = i.this.f4398a;
+                this.f4411i = false;
+                k.a("Using BGPServerIp(%s)", i.this.f4398a);
             } else {
-                str2 = i.this.f4323b;
-                this.i = true;
-                k.a("Using IDCServerIP(%s)", i.this.f4323b);
+                str2 = i.this.f4399b;
+                this.f4411i = true;
+                k.a("Using IDCServerIP(%s)", i.this.f4399b);
             }
-            String format = dVar.equals(d.TAG_OF_HOSTS) ? String.format("%s/v4/resolve?account_id=%s&tag=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, i.this.i, str, g2, Long.valueOf(currentTimeMillis), "1.3", "android") : String.format("%s/v4/resolve?account_id=%s&dn=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, i.this.i, str, g2, Long.valueOf(currentTimeMillis), "1.3", "android");
-            return i.this.f4324c ? String.format("https://%s", format) : String.format("http://%s", format);
+            String format = dVar.equals(d.TAG_OF_HOSTS) ? String.format("%s/v4/resolve?account_id=%s&tag=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, i.this.f4406i, str, g2, Long.valueOf(currentTimeMillis), "1.3", "android") : String.format("%s/v4/resolve?account_id=%s&dn=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, i.this.f4406i, str, g2, Long.valueOf(currentTimeMillis), "1.3", "android");
+            return i.this.f4400c ? String.format("https://%s", format) : String.format("http://%s", format);
         }
 
         public final void b() {
-            String a2 = a(this.f4330e, this.f4331f);
+            String a2 = a(this.f4407e, this.f4408f);
             if (a2 != null) {
                 c(a2);
                 return;
             }
-            this.f4332g.a(-1, this.f4331f, null, this.f4330e);
-            k.a("Httpdns request failed for  %s(%s), get url error", this.f4331f.toString(), this.f4330e);
+            this.f4409g.a(-1, this.f4408f, null, this.f4407e);
+            k.a("Httpdns request failed for  %s(%s), get url error", this.f4408f.toString(), this.f4407e);
         }
 
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:49:0x0137 */
@@ -180,7 +184,7 @@ public final class i {
             try {
                 try {
                     URL url = new URL(str);
-                    if (i.this.f4324c) {
+                    if (i.this.f4400c) {
                         HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) url.openConnection();
                         httpsURLConnection2.setRequestProperty("Host", "httpdns.baidubce.com");
                         httpsURLConnection2.setHostnameVerifier(i.p);
@@ -195,7 +199,7 @@ public final class i {
                     if (httpURLConnection4 != null) {
                         httpURLConnection4.disconnect();
                     }
-                    if (bool3.booleanValue() && this.i) {
+                    if (bool3.booleanValue() && this.f4411i) {
                         i.this.l = 0;
                     }
                     throw th;
@@ -214,11 +218,11 @@ public final class i {
                     e = e2;
                     e.printStackTrace();
                     ?? r14 = Boolean.FALSE;
-                    i.this.l(Boolean.valueOf(this.i));
-                    k.a("Httpdns request failed for %s(%s), caught network IOException", this.f4331f.toString(), this.f4330e);
-                    a aVar2 = this.f4332g;
-                    d dVar2 = this.f4331f;
-                    str2 = this.f4330e;
+                    i.this.l(Boolean.valueOf(this.f4411i));
+                    k.a("Httpdns request failed for %s(%s), caught network IOException", this.f4408f.toString(), this.f4407e);
+                    a aVar2 = this.f4409g;
+                    d dVar2 = this.f4408f;
+                    str2 = this.f4407e;
                     aVar2.a(-1, dVar2, null, str2);
                     httpURLConnection3 = httpURLConnection2;
                     str3 = r14;
@@ -229,11 +233,11 @@ public final class i {
                     e = e3;
                     e.printStackTrace();
                     ?? r142 = Boolean.FALSE;
-                    i.this.l(Boolean.valueOf(this.i));
-                    k.a("Httpdns request failed for %s(%s), caught ArrayIndexOutOfBoundsException", this.f4331f.toString(), this.f4330e);
-                    a aVar3 = this.f4332g;
-                    d dVar3 = this.f4331f;
-                    str2 = this.f4330e;
+                    i.this.l(Boolean.valueOf(this.f4411i));
+                    k.a("Httpdns request failed for %s(%s), caught ArrayIndexOutOfBoundsException", this.f4408f.toString(), this.f4407e);
+                    a aVar3 = this.f4409g;
+                    d dVar3 = this.f4408f;
+                    str2 = this.f4407e;
                     aVar3.a(-1, dVar3, null, str2);
                     httpURLConnection3 = httpURLConnection;
                     str3 = r142;
@@ -269,54 +273,54 @@ public final class i {
                 String f2 = i.this.f(errorStream, httpsURLConnection);
                 if (f2 == null) {
                     Boolean bool4 = Boolean.FALSE;
-                    i.this.l(Boolean.valueOf(this.i));
-                    k.a("Httpdns request failed for %s(%s), get empty response data", this.f4331f.toString(), this.f4330e);
-                    this.f4332g.a(-1, this.f4331f, null, this.f4330e);
+                    i.this.l(Boolean.valueOf(this.f4411i));
+                    k.a("Httpdns request failed for %s(%s), get empty response data", this.f4408f.toString(), this.f4407e);
+                    this.f4409g.a(-1, this.f4408f, null, this.f4407e);
                     if (httpsURLConnection != null) {
                         httpsURLConnection.disconnect();
                         return;
                     }
                     return;
                 }
-                Map j = i.this.j(f2, this.f4330e, this.f4331f);
+                Map j = i.this.j(f2, this.f4407e, this.f4408f);
                 if (j.get("isSignExpired").equals(Boolean.TRUE)) {
-                    this.f4333h = true;
+                    this.f4410h = true;
                     if (httpsURLConnection != null) {
                         httpsURLConnection.disconnect();
                     }
-                    if (this.i) {
+                    if (this.f4411i) {
                         i.this.l = 0;
                         return;
                     }
                     return;
                 } else if (j.get("isMsgOK").equals(Boolean.TRUE) && responseCode == 200) {
-                    hashMap = i.this.i(f2, this.f4330e);
+                    hashMap = i.this.i(f2, this.f4407e);
                     bool2 = bool3;
                     if (httpsURLConnection != null) {
                         httpsURLConnection.disconnect();
                     }
-                    if (bool2.booleanValue() && this.i) {
+                    if (bool2.booleanValue() && this.f4411i) {
                         i.this.l = 0;
                     }
                     if (hashMap != null || hashMap.isEmpty()) {
-                        this.f4332g.a(-1, this.f4331f, null, this.f4330e);
+                        this.f4409g.a(-1, this.f4408f, null, this.f4407e);
                     } else {
-                        this.f4332g.a(0, this.f4331f, hashMap, this.f4330e);
+                        this.f4409g.a(0, this.f4408f, hashMap, this.f4407e);
                         return;
                     }
                 } else {
-                    aVar = this.f4332g;
-                    dVar = this.f4331f;
-                    str4 = this.f4330e;
+                    aVar = this.f4409g;
+                    dVar = this.f4408f;
+                    str4 = this.f4407e;
                     bool = bool3;
                 }
             } else {
                 Boolean bool5 = Boolean.FALSE;
-                i.this.l(Boolean.valueOf(this.i));
-                k.a("Httpdns request failed for %s(%s), get null response stream", this.f4331f.toString(), this.f4330e);
-                aVar = this.f4332g;
-                dVar = this.f4331f;
-                str4 = this.f4330e;
+                i.this.l(Boolean.valueOf(this.f4411i));
+                k.a("Httpdns request failed for %s(%s), get null response stream", this.f4408f.toString(), this.f4407e);
+                aVar = this.f4409g;
+                dVar = this.f4408f;
+                str4 = this.f4407e;
                 bool = bool5;
             }
             aVar.a(-1, dVar, null, str4);
@@ -328,27 +332,27 @@ public final class i {
             }
             if (hashMap != null) {
             }
-            this.f4332g.a(-1, this.f4331f, null, this.f4330e);
+            this.f4409g.a(-1, this.f4408f, null, this.f4407e);
         }
 
         @Override // java.lang.Runnable
         public void run() {
             b();
-            if (this.f4333h) {
-                k.a("Retry for %s(%s).", this.f4331f.toString(), this.f4330e);
+            if (this.f4410h) {
+                k.a("Retry for %s(%s).", this.f4408f.toString(), this.f4407e);
                 b();
             }
-            synchronized (i.this.f4327f) {
-                if (!this.f4331f.equals(d.TAG_OF_HOSTS)) {
-                    for (String str : this.f4330e.split(",")) {
-                        i.this.f4326e.remove(str);
+            synchronized (i.this.f4403f) {
+                if (!this.f4408f.equals(d.TAG_OF_HOSTS)) {
+                    for (String str : this.f4407e.split(",")) {
+                        i.this.f4402e.remove(str);
                     }
                 }
             }
-            synchronized (i.this.f4328g) {
-                if (this.f4331f.equals(d.DNLIST_HOSTS)) {
-                    for (String str2 : this.f4330e.split(",")) {
-                        i.this.f4329h.remove(str2);
+            synchronized (i.this.f4404g) {
+                if (this.f4408f.equals(d.DNLIST_HOSTS)) {
+                    for (String str2 : this.f4407e.split(",")) {
+                        i.this.f4405h.remove(str2);
                     }
                 }
             }
@@ -376,22 +380,22 @@ public final class i {
     public class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ArrayList<String> f4337a;
+        public final ArrayList<String> f4415a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f4338b;
+        public final long f4416b;
 
         public e(i iVar, ArrayList<String> arrayList, long j) {
-            this.f4337a = arrayList;
-            this.f4338b = j;
+            this.f4415a = arrayList;
+            this.f4416b = j;
         }
 
         public ArrayList<String> a() {
-            return this.f4337a;
+            return this.f4415a;
         }
 
         public long b() {
-            return this.f4338b;
+            return this.f4416b;
         }
     }
 
@@ -420,7 +424,7 @@ public final class i {
     }
 
     public String A() {
-        return !o ? this.j : d.b.g.e.l(this.j);
+        return !o ? this.j : d.a.g.e.l(this.j);
     }
 
     public boolean C() {
@@ -474,16 +478,16 @@ public final class i {
     }
 
     public final String g(String str, long j) {
-        return d.b.g.e.j(String.format("%s-%s-%d", str, A(), Long.valueOf(j)));
+        return d.a.g.e.j(String.format("%s-%s-%d", str, A(), Long.valueOf(j)));
     }
 
-    public final String h(byte[] bArr, int i) {
-        byte[] bArr2 = new byte[i];
+    public final String h(byte[] bArr, int i2) {
+        byte[] bArr2 = new byte[i2];
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            GZIPInputStream gZIPInputStream = new GZIPInputStream(new ByteArrayInputStream(bArr), i);
+            GZIPInputStream gZIPInputStream = new GZIPInputStream(new ByteArrayInputStream(bArr), i2);
             do {
-                int read = gZIPInputStream.read(bArr2, 0, i);
+                int read = gZIPInputStream.read(bArr2, 0, i2);
                 byteArrayOutputStream.write(bArr2, 0, read);
                 if (read == -1) {
                     break;
@@ -504,7 +508,7 @@ public final class i {
             if (jSONObject.has("serverip")) {
                 JSONArray optJSONArray = jSONObject.optJSONObject("serverip").optJSONArray("ipv4");
                 if (optJSONArray.length() > 0) {
-                    this.f4323b = optJSONArray.optString(0);
+                    this.f4399b = optJSONArray.optString(0);
                 }
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
@@ -513,7 +517,7 @@ public final class i {
                 return null;
             }
             Iterator<String> keys = optJSONObject.keys();
-            int i = 0;
+            int i2 = 0;
             while (keys.hasNext()) {
                 String next = keys.next();
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject(next).optJSONObject("ipv4");
@@ -522,11 +526,11 @@ public final class i {
                     k.a("Httpdns request failed, host(%s), response has no ip field", next);
                 } else {
                     ArrayList arrayList = new ArrayList();
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        String optString = optJSONArray2.optString(i2);
+                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                        String optString = optJSONArray2.optString(i3);
                         if (optString == null || optString.isEmpty()) {
                             k.a("Httpdns request warning, host(%s), response get ip error", next);
-                        } else if (d.b.g.e.e(optString)) {
+                        } else if (d.a.g.e.e(optString)) {
                             arrayList.add(optString);
                         } else {
                             k.a("Httpdns request warning, host(%s), response get invalid ip(%s)", next, optString);
@@ -541,7 +545,7 @@ public final class i {
                                 k.a("Httpdns request failed, host(%s), response has invalid ttl(%s)", next, Long.valueOf(j));
                             } else {
                                 hashMap.put(next, new e(this, arrayList, j));
-                                i++;
+                                i2++;
                             }
                         } catch (JSONException e2) {
                             e2.printStackTrace();
@@ -552,7 +556,7 @@ public final class i {
                 }
                 hashMap.put(next, null);
             }
-            if (i == 0) {
+            if (i2 == 0) {
                 return null;
             }
             return hashMap;
@@ -585,7 +589,7 @@ public final class i {
                 if (optInt == 0) {
                     k.a("Httpdns request failed for %s(%s), response get invalid timestamp", dVar.toString(), str2);
                 } else {
-                    this.f4325d = optInt - (System.currentTimeMillis() / 1000);
+                    this.f4401d = optInt - (System.currentTimeMillis() / 1000);
                     hashMap.put("isSignExpired", Boolean.TRUE);
                 }
                 return hashMap;
@@ -599,16 +603,16 @@ public final class i {
 
     public final synchronized void l(Boolean bool) {
         if (bool.booleanValue()) {
-            int i = this.l + 1;
-            this.l = i;
-            k.a("requestIDCFailNum: %s", Integer.valueOf(i));
+            int i2 = this.l + 1;
+            this.l = i2;
+            k.a("requestIDCFailNum: %s", Integer.valueOf(i2));
         }
     }
 
     public void m(String str) {
-        synchronized (this.f4328g) {
-            if (!this.f4329h.contains(str)) {
-                this.f4329h.add(str);
+        synchronized (this.f4404g) {
+            if (!this.f4405h.contains(str)) {
+                this.f4405h.add(str);
             }
         }
     }
@@ -617,23 +621,23 @@ public final class i {
         if (str == null || str.isEmpty()) {
             return;
         }
-        synchronized (this.f4327f) {
+        synchronized (this.f4403f) {
             if (dVar.equals(d.DNLIST_HOSTS)) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.addAll(Arrays.asList(str.split(",")));
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     String str2 = (String) it.next();
-                    if (this.f4326e.contains(str2)) {
+                    if (this.f4402e.contains(str2)) {
                         k.a("Httpdns request request for host(%s) is in processing，will exclude it.", str2);
                         it.remove();
                     } else {
-                        this.f4326e.add(str2);
+                        this.f4402e.add(str2);
                     }
                 }
                 StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < arrayList.size(); i++) {
-                    sb.append((String) arrayList.get(i));
+                for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                    sb.append((String) arrayList.get(i2));
                     sb.append(",");
                 }
                 str = sb.toString().replaceAll("^,*|,*$", "");
@@ -651,20 +655,20 @@ public final class i {
 
     public void o(ArrayList<String> arrayList, a aVar) {
         ArrayList arrayList2 = new ArrayList(new HashSet(arrayList));
-        int i = 0;
         int i2 = 0;
-        while (i < arrayList2.size()) {
+        int i3 = 0;
+        while (i2 < arrayList2.size()) {
             String str = "";
-            int i3 = 0;
+            int i4 = 0;
             while (true) {
-                int i4 = this.m;
-                if (i3 >= i4 || (i = i3 + (i4 * i2)) >= arrayList2.size()) {
+                int i5 = this.m;
+                if (i4 >= i5 || (i2 = i4 + (i5 * i3)) >= arrayList2.size()) {
                     break;
                 }
-                str = str + ((String) arrayList2.get(i)) + ",";
-                i3++;
+                str = str + ((String) arrayList2.get(i2)) + ",";
+                i4++;
             }
-            i2++;
+            i3++;
             if (str != null && !str.isEmpty()) {
                 String substring = str.substring(0, str.length() - 1);
                 k.a("Hosts for httpdns request is (%s) ", substring);
@@ -674,12 +678,12 @@ public final class i {
     }
 
     public void p(boolean z) {
-        this.f4324c = z;
+        this.f4400c = z;
     }
 
     public void r() {
         this.l = 0;
-        this.f4323b = null;
+        this.f4399b = null;
     }
 
     public void s(boolean z) {
@@ -687,15 +691,15 @@ public final class i {
     }
 
     public ArrayList v() {
-        return this.f4329h;
+        return this.f4405h;
     }
 
     public void w(String str) {
-        this.i = str;
+        this.f4406i = str;
     }
 
     public void y(String str) {
-        String k = d.b.g.e.k(str);
+        String k = d.a.g.e.k(str);
         this.j = k;
         if (k == null) {
             this.j = str;

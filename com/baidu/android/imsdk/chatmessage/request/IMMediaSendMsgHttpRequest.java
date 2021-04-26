@@ -92,21 +92,21 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        ChatMsgManagerImpl.getInstance(this.mContext).onMediaSendChatMsgResult(this.mListenerKey, ((Integer) transErrorCode(i, bArr, th).first).intValue(), this.mSendMsg);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        ChatMsgManagerImpl.getInstance(this.mContext).onMediaSendChatMsgResult(this.mListenerKey, ((Integer) transErrorCode(i2, bArr, th).first).intValue(), this.mSendMsg);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str = new String(bArr);
-        LogUtils.d(TAG, "BC> mListenerKey=" + this.mListenerKey + ", errorCode=" + i + ", result=" + str);
+        LogUtils.d(TAG, "BC> mListenerKey=" + this.mListenerKey + ", errorCode=" + i2 + ", result=" + str);
         if (TextUtils.isEmpty(this.mListenerKey)) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            if (i == 200) {
-                i = jSONObject.optInt("error_code", -1);
+            if (i2 == 200) {
+                i2 = jSONObject.optInt("error_code", -1);
                 long optLong = jSONObject.optLong("msgid", -1L);
                 long optLong2 = jSONObject.optLong("msg_time", -1L);
                 if (optLong > 0) {
@@ -119,9 +119,9 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
             this.mSendMsg.setMediaRoleMsg(true);
         } catch (Exception e2) {
             e2.printStackTrace();
-            i = 1010;
+            i2 = 1010;
         }
-        ChatMsgManagerImpl.getInstance(this.mContext).onMediaSendChatMsgResult(this.mListenerKey, i, this.mSendMsg);
+        ChatMsgManagerImpl.getInstance(this.mContext).onMediaSendChatMsgResult(this.mListenerKey, i2, this.mSendMsg);
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -129,14 +129,14 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
         return super.shouldAbort();
     }
 
-    public IMMediaSendMsgHttpRequest(Context context, long j, int i, long j2, String str, ChatMsg chatMsg, String str2) {
+    public IMMediaSendMsgHttpRequest(Context context, long j, int i2, long j2, String str, ChatMsg chatMsg, String str2) {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
         this.mContactor = j;
         this.mSendMsg = chatMsg;
         this.mListenerKey = str2;
-        this.mContactorType = i;
+        this.mContactorType = i2;
         this.mContactorPauid = j2;
         this.mContactorThirdid = str;
     }

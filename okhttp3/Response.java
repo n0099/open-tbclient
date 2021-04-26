@@ -68,10 +68,10 @@ public final class Response implements Closeable {
 
     public List<Challenge> challenges() {
         String str;
-        int i = this.code;
-        if (i == 401) {
+        int i2 = this.code;
+        if (i2 == 401) {
             str = AUTH.WWW_AUTH;
-        } else if (i != 407) {
+        } else if (i2 != 407) {
             return Collections.emptyList();
         } else {
             str = AUTH.PROXY_AUTH;
@@ -107,11 +107,11 @@ public final class Response implements Closeable {
     }
 
     public boolean isRedirect() {
-        int i = this.code;
-        if (i == 307 || i == 308) {
+        int i2 = this.code;
+        if (i2 == 307 || i2 == 308) {
             return true;
         }
-        switch (i) {
+        switch (i2) {
             case 300:
             case 301:
             case 302:
@@ -123,8 +123,8 @@ public final class Response implements Closeable {
     }
 
     public boolean isSuccessful() {
-        int i = this.code;
-        return i >= 200 && i < 300;
+        int i2 = this.code;
+        return i2 >= 200 && i2 < 300;
     }
 
     public String message() {
@@ -265,8 +265,8 @@ public final class Response implements Closeable {
             return this;
         }
 
-        public Builder code(int i) {
-            this.code = i;
+        public Builder code(int i2) {
+            this.code = i2;
             return this;
         }
 

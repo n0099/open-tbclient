@@ -33,26 +33,26 @@ public enum Feature {
     Feature() {
     }
 
-    public static int config(int i, Feature feature, boolean z) {
+    public static int config(int i2, Feature feature, boolean z) {
         if (z) {
-            return i | feature.mask;
+            return i2 | feature.mask;
         }
-        return i & (~feature.mask);
+        return i2 & (~feature.mask);
     }
 
-    public static boolean isEnabled(int i, Feature feature) {
-        return (i & feature.mask) != 0;
+    public static boolean isEnabled(int i2, Feature feature) {
+        return (i2 & feature.mask) != 0;
     }
 
     public static int of(Feature[] featureArr) {
         if (featureArr == null) {
             return 0;
         }
-        int i = 0;
+        int i2 = 0;
         for (Feature feature : featureArr) {
-            i |= feature.mask;
+            i2 |= feature.mask;
         }
-        return i;
+        return i2;
     }
 
     public final int getMask() {

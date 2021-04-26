@@ -29,42 +29,42 @@ public abstract class PluginError extends Exception {
 
     /* loaded from: classes6.dex */
     public static final class CancelError extends PluginError {
-        public CancelError(int i) {
-            super("Operation was canceled.", i);
+        public CancelError(int i2) {
+            super("Operation was canceled.", i2);
         }
     }
 
     /* loaded from: classes6.dex */
     public static final class InstallError extends PluginError {
-        public InstallError(String str, int i) {
-            super(str, i);
+        public InstallError(String str, int i2) {
+            super(str, i2);
         }
 
-        public InstallError(Throwable th, int i) {
-            super(th, i);
+        public InstallError(Throwable th, int i2) {
+            super(th, i2);
         }
     }
 
     /* loaded from: classes6.dex */
     public static final class LoadError extends PluginError {
-        public LoadError(String str, int i) {
-            super(str, i);
+        public LoadError(String str, int i2) {
+            super(str, i2);
         }
 
-        public LoadError(Throwable th, int i) {
-            super(th, i);
+        public LoadError(Throwable th, int i2) {
+            super(th, i2);
             setStackTrace(th.getStackTrace());
         }
     }
 
     /* loaded from: classes6.dex */
     public static final class NotWifiDownloadError extends PluginError {
-        public NotWifiDownloadError(String str, int i) {
-            super(str, i);
+        public NotWifiDownloadError(String str, int i2) {
+            super(str, i2);
         }
 
-        public NotWifiDownloadError(Throwable th, int i) {
-            super(th, i);
+        public NotWifiDownloadError(Throwable th, int i2) {
+            super(th, i2);
             setStackTrace(th.getStackTrace());
         }
     }
@@ -78,28 +78,28 @@ public abstract class PluginError extends Exception {
 
     /* loaded from: classes6.dex */
     public static final class UpdateError extends PluginError {
-        public UpdateError(String str, int i) {
-            super(str, i);
+        public UpdateError(String str, int i2) {
+            super(str, i2);
         }
 
-        public UpdateError(Throwable th, int i) {
-            super(th, i);
+        public UpdateError(Throwable th, int i2) {
+            super(th, i2);
         }
     }
 
-    public PluginError(String str, int i) {
+    public PluginError(String str, int i2) {
         super(str);
-        this.mCode = i;
+        this.mCode = i2;
     }
 
-    public PluginError(String str, Throwable th, int i) {
+    public PluginError(String str, Throwable th, int i2) {
         super(str, th);
-        this.mCode = i;
+        this.mCode = i2;
     }
 
-    public PluginError(Throwable th, int i) {
+    public PluginError(Throwable th, int i2) {
         super(th);
-        this.mCode = i;
+        this.mCode = i2;
     }
 
     public int getCode() {

@@ -82,15 +82,15 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
         return glCreateProgram;
     }
 
-    private int loadShader(int i, String str) {
-        int glCreateShader = GLES20.glCreateShader(i);
+    private int loadShader(int i2, String str) {
+        int glCreateShader = GLES20.glCreateShader(i2);
         if (glCreateShader != 0) {
             GLES20.glShaderSource(glCreateShader, str);
             GLES20.glCompileShader(glCreateShader);
             int[] iArr = new int[1];
             GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
             if (iArr[0] == 0) {
-                Log.e(TAG, "Could not compile shader " + i + ":");
+                Log.e(TAG, "Could not compile shader " + i2 + ":");
                 Log.e(TAG, GLES20.glGetShaderInfoLog(glCreateShader));
                 GLES20.glDeleteShader(glCreateShader);
                 return 0;
@@ -103,13 +103,13 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
     private void prepareSurface() {
         int[] iArr = new int[1];
         GLES20.glGenTextures(1, iArr, 0);
-        int i = iArr[0];
+        int i2 = iArr[0];
         GLES20.glActiveTexture(33984);
-        GLES20.glBindTexture(36197, i);
+        GLES20.glBindTexture(36197, i2);
         checkGlError("glBindTexture textureID");
         GLES20.glTexParameterf(36197, 10241, 9728.0f);
         GLES20.glTexParameterf(36197, 10240, 9729.0f);
-        SurfaceTexture surfaceTexture = new SurfaceTexture(i);
+        SurfaceTexture surfaceTexture = new SurfaceTexture(i2);
         this.mSurfaceTexture = surfaceTexture;
         surfaceTexture.setOnFrameAvailableListener(this);
         Surface surface = new Surface(this.mSurfaceTexture);
@@ -187,8 +187,8 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
     }
 
     @Override // com.baidu.searchbox.afx.gl.GLTextureView.Renderer
-    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
-        GLES20.glViewport(0, 0, i, i2);
+    public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
+        GLES20.glViewport(0, 0, i2, i3);
     }
 
     @Override // com.baidu.searchbox.afx.gl.GLTextureView.Renderer

@@ -24,8 +24,8 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         public static class DefaulPlayReadyRecord extends PlayReadyRecord {
             public ByteBuffer value;
 
-            public DefaulPlayReadyRecord(int i) {
-                super(i);
+            public DefaulPlayReadyRecord(int i2) {
+                super(i2);
             }
 
             @Override // com.googlecode.mp4parser.contentprotection.PlayReadyHeader.PlayReadyRecord
@@ -105,14 +105,14 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             }
         }
 
-        public PlayReadyRecord(int i) {
-            this.type = i;
+        public PlayReadyRecord(int i2) {
+            this.type = i2;
         }
 
-        public static List<PlayReadyRecord> createFor(ByteBuffer byteBuffer, int i) {
+        public static List<PlayReadyRecord> createFor(ByteBuffer byteBuffer, int i2) {
             PlayReadyRecord rMHeader;
-            ArrayList arrayList = new ArrayList(i);
-            for (int i2 = 0; i2 < i; i2++) {
+            ArrayList arrayList = new ArrayList(i2);
+            for (int i3 = 0; i3 < i2; i3++) {
                 int readUInt16BE = IsoTypeReader.readUInt16BE(byteBuffer);
                 int readUInt16BE2 = IsoTypeReader.readUInt16BE(byteBuffer);
                 if (readUInt16BE == 1) {
@@ -146,12 +146,12 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
 
     @Override // com.googlecode.mp4parser.boxes.piff.ProtectionSpecificHeader
     public ByteBuffer getData() {
-        int i = 6;
+        int i2 = 6;
         for (PlayReadyRecord playReadyRecord : this.records) {
-            i = i + 4 + playReadyRecord.getValue().rewind().limit();
+            i2 = i2 + 4 + playReadyRecord.getValue().rewind().limit();
         }
-        ByteBuffer allocate = ByteBuffer.allocate(i);
-        IsoTypeWriter.writeUInt32BE(allocate, i);
+        ByteBuffer allocate = ByteBuffer.allocate(i2);
+        IsoTypeWriter.writeUInt32BE(allocate, i2);
         IsoTypeWriter.writeUInt16BE(allocate, this.records.size());
         for (PlayReadyRecord playReadyRecord2 : this.records) {
             IsoTypeWriter.writeUInt16BE(allocate, playReadyRecord2.type);

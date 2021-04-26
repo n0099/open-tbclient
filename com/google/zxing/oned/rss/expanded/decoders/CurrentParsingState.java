@@ -15,8 +15,8 @@ public final class CurrentParsingState {
         return this.position;
     }
 
-    public void incrementPosition(int i) {
-        this.position += i;
+    public void incrementPosition(int i2) {
+        this.position += i2;
     }
 
     public boolean isAlpha() {
@@ -43,7 +43,7 @@ public final class CurrentParsingState {
         this.encoding = State.NUMERIC;
     }
 
-    public void setPosition(int i) {
-        this.position = i;
+    public void setPosition(int i2) {
+        this.position = i2;
     }
 }

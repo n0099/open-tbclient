@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.switchs.WebpSwitch;
 import com.baidu.tieba.R;
-import d.b.c.e.a.d;
-import d.b.c.e.a.f.c;
-import d.b.c.e.l.b;
-import d.b.c.e.p.j;
-import d.b.c.e.p.l;
-import d.b.c.j.d.a;
+import d.a.c.e.a.d;
+import d.a.c.e.a.f.c;
+import d.a.c.e.l.b;
+import d.a.c.e.p.j;
+import d.a.c.e.p.l;
+import d.a.c.j.d.a;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
 public class FlutterLoaderProc extends AbstractImageLoaderProc {
@@ -27,29 +27,29 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
     public boolean isNeedFormat;
     public int procType;
 
-    public FlutterLoaderProc(boolean z, int i, boolean z2) {
+    public FlutterLoaderProc(boolean z, int i2, boolean z2) {
         this.isFromCDN = true;
         this.procType = 0;
         this.isNeedFormat = true;
         this.isFromCDN = z;
-        this.procType = i;
+        this.procType = i2;
         this.isNeedFormat = z2;
     }
 
-    public a createImageByteFromDiskPicOperate(c cVar, String str, int i, int i2) {
+    public a createImageByteFromDiskPicOperate(c cVar, String str, int i2, int i3) {
         if (cVar == null) {
             return null;
         }
         a aVar = new a((Bitmap) null, false, str, cVar.getData());
         cVar.formatData(cVar.getData());
-        Bitmap checkBitmapSize = checkBitmapSize(cVar.getBitmap(), i, i2);
+        Bitmap checkBitmapSize = checkBitmapSize(cVar.getBitmap(), i2, i3);
         return checkBitmapSize != null ? new a(checkBitmapSize, cVar.isGif(), str) : aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.b.c.e.l.e
-    public a getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.a.c.e.l.e
+    public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         return null;
     }
 
@@ -97,14 +97,14 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f42585a = diskCancelWorker;
+            bVar.f39786a = diskCancelWorker;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.b.c.e.l.e
-    public a getFromLocal(String str, String str2, int i, int i2, b bVar, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.a.c.e.l.e
+    public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         byte[] bArr = new byte[0];
         c createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
         if (createDiskPicOperate == null) {
@@ -119,19 +119,19 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(createDiskPicOperate);
-            bVar.f42585a = diskCancelWorker;
+            bVar.f39786a = diskCancelWorker;
         }
         boolean H = j.H();
         if (d.g().a(createDiskPicOperate)) {
-            int i3 = H ? 300 : 2000;
+            int i4 = H ? 300 : 2000;
             synchronized (bArr) {
                 try {
-                    bArr.wait(i3);
+                    bArr.wait(i4);
                 } catch (InterruptedException unused) {
                 }
             }
             if (createDiskPicOperate.isSuccess()) {
-                return createImageByteFromDiskPicOperate(createDiskPicOperate, str2, i, i2);
+                return createImageByteFromDiskPicOperate(createDiskPicOperate, str2, i2, i3);
             }
             return null;
         }
@@ -145,17 +145,17 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
     /* JADX WARN: Removed duplicated region for block: B:72:0x019d  */
     /* JADX WARN: Removed duplicated region for block: B:74:0x01a3  */
     /* JADX WARN: Removed duplicated region for block: B:78:0x01ca  */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.b.c.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.a.c.e.l.e
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public a getFromRemote(String str, String str2, int i, int i2, b bVar, Object... objArr) {
+    public a getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         boolean z;
         WebClient webClient;
         byte[] downloadImageBytes;
         boolean z2;
         WebClient webClient2;
-        int i3;
+        int i4;
         byte[] bArr;
         boolean z3;
         char c2;
@@ -167,8 +167,8 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
             return null;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        int suggestWidth = i == 0 ? getSuggestWidth() : i;
-        int suggestHeight = i2 == 0 ? getSuggestHeight() : i2;
+        int suggestWidth = i2 == 0 ? getSuggestWidth() : i2;
+        int suggestHeight = i3 == 0 ? getSuggestHeight() : i3;
         if (suggestWidth == 0) {
             suggestWidth = l.e(TbadkCoreApplication.getInst().getApp(), 105.0f);
         }
@@ -187,14 +187,14 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                 z = true;
                 webClient = new WebClient();
                 if (bVar != null) {
-                    bVar.f42585a = webClient;
+                    bVar.f39786a = webClient;
                 }
                 downloadImageBytes = webClient.downloadImageBytes(urlbyClientServerAddr, !isFromCDN);
                 boolean needCache = webClient.needCache();
                 if (!webClient.IsRequestSuccess()) {
                     z2 = needCache;
                     webClient2 = webClient;
-                    i3 = 1;
+                    i4 = 1;
                 } else if (webClient.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
                     if (webClient.mStat != null) {
                         webClient3 = webClient;
@@ -206,14 +206,14 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                     }
                     try {
                         InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete, new TypedValue());
-                        byte[] d2 = d.b.c.e.j.b.b.d(openRawResource);
-                        if (!webClient3.isGif && !l.A(d2)) {
+                        byte[] d2 = d.a.c.e.j.b.b.d(openRawResource);
+                        if (!webClient3.isGif && !l.B(d2)) {
                             z5 = false;
                             a aVar = new a((Bitmap) null, z5, str, d2);
                             boolean z6 = z4;
                             aVar.y(z6);
                             storeLocal(str2, d2, Boolean.valueOf(z6), Boolean.valueOf(webClient3.isCrackPic), Boolean.valueOf(z5), bVar);
-                            d.b.c.e.m.a.c(openRawResource);
+                            d.a.c.e.m.a.c(openRawResource);
                             return aVar;
                         }
                         z5 = true;
@@ -221,7 +221,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                         boolean z62 = z4;
                         aVar2.y(z62);
                         storeLocal(str2, d2, Boolean.valueOf(z62), Boolean.valueOf(webClient3.isCrackPic), Boolean.valueOf(z5), bVar);
-                        d.b.c.e.m.a.c(openRawResource);
+                        d.a.c.e.m.a.c(openRawResource);
                         return aVar2;
                     } catch (Throwable th) {
                         BdLog.e(th);
@@ -230,20 +230,20 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                 } else {
                     z2 = needCache;
                     webClient2 = webClient;
-                    i3 = 1;
-                    if (!webClient2.getResponse().f42534a) {
+                    i4 = 1;
+                    if (!webClient2.getResponse().f39732a) {
                         ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient2.mStat, "NetworkError", System.currentTimeMillis() - currentTimeMillis, webClient2.isMobileProxy(), getProcType());
                         return null;
                     }
                 }
                 if (downloadImageBytes != null) {
-                    if (!webClient2.getResponse().f42534a) {
+                    if (!webClient2.getResponse().f39732a) {
                         ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient2.mStat, "ByteIsNull", System.currentTimeMillis() - currentTimeMillis, webClient2.isMobileProxy(), getProcType());
                     }
                     return null;
                 }
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                if (downloadImageBytes.length > i3) {
+                if (downloadImageBytes.length > i4) {
                     ImageLoadSpeedRecorder.sharedInstance().addSpeedRecordItem(downloadImageBytes.length, currentTimeMillis2);
                     c2 = 1;
                     z3 = z2;
@@ -255,8 +255,8 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                     c2 = 1;
                     ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient2.mStat, "bytes<1", currentTimeMillis2, webClient2.isMobileProxy(), getProcType());
                 }
-                d.b.i0.a0.c.k().i(TbConfig.getPbImageSize() + bArr.length);
-                boolean z7 = webClient2.isGif || l.A(bArr);
+                d.a.i0.a0.c.k().i(TbConfig.getPbImageSize() + bArr.length);
+                boolean z7 = webClient2.isGif || l.B(bArr);
                 a aVar3 = new a((Bitmap) null, z7, str, bArr);
                 boolean z8 = z3;
                 aVar3.y(z8);

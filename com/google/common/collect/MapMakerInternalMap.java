@@ -49,8 +49,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static final class SerializationProxy<K, V> extends AbstractSerializationProxy<K, V> {
         public static final long serialVersionUID = 3;
 
-        public SerializationProxy(Strength strength, Strength strength2, Equivalence<Object> equivalence, Equivalence<Object> equivalence2, int i, ConcurrentMap<K, V> concurrentMap) {
-            super(strength, strength2, equivalence, equivalence2, i, concurrentMap);
+        public SerializationProxy(Strength strength, Strength strength2, Equivalence<Object> equivalence, Equivalence<Object> equivalence2, int i2, ConcurrentMap<K, V> concurrentMap) {
+            super(strength, strength2, equivalence, equivalence2, i2, concurrentMap);
         }
 
         private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
@@ -93,8 +93,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
     /* loaded from: classes6.dex */
     public static final class StrongKeyDummyValueSegment<K> extends Segment<K, MapMaker.Dummy, m<K>, StrongKeyDummyValueSegment<K>> {
-        public StrongKeyDummyValueSegment(MapMakerInternalMap<K, MapMaker.Dummy, m<K>, StrongKeyDummyValueSegment<K>> mapMakerInternalMap, int i, int i2) {
-            super(mapMakerInternalMap, i, i2);
+        public StrongKeyDummyValueSegment(MapMakerInternalMap<K, MapMaker.Dummy, m<K>, StrongKeyDummyValueSegment<K>> mapMakerInternalMap, int i2, int i3) {
+            super(mapMakerInternalMap, i2, i3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -112,8 +112,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
     /* loaded from: classes6.dex */
     public static final class StrongKeyStrongValueSegment<K, V> extends Segment<K, V, n<K, V>, StrongKeyStrongValueSegment<K, V>> {
-        public StrongKeyStrongValueSegment(MapMakerInternalMap<K, V, n<K, V>, StrongKeyStrongValueSegment<K, V>> mapMakerInternalMap, int i, int i2) {
-            super(mapMakerInternalMap, i, i2);
+        public StrongKeyStrongValueSegment(MapMakerInternalMap<K, V, n<K, V>, StrongKeyStrongValueSegment<K, V>> mapMakerInternalMap, int i2, int i3) {
+            super(mapMakerInternalMap, i2, i3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -133,8 +133,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static final class StrongKeyWeakValueSegment<K, V> extends Segment<K, V, o<K, V>, StrongKeyWeakValueSegment<K, V>> {
         public final ReferenceQueue<V> queueForValues;
 
-        public StrongKeyWeakValueSegment(MapMakerInternalMap<K, V, o<K, V>, StrongKeyWeakValueSegment<K, V>> mapMakerInternalMap, int i, int i2) {
-            super(mapMakerInternalMap, i, i2);
+        public StrongKeyWeakValueSegment(MapMakerInternalMap<K, V, o<K, V>, StrongKeyWeakValueSegment<K, V>> mapMakerInternalMap, int i2, int i3) {
+            super(mapMakerInternalMap, i2, i3);
             this.queueForValues = new ReferenceQueue<>();
         }
 
@@ -173,8 +173,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         @Override // com.google.common.collect.MapMakerInternalMap.Segment
         public void setWeakValueReferenceForTesting(h<K, V, ?> hVar, v<K, V, ? extends h<K, V, ?>> vVar) {
             o<K, V> castForTesting = castForTesting((h) hVar);
-            v vVar2 = castForTesting.f31016h;
-            castForTesting.f31016h = vVar;
+            v vVar2 = castForTesting.f31984h;
+            castForTesting.f31984h = vVar;
             vVar2.clear();
         }
 
@@ -189,8 +189,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static final class WeakKeyDummyValueSegment<K> extends Segment<K, MapMaker.Dummy, r<K>, WeakKeyDummyValueSegment<K>> {
         public final ReferenceQueue<K> queueForKeys;
 
-        public WeakKeyDummyValueSegment(MapMakerInternalMap<K, MapMaker.Dummy, r<K>, WeakKeyDummyValueSegment<K>> mapMakerInternalMap, int i, int i2) {
-            super(mapMakerInternalMap, i, i2);
+        public WeakKeyDummyValueSegment(MapMakerInternalMap<K, MapMaker.Dummy, r<K>, WeakKeyDummyValueSegment<K>> mapMakerInternalMap, int i2, int i3) {
+            super(mapMakerInternalMap, i2, i3);
             this.queueForKeys = new ReferenceQueue<>();
         }
 
@@ -227,8 +227,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static final class WeakKeyStrongValueSegment<K, V> extends Segment<K, V, s<K, V>, WeakKeyStrongValueSegment<K, V>> {
         public final ReferenceQueue<K> queueForKeys;
 
-        public WeakKeyStrongValueSegment(MapMakerInternalMap<K, V, s<K, V>, WeakKeyStrongValueSegment<K, V>> mapMakerInternalMap, int i, int i2) {
-            super(mapMakerInternalMap, i, i2);
+        public WeakKeyStrongValueSegment(MapMakerInternalMap<K, V, s<K, V>, WeakKeyStrongValueSegment<K, V>> mapMakerInternalMap, int i2, int i3) {
+            super(mapMakerInternalMap, i2, i3);
             this.queueForKeys = new ReferenceQueue<>();
         }
 
@@ -266,8 +266,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public final ReferenceQueue<K> queueForKeys;
         public final ReferenceQueue<V> queueForValues;
 
-        public WeakKeyWeakValueSegment(MapMakerInternalMap<K, V, t<K, V>, WeakKeyWeakValueSegment<K, V>> mapMakerInternalMap, int i, int i2) {
-            super(mapMakerInternalMap, i, i2);
+        public WeakKeyWeakValueSegment(MapMakerInternalMap<K, V, t<K, V>, WeakKeyWeakValueSegment<K, V>> mapMakerInternalMap, int i2, int i3) {
+            super(mapMakerInternalMap, i2, i3);
             this.queueForKeys = new ReferenceQueue<>();
             this.queueForValues = new ReferenceQueue<>();
         }
@@ -313,8 +313,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         @Override // com.google.common.collect.MapMakerInternalMap.Segment
         public void setWeakValueReferenceForTesting(h<K, V, ?> hVar, v<K, V, ? extends h<K, V, ?>> vVar) {
             t<K, V> castForTesting = castForTesting((h) hVar);
-            v vVar2 = castForTesting.f31022g;
-            castForTesting.f31022g = vVar;
+            v vVar2 = castForTesting.f31990g;
+            castForTesting.f31990g = vVar;
             vVar2.clear();
         }
 
@@ -360,33 +360,33 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static abstract class b<K, V, E extends h<K, V, E>> implements h<K, V, E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f31002e;
+        public final K f31969e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f31003f;
+        public final int f31970f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final E f31004g;
+        public final E f31971g;
 
-        public b(K k, int i, E e2) {
-            this.f31002e = k;
-            this.f31003f = i;
-            this.f31004g = e2;
+        public b(K k, int i2, E e2) {
+            this.f31969e = k;
+            this.f31970f = i2;
+            this.f31971g = e2;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public int getHash() {
-            return this.f31003f;
+            return this.f31970f;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public K getKey() {
-            return this.f31002e;
+            return this.f31969e;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public E getNext() {
-            return this.f31004g;
+            return this.f31971g;
         }
     }
 
@@ -394,20 +394,20 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static abstract class c<K, V, E extends h<K, V, E>> extends WeakReference<K> implements h<K, V, E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f31005e;
+        public final int f31972e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final E f31006f;
+        public final E f31973f;
 
-        public c(ReferenceQueue<K> referenceQueue, K k, int i, E e2) {
+        public c(ReferenceQueue<K> referenceQueue, K k, int i2, E e2) {
             super(k, referenceQueue);
-            this.f31005e = i;
-            this.f31006f = e2;
+            this.f31972e = i2;
+            this.f31973f = e2;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public int getHash() {
-            return this.f31005e;
+            return this.f31972e;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
@@ -417,7 +417,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public E getNext() {
-            return this.f31006f;
+            return this.f31973f;
         }
     }
 
@@ -514,22 +514,24 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public abstract class g<T> implements Iterator<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31008e;
+        public int f31975e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f31009f = -1;
+        public int f31976f = -1;
 
         /* renamed from: g  reason: collision with root package name */
-        public Segment<K, V, E, S> f31010g;
+        public Segment<K, V, E, S> f31977g;
 
         /* renamed from: h  reason: collision with root package name */
-        public AtomicReferenceArray<E> f31011h;
-        public E i;
+        public AtomicReferenceArray<E> f31978h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public E f31979i;
         public MapMakerInternalMap<K, V, E, S>.x j;
         public MapMakerInternalMap<K, V, E, S>.x k;
 
         public g() {
-            this.f31008e = MapMakerInternalMap.this.segments.length - 1;
+            this.f31975e = MapMakerInternalMap.this.segments.length - 1;
             a();
         }
 
@@ -539,18 +541,18 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                 return;
             }
             while (true) {
-                int i = this.f31008e;
-                if (i < 0) {
+                int i2 = this.f31975e;
+                if (i2 < 0) {
                     return;
                 }
                 Segment<K, V, E, S>[] segmentArr = MapMakerInternalMap.this.segments;
-                this.f31008e = i - 1;
-                Segment<K, V, E, S> segment = segmentArr[i];
-                this.f31010g = segment;
+                this.f31975e = i2 - 1;
+                Segment<K, V, E, S> segment = segmentArr[i2];
+                this.f31977g = segment;
                 if (segment.count != 0) {
-                    AtomicReferenceArray<E> atomicReferenceArray = this.f31010g.table;
-                    this.f31011h = atomicReferenceArray;
-                    this.f31009f = atomicReferenceArray.length() - 1;
+                    AtomicReferenceArray<E> atomicReferenceArray = this.f31977g.table;
+                    this.f31978h = atomicReferenceArray;
+                    this.f31976f = atomicReferenceArray.length() - 1;
                     if (e()) {
                         return;
                     }
@@ -571,7 +573,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                 }
                 return z;
             } finally {
-                this.f31010g.postReadCleanup();
+                this.f31977g.postReadCleanup();
             }
         }
 
@@ -586,33 +588,33 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         }
 
         public boolean d() {
-            E e2 = this.i;
+            E e2 = this.f31979i;
             if (e2 == null) {
                 return false;
             }
             while (true) {
-                this.i = (E) e2.getNext();
-                E e3 = this.i;
+                this.f31979i = (E) e2.getNext();
+                E e3 = this.f31979i;
                 if (e3 == null) {
                     return false;
                 }
                 if (b(e3)) {
                     return true;
                 }
-                e2 = this.i;
+                e2 = this.f31979i;
             }
         }
 
         public boolean e() {
             while (true) {
-                int i = this.f31009f;
-                if (i < 0) {
+                int i2 = this.f31976f;
+                if (i2 < 0) {
                     return false;
                 }
-                AtomicReferenceArray<E> atomicReferenceArray = this.f31011h;
-                this.f31009f = i - 1;
-                E e2 = atomicReferenceArray.get(i);
-                this.i = e2;
+                AtomicReferenceArray<E> atomicReferenceArray = this.f31978h;
+                this.f31976f = i2 - 1;
+                E e2 = atomicReferenceArray.get(i2);
+                this.f31979i = e2;
                 if (e2 != null && (b(e2) || d())) {
                     return true;
                 }
@@ -626,7 +628,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         @Override // java.util.Iterator
         public void remove() {
-            d.h.c.c.m.e(this.k != null);
+            d.g.c.c.m.e(this.k != null);
             MapMakerInternalMap.this.remove(this.k.getKey());
             this.k = null;
         }
@@ -645,17 +647,17 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
     /* loaded from: classes6.dex */
     public interface i<K, V, E extends h<K, V, E>, S extends Segment<K, V, E, S>> {
-        E a(S s, E e2, E e3);
+        void a(S s, E e2, V v);
 
         Strength b();
 
-        void c(S s, E e2, V v);
+        E c(S s, E e2, E e3);
 
-        E d(S s, K k, int i, E e2);
+        Strength d();
 
-        Strength e();
+        E e(S s, K k, int i2, E e2);
 
-        S f(MapMakerInternalMap<K, V, E, S> mapMakerInternalMap, int i, int i2);
+        S f(MapMakerInternalMap<K, V, E, S> mapMakerInternalMap, int i2, int i3);
     }
 
     /* loaded from: classes6.dex */
@@ -734,10 +736,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public static final class a<K> implements i<K, MapMaker.Dummy, m<K>, StrongKeyDummyValueSegment<K>> {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final a<?> f31013a = new a<>();
+            public static final a<?> f31981a = new a<>();
 
             public static <K> a<K> h() {
-                return (a<K>) f31013a;
+                return (a<K>) f31981a;
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
@@ -746,44 +748,44 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
-            public Strength e() {
+            public Strength d() {
                 return Strength.STRONG;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: g */
-            public m<K> a(StrongKeyDummyValueSegment<K> strongKeyDummyValueSegment, m<K> mVar, m<K> mVar2) {
+            public m<K> c(StrongKeyDummyValueSegment<K> strongKeyDummyValueSegment, m<K> mVar, m<K> mVar2) {
                 return mVar.a(mVar2);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: i */
-            public m<K> d(StrongKeyDummyValueSegment<K> strongKeyDummyValueSegment, K k, int i, m<K> mVar) {
-                return new m<>(k, i, mVar);
+            public m<K> e(StrongKeyDummyValueSegment<K> strongKeyDummyValueSegment, K k, int i2, m<K> mVar) {
+                return new m<>(k, i2, mVar);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: j */
-            public StrongKeyDummyValueSegment<K> f(MapMakerInternalMap<K, MapMaker.Dummy, m<K>, StrongKeyDummyValueSegment<K>> mapMakerInternalMap, int i, int i2) {
-                return new StrongKeyDummyValueSegment<>(mapMakerInternalMap, i, i2);
+            public StrongKeyDummyValueSegment<K> f(MapMakerInternalMap<K, MapMaker.Dummy, m<K>, StrongKeyDummyValueSegment<K>> mapMakerInternalMap, int i2, int i3) {
+                return new StrongKeyDummyValueSegment<>(mapMakerInternalMap, i2, i3);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: k */
-            public void c(StrongKeyDummyValueSegment<K> strongKeyDummyValueSegment, m<K> mVar, MapMaker.Dummy dummy) {
+            public void a(StrongKeyDummyValueSegment<K> strongKeyDummyValueSegment, m<K> mVar, MapMaker.Dummy dummy) {
             }
         }
 
-        public m(K k, int i, m<K> mVar) {
-            super(k, i, mVar);
+        public m(K k, int i2, m<K> mVar) {
+            super(k, i2, mVar);
         }
 
         public m<K> a(m<K> mVar) {
-            return new m<>(this.f31002e, this.f31003f, mVar);
+            return new m<>(this.f31969e, this.f31970f, mVar);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -798,16 +800,16 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static final class n<K, V> extends b<K, V, n<K, V>> implements Object<K, V, n<K, V>> {
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile V f31014h;
+        public volatile V f31982h;
 
         /* loaded from: classes6.dex */
         public static final class a<K, V> implements i<K, V, n<K, V>, StrongKeyStrongValueSegment<K, V>> {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final a<?, ?> f31015a = new a<>();
+            public static final a<?, ?> f31983a = new a<>();
 
             public static <K, V> a<K, V> h() {
-                return (a<K, V>) f31015a;
+                return (a<K, V>) f31983a;
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
@@ -816,57 +818,57 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
-            public Strength e() {
+            public Strength d() {
                 return Strength.STRONG;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: g */
-            public n<K, V> a(StrongKeyStrongValueSegment<K, V> strongKeyStrongValueSegment, n<K, V> nVar, n<K, V> nVar2) {
+            public n<K, V> c(StrongKeyStrongValueSegment<K, V> strongKeyStrongValueSegment, n<K, V> nVar, n<K, V> nVar2) {
                 return nVar.a(nVar2);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: i */
-            public n<K, V> d(StrongKeyStrongValueSegment<K, V> strongKeyStrongValueSegment, K k, int i, n<K, V> nVar) {
-                return new n<>(k, i, nVar);
+            public n<K, V> e(StrongKeyStrongValueSegment<K, V> strongKeyStrongValueSegment, K k, int i2, n<K, V> nVar) {
+                return new n<>(k, i2, nVar);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: j */
-            public StrongKeyStrongValueSegment<K, V> f(MapMakerInternalMap<K, V, n<K, V>, StrongKeyStrongValueSegment<K, V>> mapMakerInternalMap, int i, int i2) {
-                return new StrongKeyStrongValueSegment<>(mapMakerInternalMap, i, i2);
+            public StrongKeyStrongValueSegment<K, V> f(MapMakerInternalMap<K, V, n<K, V>, StrongKeyStrongValueSegment<K, V>> mapMakerInternalMap, int i2, int i3) {
+                return new StrongKeyStrongValueSegment<>(mapMakerInternalMap, i2, i3);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: k */
-            public void c(StrongKeyStrongValueSegment<K, V> strongKeyStrongValueSegment, n<K, V> nVar, V v) {
+            public void a(StrongKeyStrongValueSegment<K, V> strongKeyStrongValueSegment, n<K, V> nVar, V v) {
                 nVar.b(v);
             }
         }
 
-        public n(K k, int i, n<K, V> nVar) {
-            super(k, i, nVar);
-            this.f31014h = null;
+        public n(K k, int i2, n<K, V> nVar) {
+            super(k, i2, nVar);
+            this.f31982h = null;
         }
 
         public n<K, V> a(n<K, V> nVar) {
-            n<K, V> nVar2 = new n<>(this.f31002e, this.f31003f, nVar);
-            nVar2.f31014h = this.f31014h;
+            n<K, V> nVar2 = new n<>(this.f31969e, this.f31970f, nVar);
+            nVar2.f31982h = this.f31982h;
             return nVar2;
         }
 
         public void b(V v) {
-            this.f31014h = v;
+            this.f31982h = v;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public V getValue() {
-            return this.f31014h;
+            return this.f31982h;
         }
     }
 
@@ -874,32 +876,32 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static final class o<K, V> extends b<K, V, o<K, V>> implements u<K, V, o<K, V>> {
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile v<K, V, o<K, V>> f31016h;
+        public volatile v<K, V, o<K, V>> f31984h;
 
         /* loaded from: classes6.dex */
         public static final class a<K, V> implements i<K, V, o<K, V>, StrongKeyWeakValueSegment<K, V>> {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final a<?, ?> f31017a = new a<>();
+            public static final a<?, ?> f31985a = new a<>();
 
             public static <K, V> a<K, V> h() {
-                return (a<K, V>) f31017a;
+                return (a<K, V>) f31985a;
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
             public Strength b() {
-                return Strength.WEAK;
+                return Strength.STRONG;
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
-            public Strength e() {
-                return Strength.STRONG;
+            public Strength d() {
+                return Strength.WEAK;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: g */
-            public o<K, V> a(StrongKeyWeakValueSegment<K, V> strongKeyWeakValueSegment, o<K, V> oVar, o<K, V> oVar2) {
+            public o<K, V> c(StrongKeyWeakValueSegment<K, V> strongKeyWeakValueSegment, o<K, V> oVar, o<K, V> oVar2) {
                 if (Segment.isCollected(oVar)) {
                     return null;
                 }
@@ -909,50 +911,50 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: i */
-            public o<K, V> d(StrongKeyWeakValueSegment<K, V> strongKeyWeakValueSegment, K k, int i, o<K, V> oVar) {
-                return new o<>(k, i, oVar);
+            public o<K, V> e(StrongKeyWeakValueSegment<K, V> strongKeyWeakValueSegment, K k, int i2, o<K, V> oVar) {
+                return new o<>(k, i2, oVar);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: j */
-            public StrongKeyWeakValueSegment<K, V> f(MapMakerInternalMap<K, V, o<K, V>, StrongKeyWeakValueSegment<K, V>> mapMakerInternalMap, int i, int i2) {
-                return new StrongKeyWeakValueSegment<>(mapMakerInternalMap, i, i2);
+            public StrongKeyWeakValueSegment<K, V> f(MapMakerInternalMap<K, V, o<K, V>, StrongKeyWeakValueSegment<K, V>> mapMakerInternalMap, int i2, int i3) {
+                return new StrongKeyWeakValueSegment<>(mapMakerInternalMap, i2, i3);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: k */
-            public void c(StrongKeyWeakValueSegment<K, V> strongKeyWeakValueSegment, o<K, V> oVar, V v) {
+            public void a(StrongKeyWeakValueSegment<K, V> strongKeyWeakValueSegment, o<K, V> oVar, V v) {
                 oVar.d(v, strongKeyWeakValueSegment.queueForValues);
             }
         }
 
-        public o(K k, int i, o<K, V> oVar) {
-            super(k, i, oVar);
-            this.f31016h = MapMakerInternalMap.unsetWeakValueReference();
+        public o(K k, int i2, o<K, V> oVar) {
+            super(k, i2, oVar);
+            this.f31984h = MapMakerInternalMap.unsetWeakValueReference();
         }
 
         public o<K, V> c(ReferenceQueue<V> referenceQueue, o<K, V> oVar) {
-            o<K, V> oVar2 = new o<>(this.f31002e, this.f31003f, oVar);
-            oVar2.f31016h = this.f31016h.b(referenceQueue, oVar2);
+            o<K, V> oVar2 = new o<>(this.f31969e, this.f31970f, oVar);
+            oVar2.f31984h = this.f31984h.b(referenceQueue, oVar2);
             return oVar2;
         }
 
         public void d(V v, ReferenceQueue<V> referenceQueue) {
-            v<K, V, o<K, V>> vVar = this.f31016h;
-            this.f31016h = new w(referenceQueue, v, this);
+            v<K, V, o<K, V>> vVar = this.f31984h;
+            this.f31984h = new w(referenceQueue, v, this);
             vVar.clear();
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public V getValue() {
-            return this.f31016h.get();
+            return this.f31984h.get();
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.u
         public v<K, V, o<K, V>> getValueReference() {
-            return this.f31016h;
+            return this.f31984h;
         }
     }
 
@@ -1016,26 +1018,26 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public static final class a<K> implements i<K, MapMaker.Dummy, r<K>, WeakKeyDummyValueSegment<K>> {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final a<?> f31019a = new a<>();
+            public static final a<?> f31987a = new a<>();
 
             public static <K> a<K> h() {
-                return (a<K>) f31019a;
+                return (a<K>) f31987a;
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
             public Strength b() {
-                return Strength.STRONG;
+                return Strength.WEAK;
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
-            public Strength e() {
-                return Strength.WEAK;
+            public Strength d() {
+                return Strength.STRONG;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: g */
-            public r<K> a(WeakKeyDummyValueSegment<K> weakKeyDummyValueSegment, r<K> rVar, r<K> rVar2) {
+            public r<K> c(WeakKeyDummyValueSegment<K> weakKeyDummyValueSegment, r<K> rVar, r<K> rVar2) {
                 if (rVar.getKey() == null) {
                     return null;
                 }
@@ -1045,30 +1047,30 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: i */
-            public r<K> d(WeakKeyDummyValueSegment<K> weakKeyDummyValueSegment, K k, int i, r<K> rVar) {
-                return new r<>(weakKeyDummyValueSegment.queueForKeys, k, i, rVar);
+            public r<K> e(WeakKeyDummyValueSegment<K> weakKeyDummyValueSegment, K k, int i2, r<K> rVar) {
+                return new r<>(weakKeyDummyValueSegment.queueForKeys, k, i2, rVar);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: j */
-            public WeakKeyDummyValueSegment<K> f(MapMakerInternalMap<K, MapMaker.Dummy, r<K>, WeakKeyDummyValueSegment<K>> mapMakerInternalMap, int i, int i2) {
-                return new WeakKeyDummyValueSegment<>(mapMakerInternalMap, i, i2);
+            public WeakKeyDummyValueSegment<K> f(MapMakerInternalMap<K, MapMaker.Dummy, r<K>, WeakKeyDummyValueSegment<K>> mapMakerInternalMap, int i2, int i3) {
+                return new WeakKeyDummyValueSegment<>(mapMakerInternalMap, i2, i3);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: k */
-            public void c(WeakKeyDummyValueSegment<K> weakKeyDummyValueSegment, r<K> rVar, MapMaker.Dummy dummy) {
+            public void a(WeakKeyDummyValueSegment<K> weakKeyDummyValueSegment, r<K> rVar, MapMaker.Dummy dummy) {
             }
         }
 
-        public r(ReferenceQueue<K> referenceQueue, K k, int i, r<K> rVar) {
-            super(referenceQueue, k, i, rVar);
+        public r(ReferenceQueue<K> referenceQueue, K k, int i2, r<K> rVar) {
+            super(referenceQueue, k, i2, rVar);
         }
 
         public r<K> a(ReferenceQueue<K> referenceQueue, r<K> rVar) {
-            return new r<>(referenceQueue, getKey(), this.f31005e, rVar);
+            return new r<>(referenceQueue, getKey(), this.f31972e, rVar);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1083,32 +1085,32 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static final class s<K, V> extends c<K, V, s<K, V>> implements Object<K, V, s<K, V>> {
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile V f31020g;
+        public volatile V f31988g;
 
         /* loaded from: classes6.dex */
         public static final class a<K, V> implements i<K, V, s<K, V>, WeakKeyStrongValueSegment<K, V>> {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final a<?, ?> f31021a = new a<>();
+            public static final a<?, ?> f31989a = new a<>();
 
             public static <K, V> a<K, V> h() {
-                return (a<K, V>) f31021a;
+                return (a<K, V>) f31989a;
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
             public Strength b() {
-                return Strength.STRONG;
+                return Strength.WEAK;
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
-            public Strength e() {
-                return Strength.WEAK;
+            public Strength d() {
+                return Strength.STRONG;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: g */
-            public s<K, V> a(WeakKeyStrongValueSegment<K, V> weakKeyStrongValueSegment, s<K, V> sVar, s<K, V> sVar2) {
+            public s<K, V> c(WeakKeyStrongValueSegment<K, V> weakKeyStrongValueSegment, s<K, V> sVar, s<K, V> sVar2) {
                 if (sVar.getKey() == null) {
                     return null;
                 }
@@ -1118,43 +1120,43 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: i */
-            public s<K, V> d(WeakKeyStrongValueSegment<K, V> weakKeyStrongValueSegment, K k, int i, s<K, V> sVar) {
-                return new s<>(weakKeyStrongValueSegment.queueForKeys, k, i, sVar);
+            public s<K, V> e(WeakKeyStrongValueSegment<K, V> weakKeyStrongValueSegment, K k, int i2, s<K, V> sVar) {
+                return new s<>(weakKeyStrongValueSegment.queueForKeys, k, i2, sVar);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: j */
-            public WeakKeyStrongValueSegment<K, V> f(MapMakerInternalMap<K, V, s<K, V>, WeakKeyStrongValueSegment<K, V>> mapMakerInternalMap, int i, int i2) {
-                return new WeakKeyStrongValueSegment<>(mapMakerInternalMap, i, i2);
+            public WeakKeyStrongValueSegment<K, V> f(MapMakerInternalMap<K, V, s<K, V>, WeakKeyStrongValueSegment<K, V>> mapMakerInternalMap, int i2, int i3) {
+                return new WeakKeyStrongValueSegment<>(mapMakerInternalMap, i2, i3);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: k */
-            public void c(WeakKeyStrongValueSegment<K, V> weakKeyStrongValueSegment, s<K, V> sVar, V v) {
+            public void a(WeakKeyStrongValueSegment<K, V> weakKeyStrongValueSegment, s<K, V> sVar, V v) {
                 sVar.b(v);
             }
         }
 
-        public s(ReferenceQueue<K> referenceQueue, K k, int i, s<K, V> sVar) {
-            super(referenceQueue, k, i, sVar);
-            this.f31020g = null;
+        public s(ReferenceQueue<K> referenceQueue, K k, int i2, s<K, V> sVar) {
+            super(referenceQueue, k, i2, sVar);
+            this.f31988g = null;
         }
 
         public s<K, V> a(ReferenceQueue<K> referenceQueue, s<K, V> sVar) {
-            s<K, V> sVar2 = new s<>(referenceQueue, getKey(), this.f31005e, sVar);
-            sVar2.b(this.f31020g);
+            s<K, V> sVar2 = new s<>(referenceQueue, getKey(), this.f31972e, sVar);
+            sVar2.b(this.f31988g);
             return sVar2;
         }
 
         public void b(V v) {
-            this.f31020g = v;
+            this.f31988g = v;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public V getValue() {
-            return this.f31020g;
+            return this.f31988g;
         }
     }
 
@@ -1162,16 +1164,16 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static final class t<K, V> extends c<K, V, t<K, V>> implements u<K, V, t<K, V>> {
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile v<K, V, t<K, V>> f31022g;
+        public volatile v<K, V, t<K, V>> f31990g;
 
         /* loaded from: classes6.dex */
         public static final class a<K, V> implements i<K, V, t<K, V>, WeakKeyWeakValueSegment<K, V>> {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final a<?, ?> f31023a = new a<>();
+            public static final a<?, ?> f31991a = new a<>();
 
             public static <K, V> a<K, V> h() {
-                return (a<K, V>) f31023a;
+                return (a<K, V>) f31991a;
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
@@ -1180,14 +1182,14 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
-            public Strength e() {
+            public Strength d() {
                 return Strength.WEAK;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: g */
-            public t<K, V> a(WeakKeyWeakValueSegment<K, V> weakKeyWeakValueSegment, t<K, V> tVar, t<K, V> tVar2) {
+            public t<K, V> c(WeakKeyWeakValueSegment<K, V> weakKeyWeakValueSegment, t<K, V> tVar, t<K, V> tVar2) {
                 if (tVar.getKey() == null || Segment.isCollected(tVar)) {
                     return null;
                 }
@@ -1197,50 +1199,50 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: i */
-            public t<K, V> d(WeakKeyWeakValueSegment<K, V> weakKeyWeakValueSegment, K k, int i, t<K, V> tVar) {
-                return new t<>(weakKeyWeakValueSegment.queueForKeys, k, i, tVar);
+            public t<K, V> e(WeakKeyWeakValueSegment<K, V> weakKeyWeakValueSegment, K k, int i2, t<K, V> tVar) {
+                return new t<>(weakKeyWeakValueSegment.queueForKeys, k, i2, tVar);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: j */
-            public WeakKeyWeakValueSegment<K, V> f(MapMakerInternalMap<K, V, t<K, V>, WeakKeyWeakValueSegment<K, V>> mapMakerInternalMap, int i, int i2) {
-                return new WeakKeyWeakValueSegment<>(mapMakerInternalMap, i, i2);
+            public WeakKeyWeakValueSegment<K, V> f(MapMakerInternalMap<K, V, t<K, V>, WeakKeyWeakValueSegment<K, V>> mapMakerInternalMap, int i2, int i3) {
+                return new WeakKeyWeakValueSegment<>(mapMakerInternalMap, i2, i3);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: k */
-            public void c(WeakKeyWeakValueSegment<K, V> weakKeyWeakValueSegment, t<K, V> tVar, V v) {
+            public void a(WeakKeyWeakValueSegment<K, V> weakKeyWeakValueSegment, t<K, V> tVar, V v) {
                 tVar.d(v, weakKeyWeakValueSegment.queueForValues);
             }
         }
 
-        public t(ReferenceQueue<K> referenceQueue, K k, int i, t<K, V> tVar) {
-            super(referenceQueue, k, i, tVar);
-            this.f31022g = MapMakerInternalMap.unsetWeakValueReference();
+        public t(ReferenceQueue<K> referenceQueue, K k, int i2, t<K, V> tVar) {
+            super(referenceQueue, k, i2, tVar);
+            this.f31990g = MapMakerInternalMap.unsetWeakValueReference();
         }
 
         public t<K, V> c(ReferenceQueue<K> referenceQueue, ReferenceQueue<V> referenceQueue2, t<K, V> tVar) {
-            t<K, V> tVar2 = new t<>(referenceQueue, getKey(), this.f31005e, tVar);
-            tVar2.f31022g = this.f31022g.b(referenceQueue2, tVar2);
+            t<K, V> tVar2 = new t<>(referenceQueue, getKey(), this.f31972e, tVar);
+            tVar2.f31990g = this.f31990g.b(referenceQueue2, tVar2);
             return tVar2;
         }
 
         public void d(V v, ReferenceQueue<V> referenceQueue) {
-            v<K, V, t<K, V>> vVar = this.f31022g;
-            this.f31022g = new w(referenceQueue, v, this);
+            v<K, V, t<K, V>> vVar = this.f31990g;
+            this.f31990g = new w(referenceQueue, v, this);
             vVar.clear();
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public V getValue() {
-            return this.f31022g.get();
+            return this.f31990g.get();
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.u
         public v<K, V, t<K, V>> getValueReference() {
-            return this.f31022g;
+            return this.f31990g;
         }
     }
 
@@ -1264,16 +1266,16 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static final class w<K, V, E extends h<K, V, E>> extends WeakReference<V> implements v<K, V, E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final E f31024e;
+        public final E f31992e;
 
         public w(ReferenceQueue<V> referenceQueue, V v, E e2) {
             super(v, referenceQueue);
-            this.f31024e = e2;
+            this.f31992e = e2;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.v
         public E a() {
-            return this.f31024e;
+            return this.f31992e;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.v
@@ -1283,47 +1285,47 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     }
 
     /* loaded from: classes6.dex */
-    public final class x extends d.h.c.c.b<K, V> {
+    public final class x extends d.g.c.c.b<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f31025e;
+        public final K f31993e;
 
         /* renamed from: f  reason: collision with root package name */
-        public V f31026f;
+        public V f31994f;
 
         public x(K k, V v) {
-            this.f31025e = k;
-            this.f31026f = v;
+            this.f31993e = k;
+            this.f31994f = v;
         }
 
-        @Override // d.h.c.c.b, java.util.Map.Entry
+        @Override // d.g.c.c.b, java.util.Map.Entry
         public boolean equals(Object obj) {
             if (obj instanceof Map.Entry) {
                 Map.Entry entry = (Map.Entry) obj;
-                return this.f31025e.equals(entry.getKey()) && this.f31026f.equals(entry.getValue());
+                return this.f31993e.equals(entry.getKey()) && this.f31994f.equals(entry.getValue());
             }
             return false;
         }
 
-        @Override // d.h.c.c.b, java.util.Map.Entry
+        @Override // d.g.c.c.b, java.util.Map.Entry
         public K getKey() {
-            return this.f31025e;
+            return this.f31993e;
         }
 
-        @Override // d.h.c.c.b, java.util.Map.Entry
+        @Override // d.g.c.c.b, java.util.Map.Entry
         public V getValue() {
-            return this.f31026f;
+            return this.f31994f;
         }
 
-        @Override // d.h.c.c.b, java.util.Map.Entry
+        @Override // d.g.c.c.b, java.util.Map.Entry
         public int hashCode() {
-            return this.f31025e.hashCode() ^ this.f31026f.hashCode();
+            return this.f31993e.hashCode() ^ this.f31994f.hashCode();
         }
 
-        @Override // d.h.c.c.b, java.util.Map.Entry
+        @Override // d.g.c.c.b, java.util.Map.Entry
         public V setValue(V v) {
-            V v2 = (V) MapMakerInternalMap.this.put(this.f31025e, v);
-            this.f31026f = v;
+            V v2 = (V) MapMakerInternalMap.this.put(this.f31993e, v);
+            this.f31994f = v;
             return v2;
         }
     }
@@ -1543,7 +1545,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     }
 
     public Strength keyStrength() {
-        return this.entryHelper.e();
+        return this.entryHelper.b();
     }
 
     public final Segment<K, V, E, S>[] newSegmentArray(int i2) {
@@ -1552,8 +1554,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
     @Override // java.util.AbstractMap, java.util.Map
     public V put(K k2, V v2) {
-        d.h.c.a.n.p(k2);
-        d.h.c.a.n.p(v2);
+        d.g.c.a.n.p(k2);
+        d.g.c.a.n.p(v2);
         int hash = hash(k2);
         return segmentFor(hash).put(k2, hash, v2, false);
     }
@@ -1567,8 +1569,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
     @Override // java.util.Map, java.util.concurrent.ConcurrentMap
     public V putIfAbsent(K k2, V v2) {
-        d.h.c.a.n.p(k2);
-        d.h.c.a.n.p(v2);
+        d.g.c.a.n.p(k2);
+        d.g.c.a.n.p(v2);
         int hash = hash(k2);
         return segmentFor(hash).put(k2, hash, v2, true);
     }
@@ -1595,8 +1597,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
     @Override // java.util.Map, java.util.concurrent.ConcurrentMap
     public boolean replace(K k2, V v2, V v3) {
-        d.h.c.a.n.p(k2);
-        d.h.c.a.n.p(v3);
+        d.g.c.a.n.p(k2);
+        d.g.c.a.n.p(v3);
         if (v2 == null) {
             return false;
         }
@@ -1618,11 +1620,11 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     }
 
     public Equivalence<Object> valueEquivalence() {
-        return this.entryHelper.b().defaultEquivalence();
+        return this.entryHelper.d().defaultEquivalence();
     }
 
     public Strength valueStrength() {
-        return this.entryHelper.b();
+        return this.entryHelper.d();
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -1637,11 +1639,11 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     }
 
     public Object writeReplace() {
-        return new SerializationProxy(this.entryHelper.e(), this.entryHelper.b(), this.keyEquivalence, this.entryHelper.b().defaultEquivalence(), this.concurrencyLevel, this);
+        return new SerializationProxy(this.entryHelper.b(), this.entryHelper.d(), this.keyEquivalence, this.entryHelper.d().defaultEquivalence(), this.concurrencyLevel, this);
     }
 
     /* loaded from: classes6.dex */
-    public static abstract class AbstractSerializationProxy<K, V> extends d.h.c.c.s<K, V> implements Serializable {
+    public static abstract class AbstractSerializationProxy<K, V> extends d.g.c.c.s<K, V> implements Serializable {
         public static final long serialVersionUID = 3;
         public final int concurrencyLevel;
         public transient ConcurrentMap<K, V> delegate;
@@ -1650,12 +1652,12 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public final Equivalence<Object> valueEquivalence;
         public final Strength valueStrength;
 
-        public AbstractSerializationProxy(Strength strength, Strength strength2, Equivalence<Object> equivalence, Equivalence<Object> equivalence2, int i, ConcurrentMap<K, V> concurrentMap) {
+        public AbstractSerializationProxy(Strength strength, Strength strength2, Equivalence<Object> equivalence, Equivalence<Object> equivalence2, int i2, ConcurrentMap<K, V> concurrentMap) {
             this.keyStrength = strength;
             this.valueStrength = strength2;
             this.keyEquivalence = equivalence;
             this.valueEquivalence = equivalence2;
-            this.concurrencyLevel = i;
+            this.concurrencyLevel = i2;
             this.delegate = concurrentMap;
         }
 
@@ -1692,7 +1694,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.h.c.c.s, d.h.c.c.u, d.h.c.c.y
+        @Override // d.g.c.c.s, d.g.c.c.u, d.g.c.c.y
         public ConcurrentMap<K, V> delegate() {
             return this.delegate;
         }
@@ -1709,8 +1711,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
     @Override // java.util.Map, java.util.concurrent.ConcurrentMap
     public V replace(K k2, V v2) {
-        d.h.c.a.n.p(k2);
-        d.h.c.a.n.p(v2);
+        d.g.c.a.n.p(k2);
+        d.g.c.a.n.p(v2);
         int hash = hash(k2);
         return segmentFor(hash).replace(k2, hash, v2);
     }
@@ -1725,10 +1727,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public volatile AtomicReferenceArray<E> table;
         public int threshold;
 
-        public Segment(MapMakerInternalMap<K, V, E, S> mapMakerInternalMap, int i, int i2) {
+        public Segment(MapMakerInternalMap<K, V, E, S> mapMakerInternalMap, int i2, int i3) {
             this.map = mapMakerInternalMap;
-            this.maxSegmentSize = i2;
-            initTable(newEntryArray(i));
+            this.maxSegmentSize = i3;
+            initTable(newEntryArray(i2));
         }
 
         public static <K, V, E extends h<K, V, E>> boolean isCollected(E e2) {
@@ -1742,8 +1744,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                 lock();
                 try {
                     AtomicReferenceArray<E> atomicReferenceArray = this.table;
-                    for (int i = 0; i < atomicReferenceArray.length(); i++) {
-                        atomicReferenceArray.set(i, null);
+                    for (int i2 = 0; i2 < atomicReferenceArray.length(); i2++) {
+                        atomicReferenceArray.set(i2, null);
                     }
                     maybeClearReferenceQueues();
                     this.readCount.set(0);
@@ -1762,15 +1764,15 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.google.common.collect.MapMakerInternalMap$Segment<K, V, E extends com.google.common.collect.MapMakerInternalMap$h<K, V, E>, S extends com.google.common.collect.MapMakerInternalMap$Segment<K, V, E, S>> */
         /* JADX WARN: Multi-variable type inference failed */
-        public boolean clearValueForTesting(K k, int i, v<K, V, ? extends h<K, V, ?>> vVar) {
+        public boolean clearValueForTesting(K k, int i2, v<K, V, ? extends h<K, V, ?>> vVar) {
             lock();
             try {
                 AtomicReferenceArray<E> atomicReferenceArray = this.table;
-                int length = (atomicReferenceArray.length() - 1) & i;
+                int length = (atomicReferenceArray.length() - 1) & i2;
                 E e2 = atomicReferenceArray.get(length);
                 for (h hVar = e2; hVar != null; hVar = hVar.getNext()) {
                     Object key = hVar.getKey();
-                    if (hVar.getHash() == i && key != null && this.map.keyEquivalence.equivalent(k, key)) {
+                    if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(k, key)) {
                         if (((u) hVar).getValueReference() == vVar) {
                             atomicReferenceArray.set(length, removeFromChain(e2, hVar));
                             return true;
@@ -1784,11 +1786,11 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             }
         }
 
-        public boolean containsKey(Object obj, int i) {
+        public boolean containsKey(Object obj, int i2) {
             try {
                 boolean z = false;
                 if (this.count != 0) {
-                    E liveEntry = getLiveEntry(obj, i);
+                    E liveEntry = getLiveEntry(obj, i2);
                     if (liveEntry != null) {
                         if (liveEntry.getValue() != null) {
                             z = true;
@@ -1809,8 +1811,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                 if (this.count != 0) {
                     AtomicReferenceArray<E> atomicReferenceArray = this.table;
                     int length = atomicReferenceArray.length();
-                    for (int i = 0; i < length; i++) {
-                        for (E e2 = atomicReferenceArray.get(i); e2 != null; e2 = e2.getNext()) {
+                    for (int i2 = 0; i2 < length; i2++) {
+                        for (E e2 = atomicReferenceArray.get(i2); e2 != null; e2 = e2.getNext()) {
                             Object liveValue = getLiveValue(e2);
                             if (liveValue != null && this.map.valueEquivalence().equivalent(obj, liveValue)) {
                                 postReadCleanup();
@@ -1826,37 +1828,37 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         }
 
         public E copyEntry(E e2, E e3) {
-            return this.map.entryHelper.a(self(), e2, e3);
+            return this.map.entryHelper.c(self(), e2, e3);
         }
 
         public E copyForTesting(h<K, V, ?> hVar, h<K, V, ?> hVar2) {
-            return this.map.entryHelper.a(self(), castForTesting(hVar), castForTesting(hVar2));
+            return this.map.entryHelper.c(self(), castForTesting(hVar), castForTesting(hVar2));
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.google.common.collect.MapMakerInternalMap<K, V, E extends com.google.common.collect.MapMakerInternalMap$h<K, V, E>, S extends com.google.common.collect.MapMakerInternalMap$Segment<K, V, E, S>> */
         /* JADX WARN: Multi-variable type inference failed */
         public void drainKeyReferenceQueue(ReferenceQueue<K> referenceQueue) {
-            int i = 0;
+            int i2 = 0;
             do {
                 Reference<? extends K> poll = referenceQueue.poll();
                 if (poll == null) {
                     return;
                 }
                 this.map.reclaimKey((h) poll);
-                i++;
-            } while (i != 16);
+                i2++;
+            } while (i2 != 16);
         }
 
         public void drainValueReferenceQueue(ReferenceQueue<V> referenceQueue) {
-            int i = 0;
+            int i2 = 0;
             do {
                 Reference<? extends V> poll = referenceQueue.poll();
                 if (poll == null) {
                     return;
                 }
                 this.map.reclaimValue((v) poll);
-                i++;
-            } while (i != 16);
+                i2++;
+            } while (i2 != 16);
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: com.google.common.collect.MapMakerInternalMap$Segment<K, V, E extends com.google.common.collect.MapMakerInternalMap$h<K, V, E>, S extends com.google.common.collect.MapMakerInternalMap$Segment<K, V, E, S>> */
@@ -1868,12 +1870,12 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             if (length >= 1073741824) {
                 return;
             }
-            int i = this.count;
+            int i2 = this.count;
             AtomicReferenceArray<E> atomicReferenceArray2 = (AtomicReferenceArray<E>) newEntryArray(length << 1);
             this.threshold = (atomicReferenceArray2.length() * 3) / 4;
             int length2 = atomicReferenceArray2.length() - 1;
-            for (int i2 = 0; i2 < length; i2++) {
-                E e2 = atomicReferenceArray.get(i2);
+            for (int i3 = 0; i3 < length; i3++) {
+                E e2 = atomicReferenceArray.get(i3);
                 if (e2 != null) {
                     h next = e2.getNext();
                     int hash = e2.getHash() & length2;
@@ -1896,7 +1898,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                             if (copyEntry != null) {
                                 atomicReferenceArray2.set(hash3, copyEntry);
                             } else {
-                                i--;
+                                i2--;
                             }
                             e2 = e2.getNext();
                         }
@@ -1904,12 +1906,12 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                 }
             }
             this.table = atomicReferenceArray2;
-            this.count = i;
+            this.count = i2;
         }
 
-        public V get(Object obj, int i) {
+        public V get(Object obj, int i2) {
             try {
-                E liveEntry = getLiveEntry(obj, i);
+                E liveEntry = getLiveEntry(obj, i2);
                 if (liveEntry == null) {
                     return null;
                 }
@@ -1923,10 +1925,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             }
         }
 
-        public E getEntry(Object obj, int i) {
+        public E getEntry(Object obj, int i2) {
             if (this.count != 0) {
-                for (E first = getFirst(i); first != null; first = (E) first.getNext()) {
-                    if (first.getHash() == i) {
+                for (E first = getFirst(i2); first != null; first = (E) first.getNext()) {
+                    if (first.getHash() == i2) {
                         Object key = first.getKey();
                         if (key == null) {
                             tryDrainReferenceQueues();
@@ -1940,17 +1942,17 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             return null;
         }
 
-        public E getFirst(int i) {
+        public E getFirst(int i2) {
             AtomicReferenceArray<E> atomicReferenceArray = this.table;
-            return atomicReferenceArray.get(i & (atomicReferenceArray.length() - 1));
+            return atomicReferenceArray.get(i2 & (atomicReferenceArray.length() - 1));
         }
 
         public ReferenceQueue<K> getKeyReferenceQueueForTesting() {
             throw new AssertionError();
         }
 
-        public E getLiveEntry(Object obj, int i) {
-            return getEntry(obj, i);
+        public E getLiveEntry(Object obj, int i2) {
+            return getEntry(obj, i2);
         }
 
         public V getLiveValue(E e2) {
@@ -1993,12 +1995,12 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public void maybeDrainReferenceQueues() {
         }
 
-        public AtomicReferenceArray<E> newEntryArray(int i) {
-            return new AtomicReferenceArray<>(i);
+        public AtomicReferenceArray<E> newEntryArray(int i2) {
+            return new AtomicReferenceArray<>(i2);
         }
 
-        public E newEntryForTesting(K k, int i, h<K, V, ?> hVar) {
-            return this.map.entryHelper.d(self(), k, i, castForTesting(hVar));
+        public E newEntryForTesting(K k, int i2, h<K, V, ?> hVar) {
+            return this.map.entryHelper.e(self(), k, i2, castForTesting(hVar));
         }
 
         public v<K, V, E> newWeakValueReferenceForTesting(h<K, V, ?> hVar, V v) {
@@ -2017,21 +2019,21 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.google.common.collect.MapMakerInternalMap$Segment<K, V, E extends com.google.common.collect.MapMakerInternalMap$h<K, V, E>, S extends com.google.common.collect.MapMakerInternalMap$Segment<K, V, E, S>> */
         /* JADX WARN: Multi-variable type inference failed */
-        public V put(K k, int i, V v, boolean z) {
+        public V put(K k, int i2, V v, boolean z) {
             lock();
             try {
                 preWriteCleanup();
-                int i2 = this.count + 1;
-                if (i2 > this.threshold) {
+                int i3 = this.count + 1;
+                if (i3 > this.threshold) {
                     expand();
-                    i2 = this.count + 1;
+                    i3 = this.count + 1;
                 }
                 AtomicReferenceArray<E> atomicReferenceArray = this.table;
-                int length = (atomicReferenceArray.length() - 1) & i;
+                int length = (atomicReferenceArray.length() - 1) & i2;
                 E e2 = atomicReferenceArray.get(length);
                 for (h hVar = e2; hVar != null; hVar = hVar.getNext()) {
                     Object key = hVar.getKey();
-                    if (hVar.getHash() == i && key != null && this.map.keyEquivalence.equivalent(k, key)) {
+                    if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(k, key)) {
                         V v2 = (V) hVar.getValue();
                         if (v2 == null) {
                             this.modCount++;
@@ -2048,10 +2050,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     }
                 }
                 this.modCount++;
-                E d2 = this.map.entryHelper.d(self(), k, i, e2);
-                setValue(d2, v);
-                atomicReferenceArray.set(length, d2);
-                this.count = i2;
+                E e3 = this.map.entryHelper.e(self(), k, i2, e2);
+                setValue(e3, v);
+                atomicReferenceArray.set(length, e3);
+                this.count = i3;
                 return null;
             } finally {
                 unlock();
@@ -2060,11 +2062,11 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.google.common.collect.MapMakerInternalMap$Segment<K, V, E extends com.google.common.collect.MapMakerInternalMap$h<K, V, E>, S extends com.google.common.collect.MapMakerInternalMap$Segment<K, V, E, S>> */
         /* JADX WARN: Multi-variable type inference failed */
-        public boolean reclaimKey(E e2, int i) {
+        public boolean reclaimKey(E e2, int i2) {
             lock();
             try {
                 AtomicReferenceArray<E> atomicReferenceArray = this.table;
-                int length = i & (atomicReferenceArray.length() - 1);
+                int length = i2 & (atomicReferenceArray.length() - 1);
                 E e3 = atomicReferenceArray.get(length);
                 for (h hVar = e3; hVar != null; hVar = hVar.getNext()) {
                     if (hVar == e2) {
@@ -2082,15 +2084,15 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.google.common.collect.MapMakerInternalMap$Segment<K, V, E extends com.google.common.collect.MapMakerInternalMap$h<K, V, E>, S extends com.google.common.collect.MapMakerInternalMap$Segment<K, V, E, S>> */
         /* JADX WARN: Multi-variable type inference failed */
-        public boolean reclaimValue(K k, int i, v<K, V, E> vVar) {
+        public boolean reclaimValue(K k, int i2, v<K, V, E> vVar) {
             lock();
             try {
                 AtomicReferenceArray<E> atomicReferenceArray = this.table;
-                int length = (atomicReferenceArray.length() - 1) & i;
+                int length = (atomicReferenceArray.length() - 1) & i2;
                 E e2 = atomicReferenceArray.get(length);
                 for (h hVar = e2; hVar != null; hVar = hVar.getNext()) {
                     Object key = hVar.getKey();
-                    if (hVar.getHash() == i && key != null && this.map.keyEquivalence.equivalent(k, key)) {
+                    if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(k, key)) {
                         if (((u) hVar).getValueReference() == vVar) {
                             this.modCount++;
                             atomicReferenceArray.set(length, removeFromChain(e2, hVar));
@@ -2108,16 +2110,16 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: com.google.common.collect.MapMakerInternalMap$Segment<K, V, E extends com.google.common.collect.MapMakerInternalMap$h<K, V, E>, S extends com.google.common.collect.MapMakerInternalMap$Segment<K, V, E, S>> */
         /* JADX WARN: Multi-variable type inference failed */
-        public V remove(Object obj, int i) {
+        public V remove(Object obj, int i2) {
             lock();
             try {
                 preWriteCleanup();
                 AtomicReferenceArray<E> atomicReferenceArray = this.table;
-                int length = (atomicReferenceArray.length() - 1) & i;
+                int length = (atomicReferenceArray.length() - 1) & i2;
                 E e2 = atomicReferenceArray.get(length);
                 for (h hVar = e2; hVar != null; hVar = hVar.getNext()) {
                     Object key = hVar.getKey();
-                    if (hVar.getHash() == i && key != null && this.map.keyEquivalence.equivalent(obj, key)) {
+                    if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(obj, key)) {
                         V v = (V) hVar.getValue();
                         if (v == null && !isCollected(hVar)) {
                             return null;
@@ -2153,18 +2155,18 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         }
 
         public E removeFromChain(E e2, E e3) {
-            int i = this.count;
+            int i2 = this.count;
             E e4 = (E) e3.getNext();
             while (e2 != e3) {
                 E copyEntry = copyEntry(e2, e4);
                 if (copyEntry != null) {
                     e4 = copyEntry;
                 } else {
-                    i--;
+                    i2--;
                 }
                 e2 = (E) e2.getNext();
             }
-            this.count = i;
+            this.count = i2;
             return e4;
         }
 
@@ -2178,16 +2180,16 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.google.common.collect.MapMakerInternalMap$Segment<K, V, E extends com.google.common.collect.MapMakerInternalMap$h<K, V, E>, S extends com.google.common.collect.MapMakerInternalMap$Segment<K, V, E, S>> */
         /* JADX WARN: Multi-variable type inference failed */
-        public boolean replace(K k, int i, V v, V v2) {
+        public boolean replace(K k, int i2, V v, V v2) {
             lock();
             try {
                 preWriteCleanup();
                 AtomicReferenceArray<E> atomicReferenceArray = this.table;
-                int length = (atomicReferenceArray.length() - 1) & i;
+                int length = (atomicReferenceArray.length() - 1) & i2;
                 E e2 = atomicReferenceArray.get(length);
                 for (h hVar = e2; hVar != null; hVar = hVar.getNext()) {
                     Object key = hVar.getKey();
-                    if (hVar.getHash() == i && key != null && this.map.keyEquivalence.equivalent(k, key)) {
+                    if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(k, key)) {
                         Object value = hVar.getValue();
                         if (value == null) {
                             if (isCollected(hVar)) {
@@ -2228,16 +2230,16 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         public abstract S self();
 
-        public void setTableEntryForTesting(int i, h<K, V, ?> hVar) {
-            this.table.set(i, castForTesting(hVar));
+        public void setTableEntryForTesting(int i2, h<K, V, ?> hVar) {
+            this.table.set(i2, castForTesting(hVar));
         }
 
         public void setValue(E e2, V v) {
-            this.map.entryHelper.c(self(), e2, v);
+            this.map.entryHelper.a(self(), e2, v);
         }
 
         public void setValueForTesting(h<K, V, ?> hVar, V v) {
-            this.map.entryHelper.c(self(), castForTesting(hVar), v);
+            this.map.entryHelper.a(self(), castForTesting(hVar), v);
         }
 
         public void setWeakValueReferenceForTesting(h<K, V, ?> hVar, v<K, V, ? extends h<K, V, ?>> vVar) {
@@ -2279,12 +2281,12 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public boolean remove(Object obj, int i, Object obj2) {
+        public boolean remove(Object obj, int i2, Object obj2) {
             lock();
             try {
                 preWriteCleanup();
                 AtomicReferenceArray<E> atomicReferenceArray = this.table;
-                int length = (atomicReferenceArray.length() - 1) & i;
+                int length = (atomicReferenceArray.length() - 1) & i2;
                 E e2 = atomicReferenceArray.get(length);
                 h hVar = e2;
                 while (true) {
@@ -2293,7 +2295,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                         return false;
                     }
                     Object key = hVar.getKey();
-                    if (hVar.getHash() == i && key != null && this.map.keyEquivalence.equivalent(obj, key)) {
+                    if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(obj, key)) {
                         break;
                     }
                     hVar = hVar.getNext();
@@ -2305,16 +2307,16 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: com.google.common.collect.MapMakerInternalMap$Segment<K, V, E extends com.google.common.collect.MapMakerInternalMap$h<K, V, E>, S extends com.google.common.collect.MapMakerInternalMap$Segment<K, V, E, S>> */
         /* JADX WARN: Multi-variable type inference failed */
-        public V replace(K k, int i, V v) {
+        public V replace(K k, int i2, V v) {
             lock();
             try {
                 preWriteCleanup();
                 AtomicReferenceArray<E> atomicReferenceArray = this.table;
-                int length = (atomicReferenceArray.length() - 1) & i;
+                int length = (atomicReferenceArray.length() - 1) & i2;
                 E e2 = atomicReferenceArray.get(length);
                 for (h hVar = e2; hVar != null; hVar = hVar.getNext()) {
                     Object key = hVar.getKey();
-                    if (hVar.getHash() == i && key != null && this.map.keyEquivalence.equivalent(k, key)) {
+                    if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(k, key)) {
                         V v2 = (V) hVar.getValue();
                         if (v2 == null) {
                             if (isCollected(hVar)) {

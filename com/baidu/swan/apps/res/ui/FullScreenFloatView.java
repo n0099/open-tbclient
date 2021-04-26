@@ -11,26 +11,28 @@ import android.view.ViewConfiguration;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import d.b.h0.a.d;
-import d.b.h0.a.f;
-import d.b.h0.a.i2.h0;
-import d.b.h0.a.k;
+import d.a.h0.a.d;
+import d.a.h0.a.f;
+import d.a.h0.a.i2.h0;
+import d.a.h0.a.k;
 /* loaded from: classes3.dex */
 public class FullScreenFloatView extends FrameLayout {
-    public static final boolean r = k.f45772a;
+    public static final boolean r = k.f43101a;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f12133e;
+    public View f11982e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12134f;
+    public int f11983f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12135g;
+    public int f11984g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12136h;
-    public int i;
+    public int f11985h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f11986i;
     public int j;
     public boolean k;
     public boolean l;
@@ -61,8 +63,8 @@ public class FullScreenFloatView extends FrameLayout {
         void onClick();
     }
 
-    public FullScreenFloatView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public FullScreenFloatView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.j = 66;
         this.k = false;
         this.l = false;
@@ -72,16 +74,16 @@ public class FullScreenFloatView extends FrameLayout {
     }
 
     public void b(View view) {
-        if (this.f12136h == 0) {
-            this.f12136h = getWidth();
+        if (this.f11985h == 0) {
+            this.f11985h = getWidth();
         }
-        if (this.i == 0) {
-            this.i = getHeight();
+        if (this.f11986i == 0) {
+            this.f11986i = getHeight();
         }
-        this.f12134f = view.getWidth();
-        this.f12135g = view.getHeight();
+        this.f11983f = view.getWidth();
+        this.f11984g = view.getHeight();
         if (r) {
-            Log.e("FullScreenFloatView", "dragInit-> mScreenWidth = " + this.f12136h + ", mScreenHeight = " + this.i + ",mFloatViewWidth = " + this.f12134f + ", mFloatViewHeight = " + this.f12135g);
+            Log.e("FullScreenFloatView", "dragInit-> mScreenWidth = " + this.f11985h + ", mScreenHeight = " + this.f11986i + ",mFloatViewWidth = " + this.f11983f + ", mFloatViewHeight = " + this.f11984g);
         }
     }
 
@@ -89,61 +91,61 @@ public class FullScreenFloatView extends FrameLayout {
         if (r) {
             Log.e("FullScreenFloatView", "minDIstance---> x = " + f2 + ", y = " + f3);
         }
-        boolean z = f2 <= ((float) this.f12136h) - f2;
-        boolean z2 = f3 <= ((float) this.i) - f3;
+        boolean z = f2 <= ((float) this.f11985h) - f2;
+        boolean z2 = f3 <= ((float) this.f11986i) - f3;
         if (z && z2) {
             return f2 <= f3 ? 1 : 3;
         } else if (z && !z2) {
-            return f2 <= ((float) this.i) - f3 ? 1 : 4;
+            return f2 <= ((float) this.f11986i) - f3 ? 1 : 4;
         } else if (!z && z2) {
-            return ((float) this.f12136h) - f2 <= f3 ? 2 : 3;
+            return ((float) this.f11985h) - f2 <= f3 ? 2 : 3;
         } else if (z || z2) {
             return 0;
         } else {
-            return ((float) this.f12136h) - f2 <= ((float) this.i) - f3 ? 2 : 4;
+            return ((float) this.f11985h) - f2 <= ((float) this.f11986i) - f3 ? 2 : 4;
         }
     }
 
     public final void d(float f2, float f3) {
-        if (this.f12133e == null) {
+        if (this.f11982e == null) {
             return;
         }
         if (r) {
             Log.e("FullScreenFloatView", "move--> x = " + f2 + ", y = " + f3);
         }
-        int i = (int) (f2 - (this.f12134f / 2));
-        int i2 = (int) (f3 - (this.f12135g / 2));
-        if (i <= 0) {
-            i = 0;
-        }
+        int i2 = (int) (f2 - (this.f11983f / 2));
+        int i3 = (int) (f3 - (this.f11984g / 2));
         if (i2 <= 0) {
             i2 = 0;
         }
-        int i3 = this.f12136h;
-        int i4 = this.f12134f;
-        if (i > i3 - i4) {
-            i = i3 - i4;
+        if (i3 <= 0) {
+            i3 = 0;
         }
-        int i5 = this.i;
-        int i6 = this.f12135g;
-        if (i2 > i5 - i6) {
-            i2 = i5 - i6;
+        int i4 = this.f11985h;
+        int i5 = this.f11983f;
+        if (i2 > i4 - i5) {
+            i2 = i4 - i5;
         }
-        int i7 = (this.f12136h - i) - this.f12134f;
-        int i8 = (this.i - i2) - this.f12135g;
+        int i6 = this.f11986i;
+        int i7 = this.f11984g;
+        if (i3 > i6 - i7) {
+            i3 = i6 - i7;
+        }
+        int i8 = (this.f11985h - i2) - this.f11983f;
+        int i9 = (this.f11986i - i3) - this.f11984g;
         if (r) {
-            Log.e("FullScreenFloatView", "move--> left = " + i + ", top = " + i2 + ", right = " + i7 + ",bottom = " + i8 + ", mStatusBarHeight = " + this.j);
+            Log.e("FullScreenFloatView", "move--> left = " + i2 + ", top = " + i3 + ", right = " + i8 + ",bottom = " + i9 + ", mStatusBarHeight = " + this.j);
         }
-        this.f12133e.setX(i);
-        this.f12133e.setY(i2);
+        this.f11982e.setX(i2);
+        this.f11982e.setY(i3);
         requestLayout();
     }
 
     public void e() {
-        if (this.f12133e != null) {
+        if (this.f11982e != null) {
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(d.dimens_21dp);
             int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(d.dimens_51dp);
-            this.f12133e.animate().x((h0.m(getContext()) - dimensionPixelOffset) - this.f12134f).y((h0.l(getContext()) - dimensionPixelOffset2) - this.f12135g).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+            this.f11982e.animate().x((h0.m(getContext()) - dimensionPixelOffset) - this.f11983f).y((h0.l(getContext()) - dimensionPixelOffset2) - this.f11984g).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
         }
     }
 
@@ -154,10 +156,10 @@ public class FullScreenFloatView extends FrameLayout {
     @Override // android.view.View
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.f12136h = getHeight() + this.j;
-        this.i = getWidth() - this.j;
+        this.f11985h = getHeight() + this.j;
+        this.f11986i = getWidth() - this.j;
         if (r) {
-            Log.e("FullScreenFloatView", "onConfigurationChanged--> newConfig " + configuration.orientation + ", mScreenWidth = " + this.f12136h + ", mScreenHeight = " + this.i);
+            Log.e("FullScreenFloatView", "onConfigurationChanged--> newConfig " + configuration.orientation + ", mScreenWidth = " + this.f11985h + ", mScreenHeight = " + this.f11986i);
         }
         e();
     }
@@ -170,12 +172,12 @@ public class FullScreenFloatView extends FrameLayout {
         float x = motionEvent.getX();
         float y = motionEvent.getY();
         Rect rect = new Rect();
-        if (this.f12133e == null) {
+        if (this.f11982e == null) {
             View findViewById = findViewById(f.float_imgview);
-            this.f12133e = findViewById;
+            this.f11982e = findViewById;
             b(findViewById);
         }
-        this.f12133e.getHitRect(rect);
+        this.f11982e.getHitRect(rect);
         if (rect.contains((int) x, (int) y)) {
             this.l = true;
             this.n = x;
@@ -186,10 +188,10 @@ public class FullScreenFloatView extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        this.f12136h = getWidth();
-        this.i = getHeight();
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
+        this.f11985h = getWidth();
+        this.f11986i = getHeight();
     }
 
     @Override // android.view.View
@@ -200,7 +202,7 @@ public class FullScreenFloatView extends FrameLayout {
         Rect rect = new Rect();
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f12133e.getHitRect(rect);
+            this.f11982e.getHitRect(rect);
             if (rect.contains((int) x, (int) y)) {
                 this.n = x;
                 this.o = y;
@@ -222,27 +224,27 @@ public class FullScreenFloatView extends FrameLayout {
                 Log.e("FullScreenFloatView", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.k);
             }
             if (this.m && !this.k) {
-                int i = this.f12134f;
-                if (x > i / 2 && x < this.f12136h - (i / 2)) {
-                    int i2 = this.f12135g;
-                    if (y > i2 / 2 && y < this.i - (i2 / 2)) {
+                int i2 = this.f11983f;
+                if (x > i2 / 2 && x < this.f11985h - (i2 / 2)) {
+                    int i3 = this.f11984g;
+                    if (y > i3 / 2 && y < this.f11986i - (i3 / 2)) {
                         int c2 = c(x, y);
                         if (r) {
-                            Log.e("FullScreenFloatView", "mScreenHeight = " + this.i + ", mintype = " + c2);
+                            Log.e("FullScreenFloatView", "mScreenHeight = " + this.f11986i + ", mintype = " + c2);
                         }
                         if (c2 == 1) {
                             x = 0.0f;
                         } else if (c2 == 2) {
-                            x = this.f12136h - this.f12134f;
+                            x = this.f11985h - this.f11983f;
                         } else if (c2 == 3) {
                             y = 0.0f;
                         } else if (c2 == 4) {
-                            y = this.i - this.f12135g;
+                            y = this.f11986i - this.f11984g;
                         }
                         if (c2 == 1 || c2 == 2) {
-                            this.f12133e.animate().x(x).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                            this.f11982e.animate().x(x).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
                         } else if (c2 == 3 || c2 == 4) {
-                            this.f12133e.animate().y(y).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                            this.f11982e.animate().y(y).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
                         }
                     }
                 }
@@ -281,10 +283,10 @@ public class FullScreenFloatView extends FrameLayout {
         }
     }
 
-    public void setFloatImageBackground(int i) {
+    public void setFloatImageBackground(int i2) {
         View findViewById = findViewById(f.float_imgview);
         if (findViewById != null) {
-            findViewById.setBackgroundResource(i);
+            findViewById.setBackgroundResource(i2);
         }
     }
 

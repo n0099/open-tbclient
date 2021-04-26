@@ -16,16 +16,16 @@ import org.json.JSONObject;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f4744a;
+    public static SimpleDateFormat f4856a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static PackageManager f4745b;
+    public static PackageManager f4857b;
 
     public static String a(Date date) {
-        if (f4744a == null) {
-            f4744a = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (f4856a == null) {
+            f4856a = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return f4744a.format(date);
+        return f4856a.format(date);
     }
 
     public static JSONObject b(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -185,19 +185,19 @@ public final class c {
         }
         StackTraceElement[] stackTrace = th.getStackTrace();
         String a2 = p.a();
-        for (int i = 0; i < stackTrace.length; i++) {
-            if (stackTrace[i].getClassName().contains(a2)) {
-                return stackTrace[i].toString();
+        for (int i2 = 0; i2 < stackTrace.length; i2++) {
+            if (stackTrace[i2].getClassName().contains(a2)) {
+                return stackTrace[i2].toString();
             }
         }
         return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
     }
 
     public static boolean i(Context context, String str) {
-        if (f4745b == null) {
-            f4745b = context.getPackageManager();
+        if (f4857b == null) {
+            f4857b = context.getPackageManager();
         }
-        return f4745b.checkPermission(str, context.getPackageName()) == 0;
+        return f4857b.checkPermission(str, context.getPackageName()) == 0;
     }
 
     public static byte[] j(String str) {

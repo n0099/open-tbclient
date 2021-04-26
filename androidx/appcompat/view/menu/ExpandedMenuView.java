@@ -8,7 +8,7 @@ import android.widget.ListView;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.TintTypedArray;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class ExpandedMenuView extends ListView implements MenuBuilder.ItemInvoker, MenuView, AdapterView.OnItemClickListener {
     public static final int[] TINT_ATTRS = {16842964, 16843049};
@@ -41,14 +41,14 @@ public final class ExpandedMenuView extends ListView implements MenuBuilder.Item
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        invokeItem((MenuItemImpl) getAdapter().getItem(i));
+    public void onItemClick(AdapterView adapterView, View view, int i2, long j) {
+        invokeItem((MenuItemImpl) getAdapter().getItem(i2));
     }
 
-    public ExpandedMenuView(Context context, AttributeSet attributeSet, int i) {
+    public ExpandedMenuView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet);
         setOnItemClickListener(this);
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, TINT_ATTRS, i, 0);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, TINT_ATTRS, i2, 0);
         if (obtainStyledAttributes.hasValue(0)) {
             setBackgroundDrawable(obtainStyledAttributes.getDrawable(0));
         }

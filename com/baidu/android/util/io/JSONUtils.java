@@ -30,8 +30,8 @@ public final class JSONUtils {
         return jSONObject == null ? f2 : (float) jSONObject.optDouble(str, f2);
     }
 
-    public static int getInt(JSONObject jSONObject, String str, int i) {
-        return ((Integer) get(jSONObject, str, Integer.class)) == null ? i : ((Integer) get(jSONObject, str, Integer.class)).intValue();
+    public static int getInt(JSONObject jSONObject, String str, int i2) {
+        return ((Integer) get(jSONObject, str, Integer.class)) == null ? i2 : ((Integer) get(jSONObject, str, Integer.class)).intValue();
     }
 
     public static String getIntOrString(JSONObject jSONObject, String str) {
@@ -42,8 +42,8 @@ public final class JSONUtils {
         return num.toString();
     }
 
-    public static <T> T getItem(JSONArray jSONArray, int i, Class<T> cls) {
-        T t = (T) jSONArray.opt(i);
+    public static <T> T getItem(JSONArray jSONArray, int i2, Class<T> cls) {
+        T t = (T) jSONArray.opt(i2);
         if (cls.isInstance(t)) {
             return t;
         }
@@ -58,8 +58,8 @@ public final class JSONUtils {
         return (JSONObject) get(jSONObject, str, JSONObject.class);
     }
 
-    public static JSONObject getJSONObjectItem(JSONArray jSONArray, int i) {
-        return (JSONObject) getItem(jSONArray, i, JSONObject.class);
+    public static JSONObject getJSONObjectItem(JSONArray jSONArray, int i2) {
+        return (JSONObject) getItem(jSONArray, i2, JSONObject.class);
     }
 
     public static String getString(JSONObject jSONObject, String str) {

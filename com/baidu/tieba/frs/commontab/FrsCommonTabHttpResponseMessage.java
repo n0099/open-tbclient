@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.commontab;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.q0.l1.d;
+import d.a.j0.q0.l1.d;
 import tbclient.Error;
 import tbclient.GeneralTabList.GeneralTabListResIdl;
 /* loaded from: classes4.dex */
@@ -20,10 +20,10 @@ public class FrsCommonTabHttpResponseMessage extends MvcProtobufHttpResponsedMes
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         d dVar = new d();
         GeneralTabListResIdl generalTabListResIdl = (GeneralTabListResIdl) new Wire(new Class[0]).parseFrom(bArr, GeneralTabListResIdl.class);
-        dVar.b(generalTabListResIdl.data);
+        dVar.a(generalTabListResIdl.data);
         Error error = generalTabListResIdl.error;
         if (error != null) {
             Integer num = error.errorno;

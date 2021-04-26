@@ -50,10 +50,10 @@ public class BIMConversationMsg extends BIMConversation {
         super(context, category, str, chatSession);
         this.mInternalSendMessageListener = new ISendMessageListener() { // from class: com.baidu.android.imsdk.BIMConversationMsg.1
             @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
-            public void onSendMessageResult(int i, ChatMsg chatMsg) {
+            public void onSendMessageResult(int i2, ChatMsg chatMsg) {
                 String str2 = BIMConversationMsg.TAG;
-                LogUtils.d(str2, "conversion onSendMessageResult" + i);
-                if (i != 0 || chatMsg == null) {
+                LogUtils.d(str2, "conversion onSendMessageResult" + i2);
+                if (i2 != 0 || chatMsg == null) {
                     return;
                 }
                 if (BIMConversationMsg.this.mLastChatMsg == null || BIMConversationMsg.this.mLastChatMsg.getMsgId() < chatMsg.getMsgId()) {
@@ -77,15 +77,15 @@ public class BIMConversationMsg extends BIMConversation {
         return false;
     }
 
-    private void handleFetchMessage(BIMConversation.MSGTYPE msgtype, ChatMsg chatMsg, int i, boolean z, IFetchMessageListener iFetchMessageListener) {
+    private void handleFetchMessage(BIMConversation.MSGTYPE msgtype, ChatMsg chatMsg, int i2, boolean z, IFetchMessageListener iFetchMessageListener) {
         ArrayList<ChatMsg> fetchMessageSync;
-        int i2 = AnonymousClass4.$SwitchMap$com$baidu$android$imsdk$BIMConversation$MSGTYPE[msgtype.ordinal()];
-        if (i2 == 1) {
-            fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(this.session.getCategory(), this.session.getContacter(), i, z, chatMsg);
-        } else if (i2 != 2) {
-            fetchMessageSync = i2 != 3 ? null : ChatMsgManagerImpl.getInstance(this.mContext).fetchGroupNotifyMsgsSync(this.session.getCategory(), this.session.getContacter(), i, z, chatMsg);
+        int i3 = AnonymousClass4.$SwitchMap$com$baidu$android$imsdk$BIMConversation$MSGTYPE[msgtype.ordinal()];
+        if (i3 == 1) {
+            fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(this.session.getCategory(), this.session.getContacter(), i2, z, chatMsg);
+        } else if (i3 != 2) {
+            fetchMessageSync = i3 != 3 ? null : ChatMsgManagerImpl.getInstance(this.mContext).fetchGroupNotifyMsgsSync(this.session.getCategory(), this.session.getContacter(), i2, z, chatMsg);
         } else {
-            fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSyncExceptSystemMsg(this.session.getCategory(), this.session.getContacter(), i, z, chatMsg);
+            fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSyncExceptSystemMsg(this.session.getCategory(), this.session.getContacter(), i2, z, chatMsg);
         }
         if (fetchMessageSync != null && fetchMessageSync.size() > 0) {
             ChatMsg chatMsg2 = fetchMessageSync.get(fetchMessageSync.size() - 1);
@@ -127,9 +127,9 @@ public class BIMConversationMsg extends BIMConversation {
     }
 
     @Override // com.baidu.android.imsdk.BIMConversation
-    public void fetchMessage(BIMConversation.MSGTYPE msgtype, ChatMsg chatMsg, int i, boolean z, IFetchMessageListener iFetchMessageListener) {
+    public void fetchMessage(BIMConversation.MSGTYPE msgtype, ChatMsg chatMsg, int i2, boolean z, IFetchMessageListener iFetchMessageListener) {
         if (chatMsg == null || checkChatMsg(chatMsg)) {
-            handleFetchMessage(msgtype, chatMsg, i, z, iFetchMessageListener);
+            handleFetchMessage(msgtype, chatMsg, i2, z, iFetchMessageListener);
         } else if (iFetchMessageListener != null) {
             iFetchMessageListener.onFetchMessageResult(1005, null);
         }
@@ -213,16 +213,16 @@ public class BIMConversationMsg extends BIMConversation {
     }
 
     @Override // com.baidu.android.imsdk.BIMConversation
-    public void setDisturb(int i, final BIMValueCallBack<String> bIMValueCallBack) {
+    public void setDisturb(int i2, final BIMValueCallBack<String> bIMValueCallBack) {
         if (this.session.getCategory() == 1) {
-            GroupManagerImpl.getInstance(this.mContext).setGroupDisturb(String.valueOf(this.session.getContacter()), i, bIMValueCallBack);
+            GroupManagerImpl.getInstance(this.mContext).setGroupDisturb(String.valueOf(this.session.getContacter()), i2, bIMValueCallBack);
         } else {
-            ChatUserManager.setUserDisturb(this.mContext, this.session.getContacter(), i, new IUserPrivacyListener() { // from class: com.baidu.android.imsdk.BIMConversationMsg.3
+            ChatUserManager.setUserDisturb(this.mContext, this.session.getContacter(), i2, new IUserPrivacyListener() { // from class: com.baidu.android.imsdk.BIMConversationMsg.3
                 @Override // com.baidu.android.imsdk.chatuser.IUserPrivacyListener
-                public void onResult(int i2, String str) {
+                public void onResult(int i3, String str) {
                     BIMValueCallBack bIMValueCallBack2 = bIMValueCallBack;
                     if (bIMValueCallBack2 != null) {
-                        bIMValueCallBack2.onResult(i2, str, BIMConversationMsg.this.getId());
+                        bIMValueCallBack2.onResult(i3, str, BIMConversationMsg.this.getId());
                     }
                 }
             });

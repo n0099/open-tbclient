@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk.core.dynamic.b;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import kotlinx.coroutines.DebugKt;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class d {
@@ -10,29 +11,31 @@ public class d {
     public boolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f27965a;
+    public float f28819a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f27966b;
+    public float f28820b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f27967c;
+    public float f28821c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f27968d;
+    public float f28822d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f27969e;
+    public float f28823e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f27970f;
+    public float f28824f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f27971g;
+    public float f28825g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f27972h;
-    public float i;
+    public float f28826h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public float f28827i;
     public float j;
     public int k;
     public int l;
@@ -52,39 +55,39 @@ public class d {
     public String z;
 
     public float a() {
-        return this.f27965a;
+        return this.f28819a;
     }
 
     public float b() {
-        return this.f27966b;
+        return this.f28820b;
     }
 
     public void c(float f2) {
-        this.f27967c = f2;
+        this.f28821c = f2;
     }
 
     public void d(float f2) {
-        this.f27968d = f2;
+        this.f28822d = f2;
     }
 
     public void e(float f2) {
-        this.f27969e = f2;
+        this.f28823e = f2;
     }
 
     public void f(float f2) {
-        this.f27970f = f2;
+        this.f28824f = f2;
     }
 
     public void g(float f2) {
-        this.f27971g = f2;
+        this.f28825g = f2;
     }
 
     public void h(float f2) {
-        this.f27972h = f2;
+        this.f28826h = f2;
     }
 
     public void i(float f2) {
-        this.i = f2;
+        this.f28827i = f2;
     }
 
     public void j(float f2) {
@@ -112,27 +115,27 @@ public class d {
     }
 
     public void a(float f2) {
-        this.f27965a = f2;
+        this.f28819a = f2;
     }
 
     public void b(float f2) {
-        this.f27966b = f2;
+        this.f28820b = f2;
     }
 
     public float c() {
-        return this.f27970f;
+        return this.f28824f;
     }
 
     public float d() {
-        return this.f27971g;
+        return this.f28825g;
     }
 
     public float e() {
-        return this.f27972h;
+        return this.f28826h;
     }
 
     public float f() {
-        return this.i;
+        return this.f28827i;
     }
 
     public float g() {
@@ -171,12 +174,12 @@ public class d {
         return this.B;
     }
 
-    public void a(int i) {
-        this.k = i;
+    public void a(int i2) {
+        this.k = i2;
     }
 
-    public void b(int i) {
-        this.l = i;
+    public void b(int i2) {
+        this.l = i2;
     }
 
     public void c(String str) {
@@ -237,7 +240,7 @@ public class d {
         dVar.e(jSONObject.optString("bgColor", OpenFlutter.EXTRA_TRANSPARANT));
         dVar.f(jSONObject.optString("borderColor", "#000000"));
         dVar.g(jSONObject.optString("borderStyle", "solid"));
-        dVar.h(jSONObject.optString("heightMode", "auto"));
+        dVar.h(jSONObject.optString("heightMode", DebugKt.DEBUG_PROPERTY_VALUE_AUTO));
         dVar.i(jSONObject.optString("widthMode", "fixed"));
         dVar.j(jSONObject.optString("interactText", ""));
         dVar.k(jSONObject.optString("interactType", ""));

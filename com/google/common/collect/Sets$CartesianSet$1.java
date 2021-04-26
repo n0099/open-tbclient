@@ -21,7 +21,7 @@ public final class Sets$CartesianSet$1 extends ImmutableList<List<E>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.List
-    public List<E> get(int i) {
-        return ((ImmutableSet) this.val$axes.get(i)).asList();
+    public List<E> get(int i2) {
+        return ((ImmutableSet) this.val$axes.get(i2)).asList();
     }
 }

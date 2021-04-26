@@ -4,24 +4,23 @@ import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class f extends a<String> {
-    public f(String str, String str2) {
-        super(str, str2);
+public class f extends a<Integer> {
+    public f(String str, Integer num) {
+        super(str, num);
     }
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(@NonNull SharedPreferences.Editor editor) {
-        editor.putString(a(), b());
+        editor.putInt(a(), b().intValue());
     }
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(@NonNull SharedPreferences sharedPreferences) {
-        a((f) sharedPreferences.getString(a(), c()));
+        a((f) Integer.valueOf(sharedPreferences.getInt(a(), c().intValue())));
     }
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        a((f) ((jSONObject == null || (optJSONObject = jSONObject.optJSONObject(a())) == null) ? c() : optJSONObject.toString()));
+        a((f) (jSONObject != null ? Integer.valueOf(jSONObject.optInt(a(), c().intValue())) : c()));
     }
 }

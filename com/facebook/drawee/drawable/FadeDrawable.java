@@ -6,7 +6,7 @@ import android.os.SystemClock;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FadeDrawable extends ArrayDrawable {
     @VisibleForTesting
     public static final int TRANSITION_NONE = 2;
@@ -39,12 +39,12 @@ public class FadeDrawable extends ArrayDrawable {
         this(drawableArr, false);
     }
 
-    private void drawDrawableWithAlpha(Canvas canvas, Drawable drawable, int i) {
-        if (drawable == null || i <= 0) {
+    private void drawDrawableWithAlpha(Canvas canvas, Drawable drawable, int i2) {
+        if (drawable == null || i2 <= 0) {
             return;
         }
         this.mPreventInvalidateCount++;
-        drawable.mutate().setAlpha(i);
+        drawable.mutate().setAlpha(i2);
         this.mPreventInvalidateCount--;
         drawable.draw(canvas);
     }
@@ -69,21 +69,21 @@ public class FadeDrawable extends ArrayDrawable {
 
     private boolean updateAlphas(float f2) {
         boolean z = true;
-        for (int i = 0; i < this.mLayers.length; i++) {
-            int i2 = this.mIsLayerOn[i] ? 1 : -1;
+        for (int i2 = 0; i2 < this.mLayers.length; i2++) {
+            int i3 = this.mIsLayerOn[i2] ? 1 : -1;
             int[] iArr = this.mAlphas;
-            iArr[i] = (int) (this.mStartAlphas[i] + (i2 * 255 * f2));
-            if (iArr[i] < 0) {
-                iArr[i] = 0;
+            iArr[i2] = (int) (this.mStartAlphas[i2] + (i3 * 255 * f2));
+            if (iArr[i2] < 0) {
+                iArr[i2] = 0;
             }
             int[] iArr2 = this.mAlphas;
-            if (iArr2[i] > 255) {
-                iArr2[i] = 255;
+            if (iArr2[i2] > 255) {
+                iArr2[i2] = 255;
             }
-            if (this.mIsLayerOn[i] && this.mAlphas[i] < 255) {
+            if (this.mIsLayerOn[i2] && this.mAlphas[i2] < 255) {
                 z = false;
             }
-            if (!this.mIsLayerOn[i] && this.mAlphas[i] > 0) {
+            if (!this.mIsLayerOn[i2] && this.mAlphas[i2] > 0) {
                 z = false;
             }
         }
@@ -105,22 +105,22 @@ public class FadeDrawable extends ArrayDrawable {
     public void draw(Canvas canvas) {
         boolean updateAlphas;
         Drawable[] drawableArr;
-        int i = this.mTransitionState;
-        int i2 = 0;
+        int i2 = this.mTransitionState;
+        int i3 = 0;
         boolean z = true;
-        if (i != 0) {
-            if (i == 1) {
+        if (i2 != 0) {
+            if (i2 == 1) {
                 Preconditions.checkState(this.mDurationMs > 0);
                 updateAlphas = updateAlphas(sGlobalFadingEnable ? ((float) (getCurrentTimeMs() - this.mStartTimeMs)) / this.mDurationMs : 1.0f);
                 this.mTransitionState = updateAlphas ? 2 : 1;
             }
             while (true) {
                 drawableArr = this.mLayers;
-                if (i2 < drawableArr.length) {
+                if (i3 < drawableArr.length) {
                     break;
                 }
-                drawDrawableWithAlpha(canvas, drawableArr[i2], (this.mAlphas[i2] * this.mAlpha) / 255);
-                i2++;
+                drawDrawableWithAlpha(canvas, drawableArr[i3], (this.mAlphas[i3] * this.mAlpha) / 255);
+                i3++;
             }
             if (z) {
                 invalidateSelf();
@@ -138,10 +138,10 @@ public class FadeDrawable extends ArrayDrawable {
         z = updateAlphas;
         while (true) {
             drawableArr = this.mLayers;
-            if (i2 < drawableArr.length) {
+            if (i3 < drawableArr.length) {
             }
-            drawDrawableWithAlpha(canvas, drawableArr[i2], (this.mAlphas[i2] * this.mAlpha) / 255);
-            i2++;
+            drawDrawableWithAlpha(canvas, drawableArr[i3], (this.mAlphas[i3] * this.mAlpha) / 255);
+            i3++;
         }
         if (z) {
         }
@@ -158,9 +158,9 @@ public class FadeDrawable extends ArrayDrawable {
         invalidateSelf();
     }
 
-    public void fadeInLayer(int i) {
+    public void fadeInLayer(int i2) {
         this.mTransitionState = 0;
-        this.mIsLayerOn[i] = true;
+        this.mIsLayerOn[i2] = true;
         invalidateSelf();
     }
 
@@ -170,31 +170,31 @@ public class FadeDrawable extends ArrayDrawable {
         invalidateSelf();
     }
 
-    public void fadeOutLayer(int i) {
+    public void fadeOutLayer(int i2) {
         this.mTransitionState = 0;
-        this.mIsLayerOn[i] = false;
+        this.mIsLayerOn[i2] = false;
         invalidateSelf();
     }
 
-    public void fadeToLayer(int i) {
+    public void fadeToLayer(int i2) {
         this.mTransitionState = 0;
         Arrays.fill(this.mIsLayerOn, false);
-        this.mIsLayerOn[i] = true;
+        this.mIsLayerOn[i2] = true;
         invalidateSelf();
     }
 
-    public void fadeUpToLayer(int i) {
+    public void fadeUpToLayer(int i2) {
         this.mTransitionState = 0;
-        int i2 = i + 1;
-        Arrays.fill(this.mIsLayerOn, 0, i2, true);
-        Arrays.fill(this.mIsLayerOn, i2, this.mLayers.length, false);
+        int i3 = i2 + 1;
+        Arrays.fill(this.mIsLayerOn, 0, i3, true);
+        Arrays.fill(this.mIsLayerOn, i3, this.mLayers.length, false);
         invalidateSelf();
     }
 
     public void finishTransitionImmediately() {
         this.mTransitionState = 2;
-        for (int i = 0; i < this.mLayers.length; i++) {
-            this.mAlphas[i] = this.mIsLayerOn[i] ? 255 : 0;
+        for (int i2 = 0; i2 < this.mLayers.length; i2++) {
+            this.mAlphas[i2] = this.mIsLayerOn[i2] ? 255 : 0;
         }
         invalidateSelf();
     }
@@ -224,8 +224,8 @@ public class FadeDrawable extends ArrayDrawable {
         }
     }
 
-    public boolean isLayerOn(int i) {
-        return this.mIsLayerOn[i];
+    public boolean isLayerOn(int i2) {
+        return this.mIsLayerOn[i2];
     }
 
     public void reset() {
@@ -234,15 +234,15 @@ public class FadeDrawable extends ArrayDrawable {
     }
 
     @Override // com.facebook.drawee.drawable.ArrayDrawable, android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        if (this.mAlpha != i) {
-            this.mAlpha = i;
+    public void setAlpha(int i2) {
+        if (this.mAlpha != i2) {
+            this.mAlpha = i2;
             invalidateSelf();
         }
     }
 
-    public void setTransitionDuration(int i) {
-        this.mDurationMs = i;
+    public void setTransitionDuration(int i2) {
+        this.mDurationMs = i2;
         if (this.mTransitionState == 1) {
             this.mTransitionState = 0;
         }

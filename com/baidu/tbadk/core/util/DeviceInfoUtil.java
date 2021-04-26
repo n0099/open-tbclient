@@ -75,8 +75,8 @@ public class DeviceInfoUtil {
         if (IsFullScreenSwitch.isOn()) {
             String trim = Build.MODEL.trim();
             String[] strArr = {"ANE-AL00", "CLT-AL01", "PACM00", "vivo Y85A", "vivo X21A", "SM-G8870"};
-            for (int i = 0; i < 6; i++) {
-                if (strArr[i].equalsIgnoreCase(trim)) {
+            for (int i2 = 0; i2 < 6; i2++) {
+                if (strArr[i2].equalsIgnoreCase(trim)) {
                     return true;
                 }
             }

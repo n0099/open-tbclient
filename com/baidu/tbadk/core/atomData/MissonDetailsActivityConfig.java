@@ -16,11 +16,11 @@ public class MissonDetailsActivityConfig extends IntentConfig {
     public static final String IS_UPGRADE_SUCCESS = "is_upgrade_success";
     public static final String THREAD_TITLE = "thread_title";
 
-    public MissonDetailsActivityConfig(Context context, int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, long j, int i3, int i4, AntiData antiData, String str7) {
+    public MissonDetailsActivityConfig(Context context, int i2, int i3, String str, String str2, String str3, String str4, String str5, String str6, long j, int i4, int i5, AntiData antiData, String str7) {
         super(context);
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
-        getIntent().putExtra("current_level", i2);
+        getIntent().putExtra("current_level", i3);
         getIntent().putExtra("portrait", str);
         getIntent().putExtra("user_name", str2);
         getIntent().putExtra("from", str3);
@@ -28,17 +28,17 @@ public class MissonDetailsActivityConfig extends IntentConfig {
         getIntent().putExtra(THREAD_TITLE, str5);
         getIntent().putExtra("forum_name", str6);
         getIntent().putExtra("forum_id", j);
-        getIntent().putExtra("floor_num", i3);
-        getIntent().putExtra(IS_MEMBER, i4);
+        getIntent().putExtra("floor_num", i4);
+        getIntent().putExtra(IS_MEMBER, i5);
         getIntent().putExtra("anti_data", antiData);
         getIntent().putExtra(FANS_NAME, str7);
     }
 
-    public MissonDetailsActivityConfig(Context context, int i, int i2, String str, String str2, String str3, String str4, String str5, String str6) {
-        this(context, i, i2, str, str2, str3, str4, str5, str6, 0L, 0, 0, null, null);
+    public MissonDetailsActivityConfig(Context context, int i2, int i3, String str, String str2, String str3, String str4, String str5, String str6) {
+        this(context, i2, i3, str, str2, str3, str4, str5, str6, 0L, 0, 0, null, null);
     }
 
-    public MissonDetailsActivityConfig(Context context, int i, int i2, String str, String str2, String str3) {
-        this(context, i, i2, str, str2, str3, null, null, null, 0L, 0, 0, null, null);
+    public MissonDetailsActivityConfig(Context context, int i2, int i3, String str, String str2, String str3) {
+        this(context, i2, i3, str, str2, str3, null, null, null, 0L, 0, 0, null, null);
     }
 }

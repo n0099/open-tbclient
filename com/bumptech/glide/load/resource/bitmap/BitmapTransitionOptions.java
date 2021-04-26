@@ -35,13 +35,13 @@ public final class BitmapTransitionOptions extends TransitionOptions<BitmapTrans
     }
 
     @NonNull
-    public static BitmapTransitionOptions withCrossFade(int i) {
-        return new BitmapTransitionOptions().crossFade(i);
+    public static BitmapTransitionOptions withCrossFade(int i2) {
+        return new BitmapTransitionOptions().crossFade(i2);
     }
 
     @NonNull
-    public BitmapTransitionOptions crossFade(int i) {
-        return crossFade(new DrawableCrossFadeFactory.Builder(i));
+    public BitmapTransitionOptions crossFade(int i2) {
+        return crossFade(new DrawableCrossFadeFactory.Builder(i2));
     }
 
     @NonNull

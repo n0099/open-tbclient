@@ -20,8 +20,8 @@ public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
         }
 
         @Override // org.webrtc.MediaCodecWrapper
-        public void configure(MediaFormat mediaFormat, Surface surface, MediaCrypto mediaCrypto, int i) {
-            this.mediaCodec.configure(mediaFormat, surface, mediaCrypto, i);
+        public void configure(MediaFormat mediaFormat, Surface surface, MediaCrypto mediaCrypto, int i2) {
+            this.mediaCodec.configure(mediaFormat, surface, mediaCrypto, i2);
         }
 
         @Override // org.webrtc.MediaCodecWrapper
@@ -61,8 +61,8 @@ public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
         }
 
         @Override // org.webrtc.MediaCodecWrapper
-        public void queueInputBuffer(int i, int i2, int i3, long j, int i4) {
-            this.mediaCodec.queueInputBuffer(i, i2, i3, j, i4);
+        public void queueInputBuffer(int i2, int i3, int i4, long j, int i5) {
+            this.mediaCodec.queueInputBuffer(i2, i3, i4, j, i5);
         }
 
         @Override // org.webrtc.MediaCodecWrapper
@@ -71,8 +71,8 @@ public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
         }
 
         @Override // org.webrtc.MediaCodecWrapper
-        public void releaseOutputBuffer(int i, boolean z) {
-            this.mediaCodec.releaseOutputBuffer(i, z);
+        public void releaseOutputBuffer(int i2, boolean z) {
+            this.mediaCodec.releaseOutputBuffer(i2, z);
         }
 
         @Override // org.webrtc.MediaCodecWrapper

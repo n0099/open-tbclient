@@ -10,13 +10,13 @@ public interface NestedScrollingParent {
 
     boolean onNestedPreFling(@NonNull View view, float f2, float f3);
 
-    void onNestedPreScroll(@NonNull View view, int i, int i2, @NonNull int[] iArr);
+    void onNestedPreScroll(@NonNull View view, int i2, int i3, @NonNull int[] iArr);
 
-    void onNestedScroll(@NonNull View view, int i, int i2, int i3, int i4);
+    void onNestedScroll(@NonNull View view, int i2, int i3, int i4, int i5);
 
-    void onNestedScrollAccepted(@NonNull View view, @NonNull View view2, int i);
+    void onNestedScrollAccepted(@NonNull View view, @NonNull View view2, int i2);
 
-    boolean onStartNestedScroll(@NonNull View view, @NonNull View view2, int i);
+    boolean onStartNestedScroll(@NonNull View view, @NonNull View view2, int i2);
 
     void onStopNestedScroll(@NonNull View view);
 }

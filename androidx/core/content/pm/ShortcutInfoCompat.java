@@ -6,23 +6,37 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ShortcutInfo;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.os.PersistableBundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.app.Person;
 import androidx.core.graphics.drawable.IconCompat;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes.dex */
 public class ShortcutInfoCompat {
+    public static final String EXTRA_LONG_LIVED = "extraLongLived";
+    public static final String EXTRA_PERSON_ = "extraPerson_";
+    public static final String EXTRA_PERSON_COUNT = "extraPersonCount";
     public ComponentName mActivity;
+    public Set<String> mCategories;
     public Context mContext;
     public CharSequence mDisabledMessage;
     public IconCompat mIcon;
     public String mId;
     public Intent[] mIntents;
     public boolean mIsAlwaysBadged;
+    public boolean mIsLongLived;
     public CharSequence mLabel;
     public CharSequence mLongLabel;
+    public Person[] mPersons;
+    public int mRank;
 
     /* loaded from: classes.dex */
     public static class Builder {
@@ -54,8 +68,15 @@ public class ShortcutInfoCompat {
             return this;
         }
 
+        @NonNull
         public Builder setAlwaysBadged() {
             this.mInfo.mIsAlwaysBadged = true;
+            return this;
+        }
+
+        @NonNull
+        public Builder setCategories(@NonNull Set<String> set) {
+            this.mInfo.mCategories = set;
             return this;
         }
 
@@ -89,10 +110,137 @@ public class ShortcutInfoCompat {
         }
 
         @NonNull
+        @Deprecated
+        public Builder setLongLived() {
+            this.mInfo.mIsLongLived = true;
+            return this;
+        }
+
+        @NonNull
+        public Builder setPerson(@NonNull Person person) {
+            return setPersons(new Person[]{person});
+        }
+
+        @NonNull
+        public Builder setPersons(@NonNull Person[] personArr) {
+            this.mInfo.mPersons = personArr;
+            return this;
+        }
+
+        @NonNull
+        public Builder setRank(int i2) {
+            this.mInfo.mRank = i2;
+            return this;
+        }
+
+        @NonNull
         public Builder setShortLabel(@NonNull CharSequence charSequence) {
             this.mInfo.mLabel = charSequence;
             return this;
         }
+
+        @NonNull
+        public Builder setLongLived(boolean z) {
+            this.mInfo.mIsLongLived = z;
+            return this;
+        }
+
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+        public Builder(@NonNull ShortcutInfoCompat shortcutInfoCompat) {
+            ShortcutInfoCompat shortcutInfoCompat2 = new ShortcutInfoCompat();
+            this.mInfo = shortcutInfoCompat2;
+            shortcutInfoCompat2.mContext = shortcutInfoCompat.mContext;
+            shortcutInfoCompat2.mId = shortcutInfoCompat.mId;
+            Intent[] intentArr = shortcutInfoCompat.mIntents;
+            shortcutInfoCompat2.mIntents = (Intent[]) Arrays.copyOf(intentArr, intentArr.length);
+            ShortcutInfoCompat shortcutInfoCompat3 = this.mInfo;
+            shortcutInfoCompat3.mActivity = shortcutInfoCompat.mActivity;
+            shortcutInfoCompat3.mLabel = shortcutInfoCompat.mLabel;
+            shortcutInfoCompat3.mLongLabel = shortcutInfoCompat.mLongLabel;
+            shortcutInfoCompat3.mDisabledMessage = shortcutInfoCompat.mDisabledMessage;
+            shortcutInfoCompat3.mIcon = shortcutInfoCompat.mIcon;
+            shortcutInfoCompat3.mIsAlwaysBadged = shortcutInfoCompat.mIsAlwaysBadged;
+            shortcutInfoCompat3.mIsLongLived = shortcutInfoCompat.mIsLongLived;
+            shortcutInfoCompat3.mRank = shortcutInfoCompat.mRank;
+            Person[] personArr = shortcutInfoCompat.mPersons;
+            if (personArr != null) {
+                shortcutInfoCompat3.mPersons = (Person[]) Arrays.copyOf(personArr, personArr.length);
+            }
+            if (shortcutInfoCompat.mCategories != null) {
+                this.mInfo.mCategories = new HashSet(shortcutInfoCompat.mCategories);
+            }
+        }
+
+        @RequiresApi(25)
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+        public Builder(@NonNull Context context, @NonNull ShortcutInfo shortcutInfo) {
+            ShortcutInfoCompat shortcutInfoCompat = new ShortcutInfoCompat();
+            this.mInfo = shortcutInfoCompat;
+            shortcutInfoCompat.mContext = context;
+            shortcutInfoCompat.mId = shortcutInfo.getId();
+            Intent[] intents = shortcutInfo.getIntents();
+            this.mInfo.mIntents = (Intent[]) Arrays.copyOf(intents, intents.length);
+            this.mInfo.mActivity = shortcutInfo.getActivity();
+            this.mInfo.mLabel = shortcutInfo.getShortLabel();
+            this.mInfo.mLongLabel = shortcutInfo.getLongLabel();
+            this.mInfo.mDisabledMessage = shortcutInfo.getDisabledMessage();
+            this.mInfo.mCategories = shortcutInfo.getCategories();
+            this.mInfo.mPersons = ShortcutInfoCompat.getPersonsFromExtra(shortcutInfo.getExtras());
+            this.mInfo.mRank = shortcutInfo.getRank();
+        }
+    }
+
+    @RequiresApi(22)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    private PersistableBundle buildLegacyExtrasBundle() {
+        PersistableBundle persistableBundle = new PersistableBundle();
+        Person[] personArr = this.mPersons;
+        if (personArr != null && personArr.length > 0) {
+            persistableBundle.putInt(EXTRA_PERSON_COUNT, personArr.length);
+            int i2 = 0;
+            while (i2 < this.mPersons.length) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(EXTRA_PERSON_);
+                int i3 = i2 + 1;
+                sb.append(i3);
+                persistableBundle.putPersistableBundle(sb.toString(), this.mPersons[i2].toPersistableBundle());
+                i2 = i3;
+            }
+        }
+        persistableBundle.putBoolean(EXTRA_LONG_LIVED, this.mIsLongLived);
+        return persistableBundle;
+    }
+
+    @RequiresApi(25)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    @VisibleForTesting
+    public static boolean getLongLivedFromExtra(@NonNull PersistableBundle persistableBundle) {
+        if (persistableBundle == null || !persistableBundle.containsKey(EXTRA_LONG_LIVED)) {
+            return false;
+        }
+        return persistableBundle.getBoolean(EXTRA_LONG_LIVED);
+    }
+
+    @VisibleForTesting
+    @Nullable
+    @RequiresApi(25)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static Person[] getPersonsFromExtra(@NonNull PersistableBundle persistableBundle) {
+        if (persistableBundle == null || !persistableBundle.containsKey(EXTRA_PERSON_COUNT)) {
+            return null;
+        }
+        int i2 = persistableBundle.getInt(EXTRA_PERSON_COUNT);
+        Person[] personArr = new Person[i2];
+        int i3 = 0;
+        while (i3 < i2) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(EXTRA_PERSON_);
+            int i4 = i3 + 1;
+            sb.append(i4);
+            personArr[i3] = Person.fromPersistableBundle(persistableBundle.getPersistableBundle(sb.toString()));
+            i3 = i4;
+        }
+        return personArr;
     }
 
     public Intent addToIntent(Intent intent) {
@@ -124,8 +272,18 @@ public class ShortcutInfoCompat {
     }
 
     @Nullable
+    public Set<String> getCategories() {
+        return this.mCategories;
+    }
+
+    @Nullable
     public CharSequence getDisabledMessage() {
         return this.mDisabledMessage;
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public IconCompat getIcon() {
+        return this.mIcon;
     }
 
     @NonNull
@@ -150,6 +308,10 @@ public class ShortcutInfoCompat {
         return this.mLongLabel;
     }
 
+    public int getRank() {
+        return this.mRank;
+    }
+
     @NonNull
     public CharSequence getShortLabel() {
         return this.mLabel;
@@ -160,7 +322,7 @@ public class ShortcutInfoCompat {
         ShortcutInfo.Builder intents = new ShortcutInfo.Builder(this.mContext, this.mId).setShortLabel(this.mLabel).setIntents(this.mIntents);
         IconCompat iconCompat = this.mIcon;
         if (iconCompat != null) {
-            intents.setIcon(iconCompat.toIcon());
+            intents.setIcon(iconCompat.toIcon(this.mContext));
         }
         if (!TextUtils.isEmpty(this.mLongLabel)) {
             intents.setLongLabel(this.mLongLabel);
@@ -171,6 +333,25 @@ public class ShortcutInfoCompat {
         ComponentName componentName = this.mActivity;
         if (componentName != null) {
             intents.setActivity(componentName);
+        }
+        Set<String> set = this.mCategories;
+        if (set != null) {
+            intents.setCategories(set);
+        }
+        intents.setRank(this.mRank);
+        if (Build.VERSION.SDK_INT >= 29) {
+            Person[] personArr = this.mPersons;
+            if (personArr != null && personArr.length > 0) {
+                int length = personArr.length;
+                android.app.Person[] personArr2 = new android.app.Person[length];
+                for (int i2 = 0; i2 < length; i2++) {
+                    personArr2[i2] = this.mPersons[i2].toAndroidPerson();
+                }
+                intents.setPersons(personArr2);
+            }
+            intents.setLongLived(this.mIsLongLived);
+        } else {
+            intents.setExtras(buildLegacyExtrasBundle());
         }
         return intents.build();
     }

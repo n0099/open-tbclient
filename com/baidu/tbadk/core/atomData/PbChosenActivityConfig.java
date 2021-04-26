@@ -16,15 +16,15 @@ public class PbChosenActivityConfig extends IntentConfig {
         this(context, j, str, 1);
     }
 
-    public PbChosenActivityConfig(Context context, long j, String str, int i) {
-        this(context, j, 0L, 0L, str, i);
+    public PbChosenActivityConfig(Context context, long j, String str, int i2) {
+        this(context, j, 0L, 0L, str, i2);
     }
 
-    public PbChosenActivityConfig(Context context, long j, long j2, long j3, String str, int i) {
+    public PbChosenActivityConfig(Context context, long j, long j2, long j3, String str, int i2) {
         super(context);
         getIntent().putExtra(KEY_TID, j);
         getIntent().putExtra(KEY_SHARE_URL, str);
-        getIntent().putExtra("from", i);
+        getIntent().putExtra("from", i2);
         getIntent().putExtra(KEY_TAG_CODE, j2);
         getIntent().putExtra("thread_id", j3);
     }

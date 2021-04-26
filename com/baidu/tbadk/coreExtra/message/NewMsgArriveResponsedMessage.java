@@ -8,7 +8,7 @@ public class NewMsgArriveResponsedMessage extends CustomResponsedMessage<Integer
     public static final int TYPE_PERSONAL = 3;
     public static final int TYPE_REPLY_OR_AT = 2;
 
-    public NewMsgArriveResponsedMessage(int i) {
-        super(2012111, Integer.valueOf(i));
+    public NewMsgArriveResponsedMessage(int i2) {
+        super(2012111, Integer.valueOf(i2));
     }
 }

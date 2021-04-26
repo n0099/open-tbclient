@@ -26,7 +26,7 @@ public final class ShareUtils {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String copyFileToWeiboTem(Context context, Uri uri, int i) {
+    public static String copyFileToWeiboTem(Context context, Uri uri, int i2) {
         FileOutputStream fileOutputStream;
         BufferedInputStream bufferedInputStream;
         String str;
@@ -65,7 +65,7 @@ public final class ShareUtils {
                                 str2 = null;
                                 if (TextUtils.isEmpty(str2)) {
                                 }
-                                bufferedInputStream = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f7699a).getFileDescriptor()));
+                                bufferedInputStream = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f7975a).getFileDescriptor()));
                                 file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + str + str2);
                                 if (file.exists()) {
                                 }
@@ -143,10 +143,10 @@ public final class ShareUtils {
             if (TextUtils.isEmpty(str2)) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(Calendar.getInstance().getTimeInMillis());
-                sb.append(i == 0 ? "_sdk_temp.mp4" : "_sdk_temp.jpg");
+                sb.append(i2 == 0 ? "_sdk_temp.mp4" : "_sdk_temp.jpg");
                 str2 = sb.toString();
             }
-            bufferedInputStream = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f7699a).getFileDescriptor()));
+            bufferedInputStream = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f7975a).getFileDescriptor()));
         } catch (Exception e5) {
             e = e5;
             bufferedInputStream = null;

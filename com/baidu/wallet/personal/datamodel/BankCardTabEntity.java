@@ -6,31 +6,31 @@ import com.baidu.wallet.paysdk.ui.widget.tablayout.callback.ICustomTabEntity;
 public class BankCardTabEntity implements NoProguard, ICustomTabEntity {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f26270a;
+    public int f27074a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26271b;
+    public String f27075b;
 
-    public BankCardTabEntity(int i, String str) {
-        this.f26270a = i;
-        this.f26271b = str;
+    public BankCardTabEntity(int i2, String str) {
+        this.f27074a = i2;
+        this.f27075b = str;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.widget.tablayout.callback.ICustomTabEntity
     public int getIndex() {
-        return this.f26270a;
+        return this.f27074a;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.widget.tablayout.callback.ICustomTabEntity
     public String getTabTitle() {
-        return this.f26271b;
+        return this.f27075b;
     }
 
-    public void setIndex(int i) {
-        this.f26270a = i;
+    public void setIndex(int i2) {
+        this.f27074a = i2;
     }
 
     public void setTitle(String str) {
-        this.f26271b = str;
+        this.f27075b = str;
     }
 }

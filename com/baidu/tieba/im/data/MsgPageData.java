@@ -32,7 +32,7 @@ public class MsgPageData extends OrmObject implements Serializable {
         this.isNewAdd = z;
     }
 
-    public void setNewAddNum(int i) {
-        this.newAddNum = i;
+    public void setNewAddNum(int i2) {
+        this.newAddNum = i2;
     }
 }

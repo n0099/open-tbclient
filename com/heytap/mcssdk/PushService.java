@@ -17,9 +17,9 @@ public class PushService extends Service implements MessageCallback {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(Intent intent, int i2, int i3) {
         PushParseHelper.parseIntent(getApplicationContext(), intent, this);
-        return super.onStartCommand(intent, i, i2);
+        return super.onStartCommand(intent, i2, i3);
     }
 
     @Override // com.heytap.mcssdk.callback.MessageCallback

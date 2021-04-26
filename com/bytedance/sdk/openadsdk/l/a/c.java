@@ -6,63 +6,65 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f29447a;
+    public final String f30351a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29448b;
+    public int f30352b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29449c;
+    public int f30353c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29450d;
+    public int f30354d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f29451e;
+    public long f30355e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f29452f;
+    public long f30356f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f29453g;
+    public long f30357g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f29454h;
-    public int i;
+    public long f30358h;
 
-    public c(String str, int i, int i2, long j, long j2, long j3, long j4, int i3) {
-        this.f29448b = 0;
-        this.f29449c = 0;
-        this.f29451e = 0L;
-        this.f29452f = 0L;
-        this.f29453g = 0L;
-        this.f29454h = 0L;
-        this.i = 0;
-        this.f29447a = str;
-        this.f29448b = i;
-        this.f29449c = i2;
-        this.f29451e = j;
-        this.f29452f = j2;
-        this.f29453g = j3;
-        this.f29454h = j4;
-        this.i = i3;
+    /* renamed from: i  reason: collision with root package name */
+    public int f30359i;
+
+    public c(String str, int i2, int i3, long j, long j2, long j3, long j4, int i4) {
+        this.f30352b = 0;
+        this.f30353c = 0;
+        this.f30355e = 0L;
+        this.f30356f = 0L;
+        this.f30357g = 0L;
+        this.f30358h = 0L;
+        this.f30359i = 0;
+        this.f30351a = str;
+        this.f30352b = i2;
+        this.f30353c = i3;
+        this.f30355e = j;
+        this.f30356f = j2;
+        this.f30357g = j3;
+        this.f30358h = j4;
+        this.f30359i = i4;
     }
 
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (this.i <= 0) {
+            if (this.f30359i <= 0) {
                 return null;
             }
-            jSONObject.put("poolType", this.f29447a);
-            jSONObject.put("corePoolSize", this.f29448b);
-            jSONObject.put("maximumPoolSize", this.f29449c);
-            jSONObject.put("largestPoolSize", this.f29450d);
-            jSONObject.put("waitLargestTime", this.f29451e);
-            jSONObject.put("waitAvgTime", (((float) this.f29452f) * 1.0f) / this.i);
-            jSONObject.put("taskCostLargestTime", this.f29453g);
-            jSONObject.put("taskCostAvgTime", (((float) this.f29454h) * 1.0f) / this.i);
-            jSONObject.put("logCount", this.i);
+            jSONObject.put("poolType", this.f30351a);
+            jSONObject.put("corePoolSize", this.f30352b);
+            jSONObject.put("maximumPoolSize", this.f30353c);
+            jSONObject.put("largestPoolSize", this.f30354d);
+            jSONObject.put("waitLargestTime", this.f30355e);
+            jSONObject.put("waitAvgTime", (((float) this.f30356f) * 1.0f) / this.f30359i);
+            jSONObject.put("taskCostLargestTime", this.f30357g);
+            jSONObject.put("taskCostAvgTime", (((float) this.f30358h) * 1.0f) / this.f30359i);
+            jSONObject.put("logCount", this.f30359i);
             return jSONObject;
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -71,42 +73,42 @@ public class c {
     }
 
     public String b() {
-        return this.f29447a;
+        return this.f30351a;
     }
 
     public long c() {
-        return this.f29451e;
+        return this.f30355e;
     }
 
     public long d() {
-        return this.f29453g;
+        return this.f30357g;
     }
 
     public int e() {
-        return this.i;
+        return this.f30359i;
     }
 
     public void b(long j) {
-        this.f29452f += j;
+        this.f30356f += j;
     }
 
     public void c(long j) {
-        this.f29453g = j;
+        this.f30357g = j;
     }
 
     public void d(long j) {
-        this.f29454h += j;
+        this.f30358h += j;
     }
 
-    public void b(int i) {
-        this.f29450d = i;
+    public void b(int i2) {
+        this.f30354d = i2;
     }
 
     public void a(long j) {
-        this.f29451e = j;
+        this.f30355e = j;
     }
 
-    public void a(int i) {
-        this.i += i;
+    public void a(int i2) {
+        this.f30359i += i2;
     }
 }

@@ -21,5 +21,5 @@ public interface LiveStatusNotifyService {
         }
     }
 
-    void notifyLiveStatus(Context context, String str, @LiveStatus int i);
+    void notifyLiveStatus(Context context, String str, @LiveStatus int i2);
 }

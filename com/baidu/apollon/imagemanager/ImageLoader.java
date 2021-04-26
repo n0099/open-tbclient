@@ -23,33 +23,35 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class ImageLoader {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3707c = "baidu/wallet/image_cache";
+    public static final String f3753c = "baidu/wallet/image_cache";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final long f3708d = 864000000;
+    public static final long f3754d = 864000000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f3709e = 3;
+    public static final int f3755e = 3;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f3710f = 6;
+    public static final int f3756f = 6;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f3711g = 10;
-    public Context i;
+    public static final int f3757g = 10;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Context f3759i;
     public b j;
     public a k;
     public ImageProcessor l;
     public ThreadPoolExecutor m = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3705a = ApollonConstants.DEBUG;
+    public static final boolean f3751a = ApollonConstants.DEBUG;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3706b = ImageLoader.class.getSimpleName();
+    public static final String f3752b = ImageLoader.class.getSimpleName();
 
     /* renamed from: h  reason: collision with root package name */
-    public static ImageLoader f3712h = null;
+    public static ImageLoader f3758h = null;
 
     /* loaded from: classes.dex */
     public interface OnGetBitmapListener {
@@ -62,16 +64,16 @@ public final class ImageLoader {
 
     public ImageLoader(Context context) {
         Context applicationContext = context.getApplicationContext();
-        this.i = applicationContext;
+        this.f3759i = applicationContext;
         this.l = new ImageProcessor(applicationContext);
         this.j = new b();
-        this.k = new a(this.i, f3707c, new a.InterfaceC0061a() { // from class: com.baidu.apollon.imagemanager.ImageLoader.1
+        this.k = new a(this.f3759i, f3753c, new a.InterfaceC0061a() { // from class: com.baidu.apollon.imagemanager.ImageLoader.1
             @Override // com.baidu.apollon.imagemanager.a.InterfaceC0061a
             public List<File> a(File file) {
                 if (file.exists() && file.isDirectory()) {
                     LinkedList linkedList = new LinkedList();
                     File[] listFiles = file.listFiles();
-                    long currentTimeMillis = System.currentTimeMillis() - ImageLoader.f3708d;
+                    long currentTimeMillis = System.currentTimeMillis() - ImageLoader.f3754d;
                     for (File file2 : listFiles) {
                         if (file2.lastModified() < currentTimeMillis) {
                             linkedList.add(file2);
@@ -85,48 +87,48 @@ public final class ImageLoader {
     }
 
     public static ImageLoader getInstance(Context context) {
-        if (f3705a) {
-            Log.d(f3706b, "getInstance()");
+        if (f3751a) {
+            Log.d(f3752b, "getInstance()");
         }
-        if (f3712h == null) {
+        if (f3758h == null) {
             synchronized (ImageLoader.class) {
-                if (f3712h == null) {
-                    f3712h = new ImageLoader(context.getApplicationContext());
+                if (f3758h == null) {
+                    f3758h = new ImageLoader(context.getApplicationContext());
                 }
             }
         }
-        return f3712h;
+        return f3758h;
     }
 
-    public void getBitmap(String str, OnGetBitmapListener onGetBitmapListener, Object obj, int i) {
+    public void getBitmap(String str, OnGetBitmapListener onGetBitmapListener, Object obj, int i2) {
         if (a(str)) {
             Bitmap bitmapFromMemCache = getBitmapFromMemCache(str);
             if (bitmapFromMemCache != null) {
-                if (f3705a) {
-                    Log.d(f3706b, "find in memory");
+                if (f3751a) {
+                    Log.d(f3752b, "find in memory");
                 }
                 onGetBitmapListener.onGetBitmap(str, obj, bitmapFromMemCache);
                 return;
             }
-            getBitmapFromDiskOrNet(str, onGetBitmapListener, obj, i);
+            getBitmapFromDiskOrNet(str, onGetBitmapListener, obj, i2);
         }
     }
 
-    public void getBitmapFromDiskOrNet(final String str, final OnGetBitmapListener onGetBitmapListener, final Object obj, final int i) {
+    public void getBitmapFromDiskOrNet(final String str, final OnGetBitmapListener onGetBitmapListener, final Object obj, final int i2) {
         a(new Runnable() { // from class: com.baidu.apollon.imagemanager.ImageLoader.3
             @Override // java.lang.Runnable
             public void run() {
-                if (ImageLoader.this.a(str, onGetBitmapListener, obj, i)) {
+                if (ImageLoader.this.a(str, onGetBitmapListener, obj, i2)) {
                     return;
                 }
-                ImageLoader.this.b(str, onGetBitmapListener, obj, i);
+                ImageLoader.this.b(str, onGetBitmapListener, obj, i2);
             }
         });
     }
 
     public Bitmap getBitmapFromMemCache(String str) {
-        if (f3705a) {
-            Log.d(f3706b, "check memory");
+        if (f3751a) {
+            Log.d(f3752b, "check memory");
         }
         if (a(str)) {
             return this.j.a(str);
@@ -134,18 +136,18 @@ public final class ImageLoader {
         return null;
     }
 
-    public Bitmap getBitmapFromMemCacheOrDeskSynch(String str, Object obj, int i) {
+    public Bitmap getBitmapFromMemCacheOrDeskSynch(String str, Object obj, int i2) {
         if (a(str)) {
             Bitmap bitmapFromMemCache = getBitmapFromMemCache(str);
             if (bitmapFromMemCache != null) {
-                if (f3705a) {
-                    Log.d(f3706b, "find in memory");
+                if (f3751a) {
+                    Log.d(f3752b, "find in memory");
                 }
                 return bitmapFromMemCache;
             }
-            Bitmap a2 = a(str, obj, i);
-            if (a2 != null && f3705a) {
-                Log.d(f3706b, "find in disk");
+            Bitmap a2 = a(str, obj, i2);
+            if (a2 != null && f3751a) {
+                Log.d(f3752b, "find in disk");
             }
             return a2;
         }
@@ -169,13 +171,13 @@ public final class ImageLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str, OnGetBitmapListener onGetBitmapListener, Object obj, int i) {
+    public void b(String str, OnGetBitmapListener onGetBitmapListener, Object obj, int i2) {
         byte[] bArr;
         if (onGetBitmapListener == null || !onGetBitmapListener.needCancel(str, obj)) {
-            if (f3705a) {
-                Log.d(f3706b, "download from net");
+            if (f3751a) {
+                Log.d(f3752b, "download from net");
             }
-            Context context = this.i;
+            Context context = this.f3759i;
             RestTemplate restTemplate = new RestTemplate(context, BussinessUtils.getUA(context), "image load http request");
             restTemplate.setMessageConverter(new com.baidu.apollon.restnet.converter.a());
             Bitmap bitmap = null;
@@ -194,12 +196,12 @@ public final class ImageLoader {
                 return;
             }
             try {
-                bitmap = this.l.decode(a2, i);
+                bitmap = this.l.decode(a2, i2);
             } catch (FileNotFoundException unused) {
             }
             if (bitmap != null) {
-                if (f3705a) {
-                    Log.d(f3706b, "find in file");
+                if (f3751a) {
+                    Log.d(f3752b, "find in file");
                 }
                 this.j.a(str, bitmap);
                 this.j.a();
@@ -211,27 +213,27 @@ public final class ImageLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(String str, OnGetBitmapListener onGetBitmapListener, Object obj, int i) {
+    public boolean a(String str, OnGetBitmapListener onGetBitmapListener, Object obj, int i2) {
         Bitmap bitmap;
         if (onGetBitmapListener == null || !onGetBitmapListener.needCancel(str, obj)) {
-            if (f3705a) {
-                Log.d(f3706b, "chech file async ");
+            if (f3751a) {
+                Log.d(f3752b, "chech file async ");
             }
             File a2 = this.k.a(str);
             if (a2 == null || !a2.exists()) {
                 return false;
             }
-            if (f3705a) {
-                Log.d(f3706b, "file is not null ");
+            if (f3751a) {
+                Log.d(f3752b, "file is not null ");
             }
             try {
-                bitmap = this.l.decode(a2, i);
+                bitmap = this.l.decode(a2, i2);
             } catch (FileNotFoundException unused) {
                 bitmap = null;
             }
             if (bitmap != null) {
-                if (f3705a) {
-                    Log.d(f3706b, "find in file");
+                if (f3751a) {
+                    Log.d(f3752b, "find in file");
                 }
                 this.j.a(str, bitmap);
                 this.j.a();
@@ -250,31 +252,31 @@ public final class ImageLoader {
             return false;
         }
         int length = str.length();
-        for (int i = 0; i < length; i++) {
-            if (Character.isWhitespace(str.charAt(i))) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (Character.isWhitespace(str.charAt(i2))) {
                 return false;
             }
         }
         return true;
     }
 
-    private Bitmap a(String str, Object obj, int i) {
-        if (f3705a) {
-            Log.d(f3706b, "chech file async ");
+    private Bitmap a(String str, Object obj, int i2) {
+        if (f3751a) {
+            Log.d(f3752b, "chech file async ");
         }
         File a2 = this.k.a(str);
         Bitmap bitmap = null;
         if (a2 != null && a2.exists()) {
-            if (f3705a) {
-                Log.d(f3706b, "file is not null ");
+            if (f3751a) {
+                Log.d(f3752b, "file is not null ");
             }
             try {
-                bitmap = this.l.decode(a2, i);
+                bitmap = this.l.decode(a2, i2);
             } catch (FileNotFoundException unused) {
             }
             if (bitmap != null) {
-                if (f3705a) {
-                    Log.d(f3706b, "find in file");
+                if (f3751a) {
+                    Log.d(f3752b, "find in file");
                 }
                 this.j.a(str, bitmap);
                 this.j.a();

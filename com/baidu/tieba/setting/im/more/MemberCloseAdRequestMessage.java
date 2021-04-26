@@ -1,15 +1,15 @@
 package com.baidu.tieba.setting.im.more;
 
 import com.baidu.adp.framework.message.NetMessage;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.CloseAd.CloseAdReqIdl;
 import tbclient.CloseAd.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MemberCloseAdRequestMessage extends NetMessage {
     public int mVipClose;
 
-    public MemberCloseAdRequestMessage(int i, int i2) {
-        super(i, i2);
+    public MemberCloseAdRequestMessage(int i2, int i3) {
+        super(i2, i3);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -24,7 +24,7 @@ public class MemberCloseAdRequestMessage extends NetMessage {
         return builder2.build(false);
     }
 
-    public void setVipClose(int i) {
-        this.mVipClose = i;
+    public void setVipClose(int i2) {
+        this.mVipClose = i2;
     }
 }

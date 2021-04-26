@@ -22,7 +22,7 @@ public abstract class RTCVideoExternalRender implements VideoSink {
         this.mVideoObserver = baiduRtcRoomVideoObserver;
     }
 
-    public abstract void changeSurfaceSize(int i, int i2);
+    public abstract void changeSurfaceSize(int i2, int i3);
 
     public abstract void clearImage();
 

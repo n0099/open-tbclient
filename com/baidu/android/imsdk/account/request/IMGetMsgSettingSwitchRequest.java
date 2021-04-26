@@ -83,18 +83,18 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        int i2;
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        int i3;
         IGetMsgSettingSwitchListener iGetMsgSettingSwitchListener;
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         String str = new String(bArr);
         LogUtils.e(TAG, "IMGetMsgSettingSwitchRequest onFailure :" + str);
-        int i3 = 0;
+        int i4 = 0;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            i2 = jSONObject.optInt("push_privacy", 0);
+            i3 = jSONObject.optInt("push_privacy", 0);
             try {
-                i3 = jSONObject.optInt("block_stranger", 0);
+                i4 = jSONObject.optInt("block_stranger", 0);
             } catch (JSONException e2) {
                 e = e2;
                 LogUtils.e(TAG, "onFailure JSONException", e);
@@ -104,11 +104,11 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
             }
         } catch (JSONException e3) {
             e = e3;
-            i2 = 0;
+            i3 = 0;
         }
         iGetMsgSettingSwitchListener = this.mListener;
         if (iGetMsgSettingSwitchListener == null) {
-            iGetMsgSettingSwitchListener.onGetMsgSettingSwitch(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, i3, i2);
+            iGetMsgSettingSwitchListener.onGetMsgSettingSwitch(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, i4, i3);
         }
     }
 
@@ -118,25 +118,25 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onSuccess(int i, byte[] bArr) {
-        int i2;
+    public void onSuccess(int i2, byte[] bArr) {
         int i3;
+        int i4;
         String str;
         IGetMsgSettingSwitchListener iGetMsgSettingSwitchListener;
         String str2 = new String(bArr);
         LogUtils.e(TAG, "IMGetMsgSettingSwitchRequest onSuccess :" + str2);
-        int i4 = 0;
+        int i5 = 0;
         try {
             JSONObject jSONObject = new JSONObject(str2);
-            i3 = jSONObject.getInt("error_code");
+            i4 = jSONObject.getInt("error_code");
             str = jSONObject.optString("error_msg", "");
-            i2 = jSONObject.optInt("push_privacy", 0);
+            i3 = jSONObject.optInt("push_privacy", 0);
             try {
-                i4 = jSONObject.optInt("block_stranger", 0);
+                i5 = jSONObject.optInt("block_stranger", 0);
             } catch (JSONException e2) {
                 e = e2;
                 LogUtils.e(TAG, "JSONException", e);
-                i3 = 1010;
+                i4 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 iGetMsgSettingSwitchListener = this.mListener;
                 if (iGetMsgSettingSwitchListener == null) {
@@ -144,11 +144,11 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
             }
         } catch (JSONException e3) {
             e = e3;
-            i2 = 0;
+            i3 = 0;
         }
         iGetMsgSettingSwitchListener = this.mListener;
         if (iGetMsgSettingSwitchListener == null) {
-            iGetMsgSettingSwitchListener.onGetMsgSettingSwitch(i3, str, i4, i2);
+            iGetMsgSettingSwitchListener.onGetMsgSettingSwitch(i4, str, i5, i3);
         }
     }
 

@@ -28,8 +28,8 @@ public class LightAppNewLocationModel implements NoProguard {
         return JsonUtils.toJson(this);
     }
 
-    public LightAppNewLocationModel(int i) {
+    public LightAppNewLocationModel(int i2) {
         this();
-        this.result = i;
+        this.result = i2;
     }
 }

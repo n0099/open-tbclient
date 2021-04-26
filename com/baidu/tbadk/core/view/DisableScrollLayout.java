@@ -8,38 +8,38 @@ import android.widget.FrameLayout;
 public class DisableScrollLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13027e;
+    public int f12959e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f13028f;
+    public double f12960f;
 
     /* renamed from: g  reason: collision with root package name */
-    public double f13029g;
+    public double f12961g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13030h;
+    public boolean f12962h;
 
     public DisableScrollLayout(Context context) {
         super(context);
-        this.f13028f = 0.0d;
-        this.f13029g = 0.0d;
-        this.f13030h = true;
+        this.f12960f = 0.0d;
+        this.f12961g = 0.0d;
+        this.f12962h = true;
     }
 
     public void a(boolean z) {
-        this.f13030h = z;
+        this.f12962h = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.f13028f = motionEvent.getX();
-            this.f13029g = motionEvent.getY();
+            this.f12960f = motionEvent.getX();
+            this.f12961g = motionEvent.getY();
         }
-        if (motionEvent.getAction() == 2 && motionEvent.getY() <= this.f13027e) {
+        if (motionEvent.getAction() == 2 && motionEvent.getY() <= this.f12959e) {
             double y = motionEvent.getY();
-            if (Math.abs(motionEvent.getX() - this.f13028f) <= Math.abs(y - this.f13029g)) {
-                if (y <= this.f13029g || this.f13030h) {
+            if (Math.abs(motionEvent.getX() - this.f12960f) <= Math.abs(y - this.f12961g)) {
+                if (y <= this.f12961g || this.f12962h) {
                     return super.dispatchTouchEvent(motionEvent);
                 }
                 return true;
@@ -49,14 +49,14 @@ public class DisableScrollLayout extends FrameLayout {
         return super.dispatchTouchEvent(motionEvent);
     }
 
-    public void setHeaderViewHeight(int i) {
-        this.f13027e = i;
+    public void setHeaderViewHeight(int i2) {
+        this.f12959e = i2;
     }
 
     public DisableScrollLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13028f = 0.0d;
-        this.f13029g = 0.0d;
-        this.f13030h = true;
+        this.f12960f = 0.0d;
+        this.f12961g = 0.0d;
+        this.f12962h = true;
     }
 }

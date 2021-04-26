@@ -18,29 +18,31 @@ public abstract class n<T> implements Comparable<n<T>> {
     public static long p;
 
     /* renamed from: a  reason: collision with root package name */
-    public final w.a f8942a;
+    public final w.a f9270a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f8943b;
+    public final int f9271b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f8944c;
+    public final String f9272c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8945d;
+    public String f9273d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8946e;
+    public String f9274e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f8947f;
+    public final int f9275f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final q.a f8948g;
+    public final q.a f9276g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Integer f8949h;
-    public p i;
+    public Integer f9277h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public p f9278i;
     public boolean j;
     public boolean k;
     public boolean l;
@@ -56,19 +58,19 @@ public abstract class n<T> implements Comparable<n<T>> {
         IMMEDIATE
     }
 
-    public n(int i, String str, q.a aVar) {
-        this.f8942a = w.a.f8974a ? new w.a() : null;
+    public n(int i2, String str, q.a aVar) {
+        this.f9270a = w.a.f9304a ? new w.a() : null;
         this.j = true;
         this.k = false;
         this.l = false;
         this.m = 0L;
         this.o = null;
-        this.f8943b = i;
-        this.f8944c = str;
-        this.f8946e = a(i, str);
-        this.f8948g = aVar;
+        this.f9271b = i2;
+        this.f9272c = str;
+        this.f9274e = a(i2, str);
+        this.f9276g = aVar;
         a((s) new e());
-        this.f8947f = d(str);
+        this.f9275f = d(str);
     }
 
     public static int d(String str) {
@@ -81,7 +83,7 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     public int a() {
-        return this.f8943b;
+        return this.f9271b;
     }
 
     public abstract q<T> a(l lVar);
@@ -93,8 +95,8 @@ public abstract class n<T> implements Comparable<n<T>> {
     public abstract void a(T t);
 
     public String c() {
-        String str = this.f8945d;
-        return str != null ? str : this.f8944c;
+        String str = this.f9273d;
+        return str != null ? str : this.f9272c;
     }
 
     @Override // java.lang.Comparable
@@ -188,7 +190,7 @@ public abstract class n<T> implements Comparable<n<T>> {
         sb.append(" ");
         sb.append(s());
         sb.append(" ");
-        sb.append(this.f8949h);
+        sb.append(this.f9277h);
         return sb.toString();
     }
 
@@ -212,34 +214,34 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     public int b() {
-        return this.f8947f;
+        return this.f9275f;
     }
 
     public void c(String str) {
-        this.f8945d = str;
+        this.f9273d = str;
     }
 
     public void a(String str) {
-        if (w.a.f8974a) {
-            this.f8942a.a(str, Thread.currentThread().getId());
+        if (w.a.f9304a) {
+            this.f9270a.a(str, Thread.currentThread().getId());
         } else if (this.m == 0) {
             this.m = SystemClock.elapsedRealtime();
         }
     }
 
     public void b(String str) {
-        p pVar = this.i;
+        p pVar = this.f9278i;
         if (pVar != null) {
             pVar.b(this);
         }
-        if (w.a.f8974a) {
+        if (w.a.f9304a) {
             long id = Thread.currentThread().getId();
             if (Looper.myLooper() != Looper.getMainLooper()) {
                 new Handler(Looper.getMainLooper()).post(new o(this, str, id));
                 return;
             }
-            this.f8942a.a(str, id);
-            this.f8942a.a(toString());
+            this.f9270a.a(str, id);
+            this.f9270a.a(toString());
             return;
         }
         long elapsedRealtime = SystemClock.elapsedRealtime() - this.m;
@@ -249,20 +251,20 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     public String d() {
-        return this.f8944c;
+        return this.f9272c;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.pano.platform.a.n<T> */
     /* JADX WARN: Multi-variable type inference failed */
     public n<?> a(p pVar) {
-        this.i = pVar;
+        this.f9278i = pVar;
         return this;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.pano.platform.a.n<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public final n<?> a(int i) {
-        this.f8949h = Integer.valueOf(i);
+    public final n<?> a(int i2) {
+        this.f9277h = Integer.valueOf(i2);
         return this;
     }
 
@@ -278,7 +280,7 @@ public abstract class n<T> implements Comparable<n<T>> {
         try {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 sb.append(URLEncoder.encode(entry.getKey(), str));
-                sb.append(com.alipay.sdk.encrypt.a.f1922h);
+                sb.append(com.alipay.sdk.encrypt.a.f1873h);
                 sb.append(URLEncoder.encode(entry.getValue(), str));
                 sb.append(Typography.amp);
             }
@@ -289,7 +291,7 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     public void b(v vVar) {
-        q.a aVar = this.f8948g;
+        q.a aVar = this.f9276g;
         if (aVar != null) {
             aVar.a(vVar);
         }
@@ -306,15 +308,15 @@ public abstract class n<T> implements Comparable<n<T>> {
         a s = s();
         a s2 = nVar.s();
         if (s == s2) {
-            return this.f8949h.intValue() - nVar.f8949h.intValue();
+            return this.f9277h.intValue() - nVar.f9277h.intValue();
         }
         return s2.ordinal() - s.ordinal();
     }
 
-    public static String a(int i, String str) {
+    public static String a(int i2, String str) {
         StringBuilder sb = new StringBuilder();
         sb.append("Request:");
-        sb.append(i);
+        sb.append(i2);
         sb.append(":");
         sb.append(str);
         sb.append(":");

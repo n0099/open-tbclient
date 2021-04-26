@@ -157,8 +157,8 @@ public class LpVideoView extends RelativeLayout {
             }
 
             @Override // com.baidu.mobads.container.video.ICustomVideoView.VideoPlayCallbackImpl
-            public void onCloseVideo(int i) {
-                LpVideoView.this.sendMonitorLogForVideoClose(i);
+            public void onCloseVideo(int i2) {
+                LpVideoView.this.sendMonitorLogForVideoClose(i2);
             }
 
             @Override // com.baidu.mobads.container.video.ICustomVideoView.VideoPlayCallbackImpl
@@ -173,11 +173,11 @@ public class LpVideoView extends RelativeLayout {
             }
 
             @Override // com.baidu.mobads.container.video.ICustomVideoView.VideoPlayCallbackImpl
-            public void onError(MediaPlayer mediaPlayer, int i, int i2) {
+            public void onError(MediaPlayer mediaPlayer, int i2, int i3) {
             }
 
             @Override // com.baidu.mobads.container.video.ICustomVideoView.VideoPlayCallbackImpl
-            public void onFullScreen(int i) {
+            public void onFullScreen(int i2) {
             }
 
             @Override // com.baidu.mobads.container.video.ICustomVideoView.VideoPlayCallbackImpl
@@ -223,9 +223,9 @@ public class LpVideoView extends RelativeLayout {
 
     private List<String> replaceProgressOfVideoMonitorUrl(List<String> list, String str) {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < list.size(); i++) {
+        for (int i2 = 0; i2 < list.size(); i2++) {
             try {
-                arrayList.add(list.get(i).replaceAll(XAdSDKRemoteConfig.REGULAR_MATCH_PROGRESS, str));
+                arrayList.add(list.get(i2).replaceAll(XAdSDKRemoteConfig.REGULAR_MATCH_PROGRESS, str));
             } catch (Exception e2) {
                 RemoteXAdLogger.getInstance().e(e2);
             }
@@ -255,10 +255,10 @@ public class LpVideoView extends RelativeLayout {
         }
     }
 
-    public void sendMonitorLogForVideoClose(int i) {
+    public void sendMonitorLogForVideoClose(int i2) {
         IXAdInstanceInfo iXAdInstanceInfo = this.mAdInstanceInfo;
         if (iXAdInstanceInfo != null) {
-            XAdRemoteCommonUtils.makeRequest(replaceProgressOfVideoMonitorUrl(iXAdInstanceInfo.getCloseTrackers(), String.valueOf(i)), 1);
+            XAdRemoteCommonUtils.makeRequest(replaceProgressOfVideoMonitorUrl(iXAdInstanceInfo.getCloseTrackers(), String.valueOf(i2)), 1);
         }
     }
 

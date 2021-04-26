@@ -7,6 +7,8 @@ public class TiebaUtilityOpenPageAuto {
 
     /* loaded from: classes4.dex */
     public interface HostUtilityOpenPage {
+        void accessLiveCenterService(PageStringValue pageStringValue);
+
         void accessWalletService(PageStringValue pageStringValue);
 
         void goToActivityCenter();

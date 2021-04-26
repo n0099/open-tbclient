@@ -180,7 +180,7 @@ public class JsUploadTask implements INoProGuard {
             addRawLogItem(sb2, ETAG.KEY_UPLOAD_NUM, mUpLoadNum);
             addRawLogItem(sb2, ETAG.KEY_SYS_PROXY, WebSettingsGlobalBlink.getSysProxyEnabled());
             addRawLogItem(sb2, ETAG.KEY_NET_ERROR, mNetError);
-            addRawLogItem(sb2, "http_code", mHttpcode);
+            addRawLogItem(sb2, ETAG.KEY_HTTP_CODE, mHttpcode);
             addRawLogItem(sb2, ETAG.KEY_NET_CODE, mNetcode);
             addRawLogItem(sb2, ETAG.KEY_FIRST_JUMP_TYPE, mFirstJumpType.ordinal());
             addRawLogItem(sb2, ETAG.KEY_LAST_JUMP_TYPE, mLastJumpType.ordinal());
@@ -240,9 +240,9 @@ public class JsUploadTask implements INoProGuard {
                         CloudSettings.a aVar = CloudSettings.NetRecordList.get(0);
                         CloudSettings.NetRecordList.remove(0);
                         Log.w(TAG, "NetRecordList size1 " + CloudSettings.NetRecordList.size());
-                        jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f26611c);
-                        jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f26609a);
-                        jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f26610b);
+                        jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f27418c);
+                        jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f27416a);
+                        jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f27417b);
                     }
                     if (WebSettingsGlobalBlink.isFeedProxyAdUrl(mCurrentUrl)) {
                         jSONObject.put(ETAG.KEY_FEED_PROXY_AD, 1);
@@ -360,8 +360,8 @@ public class JsUploadTask implements INoProGuard {
         mAppid = str;
     }
 
-    public static void setBlockedAdCount(int i) {
-        mBlockedAdCount = i;
+    public static void setBlockedAdCount(int i2) {
+        mBlockedAdCount = i2;
     }
 
     public static void setCpuType(String str) {
@@ -386,12 +386,12 @@ public class JsUploadTask implements INoProGuard {
         mCurrentUrl = str;
     }
 
-    public static void setDocumentLoadState(int i) {
-        mDocumentLoadState = i;
+    public static void setDocumentLoadState(int i2) {
+        mDocumentLoadState = i2;
     }
 
-    public static void setErrorCode(int i) {
-        mErrorCode = i;
+    public static void setErrorCode(int i2) {
+        mErrorCode = i2;
     }
 
     public static void setErrorUploadEnabled(boolean z) {
@@ -441,8 +441,8 @@ public class JsUploadTask implements INoProGuard {
         }
     }
 
-    public static void setNetError(int i) {
-        mNetError = i;
+    public static void setNetError(int i2) {
+        mNetError = i2;
     }
 
     public static void setNetType(String str) {
@@ -465,8 +465,8 @@ public class JsUploadTask implements INoProGuard {
         mPageFinishedTime = j;
     }
 
-    public static void setParsedTokens(int i) {
-        mParsedTokens = i;
+    public static void setParsedTokens(int i2) {
+        mParsedTokens = i2;
     }
 
     public static void setPreloadEnabled(boolean z) {
@@ -475,8 +475,8 @@ public class JsUploadTask implements INoProGuard {
         }
     }
 
-    public static void setReceivedDataSize(int i) {
-        mReceivedDataSize = i;
+    public static void setReceivedDataSize(int i2) {
+        mReceivedDataSize = i2;
     }
 
     public static void setSdkVer(String str) {
@@ -561,9 +561,9 @@ public class JsUploadTask implements INoProGuard {
         mBTranUrl = str;
     }
 
-    public void setEngine(int i) {
-        if (mCurEngine != i) {
-            mCurEngine = i;
+    public void setEngine(int i2) {
+        if (mCurEngine != i2) {
+            mCurEngine = i2;
         }
     }
 
@@ -571,15 +571,15 @@ public class JsUploadTask implements INoProGuard {
         mFirstScreenTime = j;
     }
 
-    public void setHttpcode(int i) {
-        if (mHttpcode != i) {
-            mHttpcode = i;
+    public void setHttpcode(int i2) {
+        if (mHttpcode != i2) {
+            mHttpcode = i2;
         }
     }
 
-    public void setNetcode(int i) {
-        if (mNetcode != i) {
-            mNetcode = i;
+    public void setNetcode(int i2) {
+        if (mNetcode != i2) {
+            mNetcode = i2;
         }
     }
 
@@ -591,9 +591,9 @@ public class JsUploadTask implements INoProGuard {
         mSearchId = str;
     }
 
-    public void setWiseLandingPageType(int i) {
-        if (mWiseLandingPageType != i) {
-            mWiseLandingPageType = i;
+    public void setWiseLandingPageType(int i2) {
+        if (mWiseLandingPageType != i2) {
+            mWiseLandingPageType = i2;
         }
     }
 }

@@ -3,7 +3,6 @@ package com.bumptech.glide.load.model;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.util.Pools;
-import com.bumptech.glide.Registry;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -91,26 +90,20 @@ public class ModelLoaderRegistry {
     @NonNull
     public <A> List<ModelLoader<A, ?>> getModelLoaders(@NonNull A a2) {
         List<ModelLoader<A, ?>> modelLoadersForClass = getModelLoadersForClass(getClass(a2));
-        if (!modelLoadersForClass.isEmpty()) {
-            int size = modelLoadersForClass.size();
-            List<ModelLoader<A, ?>> emptyList = Collections.emptyList();
-            boolean z = true;
-            for (int i = 0; i < size; i++) {
-                ModelLoader<A, ?> modelLoader = modelLoadersForClass.get(i);
-                if (modelLoader.handles(a2)) {
-                    if (z) {
-                        emptyList = new ArrayList<>(size - i);
-                        z = false;
-                    }
-                    emptyList.add(modelLoader);
+        int size = modelLoadersForClass.size();
+        List<ModelLoader<A, ?>> emptyList = Collections.emptyList();
+        boolean z = true;
+        for (int i2 = 0; i2 < size; i2++) {
+            ModelLoader<A, ?> modelLoader = modelLoadersForClass.get(i2);
+            if (modelLoader.handles(a2)) {
+                if (z) {
+                    emptyList = new ArrayList<>(size - i2);
+                    z = false;
                 }
+                emptyList.add(modelLoader);
             }
-            if (emptyList.isEmpty()) {
-                throw new Registry.NoModelLoaderAvailableException(a2, modelLoadersForClass);
-            }
-            return emptyList;
         }
-        throw new Registry.NoModelLoaderAvailableException(a2);
+        return emptyList;
     }
 
     public synchronized <Model, Data> void prepend(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {

@@ -25,6 +25,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes2.dex */
 public class EmotionUtils {
     public static final boolean CACHE_DEBUG = false;
@@ -227,17 +228,17 @@ public class EmotionUtils {
         if (emotionUsageList == null) {
             emotionUsageList = new ArrayList<>();
         }
-        int i = 0;
+        int i2 = 0;
         int size = this.mRecommendEmotionPanelList.size();
         while (emotionUsageList.size() < 7 && size > 0) {
-            int i2 = i + 1;
-            String str = this.mRecommendEmotionPanelList.get(i);
+            int i3 = i2 + 1;
+            String str = this.mRecommendEmotionPanelList.get(i2);
             Map<String, EmotionClassic> map = this.mEmotionClassicList;
             if (map != null && map.containsKey(str) && !TextUtils.isEmpty(str) && emotionUsageList.indexOf(str) == -1) {
                 emotionUsageList.add(str);
             }
             size--;
-            i = i2;
+            i2 = i3;
         }
         return emotionUsageList;
     }
@@ -270,8 +271,8 @@ public class EmotionUtils {
         JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
         if (optJSONArray2 != null) {
             int length = optJSONArray2.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject jSONObject = (JSONObject) optJSONArray2.get(i2);
                 String optString = jSONObject.optString("id");
                 String optString2 = jSONObject.optString("text");
                 String optString3 = jSONObject.optString("icon");
@@ -286,8 +287,8 @@ public class EmotionUtils {
         JSONArray optJSONArray3 = optJSONObject.optJSONArray("recommend");
         if (optJSONArray3 != null) {
             int length2 = optJSONArray3.length();
-            for (int i2 = 0; i2 < length2; i2++) {
-                String queryEmotionNameById = queryEmotionNameById(concurrentHashMap, (String) optJSONArray3.get(i2));
+            for (int i3 = 0; i3 < length2; i3++) {
+                String queryEmotionNameById = queryEmotionNameById(concurrentHashMap, (String) optJSONArray3.get(i3));
                 if (!TextUtils.isEmpty(queryEmotionNameById)) {
                     copyOnWriteArrayList2.add(queryEmotionNameById);
                 }
@@ -297,8 +298,8 @@ public class EmotionUtils {
             JSONArray optJSONArray4 = optJSONObject.optJSONArray("panel_emoticons");
             if (optJSONArray4 != null) {
                 int length3 = optJSONArray4.length();
-                for (int i3 = 0; i3 < length3; i3++) {
-                    String queryEmotionNameById2 = queryEmotionNameById(concurrentHashMap, (String) optJSONArray4.get(i3));
+                for (int i4 = 0; i4 < length3; i4++) {
+                    String queryEmotionNameById2 = queryEmotionNameById(concurrentHashMap, (String) optJSONArray4.get(i4));
                     if (!TextUtils.isEmpty(queryEmotionNameById2)) {
                         copyOnWriteArrayList.add(queryEmotionNameById2);
                     }
@@ -330,7 +331,7 @@ public class EmotionUtils {
     public void playEmotionClickSound() {
         int streamVolume;
         MediaPlayer mediaPlayer = this.mMediaPlayer;
-        if (mediaPlayer == null || mediaPlayer.isPlaying() || (streamVolume = ((AudioManager) AppRuntime.getAppContext().getSystemService("audio")).getStreamVolume(2)) <= 0) {
+        if (mediaPlayer == null || mediaPlayer.isPlaying() || (streamVolume = ((AudioManager) AppRuntime.getAppContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).getStreamVolume(2)) <= 0) {
             return;
         }
         float f2 = streamVolume;

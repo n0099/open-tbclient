@@ -11,79 +11,79 @@ import com.baidu.tieba.R;
 public class d extends com.baidu.platform.comapi.walknavi.g.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f9786a;
+    public Activity f10150a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.platform.comapi.walknavi.g.a f9787b;
+    public com.baidu.platform.comapi.walknavi.g.a f10151b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f9788c;
+    public ImageView f10152c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f9789d;
+    public TextView f10153d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f9790e;
+    public View f10154e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f9791f;
+    public View f10155f;
 
     public d(Context context, com.baidu.platform.comapi.walknavi.g.a aVar, View view) {
-        this.f9786a = (Activity) context;
-        this.f9787b = aVar;
+        this.f10150a = (Activity) context;
+        this.f10151b = aVar;
         a(view);
     }
 
-    public void b(int i) {
-        this.f9789d.setTextColor(i);
+    public void b(int i2) {
+        this.f10153d.setTextColor(i2);
     }
 
     public void c() {
-        if (this.f9790e.getVisibility() == 8) {
-            this.f9790e.setVisibility(0);
-            Animation c2 = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f9786a, R.attr.SapiSdkActionText);
-            this.f9790e.setAnimation(c2);
+        if (this.f10154e.getVisibility() == 8) {
+            this.f10154e.setVisibility(0);
+            Animation c2 = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f10150a, R.attr.SapiSdkActionText);
+            this.f10154e.setAnimation(c2);
             c2.setAnimationListener(new e(this));
             c2.start();
         }
     }
 
     public void d() {
-        if (this.f9790e.getVisibility() == 0) {
-            Animation c2 = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f9786a, R.attr.SapiSdkDividerColor);
+        if (this.f10154e.getVisibility() == 0) {
+            Animation c2 = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f10150a, R.attr.SapiSdkDividerColor);
             c2.setAnimationListener(new f(this));
-            this.f9790e.startAnimation(c2);
+            this.f10154e.startAnimation(c2);
         }
     }
 
     private void a(View view) {
-        this.f9791f = view.findViewById(R.dimen.abc_action_bar_stacked_tab_max_width);
-        this.f9788c = (ImageView) view.findViewById(R.dimen.M_W_X006);
-        this.f9789d = (TextView) view.findViewById(R.dimen.M_W_X007);
+        this.f10155f = view.findViewById(R.dimen.abc_action_bar_stacked_tab_max_width);
+        this.f10152c = (ImageView) view.findViewById(R.dimen.M_W_X006);
+        this.f10153d = (TextView) view.findViewById(R.dimen.M_W_X007);
         View findViewById = view.findViewById(R.dimen.M_W_X005);
-        this.f9790e = findViewById;
+        this.f10154e = findViewById;
         findViewById.setVisibility(8);
     }
 
-    public void a(int i, String str) {
-        if (i == 2130837576) {
-            this.f9789d.setVisibility(8);
+    public void a(int i2, String str) {
+        if (i2 == 2130837576) {
+            this.f10153d.setVisibility(8);
         } else {
-            this.f9789d.setVisibility(0);
+            this.f10153d.setVisibility(0);
         }
-        if (com.baidu.platform.comapi.bikenavi.a.a.f9383a) {
-            this.f9788c.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.f9786a, i));
+        if (com.baidu.platform.comapi.bikenavi.a.a.f9734a) {
+            this.f10152c.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.f10150a, i2));
         } else {
-            this.f9788c.setImageResource(i);
+            this.f10152c.setImageResource(i2);
         }
-        if (i != 2130837603 && i != 2130837604) {
-            this.f9789d.setText(str);
+        if (i2 != 2130837603 && i2 != 2130837604) {
+            this.f10153d.setText(str);
         } else {
-            this.f9789d.setText("步行导航开始");
+            this.f10153d.setText("步行导航开始");
         }
     }
 
-    public void a(int i) {
-        this.f9791f.setBackgroundColor(i);
+    public void a(int i2) {
+        this.f10155f.setBackgroundColor(i2);
     }
 }

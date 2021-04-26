@@ -17,8 +17,8 @@ public class ScreenBrightUtils {
         if (activity != null) {
             float f2 = activity.getWindow().getAttributes().screenBrightness;
             int screenBrightness = f2 < 0.0f ? getScreenBrightness(activity) : (int) (f2 * 255.0f);
-            int i = mBrightLevel;
-            return (i < 0 || screenBrightness > 50) ? screenBrightness : i;
+            int i2 = mBrightLevel;
+            return (i2 < 0 || screenBrightness > 50) ? screenBrightness : i2;
         }
         return -1;
     }
@@ -48,35 +48,35 @@ public class ScreenBrightUtils {
         }
     }
 
-    public static int limitRange(int i, int i2, int i3) {
-        if (i < i2) {
-            i = i2;
+    public static int limitRange(int i2, int i3, int i4) {
+        if (i2 < i3) {
+            i2 = i3;
         }
-        return i > i3 ? i3 : i;
+        return i2 > i4 ? i4 : i2;
     }
 
-    public static void saveBrightness(Activity activity, int i) {
+    public static void saveBrightness(Activity activity, int i2) {
         Uri uriFor = Settings.System.getUriFor("screen_brightness");
         ContentResolver contentResolver = activity.getContentResolver();
-        Settings.System.putInt(contentResolver, "screen_brightness", i);
+        Settings.System.putInt(contentResolver, "screen_brightness", i2);
         contentResolver.notifyChange(uriFor, null);
     }
 
-    public static void setBrightness(Activity activity, int i) {
+    public static void setBrightness(Activity activity, int i2) {
         if (activity != null) {
-            mBrightLevel = limitRange(i, 0, 255);
-            int limitRange = limitRange(i, 50, 255);
+            mBrightLevel = limitRange(i2, 0, 255);
+            int limitRange = limitRange(i2, 50, 255);
             WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
             attributes.screenBrightness = Float.valueOf(limitRange).floatValue() * 0.003921569f;
             activity.getWindow().setAttributes(attributes);
         }
     }
 
-    public static void setWinBrightness(Activity activity, int i) {
+    public static void setWinBrightness(Activity activity, int i2) {
         if (activity != null) {
             Window window = activity.getWindow();
             WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.screenBrightness = i;
+            attributes.screenBrightness = i2;
             window.setAttributes(attributes);
         }
     }

@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
-import d.b.j0.e1.f.i.b;
-import d.b.j0.e1.t.d;
+import d.a.j0.e1.f.i.b;
+import d.a.j0.e1.t.d;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
@@ -92,8 +92,8 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     }
 
     public void updateEditStatus(boolean z) {
-        for (int i = 0; i != this.mList.size(); i++) {
-            this.mList.get(i).setSelected(z);
+        for (int i2 = 0; i2 != this.mList.size(); i2++) {
+            this.mList.get(i2).setSelected(z);
         }
     }
 }

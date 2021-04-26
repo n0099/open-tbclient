@@ -1,6 +1,6 @@
 package com.baidu.helios.channels.csc;
 
-import d.b.q.g.b.b;
+import d.a.q.g.b.b;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
@@ -69,27 +69,27 @@ public class d {
         for (Constructor<?> constructor2 : cls.getConstructors()) {
             Class<?>[] parameterTypes = constructor2.getParameterTypes();
             if (parameterTypes.length >= objArr.length) {
-                int i = 0;
                 int i2 = 0;
-                while (i < objArr.length) {
-                    Object obj = objArr[i];
-                    while (obj != null && i2 < parameterTypes.length) {
-                        Class<?> cls2 = parameterTypes[i2];
+                int i3 = 0;
+                while (i2 < objArr.length) {
+                    Object obj = objArr[i2];
+                    while (obj != null && i3 < parameterTypes.length) {
+                        Class<?> cls2 = parameterTypes[i3];
                         if (cls2.isPrimitive()) {
                             cls2 = a(cls2);
                         }
                         if (cls2.isInstance(obj)) {
                             break;
                         }
-                        i2++;
+                        i3++;
                     }
-                    if (i2 == parameterTypes.length) {
+                    if (i3 == parameterTypes.length) {
                         break;
                     }
+                    i3++;
                     i2++;
-                    i++;
                 }
-                if (i != objArr.length) {
+                if (i2 != objArr.length) {
                     continue;
                 } else if (constructor == null || parameterTypes.length < constructor.getParameterTypes().length) {
                     constructor = constructor2;

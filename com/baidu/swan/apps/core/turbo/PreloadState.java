@@ -9,9 +9,9 @@ public enum PreloadState {
     public final int mStatsCodeForNormal;
     public final int mStatsCodeForReload;
 
-    PreloadState(int i, int i2) {
-        this.mStatsCodeForNormal = i;
-        this.mStatsCodeForReload = i2;
+    PreloadState(int i2, int i3) {
+        this.mStatsCodeForNormal = i2;
+        this.mStatsCodeForReload = i3;
     }
 
     public int statsCode(boolean z) {

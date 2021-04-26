@@ -79,9 +79,9 @@ public class PreferenceUtils {
         }
     }
 
-    public static void putInt(String str, int i) {
+    public static void putInt(String str, int i2) {
         try {
-            commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putInt(str, i));
+            commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putInt(str, i2));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -129,12 +129,12 @@ public class PreferenceUtils {
         }
     }
 
-    public static int getInt(String str, int i) {
+    public static int getInt(String str, int i2) {
         try {
-            return PreferenceManager.getDefaultSharedPreferences(Application.get()).getInt(str, i);
+            return PreferenceManager.getDefaultSharedPreferences(Application.get()).getInt(str, i2);
         } catch (Exception e2) {
             e2.printStackTrace();
-            return i;
+            return i2;
         }
     }
 

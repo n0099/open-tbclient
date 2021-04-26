@@ -13,10 +13,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class a {
-    public static Bitmap a(byte[] bArr, int i, int i2) {
-        YuvImage yuvImage = new YuvImage(bArr, 17, i, i2, null);
+    public static Bitmap a(byte[] bArr, int i2, int i3) {
+        YuvImage yuvImage = new YuvImage(bArr, 17, i2, i3, null);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        yuvImage.compressToJpeg(new Rect(0, 0, i, i2), 80, byteArrayOutputStream);
+        yuvImage.compressToJpeg(new Rect(0, 0, i2, i3), 80, byteArrayOutputStream);
         Bitmap decodeByteArray = BitmapFactory.decodeByteArray(byteArrayOutputStream.toByteArray(), 0, byteArrayOutputStream.size());
         Matrix matrix = new Matrix();
         matrix.reset();
@@ -31,7 +31,7 @@ public class a {
         return copy;
     }
 
-    public static byte[] a(Bitmap bitmap, int i) {
+    public static byte[] a(Bitmap bitmap, int i2) {
         if (bitmap == null) {
             return null;
         }
@@ -39,7 +39,7 @@ public class a {
         matrix.setScale(0.5f, 0.5f);
         Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        createBitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
+        createBitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();
     }
 

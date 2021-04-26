@@ -71,13 +71,13 @@ public class IMSyncPushMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        if (i == 0) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+        if (i2 == 0) {
             Utility.setLastSyncPushTime(context, System.currentTimeMillis());
             return;
         }
         setNeedReSend(false);
-        super.handleMessageResult(context, jSONObject, i, str);
+        super.handleMessageResult(context, jSONObject, i2, str);
     }
 
     @Override // com.baidu.android.imsdk.request.Message

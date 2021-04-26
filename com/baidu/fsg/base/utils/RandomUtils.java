@@ -12,9 +12,9 @@ public final class RandomUtils {
         return new Random(System.currentTimeMillis() + Thread.currentThread().getId()).nextInt(100) % 3;
     }
 
-    public static String getRandomString(int i) {
+    public static String getRandomString(int i2) {
         StringBuffer stringBuffer = new StringBuffer();
-        for (int i2 = 0; i2 < i / 32; i2++) {
+        for (int i3 = 0; i3 < i2 / 32; i3++) {
             stringBuffer.append(a());
         }
         return stringBuffer.toString();

@@ -8,7 +8,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MetaBox extends AbstractContainerBox {
     public static final String TYPE = "meta";
     public int flags;
@@ -55,12 +55,12 @@ public class MetaBox extends AbstractContainerBox {
         return 4L;
     }
 
-    public void setFlags(int i) {
-        this.flags = i;
+    public void setFlags(int i2) {
+        this.flags = i2;
     }
 
-    public void setVersion(int i) {
-        this.version = i;
+    public void setVersion(int i2) {
+        this.version = i2;
     }
 
     public final void writeVersionAndFlags(ByteBuffer byteBuffer) {

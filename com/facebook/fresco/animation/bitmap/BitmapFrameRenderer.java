@@ -3,13 +3,13 @@ package com.facebook.fresco.animation.bitmap;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface BitmapFrameRenderer {
     int getIntrinsicHeight();
 
     int getIntrinsicWidth();
 
-    boolean renderFrame(int i, Bitmap bitmap);
+    boolean renderFrame(int i2, Bitmap bitmap);
 
     void setBounds(@Nullable Rect rect);
 }

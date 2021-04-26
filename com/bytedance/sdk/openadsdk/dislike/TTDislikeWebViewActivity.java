@@ -17,31 +17,31 @@ import org.json.JSONObject;
 public class TTDislikeWebViewActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f28816a;
+    public View f29703a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f28817b;
+    public TextView f29704b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SSWebView f28818c;
+    public SSWebView f29705c;
 
     /* renamed from: d  reason: collision with root package name */
-    public l f28819d;
+    public l f29706d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28820e;
+    public String f29707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28821f = false;
+    public boolean f29708f = false;
 
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         setContentView(ad.f(this, "tt_activity_lite_web_layout"));
-        this.f28816a = findViewById(ad.e(this, "tt_lite_web_back"));
-        this.f28817b = (TextView) findViewById(ad.e(this, "tt_lite_web_title"));
-        this.f28818c = (SSWebView) findViewById(ad.e(this, "tt_lite_web_view"));
-        this.f28816a.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.1
+        this.f29703a = findViewById(ad.e(this, "tt_lite_web_back"));
+        this.f29704b = (TextView) findViewById(ad.e(this, "tt_lite_web_title"));
+        this.f29705c = (SSWebView) findViewById(ad.e(this, "tt_lite_web_view"));
+        this.f29703a.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TTDislikeWebViewActivity.this.onBackPressed();
@@ -49,15 +49,15 @@ public class TTDislikeWebViewActivity extends Activity {
         });
         if (getIntent() != null) {
             a();
-            this.f28817b.setText(getIntent().getStringExtra("title"));
-            this.f28818c.loadUrl(getIntent().getStringExtra("url"));
-            this.f28820e = getIntent().getStringExtra("tag");
+            this.f29704b.setText(getIntent().getStringExtra("title"));
+            this.f29705c.loadUrl(getIntent().getStringExtra("url"));
+            this.f29707e = getIntent().getStringExtra("tag");
             try {
                 String stringExtra = getIntent().getStringExtra("meta");
                 if (TextUtils.isEmpty(stringExtra)) {
                     return;
                 }
-                this.f28819d = com.bytedance.sdk.openadsdk.core.c.a(new JSONObject(stringExtra));
+                this.f29706d = com.bytedance.sdk.openadsdk.core.c.a(new JSONObject(stringExtra));
                 return;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -68,24 +68,24 @@ public class TTDislikeWebViewActivity extends Activity {
     }
 
     private void a() {
-        this.f28818c.getSettings().setJavaScriptEnabled(true);
-        this.f28818c.getSettings().setDisplayZoomControls(false);
-        this.f28818c.getSettings().setCacheMode(2);
-        this.f28818c.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this, null, null) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.2
+        this.f29705c.getSettings().setJavaScriptEnabled(true);
+        this.f29705c.getSettings().setDisplayZoomControls(false);
+        this.f29705c.getSettings().setCacheMode(2);
+        this.f29705c.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this, null, null) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.2
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
-                if (TTDislikeWebViewActivity.this.f28819d == null || TTDislikeWebViewActivity.this.f28821f) {
+                if (TTDislikeWebViewActivity.this.f29706d == null || TTDislikeWebViewActivity.this.f29708f) {
                     return;
                 }
                 TTDislikeWebViewActivity tTDislikeWebViewActivity = TTDislikeWebViewActivity.this;
-                com.bytedance.sdk.openadsdk.c.d.b(tTDislikeWebViewActivity, tTDislikeWebViewActivity.f28819d, TTDislikeWebViewActivity.this.f28820e, "ad_explation_url_show");
+                com.bytedance.sdk.openadsdk.c.d.b(tTDislikeWebViewActivity, tTDislikeWebViewActivity.f29706d, TTDislikeWebViewActivity.this.f29707e, "ad_explation_url_show");
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
             public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
                 super.onReceivedError(webView, webResourceRequest, webResourceError);
-                TTDislikeWebViewActivity.this.f28821f = true;
+                TTDislikeWebViewActivity.this.f29708f = true;
             }
         });
     }

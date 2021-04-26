@@ -3,31 +3,31 @@ package com.xiaomi.push;
 public class jm extends iv {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41272a;
+    public int f38816a;
 
     public jm() {
-        this.f41272a = 0;
+        this.f38816a = 0;
     }
 
-    public jm(int i) {
-        this.f41272a = 0;
-        this.f41272a = i;
+    public jm(int i2) {
+        this.f38816a = 0;
+        this.f38816a = i2;
     }
 
-    public jm(int i, String str) {
+    public jm(int i2, String str) {
         super(str);
-        this.f41272a = 0;
-        this.f41272a = i;
+        this.f38816a = 0;
+        this.f38816a = i2;
     }
 
-    public jm(int i, Throwable th) {
+    public jm(int i2, Throwable th) {
         super(th);
-        this.f41272a = 0;
-        this.f41272a = i;
+        this.f38816a = 0;
+        this.f38816a = i2;
     }
 
     public jm(String str) {
         super(str);
-        this.f41272a = 0;
+        this.f38816a = 0;
     }
 }

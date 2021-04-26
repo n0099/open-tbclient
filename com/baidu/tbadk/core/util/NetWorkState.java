@@ -16,8 +16,8 @@ public class NetWorkState {
         public int mTimesNum;
     }
 
-    public static int addErrorNumsAndGet(int i) {
-        return mErrorNums.addAndGet(i);
+    public static int addErrorNumsAndGet(int i2) {
+        return mErrorNums.addAndGet(i2);
     }
 
     public static synchronized void addStatisticsData(StatisticsData statisticsData) {
@@ -42,7 +42,7 @@ public class NetWorkState {
         }
     }
 
-    public static int getErrorNumsAndSet(int i) {
-        return mErrorNums.getAndSet(i);
+    public static int getErrorNumsAndSet(int i2) {
+        return mErrorNums.getAndSet(i2);
     }
 }

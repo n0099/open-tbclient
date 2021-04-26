@@ -6,12 +6,12 @@ import org.apache.http.params.HttpParams;
 @Deprecated
 /* loaded from: classes7.dex */
 public class SocketInputBuffer extends AbstractSessionInputBuffer {
-    public SocketInputBuffer(Socket socket, int i, HttpParams httpParams) throws IOException {
+    public SocketInputBuffer(Socket socket, int i2, HttpParams httpParams) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.io.SessionInputBuffer
-    public boolean isDataAvailable(int i) throws IOException {
+    public boolean isDataAvailable(int i2) throws IOException {
         throw new RuntimeException("Stub!");
     }
 

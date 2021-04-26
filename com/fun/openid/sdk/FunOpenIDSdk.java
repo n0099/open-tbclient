@@ -94,7 +94,7 @@ public class FunOpenIDSdk {
                     Log.e(TAG, "getOaid context is null !!!");
                 }
             } else if (onGetOaidListener != null) {
-                j.f30617a.execute(new e(context, onGetOaidListener));
+                j.f31551a.execute(new e(context, onGetOaidListener));
             } else {
                 if (isLogEnabled()) {
                     Log.e(TAG, "getOaid onGetOaidListener is null !!!");

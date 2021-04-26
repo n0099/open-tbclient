@@ -6,6 +6,8 @@ public final class PmsConstant {
     /* loaded from: classes2.dex */
     public static final class DynamicDBVersion {
         public static final int DB_VERSION_10_6_0 = 1;
+        public static final int DB_VERSION_12_12_0 = 2;
+        public static final int DB_VERSION_12_14_0 = 3;
     }
 
     /* loaded from: classes2.dex */

@@ -2,41 +2,65 @@ package com.airbnb.lottie.model.content;
 
 import android.graphics.Paint;
 import androidx.annotation.Nullable;
-import d.a.a.f;
-import d.a.a.s.b.c;
-import d.a.a.s.b.r;
-import d.a.a.u.i.d;
-import d.a.a.u.j.b;
+import com.airbnb.lottie.LottieDrawable;
+import com.airbnb.lottie.animation.content.Content;
+import com.airbnb.lottie.animation.content.StrokeContent;
+import com.airbnb.lottie.model.animatable.AnimatableColorValue;
+import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
+import com.airbnb.lottie.model.animatable.AnimatableIntegerValue;
+import com.airbnb.lottie.model.layer.BaseLayer;
 import java.util.List;
 /* loaded from: classes.dex */
-public class ShapeStroke implements b {
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String f1602a;
+public class ShapeStroke implements ContentModel {
+    public final LineCapType capType;
+    public final AnimatableColorValue color;
+    public final boolean hidden;
+    public final LineJoinType joinType;
+    public final List<AnimatableFloatValue> lineDashPattern;
+    public final float miterLimit;
+    public final String name;
     @Nullable
+    public final AnimatableFloatValue offset;
+    public final AnimatableIntegerValue opacity;
+    public final AnimatableFloatValue width;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final d.a.a.u.i.b f1603b;
+    /* renamed from: com.airbnb.lottie.model.content.ShapeStroke$1  reason: invalid class name */
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineCapType;
+        public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineJoinType;
 
-    /* renamed from: c  reason: collision with root package name */
-    public final List<d.a.a.u.i.b> f1604c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final d.a.a.u.i.a f1605d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final d f1606e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final d.a.a.u.i.b f1607f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final LineCapType f1608g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final LineJoinType f1609h;
-    public final float i;
-    public final boolean j;
+        static {
+            int[] iArr = new int[LineJoinType.values().length];
+            $SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineJoinType = iArr;
+            try {
+                iArr[LineJoinType.BEVEL.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineJoinType[LineJoinType.MITER.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                $SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineJoinType[LineJoinType.ROUND.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            int[] iArr2 = new int[LineCapType.values().length];
+            $SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineCapType = iArr2;
+            try {
+                iArr2[LineCapType.BUTT.ordinal()] = 1;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                $SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineCapType[LineCapType.ROUND.ordinal()] = 2;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                $SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineCapType[LineCapType.UNKNOWN.ordinal()] = 3;
+            } catch (NoSuchFieldError unused6) {
+            }
+        }
+    }
 
     /* loaded from: classes.dex */
     public enum LineCapType {
@@ -45,9 +69,9 @@ public class ShapeStroke implements b {
         UNKNOWN;
 
         public Paint.Cap toPaintCap() {
-            int i = a.f1610a[ordinal()];
-            if (i != 1) {
-                if (i != 2) {
+            int i2 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineCapType[ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
                     return Paint.Cap.SQUARE;
                 }
                 return Paint.Cap.ROUND;
@@ -63,10 +87,10 @@ public class ShapeStroke implements b {
         BEVEL;
 
         public Paint.Join toPaintJoin() {
-            int i = a.f1611b[ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
+            int i2 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineJoinType[ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
                         return null;
                     }
                     return Paint.Join.ROUND;
@@ -77,102 +101,61 @@ public class ShapeStroke implements b {
         }
     }
 
-    /* loaded from: classes.dex */
-    public static /* synthetic */ class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f1610a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f1611b;
-
-        static {
-            int[] iArr = new int[LineJoinType.values().length];
-            f1611b = iArr;
-            try {
-                iArr[LineJoinType.BEVEL.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                f1611b[LineJoinType.MITER.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                f1611b[LineJoinType.ROUND.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            int[] iArr2 = new int[LineCapType.values().length];
-            f1610a = iArr2;
-            try {
-                iArr2[LineCapType.BUTT.ordinal()] = 1;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                f1610a[LineCapType.ROUND.ordinal()] = 2;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                f1610a[LineCapType.UNKNOWN.ordinal()] = 3;
-            } catch (NoSuchFieldError unused6) {
-            }
-        }
+    public ShapeStroke(String str, @Nullable AnimatableFloatValue animatableFloatValue, List<AnimatableFloatValue> list, AnimatableColorValue animatableColorValue, AnimatableIntegerValue animatableIntegerValue, AnimatableFloatValue animatableFloatValue2, LineCapType lineCapType, LineJoinType lineJoinType, float f2, boolean z) {
+        this.name = str;
+        this.offset = animatableFloatValue;
+        this.lineDashPattern = list;
+        this.color = animatableColorValue;
+        this.opacity = animatableIntegerValue;
+        this.width = animatableFloatValue2;
+        this.capType = lineCapType;
+        this.joinType = lineJoinType;
+        this.miterLimit = f2;
+        this.hidden = z;
     }
 
-    public ShapeStroke(String str, @Nullable d.a.a.u.i.b bVar, List<d.a.a.u.i.b> list, d.a.a.u.i.a aVar, d dVar, d.a.a.u.i.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType, float f2, boolean z) {
-        this.f1602a = str;
-        this.f1603b = bVar;
-        this.f1604c = list;
-        this.f1605d = aVar;
-        this.f1606e = dVar;
-        this.f1607f = bVar2;
-        this.f1608g = lineCapType;
-        this.f1609h = lineJoinType;
-        this.i = f2;
-        this.j = z;
+    public LineCapType getCapType() {
+        return this.capType;
     }
 
-    @Override // d.a.a.u.j.b
-    public c a(f fVar, d.a.a.u.k.a aVar) {
-        return new r(fVar, aVar, this);
+    public AnimatableColorValue getColor() {
+        return this.color;
     }
 
-    public LineCapType b() {
-        return this.f1608g;
+    public AnimatableFloatValue getDashOffset() {
+        return this.offset;
     }
 
-    public d.a.a.u.i.a c() {
-        return this.f1605d;
+    public LineJoinType getJoinType() {
+        return this.joinType;
     }
 
-    public d.a.a.u.i.b d() {
-        return this.f1603b;
+    public List<AnimatableFloatValue> getLineDashPattern() {
+        return this.lineDashPattern;
     }
 
-    public LineJoinType e() {
-        return this.f1609h;
+    public float getMiterLimit() {
+        return this.miterLimit;
     }
 
-    public List<d.a.a.u.i.b> f() {
-        return this.f1604c;
+    public String getName() {
+        return this.name;
     }
 
-    public float g() {
-        return this.i;
+    public AnimatableIntegerValue getOpacity() {
+        return this.opacity;
     }
 
-    public String h() {
-        return this.f1602a;
+    public AnimatableFloatValue getWidth() {
+        return this.width;
     }
 
-    public d i() {
-        return this.f1606e;
+    public boolean isHidden() {
+        return this.hidden;
     }
 
-    public d.a.a.u.i.b j() {
-        return this.f1607f;
-    }
-
-    public boolean k() {
-        return this.j;
+    @Override // com.airbnb.lottie.model.content.ContentModel
+    public Content toContent(LottieDrawable lottieDrawable, BaseLayer baseLayer) {
+        return new StrokeContent(lottieDrawable, baseLayer, this);
     }
 }

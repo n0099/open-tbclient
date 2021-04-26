@@ -1,10 +1,10 @@
 package com.baidu.tieba.h5power;
 
 import com.baidu.tbadk.browser.UegTbJsBridge;
-import d.b.c.e.p.k;
-import d.b.j0.d3.l0.d.a;
-import d.b.j0.d3.l0.d.c;
-import d.b.j0.d3.l0.d.e;
+import d.a.c.e.p.k;
+import d.a.j0.d3.l0.d.a;
+import d.a.j0.d3.l0.d.c;
+import d.a.j0.d3.l0.d.e;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -21,7 +21,7 @@ public class UegTbJsBridge_Proxy extends a {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // d.b.j0.d3.l0.d.a
+    @Override // d.a.j0.d3.l0.d.a
     public c dispatch(e eVar, c cVar) {
         if (cVar == null) {
             cVar = new c();
@@ -50,7 +50,7 @@ public class UegTbJsBridge_Proxy extends a {
         return cVar;
     }
 
-    @Override // d.b.j0.d3.l0.d.a
+    @Override // d.a.j0.d3.l0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         if (k.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
             return null;

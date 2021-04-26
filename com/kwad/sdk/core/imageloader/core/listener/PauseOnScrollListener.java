@@ -21,23 +21,23 @@ public class PauseOnScrollListener implements AbsListView.OnScrollListener {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
         AbsListView.OnScrollListener onScrollListener = this.externalListener;
         if (onScrollListener != null) {
-            onScrollListener.onScroll(absListView, i, i2, i3);
+            onScrollListener.onScroll(absListView, i2, i3, i4);
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (i == 0) {
+    public void onScrollStateChanged(AbsListView absListView, int i2) {
+        if (i2 == 0) {
             this.imageLoader.resume();
-        } else if (i == 1 ? this.pauseOnScroll : !(i != 2 || !this.pauseOnFling)) {
+        } else if (i2 == 1 ? this.pauseOnScroll : !(i2 != 2 || !this.pauseOnFling)) {
             this.imageLoader.pause();
         }
         AbsListView.OnScrollListener onScrollListener = this.externalListener;
         if (onScrollListener != null) {
-            onScrollListener.onScrollStateChanged(absListView, i);
+            onScrollListener.onScrollStateChanged(absListView, i2);
         }
     }
 }

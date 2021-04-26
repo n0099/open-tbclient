@@ -14,7 +14,6 @@ import com.baidu.livesdk.api.im.live.LiveSendMessage;
 import com.baidu.livesdk.sdk.LiveSDK;
 import com.baidu.livesdk.sdk.im.live.MessageUtils;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
-import com.kwai.video.player.KsMediaMeta;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,14 +29,14 @@ public class LiveMessageParser {
         if (liveMessageBean == null) {
             return false;
         }
-        int i = -1;
+        int i2 = -1;
         try {
-            i = Integer.parseInt(liveMessageBean.type);
+            i2 = Integer.parseInt(liveMessageBean.type);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        if (i != 0) {
-            switch (i) {
+        if (i2 != 0) {
+            switch (i2) {
                 case 100:
                 case 101:
                 case 102:
@@ -64,8 +63,8 @@ public class LiveMessageParser {
         if (jSONArray != null) {
             ArrayList arrayList = new ArrayList();
             int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                 if (optJSONObject != null && (parseJson = parseJson(optJSONObject)) != null) {
                     arrayList.add(parseJson);
                 }
@@ -191,9 +190,9 @@ public class LiveMessageParser {
         }
     }
 
-    public static LiveMessageBean.Data parseDataFromJson(int i, JSONObject jSONObject) {
+    public static LiveMessageBean.Data parseDataFromJson(int i2, JSONObject jSONObject) {
         LiveMessageBean.Data data = new LiveMessageBean.Data();
-        switch (i) {
+        switch (i2) {
             case 101:
                 data.feedback = jSONObject.optInt("feedbacks");
                 data.totaluser = jSONObject.optInt("totaluser");
@@ -242,8 +241,8 @@ public class LiveMessageParser {
                 JSONArray optJSONArray = jSONObject.optJSONArray("msgids");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
                     data.delMsgIds = new long[optJSONArray.length()];
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        data.delMsgIds[i2] = optJSONArray.optLong(i2);
+                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                        data.delMsgIds[i3] = optJSONArray.optLong(i3);
                     }
                     break;
                 }
@@ -559,7 +558,7 @@ public class LiveMessageParser {
                 if (jSONObject2 != null) {
                     String optString4 = jSONObject2.optString("url");
                     String optString5 = jSONObject2.optString("duration");
-                    String optString6 = jSONObject2.optString(KsMediaMeta.KSM_KEY_FORMAT);
+                    String optString6 = jSONObject2.optString("format");
                     LiveMessageBean.Voice voice = new LiveMessageBean.Voice();
                     voice.url = optString4;
                     voice.duration = optString5;
@@ -587,7 +586,7 @@ public class LiveMessageParser {
                             imageInfo.height = jSONObject6.optInt("height");
                         }
                         imageInfo.url = jSONObject6.optString("url");
-                        imageInfo.format = jSONObject6.optString(KsMediaMeta.KSM_KEY_FORMAT);
+                        imageInfo.format = jSONObject6.optString("format");
                         pic.origin = imageInfo;
                         messageBody.pic = pic;
                     } catch (JSONException e7) {
@@ -603,7 +602,7 @@ public class LiveMessageParser {
                             imageInfo2.height = jSONObject7.optInt("height");
                         }
                         imageInfo2.url = jSONObject7.optString("url");
-                        imageInfo2.format = jSONObject7.optString(KsMediaMeta.KSM_KEY_FORMAT);
+                        imageInfo2.format = jSONObject7.optString("format");
                         pic.thumbnail = imageInfo2;
                         messageBody.pic = pic;
                     } catch (JSONException e8) {

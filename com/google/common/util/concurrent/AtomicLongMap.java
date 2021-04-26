@@ -1,8 +1,8 @@
 package com.google.common.util.concurrent;
 
 import com.google.common.collect.Maps;
-import d.h.c.a.g;
-import d.h.c.a.n;
+import d.g.c.a.g;
+import d.g.c.a.n;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.Iterator;
@@ -20,7 +20,7 @@ public final class AtomicLongMap<K> implements Serializable {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.h.c.a.g
+        @Override // d.g.c.a.g
         /* renamed from: a */
         public Long apply(AtomicLong atomicLong) {
             return Long.valueOf(atomicLong.get());

@@ -38,6 +38,6 @@ public class McastManagerImpl {
         return ConversationStudioManImpl.getInstance(this.mContext).getReliableMsgCount(j);
     }
 
-    public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
+    public void sendQuizOpts(long j, long j2, int i2, String str, IMcastSetListener iMcastSetListener) {
     }
 }

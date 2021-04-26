@@ -36,9 +36,9 @@ public final class SoLoader {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new File(getNativeLibraryDir(context)));
         arrayList.add(new File(context.getFilesDir(), "lib"));
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (!soSources.contains(arrayList.get(i))) {
-                soSources.add(arrayList.get(i));
+        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+            if (!soSources.contains(arrayList.get(i2))) {
+                soSources.add(arrayList.get(i2));
             }
         }
     }
@@ -286,8 +286,8 @@ public final class SoLoader {
                     return true;
                 }
             }
-            for (int i = 0; i < SoUtils.uris.length; i++) {
-                if (executeRelease(context, zipFile, fullName, SoUtils.uris[i]) && load(iCallingSoLoader, fullName, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
+            for (int i2 = 0; i2 < SoUtils.uris.length; i2++) {
+                if (executeRelease(context, zipFile, fullName, SoUtils.uris[i2]) && load(iCallingSoLoader, fullName, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
                     if (zipFile != null) {
                         try {
                             zipFile.close();

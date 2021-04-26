@@ -11,39 +11,41 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListHttpResponsedMessage;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListRequestMessage;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListSocketResponsedMessage;
-import d.b.j0.a1.i.c;
+import d.a.j0.a1.i.c;
 /* loaded from: classes4.dex */
 public class HomePageTabFeedNetModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f17024e;
+    public boolean f17301e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f17025f;
+    public boolean f17302f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f17026g;
+    public int f17303g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f17027h;
-    public String i;
+    public String f17304h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f17305i;
     public c j;
-    public d.b.j0.a1.i.f.a k;
-    public d.b.c.c.g.a l;
+    public d.a.j0.a1.i.f.a k;
+    public d.a.c.c.g.a l;
 
     /* loaded from: classes4.dex */
-    public class a extends d.b.c.c.g.a {
-        public a(int i, int i2) {
-            super(i, i2);
+    public class a extends d.a.c.c.g.a {
+        public a(int i2, int i3) {
+            super(i2, i3);
         }
 
-        @Override // d.b.c.c.g.a
+        @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            HomePageTabFeedNetModel.this.f17025f = false;
+            HomePageTabFeedNetModel.this.f17302f = false;
             if (responsedMessage == null) {
                 return;
             }
-            d.b.j0.a1.i.e.a aVar = null;
+            d.a.j0.a1.i.e.a aVar = null;
             if (responsedMessage instanceof TabFeedListHttpResponsedMessage) {
                 aVar = ((TabFeedListHttpResponsedMessage) responsedMessage).tabFeedData;
             } else if (responsedMessage instanceof TabFeedListSocketResponsedMessage) {
@@ -67,62 +69,62 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
 
     public HomePageTabFeedNetModel(TbPageContext tbPageContext, c cVar) {
         super(tbPageContext);
-        this.f17024e = true;
-        this.f17025f = false;
-        this.f17026g = 1;
+        this.f17301e = true;
+        this.f17302f = false;
+        this.f17303g = 1;
         this.l = new a(CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, 309655);
-        d.b.j0.d3.d0.a.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
-        d.b.j0.d3.d0.a.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
-        this.k = new d.b.j0.a1.i.f.a();
+        d.a.j0.d3.d0.a.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
+        d.a.j0.d3.d0.a.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
+        this.k = new d.a.j0.a1.i.f.a();
         this.j = cVar;
     }
 
     public boolean A() {
-        d.b.j0.a1.i.f.a aVar = this.k;
+        d.a.j0.a1.i.f.a aVar = this.k;
         if (aVar == null) {
             return false;
         }
         return aVar.c();
     }
 
-    public final void B(int i) {
+    public final void B(int i2) {
         TabFeedListRequestMessage tabFeedListRequestMessage = new TabFeedListRequestMessage();
-        tabFeedListRequestMessage.loadType = i;
-        tabFeedListRequestMessage.tabCode = this.i;
-        tabFeedListRequestMessage.tabName = this.f17027h;
-        if (i == 2) {
-            tabFeedListRequestMessage.pn = this.f17026g + 1;
-        } else if (i != 1) {
+        tabFeedListRequestMessage.loadType = i2;
+        tabFeedListRequestMessage.tabCode = this.f17305i;
+        tabFeedListRequestMessage.tabName = this.f17304h;
+        if (i2 == 2) {
+            tabFeedListRequestMessage.pn = this.f17303g + 1;
+        } else if (i2 != 1) {
             return;
         } else {
             tabFeedListRequestMessage.pn = 1;
         }
-        this.f17025f = true;
+        this.f17302f = true;
         sendMessage(tabFeedListRequestMessage);
     }
 
     public void C() {
-        if (this.f17025f) {
+        if (this.f17302f) {
             return;
         }
-        this.f17024e = false;
+        this.f17301e = false;
         B(2);
     }
 
-    public final void D(d.b.j0.a1.i.e.a aVar) {
+    public final void D(d.a.j0.a1.i.e.a aVar) {
         if (aVar != null) {
-            this.f17026g = aVar.b();
+            this.f17303g = aVar.b();
         }
         if (this.j != null) {
-            this.j.q0(this.k.a(this.f17024e, aVar));
+            this.j.M(this.k.a(this.f17301e, aVar));
         }
     }
 
     public void E() {
-        if (this.f17025f) {
+        if (this.f17302f) {
             return;
         }
-        this.f17024e = true;
+        this.f17301e = true;
         B(1);
     }
 
@@ -135,8 +137,8 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
     }
 
     public void G(String str, String str2) {
-        this.i = str;
-        this.f17027h = str2;
+        this.f17305i = str;
+        this.f17304h = str2;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -153,12 +155,12 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
         super.cancelMessage();
-        this.f17025f = false;
+        this.f17302f = false;
     }
 
     public void destory() {
         MessageManager.getInstance().unRegisterListener(this.l);
-        this.f17025f = false;
-        this.f17024e = true;
+        this.f17302f = false;
+        this.f17301e = true;
     }
 }

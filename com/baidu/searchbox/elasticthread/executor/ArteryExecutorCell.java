@@ -8,9 +8,9 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public class ArteryExecutorCell extends BaseExecutorCell {
-    public ArteryExecutorCell(int i) {
-        super(i);
-        this.mExecutor = new ThreadPoolExecutor(i, i, ElasticConfig.EXECUTOR_CONFIG_KEEP_ALIVE_TIME, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+    public ArteryExecutorCell(int i2) {
+        super(i2);
+        this.mExecutor = new ThreadPoolExecutor(i2, i2, ElasticConfig.EXECUTOR_CONFIG_KEEP_ALIVE_TIME, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
     }
 
     @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell

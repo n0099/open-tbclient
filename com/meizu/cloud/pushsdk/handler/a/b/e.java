@@ -11,34 +11,34 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38202a;
+    public int f35761a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38203b = String.valueOf(-1);
+    public String f35762b = String.valueOf(-1);
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38204c = "";
+    public String f35763c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38205d = "";
+    public String f35764d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38206e = -1;
+    public int f35765e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38207f = "";
+    public String f35766f = "";
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f38208a;
+        public String f35767a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f38209b;
+        public String f35768b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f38210c;
+        public String f35769c;
 
         public a(String str) {
             if (TextUtils.isEmpty(str)) {
@@ -57,28 +57,28 @@ public class e {
                 }
                 c(jSONObject.getString("value"));
             } catch (JSONException e2) {
-                d.k.a.a.a.b("SecurityMessage", "covert json error " + e2.getMessage());
+                d.j.a.a.a.b("SecurityMessage", "covert json error " + e2.getMessage());
             }
         }
 
         public String a() {
-            return this.f38210c;
+            return this.f35769c;
         }
 
         public void a(String str) {
-            this.f38208a = str;
+            this.f35767a = str;
         }
 
         public void b(String str) {
-            this.f38209b = str;
+            this.f35768b = str;
         }
 
         public void c(String str) {
-            this.f38210c = str;
+            this.f35769c = str;
         }
 
         public String toString() {
-            return "PublicKeyStatus{code='" + this.f38208a + "', message='" + this.f38209b + "', publicKey='" + this.f38210c + "'}";
+            return "PublicKeyStatus{code='" + this.f35767a + "', message='" + this.f35768b + "', publicKey='" + this.f35769c + "'}";
         }
     }
 
@@ -99,7 +99,7 @@ public class e {
                             }
                         }
                     } catch (JSONException e2) {
-                        d.k.a.a.a.b("SecurityMessage", "parse notification message error " + e2.getMessage());
+                        d.j.a.a.a.b("SecurityMessage", "parse notification message error " + e2.getMessage());
                         if (TextUtils.isEmpty(null)) {
                             jSONObject = new JSONObject(notificationMessage);
                         }
@@ -120,14 +120,14 @@ public class e {
             }
         } catch (Exception unused2) {
         }
-        d.k.a.a.a.d("SecurityMessage", "encrypt message " + str);
+        d.j.a.a.a.d("SecurityMessage", "encrypt message " + str);
         return str;
     }
 
     public static boolean a(String str, MessageV3 messageV3) {
         String str2;
         e e2 = e(str);
-        d.k.a.a.a.b("SecurityMessage", "securityMessage " + e2);
+        d.j.a.a.a.b("SecurityMessage", "securityMessage " + e2);
         if (System.currentTimeMillis() / 1000 > e2.a()) {
             str2 = "message expire";
         } else if (!messageV3.getTitle().contains(e2.c())) {
@@ -157,7 +157,7 @@ public class e {
         } else {
             str2 = "invalid click type";
         }
-        d.k.a.a.a.b("SecurityMessage", str2);
+        d.j.a.a.a.b("SecurityMessage", str2);
         return false;
     }
 
@@ -184,60 +184,60 @@ public class e {
                 eVar.d(jSONObject.getString("pm"));
             }
         } catch (Exception e2) {
-            d.k.a.a.a.b("SecurityMessage", "parse decryptSign error " + e2.getMessage());
+            d.j.a.a.a.b("SecurityMessage", "parse decryptSign error " + e2.getMessage());
         }
         return eVar;
     }
 
     public int a() {
-        return this.f38202a;
+        return this.f35761a;
     }
 
-    public void a(int i) {
-        this.f38202a = i;
+    public void a(int i2) {
+        this.f35761a = i2;
     }
 
     public void a(String str) {
-        this.f38203b = str;
+        this.f35762b = str;
     }
 
     public String b() {
-        return this.f38203b;
+        return this.f35762b;
     }
 
-    public void b(int i) {
-        this.f38206e = i;
+    public void b(int i2) {
+        this.f35765e = i2;
     }
 
     public void b(String str) {
-        this.f38204c = str;
+        this.f35763c = str;
     }
 
     public String c() {
-        return this.f38204c;
+        return this.f35763c;
     }
 
     public void c(String str) {
-        this.f38205d = str;
+        this.f35764d = str;
     }
 
     public String d() {
-        return this.f38205d;
+        return this.f35764d;
     }
 
     public void d(String str) {
-        this.f38207f = str;
+        this.f35766f = str;
     }
 
     public int e() {
-        return this.f38206e;
+        return this.f35765e;
     }
 
     public String f() {
-        return this.f38207f;
+        return this.f35766f;
     }
 
     public String toString() {
-        return "SecurityMessage{timestamp=" + this.f38202a + ", taskId='" + this.f38203b + "', title='" + this.f38204c + "', content='" + this.f38205d + "', clickType=" + this.f38206e + ", params='" + this.f38207f + "'}";
+        return "SecurityMessage{timestamp=" + this.f35761a + ", taskId='" + this.f35762b + "', title='" + this.f35763c + "', content='" + this.f35764d + "', clickType=" + this.f35765e + ", params='" + this.f35766f + "'}";
     }
 }

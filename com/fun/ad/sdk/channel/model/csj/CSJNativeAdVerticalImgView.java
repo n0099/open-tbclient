@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.channel.model.csj;
 
-import a.a.a.a.r.b.a.b;
+import a.a.a.a.t.b.a.b;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -20,7 +20,7 @@ import java.util.List;
 public final class CSJNativeAdVerticalImgView extends b {
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f30534f;
+    public ImageView f31467f;
 
     /* loaded from: classes6.dex */
     public class a extends DrawableImageViewTarget {
@@ -66,11 +66,11 @@ public final class CSJNativeAdVerticalImgView extends b {
         super(context, attributeSet);
     }
 
-    public CSJNativeAdVerticalImgView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public CSJNativeAdVerticalImgView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 
-    @Override // a.a.a.a.r.b.a.b
+    @Override // a.a.a.a.t.b.a.b
     public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
         TTImage tTImage;
         super.a(activity, tTNativeAd, adInteractionListener);
@@ -78,12 +78,12 @@ public final class CSJNativeAdVerticalImgView extends b {
         if (imageList == null || imageList.isEmpty() || (tTImage = imageList.get(0)) == null || !tTImage.isValid()) {
             return;
         }
-        Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this, this.f30534f));
+        Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this, this.f31467f));
     }
 
-    @Override // a.a.a.a.r.b.a.b, android.view.View
+    @Override // a.a.a.a.t.b.a.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30534f = (ImageView) findViewById(R.id.ad_img);
+        this.f31467f = (ImageView) findViewById(R.id.ad_img);
     }
 }

@@ -43,37 +43,37 @@ public class BitstreamReader {
         if (this.nBit == 8) {
             advance();
         }
-        int i = 1 << ((8 - this.nBit) - 1);
-        return (this.curByte == -1 || (this.nextByte == -1 && ((((i << 1) - 1) & this.curByte) == i))) ? false : true;
+        int i2 = 1 << ((8 - this.nBit) - 1);
+        return (this.curByte == -1 || (this.nextByte == -1 && ((((i2 << 1) - 1) & this.curByte) == i2))) ? false : true;
     }
 
-    public int peakNextBits(int i) throws IOException {
-        if (i <= 8) {
+    public int peakNextBits(int i2) throws IOException {
+        if (i2 <= 8) {
             if (this.nBit == 8) {
                 advance();
                 if (this.curByte == -1) {
                     return -1;
                 }
             }
-            int i2 = this.nBit;
-            int[] iArr = new int[16 - i2];
-            int i3 = 0;
-            while (i2 < 8) {
-                iArr[i3] = (this.curByte >> (7 - i2)) & 1;
-                i2++;
-                i3++;
-            }
+            int i3 = this.nBit;
+            int[] iArr = new int[16 - i3];
             int i4 = 0;
-            while (i4 < 8) {
-                iArr[i3] = (this.nextByte >> (7 - i4)) & 1;
-                i4++;
+            while (i3 < 8) {
+                iArr[i4] = (this.curByte >> (7 - i3)) & 1;
                 i3++;
+                i4++;
             }
             int i5 = 0;
-            for (int i6 = 0; i6 < i; i6++) {
-                i5 = (i5 << 1) | iArr[i6];
+            while (i5 < 8) {
+                iArr[i4] = (this.nextByte >> (7 - i5)) & 1;
+                i5++;
+                i4++;
             }
-            return i5;
+            int i6 = 0;
+            for (int i7 = 0; i7 < i2; i7++) {
+                i6 = (i6 << 1) | iArr[i7];
+            }
+            return i6;
         }
         throw new IllegalArgumentException("N should be less then 8");
     }
@@ -85,28 +85,28 @@ public class BitstreamReader {
                 return -1;
             }
         }
-        int i = this.curByte;
-        int i2 = this.nBit;
-        int i3 = (i >> (7 - i2)) & 1;
-        this.nBit = i2 + 1;
-        this.debugBits.append(i3 == 0 ? '0' : '1');
+        int i2 = this.curByte;
+        int i3 = this.nBit;
+        int i4 = (i2 >> (7 - i3)) & 1;
+        this.nBit = i3 + 1;
+        this.debugBits.append(i4 == 0 ? '0' : '1');
         bitsRead++;
-        return i3;
+        return i4;
     }
 
     public int readByte() throws IOException {
         if (this.nBit > 0) {
             advance();
         }
-        int i = this.curByte;
+        int i2 = this.curByte;
         advance();
-        return i;
+        return i2;
     }
 
-    public long readNBit(int i) throws IOException {
-        if (i <= 64) {
+    public long readNBit(int i2) throws IOException {
+        if (i2 <= 64) {
             long j = 0;
-            for (int i2 = 0; i2 < i; i2++) {
+            for (int i3 = 0; i3 < i2; i3++) {
                 j = (j << 1) | read1Bit();
             }
             return j;

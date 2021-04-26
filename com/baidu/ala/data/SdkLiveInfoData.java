@@ -38,6 +38,7 @@ public class SdkLiveInfoData {
         public long audienceCount;
         public AlaChallengeInfoData challengeInfoData;
         public String cover;
+        public String coverWide;
         public boolean haveRedpkg;
         public String hlsUrl;
         public int liveType;
@@ -45,6 +46,8 @@ public class SdkLiveInfoData {
         public String rtmpUrl;
         public int screenDirection;
         public String sessionId;
+        public String showLabel;
+        public YYExt yyExt;
 
         public void fromJson(JSONObject jSONObject) {
             if (jSONObject == null) {
@@ -58,11 +61,19 @@ public class SdkLiveInfoData {
             this.liveType = jSONObject.optInt("live_type");
             this.screenDirection = jSONObject.optInt("screen_direction");
             this.roomStatus = jSONObject.optInt("room_status");
+            this.coverWide = jSONObject.optString("cover_wide");
+            this.showLabel = jSONObject.optString("show_label");
             JSONObject optJSONObject = jSONObject.optJSONObject("challenge_info");
             if (optJSONObject != null) {
                 AlaChallengeInfoData alaChallengeInfoData = new AlaChallengeInfoData();
                 this.challengeInfoData = alaChallengeInfoData;
                 alaChallengeInfoData.parserJson(optJSONObject);
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("yy_ext");
+            if (optJSONObject2 != null) {
+                YYExt yYExt = new YYExt();
+                this.yyExt = yYExt;
+                yYExt.fromJson(optJSONObject2);
             }
             this.haveRedpkg = "1".equals(jSONObject.optString("red_packet", ""));
         }
@@ -110,6 +121,26 @@ public class SdkLiveInfoData {
             this.starId = jSONObject.optString(TiebaStatic.Params.STAR_ID);
             this.extra = jSONObject.optString("extra");
             this.sourceFrom = jSONObject.optString("source_from");
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class YYExt {
+        public int isYYGame;
+        public String sid;
+        public String ssid;
+        public String templateId;
+        public String yyUid;
+
+        public void fromJson(JSONObject jSONObject) {
+            if (jSONObject == null) {
+                return;
+            }
+            this.sid = jSONObject.optString("sid");
+            this.ssid = jSONObject.optString("ssid");
+            this.templateId = jSONObject.optString("template_id");
+            this.yyUid = jSONObject.optString("yy_uid");
+            this.isYYGame = jSONObject.optInt("is_yy_game");
         }
     }
 

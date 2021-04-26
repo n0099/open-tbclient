@@ -20,7 +20,7 @@ public interface RouteInfo {
 
     int getHopCount();
 
-    HttpHost getHopTarget(int i);
+    HttpHost getHopTarget(int i2);
 
     LayerType getLayerType();
 

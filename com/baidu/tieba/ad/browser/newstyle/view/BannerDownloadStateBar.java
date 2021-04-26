@@ -15,65 +15,65 @@ import com.baidu.tieba.R;
 public class BannerDownloadStateBar extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f14203e;
+    public View f14255e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f14204f;
+    public TextView f14256f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f14205g;
+    public ImageView f14257g;
 
     public BannerDownloadStateBar(Context context) {
         this(context, null);
     }
 
     public final void a() {
-        this.f14203e = LayoutInflater.from(getContext()).inflate(R.layout.ad_apk_download_action_view, (ViewGroup) this, true);
+        this.f14255e = LayoutInflater.from(getContext()).inflate(R.layout.ad_apk_download_action_view, (ViewGroup) this, true);
         setOrientation(0);
         setGravity(17);
         setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-        this.f14205g = (ImageView) this.f14203e.findViewById(R.id.apk_download_state_icon);
-        this.f14204f = (TextView) this.f14203e.findViewById(R.id.apk_download_state_text);
+        this.f14257g = (ImageView) this.f14255e.findViewById(R.id.apk_download_state_icon);
+        this.f14256f = (TextView) this.f14255e.findViewById(R.id.apk_download_state_text);
         setState(0);
     }
 
-    public void setState(int i) {
-        if (i == 0) {
+    public void setState(int i2) {
+        if (i2 == 0) {
             setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-            this.f14205g.setVisibility(8);
-            this.f14205g.setImageDrawable(null);
-            this.f14204f.setText(R.string.ad_button_download_now);
-            this.f14204f.setTextColor(Color.parseColor("#333333"));
-        } else if (i == 1) {
+            this.f14257g.setVisibility(8);
+            this.f14257g.setImageDrawable(null);
+            this.f14256f.setText(R.string.ad_button_download_now);
+            this.f14256f.setTextColor(Color.parseColor("#333333"));
+        } else if (i2 == 1) {
             setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-            this.f14205g.setVisibility(0);
-            this.f14205g.setImageResource(R.drawable.ad_banner_download_pause);
-            this.f14204f.setText(R.string.ad_button_pause);
-            this.f14204f.setTextColor(Color.parseColor("#333333"));
-        } else if (i == 2) {
+            this.f14257g.setVisibility(0);
+            this.f14257g.setImageResource(R.drawable.ad_banner_download_pause);
+            this.f14256f.setText(R.string.ad_button_pause);
+            this.f14256f.setTextColor(Color.parseColor("#333333"));
+        } else if (i2 == 2) {
             setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-            this.f14205g.setVisibility(0);
-            this.f14205g.setImageResource(R.drawable.ad_banner_download_resume);
-            this.f14204f.setText(R.string.ad_button_resume);
-            this.f14204f.setTextColor(Color.parseColor("#333333"));
-        } else if (i == 3) {
+            this.f14257g.setVisibility(0);
+            this.f14257g.setImageResource(R.drawable.ad_banner_download_resume);
+            this.f14256f.setText(R.string.ad_button_resume);
+            this.f14256f.setTextColor(Color.parseColor("#333333"));
+        } else if (i2 == 3) {
             setBackgroundResource(R.drawable.ad_banner_download_button_bg_open);
-            this.f14205g.setVisibility(8);
-            this.f14205g.setImageDrawable(null);
-            this.f14204f.setText(R.string.ad_button_install);
-            this.f14204f.setTextColor(Color.parseColor("#FFFFFF"));
-        } else if (i != 4) {
+            this.f14257g.setVisibility(8);
+            this.f14257g.setImageDrawable(null);
+            this.f14256f.setText(R.string.ad_button_install);
+            this.f14256f.setTextColor(Color.parseColor("#FFFFFF"));
+        } else if (i2 != 4) {
             setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-            this.f14205g.setVisibility(8);
-            this.f14205g.setImageDrawable(null);
-            this.f14204f.setText(R.string.ad_button_download_now);
-            this.f14204f.setTextColor(Color.parseColor("#333333"));
+            this.f14257g.setVisibility(8);
+            this.f14257g.setImageDrawable(null);
+            this.f14256f.setText(R.string.ad_button_download_now);
+            this.f14256f.setTextColor(Color.parseColor("#333333"));
         } else {
             setBackgroundResource(R.drawable.ad_banner_download_button_bg_open);
-            this.f14205g.setVisibility(8);
-            this.f14205g.setImageDrawable(null);
-            this.f14204f.setText(R.string.ad_button_open);
-            this.f14204f.setTextColor(Color.parseColor("#FFFFFF"));
+            this.f14257g.setVisibility(8);
+            this.f14257g.setImageDrawable(null);
+            this.f14256f.setText(R.string.ad_button_open);
+            this.f14256f.setTextColor(Color.parseColor("#FFFFFF"));
         }
     }
 
@@ -81,8 +81,8 @@ public class BannerDownloadStateBar extends LinearLayout {
         this(context, attributeSet, 0);
     }
 
-    public BannerDownloadStateBar(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BannerDownloadStateBar(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a();
     }
 }

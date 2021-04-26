@@ -8,19 +8,19 @@ import android.widget.FrameLayout;
 public class PolyFrameLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f9993e;
+    public boolean f10362e;
 
     public PolyFrameLayout(Context context) {
         this(context, null);
     }
 
     public void a(boolean z) {
-        this.f9993e = z;
+        this.f10362e = z;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.f9993e) {
+        if (this.f10362e) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -30,8 +30,8 @@ public class PolyFrameLayout extends FrameLayout {
         this(context, attributeSet, 0);
     }
 
-    public PolyFrameLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f9993e = false;
+    public PolyFrameLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f10362e = false;
     }
 }

@@ -19,7 +19,7 @@ public class ServiceLoader {
             return Collections.emptySet();
         }
         HashSet hashSet = new HashSet();
-        String str = PREFIX + cls.getName();
+        String str = "META-INF/services/" + cls.getName();
         HashSet<String> hashSet2 = new HashSet();
         try {
             Enumeration<URL> resources = classLoader.getResources(str);

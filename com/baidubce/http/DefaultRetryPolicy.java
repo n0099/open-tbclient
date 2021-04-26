@@ -18,12 +18,12 @@ public class DefaultRetryPolicy implements RetryPolicy {
     }
 
     @Override // com.baidubce.http.RetryPolicy
-    public long getDelayBeforeNextRetryInMillis(BceClientException bceClientException, int i) {
-        if (shouldRetry(bceClientException, i)) {
-            if (i < 0) {
+    public long getDelayBeforeNextRetryInMillis(BceClientException bceClientException, int i2) {
+        if (shouldRetry(bceClientException, i2)) {
+            if (i2 < 0) {
                 return 0L;
             }
-            return (1 << (i + 1)) * 300;
+            return (1 << (i2 + 1)) * 300;
         }
         return -1L;
     }
@@ -38,7 +38,7 @@ public class DefaultRetryPolicy implements RetryPolicy {
         return this.maxErrorRetry;
     }
 
-    public boolean shouldRetry(BceClientException bceClientException, int i) {
+    public boolean shouldRetry(BceClientException bceClientException, int i2) {
         if (bceClientException.getCause() instanceof IOException) {
             BLog.error("Retry for IOException.");
             return true;
@@ -70,10 +70,10 @@ public class DefaultRetryPolicy implements RetryPolicy {
         }
     }
 
-    public DefaultRetryPolicy(int i, long j) {
-        CheckUtils.checkArgument(i >= 0, "maxErrorRetry should be a non-negative.");
+    public DefaultRetryPolicy(int i2, long j) {
+        CheckUtils.checkArgument(i2 >= 0, "maxErrorRetry should be a non-negative.");
         CheckUtils.checkArgument(j >= 0, "maxDelayInMillis should be a non-negative.");
-        this.maxErrorRetry = i;
+        this.maxErrorRetry = i2;
         this.maxDelayInMillis = j;
     }
 }

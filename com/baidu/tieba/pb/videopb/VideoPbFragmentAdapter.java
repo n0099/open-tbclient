@@ -15,38 +15,63 @@ import java.util.List;
 public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f19758a;
+    public List<String> f20243a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<BaseFragment> f19759b;
+    public ArrayList<BaseFragment> f20244b;
 
     public VideoPbFragmentAdapter(FragmentManager fragmentManager, VideoPbFragment videoPbFragment) {
         super(fragmentManager);
-        if (this.f19758a == null) {
-            this.f19758a = new ArrayList();
+        if (this.f20243a == null) {
+            this.f20243a = new ArrayList();
         }
-        this.f19758a.clear();
+        this.f20243a.clear();
         if (videoPbFragment.B3()) {
-            this.f19758a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
-            this.f19758a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+            this.f20243a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
+            this.f20243a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         } else {
-            this.f19758a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+            this.f20243a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         }
-        if (this.f19759b == null) {
-            this.f19759b = new ArrayList<>();
+        if (this.f20244b == null) {
+            this.f20244b = new ArrayList<>();
         }
-        this.f19759b.clear();
+        this.f20244b.clear();
         if (videoPbFragment.B3()) {
-            this.f19759b.add(DetailInfoFragment.Q0(videoPbFragment));
-            this.f19759b.add(ReplyFragment.f1(videoPbFragment));
+            this.f20244b.add(DetailInfoFragment.Q0(videoPbFragment));
+            this.f20244b.add(ReplyFragment.f1(videoPbFragment));
             return;
         }
-        this.f19759b.add(DetailInfoAndReplyFragment.i1(videoPbFragment));
+        this.f20244b.add(DetailInfoAndReplyFragment.i1(videoPbFragment));
+    }
+
+    public BaseFragment b(int i2) {
+        ArrayList<BaseFragment> arrayList = this.f20244b;
+        if (arrayList == null || i2 >= arrayList.size()) {
+            return null;
+        }
+        return this.f20244b.get(i2);
+    }
+
+    public ArrayList<BaseFragment> c() {
+        return this.f20244b;
+    }
+
+    public void d(int i2) {
+        if (this.f20244b == null) {
+            return;
+        }
+        int i3 = 0;
+        while (i3 < this.f20244b.size()) {
+            if (this.f20244b.get(i3) != null) {
+                this.f20244b.get(i3).setPrimary(i3 == i2);
+            }
+            i3++;
+        }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        ArrayList<BaseFragment> arrayList = this.f19759b;
+        ArrayList<BaseFragment> arrayList = this.f20244b;
         if (arrayList == null) {
             return 0;
         }
@@ -54,41 +79,16 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        return i(i);
+    public Fragment getItem(int i2) {
+        return b(i2);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public CharSequence getPageTitle(int i) {
-        List<String> list = this.f19758a;
-        if (list == null || i < 0 || i >= list.size()) {
+    public CharSequence getPageTitle(int i2) {
+        List<String> list = this.f20243a;
+        if (list == null || i2 < 0 || i2 >= list.size()) {
             return null;
         }
-        return this.f19758a.get(i);
-    }
-
-    public BaseFragment i(int i) {
-        ArrayList<BaseFragment> arrayList = this.f19759b;
-        if (arrayList == null || i >= arrayList.size()) {
-            return null;
-        }
-        return this.f19759b.get(i);
-    }
-
-    public ArrayList<BaseFragment> j() {
-        return this.f19759b;
-    }
-
-    public void k(int i) {
-        if (this.f19759b == null) {
-            return;
-        }
-        int i2 = 0;
-        while (i2 < this.f19759b.size()) {
-            if (this.f19759b.get(i2) != null) {
-                this.f19759b.get(i2).setPrimary(i2 == i);
-            }
-            i2++;
-        }
+        return this.f20243a.get(i2);
     }
 }

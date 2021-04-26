@@ -18,8 +18,8 @@ public class CloseableStaticBitmap extends CloseableBitmap {
     public final QualityInfo mQualityInfo;
     public final int mRotationAngle;
 
-    public CloseableStaticBitmap(Bitmap bitmap, ResourceReleaser<Bitmap> resourceReleaser, QualityInfo qualityInfo, int i) {
-        this(bitmap, resourceReleaser, qualityInfo, i, 0);
+    public CloseableStaticBitmap(Bitmap bitmap, ResourceReleaser<Bitmap> resourceReleaser, QualityInfo qualityInfo, int i2) {
+        this(bitmap, resourceReleaser, qualityInfo, i2, 0);
     }
 
     private synchronized CloseableReference<Bitmap> detachBitmapReference() {
@@ -68,8 +68,8 @@ public class CloseableStaticBitmap extends CloseableBitmap {
 
     @Override // com.facebook.imagepipeline.image.ImageInfo
     public int getHeight() {
-        int i;
-        if (this.mRotationAngle % 180 == 0 && (i = this.mExifOrientation) != 5 && i != 7) {
+        int i2;
+        if (this.mRotationAngle % 180 == 0 && (i2 = this.mExifOrientation) != 5 && i2 != 7) {
             return getBitmapHeight(this.mBitmap);
         }
         return getBitmapWidth(this.mBitmap);
@@ -96,8 +96,8 @@ public class CloseableStaticBitmap extends CloseableBitmap {
 
     @Override // com.facebook.imagepipeline.image.ImageInfo
     public int getWidth() {
-        int i;
-        if (this.mRotationAngle % 180 == 0 && (i = this.mExifOrientation) != 5 && i != 7) {
+        int i2;
+        if (this.mRotationAngle % 180 == 0 && (i2 = this.mExifOrientation) != 5 && i2 != 7) {
             return getBitmapWidth(this.mBitmap);
         }
         return getBitmapHeight(this.mBitmap);
@@ -108,24 +108,24 @@ public class CloseableStaticBitmap extends CloseableBitmap {
         return this.mBitmapReference == null;
     }
 
-    public CloseableStaticBitmap(Bitmap bitmap, ResourceReleaser<Bitmap> resourceReleaser, QualityInfo qualityInfo, int i, int i2) {
+    public CloseableStaticBitmap(Bitmap bitmap, ResourceReleaser<Bitmap> resourceReleaser, QualityInfo qualityInfo, int i2, int i3) {
         this.mBitmap = (Bitmap) Preconditions.checkNotNull(bitmap);
         this.mBitmapReference = CloseableReference.of(this.mBitmap, (ResourceReleaser) Preconditions.checkNotNull(resourceReleaser));
         this.mQualityInfo = qualityInfo;
-        this.mRotationAngle = i;
-        this.mExifOrientation = i2;
+        this.mRotationAngle = i2;
+        this.mExifOrientation = i3;
     }
 
-    public CloseableStaticBitmap(CloseableReference<Bitmap> closeableReference, QualityInfo qualityInfo, int i) {
-        this(closeableReference, qualityInfo, i, 0);
+    public CloseableStaticBitmap(CloseableReference<Bitmap> closeableReference, QualityInfo qualityInfo, int i2) {
+        this(closeableReference, qualityInfo, i2, 0);
     }
 
-    public CloseableStaticBitmap(CloseableReference<Bitmap> closeableReference, QualityInfo qualityInfo, int i, int i2) {
+    public CloseableStaticBitmap(CloseableReference<Bitmap> closeableReference, QualityInfo qualityInfo, int i2, int i3) {
         CloseableReference<Bitmap> closeableReference2 = (CloseableReference) Preconditions.checkNotNull(closeableReference.cloneOrNull());
         this.mBitmapReference = closeableReference2;
         this.mBitmap = closeableReference2.get();
         this.mQualityInfo = qualityInfo;
-        this.mRotationAngle = i;
-        this.mExifOrientation = i2;
+        this.mRotationAngle = i2;
+        this.mExifOrientation = i3;
     }
 }

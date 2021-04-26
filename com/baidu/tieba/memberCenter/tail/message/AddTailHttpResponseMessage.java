@@ -3,7 +3,7 @@ package com.baidu.tieba.memberCenter.tail.message;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.IDataResponseMessage;
-import d.b.j0.r1.h.a.b;
+import d.a.j0.r1.h.a.b;
 /* loaded from: classes3.dex */
 public class AddTailHttpResponseMessage extends HttpResponsedMessage implements IDataResponseMessage<b> {
     public b resultData;
@@ -14,8 +14,8 @@ public class AddTailHttpResponseMessage extends HttpResponsedMessage implements 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        this.resultData = AddTailSocketResponseMessage.getResult(this, i, bArr);
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+        this.resultData = AddTailSocketResponseMessage.getResult(this, i2, bArr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

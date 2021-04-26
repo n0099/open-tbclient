@@ -10,8 +10,8 @@ public enum MobileDeviceType {
     
     public int type;
 
-    MobileDeviceType(int i) {
-        this.type = i;
+    MobileDeviceType(int i2) {
+        this.type = i2;
     }
 
     public int getValue() {

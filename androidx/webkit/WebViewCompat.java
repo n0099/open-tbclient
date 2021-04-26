@@ -70,11 +70,11 @@ public class WebViewCompat {
 
     @Nullable
     public static PackageInfo getCurrentWebViewPackage(@NonNull Context context) {
-        int i = Build.VERSION.SDK_INT;
-        if (i < 21) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 < 21) {
             return null;
         }
-        if (i >= 26) {
+        if (i2 >= 26) {
             return WebView.getCurrentWebViewPackage();
         }
         try {

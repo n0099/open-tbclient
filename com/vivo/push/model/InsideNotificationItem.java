@@ -1,5 +1,5 @@
 package com.vivo.push.model;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class InsideNotificationItem extends UPSNotificationMessage {
     public int mAppType;
     public boolean mIsShowBigPicOnMobileNet;
@@ -27,16 +27,16 @@ public class InsideNotificationItem extends UPSNotificationMessage {
         return this.mIsShowBigPicOnMobileNet;
     }
 
-    public void setAppType(int i) {
-        this.mAppType = i;
+    public void setAppType(int i2) {
+        this.mAppType = i2;
     }
 
     public void setIsShowBigPicOnMobileNet(boolean z) {
         this.mIsShowBigPicOnMobileNet = z;
     }
 
-    public void setMessageType(int i) {
-        this.mMessageType = i;
+    public void setMessageType(int i2) {
+        this.mMessageType = i2;
     }
 
     public void setReactPackage(String str) {

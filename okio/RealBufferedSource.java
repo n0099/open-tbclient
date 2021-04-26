@@ -90,15 +90,15 @@ public final class RealBufferedSource implements BufferedSource {
             }
 
             @Override // java.io.InputStream
-            public int read(byte[] bArr, int i, int i2) throws IOException {
+            public int read(byte[] bArr, int i2, int i3) throws IOException {
                 if (!RealBufferedSource.this.closed) {
-                    Util.checkOffsetAndCount(bArr.length, i, i2);
+                    Util.checkOffsetAndCount(bArr.length, i2, i3);
                     RealBufferedSource realBufferedSource = RealBufferedSource.this;
                     Buffer buffer = realBufferedSource.buffer;
                     if (buffer.size == 0 && realBufferedSource.source.read(buffer, 8192L) == -1) {
                         return -1;
                     }
-                    return RealBufferedSource.this.buffer.read(bArr, i, i2);
+                    return RealBufferedSource.this.buffer.read(bArr, i2, i3);
                 }
                 throw new IOException("closed");
             }
@@ -177,19 +177,19 @@ public final class RealBufferedSource implements BufferedSource {
     public long readDecimalLong() throws IOException {
         byte b2;
         require(1L);
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            int i2 = i + 1;
-            if (!request(i2)) {
+            int i3 = i2 + 1;
+            if (!request(i3)) {
                 break;
             }
-            b2 = this.buffer.getByte(i);
-            if ((b2 < 48 || b2 > 57) && !(i == 0 && b2 == 45)) {
+            b2 = this.buffer.getByte(i2);
+            if ((b2 < 48 || b2 > 57) && !(i2 == 0 && b2 == 45)) {
                 break;
             }
-            i = i2;
+            i2 = i3;
         }
-        if (i == 0) {
+        if (i2 == 0) {
             throw new NumberFormatException(String.format("Expected leading [0-9] or '-' character but was %#x", Byte.valueOf(b2)));
         }
         return this.buffer.readDecimalLong();
@@ -201,16 +201,16 @@ public final class RealBufferedSource implements BufferedSource {
             require(bArr.length);
             this.buffer.readFully(bArr);
         } catch (EOFException e2) {
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 Buffer buffer = this.buffer;
                 long j = buffer.size;
                 if (j > 0) {
-                    int read = buffer.read(bArr, i, (int) j);
+                    int read = buffer.read(bArr, i2, (int) j);
                     if (read == -1) {
                         throw new AssertionError();
                     }
-                    i += read;
+                    i2 += read;
                 } else {
                     throw e2;
                 }
@@ -230,17 +230,17 @@ public final class RealBufferedSource implements BufferedSource {
     */
     public long readHexadecimalUnsignedLong() throws IOException {
         require(1L);
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            int i2 = i + 1;
-            if (!request(i2)) {
+            int i3 = i2 + 1;
+            if (!request(i3)) {
                 break;
             }
-            byte b2 = this.buffer.getByte(i);
+            byte b2 = this.buffer.getByte(i2);
             if ((b2 < 48 || b2 > 57) && ((b2 < 97 || b2 > 102) && (b2 < 65 || b2 > 70))) {
                 break;
             }
-            i = i2;
+            i2 = i3;
         }
         return this.buffer.readHexadecimalUnsignedLong();
     }
@@ -425,14 +425,14 @@ public final class RealBufferedSource implements BufferedSource {
     }
 
     @Override // okio.BufferedSource
-    public boolean rangeEquals(long j, ByteString byteString, int i, int i2) throws IOException {
+    public boolean rangeEquals(long j, ByteString byteString, int i2, int i3) throws IOException {
         if (!this.closed) {
-            if (j < 0 || i < 0 || i2 < 0 || byteString.size() - i < i2) {
+            if (j < 0 || i2 < 0 || i3 < 0 || byteString.size() - i2 < i3) {
                 return false;
             }
-            for (int i3 = 0; i3 < i2; i3++) {
-                long j2 = i3 + j;
-                if (!request(1 + j2) || this.buffer.getByte(j2) != byteString.getByte(i + i3)) {
+            for (int i4 = 0; i4 < i3; i4++) {
+                long j2 = i4 + j;
+                if (!request(1 + j2) || this.buffer.getByte(j2) != byteString.getByte(i2 + i4)) {
                     return false;
                 }
             }
@@ -528,14 +528,14 @@ public final class RealBufferedSource implements BufferedSource {
     }
 
     @Override // okio.BufferedSource
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        long j = i2;
-        Util.checkOffsetAndCount(bArr.length, i, j);
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
+        long j = i3;
+        Util.checkOffsetAndCount(bArr.length, i2, j);
         Buffer buffer = this.buffer;
         if (buffer.size == 0 && this.source.read(buffer, 8192L) == -1) {
             return -1;
         }
-        return this.buffer.read(bArr, i, (int) Math.min(j, this.buffer.size));
+        return this.buffer.read(bArr, i2, (int) Math.min(j, this.buffer.size));
     }
 
     @Override // okio.BufferedSource

@@ -47,7 +47,7 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
                 HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.mUrl).openConnection();
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
-                int i = 0;
+                int i2 = 0;
                 httpURLConnection.setUseCaches(false);
                 httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
@@ -61,14 +61,14 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
                 long j = 0;
                 long length = file.length();
                 long currentTimeMillis = System.currentTimeMillis();
-                int i2 = -1;
                 int i3 = -1;
+                int i4 = -1;
                 while (true) {
                     int read = fileInputStream.read(bArr);
-                    if (read == i2) {
+                    if (read == i3) {
                         break;
                     }
-                    dataOutputStream.write(bArr, i, read);
+                    dataOutputStream.write(bArr, i2, read);
                     HttpURLConnection httpURLConnection2 = httpURLConnection;
                     j += read;
                     String str2 = TAG;
@@ -81,15 +81,15 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
                     DataOutputStream dataOutputStream2 = dataOutputStream;
                     sb.append(((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f);
                     LogUtils.d(str2, sb.toString());
-                    int i4 = (int) ((100 * j) / length);
-                    if (i4 != i3) {
-                        this.mListener.onProgress(i4);
-                        i3 = i4;
+                    int i5 = (int) ((100 * j) / length);
+                    if (i5 != i4) {
+                        this.mListener.onProgress(i5);
+                        i4 = i5;
                     }
                     dataOutputStream = dataOutputStream2;
                     httpURLConnection = httpURLConnection2;
-                    i2 = -1;
-                    i = 0;
+                    i3 = -1;
+                    i2 = 0;
                 }
                 DataOutputStream dataOutputStream3 = dataOutputStream;
                 fileInputStream.close();
@@ -114,10 +114,10 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
         }
     }
 
-    private void notifyFailed(int i) {
+    private void notifyFailed(int i2) {
         try {
             if (this.mListener != null) {
-                this.mListener.onFailed(i, "upload failure");
+                this.mListener.onFailed(i2, "upload failure");
             }
         } catch (Exception e2) {
             String str = TAG;

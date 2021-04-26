@@ -25,8 +25,8 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public LocationMsg[] newArray(int i) {
-            return new LocationMsg[i];
+        public LocationMsg[] newArray(int i2) {
+            return new LocationMsg[i2];
         }
     };
 
@@ -96,8 +96,8 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.mTitle);
         parcel.writeDouble(this.mLatitude);
         parcel.writeDouble(this.mLongitude);

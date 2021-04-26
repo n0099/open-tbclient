@@ -21,7 +21,7 @@ public abstract class DownloadCallback {
     public void onFailed(DownloadException downloadException) {
     }
 
-    public void onProgress(long j, long j2, int i) {
+    public void onProgress(long j, long j2, int i2) {
     }
 
     public void onStarted() {

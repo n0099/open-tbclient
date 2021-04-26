@@ -10,7 +10,7 @@ import com.baidu.wallet.api.ILightappInvokerCallback;
 import com.baidu.wallet.api.ILocationCallback;
 import com.baidu.wallet.lightapp.base.LightappConstants;
 import com.baidu.wallet.lightapp.base.datamodel.LightAppLocationModel;
-import d.b.c.e.i.a;
+import d.a.c.e.i.a;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -42,12 +42,12 @@ public class LightAppListenerImpl implements ILightAppListener {
             return false;
         }
         a.l().i(true, new a.c() { // from class: com.baidu.tieba.wallet.LightAppListenerImpl.1
-            @Override // d.b.c.e.i.a.c
-            public void onLocationGeted(int i, String str, Address address) {
-                if (i != 0) {
-                    if (i == 1 || i == 2 || i == 3) {
+            @Override // d.a.c.e.i.a.c
+            public void onLocationGeted(int i2, String str, Address address) {
+                if (i2 != 0) {
+                    if (i2 == 1 || i2 == 2 || i2 == 3) {
                         iLocationCallback.onReceiveLocation(null);
-                    } else if (i != 4 && i != 5) {
+                    } else if (i2 != 4 && i2 != 5) {
                         iLocationCallback.onReceiveLocation(null);
                     } else {
                         iLocationCallback.onReceiveLocation(null);

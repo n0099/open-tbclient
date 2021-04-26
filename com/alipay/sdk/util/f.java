@@ -8,26 +8,26 @@ import com.alipay.android.app.IAlixPay;
 public class f implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f2002a;
+    public final /* synthetic */ e f1959a;
 
     public f(e eVar) {
-        this.f2002a = eVar;
+        this.f1959a = eVar;
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Object obj;
         Object obj2;
-        obj = this.f2002a.f1998e;
+        obj = this.f1959a.f1954e;
         synchronized (obj) {
-            this.f2002a.f1997d = IAlixPay.Stub.asInterface(iBinder);
-            obj2 = this.f2002a.f1998e;
+            this.f1959a.f1953d = IAlixPay.Stub.asInterface(iBinder);
+            obj2 = this.f1959a.f1954e;
             obj2.notify();
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.f2002a.f1997d = null;
+        this.f1959a.f1953d = null;
     }
 }

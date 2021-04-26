@@ -8,36 +8,36 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8178a;
+    public String f8471a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8179b;
+    public String f8472b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f8180c = 2;
+    public int f8473c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f8181d = 0;
+    public int f8474d = 0;
 
     public static e a(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         e eVar = new e();
-        eVar.f8178a = str;
+        eVar.f8471a = str;
         int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-        eVar.f8181d = length;
+        eVar.f8474d = length;
         if (length < 14) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "0";
             }
-            eVar.f8179b = str2;
+            eVar.f8472b = str2;
         }
         return eVar;
     }
 
-    public static boolean a(int i) {
-        return i >= 14;
+    public static boolean a(int i2) {
+        return i2 >= 14;
     }
 
     public static boolean a(String str) {
@@ -64,18 +64,18 @@ public class e {
                 }
             }
             String string = jSONObject.getString(d("ZGV2aWNlaWQ="));
-            int i = jSONObject.getInt(d("dmVy"));
+            int i2 = jSONObject.getInt(d("dmVy"));
             int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
             if (!TextUtils.isEmpty(string)) {
                 e eVar = new e();
-                eVar.f8178a = string;
-                eVar.f8180c = i;
-                eVar.f8181d = length;
+                eVar.f8471a = string;
+                eVar.f8473c = i2;
+                eVar.f8474d = length;
                 if (length < 14) {
                     if (!TextUtils.isEmpty(str3)) {
                         str2 = str3;
                     }
-                    eVar.f8179b = str2;
+                    eVar.f8472b = str2;
                 }
                 eVar.c();
                 return eVar;
@@ -104,11 +104,11 @@ public class e {
     }
 
     public boolean a() {
-        return a(this.f8179b);
+        return a(this.f8472b);
     }
 
     public boolean b() {
-        return a(this.f8181d);
+        return a(this.f8474d);
     }
 
     public boolean c() {
@@ -120,7 +120,7 @@ public class e {
         } else {
             str = "0";
         }
-        this.f8179b = str;
+        this.f8472b = str;
         return true;
     }
 }

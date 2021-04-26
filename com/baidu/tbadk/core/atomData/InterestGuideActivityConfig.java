@@ -12,8 +12,8 @@ public class InterestGuideActivityConfig extends IntentConfig {
         super(context);
     }
 
-    public InterestGuideActivityConfig(Context context, int i) {
+    public InterestGuideActivityConfig(Context context, int i2) {
         super(context);
-        getIntent().putExtra(KEY_INTEREST_GUID_SHOW_SCENE, i);
+        getIntent().putExtra(KEY_INTEREST_GUID_SHOW_SCENE, i2);
     }
 }

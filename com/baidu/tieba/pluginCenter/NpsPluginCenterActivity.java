@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-import d.b.c.g.c;
-import d.b.i0.g0.f.a;
-import d.b.i0.g0.f.b;
+import d.a.c.g.c;
+import d.a.i0.g0.f.a;
+import d.a.i0.g0.f.b;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NpsPluginCenterActivity extends BaseActivity {
     public TbSettingTextTipView livePlugin;
     public int mFromType;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public b<Object, d.b.i0.g0.d.b, a<Object, d.b.i0.g0.d.b>> mPluginCenterAdapter;
+    public b<Object, d.a.i0.g0.d.b, a<Object, d.a.i0.g0.d.b>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
 
@@ -33,13 +33,13 @@ public class NpsPluginCenterActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
         getLayoutMode().j(findViewById(16908290));
         NoDataView noDataView = this.mNoDataView;
         if (noDataView != null) {
-            noDataView.f(getPageContext(), i);
+            noDataView.f(getPageContext(), i2);
         }
     }
 

@@ -43,8 +43,8 @@ public class FontParser {
         public final float styleValue;
         public final int tag;
 
-        public Axis(int i, float f2) {
-            this.tag = i;
+        public Axis(int i2, float f2) {
+            this.tag = i2;
             this.styleValue = f2;
         }
     }
@@ -78,11 +78,11 @@ public class FontParser {
         public int ttcIndex;
         public int weight;
 
-        public Font(String str, int i, List<Axis> list, int i2, boolean z) {
+        public Font(String str, int i2, List<Axis> list, int i3, boolean z) {
             this.fontName = str;
-            this.ttcIndex = i;
+            this.ttcIndex = i2;
             this.axes = list;
-            this.weight = i2;
+            this.weight = i3;
             this.isItalic = z;
         }
     }
@@ -236,13 +236,13 @@ public class FontParser {
     }
 
     public static void skip(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
-        int i = 1;
-        while (i > 0) {
+        int i2 = 1;
+        while (i2 > 0) {
             int next = xmlPullParser.next();
             if (next == 2) {
-                i++;
+                i2++;
             } else if (next == 3) {
-                i--;
+                i2--;
             }
         }
     }

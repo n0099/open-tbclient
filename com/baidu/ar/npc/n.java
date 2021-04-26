@@ -3,14 +3,14 @@ package com.baidu.ar.npc;
 public class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ArBridge f4226a;
+    public final /* synthetic */ ArBridge f4295a;
 
     public n(ArBridge arBridge) {
-        this.f4226a = arBridge;
+        this.f4295a = arBridge;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f4226a.nativeOnResume();
+        this.f4295a.nativeOnResume();
     }
 }

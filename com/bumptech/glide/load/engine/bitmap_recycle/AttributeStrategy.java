@@ -29,14 +29,14 @@ public class AttributeStrategy implements LruPoolStrategy {
         }
 
         public int hashCode() {
-            int i = ((this.width * 31) + this.height) * 31;
+            int i2 = ((this.width * 31) + this.height) * 31;
             Bitmap.Config config = this.config;
-            return i + (config != null ? config.hashCode() : 0);
+            return i2 + (config != null ? config.hashCode() : 0);
         }
 
-        public void init(int i, int i2, Bitmap.Config config) {
-            this.width = i;
-            this.height = i2;
+        public void init(int i2, int i3, Bitmap.Config config) {
+            this.width = i2;
+            this.height = i3;
             this.config = config;
         }
 
@@ -53,9 +53,9 @@ public class AttributeStrategy implements LruPoolStrategy {
     @VisibleForTesting
     /* loaded from: classes5.dex */
     public static class KeyPool extends BaseKeyPool<Key> {
-        public Key get(int i, int i2, Bitmap.Config config) {
+        public Key get(int i2, int i3, Bitmap.Config config) {
             Key key = get();
-            key.init(i, i2, config);
+            key.init(i2, i3, config);
             return key;
         }
 
@@ -72,8 +72,8 @@ public class AttributeStrategy implements LruPoolStrategy {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
-    public Bitmap get(int i, int i2, Bitmap.Config config) {
-        return this.groupedMap.get(this.keyPool.get(i, i2, config));
+    public Bitmap get(int i2, int i3, Bitmap.Config config) {
+        return this.groupedMap.get(this.keyPool.get(i2, i3, config));
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
@@ -100,12 +100,12 @@ public class AttributeStrategy implements LruPoolStrategy {
         return "AttributeStrategy:\n  " + this.groupedMap;
     }
 
-    public static String getBitmapString(int i, int i2, Bitmap.Config config) {
-        return "[" + i + "x" + i2 + "], " + config;
+    public static String getBitmapString(int i2, int i3, Bitmap.Config config) {
+        return "[" + i2 + "x" + i3 + "], " + config;
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
-    public String logBitmap(int i, int i2, Bitmap.Config config) {
-        return getBitmapString(i, i2, config);
+    public String logBitmap(int i2, int i3, Bitmap.Config config) {
+        return getBitmapString(i2, i3, config);
     }
 }

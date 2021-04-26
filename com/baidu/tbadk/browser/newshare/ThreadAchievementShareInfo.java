@@ -50,8 +50,8 @@ public class ThreadAchievementShareInfo implements Serializable {
             this.text = str;
         }
 
-        public void setType(int i) {
-            this.type = i;
+        public void setType(int i2) {
+            this.type = i2;
         }
 
         public void setWidth(String str) {
@@ -142,8 +142,8 @@ public class ThreadAchievementShareInfo implements Serializable {
             return this.video_info;
         }
 
-        public void setAgree_num(int i) {
-            this.agree_num = i;
+        public void setAgree_num(int i2) {
+            this.agree_num = i2;
         }
 
         public void setContent(List<ContentBean> list) {
@@ -154,20 +154,20 @@ public class ThreadAchievementShareInfo implements Serializable {
             this.date = str;
         }
 
-        public void setInteract(int i) {
-            this.interact = i;
+        public void setInteract(int i2) {
+            this.interact = i2;
         }
 
         public void setPageType(String str) {
             this.pageType = str;
         }
 
-        public void setPost_num(int i) {
-            this.post_num = i;
+        public void setPost_num(int i2) {
+            this.post_num = i2;
         }
 
-        public void setRank(int i) {
-            this.rank = i;
+        public void setRank(int i2) {
+            this.rank = i2;
         }
 
         public void setThread_list(List<ThreadListBean> list) {
@@ -249,8 +249,8 @@ public class ThreadAchievementShareInfo implements Serializable {
             return this.user_img;
         }
 
-        public void setDuration(int i) {
-            this.duration = i;
+        public void setDuration(int i2) {
+            this.duration = i2;
         }
 
         public void setHotvalue(String str) {
@@ -261,8 +261,8 @@ public class ThreadAchievementShareInfo implements Serializable {
             this.img = str;
         }
 
-        public void setIndex(int i) {
-            this.index = i;
+        public void setIndex(int i2) {
+            this.index = i2;
         }
 
         public void setTid(long j) {
@@ -337,24 +337,24 @@ public class ThreadAchievementShareInfo implements Serializable {
             return this.video_width;
         }
 
-        public void setVideo_height(int i) {
-            this.video_height = i;
+        public void setVideo_height(int i2) {
+            this.video_height = i2;
         }
 
-        public void setVideo_id(int i) {
-            this.video_id = i;
+        public void setVideo_id(int i2) {
+            this.video_id = i2;
         }
 
-        public void setVideo_size(int i) {
-            this.video_size = i;
+        public void setVideo_size(int i2) {
+            this.video_size = i2;
         }
 
         public void setVideo_url(String str) {
             this.video_url = str;
         }
 
-        public void setVideo_width(int i) {
-            this.video_width = i;
+        public void setVideo_width(int i2) {
+            this.video_width = i2;
         }
     }
 
@@ -386,24 +386,24 @@ public class ThreadAchievementShareInfo implements Serializable {
             return this.video_width;
         }
 
-        public void setVideo_height(int i) {
-            this.video_height = i;
+        public void setVideo_height(int i2) {
+            this.video_height = i2;
         }
 
-        public void setVideo_id(int i) {
-            this.video_id = i;
+        public void setVideo_id(int i2) {
+            this.video_id = i2;
         }
 
-        public void setVideo_size(int i) {
-            this.video_size = i;
+        public void setVideo_size(int i2) {
+            this.video_size = i2;
         }
 
         public void setVideo_url(String str) {
             this.video_url = str;
         }
 
-        public void setVideo_width(int i) {
-            this.video_width = i;
+        public void setVideo_width(int i2) {
+            this.video_width = i2;
         }
     }
 
@@ -435,24 +435,24 @@ public class ThreadAchievementShareInfo implements Serializable {
             return this.video_width;
         }
 
-        public void setVideo_height(int i) {
-            this.video_height = i;
+        public void setVideo_height(int i2) {
+            this.video_height = i2;
         }
 
-        public void setVideo_id(int i) {
-            this.video_id = i;
+        public void setVideo_id(int i2) {
+            this.video_id = i2;
         }
 
-        public void setVideo_size(int i) {
-            this.video_size = i;
+        public void setVideo_size(int i2) {
+            this.video_size = i2;
         }
 
         public void setVideo_url(String str) {
             this.video_url = str;
         }
 
-        public void setVideo_width(int i) {
-            this.video_width = i;
+        public void setVideo_width(int i2) {
+            this.video_width = i2;
         }
     }
 
@@ -549,12 +549,12 @@ public class ThreadAchievementShareInfo implements Serializable {
             return this.video_width;
         }
 
-        public void setAuditing(int i) {
-            this.auditing = i;
+        public void setAuditing(int i2) {
+            this.auditing = i2;
         }
 
-        public void setFormat_matched(int i) {
-            this.format_matched = i;
+        public void setFormat_matched(int i2) {
+            this.format_matched = i2;
         }
 
         public void setOrigin_video_url(String str) {
@@ -573,8 +573,8 @@ public class ThreadAchievementShareInfo implements Serializable {
             this.thumbnail_width = str;
         }
 
-        public void setVersion_h265(int i) {
-            this.version_h265 = i;
+        public void setVersion_h265(int i2) {
+            this.version_h265 = i2;
         }
 
         public void setVideo_desc(List<VideoDescBean> list) {

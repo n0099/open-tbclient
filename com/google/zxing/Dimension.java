@@ -4,10 +4,10 @@ public final class Dimension {
     public final int height;
     public final int width;
 
-    public Dimension(int i, int i2) {
-        if (i >= 0 && i2 >= 0) {
-            this.width = i;
-            this.height = i2;
+    public Dimension(int i2, int i3) {
+        if (i2 >= 0 && i3 >= 0) {
+            this.width = i2;
+            this.height = i3;
             return;
         }
         throw new IllegalArgumentException();

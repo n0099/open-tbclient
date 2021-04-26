@@ -29,23 +29,23 @@ public class ContactPermissionUtil {
     public static final int DIALOG_NO_PERMISSION_CONTACTS = 137;
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<String> f26520a;
+    public static List<String> f27327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static OnContactPermissionPhoneSelectListener f26521b;
+    public static OnContactPermissionPhoneSelectListener f27328b;
 
     /* loaded from: classes5.dex */
     public interface OnContactPermissionPhoneSelectListener {
         void onContactPermissionPhoneSelect(String str);
     }
 
-    public static void b(BaseActivity baseActivity, int i) {
-        String str = f26520a.get(i);
+    public static void b(BaseActivity baseActivity, int i2) {
+        String str = f27327a.get(i2);
         if (StringUtils.isPhoneNumber(str.replace(" ", ""))) {
-            OnContactPermissionPhoneSelectListener onContactPermissionPhoneSelectListener = f26521b;
+            OnContactPermissionPhoneSelectListener onContactPermissionPhoneSelectListener = f27328b;
             if (onContactPermissionPhoneSelectListener != null) {
                 onContactPermissionPhoneSelectListener.onContactPermissionPhoneSelect(str);
-                f26521b = null;
+                f27328b = null;
                 return;
             }
             return;
@@ -53,13 +53,13 @@ public class ContactPermissionUtil {
         a(baseActivity, "wallet_fp_phone_not_correct");
     }
 
-    public static void checkIsHasContactPermission(final BaseActivity baseActivity, final int i, int i2, OnContactPermissionPhoneSelectListener onContactPermissionPhoneSelectListener) {
-        f26521b = onContactPermissionPhoneSelectListener;
+    public static void checkIsHasContactPermission(final BaseActivity baseActivity, final int i2, int i3, OnContactPermissionPhoneSelectListener onContactPermissionPhoneSelectListener) {
+        f27328b = onContactPermissionPhoneSelectListener;
         if (!PermissionManager.checkCallingPermission(baseActivity, "android.permission.READ_CONTACTS")) {
             BaiduWalletUtils.requestPermissionsDialog(null, baseActivity.getActivity(), new String[]{"android.permission.READ_CONTACTS"}, new BaiduWalletUtils.IRequestPermissionCallBack() { // from class: com.baidu.wallet.utils.ContactPermissionUtil.1
                 @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
                 public void isAllAgree(Boolean bool) {
-                    if (!bool.booleanValue() || PermissionManager.checkCallingOrSelfPermission(BaseActivity.this.getActivity(), new String[]{"android.permission.READ_CONTACTS"}, i)) {
+                    if (!bool.booleanValue() || PermissionManager.checkCallingOrSelfPermission(BaseActivity.this.getActivity(), new String[]{"android.permission.READ_CONTACTS"}, i2)) {
                         return;
                     }
                     WalletGlobalUtils.safeShowDialog(BaseActivity.this, ContactPermissionUtil.DIALOG_NO_PERMISSION_CONTACTS, "");
@@ -73,7 +73,7 @@ public class ContactPermissionUtil {
                 public void requestResult(String str, Boolean bool) {
                 }
             });
-        } else if (ContactManager.getIContactsImpl().pickContactsByContactsContentUri(baseActivity, i2)) {
+        } else if (ContactManager.getIContactsImpl().pickContactsByContactsContentUri(baseActivity, i3)) {
         } else {
             GlobalUtils.toast(baseActivity, ResUtils.getString(baseActivity, "wallet_base_contacts_not_up"));
         }
@@ -87,21 +87,21 @@ public class ContactPermissionUtil {
         return ContactManager.getIContactsImpl().loadPhoneContactsForChargeFragment(uri, context);
     }
 
-    public static void handleContactsSelectedActivityResult(BaseActivity baseActivity, Intent intent, int i) {
+    public static void handleContactsSelectedActivityResult(BaseActivity baseActivity, Intent intent, int i2) {
         if (intent == null) {
             return;
         }
         List<String> phoneContactsForChargeFragment = getPhoneContactsForChargeFragment(intent.getData(), baseActivity);
-        f26520a = phoneContactsForChargeFragment;
+        f27327a = phoneContactsForChargeFragment;
         if (phoneContactsForChargeFragment == null) {
             a(baseActivity, "wallet_fp_no_permision_or_null");
         } else if (phoneContactsForChargeFragment.size() <= 1) {
             a(baseActivity, "wallet_fp_phone_not_correct");
-        } else if (f26520a.size() > 1) {
-            if (f26520a.size() == 2) {
+        } else if (f27327a.size() > 1) {
+            if (f27327a.size() == 2) {
                 b(baseActivity, 1);
             } else {
-                WalletGlobalUtils.safeShowDialog(baseActivity, i, "");
+                WalletGlobalUtils.safeShowDialog(baseActivity, i2, "");
             }
         } else {
             GlobalUtils.toast(baseActivity, ResUtils.getString(baseActivity, "wallet_fp_select_wrong_number"));
@@ -109,26 +109,26 @@ public class ContactPermissionUtil {
     }
 
     @TargetApi(23)
-    public static void handleOnReadContactPermissionsResult(String[] strArr, int[] iArr, BaseActivity baseActivity, int i, int i2) {
+    public static void handleOnReadContactPermissionsResult(String[] strArr, int[] iArr, BaseActivity baseActivity, int i2, int i3) {
         if (strArr != null && strArr.length != 0 && iArr != null && iArr.length != 0) {
-            for (int i3 = 0; i3 < strArr.length; i3++) {
-                if ("android.permission.READ_CONTACTS".equalsIgnoreCase(strArr[i3]) && i3 < iArr.length) {
-                    int i4 = iArr[i3];
-                    if (i4 == 0) {
-                        if (!ContactManager.getIContactsImpl().pickContactsByContactsContentUri(baseActivity, i)) {
+            for (int i4 = 0; i4 < strArr.length; i4++) {
+                if ("android.permission.READ_CONTACTS".equalsIgnoreCase(strArr[i4]) && i4 < iArr.length) {
+                    int i5 = iArr[i4];
+                    if (i5 == 0) {
+                        if (!ContactManager.getIContactsImpl().pickContactsByContactsContentUri(baseActivity, i2)) {
                             GlobalUtils.toast(baseActivity, ResUtils.getString(baseActivity, "wallet_base_contacts_not_up"));
                         }
-                    } else if (i4 == -1 && !baseActivity.shouldShowRequestPermissionRationale("android.permission.READ_CONTACTS")) {
-                        WalletGlobalUtils.safeShowDialog(baseActivity, i2, "");
+                    } else if (i5 == -1 && !baseActivity.shouldShowRequestPermissionRationale("android.permission.READ_CONTACTS")) {
+                        WalletGlobalUtils.safeShowDialog(baseActivity, i3, "");
                     }
                 }
             }
         } else if (!baseActivity.shouldShowRequestPermissionRationale("android.permission.READ_CONTACTS")) {
-            WalletGlobalUtils.safeShowDialog(baseActivity, i2, "");
+            WalletGlobalUtils.safeShowDialog(baseActivity, i3, "");
         }
     }
 
-    public static void prepareContactPromptDialog(final int i, Dialog dialog, final BaseActivity baseActivity) {
+    public static void prepareContactPromptDialog(final int i2, Dialog dialog, final BaseActivity baseActivity) {
         String str;
         PromptDialog promptDialog = (PromptDialog) dialog;
         promptDialog.setTitleText(ResUtils.getString(baseActivity, "wallet_fp_phone_no_contact_permission_title"));
@@ -152,7 +152,7 @@ public class ContactPermissionUtil {
         promptDialog.setPositiveBtn(spannableString, new View.OnClickListener() { // from class: com.baidu.wallet.utils.ContactPermissionUtil.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                WalletGlobalUtils.safeDismissDialog(BaseActivity.this, i);
+                WalletGlobalUtils.safeDismissDialog(BaseActivity.this, i2);
                 try {
                     ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(BaseActivity.this.getActivity());
                     PhoneUtils.showInstalledAppOrDetails(BaseActivity.this.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
@@ -162,36 +162,36 @@ public class ContactPermissionUtil {
         });
     }
 
-    public static void preparePhoneNotCorrectDialog(final int i, Dialog dialog, final BaseActivity baseActivity) {
+    public static void preparePhoneNotCorrectDialog(final int i2, Dialog dialog, final BaseActivity baseActivity) {
         PromptDialog promptDialog = (PromptDialog) dialog;
         promptDialog.setMessage(WalletGlobalUtils.showStr);
         promptDialog.setCanceledOnTouchOutside(false);
         promptDialog.setPositiveBtn(ResUtils.string(baseActivity, "ebpay_know"), new View.OnClickListener() { // from class: com.baidu.wallet.utils.ContactPermissionUtil.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                WalletGlobalUtils.safeDismissDialog(BaseActivity.this, i);
+                WalletGlobalUtils.safeDismissDialog(BaseActivity.this, i2);
             }
         });
         promptDialog.hideNegativeButton();
     }
 
-    public static void prepareSelectNumberDialog(final BaseActivity baseActivity, int i, Dialog dialog) {
+    public static void prepareSelectNumberDialog(final BaseActivity baseActivity, int i2, Dialog dialog) {
         SelectNumberDialog selectNumberDialog = (SelectNumberDialog) dialog;
-        selectNumberDialog.setData(f26520a);
+        selectNumberDialog.setData(f27327a);
         selectNumberDialog.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.wallet.utils.ContactPermissionUtil.2
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                if (i2 <= 0 || i2 >= ContactPermissionUtil.f26520a.size()) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
+                if (i3 <= 0 || i3 >= ContactPermissionUtil.f27327a.size()) {
                     return;
                 }
-                ContactPermissionUtil.b(BaseActivity.this, i2);
+                ContactPermissionUtil.b(BaseActivity.this, i3);
             }
         });
     }
 
     public static void restListener() {
-        if (f26521b != null) {
-            f26521b = null;
+        if (f27328b != null) {
+            f27328b = null;
         }
     }
 

@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.forumpackage.ForumEmotionFragment;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -44,8 +44,8 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,16 +77,16 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         }
 
         @Override // androidx.fragment.app.FragmentPagerAdapter
-        public Fragment getItem(int i) {
-            if (ListUtils.isEmpty(EmotionCenterActivity.this.fragments) || EmotionCenterActivity.this.fragments.size() <= i) {
+        public Fragment getItem(int i2) {
+            if (ListUtils.isEmpty(EmotionCenterActivity.this.fragments) || EmotionCenterActivity.this.fragments.size() <= i2) {
                 return null;
             }
-            return (Fragment) EmotionCenterActivity.this.fragments.get(i);
+            return (Fragment) EmotionCenterActivity.this.fragments.get(i2);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
-        public CharSequence getPageTitle(int i) {
-            return ListUtils.isEmpty(EmotionCenterActivity.this.mTitles) ? "" : (CharSequence) EmotionCenterActivity.this.mTitles.get(i);
+        public CharSequence getPageTitle(int i2) {
+            return ListUtils.isEmpty(EmotionCenterActivity.this.mTitles) ? "" : (CharSequence) EmotionCenterActivity.this.mTitles.get(i2);
         }
     }
 
@@ -137,12 +137,12 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        this.mSkinType = i;
-        getLayoutMode().k(i == 1);
+    public void onChangeSkinType(int i2) {
+        this.mSkinType = i2;
+        getLayoutMode().k(i2 == 1);
         CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = this.mTabStrip;
         if (commonPagerSlidingTabStrip != null) {
-            commonPagerSlidingTabStrip.n(i);
+            commonPagerSlidingTabStrip.n(i2);
         }
         if (this.mSettingImg != null) {
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mSettingImg, R.drawable.icon_pure_topbar_set44_svg, R.color.CAM_X0105, null);
@@ -163,15 +163,15 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         if (view == this.mBackBtn) {
             finish();
         } else if (view == this.mSettingImg) {
-            int i = 0;
+            int i2 = 0;
             if (!ListUtils.isEmpty(this.fragments) && (this.fragments.get(0) instanceof EmotionRecommendFragment)) {
-                i = ((EmotionRecommendFragment) this.fragments.get(0)).J0();
+                i2 = ((EmotionRecommendFragment) this.fragments.get(0)).J0();
             }
-            sendMessage(new CustomMessage(2002001, new NativeEmotionManagerActivityConfig(getPageContext().getPageActivity(), i)));
+            sendMessage(new CustomMessage(2002001, new NativeEmotionManagerActivityConfig(getPageContext().getPageActivity(), i2)));
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);

@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public AsyncHttpClient f9447a = new AsyncHttpClient();
+    public AsyncHttpClient f9801a = new AsyncHttpClient();
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -39,8 +39,8 @@ public class a {
                     return new c(PanoStateError.PANO_NOT_FOUND);
                 }
                 c cVar = null;
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i).optJSONObject("poiinfo");
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2).optJSONObject("poiinfo");
                     if (optJSONObject2 != null) {
                         cVar = new c(PanoStateError.PANO_NO_ERROR);
                         cVar.a(optJSONObject2.optString("PID"));
@@ -84,6 +84,6 @@ public class a {
             return;
         }
         a(builder, "token", authToken);
-        this.f9447a.get(a(builder), new b(this, interfaceC0119a));
+        this.f9801a.get(a(builder), new b(this, interfaceC0119a));
     }
 }

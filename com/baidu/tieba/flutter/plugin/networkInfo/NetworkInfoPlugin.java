@@ -12,8 +12,8 @@ import com.baidu.bdhttpdns.BDHttpDns;
 import com.baidu.bdhttpdns.BDHttpDnsResult;
 import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
 import com.baidu.tieba.flutter.plugin.networkInfo.NetworkInfoAuto;
-import d.b.c.e.j.a.a;
-import d.b.c.e.p.j;
+import d.a.c.e.j.a.a;
+import d.a.c.e.p.j;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -123,13 +123,13 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         this.mFlutterNetworkInfo = new NetworkInfoAuto.FlutterNetworkInfo(flutterPluginBinding.getBinaryMessenger());
         MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
-        d.b.j0.m0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), this);
+        d.a.j0.m0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), this);
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         MessageManager.getInstance().unRegisterListener(this.mNetworkChangedListener);
         this.mFlutterNetworkInfo = null;
-        d.b.j0.m0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), null);
+        d.a.j0.m0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), null);
     }
 }

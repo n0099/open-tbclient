@@ -24,7 +24,7 @@ public final class GifFrameResourceDecoder implements ResourceDecoder<GifDecoder
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource<Bitmap> decode(@NonNull GifDecoder gifDecoder, int i, int i2, @NonNull Options options) {
+    public Resource<Bitmap> decode(@NonNull GifDecoder gifDecoder, int i2, int i3, @NonNull Options options) {
         return BitmapResource.obtain(gifDecoder.getNextFrame(), this.bitmapPool);
     }
 }

@@ -13,15 +13,15 @@ public final class IntProgressionIterator extends IntIterator {
     public int next;
     public final int step;
 
-    public IntProgressionIterator(int i, int i2, int i3) {
-        this.step = i3;
-        this.finalElement = i2;
+    public IntProgressionIterator(int i2, int i3, int i4) {
+        this.step = i4;
+        this.finalElement = i3;
         boolean z = true;
-        if (i3 <= 0 ? i < i2 : i > i2) {
+        if (i4 <= 0 ? i2 < i3 : i2 > i3) {
             z = false;
         }
         this.hasNext = z;
-        this.next = z ? i : this.finalElement;
+        this.next = z ? i2 : this.finalElement;
     }
 
     public final int getStep() {
@@ -35,16 +35,16 @@ public final class IntProgressionIterator extends IntIterator {
 
     @Override // kotlin.collections.IntIterator
     public int nextInt() {
-        int i = this.next;
-        if (i == this.finalElement) {
+        int i2 = this.next;
+        if (i2 == this.finalElement) {
             if (this.hasNext) {
                 this.hasNext = false;
             } else {
                 throw new NoSuchElementException();
             }
         } else {
-            this.next = this.step + i;
+            this.next = this.step + i2;
         }
-        return i;
+        return i2;
     }
 }

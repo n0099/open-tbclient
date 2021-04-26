@@ -9,17 +9,17 @@ public interface PoolStatsTracker {
     public static final String USED_BYTES = "used_bytes";
     public static final String USED_COUNT = "used_count";
 
-    void onAlloc(int i);
+    void onAlloc(int i2);
 
-    void onFree(int i);
+    void onFree(int i2);
 
     void onHardCapReached();
 
     void onSoftCapReached();
 
-    void onValueRelease(int i);
+    void onValueRelease(int i2);
 
-    void onValueReuse(int i);
+    void onValueReuse(int i2);
 
     void setBasePool(BasePool basePool);
 }

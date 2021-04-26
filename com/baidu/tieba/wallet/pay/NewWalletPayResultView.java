@@ -8,6 +8,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tieba.R;
+import com.baidu.tieba.wallet.CurrencySwitchUtil;
 /* loaded from: classes5.dex */
 public class NewWalletPayResultView implements IWalletPayResultView {
     public WalletPayResultActivity mActivity;
@@ -81,11 +82,11 @@ public class NewWalletPayResultView implements IWalletPayResultView {
         if (payConfig != null) {
             this.mPayMoney.setText(payConfig.getMoney());
             this.mProductView.setText(StringHelper.formatTosepara(this.mPayData.getTBeanNum()));
-            Drawable drawable = this.mActivity.getResources().getDrawable(R.drawable.icon_huobi_tdou);
+            Drawable normalSkinMoneyIcon = CurrencySwitchUtil.getNormalSkinMoneyIcon();
             int dimensionPixelSize = this.mActivity.getResources().getDimensionPixelSize(R.dimen.tbds46);
-            drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
+            normalSkinMoneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
             this.mProductView.setCompoundDrawablePadding(this.mActivity.getResources().getDimensionPixelSize(R.dimen.tbds12));
-            this.mProductView.setCompoundDrawables(drawable, null, null, null);
+            this.mProductView.setCompoundDrawables(normalSkinMoneyIcon, null, null, null);
             if (this.mPayResult) {
                 this.mOrderIdView.setText(this.mPayData.mOrderInfo);
             }
@@ -102,24 +103,24 @@ public class NewWalletPayResultView implements IWalletPayResultView {
     }
 
     @Override // com.baidu.tieba.wallet.pay.IWalletPayResultView
-    public void onChangeSkinType(int i) {
-        SkinManager.setViewTextColor(this.mResultText, R.color.CAM_X0105, 1, i);
-        SkinManager.setViewTextColor(this.mPayMoney, R.color.CAM_X0105, 1, i);
-        SkinManager.setViewTextColor(this.mOrderIdView, R.color.CAM_X0107, 1, i);
-        SkinManager.setViewTextColor(this.mTitleView, R.color.CAM_X0105, 1, i);
-        SkinManager.setViewTextColor(this.mOrderPrefix, R.color.CAM_X0107, 1, i);
-        SkinManager.setViewTextColor(this.mPayTimePrefix, R.color.CAM_X0107, 1, i);
-        SkinManager.setViewTextColor(this.mPayTime, R.color.CAM_X0107, 1, i);
-        SkinManager.setViewTextColor(this.mProductPrefix, R.color.CAM_X0107, 1, i);
-        SkinManager.setViewTextColor(this.mMoneyPrefix, R.color.CAM_X0105, 1, i);
-        SkinManager.setViewTextColor(this.mLeftBtn, R.color.CAM_X0105, 1, i);
-        SkinManager.setBackgroundResource(this.mLeftBtn, R.drawable.buy_result_btn_selector, i);
+    public void onChangeSkinType(int i2) {
+        SkinManager.setViewTextColor(this.mResultText, R.color.CAM_X0105, 1, i2);
+        SkinManager.setViewTextColor(this.mPayMoney, R.color.CAM_X0105, 1, i2);
+        SkinManager.setViewTextColor(this.mOrderIdView, R.color.CAM_X0107, 1, i2);
+        SkinManager.setViewTextColor(this.mTitleView, R.color.CAM_X0105, 1, i2);
+        SkinManager.setViewTextColor(this.mOrderPrefix, R.color.CAM_X0107, 1, i2);
+        SkinManager.setViewTextColor(this.mPayTimePrefix, R.color.CAM_X0107, 1, i2);
+        SkinManager.setViewTextColor(this.mPayTime, R.color.CAM_X0107, 1, i2);
+        SkinManager.setViewTextColor(this.mProductPrefix, R.color.CAM_X0107, 1, i2);
+        SkinManager.setViewTextColor(this.mMoneyPrefix, R.color.CAM_X0105, 1, i2);
+        SkinManager.setViewTextColor(this.mLeftBtn, R.color.CAM_X0105, 1, i2);
+        SkinManager.setBackgroundResource(this.mLeftBtn, R.drawable.buy_result_btn_selector, i2);
         if (this.mPayResult) {
-            SkinManager.setViewTextColor(this.mRightView, R.color.CAM_X0105, 1, i);
-            SkinManager.setBackgroundResource(this.mRightView, R.drawable.buy_result_btn_selector, i);
+            SkinManager.setViewTextColor(this.mRightView, R.color.CAM_X0105, 1, i2);
+            SkinManager.setBackgroundResource(this.mRightView, R.drawable.buy_result_btn_selector, i2);
         } else {
-            SkinManager.setViewTextColor(this.mRightView, R.color.CAM_X0101, 1, i);
+            SkinManager.setViewTextColor(this.mRightView, R.color.CAM_X0101, 1, i2);
         }
-        SkinManager.setBackgroundResource(this.mPanelLayout, R.drawable.buy_result_dialog_bg, i);
+        SkinManager.setBackgroundResource(this.mPanelLayout, R.drawable.buy_result_dialog_bg, i2);
     }
 }

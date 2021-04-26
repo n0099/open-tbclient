@@ -1,6 +1,7 @@
 package androidx.recyclerview.widget;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.recyclerview.widget.DiffUtil;
 import java.util.concurrent.Executor;
@@ -11,7 +12,7 @@ public final class AsyncDifferConfig<T> {
     public final Executor mBackgroundThreadExecutor;
     @NonNull
     public final DiffUtil.ItemCallback<T> mDiffCallback;
-    @NonNull
+    @Nullable
     public final Executor mMainThreadExecutor;
 
     /* loaded from: classes.dex */
@@ -20,6 +21,7 @@ public final class AsyncDifferConfig<T> {
         public static final Object sExecutorLock = new Object();
         public Executor mBackgroundThreadExecutor;
         public final DiffUtil.ItemCallback<T> mDiffCallback;
+        @Nullable
         public Executor mMainThreadExecutor;
 
         public Builder(@NonNull DiffUtil.ItemCallback<T> itemCallback) {
@@ -46,14 +48,14 @@ public final class AsyncDifferConfig<T> {
         }
 
         @NonNull
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public Builder<T> setMainThreadExecutor(Executor executor) {
             this.mMainThreadExecutor = executor;
             return this;
         }
     }
 
-    public AsyncDifferConfig(@NonNull Executor executor, @NonNull Executor executor2, @NonNull DiffUtil.ItemCallback<T> itemCallback) {
+    public AsyncDifferConfig(@Nullable Executor executor, @NonNull Executor executor2, @NonNull DiffUtil.ItemCallback<T> itemCallback) {
         this.mMainThreadExecutor = executor;
         this.mBackgroundThreadExecutor = executor2;
         this.mDiffCallback = itemCallback;
@@ -69,8 +71,8 @@ public final class AsyncDifferConfig<T> {
         return this.mDiffCallback;
     }
 
-    @NonNull
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public Executor getMainThreadExecutor() {
         return this.mMainThreadExecutor;
     }

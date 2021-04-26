@@ -18,47 +18,47 @@ public class NetworkUtil {
 
     public static String getCurrentNetMode(Context context) {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
-        int i = 1;
+        int i2 = 1;
         if (activeNetworkInfo != null) {
             if (activeNetworkInfo.getType() != 1) {
                 switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
                     case 1:
                     case 2:
-                        i = 6;
+                        i2 = 6;
                         break;
                     case 3:
                     case 9:
                     case 10:
                     case 15:
-                        i = 9;
+                        i2 = 9;
                         break;
                     case 4:
-                        i = 5;
+                        i2 = 5;
                         break;
                     case 5:
                     case 6:
                     case 7:
                     case 12:
-                        i = 7;
+                        i2 = 7;
                         break;
                     case 8:
-                        i = 8;
+                        i2 = 8;
                         break;
                     case 11:
-                        i = 2;
+                        i2 = 2;
                         break;
                     case 13:
-                        i = 4;
+                        i2 = 4;
                         break;
                     case 14:
-                        i = 10;
+                        i2 = 10;
                         break;
                 }
             }
-            return Integer.toString(i);
+            return Integer.toString(i2);
         }
-        i = 0;
-        return Integer.toString(i);
+        i2 = 0;
+        return Integer.toString(i2);
     }
 
     public static boolean initConnectState() {
@@ -121,12 +121,12 @@ public class NetworkUtil {
         if (context == null) {
             return false;
         }
-        int i = -1;
+        int i2 = -1;
         try {
-            i = ((WifiManager) context.getSystemService("wifi")).getWifiState();
+            i2 = ((WifiManager) context.getSystemService("wifi")).getWifiState();
         } catch (Exception unused) {
         }
-        return i == 3;
+        return i2 == 3;
     }
 
     public static void updateNetworkProxy(Context context) {

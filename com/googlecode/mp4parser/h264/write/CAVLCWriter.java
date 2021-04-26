@@ -16,18 +16,18 @@ public class CAVLCWriter extends BitstreamWriter {
         Debug.println(TrackUI.SEPERATOR + z);
     }
 
-    public void writeNBit(long j, int i, String str) throws IOException {
+    public void writeNBit(long j, int i2, String str) throws IOException {
         Debug.print(String.valueOf(str) + TrackUI.SEPERATOR);
-        for (int i2 = 0; i2 < i; i2++) {
-            write1Bit(((int) (j >> ((i - i2) - 1))) & 1);
+        for (int i3 = 0; i3 < i2; i3++) {
+            write1Bit(((int) (j >> ((i2 - i3) - 1))) & 1);
         }
         Debug.println(TrackUI.SEPERATOR + j);
     }
 
-    public void writeSE(int i, String str) throws IOException {
+    public void writeSE(int i2, String str) throws IOException {
         Debug.print(String.valueOf(str) + TrackUI.SEPERATOR);
-        writeUE(((i << 1) * (i < 0 ? -1 : 1)) + (i <= 0 ? 0 : 1));
-        Debug.println(TrackUI.SEPERATOR + i);
+        writeUE(((i2 << 1) * (i2 < 0 ? -1 : 1)) + (i2 <= 0 ? 0 : 1));
+        Debug.println(TrackUI.SEPERATOR + i2);
     }
 
     public void writeSliceTrailingBits() {
@@ -40,41 +40,41 @@ public class CAVLCWriter extends BitstreamWriter {
         flush();
     }
 
-    public void writeU(int i, int i2, String str) throws IOException {
+    public void writeU(int i2, int i3, String str) throws IOException {
         Debug.print(String.valueOf(str) + TrackUI.SEPERATOR);
-        writeNBit((long) i, i2);
-        Debug.println(TrackUI.SEPERATOR + i);
+        writeNBit((long) i2, i3);
+        Debug.println(TrackUI.SEPERATOR + i2);
     }
 
-    public void writeUE(int i) throws IOException {
-        int i2 = 0;
+    public void writeUE(int i2) throws IOException {
         int i3 = 0;
         int i4 = 0;
+        int i5 = 0;
         while (true) {
-            if (i3 >= 15) {
+            if (i4 >= 15) {
                 break;
             }
-            int i5 = (1 << i3) + i4;
-            if (i < i5) {
-                i2 = i3;
+            int i6 = (1 << i4) + i5;
+            if (i2 < i6) {
+                i3 = i4;
                 break;
             } else {
-                i3++;
-                i4 = i5;
+                i4++;
+                i5 = i6;
             }
         }
-        writeNBit(0L, i2);
+        writeNBit(0L, i3);
         write1Bit(1);
-        writeNBit(i - i4, i2);
+        writeNBit(i2 - i5, i3);
     }
 
-    public void writeU(int i, int i2) throws IOException {
-        writeNBit(i, i2);
+    public void writeU(int i2, int i3) throws IOException {
+        writeNBit(i2, i3);
     }
 
-    public void writeUE(int i, String str) throws IOException {
+    public void writeUE(int i2, String str) throws IOException {
         Debug.print(String.valueOf(str) + TrackUI.SEPERATOR);
-        writeUE(i);
-        Debug.println(TrackUI.SEPERATOR + i);
+        writeUE(i2);
+        Debug.println(TrackUI.SEPERATOR + i2);
     }
 }

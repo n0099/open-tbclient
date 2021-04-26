@@ -110,13 +110,13 @@ public class DBBase {
         }
     }
 
-    public String makePlaceholders(int i) {
-        if (i < 1) {
+    public String makePlaceholders(int i2) {
+        if (i2 < 1) {
             return null;
         }
-        StringBuilder sb = new StringBuilder((i * 2) - 1);
+        StringBuilder sb = new StringBuilder((i2 * 2) - 1);
         sb.append("?");
-        for (int i2 = 1; i2 < i; i2++) {
+        for (int i3 = 1; i3 < i2; i3++) {
             sb.append(",?");
         }
         return sb.toString();
@@ -239,7 +239,7 @@ public class DBBase {
 
     public int updateBatch(String str, List<UpdateArgs> list) {
         IMTrack.CrashBuilder crashBuilder;
-        int i = -1;
+        int i2 = -1;
         if (TextUtils.isEmpty(str) || list == null || list.size() == 0) {
             return -1;
         }
@@ -252,12 +252,12 @@ public class DBBase {
             try {
                 openDatabase.beginTransaction();
                 for (UpdateArgs updateArgs : list) {
-                    i = openDatabase.update(str, updateArgs.values, updateArgs.query, updateArgs.args);
-                    if (i < 0) {
+                    i2 = openDatabase.update(str, updateArgs.values, updateArgs.query, updateArgs.args);
+                    if (i2 < 0) {
                         break;
                     }
                 }
-                if (i >= 0) {
+                if (i2 >= 0) {
                     openDatabase.setTransactionSuccessful();
                 }
                 if (openDatabase != null) {
@@ -268,7 +268,7 @@ public class DBBase {
                         crashBuilder = new IMTrack.CrashBuilder(this.mContext);
                         crashBuilder.exception(Log.getStackTraceString(e)).build();
                         LogUtils.e(TAG, "updateBatch", e);
-                        return i;
+                        return i2;
                     }
                 }
             } catch (Exception e3) {
@@ -282,11 +282,11 @@ public class DBBase {
                         crashBuilder = new IMTrack.CrashBuilder(this.mContext);
                         crashBuilder.exception(Log.getStackTraceString(e)).build();
                         LogUtils.e(TAG, "updateBatch", e);
-                        return i;
+                        return i2;
                     }
                 }
             }
-            return i;
+            return i2;
         } catch (Throwable th) {
             if (openDatabase != null) {
                 try {

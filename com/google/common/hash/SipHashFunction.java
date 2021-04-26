@@ -2,11 +2,11 @@ package com.google.common.hash;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.h.c.a.n;
-import d.h.c.d.b;
-import d.h.c.d.d;
-import d.h.c.d.e;
-import d.h.c.d.f;
+import d.g.c.a.n;
+import d.g.c.d.b;
+import d.g.c.d.d;
+import d.g.c.d.e;
+import d.g.c.d.f;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
@@ -15,10 +15,10 @@ public final class SipHashFunction extends b implements Serializable {
     public static final long serialVersionUID = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f31205c;
+    public final int f32183c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f31206d;
+    public final int f32184d;
     public final long k0;
     public final long k1;
 
@@ -26,107 +26,109 @@ public final class SipHashFunction extends b implements Serializable {
     public static final class a extends d {
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f31207d;
+        public final int f32185d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f31208e;
+        public final int f32186e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f31209f;
+        public long f32187f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f31210g;
+        public long f32188g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f31211h;
-        public long i;
+        public long f32189h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public long f32190i;
         public long j;
         public long k;
 
-        public a(int i, int i2, long j, long j2) {
+        public a(int i2, int i3, long j, long j2) {
             super(8);
-            this.f31209f = 8317987319222330741L;
-            this.f31210g = 7237128888997146477L;
-            this.f31211h = 7816392313619706465L;
-            this.i = 8387220255154660723L;
+            this.f32187f = 8317987319222330741L;
+            this.f32188g = 7237128888997146477L;
+            this.f32189h = 7816392313619706465L;
+            this.f32190i = 8387220255154660723L;
             this.j = 0L;
             this.k = 0L;
-            this.f31207d = i;
-            this.f31208e = i2;
-            this.f31209f = 8317987319222330741L ^ j;
-            this.f31210g = 7237128888997146477L ^ j2;
-            this.f31211h = 7816392313619706465L ^ j;
-            this.i = 8387220255154660723L ^ j2;
+            this.f32185d = i2;
+            this.f32186e = i3;
+            this.f32187f = 8317987319222330741L ^ j;
+            this.f32188g = 7237128888997146477L ^ j2;
+            this.f32189h = 7816392313619706465L ^ j;
+            this.f32190i = 8387220255154660723L ^ j2;
         }
 
-        @Override // d.h.c.d.d
+        @Override // d.g.c.d.d
         public HashCode l() {
             long j = this.k ^ (this.j << 56);
             this.k = j;
             r(j);
-            this.f31211h ^= 255;
-            s(this.f31208e);
-            return HashCode.fromLong(((this.f31209f ^ this.f31210g) ^ this.f31211h) ^ this.i);
+            this.f32189h ^= 255;
+            s(this.f32186e);
+            return HashCode.fromLong(((this.f32187f ^ this.f32188g) ^ this.f32189h) ^ this.f32190i);
         }
 
-        @Override // d.h.c.d.d
+        @Override // d.g.c.d.d
         public void o(ByteBuffer byteBuffer) {
             this.j += 8;
             r(byteBuffer.getLong());
         }
 
-        @Override // d.h.c.d.d
+        @Override // d.g.c.d.d
         public void p(ByteBuffer byteBuffer) {
             this.j += byteBuffer.remaining();
-            int i = 0;
+            int i2 = 0;
             while (byteBuffer.hasRemaining()) {
-                this.k ^= (byteBuffer.get() & 255) << i;
-                i += 8;
+                this.k ^= (byteBuffer.get() & 255) << i2;
+                i2 += 8;
             }
         }
 
         public final void r(long j) {
-            this.i ^= j;
-            s(this.f31207d);
-            this.f31209f = j ^ this.f31209f;
+            this.f32190i ^= j;
+            s(this.f32185d);
+            this.f32187f = j ^ this.f32187f;
         }
 
-        public final void s(int i) {
-            for (int i2 = 0; i2 < i; i2++) {
-                long j = this.f31209f;
-                long j2 = this.f31210g;
-                this.f31209f = j + j2;
-                this.f31211h += this.i;
-                this.f31210g = Long.rotateLeft(j2, 13);
-                long rotateLeft = Long.rotateLeft(this.i, 16);
-                this.i = rotateLeft;
-                long j3 = this.f31210g;
-                long j4 = this.f31209f;
-                this.f31210g = j3 ^ j4;
-                this.i = rotateLeft ^ this.f31211h;
+        public final void s(int i2) {
+            for (int i3 = 0; i3 < i2; i3++) {
+                long j = this.f32187f;
+                long j2 = this.f32188g;
+                this.f32187f = j + j2;
+                this.f32189h += this.f32190i;
+                this.f32188g = Long.rotateLeft(j2, 13);
+                long rotateLeft = Long.rotateLeft(this.f32190i, 16);
+                this.f32190i = rotateLeft;
+                long j3 = this.f32188g;
+                long j4 = this.f32187f;
+                this.f32188g = j3 ^ j4;
+                this.f32190i = rotateLeft ^ this.f32189h;
                 long rotateLeft2 = Long.rotateLeft(j4, 32);
-                this.f31209f = rotateLeft2;
-                long j5 = this.f31211h;
-                long j6 = this.f31210g;
-                this.f31211h = j5 + j6;
-                this.f31209f = rotateLeft2 + this.i;
-                this.f31210g = Long.rotateLeft(j6, 17);
-                long rotateLeft3 = Long.rotateLeft(this.i, 21);
-                this.i = rotateLeft3;
-                long j7 = this.f31210g;
-                long j8 = this.f31211h;
-                this.f31210g = j7 ^ j8;
-                this.i = rotateLeft3 ^ this.f31209f;
-                this.f31211h = Long.rotateLeft(j8, 32);
+                this.f32187f = rotateLeft2;
+                long j5 = this.f32189h;
+                long j6 = this.f32188g;
+                this.f32189h = j5 + j6;
+                this.f32187f = rotateLeft2 + this.f32190i;
+                this.f32188g = Long.rotateLeft(j6, 17);
+                long rotateLeft3 = Long.rotateLeft(this.f32190i, 21);
+                this.f32190i = rotateLeft3;
+                long j7 = this.f32188g;
+                long j8 = this.f32189h;
+                this.f32188g = j7 ^ j8;
+                this.f32190i = rotateLeft3 ^ this.f32187f;
+                this.f32189h = Long.rotateLeft(j8, 32);
             }
         }
     }
 
-    public SipHashFunction(int i, int i2, long j, long j2) {
-        n.f(i > 0, "The number of SipRound iterations (c=%s) during Compression must be positive.", i);
-        n.f(i2 > 0, "The number of SipRound iterations (d=%s) during Finalization must be positive.", i2);
-        this.f31205c = i;
-        this.f31206d = i2;
+    public SipHashFunction(int i2, int i3, long j, long j2) {
+        n.f(i2 > 0, "The number of SipRound iterations (c=%s) during Compression must be positive.", i2);
+        n.f(i3 > 0, "The number of SipRound iterations (d=%s) during Finalization must be positive.", i3);
+        this.f32183c = i2;
+        this.f32184d = i3;
         this.k0 = j;
         this.k1 = j2;
     }
@@ -138,21 +140,21 @@ public final class SipHashFunction extends b implements Serializable {
     public boolean equals(Object obj) {
         if (obj instanceof SipHashFunction) {
             SipHashFunction sipHashFunction = (SipHashFunction) obj;
-            return this.f31205c == sipHashFunction.f31205c && this.f31206d == sipHashFunction.f31206d && this.k0 == sipHashFunction.k0 && this.k1 == sipHashFunction.k1;
+            return this.f32183c == sipHashFunction.f32183c && this.f32184d == sipHashFunction.f32184d && this.k0 == sipHashFunction.k0 && this.k1 == sipHashFunction.k1;
         }
         return false;
     }
 
     public int hashCode() {
-        return (int) ((((SipHashFunction.class.hashCode() ^ this.f31205c) ^ this.f31206d) ^ this.k0) ^ this.k1);
+        return (int) ((((SipHashFunction.class.hashCode() ^ this.f32183c) ^ this.f32184d) ^ this.k0) ^ this.k1);
     }
 
-    @Override // d.h.c.d.e
+    @Override // d.g.c.d.e
     public f newHasher() {
-        return new a(this.f31205c, this.f31206d, this.k0, this.k1);
+        return new a(this.f32183c, this.f32184d, this.k0, this.k1);
     }
 
     public String toString() {
-        return "Hashing.sipHash" + this.f31205c + "" + this.f31206d + "(" + this.k0 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.k1 + SmallTailInfo.EMOTION_SUFFIX;
+        return "Hashing.sipHash" + this.f32183c + "" + this.f32184d + "(" + this.k0 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.k1 + SmallTailInfo.EMOTION_SUFFIX;
     }
 }

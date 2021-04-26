@@ -59,8 +59,8 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         return true;
     }
 
-    public BeanContext getBeanContext(int i) {
-        return this.sortedGetters[i].fieldContext;
+    public BeanContext getBeanContext(int i2) {
+        return this.sortedGetters[i2].fieldContext;
     }
 
     public Set<String> getFieldNames(Object obj) throws Exception {
@@ -78,24 +78,24 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         if (str == null) {
             return null;
         }
-        int i = 0;
+        int i2 = 0;
         int length = this.sortedGetters.length - 1;
-        while (i <= length) {
-            int i2 = (i + length) >>> 1;
-            int compareTo = this.sortedGetters[i2].fieldInfo.name.compareTo(str);
+        while (i2 <= length) {
+            int i3 = (i2 + length) >>> 1;
+            int compareTo = this.sortedGetters[i3].fieldInfo.name.compareTo(str);
             if (compareTo < 0) {
-                i = i2 + 1;
+                i2 = i3 + 1;
             } else if (compareTo <= 0) {
-                return this.sortedGetters[i2];
+                return this.sortedGetters[i3];
             } else {
-                length = i2 - 1;
+                length = i3 - 1;
             }
         }
         return null;
     }
 
-    public Type getFieldType(int i) {
-        return this.sortedGetters[i].fieldInfo.fieldType;
+    public Type getFieldType(int i2) {
+        return this.sortedGetters[i2].fieldInfo.fieldType;
     }
 
     public Object getFieldValue(Object obj, String str) {
@@ -156,13 +156,13 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
     }
 
     public int getSize(Object obj) throws Exception {
-        int i = 0;
+        int i2 = 0;
         for (FieldSerializer fieldSerializer : this.sortedGetters) {
             if (fieldSerializer.getPropertyValueDirect(obj) != null) {
-                i++;
+                i2++;
             }
         }
-        return i;
+        return i2;
     }
 
     public Class<?> getType() {
@@ -174,8 +174,8 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
-        write(jSONSerializer, obj, obj2, type, i, false);
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
+        write(jSONSerializer, obj, obj2, type, i2, false);
     }
 
     public char writeAfter(JSONSerializer jSONSerializer, Object obj, char c2) {
@@ -194,12 +194,12 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         return c2;
     }
 
-    public void writeAsArray(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
-        write(jSONSerializer, obj, obj2, type, i);
+    public void writeAsArray(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
+        write(jSONSerializer, obj, obj2, type, i2);
     }
 
-    public void writeAsArrayNonContext(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
-        write(jSONSerializer, obj, obj2, type, i);
+    public void writeAsArrayNonContext(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
+        write(jSONSerializer, obj, obj2, type, i2);
     }
 
     public char writeBefore(JSONSerializer jSONSerializer, Object obj, char c2) {
@@ -234,19 +234,19 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         jSONSerializer.write(str2);
     }
 
-    public void writeDirectNonContext(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
-        write(jSONSerializer, obj, obj2, type, i);
+    public void writeDirectNonContext(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
+        write(jSONSerializer, obj, obj2, type, i2);
     }
 
-    public void writeNoneASM(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
-        write(jSONSerializer, obj, obj2, type, i, false);
+    public void writeNoneASM(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
+        write(jSONSerializer, obj, obj2, type, i2, false);
     }
 
-    public boolean writeReference(JSONSerializer jSONSerializer, Object obj, int i) {
+    public boolean writeReference(JSONSerializer jSONSerializer, Object obj, int i2) {
         IdentityHashMap<Object, SerialContext> identityHashMap;
         SerialContext serialContext = jSONSerializer.context;
-        int i2 = SerializerFeature.DisableCircularReferenceDetect.mask;
-        if (serialContext != null && (serialContext.features & i2) == 0 && (i & i2) == 0 && (identityHashMap = jSONSerializer.references) != null && identityHashMap.containsKey(obj)) {
+        int i3 = SerializerFeature.DisableCircularReferenceDetect.mask;
+        if (serialContext != null && (serialContext.features & i3) == 0 && (i2 & i3) == 0 && (identityHashMap = jSONSerializer.references) != null && identityHashMap.containsKey(obj)) {
             jSONSerializer.writeReference(obj);
             return true;
         }
@@ -257,9 +257,9 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         this(cls, createAliasMap(strArr));
     }
 
-    public boolean isWriteAsArray(JSONSerializer jSONSerializer, int i) {
-        int i2 = SerializerFeature.BeanToArray.mask;
-        return ((this.beanInfo.features & i2) == 0 && !jSONSerializer.out.beanToArray && (i & i2) == 0) ? false : true;
+    public boolean isWriteAsArray(JSONSerializer jSONSerializer, int i2) {
+        int i3 = SerializerFeature.BeanToArray.mask;
+        return ((this.beanInfo.features & i3) == 0 && !jSONSerializer.out.beanToArray && (i2 & i3) == 0) ? false : true;
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -1169,33 +1169,33 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         boolean z;
         this.beanInfo = serializeBeanInfo;
         this.sortedGetters = new FieldSerializer[serializeBeanInfo.sortedFields.length];
-        int i = 0;
+        int i2 = 0;
         while (true) {
             fieldSerializerArr = this.sortedGetters;
-            if (i >= fieldSerializerArr.length) {
+            if (i2 >= fieldSerializerArr.length) {
                 break;
             }
-            fieldSerializerArr[i] = new FieldSerializer(serializeBeanInfo.beanType, serializeBeanInfo.sortedFields[i]);
-            i++;
+            fieldSerializerArr[i2] = new FieldSerializer(serializeBeanInfo.beanType, serializeBeanInfo.sortedFields[i2]);
+            i2++;
         }
         FieldInfo[] fieldInfoArr = serializeBeanInfo.fields;
         if (fieldInfoArr == serializeBeanInfo.sortedFields) {
             this.getters = fieldSerializerArr;
         } else {
             this.getters = new FieldSerializer[fieldInfoArr.length];
-            int i2 = 0;
+            int i3 = 0;
             while (true) {
-                if (i2 >= this.getters.length) {
+                if (i3 >= this.getters.length) {
                     z = false;
                     break;
                 }
-                FieldSerializer fieldSerializer = getFieldSerializer(serializeBeanInfo.fields[i2].name);
+                FieldSerializer fieldSerializer = getFieldSerializer(serializeBeanInfo.fields[i3].name);
                 if (fieldSerializer == null) {
                     z = true;
                     break;
                 } else {
-                    this.getters[i2] = fieldSerializer;
-                    i2++;
+                    this.getters[i3] = fieldSerializer;
+                    i3++;
                 }
             }
             if (z) {
@@ -1220,28 +1220,28 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         if (this.hashArray == null) {
             propertyNamingStrategyArr = PropertyNamingStrategy.values();
             long[] jArr = new long[this.sortedGetters.length * propertyNamingStrategyArr.length];
-            int i = 0;
             int i2 = 0;
+            int i3 = 0;
             while (true) {
                 FieldSerializer[] fieldSerializerArr = this.sortedGetters;
-                if (i >= fieldSerializerArr.length) {
+                if (i2 >= fieldSerializerArr.length) {
                     break;
                 }
-                String str = fieldSerializerArr[i].fieldInfo.name;
-                jArr[i2] = TypeUtils.fnv1a_64(str);
-                i2++;
+                String str = fieldSerializerArr[i2].fieldInfo.name;
+                jArr[i3] = TypeUtils.fnv1a_64(str);
+                i3++;
                 for (PropertyNamingStrategy propertyNamingStrategy : propertyNamingStrategyArr) {
                     String translate = propertyNamingStrategy.translate(str);
                     if (!str.equals(translate)) {
-                        jArr[i2] = TypeUtils.fnv1a_64(translate);
-                        i2++;
+                        jArr[i3] = TypeUtils.fnv1a_64(translate);
+                        i3++;
                     }
                 }
-                i++;
+                i2++;
             }
-            Arrays.sort(jArr, 0, i2);
-            this.hashArray = new long[i2];
-            System.arraycopy(jArr, 0, this.hashArray, 0, i2);
+            Arrays.sort(jArr, 0, i3);
+            this.hashArray = new long[i3];
+            System.arraycopy(jArr, 0, this.hashArray, 0, i3);
         } else {
             propertyNamingStrategyArr = null;
         }
@@ -1255,24 +1255,24 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
             }
             short[] sArr = new short[this.hashArray.length];
             Arrays.fill(sArr, (short) -1);
-            int i3 = 0;
+            int i4 = 0;
             while (true) {
                 FieldSerializer[] fieldSerializerArr2 = this.sortedGetters;
-                if (i3 >= fieldSerializerArr2.length) {
+                if (i4 >= fieldSerializerArr2.length) {
                     break;
                 }
-                String str2 = fieldSerializerArr2[i3].fieldInfo.name;
+                String str2 = fieldSerializerArr2[i4].fieldInfo.name;
                 int binarySearch3 = Arrays.binarySearch(this.hashArray, TypeUtils.fnv1a_64(str2));
                 if (binarySearch3 >= 0) {
-                    sArr[binarySearch3] = (short) i3;
+                    sArr[binarySearch3] = (short) i4;
                 }
                 for (PropertyNamingStrategy propertyNamingStrategy2 : propertyNamingStrategyArr) {
                     String translate2 = propertyNamingStrategy2.translate(str2);
                     if (!str2.equals(translate2) && (binarySearch = Arrays.binarySearch(this.hashArray, TypeUtils.fnv1a_64(translate2))) >= 0) {
-                        sArr[binarySearch] = (short) i3;
+                        sArr[binarySearch] = (short) i4;
                     }
                 }
-                i3++;
+                i4++;
             }
             this.hashArrayMapping = sArr;
         }

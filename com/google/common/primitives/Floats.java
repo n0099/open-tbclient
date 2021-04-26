@@ -2,7 +2,7 @@ package com.google.common.primitives;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.google.common.base.Converter;
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.Arrays;
@@ -40,8 +40,8 @@ public final class Floats {
                 if (floatArrayAsList.size() != size) {
                     return false;
                 }
-                for (int i = 0; i < size; i++) {
-                    if (this.array[this.start + i] != floatArrayAsList.array[floatArrayAsList.start + i]) {
+                for (int i2 = 0; i2 < size; i2++) {
+                    if (this.array[this.start + i2] != floatArrayAsList.array[floatArrayAsList.start + i2]) {
                         return false;
                     }
                 }
@@ -52,11 +52,11 @@ public final class Floats {
 
         @Override // java.util.AbstractList, java.util.Collection, java.util.List
         public int hashCode() {
-            int i = 1;
-            for (int i2 = this.start; i2 < this.end; i2++) {
-                i = (i * 31) + Floats.c(this.array[i2]);
+            int i2 = 1;
+            for (int i3 = this.start; i3 < this.end; i3++) {
+                i2 = (i2 * 31) + Floats.c(this.array[i3]);
             }
-            return i;
+            return i2;
         }
 
         @Override // java.util.AbstractList, java.util.List
@@ -88,14 +88,14 @@ public final class Floats {
         }
 
         @Override // java.util.AbstractList, java.util.List
-        public List<Float> subList(int i, int i2) {
-            n.v(i, i2, size());
-            if (i == i2) {
+        public List<Float> subList(int i2, int i3) {
+            n.v(i2, i3, size());
+            if (i2 == i3) {
                 return Collections.emptyList();
             }
             float[] fArr = this.array;
-            int i3 = this.start;
-            return new FloatArrayAsList(fArr, i + i3, i3 + i2);
+            int i4 = this.start;
+            return new FloatArrayAsList(fArr, i2 + i4, i4 + i3);
         }
 
         public float[] toFloatArray() {
@@ -107,12 +107,12 @@ public final class Floats {
             StringBuilder sb = new StringBuilder(size() * 12);
             sb.append('[');
             sb.append(this.array[this.start]);
-            int i = this.start;
+            int i2 = this.start;
             while (true) {
-                i++;
-                if (i < this.end) {
+                i2++;
+                if (i2 < this.end) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(this.array[i]);
+                    sb.append(this.array[i2]);
                 } else {
                     sb.append(']');
                     return sb.toString();
@@ -120,28 +120,28 @@ public final class Floats {
             }
         }
 
-        public FloatArrayAsList(float[] fArr, int i, int i2) {
+        public FloatArrayAsList(float[] fArr, int i2, int i3) {
             this.array = fArr;
-            this.start = i;
-            this.end = i2;
+            this.start = i2;
+            this.end = i3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Float get(int i) {
-            n.n(i, size());
-            return Float.valueOf(this.array[this.start + i]);
+        public Float get(int i2) {
+            n.n(i2, size());
+            return Float.valueOf(this.array[this.start + i2]);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Float set(int i, Float f2) {
-            n.n(i, size());
+        public Float set(int i2, Float f2) {
+            n.n(i2, size());
             float[] fArr = this.array;
-            int i2 = this.start;
-            float f3 = fArr[i2 + i];
+            int i3 = this.start;
+            float f3 = fArr[i3 + i2];
             n.p(f2);
-            fArr[i2 + i] = f2.floatValue();
+            fArr[i3 + i2] = f2.floatValue();
             return Float.valueOf(f3);
         }
     }
@@ -185,8 +185,8 @@ public final class Floats {
         @Override // java.util.Comparator
         public int compare(float[] fArr, float[] fArr2) {
             int min = Math.min(fArr.length, fArr2.length);
-            for (int i = 0; i < min; i++) {
-                int compare = Float.compare(fArr[i], fArr2[i]);
+            for (int i2 = 0; i2 < min; i2++) {
+                int compare = Float.compare(fArr[i2], fArr2[i2]);
                 if (compare != 0) {
                     return compare;
                 }
@@ -199,20 +199,20 @@ public final class Floats {
         return Float.valueOf(f2).hashCode();
     }
 
-    public static int d(float[] fArr, float f2, int i, int i2) {
-        while (i < i2) {
-            if (fArr[i] == f2) {
-                return i;
+    public static int d(float[] fArr, float f2, int i2, int i3) {
+        while (i2 < i3) {
+            if (fArr[i2] == f2) {
+                return i2;
             }
-            i++;
+            i2++;
         }
         return -1;
     }
 
-    public static int e(float[] fArr, float f2, int i, int i2) {
-        for (int i3 = i2 - 1; i3 >= i; i3--) {
-            if (fArr[i3] == f2) {
-                return i3;
+    public static int e(float[] fArr, float f2, int i2, int i3) {
+        for (int i4 = i3 - 1; i4 >= i2; i4--) {
+            if (fArr[i4] == f2) {
+                return i4;
             }
         }
         return -1;

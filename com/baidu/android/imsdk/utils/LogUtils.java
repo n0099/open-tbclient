@@ -73,8 +73,8 @@ public class LogUtils {
         Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
     }
 
-    public static void init(Context context, int i, boolean z) {
-        mLoglevel = i;
+    public static void init(Context context, int i2, boolean z) {
+        mLoglevel = i2;
         mIsWriteToFile = z;
         sContext = context;
         LogFile.getInstance(context);

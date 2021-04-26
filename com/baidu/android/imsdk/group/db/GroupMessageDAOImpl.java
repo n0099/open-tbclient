@@ -204,22 +204,22 @@ public class GroupMessageDAOImpl {
     }
 
     public static ChatMsg construGroupChatMsg(Context context, Cursor cursor) {
-        int i = cursor.getInt(cursor.getColumnIndex("_id"));
-        int i2 = cursor.getInt(cursor.getColumnIndex("type"));
+        int i2 = cursor.getInt(cursor.getColumnIndex("_id"));
+        int i3 = cursor.getInt(cursor.getColumnIndex("type"));
         long j = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMessageColumns.COLUMN_FROM_USER));
         long j2 = cursor.getLong(cursor.getColumnIndex("msgid"));
         long j3 = cursor.getLong(cursor.getColumnIndex("time"));
-        int i3 = cursor.getInt(cursor.getColumnIndex("is_read"));
-        int i4 = cursor.getInt(cursor.getColumnIndex("status"));
+        int i4 = cursor.getInt(cursor.getColumnIndex("is_read"));
+        int i5 = cursor.getInt(cursor.getColumnIndex("status"));
         String string = cursor.getString(cursor.getColumnIndex("content"));
         long j4 = cursor.getLong(cursor.getColumnIndex("groupid"));
-        int i5 = cursor.getInt(cursor.getColumnIndex("cmd"));
+        int i6 = cursor.getInt(cursor.getColumnIndex("cmd"));
         String string2 = cursor.getString(cursor.getColumnIndex("local_url"));
         boolean z = cursor.getInt(cursor.getColumnIndex("isclicked")) == 1;
-        int i6 = cursor.getInt(cursor.getColumnIndex("device_flag"));
+        int i7 = cursor.getInt(cursor.getColumnIndex("device_flag"));
         String string3 = cursor.getString(cursor.getColumnIndex("sendid"));
         String string4 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupMessageColumns.COLUMN_FROM_BUID));
-        ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(context, 1, i2, i5);
+        ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(context, 1, i3, i6);
         if (newChatMsg == null) {
             return null;
         }
@@ -227,18 +227,18 @@ public class GroupMessageDAOImpl {
         newChatMsg.setContacter(j4);
         newChatMsg.setFromUser(j);
         newChatMsg.setMsgContent(string);
-        newChatMsg.setRowId(i);
+        newChatMsg.setRowId(i2);
         newChatMsg.setMsgId(j2);
         newChatMsg.setMsgTime(j3);
-        newChatMsg.setMsgReaded(i3);
-        newChatMsg.setStatus(i4);
-        newChatMsg.setNotifyCmd(i5);
+        newChatMsg.setMsgReaded(i4);
+        newChatMsg.setStatus(i5);
+        newChatMsg.setNotifyCmd(i6);
         newChatMsg.setLocalUrl(string2);
         newChatMsg.setIsZhida(false);
         newChatMsg.setIsClicked(z);
         newChatMsg.setPaid(-1L);
-        newChatMsg.setMsgType(i2);
-        newChatMsg.setDeviceFlag(i6);
+        newChatMsg.setMsgType(i3);
+        newChatMsg.setDeviceFlag(i7);
         newChatMsg.setSendMsgId(string3);
         newChatMsg.setSenderUid(string4);
         return newChatMsg;
@@ -305,8 +305,8 @@ public class GroupMessageDAOImpl {
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb != null) {
             String str2 = " ( " + jArr[0];
-            for (int i = 1; i < jArr.length; i++) {
-                str2 = str2 + "," + jArr[i];
+            for (int i2 = 1; i2 < jArr.length; i2++) {
+                str2 = str2 + "," + jArr[i2];
             }
             String str3 = str2 + " )";
             return newDb.delete(DBTableDefine.getGroupMessageTableName(str), "msgid in " + str3, null).intValue();
@@ -328,12 +328,12 @@ public class GroupMessageDAOImpl {
         return fetchChatMsgInteranl(context, str, 1, Long.MAX_VALUE, -Math.abs(j), -1L, z, getGroupSystemMessageType(), MSGTYPEEXPLAN.UNEQUAL);
     }
 
-    public static ArrayList<ChatMsg> fetchChatMsgInteranl(Context context, String str, int i, long j, long j2, long j3, boolean z, long[] jArr, MSGTYPEEXPLAN msgtypeexplan) {
+    public static ArrayList<ChatMsg> fetchChatMsgInteranl(Context context, String str, int i2, long j, long j2, long j3, boolean z, long[] jArr, MSGTYPEEXPLAN msgtypeexplan) {
         String str2;
         String str3;
         String str4 = "msgid ASC , _id ASC";
-        int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-        if (i2 < 0) {
+        int i3 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        if (i3 < 0) {
             str2 = " < ? ";
             str4 = "msgid DESC , _id DESC";
         } else {
@@ -347,8 +347,8 @@ public class GroupMessageDAOImpl {
         } else {
             String str7 = AnonymousClass4.$SwitchMap$com$baidu$android$imsdk$group$db$GroupMessageDAOImpl$MSGTYPEEXPLAN[msgtypeexplan.ordinal()] != 1 ? " in " : " not in ";
             String str8 = " ( " + jArr[0];
-            for (int i3 = 1; i3 < jArr.length; i3++) {
-                str8 = str8 + "," + jArr[i3];
+            for (int i4 = 1; i4 < jArr.length; i4++) {
+                str8 = str8 + "," + jArr[i4];
             }
             str3 = str6 + " AND type" + str7 + (str8 + " )");
         }
@@ -366,7 +366,7 @@ public class GroupMessageDAOImpl {
                 while (it.hasNext()) {
                     LogUtils.e(TAG, it.next().toString());
                 }
-                if ((z && i2 < 0) || (!z && i2 > 0)) {
+                if ((z && i3 < 0) || (!z && i3 > 0)) {
                     Collections.reverse(arrayList);
                 }
             }
@@ -466,15 +466,15 @@ public class GroupMessageDAOImpl {
     }
 
     public static int markMsgClicked(Context context, ChatMsg chatMsg) {
-        int i;
+        int i2;
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         String valueOf = String.valueOf(chatMsg.getContacter());
         if (newDb != null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("isclicked", (Integer) 1);
-            i = newDb.update(DBTableDefine.getGroupMessageTableName(valueOf), contentValues, "msgid = ? ", new String[]{String.valueOf(chatMsg.getMsgId())}).intValue();
+            i2 = newDb.update(DBTableDefine.getGroupMessageTableName(valueOf), contentValues, "msgid = ? ", new String[]{String.valueOf(chatMsg.getMsgId())}).intValue();
         } else {
-            i = DBResponseCode.ERROR_DB_OPEN;
+            i2 = DBResponseCode.ERROR_DB_OPEN;
         }
         ArrayList<ChatMsg> fetchAllChatMsg = fetchAllChatMsg(context, valueOf, null, -1L, true);
         if (fetchAllChatMsg == null || fetchAllChatMsg.size() == 0) {
@@ -483,7 +483,7 @@ public class GroupMessageDAOImpl {
         if (chatMsg.getMsgId() == fetchAllChatMsg.get(0).getMsgId()) {
             ChatMessageDBManager.getInstance(context).updateChatSession(chatMsg);
         }
-        return i;
+        return i2;
     }
 
     public static int setAllMsgRead(Context context, String str, long j) {

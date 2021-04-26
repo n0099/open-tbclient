@@ -18,11 +18,11 @@ public class CloudControlErrorBean {
         return this.subErrorCode;
     }
 
-    public void setErrorCode(int i) {
-        this.errorCode = i;
+    public void setErrorCode(int i2) {
+        this.errorCode = i2;
     }
 
-    public void setSubErrorCode(int i) {
-        this.subErrorCode = i;
+    public void setSubErrorCode(int i2) {
+        this.subErrorCode = i2;
     }
 }

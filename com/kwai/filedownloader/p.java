@@ -7,13 +7,13 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f37470a = new b();
+    public final b f35192a = new b();
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final p f37471a = new p();
+        public static final p f35193a = new p();
 
         static {
             com.kwai.filedownloader.message.e.a().a(new z());
@@ -24,10 +24,10 @@ public class p {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public ThreadPoolExecutor f37472a;
+        public ThreadPoolExecutor f35194a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LinkedBlockingQueue<Runnable> f37473b;
+        public LinkedBlockingQueue<Runnable> f35195b;
 
         public b() {
             a();
@@ -35,16 +35,16 @@ public class p {
 
         private void a() {
             LinkedBlockingQueue<Runnable> linkedBlockingQueue = new LinkedBlockingQueue<>();
-            this.f37473b = linkedBlockingQueue;
-            this.f37472a = com.kwai.filedownloader.f.b.a(3, linkedBlockingQueue, "LauncherTask");
+            this.f35195b = linkedBlockingQueue;
+            this.f35194a = com.kwai.filedownloader.f.b.a(3, linkedBlockingQueue, "LauncherTask");
         }
 
         public void a(w.b bVar) {
-            this.f37472a.execute(new c(bVar));
+            this.f35194a.execute(new c(bVar));
         }
 
         public void b(w.b bVar) {
-            this.f37473b.remove(bVar);
+            this.f35195b.remove(bVar);
         }
     }
 
@@ -52,37 +52,37 @@ public class p {
     public static class c implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public final w.b f37474a;
+        public final w.b f35196a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f37475b = false;
+        public boolean f35197b = false;
 
         public c(w.b bVar) {
-            this.f37474a = bVar;
+            this.f35196a = bVar;
         }
 
         public boolean equals(Object obj) {
-            return super.equals(obj) || obj == this.f37474a;
+            return super.equals(obj) || obj == this.f35196a;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f37475b) {
+            if (this.f35197b) {
                 return;
             }
-            this.f37474a.p();
+            this.f35196a.p();
         }
     }
 
     public static p a() {
-        return a.f37471a;
+        return a.f35193a;
     }
 
     public synchronized void a(w.b bVar) {
-        this.f37470a.a(bVar);
+        this.f35192a.a(bVar);
     }
 
     public synchronized void b(w.b bVar) {
-        this.f37470a.b(bVar);
+        this.f35192a.b(bVar);
     }
 }

@@ -46,8 +46,8 @@ public class ExceptionCatchingInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public void mark(int i) {
-        this.wrapped.mark(i);
+    public void mark(int i2) {
+        this.wrapped.mark(i2);
     }
 
     @Override // java.io.InputStream
@@ -93,9 +93,9 @@ public class ExceptionCatchingInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) {
+    public int read(byte[] bArr, int i2, int i3) {
         try {
-            return this.wrapped.read(bArr, i, i2);
+            return this.wrapped.read(bArr, i2, i3);
         } catch (IOException e2) {
             this.exception = e2;
             return -1;

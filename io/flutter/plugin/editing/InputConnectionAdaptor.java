@@ -16,6 +16,7 @@ import android.view.inputmethod.BaseInputConnection;
 import android.view.inputmethod.CursorAnchorInfo;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import com.google.android.material.internal.ManufacturerUtils;
 import io.flutter.Log;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 /* loaded from: classes7.dex */
@@ -30,10 +31,10 @@ public class InputConnectionAdaptor extends BaseInputConnection {
     public final Layout mLayout;
     public final TextInputChannel textInputChannel;
 
-    public InputConnectionAdaptor(View view, int i, TextInputChannel textInputChannel, Editable editable, EditorInfo editorInfo) {
+    public InputConnectionAdaptor(View view, int i2, TextInputChannel textInputChannel, Editable editable, EditorInfo editorInfo) {
         super(view, true);
         this.mFlutterView = view;
-        this.mClient = i;
+        this.mClient = i2;
         this.textInputChannel = textInputChannel;
         this.mEditable = editable;
         this.mEditorInfo = editorInfo;
@@ -43,17 +44,17 @@ public class InputConnectionAdaptor extends BaseInputConnection {
         this.isSamsung = isSamsung();
     }
 
-    public static int clampIndexToEditable(int i, Editable editable) {
-        int max = Math.max(0, Math.min(editable.length(), i));
-        if (max != i) {
-            Log.d("flutter", "Text selection index was clamped (" + i + "->" + max + ") to remain in bounds. This may not be your fault, as some keyboards may select outside of bounds.");
+    public static int clampIndexToEditable(int i2, Editable editable) {
+        int max = Math.max(0, Math.min(editable.length(), i2));
+        if (max != i2) {
+            Log.d("flutter", "Text selection index was clamped (" + i2 + "->" + max + ") to remain in bounds. This may not be your fault, as some keyboards may select outside of bounds.");
         }
         return max;
     }
 
     @SuppressLint({"NewApi"})
     private boolean isSamsung() {
-        if (this.mImm.getCurrentInputMethodSubtype() == null || Build.VERSION.SDK_INT < 21 || !Build.MANUFACTURER.equals("samsung")) {
+        if (this.mImm.getCurrentInputMethodSubtype() == null || Build.VERSION.SDK_INT < 21 || !Build.MANUFACTURER.equals(ManufacturerUtils.SAMSUNG)) {
             return false;
         }
         return Settings.Secure.getString(this.mFlutterView.getContext().getContentResolver(), "default_input_method").contains("Samsung");
@@ -78,18 +79,18 @@ public class InputConnectionAdaptor extends BaseInputConnection {
     }
 
     @Override // android.view.inputmethod.BaseInputConnection, android.view.inputmethod.InputConnection
-    public boolean commitText(CharSequence charSequence, int i) {
-        boolean commitText = super.commitText(charSequence, i);
+    public boolean commitText(CharSequence charSequence, int i2) {
+        boolean commitText = super.commitText(charSequence, i2);
         updateEditingState();
         return commitText;
     }
 
     @Override // android.view.inputmethod.BaseInputConnection, android.view.inputmethod.InputConnection
-    public boolean deleteSurroundingText(int i, int i2) {
+    public boolean deleteSurroundingText(int i2, int i3) {
         if (Selection.getSelectionStart(this.mEditable) == -1) {
             return true;
         }
-        boolean deleteSurroundingText = super.deleteSurroundingText(i, i2);
+        boolean deleteSurroundingText = super.deleteSurroundingText(i2, i3);
         updateEditingState();
         return deleteSurroundingText;
     }
@@ -120,11 +121,11 @@ public class InputConnectionAdaptor extends BaseInputConnection {
     }
 
     @Override // android.view.inputmethod.BaseInputConnection, android.view.inputmethod.InputConnection
-    public boolean performContextMenuAction(int i) {
-        if (i == 16908319) {
+    public boolean performContextMenuAction(int i2) {
+        if (i2 == 16908319) {
             setSelection(0, this.mEditable.length());
             return true;
-        } else if (i == 16908320) {
+        } else if (i2 == 16908320) {
             int selectionStart = Selection.getSelectionStart(this.mEditable);
             int selectionEnd = Selection.getSelectionEnd(this.mEditable);
             if (selectionStart != selectionEnd) {
@@ -135,14 +136,14 @@ public class InputConnectionAdaptor extends BaseInputConnection {
                 setSelection(min, min);
             }
             return true;
-        } else if (i == 16908321) {
+        } else if (i2 == 16908321) {
             int selectionStart2 = Selection.getSelectionStart(this.mEditable);
             int selectionEnd2 = Selection.getSelectionEnd(this.mEditable);
             if (selectionStart2 != selectionEnd2) {
                 ((ClipboardManager) this.mFlutterView.getContext().getSystemService("clipboard")).setPrimaryClip(ClipData.newPlainText("text label?", this.mEditable.subSequence(Math.min(selectionStart2, selectionEnd2), Math.max(selectionStart2, selectionEnd2))));
             }
             return true;
-        } else if (i == 16908322) {
+        } else if (i2 == 16908322) {
             ClipData primaryClip = ((ClipboardManager) this.mFlutterView.getContext().getSystemService("clipboard")).getPrimaryClip();
             if (primaryClip != null) {
                 CharSequence coerceToText = primaryClip.getItemAt(0).coerceToText(this.mFlutterView.getContext());
@@ -164,20 +165,20 @@ public class InputConnectionAdaptor extends BaseInputConnection {
     }
 
     @Override // android.view.inputmethod.BaseInputConnection, android.view.inputmethod.InputConnection
-    public boolean performEditorAction(int i) {
-        if (i == 0) {
+    public boolean performEditorAction(int i2) {
+        if (i2 == 0) {
             this.textInputChannel.unspecifiedAction(this.mClient);
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             this.textInputChannel.newline(this.mClient);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             this.textInputChannel.go(this.mClient);
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             this.textInputChannel.search(this.mClient);
-        } else if (i == 4) {
+        } else if (i2 == 4) {
             this.textInputChannel.send(this.mClient);
-        } else if (i == 5) {
+        } else if (i2 == 5) {
             this.textInputChannel.next(this.mClient);
-        } else if (i != 7) {
+        } else if (i2 != 7) {
             this.textInputChannel.done(this.mClient);
         } else {
             this.textInputChannel.previous(this.mClient);
@@ -272,8 +273,8 @@ public class InputConnectionAdaptor extends BaseInputConnection {
                         this.mEditable.delete(min2, max4);
                     }
                     this.mEditable.insert(min2, String.valueOf((char) unicodeChar));
-                    int i = min2 + 1;
-                    setSelection(i, i);
+                    int i2 = min2 + 1;
+                    setSelection(i2, i2);
                 }
                 return true;
             }
@@ -287,27 +288,27 @@ public class InputConnectionAdaptor extends BaseInputConnection {
     }
 
     @Override // android.view.inputmethod.BaseInputConnection, android.view.inputmethod.InputConnection
-    public boolean setComposingRegion(int i, int i2) {
-        boolean composingRegion = super.setComposingRegion(i, i2);
+    public boolean setComposingRegion(int i2, int i3) {
+        boolean composingRegion = super.setComposingRegion(i2, i3);
         updateEditingState();
         return composingRegion;
     }
 
     @Override // android.view.inputmethod.BaseInputConnection, android.view.inputmethod.InputConnection
-    public boolean setComposingText(CharSequence charSequence, int i) {
+    public boolean setComposingText(CharSequence charSequence, int i2) {
         boolean composingText;
         if (charSequence.length() == 0) {
-            composingText = super.commitText(charSequence, i);
+            composingText = super.commitText(charSequence, i2);
         } else {
-            composingText = super.setComposingText(charSequence, i);
+            composingText = super.setComposingText(charSequence, i2);
         }
         updateEditingState();
         return composingText;
     }
 
     @Override // android.view.inputmethod.BaseInputConnection, android.view.inputmethod.InputConnection
-    public boolean setSelection(int i, int i2) {
-        boolean selection = super.setSelection(i, i2);
+    public boolean setSelection(int i2, int i3) {
+        boolean selection = super.setSelection(i2, i3);
         updateEditingState();
         return selection;
     }

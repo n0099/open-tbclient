@@ -8,8 +8,8 @@ import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.video.VideoTitleData;
-import d.b.i0.r.q.t1;
-import d.b.i0.t.a;
+import d.a.i0.r.q.t1;
+import d.a.i0.t.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
@@ -173,24 +173,24 @@ public class PostWriteCallBackData implements Serializable {
         this.isDyamicCallback = z;
     }
 
-    public void setErrorCode(int i) {
-        this.errorCode = i;
+    public void setErrorCode(int i2) {
+        this.errorCode = i2;
     }
 
     public void setErrorString(String str) {
         this.errorString = str;
     }
 
-    public void setGeneralTabId(int i) {
-        this.generalTabId = i;
+    public void setGeneralTabId(int i2) {
+        this.generalTabId = i2;
     }
 
     public void setIconStampData(IconStampData iconStampData) {
         this.iconStampData = iconStampData;
     }
 
-    public void setIsCopyTWZhibo(int i) {
-        this.isCopyTWZhibo = i;
+    public void setIsCopyTWZhibo(int i2) {
+        this.isCopyTWZhibo = i2;
     }
 
     public void setPostId(String str) {
@@ -201,8 +201,8 @@ public class PostWriteCallBackData implements Serializable {
         this.preMsg = str;
     }
 
-    public void setProZone(int i) {
-        this.proZone = i;
+    public void setProZone(int i2) {
+        this.proZone = i2;
     }
 
     public void setReplyPrivacyTip(t1 t1Var) {
@@ -229,8 +229,8 @@ public class PostWriteCallBackData implements Serializable {
         this.mAdverSegmentData = aVar;
     }
 
-    public PostWriteCallBackData(int i, String str, String str2, String str3) {
-        this.errorCode = i;
+    public PostWriteCallBackData(int i2, String str, String str2, String str3) {
+        this.errorCode = i2;
         this.errorString = str;
         this.preMsg = str2;
         this.colorMsg = str3;

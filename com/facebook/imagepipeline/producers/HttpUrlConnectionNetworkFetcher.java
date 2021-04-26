@@ -26,7 +26,7 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
         this(Executors.newFixedThreadPool(3));
     }
 
-    private HttpURLConnection downloadFrom(Uri uri, int i) throws IOException {
+    private HttpURLConnection downloadFrom(Uri uri, int i2) throws IOException {
         HttpURLConnection openConnectionTo = openConnectionTo(uri);
         openConnectionTo.setConnectTimeout(this.mHttpConnectionTimeout);
         int responseCode = openConnectionTo.getResponseCode();
@@ -38,10 +38,10 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
             openConnectionTo.disconnect();
             Uri parse = headerField == null ? null : Uri.parse(headerField);
             String scheme = uri.getScheme();
-            if (i > 0 && parse != null && !parse.getScheme().equals(scheme)) {
-                return downloadFrom(parse, i - 1);
+            if (i2 > 0 && parse != null && !parse.getScheme().equals(scheme)) {
+                return downloadFrom(parse, i2 - 1);
             }
-            throw new IOException(i == 0 ? error("URL %s follows too many redirects", uri.toString()) : error("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
+            throw new IOException(i2 == 0 ? error("URL %s follows too many redirects", uri.toString()) : error("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
         }
         openConnectionTo.disconnect();
         throw new IOException(String.format("Image URL %s returned HTTP code %d", uri.toString(), Integer.valueOf(responseCode)));
@@ -51,11 +51,11 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
         return String.format(Locale.getDefault(), str, objArr);
     }
 
-    public static boolean isHttpRedirect(int i) {
-        if (i == 307 || i == 308) {
+    public static boolean isHttpRedirect(int i2) {
+        if (i2 == 307 || i2 == 308) {
             return true;
         }
-        switch (i) {
+        switch (i2) {
             case 300:
             case 301:
             case 302:
@@ -66,8 +66,8 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
         }
     }
 
-    public static boolean isHttpSuccess(int i) {
-        return i >= 200 && i < 300;
+    public static boolean isHttpSuccess(int i2) {
+        return i2 >= 200 && i2 < 300;
     }
 
     @VisibleForTesting
@@ -166,9 +166,9 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
         httpURLConnection.disconnect();
     }
 
-    public HttpUrlConnectionNetworkFetcher(int i) {
+    public HttpUrlConnectionNetworkFetcher(int i2) {
         this(Executors.newFixedThreadPool(3));
-        this.mHttpConnectionTimeout = i;
+        this.mHttpConnectionTimeout = i2;
     }
 
     @VisibleForTesting

@@ -17,10 +17,10 @@ import java.util.Properties;
 public class ah implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f30068a = Thread.getDefaultUncaughtExceptionHandler();
+    public Thread.UncaughtExceptionHandler f30985a = Thread.getDefaultUncaughtExceptionHandler();
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30069b;
+    public String f30986b;
 
     public ah() {
         Thread.setDefaultUncaughtExceptionHandler(this);
@@ -40,12 +40,12 @@ public class ah implements Thread.UncaughtExceptionHandler {
         try {
             if ("mounted".equals(Environment.getExternalStorageState()) && (externalFilesDir = a2.getExternalFilesDir("TTCache")) != null) {
                 externalFilesDir.mkdirs();
-                this.f30069b = externalFilesDir.getPath();
+                this.f30986b = externalFilesDir.getPath();
             }
-            if (TextUtils.isEmpty(this.f30069b)) {
+            if (TextUtils.isEmpty(this.f30986b)) {
                 File file = new File(a2.getFilesDir(), "TTCache");
                 file.mkdirs();
-                this.f30069b = file.getPath();
+                this.f30986b = file.getPath();
             }
         } catch (Throwable unused) {
         }
@@ -75,7 +75,7 @@ public class ah implements Thread.UncaughtExceptionHandler {
         } catch (Throwable unused4) {
         }
         try {
-            String h2 = d.c.c.b.a.h(com.bytedance.sdk.openadsdk.core.p.a());
+            String h2 = d.b.c.b.a.h(com.bytedance.sdk.openadsdk.core.p.a());
             if (!TextUtils.isEmpty(h2)) {
                 File file = new File(h2);
                 if (file.exists()) {
@@ -105,7 +105,7 @@ public class ah implements Thread.UncaughtExceptionHandler {
         if (z) {
             a(thread, th);
         }
-        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f30068a;
+        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f30985a;
         if (uncaughtExceptionHandler == null || uncaughtExceptionHandler == this) {
             return;
         }
@@ -129,21 +129,21 @@ public class ah implements Thread.UncaughtExceptionHandler {
     */
     private void a(Thread thread, Throwable th) {
         FileOutputStream fileOutputStream;
-        int i;
+        int i2;
         boolean z;
         FileInputStream fileInputStream = null;
         try {
-            if (TextUtils.isEmpty(this.f30069b)) {
+            if (TextUtils.isEmpty(this.f30986b)) {
                 b();
             }
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream = null;
         }
-        if (TextUtils.isEmpty(this.f30069b)) {
+        if (TextUtils.isEmpty(this.f30986b)) {
             return;
         }
-        File file = new File(this.f30069b, "tt_crash_count.properties");
+        File file = new File(this.f30986b, "tt_crash_count.properties");
         boolean z2 = true;
         if (file.exists() && file.isFile() && file.canRead()) {
             ?? properties = new Properties();
@@ -154,28 +154,28 @@ public class ah implements Thread.UncaughtExceptionHandler {
                 String property2 = properties.getProperty("crash_last_time", "0");
                 int intValue = Integer.valueOf(property).intValue();
                 long longValue = Long.valueOf(property2).longValue();
-                int i2 = 0;
+                int i3 = 0;
                 if (System.currentTimeMillis() - longValue < 300000) {
-                    i = intValue + 1;
+                    i2 = intValue + 1;
                     z = false;
                 } else {
-                    i = 1;
+                    i2 = 1;
                     z = true;
                 }
-                if (i < 3) {
+                if (i2 < 3) {
                     z2 = false;
                 }
                 if (!z2) {
-                    i2 = i;
+                    i3 = i2;
                 }
-                u.f("TTCrashHandler", "==" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + z2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + z);
+                u.f("TTCrashHandler", "==" + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + z2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + z);
                 if (z2) {
                     try {
                         file.delete();
                     } catch (Throwable unused) {
                     }
                 } else {
-                    properties.setProperty("crash_count", String.valueOf(i2));
+                    properties.setProperty("crash_count", String.valueOf(i3));
                     if (z) {
                         properties.setProperty("crash_last_time", String.valueOf(System.currentTimeMillis()));
                     }

@@ -50,13 +50,13 @@ public class NPSApplication extends Application {
 
     @Override // android.content.ContextWrapper, android.content.Context
     @TargetApi(29)
-    public boolean bindIsolatedService(Intent intent, int i, String str, Executor executor, ServiceConnection serviceConnection) {
-        return this.mOriginalApplication.bindIsolatedService(intent, i, str, executor, serviceConnection);
+    public boolean bindIsolatedService(Intent intent, int i2, String str, Executor executor, ServiceConnection serviceConnection) {
+        return this.mOriginalApplication.bindIsolatedService(intent, i2, str, executor, serviceConnection);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
-        return this.mOriginalApplication.bindService(intent, serviceConnection, i);
+    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i2) {
+        return this.mOriginalApplication.bindService(intent, serviceConnection, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -65,8 +65,8 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public int checkCallingOrSelfUriPermission(Uri uri, int i) {
-        return this.mOriginalApplication.checkCallingOrSelfUriPermission(uri, i);
+    public int checkCallingOrSelfUriPermission(Uri uri, int i2) {
+        return this.mOriginalApplication.checkCallingOrSelfUriPermission(uri, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -75,13 +75,13 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public int checkCallingUriPermission(Uri uri, int i) {
-        return this.mOriginalApplication.checkCallingUriPermission(uri, i);
+    public int checkCallingUriPermission(Uri uri, int i2) {
+        return this.mOriginalApplication.checkCallingUriPermission(uri, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public int checkPermission(String str, int i, int i2) {
-        return this.mOriginalApplication.checkPermission(str, i, i2);
+    public int checkPermission(String str, int i2, int i3) {
+        return this.mOriginalApplication.checkPermission(str, i2, i3);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -91,8 +91,8 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public int checkUriPermission(Uri uri, int i, int i2, int i3) {
-        return this.mOriginalApplication.checkUriPermission(uri, i, i2, i3);
+    public int checkUriPermission(Uri uri, int i2, int i3, int i4) {
+        return this.mOriginalApplication.checkUriPermission(uri, i2, i3, i4);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -123,8 +123,8 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public Context createPackageContext(String str, int i) throws PackageManager.NameNotFoundException {
-        return this.mOriginalApplication.createPackageContext(str, i);
+    public Context createPackageContext(String str, int i2) throws PackageManager.NameNotFoundException {
+        return this.mOriginalApplication.createPackageContext(str, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -148,8 +148,8 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void enforceCallingOrSelfUriPermission(Uri uri, int i, String str) {
-        this.mOriginalApplication.enforceCallingOrSelfUriPermission(uri, i, str);
+    public void enforceCallingOrSelfUriPermission(Uri uri, int i2, String str) {
+        this.mOriginalApplication.enforceCallingOrSelfUriPermission(uri, i2, str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -158,18 +158,18 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void enforceCallingUriPermission(Uri uri, int i, String str) {
-        this.mOriginalApplication.enforceCallingUriPermission(uri, i, str);
+    public void enforceCallingUriPermission(Uri uri, int i2, String str) {
+        this.mOriginalApplication.enforceCallingUriPermission(uri, i2, str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void enforcePermission(String str, int i, int i2, String str2) {
-        this.mOriginalApplication.enforcePermission(str, i, i2, str2);
+    public void enforcePermission(String str, int i2, int i3, String str2) {
+        this.mOriginalApplication.enforcePermission(str, i2, i3, str2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void enforceUriPermission(Uri uri, int i, int i2, int i3, String str) {
-        this.mOriginalApplication.enforceUriPermission(uri, i, i2, i3, str);
+    public void enforceUriPermission(Uri uri, int i2, int i3, int i4, String str) {
+        this.mOriginalApplication.enforceUriPermission(uri, i2, i3, i4, str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -231,8 +231,8 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public File getDir(String str, int i) {
-        return this.mOriginalApplication.getDir(str, i);
+    public File getDir(String str, int i2) {
+        return this.mOriginalApplication.getDir(str, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -330,8 +330,8 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SharedPreferences getSharedPreferences(String str, int i) {
-        return this.mOriginalApplication.getSharedPreferences(str, i);
+    public SharedPreferences getSharedPreferences(String str, int i2) {
+        return this.mOriginalApplication.getSharedPreferences(str, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -373,8 +373,8 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void grantUriPermission(String str, Uri uri, int i) {
-        this.mOriginalApplication.grantUriPermission(str, uri, i);
+    public void grantUriPermission(String str, Uri uri, int i2) {
+        this.mOriginalApplication.grantUriPermission(str, uri, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -400,13 +400,13 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public FileOutputStream openFileOutput(String str, int i) throws FileNotFoundException {
-        return this.mOriginalApplication.openFileOutput(str, i);
+    public FileOutputStream openFileOutput(String str, int i2) throws FileNotFoundException {
+        return this.mOriginalApplication.openFileOutput(str, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
-        return this.mOriginalApplication.openOrCreateDatabase(str, i, cursorFactory);
+    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory) {
+        return this.mOriginalApplication.openOrCreateDatabase(str, i2, cursorFactory);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -435,8 +435,8 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void revokeUriPermission(Uri uri, int i) {
-        this.mOriginalApplication.revokeUriPermission(uri, i);
+    public void revokeUriPermission(Uri uri, int i2) {
+        this.mOriginalApplication.revokeUriPermission(uri, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -450,8 +450,8 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i) {
-        this.mOriginalApplication.setTheme(i);
+    public void setTheme(int i2) {
+        this.mOriginalApplication.setTheme(i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -481,8 +481,8 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
-        this.mOriginalApplication.startIntentSender(intentSender, intent, i, i2, i3);
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
+        this.mOriginalApplication.startIntentSender(intentSender, intent, i2, i3, i4);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -522,41 +522,41 @@ public class NPSApplication extends Application {
 
     @Override // android.content.ContextWrapper, android.content.Context
     @TargetApi(29)
-    public void updateServiceGroup(ServiceConnection serviceConnection, int i, int i2) {
-        this.mOriginalApplication.updateServiceGroup(serviceConnection, i, i2);
+    public void updateServiceGroup(ServiceConnection serviceConnection, int i2, int i3) {
+        this.mOriginalApplication.updateServiceGroup(serviceConnection, i2, i3);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     @TargetApi(29)
-    public boolean bindService(Intent intent, int i, Executor executor, ServiceConnection serviceConnection) {
-        return this.mOriginalApplication.bindService(intent, i, executor, serviceConnection);
+    public boolean bindService(Intent intent, int i2, Executor executor, ServiceConnection serviceConnection) {
+        return this.mOriginalApplication.bindService(intent, i2, executor, serviceConnection);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public int checkUriPermission(Uri uri, String str, String str2, int i, int i2, int i3) {
-        return this.mOriginalApplication.checkUriPermission(uri, str, str2, i, i2, i3);
+    public int checkUriPermission(Uri uri, String str, String str2, int i2, int i3, int i4) {
+        return this.mOriginalApplication.checkUriPermission(uri, str, str2, i2, i3, i4);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void enforceUriPermission(Uri uri, String str, String str2, int i, int i2, int i3, String str3) {
-        this.mOriginalApplication.enforceUriPermission(uri, str, str2, i, i2, i3, str3);
+    public void enforceUriPermission(Uri uri, String str, String str2, int i2, int i3, int i4, String str3) {
+        this.mOriginalApplication.enforceUriPermission(uri, str, str2, i2, i3, i4, str3);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
-        return this.mOriginalApplication.openOrCreateDatabase(str, i, cursorFactory, databaseErrorHandler);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    @TargetApi(26)
-    public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter, int i) {
-        return this.mOriginalApplication.registerReceiver(broadcastReceiver, intentFilter, i);
+    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
+        return this.mOriginalApplication.openOrCreateDatabase(str, i2, cursorFactory, databaseErrorHandler);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     @TargetApi(26)
-    public void revokeUriPermission(String str, Uri uri, int i) {
-        this.mOriginalApplication.revokeUriPermission(str, uri, i);
+    public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter, int i2) {
+        return this.mOriginalApplication.registerReceiver(broadcastReceiver, intentFilter, i2);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(26)
+    public void revokeUriPermission(String str, Uri uri, int i2) {
+        this.mOriginalApplication.revokeUriPermission(str, uri, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -565,8 +565,8 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void sendOrderedBroadcast(Intent intent, String str, BroadcastReceiver broadcastReceiver, Handler handler, int i, String str2, Bundle bundle) {
-        this.mOriginalApplication.sendOrderedBroadcast(intent, str, broadcastReceiver, handler, i, str2, bundle);
+    public void sendOrderedBroadcast(Intent intent, String str, BroadcastReceiver broadcastReceiver, Handler handler, int i2, String str2, Bundle bundle) {
+        this.mOriginalApplication.sendOrderedBroadcast(intent, str, broadcastReceiver, handler, i2, str2, bundle);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -590,13 +590,13 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3, Bundle bundle) throws IntentSender.SendIntentException {
-        this.mOriginalApplication.startIntentSender(intentSender, intent, i, i2, i3, bundle);
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
+        this.mOriginalApplication.startIntentSender(intentSender, intent, i2, i3, i4, bundle);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     @TargetApi(26)
-    public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter, String str, Handler handler, int i) {
-        return this.mOriginalApplication.registerReceiver(broadcastReceiver, intentFilter, str, handler, i);
+    public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter, String str, Handler handler, int i2) {
+        return this.mOriginalApplication.registerReceiver(broadcastReceiver, intentFilter, str, handler, i2);
     }
 }

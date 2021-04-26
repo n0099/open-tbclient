@@ -54,16 +54,16 @@ public class EC3TrackImpl extends AbstractTrack {
     public class a implements Sample {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f31430b;
+        public final /* synthetic */ int f32298b;
 
-        public a(int i) {
-            this.f31430b = i;
+        public a(int i2) {
+            this.f32298b = i2;
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public ByteBuffer asByteBuffer() {
             try {
-                return EC3TrackImpl.this.dataSource.map(this.f31430b, EC3TrackImpl.this.frameSize);
+                return EC3TrackImpl.this.dataSource.map(this.f32298b, EC3TrackImpl.this.frameSize);
             } catch (IOException e2) {
                 throw new RuntimeException(e2);
             }
@@ -76,7 +76,7 @@ public class EC3TrackImpl extends AbstractTrack {
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-            EC3TrackImpl.this.dataSource.transferTo(this.f31430b, EC3TrackImpl.this.frameSize, writableByteChannel);
+            EC3TrackImpl.this.dataSource.transferTo(this.f32298b, EC3TrackImpl.this.frameSize, writableByteChannel);
         }
     }
 
@@ -99,11 +99,11 @@ public class EC3TrackImpl extends AbstractTrack {
             }
         }
         if (this.bitStreamInfos.size() != 0) {
-            int i = this.bitStreamInfos.get(0).samplerate;
+            int i2 = this.bitStreamInfos.get(0).samplerate;
             this.sampleDescriptionBox = new SampleDescriptionBox();
             AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE9);
             audioSampleEntry.setChannelCount(2);
-            long j = i;
+            long j = i2;
             audioSampleEntry.setSampleRate(j);
             audioSampleEntry.setDataReferenceIndex(1);
             audioSampleEntry.setSampleSize(16);
@@ -112,10 +112,10 @@ public class EC3TrackImpl extends AbstractTrack {
             int[] iArr2 = new int[this.bitStreamInfos.size()];
             for (BitStreamInfo bitStreamInfo2 : this.bitStreamInfos) {
                 if (bitStreamInfo2.strmtyp == 1) {
-                    int i2 = bitStreamInfo2.substreamid;
-                    iArr[i2] = iArr[i2] + 1;
-                    int i3 = bitStreamInfo2.chanmap;
-                    iArr2[i2] = ((i3 >> 5) & 255) | ((i3 >> 6) & 256);
+                    int i3 = bitStreamInfo2.substreamid;
+                    iArr[i3] = iArr[i3] + 1;
+                    int i4 = bitStreamInfo2.chanmap;
+                    iArr2[i3] = ((i4 >> 5) & 255) | ((i4 >> 6) & 256);
                 }
             }
             for (BitStreamInfo bitStreamInfo3 : this.bitStreamInfos) {
@@ -127,9 +127,9 @@ public class EC3TrackImpl extends AbstractTrack {
                     entry.acmod = bitStreamInfo3.acmod;
                     entry.lfeon = bitStreamInfo3.lfeon;
                     entry.reserved = 0;
-                    int i4 = bitStreamInfo3.substreamid;
-                    entry.num_dep_sub = iArr[i4];
-                    entry.chan_loc = iArr2[i4];
+                    int i5 = bitStreamInfo3.substreamid;
+                    entry.num_dep_sub = iArr[i5];
+                    entry.chan_loc = iArr2[i5];
                     entry.reserved2 = 0;
                     eC3SpecificBox.addEntry(entry);
                 }
@@ -157,8 +157,8 @@ public class EC3TrackImpl extends AbstractTrack {
     private List<Sample> readSamples() throws IOException {
         int l2i = CastUtils.l2i((this.dataSource.size() - this.dataSource.position()) / this.frameSize);
         ArrayList arrayList = new ArrayList(l2i);
-        for (int i = 0; i < l2i; i++) {
-            arrayList.add(new a(this.frameSize * i));
+        for (int i2 = 0; i2 < l2i; i2++) {
+            arrayList.add(new a(this.frameSize * i2));
         }
         return arrayList;
     }
@@ -179,15 +179,15 @@ public class EC3TrackImpl extends AbstractTrack {
         bitStreamInfo.frameSize = (bitReaderBuffer.readBits(11) + 1) * 2;
         int readBits2 = bitReaderBuffer.readBits(2);
         bitStreamInfo.fscod = readBits2;
-        int i = -1;
+        int i2 = -1;
         if (readBits2 == 3) {
-            i = bitReaderBuffer.readBits(2);
+            i2 = bitReaderBuffer.readBits(2);
             readBits = 3;
         } else {
             readBits = bitReaderBuffer.readBits(2);
         }
-        int i2 = readBits != 0 ? readBits != 1 ? readBits != 2 ? readBits != 3 ? 0 : 6 : 3 : 2 : 1;
-        bitStreamInfo.frameSize *= 6 / i2;
+        int i3 = readBits != 0 ? readBits != 1 ? readBits != 2 ? readBits != 3 ? 0 : 6 : 3 : 2 : 1;
+        bitStreamInfo.frameSize *= 6 / i3;
         bitStreamInfo.acmod = bitReaderBuffer.readBits(3);
         bitStreamInfo.lfeon = bitReaderBuffer.readBits(1);
         bitStreamInfo.bsid = bitReaderBuffer.readBits(5);
@@ -208,8 +208,8 @@ public class EC3TrackImpl extends AbstractTrack {
             if (bitStreamInfo.acmod > 2) {
                 bitReaderBuffer.readBits(2);
             }
-            int i3 = bitStreamInfo.acmod;
-            if (1 == (i3 & 1) && i3 > 2) {
+            int i4 = bitStreamInfo.acmod;
+            if (1 == (i4 & 1) && i4 > 2) {
                 bitReaderBuffer.readBits(3);
                 bitReaderBuffer.readBits(3);
             }
@@ -278,7 +278,7 @@ public class EC3TrackImpl extends AbstractTrack {
                             }
                         }
                     }
-                    for (int i4 = 0; i4 < readBits4 + 2; i4++) {
+                    for (int i5 = 0; i5 < readBits4 + 2; i5++) {
                         bitReaderBuffer.readBits(8);
                     }
                     bitReaderBuffer.byteSync();
@@ -294,7 +294,7 @@ public class EC3TrackImpl extends AbstractTrack {
                         if (readBits == 0) {
                             bitReaderBuffer.readBits(5);
                         } else {
-                            for (int i5 = 0; i5 < i2; i5++) {
+                            for (int i6 = 0; i6 < i3; i6++) {
                                 if (1 == bitReaderBuffer.readBits(1)) {
                                     bitReaderBuffer.readBits(5);
                                 }
@@ -307,31 +307,31 @@ public class EC3TrackImpl extends AbstractTrack {
         if (1 == bitReaderBuffer.readBits(1)) {
             bitStreamInfo.bsmod = bitReaderBuffer.readBits(3);
         }
-        int i6 = bitStreamInfo.fscod;
-        if (i6 == 0) {
+        int i7 = bitStreamInfo.fscod;
+        if (i7 == 0) {
             bitStreamInfo.samplerate = 48000;
-        } else if (i6 == 1) {
+        } else if (i7 == 1) {
             bitStreamInfo.samplerate = SwanAudioPlayer.DEFAULT_SAMPLE_RATE;
-        } else if (i6 == 2) {
+        } else if (i7 == 2) {
             bitStreamInfo.samplerate = 32000;
-        } else if (i6 == 3) {
-            if (i == 0) {
+        } else if (i7 == 3) {
+            if (i2 == 0) {
                 bitStreamInfo.samplerate = 24000;
-            } else if (i == 1) {
+            } else if (i2 == 1) {
                 bitStreamInfo.samplerate = 22050;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 bitStreamInfo.samplerate = 16000;
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 bitStreamInfo.samplerate = 0;
             }
         }
-        int i7 = bitStreamInfo.samplerate;
-        if (i7 == 0) {
+        int i8 = bitStreamInfo.samplerate;
+        if (i8 == 0) {
             return null;
         }
-        int i8 = bitStreamInfo.frameSize;
-        bitStreamInfo.bitrate = (int) ((i7 / 1536.0d) * i8 * 8.0d);
-        this.dataSource.position(position + i8);
+        int i9 = bitStreamInfo.frameSize;
+        bitStreamInfo.bitrate = (int) ((i8 / 1536.0d) * i9 * 8.0d);
+        this.dataSource.position(position + i9);
         return bitStreamInfo;
     }
 

@@ -4,8 +4,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.ala.gift.AlaDynamicGift;
 import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
 import com.baidu.ala.gift.AlaDynamicGiftZip;
-import d.b.c.e.m.b;
-import d.b.c.j.e.n;
+import d.a.c.e.m.b;
+import d.a.c.j.e.n;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -43,7 +43,7 @@ public class AlaEnterEffectData implements Serializable, n {
     public int type;
     public int use_status;
 
-    @Override // d.b.c.j.e.n
+    @Override // d.a.c.j.e.n
     public BdUniqueId getType() {
         return TYPE_ENTER_EFFECT_DATA;
     }
@@ -85,9 +85,9 @@ public class AlaEnterEffectData implements Serializable, n {
             this.time = optJSONObject2.optString("buy_cycle");
             this.buy_staus = optJSONObject2.optInt("buy_staus");
         }
-        int i = this.type;
-        if (i != 1) {
-            if (i == 0) {
+        int i2 = this.type;
+        if (i2 != 1) {
+            if (i2 == 0) {
                 this.thumbnail_url = this.icon_url;
                 return;
             }

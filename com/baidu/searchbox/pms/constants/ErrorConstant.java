@@ -91,7 +91,7 @@ public class ErrorConstant {
         public static final String DATA_WRITE_DB = ErrorConstant.getTipMsg(R.string.DATA_WRITE_DB);
     }
 
-    public static String getTipMsg(int i) {
-        return AppRuntime.getApplication().getResources().getString(i);
+    public static String getTipMsg(int i2) {
+        return AppRuntime.getApplication().getResources().getString(i2);
     }
 }

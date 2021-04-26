@@ -133,10 +133,10 @@ public final class VideoSession implements IPoolItem {
     }
 
     @PublicMethod
-    public void registerLayer(@NonNull ILayer iLayer, int i) {
+    public void registerLayer(@NonNull ILayer iLayer, int i2) {
         IMessenger iMessenger = this.mCourier;
         if (iMessenger != null) {
-            iMessenger.register(i, iLayer);
+            iMessenger.register(i2, iLayer);
         }
     }
 

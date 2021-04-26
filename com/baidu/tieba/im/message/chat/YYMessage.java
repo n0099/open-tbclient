@@ -5,7 +5,7 @@ public class YYMessage extends CommonGroupChatMessage {
         super(202001);
     }
 
-    public YYMessage(int i) {
-        super(i);
+    public YYMessage(int i2) {
+        super(i2);
     }
 }

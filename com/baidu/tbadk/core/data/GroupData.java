@@ -41,12 +41,12 @@ public class GroupData extends BaseGroupData {
         this.forumName = str;
     }
 
-    public void setGrade(int i) {
-        this.grade = i;
+    public void setGrade(int i2) {
+        this.grade = i2;
     }
 
-    public void setIsHidePosition(int i) {
-        this.isHidePosition = i;
+    public void setIsHidePosition(int i2) {
+        this.isHidePosition = i2;
     }
 
     public void setMeizhi(boolean z) {

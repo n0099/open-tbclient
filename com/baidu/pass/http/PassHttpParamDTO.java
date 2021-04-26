@@ -11,5 +11,6 @@ public class PassHttpParamDTO implements com.baidu.pass.a {
     public String userAgent;
     public HttpHashMap paramsMap = new HttpHashMap();
     public boolean asyncCookie = false;
+    public ReqPriority priority = ReqPriority.NORMAL;
     public HashMap<String, String> headers = new HashMap<>(1);
 }

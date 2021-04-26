@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.permission;
 import android.app.Activity;
 import android.os.Bundle;
 import com.baidu.tieba.R;
-import d.b.j0.s.b.j.a;
+import d.a.j0.s.b.j.a;
 /* loaded from: classes4.dex */
 public class PermissionActivity extends Activity {
     public static final int PERMISSION_REQUEST_CODE = 999;
@@ -25,11 +25,11 @@ public class PermissionActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        if (a.b(this, i, strArr, iArr)) {
+    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+        if (a.b(this, i2, strArr, iArr)) {
             return;
         }
-        super.onRequestPermissionsResult(i, strArr, iArr);
+        super.onRequestPermissionsResult(i2, strArr, iArr);
     }
 
     @Override // android.app.Activity

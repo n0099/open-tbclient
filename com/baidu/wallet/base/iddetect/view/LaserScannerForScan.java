@@ -18,29 +18,31 @@ import com.baidu.wallet.core.utils.LogUtil;
 public class LaserScannerForScan extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f23349a;
+    public Bitmap f24069a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Drawable f23350b;
+    public Drawable f24070b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23351c;
+    public int f24071c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f23352d;
+    public float f24072d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f23353e;
+    public float f24073e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Matrix f23354f;
+    public Matrix f24074f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f23355g;
+    public boolean f24075g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f23356h;
-    public int i;
+    public a f24076h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f24077i;
     public int j;
     public IdCardActivity k;
 
@@ -48,22 +50,22 @@ public class LaserScannerForScan extends ImageView {
         this(context, null);
     }
 
-    private void a(Context context, AttributeSet attributeSet, int i) {
+    private void a(Context context, AttributeSet attributeSet, int i2) {
         IdCardActivity idCardActivity;
         try {
             a a2 = b.a(context, 1, false);
-            this.f23356h = a2;
+            this.f24076h = a2;
             if (a2 == null && (idCardActivity = this.k) != null) {
                 idCardActivity.dialogPermission();
                 return;
             }
-            if (this.f23350b == null) {
-                this.f23350b = getResources().getDrawable(ResUtils.drawable(context, "wallet_base_id_detect_scan_line"));
+            if (this.f24070b == null) {
+                this.f24070b = getResources().getDrawable(ResUtils.drawable(context, "wallet_base_id_detect_scan_line"));
             }
-            this.f23349a = ((BitmapDrawable) this.f23350b).getBitmap();
-            this.f23354f = new Matrix();
-            this.f23355g = true;
-            this.f23351c = 0;
+            this.f24069a = ((BitmapDrawable) this.f24070b).getBitmap();
+            this.f24074f = new Matrix();
+            this.f24075g = true;
+            this.f24071c = 0;
         } catch (Exception e2) {
             String simpleName = LaserScannerForScan.class.getSimpleName();
             LogUtil.errord(simpleName, "init failed exception = " + e2.getMessage());
@@ -76,41 +78,41 @@ public class LaserScannerForScan extends ImageView {
     }
 
     public int getBankHeight() {
-        return this.i;
+        return this.f24077i;
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.f23355g) {
-            this.f23354f.reset();
-            Matrix matrix = this.f23354f;
-            float f2 = this.f23353e;
+        if (this.f24075g) {
+            this.f24074f.reset();
+            Matrix matrix = this.f24074f;
+            float f2 = this.f24073e;
             matrix.setScale(f2, f2);
-            this.f23354f.setTranslate(this.f23352d, this.f23351c + this.j);
-            canvas.drawBitmap(this.f23349a, this.f23354f, null);
+            this.f24074f.setTranslate(this.f24072d, this.f24071c + this.j);
+            canvas.drawBitmap(this.f24069a, this.f24074f, null);
             int height = canvas.getHeight() - this.j;
-            this.f23351c = (this.f23351c + (height / 100)) % height;
+            this.f24071c = (this.f24071c + (height / 100)) % height;
             postInvalidateDelayed(10L, 0, 0, canvas.getWidth(), canvas.getHeight());
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
-    public void onMeasure(int i, int i2) {
-        int size = View.MeasureSpec.getSize(i);
-        a aVar = this.f23356h;
-        int i3 = aVar == null ? (int) (size * 1.0f * 0.6306f) : (int) (size * 1.0f * aVar.f23336c);
-        this.i = i3;
-        setMeasuredDimension(size, i3);
+    public void onMeasure(int i2, int i3) {
+        int size = View.MeasureSpec.getSize(i2);
+        a aVar = this.f24076h;
+        int i4 = aVar == null ? (int) (size * 1.0f * 0.6306f) : (int) (size * 1.0f * aVar.f24056c);
+        this.f24077i = i4;
+        setMeasuredDimension(size, i4);
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        this.f23353e = i / this.f23349a.getWidth();
-        Bitmap bitmap = this.f23349a;
-        Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmap, i, bitmap.getHeight(), true);
-        this.f23349a = createScaledBitmap;
-        this.f23352d = 0.0f;
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        this.f24073e = i2 / this.f24069a.getWidth();
+        Bitmap bitmap = this.f24069a;
+        Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmap, i2, bitmap.getHeight(), true);
+        this.f24069a = createScaledBitmap;
+        this.f24072d = 0.0f;
         this.j = -createScaledBitmap.getHeight();
     }
 
@@ -119,23 +121,23 @@ public class LaserScannerForScan extends ImageView {
     }
 
     public void startScan() {
-        this.f23355g = true;
+        this.f24075g = true;
         postInvalidate();
     }
 
     public void stopScan() {
-        this.f23355g = false;
+        this.f24075g = false;
     }
 
     public LaserScannerForScan(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public LaserScannerForScan(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f23350b = null;
-        this.i = -1;
+    public LaserScannerForScan(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f24070b = null;
+        this.f24077i = -1;
         this.j = -1;
-        a(context, attributeSet, i);
+        a(context, attributeSet, i2);
     }
 }

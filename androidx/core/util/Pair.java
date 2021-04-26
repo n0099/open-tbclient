@@ -34,6 +34,7 @@ public class Pair<F, S> {
         return hashCode ^ (s != null ? s.hashCode() : 0);
     }
 
+    @NonNull
     public String toString() {
         return "Pair{" + String.valueOf(this.first) + " " + String.valueOf(this.second) + "}";
     }

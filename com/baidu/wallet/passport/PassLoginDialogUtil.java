@@ -17,14 +17,14 @@ public class PassLoginDialogUtil implements NoProguard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PassLoginDialogUtil f25018a = new PassLoginDialogUtil();
+        public static PassLoginDialogUtil f25784a = new PassLoginDialogUtil();
     }
 
     public static PassLoginDialogUtil getInstance() {
-        return a.f25018a;
+        return a.f25784a;
     }
 
-    public void showLoginTipDialog(Context context, final ILoginBackListener iLoginBackListener, final int i, final String str) {
+    public void showLoginTipDialog(Context context, final ILoginBackListener iLoginBackListener, final int i2, final String str) {
         if ((context instanceof Activity) && !((Activity) context).isFinishing()) {
             final PromptDialog promptDialog = new PromptDialog(context);
             promptDialog.setMessage(ResUtils.getString(context, "wallet_base_open_bduss_system_error"));
@@ -40,7 +40,7 @@ public class PassLoginDialogUtil implements NoProguard {
                     if (!(iLoginBackListener2 instanceof LoginBackListenerProxy) || ((LoginBackListenerProxy) iLoginBackListener2).getLoginBackListener() == null) {
                         return;
                     }
-                    ((LoginBackListenerProxy) iLoginBackListener).getLoginBackListener().onFail(i, str);
+                    ((LoginBackListenerProxy) iLoginBackListener).getLoginBackListener().onFail(i2, str);
                 }
             });
             promptDialog.setPositiveBtn(ResUtils.getString(context, "wallet_base_open_bduss_system_error_login"), new View.OnClickListener() { // from class: com.baidu.wallet.passport.PassLoginDialogUtil.2
@@ -63,7 +63,7 @@ public class PassLoginDialogUtil implements NoProguard {
         if (iLoginBackListener instanceof LoginBackListenerProxy) {
             LoginBackListenerProxy loginBackListenerProxy = (LoginBackListenerProxy) iLoginBackListener;
             if (loginBackListenerProxy.getLoginBackListener() != null) {
-                loginBackListenerProxy.getLoginBackListener().onFail(i, str);
+                loginBackListenerProxy.getLoginBackListener().onFail(i2, str);
             }
         }
     }

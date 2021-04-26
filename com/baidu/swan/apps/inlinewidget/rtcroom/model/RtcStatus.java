@@ -2,7 +2,7 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.model;
 
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mapapi.SDKInitializer;
-import com.kwai.video.player.PlayerProps;
+import com.baidu.sapi2.share.ShareCallPacking;
 /* loaded from: classes2.dex */
 public enum RtcStatus {
     UNKNOWN(-1, RomUtils.UNKNOWN),
@@ -11,16 +11,16 @@ public enum RtcStatus {
     REMOTE_USER_LEAVE(1003, "REMOTE_USER_LEAVE"),
     REMOTE_STREAM_ADD(2001, "REMOTE_STREAM_ADD"),
     REMOTE_STREAM_REMOVE(2002, "REMOTE_STREAM_REMOVE"),
-    ACTIVITY_IS_NULL(20001, "login fail : execute fail"),
-    INIT_RTC_SDK_FAIL(20001, "login fail : init rtc sdk fail"),
-    SO_DOWNLOAD_FAILED(20001, "login fail : so download failed"),
-    SO_LOADING_FAILED(20001, "login fail : so load failed"),
-    LOGIN_ERROR(20001, "login fail : error"),
-    LOGIN_TIMEOUT(20001, "login fail : timeout"),
-    ROOM_ALREADY_EXIST(PlayerProps.FFP_PROP_INT64_SELECTED_AUDIO_STREAM, "ROOM_ALREADY_EXIST"),
-    DEVICE_IS_NOT_SUPPORTED(PlayerProps.FFP_PROP_INT64_VIDEO_DECODER, "DEVICE_IS_NOT_SUPPORTED"),
-    ROOM_CONNECTION_LOST(PlayerProps.FFP_PROP_FLOAT_MIN_AVDIFF_REALTIME, "ROOM_CONNECTION_LOST"),
-    MEDIA_CONNECTION_LOST(PlayerProps.FFP_PROP_INT64_CPU, "MEDIA_CONNECTION_LOST"),
+    ACTIVITY_IS_NULL(ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT, "login fail : execute fail"),
+    INIT_RTC_SDK_FAIL(ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT, "login fail : init rtc sdk fail"),
+    SO_DOWNLOAD_FAILED(ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT, "login fail : so download failed"),
+    SO_LOADING_FAILED(ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT, "login fail : so load failed"),
+    LOGIN_ERROR(ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT, "login fail : error"),
+    LOGIN_TIMEOUT(ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT, "login fail : timeout"),
+    ROOM_ALREADY_EXIST(20002, "ROOM_ALREADY_EXIST"),
+    DEVICE_IS_NOT_SUPPORTED(20003, "DEVICE_IS_NOT_SUPPORTED"),
+    ROOM_CONNECTION_LOST(30001, "ROOM_CONNECTION_LOST"),
+    MEDIA_CONNECTION_LOST(30002, "MEDIA_CONNECTION_LOST"),
     INIT_CAPTURE_FAIL(40001, "OPEN_CAMERA_FAIL"),
     SET_REMOTE_SURFACE_ERROR(40002, "REMOTE_ITEM_ALREADY_PLAYING"),
     PUBLISH_FAILED(40003, "PUBLISH_FAIL"),
@@ -40,8 +40,8 @@ public enum RtcStatus {
     public int mCode;
     public String mMsg;
 
-    RtcStatus(int i, String str) {
-        this.mCode = i;
+    RtcStatus(int i2, String str) {
+        this.mCode = i2;
         this.mMsg = str;
     }
 

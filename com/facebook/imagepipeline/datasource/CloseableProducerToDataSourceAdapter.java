@@ -32,8 +32,8 @@ public class CloseableProducerToDataSourceAdapter<T> extends AbstractProducerToD
     }
 
     @Override // com.facebook.imagepipeline.datasource.AbstractProducerToDataSourceAdapter
-    public /* bridge */ /* synthetic */ void onNewResultImpl(Object obj, int i) {
-        onNewResultImpl((CloseableReference) ((CloseableReference) obj), i);
+    public /* bridge */ /* synthetic */ void onNewResultImpl(Object obj, int i2) {
+        onNewResultImpl((CloseableReference) ((CloseableReference) obj), i2);
     }
 
     public void closeResult(CloseableReference<T> closeableReference) {
@@ -47,7 +47,7 @@ public class CloseableProducerToDataSourceAdapter<T> extends AbstractProducerToD
         return CloseableReference.cloneOrNull((CloseableReference) super.getResult());
     }
 
-    public void onNewResultImpl(CloseableReference<T> closeableReference, int i) {
-        super.onNewResultImpl((CloseableProducerToDataSourceAdapter<T>) CloseableReference.cloneOrNull(closeableReference), i);
+    public void onNewResultImpl(CloseableReference<T> closeableReference, int i2) {
+        super.onNewResultImpl((CloseableProducerToDataSourceAdapter<T>) CloseableReference.cloneOrNull(closeableReference), i2);
     }
 }

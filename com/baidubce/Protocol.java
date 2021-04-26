@@ -9,9 +9,9 @@ public enum Protocol {
     public int defaultPort;
     public String protocol;
 
-    Protocol(String str, int i) {
+    Protocol(String str, int i2) {
         this.protocol = str;
-        this.defaultPort = i;
+        this.defaultPort = i2;
     }
 
     public int getDefaultPort() {

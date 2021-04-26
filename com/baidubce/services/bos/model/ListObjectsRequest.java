@@ -36,8 +36,8 @@ public class ListObjectsRequest extends GenericBucketRequest {
         this.marker = str;
     }
 
-    public void setMaxKeys(int i) {
-        this.maxKeys = i;
+    public void setMaxKeys(int i2) {
+        this.maxKeys = i2;
     }
 
     public void setPrefix(String str) {
@@ -54,8 +54,8 @@ public class ListObjectsRequest extends GenericBucketRequest {
         return this;
     }
 
-    public ListObjectsRequest withMaxKeys(int i) {
-        setMaxKeys(i);
+    public ListObjectsRequest withMaxKeys(int i2) {
+        setMaxKeys(i2);
         return this;
     }
 

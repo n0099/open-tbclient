@@ -1,24 +1,24 @@
 package com.ss.android.downloadlib.a.a;
 
 import android.os.Parcelable;
-import d.p.a.d.e$g.c;
+import d.o.a.d.e$g.c;
 /* loaded from: classes6.dex */
 public class e extends a {
     public static final Parcelable.Creator<e> CREATOR = null;
     @c(b = 1)
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38998a = 1;
+    public int f36583a = 1;
     @c(b = 2)
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38999b;
+    public String f36584b;
     @c(b = 3)
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39000c;
+    public String f36585c;
     @c(b = 4)
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39001d;
+    public int f36586d;
 }

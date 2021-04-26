@@ -152,14 +152,14 @@ public final class Util {
     }
 
     public static int checkDuration(String str, long j, TimeUnit timeUnit) {
-        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i < 0) {
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i2 < 0) {
             throw new IllegalArgumentException(str + " < 0");
         } else if (timeUnit != null) {
             long millis = timeUnit.toMillis(j);
             if (millis > 2147483647L) {
                 throw new IllegalArgumentException(str + " too large.");
-            } else if (millis != 0 || i <= 0) {
+            } else if (millis != 0 || i2 <= 0) {
                 return (int) millis;
             } else {
                 throw new IllegalArgumentException(str + " too small.");
@@ -195,8 +195,8 @@ public final class Util {
     }
 
     public static boolean containsInvalidHostnameAsciiCodes(String str) {
-        for (int i = 0; i < str.length(); i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            char charAt = str.charAt(i2);
             if (charAt <= 31 || charAt >= 127 || " #%/:?@[\\]".indexOf(charAt) != -1) {
                 return true;
             }
@@ -218,38 +218,38 @@ public final class Util {
         return c2 - '0';
     }
 
-    public static boolean decodeIpv4Suffix(String str, int i, int i2, byte[] bArr, int i3) {
-        int i4 = i3;
-        while (i < i2) {
-            if (i4 == bArr.length) {
+    public static boolean decodeIpv4Suffix(String str, int i2, int i3, byte[] bArr, int i4) {
+        int i5 = i4;
+        while (i2 < i3) {
+            if (i5 == bArr.length) {
                 return false;
             }
-            if (i4 != i3) {
-                if (str.charAt(i) != '.') {
+            if (i5 != i4) {
+                if (str.charAt(i2) != '.') {
                     return false;
                 }
-                i++;
+                i2++;
             }
-            int i5 = i;
-            int i6 = 0;
-            while (i5 < i2) {
-                char charAt = str.charAt(i5);
+            int i6 = i2;
+            int i7 = 0;
+            while (i6 < i3) {
+                char charAt = str.charAt(i6);
                 if (charAt < '0' || charAt > '9') {
                     break;
-                } else if ((i6 == 0 && i != i5) || (i6 = ((i6 * 10) + charAt) - 48) > 255) {
+                } else if ((i7 == 0 && i2 != i6) || (i7 = ((i7 * 10) + charAt) - 48) > 255) {
                     return false;
                 } else {
-                    i5++;
+                    i6++;
                 }
             }
-            if (i5 - i == 0) {
+            if (i6 - i2 == 0) {
                 return false;
             }
-            bArr[i4] = (byte) i6;
-            i4++;
-            i = i5;
+            bArr[i5] = (byte) i7;
+            i5++;
+            i2 = i6;
         }
-        return i4 == i3 + 4;
+        return i5 == i4 + 4;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:41:0x0079, code lost:
@@ -260,28 +260,28 @@ public final class Util {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static InetAddress decodeIpv6(String str, int i, int i2) {
-        int i3;
+    public static InetAddress decodeIpv6(String str, int i2, int i3) {
+        int i4;
         byte[] bArr = new byte[16];
-        int i4 = 0;
-        int i5 = -1;
+        int i5 = 0;
         int i6 = -1;
+        int i7 = -1;
         while (true) {
-            if (i < i2) {
-                if (i4 != 16) {
-                    int i7 = i + 2;
-                    if (i7 <= i2 && str.regionMatches(i, "::", 0, 2)) {
-                        if (i5 == -1) {
-                            i4 += 2;
-                            i5 = i4;
-                            if (i7 != i2) {
-                                i6 = i7;
-                                i = i6;
-                                int i8 = 0;
-                                while (i < i2) {
+            if (i2 < i3) {
+                if (i5 != 16) {
+                    int i8 = i2 + 2;
+                    if (i8 <= i3 && str.regionMatches(i2, "::", 0, 2)) {
+                        if (i6 == -1) {
+                            i5 += 2;
+                            i6 = i5;
+                            if (i8 != i3) {
+                                i7 = i8;
+                                i2 = i7;
+                                int i9 = 0;
+                                while (i2 < i3) {
                                 }
-                                i3 = i - i6;
-                                if (i3 == 0) {
+                                i4 = i2 - i7;
+                                if (i4 == 0) {
                                     break;
                                 }
                                 break;
@@ -290,34 +290,34 @@ public final class Util {
                         }
                         return null;
                     }
-                    if (i4 != 0) {
-                        if (str.regionMatches(i, ":", 0, 1)) {
-                            i++;
-                        } else if (!str.regionMatches(i, ".", 0, 1) || !decodeIpv4Suffix(str, i6, i2, bArr, i4 - 2)) {
+                    if (i5 != 0) {
+                        if (str.regionMatches(i2, ":", 0, 1)) {
+                            i2++;
+                        } else if (!str.regionMatches(i2, ".", 0, 1) || !decodeIpv4Suffix(str, i7, i3, bArr, i5 - 2)) {
                             return null;
                         } else {
-                            i4 += 2;
+                            i5 += 2;
                         }
                     }
-                    i6 = i;
-                    i = i6;
-                    int i82 = 0;
-                    while (i < i2) {
-                        int decodeHexDigit = decodeHexDigit(str.charAt(i));
+                    i7 = i2;
+                    i2 = i7;
+                    int i92 = 0;
+                    while (i2 < i3) {
+                        int decodeHexDigit = decodeHexDigit(str.charAt(i2));
                         if (decodeHexDigit == -1) {
                             break;
                         }
-                        i82 = (i82 << 4) + decodeHexDigit;
-                        i++;
+                        i92 = (i92 << 4) + decodeHexDigit;
+                        i2++;
                     }
-                    i3 = i - i6;
-                    if (i3 == 0 || i3 > 4) {
+                    i4 = i2 - i7;
+                    if (i4 == 0 || i4 > 4) {
                         break;
                     }
-                    int i9 = i4 + 1;
-                    bArr[i4] = (byte) ((i82 >>> 8) & 255);
-                    i4 = i9 + 1;
-                    bArr[i9] = (byte) (i82 & 255);
+                    int i10 = i5 + 1;
+                    bArr[i5] = (byte) ((i92 >>> 8) & 255);
+                    i5 = i10 + 1;
+                    bArr[i10] = (byte) (i92 & 255);
                 } else {
                     return null;
                 }
@@ -325,13 +325,13 @@ public final class Util {
                 break;
             }
         }
-        if (i4 != 16) {
-            if (i5 == -1) {
+        if (i5 != 16) {
+            if (i6 == -1) {
                 return null;
             }
-            int i10 = i4 - i5;
-            System.arraycopy(bArr, i5, bArr, 16 - i10, i10);
-            Arrays.fill(bArr, i5, (16 - i4) + i5, (byte) 0);
+            int i11 = i5 - i6;
+            System.arraycopy(bArr, i6, bArr, 16 - i11, i11);
+            Arrays.fill(bArr, i6, (16 - i5) + i6, (byte) 0);
         }
         try {
             return InetAddress.getByAddress(bArr);
@@ -340,19 +340,19 @@ public final class Util {
         }
     }
 
-    public static int delimiterOffset(String str, int i, int i2, String str2) {
-        while (i < i2) {
-            if (str2.indexOf(str.charAt(i)) != -1) {
-                return i;
+    public static int delimiterOffset(String str, int i2, int i3, String str2) {
+        while (i2 < i3) {
+            if (str2.indexOf(str.charAt(i2)) != -1) {
+                return i2;
             }
-            i++;
+            i2++;
         }
-        return i2;
+        return i3;
     }
 
-    public static boolean discard(Source source, int i, TimeUnit timeUnit) {
+    public static boolean discard(Source source, int i2, TimeUnit timeUnit) {
         try {
-            return skipAll(source, i, timeUnit);
+            return skipAll(source, i2, timeUnit);
         } catch (IOException unused) {
             return false;
         }
@@ -392,9 +392,9 @@ public final class Util {
 
     public static int indexOf(Comparator<String> comparator, String[] strArr, String str) {
         int length = strArr.length;
-        for (int i = 0; i < length; i++) {
-            if (comparator.compare(strArr[i], str) == 0) {
-                return i;
+        for (int i2 = 0; i2 < length; i2++) {
+            if (comparator.compare(strArr[i2], str) == 0) {
+                return i2;
             }
         }
         return -1;
@@ -402,46 +402,46 @@ public final class Util {
 
     public static int indexOfControlOrNonAscii(String str) {
         int length = str.length();
-        for (int i = 0; i < length; i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            char charAt = str.charAt(i2);
             if (charAt <= 31 || charAt >= 127) {
-                return i;
+                return i2;
             }
         }
         return -1;
     }
 
     public static String inet6AddressToAscii(byte[] bArr) {
-        int i = 0;
-        int i2 = -1;
-        int i3 = 0;
+        int i2 = 0;
+        int i3 = -1;
         int i4 = 0;
-        while (i3 < bArr.length) {
-            int i5 = i3;
-            while (i5 < 16 && bArr[i5] == 0 && bArr[i5 + 1] == 0) {
-                i5 += 2;
+        int i5 = 0;
+        while (i4 < bArr.length) {
+            int i6 = i4;
+            while (i6 < 16 && bArr[i6] == 0 && bArr[i6 + 1] == 0) {
+                i6 += 2;
             }
-            int i6 = i5 - i3;
-            if (i6 > i4 && i6 >= 4) {
-                i2 = i3;
-                i4 = i6;
+            int i7 = i6 - i4;
+            if (i7 > i5 && i7 >= 4) {
+                i3 = i4;
+                i5 = i7;
             }
-            i3 = i5 + 2;
+            i4 = i6 + 2;
         }
         Buffer buffer = new Buffer();
-        while (i < bArr.length) {
-            if (i == i2) {
+        while (i2 < bArr.length) {
+            if (i2 == i3) {
                 buffer.writeByte(58);
-                i += i4;
-                if (i == 16) {
+                i2 += i5;
+                if (i2 == 16) {
                     buffer.writeByte(58);
                 }
             } else {
-                if (i > 0) {
+                if (i2 > 0) {
                     buffer.writeByte(58);
                 }
-                buffer.writeHexadecimalUnsignedLong(((bArr[i] & 255) << 8) | (bArr[i + 1] & 255));
-                i += 2;
+                buffer.writeHexadecimalUnsignedLong(((bArr[i2] & 255) << 8) | (bArr[i2 + 1] & 255));
+                i2 += 2;
             }
         }
         return buffer.readUtf8();
@@ -451,15 +451,15 @@ public final class Util {
         ArrayList arrayList = new ArrayList();
         for (String str : strArr) {
             int length = strArr2.length;
-            int i = 0;
+            int i2 = 0;
             while (true) {
-                if (i >= length) {
+                if (i2 >= length) {
                     break;
-                } else if (comparator.compare(str, strArr2[i]) == 0) {
+                } else if (comparator.compare(str, strArr2[i2]) == 0) {
                     arrayList.add(str);
                     break;
                 } else {
-                    i++;
+                    i2++;
                 }
             }
         }
@@ -498,10 +498,10 @@ public final class Util {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[CMP_L]}, finally: {[CMP_L, INVOKE, INVOKE, INVOKE, ARITH, INVOKE, IF] complete} */
-    public static boolean skipAll(Source source, int i, TimeUnit timeUnit) throws IOException {
+    public static boolean skipAll(Source source, int i2, TimeUnit timeUnit) throws IOException {
         long nanoTime = System.nanoTime();
         long deadlineNanoTime = source.timeout().hasDeadline() ? source.timeout().deadlineNanoTime() - nanoTime : Long.MAX_VALUE;
-        source.timeout().deadlineNanoTime(Math.min(deadlineNanoTime, timeUnit.toNanos(i)) + nanoTime);
+        source.timeout().deadlineNanoTime(Math.min(deadlineNanoTime, timeUnit.toNanos(i2)) + nanoTime);
         try {
             Buffer buffer = new Buffer();
             while (source.read(buffer, 8192L) != -1) {
@@ -530,25 +530,25 @@ public final class Util {
         }
     }
 
-    public static int skipLeadingAsciiWhitespace(String str, int i, int i2) {
-        while (i < i2) {
-            char charAt = str.charAt(i);
+    public static int skipLeadingAsciiWhitespace(String str, int i2, int i3) {
+        while (i2 < i3) {
+            char charAt = str.charAt(i2);
             if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
-                return i;
+                return i2;
             }
-            i++;
+            i2++;
         }
-        return i2;
+        return i3;
     }
 
-    public static int skipTrailingAsciiWhitespace(String str, int i, int i2) {
-        for (int i3 = i2 - 1; i3 >= i; i3--) {
-            char charAt = str.charAt(i3);
+    public static int skipTrailingAsciiWhitespace(String str, int i2, int i3) {
+        for (int i4 = i3 - 1; i4 >= i2; i4--) {
+            char charAt = str.charAt(i4);
             if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
-                return i3 + 1;
+                return i4 + 1;
             }
         }
-        return i;
+        return i2;
     }
 
     public static ThreadFactory threadFactory(final String str, final boolean z) {
@@ -562,23 +562,23 @@ public final class Util {
         };
     }
 
-    public static String trimSubstring(String str, int i, int i2) {
-        int skipLeadingAsciiWhitespace = skipLeadingAsciiWhitespace(str, i, i2);
-        return str.substring(skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace(str, skipLeadingAsciiWhitespace, i2));
+    public static String trimSubstring(String str, int i2, int i3) {
+        int skipLeadingAsciiWhitespace = skipLeadingAsciiWhitespace(str, i2, i3);
+        return str.substring(skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace(str, skipLeadingAsciiWhitespace, i3));
     }
 
     public static boolean verifyAsIpAddress(String str) {
         return VERIFY_AS_IP_ADDRESS.matcher(str).matches();
     }
 
-    public static int delimiterOffset(String str, int i, int i2, char c2) {
-        while (i < i2) {
-            if (str.charAt(i) == c2) {
-                return i;
+    public static int delimiterOffset(String str, int i2, int i3, char c2) {
+        while (i2 < i3) {
+            if (str.charAt(i2) == c2) {
+                return i2;
             }
-            i++;
+            i2++;
         }
-        return i2;
+        return i3;
     }
 
     public static <T> List<T> immutableList(T... tArr) {

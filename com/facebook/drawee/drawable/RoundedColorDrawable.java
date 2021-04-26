@@ -13,7 +13,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RoundedColorDrawable extends Drawable implements Rounded {
     public int mAlpha;
     public int mBorderColor;
@@ -37,7 +37,7 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
     public boolean mScaleDownInsideBorders;
     public final RectF mTempRect;
 
-    public RoundedColorDrawable(int i) {
+    public RoundedColorDrawable(int i2) {
         this.mRadii = new float[8];
         this.mBorderRadii = new float[8];
         this.mPaint = new Paint(1);
@@ -52,7 +52,7 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
         this.mColor = 0;
         this.mTempRect = new RectF();
         this.mAlpha = 255;
-        setColor(i);
+        setColor(i2);
     }
 
     @TargetApi(11)
@@ -69,18 +69,18 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
         RectF rectF = this.mTempRect;
         float f2 = this.mBorderWidth;
         rectF.inset(f2 / 2.0f, f2 / 2.0f);
-        int i = 0;
+        int i2 = 0;
         if (this.mIsCircle) {
             this.mBorderPath.addCircle(this.mTempRect.centerX(), this.mTempRect.centerY(), Math.min(this.mTempRect.width(), this.mTempRect.height()) / 2.0f, Path.Direction.CW);
         } else {
-            int i2 = 0;
+            int i3 = 0;
             while (true) {
                 fArr = this.mBorderRadii;
-                if (i2 >= fArr.length) {
+                if (i3 >= fArr.length) {
                     break;
                 }
-                fArr[i2] = (this.mRadii[i2] + this.mPadding) - (this.mBorderWidth / 2.0f);
-                i2++;
+                fArr[i3] = (this.mRadii[i3] + this.mPadding) - (this.mBorderWidth / 2.0f);
+                i3++;
             }
             this.mBorderPath.addRoundRect(this.mTempRect, fArr, Path.Direction.CW);
         }
@@ -97,11 +97,11 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
             }
             while (true) {
                 fArr2 = this.mInsideBorderRadii;
-                if (i >= fArr2.length) {
+                if (i2 >= fArr2.length) {
                     break;
                 }
-                fArr2[i] = this.mRadii[i] - this.mBorderWidth;
-                i++;
+                fArr2[i2] = this.mRadii[i2] - this.mBorderWidth;
+                i2++;
             }
             this.mPath.addRoundRect(this.mTempRect, fArr2, Path.Direction.CW);
         } else {
@@ -181,17 +181,17 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        if (i != this.mAlpha) {
-            this.mAlpha = i;
+    public void setAlpha(int i2) {
+        if (i2 != this.mAlpha) {
+            this.mAlpha = i2;
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
-    public void setBorder(int i, float f2) {
-        if (this.mBorderColor != i) {
-            this.mBorderColor = i;
+    public void setBorder(int i2, float f2) {
+        if (this.mBorderColor != i2) {
+            this.mBorderColor = i2;
             invalidateSelf();
         }
         if (this.mBorderWidth != f2) {
@@ -213,9 +213,9 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
         invalidateSelf();
     }
 
-    public void setColor(int i) {
-        if (this.mColor != i) {
-            this.mColor = i;
+    public void setColor(int i2) {
+        if (this.mColor != i2) {
+            this.mColor = i2;
             invalidateSelf();
         }
     }
@@ -271,13 +271,13 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
         }
     }
 
-    public RoundedColorDrawable(float[] fArr, int i) {
-        this(i);
+    public RoundedColorDrawable(float[] fArr, int i2) {
+        this(i2);
         setRadii(fArr);
     }
 
-    public RoundedColorDrawable(float f2, int i) {
-        this(i);
+    public RoundedColorDrawable(float f2, int i2) {
+        this(i2);
         setRadius(f2);
     }
 }

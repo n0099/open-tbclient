@@ -1,7 +1,7 @@
 package com.airbnb.lottie.network;
 
+import com.airbnb.lottie.utils.Logger;
 import com.baidu.mobads.container.util.XAdSimpleImageLoader;
-import d.a.a.x.d;
 /* loaded from: classes.dex */
 public enum FileExtension {
     JSON(".json"),
@@ -20,7 +20,7 @@ public enum FileExtension {
                 return fileExtension;
             }
         }
-        d.c("Unable to find correct extension for " + str);
+        Logger.warning("Unable to find correct extension for " + str);
         return JSON;
     }
 

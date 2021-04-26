@@ -2,11 +2,11 @@ package org.apache.http.util;
 @Deprecated
 /* loaded from: classes7.dex */
 public final class ByteArrayBuffer {
-    public ByteArrayBuffer(int i) {
+    public ByteArrayBuffer(int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public void append(byte[] bArr, int i, int i2) {
+    public void append(byte[] bArr, int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 
@@ -14,7 +14,7 @@ public final class ByteArrayBuffer {
         throw new RuntimeException("Stub!");
     }
 
-    public int byteAt(int i) {
+    public int byteAt(int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -38,7 +38,7 @@ public final class ByteArrayBuffer {
         throw new RuntimeException("Stub!");
     }
 
-    public void setLength(int i) {
+    public void setLength(int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -46,15 +46,15 @@ public final class ByteArrayBuffer {
         throw new RuntimeException("Stub!");
     }
 
-    public void append(int i) {
+    public void append(int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public void append(char[] cArr, int i, int i2) {
+    public void append(char[] cArr, int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 
-    public void append(CharArrayBuffer charArrayBuffer, int i, int i2) {
+    public void append(CharArrayBuffer charArrayBuffer, int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 }

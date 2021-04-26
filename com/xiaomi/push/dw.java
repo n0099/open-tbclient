@@ -5,32 +5,32 @@ import android.text.TextUtils;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class dw {
-    public static void a(Context context, String str, int i, String str2) {
-        ai.a(context).a(new dx(context, str, i, str2));
+    public static void a(Context context, String str, int i2, String str2) {
+        ai.a(context).a(new dx(context, str, i2, str2));
     }
 
     public static void a(Context context, HashMap<String, String> hashMap) {
-        ee m268a = ea.a(context).m268a();
-        if (m268a != null) {
-            m268a.a(context, hashMap);
+        ee m271a = ea.a(context).m271a();
+        if (m271a != null) {
+            m271a.a(context, hashMap);
         }
     }
 
     public static void b(Context context, HashMap<String, String> hashMap) {
-        ee m268a = ea.a(context).m268a();
-        if (m268a != null) {
-            m268a.c(context, hashMap);
+        ee m271a = ea.a(context).m271a();
+        if (m271a != null) {
+            m271a.c(context, hashMap);
         }
     }
 
-    public static void c(Context context, String str, int i, String str2) {
+    public static void c(Context context, String str, int i2, String str2) {
         if (context == null || TextUtils.isEmpty(str)) {
             return;
         }
         try {
             HashMap hashMap = new HashMap();
             hashMap.put("awake_info", str);
-            hashMap.put("event_type", String.valueOf(i));
+            hashMap.put("event_type", String.valueOf(i2));
             hashMap.put("description", str2);
             int a2 = ea.a(context).a();
             if (a2 != 1) {
@@ -50,9 +50,9 @@ public class dw {
     }
 
     public static void c(Context context, HashMap<String, String> hashMap) {
-        ee m268a = ea.a(context).m268a();
-        if (m268a != null) {
-            m268a.b(context, hashMap);
+        ee m271a = ea.a(context).m271a();
+        if (m271a != null) {
+            m271a.b(context, hashMap);
         }
     }
 }

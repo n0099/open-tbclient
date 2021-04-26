@@ -24,14 +24,14 @@ public class ViewCommonUtils {
 
     public static void showDirectChildList(ViewGroup viewGroup) {
         Log.e(TAG, "==============Child list of " + viewGroup + " ===============");
-        for (int i = 0; i < viewGroup.getChildCount(); i++) {
-            Log.e(TAG, "child " + i + ZeusCrashHandler.NAME_SEPERATOR + viewGroup.getChildAt(i));
+        for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
+            Log.e(TAG, "child " + i2 + ZeusCrashHandler.NAME_SEPERATOR + viewGroup.getChildAt(i2));
         }
         Log.e(TAG, "==============Child list of " + viewGroup + " ===============");
     }
 
     public static int traverseViewGroup(View view) {
-        int i;
+        int i2;
         if (view == null) {
             return 0;
         }
@@ -40,25 +40,25 @@ public class ViewCommonUtils {
         if (view instanceof ViewGroup) {
             LinkedList linkedList = new LinkedList();
             linkedList.add((ViewGroup) view);
-            i = 0;
+            i2 = 0;
             while (!linkedList.isEmpty()) {
                 ViewGroup viewGroup = (ViewGroup) linkedList.removeFirst();
-                i++;
+                i2++;
                 Log.e(TAG, "---------------Children for " + viewGroup + "---------------");
-                for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
-                    Log.e(TAG, "view no." + i + ZeusCrashHandler.NAME_SEPERATOR + viewGroup.getChildAt(i2));
-                    if (viewGroup.getChildAt(i2) instanceof ViewGroup) {
-                        linkedList.addLast((ViewGroup) viewGroup.getChildAt(i2));
+                for (int i3 = 0; i3 < viewGroup.getChildCount(); i3++) {
+                    Log.e(TAG, "view no." + i2 + ZeusCrashHandler.NAME_SEPERATOR + viewGroup.getChildAt(i3));
+                    if (viewGroup.getChildAt(i3) instanceof ViewGroup) {
+                        linkedList.addLast((ViewGroup) viewGroup.getChildAt(i3));
                     } else {
-                        i++;
+                        i2++;
                     }
                 }
             }
         } else {
             Log.e(TAG, "view no.0" + ZeusCrashHandler.NAME_SEPERATOR + view);
-            i = 1;
+            i2 = 1;
         }
         Log.e(TAG, "[==============View tree of " + view + " ===============]");
-        return i;
+        return i2;
     }
 }

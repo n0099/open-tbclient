@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
-import d.b.c.a.f;
-import d.b.i0.r.s.a;
+import d.a.c.a.f;
+import d.a.i0.r.s.a;
 /* loaded from: classes3.dex */
 public class PermissionRequestDialog extends a {
     public TextView mCloseView;
@@ -51,7 +51,7 @@ public class PermissionRequestDialog extends a {
         setContentView(this.mRootView);
     }
 
-    @Override // d.b.i0.r.s.a
+    @Override // d.a.i0.r.s.a
     public a create(f<?> fVar) {
         char c2;
         String string;

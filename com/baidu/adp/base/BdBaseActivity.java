@@ -14,14 +14,14 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.NetMessage;
-import d.b.c.a.b;
-import d.b.c.a.f;
-import d.b.c.a.g;
-import d.b.c.a.h;
-import d.b.c.a.i;
-import d.b.c.e.l.d;
-import d.b.c.e.p.l;
-import d.b.c.j.e.q;
+import d.a.c.a.b;
+import d.a.c.a.f;
+import d.a.c.a.g;
+import d.a.c.a.h;
+import d.a.c.a.i;
+import d.a.c.e.l.d;
+import d.a.c.e.p.l;
+import d.a.c.j.e.q;
 /* loaded from: classes.dex */
 public abstract class BdBaseActivity<T> extends Activity implements View.OnClickListener, g<T>, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, i, Handler.Callback {
     public static final int PRELOAD_DELAY = 100;
@@ -46,14 +46,14 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         if (view == null) {
             return;
         }
-        if (view instanceof d.b.c.f.a.i) {
-            ((d.b.c.f.a.i) view).refresh();
+        if (view instanceof d.a.c.f.a.i) {
+            ((d.a.c.f.a.i) view).refresh();
         }
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             int childCount = viewGroup.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                refreshImage(viewGroup.getChildAt(i));
+            for (int i2 = 0; i2 < childCount; i2++) {
+                refreshImage(viewGroup.getChildAt(i2));
             }
         }
     }
@@ -62,7 +62,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         return this;
     }
 
-    @Override // d.b.c.a.g
+    @Override // d.a.c.a.g
     public abstract /* synthetic */ f<T> getPageContext();
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -71,7 +71,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         return (b2 == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : b2;
     }
 
-    @Override // d.b.c.a.i
+    @Override // d.a.c.a.i
     public BdUniqueId getUniqueId() {
         return this.mId;
     }
@@ -81,13 +81,13 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         return false;
     }
 
-    @Override // d.b.c.a.i
+    @Override // d.a.c.a.i
     public boolean isScroll() {
         return this.mIsScroll;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i2) {
     }
 
     @Override // android.view.View.OnClickListener
@@ -96,7 +96,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        d.b.c.a.a.b(this);
+        d.a.c.a.a.b(this);
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
         b.f().n(getPageContext().getPageActivity());
@@ -117,11 +117,11 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j) {
         return true;
     }
 
@@ -137,7 +137,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
-    @Override // d.b.c.a.i
+    @Override // d.a.c.a.i
     public void onPreLoad(q qVar) {
     }
 
@@ -150,8 +150,8 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     public void onResumeLoadResource() {
         FrameLayout frameLayout = (FrameLayout) findViewById(16908290);
         int childCount = frameLayout.getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            refreshImage(frameLayout.getChildAt(i));
+        for (int i2 = 0; i2 < childCount; i2++) {
+            refreshImage(frameLayout.getChildAt(i2));
         }
         this.mHandler.removeCallbacks(this.preLoadRunnable);
         this.mHandler.postDelayed(this.preLoadRunnable, 100L);
@@ -166,7 +166,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         }
     }
 
-    public void registerListener(d.b.c.c.g.a aVar) {
+    public void registerListener(d.a.c.c.g.a aVar) {
         if (aVar != null && aVar.getTag() == null) {
             aVar.setTag(this.mId);
         }
@@ -187,19 +187,19 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     }
 
     @Override // android.app.Activity
-    public void setContentView(int i) {
-        for (int i2 = 0; i2 < 3; i2++) {
+    public void setContentView(int i2) {
+        for (int i3 = 0; i3 < 3; i3++) {
             try {
-                super.setContentView(i);
+                super.setContentView(i2);
                 return;
             } catch (OutOfMemoryError e2) {
-                if (i2 != 2) {
+                if (i3 != 2) {
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } else {
                     throw e2;
                 }
             } catch (RuntimeException e3) {
-                if (i2 != 2) {
+                if (i3 != 2) {
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } else {
                     throw e3;
@@ -208,28 +208,28 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         }
     }
 
-    @Override // d.b.c.a.i
+    @Override // d.a.c.a.i
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
 
     @Override // android.app.Activity
-    public void setRequestedOrientation(int i) {
-        if (d.b.c.a.a.d(this) && d.b.c.a.a.a(i)) {
+    public void setRequestedOrientation(int i2) {
+        if (d.a.c.a.a.d(this) && d.a.c.a.a.a(i2)) {
             return;
         }
-        super.setRequestedOrientation(i);
+        super.setRequestedOrientation(i2);
     }
 
     public void showToast(String str) {
-        l.L(getApplicationContext(), str);
+        l.M(getApplicationContext(), str);
     }
 
-    public void registerListener(int i, d.b.c.c.g.a aVar) {
+    public void registerListener(int i2, d.a.c.c.g.a aVar) {
         if (aVar != null && aVar.getTag() == null) {
             aVar.setTag(this.mId);
         }
-        MessageManager.getInstance().registerListener(i, aVar);
+        MessageManager.getInstance().registerListener(i2, aVar);
     }
 
     public void sendMessage(NetMessage netMessage) {
@@ -249,10 +249,10 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         MessageManager.getInstance().registerListener(messageListener);
     }
 
-    public void registerListener(int i, MessageListener<?> messageListener) {
+    public void registerListener(int i2, MessageListener<?> messageListener) {
         if (messageListener != null && messageListener.getTag() == null) {
             messageListener.setTag(this.mId);
         }
-        MessageManager.getInstance().registerListener(i, messageListener);
+        MessageManager.getInstance().registerListener(i2, messageListener);
     }
 }

@@ -14,7 +14,7 @@ public final class j implements Parcelable.Creator<SyncResponseResult> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public SyncResponseResult[] newArray(int i) {
-        return new SyncResponseResult[i];
+    public SyncResponseResult[] newArray(int i2) {
+        return new SyncResponseResult[i2];
     }
 }

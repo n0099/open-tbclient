@@ -9,7 +9,7 @@ import java.io.FileFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class DeviceInfoUtils {
     public static final boolean DEBUG = false;
     public static final String SF_FILENAME = "device_info_shared_f";
@@ -32,15 +32,15 @@ public final class DeviceInfoUtils {
 
     public static int getCpuCoresWithCache(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(SF_FILENAME, 0);
-        int i = sharedPreferences.getInt(SF_KEY_CPU_CORES, 0);
-        if (i == 0) {
+        int i2 = sharedPreferences.getInt(SF_KEY_CPU_CORES, 0);
+        if (i2 == 0) {
             int cpuCores = getCpuCores();
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.putInt(SF_KEY_CPU_CORES, cpuCores);
             edit.commit();
             return cpuCores;
         }
-        return i;
+        return i2;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x003c, code lost:
@@ -110,8 +110,8 @@ public final class DeviceInfoUtils {
     public static String getCut() {
         String str = Build.MODEL;
         String str2 = Build.VERSION.RELEASE;
-        int i = Build.VERSION.SDK_INT;
+        int i2 = Build.VERSION.SDK_INT;
         String str3 = Build.MANUFACTURER;
-        return str.replace("_", "-") + "_" + str2.replace("_", "-") + "_" + i + "_" + str3.replace("_", "-");
+        return str.replace("_", "-") + "_" + str2.replace("_", "-") + "_" + i2 + "_" + str3.replace("_", "-");
     }
 }

@@ -13,30 +13,30 @@ public class BitWriterBuffer {
         this.initialPos = byteBuffer.position();
     }
 
-    public void writeBits(int i, int i2) {
-        int i3 = this.position;
-        int i4 = 8 - (i3 % 8);
-        if (i2 <= i4) {
-            int i5 = this.buffer.get(this.initialPos + (i3 / 8));
-            if (i5 < 0) {
-                i5 += 256;
+    public void writeBits(int i2, int i3) {
+        int i4 = this.position;
+        int i5 = 8 - (i4 % 8);
+        if (i3 <= i5) {
+            int i6 = this.buffer.get(this.initialPos + (i4 / 8));
+            if (i6 < 0) {
+                i6 += 256;
             }
-            int i6 = i5 + (i << (i4 - i2));
+            int i7 = i6 + (i2 << (i5 - i3));
             ByteBuffer byteBuffer = this.buffer;
-            int i7 = this.initialPos + (this.position / 8);
-            if (i6 > 127) {
-                i6 -= 256;
+            int i8 = this.initialPos + (this.position / 8);
+            if (i7 > 127) {
+                i7 -= 256;
             }
-            byteBuffer.put(i7, (byte) i6);
-            this.position += i2;
+            byteBuffer.put(i8, (byte) i7);
+            this.position += i3;
         } else {
-            int i8 = i2 - i4;
-            writeBits(i >> i8, i4);
-            writeBits(i & ((1 << i8) - 1), i8);
+            int i9 = i3 - i5;
+            writeBits(i2 >> i9, i5);
+            writeBits(i2 & ((1 << i9) - 1), i9);
         }
         ByteBuffer byteBuffer2 = this.buffer;
-        int i9 = this.initialPos;
-        int i10 = this.position;
-        byteBuffer2.position(i9 + (i10 / 8) + (i10 % 8 <= 0 ? 0 : 1));
+        int i10 = this.initialPos;
+        int i11 = this.position;
+        byteBuffer2.position(i10 + (i11 / 8) + (i11 % 8 <= 0 ? 0 : 1));
     }
 }

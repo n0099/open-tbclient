@@ -25,13 +25,13 @@ public final class ObjectWrapper<T> extends IObjectWrapper.a {
         IBinder asBinder = iObjectWrapper.asBinder();
         Field[] declaredFields = asBinder.getClass().getDeclaredFields();
         int length = declaredFields.length;
-        int i = 0;
+        int i2 = 0;
         Field field = null;
         while (true) {
-            if (i >= length) {
+            if (i2 >= length) {
                 break;
             }
-            Field field2 = declaredFields[i];
+            Field field2 = declaredFields[i2];
             if (!field2.isSynthetic()) {
                 if (field != null) {
                     field = null;
@@ -39,7 +39,7 @@ public final class ObjectWrapper<T> extends IObjectWrapper.a {
                 }
                 field = field2;
             }
-            i++;
+            i2++;
         }
         if (field != null) {
             if (!field.isAccessible()) {

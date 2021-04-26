@@ -9,11 +9,11 @@ public interface SessionOutputBuffer {
 
     HttpTransportMetrics getMetrics();
 
-    void write(int i) throws IOException;
+    void write(int i2) throws IOException;
 
     void write(byte[] bArr) throws IOException;
 
-    void write(byte[] bArr, int i, int i2) throws IOException;
+    void write(byte[] bArr, int i2, int i3) throws IOException;
 
     void writeLine(String str) throws IOException;
 

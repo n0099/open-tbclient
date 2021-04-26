@@ -110,11 +110,11 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imrtc.request.HttpExecutor.ResponseHandler
-    public void onFailure(int i, String str) {
+    public void onFailure(int i2, String str) {
         if (this.mListener != null) {
-            report(-11, i);
-            this.mListener.onResult(i, str, new BIMRtcTokenListener.BIMRTCGetTokeResult());
-            trackRequest(i, "room/get_rtc_token");
+            report(-11, i2);
+            this.mListener.onResult(i2, str, new BIMRtcTokenListener.BIMRTCGetTokeResult());
+            trackRequest(i2, "room/get_rtc_token");
         }
     }
 
@@ -132,7 +132,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
         String str4 = "";
         String str5 = new String(bArr);
         LogUtils.e(TAG, "onSuccess :" + str5);
-        int i = -1;
+        int i2 = -1;
         try {
             JSONObject jSONObject = new JSONObject(str5);
             int optInt = jSONObject.optInt("error_code", -1);
@@ -142,7 +142,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
                 RtcUtility.setRtcRoomToken(this.mContext, str3);
                 str4 = jSONObject.optString("rtc_appid", "");
                 RtcUtility.setRtcAppId(this.mContext, str4);
-                i = optInt;
+                i2 = optInt;
             } catch (JSONException e2) {
                 jSONException = e2;
                 str = str4;
@@ -164,9 +164,9 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
             bIMRTCGetTokeResult.useId = this.mRtcUserId;
             bIMRTCGetTokeResult.token = str3;
             bIMRTCGetTokeResult.rtcAppId = str4;
-            report(-11, i);
-            this.mListener.onResult(i, str2, bIMRTCGetTokeResult);
-            trackRequest(i, "room/get_rtc_token");
+            report(-11, i2);
+            this.mListener.onResult(i2, str2, bIMRTCGetTokeResult);
+            trackRequest(i2, "room/get_rtc_token");
         }
     }
 

@@ -41,27 +41,27 @@ public abstract class PackageParser {
         return null;
     }
 
-    public abstract void collectCertificates(int i) throws Exception;
+    public abstract void collectCertificates(int i2) throws Exception;
 
-    public abstract ActivityInfo generateActivityInfo(Object obj, int i) throws Exception;
+    public abstract ActivityInfo generateActivityInfo(Object obj, int i2) throws Exception;
 
-    public abstract ApplicationInfo generateApplicationInfo(int i) throws Exception;
+    public abstract ApplicationInfo generateApplicationInfo(int i2) throws Exception;
 
-    public abstract InstrumentationInfo generateInstrumentationInfo(Object obj, int i) throws Exception;
+    public abstract InstrumentationInfo generateInstrumentationInfo(Object obj, int i2) throws Exception;
 
-    public abstract PackageInfo generatePackageInfo(int[] iArr, int i, long j, long j2, HashSet<String> hashSet) throws Exception;
+    public abstract PackageInfo generatePackageInfo(int[] iArr, int i2, long j, long j2, HashSet<String> hashSet) throws Exception;
 
-    public abstract PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i) throws Exception;
+    public abstract PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i2) throws Exception;
 
-    public abstract PermissionInfo generatePermissionInfo(Object obj, int i) throws Exception;
+    public abstract PermissionInfo generatePermissionInfo(Object obj, int i2) throws Exception;
 
-    public abstract ProviderInfo generateProviderInfo(Object obj, int i) throws Exception;
+    public abstract ProviderInfo generateProviderInfo(Object obj, int i2) throws Exception;
 
-    public ActivityInfo generateReceiverInfo(Object obj, int i) throws Exception {
-        return generateActivityInfo(obj, i);
+    public ActivityInfo generateReceiverInfo(Object obj, int i2) throws Exception {
+        return generateActivityInfo(obj, i2);
     }
 
-    public abstract ServiceInfo generateServiceInfo(Object obj, int i) throws Exception;
+    public abstract ServiceInfo generateServiceInfo(Object obj, int i2) throws Exception;
 
     public abstract List getActivities() throws Exception;
 
@@ -81,7 +81,7 @@ public abstract class PackageParser {
 
     public abstract List getServices() throws Exception;
 
-    public abstract void parsePackage(File file, int i) throws Exception;
+    public abstract void parsePackage(File file, int i2) throws Exception;
 
     public abstract List<IntentFilter> readIntentFilterFromComponent(Object obj) throws Exception;
 

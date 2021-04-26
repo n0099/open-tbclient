@@ -21,7 +21,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
-import d.b.y.a.b;
+import d.a.y.a.b;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class VoiceSinWaveView extends View implements VoiceWaveInterface {
@@ -160,7 +160,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void drawFrame() {
-        int i;
+        int i2;
         if (this.mIsNeedGetSize) {
             return;
         }
@@ -171,30 +171,30 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         this.mSecondaryPath.rewind();
         this.mFillPath.rewind();
         this.mPrimaryPath.moveTo(0.0f, getY(0, this.mWidth, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude, this.mPrimaryFrequency, this.mPrimaryPhase));
-        int i2 = 1;
+        int i3 = 1;
         while (true) {
-            i = this.mWidth;
-            if (i2 > i) {
+            i2 = this.mWidth;
+            if (i3 > i2) {
                 break;
             }
-            this.mPrimaryPath.lineTo(i2, getY(i2, i, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude, this.mPrimaryFrequency, this.mPrimaryPhase));
-            i2 += SapiUtils.dip2px(getContext(), this.mDensity);
+            this.mPrimaryPath.lineTo(i3, getY(i3, i2, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude, this.mPrimaryFrequency, this.mPrimaryPhase));
+            i3 += SapiUtils.dip2px(getContext(), this.mDensity);
         }
-        this.mPrimaryPath.lineTo(this.mWidth, getY(i, i, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude, this.mPrimaryFrequency, this.mPrimaryPhase));
-        int i3 = this.mWidth;
-        this.mSecondaryPath.moveTo(this.mWidth, getY(i3, i3, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude * 0.8f, this.mSecondaryFrequency, this.mSecondaryPhase));
-        int i4 = this.mWidth - 1;
-        while (i4 >= 0) {
-            this.mSecondaryPath.lineTo(i4, getY(i4, this.mWidth, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude * 0.8f, this.mSecondaryFrequency, this.mSecondaryPhase));
-            i4 -= SapiUtils.dip2px(getContext(), this.mDensity);
+        this.mPrimaryPath.lineTo(this.mWidth, getY(i2, i2, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude, this.mPrimaryFrequency, this.mPrimaryPhase));
+        int i4 = this.mWidth;
+        this.mSecondaryPath.moveTo(this.mWidth, getY(i4, i4, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude * 0.8f, this.mSecondaryFrequency, this.mSecondaryPhase));
+        int i5 = this.mWidth - 1;
+        while (i5 >= 0) {
+            this.mSecondaryPath.lineTo(i5, getY(i5, this.mWidth, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude * 0.8f, this.mSecondaryFrequency, this.mSecondaryPhase));
+            i5 -= SapiUtils.dip2px(getContext(), this.mDensity);
         }
         this.mSecondaryPath.lineTo(0.0f, getY(0, this.mWidth, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude * 0.8f, this.mSecondaryFrequency, this.mSecondaryPhase));
         this.mFillPath.addPath(this.mPrimaryPath);
         this.mFillPath.addPath(this.mSecondaryPath);
     }
 
-    private float getY(int i, float f2, float f3, float f4, float f5, float f6, float f7) {
-        return ((1.0f - ((float) Math.pow(((i * 2) / f2) - 1.0f, 2.0d))) * f4 * f5 * ((float) Math.sin(((i / f2) * 6.283185307179586d * f6) + f7))) + (f3 * 0.5f);
+    private float getY(int i2, float f2, float f3, float f4, float f5, float f6, float f7) {
+        return ((1.0f - ((float) Math.pow(((i2 * 2) / f2) - 1.0f, 2.0d))) * f4 * f5 * ((float) Math.sin(((i2 / f2) * 6.283185307179586d * f6) + f7))) + (f3 * 0.5f);
     }
 
     private void initialize() {
@@ -225,11 +225,11 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
 
     private void setPaintShader() {
         Log.d(TAG, "setPaintShader.");
-        int i = this.mHeight;
-        if (i <= 0 || this.mWidth <= 0) {
+        int i2 = this.mHeight;
+        if (i2 <= 0 || this.mWidth <= 0) {
             return;
         }
-        this.mMaxAmplitude = (i - 4.0f) * 0.5f;
+        this.mMaxAmplitude = (i2 - 4.0f) * 0.5f;
         this.mPrimaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(b.sapi_sdk_mms_voice_primary_start), getResources().getColor(b.sapi_sdk_mms_voice_primary_end), Shader.TileMode.MIRROR));
         this.mSecondaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(b.sapi_sdk_mms_voice_secondary_start), getResources().getColor(b.sapi_sdk_mms_voice_secondary_end), Shader.TileMode.MIRROR));
         int color = getResources().getColor(b.sapi_sdk_mms_voice_fill_top);
@@ -288,7 +288,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        int i;
+        int i2;
         super.onDraw(canvas);
         if (this.mIsNeedGetSize) {
             ViewGroup viewGroup = this.mParent;
@@ -296,12 +296,12 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                 this.mWidth = viewGroup.getWidth();
                 this.mHeight = this.mParent.getHeight();
             }
-            int i2 = this.mWidth;
-            if (i2 <= 0 || (i = this.mHeight) <= 0) {
+            int i3 = this.mWidth;
+            if (i3 <= 0 || (i2 = this.mHeight) <= 0) {
                 return;
             }
             if (this.mSinWaveBitmap == null) {
-                this.mSinWaveBitmap = Bitmap.createBitmap(i2, i, Bitmap.Config.ARGB_8888);
+                this.mSinWaveBitmap = Bitmap.createBitmap(i3, i2, Bitmap.Config.ARGB_8888);
                 this.mSinWaveCanvas = new Canvas(this.mSinWaveBitmap);
             }
             setPaintShader();
@@ -315,8 +315,8 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
             return;
         }
         int saveLayer = canvas.saveLayer(0.0f, 0.0f, this.mWidth, this.mHeight, null, 31);
-        int i3 = this.mFadeX;
-        canvas.drawRect(i3, 0.0f, this.mWidth - i3, this.mHeight, this.mMaskPaint);
+        int i4 = this.mFadeX;
+        canvas.drawRect(i4, 0.0f, this.mWidth - i4, this.mHeight, this.mMaskPaint);
         this.mMaskPaint.setXfermode(this.mPorterDuffXfermode);
         if (this.mSinWaveBitmap != null) {
             this.mSinWaveCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
@@ -449,8 +449,8 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         this.mVoiceWaveCallBack = voiceWaveCallBack;
     }
 
-    public VoiceSinWaveView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public VoiceSinWaveView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mLastVolume = 0.0f;
         this.mVolume = 0.0f;
         this.mLastVolumeTimeMillis = 0L;

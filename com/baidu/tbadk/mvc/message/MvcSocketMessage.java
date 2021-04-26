@@ -1,23 +1,23 @@
 package com.baidu.tbadk.mvc.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import d.b.i0.g0.b.h;
-import d.b.i0.g0.b.i;
+import d.a.i0.g0.b.h;
+import d.a.i0.g0.b.i;
 /* loaded from: classes3.dex */
 public class MvcSocketMessage<T extends i, D extends h> extends TbSocketMessage {
     public boolean isNeedCache;
     public T requestData;
     public Class<D> responseDataClass;
 
-    public MvcSocketMessage(T t, int i) {
-        super(i);
+    public MvcSocketMessage(T t, int i2) {
+        super(i2);
         this.isNeedCache = false;
         this.requestData = t;
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
-        return this.requestData.e(false);
+        return this.requestData.c(false);
     }
 
     public T getRequestData() {

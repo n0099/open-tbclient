@@ -6,43 +6,43 @@ import com.baidu.platform.comapi.walknavi.b;
 public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9609a;
+    public String f9967a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9610b;
+    public String f9968b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9611c;
+    public String f9969c;
 
     public WGuideFSM() {
         setInitialState("Entry");
-        this.f9611c = this.f9609a;
+        this.f9969c = this.f9967a;
         FSMTable.initTransition();
     }
 
     private void cacheBackState(String str) {
         if ("North2D".equals(str)) {
-            this.f9611c = "North2D";
+            this.f9969c = "North2D";
         } else if ("Car3D".equals(str) || "Entry".equals(str)) {
-            this.f9611c = "Car3D";
+            this.f9969c = "Car3D";
         }
     }
 
     private String getBackState(String str) {
         if ("BrowseMap".equals(str)) {
-            return this.f9611c;
+            return this.f9969c;
         }
         return null;
     }
 
     public static void restoreZoomLevel() {
-        int i = com.baidu.platform.comapi.walknavi.b.a.f9463c;
-        if (i < 15) {
-            i = 15;
-        } else if (i > 20) {
-            i = 19;
+        int i2 = com.baidu.platform.comapi.walknavi.b.a.f9818c;
+        if (i2 < 15) {
+            i2 = 15;
+        } else if (i2 > 20) {
+            i2 = 19;
         }
-        com.baidu.platform.comapi.walknavi.b.a.f9463c = i;
+        com.baidu.platform.comapi.walknavi.b.a.f9818c = i2;
     }
 
     public static void saveZoomLevel() {
@@ -52,7 +52,7 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
         } else if (k > 20) {
             k = 19;
         }
-        com.baidu.platform.comapi.walknavi.b.a.f9463c = k;
+        com.baidu.platform.comapi.walknavi.b.a.f9818c = k;
     }
 
     private void stateReflection(String str, String str2) {
@@ -65,11 +65,11 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public String getCurrentEvent() {
-        return this.f9610b;
+        return this.f9968b;
     }
 
     public String getCurrentState() {
-        return this.f9609a;
+        return this.f9967a;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
@@ -83,37 +83,37 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public synchronized void run(String str) {
-        String str2 = this.f9609a;
+        String str2 = this.f9967a;
         String queryDestState = FSMTable.queryDestState(str2, str);
         if (queryDestState != null) {
-            this.f9610b = str;
+            this.f9968b = str;
             if ("BACK".equals(queryDestState)) {
                 queryDestState = getBackState(str2);
             }
             stateReflection(str2, "exit");
             stateReflection(queryDestState, RGState.METHOD_NAME_ENTER);
             stateReflection(queryDestState, RGState.METHOD_NAME_EXCUTE);
-            this.f9609a = queryDestState;
+            this.f9967a = queryDestState;
             cacheBackState(queryDestState);
         }
     }
 
     public synchronized void runCurrentState() {
-        if (!this.f9609a.equalsIgnoreCase("Entry")) {
-            stateReflection(this.f9609a, RGState.METHOD_NAME_EXCUTE);
+        if (!this.f9967a.equalsIgnoreCase("Entry")) {
+            stateReflection(this.f9967a, RGState.METHOD_NAME_EXCUTE);
         }
     }
 
     public synchronized void runEntryState() {
         if (b.a().J() == 4) {
-            this.f9609a = "SegEntry";
+            this.f9967a = "SegEntry";
         } else {
-            this.f9609a = "Entry";
+            this.f9967a = "Entry";
         }
-        stateReflection(this.f9609a, RGState.METHOD_NAME_EXCUTE);
+        stateReflection(this.f9967a, RGState.METHOD_NAME_EXCUTE);
     }
 
     public void setInitialState(String str) {
-        this.f9609a = str;
+        this.f9967a = str;
     }
 }

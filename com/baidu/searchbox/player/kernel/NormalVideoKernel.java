@@ -145,9 +145,9 @@ public class NormalVideoKernel extends AbsVideoKernel {
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void onPrepared() {
         super.onPrepared();
-        int i = this.mStorePosition;
-        if (i > 2) {
-            this.mVideoView.seekTo(i - 2);
+        int i2 = this.mStorePosition;
+        if (i2 > 2) {
+            this.mVideoView.seekTo(i2 - 2);
             this.mStorePosition = -1;
         }
     }
@@ -209,14 +209,14 @@ public class NormalVideoKernel extends AbsVideoKernel {
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     @PublicMethod
-    public void seekTo(int i) {
-        this.mVideoView.seekTo(i * 1000);
+    public void seekTo(int i2) {
+        this.mVideoView.seekTo(i2 * 1000);
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     @PublicMethod
-    public void setDecodeMode(int i) {
-        this.mVideoView.setDecodeMode(i);
+    public void setDecodeMode(int i2) {
+        this.mVideoView.setDecodeMode(i2);
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
@@ -285,14 +285,14 @@ public class NormalVideoKernel extends AbsVideoKernel {
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     @PublicMethod
-    public void setVideoRotation(int i) {
-        this.mVideoView.setVideoRotation(i);
+    public void setVideoRotation(int i2) {
+        this.mVideoView.setVideoRotation(i2);
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     @PublicMethod
-    public void setVideoScalingMode(int i) {
-        this.mVideoView.setVideoScalingMode(i);
+    public void setVideoScalingMode(int i2) {
+        this.mVideoView.setVideoScalingMode(i2);
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel

@@ -3,46 +3,46 @@ package e.a.q;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f68583a = new char[64];
+    public static char[] f67534a = new char[64];
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f68584b;
+    public static byte[] f67535b;
 
     static {
         char c2 = 'A';
-        int i = 0;
+        int i2 = 0;
         while (c2 <= 'Z') {
-            f68583a[i] = c2;
+            f67534a[i2] = c2;
             c2 = (char) (c2 + 1);
-            i++;
+            i2++;
         }
         char c3 = 'a';
         while (c3 <= 'z') {
-            f68583a[i] = c3;
+            f67534a[i2] = c3;
             c3 = (char) (c3 + 1);
-            i++;
+            i2++;
         }
         char c4 = '0';
         while (c4 <= '9') {
-            f68583a[i] = c4;
+            f67534a[i2] = c4;
             c4 = (char) (c4 + 1);
-            i++;
-        }
-        char[] cArr = f68583a;
-        cArr[i] = '+';
-        cArr[i + 1] = '/';
-        f68584b = new byte[128];
-        int i2 = 0;
-        while (true) {
-            byte[] bArr = f68584b;
-            if (i2 >= bArr.length) {
-                break;
-            }
-            bArr[i2] = -1;
             i2++;
         }
-        for (int i3 = 0; i3 < 64; i3++) {
-            f68584b[f68583a[i3]] = (byte) i3;
+        char[] cArr = f67534a;
+        cArr[i2] = '+';
+        cArr[i2 + 1] = '/';
+        f67535b = new byte[128];
+        int i3 = 0;
+        while (true) {
+            byte[] bArr = f67535b;
+            if (i3 >= bArr.length) {
+                break;
+            }
+            bArr[i3] = -1;
+            i3++;
+        }
+        for (int i4 = 0; i4 < 64; i4++) {
+            f67535b[f67534a[i4]] = (byte) i4;
         }
     }
 
@@ -50,48 +50,48 @@ public class a {
         return b(bArr, bArr.length);
     }
 
-    public static char[] b(byte[] bArr, int i) {
-        int i2;
+    public static char[] b(byte[] bArr, int i2) {
         int i3;
         int i4;
-        int i5 = ((i * 4) + 2) / 3;
-        char[] cArr = new char[((i + 2) / 3) * 4];
-        int i6 = 0;
+        int i5;
+        int i6 = ((i2 * 4) + 2) / 3;
+        char[] cArr = new char[((i2 + 2) / 3) * 4];
         int i7 = 0;
-        while (i6 < i) {
-            int i8 = i6 + 1;
-            int i9 = bArr[i6] & 255;
-            if (i8 < i) {
-                i2 = i8 + 1;
-                i3 = bArr[i8] & 255;
+        int i8 = 0;
+        while (i7 < i2) {
+            int i9 = i7 + 1;
+            int i10 = bArr[i7] & 255;
+            if (i9 < i2) {
+                i3 = i9 + 1;
+                i4 = bArr[i9] & 255;
             } else {
-                i2 = i8;
-                i3 = 0;
-            }
-            if (i2 < i) {
-                i4 = bArr[i2] & 255;
-                i2++;
-            } else {
+                i3 = i9;
                 i4 = 0;
             }
-            int i10 = i9 >>> 2;
-            int i11 = ((i9 & 3) << 4) | (i3 >>> 4);
-            int i12 = ((i3 & 15) << 2) | (i4 >>> 6);
-            int i13 = i4 & 63;
-            int i14 = i7 + 1;
-            char[] cArr2 = f68583a;
-            cArr[i7] = cArr2[i10];
-            int i15 = i14 + 1;
-            cArr[i14] = cArr2[i11];
-            char c2 = com.alipay.sdk.encrypt.a.f1922h;
-            cArr[i15] = i15 < i5 ? cArr2[i12] : com.alipay.sdk.encrypt.a.f1922h;
-            int i16 = i15 + 1;
-            if (i16 < i5) {
-                c2 = f68583a[i13];
+            if (i3 < i2) {
+                i5 = bArr[i3] & 255;
+                i3++;
+            } else {
+                i5 = 0;
             }
-            cArr[i16] = c2;
-            i7 = i16 + 1;
-            i6 = i2;
+            int i11 = i10 >>> 2;
+            int i12 = ((i10 & 3) << 4) | (i4 >>> 4);
+            int i13 = ((i4 & 15) << 2) | (i5 >>> 6);
+            int i14 = i5 & 63;
+            int i15 = i8 + 1;
+            char[] cArr2 = f67534a;
+            cArr[i8] = cArr2[i11];
+            int i16 = i15 + 1;
+            cArr[i15] = cArr2[i12];
+            char c2 = com.alipay.sdk.encrypt.a.f1873h;
+            cArr[i16] = i16 < i6 ? cArr2[i13] : com.alipay.sdk.encrypt.a.f1873h;
+            int i17 = i16 + 1;
+            if (i17 < i6) {
+                c2 = f67534a[i14];
+            }
+            cArr[i17] = c2;
+            i8 = i17 + 1;
+            i7 = i3;
         }
         return cArr;
     }

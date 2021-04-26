@@ -12,27 +12,15 @@ import java.util.Map;
 public abstract class LiveData<T> {
     public static final Object NOT_SET = new Object();
     public static final int START_VERSION = -1;
+    public int mActiveCount;
+    public volatile Object mData;
+    public final Object mDataLock;
     public boolean mDispatchInvalidated;
     public boolean mDispatchingValue;
-    public final Object mDataLock = new Object();
-    public SafeIterableMap<Observer<? super T>, LiveData<T>.ObserverWrapper> mObservers = new SafeIterableMap<>();
-    public int mActiveCount = 0;
-    public volatile Object mData = NOT_SET;
-    public volatile Object mPendingData = NOT_SET;
-    public int mVersion = -1;
-    public final Runnable mPostValueRunnable = new Runnable() { // from class: androidx.lifecycle.LiveData.1
-        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: androidx.lifecycle.LiveData */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // java.lang.Runnable
-        public void run() {
-            Object obj;
-            synchronized (LiveData.this.mDataLock) {
-                obj = LiveData.this.mPendingData;
-                LiveData.this.mPendingData = LiveData.NOT_SET;
-            }
-            LiveData.this.setValue(obj);
-        }
-    };
+    public SafeIterableMap<Observer<? super T>, LiveData<T>.ObserverWrapper> mObservers;
+    public volatile Object mPendingData;
+    public final Runnable mPostValueRunnable;
+    public int mVersion;
 
     /* loaded from: classes.dex */
     public class AlwaysActiveObserver extends LiveData<T>.ObserverWrapper {
@@ -47,7 +35,7 @@ public abstract class LiveData<T> {
     }
 
     /* loaded from: classes.dex */
-    public class LifecycleBoundObserver extends LiveData<T>.ObserverWrapper implements GenericLifecycleObserver {
+    public class LifecycleBoundObserver extends LiveData<T>.ObserverWrapper implements LifecycleEventObserver {
         @NonNull
         public final LifecycleOwner mOwner;
 
@@ -67,7 +55,7 @@ public abstract class LiveData<T> {
         }
 
         @Override // androidx.lifecycle.LifecycleEventObserver
-        public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+        public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
             if (this.mOwner.getLifecycle().getCurrentState() == Lifecycle.State.DESTROYED) {
                 LiveData.this.removeObserver(this.mObserver);
             } else {
@@ -120,6 +108,28 @@ public abstract class LiveData<T> {
         public abstract boolean shouldBeActive();
     }
 
+    public LiveData(T t) {
+        this.mDataLock = new Object();
+        this.mObservers = new SafeIterableMap<>();
+        this.mActiveCount = 0;
+        this.mPendingData = NOT_SET;
+        this.mPostValueRunnable = new Runnable() { // from class: androidx.lifecycle.LiveData.1
+            /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: androidx.lifecycle.LiveData */
+            /* JADX WARN: Multi-variable type inference failed */
+            @Override // java.lang.Runnable
+            public void run() {
+                Object obj;
+                synchronized (LiveData.this.mDataLock) {
+                    obj = LiveData.this.mPendingData;
+                    LiveData.this.mPendingData = LiveData.NOT_SET;
+                }
+                LiveData.this.setValue(obj);
+            }
+        };
+        this.mData = t;
+        this.mVersion = 0;
+    }
+
     public static void assertMainThread(String str) {
         if (ArchTaskExecutor.getInstance().isMainThread()) {
             return;
@@ -133,12 +143,12 @@ public abstract class LiveData<T> {
                 observerWrapper.activeStateChanged(false);
                 return;
             }
-            int i = observerWrapper.mLastVersion;
-            int i2 = this.mVersion;
-            if (i >= i2) {
+            int i2 = observerWrapper.mLastVersion;
+            int i3 = this.mVersion;
+            if (i2 >= i3) {
                 return;
             }
-            observerWrapper.mLastVersion = i2;
+            observerWrapper.mLastVersion = i3;
             observerWrapper.mObserver.onChanged((Object) this.mData);
         }
     }
@@ -210,7 +220,7 @@ public abstract class LiveData<T> {
         assertMainThread("observeForever");
         AlwaysActiveObserver alwaysActiveObserver = new AlwaysActiveObserver(observer);
         LiveData<T>.ObserverWrapper putIfAbsent = this.mObservers.putIfAbsent(observer, alwaysActiveObserver);
-        if (putIfAbsent != null && (putIfAbsent instanceof LifecycleBoundObserver)) {
+        if (putIfAbsent instanceof LifecycleBoundObserver) {
             throw new IllegalArgumentException("Cannot add the same observer with different lifecycles");
         }
         if (putIfAbsent != null) {
@@ -265,5 +275,27 @@ public abstract class LiveData<T> {
         this.mVersion++;
         this.mData = t;
         dispatchingValue(null);
+    }
+
+    public LiveData() {
+        this.mDataLock = new Object();
+        this.mObservers = new SafeIterableMap<>();
+        this.mActiveCount = 0;
+        this.mPendingData = NOT_SET;
+        this.mPostValueRunnable = new Runnable() { // from class: androidx.lifecycle.LiveData.1
+            /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: androidx.lifecycle.LiveData */
+            /* JADX WARN: Multi-variable type inference failed */
+            @Override // java.lang.Runnable
+            public void run() {
+                Object obj;
+                synchronized (LiveData.this.mDataLock) {
+                    obj = LiveData.this.mPendingData;
+                    LiveData.this.mPendingData = LiveData.NOT_SET;
+                }
+                LiveData.this.setValue(obj);
+            }
+        };
+        this.mData = NOT_SET;
+        this.mVersion = -1;
     }
 }

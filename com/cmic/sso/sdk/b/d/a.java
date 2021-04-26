@@ -1,28 +1,28 @@
 package com.cmic.sso.sdk.b.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30443a;
+    public int f31372a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30444b;
+    public String f31373b;
 
-    public a(int i, String str) {
-        this.f30443a = i;
-        this.f30444b = str;
+    public a(int i2, String str) {
+        this.f31372a = i2;
+        this.f31373b = str;
     }
 
     public int a() {
-        return this.f30443a;
+        return this.f31372a;
     }
 
     public String b() {
-        return this.f30444b;
+        return this.f31373b;
     }
 
-    public static a a(int i) {
-        switch (i) {
+    public static a a(int i2) {
+        switch (i2) {
             case 102102:
                 return new a(102102, "网络异常");
             case 102223:
@@ -36,7 +36,7 @@ public class a {
             case 200050:
                 return new a(200050, "EOF异常");
             default:
-                return new a(i, "网络异常");
+                return new a(i2, "网络异常");
         }
     }
 }

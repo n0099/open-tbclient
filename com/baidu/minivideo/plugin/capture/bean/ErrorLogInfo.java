@@ -34,8 +34,8 @@ public class ErrorLogInfo implements Jsonable {
         }
     }
 
-    public void set(int i, String str, String str2, String str3, String str4) {
-        this.type = i;
+    public void set(int i2, String str, String str2, String str3, String str4) {
+        this.type = i2;
         this.name = str;
         this.code = str2;
         this.msg = str3;
@@ -73,12 +73,12 @@ public class ErrorLogInfo implements Jsonable {
         return "type:" + this.type + "name:" + this.name + "code:" + this.code + "msg:" + this.msg + "data" + this.data + "doReport : " + this.doReport;
     }
 
-    public ErrorLogInfo(int i, String str, String str2, String str3, String str4) {
-        set(i, str, str2, str3, str4);
+    public ErrorLogInfo(int i2, String str, String str2, String str3, String str4) {
+        set(i2, str, str2, str3, str4);
     }
 
-    public void set(int i, String str, String str2, String str3, String str4, boolean z) {
-        this.type = i;
+    public void set(int i2, String str, String str2, String str3, String str4, boolean z) {
+        this.type = i2;
         this.name = str;
         this.code = str2;
         this.msg = str3;

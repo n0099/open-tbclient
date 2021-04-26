@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.tencent.connect.common.Constants;
-import d.b.c.e.m.e;
-import d.b.i0.i0.c;
+import d.a.c.e.m.e;
+import d.a.i0.i0.c;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -75,26 +75,26 @@ public class TbPageExtraHelper {
     }
 
     public static BaseFragment d(View view) {
-        d.b.i0.i0.a e2 = e(view);
+        d.a.i0.i0.a e2 = e(view);
         if (e2 == null || e2.getTbFragmentExtra() == null) {
             return null;
         }
         return e2.getTbFragmentExtra().a();
     }
 
-    public static d.b.i0.i0.a e(View view) {
+    public static d.a.i0.i0.a e(View view) {
         ViewParent parent = view.getParent();
-        d.b.i0.i0.a aVar = null;
+        d.a.i0.i0.a aVar = null;
         if (parent instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) parent;
-            if (viewGroup instanceof d.b.i0.i0.a) {
-                aVar = (d.b.i0.i0.a) parent;
+            if (viewGroup instanceof d.a.i0.i0.a) {
+                aVar = (d.a.i0.i0.a) parent;
                 q(viewGroup, "ITbFragmentExtraSupport From Implements Interface------->");
             }
             if (aVar == null) {
                 Object tag = viewGroup.getTag(R.id.tag_tb_fragment_extra);
-                if (tag instanceof d.b.i0.i0.a) {
-                    aVar = (d.b.i0.i0.a) tag;
+                if (tag instanceof d.a.i0.i0.a) {
+                    aVar = (d.a.i0.i0.a) tag;
                     q(viewGroup, "ITbFragmentExtraSupport From View.getTag()------->");
                 }
             }
@@ -195,12 +195,12 @@ public class TbPageExtraHelper {
             q(context, "context is not Activity, so getCurrentActivity()");
             h2 = TbadkCoreApplication.getInst().getCurrentActivity();
         }
-        c i = i(h2);
-        if (i == null) {
+        c i2 = i(h2);
+        if (i2 == null) {
             q(context, "------Not Activity，No TbPageExtra!------");
         }
         r("**************************End**************************");
-        return i;
+        return i2;
     }
 
     public static String l(Context context) {

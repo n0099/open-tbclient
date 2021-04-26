@@ -21,7 +21,7 @@ public interface a {
 
     String getLoadTimeLine();
 
-    void historyGo(int i);
+    void historyGo(int i2);
 
     boolean isActiveCell();
 
@@ -31,7 +31,7 @@ public interface a {
 
     void preLoadException(String str);
 
-    void preLoadUrl(ArrayList<String> arrayList, int i);
+    void preLoadUrl(ArrayList<String> arrayList, int i2);
 
     void selectPhoneFromAddressBook();
 

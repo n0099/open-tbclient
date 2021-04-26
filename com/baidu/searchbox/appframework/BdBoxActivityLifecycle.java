@@ -74,8 +74,8 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         if (this.mActivityStack.isEmpty()) {
             return;
         }
-        for (int i = 0; i < this.mActivityStack.size(); i++) {
-            WeakReference<Activity> weakReference = this.mActivityStack.get(i);
+        for (int i2 = 0; i2 < this.mActivityStack.size(); i2++) {
+            WeakReference<Activity> weakReference = this.mActivityStack.get(i2);
             if (weakReference != null && (activity = weakReference.get()) != null) {
                 activity.finish();
             }
@@ -108,8 +108,8 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         if (size < 2) {
             return getTopActivity();
         }
-        for (int i = size - 1; i >= 0; i--) {
-            WeakReference<Activity> weakReference = this.mActivityStack.get(i);
+        for (int i2 = size - 1; i2 >= 0; i2--) {
+            WeakReference<Activity> weakReference = this.mActivityStack.get(i2);
             if (weakReference != null && (activity = weakReference.get()) != null && !activity.isFinishing()) {
                 return activity;
             }
@@ -123,8 +123,8 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
             return null;
         }
         LinkedList linkedList = new LinkedList(this.mActivityStack);
-        for (int i = 0; i < linkedList.size(); i++) {
-            WeakReference weakReference = (WeakReference) linkedList.get(i);
+        for (int i2 = 0; i2 < linkedList.size(); i2++) {
+            WeakReference weakReference = (WeakReference) linkedList.get(i2);
             if (weakReference != null && (activity = (Activity) weakReference.get()) != null && cls.getSimpleName().equals(activity.getClass().getSimpleName())) {
                 return activity;
             }
@@ -235,9 +235,9 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
                 it.next().onActivityStarted(activity);
             }
         }
-        int i = this.mActivityCount + 1;
-        this.mActivityCount = i;
-        if (i == 1) {
+        int i2 = this.mActivityCount + 1;
+        this.mActivityCount = i2;
+        if (i2 == 1) {
             onBackgroundToForeground(activity);
         }
     }
@@ -251,9 +251,9 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
                 it.next().onActivityStopped(activity);
             }
         }
-        int i = this.mActivityCount - 1;
-        this.mActivityCount = i;
-        if (i == 0) {
+        int i2 = this.mActivityCount - 1;
+        this.mActivityCount = i2;
+        if (i2 == 0) {
             onForegroundToBackground(activity);
         }
     }

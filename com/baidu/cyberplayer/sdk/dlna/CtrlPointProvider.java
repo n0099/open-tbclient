@@ -2,21 +2,21 @@ package com.baidu.cyberplayer.sdk.dlna;
 
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class CtrlPointProvider {
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface CtrlPointListener {
         void onComplete();
 
-        void onError(int i, int i2);
+        void onError(int i2, int i3);
 
-        void onInfo(int i, int i2, Object obj);
+        void onInfo(int i2, int i3, Object obj);
 
         void onPrepared();
 
-        void onSeekCompleted(int i, int i2);
+        void onSeekCompleted(int i2, int i3);
     }
 
     public abstract long getCurrentTime();
@@ -35,9 +35,9 @@ public abstract class CtrlPointProvider {
 
     public abstract void setListener(CtrlPointListener ctrlPointListener);
 
-    public abstract void setMute(int i);
+    public abstract void setMute(int i2);
 
-    public abstract void setPlaybackVolume(int i);
+    public abstract void setPlaybackVolume(int i2);
 
     public abstract void shutdown();
 

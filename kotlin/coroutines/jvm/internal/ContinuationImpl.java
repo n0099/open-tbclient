@@ -21,9 +21,7 @@ public abstract class ContinuationImpl extends BaseContinuationImpl {
     @Override // kotlin.coroutines.Continuation
     public CoroutineContext getContext() {
         CoroutineContext coroutineContext = this._context;
-        if (coroutineContext == null) {
-            Intrinsics.throwNpe();
-        }
+        Intrinsics.checkNotNull(coroutineContext);
         return coroutineContext;
     }
 
@@ -44,9 +42,7 @@ public abstract class ContinuationImpl extends BaseContinuationImpl {
         Continuation<?> continuation = this.intercepted;
         if (continuation != null && continuation != this) {
             CoroutineContext.Element element = getContext().get(ContinuationInterceptor.Key);
-            if (element == null) {
-                Intrinsics.throwNpe();
-            }
+            Intrinsics.checkNotNull(element);
             ((ContinuationInterceptor) element).releaseInterceptedContinuation(continuation);
         }
         this.intercepted = CompletedContinuation.INSTANCE;

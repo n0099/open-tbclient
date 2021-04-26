@@ -30,9 +30,9 @@ public class CommonUtils {
         if (strArr != null) {
             try {
                 if (strArr.length > 0 && strArr.length % 2 == 0) {
-                    for (int i = 0; i < strArr.length; i += 2) {
-                        String str = strArr[i];
-                        String str2 = strArr[i + 1];
+                    for (int i2 = 0; i2 < strArr.length; i2 += 2) {
+                        String str = strArr[i2];
+                        String str2 = strArr[i2 + 1];
                         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                             jSONObject.put(str, str2);
                         }

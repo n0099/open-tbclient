@@ -147,12 +147,12 @@ public class FlutterRenderer implements TextureRegistry {
         return surfaceTextureRegistryEntry;
     }
 
-    public void dispatchPointerDataPacket(@NonNull ByteBuffer byteBuffer, int i) {
-        this.flutterJNI.dispatchPointerDataPacket(byteBuffer, i);
+    public void dispatchPointerDataPacket(@NonNull ByteBuffer byteBuffer, int i2) {
+        this.flutterJNI.dispatchPointerDataPacket(byteBuffer, i2);
     }
 
-    public void dispatchSemanticsAction(int i, int i2, @Nullable ByteBuffer byteBuffer, int i3) {
-        this.flutterJNI.dispatchSemanticsAction(i, i2, byteBuffer, i3);
+    public void dispatchSemanticsAction(int i2, int i3, @Nullable ByteBuffer byteBuffer, int i4) {
+        this.flutterJNI.dispatchSemanticsAction(i2, i3, byteBuffer, i4);
     }
 
     public Bitmap getBitmap() {
@@ -171,8 +171,8 @@ public class FlutterRenderer implements TextureRegistry {
         this.flutterJNI.removeIsDisplayingFlutterUiListener(flutterUiDisplayListener);
     }
 
-    public void setAccessibilityFeatures(int i) {
-        this.flutterJNI.setAccessibilityFeatures(i);
+    public void setAccessibilityFeatures(int i2) {
+        this.flutterJNI.setAccessibilityFeatures(i2);
     }
 
     public void setSemanticsEnabled(boolean z) {
@@ -201,7 +201,7 @@ public class FlutterRenderer implements TextureRegistry {
         this.isDisplayingFlutterUi = false;
     }
 
-    public void surfaceChanged(int i, int i2) {
-        this.flutterJNI.onSurfaceChanged(i, i2);
+    public void surfaceChanged(int i2, int i3) {
+        this.flutterJNI.onSurfaceChanged(i2, i3);
     }
 }

@@ -39,12 +39,12 @@ public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputSt
     }
 
     @VisibleForTesting
-    public void realloc(int i) {
+    public void realloc(int i2) {
         ensureValid();
-        if (i <= this.mBufRef.get().getSize()) {
+        if (i2 <= this.mBufRef.get().getSize()) {
             return;
         }
-        MemoryChunk memoryChunk = this.mPool.get(i);
+        MemoryChunk memoryChunk = this.mPool.get(i2);
         this.mBufRef.get().copy(0, memoryChunk, 0, this.mCount);
         this.mBufRef.close();
         this.mBufRef = CloseableReference.of(memoryChunk, this.mPool);
@@ -56,16 +56,16 @@ public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputSt
     }
 
     @Override // java.io.OutputStream
-    public void write(int i) throws IOException {
-        write(new byte[]{(byte) i});
+    public void write(int i2) throws IOException {
+        write(new byte[]{(byte) i2});
     }
 
-    public MemoryPooledByteBufferOutputStream(MemoryChunkPool memoryChunkPool, int i) {
-        Preconditions.checkArgument(i > 0);
+    public MemoryPooledByteBufferOutputStream(MemoryChunkPool memoryChunkPool, int i2) {
+        Preconditions.checkArgument(i2 > 0);
         MemoryChunkPool memoryChunkPool2 = (MemoryChunkPool) Preconditions.checkNotNull(memoryChunkPool);
         this.mPool = memoryChunkPool2;
         this.mCount = 0;
-        this.mBufRef = CloseableReference.of(memoryChunkPool2.get(i), this.mPool);
+        this.mBufRef = CloseableReference.of(memoryChunkPool2.get(i2), this.mPool);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,14 +76,14 @@ public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputSt
     }
 
     @Override // java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
-        if (i >= 0 && i2 >= 0 && i + i2 <= bArr.length) {
+    public void write(byte[] bArr, int i2, int i3) throws IOException {
+        if (i2 >= 0 && i3 >= 0 && i2 + i3 <= bArr.length) {
             ensureValid();
-            realloc(this.mCount + i2);
-            this.mBufRef.get().write(this.mCount, bArr, i, i2);
-            this.mCount += i2;
+            realloc(this.mCount + i3);
+            this.mBufRef.get().write(this.mCount, bArr, i2, i3);
+            this.mCount += i3;
             return;
         }
-        throw new ArrayIndexOutOfBoundsException("length=" + bArr.length + "; regionStart=" + i + "; regionLength=" + i2);
+        throw new ArrayIndexOutOfBoundsException("length=" + bArr.length + "; regionStart=" + i2 + "; regionLength=" + i3);
     }
 }

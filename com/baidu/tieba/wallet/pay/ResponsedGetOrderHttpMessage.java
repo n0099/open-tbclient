@@ -9,8 +9,8 @@ import tbclient.GetOrder.GetOrderResIdl;
 public class ResponsedGetOrderHttpMessage extends HttpResponsedMessage {
     public DataRes mData;
 
-    public ResponsedGetOrderHttpMessage(int i) {
-        super(i);
+    public ResponsedGetOrderHttpMessage(int i2) {
+        super(i2);
     }
 
     public DataRes getData() {
@@ -19,7 +19,7 @@ public class ResponsedGetOrderHttpMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetOrderResIdl getOrderResIdl = (GetOrderResIdl) new Wire(new Class[0]).parseFrom(bArr, GetOrderResIdl.class);
         Error error = getOrderResIdl.error;
         if (error != null) {

@@ -47,11 +47,11 @@ public class MessageProxy {
         }
     }
 
-    public static void onMessage(String str, int i, byte[] bArr, int i2) {
+    public static void onMessage(String str, int i2, byte[] bArr, int i3) {
         g.a("onMessage");
         b bVar = mListener;
         if (bVar != null) {
-            bVar.a(str, i, bArr, i2);
+            bVar.a(str, i2, bArr, i3);
         }
     }
 

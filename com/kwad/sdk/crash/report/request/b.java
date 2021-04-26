@@ -27,14 +27,14 @@ public class b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.a
             @NonNull
-            /* renamed from: c */
+            /* renamed from: a */
             public a b() {
                 return new a(list);
             }
         }.a(new j<a, CrashReportResult>() { // from class: com.kwad.sdk.crash.report.request.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
-            public void a(@NonNull a aVar, int i, String str) {
+            public void a(@NonNull a aVar, int i2, String str) {
             }
 
             /* JADX DEBUG: Method merged with bridge method */

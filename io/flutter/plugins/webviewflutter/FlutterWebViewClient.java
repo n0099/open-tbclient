@@ -64,8 +64,8 @@ public class FlutterWebViewClient {
         this.methodChannel = methodChannel;
     }
 
-    public static String errorCodeToString(int i) {
-        switch (i) {
+    public static String errorCodeToString(int i2) {
+        switch (i2) {
             case -16:
                 return "unsafeResource";
             case -15:
@@ -99,7 +99,7 @@ public class FlutterWebViewClient {
             case -1:
                 return "unknown";
             default:
-                throw new IllegalArgumentException(String.format(Locale.getDefault(), "Could not find a string for errorCode: %d", Integer.valueOf(i)));
+                throw new IllegalArgumentException(String.format(Locale.getDefault(), "Could not find a string for errorCode: %d", Integer.valueOf(i2)));
         }
     }
 
@@ -132,8 +132,8 @@ public class FlutterWebViewClient {
             }
 
             @Override // android.webkit.WebViewClient
-            public void onReceivedError(WebView webView, int i, String str, String str2) {
-                FlutterWebViewClient.this.onWebResourceError(i, str, str2);
+            public void onReceivedError(WebView webView, int i2, String str, String str2) {
+                FlutterWebViewClient.this.onWebResourceError(i2, str, str2);
             }
         };
     }
@@ -171,8 +171,8 @@ public class FlutterWebViewClient {
             }
 
             @Override // android.webkit.WebViewClient
-            public void onReceivedError(WebView webView, int i, String str, String str2) {
-                FlutterWebViewClient.this.onWebResourceError(i, str, str2);
+            public void onReceivedError(WebView webView, int i2, String str, String str2) {
+                FlutterWebViewClient.this.onWebResourceError(i2, str, str2);
             }
         };
     }
@@ -203,11 +203,11 @@ public class FlutterWebViewClient {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onWebResourceError(int i, String str, String str2) {
+    public void onWebResourceError(int i2, String str, String str2) {
         HashMap hashMap = new HashMap();
-        hashMap.put("errorCode", Integer.valueOf(i));
+        hashMap.put("errorCode", Integer.valueOf(i2));
         hashMap.put("description", str);
-        hashMap.put("errorType", errorCodeToString(i));
+        hashMap.put("errorType", errorCodeToString(i2));
         hashMap.put("failingUrl", str2);
         this.methodChannel.invokeMethod("onWebResourceError", hashMap);
     }

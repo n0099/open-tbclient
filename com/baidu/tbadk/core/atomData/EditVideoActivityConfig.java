@@ -31,14 +31,14 @@ public class EditVideoActivityConfig extends IntentConfig {
         getIntent().putExtra("from_type", str);
     }
 
-    public void addMusicInfo(String str, String str2, int i) {
+    public void addMusicInfo(String str, String str2, int i2) {
         getIntent().putExtra(LOCAL_PATH_KEY, str);
         getIntent().putExtra(MUSIC_ID_KEY, str2);
-        getIntent().putExtra(POSITION_KEY, i);
+        getIntent().putExtra(POSITION_KEY, i2);
     }
 
-    public void addRequestForResult(int i) {
-        setRequestCode(i);
+    public void addRequestForResult(int i2) {
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
@@ -51,8 +51,8 @@ public class EditVideoActivityConfig extends IntentConfig {
         }
     }
 
-    public void setForumLevel(int i) {
-        getIntent().putExtra("key_write_level", i);
+    public void setForumLevel(int i2) {
+        getIntent().putExtra("key_write_level", i2);
     }
 
     public void setFrom(String str) {
@@ -63,11 +63,11 @@ public class EditVideoActivityConfig extends IntentConfig {
         getIntent().putExtra("tab_list", frsTabInfoData);
     }
 
-    public void setProZone(int i) {
-        getIntent().putExtra(KEY_PRO_ZONE, i);
+    public void setProZone(int i2) {
+        getIntent().putExtra(KEY_PRO_ZONE, i2);
     }
 
-    public void setStatisticFrom(int i) {
-        getIntent().putExtra(WriteActivityConfig.KEY_STATISTIS_FROM, i);
+    public void setStatisticFrom(int i2) {
+        getIntent().putExtra(WriteActivityConfig.KEY_STATISTIS_FROM, i2);
     }
 }

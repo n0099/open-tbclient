@@ -36,13 +36,13 @@ public class IMAckRequest extends BaseHttpRequest {
     public long mTriggerId;
     public long mUk;
 
-    public IMAckRequest(Context context, String str, long j, long j2, int i, int i2, long j3, long j4, boolean z, ArrayList<ChatMsg> arrayList) {
+    public IMAckRequest(Context context, String str, long j, long j2, int i2, int i3, long j3, long j4, boolean z, ArrayList<ChatMsg> arrayList) {
         this.mContext = context;
         this.mKey = str;
         this.mUk = j;
         this.mContacter = j2;
-        this.mCategory = i;
-        this.mCount = i2;
+        this.mCategory = i2;
+        this.mCount = i3;
         this.mBeginid = j3;
         this.mEndid = j4;
         this.mIsReliable = z;
@@ -129,15 +129,15 @@ public class IMAckRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
         String str = new String(bArr);
-        LogUtils.d(TAG, "errorCode：" + i + ", resultContent: " + str);
+        LogUtils.d(TAG, "errorCode：" + i2 + ", resultContent: " + str);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str = new String(bArr);
-        LogUtils.d(TAG, "errorCode：" + i + ", resultContent: " + str);
+        LogUtils.d(TAG, "errorCode：" + i2 + ", resultContent: " + str);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

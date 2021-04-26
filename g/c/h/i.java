@@ -11,7 +11,7 @@ public class i extends e {
     @Override // g.c.h.e, g.c.h.f
     public void h() throws InvalidDataException {
         super.h();
-        if (!g.c.k.c.b(f())) {
+        if (!g.c.k.c.b(a())) {
             throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
         }
     }

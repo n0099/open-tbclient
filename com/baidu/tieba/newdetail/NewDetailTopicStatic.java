@@ -18,7 +18,7 @@ import com.baidu.tieba.hottopic.message.ResponseHttpGetTopicRelateThreadMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotTopicMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketGetTopicRelateThreadMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
-import d.b.c.e.m.b;
+import d.a.c.e.m.b;
 /* loaded from: classes3.dex */
 public class NewDetailTopicStatic {
 
@@ -75,18 +75,18 @@ public class NewDetailTopicStatic {
     }
 
     public static void a() {
-        d.b.j0.d3.d0.a.h(309085, BlessSocketResponseMessage.class, false, false);
-        d.b.j0.d3.d0.a.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
+        d.a.j0.d3.d0.a.h(309085, BlessSocketResponseMessage.class, false, false);
+        d.a.j0.d3.d0.a.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
     }
 
     public static void b() {
-        d.b.j0.d3.d0.a.h(303050, ResponseSocketHotTopicMessage.class, false, false);
-        d.b.j0.d3.d0.a.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
+        d.a.j0.d3.d0.a.h(303050, ResponseSocketHotTopicMessage.class, false, false);
+        d.a.j0.d3.d0.a.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
     }
 
     public static void c() {
-        d.b.j0.d3.d0.a.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
-        d.b.j0.d3.d0.a.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
+        d.a.j0.d3.d0.a.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
+        d.a.j0.d3.d0.a.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
     }
 
     public static void d() {

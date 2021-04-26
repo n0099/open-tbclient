@@ -36,12 +36,12 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
         public int toX;
         public int toY;
 
-        public MoveInfo(RecyclerView.ViewHolder viewHolder, int i, int i2, int i3, int i4) {
+        public MoveInfo(RecyclerView.ViewHolder viewHolder, int i2, int i3, int i4, int i5) {
             this.holder = viewHolder;
-            this.fromX = i;
-            this.fromY = i2;
-            this.toX = i3;
-            this.toY = i4;
+            this.fromX = i2;
+            this.fromY = i3;
+            this.toX = i4;
+            this.toY = i5;
         }
     }
 
@@ -128,26 +128,26 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
     }
 
     @Override // androidx.recyclerview.widget.SimpleItemAnimator
-    public boolean animateChange(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i, int i2, int i3, int i4) {
+    public boolean animateChange(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i2, int i3, int i4, int i5) {
         if (viewHolder == viewHolder2) {
-            return animateMove(viewHolder, i, i2, i3, i4);
+            return animateMove(viewHolder, i2, i3, i4, i5);
         }
         float translationX = viewHolder.itemView.getTranslationX();
         float translationY = viewHolder.itemView.getTranslationY();
         float alpha = viewHolder.itemView.getAlpha();
         resetAnimation(viewHolder);
-        int i5 = (int) ((i3 - i) - translationX);
-        int i6 = (int) ((i4 - i2) - translationY);
+        int i6 = (int) ((i4 - i2) - translationX);
+        int i7 = (int) ((i5 - i3) - translationY);
         viewHolder.itemView.setTranslationX(translationX);
         viewHolder.itemView.setTranslationY(translationY);
         viewHolder.itemView.setAlpha(alpha);
         if (viewHolder2 != null) {
             resetAnimation(viewHolder2);
-            viewHolder2.itemView.setTranslationX(-i5);
-            viewHolder2.itemView.setTranslationY(-i6);
+            viewHolder2.itemView.setTranslationX(-i6);
+            viewHolder2.itemView.setTranslationY(-i7);
             viewHolder2.itemView.setAlpha(0.0f);
         }
-        this.mPendingChanges.add(new ChangeInfo(viewHolder, viewHolder2, i, i2, i3, i4));
+        this.mPendingChanges.add(new ChangeInfo(viewHolder, viewHolder2, i2, i3, i4, i5));
         return true;
     }
 
@@ -203,35 +203,35 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
     }
 
     @Override // androidx.recyclerview.widget.SimpleItemAnimator
-    public boolean animateMove(RecyclerView.ViewHolder viewHolder, int i, int i2, int i3, int i4) {
+    public boolean animateMove(RecyclerView.ViewHolder viewHolder, int i2, int i3, int i4, int i5) {
         View view = viewHolder.itemView;
-        int translationX = i + ((int) view.getTranslationX());
-        int translationY = i2 + ((int) viewHolder.itemView.getTranslationY());
+        int translationX = i2 + ((int) view.getTranslationX());
+        int translationY = i3 + ((int) viewHolder.itemView.getTranslationY());
         resetAnimation(viewHolder);
-        int i5 = i3 - translationX;
-        int i6 = i4 - translationY;
-        if (i5 == 0 && i6 == 0) {
+        int i6 = i4 - translationX;
+        int i7 = i5 - translationY;
+        if (i6 == 0 && i7 == 0) {
             dispatchMoveFinished(viewHolder);
             return false;
         }
-        if (i5 != 0) {
-            view.setTranslationX(-i5);
-        }
         if (i6 != 0) {
-            view.setTranslationY(-i6);
+            view.setTranslationX(-i6);
         }
-        this.mPendingMoves.add(new MoveInfo(viewHolder, translationX, translationY, i3, i4));
+        if (i7 != 0) {
+            view.setTranslationY(-i7);
+        }
+        this.mPendingMoves.add(new MoveInfo(viewHolder, translationX, translationY, i4, i5));
         return true;
     }
 
-    public void animateMoveImpl(final RecyclerView.ViewHolder viewHolder, int i, int i2, int i3, int i4) {
+    public void animateMoveImpl(final RecyclerView.ViewHolder viewHolder, int i2, int i3, int i4, int i5) {
         final View view = viewHolder.itemView;
-        final int i5 = i3 - i;
         final int i6 = i4 - i2;
-        if (i5 != 0) {
+        final int i7 = i5 - i3;
+        if (i6 != 0) {
             view.animate().translationX(0.0f);
         }
-        if (i6 != 0) {
+        if (i7 != 0) {
             view.animate().translationY(0.0f);
         }
         final ViewPropertyAnimator animate = view.animate();
@@ -239,10 +239,10 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
         animate.setDuration(getMoveDuration()).setListener(new AnimatorListenerAdapter() { // from class: androidx.recyclerview.widget.DefaultItemAnimator.6
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                if (i5 != 0) {
+                if (i6 != 0) {
                     view.setTranslationX(0.0f);
                 }
-                if (i6 != 0) {
+                if (i7 != 0) {
                     view.setTranslationY(0.0f);
                 }
             }
@@ -538,12 +538,12 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
             return "ChangeInfo{oldHolder=" + this.oldHolder + ", newHolder=" + this.newHolder + ", fromX=" + this.fromX + ", fromY=" + this.fromY + ", toX=" + this.toX + ", toY=" + this.toY + '}';
         }
 
-        public ChangeInfo(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i, int i2, int i3, int i4) {
+        public ChangeInfo(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i2, int i3, int i4, int i5) {
             this(viewHolder, viewHolder2);
-            this.fromX = i;
-            this.fromY = i2;
-            this.toX = i3;
-            this.toY = i4;
+            this.fromX = i2;
+            this.fromY = i3;
+            this.toX = i4;
+            this.toY = i5;
         }
     }
 

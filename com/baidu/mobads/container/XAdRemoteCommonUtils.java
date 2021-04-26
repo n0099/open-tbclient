@@ -179,7 +179,7 @@ public class XAdRemoteCommonUtils {
     }
 
     public static IDownloader.DownloadStatus getDownloadStatus(String str) {
-        int i;
+        int i2;
         String string;
         try {
             Context applicationContext = getApplicationContext();
@@ -189,12 +189,12 @@ public class XAdRemoteCommonUtils {
         } catch (Exception unused) {
         }
         if (string != null) {
-            int i2 = new JSONObject(string).getInt("dl");
+            int i3 = new JSONObject(string).getInt("dl");
             IDownloader.DownloadStatus[] values = IDownloader.DownloadStatus.values();
             IDownloader.DownloadStatus downloadStatus = IDownloader.DownloadStatus.NONE;
-            for (i = 0; i < values.length; i++) {
-                if (values[i].getCode() == i2) {
-                    downloadStatus = values[i];
+            for (i2 = 0; i2 < values.length; i2++) {
+                if (values[i2].getCode() == i3) {
+                    downloadStatus = values[i2];
                 }
             }
             return downloadStatus;
@@ -274,11 +274,11 @@ public class XAdRemoteCommonUtils {
         return EncryptUtils.getMD5(sb.toString());
     }
 
-    public static void makeRequest(String str, int i) {
+    public static void makeRequest(String str, int i2) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        new OAdURLConnection(i, str).asynLoad();
+        new OAdURLConnection(i2, str).asynLoad();
     }
 
     public static void setMobileConfirmed(String str) {
@@ -290,9 +290,9 @@ public class XAdRemoteCommonUtils {
         downloadInfo.mobileConfirmed = true;
     }
 
-    public static void startDownload(Context context, int i, XAdRemoteDownloadAdInfo xAdRemoteDownloadAdInfo) {
-        xAdRemoteDownloadAdInfo.mActionOnlyWifi = 1 == i;
-        xAdRemoteDownloadAdInfo.mDownType = i;
+    public static void startDownload(Context context, int i2, XAdRemoteDownloadAdInfo xAdRemoteDownloadAdInfo) {
+        xAdRemoteDownloadAdInfo.mActionOnlyWifi = 1 == i2;
+        xAdRemoteDownloadAdInfo.mDownType = i2;
         xAdRemoteDownloadAdInfo.addExtraParam("pkgmd5", EncryptUtils.getMD5(xAdRemoteDownloadAdInfo.getOriginClickUrl()));
         new XAdRemoteDownloadAPKCommand(context.getApplicationContext(), xAdRemoteDownloadAdInfo).execute();
         RemoteCommonUtils.getInstance().sendDownloadApkLog(context, SDKLogTypeConstants.TYPE_DL_DIALOG_CLICK, "downloadConfirm", xAdRemoteDownloadAdInfo);
@@ -355,10 +355,10 @@ public class XAdRemoteCommonUtils {
         }
     }
 
-    public static void makeRequest(List<String> list, int i) {
+    public static void makeRequest(List<String> list, int i2) {
         try {
             for (String str : list) {
-                makeRequest(str, i);
+                makeRequest(str, i2);
             }
         } catch (Exception e2) {
             RemoteXAdLogger.getInstance().d(e2);

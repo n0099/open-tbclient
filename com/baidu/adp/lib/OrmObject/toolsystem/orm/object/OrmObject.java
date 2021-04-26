@@ -2,7 +2,7 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.object;
 
 import android.content.Intent;
 import android.os.Bundle;
-import d.b.c.e.b.b.a.a.a;
+import d.a.c.e.b.b.a.a.a;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
@@ -49,7 +49,7 @@ public class OrmObject extends a {
     }
 
     public static final OrmObject objectWithBundle(Bundle bundle, Class<?> cls) {
-        OrmObject ormObject = (OrmObject) d.b.c.e.b.a.a.h(cls);
+        OrmObject ormObject = (OrmObject) d.a.c.e.b.a.a.h(cls);
         if (ormObject == null || !ormObject.fillByBundle(bundle)) {
             return null;
         }
@@ -57,7 +57,7 @@ public class OrmObject extends a {
     }
 
     public static final OrmObject objectWithIntent(Intent intent, Class<?> cls) {
-        OrmObject ormObject = (OrmObject) d.b.c.e.b.a.a.h(cls);
+        OrmObject ormObject = (OrmObject) d.a.c.e.b.a.a.h(cls);
         if (ormObject == null || !ormObject.fillByIntent(intent)) {
             return null;
         }
@@ -65,7 +65,7 @@ public class OrmObject extends a {
     }
 
     public static final OrmObject objectWithJson(JSONObject jSONObject, Class<?> cls) {
-        OrmObject ormObject = (OrmObject) d.b.c.e.b.a.a.h(cls);
+        OrmObject ormObject = (OrmObject) d.a.c.e.b.a.a.h(cls);
         if (ormObject == null || !ormObject.fillByJsonObject(jSONObject)) {
             return null;
         }
@@ -85,7 +85,7 @@ public class OrmObject extends a {
     }
 
     public static final OrmObject objectWithMap(Map<String, Object> map, Class<?> cls) {
-        OrmObject ormObject = (OrmObject) d.b.c.e.b.a.a.h(cls);
+        OrmObject ormObject = (OrmObject) d.a.c.e.b.a.a.h(cls);
         if (ormObject == null || !ormObject.fillByMap(map)) {
             return null;
         }

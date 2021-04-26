@@ -43,10 +43,10 @@ public class RequestUrlParserNetMessage extends NetMessage {
         return this.mUrl;
     }
 
-    public void setParams(long j, int i, String str, int i2) {
+    public void setParams(long j, int i2, String str, int i3) {
         this.mForumId = j;
-        this.mLinkNum = i;
+        this.mLinkNum = i2;
         this.mUrl = str;
-        this.mSpanGroupId = i2;
+        this.mSpanGroupId = i3;
     }
 }

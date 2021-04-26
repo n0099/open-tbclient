@@ -4,5 +4,5 @@ public interface LightInvokerCallback {
     public static final int RESULT_FAIL = 1;
     public static final int RESULT_OK = 0;
 
-    void onResult(int i, String str);
+    void onResult(int i2, String str);
 }

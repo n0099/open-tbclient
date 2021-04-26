@@ -7,24 +7,24 @@ import android.content.pm.PackageManager;
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f4775a;
+    public static Context f4888a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static PackageManager f4776b;
+    public static PackageManager f4889b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static PackageInfo f4777c;
+    public static PackageInfo f4890c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f4778d;
+    public static String f4891d;
 
     public static void a(String str, Context context) {
-        if (f4775a == null) {
-            f4775a = context;
+        if (f4888a == null) {
+            f4888a = context;
             PackageManager packageManager = context.getPackageManager();
-            f4776b = packageManager;
+            f4889b = packageManager;
             try {
-                f4777c = packageManager.getPackageInfo(f4775a.getPackageName(), 0);
+                f4890c = packageManager.getPackageInfo(f4888a.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e2) {
                 com.baidu.crabsdk.lite.b.a.e(str, "PackageCollector.init fail.", e2);
             }
@@ -32,27 +32,27 @@ public final class n {
     }
 
     public static String b() {
-        return f4775a.getPackageName();
+        return f4888a.getPackageName();
     }
 
     public static String c() {
-        if (f4778d == null) {
-            PackageInfo packageInfo = f4777c;
+        if (f4891d == null) {
+            PackageInfo packageInfo = f4890c;
             if (packageInfo == null) {
                 return "N/A";
             }
-            f4778d = packageInfo.applicationInfo.loadLabel(f4776b).toString();
+            f4891d = packageInfo.applicationInfo.loadLabel(f4889b).toString();
         }
-        return f4778d;
+        return f4891d;
     }
 
     public static String d() {
-        PackageInfo packageInfo = f4777c;
+        PackageInfo packageInfo = f4890c;
         return packageInfo == null ? "N/A" : packageInfo.versionName;
     }
 
     public static int e() {
-        PackageInfo packageInfo = f4777c;
+        PackageInfo packageInfo = f4890c;
         if (packageInfo == null) {
             return 0;
         }

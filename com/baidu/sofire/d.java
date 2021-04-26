@@ -7,30 +7,30 @@ import java.io.File;
 public class d extends FileObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11382a;
+    public String f11204a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11383b;
+    public String f11205b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11384c;
+    public int f11206c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f11385d;
+    public Context f11207d;
 
-    public d(Context context, int i, String str, String str2) {
+    public d(Context context, int i2, String str, String str2) {
         super(str, 4095);
         try {
-            this.f11382a = str;
-            this.f11383b = str2;
-            this.f11384c = i;
-            this.f11385d = context;
+            this.f11204a = str;
+            this.f11205b = str2;
+            this.f11206c = i2;
+            this.f11207d = context;
             StringBuilder sb = new StringBuilder("f=");
-            sb.append(this.f11382a);
+            sb.append(this.f11204a);
             sb.append(", e=");
-            sb.append(new File(this.f11382a).exists());
+            sb.append(new File(this.f11204a).exists());
             sb.append(", b=");
-            sb.append(this.f11383b);
+            sb.append(this.f11205b);
             b.a();
         } catch (Throwable unused) {
             com.baidu.sofire.g.d.a();
@@ -38,8 +38,8 @@ public class d extends FileObserver {
     }
 
     @Override // android.os.FileObserver
-    public void onEvent(int i, String str) {
-        if (i == 2 || i == 4 || i == 64 || i == 128 || i == 512 || i == 1024 || i == 2048) {
+    public void onEvent(int i2, String str) {
+        if (i2 == 2 || i2 == 4 || i2 == 64 || i2 == 128 || i2 == 512 || i2 == 1024 || i2 == 2048) {
             try {
                 new Thread() { // from class: com.baidu.sofire.d.1
                     @Override // java.lang.Thread, java.lang.Runnable
@@ -48,15 +48,15 @@ public class d extends FileObserver {
                             super.run();
                             b.a();
                             synchronized (d.class) {
-                                if (!com.baidu.sofire.g.d.c(d.this.f11382a)) {
+                                if (!com.baidu.sofire.g.d.c(d.this.f11204a)) {
                                     b.a();
-                                    com.baidu.sofire.g.d.a(d.this.f11383b, d.this.f11382a);
-                                    com.baidu.sofire.g.d.a(d.this.f11382a, true);
-                                    c.a(new File(d.this.f11382a));
-                                    c.a(d.this.f11385d, d.this.f11384c, new File(d.this.f11382a), new File(d.this.f11383b));
-                                    new StringBuilder().append(d.this.f11382a.toString());
+                                    com.baidu.sofire.g.d.a(d.this.f11205b, d.this.f11204a);
+                                    com.baidu.sofire.g.d.a(d.this.f11204a, true);
+                                    c.a(new File(d.this.f11204a));
+                                    c.a(d.this.f11207d, d.this.f11206c, new File(d.this.f11204a), new File(d.this.f11205b));
+                                    new StringBuilder().append(d.this.f11204a.toString());
                                     b.a();
-                                    com.baidu.sofire.a.a.a(d.this.f11385d).b(d.this.f11384c, -1);
+                                    com.baidu.sofire.a.a.a(d.this.f11207d).b(d.this.f11206c, -1);
                                 }
                             }
                         } catch (Throwable unused) {
@@ -72,7 +72,7 @@ public class d extends FileObserver {
 
     public final boolean a() {
         try {
-            File file = new File(this.f11383b);
+            File file = new File(this.f11205b);
             if (file.exists()) {
                 return file.delete();
             }

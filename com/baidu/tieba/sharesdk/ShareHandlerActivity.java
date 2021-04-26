@@ -10,14 +10,14 @@ import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.tencent.tauth.Tencent;
-import d.b.c.e.p.k;
-import d.b.j0.w2.d.a;
-import d.b.j0.w2.d.c;
-import d.b.j0.w2.d.d;
-import d.b.j0.w2.d.e;
-import d.b.j0.w2.d.f;
-import d.b.j0.w2.e.b;
-/* loaded from: classes4.dex */
+import d.a.c.e.p.k;
+import d.a.j0.w2.d.a;
+import d.a.j0.w2.d.c;
+import d.a.j0.w2.d.d;
+import d.a.j0.w2.d.e;
+import d.a.j0.w2.d.f;
+import d.a.j0.w2.e.b;
+/* loaded from: classes5.dex */
 public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShareCallback {
     public static int skinType = 3;
     public a mCurrentShare;
@@ -51,9 +51,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i != 10103 && i != 10104) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i2 != 10103 && i2 != 10104) {
             a aVar = this.mCurrentShare;
             if (aVar != null) {
                 aVar.l(intent);
@@ -61,7 +61,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
             }
             return;
         }
-        Tencent.onActivityResultData(i, i2, intent, null);
+        Tencent.onActivityResultData(i2, i3, intent, null);
     }
 
     @Override // com.baidu.tieba.sharesdk.ShareBaseActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -91,20 +91,20 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
             eVar.p();
             this.mShareByWeibo = null;
         }
-        int i = this.mShareChannel;
-        if (i == 0) {
+        int i2 = this.mShareChannel;
+        if (i2 == 0) {
             this.mCurrentShare = new d(this);
-        } else if (i == 6) {
+        } else if (i2 == 6) {
             e eVar2 = new e(this, this, this);
             this.mShareByWeibo = eVar2;
             this.mCurrentShare = eVar2;
-        } else if (i == 8) {
-            this.mCurrentShare = new d.b.j0.w2.d.b(this);
-        } else if (i == 2) {
+        } else if (i2 == 8) {
+            this.mCurrentShare = new d.a.j0.w2.d.b(this);
+        } else if (i2 == 2) {
             this.mCurrentShare = new f(this, 2);
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             this.mCurrentShare = new f(this, 3);
-        } else if (i != 4) {
+        } else if (i2 != 4) {
             this.mCurrentShare = null;
         } else {
             this.mCurrentShare = new c(this);
@@ -182,23 +182,23 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
         super.onSaveInstanceState(bundle);
     }
 
-    @Override // d.b.j0.w2.e.b
-    public void onShare(int i, int i2) {
-        if (i2 == 1) {
-            d.b.j0.w2.f.b.b(i, this.mShareEntity);
+    @Override // d.a.j0.w2.e.b
+    public void onShare(int i2, int i3) {
+        if (i3 == 1) {
+            d.a.j0.w2.f.b.b(i2, this.mShareEntity);
         }
-        if (i2 == 3) {
-            if (i != 8 && i != 6) {
-                d.b.j0.w2.f.b.a(i, this.mShareEntity);
+        if (i3 == 3) {
+            if (i2 != 8 && i2 != 6) {
+                d.a.j0.w2.f.b.a(i2, this.mShareEntity);
             } else {
-                d.b.j0.w2.f.b.b(i, this.mShareEntity);
+                d.a.j0.w2.f.b.b(i2, this.mShareEntity);
             }
         }
         if (this.mShareEntity.l() != null) {
             this.mShareEntity.l().getString("tid");
             this.mShareEntity.l().getString("pid");
         }
-        finishWithResult(i, i2, this.mShareEntity.l(), k.isEmpty(this.mShareEntity.taskCompleteId) ? null : this.mShareEntity.taskCompleteId);
+        finishWithResult(i2, i3, this.mShareEntity.l(), k.isEmpty(this.mShareEntity.taskCompleteId) ? null : this.mShareEntity.taskCompleteId);
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback

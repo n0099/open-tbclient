@@ -16,5 +16,5 @@ public interface SetCookie extends Cookie {
 
     void setValue(String str);
 
-    void setVersion(int i);
+    void setVersion(int i2);
 }

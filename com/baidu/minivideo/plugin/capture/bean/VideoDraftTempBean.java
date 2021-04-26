@@ -23,9 +23,9 @@ public class VideoDraftTempBean {
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                for (int i = 0; i < jSONArray.length(); i++) {
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     VideoDraftTempBean videoDraftTempBean = new VideoDraftTempBean();
-                    JSONObject jSONObject = new JSONObject((String) jSONArray.get(i));
+                    JSONObject jSONObject = new JSONObject((String) jSONArray.get(i2));
                     videoDraftTempBean.mPath = jSONObject.optString("path");
                     videoDraftTempBean.mSpeed = jSONObject.optInt("speed");
                     videoDraftTempBean.mStickerId = jSONObject.optString(FaceItem.DIR_STICKER);
@@ -38,7 +38,7 @@ public class VideoDraftTempBean {
         return arrayList;
     }
 
-    public static JSONArray getStickersFilters(String str, int i) {
+    public static JSONArray getStickersFilters(String str, int i2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -47,15 +47,15 @@ public class VideoDraftTempBean {
         try {
             JSONArray jSONArray2 = new JSONArray(str);
             if (jSONArray2.length() > 0) {
-                for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                    JSONObject jSONObject = new JSONObject((String) jSONArray2.get(i2));
-                    if (i == 1) {
+                for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
+                    JSONObject jSONObject = new JSONObject((String) jSONArray2.get(i3));
+                    if (i2 == 1) {
                         String optString = jSONObject.optString(FaceItem.DIR_STICKER);
                         if (!TextUtils.isEmpty(optString) && !hashSet.contains(optString)) {
                             hashSet.add(optString);
                             jSONArray.put(optString);
                         }
-                    } else if (i == 2) {
+                    } else if (i2 == 2) {
                         String optString2 = jSONObject.optString(CloudControlRequest.REQUEST_KEY_FILTER);
                         if (!TextUtils.isEmpty(optString2) && !hashSet.contains(optString2)) {
                             hashSet.add(optString2);

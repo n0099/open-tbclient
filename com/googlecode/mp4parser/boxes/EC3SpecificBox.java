@@ -12,15 +12,15 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class EC3SpecificBox extends AbstractBox {
     public static final String TYPE = "dec3";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_8 = null;
     public int dataRate;
     public List<Entry> entries;
     public int numIndSub;
@@ -69,7 +69,7 @@ public class EC3SpecificBox extends AbstractBox {
         BitReaderBuffer bitReaderBuffer = new BitReaderBuffer(byteBuffer);
         this.dataRate = bitReaderBuffer.readBits(13);
         this.numIndSub = bitReaderBuffer.readBits(3) + 1;
-        for (int i = 0; i < this.numIndSub; i++) {
+        for (int i2 = 0; i2 < this.numIndSub; i2++) {
             Entry entry = new Entry();
             entry.fscod = bitReaderBuffer.readBits(2);
             entry.bsid = bitReaderBuffer.readBits(5);
@@ -140,9 +140,9 @@ public class EC3SpecificBox extends AbstractBox {
         return this.numIndSub;
     }
 
-    public void setDataRate(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_6, this, this, g.a.b.a.a.e(i)));
-        this.dataRate = i;
+    public void setDataRate(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_6, this, this, g.a.b.a.a.e(i2)));
+        this.dataRate = i2;
     }
 
     public void setEntries(List<Entry> list) {
@@ -150,8 +150,8 @@ public class EC3SpecificBox extends AbstractBox {
         this.entries = list;
     }
 
-    public void setNumIndSub(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_8, this, this, g.a.b.a.a.e(i)));
-        this.numIndSub = i;
+    public void setNumIndSub(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_8, this, this, g.a.b.a.a.e(i2)));
+        this.numIndSub = i2;
     }
 }

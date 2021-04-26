@@ -11,16 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.facade.provider.processor.ProcessorInfo;
-import d.b.h0.a.k;
-import d.b.h0.d.i.a.a;
-import d.b.h0.d.i.b.c;
+import d.a.h0.a.k;
+import d.a.h0.d.i.a.a;
+import d.a.h0.d.i.b.c;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class SwanContentProvider extends ContentProvider {
     public static final int PER_USER_RANGE = 100000;
     public static final String TAG = "SwanContentProvider";
-    public static final boolean DEBUG = k.f45772a;
+    public static final boolean DEBUG = k.f43101a;
     public static final String AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".provider";
     public static UriMatcher sUriMatcher = new UriMatcher(-1);
     public static HashSet<String> sAccreditedSet = new HashSet<>();
@@ -44,7 +44,7 @@ public class SwanContentProvider extends ContentProvider {
             return true;
         }
         String a2 = c.a(callingPackage);
-        Set<String> a3 = d.b.h0.c.g.c.e().a();
+        Set<String> a3 = d.a.h0.c.g.c.e().a();
         z = (a3 == null || !a3.contains(a2)) ? false : false;
         if (z) {
             sAccreditedSet.add(callingPackage);
@@ -60,8 +60,8 @@ public class SwanContentProvider extends ContentProvider {
         return checkPermission();
     }
 
-    private a getProcessor(int i) {
-        Class<? extends a> processorClass = ProcessorInfo.getProcessorClass(i);
+    private a getProcessor(int i2) {
+        Class<? extends a> processorClass = ProcessorInfo.getProcessorClass(i2);
         if (processorClass != null) {
             try {
                 return processorClass.newInstance();
@@ -76,8 +76,8 @@ public class SwanContentProvider extends ContentProvider {
         return null;
     }
 
-    public static boolean isSameApp(int i, int i2) {
-        return i % 100000 == i2 % 100000;
+    public static boolean isSameApp(int i2, int i3) {
+        return i2 % 100000 == i3 % 100000;
     }
 
     @Override // android.content.ContentProvider

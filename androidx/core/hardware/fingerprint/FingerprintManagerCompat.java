@@ -12,19 +12,20 @@ import androidx.core.os.CancellationSignal;
 import java.security.Signature;
 import javax.crypto.Cipher;
 import javax.crypto.Mac;
+@Deprecated
 /* loaded from: classes.dex */
-public final class FingerprintManagerCompat {
+public class FingerprintManagerCompat {
     public final Context mContext;
 
     /* loaded from: classes.dex */
     public static abstract class AuthenticationCallback {
-        public void onAuthenticationError(int i, CharSequence charSequence) {
+        public void onAuthenticationError(int i2, CharSequence charSequence) {
         }
 
         public void onAuthenticationFailed() {
         }
 
-        public void onAuthenticationHelp(int i, CharSequence charSequence) {
+        public void onAuthenticationHelp(int i2, CharSequence charSequence) {
         }
 
         public void onAuthenticationSucceeded(AuthenticationResult authenticationResult) {
@@ -56,10 +57,14 @@ public final class FingerprintManagerCompat {
     @Nullable
     @RequiresApi(23)
     public static FingerprintManager getFingerprintManagerOrNull(@NonNull Context context) {
-        if (context.getPackageManager().hasSystemFeature("android.hardware.fingerprint")) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 == 23) {
             return (FingerprintManager) context.getSystemService(FingerprintManager.class);
         }
-        return null;
+        if (i2 <= 23 || !context.getPackageManager().hasSystemFeature("android.hardware.fingerprint")) {
+            return null;
+        }
+        return (FingerprintManager) context.getSystemService(FingerprintManager.class);
     }
 
     @RequiresApi(23)
@@ -83,8 +88,8 @@ public final class FingerprintManagerCompat {
     public static FingerprintManager.AuthenticationCallback wrapCallback(final AuthenticationCallback authenticationCallback) {
         return new FingerprintManager.AuthenticationCallback() { // from class: androidx.core.hardware.fingerprint.FingerprintManagerCompat.1
             @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
-            public void onAuthenticationError(int i, CharSequence charSequence) {
-                AuthenticationCallback.this.onAuthenticationError(i, charSequence);
+            public void onAuthenticationError(int i2, CharSequence charSequence) {
+                AuthenticationCallback.this.onAuthenticationError(i2, charSequence);
             }
 
             @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
@@ -93,8 +98,8 @@ public final class FingerprintManagerCompat {
             }
 
             @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
-            public void onAuthenticationHelp(int i, CharSequence charSequence) {
-                AuthenticationCallback.this.onAuthenticationHelp(i, charSequence);
+            public void onAuthenticationHelp(int i2, CharSequence charSequence) {
+                AuthenticationCallback.this.onAuthenticationHelp(i2, charSequence);
             }
 
             @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
@@ -122,12 +127,12 @@ public final class FingerprintManagerCompat {
     }
 
     @RequiresPermission("android.permission.USE_FINGERPRINT")
-    public void authenticate(@Nullable CryptoObject cryptoObject, int i, @Nullable CancellationSignal cancellationSignal, @NonNull AuthenticationCallback authenticationCallback, @Nullable Handler handler) {
+    public void authenticate(@Nullable CryptoObject cryptoObject, int i2, @Nullable CancellationSignal cancellationSignal, @NonNull AuthenticationCallback authenticationCallback, @Nullable Handler handler) {
         FingerprintManager fingerprintManagerOrNull;
         if (Build.VERSION.SDK_INT < 23 || (fingerprintManagerOrNull = getFingerprintManagerOrNull(this.mContext)) == null) {
             return;
         }
-        fingerprintManagerOrNull.authenticate(wrapCryptoObject(cryptoObject), cancellationSignal != null ? (android.os.CancellationSignal) cancellationSignal.getCancellationSignalObject() : null, i, wrapCallback(authenticationCallback), handler);
+        fingerprintManagerOrNull.authenticate(wrapCryptoObject(cryptoObject), cancellationSignal != null ? (android.os.CancellationSignal) cancellationSignal.getCancellationSignalObject() : null, i2, wrapCallback(authenticationCallback), handler);
     }
 
     @RequiresPermission("android.permission.USE_FINGERPRINT")

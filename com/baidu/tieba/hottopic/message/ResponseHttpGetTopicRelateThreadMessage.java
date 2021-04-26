@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.c1.c.d;
+import d.a.j0.c1.c.d;
 import java.util.List;
 import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadResIdl;
@@ -15,7 +15,7 @@ public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMess
     public Page page;
     public List<ThreadInfo> thread_list;
 
-    public ResponseHttpGetTopicRelateThreadMessage(int i) {
+    public ResponseHttpGetTopicRelateThreadMessage(int i2) {
         super(CmdConfigHttp.CMD_TOPIC_RELATE_THREAD);
     }
 
@@ -33,7 +33,7 @@ public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMess
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetTopicRelateThreadResIdl getTopicRelateThreadResIdl = (GetTopicRelateThreadResIdl) new Wire(new Class[0]).parseFrom(bArr, GetTopicRelateThreadResIdl.class);
         if (getTopicRelateThreadResIdl != null) {
             setError(getTopicRelateThreadResIdl.error.errorno.intValue());

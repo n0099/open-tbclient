@@ -13,20 +13,20 @@ import org.json.JSONObject;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f11430a = {"java.lang.UnsatisfiedLinkError"};
+    public static final String[] f11254a = {"java.lang.UnsatisfiedLinkError"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f11431b = {"space left"};
+    public static final String[] f11255b = {"space left"};
 
     public static String a(Context context, String str, String str2) {
         char c2;
         ApkInfo d2;
         String[] split;
         try {
-            if (str.contains(f11430a[0])) {
+            if (str.contains(f11254a[0])) {
                 c2 = 1;
             } else {
-                c2 = str.contains(f11431b[0]) ? (char) 2 : (char) 0;
+                c2 = str.contains(f11255b[0]) ? (char) 2 : (char) 0;
             }
             if (c2 != 1) {
                 return c2 != 2 ? str : a(context, str);

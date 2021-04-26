@@ -33,7 +33,7 @@ public final class Poi implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.mId);
         parcel.writeString(this.mName);
         parcel.writeDouble(this.mRank);

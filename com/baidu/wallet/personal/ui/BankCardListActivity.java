@@ -45,30 +45,32 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
     public static final String EVT_PAY_PWD_CHANGE = "walletpay_forgot_password";
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f26284a;
+    public RelativeLayout f27088a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f26285b;
+    public TextView f27089b;
 
     /* renamed from: e  reason: collision with root package name */
-    public CommonTabLayout f26288e;
+    public CommonTabLayout f27092e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f26289f;
+    public f f27093f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoScrollViewPager f26290g;
+    public NoScrollViewPager f27094g;
     public List<CardListBaseFragment> k;
 
     /* renamed from: c  reason: collision with root package name */
-    public String[] f26286c = {"银行卡", "电子卡"};
+    public String[] f27090c = {"银行卡", "电子卡"};
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<ICustomTabEntity> f26287d = new ArrayList<>();
+    public ArrayList<ICustomTabEntity> f27091d = new ArrayList<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f26291h = false;
-    public boolean i = false;
+    public boolean f27095h = false;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f27096i = false;
     public boolean j = false;
     public boolean l = false;
     public boolean m = false;
@@ -79,8 +81,8 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
 
         @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
         public void onChangeSucceed(String str) {
-            if (BankCardListActivity.this.i && BankCardListActivity.this.f26284a != null && BankCardListActivity.this.f26284a.getVisibility() == 0) {
-                BankCardListActivity.this.f26284a.setVisibility(8);
+            if (BankCardListActivity.this.f27096i && BankCardListActivity.this.f27088a != null && BankCardListActivity.this.f27088a.getVisibility() == 0) {
+                BankCardListActivity.this.f27088a.setVisibility(8);
             }
             EventBus eventBus = EventBus.getInstance();
             eventBus.getClass();
@@ -89,22 +91,22 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
     };
 
     private void c() {
-        if (this.f26289f == null) {
-            this.f26289f = (f) PayBeanFactory.getInstance().getBean((Context) getActivity(), 606, BEAN_TAG);
+        if (this.f27093f == null) {
+            this.f27093f = (f) PayBeanFactory.getInstance().getBean((Context) getActivity(), 606, BEAN_TAG);
         }
-        this.f26289f.setResponseCallback(this);
-        this.f26289f.execBean();
+        this.f27093f.setResponseCallback(this);
+        this.f27093f.execBean();
     }
 
     private void d() {
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            String[] strArr = this.f26286c;
-            if (i >= strArr.length) {
+            String[] strArr = this.f27090c;
+            if (i2 >= strArr.length) {
                 return;
             }
-            this.f26287d.add(new BankCardTabEntity(i, strArr[i]));
-            i++;
+            this.f27091d.add(new BankCardTabEntity(i2, strArr[i2]));
+            i2++;
         }
     }
 
@@ -132,31 +134,31 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
                 Activity activity8 = getActivity();
                 a.c(activity8, "key_card_eem_msg" + CardListCache.getInstance().getUserId(), "");
             }
-            this.f26288e.setTabTitleTipMsg(1, true, d2);
+            this.f27092e.setTabTitleTipMsg(1, true, d2);
             return;
         }
-        this.f26288e.setTabTitleTipMsg(1, false, "");
+        this.f27092e.setTabTitleTipMsg(1, false, "");
     }
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.a
     public void bindCard() {
         Bundle bundle = new Bundle();
-        bundle.putBoolean(Constants.BDL_KEY_BANKINFO_EXTRA, !this.f26291h);
+        bundle.putBoolean(Constants.BDL_KEY_BANKINFO_EXTRA, !this.f27095h);
         BaiduPay.getInstance().bindCard(this.mAct, this.n, PayRequestCache.BindCategory.Initiative, 1, "", null, bundle, null, true, BeanConstants.FROM_BIND);
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleFailure(int i, int i2, String str) {
-        if (i == 606) {
+    public void handleFailure(int i2, int i3, String str) {
+        if (i2 == 606) {
             LogUtil.i(BEAN_TAG, str);
         } else {
-            super.handleFailure(i, i2, str);
+            super.handleFailure(i2, i3, str);
         }
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
-        if (i != 606 || obj == null) {
+    public void handleResponse(int i2, Object obj, String str) {
+        if (i2 != 606 || obj == null) {
             return;
         }
         CardRedEemMasResp cardRedEemMasResp = (CardRedEemMasResp) obj;
@@ -176,7 +178,7 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
             a.a(activity4, "key_card_eem_msg_code" + CardListCache.getInstance().getUserId(), "");
         }
         if (!b2.equals(cardRedEemMasResp.msgCode)) {
-            this.f26288e.setTabTitleTipMsg(1, true, cardRedEemMasResp.notice_msg);
+            this.f27092e.setTabTitleTipMsg(1, true, cardRedEemMasResp.notice_msg);
             if (TextUtils.isEmpty(CardListCache.getInstance().getUserIdV2())) {
                 return;
             }
@@ -195,7 +197,7 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f26285b) {
+        if (view == this.f27089b) {
             this.m = true;
             BaiduWalletDelegate baiduWalletDelegate = BaiduWalletDelegate.getInstance();
             Activity activity = getActivity();
@@ -206,13 +208,13 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        CommonTabLayout commonTabLayout = this.f26288e;
+        CommonTabLayout commonTabLayout = this.f27092e;
         if (commonTabLayout != null) {
             commonTabLayout.setIsFirstDraw(true);
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(ResUtils.layout(this, "wallet_personal_bank_cards"));
@@ -222,15 +224,15 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
         getBdActionBar().setTitleSize(DisplayUtils.dip2px(getActivity(), 18.0f));
         ((ImageView) findViewById(ResUtils.id(this.mAct, "title_bottom_seperator"))).setVisibility(8);
         CommonTabLayout commonTabLayout = (CommonTabLayout) findViewById(ResUtils.id(getActivity(), "bank_card_list_tab_layout"));
-        this.f26288e = commonTabLayout;
-        commonTabLayout.setTabData(this.f26287d);
-        this.f26288e.setOnTabSelectListener(this);
+        this.f27092e = commonTabLayout;
+        commonTabLayout.setTabData(this.f27091d);
+        this.f27092e.setOnTabSelectListener(this);
         NoScrollViewPager noScrollViewPager = (NoScrollViewPager) findViewById(ResUtils.id(getActivity(), "bank_card_list_view_pager"));
-        this.f26290g = noScrollViewPager;
+        this.f27094g = noScrollViewPager;
         noScrollViewPager.setScanScroll(false);
-        this.f26284a = (RelativeLayout) findViewById(ResUtils.id(this.mAct, "bd_wallet_pwd_set_layout"));
+        this.f27088a = (RelativeLayout) findViewById(ResUtils.id(this.mAct, "bd_wallet_pwd_set_layout"));
         TextView textView = (TextView) findViewById(ResUtils.id(this.mAct, "bd_wallet_setpwd_img"));
-        this.f26285b = textView;
+        this.f27089b = textView;
         textView.setOnClickListener(this);
         c();
         a();
@@ -260,20 +262,20 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.widget.tablayout.callback.OnTabSelectListener
-    public void onTabSelect(int i) {
+    public void onTabSelect(int i2) {
         CommonTabLayout commonTabLayout;
-        NoScrollViewPager noScrollViewPager = this.f26290g;
+        NoScrollViewPager noScrollViewPager = this.f27094g;
         if (noScrollViewPager != null) {
-            noScrollViewPager.setCurrentItem(i);
+            noScrollViewPager.setCurrentItem(i2);
         }
-        if (i == 1 && (commonTabLayout = this.f26288e) != null && commonTabLayout.isMsgTipsShowing(i)) {
-            this.f26288e.setTabTitleTipMsg(i, false, "");
+        if (i2 == 1 && (commonTabLayout = this.f27092e) != null && commonTabLayout.isMsgTipsShowing(i2)) {
+            this.f27092e.setTabTitleTipMsg(i2, false, "");
             Activity activity = getActivity();
             a.a(activity, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), Boolean.TRUE);
         }
@@ -281,24 +283,24 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.a
     public void setBankCardDetectEnabled(boolean z) {
-        this.f26291h = z;
+        this.f27095h = z;
     }
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.a
     public void setNoBankCardAndPwdFlag(boolean z) {
-        this.i = z;
+        this.f27096i = z;
     }
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.a
     public void showPwdLayout(boolean z) {
-        RelativeLayout relativeLayout = this.f26284a;
+        RelativeLayout relativeLayout = this.f27088a;
         if (relativeLayout != null) {
             relativeLayout.setVisibility(z ? 0 : 8);
         }
     }
 
     private void a() {
-        this.f26290g.setAdapter(new CardListFragmentPageAdapter(getSupportFragmentManager(), this.k));
+        this.f27094g.setAdapter(new CardListFragmentPageAdapter(getSupportFragmentManager(), this.k));
     }
 
     private void b() {

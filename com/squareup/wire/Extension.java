@@ -13,10 +13,10 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
     public final String name;
     public final int tag;
 
-    public Extension(Class<T> cls, Class<? extends Message> cls2, Class<? extends ProtoEnum> cls3, String str, int i, Message.Label label, Message.Datatype datatype) {
+    public Extension(Class<T> cls, Class<? extends Message> cls2, Class<? extends ProtoEnum> cls3, String str, int i2, Message.Label label, Message.Datatype datatype) {
         this.extendedType = cls;
         this.name = str;
-        this.tag = i;
+        this.tag = i2;
         this.datatype = datatype;
         this.label = label;
         this.messageType = cls2;
@@ -143,10 +143,10 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
         if (extension == this) {
             return 0;
         }
-        int i = this.tag;
-        int i2 = extension.tag;
-        if (i != i2) {
-            return i - i2;
+        int i2 = this.tag;
+        int i3 = extension.tag;
+        if (i2 != i3) {
+            return i2 - i3;
         }
         Message.Datatype datatype = this.datatype;
         if (datatype != extension.datatype) {
@@ -259,8 +259,8 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
             return this;
         }
 
-        public Builder<T, E> setTag(int i) {
-            this.tag = i;
+        public Builder<T, E> setTag(int i2) {
+            this.tag = i2;
             return this;
         }
 
@@ -283,7 +283,7 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
         }
     }
 
-    public /* synthetic */ Extension(Class cls, Class cls2, Class cls3, String str, int i, Message.Label label, Message.Datatype datatype, Extension extension) {
-        this(cls, cls2, cls3, str, i, label, datatype);
+    public /* synthetic */ Extension(Class cls, Class cls2, Class cls3, String str, int i2, Message.Label label, Message.Datatype datatype, Extension extension) {
+        this(cls, cls2, cls3, str, i2, label, datatype);
     }
 }

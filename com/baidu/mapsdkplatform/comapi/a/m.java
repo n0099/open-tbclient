@@ -6,19 +6,19 @@ import com.baidu.mapapi.animation.Animation;
 public class m implements Animator.AnimatorListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ l f7560a;
+    public final /* synthetic */ l f7827a;
 
     public m(l lVar) {
-        this.f7560a = lVar;
+        this.f7827a = lVar;
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationCancel(Animator animator) {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
-        animationListener = this.f7560a.f7554d;
+        animationListener = this.f7827a.f7821d;
         if (animationListener != null) {
-            animationListener2 = this.f7560a.f7554d;
+            animationListener2 = this.f7827a.f7821d;
             animationListener2.onAnimationCancel();
         }
     }
@@ -27,9 +27,9 @@ public class m implements Animator.AnimatorListener {
     public void onAnimationEnd(Animator animator) {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
-        animationListener = this.f7560a.f7554d;
+        animationListener = this.f7827a.f7821d;
         if (animationListener != null) {
-            animationListener2 = this.f7560a.f7554d;
+            animationListener2 = this.f7827a.f7821d;
             animationListener2.onAnimationEnd();
         }
     }
@@ -38,9 +38,9 @@ public class m implements Animator.AnimatorListener {
     public void onAnimationRepeat(Animator animator) {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
-        animationListener = this.f7560a.f7554d;
+        animationListener = this.f7827a.f7821d;
         if (animationListener != null) {
-            animationListener2 = this.f7560a.f7554d;
+            animationListener2 = this.f7827a.f7821d;
             animationListener2.onAnimationRepeat();
         }
     }
@@ -49,9 +49,9 @@ public class m implements Animator.AnimatorListener {
     public void onAnimationStart(Animator animator) {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
-        animationListener = this.f7560a.f7554d;
+        animationListener = this.f7827a.f7821d;
         if (animationListener != null) {
-            animationListener2 = this.f7560a.f7554d;
+            animationListener2 = this.f7827a.f7821d;
             animationListener2.onAnimationStart();
         }
     }

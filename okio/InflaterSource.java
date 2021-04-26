@@ -16,11 +16,11 @@ public final class InflaterSource implements Source {
     }
 
     private void releaseInflatedBytes() throws IOException {
-        int i = this.bufferBytesHeldByInflater;
-        if (i == 0) {
+        int i2 = this.bufferBytesHeldByInflater;
+        if (i2 == 0) {
             return;
         }
-        int remaining = i - this.inflater.getRemaining();
+        int remaining = i2 - this.inflater.getRemaining();
         this.bufferBytesHeldByInflater -= remaining;
         this.source.skip(remaining);
     }
@@ -38,12 +38,12 @@ public final class InflaterSource implements Source {
     @Override // okio.Source
     public long read(Buffer buffer, long j) throws IOException {
         Segment writableSegment;
-        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i >= 0) {
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i2 >= 0) {
             if (this.closed) {
                 throw new IllegalStateException("closed");
             }
-            if (i == 0) {
+            if (i2 == 0) {
                 return 0L;
             }
             while (true) {
@@ -84,11 +84,11 @@ public final class InflaterSource implements Source {
                     return true;
                 }
                 Segment segment = this.source.buffer().head;
-                int i = segment.limit;
-                int i2 = segment.pos;
-                int i3 = i - i2;
-                this.bufferBytesHeldByInflater = i3;
-                this.inflater.setInput(segment.data, i2, i3);
+                int i2 = segment.limit;
+                int i3 = segment.pos;
+                int i4 = i2 - i3;
+                this.bufferBytesHeldByInflater = i4;
+                this.inflater.setInput(segment.data, i3, i4);
                 return false;
             }
             throw new IllegalStateException("?");

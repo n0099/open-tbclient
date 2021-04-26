@@ -15,12 +15,11 @@ public class TintResources extends ResourcesWrapper {
     }
 
     @Override // androidx.appcompat.widget.ResourcesWrapper, android.content.res.Resources
-    public Drawable getDrawable(int i) throws Resources.NotFoundException {
-        Drawable drawable = super.getDrawable(i);
+    public Drawable getDrawable(int i2) throws Resources.NotFoundException {
+        Drawable drawable = super.getDrawable(i2);
         Context context = this.mContextRef.get();
         if (drawable != null && context != null) {
-            AppCompatDrawableManager.get();
-            AppCompatDrawableManager.tintDrawableUsingColorFilter(context, i, drawable);
+            ResourceManagerInternal.get().tintDrawableUsingColorFilter(context, i2, drawable);
         }
         return drawable;
     }

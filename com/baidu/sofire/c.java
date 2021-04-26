@@ -8,9 +8,9 @@ import java.util.Map;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, d> f11307a = new HashMap();
+    public static Map<String, d> f11126a = new HashMap();
 
-    public static void a(Context context, int i, File file, File file2) {
+    public static void a(Context context, int i2, File file, File file2) {
         if (file != null) {
             try {
                 if (com.baidu.sofire.g.d.a(file)) {
@@ -22,12 +22,12 @@ public final class c {
                     sb.append(", b=");
                     sb.append(file2);
                     b.a();
-                    if (f11307a.containsKey(file.getAbsolutePath())) {
+                    if (f11126a.containsKey(file.getAbsolutePath())) {
                         return;
                     }
-                    d dVar = new d(context, i, file.getAbsolutePath(), file2.getAbsolutePath());
+                    d dVar = new d(context, i2, file.getAbsolutePath(), file2.getAbsolutePath());
                     dVar.startWatching();
-                    f11307a.put(file.getAbsolutePath(), dVar);
+                    f11126a.put(file.getAbsolutePath(), dVar);
                 }
             } catch (Throwable unused) {
                 com.baidu.sofire.g.d.a();
@@ -42,10 +42,10 @@ public final class c {
         try {
             new StringBuilder("f=").append(file.getAbsolutePath());
             b.a();
-            d dVar = f11307a.get(file.getAbsolutePath());
+            d dVar = f11126a.get(file.getAbsolutePath());
             if (dVar != null) {
                 dVar.stopWatching();
-                f11307a.remove(file.getAbsolutePath());
+                f11126a.remove(file.getAbsolutePath());
                 dVar.a();
             }
         } catch (Throwable unused) {

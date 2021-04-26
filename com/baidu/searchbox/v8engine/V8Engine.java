@@ -19,7 +19,7 @@ import com.baidu.searchbox.v8engine.thread.V8DefaultThreadPolicy;
 import com.baidu.searchbox.v8engine.thread.V8ExecuteCallback;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.smallgame.sdk.Log;
-import d.b.e0.a.e.a;
+import d.a.e0.a.e.a;
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -372,11 +372,11 @@ public class V8Engine implements JSRuntime {
                 }
 
                 @Override // android.content.ComponentCallbacks2
-                public void onTrimMemory(final int i) {
+                public void onTrimMemory(final int i2) {
                     V8Engine.this.postOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            V8Engine.nativeSetV8GCPressureLevel(V8Engine.this.mNativeV8Engine, i < 15 ? 1 : 2);
+                            V8Engine.nativeSetV8GCPressureLevel(V8Engine.this.mNativeV8Engine, i2 < 15 ? 1 : 2);
                         }
                     });
                 }
@@ -404,7 +404,7 @@ public class V8Engine implements JSRuntime {
 
     public static native void nativeDeleteJsReleaser(long j, long j2, boolean z);
 
-    private native JsSerializeValue nativeDeserialize(long j, byte[] bArr, int i, boolean z);
+    private native JsSerializeValue nativeDeserialize(long j, byte[] bArr, int i2, boolean z);
 
     /* JADX INFO: Access modifiers changed from: private */
     public native void nativeDestroyOpenDataContext(long j);
@@ -421,16 +421,16 @@ public class V8Engine implements JSRuntime {
 
     private native void nativeSetBdFileRealPath(long j, String str);
 
-    private native void nativeSetCodeCacheSetting(long j, String str, String str2, int i, String[] strArr, int i2);
+    private native void nativeSetCodeCacheSetting(long j, String str, String str2, int i2, String[] strArr, int i3);
 
     private native void nativeSetMainPackageBasePath(long j, String str);
 
     private native void nativeSetUserAgent(long j, String str);
 
-    public static native void nativeSetV8GCPressureLevel(long j, int i);
+    public static native void nativeSetV8GCPressureLevel(long j, int i2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeThrowJSException(long j, int i, String str, boolean z);
+    public native void nativeThrowJSException(long j, int i2, String str, boolean z);
 
     public static native String nativeToColorRGBA(String str);
 
@@ -586,9 +586,9 @@ public class V8Engine implements JSRuntime {
             onCreateWorker.setIsWorker(true);
             StringBuilder sb = new StringBuilder();
             sb.append("MarioWT");
-            int i = sWorkerID;
-            sWorkerID = i + 1;
-            sb.append(i);
+            int i2 = sWorkerID;
+            sWorkerID = i2 + 1;
+            sb.append(i2);
             onCreateWorker.setThreadName(sb.toString());
             onCreateWorker.startEngine();
             return onCreateWorker.nativePtr();
@@ -771,8 +771,8 @@ public class V8Engine implements JSRuntime {
     }
 
     @NotProguard
-    public synchronized void onConsoleCallBack(int i, String str) {
-        switch (i) {
+    public synchronized void onConsoleCallBack(int i2, String str) {
+        switch (i2) {
             case 1:
                 onLogConsole(str);
                 break;

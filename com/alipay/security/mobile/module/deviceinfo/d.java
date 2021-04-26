@@ -12,10 +12,10 @@ import java.io.File;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f2099a = new d();
+    public static d f2059a = new d();
 
     public static d a() {
-        return f2099a;
+        return f2059a;
     }
 
     public static String a(String str, String str2) {
@@ -35,8 +35,8 @@ public class d {
                 if (telephonyManager != null) {
                     String deviceId = telephonyManager.getDeviceId();
                     if (deviceId != null && (length = deviceId.length()) != 0) {
-                        for (int i = 0; i < length; i++) {
-                            if (!Character.isWhitespace(deviceId.charAt(i)) && deviceId.charAt(i) != '0') {
+                        for (int i2 = 0; i2 < length; i2++) {
+                            if (!Character.isWhitespace(deviceId.charAt(i2)) && deviceId.charAt(i2) != '0') {
                                 z = false;
                                 break;
                             }
@@ -74,9 +74,9 @@ public class d {
 
     public boolean c() {
         String[] strArr = {"/system/bin/", "/system/xbin/", "/system/sbin/", "/sbin/", "/vendor/bin/"};
-        for (int i = 0; i < 5; i++) {
+        for (int i2 = 0; i2 < 5; i2++) {
             try {
-                if (new File(strArr[i] + "su").exists()) {
+                if (new File(strArr[i2] + "su").exists()) {
                     return true;
                 }
             } catch (Exception unused) {

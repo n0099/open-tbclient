@@ -11,8 +11,8 @@ public class TTC2Proxy {
         c.a(context);
     }
 
-    public static void load(Context context, AdSlot adSlot, @NonNull TTAdNative.SplashAdListener splashAdListener, int i) {
+    public static void load(Context context, AdSlot adSlot, @NonNull TTAdNative.SplashAdListener splashAdListener, int i2) {
         adSlot.setDurationSlotType(3);
-        b.a(context).a(adSlot, splashAdListener, i);
+        b.a(context).a(adSlot, splashAdListener, i2);
     }
 }

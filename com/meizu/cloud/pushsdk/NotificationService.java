@@ -14,7 +14,7 @@ import java.util.List;
 public class NotificationService extends IntentService {
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f37765a;
+    public Object f35307a;
 
     public NotificationService() {
         super("NotificationService");
@@ -41,7 +41,7 @@ public class NotificationService extends IntentService {
         String a2 = a(getPackageName(), intent.getAction());
         if (TextUtils.isEmpty(a2)) {
             d.a(this, intent, "reflectReceiver sendbroadcast", 2005);
-            d.k.a.a.a.d("NotificationService", " reflectReceiver error: receiver for: " + intent.getAction() + " not found, package: " + getPackageName());
+            d.j.a.a.a.d("NotificationService", " reflectReceiver error: receiver for: " + intent.getAction() + " not found, package: " + getPackageName());
             intent.setPackage(getPackageName());
             sendBroadcast(intent);
             return;
@@ -50,21 +50,21 @@ public class NotificationService extends IntentService {
             d.a(this, intent, "reflectReceiver startservice", 2003);
             intent.setClassName(getPackageName(), a2);
             com.meizu.cloud.pushsdk.base.a.d a3 = com.meizu.cloud.pushsdk.base.a.a.a(a2).a((Class<?>[]) null).a(null);
-            if (!a3.f38019a || a3.f38020b == 0) {
+            if (!a3.f35570a || a3.f35571b == 0) {
                 return;
             }
-            d.k.a.a.a.d("NotificationService", "Reflect MzPushReceiver " + a3.f38019a);
-            com.meizu.cloud.pushsdk.base.a.a.a(a3.f38020b).a("onReceive", Context.class, Intent.class).a(a3.f38020b, getApplicationContext(), intent);
+            d.j.a.a.a.d("NotificationService", "Reflect MzPushReceiver " + a3.f35570a);
+            com.meizu.cloud.pushsdk.base.a.a.a(a3.f35571b).a("onReceive", Context.class, Intent.class).a(a3.f35571b, getApplicationContext(), intent);
         } catch (Exception e2) {
-            d.k.a.a.a.d("NotificationService", "reflect e: " + e2);
+            d.j.a.a.a.d("NotificationService", "reflect e: " + e2);
             d.a(this, intent, e2.getMessage(), 2004);
         }
     }
 
     @Override // android.app.IntentService, android.app.Service
     public void onDestroy() {
-        d.k.a.a.a.d("NotificationService", "NotificationService destroy");
-        this.f37765a = null;
+        d.j.a.a.a.d("NotificationService", "NotificationService destroy");
+        this.f35307a = null;
         super.onDestroy();
     }
 
@@ -74,14 +74,14 @@ public class NotificationService extends IntentService {
         Process.setThreadPriority(10);
         if (intent != null) {
             try {
-                d.k.a.a.a.d("NotificationService", "onHandleIntentaction " + intent.getAction());
+                d.j.a.a.a.d("NotificationService", "onHandleIntentaction " + intent.getAction());
                 String stringExtra = intent.getStringExtra("command_type");
                 if (!PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && !PushConstants.MZ_PUSH_ON_REGISTER_ACTION.equals(intent.getAction()) && !PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION.equals(intent.getAction())) {
                     z = false;
-                    d.k.a.a.a.a("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
+                    d.j.a.a.a.a("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
                     if (TextUtils.isEmpty(stringExtra) && stringExtra.equals("reflect_receiver") && z) {
                         String stringExtra2 = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
-                        d.k.a.a.a.d("NotificationService", "control message is " + stringExtra2);
+                        d.j.a.a.a.d("NotificationService", "control message is " + stringExtra2);
                         if (!TextUtils.isEmpty(stringExtra2)) {
                             com.meizu.cloud.pushsdk.c.a.a(this, new b(stringExtra2, null, null).b().c());
                         }
@@ -91,11 +91,11 @@ public class NotificationService extends IntentService {
                     return;
                 }
                 z = true;
-                d.k.a.a.a.a("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
+                d.j.a.a.a.a("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
                 if (TextUtils.isEmpty(stringExtra)) {
                 }
             } catch (Exception e2) {
-                d.k.a.a.a.b("NotificationService", "onHandleIntent error " + e2.getMessage());
+                d.j.a.a.a.b("NotificationService", "onHandleIntent error " + e2.getMessage());
             }
         }
     }

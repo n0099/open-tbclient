@@ -2,7 +2,7 @@ package com.baidu.tieba.tbean.message;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.f3.f.a;
+import d.a.j0.f3.f.a;
 import java.util.List;
 import tbclient.GetIconList.Custom;
 import tbclient.GetIconList.DataRes;
@@ -17,33 +17,33 @@ public class GetYinJiHttpResponseMessage extends HttpResponsedMessage implements
     public Setting setting;
     public UserInfo userInfo;
 
-    public GetYinJiHttpResponseMessage(int i) {
-        super(i);
+    public GetYinJiHttpResponseMessage(int i2) {
+        super(i2);
     }
 
-    @Override // d.b.j0.f3.f.a
+    @Override // d.a.j0.f3.f.a
     public List<Custom> getCustomList() {
         return this.customList;
     }
 
-    @Override // d.b.j0.f3.f.a
+    @Override // d.a.j0.f3.f.a
     public List<IconInfo> getIconInfoList() {
         return this.iconInfoList;
     }
 
-    @Override // d.b.j0.f3.f.a
+    @Override // d.a.j0.f3.f.a
     public Setting getSetting() {
         return this.setting;
     }
 
-    @Override // d.b.j0.f3.f.a
+    @Override // d.a.j0.f3.f.a
     public UserInfo getUserInfo() {
         return this.userInfo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetIconListResIdl getIconListResIdl = (GetIconListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetIconListResIdl.class);
         setError(getIconListResIdl.error.errorno.intValue());
         setErrorString(getIconListResIdl.error.usermsg);

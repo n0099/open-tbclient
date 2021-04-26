@@ -1,6 +1,6 @@
 package com.google.common.primitives;
 
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.math.BigInteger;
 /* loaded from: classes6.dex */
 public final class UnsignedInteger extends Number implements Comparable<UnsignedInteger> {
@@ -9,12 +9,12 @@ public final class UnsignedInteger extends Number implements Comparable<Unsigned
     public static final UnsignedInteger ONE = fromIntBits(1);
     public static final UnsignedInteger MAX_VALUE = fromIntBits(-1);
 
-    public UnsignedInteger(int i) {
-        this.value = i & (-1);
+    public UnsignedInteger(int i2) {
+        this.value = i2 & (-1);
     }
 
-    public static UnsignedInteger fromIntBits(int i) {
-        return new UnsignedInteger(i);
+    public static UnsignedInteger fromIntBits(int i2) {
+        return new UnsignedInteger(i2);
     }
 
     public static UnsignedInteger valueOf(long j) {
@@ -27,9 +27,9 @@ public final class UnsignedInteger extends Number implements Comparable<Unsigned
     }
 
     public UnsignedInteger dividedBy(UnsignedInteger unsignedInteger) {
-        int i = this.value;
+        int i2 = this.value;
         n.p(unsignedInteger);
-        return fromIntBits(UnsignedInts.b(i, unsignedInteger.value));
+        return fromIntBits(UnsignedInts.b(i2, unsignedInteger.value));
     }
 
     @Override // java.lang.Number
@@ -61,27 +61,27 @@ public final class UnsignedInteger extends Number implements Comparable<Unsigned
     }
 
     public UnsignedInteger minus(UnsignedInteger unsignedInteger) {
-        int i = this.value;
+        int i2 = this.value;
         n.p(unsignedInteger);
-        return fromIntBits(i - unsignedInteger.value);
+        return fromIntBits(i2 - unsignedInteger.value);
     }
 
     public UnsignedInteger mod(UnsignedInteger unsignedInteger) {
-        int i = this.value;
+        int i2 = this.value;
         n.p(unsignedInteger);
-        return fromIntBits(UnsignedInts.e(i, unsignedInteger.value));
+        return fromIntBits(UnsignedInts.e(i2, unsignedInteger.value));
     }
 
     public UnsignedInteger plus(UnsignedInteger unsignedInteger) {
-        int i = this.value;
+        int i2 = this.value;
         n.p(unsignedInteger);
-        return fromIntBits(i + unsignedInteger.value);
+        return fromIntBits(i2 + unsignedInteger.value);
     }
 
     public UnsignedInteger times(UnsignedInteger unsignedInteger) {
-        int i = this.value;
+        int i2 = this.value;
         n.p(unsignedInteger);
-        return fromIntBits(i * unsignedInteger.value);
+        return fromIntBits(i2 * unsignedInteger.value);
     }
 
     public String toString() {
@@ -95,8 +95,8 @@ public final class UnsignedInteger extends Number implements Comparable<Unsigned
         return UnsignedInts.a(this.value, unsignedInteger.value);
     }
 
-    public String toString(int i) {
-        return UnsignedInts.g(this.value, i);
+    public String toString(int i2) {
+        return UnsignedInts.g(this.value, i2);
     }
 
     public static UnsignedInteger valueOf(BigInteger bigInteger) {
@@ -109,7 +109,7 @@ public final class UnsignedInteger extends Number implements Comparable<Unsigned
         return valueOf(str, 10);
     }
 
-    public static UnsignedInteger valueOf(String str, int i) {
-        return fromIntBits(UnsignedInts.d(str, i));
+    public static UnsignedInteger valueOf(String str, int i2) {
+        return fromIntBits(UnsignedInts.d(str, i2));
     }
 }

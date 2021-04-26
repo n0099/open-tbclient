@@ -1,8 +1,8 @@
 package com.baidu.tieba.pluginCenter;
 
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
-import d.b.i0.g0.b.a;
-/* loaded from: classes3.dex */
+import d.a.i0.g0.b.a;
+/* loaded from: classes4.dex */
 public class PluginConfigWrapper extends PluginNetConfigInfos.PluginConfig implements a {
     public static final int DOWNLOADED_BUT_FORBIDDEN = 1;
     public static final int DOWNLOADED_NOT_FORBIDDEN = 2;
@@ -35,11 +35,11 @@ public class PluginConfigWrapper extends PluginNetConfigInfos.PluginConfig imple
         return this.mDownLoadStatus;
     }
 
-    public void setDownLoadPercent(int i) {
-        this.mDownloadProgress = i;
+    public void setDownLoadPercent(int i2) {
+        this.mDownloadProgress = i2;
     }
 
-    public void setDownLoadStatus(int i) {
-        this.mDownLoadStatus = i;
+    public void setDownLoadStatus(int i2) {
+        this.mDownLoadStatus = i2;
     }
 }

@@ -2,60 +2,60 @@ package com.baidu.android.common.util;
 
 import android.content.Context;
 import android.os.SystemClock;
-import d.b.j.f;
-import d.b.j.g.a;
-import d.b.j.i.c;
-import d.b.j.j;
-import d.b.j.k;
-import d.b.j.l;
+import d.a.j.f;
+import d.a.j.g.a;
+import d.a.j.i.c;
+import d.a.j.j;
+import d.a.j.k;
+import d.a.j.l;
 import java.io.File;
 /* loaded from: classes.dex */
 public final class DeviceId {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f2551a = "DeviceId";
+    public static final String f2548a = "DeviceId";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f2552b = false;
+    public static final boolean f2549b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static l.a f2553d = null;
+    public static l.a f2550d = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile DeviceId f2554g = null;
+    public static volatile DeviceId f2551g = null;
     public static boolean sDataCuidInfoShable = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f2555c;
+    public final Context f2552c;
 
     /* renamed from: e  reason: collision with root package name */
-    public l f2556e;
+    public l f2553e;
 
     /* renamed from: f  reason: collision with root package name */
-    public k f2557f;
+    public k f2554f;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f2558h = new f();
+    public f f2555h = new f();
 
     public DeviceId(Context context) {
-        this.f2555c = context.getApplicationContext();
-        this.f2556e = new l(this.f2555c, new a(this.f2555c), this.f2558h);
-        this.f2557f = new k(this.f2555c, this.f2558h);
+        this.f2552c = context.getApplicationContext();
+        this.f2553e = new l(this.f2552c, new a(this.f2552c), this.f2555h);
+        this.f2554f = new k(this.f2552c, this.f2555h);
     }
 
     public static DeviceId a(Context context) {
         DeviceId deviceId;
         synchronized (j.class) {
-            if (f2554g == null) {
-                f2554g = new DeviceId(context);
+            if (f2551g == null) {
+                f2551g = new DeviceId(context);
             }
-            deviceId = f2554g;
+            deviceId = f2551g;
         }
         return deviceId;
     }
 
     private l.a a(String str) {
-        l.a o = this.f2556e.o();
+        l.a o = this.f2553e.o();
         return o == null ? b(str) : o;
     }
 
@@ -64,7 +64,7 @@ public final class DeviceId {
     }
 
     private l.a b() {
-        this.f2556e.l();
+        this.f2553e.l();
         try {
             l.a c2 = c();
             if (c2 == null) {
@@ -76,28 +76,28 @@ public final class DeviceId {
             a(c2);
             return c2;
         } catch (Throwable th) {
-            this.f2556e.n();
+            this.f2553e.n();
             throw th;
         }
     }
 
     public static l.a b(Context context) {
-        if (f2553d == null) {
+        if (f2550d == null) {
             synchronized (j.class) {
-                if (f2553d == null) {
+                if (f2550d == null) {
                     SystemClock.uptimeMillis();
-                    f2553d = a(context).b();
+                    f2550d = a(context).b();
                     SystemClock.uptimeMillis();
                 }
             }
         }
-        return f2553d;
+        return f2550d;
     }
 
     private l.a b(String str) {
-        j b2 = this.f2557f.b(str);
+        j b2 = this.f2554f.b(str);
         if (b2 != null) {
-            return this.f2556e.b(b2);
+            return this.f2553e.b(b2);
         }
         return null;
     }
@@ -109,7 +109,7 @@ public final class DeviceId {
                 try {
                     DeviceId.this.c(aVar);
                 } finally {
-                    DeviceId.this.f2556e.n();
+                    DeviceId.this.f2553e.n();
                 }
             }
         };
@@ -121,7 +121,7 @@ public final class DeviceId {
     }
 
     private l.a c(String str) {
-        return this.f2556e.k(str);
+        return this.f2553e.k(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -130,22 +130,22 @@ public final class DeviceId {
             throw new NullPointerException("cuidV270Info should not be null");
         }
         j l = aVar.l();
-        this.f2556e.j(aVar, true, false);
-        this.f2557f.c(l);
-        this.f2556e.i(aVar);
+        this.f2553e.j(aVar, true, false);
+        this.f2554f.c(l);
+        this.f2553e.i(aVar);
     }
 
     private l.a d() {
-        return this.f2556e.a();
+        return this.f2553e.a();
     }
 
     private l.a e() {
         j e2;
-        File file = new File(this.f2555c.getFilesDir(), "libcuid.so");
+        File file = new File(this.f2552c.getFilesDir(), "libcuid.so");
         if (!file.exists() || (e2 = j.e(c.a(file))) == null) {
             return null;
         }
-        return this.f2556e.b(e2);
+        return this.f2553e.b(e2);
     }
 
     public static String getCUID(Context context) {
@@ -157,7 +157,7 @@ public final class DeviceId {
     }
 
     public static boolean isMySelfTrusted(Context context) {
-        return a(context).f2558h.d(context.getApplicationContext());
+        return a(context).f2555h.d(context.getApplicationContext());
     }
 
     @Deprecated
@@ -165,6 +165,6 @@ public final class DeviceId {
     }
 
     public l a() {
-        return this.f2556e;
+        return this.f2553e;
     }
 }

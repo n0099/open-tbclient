@@ -17,20 +17,20 @@ import java.util.List;
 public class e implements h.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f24974a;
+    public JSONArray f25740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Long f24975b;
+    public Long f25741b;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static e f24976a = new e();
+        public static e f25742a = new e();
     }
 
     public static e a() {
-        return a.f24976a;
+        return a.f25742a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x002f  */
@@ -40,7 +40,7 @@ public class e implements h.b {
     */
     private JSONArray b(Context context) {
         JSONArray jSONArray;
-        int i;
+        int i2;
         String str = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_behaviour_book", "");
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -51,9 +51,9 @@ public class e implements h.b {
                 jSONArray = new JSONArray();
             }
             Long valueOf = Long.valueOf(System.currentTimeMillis());
-            for (i = 0; i < jSONArray.length(); i++) {
-                if (jSONArray.optLong(i) + (h.a().a(context).MW_BHM_RECORD_TIME * 1000) < valueOf.longValue()) {
-                    jSONArray.remove(i);
+            for (i2 = 0; i2 < jSONArray.length(); i2++) {
+                if (jSONArray.optLong(i2) + (h.a().a(context).MW_BHM_RECORD_TIME * 1000) < valueOf.longValue()) {
+                    jSONArray.remove(i2);
                 }
             }
             return jSONArray;
@@ -62,25 +62,25 @@ public class e implements h.b {
         if (jSONArray == null) {
         }
         Long valueOf2 = Long.valueOf(System.currentTimeMillis());
-        while (i < jSONArray.length()) {
+        while (i2 < jSONArray.length()) {
         }
         return jSONArray;
     }
 
     private void c(Context context) {
         JSONArray jSONArray = new JSONArray();
-        this.f24974a = jSONArray;
+        this.f25740a = jSONArray;
         SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_behaviour_book", jSONArray.toString());
     }
 
     private int d(Context context) {
         JSONArray a2 = a(context);
         Long valueOf = Long.valueOf(System.currentTimeMillis());
-        int i = 0;
-        for (int i2 = 0; i2 < a2.length(); i2++) {
-            i += a2.optLong(i2) + ((long) (h.a().a(context).MW_BHM_RECORD_TIME * 1000)) >= valueOf.longValue() ? 1 : 0;
+        int i2 = 0;
+        for (int i3 = 0; i3 < a2.length(); i3++) {
+            i2 += a2.optLong(i3) + ((long) (h.a().a(context).MW_BHM_RECORD_TIME * 1000)) >= valueOf.longValue() ? 1 : 0;
         }
-        return i;
+        return i2;
     }
 
     private void e(Context context) {
@@ -88,40 +88,40 @@ public class e implements h.b {
         DXMSdkSAUtils.onEvent("#MW_BHM_ColdDown");
         PayStatisticsUtil.onEvent("#MW_BHM_ColdDown");
         Long valueOf = Long.valueOf(System.currentTimeMillis());
-        this.f24975b = valueOf;
+        this.f25741b = valueOf;
         SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", valueOf);
         h.a().b(context);
     }
 
     public e() {
-        this.f24975b = -1L;
+        this.f25741b = -1L;
     }
 
-    public void a(@NonNull Context context, int i, @NonNull String str, List<String> list) {
+    public void a(@NonNull Context context, int i2, @NonNull String str, List<String> list) {
         LangbridgeSettings a2 = h.a().a(context);
-        if (!a2.MW_BHM_ON || b(context, a2.MW_BHM_COLD_TIME) || i < 1) {
+        if (!a2.MW_BHM_ON || b(context, a2.MW_BHM_COLD_TIME) || i2 < 1) {
             return;
         }
-        ArrayList arrayList = new ArrayList(Arrays.asList(str, "" + i));
+        ArrayList arrayList = new ArrayList(Arrays.asList(str, "" + i2));
         arrayList.addAll(list);
         DXMSdkSAUtils.onEventWithValues("#MW_BHM_BadBehaviour", arrayList);
         PayStatisticsUtil.onEventWithValues("#MW_BHM_BadBehaviour", arrayList);
-        int i2 = a2.MW_BHM_LIMIT;
-        if (i > i2) {
-            i = i2;
+        int i3 = a2.MW_BHM_LIMIT;
+        if (i2 > i3) {
+            i2 = i3;
         }
-        a(context, i);
-        if (d(context) >= i2) {
+        a(context, i2);
+        if (d(context) >= i3) {
             e(context);
             c(context);
         }
     }
 
-    private boolean b(Context context, int i) {
-        if (this.f24975b.longValue() == -1) {
-            this.f24975b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
+    private boolean b(Context context, int i2) {
+        if (this.f25741b.longValue() == -1) {
+            this.f25741b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
         }
-        return System.currentTimeMillis() < this.f24975b.longValue() + ((long) (i * 1000));
+        return System.currentTimeMillis() < this.f25741b.longValue() + ((long) (i2 * 1000));
     }
 
     @Override // com.baidu.wallet.lightapp.multipage.h.b
@@ -137,16 +137,16 @@ public class e implements h.b {
     }
 
     private JSONArray a(Context context) {
-        if (this.f24974a == null) {
-            this.f24974a = b(context);
+        if (this.f25740a == null) {
+            this.f25740a = b(context);
         }
-        return this.f24974a;
+        return this.f25740a;
     }
 
-    private void a(Context context, int i) {
+    private void a(Context context, int i2) {
         JSONArray a2 = a(context);
         Long valueOf = Long.valueOf(System.currentTimeMillis());
-        for (int i2 = 0; i2 < i; i2++) {
+        for (int i3 = 0; i3 < i2; i3++) {
             a2.put(valueOf);
         }
         SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_behaviour_book", a2.toString());

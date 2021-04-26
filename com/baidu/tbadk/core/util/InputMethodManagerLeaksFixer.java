@@ -5,7 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import d.b.i0.m.g;
+import d.a.i0.m.g;
 import java.lang.reflect.Field;
 /* loaded from: classes3.dex */
 public class InputMethodManagerLeaksFixer {
@@ -16,18 +16,18 @@ public class InputMethodManagerLeaksFixer {
         }
         String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};
         final Field[] fieldArr = new Field[3];
-        for (int i = 0; i < 3; i++) {
+        for (int i2 = 0; i2 < 3; i2++) {
             try {
-                fieldArr[i] = inputMethodManager.getClass().getDeclaredField(strArr[i]);
-                if (!fieldArr[i].isAccessible()) {
-                    fieldArr[i].setAccessible(true);
+                fieldArr[i2] = inputMethodManager.getClass().getDeclaredField(strArr[i2]);
+                if (!fieldArr[i2].isAccessible()) {
+                    fieldArr[i2].setAccessible(true);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
         application.registerActivityLifecycleCallbacks(new g() { // from class: com.baidu.tbadk.core.util.InputMethodManagerLeaksFixer.1
-            @Override // d.b.i0.m.g, android.app.Application.ActivityLifecycleCallbacks
+            @Override // d.a.i0.m.g, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity) {
                 InputMethodManagerLeaksFixer.fixInputMethodMemoryLeak(activity, fieldArr, inputMethodManager);
             }

@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.chosen.net.zan;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.ExcZan.DataReq;
 import tbclient.ExcZan.ExcZanReqIdl;
 /* loaded from: classes3.dex */
@@ -33,8 +33,8 @@ public class ChosenZanNetMessage extends NetMessage {
         return this.action == 1;
     }
 
-    public void setAction(int i) {
-        this.action = i;
+    public void setAction(int i2) {
+        this.action = i2;
     }
 
     public void setExcId(long j) {

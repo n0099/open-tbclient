@@ -5,8 +5,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public class DredgeDisasterExecutorCell extends BaseDredgeExecutorCell {
-    public DredgeDisasterExecutorCell(int i) {
-        super(i);
+    public DredgeDisasterExecutorCell(int i2) {
+        super(i2);
         this.mExecutor = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 100L, TimeUnit.MILLISECONDS, new SynchronousQueue());
     }
 

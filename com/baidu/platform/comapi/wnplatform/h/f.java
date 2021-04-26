@@ -12,27 +12,27 @@ import java.util.List;
 public class f extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f9838d;
+    public static int f10203d;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f9839a;
+    public List<a> f10204a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f9840b;
+    public List<b> f10205b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f9841c = new g(this);
+    public Handler f10206c = new g(this);
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.platform.comapi.wnplatform.j.b f9842e = new h(this);
+    public com.baidu.platform.comapi.wnplatform.j.b f10207e = new h(this);
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.platform.comapi.wnplatform.c.b f9843f = new i(this);
+    public com.baidu.platform.comapi.wnplatform.c.b f10208f = new i(this);
 
     public static /* synthetic */ int a() {
-        int i = f9838d;
-        f9838d = i + 1;
-        return i;
+        int i2 = f10203d;
+        f10203d = i2 + 1;
+        return i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -48,49 +48,49 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public boolean ready() {
-        MessageCenter.registMessage(4098, this.f9841c);
-        MessageCenter.registMessage(4100, this.f9841c);
-        MessageCenter.registMessage(4101, this.f9841c);
-        MessageCenter.registMessage(4102, this.f9841c);
-        MessageCenter.registMessage(4105, this.f9841c);
-        MessageCenter.registMessage(4106, this.f9841c);
-        MessageCenter.registMessage(UIMsg.WalkNaviMsg.NL_UI_MESSAGE_TYPE_SPEED_UPDATE, this.f9841c);
-        MessageCenter.registMessage(4111, this.f9841c);
-        MessageCenter.registMessage(4110, this.f9841c);
-        MessageCenter.registMessage(4108, this.f9841c);
-        int i = com.baidu.platform.comapi.walknavi.g.a.b.f9625a;
-        if (i == 1) {
-            com.baidu.platform.comapi.walknavi.b.a().P().a(this.f9843f);
+        MessageCenter.registMessage(4098, this.f10206c);
+        MessageCenter.registMessage(4100, this.f10206c);
+        MessageCenter.registMessage(4101, this.f10206c);
+        MessageCenter.registMessage(4102, this.f10206c);
+        MessageCenter.registMessage(4105, this.f10206c);
+        MessageCenter.registMessage(4106, this.f10206c);
+        MessageCenter.registMessage(UIMsg.WalkNaviMsg.NL_UI_MESSAGE_TYPE_SPEED_UPDATE, this.f10206c);
+        MessageCenter.registMessage(4111, this.f10206c);
+        MessageCenter.registMessage(4110, this.f10206c);
+        MessageCenter.registMessage(4108, this.f10206c);
+        int i2 = com.baidu.platform.comapi.walknavi.g.a.b.f9984a;
+        if (i2 == 1) {
+            com.baidu.platform.comapi.walknavi.b.a().P().a(this.f10208f);
             com.baidu.platform.comapi.walknavi.b.a().D().c(1);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             com.baidu.platform.comapi.walknavi.b.a().D().c(2);
-        } else if (i == 3) {
-            com.baidu.platform.comapi.walknavi.b.a().S().a(this.f9843f);
+        } else if (i2 == 3) {
+            com.baidu.platform.comapi.walknavi.b.a().S().a(this.f10208f);
             com.baidu.platform.comapi.walknavi.b.a().D().c(3);
         }
-        com.baidu.platform.comapi.walknavi.b.a().O().a(this.f9842e);
+        com.baidu.platform.comapi.walknavi.b.a().O().a(this.f10207e);
         return true;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
-        this.f9839a = null;
-        this.f9840b = null;
-        MessageCenter.unregistMessage(4098, this.f9841c);
-        MessageCenter.unregistMessage(4100, this.f9841c);
-        MessageCenter.unregistMessage(4101, this.f9841c);
-        MessageCenter.unregistMessage(4102, this.f9841c);
-        MessageCenter.unregistMessage(4105, this.f9841c);
-        MessageCenter.unregistMessage(4106, this.f9841c);
-        MessageCenter.unregistMessage(UIMsg.WalkNaviMsg.NL_UI_MESSAGE_TYPE_SPEED_UPDATE, this.f9841c);
-        MessageCenter.unregistMessage(4111, this.f9841c);
-        MessageCenter.unregistMessage(4110, this.f9841c);
-        MessageCenter.unregistMessage(4108, this.f9841c);
-        this.f9841c = null;
+        this.f10204a = null;
+        this.f10205b = null;
+        MessageCenter.unregistMessage(4098, this.f10206c);
+        MessageCenter.unregistMessage(4100, this.f10206c);
+        MessageCenter.unregistMessage(4101, this.f10206c);
+        MessageCenter.unregistMessage(4102, this.f10206c);
+        MessageCenter.unregistMessage(4105, this.f10206c);
+        MessageCenter.unregistMessage(4106, this.f10206c);
+        MessageCenter.unregistMessage(UIMsg.WalkNaviMsg.NL_UI_MESSAGE_TYPE_SPEED_UPDATE, this.f10206c);
+        MessageCenter.unregistMessage(4111, this.f10206c);
+        MessageCenter.unregistMessage(4110, this.f10206c);
+        MessageCenter.unregistMessage(4108, this.f10206c);
+        this.f10206c = null;
     }
 
     public void b(a aVar) {
-        List<a> list = this.f9839a;
+        List<a> list = this.f10204a;
         if (list == null || aVar == null) {
             return;
         }
@@ -98,14 +98,14 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(a aVar) {
-        if (this.f9839a == null) {
-            this.f9839a = new LinkedList();
+        if (this.f10204a == null) {
+            this.f10204a = new LinkedList();
         }
-        this.f9839a.add(aVar);
+        this.f10204a.add(aVar);
     }
 
     public void b(b bVar) {
-        List<b> list = this.f9840b;
+        List<b> list = this.f10205b;
         if (list == null || bVar == null) {
             return;
         }
@@ -113,20 +113,20 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(b bVar) {
-        if (this.f9840b == null) {
-            this.f9840b = new LinkedList();
+        if (this.f10205b == null) {
+            this.f10205b = new LinkedList();
         }
-        this.f9840b.add(bVar);
+        this.f10205b.add(bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Message message) {
-        List<b> list = this.f9840b;
+        List<b> list = this.f10205b;
         if (list == null) {
             return;
         }
-        int i = message.arg1;
-        if (i == 2) {
+        int i2 = message.arg1;
+        if (i2 == 2) {
             if (list != null) {
                 for (b bVar : list) {
                     if (bVar != null) {
@@ -135,7 +135,7 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
                 }
             }
             j.a().f();
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             if (list != null) {
                 for (b bVar2 : list) {
                     if (bVar2 != null) {
@@ -144,9 +144,9 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
                 }
             }
             j.a().g();
-        } else if (i == 4) {
+        } else if (i2 == 4) {
             com.baidu.platform.comapi.walknavi.b.a().R().a(a(1), 1);
-            List<b> list2 = this.f9840b;
+            List<b> list2 = this.f10205b;
             if (list2 != null) {
                 for (b bVar3 : list2) {
                     if (bVar3 != null) {
@@ -154,7 +154,7 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
                     }
                 }
             }
-        } else if (i == 5) {
+        } else if (i2 == 5) {
             if (list != null) {
                 for (b bVar4 : list) {
                     if (bVar4 != null) {
@@ -162,12 +162,12 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
                     }
                 }
             }
-        } else if (i == 7) {
+        } else if (i2 == 7) {
             if (com.baidu.platform.comapi.walknavi.d.e.c().d()) {
                 j.a().e();
                 return;
             }
-            List<b> list3 = this.f9840b;
+            List<b> list3 = this.f10205b;
             if (list3 != null) {
                 for (b bVar5 : list3) {
                     if (bVar5 != null) {
@@ -178,7 +178,7 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
         }
     }
 
-    private Bundle a(int i) {
-        return com.baidu.platform.comapi.walknavi.b.a().D().a(i);
+    private Bundle a(int i2) {
+        return com.baidu.platform.comapi.walknavi.b.a().D().a(i2);
     }
 }

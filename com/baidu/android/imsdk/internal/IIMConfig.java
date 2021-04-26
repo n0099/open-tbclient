@@ -29,7 +29,7 @@ public interface IIMConfig {
 
     boolean isCategorySupported();
 
-    boolean isMsgTypeSupported(int i);
+    boolean isMsgTypeSupported(int i2);
 
     boolean isNeedPaid();
 

@@ -54,25 +54,25 @@ public abstract class BaseExecutorCell implements Recordable {
         SERIAL
     }
 
-    public BaseExecutorCell(int i) {
-        this.maxThreadNum = i;
+    public BaseExecutorCell(int i2) {
+        this.maxThreadNum = i2;
     }
 
-    public static BaseExecutorCell build(int i, ExecutorType executorType) {
-        int i2 = AnonymousClass2.$SwitchMap$com$baidu$searchbox$elasticthread$executor$BaseExecutorCell$ExecutorType[executorType.ordinal()];
-        if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 != 3) {
-                    if (i2 != 4) {
+    public static BaseExecutorCell build(int i2, ExecutorType executorType) {
+        int i3 = AnonymousClass2.$SwitchMap$com$baidu$searchbox$elasticthread$executor$BaseExecutorCell$ExecutorType[executorType.ordinal()];
+        if (i3 != 1) {
+            if (i3 != 2) {
+                if (i3 != 3) {
+                    if (i3 != 4) {
                         return null;
                     }
-                    return new SerialExecutorCell(i);
+                    return new SerialExecutorCell(i2);
                 }
-                return new DredgeDisasterExecutorCell(i);
+                return new DredgeDisasterExecutorCell(i2);
             }
-            return new DredgeNormalExecutorCell(i);
+            return new DredgeNormalExecutorCell(i2);
         }
-        return new ArteryExecutorCell(i);
+        return new ArteryExecutorCell(i2);
     }
 
     private void setTreadPriorityAndName(ElasticTask elasticTask) {

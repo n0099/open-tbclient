@@ -1,57 +1,58 @@
 package com.win.opensdk;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import android.os.RemoteException;
-import android.text.TextUtils;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes7.dex */
-public class J1 implements ServiceConnection {
+import com.win.opensdk.views.CircleProgressbar;
+/* loaded from: classes6.dex */
+public class J1 implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40076a;
+    public final /* synthetic */ CircleProgressbar f37674a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f40077b = false;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final BlockingQueue f40078c = new LinkedBlockingQueue();
-
-    public J1(Context context) {
-        this.f40076a = context;
+    public J1(CircleProgressbar circleProgressbar) {
+        this.f37674a = circleProgressbar;
     }
 
-    public IBinder a() {
-        if (this.f40077b) {
-            throw new IllegalStateException("Binder already consumed");
-        }
-        IBinder iBinder = (IBinder) this.f40078c.take();
-        if (iBinder != null) {
-            this.f40077b = true;
-        }
-        return iBinder;
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        try {
-            this.f40078c.put(iBinder);
-            String a2 = ((a) b.a(iBinder)).a();
-            if (TextUtils.isEmpty(a2)) {
+    /* JADX WARN: Removed duplicated region for block: B:19:0x004c  */
+    @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        CircleProgressbar circleProgressbar;
+        int i2;
+        int i3;
+        this.f37674a.removeCallbacks(this);
+        int ordinal = this.f37674a.f37970i.ordinal();
+        if (ordinal == 0) {
+            circleProgressbar = this.f37674a;
+            i2 = circleProgressbar.f37969h + 1;
+        } else {
+            if (ordinal == 1) {
+                circleProgressbar = this.f37674a;
+                i2 = circleProgressbar.f37969h - 1;
+            }
+            CircleProgressbar circleProgressbar2 = this.f37674a;
+            i3 = circleProgressbar2.f37969h;
+            if (i3 < 0 && i3 <= 100) {
+                l lVar = circleProgressbar2.l;
+                if (lVar != null) {
+                    lVar.a(circleProgressbar2.m, i3);
+                }
+                this.f37674a.invalidate();
+                CircleProgressbar circleProgressbar3 = this.f37674a;
+                circleProgressbar3.postDelayed(circleProgressbar3.n, circleProgressbar3.j / 100);
                 return;
             }
-            V1.f(this.f40076a, a2);
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
-        } catch (InterruptedException e3) {
-            e3.printStackTrace();
+            CircleProgressbar circleProgressbar4 = this.f37674a;
+            int i4 = circleProgressbar4.f37969h;
+            circleProgressbar4.f37969h = i4 <= 100 ? i4 < 0 ? 0 : i4 : 100;
         }
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
+        circleProgressbar.f37969h = i2;
+        CircleProgressbar circleProgressbar22 = this.f37674a;
+        i3 = circleProgressbar22.f37969h;
+        if (i3 < 0) {
+        }
+        CircleProgressbar circleProgressbar42 = this.f37674a;
+        int i42 = circleProgressbar42.f37969h;
+        circleProgressbar42.f37969h = i42 <= 100 ? i42 < 0 ? 0 : i42 : 100;
     }
 }

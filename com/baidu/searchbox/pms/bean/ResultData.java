@@ -15,9 +15,9 @@ public class ResultData {
         sb.append(list.size());
         if (list.size() > 0) {
             sb.append(" [");
-            for (int i = 0; i < list.size(); i++) {
-                PackageInfo packageInfo = list.get(i);
-                if (i == 0) {
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                PackageInfo packageInfo = list.get(i2);
+                if (i2 == 0) {
                     sb.append(packageInfo.packageName);
                 } else {
                     sb.append(",");

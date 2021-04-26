@@ -9,9 +9,9 @@ public class FrsGameSubPbActivityConfig extends IntentConfig {
     public static final String ARG_MAIN_TOWER_ID = "arg_main_tower_id";
     public static final int START_ACTIVITY_REQUEST_CODE = 1001;
 
-    public FrsGameSubPbActivityConfig(Context context, int i, String str) {
+    public FrsGameSubPbActivityConfig(Context context, int i2, String str) {
         super(context);
-        getIntent().putExtra(ARG_FORUM_ID, i);
+        getIntent().putExtra(ARG_FORUM_ID, i2);
         getIntent().putExtra(ARG_MAIN_TOWER_ID, str);
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(1001);

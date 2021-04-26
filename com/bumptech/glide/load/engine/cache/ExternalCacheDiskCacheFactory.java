@@ -11,11 +11,11 @@ public final class ExternalCacheDiskCacheFactory extends DiskLruCacheFactory {
         this(context, "image_manager_disk_cache", DiskCache.Factory.DEFAULT_DISK_CACHE_SIZE);
     }
 
-    public ExternalCacheDiskCacheFactory(Context context, int i) {
-        this(context, "image_manager_disk_cache", i);
+    public ExternalCacheDiskCacheFactory(Context context, int i2) {
+        this(context, "image_manager_disk_cache", i2);
     }
 
-    public ExternalCacheDiskCacheFactory(final Context context, final String str, int i) {
+    public ExternalCacheDiskCacheFactory(final Context context, final String str, int i2) {
         super(new DiskLruCacheFactory.CacheDirectoryGetter() { // from class: com.bumptech.glide.load.engine.cache.ExternalCacheDiskCacheFactory.1
             @Override // com.bumptech.glide.load.engine.cache.DiskLruCacheFactory.CacheDirectoryGetter
             public File getCacheDirectory() {
@@ -25,6 +25,6 @@ public final class ExternalCacheDiskCacheFactory extends DiskLruCacheFactory {
                 }
                 return str != null ? new File(externalCacheDir, str) : externalCacheDir;
             }
-        }, i);
+        }, i2);
     }
 }

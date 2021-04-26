@@ -11,10 +11,10 @@ import java.util.Arrays;
 public class Reflect {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<?> f32143a;
+    public final Class<?> f32553a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f32144b;
+    public final Object f32554b;
 
     /* loaded from: classes6.dex */
     public static class ReflectException extends RuntimeException {
@@ -40,29 +40,31 @@ public class Reflect {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Method f32145a;
+        public static final Method f32555a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final Method f32146b;
+        public static final Method f32556b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final Method f32147c;
+        public static final Method f32557c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final Method f32148d;
+        public static final Method f32558d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final Method f32149e;
+        public static final Method f32559e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final Method f32150f;
+        public static final Method f32560f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final Method f32151g;
+        public static final Method f32561g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final Method f32152h;
-        public static final Method i;
+        public static final Method f32562h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public static final Method f32563i;
         public static final Method j;
         public static final Method k;
         public static final Method l;
@@ -71,15 +73,15 @@ public class Reflect {
 
         static {
             try {
-                f32145a = Class.class.getDeclaredMethod("forName", String.class);
-                f32146b = Class.class.getDeclaredMethod("forName", String.class, Boolean.TYPE, ClassLoader.class);
-                f32147c = Class.class.getDeclaredMethod("getDeclaredField", String.class);
-                f32148d = Class.class.getDeclaredMethod("getDeclaredFields", new Class[0]);
-                f32149e = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
-                f32150f = Class.class.getDeclaredMethod("getDeclaredMethods", new Class[0]);
-                f32151g = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
-                f32152h = Class.class.getDeclaredMethod("getDeclaredConstructors", new Class[0]);
-                i = Class.class.getDeclaredMethod("getField", String.class);
+                f32555a = Class.class.getDeclaredMethod("forName", String.class);
+                f32556b = Class.class.getDeclaredMethod("forName", String.class, Boolean.TYPE, ClassLoader.class);
+                f32557c = Class.class.getDeclaredMethod("getDeclaredField", String.class);
+                f32558d = Class.class.getDeclaredMethod("getDeclaredFields", new Class[0]);
+                f32559e = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
+                f32560f = Class.class.getDeclaredMethod("getDeclaredMethods", new Class[0]);
+                f32561g = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
+                f32562h = Class.class.getDeclaredMethod("getDeclaredConstructors", new Class[0]);
+                f32563i = Class.class.getDeclaredMethod("getField", String.class);
                 j = Class.class.getDeclaredMethod("getFields", new Class[0]);
                 k = Class.class.getDeclaredMethod("getMethod", String.class, Class[].class);
                 l = Class.class.getDeclaredMethod("getMethods", new Class[0]);
@@ -92,7 +94,7 @@ public class Reflect {
 
         public static Class a(String str) {
             try {
-                return (Class) f32145a.invoke(null, str);
+                return (Class) f32555a.invoke(null, str);
             } catch (Exception e2) {
                 ClassNotFoundException classNotFoundException = new ClassNotFoundException();
                 classNotFoundException.initCause(e2);
@@ -102,7 +104,7 @@ public class Reflect {
 
         public static Constructor a(Class cls, Class<?>... clsArr) {
             try {
-                return (Constructor) f32151g.invoke(cls, clsArr);
+                return (Constructor) f32561g.invoke(cls, clsArr);
             } catch (Exception e2) {
                 NoSuchMethodException noSuchMethodException = new NoSuchMethodException();
                 noSuchMethodException.initCause(e2);
@@ -112,7 +114,7 @@ public class Reflect {
 
         public static Field a(Class cls, String str) {
             try {
-                return (Field) f32147c.invoke(cls, str);
+                return (Field) f32557c.invoke(cls, str);
             } catch (Exception e2) {
                 NoSuchFieldException noSuchFieldException = new NoSuchFieldException();
                 noSuchFieldException.initCause(e2);
@@ -122,7 +124,7 @@ public class Reflect {
 
         public static Method a(Class cls, String str, Class<?>... clsArr) {
             try {
-                return (Method) f32149e.invoke(cls, str, clsArr);
+                return (Method) f32559e.invoke(cls, str, clsArr);
             } catch (Exception e2) {
                 NoSuchMethodException noSuchMethodException = new NoSuchMethodException();
                 noSuchMethodException.initCause(e2);
@@ -132,7 +134,7 @@ public class Reflect {
 
         public static Method[] a(Class cls) {
             try {
-                return (Method[]) f32150f.invoke(cls, new Object[0]);
+                return (Method[]) f32560f.invoke(cls, new Object[0]);
             } catch (Exception e2) {
                 throw new ReflectException(e2);
             }
@@ -140,7 +142,7 @@ public class Reflect {
 
         public static Field b(Class cls, String str) {
             try {
-                return (Field) i.invoke(cls, str);
+                return (Field) f32563i.invoke(cls, str);
             } catch (Exception e2) {
                 NoSuchFieldException noSuchFieldException = new NoSuchFieldException();
                 noSuchFieldException.initCause(e2);
@@ -168,7 +170,7 @@ public class Reflect {
 
         public static Constructor[] c(Class cls) {
             try {
-                return (Constructor[]) f32152h.invoke(cls, new Object[0]);
+                return (Constructor[]) f32562h.invoke(cls, new Object[0]);
             } catch (Exception e2) {
                 throw new ReflectException(e2);
             }
@@ -184,8 +186,8 @@ public class Reflect {
     }
 
     public Reflect(Class<?> cls, Object obj) {
-        this.f32143a = cls;
-        this.f32144b = obj;
+        this.f32553a = cls;
+        this.f32554b = obj;
     }
 
     public static Reflect a(Class<?> cls) {
@@ -266,8 +268,8 @@ public class Reflect {
 
     private boolean a(Class<?>[] clsArr, Class<?>[] clsArr2) {
         if (clsArr.length == clsArr2.length) {
-            for (int i = 0; i < clsArr2.length; i++) {
-                if (clsArr2[i] != b.class && !b(clsArr[i]).isAssignableFrom(b(clsArr2[i]))) {
+            for (int i2 = 0; i2 < clsArr2.length; i2++) {
+                if (clsArr2[i2] != b.class && !b(clsArr[i2]).isAssignableFrom(b(clsArr2[i2]))) {
                     return false;
                 }
             }
@@ -312,9 +314,9 @@ public class Reflect {
             return new Class[0];
         }
         Class<?>[] clsArr = new Class[objArr.length];
-        for (int i = 0; i < objArr.length; i++) {
-            Object obj = objArr[i];
-            clsArr[i] = obj == null ? b.class : obj.getClass();
+        for (int i2 = 0; i2 < objArr.length; i2++) {
+            Object obj = objArr[i2];
+            clsArr[i2] = obj == null ? b.class : obj.getClass();
         }
         return clsArr;
     }
@@ -357,7 +359,7 @@ public class Reflect {
                 } catch (NoSuchFieldException unused) {
                 }
             }
-            e2.set(this.f32144b, b(obj));
+            e2.set(this.f32554b, b(obj));
             return this;
         } catch (Exception e3) {
             throw new ReflectException(e3);
@@ -367,9 +369,9 @@ public class Reflect {
     public Reflect a(String str, Class<?>[] clsArr, Object... objArr) {
         try {
             try {
-                return a(a(str, clsArr), this.f32144b, objArr);
+                return a(a(str, clsArr), this.f32554b, objArr);
             } catch (NoSuchMethodException unused) {
-                return a(b(str, clsArr), this.f32144b, objArr);
+                return a(b(str, clsArr), this.f32554b, objArr);
             }
         } catch (NoSuchMethodException e2) {
             throw new ReflectException(e2);
@@ -399,7 +401,7 @@ public class Reflect {
     }
 
     public <T> T a() {
-        return (T) this.f32144b;
+        return (T) this.f32554b;
     }
 
     public Reflect b() {
@@ -413,14 +415,14 @@ public class Reflect {
     public Reflect c(String str) {
         try {
             Field e2 = e(str);
-            return a(e2.getType(), e2.get(this.f32144b));
+            return a(e2.getType(), e2.get(this.f32554b));
         } catch (Exception e3) {
             throw new ReflectException(e3);
         }
     }
 
     public Class<?> c() {
-        return this.f32143a;
+        return this.f32553a;
     }
 
     public Reflect d(String str) {
@@ -429,16 +431,16 @@ public class Reflect {
 
     public boolean equals(Object obj) {
         if (obj instanceof Reflect) {
-            return this.f32144b.equals(((Reflect) obj).a());
+            return this.f32554b.equals(((Reflect) obj).a());
         }
         return false;
     }
 
     public int hashCode() {
-        return this.f32144b.hashCode();
+        return this.f32554b.hashCode();
     }
 
     public String toString() {
-        return String.valueOf(this.f32144b);
+        return String.valueOf(this.f32554b);
     }
 }

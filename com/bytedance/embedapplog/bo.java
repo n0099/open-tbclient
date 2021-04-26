@@ -12,13 +12,13 @@ public interface bo extends IInterface {
 
         /* renamed from: com.bytedance.embedapplog.bo$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0294a implements bo {
+        public static class C0287a implements bo {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f26848a;
+            public IBinder f27662a;
 
-            public C0294a(IBinder iBinder) {
-                this.f26848a = iBinder;
+            public C0287a(IBinder iBinder) {
+                this.f27662a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.bo
@@ -30,7 +30,7 @@ public interface bo extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeString(str3);
-                    this.f26848a.transact(1, obtain, obtain2, 0);
+                    this.f27662a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -41,7 +41,7 @@ public interface bo extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f26848a;
+                return this.f27662a;
             }
         }
 
@@ -53,14 +53,14 @@ public interface bo extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof bo)) {
                 return (bo) queryLocalInterface;
             }
-            return new C0294a(iBinder);
+            return new C0287a(iBinder);
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
-            if (i != 1) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) {
+            if (i2 != 1) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString("com.heytap.openid.IOpenID");
                 return true;

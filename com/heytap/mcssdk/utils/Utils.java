@@ -28,8 +28,8 @@ public class Utils {
 
     public static String getString(int[] iArr) {
         StringBuilder sb = new StringBuilder();
-        for (int i : iArr) {
-            sb.append((char) i);
+        for (int i2 : iArr) {
+            sb.append((char) i2);
         }
         return sb.toString();
     }

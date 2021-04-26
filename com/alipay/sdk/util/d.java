@@ -22,8 +22,8 @@ public enum d {
     public int p;
     public String q;
 
-    d(int i, String str) {
-        this.p = i;
+    d(int i2, String str) {
+        this.p = i2;
         this.q = str;
     }
 
@@ -35,10 +35,10 @@ public enum d {
         return this.q;
     }
 
-    public static d a(int i) {
+    public static d a(int i2) {
         d[] values;
         for (d dVar : values()) {
-            if (dVar.a() == i) {
+            if (dVar.a() == i2) {
                 return dVar;
             }
         }

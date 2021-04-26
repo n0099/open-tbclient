@@ -22,29 +22,31 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     public static ArrayList<String> u;
 
     /* renamed from: a  reason: collision with root package name */
-    public CyberAudioRecorder.OnPreparedListener f8012a;
+    public CyberAudioRecorder.OnPreparedListener f8302a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CyberAudioRecorder.OnCompletionListener f8013b;
+    public CyberAudioRecorder.OnCompletionListener f8303b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CyberAudioRecorder.OnErrorListener f8014c;
+    public CyberAudioRecorder.OnErrorListener f8304c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CyberAudioRecorder.OnInfoListener f8015d;
+    public CyberAudioRecorder.OnInfoListener f8305d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CyberAudioRecorder.OnEncBufferCallbackListener f8016e;
+    public CyberAudioRecorder.OnEncBufferCallbackListener f8306e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ByteBuffer f8017f;
+    public ByteBuffer f8307f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f8018g;
+    public long f8308g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f8019h;
-    public long i;
+    public long f8309h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public long f8310i;
     public int j;
     public int k;
     public int l;
@@ -57,7 +59,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     public ExecutorService o = null;
     public AudioRecord p = null;
     public final Object q = new Object();
-    public d.b.w.d.a r = new d.b.w.d.a();
+    public d.a.w.d.a r = new d.a.w.d.a();
     public Map<String, String> s = new HashMap();
     public Map<String, Long> t = new HashMap();
 
@@ -76,48 +78,48 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     public class b extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<DuAudioRecorder> f8021a;
+        public final WeakReference<DuAudioRecorder> f8312a;
 
         public b(DuAudioRecorder duAudioRecorder, Looper looper) {
             super(looper);
-            this.f8021a = new WeakReference<>(duAudioRecorder);
+            this.f8312a = new WeakReference<>(duAudioRecorder);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            DuAudioRecorder duAudioRecorder = this.f8021a.get();
+            DuAudioRecorder duAudioRecorder = this.f8312a.get();
             if (duAudioRecorder == null || duAudioRecorder.mNativeContext == 0) {
                 return;
             }
-            int i = message.what;
-            if (i == -1) {
+            int i2 = message.what;
+            if (i2 == -1) {
                 synchronized (DuAudioRecorder.this.q) {
                     DuAudioRecorder.this.r.b(2);
                     DuAudioRecorder.this.q.notifyAll();
                 }
-                if (DuAudioRecorder.this.f8014c != null) {
-                    DuAudioRecorder.this.f8014c.onError(message.arg1, message.arg2, message.obj);
+                if (DuAudioRecorder.this.f8304c != null) {
+                    DuAudioRecorder.this.f8304c.onError(message.arg1, message.arg2, message.obj);
                 }
-            } else if (i == 0) {
-                if (DuAudioRecorder.this.f8015d != null) {
-                    DuAudioRecorder.this.f8015d.onInfo(message.arg1, message.arg2, message.obj);
+            } else if (i2 == 0) {
+                if (DuAudioRecorder.this.f8305d != null) {
+                    DuAudioRecorder.this.f8305d.onInfo(message.arg1, message.arg2, message.obj);
                 }
-            } else if (i == 1) {
+            } else if (i2 == 1) {
                 DuAudioRecorder.this.nativeStart();
                 synchronized (DuAudioRecorder.this.q) {
                     DuAudioRecorder.this.r.b(32);
                     DuAudioRecorder.this.q.notifyAll();
                 }
-                if (DuAudioRecorder.this.f8012a != null) {
-                    DuAudioRecorder.this.f8012a.onPrepared();
+                if (DuAudioRecorder.this.f8302a != null) {
+                    DuAudioRecorder.this.f8302a.onPrepared();
                 }
-            } else if (i == 2) {
-                if (DuAudioRecorder.this.f8013b != null) {
-                    DuAudioRecorder.this.f8013b.onCompletion();
+            } else if (i2 == 2) {
+                if (DuAudioRecorder.this.f8303b != null) {
+                    DuAudioRecorder.this.f8303b.onCompletion();
                 }
-            } else if (i == 3 && DuAudioRecorder.this.f8016e != null) {
-                DuAudioRecorder.this.f8016e.onFrameRecorded(DuAudioRecorder.this.f8017f, message.arg2, (message.arg1 == 1 ? Boolean.TRUE : Boolean.FALSE).booleanValue());
-                DuAudioRecorder.this.f8017f.rewind();
+            } else if (i2 == 3 && DuAudioRecorder.this.f8306e != null) {
+                DuAudioRecorder.this.f8306e.onFrameRecorded(DuAudioRecorder.this.f8307f, message.arg2, (message.arg1 == 1 ? Boolean.TRUE : Boolean.FALSE).booleanValue());
+                DuAudioRecorder.this.f8307f.rewind();
                 DuAudioRecorder.this.nativeHandledMsgCallback();
             }
         }
@@ -147,9 +149,9 @@ public class DuAudioRecorder extends CyberAudioRecorder {
         j();
     }
 
-    private native int nativeEncodePCM(byte[] bArr, int i, int i2);
+    private native int nativeEncodePCM(byte[] bArr, int i2, int i3);
 
-    public static native int nativeGetBytesPerSample(int i);
+    public static native int nativeGetBytesPerSample(int i2);
 
     /* JADX INFO: Access modifiers changed from: private */
     public native void nativeHandledMsgCallback();
@@ -172,7 +174,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     private native void nativeStop();
 
     @Keep
-    public static int postEventFromNative(Object obj, int i, int i2, int i3, Object obj2) {
+    public static int postEventFromNative(Object obj, int i2, int i3, int i4, Object obj2) {
         DuAudioRecorder duAudioRecorder;
         if (obj == null || (duAudioRecorder = (DuAudioRecorder) ((WeakReference) obj).get()) == null) {
             return -1;
@@ -183,7 +185,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
                     duAudioRecorder.mEventHandler.removeCallbacksAndMessages(null);
                     duAudioRecorder.nativeHandledMsgCallback();
                 } else {
-                    duAudioRecorder.mEventHandler.sendMessage(duAudioRecorder.mEventHandler.obtainMessage(i, i2, i3, obj2));
+                    duAudioRecorder.mEventHandler.sendMessage(duAudioRecorder.mEventHandler.obtainMessage(i2, i3, i4, obj2));
                 }
             }
             return 0;
@@ -191,26 +193,26 @@ public class DuAudioRecorder extends CyberAudioRecorder {
         return 0;
     }
 
-    public final int a(int i, int i2, Object obj) {
+    public final int a(int i2, int i3, Object obj) {
         b bVar = this.mEventHandler;
         if (bVar != null) {
-            this.mEventHandler.sendMessage(bVar.obtainMessage(-1, i, i2, obj));
+            this.mEventHandler.sendMessage(bVar.obtainMessage(-1, i2, i3, obj));
             return 1;
         }
         return 0;
     }
 
-    public final int b(byte[] bArr, int i, int i2) {
-        long j = this.f8019h;
+    public final int b(byte[] bArr, int i2, int i3) {
+        long j = this.f8309h;
         if (j > 0) {
-            int nativeEncodePCM = nativeEncodePCM(bArr, i, (int) Math.min(j, i2));
-            this.f8019h -= nativeEncodePCM;
+            int nativeEncodePCM = nativeEncodePCM(bArr, i2, (int) Math.min(j, i3));
+            this.f8309h -= nativeEncodePCM;
             return nativeEncodePCM;
         } else if (j == 0) {
             stop();
             return 0;
         } else {
-            return nativeEncodePCM(bArr, i, i2);
+            return nativeEncodePCM(bArr, i2, i3);
         }
     }
 
@@ -265,9 +267,9 @@ public class DuAudioRecorder extends CyberAudioRecorder {
                         break;
                 }
                 if (c2 == 0) {
-                    this.f8018g = longValue;
+                    this.f8308g = longValue;
                 } else if (c2 == 1) {
-                    this.i = longValue * 1024;
+                    this.f8310i = longValue * 1024;
                 } else if (c2 == 2) {
                     this.m = (int) longValue;
                 } else if (c2 == 3) {
@@ -284,21 +286,21 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     }
 
     public final void f() {
-        int i;
-        int i2 = this.l;
-        if (i2 == 1) {
-            i = 16;
-        } else if (i2 != 2) {
+        int i2;
+        int i3 = this.l;
+        if (i3 == 1) {
+            i2 = 16;
+        } else if (i3 != 2) {
             throw new IllegalArgumentException("KEY_INT_IN_CHANNEL_NB only support 1 or 2");
         } else {
-            i = 12;
+            i2 = 12;
         }
-        int minBufferSize = AudioRecord.getMinBufferSize(this.j, i, this.k);
+        int minBufferSize = AudioRecord.getMinBufferSize(this.j, i2, this.k);
         this.n = minBufferSize;
         if (minBufferSize < 0) {
             throw new IllegalArgumentException("AudioRecord.getMinBufferSize error");
         }
-        AudioRecord audioRecord = new AudioRecord(this.m, this.j, i, this.k, this.n);
+        AudioRecord audioRecord = new AudioRecord(this.m, this.j, i2, this.k, this.n);
         this.p = audioRecord;
         this.l = audioRecord.getChannelCount();
         this.k = this.p.getAudioFormat();
@@ -306,19 +308,19 @@ public class DuAudioRecorder extends CyberAudioRecorder {
         nativeSetParameter(CyberAudioRecorder.KEY_INT_IN_CHANNEL_NB, this.l);
         nativeSetParameter(CyberAudioRecorder.KEY_INT_IN_SAMPLE_FORMAT, this.k);
         nativeSetParameter(CyberAudioRecorder.KEY_INT_IN_SAMPLE_RATE, this.j);
-        long j = this.f8018g;
+        long j = this.f8308g;
         if (j > 0) {
             long nativeGetBytesPerSample = j * this.l * this.j * nativeGetBytesPerSample(this.k);
-            this.f8019h = nativeGetBytesPerSample;
+            this.f8309h = nativeGetBytesPerSample;
             if (nativeGetBytesPerSample == 0) {
                 CyberLog.w("DuAudioRecorder", "KEY_INT_ENC_MAX_DURATION Invalidation");
-                this.f8019h = -1L;
+                this.f8309h = -1L;
             }
         }
-        long j2 = this.i;
+        long j2 = this.f8310i;
         if (j2 > 0) {
             ByteBuffer order = ByteBuffer.allocateDirect((int) j2).order(ByteOrder.nativeOrder());
-            this.f8017f = order;
+            this.f8307f = order;
             nativeSetEncCallbackCacheBuffer(order);
         }
     }
@@ -338,9 +340,9 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     }
 
     public final void j() {
-        this.f8017f = null;
-        this.f8018g = 0L;
-        this.f8019h = -1L;
+        this.f8307f = null;
+        this.f8308g = 0L;
+        this.f8309h = -1L;
         this.j = SwanAudioPlayer.DEFAULT_SAMPLE_RATE;
         this.k = 1;
         this.l = 1;
@@ -450,27 +452,27 @@ public class DuAudioRecorder extends CyberAudioRecorder {
 
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder
     public void setOnCompletionListener(CyberAudioRecorder.OnCompletionListener onCompletionListener) {
-        this.f8013b = onCompletionListener;
+        this.f8303b = onCompletionListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder
     public void setOnEncBufferListener(CyberAudioRecorder.OnEncBufferCallbackListener onEncBufferCallbackListener) {
-        this.f8016e = onEncBufferCallbackListener;
+        this.f8306e = onEncBufferCallbackListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder
     public void setOnErrorListener(CyberAudioRecorder.OnErrorListener onErrorListener) {
-        this.f8014c = onErrorListener;
+        this.f8304c = onErrorListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder
     public void setOnInfoListener(CyberAudioRecorder.OnInfoListener onInfoListener) {
-        this.f8015d = onInfoListener;
+        this.f8305d = onInfoListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder
     public void setOnPreparedListener(CyberAudioRecorder.OnPreparedListener onPreparedListener) {
-        this.f8012a = onPreparedListener;
+        this.f8302a = onPreparedListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder

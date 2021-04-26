@@ -16,22 +16,22 @@ public class p {
     public static final Map<String, byte[]> f965a = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<Pair<String, byte[]>> f41441a = new ArrayList<>();
+    public static ArrayList<Pair<String, byte[]>> f38987a = new ArrayList<>();
 
-    public static void a(Context context, int i, String str) {
+    public static void a(Context context, int i2, String str) {
         synchronized (f965a) {
             for (String str2 : f965a.keySet()) {
-                a(context, str2, f965a.get(str2), i, str);
+                a(context, str2, f965a.get(str2), i2, str);
             }
             f965a.clear();
         }
     }
 
-    public static void a(Context context, String str, byte[] bArr, int i, String str2) {
+    public static void a(Context context, String str, byte[] bArr, int i2, String str2) {
         Intent intent = new Intent("com.xiaomi.mipush.ERROR");
         intent.setPackage(str);
         intent.putExtra("mipush_payload", bArr);
-        intent.putExtra("mipush_error_code", i);
+        intent.putExtra("mipush_error_code", i2);
         intent.putExtra("mipush_error_msg", str2);
         context.sendBroadcast(intent, y.a(str));
     }
@@ -59,9 +59,9 @@ public class p {
     public static void b(XMPushService xMPushService) {
         ArrayList<Pair<String, byte[]>> arrayList;
         try {
-            synchronized (f41441a) {
-                arrayList = f41441a;
-                f41441a = new ArrayList<>();
+            synchronized (f38987a) {
+                arrayList = f38987a;
+                f38987a = new ArrayList<>();
             }
             boolean z = Thread.currentThread() == Looper.getMainLooper().getThread();
             Iterator<Pair<String, byte[]>> it = arrayList.iterator();
@@ -82,10 +82,10 @@ public class p {
     }
 
     public static void b(String str, byte[] bArr) {
-        synchronized (f41441a) {
-            f41441a.add(new Pair<>(str, bArr));
-            if (f41441a.size() > 50) {
-                f41441a.remove(0);
+        synchronized (f38987a) {
+            f38987a.add(new Pair<>(str, bArr));
+            if (f38987a.size() > 50) {
+                f38987a.remove(0);
             }
         }
     }

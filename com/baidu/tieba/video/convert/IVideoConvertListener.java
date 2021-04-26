@@ -62,12 +62,12 @@ public interface IVideoConvertListener extends IInterface {
             }
 
             @Override // com.baidu.tieba.video.convert.IVideoConvertListener
-            public void onConvertProgress(int i) throws RemoteException {
+            public void onConvertProgress(int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    obtain.writeInt(i);
+                    obtain.writeInt(i2);
                     this.mRemote.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
@@ -112,25 +112,25 @@ public interface IVideoConvertListener extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 == 1) {
                 parcel.enforceInterface(DESCRIPTOR);
                 onConvertSuccess();
                 parcel2.writeNoException();
                 return true;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 parcel.enforceInterface(DESCRIPTOR);
                 onConvertFailed();
                 parcel2.writeNoException();
                 return true;
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 parcel.enforceInterface(DESCRIPTOR);
                 onConvertProgress(parcel.readInt());
                 parcel2.writeNoException();
                 return true;
-            } else if (i != 4) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 4) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString(DESCRIPTOR);
                 return true;
@@ -147,7 +147,7 @@ public interface IVideoConvertListener extends IInterface {
 
     void onConvertFailed() throws RemoteException;
 
-    void onConvertProgress(int i) throws RemoteException;
+    void onConvertProgress(int i2) throws RemoteException;
 
     void onConvertSuccess() throws RemoteException;
 }

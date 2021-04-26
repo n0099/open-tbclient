@@ -15,7 +15,7 @@ public final class b implements Parcelable.Creator<HistoryTraceData.HistoryTrace
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public HistoryTraceData.HistoryTracePoint[] newArray(int i) {
-        return new HistoryTraceData.HistoryTracePoint[i];
+    public HistoryTraceData.HistoryTracePoint[] newArray(int i2) {
+        return new HistoryTraceData.HistoryTracePoint[i2];
     }
 }

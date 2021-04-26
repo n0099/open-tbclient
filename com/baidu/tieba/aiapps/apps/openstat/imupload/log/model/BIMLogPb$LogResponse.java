@@ -43,16 +43,16 @@ public final class BIMLogPb$LogResponse extends GeneratedMessageLite implements 
     public static final class b extends GeneratedMessageLite.Builder<BIMLogPb$LogResponse, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f14360e;
+        public int f14418e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f14361f;
+        public int f14419f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Object f14362g = "";
+        public Object f14420g = "";
 
         /* renamed from: h  reason: collision with root package name */
-        public long f14363h;
+        public long f14421h;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -98,31 +98,31 @@ public final class BIMLogPb$LogResponse extends GeneratedMessageLite implements 
         /* renamed from: n */
         public BIMLogPb$LogResponse buildPartial() {
             BIMLogPb$LogResponse bIMLogPb$LogResponse = new BIMLogPb$LogResponse(this);
-            int i = this.f14360e;
-            int i2 = (i & 1) != 1 ? 0 : 1;
-            bIMLogPb$LogResponse.errorCode = this.f14361f;
-            if ((i & 2) == 2) {
-                i2 |= 2;
+            int i2 = this.f14418e;
+            int i3 = (i2 & 1) != 1 ? 0 : 1;
+            bIMLogPb$LogResponse.errorCode = this.f14419f;
+            if ((i2 & 2) == 2) {
+                i3 |= 2;
             }
-            bIMLogPb$LogResponse.errorMsg = this.f14362g;
-            if ((i & 4) == 4) {
-                i2 |= 4;
+            bIMLogPb$LogResponse.errorMsg = this.f14420g;
+            if ((i2 & 4) == 4) {
+                i3 |= 4;
             }
-            bIMLogPb$LogResponse.pingIntervalMs = this.f14363h;
-            bIMLogPb$LogResponse.bitField0 = i2;
+            bIMLogPb$LogResponse.pingIntervalMs = this.f14421h;
+            bIMLogPb$LogResponse.bitField0 = i3;
             return bIMLogPb$LogResponse;
         }
 
         public b o() {
             super.clear();
-            this.f14361f = 0;
-            int i = this.f14360e & (-2);
-            this.f14360e = i;
-            this.f14362g = "";
-            int i2 = i & (-3);
-            this.f14360e = i2;
-            this.f14363h = 0L;
-            this.f14360e = i2 & (-5);
+            this.f14419f = 0;
+            int i2 = this.f14418e & (-2);
+            this.f14418e = i2;
+            this.f14420g = "";
+            int i3 = i2 & (-3);
+            this.f14418e = i3;
+            this.f14421h = 0L;
+            this.f14418e = i3 & (-5);
             return this;
         }
 
@@ -150,8 +150,8 @@ public final class BIMLogPb$LogResponse extends GeneratedMessageLite implements 
                 u(bIMLogPb$LogResponse.getErrorCode());
             }
             if (bIMLogPb$LogResponse.hasErrorMsg()) {
-                this.f14360e |= 2;
-                this.f14362g = bIMLogPb$LogResponse.errorMsg;
+                this.f14418e |= 2;
+                this.f14420g = bIMLogPb$LogResponse.errorMsg;
             }
             if (bIMLogPb$LogResponse.hasPingIntervalMs()) {
                 v(bIMLogPb$LogResponse.getPingIntervalMs());
@@ -193,15 +193,15 @@ public final class BIMLogPb$LogResponse extends GeneratedMessageLite implements 
             }
         }
 
-        public b u(int i) {
-            this.f14360e |= 1;
-            this.f14361f = i;
+        public b u(int i2) {
+            this.f14418e |= 1;
+            this.f14419f = i2;
             return this;
         }
 
         public b v(long j) {
-            this.f14360e |= 4;
-            this.f14363h = j;
+            this.f14418e |= 4;
+            this.f14421h = j;
             return this;
         }
 
@@ -292,9 +292,9 @@ public final class BIMLogPb$LogResponse extends GeneratedMessageLite implements 
 
     @Override // com.google.protobuf.MessageLite
     public int getSerializedSize() {
-        int i = this.memoizedSerializedSize;
-        if (i != -1) {
-            return i;
+        int i2 = this.memoizedSerializedSize;
+        if (i2 != -1) {
+            return i2;
         }
         int computeInt32Size = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.errorCode) : 0;
         if ((this.bitField0 & 2) == 2) {

@@ -15,16 +15,16 @@ public interface BreakpointStore {
     int findOrCreateId(@NonNull DownloadTask downloadTask);
 
     @Nullable
-    BreakpointInfo get(int i);
+    BreakpointInfo get(int i2);
 
     @Nullable
     String getResponseFilename(String str);
 
-    boolean isFileDirty(int i);
+    boolean isFileDirty(int i2);
 
     boolean isOnlyMemoryCache();
 
-    void remove(int i);
+    void remove(int i2);
 
     boolean update(@NonNull BreakpointInfo breakpointInfo) throws IOException;
 }

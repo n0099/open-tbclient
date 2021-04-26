@@ -135,15 +135,15 @@ public class ChannelListView extends LinearLayout {
         this.vgMoreChannels.setOnClickListener(null);
     }
 
-    public boolean selectChannelById(int i) {
+    public boolean selectChannelById(int i2) {
         NewCashierContent.CashierChannel cashierChannel;
         int childCount = this.radioGroupChannels.getChildCount();
-        for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = this.radioGroupChannels.getChildAt(i2);
+        for (int i3 = 0; i3 < childCount; i3++) {
+            View childAt = this.radioGroupChannels.getChildAt(i3);
             if ((childAt instanceof ChannelViewBase) && childAt.getVisibility() == 0) {
                 ChannelViewBase channelViewBase = (ChannelViewBase) childAt;
                 Object tag = childAt.getTag();
-                if ((tag instanceof NewCashierContent.CashierChannel) && (cashierChannel = (NewCashierContent.CashierChannel) tag) != null && i == cashierChannel.getChanelId()) {
+                if ((tag instanceof NewCashierContent.CashierChannel) && (cashierChannel = (NewCashierContent.CashierChannel) tag) != null && i2 == cashierChannel.getChanelId()) {
                     this.radioGroupChannels.onChecked(channelViewBase);
                     return true;
                 }
@@ -398,8 +398,8 @@ public class ChannelListView extends LinearLayout {
     }
 
     @TargetApi(11)
-    public ChannelListView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ChannelListView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.iBaseChannels = new ArrayList();
         this.iOfficialChannels = new ArrayList();
         this.mContext = context;

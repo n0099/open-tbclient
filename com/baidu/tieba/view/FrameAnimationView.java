@@ -8,9 +8,9 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.widget.TbImageView;
-import d.b.c.e.l.d;
-import d.b.c.e.m.e;
-import d.b.c.e.p.k;
+import d.a.c.e.l.d;
+import d.a.c.e.m.e;
+import d.a.c.e.p.k;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class FrameAnimationView extends TbImageView {
@@ -33,7 +33,7 @@ public class FrameAnimationView extends TbImageView {
         public void run() {
             e.a().removeCallbacks(FrameAnimationView.this.E0);
             if (FrameAnimationView.this.A0 != null) {
-                FrameAnimationView.this.i0();
+                FrameAnimationView.this.f0();
             }
         }
     }
@@ -57,7 +57,7 @@ public class FrameAnimationView extends TbImageView {
         String frameUrl = getFrameUrl();
         this.w0++;
         if (!k.isEmpty(frameUrl)) {
-            d.b.c.j.d.a aVar = (d.b.c.j.d.a) d.h().n(frameUrl, 10, new Object[0]);
+            d.a.c.j.d.a aVar = (d.a.c.j.d.a) d.h().n(frameUrl, 10, new Object[0]);
             if (aVar != null) {
                 return aVar.p();
             }
@@ -74,7 +74,7 @@ public class FrameAnimationView extends TbImageView {
         return list.get(this.w0);
     }
 
-    public final void i0() {
+    public final void f0() {
         if (this.A0 == null) {
             return;
         }
@@ -87,27 +87,27 @@ public class FrameAnimationView extends TbImageView {
         e.a().postDelayed(this.E0, this.B0);
     }
 
-    public final boolean j0(List<String> list) {
+    public final boolean g0(List<String> list) {
         List<String> list2 = this.A0;
         if (list2 == null || list == null || list2.size() != list.size()) {
             return false;
         }
-        for (int i = 0; i < this.A0.size(); i++) {
-            if (!this.A0.get(i).equals(list.get(i))) {
+        for (int i2 = 0; i2 < this.A0.size(); i2++) {
+            if (!this.A0.get(i2).equals(list.get(i2))) {
                 return false;
             }
         }
         return true;
     }
 
-    public void l0() {
+    public void h0() {
         if (this.A0 == null) {
             return;
         }
-        i0();
+        f0();
     }
 
-    public void m0() {
+    public void i0() {
         e.a().removeCallbacks(this.E0);
     }
 
@@ -117,13 +117,13 @@ public class FrameAnimationView extends TbImageView {
         if (this.C0) {
             return;
         }
-        l0();
+        h0();
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        m0();
+        i0();
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
@@ -137,13 +137,13 @@ public class FrameAnimationView extends TbImageView {
         canvas.drawBitmap(this.x0, this.y0, this.z0, (Paint) null);
     }
 
-    public void setData(List<String> list, int i) {
+    public void setData(List<String> list, int i2) {
         if (list == null) {
             return;
         }
         this.C0 = false;
-        this.B0 = i;
-        if (j0(list)) {
+        this.B0 = i2;
+        if (g0(list)) {
             return;
         }
         e.a().removeCallbacks(this.E0);
@@ -169,11 +169,11 @@ public class FrameAnimationView extends TbImageView {
             return;
         }
         this.C0 = true;
-        W(str, 10, false);
+        V(str, 10, false);
     }
 
-    public FrameAnimationView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public FrameAnimationView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.w0 = 0;
         this.y0 = new Rect();
         this.z0 = new Rect();

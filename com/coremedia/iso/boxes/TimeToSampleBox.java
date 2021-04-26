@@ -14,17 +14,17 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TimeToSampleBox extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE = "stts";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
     public static Map<List<Entry>, SoftReference<long[]>> cache;
     public List<Entry> entries;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         public long count;
         public long delta;
@@ -82,13 +82,13 @@ public class TimeToSampleBox extends AbstractFullBox {
                     j += entry.getCount();
                 }
                 long[] jArr2 = new long[(int) j];
-                int i = 0;
+                int i2 = 0;
                 for (Entry entry2 : list) {
-                    int i2 = 0;
-                    while (i2 < entry2.getCount()) {
-                        jArr2[i] = entry2.getDelta();
+                    int i3 = 0;
+                    while (i3 < entry2.getCount()) {
+                        jArr2[i2] = entry2.getDelta();
+                        i3++;
                         i2++;
-                        i++;
                     }
                 }
                 cache.put(list, new SoftReference<>(jArr2));
@@ -103,7 +103,7 @@ public class TimeToSampleBox extends AbstractFullBox {
         parseVersionAndFlags(byteBuffer);
         int l2i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
         this.entries = new ArrayList(l2i);
-        for (int i = 0; i < l2i; i++) {
+        for (int i2 = 0; i2 < l2i; i2++) {
             this.entries.add(new Entry(IsoTypeReader.readUInt32(byteBuffer), IsoTypeReader.readUInt32(byteBuffer)));
         }
     }

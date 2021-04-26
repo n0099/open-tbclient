@@ -6,88 +6,88 @@ import java.util.Arrays;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f33802a = Charset.forName("ISO-8859-1");
+    public static final Charset f32815a = Charset.forName("ISO-8859-1");
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int[] f33805c;
+        public static final int[] f32818c;
 
         /* renamed from: e  reason: collision with root package name */
-        public final boolean f33807e;
+        public final boolean f32820e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f33808f;
+        public final boolean f32821f;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f33803a = new a(false, false);
+        public static final a f32816a = new a(false, false);
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f33804b = new a(true, false);
+        public static final a f32817b = new a(true, false);
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int[] f33806d = new int[256];
+        public static final int[] f32819d = new int[256];
 
         static {
             int[] iArr = new int[256];
-            f33805c = iArr;
+            f32818c = iArr;
             Arrays.fill(iArr, -1);
-            for (int i = 0; i < b.f33812d.length; i++) {
-                f33805c[b.f33812d[i]] = i;
+            for (int i2 = 0; i2 < b.f32825d.length; i2++) {
+                f32818c[b.f32825d[i2]] = i2;
             }
-            f33805c[61] = -2;
-            Arrays.fill(f33806d, -1);
-            for (int i2 = 0; i2 < b.f33813e.length; i2++) {
-                f33806d[b.f33813e[i2]] = i2;
+            f32818c[61] = -2;
+            Arrays.fill(f32819d, -1);
+            for (int i3 = 0; i3 < b.f32826e.length; i3++) {
+                f32819d[b.f32826e[i3]] = i3;
             }
-            f33806d[61] = -2;
+            f32819d[61] = -2;
         }
 
         public a(boolean z, boolean z2) {
-            this.f33807e = z;
-            this.f33808f = z2;
+            this.f32820e = z;
+            this.f32821f = z2;
         }
 
-        private int a(byte[] bArr, int i, int i2) {
-            int i3;
-            int[] iArr = this.f33807e ? f33806d : f33805c;
-            int i4 = i2 - i;
-            int i5 = 0;
-            if (i4 == 0) {
+        private int a(byte[] bArr, int i2, int i3) {
+            int i4;
+            int[] iArr = this.f32820e ? f32819d : f32818c;
+            int i5 = i3 - i2;
+            int i6 = 0;
+            if (i5 == 0) {
                 return 0;
             }
-            if (i4 < 2) {
-                if (this.f33808f && iArr[0] == -1) {
+            if (i5 < 2) {
+                if (this.f32821f && iArr[0] == -1) {
                     return 0;
                 }
                 throw new IllegalArgumentException("Input byte[] should at least have 2 bytes for base64 bytes");
             }
-            if (this.f33808f) {
-                int i6 = 0;
+            if (this.f32821f) {
+                int i7 = 0;
                 while (true) {
-                    if (i >= i2) {
+                    if (i2 >= i3) {
                         break;
                     }
-                    int i7 = i + 1;
-                    int i8 = bArr[i] & 255;
-                    if (i8 == 61) {
-                        i4 -= (i2 - i7) + 1;
+                    int i8 = i2 + 1;
+                    int i9 = bArr[i2] & 255;
+                    if (i9 == 61) {
+                        i5 -= (i3 - i8) + 1;
                         break;
                     }
-                    if (iArr[i8] == -1) {
-                        i6++;
+                    if (iArr[i9] == -1) {
+                        i7++;
                     }
-                    i = i7;
+                    i2 = i8;
                 }
-                i4 -= i6;
-            } else if (bArr[i2 - 1] == 61) {
-                i5 = bArr[i2 - 2] == 61 ? 2 : 1;
+                i5 -= i7;
+            } else if (bArr[i3 - 1] == 61) {
+                i6 = bArr[i3 - 2] == 61 ? 2 : 1;
             }
-            if (i5 == 0 && (i3 = i4 & 3) != 0) {
-                i5 = 4 - i3;
+            if (i6 == 0 && (i4 = i5 & 3) != 0) {
+                i6 = 4 - i4;
             }
-            return (((i4 + 3) / 4) * 3) - i5;
+            return (((i5 + 3) / 4) * 3) - i6;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:16:0x002c, code lost:
@@ -119,7 +119,7 @@ public class c {
             if (r12 >= r13) goto L39;
          */
         /* JADX WARN: Code restructure failed: missing block: B:41:0x00a3, code lost:
-            if (r10.f33808f == false) goto L38;
+            if (r10.f32821f == false) goto L38;
          */
         /* JADX WARN: Code restructure failed: missing block: B:42:0x00a5, code lost:
             r14 = r12 + 1;
@@ -145,49 +145,49 @@ public class c {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private int a(byte[] bArr, int i, int i2, byte[] bArr2) {
-            int[] iArr = this.f33807e ? f33806d : f33805c;
-            int i3 = 0;
-            int i4 = 18;
-            int i5 = 0;
+        private int a(byte[] bArr, int i2, int i3, byte[] bArr2) {
+            int[] iArr = this.f32820e ? f32819d : f32818c;
+            int i4 = 0;
+            int i5 = 18;
+            int i6 = 0;
             while (true) {
-                if (i >= i2) {
+                if (i2 >= i3) {
                     break;
                 }
-                int i6 = i + 1;
-                int i7 = iArr[bArr[i] & 255];
-                if (i7 >= 0) {
-                    int i8 = (i7 << i4) | i3;
-                    i4 -= 6;
-                    if (i4 < 0) {
-                        int i9 = i5 + 1;
-                        bArr2[i5] = (byte) (i8 >> 16);
-                        int i10 = i9 + 1;
-                        bArr2[i9] = (byte) (i8 >> 8);
-                        i5 = i10 + 1;
-                        bArr2[i10] = (byte) i8;
-                        i3 = 0;
-                        i4 = 18;
+                int i7 = i2 + 1;
+                int i8 = iArr[bArr[i2] & 255];
+                if (i8 >= 0) {
+                    int i9 = (i8 << i5) | i4;
+                    i5 -= 6;
+                    if (i5 < 0) {
+                        int i10 = i6 + 1;
+                        bArr2[i6] = (byte) (i9 >> 16);
+                        int i11 = i10 + 1;
+                        bArr2[i10] = (byte) (i9 >> 8);
+                        i6 = i11 + 1;
+                        bArr2[i11] = (byte) i9;
+                        i4 = 0;
+                        i5 = 18;
                     } else {
-                        i3 = i8;
+                        i4 = i9;
                     }
-                } else if (i7 == -2) {
-                    if (i4 == 6) {
-                        if (i6 != i2) {
-                            i = i6 + 1;
+                } else if (i8 == -2) {
+                    if (i5 == 6) {
+                        if (i7 != i3) {
+                            i2 = i7 + 1;
                         }
                         throw new IllegalArgumentException("Input byte array has wrong 4-byte ending unit");
                     }
-                    i = i6;
-                } else if (!this.f33808f) {
-                    throw new IllegalArgumentException("Illegal base64 character " + Integer.toString(bArr[i6 - 1], 16));
+                    i2 = i7;
+                } else if (!this.f32821f) {
+                    throw new IllegalArgumentException("Illegal base64 character " + Integer.toString(bArr[i7 - 1], 16));
                 }
-                i = i6;
+                i2 = i7;
             }
         }
 
         public byte[] a(String str) {
-            return a(str.getBytes(c.f33802a));
+            return a(str.getBytes(c.f32815a));
         }
 
         public byte[] a(byte[] bArr) {
@@ -202,129 +202,131 @@ public class c {
     public static class b {
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f33811c;
+        public static final b f32824c;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final byte[] f33814f;
+        public static final byte[] f32827f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final byte[] f33815g;
+        public final byte[] f32828g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f33816h;
-        public final boolean i;
+        public final int f32829h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public final boolean f32830i;
         public final boolean j;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f33809a = new b(false, null, -1, true);
+        public static final b f32822a = new b(false, null, -1, true);
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f33810b = new b(true, null, -1, false);
+        public static final b f32823b = new b(true, null, -1, false);
 
         /* renamed from: d  reason: collision with root package name */
-        public static final char[] f33812d = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+        public static final char[] f32825d = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
 
         /* renamed from: e  reason: collision with root package name */
-        public static final char[] f33813e = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_'};
+        public static final char[] f32826e = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_'};
 
         static {
             byte[] bArr = {13, 10};
-            f33814f = bArr;
-            f33811c = new b(false, bArr, 76, true);
+            f32827f = bArr;
+            f32824c = new b(false, bArr, 76, true);
         }
 
-        public b(boolean z, byte[] bArr, int i, boolean z2) {
-            this.i = z;
-            this.f33815g = bArr;
-            this.f33816h = i;
+        public b(boolean z, byte[] bArr, int i2, boolean z2) {
+            this.f32830i = z;
+            this.f32828g = bArr;
+            this.f32829h = i2;
             this.j = z2;
         }
 
-        private final int a(int i) {
-            int i2;
+        private final int a(int i2) {
+            int i3;
             if (this.j) {
-                i2 = ((i + 2) / 3) * 4;
+                i3 = ((i2 + 2) / 3) * 4;
             } else {
-                int i3 = i % 3;
-                i2 = ((i / 3) * 4) + (i3 == 0 ? 0 : i3 + 1);
+                int i4 = i2 % 3;
+                i3 = ((i2 / 3) * 4) + (i4 == 0 ? 0 : i4 + 1);
             }
-            int i4 = this.f33816h;
-            return i4 > 0 ? i2 + (((i2 - 1) / i4) * this.f33815g.length) : i2;
+            int i5 = this.f32829h;
+            return i5 > 0 ? i3 + (((i3 - 1) / i5) * this.f32828g.length) : i3;
         }
 
-        private int a(byte[] bArr, int i, int i2, byte[] bArr2) {
-            char[] cArr = this.i ? f33813e : f33812d;
-            int i3 = ((i2 - i) / 3) * 3;
-            int i4 = i + i3;
-            int i5 = this.f33816h;
-            if (i5 > 0 && i3 > (i5 / 4) * 3) {
-                i3 = (i5 / 4) * 3;
+        private int a(byte[] bArr, int i2, int i3, byte[] bArr2) {
+            char[] cArr = this.f32830i ? f32826e : f32825d;
+            int i4 = ((i3 - i2) / 3) * 3;
+            int i5 = i2 + i4;
+            int i6 = this.f32829h;
+            if (i6 > 0 && i4 > (i6 / 4) * 3) {
+                i4 = (i6 / 4) * 3;
             }
-            int i6 = 0;
-            while (i < i4) {
-                int min = Math.min(i + i3, i4);
-                int i7 = i;
-                int i8 = i6;
-                while (i7 < min) {
-                    int i9 = i7 + 1;
-                    int i10 = i9 + 1;
-                    int i11 = ((bArr[i7] & 255) << 16) | ((bArr[i9] & 255) << 8);
-                    int i12 = i10 + 1;
-                    int i13 = i11 | (bArr[i10] & 255);
-                    int i14 = i8 + 1;
-                    bArr2[i8] = (byte) cArr[(i13 >>> 18) & 63];
-                    int i15 = i14 + 1;
-                    bArr2[i14] = (byte) cArr[(i13 >>> 12) & 63];
+            int i7 = 0;
+            while (i2 < i5) {
+                int min = Math.min(i2 + i4, i5);
+                int i8 = i2;
+                int i9 = i7;
+                while (i8 < min) {
+                    int i10 = i8 + 1;
+                    int i11 = i10 + 1;
+                    int i12 = ((bArr[i8] & 255) << 16) | ((bArr[i10] & 255) << 8);
+                    int i13 = i11 + 1;
+                    int i14 = i12 | (bArr[i11] & 255);
+                    int i15 = i9 + 1;
+                    bArr2[i9] = (byte) cArr[(i14 >>> 18) & 63];
                     int i16 = i15 + 1;
-                    bArr2[i15] = (byte) cArr[(i13 >>> 6) & 63];
-                    i8 = i16 + 1;
-                    bArr2[i16] = (byte) cArr[i13 & 63];
-                    i7 = i12;
+                    bArr2[i15] = (byte) cArr[(i14 >>> 12) & 63];
+                    int i17 = i16 + 1;
+                    bArr2[i16] = (byte) cArr[(i14 >>> 6) & 63];
+                    i9 = i17 + 1;
+                    bArr2[i17] = (byte) cArr[i14 & 63];
+                    i8 = i13;
                 }
-                int i17 = ((min - i) / 3) * 4;
-                i6 += i17;
-                if (i17 == this.f33816h && min < i2) {
-                    byte[] bArr3 = this.f33815g;
+                int i18 = ((min - i2) / 3) * 4;
+                i7 += i18;
+                if (i18 == this.f32829h && min < i3) {
+                    byte[] bArr3 = this.f32828g;
                     int length = bArr3.length;
-                    int i18 = 0;
-                    while (i18 < length) {
-                        bArr2[i6] = bArr3[i18];
-                        i18++;
-                        i6++;
+                    int i19 = 0;
+                    while (i19 < length) {
+                        bArr2[i7] = bArr3[i19];
+                        i19++;
+                        i7++;
                     }
                 }
-                i = min;
+                i2 = min;
             }
-            if (i < i2) {
-                int i19 = i + 1;
-                int i20 = bArr[i] & 255;
-                int i21 = i6 + 1;
-                bArr2[i6] = (byte) cArr[i20 >> 2];
-                if (i19 == i2) {
-                    int i22 = i21 + 1;
-                    bArr2[i21] = (byte) cArr[(i20 << 4) & 63];
+            if (i2 < i3) {
+                int i20 = i2 + 1;
+                int i21 = bArr[i2] & 255;
+                int i22 = i7 + 1;
+                bArr2[i7] = (byte) cArr[i21 >> 2];
+                if (i20 == i3) {
+                    int i23 = i22 + 1;
+                    bArr2[i22] = (byte) cArr[(i21 << 4) & 63];
                     if (this.j) {
-                        int i23 = i22 + 1;
-                        bArr2[i22] = 61;
                         int i24 = i23 + 1;
                         bArr2[i23] = 61;
-                        return i24;
+                        int i25 = i24 + 1;
+                        bArr2[i24] = 61;
+                        return i25;
                     }
-                    return i22;
+                    return i23;
                 }
-                int i25 = bArr[i19] & 255;
-                int i26 = i21 + 1;
-                bArr2[i21] = (byte) cArr[((i20 << 4) & 63) | (i25 >> 4)];
-                int i27 = i26 + 1;
-                bArr2[i26] = (byte) cArr[(i25 << 2) & 63];
+                int i26 = bArr[i20] & 255;
+                int i27 = i22 + 1;
+                bArr2[i22] = (byte) cArr[((i21 << 4) & 63) | (i26 >> 4)];
+                int i28 = i27 + 1;
+                bArr2[i27] = (byte) cArr[(i26 << 2) & 63];
                 if (this.j) {
-                    int i28 = i27 + 1;
-                    bArr2[i27] = 61;
-                    return i28;
+                    int i29 = i28 + 1;
+                    bArr2[i28] = 61;
+                    return i29;
                 }
-                return i27;
+                return i28;
             }
-            return i6;
+            return i7;
         }
 
         public byte[] a(byte[] bArr) {
@@ -336,10 +338,10 @@ public class c {
     }
 
     public static b a() {
-        return b.f33809a;
+        return b.f32822a;
     }
 
     public static a b() {
-        return a.f33803a;
+        return a.f32816a;
     }
 }

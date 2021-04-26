@@ -9,18 +9,18 @@ import com.kwad.sdk.core.webview.jshandler.a;
 public class b extends com.kwad.sdk.draw.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f34975b;
+    public FrameLayout f33946b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public c f34976c;
+    public c f33947c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.b f34977d = new a.b() { // from class: com.kwad.sdk.draw.b.c.b.1
+    public a.b f33948d = new a.b() { // from class: com.kwad.sdk.draw.b.c.b.1
         @Override // com.kwad.sdk.core.webview.jshandler.a.b
-        public void a() {
-            if (((com.kwad.sdk.draw.a.a) b.this).f34906a.f34907a != null) {
-                ((com.kwad.sdk.draw.a.a) b.this).f34906a.f34907a.onAdClicked();
+        public void a(a.C0386a c0386a) {
+            if (((com.kwad.sdk.draw.a.a) b.this).f33875a.f33876a != null) {
+                ((com.kwad.sdk.draw.a.a) b.this).f33875a.f33876a.onAdClicked();
             }
         }
     };
@@ -28,31 +28,31 @@ public class b extends com.kwad.sdk.draw.a.a {
     @Override // com.kwad.sdk.draw.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        c cVar = ((com.kwad.sdk.draw.a.a) this).f34906a.f34913g;
-        this.f34976c = cVar;
+        c cVar = ((com.kwad.sdk.draw.a.a) this).f33875a.f33882g;
+        this.f33947c = cVar;
         if (cVar == null) {
             return;
         }
-        cVar.a(this.f34977d);
-        c cVar2 = this.f34976c;
-        FrameLayout frameLayout = this.f34975b;
-        com.kwad.sdk.draw.a.b bVar = ((com.kwad.sdk.draw.a.a) this).f34906a;
-        cVar2.a(frameLayout, bVar.f34908b, bVar.f34909c, bVar.f34910d);
-        this.f34976c.g();
+        cVar.a(this.f33948d);
+        c cVar2 = this.f33947c;
+        FrameLayout frameLayout = this.f33946b;
+        com.kwad.sdk.draw.a.b bVar = ((com.kwad.sdk.draw.a.a) this).f33875a;
+        cVar2.a(frameLayout, bVar.f33877b, bVar.f33878c, bVar.f33879d);
+        this.f33947c.c();
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public void b_() {
-        super.b_();
-        c cVar = this.f34976c;
-        if (cVar != null) {
-            cVar.i();
-        }
+    public void b() {
+        super.b();
+        this.f33946b = (FrameLayout) a(R.id.ksad_play_end_web_card_container);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f34975b = (FrameLayout) b(R.id.ksad_play_end_web_card_container);
+        c cVar = this.f33947c;
+        if (cVar != null) {
+            cVar.g();
+        }
     }
 }

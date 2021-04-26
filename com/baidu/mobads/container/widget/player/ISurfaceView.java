@@ -10,9 +10,9 @@ public interface ISurfaceView {
     public static final int DISPLAY_MODE_SCALE_ZOOM = 1;
     public static final int DISPLAY_MODE_SMART_PARENT = 0;
 
-    void onVideoSizeChanged(int i, int i2);
+    void onVideoSizeChanged(int i2, int i3);
 
-    void setDisplayMode(int i);
+    void setDisplayMode(int i2);
 
     void setEndSurface();
 }

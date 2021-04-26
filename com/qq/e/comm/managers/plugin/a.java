@@ -17,20 +17,20 @@ import java.util.Arrays;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f38681a;
+    public final File f36258a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f38682b;
+    public final File f36259b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38683c;
+    public String f36260c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38684d;
+    public int f36261d;
 
     public a(File file, File file2) {
-        this.f38681a = file;
-        this.f38682b = file2;
+        this.f36258a = file;
+        this.f36259b = file2;
     }
 
     public static boolean a(Context context, File file, File file2) {
@@ -53,8 +53,8 @@ public class a {
             byte[] bytes = CustomPkgConstants.getAssetPluginXorKey().getBytes(Charset.forName("UTF-8"));
             byte[] bArr = new byte[1024];
             int length = bytes.length;
-            int i = 0;
             int i2 = 0;
+            int i3 = 0;
             while (true) {
                 int read = open.read(bArr);
                 if (read <= 0) {
@@ -62,15 +62,15 @@ public class a {
                     fileOutputStream.close();
                     return true;
                 }
-                int i3 = 0;
-                while (i3 < read) {
-                    int i4 = i + 1;
-                    if (i >= 64) {
-                        bArr[i3] = (byte) (bArr[i3] ^ bytes[i2 % length]);
-                        i2++;
+                int i4 = 0;
+                while (i4 < read) {
+                    int i5 = i2 + 1;
+                    if (i2 >= 64) {
+                        bArr[i4] = (byte) (bArr[i4] ^ bytes[i3 % length]);
+                        i3++;
                     }
-                    i3++;
-                    i = i4;
+                    i4++;
+                    i2 = i5;
                 }
                 fileOutputStream.write(bArr, 0, read);
             }
@@ -87,18 +87,18 @@ public class a {
     public boolean a() {
         boolean z;
         try {
-            if (this.f38682b.exists() && this.f38681a.exists()) {
-                String[] split = StringUtil.readAll(this.f38682b).split("#####");
+            if (this.f36259b.exists() && this.f36258a.exists()) {
+                String[] split = StringUtil.readAll(this.f36259b).split("#####");
                 if (split.length == 2) {
                     String str = split[1];
                     int parseInteger = StringUtil.parseInteger(split[0], 0);
                     com.qq.e.comm.util.a a2 = com.qq.e.comm.util.a.a();
-                    File file = this.f38681a;
+                    File file = this.f36258a;
                     if (file != null && file.exists()) {
                         z = a2.b(str, Md5Util.encode(file));
                         if (z) {
-                            this.f38683c = str;
-                            this.f38684d = parseInteger;
+                            this.f36260c = str;
+                            this.f36261d = parseInteger;
                             return true;
                         }
                     }
@@ -118,14 +118,14 @@ public class a {
         if (file == null || file2 == null) {
             return false;
         }
-        return (file.equals(this.f38681a) || FileUtil.renameTo(this.f38681a, file)) && (file2.equals(this.f38682b) || FileUtil.renameTo(this.f38682b, file2));
+        return (file.equals(this.f36258a) || FileUtil.renameTo(this.f36258a, file)) && (file2.equals(this.f36259b) || FileUtil.renameTo(this.f36259b, file2));
     }
 
     public int b() {
-        return this.f38684d;
+        return this.f36261d;
     }
 
     public String c() {
-        return this.f38683c;
+        return this.f36260c;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.forumMember.bawu;
 
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.o0.a.d;
+import d.a.j0.o0.a.d;
 import tbclient.BawuTeam;
 import tbclient.GetBawuInfo.DataRes;
 import tbclient.GetBawuInfo.GetBawuInfoResIdl;
@@ -15,8 +15,8 @@ public class BawuTeamHttpResponseMessage extends TbHttpResponsedMessage {
     public int mIsPrivateForum;
     public ManagerApplyInfo mManagerApplyInfo;
 
-    public BawuTeamHttpResponseMessage(int i) {
-        super(i);
+    public BawuTeamHttpResponseMessage(int i2) {
+        super(i2);
         this.isNeedUpdateCache = false;
     }
 
@@ -42,7 +42,7 @@ public class BawuTeamHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
         if (this.isNeedUpdateCache) {
             BawuTeamRequestMessage bawuTeamRequestMessage = null;
             if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
@@ -57,7 +57,7 @@ public class BawuTeamHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         DataRes dataRes;
         GetBawuInfoResIdl getBawuInfoResIdl = (GetBawuInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBawuInfoResIdl.class);
         setError(getBawuInfoResIdl.error.errorno.intValue());

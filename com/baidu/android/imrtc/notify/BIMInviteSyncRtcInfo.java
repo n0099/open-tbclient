@@ -43,8 +43,8 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
         return this.mRtcUserId;
     }
 
-    public void setMediaType(int i) {
-        this.mMediaType = i;
+    public void setMediaType(int i2) {
+        this.mMediaType = i2;
     }
 
     public void setRtcAppId(String str) {
@@ -63,8 +63,8 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
         this.mRtcRoomToken = str;
     }
 
-    public void setRtcRoomType(int i) {
-        this.mRtcRoomType = i;
+    public void setRtcRoomType(int i2) {
+        this.mRtcRoomType = i2;
     }
 
     public void setRtcUserId(long j) {

@@ -57,8 +57,8 @@ public class IMConnectParams {
         return this.isLogin;
     }
 
-    public void setAccountType(int i) {
-        this.accountType = i;
+    public void setAccountType(int i2) {
+        this.accountType = i2;
     }
 
     public void setAppId(String str) {
@@ -81,8 +81,8 @@ public class IMConnectParams {
         this.other = obj;
     }
 
-    public void setPl(int i) {
-        this.pl = i;
+    public void setPl(int i2) {
+        this.pl = i2;
     }
 
     public void setUid(String str) {

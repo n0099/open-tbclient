@@ -12,9 +12,7 @@ public final class SystemProperties {
 
     static {
         String property = System.getProperty("line.separator");
-        if (property == null) {
-            Intrinsics.throwNpe();
-        }
+        Intrinsics.checkNotNull(property);
         LINE_SEPARATOR = property;
     }
 }

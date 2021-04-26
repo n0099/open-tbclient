@@ -10,36 +10,38 @@ import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
-import d.b.h.b.e.b;
+import d.a.h.b.e.b;
 import java.io.File;
 /* loaded from: classes.dex */
 public final class BdZeusDownloadHelper {
 
     /* renamed from: g  reason: collision with root package name */
-    public static BdZeusDownloadHelper f4366g = null;
+    public static BdZeusDownloadHelper f4444g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f4367h = null;
-    public static String i = null;
+    public static String f4445h = null;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static String f4446i = null;
     public static String j = "com.baidu.android.appswitchsdk:web";
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f4368a;
+    public Context f4447a;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4370c;
+    public int f4449c;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f4372e;
+    public long f4451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f4373f;
+    public long f4452f;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4369b = "";
+    public String f4448b = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4371d = "";
+    public String f4450d = "";
 
     /* loaded from: classes.dex */
     public class ZeusDownloadTaskListener implements BdSailorClient.IDownloadTaskListener {
@@ -49,14 +51,14 @@ public final class BdZeusDownloadHelper {
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
         @Keep
         public void onDownloadCancel(String str, long j, long j2, String str2) {
-            BdZeusDownloadHelper.this.f4370c = a.f4379f;
+            BdZeusDownloadHelper.this.f4449c = a.f4458f;
             Log.i(EngineManager.LOG_TAG, "onDownloadCancel");
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
         @Keep
         public void onDownloadFail(String str, long j, String str2, String str3) {
-            BdZeusDownloadHelper.this.f4370c = a.f4378e;
+            BdZeusDownloadHelper.this.f4449c = a.f4457e;
             Log.i(EngineManager.LOG_TAG, "onDownloadFail");
             BdZeusDownloadHelper.this.e("");
         }
@@ -64,46 +66,46 @@ public final class BdZeusDownloadHelper {
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
         @Keep
         public void onDownloadPause(String str, long j, long j2, String str2) {
-            BdZeusDownloadHelper.this.f4370c = a.f4375b;
+            BdZeusDownloadHelper.this.f4449c = a.f4454b;
             Log.i(EngineManager.LOG_TAG, "onDownloadPause");
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
         @Keep
         public void onDownloadStart(String str, long j, String str2) {
-            BdZeusDownloadHelper.this.f4370c = a.f4374a;
+            BdZeusDownloadHelper.this.f4449c = a.f4453a;
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
         @Keep
         public void onDownloadSuccess(String str, String str2, long j) {
-            BdZeusDownloadHelper.this.f4370c = a.f4377d;
+            BdZeusDownloadHelper.this.f4449c = a.f4456d;
             Log.i(EngineManager.LOG_TAG, "aKey:" + str + ", aFilelength:" + j);
             Log.i(EngineManager.LOG_TAG, "onDownloadSuccess");
-            if (TextUtils.isEmpty(BdZeusDownloadHelper.i)) {
+            if (TextUtils.isEmpty(BdZeusDownloadHelper.f4446i)) {
                 return;
             }
             BdZeusDownloadHelper.this.e("");
-            File file = new File(BdZeusDownloadHelper.i);
+            File file = new File(BdZeusDownloadHelper.f4446i);
             if (!file.exists()) {
                 Log.e("Apk file is not exist.");
-                if (TextUtils.isEmpty(BdZeusDownloadHelper.this.f4369b)) {
+                if (TextUtils.isEmpty(BdZeusDownloadHelper.this.f4448b)) {
                     return;
                 }
                 BdZeusDownloadHelper bdZeusDownloadHelper = BdZeusDownloadHelper.this;
-                bdZeusDownloadHelper.f(bdZeusDownloadHelper.f4369b, BdZeusDownloadHelper.this.f4371d);
+                bdZeusDownloadHelper.f(bdZeusDownloadHelper.f4448b, BdZeusDownloadHelper.this.f4450d);
             } else if (file.length() != j) {
                 Log.e("Apk file download failed: wrong size");
                 file.delete();
-                if (TextUtils.isEmpty(BdZeusDownloadHelper.this.f4369b)) {
+                if (TextUtils.isEmpty(BdZeusDownloadHelper.this.f4448b)) {
                     return;
                 }
                 BdZeusDownloadHelper bdZeusDownloadHelper2 = BdZeusDownloadHelper.this;
-                bdZeusDownloadHelper2.f(bdZeusDownloadHelper2.f4369b, BdZeusDownloadHelper.this.f4371d);
+                bdZeusDownloadHelper2.f(bdZeusDownloadHelper2.f4448b, BdZeusDownloadHelper.this.f4450d);
             } else {
                 Log.i(EngineManager.LOG_TAG, " begine check md5");
-                String a2 = b.a(BdZeusDownloadHelper.i);
-                if (a2 == null || !a2.equalsIgnoreCase(BdZeusDownloadHelper.this.f4371d)) {
+                String a2 = b.a(BdZeusDownloadHelper.f4446i);
+                if (a2 == null || !a2.equalsIgnoreCase(BdZeusDownloadHelper.this.f4450d)) {
                     Log.i(EngineManager.LOG_TAG, " check md5 failed ");
                     return;
                 }
@@ -112,7 +114,7 @@ public final class BdZeusDownloadHelper {
                     BdSailorPlatform.getStatic().c("download-webkit-end", String.valueOf(System.currentTimeMillis()));
                     BdSailorPlatform.getStatic().a();
                 }
-                BdSailorPlatform.getWebkitManager().installZeusFromDownload(BdZeusDownloadHelper.i);
+                BdSailorPlatform.getWebkitManager().installZeusFromDownload(BdZeusDownloadHelper.f4446i);
             }
         }
 
@@ -120,9 +122,9 @@ public final class BdZeusDownloadHelper {
         @Keep
         public void onDownloading(String str, long j, long j2) {
             BdZeusDownloadHelper bdZeusDownloadHelper = BdZeusDownloadHelper.this;
-            bdZeusDownloadHelper.f4372e += j;
-            bdZeusDownloadHelper.f4373f = j2;
-            bdZeusDownloadHelper.f4370c = a.f4374a;
+            bdZeusDownloadHelper.f4451e += j;
+            bdZeusDownloadHelper.f4452f = j2;
+            bdZeusDownloadHelper.f4449c = a.f4453a;
         }
     }
 
@@ -132,56 +134,56 @@ public final class BdZeusDownloadHelper {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f4374a = 1;
+        public static final int f4453a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f4375b = 2;
+        public static final int f4454b = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f4376c = 3;
+        public static final int f4455c = 3;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int f4377d = 4;
+        public static final int f4456d = 4;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final int f4378e = 5;
+        public static final int f4457e = 5;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final int f4379f = 6;
+        public static final int f4458f = 6;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final int f4380g = 7;
+        public static final int f4459g = 7;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final /* synthetic */ int[] f4381h = {1, 2, 3, 4, 5, 6, 7};
+        public static final /* synthetic */ int[] f4460h = {1, 2, 3, 4, 5, 6, 7};
     }
 
     public BdZeusDownloadHelper(Context context) {
-        this.f4368a = context;
-        int i2 = a.f4376c;
+        this.f4447a = context;
+        int i2 = a.f4455c;
         if (context != null) {
-            f4367h = this.f4368a.getExternalFilesDir("").getAbsolutePath() + "/baidu/zeus/";
-            i = f4367h + "updateZeus.zes";
+            f4445h = this.f4447a.getExternalFilesDir("").getAbsolutePath() + "/baidu/zeus/";
+            f4446i = f4445h + "updateZeus.zes";
         }
     }
 
     public static BdZeusDownloadHelper b(Context context) {
-        if (f4366g == null) {
+        if (f4444g == null) {
             synchronized (BdZeusDownloadHelper.class) {
-                if (f4366g == null) {
-                    f4366g = new BdZeusDownloadHelper(context);
+                if (f4444g == null) {
+                    f4444g = new BdZeusDownloadHelper(context);
                 }
             }
         }
-        return f4366g;
+        return f4444g;
     }
 
     public static void d() {
-        if (TextUtils.isEmpty(i)) {
+        if (TextUtils.isEmpty(f4446i)) {
             return;
         }
         try {
-            File file = new File(i);
+            File file = new File(f4446i);
             if (!file.exists() || file.delete()) {
                 return;
             }
@@ -191,14 +193,14 @@ public final class BdZeusDownloadHelper {
     }
 
     public final void e(String str) {
-        SharedPreferences.Editor edit = this.f4368a.getSharedPreferences(j, 0).edit();
+        SharedPreferences.Editor edit = this.f4447a.getSharedPreferences(j, 0).edit();
         edit.putString("zeus_download_id", str);
         edit.commit();
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(f4367h)) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(f4445h)) {
             return;
         }
         try {
-            File file = new File(f4367h);
+            File file = new File(f4445h);
             if (file.exists()) {
                 for (File file2 : file.listFiles()) {
                     file2.delete();
@@ -214,19 +216,19 @@ public final class BdZeusDownloadHelper {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f4369b = str;
-        this.f4371d = str2;
-        if (TextUtils.isEmpty(this.f4368a.getSharedPreferences(j, 0).getString("zeus_download_id", ""))) {
+        this.f4448b = str;
+        this.f4450d = str2;
+        if (TextUtils.isEmpty(this.f4447a.getSharedPreferences(j, 0).getString("zeus_download_id", ""))) {
             StringBuilder sb = new StringBuilder();
             sb.append(System.currentTimeMillis());
             e(sb.toString());
         }
         try {
             BdSailorClient sailorClient = BdSailor.getInstance().getSailorClient();
-            if (sailorClient == null || TextUtils.isEmpty(f4367h)) {
+            if (sailorClient == null || TextUtils.isEmpty(f4445h)) {
                 return;
             }
-            sailorClient.onDownloadTask(this.f4369b, "", f4367h, "updateZeus.zes", BdSailorClient.DownloadTaskType.ZEUS, new ZeusDownloadTaskListener());
+            sailorClient.onDownloadTask(this.f4448b, "", f4445h, "updateZeus.zes", BdSailorClient.DownloadTaskType.ZEUS, new ZeusDownloadTaskListener());
         } catch (Throwable th) {
             th.printStackTrace();
         }

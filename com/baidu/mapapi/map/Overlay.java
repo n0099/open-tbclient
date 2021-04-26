@@ -21,12 +21,12 @@ public abstract class Overlay {
         void b(Overlay overlay);
     }
 
-    public static void a(int i, Bundle bundle) {
+    public static void a(int i2, Bundle bundle) {
         Bundle bundle2 = new Bundle();
-        bundle2.putFloat("red", ((i >> 16) & 255) / 255.0f);
-        bundle2.putFloat("green", ((i >> 8) & 255) / 255.0f);
-        bundle2.putFloat("blue", (i & 255) / 255.0f);
-        bundle2.putFloat("alpha", (i >>> 24) / 255.0f);
+        bundle2.putFloat("red", ((i2 >> 16) & 255) / 255.0f);
+        bundle2.putFloat("green", ((i2 >> 8) & 255) / 255.0f);
+        bundle2.putFloat("blue", (i2 & 255) / 255.0f);
+        bundle2.putFloat("alpha", (i2 >>> 24) / 255.0f);
         bundle.putBundle("color", bundle2);
     }
 
@@ -34,10 +34,10 @@ public abstract class Overlay {
         int size = list.size();
         double[] dArr = new double[size];
         double[] dArr2 = new double[size];
-        for (int i = 0; i < size; i++) {
-            GeoPoint ll2mc = CoordUtil.ll2mc(list.get(i));
-            dArr[i] = ll2mc.getLongitudeE6();
-            dArr2[i] = ll2mc.getLatitudeE6();
+        for (int i2 = 0; i2 < size; i2++) {
+            GeoPoint ll2mc = CoordUtil.ll2mc(list.get(i2));
+            dArr[i2] = ll2mc.getLongitudeE6();
+            dArr2[i2] = ll2mc.getLatitudeE6();
         }
         bundle.putDoubleArray("x_array", dArr);
         bundle.putDoubleArray("y_array", dArr2);
@@ -83,8 +83,8 @@ public abstract class Overlay {
         this.listener.b(this);
     }
 
-    public void setZIndex(int i) {
-        this.w = i;
+    public void setZIndex(int i2) {
+        this.w = i2;
         this.listener.b(this);
     }
 }

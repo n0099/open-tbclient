@@ -6,7 +6,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractSampleEntry extends AbstractContainerBox implements SampleEntry {
     public int dataReferenceIndex;
 
@@ -27,7 +27,7 @@ public abstract class AbstractSampleEntry extends AbstractContainerBox implement
     public abstract void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException;
 
     @Override // com.coremedia.iso.boxes.sampleentry.SampleEntry
-    public void setDataReferenceIndex(int i) {
-        this.dataReferenceIndex = i;
+    public void setDataReferenceIndex(int i2) {
+        this.dataReferenceIndex = i2;
     }
 }

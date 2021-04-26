@@ -8,19 +8,19 @@ public class d {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static d f25448a = new d();
+        public static d f26222a = new d();
     }
 
     public static d a() {
-        return a.f25448a;
+        return a.f26222a;
     }
 
     public d() {
     }
 
-    public e a(int i, AuthorizeSignActivity authorizeSignActivity) {
-        if (i != 1) {
-            if (i != 2) {
+    public e a(int i2, AuthorizeSignActivity authorizeSignActivity) {
+        if (i2 != 1) {
+            if (i2 != 2) {
                 return null;
             }
             return new c(authorizeSignActivity);

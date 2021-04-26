@@ -10,14 +10,14 @@ public enum b {
     
 
     /* renamed from: g  reason: collision with root package name */
-    public String f29213g;
+    public String f30109g;
 
     b(String str) {
-        this.f29213g = str;
+        this.f30109g = str;
     }
 
     @Override // java.lang.Enum
     public String toString() {
-        return this.f29213g;
+        return this.f30109g;
     }
 }

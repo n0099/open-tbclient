@@ -8,18 +8,18 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
 
     @ThreadSafe
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class FirstAvailableDataSource extends AbstractDataSource<T> {
         public int mIndex = 0;
         public DataSource<T> mCurrentDataSource = null;
         public DataSource<T> mDataSourceWithResult = null;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
             public InternalDataSubscriber() {
             }
@@ -80,9 +80,9 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
                 return null;
             }
             List list = FirstAvailableDataSourceSupplier.this.mDataSourceSuppliers;
-            int i = this.mIndex;
-            this.mIndex = i + 1;
-            return (Supplier) list.get(i);
+            int i2 = this.mIndex;
+            this.mIndex = i2 + 1;
+            return (Supplier) list.get(i2);
         }
 
         private void maybeSetDataSourceWithResult(DataSource<T> dataSource, boolean z) {

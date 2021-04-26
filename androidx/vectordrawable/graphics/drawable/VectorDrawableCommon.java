@@ -1,7 +1,6 @@
 package androidx.vectordrawable.graphics.drawable;
 
 import android.content.res.Resources;
-import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.Region;
@@ -28,15 +27,6 @@ public abstract class VectorDrawableCommon extends Drawable implements TintAware
         } else {
             super.clearColorFilter();
         }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public ColorFilter getColorFilter() {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            return DrawableCompat.getColorFilter(drawable);
-        }
-        return null;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -112,31 +102,31 @@ public abstract class VectorDrawableCommon extends Drawable implements TintAware
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean onLevelChange(int i) {
+    public boolean onLevelChange(int i2) {
         Drawable drawable = this.mDelegateDrawable;
         if (drawable != null) {
-            return drawable.setLevel(i);
+            return drawable.setLevel(i2);
         }
-        return super.onLevelChange(i);
+        return super.onLevelChange(i2);
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setChangingConfigurations(int i) {
+    public void setChangingConfigurations(int i2) {
         Drawable drawable = this.mDelegateDrawable;
         if (drawable != null) {
-            drawable.setChangingConfigurations(i);
+            drawable.setChangingConfigurations(i2);
         } else {
-            super.setChangingConfigurations(i);
+            super.setChangingConfigurations(i2);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(int i, PorterDuff.Mode mode) {
+    public void setColorFilter(int i2, PorterDuff.Mode mode) {
         Drawable drawable = this.mDelegateDrawable;
         if (drawable != null) {
-            drawable.setColorFilter(i, mode);
+            drawable.setColorFilter(i2, mode);
         } else {
-            super.setColorFilter(i, mode);
+            super.setColorFilter(i2, mode);
         }
     }
 
@@ -157,10 +147,10 @@ public abstract class VectorDrawableCommon extends Drawable implements TintAware
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setHotspotBounds(int i, int i2, int i3, int i4) {
+    public void setHotspotBounds(int i2, int i3, int i4, int i5) {
         Drawable drawable = this.mDelegateDrawable;
         if (drawable != null) {
-            DrawableCompat.setHotspotBounds(drawable, i, i2, i3, i4);
+            DrawableCompat.setHotspotBounds(drawable, i2, i3, i4, i5);
         }
     }
 

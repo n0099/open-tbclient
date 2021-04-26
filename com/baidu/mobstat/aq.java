@@ -8,76 +8,78 @@ import org.json.JSONObject;
 public class aq {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8529a;
+    public String f8833a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8530b;
+    public String f8834b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONArray f8531c;
+    public JSONArray f8835c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8532d;
+    public String f8836d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8533e;
+    public String f8837e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f8534f;
+    public String f8838f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f8535g;
+    public boolean f8839g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f8536h;
-    public long i;
+    public long f8840h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public long f8841i;
     public long j;
     public int k;
     public String l;
     public String m;
 
-    public aq(String str, String str2, JSONArray jSONArray, String str3, String str4, String str5, boolean z, int i, long j, long j2, long j3, String str6, String str7) {
-        this.f8529a = str;
-        this.f8530b = str2;
-        this.f8531c = jSONArray;
-        this.f8532d = str3;
-        this.f8533e = str4;
-        this.f8534f = str5;
-        this.f8535g = z;
-        this.k = i;
-        this.f8536h = j;
-        this.i = j2;
+    public aq(String str, String str2, JSONArray jSONArray, String str3, String str4, String str5, boolean z, int i2, long j, long j2, long j3, String str6, String str7) {
+        this.f8833a = str;
+        this.f8834b = str2;
+        this.f8835c = jSONArray;
+        this.f8836d = str3;
+        this.f8837e = str4;
+        this.f8838f = str5;
+        this.f8839g = z;
+        this.k = i2;
+        this.f8840h = j;
+        this.f8841i = j2;
         this.j = j3;
         this.l = str6;
         this.m = str7;
     }
 
     public String a() {
-        return this.f8529a;
+        return this.f8833a;
     }
 
     public String b() {
-        return this.f8530b;
+        return this.f8834b;
     }
 
     public JSONArray c() {
-        return this.f8531c;
+        return this.f8835c;
     }
 
     public String d() {
-        return this.f8532d;
+        return this.f8836d;
     }
 
     public String e() {
-        return this.f8533e;
+        return this.f8837e;
     }
 
     public String f() {
-        return this.f8534f;
+        return this.f8838f;
     }
 
     public boolean g() {
-        return this.f8535g;
+        return this.f8839g;
     }
 
     public int h() {
@@ -85,11 +87,11 @@ public class aq {
     }
 
     public long i() {
-        return this.f8536h;
+        return this.f8840h;
     }
 
     public long j() {
-        return this.i;
+        return this.f8841i;
     }
 
     public long k() {
@@ -100,8 +102,8 @@ public class aq {
         return this.l;
     }
 
-    public void a(int i) {
-        this.k = i;
+    public void a(int i2) {
+        this.k = i2;
     }
 
     public void b(long j) {
@@ -109,7 +111,7 @@ public class aq {
     }
 
     public void a(long j) {
-        this.i = j;
+        this.f8841i = j;
     }
 
     public void b(String str) {
@@ -121,22 +123,22 @@ public class aq {
     }
 
     public JSONObject a(String str, String str2, String str3) {
-        String a2 = a(this.f8529a, this.f8530b, this.f8531c, this.f8532d, this.f8533e, this.f8534f, this.f8535g);
+        String a2 = a(this.f8833a, this.f8834b, this.f8835c, this.f8836d, this.f8837e, this.f8838f, this.f8839g);
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("id", this.f8529a);
+            jSONObject.put("id", this.f8833a);
             jSONObject.put("d", this.l);
             jSONObject.put("p", str);
             jSONObject.put("path", str3);
-            jSONObject.put("title", this.f8532d);
-            jSONObject.put("index", this.f8533e);
+            jSONObject.put("title", this.f8836d);
+            jSONObject.put("index", this.f8837e);
             jSONObject.put("n", str2);
-            jSONObject.put("user", this.f8535g ? 1 : 0);
+            jSONObject.put("user", this.f8839g ? 1 : 0);
             jSONObject.put("c", this.k);
-            jSONObject.put("t", this.f8536h);
+            jSONObject.put("t", this.f8840h);
             jSONObject.put("ps", this.m);
             jSONObject.put("sign", a2);
             return jSONObject;

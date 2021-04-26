@@ -29,8 +29,8 @@ public class AnimatorUtils {
         ArrayList<Animator.AnimatorListener> listeners = animator.getListeners();
         if (listeners != null) {
             int size = listeners.size();
-            for (int i = 0; i < size; i++) {
-                Animator.AnimatorListener animatorListener = listeners.get(i);
+            for (int i2 = 0; i2 < size; i2++) {
+                Animator.AnimatorListener animatorListener = listeners.get(i2);
                 if (animatorListener instanceof AnimatorPauseListenerCompat) {
                     ((AnimatorPauseListenerCompat) animatorListener).onAnimationPause(animator);
                 }
@@ -46,8 +46,8 @@ public class AnimatorUtils {
         ArrayList<Animator.AnimatorListener> listeners = animator.getListeners();
         if (listeners != null) {
             int size = listeners.size();
-            for (int i = 0; i < size; i++) {
-                Animator.AnimatorListener animatorListener = listeners.get(i);
+            for (int i2 = 0; i2 < size; i2++) {
+                Animator.AnimatorListener animatorListener = listeners.get(i2);
                 if (animatorListener instanceof AnimatorPauseListenerCompat) {
                     ((AnimatorPauseListenerCompat) animatorListener).onAnimationResume(animator);
                 }

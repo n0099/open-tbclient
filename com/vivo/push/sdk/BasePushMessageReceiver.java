@@ -11,7 +11,7 @@ import com.vivo.push.model.UnvarnishedMessage;
 import com.vivo.push.util.p;
 import com.vivo.push.util.s;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class BasePushMessageReceiver extends BroadcastReceiver implements PushMessageCallback {
     public static final String TAG = "PushMessageReceiver";
 
@@ -37,27 +37,27 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onBind(Context context, int i, String str) {
+    public void onBind(Context context, int i2, String str) {
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onDelAlias(Context context, int i, List<String> list, List<String> list2, String str) {
+    public void onDelAlias(Context context, int i2, List<String> list, List<String> list2, String str) {
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onDelTags(Context context, int i, List<String> list, List<String> list2, String str) {
+    public void onDelTags(Context context, int i2, List<String> list, List<String> list2, String str) {
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onListTags(Context context, int i, List<String> list, String str) {
+    public void onListTags(Context context, int i2, List<String> list, String str) {
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onLog(Context context, String str, int i, boolean z) {
+    public void onLog(Context context, String str, int i2, boolean z) {
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onPublish(Context context, int i, String str) {
+    public void onPublish(Context context, int i2, String str) {
     }
 
     @Override // android.content.BroadcastReceiver
@@ -79,11 +79,11 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onSetAlias(Context context, int i, List<String> list, List<String> list2, String str) {
+    public void onSetAlias(Context context, int i2, List<String> list, List<String> list2, String str) {
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onSetTags(Context context, int i, List<String> list, List<String> list2, String str) {
+    public void onSetTags(Context context, int i2, List<String> list, List<String> list2, String str) {
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback
@@ -91,6 +91,6 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onUnBind(Context context, int i, String str) {
+    public void onUnBind(Context context, int i2, String str) {
     }
 }

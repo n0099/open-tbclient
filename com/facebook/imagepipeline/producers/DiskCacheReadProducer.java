@@ -32,10 +32,10 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
 
     @VisibleForTesting
     @Nullable
-    public static Map<String, String> getExtraMap(ProducerListener producerListener, String str, boolean z, int i) {
+    public static Map<String, String> getExtraMap(ProducerListener producerListener, String str, boolean z, int i2) {
         if (producerListener.requiresExtraMap(str)) {
             if (z) {
-                return ImmutableMap.of("cached_value_found", String.valueOf(z), "encodedImageSize", String.valueOf(i));
+                return ImmutableMap.of("cached_value_found", String.valueOf(z), "encodedImageSize", String.valueOf(i2));
             }
             return ImmutableMap.of("cached_value_found", String.valueOf(z));
         }

@@ -9,7 +9,7 @@ import java.util.List;
 public class dg implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ df f40746a;
+    public final /* synthetic */ df f38263a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f232a;
@@ -18,7 +18,7 @@ public class dg implements Runnable {
     public final /* synthetic */ Throwable f233a;
 
     public dg(df dfVar, String str, Throwable th) {
-        this.f40746a = dfVar;
+        this.f38263a = dfVar;
         this.f232a = str;
         this.f233a = th;
     }
@@ -39,13 +39,13 @@ public class dg implements Runnable {
         List list6;
         list = df.f229a;
         simpleDateFormat = df.f228a;
-        str = this.f40746a.f40744b;
+        str = this.f38263a.f38261b;
         list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f232a), this.f233a));
         list2 = df.f229a;
         if (list2.size() > 20000) {
             list3 = df.f229a;
             int size = (list3.size() - 20000) + 50;
-            for (int i = 0; i < size; i++) {
+            for (int i2 = 0; i2 < size; i2++) {
                 try {
                     list5 = df.f229a;
                     if (list5.size() > 0) {
@@ -57,18 +57,18 @@ public class dg implements Runnable {
             }
             list4 = df.f229a;
             simpleDateFormat2 = df.f228a;
-            str4 = this.f40746a.f40744b;
+            str4 = this.f38263a.f38261b;
             list4.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat2.format(new Date()), str4, "flush " + size + " lines logs."), null));
         }
         try {
             if (aa.d()) {
-                this.f40746a.m229a();
+                this.f38263a.m232a();
                 return;
             }
-            str3 = this.f40746a.f40744b;
+            str3 = this.f38263a.f38261b;
             Log.w(str3, "SDCard is unavailable.");
         } catch (Exception e2) {
-            str2 = this.f40746a.f40744b;
+            str2 = this.f38263a.f38261b;
             Log.e(str2, "", e2);
         }
     }

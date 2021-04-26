@@ -9,10 +9,10 @@ import com.baidu.tieba.R;
 public class k implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f9659a;
+    public final /* synthetic */ c f10019a;
 
     public k(c cVar) {
-        this.f9659a = cVar;
+        this.f10019a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,15 +21,15 @@ public class k implements View.OnClickListener {
         Context context2;
         RelativeLayout relativeLayout;
         RelativeLayout relativeLayout2;
-        context = this.f9659a.l;
+        context = this.f10019a.l;
         if (context == null) {
             return;
         }
-        context2 = this.f9659a.l;
+        context2 = this.f10019a.l;
         Animation c2 = com.baidu.platform.comapi.wnplatform.o.a.a.c(context2, R.attr.SapiSdkDividerWidth);
-        relativeLayout = this.f9659a.G;
+        relativeLayout = this.f10019a.G;
         relativeLayout.setAnimation(c2);
-        relativeLayout2 = this.f9659a.G;
+        relativeLayout2 = this.f10019a.G;
         relativeLayout2.setVisibility(8);
     }
 }

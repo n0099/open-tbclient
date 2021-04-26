@@ -2,24 +2,24 @@ package com.cmic.sso.sdk.d;
 
 import android.text.TextUtils;
 import java.util.UUID;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f30488a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    public static char[] f31418a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static String a(byte[] bArr) {
         if (bArr == null) {
             return "";
         }
         char[] cArr = new char[bArr.length * 2];
-        int i = 0;
+        int i2 = 0;
         for (byte b2 : bArr) {
-            int i2 = i + 1;
-            char[] cArr2 = f30488a;
-            cArr[i] = cArr2[(b2 >>> 4) & 15];
-            i = i2 + 1;
-            cArr[i2] = cArr2[b2 & 15];
+            int i3 = i2 + 1;
+            char[] cArr2 = f31418a;
+            cArr[i2] = cArr2[(b2 >>> 4) & 15];
+            i2 = i3 + 1;
+            cArr[i3] = cArr2[b2 & 15];
         }
         return new String(cArr);
     }

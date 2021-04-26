@@ -52,7 +52,7 @@ public final class LogEx {
         println(4, str, str2);
     }
 
-    public static void println(int i, String str, String str2) {
+    public static void println(int i2, String str, String str2) {
         String str3;
         if (str != null) {
             if (str2 != null) {
@@ -60,17 +60,17 @@ public final class LogEx {
             } else {
                 str3 = MESSAGE_IS_EMPTY;
             }
-            printlnLargeString(i, str, str3);
+            printlnLargeString(i2, str, str3);
         }
     }
 
-    public static void printlnLargeString(int i, String str, String str2) {
+    public static void printlnLargeString(int i2, String str, String str2) {
         if (str2.length() > 1000) {
-            Log.println(i, str, str2.substring(0, 1000));
-            printlnLargeString(i, str, str2.substring(1000));
+            Log.println(i2, str, str2.substring(0, 1000));
+            printlnLargeString(i2, str, str2.substring(1000));
             return;
         }
-        Log.println(i, str, str2);
+        Log.println(i2, str, str2);
     }
 
     public static void v(String str, String str2) {

@@ -8,7 +8,7 @@ public interface HttpParams {
 
     double getDoubleParameter(String str, double d2);
 
-    int getIntParameter(String str, int i);
+    int getIntParameter(String str, int i2);
 
     long getLongParameter(String str, long j);
 
@@ -24,7 +24,7 @@ public interface HttpParams {
 
     HttpParams setDoubleParameter(String str, double d2);
 
-    HttpParams setIntParameter(String str, int i);
+    HttpParams setIntParameter(String str, int i2);
 
     HttpParams setLongParameter(String str, long j);
 

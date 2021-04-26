@@ -26,30 +26,30 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.views.ViewUtility;
-import d.b.y.a.b;
-import d.b.y.a.f;
-import d.b.y.a.g;
+import d.a.y.a.b;
+import d.a.y.a.f;
+import d.a.y.a.g;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class AccountCenterActivity extends SlideActiviy {
-    public static final String D = AccountCenterActivity.class.getSimpleName();
-    public static final String E = "AccountCenterActivity";
     public static final String EXTRA_LOAD_WEIXIN = "extra_load_weixin";
     public static final String EXTRA_WEIIXIN_BIND_URL = "extra_weixin_bind_url";
-    public String A;
-    public String B;
-    public AccountCenterResult C = new AccountCenterResult();
+    public static final String H = AccountCenterActivity.class.getSimpleName();
+    public static final String I = "AccountCenterActivity";
+    public List<PassNameValuePair> C;
+    public String D;
+    public String E;
+    public String F;
+    public AccountCenterResult G = new AccountCenterResult();
     public boolean mIsAccountCenterTitleBar = true;
-    public List<PassNameValuePair> y;
-    public String z;
 
     @Override // com.baidu.sapi2.activity.SlideActiviy
     public void finishActivityAfterSlideOver() {
-        if (E.equals(getClass().getSimpleName())) {
-            this.C.setResultCode(-301);
-            this.C.setResultMsg("您已取消操作");
-            a(this.C);
+        if (I.equals(getClass().getSimpleName())) {
+            this.G.setResultCode(-301);
+            this.G.setResultMsg("您已取消操作");
+            a(this.G);
             return;
         }
         super.finish();
@@ -65,16 +65,16 @@ public class AccountCenterActivity extends SlideActiviy {
         super.init();
         AccountCenterDTO accountCenterDTO = CoreViewRouter.getInstance().getAccountCenterDTO();
         if (accountCenterDTO == null) {
-            this.C.setResultCode(-204);
-            this.C.setResultMsg("参数错误，请稍后再试");
-            a(this.C);
+            this.G.setResultCode(-204);
+            this.G.setResultMsg("参数错误，请稍后再试");
+            a(this.G);
             return;
         }
-        this.z = accountCenterDTO.bduss;
-        this.A = accountCenterDTO.refer;
+        this.D = accountCenterDTO.bduss;
+        this.E = accountCenterDTO.refer;
         List<PassNameValuePair> list = accountCenterDTO.paramsList;
-        this.y = list;
-        this.B = accountCenterDTO.accountToolsUrl;
+        this.C = list;
+        this.F = accountCenterDTO.accountToolsUrl;
         if (list != null) {
             list.add(new PassNameValuePair(SlideActiviy.EXTRA_PARAMS_SLIDE_PAGE, "1"));
         }
@@ -101,7 +101,7 @@ public class AccountCenterActivity extends SlideActiviy {
                     if (sapiWebView == null) {
                         return;
                     }
-                    sapiWebView.loadAccountCenter(accountCenterActivity.y, null, AccountCenterActivity.this.A);
+                    sapiWebView.loadAccountCenter(accountCenterActivity.C, null, AccountCenterActivity.this.E);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -111,14 +111,14 @@ public class AccountCenterActivity extends SlideActiviy {
                         return;
                     }
                     AccountCenterActivity accountCenterActivity = AccountCenterActivity.this;
-                    accountCenterActivity.sapiWebView.loadAccountCenter(accountCenterActivity.y, getTplStokenResult.tplStokenMap.get("pp"), AccountCenterActivity.this.A);
+                    accountCenterActivity.sapiWebView.loadAccountCenter(accountCenterActivity.C, getTplStokenResult.tplStokenMap.get("pp"), AccountCenterActivity.this.E);
                 }
             }, str, arrayList);
             return;
         }
-        this.C.setResultCode(-204);
-        this.C.setResultMsg("参数错误，请稍后再试");
-        a(this.C);
+        this.G.setResultCode(-204);
+        this.G.setResultMsg("参数错误，请稍后再试");
+        a(this.G);
     }
 
     @Override // com.baidu.sapi2.activity.SlideActiviy
@@ -136,11 +136,11 @@ public class AccountCenterActivity extends SlideActiviy {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i == 1004 && i2 == -1) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i2 == 1004 && i3 == -1) {
             String stringExtra = intent.getStringExtra("bduss");
-            this.z = stringExtra;
+            this.D = stringExtra;
             loadAccountCenter(stringExtra);
             this.loginStatusChange = true;
         }
@@ -149,7 +149,7 @@ public class AccountCenterActivity extends SlideActiviy {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         super.onBottomBackBtnClick();
-        if (TextUtils.isEmpty(this.B)) {
+        if (TextUtils.isEmpty(this.F)) {
             this.sapiWebView.back();
             return;
         }
@@ -164,9 +164,9 @@ public class AccountCenterActivity extends SlideActiviy {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
-        this.C.setResultCode(-301);
-        this.C.setResultMsg("您已取消操作");
-        a(this.C);
+        this.G.setResultCode(-301);
+        this.G.setResultMsg("您已取消操作");
+        a(this.G);
     }
 
     @Override // com.baidu.sapi2.activity.SlideActiviy, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
@@ -178,9 +178,9 @@ public class AccountCenterActivity extends SlideActiviy {
             setupViews();
         } catch (Throwable th) {
             reportWebviewError(th);
-            this.C.setResultCode(-202);
-            this.C.setResultMsg("网络连接失败，请检查网络设置");
-            a(this.C);
+            this.G.setResultCode(-202);
+            this.G.setResultMsg("网络连接失败，请检查网络设置");
+            a(this.G);
         }
     }
 
@@ -190,12 +190,12 @@ public class AccountCenterActivity extends SlideActiviy {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i != 4) {
-            return super.onKeyDown(i, keyEvent);
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 != 4) {
+            return super.onKeyDown(i2, keyEvent);
         }
-        if (TextUtils.isEmpty(this.B)) {
-            this.sapiWebView.onKeyUp(i);
+        if (TextUtils.isEmpty(this.F)) {
+            this.sapiWebView.onKeyUp(i2);
             return true;
         }
         SapiWebView sapiWebView = this.sapiWebView;
@@ -211,7 +211,7 @@ public class AccountCenterActivity extends SlideActiviy {
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
         if (this.executeSubClassMethod) {
-            if (TextUtils.isEmpty(this.B)) {
+            if (TextUtils.isEmpty(this.F)) {
                 this.sapiWebView.back();
                 return;
             }
@@ -228,11 +228,11 @@ public class AccountCenterActivity extends SlideActiviy {
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        String str = D;
+        String str = H;
         Log.d(str, this + " onNewintent");
         if (AccountCenterActivity.class.getSimpleName().equals(getClass().getSimpleName())) {
             String stringExtra = intent == null ? "" : intent.getStringExtra("action");
-            String str2 = D;
+            String str2 = H;
             Log.d(str2, this + " slide action is " + stringExtra);
             if (SlideActiviy.SLIDE_ACTION_QUIT.equals(stringExtra)) {
                 finishActivityAfterSlideOver();
@@ -240,9 +240,9 @@ public class AccountCenterActivity extends SlideActiviy {
         }
     }
 
-    @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        super.onRequestPermissionsResult(i, strArr, iArr);
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(i2, strArr, iArr);
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
@@ -262,8 +262,8 @@ public class AccountCenterActivity extends SlideActiviy {
         });
         this.sapiWebView.setLeftBtnVisibleCallback(new SapiWebView.LeftBtnVisibleCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.2
             @Override // com.baidu.sapi2.SapiWebView.LeftBtnVisibleCallback
-            public void onLeftBtnVisible(int i) {
-                if (i == 0) {
+            public void onLeftBtnVisible(int i2) {
+                if (i2 == 0) {
                     AccountCenterActivity.this.setBtnVisibility(4, 4, 4);
                 } else {
                     AccountCenterActivity.this.setBtnVisibility(4, 0, 4);
@@ -279,9 +279,9 @@ public class AccountCenterActivity extends SlideActiviy {
                         @Override // com.baidu.sapi2.result.AccountCenterResult
                         public void loginSuc() {
                             super.loginSuc();
-                            AccountCenterActivity.this.z = SapiContext.getInstance().getCurrentAccount().bduss;
+                            AccountCenterActivity.this.D = SapiContext.getInstance().getCurrentAccount().bduss;
                             AccountCenterActivity accountCenterActivity = AccountCenterActivity.this;
-                            accountCenterActivity.loadAccountCenter(accountCenterActivity.z);
+                            accountCenterActivity.loadAccountCenter(accountCenterActivity.D);
                             AccountCenterActivity.this.loginStatusChange = true;
                         }
                     };
@@ -299,10 +299,10 @@ public class AccountCenterActivity extends SlideActiviy {
                 }
                 Intent intent = new Intent(AccountCenterActivity.this, LoginActivity.class);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
-                int i = result.switchAccountType;
-                if (i == 1) {
+                int i2 = result.switchAccountType;
+                if (i2 == 1) {
                     intent.putExtra("username", result.userName);
-                } else if (i == 2) {
+                } else if (i2 == 2) {
                     if (result.loginType == 0) {
                         intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME);
                     } else {
@@ -320,10 +320,10 @@ public class AccountCenterActivity extends SlideActiviy {
         this.sapiWebView.setCoverWebBdussCallback(new SapiWebView.CoverWebBdussCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.4
             @Override // com.baidu.sapi2.SapiWebView.CoverWebBdussCallback
             public void onCoverBduss(String str, SapiWebView.CoverWebBdussResult coverWebBdussResult) {
-                if (TextUtils.isEmpty(str) || str.equals(AccountCenterActivity.this.z)) {
+                if (TextUtils.isEmpty(str) || str.equals(AccountCenterActivity.this.D)) {
                     return;
                 }
-                coverWebBdussResult.setWebBduss(AccountCenterActivity.this.z);
+                coverWebBdussResult.setWebBduss(AccountCenterActivity.this.D);
             }
         });
         this.sapiWebView.setAccountDestoryCallback(new SapiWebView.AccountDestoryCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.5
@@ -369,31 +369,31 @@ public class AccountCenterActivity extends SlideActiviy {
         });
         this.sapiWebView.setAuthorizationListener(new AuthorizationListener() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.9
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-            public void onFailed(int i, String str) {
+            public void onFailed(int i2, String str) {
             }
 
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
             public void onSuccess(AccountType accountType) {
                 super.onSuccess(accountType);
-                AccountCenterActivity.this.C.setResultCode(AccountCenterResult.ERROR_CODE_LOGIN_SUCCESS);
+                AccountCenterActivity.this.G.setResultCode(AccountCenterResult.ERROR_CODE_LOGIN_SUCCESS);
                 AccountCenterActivity accountCenterActivity = AccountCenterActivity.this;
-                accountCenterActivity.a(accountCenterActivity.C);
+                accountCenterActivity.a(accountCenterActivity.G);
                 SapiAccountManager.getGlobalCallback().onLoginStatusChange();
             }
         });
         this.sapiWebView.setChangePwdCallback(new SapiWebView.ChangePwdCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.10
             @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
             public void onSuccess() {
-                AccountCenterActivity.this.C.setResultCode(AccountCenterResult.ERROR_CODE_LOGIN_SUCCESS);
+                AccountCenterActivity.this.G.setResultCode(AccountCenterResult.ERROR_CODE_LOGIN_SUCCESS);
                 AccountCenterActivity accountCenterActivity = AccountCenterActivity.this;
-                accountCenterActivity.a(accountCenterActivity.C);
+                accountCenterActivity.a(accountCenterActivity.G);
             }
         });
-        if (TextUtils.isEmpty(this.B)) {
+        if (TextUtils.isEmpty(this.F)) {
             setTitleText(g.sapi_sdk_title_account_center);
-            loadAccountCenter(this.z);
+            loadAccountCenter(this.D);
         } else {
-            this.sapiWebView.loadUrl(this.B);
+            this.sapiWebView.loadUrl(this.F);
         }
         if (this.mIsAccountCenterTitleBar) {
             this.dividerLine.setVisibility(8);

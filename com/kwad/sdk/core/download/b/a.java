@@ -4,64 +4,67 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.core.download.DOWNLOADSTAUS;
 import com.kwad.sdk.core.page.AdWebViewActivityProxy;
 import com.kwad.sdk.core.page.AdWebViewVideoActivityProxy;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.ao;
+import com.kwad.sdk.utils.an;
 /* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: com.kwad.sdk.core.download.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0396a {
+    public interface InterfaceC0376a {
         void a();
     }
 
-    public static void a(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC0396a interfaceC0396a, @Nullable b bVar) {
-        AdInfo j = com.kwad.sdk.core.response.b.c.j(adTemplate);
+    public static int a(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC0376a interfaceC0376a, @Nullable b bVar, boolean z) {
+        AdInfo g2 = com.kwad.sdk.core.response.b.c.g(adTemplate);
         com.kwad.sdk.home.download.a.a().a(true);
         if (d.a(context, adTemplate, 1) == 1) {
-            interfaceC0396a.a();
-        } else if (!com.kwad.sdk.core.response.b.a.y(j)) {
+            interfaceC0376a.a();
+            return 0;
+        } else if (!com.kwad.sdk.core.response.b.a.v(g2)) {
             AdWebViewActivityProxy.launch(context, adTemplate);
-            interfaceC0396a.a();
+            interfaceC0376a.a();
+            return 0;
         } else if (bVar != null) {
-            bVar.a(context);
-            DOWNLOADSTAUS downloadstaus = j.status;
-            if (downloadstaus == DOWNLOADSTAUS.DOWNLOADING || downloadstaus == DOWNLOADSTAUS.PROGRESS) {
-                return;
+            int a2 = bVar.a(context, z);
+            int i2 = g2.status;
+            if (i2 != 2 && i2 != 3) {
+                interfaceC0376a.a();
             }
-            interfaceC0396a.a();
+            return a2;
+        } else {
+            return 0;
         }
     }
 
-    public static void b(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC0396a interfaceC0396a, @Nullable b bVar) {
-        AdInfo j = com.kwad.sdk.core.response.b.c.j(adTemplate);
-        if (ao.a()) {
+    public static void b(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC0376a interfaceC0376a, @Nullable b bVar, boolean z) {
+        AdInfo g2 = com.kwad.sdk.core.response.b.c.g(adTemplate);
+        if (an.a()) {
             return;
         }
         if (d.a(context, adTemplate, 1) == 1) {
-            interfaceC0396a.a();
-        } else if (!com.kwad.sdk.core.response.b.a.y(j)) {
-            if (com.kwad.sdk.core.response.b.a.P(j)) {
+            interfaceC0376a.a();
+        } else if (!com.kwad.sdk.core.response.b.a.v(g2)) {
+            if (com.kwad.sdk.core.response.b.a.L(g2)) {
                 AdWebViewVideoActivityProxy.launch(context, adTemplate);
             } else {
                 AdWebViewActivityProxy.launch(context, adTemplate);
             }
-            interfaceC0396a.a();
+            interfaceC0376a.a();
         } else if (bVar != null) {
-            if (!com.kwad.sdk.core.response.b.a.P(j) || TextUtils.isEmpty(com.kwad.sdk.core.response.b.a.B(j))) {
-                bVar.a(context);
+            if (!com.kwad.sdk.core.response.b.a.L(g2) || TextUtils.isEmpty(com.kwad.sdk.core.response.b.a.y(g2))) {
+                bVar.a(context, z);
             } else if (!bVar.c()) {
                 AdWebViewVideoActivityProxy.launch(context, adTemplate);
             }
-            DOWNLOADSTAUS downloadstaus = j.status;
-            if (downloadstaus == DOWNLOADSTAUS.DOWNLOADING || downloadstaus == DOWNLOADSTAUS.PROGRESS) {
+            int i2 = g2.status;
+            if (i2 == 2 || i2 == 3) {
                 return;
             }
-            interfaceC0396a.a();
+            interfaceC0376a.a();
         }
     }
 }

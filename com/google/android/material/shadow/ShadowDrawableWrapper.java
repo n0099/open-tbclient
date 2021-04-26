@@ -10,9 +10,11 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
 import androidx.appcompat.graphics.drawable.DrawableWrapper;
 import androidx.core.content.ContextCompat;
 import com.google.android.material.R;
+@Deprecated
 /* loaded from: classes6.dex */
 public class ShadowDrawableWrapper extends DrawableWrapper {
     public static final double COS_45 = Math.cos(Math.toRadians(45.0d));
@@ -21,11 +23,14 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
     public static final float SHADOW_MULTIPLIER = 1.5f;
     public static final float SHADOW_TOP_SCALE = 0.25f;
     public boolean addPaddingForCorners;
+    @NonNull
     public final RectF contentBounds;
     public float cornerRadius;
+    @NonNull
     public final Paint cornerShadowPaint;
     public Path cornerShadowPath;
     public boolean dirty;
+    @NonNull
     public final Paint edgeShadowPaint;
     public float maxShadowSize;
     public boolean printedShadowClipWarning;
@@ -56,7 +61,7 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
         setShadowSize(f3, f4);
     }
 
-    private void buildComponents(Rect rect) {
+    private void buildComponents(@NonNull Rect rect) {
         float f2 = this.rawMaxShadowSize;
         float f3 = 1.5f * f2;
         this.contentBounds.set(rect.left + f2, rect.top + f3, rect.right - f2, rect.bottom - f3);
@@ -101,10 +106,10 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
         return z ? (float) ((f2 * 1.5f) + ((1.0d - COS_45) * f3)) : f2 * 1.5f;
     }
 
-    private void drawShadow(Canvas canvas) {
-        int i;
-        float f2;
+    private void drawShadow(@NonNull Canvas canvas) {
         int i2;
+        float f2;
+        int i3;
         float f3;
         float f4;
         float f5;
@@ -126,18 +131,18 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
         canvas.drawPath(this.cornerShadowPath, this.cornerShadowPaint);
         if (z) {
             canvas.scale(1.0f / f10, 1.0f);
-            i = save2;
+            i2 = save2;
             f2 = f12;
-            i2 = save;
+            i3 = save;
             f3 = f11;
             canvas.drawRect(0.0f, f7, this.contentBounds.width() - f8, -this.cornerRadius, this.edgeShadowPaint);
         } else {
-            i = save2;
+            i2 = save2;
             f2 = f12;
-            i2 = save;
+            i3 = save;
             f3 = f11;
         }
-        canvas.restoreToCount(i);
+        canvas.restoreToCount(i2);
         int save3 = canvas.save();
         RectF rectF2 = this.contentBounds;
         canvas.translate(rectF2.right - f6, rectF2.bottom - f6);
@@ -178,7 +183,7 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
             canvas.drawRect(0.0f, f7, this.contentBounds.height() - f8, -this.cornerRadius, this.edgeShadowPaint);
         }
         canvas.restoreToCount(save5);
-        canvas.restoreToCount(i2);
+        canvas.restoreToCount(i3);
     }
 
     public static int toEven(float f2) {
@@ -187,7 +192,7 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         if (this.dirty) {
             buildComponents(getBounds());
             this.dirty = false;
@@ -220,7 +225,7 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
-    public boolean getPadding(Rect rect) {
+    public boolean getPadding(@NonNull Rect rect) {
         int ceil = (int) Math.ceil(calculateVerticalPadding(this.rawMaxShadowSize, this.cornerRadius, this.addPaddingForCorners));
         int ceil2 = (int) Math.ceil(calculateHorizontalPadding(this.rawMaxShadowSize, this.cornerRadius, this.addPaddingForCorners));
         rect.set(ceil2, ceil, ceil2, ceil);
@@ -242,10 +247,10 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        super.setAlpha(i);
-        this.cornerShadowPaint.setAlpha(i);
-        this.edgeShadowPaint.setAlpha(i);
+    public void setAlpha(int i2) {
+        super.setAlpha(i2);
+        this.cornerShadowPaint.setAlpha(i2);
+        this.edgeShadowPaint.setAlpha(i2);
     }
 
     public void setCornerRadius(float f2) {

@@ -10,7 +10,7 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.android.common.others.lang.StringUtil;
-import d.b.k0.b.e.d;
+import d.a.k0.b.e.d;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -23,7 +23,7 @@ import java.util.Map;
 public class TNWebViewClient extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public final TurbonetEngine f22531a;
+    public final TurbonetEngine f23229a;
 
     @Override // android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
@@ -52,9 +52,9 @@ public class TNWebViewClient extends WebViewClient {
         } catch (Exception e4) {
             Log.e("tn_TNWebViewClient", "Exception when intercept webview request: " + e4.toString());
         }
-        if (webResourceRequest.getMethod().equals("GET") && !this.f22531a.f()) {
+        if (webResourceRequest.getMethod().equals("GET") && !this.f23229a.f()) {
             Log.d("tn_TNWebViewClient", "Intercept request and send " + webResourceRequest.getUrl().toString());
-            d dVar = new d(new URL(webResourceRequest.getUrl().toString()), this.f22531a);
+            d dVar = new d(new URL(webResourceRequest.getUrl().toString()), this.f23229a);
             dVar.setRequestMethod(webResourceRequest.getMethod());
             Map<String, String> requestHeaders = webResourceRequest.getRequestHeaders();
             if (requestHeaders != null) {
@@ -80,8 +80,8 @@ public class TNWebViewClient extends WebViewClient {
                     str2 = headerField2;
                 } else {
                     String str4 = split[0];
-                    for (int i = 0; i < length; i++) {
-                        String trim = split[i].trim();
+                    for (int i2 = 0; i2 < length; i2++) {
+                        String trim = split[i2].trim();
                         if (trim.toLowerCase(Locale.ENGLISH).startsWith("charset=")) {
                             str3 = trim.substring(8);
                         }

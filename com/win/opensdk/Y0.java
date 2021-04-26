@@ -1,63 +1,191 @@
 package com.win.opensdk;
 
-import android.text.TextUtils;
-import com.qq.e.comm.constants.Constants;
-import java.io.UnsupportedEncodingException;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.win.opensdk.core.Info;
+import com.win.opensdk.views.CircleProgressbar;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class Y0 implements Runnable {
+import java.util.List;
+/* loaded from: classes6.dex */
+public class Y0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ boolean f40221a;
+    public Context f37807a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f40222b;
+    public K0 f37808b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Z0 f40223c;
+    public Info f37809c;
 
-    public Y0(Z0 z0, boolean z, String str) {
-        this.f40223c = z0;
-        this.f40221a = z;
-        this.f40222b = str;
+    /* renamed from: d  reason: collision with root package name */
+    public View f37810d;
+
+    /* renamed from: f  reason: collision with root package name */
+    public r f37812f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public E1 f37813g;
+    public float l;
+    public float m;
+    public int n;
+    public int o;
+    public int p;
+    public int q;
+    public int r;
+    public int s;
+    public int t;
+    public int u;
+    public long v;
+    public int w;
+    public int x;
+    public long y;
+
+    /* renamed from: e  reason: collision with root package name */
+    public List f37811e = Collections.synchronizedList(new ArrayList());
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f37814h = 0;
+
+    /* renamed from: i  reason: collision with root package name */
+    public L0 f37815i = new S0(this);
+    public boolean j = false;
+    public long k = 0;
+
+    public Y0(Context context, String str) {
+        this.f37807a = context;
+        K0 k0 = new K0(context, str, y.SPLASH);
+        this.f37808b = k0;
+        k0.f37686g = this.f37815i;
+        this.f37813g = new E1(context);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String b2;
-        String str = this.f40221a ? t1.f40421b : t1.f40422c;
-        HashMap a2 = p1.a(this.f40223c.f40233a);
-        try {
-            str = str + p1.a(a2);
-        } catch (UnsupportedEncodingException unused) {
+    public static /* synthetic */ void a(Y0 y0, View view) {
+        if (y0.t <= 0 || y0.u <= 0) {
+            y0.u = view.getHeight();
+            y0.t = view.getWidth();
         }
-        String str2 = this.f40222b;
-        try {
-            T0 t0 = new T0(str, "POST", G.a((Map) null));
-            t0.f40185b = G.j(str2);
-            U0 a3 = t0.a();
-            byte[] bArr = a3.f40202b;
-            if (a3.f40201a == 200) {
-                JSONObject jSONObject = new JSONObject(new String(bArr, "UTF-8"));
-                jSONObject.optInt(Constants.KEYS.RET);
-                jSONObject.optString("msg");
-                try {
-                    b2 = G.b(jSONObject.optString("data"));
-                } catch (Exception unused2) {
+    }
+
+    public final List a(View view) {
+        ArrayList arrayList = new ArrayList();
+        if (view instanceof ViewGroup) {
+            try {
+                ViewGroup viewGroup = (ViewGroup) view;
+                for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
+                    View childAt = viewGroup.getChildAt(i2);
+                    if (childAt != null) {
+                        arrayList.add(childAt);
+                        if (!(childAt instanceof PBMediaView)) {
+                            arrayList.addAll(a(childAt));
+                        }
+                    }
                 }
-                if (TextUtils.isEmpty(b2)) {
-                    new JSONObject();
-                } else {
-                    new JSONObject(b2);
+            } catch (Exception unused) {
+            }
+        }
+        return arrayList;
+    }
+
+    public void a() {
+        try {
+            c();
+            if (this.f37808b != null) {
+                this.f37808b.a();
+                this.f37808b = null;
+            }
+            if (this.f37812f != null) {
+                this.f37812f = null;
+            }
+        } catch (Exception unused) {
+        }
+    }
+
+    public boolean b() {
+        Info info = this.f37809c;
+        return info != null && info.isEffective();
+    }
+
+    public void c() {
+        try {
+            for (View view : this.f37811e) {
+                if (view != null) {
+                    view.setOnClickListener(null);
                 }
             }
-        } catch (JSONException e2) {
-            e2.getMessage();
-        } catch (Exception e3) {
-            e3.getMessage();
+            this.f37811e.clear();
+            if (this.f37810d != null) {
+                this.f37810d = null;
+            }
+        } catch (Exception unused) {
         }
+    }
+
+    public HashMap d() {
+        HashMap hashMap = new HashMap();
+        hashMap.put("dx", Integer.valueOf(this.n));
+        hashMap.put("dy", Integer.valueOf(this.o));
+        hashMap.put("dts", Long.valueOf(this.v));
+        hashMap.put("ux", Integer.valueOf(this.w));
+        hashMap.put("uy", Integer.valueOf(this.x));
+        hashMap.put("uts", Long.valueOf(this.y));
+        z.a(hashMap, this.p, this.q, this.r, this.s, this.t, this.u);
+        return hashMap;
+    }
+
+    public void a(View view, PBMediaView pBMediaView) {
+        List<View> arrayList = new ArrayList();
+        if (view != null) {
+            arrayList = a(view);
+        }
+        if (view == null || arrayList == null || arrayList.size() == 0 || !b()) {
+            return;
+        }
+        this.f37814h = 0L;
+        if (this.f37810d != null) {
+            c();
+        }
+        this.f37810d = view;
+        try {
+            X0 x0 = new X0(this);
+            for (View view2 : arrayList) {
+                if (view2 != null && !(view2 instanceof PBMediaView)) {
+                    if (!this.f37811e.contains(view2)) {
+                        this.f37811e.add(view2);
+                    }
+                    if (!(view2 instanceof CircleProgressbar)) {
+                        view2.setOnClickListener(x0);
+                        view2.setOnTouchListener(x0);
+                    }
+                }
+            }
+        } catch (Exception unused) {
+        }
+        if (pBMediaView != null) {
+            try {
+                if (pBMediaView.getHtmlWebView() != null) {
+                    K htmlWebView = pBMediaView.getHtmlWebView();
+                    htmlWebView.a(b() ? this.f37809c.getLoad() : "", this.f37809c);
+                    if (this.f37809c.isNat()) {
+                        htmlWebView.f37677c.setOnTouchListener(new V0(this));
+                    }
+                    htmlWebView.f37676b = new W0(this);
+                }
+            } catch (Exception unused2) {
+            }
+        }
+        x0.a(this.f37807a).a(new y0(this.f37809c)).a();
+        r rVar = this.f37812f;
+        if (rVar != null) {
+            rVar.onDisplayed();
+        }
+        if (this.f37809c != null) {
+            s1.b(this.f37807a, this.f37809c.getId() + ":" + System.currentTimeMillis(), false);
+        }
+        z.a(this.f37809c);
+        new m0().a(view, this.f37809c, new U0(this, view));
     }
 }

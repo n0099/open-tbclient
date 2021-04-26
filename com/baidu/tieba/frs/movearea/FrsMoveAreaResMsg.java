@@ -6,12 +6,12 @@ import com.baidu.tieba.R;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class FrsMoveAreaResMsg extends JsonHttpResponsedMessage {
-    public FrsMoveAreaResMsg(int i) {
-        super(i);
+    public FrsMoveAreaResMsg(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         if (jSONObject == null) {
             setError(-1);
             setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));

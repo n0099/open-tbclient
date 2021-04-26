@@ -1,11 +1,11 @@
 package io.reactivex.internal.util;
 
-import f.b.o;
-import f.b.t.b;
-import f.b.x.b.a;
-import g.d.c;
-import g.d.d;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.internal.functions.ObjectHelper;
 import java.io.Serializable;
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
 /* loaded from: classes7.dex */
 public enum NotificationLite {
     COMPLETE;
@@ -15,14 +15,14 @@ public enum NotificationLite {
         public static final long serialVersionUID = -7482590109178395495L;
 
         /* renamed from: d  reason: collision with root package name */
-        public final b f69251d;
+        public final Disposable f68306d;
 
-        public DisposableNotification(b bVar) {
-            this.f69251d = bVar;
+        public DisposableNotification(Disposable disposable) {
+            this.f68306d = disposable;
         }
 
         public String toString() {
-            return "NotificationLite.Disposable[" + this.f69251d + "]";
+            return "NotificationLite.Disposable[" + this.f68306d + "]";
         }
     }
 
@@ -31,35 +31,35 @@ public enum NotificationLite {
         public static final long serialVersionUID = -8759979445933046293L;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Throwable f69252e;
+        public final Throwable f68307e;
 
         public ErrorNotification(Throwable th) {
-            this.f69252e = th;
+            this.f68307e = th;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof ErrorNotification) {
-                return a.a(this.f69252e, ((ErrorNotification) obj).f69252e);
+                return ObjectHelper.equals(this.f68307e, ((ErrorNotification) obj).f68307e);
             }
             return false;
         }
 
         public int hashCode() {
-            return this.f69252e.hashCode();
+            return this.f68307e.hashCode();
         }
 
         public String toString() {
-            return "NotificationLite.Error[" + this.f69252e + "]";
+            return "NotificationLite.Error[" + this.f68307e + "]";
         }
     }
 
     /* loaded from: classes7.dex */
     public static final class SubscriptionNotification implements Serializable {
         public static final long serialVersionUID = -1322257508628817540L;
-        public final d s;
+        public final Subscription s;
 
-        public SubscriptionNotification(d dVar) {
-            this.s = dVar;
+        public SubscriptionNotification(Subscription subscription) {
+            this.s = subscription;
         }
 
         public String toString() {
@@ -67,31 +67,31 @@ public enum NotificationLite {
         }
     }
 
-    public static <T> boolean accept(Object obj, c<? super T> cVar) {
+    public static <T> boolean accept(Object obj, Subscriber<? super T> subscriber) {
         if (obj == COMPLETE) {
-            cVar.onComplete();
+            subscriber.onComplete();
             return true;
         } else if (obj instanceof ErrorNotification) {
-            cVar.onError(((ErrorNotification) obj).f69252e);
+            subscriber.onError(((ErrorNotification) obj).f68307e);
             return true;
         } else {
-            cVar.onNext(obj);
+            subscriber.onNext(obj);
             return false;
         }
     }
 
-    public static <T> boolean acceptFull(Object obj, c<? super T> cVar) {
+    public static <T> boolean acceptFull(Object obj, Subscriber<? super T> subscriber) {
         if (obj == COMPLETE) {
-            cVar.onComplete();
+            subscriber.onComplete();
             return true;
         } else if (obj instanceof ErrorNotification) {
-            cVar.onError(((ErrorNotification) obj).f69252e);
+            subscriber.onError(((ErrorNotification) obj).f68307e);
             return true;
         } else if (obj instanceof SubscriptionNotification) {
-            cVar.onSubscribe(((SubscriptionNotification) obj).s);
+            subscriber.onSubscribe(((SubscriptionNotification) obj).s);
             return false;
         } else {
-            cVar.onNext(obj);
+            subscriber.onNext(obj);
             return false;
         }
     }
@@ -100,23 +100,23 @@ public enum NotificationLite {
         return COMPLETE;
     }
 
-    public static Object disposable(b bVar) {
-        return new DisposableNotification(bVar);
+    public static Object disposable(Disposable disposable) {
+        return new DisposableNotification(disposable);
     }
 
     public static Object error(Throwable th) {
         return new ErrorNotification(th);
     }
 
-    public static b getDisposable(Object obj) {
-        return ((DisposableNotification) obj).f69251d;
+    public static Disposable getDisposable(Object obj) {
+        return ((DisposableNotification) obj).f68306d;
     }
 
     public static Throwable getError(Object obj) {
-        return ((ErrorNotification) obj).f69252e;
+        return ((ErrorNotification) obj).f68307e;
     }
 
-    public static d getSubscription(Object obj) {
+    public static Subscription getSubscription(Object obj) {
         return ((SubscriptionNotification) obj).s;
     }
 
@@ -146,8 +146,8 @@ public enum NotificationLite {
         return t;
     }
 
-    public static Object subscription(d dVar) {
-        return new SubscriptionNotification(dVar);
+    public static Object subscription(Subscription subscription) {
+        return new SubscriptionNotification(subscription);
     }
 
     @Override // java.lang.Enum
@@ -155,31 +155,31 @@ public enum NotificationLite {
         return "NotificationLite.Complete";
     }
 
-    public static <T> boolean accept(Object obj, o<? super T> oVar) {
+    public static <T> boolean accept(Object obj, Observer<? super T> observer) {
         if (obj == COMPLETE) {
-            oVar.onComplete();
+            observer.onComplete();
             return true;
         } else if (obj instanceof ErrorNotification) {
-            oVar.onError(((ErrorNotification) obj).f69252e);
+            observer.onError(((ErrorNotification) obj).f68307e);
             return true;
         } else {
-            oVar.onNext(obj);
+            observer.onNext(obj);
             return false;
         }
     }
 
-    public static <T> boolean acceptFull(Object obj, o<? super T> oVar) {
+    public static <T> boolean acceptFull(Object obj, Observer<? super T> observer) {
         if (obj == COMPLETE) {
-            oVar.onComplete();
+            observer.onComplete();
             return true;
         } else if (obj instanceof ErrorNotification) {
-            oVar.onError(((ErrorNotification) obj).f69252e);
+            observer.onError(((ErrorNotification) obj).f68307e);
             return true;
         } else if (obj instanceof DisposableNotification) {
-            oVar.onSubscribe(((DisposableNotification) obj).f69251d);
+            observer.onSubscribe(((DisposableNotification) obj).f68306d);
             return false;
         } else {
-            oVar.onNext(obj);
+            observer.onNext(obj);
             return false;
         }
     }

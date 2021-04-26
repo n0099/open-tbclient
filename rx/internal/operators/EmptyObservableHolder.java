@@ -6,7 +6,7 @@ import h.j;
 public enum EmptyObservableHolder implements d.a<Object> {
     INSTANCE;
     
-    public static final d<Object> EMPTY = d.c(INSTANCE);
+    public static final d<Object> EMPTY = d.b(INSTANCE);
 
     public static <T> d<T> instance() {
         return (d<T>) EMPTY;

@@ -23,10 +23,11 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
+import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.g;
 import com.baidu.webkit.sdk.PermissionRequest;
+import d.a.y.a.g;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -42,39 +43,39 @@ public class BiometricsManager implements NoProguard {
     public static final String TAG = "BiometricsManager";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f10667a = "刷脸核验规则说明";
+    public static final String f10827a = "刷脸核验规则说明";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f10668b = "scene:certlogin";
+    public static final String f10828b = "scene:certlogin";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f10669c = "scene:uncertlogin";
+    public static final String f10829c = "scene:uncertlogin";
 
     /* renamed from: d  reason: collision with root package name */
-    public static BiometricsManager f10670d;
+    public static BiometricsManager f10830d;
 
     /* loaded from: classes2.dex */
     public class a extends PassFaceRecogCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PassFaceRecogCallback f10671a;
+        public final /* synthetic */ PassFaceRecogCallback f10831a;
 
         public a(PassFaceRecogCallback passFaceRecogCallback) {
-            this.f10671a = passFaceRecogCallback;
+            this.f10831a = passFaceRecogCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
         /* renamed from: a */
         public void onFailure(PassFaceRecogResult passFaceRecogResult) {
-            this.f10671a.onFailure(passFaceRecogResult);
+            this.f10831a.onFailure(passFaceRecogResult);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
         /* renamed from: b */
         public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
-            this.f10671a.onSuccess(passFaceRecogResult);
+            this.f10831a.onSuccess(passFaceRecogResult);
         }
     }
 
@@ -82,21 +83,21 @@ public class BiometricsManager implements NoProguard {
     public class b extends ClickableSpan {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f10673a;
+        public final /* synthetic */ Activity f10833a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10674b;
+        public final /* synthetic */ String f10834b;
 
         public b(Activity activity, String str) {
-            this.f10673a = activity;
-            this.f10674b = str;
+            this.f10833a = activity;
+            this.f10834b = str;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
             String explainCameraDeatilUrl = SapiAccountManager.getInstance().getAccountService().getExplainCameraDeatilUrl();
-            CoreViewRouter.getInstance().loadRemoteProcessWebViewActivity(this.f10673a, BiometricsManager.f10667a, explainCameraDeatilUrl + "&notLogin=1");
-            SapiStatUtil.statExplainCamera("seeDetail", this.f10674b);
+            CoreViewRouter.getInstance().loadRemoteProcessWebViewActivity(this.f10833a, BiometricsManager.f10827a, explainCameraDeatilUrl + "&notLogin=1");
+            SapiStatUtil.statExplainCamera("seeDetail", this.f10834b);
         }
     }
 
@@ -104,37 +105,37 @@ public class BiometricsManager implements NoProguard {
     public class c implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PassBiometric f10676a;
+        public final /* synthetic */ PassBiometric f10836a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PassFaceOperation f10677b;
+        public final /* synthetic */ PassFaceOperation f10837b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PassFaceRecogCallback f10678c;
+        public final /* synthetic */ PassFaceRecogCallback f10838c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ PassFaceRecogDTO f10679d;
+        public final /* synthetic */ PassFaceRecogDTO f10839d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f10680e;
+        public final /* synthetic */ Activity f10840e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f10681f;
+        public final /* synthetic */ String f10841f;
 
         public c(PassBiometric passBiometric, PassFaceOperation passFaceOperation, PassFaceRecogCallback passFaceRecogCallback, PassFaceRecogDTO passFaceRecogDTO, Activity activity, String str) {
-            this.f10676a = passBiometric;
-            this.f10677b = passFaceOperation;
-            this.f10678c = passFaceRecogCallback;
-            this.f10679d = passFaceRecogDTO;
-            this.f10680e = activity;
-            this.f10681f = str;
+            this.f10836a = passBiometric;
+            this.f10837b = passFaceOperation;
+            this.f10838c = passFaceRecogCallback;
+            this.f10839d = passFaceRecogDTO;
+            this.f10840e = activity;
+            this.f10841f = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            BiometricsManager.this.a(this.f10676a, this.f10677b, this.f10678c, this.f10679d, this.f10680e);
+            BiometricsManager.this.a(this.f10836a, this.f10837b, this.f10838c, this.f10839d, this.f10840e);
             SapiContext.getInstance().setIsAlreadyShowExplainCamera(true);
-            SapiStatUtil.statExplainCamera("agree", this.f10681f);
+            SapiStatUtil.statExplainCamera("agree", this.f10841f);
         }
     }
 
@@ -142,22 +143,22 @@ public class BiometricsManager implements NoProguard {
     public class d implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PassFaceRecogCallback f10683a;
+        public final /* synthetic */ PassFaceRecogCallback f10843a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10684b;
+        public final /* synthetic */ String f10844b;
 
         public d(PassFaceRecogCallback passFaceRecogCallback, String str) {
-            this.f10683a = passFaceRecogCallback;
-            this.f10684b = str;
+            this.f10843a = passFaceRecogCallback;
+            this.f10844b = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
             passFaceRecogResult.setResultCode(-307);
-            this.f10683a.onFailure(passFaceRecogResult);
-            SapiStatUtil.statExplainCamera("refuse", this.f10684b);
+            this.f10843a.onFailure(passFaceRecogResult);
+            SapiStatUtil.statExplainCamera("refuse", this.f10844b);
         }
     }
 
@@ -170,29 +171,31 @@ public class BiometricsManager implements NoProguard {
         public static final String t = "outer";
 
         /* renamed from: a  reason: collision with root package name */
-        public String f10686a;
+        public String f10846a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f10687b;
+        public int f10847b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f10688c;
+        public int f10848c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f10689d;
+        public String f10849d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f10690e;
+        public int f10850e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f10691f;
+        public String f10851f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f10692g;
+        public String f10852g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f10693h;
-        public String i;
+        public String f10853h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public String f10854i;
         public String j;
         public String k;
         public String l;
@@ -211,10 +214,10 @@ public class BiometricsManager implements NoProguard {
     }
 
     public static BiometricsManager getInstance() {
-        if (f10670d == null) {
-            f10670d = new BiometricsManager();
+        if (f10830d == null) {
+            f10830d = new BiometricsManager();
         }
-        return f10670d;
+        return f10830d;
     }
 
     public void livenessRecognize(Activity activity, PassFaceRecogType passFaceRecogType, String str, Map<String, String> map, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, PassFaceRecogCallback passFaceRecogCallback) {
@@ -248,7 +251,7 @@ public class BiometricsManager implements NoProguard {
             passFaceRecogDTO.exUid = str6;
         }
         passFaceRecogDTO.passProductId = str;
-        if (!TextUtils.isEmpty(str) && (str.contains(f10668b) || str.contains(f10669c))) {
+        if (!TextUtils.isEmpty(str) && (str.contains(f10828b) || str.contains(f10829c))) {
             Log.e(TAG, "scene:certlogin and scene:uncertlogin");
         }
         if (a(activity, passFaceRecogCallback, biometric, passFaceOperation, passFaceRecogDTO, str)) {
@@ -257,7 +260,7 @@ public class BiometricsManager implements NoProguard {
         a(biometric, passFaceOperation, passFaceRecogCallback, passFaceRecogDTO, activity);
     }
 
-    public void livenessRecognizeWithFaceLive(Activity activity, PassFaceRecogType passFaceRecogType, int i, PassFaceRecogCallback passFaceRecogCallback) {
+    public void livenessRecognizeWithFaceLive(Activity activity, PassFaceRecogType passFaceRecogType, int i2, PassFaceRecogCallback passFaceRecogCallback) {
         PassBiometric biometric = PassBiometricFactory.getDefaultFactory().getBiometric(4);
         PassFaceRecogDTO passFaceRecogDTO = new PassFaceRecogDTO();
         PassFaceOperation passFaceOperation = new PassFaceOperation();
@@ -266,7 +269,7 @@ public class BiometricsManager implements NoProguard {
         passFaceRecogDTO.extraParamsMap.put("cuid", SapiUtils.getClientId(activity));
         passFaceRecogDTO.livenessType = passFaceRecogType;
         passFaceRecogDTO.passProductId = "pp";
-        passFaceRecogDTO.quality = i;
+        passFaceRecogDTO.quality = i2;
         if (a(activity, passFaceRecogCallback, biometric, passFaceOperation, passFaceRecogDTO, "pp")) {
             return;
         }
@@ -293,8 +296,8 @@ public class BiometricsManager implements NoProguard {
         livenessRecognize(activity, PassFaceRecogType.RECOG_TYPE_FACEDETECT, str, hashMap, str2, "", "", "", str3, "", "", "", passFaceRecogCallback);
     }
 
-    public void recogWithFaceLive(Activity activity, int i, PassFaceRecogCallback passFaceRecogCallback) {
-        livenessRecognizeWithFaceLive(activity, PassFaceRecogType.RECOG_TYPE_FACEIMAGE, i, passFaceRecogCallback);
+    public void recogWithFaceLive(Activity activity, int i2, PassFaceRecogCallback passFaceRecogCallback) {
+        livenessRecognizeWithFaceLive(activity, PassFaceRecogType.RECOG_TYPE_FACEIMAGE, i2, passFaceRecogCallback);
     }
 
     public void recogWithFaceOuter(Activity activity, String str, Map<String, String> map, String str2, String str3, PassFaceRecogCallback passFaceRecogCallback) {
@@ -303,7 +306,7 @@ public class BiometricsManager implements NoProguard {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PassBiometric passBiometric, PassFaceOperation passFaceOperation, PassFaceRecogCallback passFaceRecogCallback, PassFaceRecogDTO passFaceRecogDTO, Context context) {
-        String deviceInfo = SapiDeviceInfo.getDeviceInfo(g.J);
+        String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.FACE_CERT);
         if (!TextUtils.isEmpty(deviceInfo)) {
             passFaceRecogDTO.di = deviceInfo;
         }
@@ -315,10 +318,10 @@ public class BiometricsManager implements NoProguard {
         if (SapiUtils.checkRequestPermission(PermissionRequest.RESOURCE_VIDEO_CAPTURE, activity) || SapiContext.getInstance().getIsAlreadyShowExplainCamera()) {
             return false;
         }
-        String string = activity.getResources().getString(d.b.y.a.g.sapi_sdk_explain_camera_content);
+        String string = activity.getResources().getString(g.sapi_sdk_explain_camera_content);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(string);
         spannableStringBuilder.setSpan(new b(activity, str), 89, string.length(), 33);
-        new CommonDialog.Builder(activity).setDarkMode((SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) ? true : true).setTitle(activity.getResources().getString(d.b.y.a.g.sapi_sdk_explain_camera_title)).setMessage(spannableStringBuilder).setNegativeButton(activity.getResources().getString(d.b.y.a.g.sapi_sdk_explain_camera_defuse), new d(passFaceRecogCallback, str)).setPositiveBtn(activity.getResources().getString(d.b.y.a.g.sapi_sdk_explain_camera_agree), new c(passBiometric, passFaceOperation, passFaceRecogCallback, passFaceRecogDTO, activity, str)).build().show();
+        new CommonDialog.Builder(activity).setDarkMode((SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) ? true : true).setTitle(activity.getResources().getString(g.sapi_sdk_explain_camera_title)).setMessage(spannableStringBuilder).setNegativeButton(activity.getResources().getString(g.sapi_sdk_explain_camera_defuse), new d(passFaceRecogCallback, str)).setPositiveBtn(activity.getResources().getString(g.sapi_sdk_explain_camera_agree), new c(passBiometric, passFaceOperation, passFaceRecogCallback, passFaceRecogDTO, activity, str)).build().show();
         return true;
     }
 }

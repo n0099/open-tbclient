@@ -16,22 +16,22 @@ import org.json.JSONArray;
 public final class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b<List> f4738a = new b<>(com.baidu.crabsdk.a.f4676g);
+    public static b<List> f4850a = new b<>(com.baidu.crabsdk.a.f4785g);
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4739b = "";
+    public static String f4851b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4740c = "";
+    public static String f4852c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f4741d = 0;
+    public static int f4853d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f4742e = 0;
+    public static int f4854e = 0;
 
     public static String a() {
-        return f4738a.size() > 0 ? new JSONArray((Collection) f4738a).toString() : "";
+        return f4850a.size() > 0 ? new JSONArray((Collection) f4850a).toString() : "";
     }
 
     public static boolean b() {
@@ -41,9 +41,9 @@ public final class u {
     public static WebView c(View view) {
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
-            for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                View childAt = viewGroup.getChildAt(i);
-                if (childAt.getVisibility() == 0 && childAt.getLocalVisibleRect(new Rect(0, 0, f4741d, f4742e))) {
+            for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
+                View childAt = viewGroup.getChildAt(i2);
+                if (childAt.getVisibility() == 0 && childAt.getLocalVisibleRect(new Rect(0, 0, f4853d, f4854e))) {
                     if (childAt instanceof WebView) {
                         return (WebView) childAt;
                     }
@@ -68,20 +68,20 @@ public final class u {
         if (activity == null) {
             return;
         }
-        if (f4741d == 0 || f4742e == 0) {
+        if (f4853d == 0 || f4854e == 0) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            f4742e = displayMetrics.heightPixels;
-            f4741d = displayMetrics.widthPixels;
+            f4854e = displayMetrics.heightPixels;
+            f4853d = displayMetrics.widthPixels;
         }
         if (motionEvent.getAction() != 0) {
             return;
         }
         String name = activity.getClass().getName();
-        if (!name.equals(f4740c)) {
+        if (!name.equals(f4852c)) {
             com.baidu.crabsdk.c.a.c("***** !tempName.equals(activityName) *****");
-            f4740c = name;
-            f4738a.clear();
+            f4852c = name;
+            f4850a.clear();
         }
         if (activity != null) {
             try {
@@ -90,17 +90,17 @@ public final class u {
                     c2 = c(decorView);
                     if (c2 == null) {
                         String url = c2.getUrl();
-                        if (url.equals(f4739b)) {
+                        if (url.equals(f4851b)) {
                             return;
                         }
                         com.baidu.crabsdk.c.a.c("-------- !tempUrl.equals(mUrl) --------");
-                        f4739b = url;
+                        f4851b = url;
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                         arrayList.add(c2.getTitle());
-                        arrayList.add(f4739b);
-                        com.baidu.crabsdk.c.a.c("title:" + c2.getTitle() + "; url:" + f4739b);
-                        f4738a.add(arrayList);
+                        arrayList.add(f4851b);
+                        com.baidu.crabsdk.c.a.c("title:" + c2.getTitle() + "; url:" + f4851b);
+                        f4850a.add(arrayList);
                         StringBuilder sb = new StringBuilder("###### jsonArray.toString() : ");
                         sb.append(a());
                         com.baidu.crabsdk.c.a.c(sb.toString());

@@ -11,17 +11,17 @@ import java.util.List;
 public class u extends BaseBean<WalletChargeResultBannerResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25227a;
+    public String f25997a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f25228b;
+    public boolean f25998b;
 
     public u(Context context) {
         super(context);
     }
 
     public void a(String str) {
-        this.f25227a = str;
+        this.f25997a = str;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -32,9 +32,9 @@ public class u extends BaseBean<WalletChargeResultBannerResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("subBizType", this.f25228b ? "1003003" : "1003002"));
+        arrayList.add(new RestNameValuePair("subBizType", this.f25998b ? "1003003" : "1003002"));
         arrayList.add(new RestNameValuePair("returnType", "2"));
-        arrayList.add(new RestNameValuePair("orderNo", this.f25227a));
+        arrayList.add(new RestNameValuePair("orderNo", this.f25997a));
         arrayList.add(new RestNameValuePair("ua", "WAP"));
         return arrayList;
     }
@@ -50,6 +50,6 @@ public class u extends BaseBean<WalletChargeResultBannerResponse> {
     }
 
     public void a(boolean z) {
-        this.f25228b = z;
+        this.f25998b = z;
     }
 }

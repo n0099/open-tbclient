@@ -8,12 +8,12 @@ public final class ThumbnailSizeChecker {
     public static final int ROTATED_90_DEGREES_CLOCKWISE = 90;
     public static final int ROTATED_90_DEGREES_COUNTER_CLOCKWISE = 270;
 
-    public static int getAcceptableSize(int i) {
-        return (int) (i * 1.3333334f);
+    public static int getAcceptableSize(int i2) {
+        return (int) (i2 * 1.3333334f);
     }
 
-    public static boolean isImageBigEnough(int i, int i2, ResizeOptions resizeOptions) {
-        return resizeOptions == null ? ((float) getAcceptableSize(i)) >= 2048.0f && getAcceptableSize(i2) >= 2048 : getAcceptableSize(i) >= resizeOptions.width && getAcceptableSize(i2) >= resizeOptions.height;
+    public static boolean isImageBigEnough(int i2, int i3, ResizeOptions resizeOptions) {
+        return resizeOptions == null ? ((float) getAcceptableSize(i2)) >= 2048.0f && getAcceptableSize(i3) >= 2048 : getAcceptableSize(i2) >= resizeOptions.width && getAcceptableSize(i3) >= resizeOptions.height;
     }
 
     public static boolean isImageBigEnough(EncodedImage encodedImage, ResizeOptions resizeOptions) {

@@ -7,10 +7,10 @@ import javax.microedition.khronos.opengles.GL10;
 public class a implements GLSurfaceView.Renderer {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BaseGLMapView f9041a;
+    public final /* synthetic */ BaseGLMapView f9374a;
 
     public a(BaseGLMapView baseGLMapView) {
-        this.f9041a = baseGLMapView;
+        this.f9374a = baseGLMapView;
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
@@ -18,7 +18,7 @@ public class a implements GLSurfaceView.Renderer {
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
-    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
+    public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer

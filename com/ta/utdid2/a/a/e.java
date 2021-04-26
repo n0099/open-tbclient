@@ -24,20 +24,20 @@ public class e {
     public static a a(String str) {
         if (str != null) {
             a aVar = new a();
-            for (int i = 0; i < 256; i++) {
-                aVar.state[i] = i;
+            for (int i2 = 0; i2 < 256; i2++) {
+                aVar.state[i2] = i2;
             }
             aVar.x = 0;
             aVar.y = 0;
-            int i2 = 0;
             int i3 = 0;
-            for (int i4 = 0; i4 < 256; i4++) {
+            int i4 = 0;
+            for (int i5 = 0; i5 < 256; i5++) {
                 try {
-                    i3 = ((str.charAt(i2) + aVar.state[i4]) + i3) % 256;
-                    int i5 = aVar.state[i4];
-                    aVar.state[i4] = aVar.state[i3];
-                    aVar.state[i3] = i5;
-                    i2 = (i2 + 1) % str.length();
+                    i4 = ((str.charAt(i3) + aVar.state[i5]) + i4) % 256;
+                    int i6 = aVar.state[i5];
+                    aVar.state[i5] = aVar.state[i4];
+                    aVar.state[i4] = i6;
+                    i3 = (i3 + 1) % str.length();
                 } catch (Exception unused) {
                     return null;
                 }
@@ -51,19 +51,19 @@ public class e {
         if (bArr == null || aVar == null) {
             return null;
         }
-        int i = aVar.x;
-        int i2 = aVar.y;
-        for (int i3 = 0; i3 < bArr.length; i3++) {
-            i = (i + 1) % 256;
+        int i2 = aVar.x;
+        int i3 = aVar.y;
+        for (int i4 = 0; i4 < bArr.length; i4++) {
+            i2 = (i2 + 1) % 256;
             int[] iArr = aVar.state;
-            i2 = (iArr[i] + i2) % 256;
-            int i4 = iArr[i];
-            iArr[i] = iArr[i2];
-            iArr[i2] = i4;
-            bArr[i3] = (byte) (iArr[(iArr[i] + iArr[i2]) % 256] ^ bArr[i3]);
+            i3 = (iArr[i2] + i3) % 256;
+            int i5 = iArr[i2];
+            iArr[i2] = iArr[i3];
+            iArr[i3] = i5;
+            bArr[i4] = (byte) (iArr[(iArr[i2] + iArr[i3]) % 256] ^ bArr[i4]);
         }
-        aVar.x = i;
-        aVar.y = i2;
+        aVar.x = i2;
+        aVar.y = i3;
         return bArr;
     }
 }

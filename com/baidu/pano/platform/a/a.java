@@ -5,14 +5,14 @@ import android.content.Intent;
 public class a extends v {
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f8871b;
+    public Intent f9199b;
 
     public a() {
     }
 
     @Override // java.lang.Throwable
     public String getMessage() {
-        return this.f8871b != null ? "User needs to (re)enter credentials." : super.getMessage();
+        return this.f9199b != null ? "User needs to (re)enter credentials." : super.getMessage();
     }
 
     public a(l lVar) {

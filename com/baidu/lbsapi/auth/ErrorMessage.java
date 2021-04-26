@@ -4,10 +4,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ErrorMessage {
-    public static String a(int i, String str) {
+    public static String a(int i2, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("status", i);
+            jSONObject.put("status", i2);
             jSONObject.put("message", str);
         } catch (JSONException unused) {
         }

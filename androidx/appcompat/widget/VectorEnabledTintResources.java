@@ -7,7 +7,7 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import java.lang.ref.WeakReference;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class VectorEnabledTintResources extends Resources {
     public static final int MAX_SDK_WHERE_REQUIRED = 20;
@@ -32,15 +32,15 @@ public class VectorEnabledTintResources extends Resources {
     }
 
     @Override // android.content.res.Resources
-    public Drawable getDrawable(int i) throws Resources.NotFoundException {
+    public Drawable getDrawable(int i2) throws Resources.NotFoundException {
         Context context = this.mContextRef.get();
         if (context != null) {
-            return AppCompatDrawableManager.get().onDrawableLoadedFromResources(context, this, i);
+            return ResourceManagerInternal.get().onDrawableLoadedFromResources(context, this, i2);
         }
-        return super.getDrawable(i);
+        return super.getDrawable(i2);
     }
 
-    public final Drawable superGetDrawable(int i) {
-        return super.getDrawable(i);
+    public final Drawable superGetDrawable(int i2) {
+        return super.getDrawable(i2);
     }
 }

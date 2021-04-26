@@ -133,7 +133,7 @@ public final class AsyncLayoutInflater {
 
     /* loaded from: classes.dex */
     public interface OnInflateFinishedListener {
-        void onInflateFinished(@NonNull View view, @LayoutRes int i, @Nullable ViewGroup viewGroup);
+        void onInflateFinished(@NonNull View view, @LayoutRes int i2, @Nullable ViewGroup viewGroup);
     }
 
     public AsyncLayoutInflater(@NonNull Context context) {
@@ -141,11 +141,11 @@ public final class AsyncLayoutInflater {
     }
 
     @UiThread
-    public void inflate(@LayoutRes int i, @Nullable ViewGroup viewGroup, @NonNull OnInflateFinishedListener onInflateFinishedListener) {
+    public void inflate(@LayoutRes int i2, @Nullable ViewGroup viewGroup, @NonNull OnInflateFinishedListener onInflateFinishedListener) {
         if (onInflateFinishedListener != null) {
             InflateRequest obtainRequest = this.mInflateThread.obtainRequest();
             obtainRequest.inflater = this;
-            obtainRequest.resid = i;
+            obtainRequest.resid = i2;
             obtainRequest.parent = viewGroup;
             obtainRequest.callback = onInflateFinishedListener;
             this.mInflateThread.enqueue(obtainRequest);

@@ -5,20 +5,20 @@ import android.util.Log;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f26839a;
+    public static a f27653a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26840b = -1;
+    public int f27654b = -1;
 
     public static a a() {
-        if (f26839a == null) {
+        if (f27653a == null) {
             synchronized (a.class) {
-                if (f26839a == null) {
-                    f26839a = new a();
+                if (f27653a == null) {
+                    f27653a = new a();
                 }
             }
         }
-        return f26839a;
+        return f27653a;
     }
 
     public static void a(String str, String str2) {
@@ -34,7 +34,7 @@ public class a {
     }
 
     public static void a(boolean z) {
-        a().f26840b = z ? 1 : 0;
+        a().f27654b = z ? 1 : 0;
     }
 
     public static void b(String str, String str2) {
@@ -50,6 +50,6 @@ public class a {
     }
 
     public static boolean b() {
-        return a().f26840b == 1;
+        return a().f27654b == 1;
     }
 }

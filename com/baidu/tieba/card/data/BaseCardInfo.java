@@ -1,9 +1,9 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import d.b.c.j.e.n;
-import d.b.d.j;
-import d.b.d.k;
+import d.a.c.j.e.n;
+import d.a.d.j;
+import d.a.d.k;
 /* loaded from: classes4.dex */
 public abstract class BaseCardInfo implements n, k {
     public int position;
@@ -26,7 +26,7 @@ public abstract class BaseCardInfo implements n, k {
         return this.trigger;
     }
 
-    @Override // d.b.c.j.e.n
+    @Override // d.a.c.j.e.n
     public BdUniqueId getType() {
         return null;
     }
@@ -59,7 +59,7 @@ public abstract class BaseCardInfo implements n, k {
         this.mSupportType = supportType;
     }
 
-    @Override // d.b.d.k
+    @Override // d.a.d.k
     public void setTrigger(j jVar) {
         this.trigger = jVar;
     }

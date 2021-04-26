@@ -39,7 +39,7 @@ public class AlaLiveUserNotifyDialog extends Dialog {
     }
 
     private void bindDataToView() {
-        this.userPortrait.W(this.mUserNotifyData.getAnchorPortrait(), 12, false);
+        this.userPortrait.V(this.mUserNotifyData.getAnchorPortrait(), 12, false);
         this.alaNotifyDescription.setText(this.mUserNotifyData.getMessageContent());
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -69,8 +69,8 @@ public class AlaLiveUserNotifyDialog extends Dialog {
         this.btnKnow.setOnClickListener(this.mOnClickListener);
     }
 
-    public void onChangeSkinType(int i) {
-        if (i == 1) {
+    public void onChangeSkinType(int i2) {
+        if (i2 == 1) {
             this.alaNotifyContentPanel.setBackgroundResource(R.drawable.black_line_f_corner_all);
             this.alaNotifyDescription.setTextColor(getContext().getResources().getColor(R.color.CAM_X0107_1));
             this.btnKnow.setTextColor(getContext().getResources().getColor(R.color.CAM_X0302_1));

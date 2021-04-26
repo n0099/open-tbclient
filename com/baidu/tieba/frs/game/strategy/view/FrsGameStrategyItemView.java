@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.i0.r.q.a2;
-import d.b.j0.d3.n0.d;
-import d.b.j0.x.b;
+import d.a.i0.r.q.a2;
+import d.a.j0.d3.n0.d;
+import d.a.j0.x.b;
 /* loaded from: classes4.dex */
-public class FrsGameStrategyItemView extends b<d.b.j0.q0.s1.a.a.b> {
+public class FrsGameStrategyItemView extends b<d.a.j0.q0.s1.a.a.b> {
     public TbPageContext m;
     public View n;
     public TbImageView o;
@@ -28,28 +28,28 @@ public class FrsGameStrategyItemView extends b<d.b.j0.q0.s1.a.a.b> {
     public static class FrsGameStrategyItemViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public FrsGameStrategyItemView f16023a;
+        public FrsGameStrategyItemView f16224a;
 
         public FrsGameStrategyItemViewHolder(FrsGameStrategyItemView frsGameStrategyItemView) {
-            super(frsGameStrategyItemView.m());
-            this.f16023a = frsGameStrategyItemView;
+            super(frsGameStrategyItemView.l());
+            this.f16224a = frsGameStrategyItemView;
         }
     }
 
     public FrsGameStrategyItemView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.m = tbPageContext;
-        this.n = m();
-        u();
+        this.n = l();
+        s();
     }
 
-    @Override // d.b.j0.x.b
-    public int h() {
+    @Override // d.a.j0.x.b
+    public int g() {
         return R.layout.frs_game_strategy_item_layout;
     }
 
-    @Override // d.b.j0.x.b
-    public void o(TbPageContext<?> tbPageContext, int i) {
+    @Override // d.a.j0.x.b
+    public void n(TbPageContext<?> tbPageContext, int i2) {
         SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.r, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.s, R.color.CAM_X0101);
@@ -60,7 +60,7 @@ public class FrsGameStrategyItemView extends b<d.b.j0.q0.s1.a.a.b> {
     public void onClick(View view) {
     }
 
-    public final void u() {
+    public final void s() {
         TbImageView tbImageView = (TbImageView) this.n.findViewById(R.id.frs_game_left_image);
         this.o = tbImageView;
         tbImageView.setDefaultResource(R.drawable.icon_morenpic);
@@ -68,44 +68,44 @@ public class FrsGameStrategyItemView extends b<d.b.j0.q0.s1.a.a.b> {
         this.q = (TextView) this.n.findViewById(R.id.frs_game_strategy_title);
         this.r = (TextView) this.n.findViewById(R.id.frs_game_strategy_scan_info);
         this.s = (TextView) this.n.findViewById(R.id.frs_game_strategy_info_source);
-        o(this.m, TbadkCoreApplication.getInst().getSkinType());
+        n(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.j0.x.b
-    /* renamed from: v */
-    public void n(d.b.j0.q0.s1.a.a.b bVar) {
-        if (bVar == null || bVar.g() == null) {
+    @Override // d.a.j0.x.b
+    /* renamed from: t */
+    public void m(d.a.j0.q0.s1.a.a.b bVar) {
+        if (bVar == null || bVar.h() == null) {
             return;
         }
-        a2 g2 = bVar.g();
-        this.q.setText(g2.x1());
+        a2 h2 = bVar.h();
+        this.q.setText(h2.x1());
         d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.d(g2.o0())) {
+        if (readThreadHistory != null && readThreadHistory.d(h2.o0())) {
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0108);
         } else {
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
         }
-        String numberUniformFormat = StringHelper.numberUniformFormat(g2.G1());
-        String formatTimeShort = StringHelper.getFormatTimeShort(g2.S());
+        String numberUniformFormat = StringHelper.numberUniformFormat(h2.G1());
+        String formatTimeShort = StringHelper.getFormatTimeShort(h2.S());
         if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
-            this.r.setText(String.format(this.f64178g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
+            this.r.setText(String.format(this.f62438g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
         }
         String str = null;
-        if (g2.s1() == 40) {
+        if (h2.s1() == 40) {
             this.p.setVisibility(0);
-            if (g2.u1() != null) {
-                str = g2.u1().thumbnail_url;
+            if (h2.u1() != null) {
+                str = h2.u1().thumbnail_url;
             }
         } else {
             this.p.setVisibility(8);
-            if (g2.K0() != null && g2.K0().size() >= 1) {
-                str = g2.K0().get(0).getOriginalUrl();
+            if (h2.K0() != null && h2.K0().size() >= 1) {
+                str = h2.K0().get(0).getOriginalUrl();
             }
         }
-        this.o.W(str, 10, false);
-        if (!StringUtils.isNull(g2.k0())) {
-            this.s.setText(g2.k0());
+        this.o.V(str, 10, false);
+        if (!StringUtils.isNull(h2.k0())) {
+            this.s.setText(h2.k0());
             this.s.setVisibility(0);
             return;
         }

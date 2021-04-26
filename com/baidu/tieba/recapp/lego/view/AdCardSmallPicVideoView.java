@@ -12,9 +12,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
-import d.b.i0.r.q.d;
+import d.a.i0.r.q.d;
 import tbclient.VideoInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     public TbImageView A;
     public TextView B;
@@ -22,21 +22,21 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     public ImageView D;
     public XfremodeRoundLayout z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdCard f20460e;
+        public final /* synthetic */ AdCard f21003e;
 
         public a(AdCard adCard) {
-            this.f20460e = adCard;
+            this.f21003e = adCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             AdCardSmallPicVideoView adCardSmallPicVideoView = AdCardSmallPicVideoView.this;
             if (adCardSmallPicVideoView.C == null) {
-                adCardSmallPicVideoView.c0(this.f20460e);
+                adCardSmallPicVideoView.Z(this.f21003e);
             }
             DistributeVideoView distributeVideoView = AdCardSmallPicVideoView.this.C;
             int jump2DownloadDetailPage = distributeVideoView != null ? distributeVideoView.jump2DownloadDetailPage() : 0;
@@ -56,13 +56,13 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    public void S(AdCard adCard) {
+    public void Q(AdCard adCard) {
         VideoInfo videoInfo;
         if (adCard != null && (videoInfo = adCard.videoInfo) != null) {
             String str = videoInfo.thumbnail_url;
             if (!TextUtils.isEmpty(str)) {
                 this.t.setVisibility(0);
-                this.A.W(str, 17, false);
+                this.A.V(str, 17, false);
             }
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
             if (advertAppInfo != null && advertAppInfo.B4()) {
@@ -76,7 +76,7 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    public void U(View view) {
+    public void S(View view) {
         float dimensionPixelSize = this.m.getResources().getDimensionPixelSize(R.dimen.tbds10);
         this.z = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
         this.A = (TbImageView) view.findViewById(R.id.ad_img);
@@ -86,7 +86,7 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
         this.z.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
     }
 
-    public final void c0(AdCard adCard) {
+    public final void Z(AdCard adCard) {
         if (this.C != null) {
             return;
         }
@@ -100,14 +100,14 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
         this.C.setAdInfo(adCard);
         AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
         if (advertAppInfo != null) {
-            int i = -1;
+            int i2 = -1;
             String pageTypeByBusiness = getPageTypeByBusiness();
             d dVar = advertAppInfo.Y3;
             if (dVar != null) {
-                i = dVar.f51493b;
-                pageTypeByBusiness = dVar.f51492a;
+                i2 = dVar.f49117b;
+                pageTypeByBusiness = dVar.f49116a;
             }
-            this.C.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
+            this.C.setStatisticInfo(advertAppInfo, i2, pageTypeByBusiness);
         }
     }
 

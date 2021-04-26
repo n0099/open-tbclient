@@ -10,8 +10,8 @@ public class HostPKListActivityConfig extends IntentConfig {
         super(context);
     }
 
-    public HostPKListActivityConfig create(int i) {
-        getIntent().putExtra(HOST_LEVEL, i);
+    public HostPKListActivityConfig create(int i2) {
+        getIntent().putExtra(HOST_LEVEL, i2);
         return this;
     }
 }

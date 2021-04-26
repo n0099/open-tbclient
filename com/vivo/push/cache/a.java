@@ -8,7 +8,7 @@ import com.vivo.push.util.p;
 import com.vivo.push.util.z;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class a extends d<com.vivo.push.model.a> {
     public a(Context context) {
         super(context);
@@ -43,12 +43,12 @@ public final class a extends d<com.vivo.push.model.a> {
 
     @Override // com.vivo.push.cache.d
     public final String b(String str) throws Exception {
-        return new String(g.a(g.a(d.f39842a), g.a(d.f39843b), Base64.decode(str, 2)), "utf-8");
+        return new String(g.a(g.a(d.f37445a), g.a(d.f37446b), Base64.decode(str, 2)), "utf-8");
     }
 
     public final com.vivo.push.model.a c(String str) {
-        synchronized (d.f39844c) {
-            for (T t : this.f39845d) {
+        synchronized (d.f37447c) {
+            for (T t : this.f37448d) {
                 if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
                     return t;
                 }
@@ -68,9 +68,9 @@ public final class a extends d<com.vivo.push.model.a> {
         return -1;
     }
 
-    public static boolean a(int i) {
-        if (i != -1) {
-            return (i & 1) != 0;
+    public static boolean a(int i2) {
+        if (i2 != -1) {
+            return (i2 & 1) != 0;
         }
         return z.b("persist.sys.log.ctrl", "no").equals("yes");
     }

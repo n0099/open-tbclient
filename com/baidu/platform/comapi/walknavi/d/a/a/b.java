@@ -7,56 +7,58 @@ import java.io.Serializable;
 public class b implements Serializable {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9496b;
+    public String f9851b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9497c;
+    public String f9852c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f9498d;
+    public String f9853d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f9499e;
+    public String[] f9854e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9500f;
+    public String f9855f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f9501g;
+    public String f9856g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f9502h;
-    public String i;
+    public int f9857h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f9858i;
     public String l;
     public String m;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9495a = Integer.MIN_VALUE;
+    public int f9850a = Integer.MIN_VALUE;
     public boolean j = false;
     public boolean k = true;
 
-    public void a(int i) {
-        this.f9495a = i;
+    public void a(int i2) {
+        this.f9850a = i2;
     }
 
     public String b() {
-        return this.f9496b;
+        return this.f9851b;
     }
 
     public String c() {
-        return this.f9497c;
+        return this.f9852c;
     }
 
     public String d() {
-        return this.f9498d;
+        return this.f9853d;
     }
 
     public void e(String str) {
-        this.f9501g = str;
+        this.f9856g = str;
     }
 
     public void f(String str) {
-        this.i = str;
+        this.f9858i = str;
     }
 
     public boolean g() {
@@ -68,27 +70,27 @@ public class b implements Serializable {
     }
 
     public String toString() {
-        return "ARResource [ err_code = " + this.f9495a + StringUtil.ARRAY_ELEMENT_SEPARATOR + PmsConstant.Statistic.STATISTIC_ERRMSG + " = " + this.f9496b + ", , version_code = " + this.f9501g + StringUtil.ARRAY_ELEMENT_SEPARATOR + "ar_resource = " + this.f9498d + " ]";
+        return "ARResource [ err_code = " + this.f9850a + StringUtil.ARRAY_ELEMENT_SEPARATOR + PmsConstant.Statistic.STATISTIC_ERRMSG + " = " + this.f9851b + ", , version_code = " + this.f9856g + StringUtil.ARRAY_ELEMENT_SEPARATOR + "ar_resource = " + this.f9853d + " ]";
     }
 
     public int a() {
-        return this.f9495a;
+        return this.f9850a;
     }
 
     public void b(String str) {
-        this.f9497c = str;
+        this.f9852c = str;
     }
 
     public void c(String str) {
-        this.f9498d = str;
+        this.f9853d = str;
     }
 
     public void d(String str) {
-        this.f9500f = str;
+        this.f9855f = str;
     }
 
     public int e() {
-        return this.f9502h;
+        return this.f9857h;
     }
 
     public boolean f() {
@@ -104,15 +106,15 @@ public class b implements Serializable {
     }
 
     public void a(String str) {
-        this.f9496b = str;
+        this.f9851b = str;
     }
 
-    public void b(int i) {
-        this.f9502h = i;
+    public void b(int i2) {
+        this.f9857h = i2;
     }
 
     public void a(String[] strArr) {
-        this.f9499e = strArr;
+        this.f9854e = strArr;
     }
 
     public void b(boolean z) {

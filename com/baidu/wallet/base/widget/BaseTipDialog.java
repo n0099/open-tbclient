@@ -12,13 +12,13 @@ import com.baidu.apollon.utils.ResUtils;
 public class BaseTipDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f23415a;
+    public LinearLayout f24139a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f23416b;
+    public TextView f24140b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout.LayoutParams f23417c;
+    public LinearLayout.LayoutParams f24141c;
     public Context mContext;
     public LayoutInflater mInflater;
 
@@ -28,8 +28,8 @@ public class BaseTipDialog extends Dialog {
     }
 
     public void addContentView(View view) {
-        this.f23415a.removeAllViews();
-        this.f23415a.addView(view, this.f23417c);
+        this.f24139a.removeAllViews();
+        this.f24139a.addView(view, this.f24141c);
     }
 
     @Override // android.app.Dialog
@@ -41,10 +41,10 @@ public class BaseTipDialog extends Dialog {
             this.mInflater = LayoutInflater.from(this.mContext);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.f23417c = layoutParams;
+        this.f24141c = layoutParams;
         layoutParams.gravity = 17;
-        this.f23415a = (LinearLayout) findViewById(ResUtils.id(this.mContext, "ebpay_dialog_content_layout"));
-        this.f23416b = (TextView) findViewById(ResUtils.id(this.mContext, "ebpay_dialog_title"));
+        this.f24139a = (LinearLayout) findViewById(ResUtils.id(this.mContext, "ebpay_dialog_content_layout"));
+        this.f24140b = (TextView) findViewById(ResUtils.id(this.mContext, "ebpay_dialog_title"));
         findViewById(ResUtils.id(this.mContext, "ebpay_dialog_title_close")).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.BaseTipDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -61,12 +61,12 @@ public class BaseTipDialog extends Dialog {
         setCanceledOnTouchOutside(false);
     }
 
-    public void setTitleMessage(int i) {
-        TextView textView = this.f23416b;
+    public void setTitleMessage(int i2) {
+        TextView textView = this.f24140b;
         if (textView == null) {
             return;
         }
-        textView.setText(i);
+        textView.setText(i2);
     }
 
     public void showCloseBtn(boolean z) {
@@ -76,13 +76,13 @@ public class BaseTipDialog extends Dialog {
         }
     }
 
-    public BaseTipDialog(Context context, int i) {
-        super(context, i);
+    public BaseTipDialog(Context context, int i2) {
+        super(context, i2);
         this.mContext = context;
     }
 
     public void setTitleMessage(String str) {
-        TextView textView = this.f23416b;
+        TextView textView = this.f24140b;
         if (textView == null) {
             return;
         }

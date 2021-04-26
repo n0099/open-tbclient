@@ -7,68 +7,65 @@ import android.view.SubMenu;
 import android.view.View;
 import androidx.annotation.RestrictTo;
 import androidx.core.internal.view.SupportSubMenu;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
+    public final SupportSubMenu mSubMenu;
+
     public SubMenuWrapperICS(Context context, SupportSubMenu supportSubMenu) {
         super(context, supportSubMenu);
+        this.mSubMenu = supportSubMenu;
     }
 
     @Override // android.view.SubMenu
     public void clearHeader() {
-        getWrappedObject().clearHeader();
+        this.mSubMenu.clearHeader();
     }
 
     @Override // android.view.SubMenu
     public MenuItem getItem() {
-        return getMenuItemWrapper(getWrappedObject().getItem());
+        return getMenuItemWrapper(this.mSubMenu.getItem());
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setHeaderIcon(int i) {
-        getWrappedObject().setHeaderIcon(i);
+    public SubMenu setHeaderIcon(int i2) {
+        this.mSubMenu.setHeaderIcon(i2);
         return this;
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setHeaderTitle(int i) {
-        getWrappedObject().setHeaderTitle(i);
+    public SubMenu setHeaderTitle(int i2) {
+        this.mSubMenu.setHeaderTitle(i2);
         return this;
     }
 
     @Override // android.view.SubMenu
     public SubMenu setHeaderView(View view) {
-        getWrappedObject().setHeaderView(view);
+        this.mSubMenu.setHeaderView(view);
         return this;
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setIcon(int i) {
-        getWrappedObject().setIcon(i);
+    public SubMenu setIcon(int i2) {
+        this.mSubMenu.setIcon(i2);
         return this;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.view.menu.BaseWrapper
-    public SupportSubMenu getWrappedObject() {
-        return (SupportSubMenu) this.mWrappedObject;
     }
 
     @Override // android.view.SubMenu
     public SubMenu setHeaderIcon(Drawable drawable) {
-        getWrappedObject().setHeaderIcon(drawable);
+        this.mSubMenu.setHeaderIcon(drawable);
         return this;
     }
 
     @Override // android.view.SubMenu
     public SubMenu setHeaderTitle(CharSequence charSequence) {
-        getWrappedObject().setHeaderTitle(charSequence);
+        this.mSubMenu.setHeaderTitle(charSequence);
         return this;
     }
 
     @Override // android.view.SubMenu
     public SubMenu setIcon(Drawable drawable) {
-        getWrappedObject().setIcon(drawable);
+        this.mSubMenu.setIcon(drawable);
         return this;
     }
 }

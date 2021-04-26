@@ -12,20 +12,22 @@ public final class FilePathComponents {
     public final File root;
     public final List<File> segments;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.util.List<? extends java.io.File> */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.util.List<? extends java.io.File> */
     /* JADX WARN: Multi-variable type inference failed */
-    public FilePathComponents(File file, List<? extends File> list) {
-        this.root = file;
-        this.segments = list;
+    public FilePathComponents(File root, List<? extends File> segments) {
+        Intrinsics.checkNotNullParameter(root, "root");
+        Intrinsics.checkNotNullParameter(segments, "segments");
+        this.root = root;
+        this.segments = segments;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlin.io.FilePathComponents */
     /* JADX WARN: Multi-variable type inference failed */
-    public static /* synthetic */ FilePathComponents copy$default(FilePathComponents filePathComponents, File file, List list, int i, Object obj) {
-        if ((i & 1) != 0) {
+    public static /* synthetic */ FilePathComponents copy$default(FilePathComponents filePathComponents, File file, List list, int i2, Object obj) {
+        if ((i2 & 1) != 0) {
             file = filePathComponents.root;
         }
-        if ((i & 2) != 0) {
+        if ((i2 & 2) != 0) {
             list = filePathComponents.segments;
         }
         return filePathComponents.copy(file, list);
@@ -39,8 +41,10 @@ public final class FilePathComponents {
         return this.segments;
     }
 
-    public final FilePathComponents copy(File file, List<? extends File> list) {
-        return new FilePathComponents(file, list);
+    public final FilePathComponents copy(File root, List<? extends File> segments) {
+        Intrinsics.checkNotNullParameter(root, "root");
+        Intrinsics.checkNotNullParameter(segments, "segments");
+        return new FilePathComponents(root, segments);
     }
 
     public boolean equals(Object obj) {
@@ -60,7 +64,7 @@ public final class FilePathComponents {
 
     public final String getRootName() {
         String path = this.root.getPath();
-        Intrinsics.checkExpressionValueIsNotNull(path, "root.path");
+        Intrinsics.checkNotNullExpressionValue(path, "root.path");
         return path;
     }
 
@@ -81,15 +85,15 @@ public final class FilePathComponents {
 
     public final boolean isRooted() {
         String path = this.root.getPath();
-        Intrinsics.checkExpressionValueIsNotNull(path, "root.path");
+        Intrinsics.checkNotNullExpressionValue(path, "root.path");
         return path.length() > 0;
     }
 
-    public final File subPath(int i, int i2) {
-        if (i >= 0 && i <= i2 && i2 <= getSize()) {
-            List<File> subList = this.segments.subList(i, i2);
+    public final File subPath(int i2, int i3) {
+        if (i2 >= 0 && i2 <= i3 && i3 <= getSize()) {
+            List<File> subList = this.segments.subList(i2, i3);
             String str = File.separator;
-            Intrinsics.checkExpressionValueIsNotNull(str, "File.separator");
+            Intrinsics.checkNotNullExpressionValue(str, "File.separator");
             return new File(CollectionsKt___CollectionsKt.joinToString$default(subList, str, null, null, 0, null, null, 62, null));
         }
         throw new IllegalArgumentException();

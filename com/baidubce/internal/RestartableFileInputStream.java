@@ -23,8 +23,8 @@ public class RestartableFileInputStream extends RestartableInputStream {
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        return this.input.read(bArr, i, i2);
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
+        return this.input.read(bArr, i2, i3);
     }
 
     @Override // com.baidubce.internal.RestartableInputStream

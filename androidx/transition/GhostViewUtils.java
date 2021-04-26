@@ -4,20 +4,23 @@ import android.graphics.Matrix;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /* loaded from: classes.dex */
 public class GhostViewUtils {
-    public static GhostViewImpl addGhost(View view, ViewGroup viewGroup, Matrix matrix) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            return GhostViewApi21.addGhost(view, viewGroup, matrix);
+    @Nullable
+    public static GhostView addGhost(@NonNull View view, @NonNull ViewGroup viewGroup, @Nullable Matrix matrix) {
+        if (Build.VERSION.SDK_INT == 28) {
+            return GhostViewPlatform.addGhost(view, viewGroup, matrix);
         }
-        return GhostViewApi14.addGhost(view, viewGroup);
+        return GhostViewPort.addGhost(view, viewGroup, matrix);
     }
 
     public static void removeGhost(View view) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            GhostViewApi21.removeGhost(view);
+        if (Build.VERSION.SDK_INT == 28) {
+            GhostViewPlatform.removeGhost(view);
         } else {
-            GhostViewApi14.removeGhost(view);
+            GhostViewPort.removeGhost(view);
         }
     }
 }

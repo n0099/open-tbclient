@@ -12,11 +12,11 @@ public final class SecuityBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static SecuityBeanFactory f25161a = new SecuityBeanFactory();
+        public static SecuityBeanFactory f25931a = new SecuityBeanFactory();
     }
 
     public static SecuityBeanFactory getInstance() {
-        return a.f25161a;
+        return a.f25931a;
     }
 
     public SecuityBeanFactory() {
@@ -24,8 +24,8 @@ public final class SecuityBeanFactory implements IBeanFactory {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.apollon.beans.IBeanFactory
-    public BaseBean<?> getBean(Context context, int i, String str) {
-        SecuityCenterBean secuityCenterBean = i != 1 ? null : new SecuityCenterBean(context);
+    public BaseBean<?> getBean(Context context, int i2, String str) {
+        SecuityCenterBean secuityCenterBean = i2 != 1 ? null : new SecuityCenterBean(context);
         if (secuityCenterBean != null) {
             BeanManager.getInstance().addBean(str, secuityCenterBean);
         }

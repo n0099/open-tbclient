@@ -61,7 +61,7 @@ public class OpenAppUtils {
 
     @TargetApi(3)
     public static String getBestBrowser(Context context) {
-        int i;
+        int i2;
         try {
             PackageManager packageManager = context.getPackageManager();
             ArrayList arrayList = new ArrayList();
@@ -71,21 +71,21 @@ public class OpenAppUtils {
             while (true) {
                 if (it.hasNext()) {
                     ComponentName next = it.next();
-                    for (int i2 = 0; i2 < browserArr.length; i2++) {
-                        String str = browserArr[i2];
+                    for (int i3 = 0; i3 < browserArr.length; i3++) {
+                        String str = browserArr[i3];
                         if (str.equals(next.getPackageName())) {
                             return str;
                         }
                     }
                 } else {
                     try {
-                        i = -1;
+                        i2 = -1;
                         for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
                             try {
                                 if (packageManager.getLaunchIntentForPackage(runningAppProcessInfo.processName) != null && packageManager.getApplicationInfo(runningAppProcessInfo.processName, 128) != null) {
-                                    for (int i3 = 0; i3 < browserArr.length; i3++) {
-                                        if (runningAppProcessInfo.processName.equals(browserArr[i3]) && (i == -1 || i3 < i)) {
-                                            i = i3;
+                                    for (int i4 = 0; i4 < browserArr.length; i4++) {
+                                        if (runningAppProcessInfo.processName.equals(browserArr[i4]) && (i2 == -1 || i4 < i2)) {
+                                            i2 = i4;
                                         }
                                     }
                                 }
@@ -93,19 +93,19 @@ public class OpenAppUtils {
                             }
                         }
                     } catch (Exception unused2) {
-                        i = -1;
+                        i2 = -1;
                     }
-                    if (i != -1) {
-                        return browserArr[i];
+                    if (i2 != -1) {
+                        return browserArr[i2];
                     }
                     Intent intent = new Intent("android.intent.action.VIEW");
                     intent.setData(Uri.parse(DownloadConstants.REFER));
                     List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(intent, 64);
                     if (queryIntentActivities != null) {
-                        for (int i4 = 0; i4 < browserArr.length; i4++) {
-                            for (int i5 = 0; i5 < queryIntentActivities.size(); i5++) {
-                                String str2 = queryIntentActivities.get(i5).activityInfo.packageName;
-                                String str3 = browserArr[i4];
+                        for (int i5 = 0; i5 < browserArr.length; i5++) {
+                            for (int i6 = 0; i6 < queryIntentActivities.size(); i6++) {
+                                String str2 = queryIntentActivities.get(i6).activityInfo.packageName;
+                                String str3 = browserArr[i5];
                                 if (str3.equals(str2)) {
                                     return str3;
                                 }

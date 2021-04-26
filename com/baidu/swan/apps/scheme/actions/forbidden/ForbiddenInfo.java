@@ -2,7 +2,7 @@ package com.baidu.swan.apps.scheme.actions.forbidden;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import d.b.h0.a.y0.e.b;
+import d.a.h0.a.y0.e.b;
 /* loaded from: classes3.dex */
 public class ForbiddenInfo implements Parcelable {
     public static final Parcelable.Creator<ForbiddenInfo> CREATOR = new a();
@@ -28,8 +28,8 @@ public class ForbiddenInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public ForbiddenInfo[] newArray(int i) {
-            return new ForbiddenInfo[i];
+        public ForbiddenInfo[] newArray(int i2) {
+            return new ForbiddenInfo[i2];
         }
     }
 
@@ -62,7 +62,7 @@ public class ForbiddenInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.appId);
         parcel.writeString(this.appKey);
         parcel.writeString(this.forbiddenReason);

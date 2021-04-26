@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import d.b.c.e.m.b;
+import d.a.c.e.m.b;
 /* loaded from: classes3.dex */
 public class NewVcodeActivityConfig extends IntentConfig {
     public static final String IS_AD = "is_ad";
@@ -12,9 +12,9 @@ public class NewVcodeActivityConfig extends IntentConfig {
     public static final String PAGE_TYPE = "page_type";
     public static final String SAVE_KEY = "model";
 
-    public NewVcodeActivityConfig(Context context, int i, WriteData writeData, boolean z, String str) {
+    public NewVcodeActivityConfig(Context context, int i2, WriteData writeData, boolean z, String str) {
         super(context);
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
         if (writeData == null) {
             return;

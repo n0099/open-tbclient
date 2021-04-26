@@ -8,7 +8,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ForwardingDrawable extends Drawable implements Drawable.Callback, TransformCallback, TransformAwareDrawable, DrawableParent {
     public static final Matrix sTempTransform = new Matrix();
     @Nullable
@@ -149,12 +149,12 @@ public class ForwardingDrawable extends Drawable implements Drawable.Callback, T
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean onLevelChange(int i) {
+    public boolean onLevelChange(int i2) {
         Drawable drawable = this.mCurrentDelegate;
         if (drawable == null) {
-            return super.onLevelChange(i);
+            return super.onLevelChange(i2);
         }
-        return drawable.setLevel(i);
+        return drawable.setLevel(i2);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -172,11 +172,11 @@ public class ForwardingDrawable extends Drawable implements Drawable.Callback, T
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        this.mDrawableProperties.setAlpha(i);
+    public void setAlpha(int i2) {
+        this.mDrawableProperties.setAlpha(i2);
         Drawable drawable = this.mCurrentDelegate;
         if (drawable != null) {
-            drawable.setAlpha(i);
+            drawable.setAlpha(i2);
         }
     }
 

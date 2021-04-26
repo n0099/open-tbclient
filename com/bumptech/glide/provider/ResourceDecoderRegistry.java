@@ -87,12 +87,10 @@ public class ResourceDecoderRegistry {
     public synchronized void setBucketPriorityList(@NonNull List<String> list) {
         ArrayList<String> arrayList = new ArrayList(this.bucketPriorityList);
         this.bucketPriorityList.clear();
-        for (String str : list) {
-            this.bucketPriorityList.add(str);
-        }
-        for (String str2 : arrayList) {
-            if (!list.contains(str2)) {
-                this.bucketPriorityList.add(str2);
+        this.bucketPriorityList.addAll(list);
+        for (String str : arrayList) {
+            if (!list.contains(str)) {
+                this.bucketPriorityList.add(str);
             }
         }
     }

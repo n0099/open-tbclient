@@ -28,10 +28,10 @@ public class EditorHelper {
         }
     }
 
-    public static void putInt(SharedPreferences sharedPreferences, String str, int i) {
+    public static void putInt(SharedPreferences sharedPreferences, String str, int i2) {
         if (sharedPreferences != null) {
             SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putInt(str, i);
+            edit.putInt(str, i2);
             if (Build.VERSION.SDK_INT >= 9) {
                 edit.apply();
             } else {

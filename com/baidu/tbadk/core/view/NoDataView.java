@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.c.a.f;
-import d.b.c.e.p.l;
+import d.a.c.a.f;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class NoDataView extends LinearLayout {
     public static final int u = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds312);
@@ -27,17 +27,19 @@ public class NoDataView extends LinearLayout {
     public static final int y = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20);
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f13069e;
+    public Context f13006e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f13070f;
+    public View f13007f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f13071g;
+    public TbImageView f13008g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f13072h;
-    public TextView i;
+    public LinearLayout f13009h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f13010i;
     public TextView j;
     public TextView k;
     public TBSpecificationBtn l;
@@ -54,49 +56,49 @@ public class NoDataView extends LinearLayout {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f13073a;
+        public static final /* synthetic */ int[] f13011a;
 
         static {
             int[] iArr = new int[NoDataViewFactory.ImgType.values().length];
-            f13073a = iArr;
+            f13011a = iArr;
             try {
                 iArr[NoDataViewFactory.ImgType.FINDBAR.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f13073a[NoDataViewFactory.ImgType.EMOTION.ordinal()] = 2;
+                f13011a[NoDataViewFactory.ImgType.EMOTION.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f13073a[NoDataViewFactory.ImgType.CREATE.ordinal()] = 3;
+                f13011a[NoDataViewFactory.ImgType.CREATE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f13073a[NoDataViewFactory.ImgType.COLLECTION.ordinal()] = 4;
+                f13011a[NoDataViewFactory.ImgType.COLLECTION.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f13073a[NoDataViewFactory.ImgType.NODATA.ordinal()] = 5;
+                f13011a[NoDataViewFactory.ImgType.NODATA.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f13073a[NoDataViewFactory.ImgType.ANTI.ordinal()] = 6;
+                f13011a[NoDataViewFactory.ImgType.ANTI.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f13073a[NoDataViewFactory.ImgType.SINGALL.ordinal()] = 7;
+                f13011a[NoDataViewFactory.ImgType.SINGALL.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f13073a[NoDataViewFactory.ImgType.GIFT.ordinal()] = 8;
+                f13011a[NoDataViewFactory.ImgType.GIFT.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f13073a[NoDataViewFactory.ImgType.WEBVIEW.ordinal()] = 9;
+                f13011a[NoDataViewFactory.ImgType.WEBVIEW.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f13073a[NoDataViewFactory.ImgType.NETERROR.ordinal()] = 10;
+                f13011a[NoDataViewFactory.ImgType.NETERROR.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
         }
@@ -104,34 +106,34 @@ public class NoDataView extends LinearLayout {
 
     public NoDataView(Context context) {
         super(context);
-        this.f13069e = context;
+        this.f13006e = context;
         b(context, null);
     }
 
     public final void a() {
         if (this.l.getVisibility() == 0) {
-            ViewGroup.LayoutParams layoutParams = this.f13072h.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f13009h.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = v;
-                this.f13072h.setLayoutParams(marginLayoutParams);
+                this.f13009h.setLayoutParams(marginLayoutParams);
             }
             this.j.setVisibility(8);
             this.s = R.color.CAM_X0107;
         } else if (this.j.getVisibility() == 8) {
-            ViewGroup.LayoutParams layoutParams2 = this.f13072h.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams2 = this.f13009h.getLayoutParams();
             if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams2;
                 marginLayoutParams2.topMargin = v;
-                this.f13072h.setLayoutParams(marginLayoutParams2);
+                this.f13009h.setLayoutParams(marginLayoutParams2);
             }
             this.s = R.color.CAM_X0107;
         } else if (this.k.getVisibility() == 0) {
-            ViewGroup.LayoutParams layoutParams3 = this.f13072h.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams3 = this.f13009h.getLayoutParams();
             if (layoutParams3 instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams3 = (ViewGroup.MarginLayoutParams) layoutParams3;
                 marginLayoutParams3.topMargin = x;
-                this.f13072h.setLayoutParams(marginLayoutParams3);
+                this.f13009h.setLayoutParams(marginLayoutParams3);
             }
             ViewGroup.LayoutParams layoutParams4 = this.k.getLayoutParams();
             if (layoutParams4 instanceof ViewGroup.MarginLayoutParams) {
@@ -142,16 +144,16 @@ public class NoDataView extends LinearLayout {
             this.s = R.color.CAM_X0107;
             this.t = R.color.CAM_X0109;
         } else {
-            ViewGroup.LayoutParams layoutParams5 = this.f13071g.getLayoutParams();
-            int i = u;
-            layoutParams5.width = i;
-            layoutParams5.height = i;
-            this.f13071g.setLayoutParams(layoutParams5);
-            ViewGroup.LayoutParams layoutParams6 = this.f13072h.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams5 = this.f13008g.getLayoutParams();
+            int i2 = u;
+            layoutParams5.width = i2;
+            layoutParams5.height = i2;
+            this.f13008g.setLayoutParams(layoutParams5);
+            ViewGroup.LayoutParams layoutParams6 = this.f13009h.getLayoutParams();
             if (layoutParams6 instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams5 = (ViewGroup.MarginLayoutParams) layoutParams6;
                 marginLayoutParams5.topMargin = w;
-                this.f13072h.setLayoutParams(marginLayoutParams5);
+                this.f13009h.setLayoutParams(marginLayoutParams5);
             }
             this.t = R.color.CAM_X0109;
         }
@@ -160,21 +162,21 @@ public class NoDataView extends LinearLayout {
     }
 
     public final void b(Context context, AttributeSet attributeSet) {
-        View inflate = LayoutInflater.from(this.f13069e).inflate(R.layout.no_data_view, this);
-        this.f13070f = inflate;
+        View inflate = LayoutInflater.from(this.f13006e).inflate(R.layout.no_data_view, this);
+        this.f13007f = inflate;
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.iv_no_data_img);
-        this.f13071g = tbImageView;
+        this.f13008g = tbImageView;
         tbImageView.setDefaultBgResource(0);
-        this.f13071g.setDefaultResource(0);
-        this.f13072h = (LinearLayout) this.f13070f.findViewById(R.id.title_container);
-        this.i = (TextView) this.f13070f.findViewById(R.id.tv_text_reamrk);
-        this.j = (TextView) this.f13070f.findViewById(R.id.tv_subtitle);
-        this.k = (TextView) this.f13070f.findViewById(R.id.tv_title);
-        this.l = (TBSpecificationBtn) this.f13070f.findViewById(R.id.btn_func);
-        d.b.i0.r.f0.m.a aVar = new d.b.i0.r.f0.m.a();
+        this.f13008g.setDefaultResource(0);
+        this.f13009h = (LinearLayout) this.f13007f.findViewById(R.id.title_container);
+        this.f13010i = (TextView) this.f13007f.findViewById(R.id.tv_text_reamrk);
+        this.j = (TextView) this.f13007f.findViewById(R.id.tv_subtitle);
+        this.k = (TextView) this.f13007f.findViewById(R.id.tv_title);
+        this.l = (TBSpecificationBtn) this.f13007f.findViewById(R.id.btn_func);
+        d.a.i0.r.f0.m.a aVar = new d.a.i0.r.f0.m.a();
         this.l.setTextSize(R.dimen.T_X05);
         this.l.setConfig(aVar);
-        this.p = (LinearLayout) this.f13070f.findViewById(R.id.two_button_layout);
+        this.p = (LinearLayout) this.f13007f.findViewById(R.id.two_button_layout);
         this.s = R.color.CAM_X0107;
         this.t = R.color.CAM_X0109;
         h();
@@ -191,14 +193,14 @@ public class NoDataView extends LinearLayout {
     }
 
     public void e() {
-        this.f13071g.setImageDrawable(null);
-        this.f13071g.W(null, 10, false);
+        this.f13008g.setImageDrawable(null);
+        this.f13008g.V(null, 10, false);
     }
 
-    public void f(f<?> fVar, int i) {
+    public void f(f<?> fVar, int i2) {
         if (fVar instanceof TbPageContext) {
             TbPageContext tbPageContext = (TbPageContext) fVar;
-            tbPageContext.getLayoutMode().k(i == 1);
+            tbPageContext.getLayoutMode().k(i2 == 1);
             tbPageContext.getLayoutMode().j(this);
         }
         TBSpecificationBtn tBSpecificationBtn = this.l;
@@ -215,17 +217,17 @@ public class NoDataView extends LinearLayout {
         }
         NoDataViewFactory.ImgType imgType = this.q;
         if (imgType == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.f13071g.setImageBitmap(SkinManager.getBitmap565Quality(R.drawable.new_pic_emotion_08));
+            this.f13008g.setImageBitmap(SkinManager.getBitmap565Quality(R.drawable.new_pic_emotion_08));
         } else if (imgType == NoDataViewFactory.ImgType.NODATA) {
-            this.f13071g.setImageBitmap(SkinManager.getBitmap565Quality(R.drawable.new_pic_emotion_05));
+            this.f13008g.setImageBitmap(SkinManager.getBitmap565Quality(R.drawable.new_pic_emotion_05));
         } else if (imgType == NoDataViewFactory.ImgType.LOCAL) {
-            this.f13071g.setImageBitmap(SkinManager.getBitmap565Quality(this.r));
+            this.f13008g.setImageBitmap(SkinManager.getBitmap565Quality(this.r));
         } else if (imgType == NoDataViewFactory.ImgType.ANTI) {
-            this.f13071g.setImageBitmap(SkinManager.getBitmap565Quality(R.drawable.new_pic_emotion_05));
+            this.f13008g.setImageBitmap(SkinManager.getBitmap565Quality(R.drawable.new_pic_emotion_05));
         } else if (imgType == NoDataViewFactory.ImgType.NETERROR) {
-            this.f13071g.setImageBitmap(SkinManager.getBitmap565Quality(R.drawable.new_pic_emotion_08));
+            this.f13008g.setImageBitmap(SkinManager.getBitmap565Quality(R.drawable.new_pic_emotion_08));
         } else {
-            this.f13071g.setImageBitmap(SkinManager.getBitmap565Quality(this.o));
+            this.f13008g.setImageBitmap(SkinManager.getBitmap565Quality(this.o));
         }
     }
 
@@ -239,14 +241,14 @@ public class NoDataView extends LinearLayout {
     }
 
     public final void h() {
-        int i = l.i(TbadkCoreApplication.getInst());
-        if (i > 0) {
-            int i2 = (int) (i * 0.16d);
-            ViewGroup.LayoutParams layoutParams = this.f13071g.getLayoutParams();
+        int i2 = l.i(TbadkCoreApplication.getInst());
+        if (i2 > 0) {
+            int i3 = (int) (i2 * 0.16d);
+            ViewGroup.LayoutParams layoutParams = this.f13008g.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                marginLayoutParams.topMargin = i2;
-                this.f13071g.setLayoutParams(marginLayoutParams);
+                marginLayoutParams.topMargin = i3;
+                this.f13008g.setLayoutParams(marginLayoutParams);
             }
         }
     }
@@ -257,44 +259,44 @@ public class NoDataView extends LinearLayout {
             this.p.setVisibility(8);
             return;
         }
-        NoDataViewFactory.b bVar = cVar.f13076a;
-        NoDataViewFactory.b bVar2 = cVar.f13077b;
+        NoDataViewFactory.b bVar = cVar.f13014a;
+        NoDataViewFactory.b bVar2 = cVar.f13015b;
         if (bVar2 == null && bVar != null) {
-            this.l.setOnClickListener(bVar.f13074a);
-            this.l.setText(bVar.f13075b);
+            this.l.setOnClickListener(bVar.f13012a);
+            this.l.setText(bVar.f13013b);
             this.l.setVisibility(0);
-            if (cVar.f13078c >= 0) {
+            if (cVar.f13016c >= 0) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.l.getLayoutParams();
-                layoutParams.topMargin = cVar.f13078c;
+                layoutParams.topMargin = cVar.f13016c;
                 this.l.setLayoutParams(layoutParams);
             }
         }
         if (bVar2 != null && bVar != null) {
             this.m = (TBSpecificationBtn) this.p.findViewById(R.id.btn_left);
             this.n = (TBSpecificationBtn) this.p.findViewById(R.id.btn_right);
-            d.b.i0.r.f0.m.a aVar = new d.b.i0.r.f0.m.a();
+            d.a.i0.r.f0.m.a aVar = new d.a.i0.r.f0.m.a();
             this.m.setTextSize(R.dimen.ds32);
             this.m.setConfig(aVar);
             this.n.setTextSize(R.dimen.ds32);
             this.n.setConfig(aVar);
-            this.m.setOnClickListener(bVar.f13074a);
-            this.m.setText(bVar.f13075b);
-            this.n.setOnClickListener(bVar2.f13074a);
-            this.n.setText(bVar2.f13075b);
+            this.m.setOnClickListener(bVar.f13012a);
+            this.m.setText(bVar.f13013b);
+            this.n.setOnClickListener(bVar2.f13012a);
+            this.n.setText(bVar2.f13013b);
             this.p.setVisibility(0);
         }
         a();
     }
 
     public void setImgOption(NoDataViewFactory.d dVar) {
-        int i;
+        int i2;
         if (dVar == null) {
             return;
         }
-        NoDataViewFactory.ImgType imgType = dVar.f13082a;
+        NoDataViewFactory.ImgType imgType = dVar.f13020a;
         this.q = imgType;
-        this.r = dVar.f13084c;
-        switch (a.f13073a[imgType.ordinal()]) {
+        this.r = dVar.f13022c;
+        switch (a.f13011a[imgType.ordinal()]) {
             case 1:
                 this.o = R.drawable.new_pic_emotion_01;
                 break;
@@ -326,46 +328,46 @@ public class NoDataView extends LinearLayout {
                 this.o = R.drawable.new_pic_emotion_08;
                 break;
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13071g.getLayoutParams();
-        int i2 = dVar.f13083b;
-        if (i2 >= 0) {
-            layoutParams.setMargins(0, i2, 0, 0);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13008g.getLayoutParams();
+        int i3 = dVar.f13021b;
+        if (i3 >= 0) {
+            layoutParams.setMargins(0, i3, 0, 0);
         }
-        int i3 = dVar.f13085d;
-        if (i3 > 0 && (i = dVar.f13086e) > 0) {
-            layoutParams.height = i3;
-            layoutParams.width = i;
+        int i4 = dVar.f13023d;
+        if (i4 > 0 && (i2 = dVar.f13024e) > 0) {
+            layoutParams.height = i4;
+            layoutParams.width = i2;
         }
-        this.f13071g.setLayoutParams(layoutParams);
+        this.f13008g.setLayoutParams(layoutParams);
     }
 
-    public void setRemarkTextColor(int i) {
-        TextView textView = this.i;
+    public void setRemarkTextColor(int i2) {
+        TextView textView = this.f13010i;
         if (textView != null) {
-            SkinManager.setViewTextColor(textView, i, 1);
+            SkinManager.setViewTextColor(textView, i2, 1);
         }
     }
 
-    public void setSubTitleCompoundDrawable(int i) {
-        Drawable drawable = SkinManager.getDrawable(i);
-        int g2 = l.g(this.f13069e, R.dimen.ds32);
-        int g3 = l.g(this.f13069e, R.dimen.ds8);
+    public void setSubTitleCompoundDrawable(int i2) {
+        Drawable drawable = SkinManager.getDrawable(i2);
+        int g2 = l.g(this.f13006e, R.dimen.ds32);
+        int g3 = l.g(this.f13006e, R.dimen.ds8);
         drawable.setBounds(0, 0, g2, g2);
         this.j.setCompoundDrawablePadding(g3);
         this.j.setCompoundDrawables(drawable, null, null, null);
     }
 
-    public void setSubTitleTextColor(int i) {
+    public void setSubTitleTextColor(int i2) {
         TextView textView = this.j;
         if (textView != null) {
-            SkinManager.setViewTextColor(textView, i, 1);
+            SkinManager.setViewTextColor(textView, i2, 1);
         }
     }
 
-    public void setSubTitleTextSize(int i) {
+    public void setSubTitleTextSize(int i2) {
         TextView textView = this.j;
         if (textView != null) {
-            textView.setTextSize(i);
+            textView.setTextSize(i2);
         }
     }
 
@@ -373,40 +375,40 @@ public class NoDataView extends LinearLayout {
         if (eVar == null) {
             return;
         }
-        if (!TextUtils.isEmpty(eVar.f13092a)) {
-            this.k.setText(eVar.f13092a);
+        if (!TextUtils.isEmpty(eVar.f13030a)) {
+            this.k.setText(eVar.f13030a);
             this.k.setVisibility(0);
         } else {
             this.k.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(eVar.f13093b)) {
+        if (!TextUtils.isEmpty(eVar.f13031b)) {
             this.j.setVisibility(0);
-            this.j.setText(eVar.f13093b);
-            if (TextUtils.isEmpty(eVar.f13092a) && eVar.f13095d >= 0) {
+            this.j.setText(eVar.f13031b);
+            if (TextUtils.isEmpty(eVar.f13030a) && eVar.f13033d >= 0) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.j.getLayoutParams();
-                layoutParams.topMargin = eVar.f13095d;
+                layoutParams.topMargin = eVar.f13033d;
                 this.j.setLayoutParams(layoutParams);
             }
-            int i = eVar.f13096e;
-            if (i != 0) {
-                setSubTitleCompoundDrawable(i);
+            int i2 = eVar.f13034e;
+            if (i2 != 0) {
+                setSubTitleCompoundDrawable(i2);
             }
         } else {
             this.j.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(eVar.f13094c)) {
-            this.i.setText(eVar.f13094c);
-            this.i.setVisibility(0);
+        if (!TextUtils.isEmpty(eVar.f13032c)) {
+            this.f13010i.setText(eVar.f13032c);
+            this.f13010i.setVisibility(0);
         } else {
-            this.i.setVisibility(8);
+            this.f13010i.setVisibility(8);
         }
         a();
     }
 
-    public void setTitleTextColor(int i) {
+    public void setTitleTextColor(int i2) {
         TextView textView = this.k;
         if (textView != null) {
-            SkinManager.setViewTextColor(textView, i, 1);
+            SkinManager.setViewTextColor(textView, i2, 1);
         }
     }
 

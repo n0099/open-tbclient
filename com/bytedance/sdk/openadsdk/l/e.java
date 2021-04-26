@@ -14,75 +14,75 @@ import java.util.concurrent.TimeUnit;
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f29461b;
+    public static c f30366b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile ThreadPoolExecutor f29463d;
+    public static volatile ThreadPoolExecutor f30368d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile ThreadPoolExecutor f29464e;
+    public static volatile ThreadPoolExecutor f30369e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile ThreadPoolExecutor f29465f;
+    public static volatile ThreadPoolExecutor f30370f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile ScheduledExecutorService f29466g;
+    public static volatile ScheduledExecutorService f30371g;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f29460a = Runtime.getRuntime().availableProcessors();
+    public static final int f30365a = Runtime.getRuntime().availableProcessors();
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f29462c = true;
+    public static boolean f30367c = true;
 
     public static ExecutorService a() {
-        if (f29463d == null) {
+        if (f30368d == null) {
             synchronized (e.class) {
-                if (f29463d == null) {
-                    f29463d = new a.C0331a().a("io").a(0).b(Integer.MAX_VALUE).a(20L).a(TimeUnit.SECONDS).a(new SynchronousQueue()).a(f()).a();
-                    f29463d.allowCoreThreadTimeOut(true);
+                if (f30368d == null) {
+                    f30368d = new a.C0324a().a("io").a(0).b(Integer.MAX_VALUE).a(20L).a(TimeUnit.SECONDS).a(new SynchronousQueue()).a(f()).a();
+                    f30368d.allowCoreThreadTimeOut(true);
                 }
             }
         }
-        return f29463d;
+        return f30368d;
     }
 
     public static ExecutorService b() {
-        if (f29464e == null) {
+        if (f30369e == null) {
             synchronized (e.class) {
-                if (f29464e == null) {
-                    f29464e = new a.C0331a().a(TbConfig.TMP_LOG_DIR_NAME).a(2).b(4).a(20L).a(TimeUnit.SECONDS).a(new PriorityBlockingQueue()).a(f()).a();
-                    f29464e.allowCoreThreadTimeOut(true);
+                if (f30369e == null) {
+                    f30369e = new a.C0324a().a(TbConfig.TMP_LOG_DIR_NAME).a(2).b(4).a(20L).a(TimeUnit.SECONDS).a(new PriorityBlockingQueue()).a(f()).a();
+                    f30369e.allowCoreThreadTimeOut(true);
                 }
             }
         }
-        return f29464e;
+        return f30369e;
     }
 
     public static ExecutorService c() {
-        if (f29465f == null) {
+        if (f30370f == null) {
             synchronized (e.class) {
-                if (f29465f == null) {
-                    f29465f = new a.C0331a().a("aidl").a(0).b(4).a(5L).a(TimeUnit.SECONDS).a(new PriorityBlockingQueue()).a(f()).a();
-                    f29465f.allowCoreThreadTimeOut(true);
+                if (f30370f == null) {
+                    f30370f = new a.C0324a().a("aidl").a(0).b(4).a(5L).a(TimeUnit.SECONDS).a(new PriorityBlockingQueue()).a(f()).a();
+                    f30370f.allowCoreThreadTimeOut(true);
                 }
             }
         }
-        return f29465f;
+        return f30370f;
     }
 
     public static ScheduledExecutorService d() {
-        if (f29466g == null) {
+        if (f30371g == null) {
             synchronized (e.class) {
-                if (f29466g == null) {
-                    f29466g = Executors.newSingleThreadScheduledExecutor(new h(5, "scheduled"));
+                if (f30371g == null) {
+                    f30371g = Executors.newSingleThreadScheduledExecutor(new h(5, "scheduled"));
                 }
             }
         }
-        return f29466g;
+        return f30371g;
     }
 
     public static boolean e() {
-        return f29462c;
+        return f30367c;
     }
 
     public static RejectedExecutionHandler f() {
@@ -94,50 +94,50 @@ public class e {
     }
 
     public static c g() {
-        return f29461b;
+        return f30366b;
     }
 
     public static void a(g gVar) {
-        if (f29463d == null) {
+        if (f30368d == null) {
             a();
         }
-        if (f29463d != null) {
-            f29463d.execute(gVar);
+        if (f30368d != null) {
+            f30368d.execute(gVar);
         }
     }
 
     public static void b(g gVar) {
-        if (f29464e == null) {
+        if (f30369e == null) {
             b();
         }
-        if (f29464e != null) {
-            f29464e.execute(gVar);
+        if (f30369e != null) {
+            f30369e.execute(gVar);
         }
     }
 
-    public static void a(g gVar, int i) {
-        if (f29463d == null) {
+    public static void a(g gVar, int i2) {
+        if (f30368d == null) {
             a();
         }
-        if (f29463d != null) {
-            f29463d.execute(gVar);
+        if (f30368d != null) {
+            f30368d.execute(gVar);
         }
     }
 
-    public static void b(g gVar, int i) {
-        if (f29465f == null) {
+    public static void b(g gVar, int i2) {
+        if (f30370f == null) {
             c();
         }
-        if (f29465f != null) {
-            f29465f.execute(gVar);
+        if (f30370f != null) {
+            f30370f.execute(gVar);
         }
     }
 
     public static void a(boolean z) {
-        f29462c = z;
+        f30367c = z;
     }
 
     public static void a(c cVar) {
-        f29461b = cVar;
+        f30366b = cVar;
     }
 }

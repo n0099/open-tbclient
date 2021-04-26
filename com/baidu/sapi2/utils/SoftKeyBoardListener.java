@@ -10,19 +10,19 @@ import java.io.PrintStream;
 public class SoftKeyBoardListener implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f11009a;
+    public View f10892a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11010b;
+    public int f10893b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OnSoftKeyBoardChangeListener f11011c;
+    public OnSoftKeyBoardChangeListener f10894c;
 
     /* loaded from: classes2.dex */
     public interface OnSoftKeyBoardChangeListener extends NoProguard {
-        void keyBoardHide(int i);
+        void keyBoardHide(int i2);
 
-        void keyBoardShow(int i);
+        void keyBoardShow(int i2);
     }
 
     /* loaded from: classes2.dex */
@@ -33,26 +33,26 @@ public class SoftKeyBoardListener implements NoProguard {
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Rect rect = new Rect();
-            SoftKeyBoardListener.this.f11009a.getWindowVisibleDisplayFrame(rect);
+            SoftKeyBoardListener.this.f10892a.getWindowVisibleDisplayFrame(rect);
             int height = rect.height();
             PrintStream printStream = System.out;
             printStream.println("" + height);
             SoftKeyBoardListener softKeyBoardListener = SoftKeyBoardListener.this;
-            int i = softKeyBoardListener.f11010b;
-            if (i == 0) {
-                softKeyBoardListener.f11010b = height;
-            } else if (i == height) {
+            int i2 = softKeyBoardListener.f10893b;
+            if (i2 == 0) {
+                softKeyBoardListener.f10893b = height;
+            } else if (i2 == height) {
             } else {
-                if (i - height > 200) {
-                    if (softKeyBoardListener.f11011c != null) {
-                        SoftKeyBoardListener.this.f11011c.keyBoardShow(SoftKeyBoardListener.this.f11010b - height);
+                if (i2 - height > 200) {
+                    if (softKeyBoardListener.f10894c != null) {
+                        SoftKeyBoardListener.this.f10894c.keyBoardShow(SoftKeyBoardListener.this.f10893b - height);
                     }
-                    SoftKeyBoardListener.this.f11010b = height;
-                } else if (height - i > 200) {
-                    if (softKeyBoardListener.f11011c != null) {
-                        SoftKeyBoardListener.this.f11011c.keyBoardHide(height - SoftKeyBoardListener.this.f11010b);
+                    SoftKeyBoardListener.this.f10893b = height;
+                } else if (height - i2 > 200) {
+                    if (softKeyBoardListener.f10894c != null) {
+                        SoftKeyBoardListener.this.f10894c.keyBoardHide(height - SoftKeyBoardListener.this.f10893b);
                     }
-                    SoftKeyBoardListener.this.f11010b = height;
+                    SoftKeyBoardListener.this.f10893b = height;
                 }
             }
         }
@@ -60,7 +60,7 @@ public class SoftKeyBoardListener implements NoProguard {
 
     public SoftKeyBoardListener(Activity activity) {
         View decorView = activity.getWindow().getDecorView();
-        this.f11009a = decorView;
+        this.f10892a = decorView;
         decorView.getViewTreeObserver().addOnGlobalLayoutListener(new a());
     }
 
@@ -69,6 +69,6 @@ public class SoftKeyBoardListener implements NoProguard {
     }
 
     private void a(OnSoftKeyBoardChangeListener onSoftKeyBoardChangeListener) {
-        this.f11011c = onSoftKeyBoardChangeListener;
+        this.f10894c = onSoftKeyBoardChangeListener;
     }
 }

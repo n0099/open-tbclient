@@ -60,7 +60,7 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
 
     /* loaded from: classes2.dex */
     public interface OnAddressSelectedListener {
-        void onAddressSelected(int i, AddressBean addressBean);
+        void onAddressSelected(int i2, AddressBean addressBean);
     }
 
     /* loaded from: classes2.dex */
@@ -80,12 +80,12 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
             list = list.subList(0, 8);
         }
         int size = list.size() / 4;
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             LinearLayout linearLayout2 = new LinearLayout(this.mContext);
             linearLayout2.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             linearLayout2.setPadding((int) this.mContext.getResources().getDimension(R.dimen.sapi_sdk_address_dialog_item_hot_group_top_padding), 0, (int) this.mContext.getResources().getDimension(R.dimen.sapi_sdk_address_dialog_item_hot_group_top_padding), 0);
-            for (int i2 = 0; i2 < 4; i2++) {
-                final AddressBean addressBean = list.get((i * 4) + i2);
+            for (int i3 = 0; i3 < 4; i3++) {
+                final AddressBean addressBean = list.get((i2 * 4) + i3);
                 if (addressBean != null) {
                     TextView textView = new TextView(this.mContext);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) this.mContext.getResources().getDimension(R.dimen.sapi_sdk_address_dialog_item_hot_group_text_width), (int) this.mContext.getResources().getDimension(R.dimen.sapi_sdk_address_dialog_item_hot_group_text_height));
@@ -119,7 +119,7 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
                         }
                     });
                     linearLayout2.addView(textView);
-                    if (i2 != 3) {
+                    if (i3 != 3) {
                         View view = new View(this.mContext);
                         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, 0);
                         layoutParams2.weight = 1.0f;
@@ -219,11 +219,11 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onBindViewHolder(@NonNull AddressSelectorHolder addressSelectorHolder, @SuppressLint({"RecyclerView"}) final int i) {
+    public void onBindViewHolder(@NonNull AddressSelectorHolder addressSelectorHolder, @SuppressLint({"RecyclerView"}) final int i2) {
         List<AddressBean> list;
         final AddressBean addressBean;
         ElementNode.AddressEntity addressEntity = this.mEntity;
-        if (addressEntity == null || (list = addressEntity.list) == null || list.size() == 0 || (addressBean = list.get(i)) == null) {
+        if (addressEntity == null || (list = addressEntity.list) == null || list.size() == 0 || (addressBean = list.get(i2)) == null) {
             return;
         }
         List<AddressBean> list2 = addressBean.hotlists;
@@ -268,22 +268,22 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (AddressSelectorAdapter.this.mOnAddressSelectedListener != null) {
-                        AddressSelectorAdapter.this.mOnAddressSelectedListener.onAddressSelected(i, addressBean);
+                        AddressSelectorAdapter.this.mOnAddressSelectedListener.onAddressSelected(i2, addressBean);
                     }
                 }
             });
         }
         if (this.mHasHotList) {
-            addressSelectorHolder.mTvCityCategory.setVisibility(i != 1 ? 8 : 0);
+            addressSelectorHolder.mTvCityCategory.setVisibility(i2 != 1 ? 8 : 0);
         } else {
-            addressSelectorHolder.mTvCityCategory.setVisibility(i != 0 ? 8 : 0);
+            addressSelectorHolder.mTvCityCategory.setVisibility(i2 != 0 ? 8 : 0);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    public AddressSelectorHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public AddressSelectorHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
         return new AddressSelectorHolder(LayoutInflater.from(this.mContext).inflate(R.layout.layout_sapi_sdk_item_address_selector, viewGroup, false), this.isDarkMode);
     }
 }

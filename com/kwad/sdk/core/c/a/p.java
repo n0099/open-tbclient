@@ -1,71 +1,44 @@
 package com.kwad.sdk.core.c.a;
 
-import com.kwad.sdk.emotion.model.CDNUrl;
-import com.kwad.sdk.emotion.model.EmotionCode;
-import com.kwad.sdk.emotion.model.EmotionInfo;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.heytap.mcssdk.PushManager;
+import com.kwad.sdk.core.webview.jshandler.l;
+import com.vivo.push.PushClientConstants;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class p implements com.kwad.sdk.core.c<EmotionInfo> {
+public class p implements com.kwad.sdk.core.c<l.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public JSONObject a(EmotionInfo emotionInfo) {
-        JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "id", emotionInfo.id);
-        com.kwad.sdk.utils.o.a(jSONObject, "name", emotionInfo.name);
-        com.kwad.sdk.utils.o.a(jSONObject, "type", emotionInfo.type);
-        com.kwad.sdk.utils.o.a(jSONObject, "packageId", emotionInfo.packageId);
-        com.kwad.sdk.utils.o.a(jSONObject, "emotionImageSmallUrl", emotionInfo.emotionImageSmallUrl);
-        com.kwad.sdk.utils.o.a(jSONObject, "emotionImageBigUrl", emotionInfo.emotionImageBigUrl);
-        com.kwad.sdk.utils.o.a(jSONObject, "emotionCodes", emotionInfo.emotionCodes);
-        com.kwad.sdk.utils.o.a(jSONObject, "width", emotionInfo.width);
-        com.kwad.sdk.utils.o.a(jSONObject, "height", emotionInfo.height);
-        com.kwad.sdk.utils.o.a(jSONObject, "mPageIndex", emotionInfo.mPageIndex);
-        com.kwad.sdk.utils.o.a(jSONObject, "mIndex", emotionInfo.mIndex);
-        return jSONObject;
+    public void a(l.b bVar, JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
+        }
+        bVar.f33727a = jSONObject.optString("appName");
+        bVar.f33728b = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
+        bVar.f33729c = jSONObject.optString("version");
+        bVar.f33730d = jSONObject.optInt(PushManager.APP_VERSION_CODE);
+        bVar.f33731e = jSONObject.optLong("appSize");
+        bVar.f33732f = jSONObject.optString(PackageTable.MD5);
+        bVar.f33733g = jSONObject.optString("url");
+        bVar.f33734h = jSONObject.optString("icon");
+        bVar.f33735i = jSONObject.optString("desc");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public void a(EmotionInfo emotionInfo, JSONObject jSONObject) {
+    public JSONObject b(l.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
-            return;
+            jSONObject = new JSONObject();
         }
-        emotionInfo.id = jSONObject.optString("id");
-        emotionInfo.name = jSONObject.optString("name");
-        emotionInfo.type = jSONObject.optInt("type");
-        emotionInfo.packageId = jSONObject.optString("packageId");
-        emotionInfo.emotionImageSmallUrl = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("emotionImageSmallUrl");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                CDNUrl cDNUrl = new CDNUrl();
-                cDNUrl.parseJson(optJSONArray.optJSONObject(i));
-                emotionInfo.emotionImageSmallUrl.add(cDNUrl);
-            }
-        }
-        emotionInfo.emotionImageBigUrl = new ArrayList();
-        JSONArray optJSONArray2 = jSONObject.optJSONArray("emotionImageBigUrl");
-        if (optJSONArray2 != null) {
-            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                CDNUrl cDNUrl2 = new CDNUrl();
-                cDNUrl2.parseJson(optJSONArray2.optJSONObject(i2));
-                emotionInfo.emotionImageBigUrl.add(cDNUrl2);
-            }
-        }
-        emotionInfo.emotionCodes = new ArrayList();
-        JSONArray optJSONArray3 = jSONObject.optJSONArray("emotionCodes");
-        if (optJSONArray3 != null) {
-            for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                EmotionCode emotionCode = new EmotionCode();
-                emotionCode.parseJson(optJSONArray3.optJSONObject(i3));
-                emotionInfo.emotionCodes.add(emotionCode);
-            }
-        }
-        emotionInfo.width = jSONObject.optInt("width");
-        emotionInfo.height = jSONObject.optInt("height");
-        emotionInfo.mPageIndex = jSONObject.optInt("mPageIndex");
-        emotionInfo.mIndex = jSONObject.optInt("mIndex");
+        com.kwad.sdk.utils.o.a(jSONObject, "appName", bVar.f33727a);
+        com.kwad.sdk.utils.o.a(jSONObject, PushClientConstants.TAG_PKG_NAME, bVar.f33728b);
+        com.kwad.sdk.utils.o.a(jSONObject, "version", bVar.f33729c);
+        com.kwad.sdk.utils.o.a(jSONObject, PushManager.APP_VERSION_CODE, bVar.f33730d);
+        com.kwad.sdk.utils.o.a(jSONObject, "appSize", bVar.f33731e);
+        com.kwad.sdk.utils.o.a(jSONObject, PackageTable.MD5, bVar.f33732f);
+        com.kwad.sdk.utils.o.a(jSONObject, "url", bVar.f33733g);
+        com.kwad.sdk.utils.o.a(jSONObject, "icon", bVar.f33734h);
+        com.kwad.sdk.utils.o.a(jSONObject, "desc", bVar.f33735i);
+        return jSONObject;
     }
 }

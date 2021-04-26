@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import com.baidu.down.manage.DownloadConstants;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class DownloadDBHelper extends SQLiteOpenHelper {
     public static final String TAG = "DaoMaster";
     public static DownloadDBHelper mInstance;
@@ -14,8 +14,8 @@ public final class DownloadDBHelper extends SQLiteOpenHelper {
     public static final boolean DEBUG = DownloadConstants.mDebug;
     public static int DATA_VERSION = 2;
 
-    public DownloadDBHelper(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i) {
-        super(context, str, cursorFactory, i);
+    public DownloadDBHelper(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2) {
+        super(context, str, cursorFactory, i2);
         this.mCtx = context;
     }
 
@@ -54,8 +54,8 @@ public final class DownloadDBHelper extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        if (i2 == 2) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        if (i3 == 2) {
             addColumn(sQLiteDatabase, DownloadConstants.DownloadColumns.COLUMN_DOWN_DIR, "TEXT");
             addColumn(sQLiteDatabase, DownloadConstants.DownloadColumns.COLUMN_FROM_PARAM, "TEXT");
         }

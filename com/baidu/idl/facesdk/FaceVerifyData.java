@@ -11,12 +11,12 @@ public class FaceVerifyData {
     public FaceVerifyData() {
     }
 
-    public FaceVerifyData(int[] iArr, int[] iArr2, byte[] bArr, int i, int i2, int i3) {
+    public FaceVerifyData(int[] iArr, int[] iArr2, byte[] bArr, int i2, int i3, int i4) {
         this.mRegImg = iArr;
         this.mRegLdmk = iArr2;
         this.mRegDigest = bArr;
-        this.rows = i;
-        this.cols = i2;
-        this.nPoints = i3;
+        this.rows = i2;
+        this.cols = i3;
+        this.nPoints = i4;
     }
 }

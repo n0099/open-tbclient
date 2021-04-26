@@ -14,21 +14,21 @@ public class StringUtil {
     public static String join(String str, String[] strArr) {
         StringBuffer stringBuffer = new StringBuffer();
         if (strArr != null) {
-            for (int i = 0; i < strArr.length; i++) {
-                if (str != null && i != 0) {
+            for (int i2 = 0; i2 < strArr.length; i2++) {
+                if (str != null && i2 != 0) {
                     stringBuffer.append(str);
                 }
-                stringBuffer.append(strArr[i]);
+                stringBuffer.append(strArr[i2]);
             }
         }
         return stringBuffer.toString();
     }
 
-    public static int parseInteger(String str, int i) {
+    public static int parseInteger(String str, int i2) {
         try {
             return Integer.parseInt(str);
         } catch (Throwable unused) {
-            return i;
+            return i2;
         }
     }
 

@@ -48,82 +48,82 @@ import java.util.Map;
 public class BaiduWalletDelegate implements IWalletBaseFacade {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23143b = "BaiduWalletDelegate";
+    public static final String f23856b = "BaiduWalletDelegate";
 
     /* renamed from: a  reason: collision with root package name */
-    public ISecurityListener f23144a;
+    public ISecurityListener f23857a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f23145c;
+    public Context f23858c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Domain f23146d;
+    public Domain f23859d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f23147e;
+    public boolean f23860e;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final BaiduWalletDelegate f23164a = new BaiduWalletDelegate();
+        public static final BaiduWalletDelegate f23877a = new BaiduWalletDelegate();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(Context context) {
         long syncTime = OtpTokenUtils.syncTime(OtpTokenUtils.getmSyncWithServerTime(context));
-        String str = f23143b;
+        String str = f23856b;
         LogUtil.d(str, "sync server time: detatime is " + syncTime);
         OtpTokenUtils.setmSyncWithServerTime(context, syncTime);
     }
 
     private void d(Context context) {
-        if (this.f23147e) {
+        if (this.f23860e) {
             return;
         }
-        this.f23147e = true;
+        this.f23860e = true;
         PayStatisticsUtil.initStatisticsModule(context, StatSettings.getInstance(context));
     }
 
     public static final BaiduWalletDelegate getInstance() {
-        return a.f23164a;
+        return a.f23877a;
     }
 
     @Override // com.baidu.wallet.api.IWalletBaseFacade
     public void callQRCodeScanner(Context context, final IWalletQRScannerCallback iWalletQRScannerCallback) {
         LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_QRCODESCANNER).action("qrcodescanresult"), new RouterCallback() { // from class: com.baidu.wallet.api.BaiduWalletDelegate.2
             @Override // com.baidu.wallet.router.RouterCallback
-            public void onResult(int i, HashMap hashMap) {
-                int i2 = 2;
+            public void onResult(int i2, HashMap hashMap) {
+                int i3 = 2;
                 String str = "";
                 String str2 = "失败";
-                if (i == 0 && hashMap != null) {
+                if (i2 == 0 && hashMap != null) {
                     String str3 = (String) hashMap.get("value");
                     if (!TextUtils.isEmpty(str3)) {
                         str2 = "成功";
                         str = str3;
-                        i2 = 0;
+                        i3 = 0;
                     }
-                    i2 = -1;
-                } else if (i == 5) {
+                    i3 = -1;
+                } else if (i2 == 5) {
                     str2 = "扫码模块不存在";
-                    i2 = 1;
+                    i3 = 1;
                 } else {
-                    if (i == 1 && hashMap != null) {
+                    if (i2 == 1 && hashMap != null) {
                         int intValue = ((Integer) hashMap.get(RouterCallback.KEY_ERROR_CODE)).intValue();
                         String str4 = (String) hashMap.get("errorMsg");
                         if (intValue == 2 && TextUtils.equals(str4, "camera_permission_denied")) {
                             str2 = "没有访问相机的权限";
                         } else if (intValue == 0) {
-                            i2 = 3;
+                            i3 = 3;
                             str2 = "用户取消";
                         }
                     }
-                    i2 = -1;
+                    i3 = -1;
                 }
                 IWalletQRScannerCallback iWalletQRScannerCallback2 = iWalletQRScannerCallback;
                 if (iWalletQRScannerCallback2 != null) {
-                    iWalletQRScannerCallback2.onResult(i2, str2, str);
+                    iWalletQRScannerCallback2.onResult(i3, str2, str);
                 }
             }
         });
@@ -131,7 +131,7 @@ public class BaiduWalletDelegate implements IWalletBaseFacade {
     }
 
     public Pair<Integer, Object> checkSecurityEvn() {
-        ISecurityListener iSecurityListener = this.f23144a;
+        ISecurityListener iSecurityListener = this.f23857a;
         if (iSecurityListener != null) {
             return iSecurityListener.onCheck();
         }
@@ -148,7 +148,7 @@ public class BaiduWalletDelegate implements IWalletBaseFacade {
     }
 
     public Context getAppContext() {
-        return this.f23145c;
+        return this.f23858c;
     }
 
     @Override // com.baidu.wallet.api.IWalletBaseFacade
@@ -162,9 +162,9 @@ public class BaiduWalletDelegate implements IWalletBaseFacade {
     }
 
     public void initLangBrige(IWalletListener iWalletListener) {
-        LocalRouter.getInstance(this.f23145c).route(this.f23145c, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_init").data("wallet_listener", iWalletListener), new RouterCallback() { // from class: com.baidu.wallet.api.BaiduWalletDelegate.11
+        LocalRouter.getInstance(this.f23858c).route(this.f23858c, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_init").data("wallet_listener", iWalletListener), new RouterCallback() { // from class: com.baidu.wallet.api.BaiduWalletDelegate.11
             @Override // com.baidu.wallet.router.RouterCallback
-            public void onResult(int i, HashMap hashMap) {
+            public void onResult(int i2, HashMap hashMap) {
             }
         });
     }
@@ -197,7 +197,7 @@ public class BaiduWalletDelegate implements IWalletBaseFacade {
     public void openH5Module(Context context, String str, boolean z) {
         LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_start").data("url", str).data("title", null).data("with_anim", Boolean.TRUE).data("show_share", Boolean.valueOf(z)), new RouterCallback() { // from class: com.baidu.wallet.api.BaiduWalletDelegate.7
             @Override // com.baidu.wallet.router.RouterCallback
-            public void onResult(int i, HashMap hashMap) {
+            public void onResult(int i2, HashMap hashMap) {
             }
         });
     }
@@ -208,7 +208,7 @@ public class BaiduWalletDelegate implements IWalletBaseFacade {
         }
         LocalRouter.getInstance(context.getApplicationContext()).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_removeLifeCycleCb").data("lifeCycleCb", activityLifecycleCallbacks).data("activty", context), new RouterCallback() { // from class: com.baidu.wallet.api.BaiduWalletDelegate.3
             @Override // com.baidu.wallet.router.RouterCallback
-            public void onResult(int i, HashMap hashMap) {
+            public void onResult(int i2, HashMap hashMap) {
             }
         });
     }
@@ -227,7 +227,7 @@ public class BaiduWalletDelegate implements IWalletBaseFacade {
     }
 
     public void setPassDomain(Domain domain) {
-        this.f23146d = domain;
+        this.f23859d = domain;
     }
 
     @Override // com.baidu.wallet.api.IWalletBaseFacade
@@ -242,18 +242,18 @@ public class BaiduWalletDelegate implements IWalletBaseFacade {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context) {
-        if (this.f23146d == null) {
-            this.f23146d = Domain.DOMAIN_ONLINE;
+        if (this.f23859d == null) {
+            this.f23859d = Domain.DOMAIN_ONLINE;
             String environment = DebugConfig.getInstance(context).getEnvironment();
             boolean z = true;
             if ("QA".equalsIgnoreCase(environment)) {
-                this.f23146d = Domain.DOMAIN_QA;
+                this.f23859d = Domain.DOMAIN_QA;
             } else if ("RD".equalsIgnoreCase(environment)) {
-                this.f23146d = Domain.DOMAIN_QA;
+                this.f23859d = Domain.DOMAIN_QA;
             } else {
                 z = false;
             }
-            SapiConfiguration.Builder initialShareStrategy = new SapiConfiguration.Builder(context).setProductLineInfo("bdwalletsdk", "1", "3s9y80v8ipz8huoh9k06hurn2lia5eez").setRuntimeEnvironment(this.f23146d).setSocialBindType(BindType.EXPLICIT).initialShareStrategy(LoginShareStrategy.DISABLED);
+            SapiConfiguration.Builder initialShareStrategy = new SapiConfiguration.Builder(context).setProductLineInfo("bdwalletsdk", "1", "3s9y80v8ipz8huoh9k06hurn2lia5eez").setRuntimeEnvironment(this.f23859d).setSocialBindType(BindType.EXPLICIT).initialShareStrategy(LoginShareStrategy.DISABLED);
             Switch r1 = Switch.ON;
             SapiAccountManager.getInstance().init(initialShareStrategy.smsLoginConfig(new SapiConfiguration.SmsLoginConfig(r1, r1, r1)).configurableViewLayout(Switch.ON).setSupportFaceLogin(false).sofireSdkConfig("600000", "69a0826db896e8c99e5d7bf63a14de3d", 600000).debug(z).build());
         }
@@ -283,7 +283,7 @@ public class BaiduWalletDelegate implements IWalletBaseFacade {
     public void openH5Module(Context context, String str, boolean z, Bundle bundle) {
         LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_start").data("url", str).data("title", null).data("with_anim", Boolean.TRUE).data("show_share", Boolean.valueOf(z)).data("bundle", bundle), new RouterCallback() { // from class: com.baidu.wallet.api.BaiduWalletDelegate.8
             @Override // com.baidu.wallet.router.RouterCallback
-            public void onResult(int i, HashMap hashMap) {
+            public void onResult(int i2, HashMap hashMap) {
             }
         });
     }
@@ -291,7 +291,7 @@ public class BaiduWalletDelegate implements IWalletBaseFacade {
     @Override // com.baidu.wallet.api.IWalletBaseFacade
     public void initWallet(IWalletListener iWalletListener, Context context, String str, ISecurityListener iSecurityListener) {
         if (!TextUtils.isEmpty(str)) {
-            this.f23144a = iSecurityListener;
+            this.f23857a = iSecurityListener;
             initWallet(iWalletListener, context, str);
             return;
         }
@@ -301,7 +301,7 @@ public class BaiduWalletDelegate implements IWalletBaseFacade {
     public void openH5Module(Context context, String str, String str2, boolean z, boolean z2) {
         LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_start").data("url", str).data("title", str2).data("with_anim", Boolean.valueOf(z)).data("show_share", Boolean.valueOf(z2)), new RouterCallback() { // from class: com.baidu.wallet.api.BaiduWalletDelegate.9
             @Override // com.baidu.wallet.router.RouterCallback
-            public void onResult(int i, HashMap hashMap) {
+            public void onResult(int i2, HashMap hashMap) {
             }
         });
     }
@@ -325,7 +325,7 @@ public class BaiduWalletDelegate implements IWalletBaseFacade {
         DXMSdkSAUtils.initSensorStat(context);
         PassUtil.registerPassNormalize(new PassUtil.IPassNormalize() { // from class: com.baidu.wallet.api.BaiduWalletDelegate.4
             @Override // com.baidu.wallet.core.utils.PassUtil.IPassNormalize
-            public boolean onNormalize(Context context2, int i, Map<String, String> map) {
+            public boolean onNormalize(Context context2, int i2, Map<String, String> map) {
                 LogUtil.logd("onNormalize ");
                 WalletLoginHelper.getInstance().onLoginChanaged(context2, map);
                 return false;
@@ -364,8 +364,8 @@ public class BaiduWalletDelegate implements IWalletBaseFacade {
                 public boolean queueIdle() {
                     LocalRouter.getInstance(context.getApplicationContext()).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_initWebView"), new RouterCallback() { // from class: com.baidu.wallet.api.BaiduWalletDelegate.5.1
                         @Override // com.baidu.wallet.router.RouterCallback
-                        public void onResult(int i, HashMap hashMap) {
-                            LogUtil.d(BaiduWalletDelegate.f23143b, "webview init finish");
+                        public void onResult(int i2, HashMap hashMap) {
+                            LogUtil.d(BaiduWalletDelegate.f23856b, "webview init finish");
                         }
                     });
                     return false;
@@ -383,7 +383,7 @@ public class BaiduWalletDelegate implements IWalletBaseFacade {
                 }
             }
         }, "walletInit").start();
-        this.f23145c = context.getApplicationContext();
+        this.f23858c = context.getApplicationContext();
         PollOfflineCacheSwitch.getInstance().registerListener();
         ActLifecycleCbs.a().a((Application) context.getApplicationContext());
     }
@@ -402,7 +402,7 @@ public class BaiduWalletDelegate implements IWalletBaseFacade {
         bundle.remove("show_share");
         LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_start").data("url", string).data("title", string2).data("with_anim", Boolean.valueOf(z)).data("show_share", Boolean.valueOf(z2)).data("bundle", bundle), new RouterCallback() { // from class: com.baidu.wallet.api.BaiduWalletDelegate.10
             @Override // com.baidu.wallet.router.RouterCallback
-            public void onResult(int i, HashMap hashMap) {
+            public void onResult(int i2, HashMap hashMap) {
             }
         });
     }

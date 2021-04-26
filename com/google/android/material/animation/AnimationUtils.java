@@ -20,7 +20,7 @@ public class AnimationUtils {
         return f2 + (f4 * (f3 - f2));
     }
 
-    public static int lerp(int i, int i2, float f2) {
-        return i + Math.round(f2 * (i2 - i));
+    public static int lerp(int i2, int i3, float f2) {
+        return i2 + Math.round(f2 * (i3 - i2));
     }
 }

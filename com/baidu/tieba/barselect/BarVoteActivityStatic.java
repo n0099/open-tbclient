@@ -19,7 +19,7 @@ import com.baidu.tieba.barselect.data.VoteElectionHttpResMessage;
 import com.baidu.tieba.barselect.data.VoteElectionSocketResMessage;
 import com.baidu.tieba.barselect.idCard.CameraActivity;
 import com.baidu.tieba.barselect.idCard.IdentityReviewActivity;
-import d.b.i0.z0.n0;
+import d.a.i0.z0.n0;
 /* loaded from: classes4.dex */
 public class BarVoteActivityStatic {
 
@@ -64,8 +64,8 @@ public class BarVoteActivityStatic {
     public static class d implements CustomMessageTask.CustomRunnable {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage customMessage) {
-            if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof d.b.j0.d2.d)) {
-                d.b.j0.d2.d dVar = (d.b.j0.d2.d) customMessage.getData();
+            if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof d.a.j0.d2.d)) {
+                d.a.j0.d2.d dVar = (d.a.j0.d2.d) customMessage.getData();
                 CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(dVar.a(), dVar.b(), dVar.d(), dVar.c());
                 commitVoteReqMsg.setTag(dVar.e());
                 MessageManager.getInstance().sendMessage(commitVoteReqMsg);
@@ -81,7 +81,7 @@ public class BarVoteActivityStatic {
             if (tbPageContext != null && strArr != null && strArr.length != 0) {
                 String str = strArr[0];
                 if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_BAR_VOTE)) {
-                    long f2 = d.b.c.e.m.b.f(n0.c(str, "fid="), 0L);
+                    long f2 = d.a.c.e.m.b.f(n0.c(str, "fid="), 0L);
                     if (f2 != 0) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(f2, 4)));
                         return 0;
@@ -99,7 +99,7 @@ public class BarVoteActivityStatic {
             if (tbPageContext != null && strArr != null && strArr.length != 0) {
                 String str = strArr[0];
                 if (str.startsWith(UrlSchemaHelper.SCHEME_TYPE_ID_CARD)) {
-                    long f2 = d.b.c.e.m.b.f(n0.c(str, "fid="), 0L);
+                    long f2 = d.a.c.e.m.b.f(n0.c(str, "fid="), 0L);
                     if (f2 != 0) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2921413, new IdentityReviewActivityConfig(tbPageContext.getPageActivity(), f2, 25042)));
                         return 0;
@@ -163,8 +163,8 @@ public class BarVoteActivityStatic {
     }
 
     public static void h() {
-        d.b.j0.d3.d0.a.h(309642, VoteElectionSocketResMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, d.b.j0.d3.d0.a.a("c/f/bawu/electionInfo", 309642));
+        d.a.j0.d3.d0.a.h(309642, VoteElectionSocketResMessage.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, d.a.j0.d3.d0.a.a("c/f/bawu/electionInfo", 309642));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(VoteElectionHttpResMessage.class);

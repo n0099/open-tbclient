@@ -22,9 +22,9 @@ public class XAdSDKRemoteExp {
                 return false;
             }
             mLastTimeMillis = currentTimeMillis;
-            int i = mCountMax;
-            mCountMax = i - 1;
-            return i > 0;
+            int i2 = mCountMax;
+            mCountMax = i2 - 1;
+            return i2 > 0;
         }
     }
 

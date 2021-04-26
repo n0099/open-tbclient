@@ -7,14 +7,14 @@ import com.xiaomi.push.ay;
 public class ba implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ IBinder f40652a;
+    public final /* synthetic */ IBinder f38168a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ ay.b f144a;
 
     public ba(ay.b bVar, IBinder iBinder) {
         this.f144a = bVar;
-        this.f40652a = iBinder;
+        this.f38168a = iBinder;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -33,10 +33,10 @@ public class ba implements Runnable {
             String packageName = context.getPackageName();
             e2 = ay.this.e();
             ay.a aVar = new ay.a();
-            aVar.f141a = ay.c.a(this.f40652a, packageName, e2, "GUID");
-            aVar.f40640b = ay.c.a(this.f40652a, packageName, e2, "OUID");
-            aVar.f40641c = ay.c.a(this.f40652a, packageName, e2, "DUID");
-            aVar.f40642d = ay.c.a(this.f40652a, packageName, e2, "AUID");
+            aVar.f141a = ay.c.a(this.f38168a, packageName, e2, "GUID");
+            aVar.f38155b = ay.c.a(this.f38168a, packageName, e2, "OUID");
+            aVar.f38156c = ay.c.a(this.f38168a, packageName, e2, "DUID");
+            aVar.f38157d = ay.c.a(this.f38168a, packageName, e2, "AUID");
             ay.this.f139a = aVar;
             ay.this.b();
             ay.this.f136a = 2;

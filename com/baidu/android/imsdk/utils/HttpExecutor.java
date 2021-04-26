@@ -121,10 +121,10 @@ public class HttpExecutor {
         return mInstance;
     }
 
-    public void execute(int i, String str, byte[] bArr, Map<String, String> map, String str2, HttpHelper.ResponseHandler responseHandler) {
+    public void execute(int i2, String str, byte[] bArr, Map<String, String> map, String str2, HttpHelper.ResponseHandler responseHandler) {
         Request build;
         try {
-            if (i == 16) {
+            if (i2 == 16) {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "application/x-www-form-urlencoded";
                 }
@@ -142,7 +142,7 @@ public class HttpExecutor {
             try {
                 Response execute = this.okHttpClient.newCall(build).execute();
                 byte[] bytes = execute.body().bytes();
-                LogUtils.i("HttpExecutor", "requestUrl:" + str + "\nrequest method: " + i + "\nrequest contentType: " + str2 + "\nrequest param: " + new String(bArr) + "\n response : " + new String(bytes));
+                LogUtils.i("HttpExecutor", "requestUrl:" + str + "\nrequest method: " + i2 + "\nrequest contentType: " + str2 + "\nrequest param: " + new String(bArr) + "\n response : " + new String(bytes));
                 responseHandler.onSuccess(execute.code(), bytes);
             } catch (IOException e2) {
                 LogUtils.e("HttpExecutor", "exception :", e2);

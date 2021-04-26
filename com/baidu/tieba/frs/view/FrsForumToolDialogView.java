@@ -7,21 +7,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.i0.r.u.c;
+import d.a.i0.r.u.c;
 /* loaded from: classes4.dex */
 public class FrsForumToolDialogView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f16394e;
+    public TextView f16621e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f16395f;
+    public TextView f16622f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f16396g;
+    public TbImageView f16623g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16397h;
+    public TextView f16624h;
 
     public FrsForumToolDialogView(Context context) {
         super(context);
@@ -30,29 +30,29 @@ public class FrsForumToolDialogView extends LinearLayout {
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_forum_tool_dialog, this);
-        this.f16396g = (TbImageView) findViewById(R.id.iv_image);
-        this.f16395f = (TextView) findViewById(R.id.tv_content);
-        this.f16394e = (TextView) findViewById(R.id.btn_cancle);
-        this.f16397h = (TextView) findViewById(R.id.btn_more);
-        this.f16394e.setText(R.string.cancel);
-        this.f16397h.setText(R.string.know_more);
-        this.f16396g.setPlaceHolder(3);
-        this.f16396g.setDrawCorner(true);
-        this.f16396g.setAutoChangeStyle(true);
-        this.f16396g.setConrers(3);
-        this.f16396g.setRadiusById(R.string.J_X06);
-        c d2 = c.d(this.f16395f);
+        this.f16623g = (TbImageView) findViewById(R.id.iv_image);
+        this.f16622f = (TextView) findViewById(R.id.tv_content);
+        this.f16621e = (TextView) findViewById(R.id.btn_cancle);
+        this.f16624h = (TextView) findViewById(R.id.btn_more);
+        this.f16621e.setText(R.string.cancel);
+        this.f16624h.setText(R.string.know_more);
+        this.f16623g.setPlaceHolder(3);
+        this.f16623g.setDrawCorner(true);
+        this.f16623g.setAutoChangeStyle(true);
+        this.f16623g.setConrers(3);
+        this.f16623g.setRadiusById(R.string.J_X06);
+        c d2 = c.d(this.f16622f);
         d2.q(R.color.CAM_X0107);
         d2.r(R.dimen.M_T_X001);
         d2.u(R.dimen.T_X06);
-        c d3 = c.d(this.f16394e);
+        c d3 = c.d(this.f16621e);
         d3.q(R.color.CAM_X0105);
         d3.k(R.string.J_X07);
         d3.i(R.dimen.L_X02);
         d3.u(R.dimen.T_X08);
         d3.h(R.color.CAM_X0902);
         d3.f(R.color.CAM_X0201);
-        c d4 = c.d(this.f16397h);
+        c d4 = c.d(this.f16624h);
         d4.q(R.color.CAM_X0302);
         d4.k(R.string.J_X07);
         d4.u(R.dimen.T_X08);
@@ -68,25 +68,25 @@ public class FrsForumToolDialogView extends LinearLayout {
 
     public void setCancleButtonListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.f16394e.setOnClickListener(onClickListener);
+            this.f16621e.setOnClickListener(onClickListener);
         }
     }
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.f16397h.setOnClickListener(onClickListener);
+            this.f16624h.setOnClickListener(onClickListener);
         }
     }
 
     public void setContent(String str) {
-        this.f16395f.setText(str);
+        this.f16622f.setText(str);
     }
 
-    public void setStartLoadUrl(int i, String str) {
-        if (i != 1 && i != 2) {
-            this.f16396g.W(str, 10, false);
+    public void setStartLoadUrl(int i2, String str) {
+        if (i2 != 1 && i2 != 2) {
+            this.f16623g.V(str, 10, false);
         } else {
-            this.f16396g.W(str, 24, false);
+            this.f16623g.V(str, 24, false);
         }
     }
 }

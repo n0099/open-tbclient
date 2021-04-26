@@ -9,48 +9,50 @@ import com.baidu.card.view.GridIconLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.c.a.j;
-import d.b.i0.m.f;
-import d.b.i0.r.q.l;
+import d.a.c.a.j;
+import d.a.i0.m.f;
+import d.a.i0.r.q.l;
 /* loaded from: classes4.dex */
 public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f17029e;
+    public TbPageContext<?> f17307e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AutoBannerLayout f17030f;
+    public AutoBannerLayout f17308f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GridIconLayout f17031g;
+    public GridIconLayout f17309g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f17032h;
-    public d.b.i0.r.w.b.d<l> i;
+    public f f17310h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public d.a.i0.r.w.b.d<l> f17311i;
 
     /* loaded from: classes4.dex */
-    public class a implements d.b.i0.m.c {
+    public class a implements d.a.i0.m.c {
         public a() {
         }
 
-        @Override // d.b.i0.m.c
+        @Override // d.a.i0.m.c
         public void a(View view, boolean z, Object obj) {
-            if (!z || HomePageTabFeedHeaderView.this.f17030f == null) {
+            if (!z || HomePageTabFeedHeaderView.this.f17308f == null) {
                 return;
             }
-            HomePageTabFeedHeaderView.this.f17030f.d();
+            HomePageTabFeedHeaderView.this.f17308f.d();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements d.b.i0.m.c {
+    public class b implements d.a.i0.m.c {
         public b() {
         }
 
-        @Override // d.b.i0.m.c
+        @Override // d.a.i0.m.c
         public void a(View view, boolean z, Object obj) {
             if (z) {
-                d.b.j0.a1.i.b.b("c13751");
+                d.a.j0.a1.i.b.b("c13751");
             }
         }
     }
@@ -61,60 +63,60 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.m.f
+        @Override // d.a.i0.m.f
         /* renamed from: b */
-        public void c(View view, l lVar, int i, long j) {
+        public void c(View view, l lVar, int i2, long j) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.m.f
+        @Override // d.a.i0.m.f
         /* renamed from: d */
-        public void a(View view, l lVar, int i, long j) {
-            d.b.j0.a1.i.b.a("c13751", lVar, i + 1);
+        public void a(View view, l lVar, int i2, long j) {
+            d.a.j0.a1.i.b.a("c13751", lVar, i2 + 1);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements d.b.i0.r.w.b.d<l> {
+    public class d implements d.a.i0.r.w.b.d<l> {
         public d() {
         }
 
-        @Override // d.b.i0.r.w.b.d
-        public void b(int i, String str) {
+        @Override // d.a.i0.r.w.b.d
+        public void b(int i2, String str) {
             l lVar = new l();
             lVar.g(str);
-            d.b.j0.a1.i.b.a("c13750", lVar, i);
+            d.a.j0.a1.i.b.a("c13750", lVar, i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.r.w.b.d
+        @Override // d.a.i0.r.w.b.d
         /* renamed from: c */
-        public void a(int i, l lVar) {
-            d.b.j0.a1.i.b.c("c13750", lVar, i);
+        public void a(int i2, l lVar) {
+            d.a.j0.a1.i.b.c("c13750", lVar, i2);
         }
     }
 
     public HomePageTabFeedHeaderView(Context context) {
         super(context);
-        this.f17032h = new c();
-        this.i = new d();
+        this.f17310h = new c();
+        this.f17311i = new d();
         b();
     }
 
     public void b() {
         setOrientation(1);
         setDescendantFocusability(262144);
-        this.f17029e = (TbPageContext) j.a(getContext());
+        this.f17307e = (TbPageContext) j.a(getContext());
     }
 
-    public void c(int i) {
-        AutoBannerLayout autoBannerLayout = this.f17030f;
+    public void c(int i2) {
+        AutoBannerLayout autoBannerLayout = this.f17308f;
         if (autoBannerLayout != null) {
-            autoBannerLayout.onChangeSkinType(this.f17029e, i);
+            autoBannerLayout.onChangeSkinType(this.f17307e, i2);
         }
-        GridIconLayout gridIconLayout = this.f17031g;
+        GridIconLayout gridIconLayout = this.f17309g;
         if (gridIconLayout != null) {
-            gridIconLayout.onChangeSkinType(this.f17029e, i);
+            gridIconLayout.onChangeSkinType(this.f17307e, i2);
         }
         SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
     }
@@ -124,51 +126,51 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
     }
 
     @Override // android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
+    public void onWindowVisibilityChanged(int i2) {
+        super.onWindowVisibilityChanged(i2);
     }
 
-    public void setData(d.b.j0.a1.i.e.c cVar) {
+    public void setData(d.a.j0.a1.i.e.c cVar) {
         if (cVar == null) {
             return;
         }
-        setPadding(0, d.b.c.e.p.l.g(getContext(), R.dimen.tbds44), 0, d.b.c.e.p.l.g(getContext(), R.dimen.tbds60));
-        if (this.f17030f == null) {
+        setPadding(0, d.a.c.e.p.l.g(getContext(), R.dimen.tbds44), 0, d.a.c.e.p.l.g(getContext(), R.dimen.tbds60));
+        if (this.f17308f == null) {
             AutoBannerLayout autoBannerLayout = new AutoBannerLayout(getContext());
-            this.f17030f = autoBannerLayout;
+            this.f17308f = autoBannerLayout;
             autoBannerLayout.setMarqueenTime(3000L);
-            this.f17030f.setOnCoverViewCallback(this.i);
-            this.f17030f.setBannerHeight(d.b.c.e.p.l.g(getContext(), R.dimen.tbds328));
-            int g2 = d.b.c.e.p.l.g(getContext(), R.dimen.tbds44);
-            this.f17030f.setPadding(g2, 0, g2, 0);
-            addView(this.f17030f);
-            this.f17030f.setIWindowChangedListener(new a());
+            this.f17308f.setOnCoverViewCallback(this.f17311i);
+            this.f17308f.setBannerHeight(d.a.c.e.p.l.g(getContext(), R.dimen.tbds328));
+            int g2 = d.a.c.e.p.l.g(getContext(), R.dimen.tbds44);
+            this.f17308f.setPadding(g2, 0, g2, 0);
+            addView(this.f17308f);
+            this.f17308f.setIWindowChangedListener(new a());
         }
-        this.f17030f.a(cVar.f53320d);
-        if (this.f17031g == null) {
+        this.f17308f.a(cVar.f51040d);
+        if (this.f17309g == null) {
             GridIconLayout gridIconLayout = new GridIconLayout(getContext());
-            this.f17031g = gridIconLayout;
-            gridIconLayout.setOnItemCoverListener(this.f17032h);
-            addView(this.f17031g);
-            this.f17031g.setIWindowChangedListener(new b());
-            this.f17031g.setPadding(0, d.b.c.e.p.l.g(getContext(), R.dimen.tbds61), 0, 0);
-            this.f17031g.setVerticalSpace(d.b.c.e.p.l.g(getContext(), R.dimen.tbds61));
-            this.f17031g.setMaxItem(10);
+            this.f17309g = gridIconLayout;
+            gridIconLayout.setOnItemCoverListener(this.f17310h);
+            addView(this.f17309g);
+            this.f17309g.setIWindowChangedListener(new b());
+            this.f17309g.setPadding(0, d.a.c.e.p.l.g(getContext(), R.dimen.tbds61), 0, 0);
+            this.f17309g.setVerticalSpace(d.a.c.e.p.l.g(getContext(), R.dimen.tbds61));
+            this.f17309g.setMaxItem(10);
         }
-        this.f17031g.a(cVar.f53321e);
+        this.f17309g.a(cVar.f51041e);
     }
 
     public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f17032h = new c();
-        this.i = new d();
+        this.f17310h = new c();
+        this.f17311i = new d();
         b();
     }
 
-    public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f17032h = new c();
-        this.i = new d();
+    public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f17310h = new c();
+        this.f17311i = new d();
         b();
     }
 }

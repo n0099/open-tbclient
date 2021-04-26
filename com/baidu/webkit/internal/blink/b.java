@@ -5,19 +5,19 @@ import android.os.HandlerThread;
 public final class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ HandlerThread f26577a;
+    public final /* synthetic */ HandlerThread f27384a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f26578b;
+    public final /* synthetic */ a f27385b;
 
     public b(a aVar, HandlerThread handlerThread) {
-        this.f26578b = aVar;
-        this.f26577a = handlerThread;
+        this.f27385b = aVar;
+        this.f27384a = handlerThread;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        this.f26578b.a();
-        this.f26577a.quit();
+        this.f27385b.a();
+        this.f27384a.quit();
     }
 }

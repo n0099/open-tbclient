@@ -114,7 +114,7 @@ public class NetworkInfoUtils {
         if (activeNetwork == null || !activeNetwork.isAvailable()) {
             return 0;
         }
-        int i = 1;
+        int i2 = 1;
         if (activeNetwork.getType() == 1) {
             return 100;
         }
@@ -128,7 +128,7 @@ public class NetworkInfoUtils {
             case 7:
             case 11:
             case 16:
-                i = 2;
+                i2 = 2;
                 break;
             case 3:
             case 5:
@@ -140,11 +140,11 @@ public class NetworkInfoUtils {
             case 14:
             case 15:
             case 17:
-                i = 3;
+                i2 = 3;
                 break;
             case 13:
             case 18:
-                i = 4;
+                i2 = 4;
                 break;
             default:
                 String subtypeName = activeNetwork.getSubtypeName();
@@ -153,14 +153,14 @@ public class NetworkInfoUtils {
                         break;
                     }
                 }
-                i = 3;
+                i2 = 3;
                 break;
         }
-        return i;
+        return i2;
     }
 
-    public static String getNetwork(int i) {
-        return i != 0 ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 100 ? i != 101 ? RomUtils.UNKNOWN : "ETHERNET" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : "5G" : "4G" : g.f3909b : "2G" : RomUtils.UNKNOWN : "NO";
+    public static String getNetwork(int i2) {
+        return i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? i2 != 100 ? i2 != 101 ? RomUtils.UNKNOWN : "ETHERNET" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : "5G" : "4G" : g.f3962b : "2G" : RomUtils.UNKNOWN : "NO";
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:24:0x0050, code lost:
@@ -254,7 +254,7 @@ public class NetworkInfoUtils {
         return isXTypeConnected(context, 1);
     }
 
-    public static Boolean isXTypeConnected(Context context, int i) {
+    public static Boolean isXTypeConnected(Context context, int i2) {
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             boolean z = true;
@@ -263,7 +263,7 @@ public class NetworkInfoUtils {
                 return Boolean.FALSE;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo == null || activeNetworkInfo.getType() != i || !activeNetworkInfo.isConnected()) {
+            if (activeNetworkInfo == null || activeNetworkInfo.getType() != i2 || !activeNetworkInfo.isConnected()) {
                 z = false;
             }
             return Boolean.valueOf(z);

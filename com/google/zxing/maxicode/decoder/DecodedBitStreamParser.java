@@ -1,6 +1,5 @@
 package com.google.zxing.maxicode.decoder;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.webkit.internal.Base64;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import com.google.zxing.common.DecoderResult;
@@ -27,11 +26,11 @@ public final class DecodedBitStreamParser {
     public static final char THREESHIFTA = 65526;
     public static final char TWOSHIFTA = 65525;
 
-    public static DecoderResult decode(byte[] bArr, int i) {
+    public static DecoderResult decode(byte[] bArr, int i2) {
         String postCode3;
         StringBuilder sb = new StringBuilder(144);
-        if (i == 2 || i == 3) {
-            if (i == 2) {
+        if (i2 == 2 || i2 == 3) {
+            if (i2 == 2) {
                 postCode3 = new DecimalFormat("0000000000".substring(0, getPostCode2Length(bArr))).format(getPostCode2(bArr));
             } else {
                 postCode3 = getPostCode3(bArr);
@@ -45,17 +44,17 @@ public final class DecodedBitStreamParser {
             } else {
                 sb.insert(0, postCode3 + GS + format + GS + format2 + GS);
             }
-        } else if (i == 4) {
+        } else if (i2 == 4) {
             sb.append(getMessage(bArr, 1, 93));
-        } else if (i == 5) {
+        } else if (i2 == 5) {
             sb.append(getMessage(bArr, 1, 77));
         }
-        return new DecoderResult(bArr, sb.toString(), null, String.valueOf(i));
+        return new DecoderResult(bArr, sb.toString(), null, String.valueOf(i2));
     }
 
-    public static int getBit(int i, byte[] bArr) {
-        int i2 = i - 1;
-        return ((1 << (5 - (i2 % 6))) & bArr[i2 / 6]) == 0 ? 0 : 1;
+    public static int getBit(int i2, byte[] bArr) {
+        int i3 = i2 - 1;
+        return ((1 << (5 - (i3 % 6))) & bArr[i3 / 6]) == 0 ? 0 : 1;
     }
 
     public static int getCountry(byte[] bArr) {
@@ -64,74 +63,74 @@ public final class DecodedBitStreamParser {
 
     public static int getInt(byte[] bArr, byte[] bArr2) {
         if (bArr2.length != 0) {
-            int i = 0;
-            for (int i2 = 0; i2 < bArr2.length; i2++) {
-                i += getBit(bArr2[i2], bArr) << ((bArr2.length - i2) - 1);
+            int i2 = 0;
+            for (int i3 = 0; i3 < bArr2.length; i3++) {
+                i2 += getBit(bArr2[i3], bArr) << ((bArr2.length - i3) - 1);
             }
-            return i;
+            return i2;
         }
         throw new IllegalArgumentException();
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String getMessage(byte[] bArr, int i, int i2) {
-        int i3;
+    public static String getMessage(byte[] bArr, int i2, int i3) {
         int i4;
         int i5;
         int i6;
+        int i7;
         StringBuilder sb = new StringBuilder();
-        int i7 = i;
-        int i8 = 0;
-        int i9 = -1;
-        int i10 = 0;
-        while (i7 < i + i2) {
-            char charAt = SETS[i8].charAt(bArr[i7]);
+        int i8 = i2;
+        int i9 = 0;
+        int i10 = -1;
+        int i11 = 0;
+        while (i8 < i2 + i3) {
+            char charAt = SETS[i9].charAt(bArr[i8]);
             switch (charAt) {
                 case 65520:
                 case 65521:
                 case 65522:
                 case 65523:
                 case 65524:
-                    i10 = i8;
-                    i8 = charAt - SHIFTA;
-                    i9 = 1;
+                    i11 = i9;
+                    i9 = charAt - SHIFTA;
+                    i10 = 1;
                     break;
                 case 65525:
-                    i9 = 2;
-                    i10 = i8;
-                    i8 = 0;
+                    i10 = 2;
+                    i11 = i9;
+                    i9 = 0;
                     break;
                 case 65526:
-                    i9 = 3;
-                    i10 = i8;
-                    i8 = 0;
+                    i10 = 3;
+                    i11 = i9;
+                    i9 = 0;
                     break;
                 case 65527:
-                    i8 = 0;
-                    i9 = -1;
+                    i9 = 0;
+                    i10 = -1;
                     break;
                 case 65528:
-                    i8 = 1;
-                    i9 = -1;
+                    i9 = 1;
+                    i10 = -1;
                     break;
                 case 65529:
-                    i9 = -1;
+                    i10 = -1;
                     break;
                 case 65530:
                 default:
                     sb.append(charAt);
                     break;
                 case 65531:
-                    i7 = i7 + 1 + 1 + 1 + 1 + 1;
-                    sb.append(new DecimalFormat("000000000").format((bArr[i3] << 24) + (bArr[i4] << 18) + (bArr[i5] << StandardMessageCodec.LIST) + (bArr[i6] << 6) + bArr[i7]));
+                    i8 = i8 + 1 + 1 + 1 + 1 + 1;
+                    sb.append(new DecimalFormat("000000000").format((bArr[i4] << 24) + (bArr[i5] << 18) + (bArr[i6] << StandardMessageCodec.LIST) + (bArr[i7] << 6) + bArr[i8]));
                     break;
             }
-            int i11 = i9 - 1;
-            if (i9 == 0) {
-                i8 = i10;
+            int i12 = i10 - 1;
+            if (i10 == 0) {
+                i9 = i11;
             }
-            i7++;
-            i9 = i11;
+            i8++;
+            i10 = i12;
         }
         while (sb.length() > 0 && sb.charAt(sb.length() - 1) == 65532) {
             sb.setLength(sb.length() - 1);
@@ -144,11 +143,11 @@ public final class DecodedBitStreamParser {
     }
 
     public static int getPostCode2Length(byte[] bArr) {
-        return getInt(bArr, new byte[]{39, 40, 41, ExifInterface.START_CODE, 31, 32});
+        return getInt(bArr, new byte[]{39, 40, 41, 42, 31, 32});
     }
 
     public static String getPostCode3(byte[] bArr) {
-        return String.valueOf(new char[]{SETS[0].charAt(getInt(bArr, new byte[]{39, 40, 41, ExifInterface.START_CODE, 31, 32})), SETS[0].charAt(getInt(bArr, new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 25, 26})), SETS[0].charAt(getInt(bArr, new byte[]{27, 28, 29, 30, 19, 20})), SETS[0].charAt(getInt(bArr, new byte[]{21, 22, 23, 24, 13, 14})), SETS[0].charAt(getInt(bArr, new byte[]{15, 16, 17, 18, 7, 8})), SETS[0].charAt(getInt(bArr, new byte[]{9, 10, 11, StandardMessageCodec.LIST, 1, 2}))});
+        return String.valueOf(new char[]{SETS[0].charAt(getInt(bArr, new byte[]{39, 40, 41, 42, 31, 32})), SETS[0].charAt(getInt(bArr, new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 25, 26})), SETS[0].charAt(getInt(bArr, new byte[]{27, 28, 29, 30, 19, 20})), SETS[0].charAt(getInt(bArr, new byte[]{21, 22, 23, 24, 13, 14})), SETS[0].charAt(getInt(bArr, new byte[]{15, 16, 17, 18, 7, 8})), SETS[0].charAt(getInt(bArr, new byte[]{9, 10, 11, StandardMessageCodec.LIST, 1, 2}))});
     }
 
     public static int getServiceClass(byte[] bArr) {

@@ -15,37 +15,39 @@ import com.kwad.sdk.core.download.b.a;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.ah;
+import com.kwad.sdk.utils.ai;
 import com.kwad.sdk.utils.am;
-import com.kwad.sdk.utils.ao;
+import com.kwad.sdk.utils.an;
 import com.kwad.sdk.widget.KsLogoView;
 /* loaded from: classes6.dex */
 public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f35001a;
+    public Context f33973a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f35002b;
+    public AdTemplate f33974b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f35003c;
+    public a f33975c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35004d;
+    public int f33976d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f35005e;
+    public ImageView f33977e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f35006f;
+    public TextView f33978f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f35007g;
+    public TextView f33979g;
 
     /* renamed from: h  reason: collision with root package name */
-    public KsLogoView f35008h;
-    public ValueAnimator i;
+    public KsLogoView f33980h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public ValueAnimator f33981i;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -64,34 +66,34 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
         a(context);
     }
 
-    public DrawCardH5(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public DrawCardH5(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a(context);
     }
 
-    private void a(int i, int i2) {
+    private void a(int i2, int i3) {
         d();
-        ValueAnimator a2 = am.a(this, i, i2);
-        this.i = a2;
+        ValueAnimator a2 = am.a(this, i2, i3);
+        this.f33981i = a2;
         a2.setInterpolator(new DecelerateInterpolator(2.0f));
-        this.i.setDuration(300L);
-        this.i.start();
+        this.f33981i.setDuration(300L);
+        this.f33981i.start();
     }
 
     private void a(Context context) {
-        this.f35001a = context;
+        this.f33973a = context;
         FrameLayout.inflate(context, R.layout.ksad_draw_card_h5, this);
-        this.f35005e = (ImageView) findViewById(R.id.ksad_card_close);
-        this.f35006f = (TextView) findViewById(R.id.ksad_card_ad_desc);
-        this.f35007g = (TextView) findViewById(R.id.ksad_card_h5_open_btn);
-        this.f35008h = (KsLogoView) findViewById(R.id.ksad_draw_h5_logo);
+        this.f33977e = (ImageView) findViewById(R.id.ksad_card_close);
+        this.f33978f = (TextView) findViewById(R.id.ksad_card_ad_desc);
+        this.f33979g = (TextView) findViewById(R.id.ksad_card_h5_open_btn);
+        this.f33980h = (KsLogoView) findViewById(R.id.ksad_draw_h5_logo);
     }
 
     private void d() {
-        ValueAnimator valueAnimator = this.i;
+        ValueAnimator valueAnimator = this.f33981i;
         if (valueAnimator != null) {
             valueAnimator.removeAllListeners();
-            this.i.cancel();
+            this.f33981i.cancel();
         }
     }
 
@@ -100,42 +102,42 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     }
 
     public void a(@NonNull AdTemplate adTemplate, a aVar) {
-        this.f35002b = adTemplate;
-        AdInfo j = c.j(adTemplate);
-        this.f35003c = aVar;
-        this.f35006f.setText(com.kwad.sdk.core.response.b.a.n(j));
-        this.f35007g.setText(com.kwad.sdk.core.response.b.a.w(j));
-        this.f35005e.setOnClickListener(this);
-        this.f35007g.setOnClickListener(this);
-        this.f35008h.a(adTemplate);
+        this.f33974b = adTemplate;
+        AdInfo g2 = c.g(adTemplate);
+        this.f33975c = aVar;
+        this.f33978f.setText(com.kwad.sdk.core.response.b.a.m(g2));
+        this.f33979g.setText(com.kwad.sdk.core.response.b.a.u(g2));
+        this.f33977e.setOnClickListener(this);
+        this.f33979g.setOnClickListener(this);
+        this.f33980h.a(adTemplate);
         setOnClickListener(this);
-        this.f35006f.measure(View.MeasureSpec.makeMeasureSpec((ah.g(this.f35001a) - (ao.a(this.f35001a, 16.0f) * 2)) - (ao.a(this.f35001a, 10.0f) * 2), Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
-        this.f35004d = ao.a(this.f35001a, 100.0f) + this.f35006f.getMeasuredHeight();
+        this.f33978f.measure(View.MeasureSpec.makeMeasureSpec((ai.i(this.f33973a) - (an.a(this.f33973a, 16.0f) * 2)) - (an.a(this.f33973a, 10.0f) * 2), Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
+        this.f33976d = an.a(this.f33973a, 100.0f) + this.f33978f.getMeasuredHeight();
     }
 
     public void b() {
-        a(0, this.f35004d);
+        a(0, this.f33976d);
     }
 
     public void c() {
-        a(this.f35004d, 0);
+        a(this.f33976d, 0);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != this.f35005e) {
-            com.kwad.sdk.core.download.b.a.a(getContext(), this.f35002b, new a.InterfaceC0396a() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardH5.1
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0396a
+        if (view != this.f33977e) {
+            com.kwad.sdk.core.download.b.a.a(getContext(), this.f33974b, new a.InterfaceC0376a() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardH5.1
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0376a
                 public void a() {
-                    if (DrawCardH5.this.f35003c != null) {
-                        DrawCardH5.this.f35003c.b();
+                    if (DrawCardH5.this.f33975c != null) {
+                        DrawCardH5.this.f33975c.b();
                     }
                 }
-            }, null);
+            }, null, view == this.f33979g);
             return;
         }
         c();
-        a aVar = this.f35003c;
+        a aVar = this.f33975c;
         if (aVar != null) {
             aVar.a();
         }

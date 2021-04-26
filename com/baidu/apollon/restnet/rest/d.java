@@ -5,7 +5,7 @@ import com.baidu.apollon.restnet.http.HttpDefines;
 public interface d {
     com.baidu.apollon.restnet.http.a a();
 
-    void a(int i);
+    void a(int i2);
 
     void a(String str);
 

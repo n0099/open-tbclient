@@ -34,13 +34,13 @@ public class FaceTracker {
         set_AlignMethodType(alignMethodType.ordinal());
     }
 
-    private native void tracking(int[] iArr, int i, int i2, int i3, int i4);
+    private native void tracking(int[] iArr, int i2, int i3, int i4, int i5);
 
     public native void clearTrackedFaces();
 
-    public ErrCode face_verification(int[] iArr, int i, int i2, FaceSDK.ImgType imgType, ActionType actionType, String str, String str2, String str3) {
+    public ErrCode face_verification(int[] iArr, int i2, int i3, FaceSDK.ImgType imgType, ActionType actionType, String str, String str2, String str3) {
         if (FaceSDK.isAuthoritySucceeded()) {
-            int prepare_data_for_verify = prepare_data_for_verify(iArr, i, i2, imgType.ordinal(), actionType.ordinal());
+            int prepare_data_for_verify = prepare_data_for_verify(iArr, i2, i3, imgType.ordinal(), actionType.ordinal());
             if (prepare_data_for_verify == ErrCode.OK.ordinal()) {
                 return ErrCode.OK;
             }
@@ -73,21 +73,21 @@ public class FaceTracker {
         throw new IDLAuthorityException();
     }
 
-    public native FaceVerifyData[] get_FaceVerifyData(int i);
+    public native FaceVerifyData[] get_FaceVerifyData(int i2);
 
     public native FaceInfo[] get_TrackedFaceInfo();
 
-    public native int prepare_data_for_verify(int[] iArr, int i, int i2, int i3, int i4);
+    public native int prepare_data_for_verify(int[] iArr, int i2, int i3, int i4, int i5);
 
-    public native int set_AlignMethodType(int i);
+    public native int set_AlignMethodType(int i2);
 
     public native int set_cropFaceEnlargeRatio(float f2);
 
-    public native int set_cropFaceSize(int i);
+    public native int set_cropFaceSize(int i2);
 
-    public native int set_detect_in_video_interval(int i);
+    public native int set_detect_in_video_interval(int i2);
 
-    public native int set_eulur_angle_thr(int i, int i2, int i3);
+    public native int set_eulur_angle_thr(int i2, int i3, int i4);
 
     public native int set_illum_thr(float f2);
 
@@ -95,21 +95,21 @@ public class FaceTracker {
 
     public native int set_isVerifyLive(boolean z);
 
-    public native int set_max_face_num(int i);
+    public native int set_max_face_num(int i2);
 
-    public native int set_max_reg_img_num(int i);
+    public native int set_max_reg_img_num(int i2);
 
-    public native int set_min_face_size(int i);
+    public native int set_min_face_size(int i2);
 
     public native int set_notFace_thr(float f2);
 
-    public native int set_prefetch_reg_img_interval(int i);
+    public native int set_prefetch_reg_img_interval(int i2);
 
-    public native int set_track_by_detection_interval(int i);
+    public native int set_track_by_detection_interval(int i2);
 
-    public void track(int[] iArr, int i, int i2, int i3, int i4) {
+    public void track(int[] iArr, int i2, int i3, int i4, int i5) {
         if (FaceSDK.isAuthoritySucceeded()) {
-            tracking(iArr, i, i2, i3, i4);
+            tracking(iArr, i2, i3, i4, i5);
             return;
         }
         throw new IDLAuthorityException();

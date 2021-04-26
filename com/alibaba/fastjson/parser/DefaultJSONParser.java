@@ -91,26 +91,26 @@ public class DefaultJSONParser implements Closeable {
     }
 
     private void addContext(ParseContext parseContext) {
-        int i = this.contextArrayIndex;
-        this.contextArrayIndex = i + 1;
+        int i2 = this.contextArrayIndex;
+        this.contextArrayIndex = i2 + 1;
         ParseContext[] parseContextArr = this.contextArray;
         if (parseContextArr == null) {
             this.contextArray = new ParseContext[8];
-        } else if (i >= parseContextArr.length) {
+        } else if (i2 >= parseContextArr.length) {
             ParseContext[] parseContextArr2 = new ParseContext[(parseContextArr.length * 3) / 2];
             System.arraycopy(parseContextArr, 0, parseContextArr2, 0, parseContextArr.length);
             this.contextArray = parseContextArr2;
         }
-        this.contextArray[i] = parseContext;
+        this.contextArray[i2] = parseContext;
     }
 
-    public final void accept(int i) {
+    public final void accept(int i2) {
         JSONLexer jSONLexer = this.lexer;
-        if (jSONLexer.token() == i) {
+        if (jSONLexer.token() == i2) {
             jSONLexer.nextToken();
             return;
         }
-        throw new JSONException("syntax error, expect " + JSONToken.name(i) + ", actual " + JSONToken.name(jSONLexer.token()));
+        throw new JSONException("syntax error, expect " + JSONToken.name(i2) + ", actual " + JSONToken.name(jSONLexer.token()));
     }
 
     public void acceptType(String str) {
@@ -236,9 +236,9 @@ public class DefaultJSONParser implements Closeable {
     }
 
     public Object getObject(String str) {
-        for (int i = 0; i < this.contextArrayIndex; i++) {
-            if (str.equals(this.contextArray[i].toString())) {
-                return this.contextArray[i].object;
+        for (int i2 = 0; i2 < this.contextArrayIndex; i2++) {
+            if (str.equals(this.contextArray[i2].toString())) {
+                return this.contextArray[i2].object;
             }
         }
         return null;
@@ -271,8 +271,8 @@ public class DefaultJSONParser implements Closeable {
             return;
         }
         int size = list.size();
-        for (int i = 0; i < size; i++) {
-            ResolveTask resolveTask = this.resolveTaskList.get(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            ResolveTask resolveTask = this.resolveTaskList.get(i2);
             String str = resolveTask.referenceValue;
             ParseContext parseContext = resolveTask.ownerContext;
             Object obj3 = parseContext != null ? parseContext.object : null;
@@ -648,9 +648,9 @@ public class DefaultJSONParser implements Closeable {
                                     throw new JSONException("syntax error");
                                 }
                             }
-                            int i = this.objectKeyLevel;
-                            this.objectKeyLevel = i + 1;
-                            if (i <= 512) {
+                            int i2 = this.objectKeyLevel;
+                            this.objectKeyLevel = i2 + 1;
+                            if (i2 <= 512) {
                                 jSONLexer.nextToken();
                                 parse = parse();
                                 z = true;
@@ -667,8 +667,8 @@ public class DefaultJSONParser implements Closeable {
                                             cls = map.getClass();
                                             obj4 = null;
                                         } else {
-                                            for (int i2 = 0; i2 < scanSymbol.length(); i2++) {
-                                                char charAt = scanSymbol.charAt(i2);
+                                            for (int i3 = 0; i3 < scanSymbol.length(); i3++) {
+                                                char charAt = scanSymbol.charAt(i3);
                                                 if (charAt >= '0' && charAt <= '9') {
                                                 }
                                                 z5 = false;
@@ -922,30 +922,30 @@ public class DefaultJSONParser implements Closeable {
             return;
         }
         this.context = this.context.parent;
-        int i = this.contextArrayIndex;
-        if (i <= 0) {
+        int i2 = this.contextArrayIndex;
+        if (i2 <= 0) {
             return;
         }
-        int i2 = i - 1;
-        this.contextArrayIndex = i2;
-        this.contextArray[i2] = null;
+        int i3 = i2 - 1;
+        this.contextArrayIndex = i3;
+        this.contextArray[i3] = null;
     }
 
     public Object resolveReference(String str) {
         if (this.contextArray == null) {
             return null;
         }
-        int i = 0;
+        int i2 = 0;
         while (true) {
             ParseContext[] parseContextArr = this.contextArray;
-            if (i >= parseContextArr.length || i >= this.contextArrayIndex) {
+            if (i2 >= parseContextArr.length || i2 >= this.contextArrayIndex) {
                 break;
             }
-            ParseContext parseContext = parseContextArr[i];
+            ParseContext parseContext = parseContextArr[i2];
             if (parseContext.toString().equals(str)) {
                 return parseContext.object;
             }
-            i++;
+            i2++;
         }
         return null;
     }
@@ -974,12 +974,12 @@ public class DefaultJSONParser implements Closeable {
         this.fieldTypeResolver = fieldTypeResolver;
     }
 
-    public void setResolveStatus(int i) {
-        this.resolveStatus = i;
+    public void setResolveStatus(int i2) {
+        this.resolveStatus = i2;
     }
 
-    public void throwException(int i) {
-        throw new JSONException("syntax error, expect " + JSONToken.name(i) + ", actual " + JSONToken.name(this.lexer.token()));
+    public void throwException(int i2) {
+        throw new JSONException("syntax error, expect " + JSONToken.name(i2) + ", actual " + JSONToken.name(this.lexer.token()));
     }
 
     public DefaultJSONParser(String str, ParserConfig parserConfig) {
@@ -988,16 +988,16 @@ public class DefaultJSONParser implements Closeable {
 
     public Object parse(Object obj) {
         JSONLexer jSONLexer = this.lexer;
-        int i = jSONLexer.token();
-        if (i == 2) {
+        int i2 = jSONLexer.token();
+        if (i2 == 2) {
             Number integerValue = jSONLexer.integerValue();
             jSONLexer.nextToken();
             return integerValue;
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             Number decimalValue = jSONLexer.decimalValue(jSONLexer.isEnabled(Feature.UseBigDecimal));
             jSONLexer.nextToken();
             return decimalValue;
-        } else if (i == 4) {
+        } else if (i2 == 4) {
             String stringVal = jSONLexer.stringVal();
             jSONLexer.nextToken(16);
             if (jSONLexer.isEnabled(Feature.AllowISO8601DateFormat)) {
@@ -1011,19 +1011,19 @@ public class DefaultJSONParser implements Closeable {
                 }
             }
             return stringVal;
-        } else if (i != 12) {
-            if (i == 14) {
+        } else if (i2 != 12) {
+            if (i2 == 14) {
                 JSONArray jSONArray = new JSONArray();
                 parseArray(jSONArray, obj);
                 return jSONLexer.isEnabled(Feature.UseObjectArray) ? jSONArray.toArray() : jSONArray;
-            } else if (i == 18) {
+            } else if (i2 == 18) {
                 if (WalletPayViewController.DEF_CHANNEL_TITLE.equals(jSONLexer.stringVal())) {
                     jSONLexer.nextToken();
                     return null;
                 }
                 throw new JSONException("syntax error, " + jSONLexer.info());
-            } else if (i != 26) {
-                switch (i) {
+            } else if (i2 != 26) {
+                switch (i2) {
                     case 6:
                         jSONLexer.nextToken();
                         return Boolean.TRUE;
@@ -1045,7 +1045,7 @@ public class DefaultJSONParser implements Closeable {
                         }
                         throw new JSONException("syntax error");
                     default:
-                        switch (i) {
+                        switch (i2) {
                             case 20:
                                 if (jSONLexer.isBlankInput()) {
                                     return null;
@@ -1078,8 +1078,8 @@ public class DefaultJSONParser implements Closeable {
         }
     }
 
-    public DefaultJSONParser(String str, ParserConfig parserConfig, int i) {
-        this(str, new JSONScanner(str, i), parserConfig);
+    public DefaultJSONParser(String str, ParserConfig parserConfig, int i2) {
+        this(str, new JSONScanner(str, i2), parserConfig);
     }
 
     public void parseArray(Class<?> cls, Collection collection) {
@@ -1097,8 +1097,8 @@ public class DefaultJSONParser implements Closeable {
         this.dateFormat = dateFormat;
     }
 
-    public DefaultJSONParser(char[] cArr, int i, ParserConfig parserConfig, int i2) {
-        this(cArr, new JSONScanner(cArr, i, i2), parserConfig);
+    public DefaultJSONParser(char[] cArr, int i2, ParserConfig parserConfig, int i3) {
+        this(cArr, new JSONScanner(cArr, i2, i3), parserConfig);
     }
 
     public void parseArray(Type type, Collection collection) {
@@ -1111,12 +1111,12 @@ public class DefaultJSONParser implements Closeable {
 
     public void parseArray(Type type, Collection collection, Object obj) {
         ObjectDeserializer deserializer;
-        int i = this.lexer.token();
-        if (i == 21 || i == 22) {
+        int i2 = this.lexer.token();
+        if (i2 == 21 || i2 == 22) {
             this.lexer.nextToken();
-            i = this.lexer.token();
+            i2 = this.lexer.token();
         }
-        if (i == 14) {
+        if (i2 == 14) {
             if (Integer.TYPE != type) {
                 if (String.class == type) {
                     deserializer = StringCodec.instance;
@@ -1131,7 +1131,7 @@ public class DefaultJSONParser implements Closeable {
             }
             ParseContext parseContext = this.context;
             setContext(collection, obj);
-            int i2 = 0;
+            int i3 = 0;
             while (true) {
                 try {
                     if (this.lexer.isEnabled(Feature.AllowArbitraryCommas)) {
@@ -1161,7 +1161,7 @@ public class DefaultJSONParser implements Closeable {
                             if (this.lexer.token() == 8) {
                                 this.lexer.nextToken();
                             } else {
-                                obj2 = deserializer.deserialze(this, type, Integer.valueOf(i2));
+                                obj2 = deserializer.deserialze(this, type, Integer.valueOf(i3));
                             }
                             collection.add(obj2);
                             checkListResolve(collection);
@@ -1172,14 +1172,14 @@ public class DefaultJSONParser implements Closeable {
                     if (this.lexer.token() == 16) {
                         this.lexer.nextToken(deserializer.getFastMatchToken());
                     }
-                    i2++;
+                    i3++;
                 } catch (Throwable th) {
                     setContext(parseContext);
                     throw th;
                 }
             }
         } else {
-            throw new JSONException("expect '[', but " + JSONToken.name(i) + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.lexer.info());
+            throw new JSONException("expect '[', but " + JSONToken.name(i2) + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.lexer.info());
         }
     }
 
@@ -1197,12 +1197,12 @@ public class DefaultJSONParser implements Closeable {
         this((Object) null, jSONLexer, parserConfig);
     }
 
-    public final void accept(int i, int i2) {
+    public final void accept(int i2, int i3) {
         JSONLexer jSONLexer = this.lexer;
-        if (jSONLexer.token() == i) {
-            jSONLexer.nextToken(i2);
+        if (jSONLexer.token() == i2) {
+            jSONLexer.nextToken(i3);
         } else {
-            throwException(i);
+            throwException(i2);
         }
     }
 
@@ -1236,12 +1236,12 @@ public class DefaultJSONParser implements Closeable {
         Class<?> cls;
         boolean z;
         Class cls2;
-        int i = 8;
+        int i2 = 8;
         if (this.lexer.token() == 8) {
             this.lexer.nextToken(16);
             return null;
         }
-        int i2 = 14;
+        int i3 = 14;
         if (this.lexer.token() == 14) {
             Object[] objArr = new Object[typeArr.length];
             if (typeArr.length == 0) {
@@ -1253,13 +1253,13 @@ public class DefaultJSONParser implements Closeable {
                 throw new JSONException("syntax error");
             }
             this.lexer.nextToken(2);
-            int i3 = 0;
-            while (i3 < typeArr.length) {
-                if (this.lexer.token() == i) {
+            int i4 = 0;
+            while (i4 < typeArr.length) {
+                if (this.lexer.token() == i2) {
                     this.lexer.nextToken(16);
                     cast = null;
                 } else {
-                    Type type = typeArr[i3];
+                    Type type = typeArr[i4];
                     if (type != Integer.TYPE && type != Integer.class) {
                         if (type == String.class) {
                             if (this.lexer.token() == 4) {
@@ -1269,14 +1269,14 @@ public class DefaultJSONParser implements Closeable {
                                 cast = TypeUtils.cast(parse(), type, this.config);
                             }
                         } else {
-                            if (i3 == typeArr.length - 1 && (type instanceof Class) && (((cls2 = (Class) type) != byte[].class && cls2 != char[].class) || this.lexer.token() != 4)) {
+                            if (i4 == typeArr.length - 1 && (type instanceof Class) && (((cls2 = (Class) type) != byte[].class && cls2 != char[].class) || this.lexer.token() != 4)) {
                                 z = cls2.isArray();
                                 cls = cls2.getComponentType();
                             } else {
                                 cls = null;
                                 z = false;
                             }
-                            if (z && this.lexer.token() != i2) {
+                            if (z && this.lexer.token() != i3) {
                                 ArrayList arrayList = new ArrayList();
                                 ObjectDeserializer deserializer = this.config.getDeserializer(cls);
                                 int fastMatchToken = deserializer.getFastMatchToken();
@@ -1294,7 +1294,7 @@ public class DefaultJSONParser implements Closeable {
                                 }
                                 cast = TypeUtils.cast(arrayList, type, this.config);
                             } else {
-                                cast = this.config.getDeserializer(type).deserialze(this, type, Integer.valueOf(i3));
+                                cast = this.config.getDeserializer(type).deserialze(this, type, Integer.valueOf(i4));
                             }
                         }
                     } else if (this.lexer.token() == 2) {
@@ -1304,18 +1304,18 @@ public class DefaultJSONParser implements Closeable {
                         cast = TypeUtils.cast(parse(), type, this.config);
                     }
                 }
-                objArr[i3] = cast;
+                objArr[i4] = cast;
                 if (this.lexer.token() == 15) {
                     break;
                 } else if (this.lexer.token() == 16) {
-                    if (i3 == typeArr.length - 1) {
+                    if (i4 == typeArr.length - 1) {
                         this.lexer.nextToken(15);
                     } else {
                         this.lexer.nextToken(2);
                     }
-                    i3++;
-                    i = 8;
-                    i2 = 14;
+                    i4++;
+                    i2 = 8;
+                    i3 = 14;
                 } else {
                     throw new JSONException("syntax error :" + JSONToken.name(this.lexer.token()));
                 }
@@ -1337,7 +1337,7 @@ public class DefaultJSONParser implements Closeable {
     */
     public Object parse(PropertyProcessable propertyProcessable, Object obj) {
         String scanSymbolUnQuoted;
-        int i = 0;
+        int i2 = 0;
         if (this.lexer.token() != 12) {
             String str = "syntax error, expect {, actual " + this.lexer.tokenName();
             if (obj instanceof String) {
@@ -1421,7 +1421,7 @@ public class DefaultJSONParser implements Closeable {
                     }
                 } else {
                     this.lexer.nextToken();
-                    if (i != 0) {
+                    if (i2 != 0) {
                         setContext(parseContext);
                     }
                     Type type = propertyProcessable.getType(scanSymbolUnQuoted);
@@ -1433,15 +1433,15 @@ public class DefaultJSONParser implements Closeable {
                     propertyProcessable.apply(scanSymbolUnQuoted, obj3);
                     setContext(parseContext, obj3, scanSymbolUnQuoted);
                     setContext(parseContext);
-                    int i2 = this.lexer.token();
-                    if (i2 == 20 || i2 == 15) {
+                    int i3 = this.lexer.token();
+                    if (i3 == 20 || i3 == 15) {
                         break;
-                    } else if (i2 == 13) {
+                    } else if (i3 == 13) {
                         this.lexer.nextToken();
                         return propertyProcessable;
                     }
                 }
-                i++;
+                i2++;
             } finally {
                 setContext(parseContext);
             }
@@ -1466,7 +1466,7 @@ public class DefaultJSONParser implements Closeable {
             }
             ParseContext parseContext2 = this.context;
             setContext(collection, obj);
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 try {
                     if (jSONLexer.isEnabled(Feature.AllowArbitraryCommas)) {
@@ -1474,14 +1474,14 @@ public class DefaultJSONParser implements Closeable {
                             jSONLexer.nextToken();
                         }
                     }
-                    int i2 = jSONLexer.token();
+                    int i3 = jSONLexer.token();
                     Number number = null;
                     number = null;
-                    if (i2 == 2) {
+                    if (i3 == 2) {
                         Number integerValue = jSONLexer.integerValue();
                         jSONLexer.nextToken(16);
                         number = integerValue;
-                    } else if (i2 == 3) {
+                    } else if (i3 == 3) {
                         if (jSONLexer.isEnabled(Feature.UseBigDecimal)) {
                             decimalValue = jSONLexer.decimalValue(true);
                         } else {
@@ -1489,7 +1489,7 @@ public class DefaultJSONParser implements Closeable {
                         }
                         number = decimalValue;
                         jSONLexer.nextToken(16);
-                    } else if (i2 == 4) {
+                    } else if (i3 == 4) {
                         String stringVal = jSONLexer.stringVal();
                         jSONLexer.nextToken(16);
                         number = stringVal;
@@ -1502,31 +1502,31 @@ public class DefaultJSONParser implements Closeable {
                             jSONScanner.close();
                             number = date;
                         }
-                    } else if (i2 == 6) {
+                    } else if (i3 == 6) {
                         Boolean bool = Boolean.TRUE;
                         jSONLexer.nextToken(16);
                         number = bool;
-                    } else if (i2 == 7) {
+                    } else if (i3 == 7) {
                         Boolean bool2 = Boolean.FALSE;
                         jSONLexer.nextToken(16);
                         number = bool2;
-                    } else if (i2 == 8) {
+                    } else if (i3 == 8) {
                         jSONLexer.nextToken(4);
-                    } else if (i2 == 12) {
-                        number = parseObject(new JSONObject(jSONLexer.isEnabled(Feature.OrderedField)), Integer.valueOf(i));
-                    } else if (i2 == 20) {
+                    } else if (i3 == 12) {
+                        number = parseObject(new JSONObject(jSONLexer.isEnabled(Feature.OrderedField)), Integer.valueOf(i2));
+                    } else if (i3 == 20) {
                         throw new JSONException("unclosed jsonArray");
                     } else {
-                        if (i2 == 23) {
+                        if (i3 == 23) {
                             jSONLexer.nextToken(4);
-                        } else if (i2 == 14) {
+                        } else if (i3 == 14) {
                             JSONArray jSONArray = new JSONArray();
-                            parseArray(jSONArray, Integer.valueOf(i));
+                            parseArray(jSONArray, Integer.valueOf(i2));
                             number = jSONArray;
                             if (jSONLexer.isEnabled(Feature.UseObjectArray)) {
                                 number = jSONArray.toArray();
                             }
-                        } else if (i2 != 15) {
+                        } else if (i3 != 15) {
                             number = parse();
                         } else {
                             jSONLexer.nextToken(16);
@@ -1538,7 +1538,7 @@ public class DefaultJSONParser implements Closeable {
                     if (jSONLexer.token() == 16) {
                         jSONLexer.nextToken(4);
                     }
-                    i++;
+                    i2++;
                 } finally {
                     setContext(parseContext2);
                 }
@@ -1557,12 +1557,12 @@ public class DefaultJSONParser implements Closeable {
     }
 
     public <T> T parseObject(Type type, Object obj) {
-        int i = this.lexer.token();
-        if (i == 8) {
+        int i2 = this.lexer.token();
+        if (i2 == 8) {
             this.lexer.nextToken();
             return null;
         }
-        if (i == 4) {
+        if (i2 == 4) {
             if (type == byte[].class) {
                 T t = (T) this.lexer.bytesValue();
                 this.lexer.nextToken();

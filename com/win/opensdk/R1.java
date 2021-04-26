@@ -1,130 +1,270 @@
 package com.win.opensdk;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.graphics.Bitmap;
+import android.os.Build;
+import android.os.Message;
+import android.view.View;
+import android.webkit.ConsoleMessage;
+import android.webkit.GeolocationPermissions;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.PermissionRequest;
+import android.webkit.ValueCallback;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
 import android.webkit.WebView;
-import android.widget.Toast;
-import com.alibaba.fastjson.asm.Label;
-import com.win.opensdk.activitys.H5OpenActivity;
-import com.win.opensdk.core.Info;
-import org.json.JSONException;
-/* loaded from: classes7.dex */
-public class R1 {
-    public static void a(Context context, String str, Info info, h2 h2Var, String str2) {
-        WebView webView;
-        g2 g2Var;
-        if (info != null) {
-            try {
-                if (info.getOpent() == 3 && TextUtils.isEmpty(str)) {
-                    str = info.getOpen();
-                }
-            } catch (Exception unused) {
-                return;
-            }
+import com.win.opensdk.webviewbase.AdvancedWebView;
+/* loaded from: classes6.dex */
+public class R1 extends WebChromeClient {
+
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ AdvancedWebView f37757a;
+
+    public R1(AdvancedWebView advancedWebView) {
+        this.f37757a = advancedWebView;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public Bitmap getDefaultVideoPoster() {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        return webChromeClient != null ? webChromeClient.getDefaultVideoPoster() : super.getDefaultVideoPoster();
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public View getVideoLoadingProgressView() {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        return webChromeClient != null ? webChromeClient.getVideoLoadingProgressView() : super.getVideoLoadingProgressView();
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void getVisitedHistory(ValueCallback valueCallback) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        if (webChromeClient != null) {
+            webChromeClient.getVisitedHistory(valueCallback);
+        } else {
+            super.getVisitedHistory(valueCallback);
         }
-        if (info != null && info.getOpent() == 0 && TextUtils.isEmpty(str)) {
-            str = info.getOpen();
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onCloseWindow(WebView webView) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        if (webChromeClient != null) {
+            webChromeClient.onCloseWindow(webView);
+        } else {
+            super.onCloseWindow(webView);
         }
-        if (TextUtils.isEmpty(str)) {
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onConsoleMessage(String str, int i2, String str2) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        if (webChromeClient != null) {
+            webChromeClient.onConsoleMessage(str, i2, str2);
+        } else {
+            super.onConsoleMessage(str, i2, str2);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        return webChromeClient != null ? webChromeClient.onConsoleMessage(consoleMessage) : super.onConsoleMessage(consoleMessage);
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onCreateWindow(WebView webView, boolean z, boolean z2, Message message) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        return webChromeClient != null ? webChromeClient.onCreateWindow(webView, z, z2, message) : super.onCreateWindow(webView, z, z2, message);
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        if (webChromeClient != null) {
+            webChromeClient.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+        } else {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onGeolocationPermissionsHidePrompt() {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        if (webChromeClient != null) {
+            webChromeClient.onGeolocationPermissionsHidePrompt();
+        } else {
+            super.onGeolocationPermissionsHidePrompt();
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onGeolocationPermissionsShowPrompt(String str, GeolocationPermissions.Callback callback) {
+        AdvancedWebView advancedWebView = this.f37757a;
+        if (advancedWebView.l) {
+            callback.invoke(str, true, false);
             return;
         }
-        try {
-            if (!TextUtils.isEmpty(str2)) {
-                str = G.a(str, 200, str2, info.isHo_c_sw());
-            }
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-        if ((info != null ? info.getPs() : 0) != 0) {
-            new d2().a(context, str, info);
-        } else if (a(context, Uri.parse(str), info)) {
+        WebChromeClient webChromeClient = advancedWebView.k;
+        if (webChromeClient != null) {
+            webChromeClient.onGeolocationPermissionsShowPrompt(str, callback);
         } else {
-            if (info.getOpent() == 1) {
-                if (H.f40058d.f40061c) {
-                    Toast.makeText(context, context.getString(R.string.wdownload_loading), 1).show();
-                    a1.a(context).b(new b1(info), 5).a();
-                    return;
-                }
-                if (!TextUtils.isEmpty(info.getDl_name())) {
-                    Context applicationContext = context.getApplicationContext();
-                    Toast.makeText(applicationContext, context.getString(R.string.wdownload_start_load) + info.getDl_name(), 0).show();
-                }
-                Z0 a2 = a1.a(context);
-                b1 b1Var = new b1(info);
-                String open = info.getOpen();
-                try {
-                    a2.f40234b = a1.a("wdtr", b1Var);
-                    a2.a("msg", a1.a(open));
-                } catch (JSONException unused2) {
-                }
-                a2.a();
-                if (h2Var != null) {
-                    h2Var.f40328c = info;
-                    WebView webView2 = h2Var.f40327b;
-                    if (webView2 == null) {
-                        return;
-                    }
-                    webView2.loadUrl(info.getOpen());
-                    webView = h2Var.f40327b;
-                    g2Var = new g2(h2Var);
-                } else {
-                    h2 h2Var2 = new h2(context);
-                    h2Var2.f40328c = info;
-                    WebView webView3 = h2Var2.f40327b;
-                    if (webView3 == null) {
-                        return;
-                    }
-                    webView3.loadUrl(info.getOpen());
-                    webView = h2Var2.f40327b;
-                    g2Var = new g2(h2Var2);
-                }
-                webView.setDownloadListener(g2Var);
-                return;
-            }
-            if (info.getOpent() == 3) {
-                Intent intent = new Intent(context, H5OpenActivity.class);
-                info.setOph5Url(str);
-                intent.putExtra("Key_H5OpenActData", info);
-                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                context.startActivity(intent);
-                return;
-            }
-            a2.a(context, Uri.parse(str));
+            super.onGeolocationPermissionsShowPrompt(str, callback);
         }
     }
 
-    public static boolean a(Context context, Uri uri, Info info) {
-        if (context != null && uri != null) {
-            String scheme = uri.getScheme();
-            if ((info != null && !TextUtils.isEmpty(info.getDpl())) || (scheme != null && !scheme.equals("http") && !scheme.equals("https"))) {
-                if (info != null) {
-                    try {
-                        if (!TextUtils.isEmpty(info.getDpl())) {
-                            uri = Uri.parse(info.getDpl());
-                        }
-                    } catch (Exception e2) {
-                        if (info != null) {
-                            a1.a(context).a(new b1(info), e2.getMessage(), 2).a();
-                            PBSplash.isdpl = false;
-                        }
-                        return false;
-                    }
-                }
-                a2.b(context, uri);
-                if (info != null) {
-                    a1.a(context).a(new b1(info), uri.toString(), 0).a();
-                    PBSplash.isdpl = true;
-                }
-                return true;
-            } else if ((scheme == null || !scheme.equals("http")) && scheme.equals("https")) {
+    @Override // android.webkit.WebChromeClient
+    public void onHideCustomView() {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        if (webChromeClient != null) {
+            webChromeClient.onHideCustomView();
+        } else {
+            super.onHideCustomView();
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        return webChromeClient != null ? webChromeClient.onJsAlert(webView, str, str2, jsResult) : super.onJsAlert(webView, str, str2, jsResult);
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        return webChromeClient != null ? webChromeClient.onJsBeforeUnload(webView, str, str2, jsResult) : super.onJsBeforeUnload(webView, str, str2, jsResult);
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        return webChromeClient != null ? webChromeClient.onJsConfirm(webView, str, str2, jsResult) : super.onJsConfirm(webView, str, str2, jsResult);
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        return webChromeClient != null ? webChromeClient.onJsPrompt(webView, str, str2, str3, jsPromptResult) : super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsTimeout() {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        return webChromeClient != null ? webChromeClient.onJsTimeout() : super.onJsTimeout();
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onPermissionRequest(PermissionRequest permissionRequest) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            WebChromeClient webChromeClient = this.f37757a.k;
+            if (webChromeClient != null) {
+                webChromeClient.onPermissionRequest(permissionRequest);
+            } else {
+                super.onPermissionRequest(permissionRequest);
             }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onPermissionRequestCanceled(PermissionRequest permissionRequest) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            WebChromeClient webChromeClient = this.f37757a.k;
+            if (webChromeClient != null) {
+                webChromeClient.onPermissionRequestCanceled(permissionRequest);
+            } else {
+                super.onPermissionRequestCanceled(permissionRequest);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onProgressChanged(WebView webView, int i2) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        if (webChromeClient != null) {
+            webChromeClient.onProgressChanged(webView, i2);
+        } else {
+            super.onProgressChanged(webView, i2);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        if (webChromeClient != null) {
+            webChromeClient.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
+        } else {
+            super.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onReceivedIcon(WebView webView, Bitmap bitmap) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        if (webChromeClient != null) {
+            webChromeClient.onReceivedIcon(webView, bitmap);
+        } else {
+            super.onReceivedIcon(webView, bitmap);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onReceivedTitle(WebView webView, String str) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        if (webChromeClient != null) {
+            webChromeClient.onReceivedTitle(webView, str);
+        } else {
+            super.onReceivedTitle(webView, str);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onReceivedTouchIconUrl(WebView webView, String str, boolean z) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        if (webChromeClient != null) {
+            webChromeClient.onReceivedTouchIconUrl(webView, str, z);
+        } else {
+            super.onReceivedTouchIconUrl(webView, str, z);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onRequestFocus(WebView webView) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        if (webChromeClient != null) {
+            webChromeClient.onRequestFocus(webView);
+        } else {
+            super.onRequestFocus(webView);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onShowCustomView(View view, int i2, WebChromeClient.CustomViewCallback customViewCallback) {
+        if (Build.VERSION.SDK_INT >= 14) {
+            WebChromeClient webChromeClient = this.f37757a.k;
+            if (webChromeClient != null) {
+                webChromeClient.onShowCustomView(view, i2, customViewCallback);
+            } else {
+                super.onShowCustomView(view, i2, customViewCallback);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onShowCustomView(View view, WebChromeClient.CustomViewCallback customViewCallback) {
+        WebChromeClient webChromeClient = this.f37757a.k;
+        if (webChromeClient != null) {
+            webChromeClient.onShowCustomView(view, customViewCallback);
+        } else {
+            super.onShowCustomView(view, customViewCallback);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onShowFileChooser(WebView webView, ValueCallback valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            this.f37757a.a((ValueCallback) null, valueCallback, fileChooserParams.getMode() == 1);
+            return true;
         }
         return false;
-    }
-
-    public static boolean a(Info info, long j) {
-        return info != null && System.currentTimeMillis() - j > 1000;
     }
 }

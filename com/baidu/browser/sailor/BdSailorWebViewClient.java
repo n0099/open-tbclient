@@ -37,7 +37,7 @@ public class BdSailorWebViewClient implements INoProGuard {
         clientCertRequest.cancel();
     }
 
-    public void onReceivedError(BdSailorWebView bdSailorWebView, int i, String str, String str2) {
+    public void onReceivedError(BdSailorWebView bdSailorWebView, int i2, String str, String str2) {
     }
 
     public void onReceivedError(BdSailorWebView bdSailorWebView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {

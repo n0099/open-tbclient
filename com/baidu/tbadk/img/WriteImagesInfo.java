@@ -5,8 +5,8 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TbImageHelper;
-import d.b.c.e.p.k;
-import d.b.i0.b0.g.d;
+import d.a.c.e.p.k;
+import d.a.i0.b0.g.d;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -110,12 +110,12 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         return arrayList;
     }
 
-    public ImageFileInfo getImageInfoAt(int i) {
+    public ImageFileInfo getImageInfoAt(int i2) {
         LinkedList<ImageFileInfo> linkedList = this.chosedFiles;
-        if (linkedList == null || i < 0 || i >= linkedList.size()) {
+        if (linkedList == null || i2 < 0 || i2 >= linkedList.size()) {
             return null;
         }
-        return this.chosedFiles.get(i);
+        return this.chosedFiles.get(i2);
     }
 
     public String getLastAlbumId() {
@@ -193,8 +193,8 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         this.lastAlbumId = str;
     }
 
-    public void setMaxImagesAllowed(int i) {
-        this.maxImagesAllowed = i;
+    public void setMaxImagesAllowed(int i2) {
+        this.maxImagesAllowed = i2;
     }
 
     public void setOriginalImg(boolean z) {
@@ -274,20 +274,20 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         JSONArray optJSONArray = jSONObject.optJSONArray("chosedFiles");
         this.chosedFiles = new LinkedList<>();
         if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
-                imageFileInfo.parseJson(optJSONArray.optJSONObject(i));
+                imageFileInfo.parseJson(optJSONArray.optJSONObject(i2));
                 imageFileInfo.setIsLong(FileHelper.checkIsLongImage(imageFileInfo.getFilePath()));
                 this.chosedFiles.add(imageFileInfo);
             }
         }
     }
 
-    public WriteImagesInfo(int i) {
+    public WriteImagesInfo(int i2) {
         this.mIsFromIm = false;
         this.isOriginalImg = false;
         this.isEnableChooseOriginalImg = true;
         this.isFromQRCode = false;
-        this.maxImagesAllowed = i;
+        this.maxImagesAllowed = i2;
     }
 }

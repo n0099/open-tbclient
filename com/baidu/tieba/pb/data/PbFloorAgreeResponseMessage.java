@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.data;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import d.b.j0.d2.b;
+import d.a.j0.d2.b;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
@@ -12,14 +12,14 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
     public int mScore;
     public AuthTokenData tokenData;
 
-    public PbFloorAgreeResponseMessage(int i) {
-        super(i);
+    public PbFloorAgreeResponseMessage(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
-        super.decodeLogicInBackGround(i, jSONObject);
+        super.decodeLogicInBackGround(i2, jSONObject);
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode != 200 || error < 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {

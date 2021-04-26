@@ -5,7 +5,7 @@ import android.text.TextUtils;
 public class at {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f41342a = 0;
+    public static long f38886a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     public static String f897a = "";
@@ -16,8 +16,8 @@ public class at {
         }
         StringBuilder sb = new StringBuilder();
         sb.append(f897a);
-        long j = f41342a;
-        f41342a = 1 + j;
+        long j = f38886a;
+        f38886a = 1 + j;
         sb.append(j);
         return sb.toString();
     }

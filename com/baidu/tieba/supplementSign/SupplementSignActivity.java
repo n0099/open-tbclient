@@ -10,9 +10,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tbadk.core.atomData.SupplementSignActivityConfig;
 import com.baidu.tbadk.core.hybrid.BridgeWebView;
-import d.b.j0.d3.l0.b;
+import d.a.j0.d3.l0.b;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
     public int forumId;
     public final String JS_SIGN_SUCCESS = "signSuccess";
@@ -22,7 +22,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
     public int signBonusPoint = 0;
     public CustomMessageListener mBuyMemberListener = new a(2001194);
     public b mSupplementSignInterface = new b() { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
-        @Override // d.b.j0.d3.l0.b
+        @Override // d.a.j0.d3.l0.b
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if ("SupplementSignInterface".equalsIgnoreCase(str) && "signSuccess".equalsIgnoreCase(str2)) {
                 if (!StringUtils.isNull(str3)) {
@@ -42,10 +42,10 @@ public class SupplementSignActivity extends TbWebViewActivity {
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,8 +69,8 @@ public class SupplementSignActivity extends TbWebViewActivity {
     }
 
     @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         this.mView.E();
     }
 

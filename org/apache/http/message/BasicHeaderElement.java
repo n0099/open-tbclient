@@ -23,7 +23,7 @@ public class BasicHeaderElement implements HeaderElement {
     }
 
     @Override // org.apache.http.HeaderElement
-    public NameValuePair getParameter(int i) {
+    public NameValuePair getParameter(int i2) {
         throw new RuntimeException("Stub!");
     }
 

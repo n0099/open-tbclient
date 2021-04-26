@@ -20,7 +20,7 @@ public final class e {
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
-        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f9562a + com.baidu.platform.comapi.walknavi.d.a.g.d.f9563b + "/queryARResource";
+        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f9919a + com.baidu.platform.comapi.walknavi.d.a.g.d.f9920b + "/queryARResource";
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("doQueryArResource: " + str);
         d dVar = new d(str, aVar2);
         dVar.execute(a2);
@@ -66,7 +66,7 @@ public final class e {
         jSONObject2.put("system_version", Build.VERSION.SDK_INT);
         jSONObject2.put("user_id", a2.toString());
         jSONObject2.put("publish_id", "6");
-        if (!com.baidu.platform.comapi.walknavi.d.a.b.f9503a) {
+        if (!com.baidu.platform.comapi.walknavi.d.a.b.f9859a) {
             jSONObject2.put("update_check", 1);
         }
         a(context, jSONObject2);
@@ -74,8 +74,8 @@ public final class e {
         return jSONObject2.toString();
     }
 
-    public static b a(String str, int i, String str2, boolean z, a<String> aVar) {
-        b bVar = new b(str, i, z, aVar);
+    public static b a(String str, int i2, String str2, boolean z, a<String> aVar) {
+        b bVar = new b(str, i2, z, aVar);
         bVar.execute(str2);
         return bVar;
     }

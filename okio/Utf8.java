@@ -5,18 +5,18 @@ public final class Utf8 {
         return size(str, 0, str.length());
     }
 
-    public static long size(String str, int i, int i2) {
+    public static long size(String str, int i2, int i3) {
         long j;
         if (str != null) {
-            if (i < 0) {
-                throw new IllegalArgumentException("beginIndex < 0: " + i);
-            } else if (i2 >= i) {
-                if (i2 > str.length()) {
-                    throw new IllegalArgumentException("endIndex > string.length: " + i2 + " > " + str.length());
+            if (i2 < 0) {
+                throw new IllegalArgumentException("beginIndex < 0: " + i2);
+            } else if (i3 >= i2) {
+                if (i3 > str.length()) {
+                    throw new IllegalArgumentException("endIndex > string.length: " + i3 + " > " + str.length());
                 }
                 long j2 = 0;
-                while (i < i2) {
-                    char charAt = str.charAt(i);
+                while (i2 < i3) {
+                    char charAt = str.charAt(i2);
                     if (charAt < 128) {
                         j2++;
                     } else {
@@ -25,23 +25,23 @@ public final class Utf8 {
                         } else if (charAt < 55296 || charAt > 57343) {
                             j = 3;
                         } else {
-                            int i3 = i + 1;
-                            char charAt2 = i3 < i2 ? str.charAt(i3) : (char) 0;
+                            int i4 = i2 + 1;
+                            char charAt2 = i4 < i3 ? str.charAt(i4) : (char) 0;
                             if (charAt > 56319 || charAt2 < 56320 || charAt2 > 57343) {
                                 j2++;
-                                i = i3;
+                                i2 = i4;
                             } else {
                                 j2 += 4;
-                                i += 2;
+                                i2 += 2;
                             }
                         }
                         j2 += j;
                     }
-                    i++;
+                    i2++;
                 }
                 return j2;
             } else {
-                throw new IllegalArgumentException("endIndex < beginIndex: " + i2 + " < " + i);
+                throw new IllegalArgumentException("endIndex < beginIndex: " + i3 + " < " + i2);
             }
         }
         throw new IllegalArgumentException("string == null");

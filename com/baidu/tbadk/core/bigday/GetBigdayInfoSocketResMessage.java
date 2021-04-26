@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.bigday;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.c.e.d.l;
-import d.b.i0.r.n.a;
+import d.a.c.e.d.l;
+import d.a.i0.r.n.a;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.GetBigday.BigdayInfo;
@@ -19,19 +19,19 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        super.afterDispatchInBackGround(i, (int) bArr);
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+        super.afterDispatchInBackGround(i2, (int) bArr);
         if (bArr == null) {
             return;
         }
-        l<byte[]> d2 = d.b.i0.r.r.a.f().d("tb.bigday_datas");
+        l<byte[]> d2 = d.a.i0.r.r.a.f().d("tb.bigday_datas");
         d2.remove("tb.bigday_datas");
         d2.g("tb.bigday_datas", bArr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetBigdayResIdl getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class);
         if (getBigdayResIdl != null) {
             Error error = getBigdayResIdl.error;

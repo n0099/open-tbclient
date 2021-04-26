@@ -20,11 +20,11 @@ public class DBConnection extends SQLiteOpenHelper {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE groupmember ADD COLUMN nickname TEXT");
             } catch (Exception e2) {
@@ -41,11 +41,11 @@ public class DBConnection extends SQLiteOpenHelper {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN marktop INTEGER DEFAULT 1");
                 sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN marktoptime LONG ");
@@ -57,8 +57,8 @@ public class DBConnection extends SQLiteOpenHelper {
         }
     }
 
-    public DBConnection(Context context, String str, int i) {
-        super(context, str, (SQLiteDatabase.CursorFactory) null, i);
+    public DBConnection(Context context, String str, int i2) {
+        super(context, str, (SQLiteDatabase.CursorFactory) null, i2);
         this.mContext = context;
     }
 
@@ -71,7 +71,7 @@ public class DBConnection extends SQLiteOpenHelper {
     }
 
     private int createTable(SQLiteDatabase sQLiteDatabase) {
-        int i = -1;
+        int i2 = -1;
         if (sQLiteDatabase != null) {
             try {
                 try {
@@ -79,7 +79,7 @@ public class DBConnection extends SQLiteOpenHelper {
                     sQLiteDatabase.execSQL(DBTableDefine.SQL_CREATE_TABLE_LOCALMESSAGE);
                     sQLiteDatabase.execSQL(DBTableDefine.SQL_CREATE_TABLE_GROUPINFO);
                     sQLiteDatabase.execSQL(DBTableDefine.SQL_CREATE_TABLE_GROUP_MEMBER);
-                    i = 0;
+                    i2 = 0;
                     sQLiteDatabase.setTransactionSuccessful();
                 } catch (Exception e2) {
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
@@ -89,11 +89,11 @@ public class DBConnection extends SQLiteOpenHelper {
                 sQLiteDatabase.endTransaction();
             }
         }
-        return i;
+        return i2;
     }
 
     private int dropTable(SQLiteDatabase sQLiteDatabase) {
-        int i = -1;
+        int i2 = -1;
         if (sQLiteDatabase != null) {
             try {
                 try {
@@ -101,7 +101,7 @@ public class DBConnection extends SQLiteOpenHelper {
                     sQLiteDatabase.execSQL("DROP TABLE IF EXISTS grouplocalmessage");
                     sQLiteDatabase.execSQL("DROP TABLE IF EXISTS groupinfo");
                     sQLiteDatabase.execSQL("DROP TABLE IF EXISTS groupmember");
-                    i = 0;
+                    i2 = 0;
                     sQLiteDatabase.setTransactionSuccessful();
                 } catch (Exception e2) {
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
@@ -111,7 +111,7 @@ public class DBConnection extends SQLiteOpenHelper {
                 sQLiteDatabase.endTransaction();
             }
         }
-        return i;
+        return i2;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -135,18 +135,18 @@ public class DBConnection extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     @TargetApi(11)
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        if (i <= 27 && i2 >= 28) {
-            new Version27And28Handler().onUpgrade(sQLiteDatabase, i, i2);
-            i = 28;
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        if (i2 <= 27 && i3 >= 28) {
+            new Version27And28Handler().onUpgrade(sQLiteDatabase, i2, i3);
+            i2 = 28;
         }
-        if (i > 47 || i2 < 48) {
+        if (i2 > 47 || i3 < 48) {
             return;
         }
-        new Version47And48Handler().onUpgrade(sQLiteDatabase, i, i2);
+        new Version47And48Handler().onUpgrade(sQLiteDatabase, i2, i3);
     }
 }

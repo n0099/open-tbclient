@@ -2,7 +2,7 @@ package com.squareup.wire2;
 
 import com.squareup.wire2.Message;
 import com.squareup.wire2.Message.a;
-import d.o.a.d;
+import d.n.a.d;
 import java.io.IOException;
 import java.io.ObjectStreamException;
 import java.io.OutputStream;
@@ -23,14 +23,14 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
         public Buffer unknownFieldsBuffer;
         public d unknownFieldsWriter;
 
-        public final a<T, B> addUnknownField(int i, FieldEncoding fieldEncoding, Object obj) {
+        public final a<T, B> addUnknownField(int i2, FieldEncoding fieldEncoding, Object obj) {
             if (this.unknownFieldsWriter == null) {
                 Buffer buffer = new Buffer();
                 this.unknownFieldsBuffer = buffer;
                 this.unknownFieldsWriter = new d(buffer);
             }
             try {
-                fieldEncoding.rawProtoAdapter().encodeWithTag(this.unknownFieldsWriter, i, obj);
+                fieldEncoding.rawProtoAdapter().encodeWithTag(this.unknownFieldsWriter, i2, obj);
                 return this;
             } catch (IOException unused) {
                 throw new AssertionError();

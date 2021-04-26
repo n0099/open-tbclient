@@ -21,8 +21,8 @@ public class FitCenter extends BitmapTransformation {
     }
 
     @Override // com.bumptech.glide.load.resource.bitmap.BitmapTransformation
-    public Bitmap transform(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
-        return TransformationUtils.fitCenter(bitmapPool, bitmap, i, i2);
+    public Bitmap transform(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2, int i3) {
+        return TransformationUtils.fitCenter(bitmapPool, bitmap, i2, i3);
     }
 
     @Override // com.bumptech.glide.load.Key

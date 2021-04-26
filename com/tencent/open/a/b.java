@@ -4,43 +4,45 @@ import com.tencent.open.a.d;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f39576a = d.C0534d.a("yy.MM.dd.HH");
+    public static SimpleDateFormat f37175a = d.C0478d.a("yy.MM.dd.HH");
 
     /* renamed from: g  reason: collision with root package name */
-    public File f39582g;
+    public File f37181g;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39577b = "Tracer.File";
+    public String f37176b = "Tracer.File";
 
     /* renamed from: c  reason: collision with root package name */
-    public int f39578c = Integer.MAX_VALUE;
+    public int f37177c = Integer.MAX_VALUE;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39579d = Integer.MAX_VALUE;
+    public int f37178d = Integer.MAX_VALUE;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39580e = 4096;
+    public int f37179e = 4096;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f39581f = 10000;
+    public long f37180f = 10000;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39583h = 10;
-    public String i = ".log";
+    public int f37182h = 10;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f37183i = ".log";
     public long j = Long.MAX_VALUE;
 
-    public b(File file, int i, int i2, int i3, String str, long j, int i4, String str2, long j2) {
+    public b(File file, int i2, int i3, int i4, String str, long j, int i5, String str2, long j2) {
         a(file);
-        b(i);
-        a(i2);
-        c(i3);
+        b(i2);
+        a(i3);
+        c(i4);
         a(str);
         a(j);
-        d(i4);
+        d(i5);
         b(str2);
         b(j2);
     }
@@ -72,31 +74,31 @@ public class b {
     }
 
     public File e() {
-        return this.f39582g;
+        return this.f37181g;
     }
 
     public int f() {
-        return this.f39583h;
+        return this.f37182h;
     }
 
     public void a(String str) {
-        this.f39577b = str;
+        this.f37176b = str;
     }
 
-    public void a(int i) {
-        this.f39578c = i;
+    public void a(int i2) {
+        this.f37177c = i2;
     }
 
-    public void b(int i) {
-        this.f39579d = i;
+    public void b(int i2) {
+        this.f37178d = i2;
     }
 
     public void a(long j) {
-        this.f39581f = j;
+        this.f37180f = j;
     }
 
     public void b(String str) {
-        this.i = str;
+        this.f37183i = str;
     }
 
     private String c(String str) {
@@ -104,7 +106,7 @@ public class b {
     }
 
     public void a(File file) {
-        this.f39582g = file;
+        this.f37181g = file;
     }
 
     public void b(long j) {
@@ -112,18 +114,18 @@ public class b {
     }
 
     public int d() {
-        return this.f39580e;
+        return this.f37179e;
     }
 
     public String c() {
-        return this.f39577b;
+        return this.f37176b;
     }
 
-    public void d(int i) {
-        this.f39583h = i;
+    public void d(int i2) {
+        this.f37182h = i2;
     }
 
-    public void c(int i) {
-        this.f39580e = i;
+    public void c(int i2) {
+        this.f37179e = i2;
     }
 }

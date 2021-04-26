@@ -222,13 +222,13 @@ public interface IXAdInstanceInfo {
 
     void setActionOnlyWifi(boolean z);
 
-    void setActionType(int i);
+    void setActionType(int i2);
 
-    void setAdContainerHeight(int i);
+    void setAdContainerHeight(int i2);
 
-    void setAdContainerSizeType(int i);
+    void setAdContainerSizeType(int i2);
 
-    void setAdContainerWidth(int i);
+    void setAdContainerWidth(int i2);
 
     void setAdHasDisplayed(boolean z);
 
@@ -236,7 +236,7 @@ public interface IXAdInstanceInfo {
 
     void setAdSource(String str);
 
-    void setAntiTag(int i);
+    void setAntiTag(int i2);
 
     void setAppName(String str);
 
@@ -272,7 +272,7 @@ public interface IXAdInstanceInfo {
 
     void setCloseTrackers(List<String> list);
 
-    void setCloseType(int i);
+    void setCloseType(int i2);
 
     void setConfirmBorderPercent(String str);
 
@@ -284,20 +284,20 @@ public interface IXAdInstanceInfo {
 
     void setDescription(String str);
 
-    void setDlTunnel(int i);
+    void setDlTunnel(int i2);
 
     void setExp2ForSingleAd(String str);
 
-    void setExpiration(int i);
+    void setExpiration(int i2);
 
-    void setFeedAdStyleType(int i);
+    void setFeedAdStyleType(int i2);
 
     void setFullScreenTrackers(List<String> list);
 
     void setFwt(String str);
 
     @Deprecated
-    void setHoursInADayToShowAd(int i);
+    void setHoursInADayToShowAd(int i2);
 
     void setHtmlSnippet(String str);
 
@@ -314,9 +314,9 @@ public interface IXAdInstanceInfo {
 
     void setLocalCreativeURL(String str);
 
-    void setMainMaterialHeight(int i);
+    void setMainMaterialHeight(int i2);
 
-    void setMainMaterialWidth(int i);
+    void setMainMaterialWidth(int i2);
 
     void setMainPictureUrl(String str);
 
@@ -332,7 +332,7 @@ public interface IXAdInstanceInfo {
 
     void setPhoneForLocalBranding(String str);
 
-    void setPointsForWall(int i);
+    void setPointsForWall(int i2);
 
     void setPopNotif(boolean z);
 
@@ -348,7 +348,7 @@ public interface IXAdInstanceInfo {
 
     void setStartTrackers(List<String> list);
 
-    void setSwitchButton(int i);
+    void setSwitchButton(int i2);
 
     void setTaskDoneForWall(boolean z);
 
@@ -362,15 +362,15 @@ public interface IXAdInstanceInfo {
 
     void setUrl(String str);
 
-    void setVideoDuration(int i);
+    void setVideoDuration(int i2);
 
-    void setVideoHeight(int i);
+    void setVideoHeight(int i2);
 
     void setVideoMuted(boolean z);
 
     void setVideoUrl(String str);
 
-    void setVideoWidth(int i);
+    void setVideoWidth(int i2);
 
     void setVurl(String str);
 

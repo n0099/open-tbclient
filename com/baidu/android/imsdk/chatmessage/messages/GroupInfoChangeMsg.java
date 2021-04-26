@@ -19,8 +19,8 @@ public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGu
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public GroupInfoChangeMsg[] newArray(int i) {
-            return new GroupInfoChangeMsg[i];
+        public GroupInfoChangeMsg[] newArray(int i2) {
+            return new GroupInfoChangeMsg[i2];
         }
     };
     public String groupname;
@@ -63,8 +63,8 @@ public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGu
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.member);
         parcel.writeString(this.groupname);
         parcel.writeString(this.noticeDetail);

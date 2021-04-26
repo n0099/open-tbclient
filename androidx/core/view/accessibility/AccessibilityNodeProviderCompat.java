@@ -23,8 +23,8 @@ public class AccessibilityNodeProviderCompat {
         }
 
         @Override // android.view.accessibility.AccessibilityNodeProvider
-        public AccessibilityNodeInfo createAccessibilityNodeInfo(int i) {
-            AccessibilityNodeInfoCompat createAccessibilityNodeInfo = this.mCompat.createAccessibilityNodeInfo(i);
+        public AccessibilityNodeInfo createAccessibilityNodeInfo(int i2) {
+            AccessibilityNodeInfoCompat createAccessibilityNodeInfo = this.mCompat.createAccessibilityNodeInfo(i2);
             if (createAccessibilityNodeInfo == null) {
                 return null;
             }
@@ -32,22 +32,22 @@ public class AccessibilityNodeProviderCompat {
         }
 
         @Override // android.view.accessibility.AccessibilityNodeProvider
-        public List<AccessibilityNodeInfo> findAccessibilityNodeInfosByText(String str, int i) {
-            List<AccessibilityNodeInfoCompat> findAccessibilityNodeInfosByText = this.mCompat.findAccessibilityNodeInfosByText(str, i);
+        public List<AccessibilityNodeInfo> findAccessibilityNodeInfosByText(String str, int i2) {
+            List<AccessibilityNodeInfoCompat> findAccessibilityNodeInfosByText = this.mCompat.findAccessibilityNodeInfosByText(str, i2);
             if (findAccessibilityNodeInfosByText == null) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             int size = findAccessibilityNodeInfosByText.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                arrayList.add(findAccessibilityNodeInfosByText.get(i2).unwrap());
+            for (int i3 = 0; i3 < size; i3++) {
+                arrayList.add(findAccessibilityNodeInfosByText.get(i3).unwrap());
             }
             return arrayList;
         }
 
         @Override // android.view.accessibility.AccessibilityNodeProvider
-        public boolean performAction(int i, int i2, Bundle bundle) {
-            return this.mCompat.performAction(i, i2, bundle);
+        public boolean performAction(int i2, int i3, Bundle bundle) {
+            return this.mCompat.performAction(i2, i3, bundle);
         }
     }
 
@@ -59,8 +59,8 @@ public class AccessibilityNodeProviderCompat {
         }
 
         @Override // android.view.accessibility.AccessibilityNodeProvider
-        public AccessibilityNodeInfo findFocus(int i) {
-            AccessibilityNodeInfoCompat findFocus = this.mCompat.findFocus(i);
+        public AccessibilityNodeInfo findFocus(int i2) {
+            AccessibilityNodeInfoCompat findFocus = this.mCompat.findFocus(i2);
             if (findFocus == null) {
                 return null;
             }
@@ -69,10 +69,10 @@ public class AccessibilityNodeProviderCompat {
     }
 
     public AccessibilityNodeProviderCompat() {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 19) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 19) {
             this.mProvider = new AccessibilityNodeProviderApi19(this);
-        } else if (i >= 16) {
+        } else if (i2 >= 16) {
             this.mProvider = new AccessibilityNodeProviderApi16(this);
         } else {
             this.mProvider = null;
@@ -80,17 +80,17 @@ public class AccessibilityNodeProviderCompat {
     }
 
     @Nullable
-    public AccessibilityNodeInfoCompat createAccessibilityNodeInfo(int i) {
+    public AccessibilityNodeInfoCompat createAccessibilityNodeInfo(int i2) {
         return null;
     }
 
     @Nullable
-    public List<AccessibilityNodeInfoCompat> findAccessibilityNodeInfosByText(String str, int i) {
+    public List<AccessibilityNodeInfoCompat> findAccessibilityNodeInfosByText(String str, int i2) {
         return null;
     }
 
     @Nullable
-    public AccessibilityNodeInfoCompat findFocus(int i) {
+    public AccessibilityNodeInfoCompat findFocus(int i2) {
         return null;
     }
 
@@ -98,7 +98,7 @@ public class AccessibilityNodeProviderCompat {
         return this.mProvider;
     }
 
-    public boolean performAction(int i, int i2, Bundle bundle) {
+    public boolean performAction(int i2, int i3, Bundle bundle) {
         return false;
     }
 

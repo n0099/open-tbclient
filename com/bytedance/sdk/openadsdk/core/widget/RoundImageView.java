@@ -18,24 +18,24 @@ import android.widget.ImageView;
 public class RoundImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28513a;
+    public int f29387a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28514b;
+    public int f29388b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28515c;
+    public int f29389c;
 
     public RoundImageView(Context context) {
         super(context);
-        this.f28513a = 0;
-        this.f28514b = 0;
-        this.f28515c = 0;
+        this.f29387a = 0;
+        this.f29388b = 0;
+        this.f29389c = 0;
     }
 
-    private Bitmap a(Bitmap bitmap, int i) {
+    private Bitmap a(Bitmap bitmap, int i2) {
         Bitmap createBitmap;
-        int i2 = i * 2;
+        int i3 = i2 * 2;
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         if (height > width) {
@@ -46,8 +46,8 @@ public class RoundImageView extends ImageView {
         if (createBitmap != null) {
             bitmap = createBitmap;
         }
-        if (bitmap.getWidth() != i2 || bitmap.getHeight() != i2) {
-            bitmap = Bitmap.createScaledBitmap(bitmap, i2, i2, true);
+        if (bitmap.getWidth() != i3 || bitmap.getHeight() != i3) {
+            bitmap = Bitmap.createScaledBitmap(bitmap, i3, i3, true);
         }
         Bitmap createBitmap2 = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap2);
@@ -67,7 +67,7 @@ public class RoundImageView extends ImageView {
     public void onDraw(Canvas canvas) {
         Bitmap bitmap;
         Bitmap bitmap2;
-        int i;
+        int i2;
         Bitmap bitmap3;
         Drawable drawable = getDrawable();
         if (drawable == null || getWidth() == 0 || getHeight() == 0) {
@@ -86,50 +86,50 @@ public class RoundImageView extends ImageView {
             super.onDraw(canvas);
             return;
         }
-        if (this.f28513a == 0) {
-            this.f28513a = getWidth();
+        if (this.f29387a == 0) {
+            this.f29387a = getWidth();
         }
-        if (this.f28514b == 0) {
-            this.f28514b = getHeight();
+        if (this.f29388b == 0) {
+            this.f29388b = getHeight();
         }
-        int i2 = this.f28513a;
-        int i3 = this.f28514b;
-        if (i2 >= i3) {
-            i2 = i3;
+        int i3 = this.f29387a;
+        int i4 = this.f29388b;
+        if (i3 >= i4) {
+            i3 = i4;
         }
         try {
-            bitmap3 = a(bitmap2, i2 / 2);
+            bitmap3 = a(bitmap2, i3 / 2);
         } catch (Throwable unused2) {
             bitmap3 = null;
         }
         if (bitmap3 == null) {
             super.onDraw(canvas);
         } else {
-            canvas.drawBitmap(bitmap3, (this.f28513a / 2) - i, (this.f28514b / 2) - i, (Paint) null);
+            canvas.drawBitmap(bitmap3, (this.f29387a / 2) - i2, (this.f29388b / 2) - i2, (Paint) null);
         }
     }
 
-    public RoundImageView(Context context, int i, int i2, int i3) {
+    public RoundImageView(Context context, int i2, int i3, int i4) {
         super(context);
-        this.f28513a = 0;
-        this.f28514b = 0;
-        this.f28515c = 0;
-        this.f28515c = i;
-        this.f28513a = i2;
-        this.f28514b = i3;
+        this.f29387a = 0;
+        this.f29388b = 0;
+        this.f29389c = 0;
+        this.f29389c = i2;
+        this.f29387a = i3;
+        this.f29388b = i4;
     }
 
     public RoundImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f28513a = 0;
-        this.f28514b = 0;
-        this.f28515c = 0;
+        this.f29387a = 0;
+        this.f29388b = 0;
+        this.f29389c = 0;
     }
 
-    public RoundImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f28513a = 0;
-        this.f28514b = 0;
-        this.f28515c = 0;
+    public RoundImageView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f29387a = 0;
+        this.f29388b = 0;
+        this.f29389c = 0;
     }
 }

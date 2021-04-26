@@ -18,37 +18,37 @@ public class TextureBufferImpl implements VideoFrame.TextureBuffer {
     public final int width;
     public final YuvConverter yuvConverter;
 
-    public TextureBufferImpl(int i, int i2, int i3, int i4, VideoFrame.TextureBuffer.Type type, int i5, Matrix matrix, Handler handler, YuvConverter yuvConverter, @Nullable Runnable runnable) {
-        this.unscaledWidth = i;
-        this.unscaledHeight = i2;
-        this.width = i3;
-        this.height = i4;
+    public TextureBufferImpl(int i2, int i3, int i4, int i5, VideoFrame.TextureBuffer.Type type, int i6, Matrix matrix, Handler handler, YuvConverter yuvConverter, @Nullable Runnable runnable) {
+        this.unscaledWidth = i2;
+        this.unscaledHeight = i3;
+        this.width = i4;
+        this.height = i5;
         this.type = type;
-        this.id = i5;
+        this.id = i6;
         this.transformMatrix = matrix;
         this.toI420Handler = handler;
         this.yuvConverter = yuvConverter;
         this.refCountDelegate = new RefCountDelegate(runnable);
     }
 
-    public TextureBufferImpl(int i, int i2, VideoFrame.TextureBuffer.Type type, int i3, Matrix matrix, Handler handler, YuvConverter yuvConverter, @Nullable Runnable runnable) {
-        this.unscaledWidth = i;
-        this.unscaledHeight = i2;
-        this.width = i;
-        this.height = i2;
+    public TextureBufferImpl(int i2, int i3, VideoFrame.TextureBuffer.Type type, int i4, Matrix matrix, Handler handler, YuvConverter yuvConverter, @Nullable Runnable runnable) {
+        this.unscaledWidth = i2;
+        this.unscaledHeight = i3;
+        this.width = i2;
+        this.height = i3;
         this.type = type;
-        this.id = i3;
+        this.id = i4;
         this.transformMatrix = matrix;
         this.toI420Handler = handler;
         this.yuvConverter = yuvConverter;
         this.refCountDelegate = new RefCountDelegate(runnable);
     }
 
-    private TextureBufferImpl applyTransformMatrix(Matrix matrix, int i, int i2, int i3, int i4) {
+    private TextureBufferImpl applyTransformMatrix(Matrix matrix, int i2, int i3, int i4, int i5) {
         Matrix matrix2 = new Matrix(this.transformMatrix);
         matrix2.preConcat(matrix);
         retain();
-        return new TextureBufferImpl(i, i2, i3, i4, this.type, this.id, matrix2, this.toI420Handler, this.yuvConverter, new Runnable() { // from class: org.webrtc._$$Lambda$9teQ5BwuCad_aBl5uXiVcJ4zLnU
+        return new TextureBufferImpl(i2, i3, i4, i5, this.type, this.id, matrix2, this.toI420Handler, this.yuvConverter, new Runnable() { // from class: org.webrtc._$$Lambda$9teQ5BwuCad_aBl5uXiVcJ4zLnU
             @Override // java.lang.Runnable
             public final void run() {
                 TextureBufferImpl.this.release();
@@ -56,17 +56,17 @@ public class TextureBufferImpl implements VideoFrame.TextureBuffer {
         });
     }
 
-    public TextureBufferImpl applyTransformMatrix(Matrix matrix, int i, int i2) {
-        return applyTransformMatrix(matrix, i, i2, i, i2);
+    public TextureBufferImpl applyTransformMatrix(Matrix matrix, int i2, int i3) {
+        return applyTransformMatrix(matrix, i2, i3, i2, i3);
     }
 
     @Override // org.webrtc.VideoFrame.Buffer
-    public VideoFrame.Buffer cropAndScale(int i, int i2, int i3, int i4, int i5, int i6) {
+    public VideoFrame.Buffer cropAndScale(int i2, int i3, int i4, int i5, int i6, int i7) {
         Matrix matrix = new Matrix();
-        int i7 = this.height;
-        matrix.preTranslate(i / this.width, (i7 - (i2 + i4)) / i7);
-        matrix.preScale(i3 / this.width, i4 / this.height);
-        return applyTransformMatrix(matrix, Math.round((this.unscaledWidth * i3) / this.width), Math.round((this.unscaledHeight * i4) / this.height), i5, i6);
+        int i8 = this.height;
+        matrix.preTranslate(i2 / this.width, (i8 - (i3 + i5)) / i8);
+        matrix.preScale(i4 / this.width, i5 / this.height);
+        return applyTransformMatrix(matrix, Math.round((this.unscaledWidth * i4) / this.width), Math.round((this.unscaledHeight * i5) / this.height), i6, i7);
     }
 
     @Override // org.webrtc.VideoFrame.Buffer

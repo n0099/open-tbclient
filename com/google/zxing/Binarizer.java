@@ -14,7 +14,7 @@ public abstract class Binarizer {
 
     public abstract BitMatrix getBlackMatrix() throws NotFoundException;
 
-    public abstract BitArray getBlackRow(int i, BitArray bitArray) throws NotFoundException;
+    public abstract BitArray getBlackRow(int i2, BitArray bitArray) throws NotFoundException;
 
     public final int getHeight() {
         return this.source.getHeight();

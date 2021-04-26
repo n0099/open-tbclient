@@ -9,13 +9,13 @@ import android.telephony.TelephonyManager;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f9000a = false;
+    public static boolean f9330a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f9001b = "";
+    public static String f9331b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f9002c;
+    public static int f9332c;
 
     public static NetworkInfo a(Context context) {
         try {
@@ -28,47 +28,47 @@ public class e {
 
     public static String b(Context context) {
         NetworkInfo a2 = a(context);
-        int i = 1;
+        int i2 = 1;
         if (a2 != null) {
             if (a2.getType() != 1) {
                 switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
                     case 1:
                     case 2:
-                        i = 6;
+                        i2 = 6;
                         break;
                     case 3:
                     case 9:
                     case 10:
                     case 15:
-                        i = 9;
+                        i2 = 9;
                         break;
                     case 4:
-                        i = 5;
+                        i2 = 5;
                         break;
                     case 5:
                     case 6:
                     case 7:
                     case 12:
-                        i = 7;
+                        i2 = 7;
                         break;
                     case 8:
-                        i = 8;
+                        i2 = 8;
                         break;
                     case 11:
-                        i = 2;
+                        i2 = 2;
                         break;
                     case 13:
-                        i = 4;
+                        i2 = 4;
                         break;
                     case 14:
-                        i = 10;
+                        i2 = 10;
                         break;
                 }
             }
-            return Integer.toString(i);
+            return Integer.toString(i2);
         }
-        i = 0;
-        return Integer.toString(i);
+        i2 = 0;
+        return Integer.toString(i2);
     }
 
     public static boolean c(Context context) {

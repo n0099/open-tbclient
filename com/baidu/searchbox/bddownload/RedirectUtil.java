@@ -11,15 +11,15 @@ public class RedirectUtil {
     public static final int MAX_REDIRECT_TIMES = 10;
 
     @NonNull
-    public static String getRedirectedUrl(DownloadConnection.Connected connected, int i) throws IOException {
+    public static String getRedirectedUrl(DownloadConnection.Connected connected, int i2) throws IOException {
         String responseHeaderField = connected.getResponseHeaderField("Location");
         if (responseHeaderField != null) {
             return responseHeaderField;
         }
-        throw new ProtocolException("Response code is " + i + " but can't find Location field");
+        throw new ProtocolException("Response code is " + i2 + " but can't find Location field");
     }
 
-    public static boolean isRedirect(int i) {
-        return i == 301 || i == 302 || i == 303 || i == 300 || i == 307 || i == 308;
+    public static boolean isRedirect(int i2) {
+        return i2 == 301 || i2 == 302 || i2 == 303 || i2 == 300 || i2 == 307 || i2 == 308;
     }
 }

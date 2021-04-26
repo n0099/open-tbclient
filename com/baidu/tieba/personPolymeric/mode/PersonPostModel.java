@@ -26,10 +26,10 @@ import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMess
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.c.e.p.l;
-import d.b.c.j.e.n;
-import d.b.j0.i2.e.i;
-import d.b.j0.i2.e.j;
+import d.a.c.e.p.l;
+import d.a.c.j.e.n;
+import d.a.j0.i2.e.i;
+import d.a.j0.i2.e.j;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -39,7 +39,7 @@ import tbclient.Abstract;
 import tbclient.BaijiahaoInfo;
 import tbclient.User;
 import tbclient.Voice;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implements Serializable {
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
@@ -57,12 +57,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public d mOnResult;
     public ResponsedMessage<?> mResponsedMessage;
     public HttpMessageListener pageHttpListener;
-    public d.b.c.c.g.c pageSocketListener;
+    public d.a.c.c.g.c pageSocketListener;
     public final ArrayList<n> postList;
     public final ArrayList<n> threadList;
     public int view_card_num;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Abs extends OrmObject implements Serializable {
         public int type = 0;
         public String text = "";
@@ -82,7 +82,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class AnchorInfo extends OrmObject implements Serializable {
         public String portrait = "";
         public String name = "";
@@ -118,7 +118,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class LabelInfo extends OrmObject implements Serializable {
         public int labelHot = 0;
         public String labelName = "";
@@ -134,7 +134,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class LbsInfo implements Serializable {
         public String lat = "";
         public String lon = "";
@@ -150,7 +150,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Media extends OrmObject implements Serializable {
         public int type = 0;
         public String small_pic = "";
@@ -168,7 +168,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PostInfoContent extends OrmObject implements Serializable {
         public Abs[] post_content = new Abs[0];
         public long create_time = 0;
@@ -187,16 +187,16 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             List<Abstract> list = postInfoContent.post_content;
             if (list != null) {
                 this.post_content = new Abs[list.size()];
-                for (int i = 0; i < this.post_content.length; i++) {
+                for (int i2 = 0; i2 < this.post_content.length; i2++) {
                     Abs abs = new Abs();
-                    abs.parseProtobuf(postInfoContent.post_content.get(i));
-                    this.post_content[i] = abs;
+                    abs.parseProtobuf(postInfoContent.post_content.get(i2));
+                    this.post_content[i2] = abs;
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, n {
         public static final BdUniqueId POST_INFO = BdUniqueId.gen();
         public int isAuthorView;
@@ -244,12 +244,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             return arrayList;
         }
 
-        @Override // d.b.c.j.e.n
+        @Override // d.a.c.j.e.n
         public BdUniqueId getType() {
             return POST_INFO;
         }
 
-        public void parseProtobuf(tbclient.PostInfoList postInfoList, int i) {
+        public void parseProtobuf(tbclient.PostInfoList postInfoList, int i2) {
             if (postInfoList == null) {
                 return;
             }
@@ -267,10 +267,10 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             this.thread_type = postInfoList.thread_type.longValue();
             if (postInfoList._abstract != null) {
                 this.abs_thread = new Abs[postInfoList.abstract_thread.size()];
-                for (int i2 = 0; i2 < this.abs_thread.length; i2++) {
+                for (int i3 = 0; i3 < this.abs_thread.length; i3++) {
                     Abs abs = new Abs();
-                    abs.parseProtobuf(postInfoList.abstract_thread.get(i2));
-                    this.abs_thread[i2] = abs;
+                    abs.parseProtobuf(postInfoList.abstract_thread.get(i3));
+                    this.abs_thread[i3] = abs;
                 }
             }
             this.abs = postInfoList._abstract;
@@ -279,10 +279,10 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             List<tbclient.PostInfoContent> list = postInfoList.content;
             if (list != null) {
                 this.content = new PostInfoContent[list.size()];
-                for (int i3 = 0; i3 < this.content.length; i3++) {
+                for (int i4 = 0; i4 < this.content.length; i4++) {
                     PostInfoContent postInfoContent = new PostInfoContent();
-                    postInfoContent.parseProtobuf(postInfoList.content.get(i3));
-                    this.content[i3] = postInfoContent;
+                    postInfoContent.parseProtobuf(postInfoList.content.get(i4));
+                    this.content[i4] = postInfoContent;
                 }
             }
             this.quote.parseProtobuf(postInfoList.quote);
@@ -293,15 +293,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             List<tbclient.Media> list2 = postInfoList.media;
             if (list2 != null) {
                 this.media = new Media[list2.size()];
-                for (int i4 = 0; i4 < this.media.length; i4++) {
+                for (int i5 = 0; i5 < this.media.length; i5++) {
                     Media media = new Media();
-                    media.parseProtobuf(postInfoList.media.get(i4));
-                    this.media[i4] = media;
+                    media.parseProtobuf(postInfoList.media.get(i5));
+                    this.media[i5] = media;
                 }
             }
             tbclient.ZhiBoInfoTW zhiBoInfoTW = postInfoList.twzhibo_info;
             if (zhiBoInfoTW != null) {
-                this.twzhibo_info.parseProtobuf(zhiBoInfoTW, i);
+                this.twzhibo_info.parseProtobuf(zhiBoInfoTW, i2);
             }
             boolean z = postInfoList.is_share_thread.intValue() == 1;
             this.isShareThread = z;
@@ -313,17 +313,17 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             List<Voice> list3 = postInfoList.voice_info;
             if (list3 != null) {
                 this.voice_info = new VoiceData$VoiceModel[list3.size()];
-                for (int i5 = 0; i5 < this.voice_info.length; i5++) {
+                for (int i6 = 0; i6 < this.voice_info.length; i6++) {
                     VoiceData$VoiceModel voiceData$VoiceModel = new VoiceData$VoiceModel();
-                    voiceData$VoiceModel.parserProtobuf(postInfoList.voice_info.get(i5));
-                    this.voice_info[i5] = voiceData$VoiceModel;
+                    voiceData$VoiceModel.parserProtobuf(postInfoList.voice_info.get(i6));
+                    this.voice_info[i6] = voiceData$VoiceModel;
                 }
             }
             this.isAuthorView = postInfoList.is_author_view.intValue();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Quote extends OrmObject implements Serializable {
         public long post_id = 0;
         public String user_name = "";
@@ -343,7 +343,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class UserInfo extends OrmObject implements Serializable {
         public String portrait = "";
         public String name_show = "";
@@ -359,7 +359,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Zan extends OrmObject implements Serializable {
         public int num = 0;
 
@@ -371,7 +371,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ZhiBoInfoTW extends OrmObject implements Serializable {
         public int post_num = 0;
         public String title = "";
@@ -390,7 +390,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         public boolean isHeadLive = false;
         public ArrayList<Integer> showExpressionViewIndex = new ArrayList<>();
 
-        public void parseProtobuf(tbclient.ZhiBoInfoTW zhiBoInfoTW, int i) {
+        public void parseProtobuf(tbclient.ZhiBoInfoTW zhiBoInfoTW, int i2) {
             if (zhiBoInfoTW == null) {
                 return;
             }
@@ -404,7 +404,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             this.content = zhiBoInfoTW.content;
             this.livecover_src = zhiBoInfoTW.livecover_src;
             this.reply_num = zhiBoInfoTW.reply_num.intValue();
-            this.showStyle = i;
+            this.showStyle = i2;
             this.zan.parseProtobuf(zhiBoInfoTW.zan);
             this.isHeadLive = zhiBoInfoTW.is_headline.intValue() == 1;
             this.userInfo.parseProtobuf(zhiBoInfoTW.user);
@@ -412,13 +412,13 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             if (list != null) {
                 int size = list.size();
                 this.labelList = new LabelInfo[size];
-                for (int i2 = 0; i2 < size; i2++) {
-                    if (zhiBoInfoTW.labelInfo.get(i2) != null) {
+                for (int i3 = 0; i3 < size; i3++) {
+                    if (zhiBoInfoTW.labelInfo.get(i3) != null) {
                         LabelInfo labelInfo = new LabelInfo();
-                        labelInfo.labelHot = zhiBoInfoTW.labelInfo.get(i2).labelHot.intValue();
-                        labelInfo.LabelId = zhiBoInfoTW.labelInfo.get(i2).labelId;
-                        labelInfo.labelName = zhiBoInfoTW.labelInfo.get(i2).labelContent;
-                        this.labelList[i2] = labelInfo;
+                        labelInfo.labelHot = zhiBoInfoTW.labelInfo.get(i3).labelHot.intValue();
+                        labelInfo.LabelId = zhiBoInfoTW.labelInfo.get(i3).labelId;
+                        labelInfo.labelName = zhiBoInfoTW.labelInfo.get(i3).labelContent;
+                        this.labelList[i3] = labelInfo;
                     }
                 }
             }
@@ -426,10 +426,10 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class a extends d.b.c.c.g.c {
-        public a(int i) {
-            super(i);
+    /* loaded from: classes4.dex */
+    public class a extends d.a.c.c.g.c {
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -438,7 +438,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             if (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage) {
                 UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
                 if (userPostPageSocketResponsedMessage.getOrginalMessage() == null || userPostPageSocketResponsedMessage.hasError()) {
-                    PersonPostModel.this.mOnResult.D0(null, PersonPostModel.this.mIsReset);
+                    PersonPostModel.this.mOnResult.R(null, PersonPostModel.this.mIsReset);
                     return;
                 }
                 if (userPostPageSocketResponsedMessage.getPersonPostModel() != null) {
@@ -447,16 +447,16 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();
                 c callback = userPostPageRequestMessage.getCallback();
                 if (callback != null) {
-                    callback.p0(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    callback.L(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends HttpMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -465,7 +465,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
                 UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
                 if (userPostPageHttpResponseMessage.getOrginalMessage() == null || userPostPageHttpResponseMessage.hasError()) {
-                    PersonPostModel.this.mOnResult.D0(null, PersonPostModel.this.mIsReset);
+                    PersonPostModel.this.mOnResult.R(null, PersonPostModel.this.mIsReset);
                     return;
                 }
                 if (userPostPageHttpResponseMessage.getPersonPostModel() != null) {
@@ -474,23 +474,23 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
                 c callback = userPostPageRequestMessage.getCallback();
                 if (callback != null) {
-                    callback.p0(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    callback.L(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
-        void p0(PersonPostModel personPostModel, boolean z);
+        void L(PersonPostModel personPostModel, boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface d {
-        void D0(PersonPostModel personPostModel, boolean z);
+        void R(PersonPostModel personPostModel, boolean z);
     }
 
-    public PersonPostModel(TbPageContext<BaseFragmentActivity> tbPageContext, d dVar, boolean z, int i) {
+    public PersonPostModel(TbPageContext<BaseFragmentActivity> tbPageContext, d dVar, boolean z, int i2) {
         super(tbPageContext);
         this.mFrom = -1;
         this.threadList = new ArrayList<>();
@@ -503,21 +503,21 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.mOnResult = dVar;
         setUniqueId(BdUniqueId.gen());
         this.mIsHost = z;
-        this.mFrom = i;
+        this.mFrom = i2;
     }
 
-    public static int getNextShowViewIndex(int i, int i2, int i3) {
-        for (int i4 = 0; i4 < i && i4 < 3; i4++) {
-            if (i4 != i2 && i4 != i3) {
-                return i4;
+    public static int getNextShowViewIndex(int i2, int i3, int i4) {
+        for (int i5 = 0; i5 < i2 && i5 < 3; i5++) {
+            if (i5 != i3 && i5 != i4) {
+                return i5;
             }
         }
         return -1;
     }
 
-    public static int getRandom(int i, int i2) {
-        int nextInt = new Random().nextInt(i);
-        return nextInt == i2 ? (nextInt + 1) % i : nextInt;
+    public static int getRandom(int i2, int i3) {
+        int nextInt = new Random().nextInt(i2);
+        return nextInt == i3 ? (nextInt + 1) % i2 : nextInt;
     }
 
     public static ArrayList<n> mergeDynamicThreadByTime(ArrayList<n> arrayList) {
@@ -531,7 +531,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) next;
                 cardPersonDynamicThreadData.F = true;
                 cardPersonDynamicThreadData.E = true;
-                long j = cardPersonDynamicThreadData.i * 1000;
+                long j = cardPersonDynamicThreadData.f15061i * 1000;
                 String yearBytime2 = StringHelper.getYearBytime(j);
                 String chineseMonthBytime = StringHelper.getChineseMonthBytime(j);
                 String dateBytime = StringHelper.getDateBytime(j);
@@ -555,19 +555,19 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             return;
         }
         int length = labelInfoArr.length;
-        int i = -1;
         int i2 = -1;
-        for (int i3 = 0; i3 < length && i3 < 3; i3++) {
-            if (labelInfoArr[i3] != null) {
+        int i3 = -1;
+        for (int i4 = 0; i4 < length && i4 < 3; i4++) {
+            if (labelInfoArr[i4] != null) {
                 int random = getRandom(3, -1);
-                if (random == i || random == i2) {
-                    random = getNextShowViewIndex(length, i, i2);
+                if (random == i2 || random == i3) {
+                    random = getNextShowViewIndex(length, i2, i3);
                 }
-                if (i3 == 0) {
-                    i = random;
-                }
-                if (i3 == 1) {
+                if (i4 == 0) {
                     i2 = random;
+                }
+                if (i4 == 1) {
+                    i3 = random;
                 }
                 arrayList.add(Integer.valueOf(random));
             }
@@ -592,13 +592,13 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         return this.mResponsedMessage;
     }
 
-    public void parseProtobuf(DataRes dataRes, int i, User user) {
+    public void parseProtobuf(DataRes dataRes, int i2, User user) {
         boolean z;
         if (dataRes == null) {
             return;
         }
         this.hide_post = dataRes.hide_post.intValue();
-        if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
+        if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i2 == 1)) {
             this.postList.add(new j());
             z = false;
         } else {
@@ -618,10 +618,10 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             cardPersonDynamicThreadData.B(user, postInfoList, random);
             cardPersonDynamicThreadData.H = this.mIsHost;
             postInfoList2.parseProtobuf(postInfoList, random);
-            int i2 = this.mFrom;
-            if (i2 == FROM_PERSON_POLYMERIC) {
+            int i3 = this.mFrom;
+            if (i3 == FROM_PERSON_POLYMERIC) {
                 cardPersonDynamicThreadData.s = 3;
-            } else if (i2 == FROM_PERSON_POST) {
+            } else if (i3 == FROM_PERSON_POST) {
                 cardPersonDynamicThreadData.s = 1;
             }
             if (cardPersonDynamicThreadData.m != 33) {
@@ -658,7 +658,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.pageHttpListener.setSelfListener(true);
     }
 
-    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4, User user) {
+    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar, boolean z, String str, boolean z2, int i2, boolean z3, boolean z4, User user) {
         this.mIsReset = z;
         if (z3) {
             if (!z && str.equals(mLastThreadUid)) {
@@ -679,7 +679,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             mRecommentPn++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
-        userPostPageRequestMessage.set_sub_type(i);
+        userPostPageRequestMessage.set_sub_type(i2);
         userPostPageRequestMessage.setUid(mLastThreadUid);
         if (z3) {
             userPostPageRequestMessage.setPn(mThreadPn);
@@ -693,13 +693,13 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         userPostPageRequestMessage.setReset(z);
         userPostPageRequestMessage.setFrom(this.mFrom);
         int k = l.k(TbadkCoreApplication.getInst().getApp());
-        int i2 = l.i(TbadkCoreApplication.getInst().getApp());
+        int i3 = l.i(TbadkCoreApplication.getInst().getApp());
         float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
+        int i4 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
         userPostPageRequestMessage.set_scr_w(k);
-        userPostPageRequestMessage.set_scr_h(i2);
+        userPostPageRequestMessage.set_scr_h(i3);
         userPostPageRequestMessage.set_scr_dip(f2);
-        userPostPageRequestMessage.set_q_type(i3);
+        userPostPageRequestMessage.set_q_type(i4);
         userPostPageRequestMessage.setCallback(cVar);
         userPostPageRequestMessage.setThreadUser(user);
         if (z4) {
@@ -710,7 +710,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         sendMessage(userPostPageRequestMessage);
     }
 
-    public PersonPostModel(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId, d dVar, boolean z, int i) {
+    public PersonPostModel(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId, d dVar, boolean z, int i2) {
         super(tbPageContext);
         this.mFrom = -1;
         this.threadList = new ArrayList<>();
@@ -723,16 +723,16 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.mOnResult = dVar;
         setUniqueId(bdUniqueId);
         this.mIsHost = z;
-        this.mFrom = i;
+        this.mFrom = i2;
     }
 
-    public UserPostResIdl parseProtobuf(byte[] bArr, int i, User user) {
+    public UserPostResIdl parseProtobuf(byte[] bArr, int i2, User user) {
         if (bArr == null) {
             return null;
         }
         try {
             UserPostResIdl userPostResIdl = (UserPostResIdl) new Wire(new Class[0]).parseFrom(bArr, UserPostResIdl.class);
-            parseProtobuf(userPostResIdl.data, i, user);
+            parseProtobuf(userPostResIdl.data, i2, user);
             return userPostResIdl;
         } catch (Throwable th) {
             BdLog.detailException(th);

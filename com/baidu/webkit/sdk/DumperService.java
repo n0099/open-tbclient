@@ -55,7 +55,7 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void onFinished(String str, int i, String str2) {
+    public final void onFinished(String str, int i2, String str2) {
         Object obj;
         ZeusLogUploader zeusLogUploader;
         Context applicationContext = getApplicationContext();
@@ -66,13 +66,13 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            if (this.mCrashLogFailedEncrypt && i == 3 && (zeusLogUploader = this.mLogUploader) != null && zeusLogUploader.encryptUploadFailedFile(str, true) != 6) {
+            if (this.mCrashLogFailedEncrypt && i2 == 3 && (zeusLogUploader = this.mLogUploader) != null && zeusLogUploader.encryptUploadFailedFile(str, true) != 6) {
                 str2 = "Failed to encrypt file.";
             }
             if (obj != null) {
-                ((CrashCallback) obj).onCrash(applicationContext, this.mCrashImei, this.mCrashSignal, this.mCrashTime, str, i, str2);
+                ((CrashCallback) obj).onCrash(applicationContext, this.mCrashImei, this.mCrashSignal, this.mCrashTime, str, i2, str2);
             }
-            Log.d(TAG, "DumperService::onFinished  status=" + i + ", msg=" + str2);
+            Log.d(TAG, "DumperService::onFinished  status=" + i2 + ", msg=" + str2);
             stopSelf();
         }
         obj = null;
@@ -81,12 +81,12 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
         }
         if (obj != null) {
         }
-        Log.d(TAG, "DumperService::onFinished  status=" + i + ", msg=" + str2);
+        Log.d(TAG, "DumperService::onFinished  status=" + i2 + ", msg=" + str2);
         stopSelf();
     }
 
     @Override // android.app.Service
-    public final int onStartCommand(Intent intent, int i, int i2) {
+    public final int onStartCommand(Intent intent, int i2, int i3) {
         if (intent == null) {
             stopSelf();
         }

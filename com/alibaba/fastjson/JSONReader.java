@@ -21,7 +21,7 @@ public class JSONReader implements Closeable {
     }
 
     private void endStructure() {
-        int i;
+        int i2;
         JSONStreamContext jSONStreamContext = this.context.parent;
         this.context = jSONStreamContext;
         if (jSONStreamContext == null) {
@@ -30,29 +30,7 @@ public class JSONReader implements Closeable {
         switch (jSONStreamContext.state) {
             case 1001:
             case 1003:
-                i = 1002;
-                break;
-            case 1002:
-                i = 1003;
-                break;
-            case 1004:
-                i = 1005;
-                break;
-            default:
-                i = -1;
-                break;
-        }
-        if (i != -1) {
-            this.context.state = i;
-        }
-    }
-
-    private void readAfter() {
-        int i = this.context.state;
-        int i2 = 1002;
-        switch (i) {
-            case 1001:
-            case 1003:
+                i2 = 1002;
                 break;
             case 1002:
                 i2 = 1003;
@@ -60,20 +38,42 @@ public class JSONReader implements Closeable {
             case 1004:
                 i2 = 1005;
                 break;
-            case 1005:
+            default:
                 i2 = -1;
                 break;
-            default:
-                throw new JSONException("illegal state : " + i);
         }
         if (i2 != -1) {
             this.context.state = i2;
         }
     }
 
+    private void readAfter() {
+        int i2 = this.context.state;
+        int i3 = 1002;
+        switch (i2) {
+            case 1001:
+            case 1003:
+                break;
+            case 1002:
+                i3 = 1003;
+                break;
+            case 1004:
+                i3 = 1005;
+                break;
+            case 1005:
+                i3 = -1;
+                break;
+            default:
+                throw new JSONException("illegal state : " + i2);
+        }
+        if (i3 != -1) {
+            this.context.state = i3;
+        }
+    }
+
     private void readBefore() {
-        int i = this.context.state;
-        switch (i) {
+        int i2 = this.context.state;
+        switch (i2) {
             case 1001:
             case 1004:
                 return;
@@ -87,7 +87,7 @@ public class JSONReader implements Closeable {
                 this.parser.accept(16);
                 return;
             default:
-                throw new JSONException("illegal state : " + i);
+                throw new JSONException("illegal state : " + i2);
         }
     }
 
@@ -137,18 +137,18 @@ public class JSONReader implements Closeable {
 
     public boolean hasNext() {
         if (this.context != null) {
-            int i = this.parser.lexer.token();
-            int i2 = this.context.state;
-            switch (i2) {
+            int i2 = this.parser.lexer.token();
+            int i3 = this.context.state;
+            switch (i3) {
                 case 1001:
                 case 1003:
-                    return i != 13;
+                    return i2 != 13;
                 case 1002:
                 default:
-                    throw new JSONException("illegal state : " + i2);
+                    throw new JSONException("illegal state : " + i3);
                 case 1004:
                 case 1005:
-                    return i != 15;
+                    return i2 != 15;
             }
         }
         throw new JSONException("context is null");
@@ -284,8 +284,8 @@ public class JSONReader implements Closeable {
             return this.parser.parse();
         }
         readBefore();
-        int i = this.context.state;
-        if (i != 1001 && i != 1003) {
+        int i2 = this.context.state;
+        if (i2 != 1001 && i2 != 1003) {
             parseKey = this.parser.parse();
         } else {
             parseKey = this.parser.parseKey();

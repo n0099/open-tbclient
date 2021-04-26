@@ -48,8 +48,8 @@ public class PayTypePresenter extends PayTypeContract.Presenter {
     }
 
     @Override // com.baidu.wallet.paysdk.contract.PayTypeContract.Presenter
-    public void onActivityResult(int i, int i2, Intent intent) {
-        if (i == 1) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        if (i2 == 1) {
             reOrderPay();
         }
     }

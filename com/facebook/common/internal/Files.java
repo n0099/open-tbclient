@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Files {
     public static byte[] readFile(InputStream inputStream, long j) throws IOException {
         if (j <= 2147483647L) {

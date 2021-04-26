@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.app.event.EventBusWrapper;
-import d.b.h0.a.h;
+import d.a.h0.a.h;
 /* loaded from: classes3.dex */
 public class NetworkErrorView extends CommonEmptyView {
 
@@ -15,9 +15,9 @@ public class NetworkErrorView extends CommonEmptyView {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f12138a;
+        public Object f11988a;
 
-        public a(int i) {
+        public a(int i2) {
         }
     }
 
@@ -28,12 +28,12 @@ public class NetworkErrorView extends CommonEmptyView {
 
     public static void c(View view) {
         a aVar = new a(1);
-        aVar.f12138a = view;
+        aVar.f11988a = view;
         EventBusWrapper.post(aVar);
     }
 
     public final void b() {
-        this.i.setVisibility(0);
+        this.f11960i.setVisibility(0);
         setTitle(getContext().getString(h.aiapps_common_emptyview_detail_text));
     }
 
@@ -50,16 +50,16 @@ public class NetworkErrorView extends CommonEmptyView {
         this.j.setOnClickListener(onClickListener);
     }
 
-    public void setEmptyButtonVisiblity(int i) {
-        this.i.setVisibility(i);
+    public void setEmptyButtonVisiblity(int i2) {
+        this.f11960i.setVisibility(i2);
     }
 
-    public void setEmptyViewVisiblity(int i) {
-        this.f12111e.setVisibility(i);
+    public void setEmptyViewVisiblity(int i2) {
+        this.f11956e.setVisibility(i2);
     }
 
     public void setNetworkButtonShow(boolean z) {
-        TextView textView = this.f12114h;
+        TextView textView = this.f11959h;
         if (textView != null) {
             textView.setVisibility(z ? 0 : 4);
         }
@@ -70,11 +70,11 @@ public class NetworkErrorView extends CommonEmptyView {
     }
 
     @Override // android.view.View
-    public void setVisibility(int i) {
-        if (i == 0) {
+    public void setVisibility(int i2) {
+        if (i2 == 0) {
             c(this);
         }
-        super.setVisibility(i);
+        super.setVisibility(i2);
     }
 
     public NetworkErrorView(Context context, AttributeSet attributeSet) {
@@ -82,8 +82,8 @@ public class NetworkErrorView extends CommonEmptyView {
         b();
     }
 
-    public NetworkErrorView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public NetworkErrorView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         b();
     }
 }

@@ -102,8 +102,8 @@ public final class MethodChannel {
         invokeMethod(str, obj, null);
     }
 
-    public void resizeChannelBuffer(int i) {
-        BasicMessageChannel.resizeChannelBuffer(this.messenger, this.name, i);
+    public void resizeChannelBuffer(int i2) {
+        BasicMessageChannel.resizeChannelBuffer(this.messenger, this.name, i2);
     }
 
     @UiThread

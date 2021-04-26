@@ -7,7 +7,7 @@ import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
 import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
 import com.idlefish.flutterboost.interfaces.IOperateSyncer;
-import d.b.j0.i3.a;
+import d.a.j0.i3.a;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -129,8 +129,8 @@ public class FlutterViewContainerManager implements IContainerManager {
             return;
         }
         StringBuffer stringBuffer = new StringBuffer();
-        for (int i = 0; i < this.mShowRecord.size(); i++) {
-            IContainerRecord iContainerRecord = this.mShowRecord.get(i);
+        for (int i2 = 0; i2 < this.mShowRecord.size(); i2++) {
+            IContainerRecord iContainerRecord = this.mShowRecord.get(i2);
             if (iContainerRecord != null && iContainerRecord.getContainer() != null) {
                 stringBuffer.append("--" + iContainerRecord.getContainer().getContainerUrl() + "_" + iContainerRecord.creatTime());
             }
@@ -221,15 +221,15 @@ public class FlutterViewContainerManager implements IContainerManager {
         this.mShowRecord.remove(iContainerRecord);
     }
 
-    public void setContainerResult(IContainerRecord iContainerRecord, int i, int i2, Map<String, Object> map) {
+    public void setContainerResult(IContainerRecord iContainerRecord, int i2, int i3, Map<String, Object> map) {
         if (findContainerById(iContainerRecord.uniqueId()) == null) {
             Debuger.exception("setContainerResult error, url=" + iContainerRecord.getContainer().getContainerUrl());
         }
         if (map == null) {
             map = new HashMap<>();
         }
-        map.put("_requestCode__", Integer.valueOf(i));
-        map.put("_resultCode__", Integer.valueOf(i2));
+        map.put("_requestCode__", Integer.valueOf(i2));
+        map.put("_resultCode__", Integer.valueOf(i3));
         OnResult remove = this.mOnResults.remove(iContainerRecord.uniqueId());
         if (remove != null) {
             remove.onResult(map);

@@ -10,59 +10,59 @@ public abstract class c extends FrameLayout {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final d f34535a;
+    public final d f33525a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Timer f34536b;
+    public Timer f33526b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TimerTask f34537c;
+    public TimerTask f33527c;
 
     public c(Context context, @NonNull d dVar) {
         super(context);
-        this.f34535a = dVar;
+        this.f33525a = dVar;
     }
 
-    public abstract void a(int i);
+    public abstract void a(int i2);
 
-    public void a(int i, int i2) {
+    public void a(int i2, int i3) {
     }
 
-    public abstract void c();
+    public abstract void d();
 
-    public abstract void g();
+    public abstract void h();
 
-    public void h() {
-        i();
-        if (this.f34536b == null) {
-            this.f34536b = new Timer();
+    public void i() {
+        j();
+        if (this.f33526b == null) {
+            this.f33526b = new Timer();
         }
-        if (this.f34537c == null) {
-            this.f34537c = new TimerTask() { // from class: com.kwad.sdk.core.video.videoview.c.1
+        if (this.f33527c == null) {
+            this.f33527c = new TimerTask() { // from class: com.kwad.sdk.core.video.videoview.c.1
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     c.this.post(new Runnable() { // from class: com.kwad.sdk.core.video.videoview.c.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            c.this.g();
+                            c.this.h();
                         }
                     });
                 }
             };
         }
-        this.f34536b.schedule(this.f34537c, 0L, 1000L);
+        this.f33526b.schedule(this.f33527c, 0L, 1000L);
     }
 
-    public void i() {
-        Timer timer = this.f34536b;
+    public void j() {
+        Timer timer = this.f33526b;
         if (timer != null) {
             timer.cancel();
-            this.f34536b = null;
+            this.f33526b = null;
         }
-        TimerTask timerTask = this.f34537c;
+        TimerTask timerTask = this.f33527c;
         if (timerTask != null) {
             timerTask.cancel();
-            this.f34537c = null;
+            this.f33527c = null;
         }
     }
 }

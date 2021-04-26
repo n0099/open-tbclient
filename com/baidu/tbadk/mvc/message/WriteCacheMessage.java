@@ -5,8 +5,8 @@ import com.baidu.adp.framework.message.CustomMessage;
 public class WriteCacheMessage<T> extends CustomMessage<T> {
     public boolean isClear;
 
-    public WriteCacheMessage(int i) {
-        super(i);
+    public WriteCacheMessage(int i2) {
+        super(i2);
     }
 
     public boolean isClear() {

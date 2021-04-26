@@ -28,13 +28,13 @@ public class CircleImageView extends ImageView {
         public RadialGradient mRadialGradient;
         public Paint mShadowPaint = new Paint();
 
-        public OvalShadow(int i) {
-            CircleImageView.this.mShadowRadius = i;
+        public OvalShadow(int i2) {
+            CircleImageView.this.mShadowRadius = i2;
             updateRadialGradient((int) rect().width());
         }
 
-        private void updateRadialGradient(int i) {
-            float f2 = i / 2;
+        private void updateRadialGradient(int i2) {
+            float f2 = i2 / 2;
             RadialGradient radialGradient = new RadialGradient(f2, f2, CircleImageView.this.mShadowRadius, new int[]{CircleImageView.FILL_SHADOW_COLOR, 0}, (float[]) null, Shader.TileMode.CLAMP);
             this.mRadialGradient = radialGradient;
             this.mShadowPaint.setShader(radialGradient);
@@ -56,12 +56,12 @@ public class CircleImageView extends ImageView {
         }
     }
 
-    public CircleImageView(Context context, int i) {
+    public CircleImageView(Context context, int i2) {
         super(context);
         ShapeDrawable shapeDrawable;
         float f2 = getContext().getResources().getDisplayMetrics().density;
-        int i2 = (int) (1.75f * f2);
-        int i3 = (int) (0.0f * f2);
+        int i3 = (int) (1.75f * f2);
+        int i4 = (int) (0.0f * f2);
         this.mShadowRadius = (int) (3.5f * f2);
         if (elevationSupported()) {
             shapeDrawable = new ShapeDrawable(new OvalShape());
@@ -69,12 +69,12 @@ public class CircleImageView extends ImageView {
         } else {
             ShapeDrawable shapeDrawable2 = new ShapeDrawable(new OvalShadow(this.mShadowRadius));
             setLayerType(1, shapeDrawable2.getPaint());
-            shapeDrawable2.getPaint().setShadowLayer(this.mShadowRadius, i3, i2, KEY_SHADOW_COLOR);
-            int i4 = this.mShadowRadius;
-            setPadding(i4, i4, i4, i4);
+            shapeDrawable2.getPaint().setShadowLayer(this.mShadowRadius, i4, i3, KEY_SHADOW_COLOR);
+            int i5 = this.mShadowRadius;
+            setPadding(i5, i5, i5, i5);
             shapeDrawable = shapeDrawable2;
         }
-        shapeDrawable.getPaint().setColor(i);
+        shapeDrawable.getPaint().setColor(i2);
         ViewCompat.setBackground(this, shapeDrawable);
     }
 
@@ -101,8 +101,8 @@ public class CircleImageView extends ImageView {
     }
 
     @Override // android.widget.ImageView, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
         if (elevationSupported()) {
             return;
         }
@@ -114,13 +114,13 @@ public class CircleImageView extends ImageView {
     }
 
     @Override // android.view.View
-    public void setBackgroundColor(int i) {
+    public void setBackgroundColor(int i2) {
         if (getBackground() instanceof ShapeDrawable) {
-            ((ShapeDrawable) getBackground()).getPaint().setColor(i);
+            ((ShapeDrawable) getBackground()).getPaint().setColor(i2);
         }
     }
 
-    public void setBackgroundColorRes(int i) {
-        setBackgroundColor(ContextCompat.getColor(getContext(), i));
+    public void setBackgroundColorRes(int i2) {
+        setBackgroundColor(ContextCompat.getColor(getContext(), i2));
     }
 }

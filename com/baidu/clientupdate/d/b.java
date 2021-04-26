@@ -42,16 +42,16 @@ public final class b {
             if (f2 != null) {
                 int length = f2.length;
                 LogUtil.logD("Helpers", "TotalvolumeCount=" + length);
-                int i = 0;
+                int i2 = 0;
                 while (true) {
-                    if (i >= length) {
+                    if (i2 >= length) {
                         file = null;
                         break;
                     }
-                    String a3 = j.a(f2[i]);
-                    LogUtil.logD("Helpers", "invoke path[" + i + "]===========" + a3);
+                    String a3 = j.a(f2[i2]);
+                    LogUtil.logD("Helpers", "invoke path[" + i2 + "]===========" + a3);
                     if (!j.c(context.getApplicationContext(), a3).equals("mounted") || a(new File(a3)) <= j) {
-                        i++;
+                        i2++;
                     } else {
                         if (TextUtils.isEmpty(str)) {
                             file = new File(a3 + "/lcsdk/downloads");
@@ -96,16 +96,16 @@ public final class b {
                 LogUtil.logD("Helpers", "available/totalBytes percent is: " + d2);
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("availablepercent<0.1 is: ");
-                int i2 = (d2 > 0.1d ? 1 : (d2 == 0.1d ? 0 : -1));
-                sb2.append(i2 < 0);
+                int i3 = (d2 > 0.1d ? 1 : (d2 == 0.1d ? 0 : -1));
+                sb2.append(i3 < 0);
                 LogUtil.logD("Helpers", sb2.toString());
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append(" available < 20 * 1024 * 1024 is: ");
-                int i3 = (a4 > DownloadManager.MIN_LEFT_SIZE ? 1 : (a4 == DownloadManager.MIN_LEFT_SIZE ? 0 : -1));
-                sb3.append(i3 < 0);
+                int i4 = (a4 > DownloadManager.MIN_LEFT_SIZE ? 1 : (a4 == DownloadManager.MIN_LEFT_SIZE ? 0 : -1));
+                sb3.append(i4 < 0);
                 LogUtil.logD("Helpers", sb3.toString());
                 if (z2) {
-                    if (i2 < 0 || a4 < 2 * j || i3 < 0) {
+                    if (i3 < 0 || a4 < 2 * j || i4 < 0) {
                         handler.post(new f(context));
                         LogUtil.logD("Helpers", "download aborted - not enough free space on memory");
                         return null;

@@ -59,11 +59,11 @@ public class LPVideoControllerView extends RelativeLayout {
         ImageView imageView = new ImageView(this.mContext);
         this.imgplay = imageView;
         imageView.setId(VIEW_ID_IMAGE_PLAY);
-        int i = this.iconMargin;
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.icon + i, this.heightOfViewController);
+        int i2 = this.iconMargin;
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.icon + i2, this.heightOfViewController);
         layoutParams.addRule(9);
         layoutParams.addRule(15);
-        this.imgplay.setPadding(i, i, i, i);
+        this.imgplay.setPadding(i2, i2, i2, i2);
         this.imgplay.setLayoutParams(layoutParams);
         addView(this.imgplay);
         TextView textView = new TextView(this.mContext);
@@ -80,9 +80,9 @@ public class LPVideoControllerView extends RelativeLayout {
         ImageView imageView2 = new ImageView(this.mContext);
         this.imgfullscreen = imageView2;
         imageView2.setId(VIEW_ID_IMAGE_FULL_SCREEN);
-        int i2 = this.iconMargin;
-        this.imgfullscreen.setPadding(i2, i2, i2, i2);
-        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(this.icon + i2, this.heightOfViewController);
+        int i3 = this.iconMargin;
+        this.imgfullscreen.setPadding(i3, i3, i3, i3);
+        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(this.icon + i3, this.heightOfViewController);
         layoutParams3.addRule(11);
         layoutParams3.addRule(15);
         this.imgfullscreen.setLayoutParams(layoutParams3);
@@ -104,17 +104,17 @@ public class LPVideoControllerView extends RelativeLayout {
         layoutParams5.addRule(15);
         layoutParams5.addRule(0, this.textTotal.getId());
         layoutParams5.addRule(1, this.textElapsed.getId());
-        int i3 = this.thumbMargin;
-        layoutParams5.rightMargin = i3;
+        int i4 = this.thumbMargin;
+        layoutParams5.rightMargin = i4;
         layoutParams5.leftMargin = 0;
-        this.seekBar.setPadding(i3, 0, i3, 0);
+        this.seekBar.setPadding(i4, 0, i4, 0);
         this.seekBar.setLayoutParams(layoutParams5);
         addView(this.seekBar);
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
         if (this.seekBar == null) {
             return;
         }
@@ -166,13 +166,13 @@ public class LPVideoControllerView extends RelativeLayout {
         public int padding;
         public int width;
 
-        public ProgressDrawable(Context context, int i, int i2) {
+        public ProgressDrawable(Context context, int i2, int i3) {
             this.height = 0;
             this.width = 0;
             this.padding = 0;
             this.context = context;
-            this.height = i;
-            this.width = i2;
+            this.height = i2;
+            this.width = i3;
             this.mPaint = getPaint();
         }
 
@@ -190,9 +190,9 @@ public class LPVideoControllerView extends RelativeLayout {
 
         @Override // android.graphics.drawable.Drawable
         public void draw(Canvas canvas) {
-            int i = this.padding;
-            int i2 = this.height;
-            canvas.drawLine(i, i2 / 2, this.width - i, i2 / 2, this.mPaint);
+            int i2 = this.padding;
+            int i3 = this.height;
+            canvas.drawLine(i2, i3 / 2, this.width - i2, i3 / 2, this.mPaint);
         }
 
         @Override // android.graphics.drawable.Drawable
@@ -201,22 +201,22 @@ public class LPVideoControllerView extends RelativeLayout {
         }
 
         @Override // android.graphics.drawable.Drawable
-        public void setAlpha(int i) {
+        public void setAlpha(int i2) {
         }
 
         @Override // android.graphics.drawable.Drawable
         public void setColorFilter(ColorFilter colorFilter) {
         }
 
-        public ProgressDrawable(Context context, int i, int i2, int i3) {
+        public ProgressDrawable(Context context, int i2, int i3, int i4) {
             this.height = 0;
             this.width = 0;
             this.padding = 0;
             this.context = context;
-            this.height = i;
-            this.width = i2;
+            this.height = i2;
+            this.width = i3;
             this.mPaint = getPaint();
-            this.padding = i3;
+            this.padding = i4;
         }
     }
 }

@@ -31,16 +31,16 @@ public final class EnumAdapter<E extends ProtoEnum> {
         }
         this.isDense = false;
         this.values = new int[length];
-        for (int i = 0; i < length; i++) {
-            this.values[i] = this.constants[i].getValue();
+        for (int i2 = 0; i2 < length; i2++) {
+            this.values[i2] = this.constants[i2].getValue();
         }
     }
 
-    public E fromInt(int i) {
+    public E fromInt(int i2) {
         try {
-            return this.constants[this.isDense ? i - 1 : Arrays.binarySearch(this.values, i)];
+            return this.constants[this.isDense ? i2 - 1 : Arrays.binarySearch(this.values, i2)];
         } catch (IndexOutOfBoundsException unused) {
-            throw new IllegalArgumentException("Unknown enum tag " + i + " for " + this.type.getCanonicalName());
+            throw new IllegalArgumentException("Unknown enum tag " + i2 + " for " + this.type.getCanonicalName());
         }
     }
 

@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import d.b.j0.j1.o.b;
+import d.a.j0.j1.o.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -18,8 +18,8 @@ public class CardGroup extends BaseCardInfo {
         JSONArray optJSONArray = jSONObject.optJSONArray("cards");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         this.mCards = new ArrayList(length);
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
             if (optJSONObject != null && (j = b.j(optJSONObject)) != null) {
                 j.setGroupId(this.itemId);
                 this.mCards.add((BaseCardInfo) j);
@@ -70,39 +70,39 @@ public class CardGroup extends BaseCardInfo {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
-    public BaseCardInfo getViewItem(int i, int i2) {
+    public BaseCardInfo getViewItem(int i2, int i3) {
         int size = this.mCards.size();
-        if (i < size) {
-            int i3 = this.showSep;
-            if (i3 == 0) {
-                this.mCards.get(i).setShowSpace(0);
-            } else if (i3 != 1) {
-                if (i3 != 2) {
-                    if (i3 == 3) {
+        if (i2 < size) {
+            int i4 = this.showSep;
+            if (i4 == 0) {
+                this.mCards.get(i2).setShowSpace(0);
+            } else if (i4 != 1) {
+                if (i4 != 2) {
+                    if (i4 == 3) {
                         if (size == 1) {
-                            this.mCards.get(i).setShowSpace(3);
-                        } else if (i == 0) {
-                            this.mCards.get(i).setShowSpace(2);
-                        } else if (i == size - 1) {
-                            this.mCards.get(i).setShowSpace(1);
+                            this.mCards.get(i2).setShowSpace(3);
+                        } else if (i2 == 0) {
+                            this.mCards.get(i2).setShowSpace(2);
+                        } else if (i2 == size - 1) {
+                            this.mCards.get(i2).setShowSpace(1);
                         } else {
-                            this.mCards.get(i).setShowSpace(0);
+                            this.mCards.get(i2).setShowSpace(0);
                         }
                     }
-                } else if (i == 0) {
-                    this.mCards.get(i).setShowSpace(2);
+                } else if (i2 == 0) {
+                    this.mCards.get(i2).setShowSpace(2);
                 } else {
-                    this.mCards.get(i).setShowSpace(0);
+                    this.mCards.get(i2).setShowSpace(0);
                 }
-            } else if (i == size - 1) {
-                this.mCards.get(i).setShowSpace(1);
+            } else if (i2 == size - 1) {
+                this.mCards.get(i2).setShowSpace(1);
             } else {
-                this.mCards.get(i).setShowSpace(0);
+                this.mCards.get(i2).setShowSpace(0);
             }
-            if (this.mCards.get(i).getShowLine() == -1) {
-                this.mCards.get(i).setShowLine(this.showLine);
+            if (this.mCards.get(i2).getShowLine() == -1) {
+                this.mCards.get(i2).setShowLine(this.showLine);
             }
-            return new GroupCardInfo(this.mCards.get(i));
+            return new GroupCardInfo(this.mCards.get(i2));
         }
         return null;
     }

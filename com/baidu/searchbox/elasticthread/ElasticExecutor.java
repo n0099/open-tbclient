@@ -13,8 +13,8 @@ public class ElasticExecutor extends ExecutorProxy {
     @Deprecated
     public static final int TASK_PRIORITY_USER_RELATED = 1;
 
-    public ElasticExecutor(String str, int i) {
-        super(str, i);
+    public ElasticExecutor(String str, int i2) {
+        super(str, i2);
     }
 
     @Override // com.baidu.searchbox.elasticthread.ExecutorProxy, java.util.concurrent.Executor
@@ -28,7 +28,7 @@ public class ElasticExecutor extends ExecutorProxy {
     }
 
     @Override // com.baidu.searchbox.elasticthread.ExecutorProxy
-    public void execute(@NonNull Runnable runnable, @NonNull String str, int i) {
-        ExecutorUtilsExt.postOnElastic(runnable, str, i);
+    public void execute(@NonNull Runnable runnable, @NonNull String str, int i2) {
+        ExecutorUtilsExt.postOnElastic(runnable, str, i2);
     }
 }

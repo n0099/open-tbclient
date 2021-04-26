@@ -9,5 +9,5 @@ public interface TTGlobalAppDownloadListener {
 
     void onDownloadPaused(TTAppDownloadInfo tTAppDownloadInfo);
 
-    void onInstalled(String str, String str2, long j, int i);
+    void onInstalled(String str, String str2, long j, int i2);
 }

@@ -8,22 +8,22 @@ public final class ByteMatrix {
     public final int height;
     public final int width;
 
-    public ByteMatrix(int i, int i2) {
-        this.bytes = (byte[][]) Array.newInstance(byte.class, i2, i);
-        this.width = i;
-        this.height = i2;
+    public ByteMatrix(int i2, int i3) {
+        this.bytes = (byte[][]) Array.newInstance(byte.class, i3, i2);
+        this.width = i2;
+        this.height = i3;
     }
 
     public void clear(byte b2) {
-        for (int i = 0; i < this.height; i++) {
-            for (int i2 = 0; i2 < this.width; i2++) {
-                this.bytes[i][i2] = b2;
+        for (int i2 = 0; i2 < this.height; i2++) {
+            for (int i3 = 0; i3 < this.width; i3++) {
+                this.bytes[i2][i3] = b2;
             }
         }
     }
 
-    public byte get(int i, int i2) {
-        return this.bytes[i2][i];
+    public byte get(int i2, int i3) {
+        return this.bytes[i3][i2];
     }
 
     public byte[][] getArray() {
@@ -38,15 +38,15 @@ public final class ByteMatrix {
         return this.width;
     }
 
-    public void set(int i, int i2, byte b2) {
-        this.bytes[i2][i] = b2;
+    public void set(int i2, int i3, byte b2) {
+        this.bytes[i3][i2] = b2;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder((this.width * 2 * this.height) + 2);
-        for (int i = 0; i < this.height; i++) {
-            for (int i2 = 0; i2 < this.width; i2++) {
-                byte b2 = this.bytes[i][i2];
+        for (int i2 = 0; i2 < this.height; i2++) {
+            for (int i3 = 0; i3 < this.width; i3++) {
+                byte b2 = this.bytes[i2][i3];
                 if (b2 == 0) {
                     sb.append(" 0");
                 } else if (b2 != 1) {
@@ -60,11 +60,11 @@ public final class ByteMatrix {
         return sb.toString();
     }
 
-    public void set(int i, int i2, int i3) {
-        this.bytes[i2][i] = (byte) i3;
+    public void set(int i2, int i3, int i4) {
+        this.bytes[i3][i2] = (byte) i4;
     }
 
-    public void set(int i, int i2, boolean z) {
-        this.bytes[i2][i] = z ? (byte) 1 : (byte) 0;
+    public void set(int i2, int i3, boolean z) {
+        this.bytes[i3][i2] = z ? (byte) 1 : (byte) 0;
     }
 }

@@ -5,7 +5,7 @@ public class s {
         try {
             return (String) t.a(null, "android.os.SystemProperties").getMethod("get", String.class, String.class).invoke(null, str, str2);
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m55a("SystemProperties.get: " + e2);
+            com.xiaomi.channel.commonutils.logger.b.m58a("SystemProperties.get: " + e2);
             return str2;
         }
     }

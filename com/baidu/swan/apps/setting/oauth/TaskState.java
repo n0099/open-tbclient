@@ -7,8 +7,8 @@ public enum TaskState {
     
     public final int mCode;
 
-    TaskState(int i) {
-        this.mCode = i;
+    TaskState(int i2) {
+        this.mCode = i2;
     }
 
     public boolean isCallbackAvailable() {
